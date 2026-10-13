@@ -1,8 +1,6 @@
 {
  "id": "cyclops-651",
  "number": 651,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 651",
  "setter": "Cyclops",
  "date": "2019-05-17",
  "dimensions": {
@@ -52,10 +50,6 @@
    },
    "solution": "ONADIET",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ON A DIET",
     "definitions": [
      {
       "text": "to be less 'weighty'",
@@ -63,20 +57,22 @@
       "note": "an infinitive phrase standing for the state of eating less to lose weight"
      }
     ],
-    "indicators": [
-     {
-      "text": "Within",
-      "for": "hidden_word",
-      "note": "what sits within a run of words is tucked inside it, so the letters are found inside the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reason, Adie tried",
-      "gives": "ONADIET",
-      "note": "the letters run across the end of the first word, the whole name and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Within",
+       "note": "what sits within a run of words is tucked inside it, so the letters are found inside the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reason, Adie tried",
+       "gives": "ONADIET",
+       "note": "the letters run across the end of the first word, the whole name and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Kate Adie, the BBC reporter, sensibly tried to slim down.",
      "walkthrough": "Kate Adie is a well-known British TV news correspondent; her name sits right in the middle of the run of letters, making the join hard to spot.",
@@ -117,26 +113,25 @@
    },
    "solution": "THESHIPOFSTATE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE SHIP OF STATE",
     "definitions": [
      {
       "text": "One's country, rather grandly now heading for the rocks?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One's country, rather grandly",
-      "note": "surface reading: a pompous way of naming the nation"
-     },
-     {
-      "clueFragment": "now heading for the rocks",
-      "note": "setter's reading: the nation pictured as a vessel steering towards disaster"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's country, rather grandly",
+       "note": "surface reading: a pompous way of naming the nation"
+      },
+      {
+       "words": "now heading for the rocks",
+       "note": "setter's reading: the nation pictured as a vessel steering towards disaster"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The grand metaphor treats the nation as a vessel steered by its rulers, so a nation in trouble is a vessel running aground.",
      "definitionFit": "The phrase is a lofty, traditional metaphor for the nation and its government, steered by those in power."
@@ -163,28 +158,16 @@
    },
    "solution": "UNDIES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNDIES",
     "definitions": [
      {
       "text": "Rises from the dead",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, read jokily: reverses a death, as if 'dies' had an 'un-' prefix"
      },
      {
       "text": "Pants",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rises from the dead",
-      "note": "first meaning, read jokily: reverses a death, as if 'dies' had an 'un-' prefix"
-     },
-     {
-      "clueFragment": "Pants",
-      "note": "second meaning: underwear, the British sense of pants"
+      "at": 21,
+      "meaning": "second meaning: underwear, the British sense of pants"
      }
     ],
     "explanation": {
@@ -214,60 +197,55 @@
    },
    "solution": "REPRISAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "REPRISAL",
     "definitions": [
      {
       "text": "retaliation",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points at the closing letter of the word before it"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something means ending up inside it, so these letters are placed within another word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump",
-      "gives": "P",
-      "select": "last",
-      "note": "the last letter of the name"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the standard abbreviation for right"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "'non-fake'",
-      "gives": "REAL",
-      "note": "what is not fake is genuine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "P",
-      "R",
-      "IS",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "going into something means ending up inside it, so these letters are placed within another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'non-fake'",
+       "gives": "REAL",
+       "note": "what is not fake is genuine"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points at the closing letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Trump",
+           "note": "the last letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the standard abbreviation for right"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -296,47 +274,41 @@
    },
    "solution": "INCLUDE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "INCLUDE",
     "definitions": [
      {
       "text": "Admit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "must contain",
-      "for": "container",
-      "note": "to contain something is to hold it within, so one part goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hot",
-      "gives": "IN",
-      "note": "hot and in both mean fashionable"
-     },
-     {
-      "clueFragment": "cryptic clue",
-      "gives": "CLUE",
-      "note": "the plain word clue, with cryptic as a wink at this very puzzle"
-     },
-     {
-      "clueFragment": "\"Dolly's top\"",
-      "gives": "D",
-      "note": "the top, or first letter, of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "CLU",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "gives": "IN",
+       "note": "hot and in both mean fashionable"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "must contain",
+         "note": "to contain something is to hold it within, so one part goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cryptic clue",
+         "gives": "CLUE",
+         "note": "the plain word clue, with cryptic as a wink at this very puzzle"
+        },
+        {
+         "words": "\"Dolly's top\"",
+         "gives": "D",
+         "note": "the top, or first letter, of the name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -366,48 +338,44 @@
    },
    "solution": "ENCHANT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ENCHANT",
     "definitions": [
      {
       "text": "Delight",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "goes",
-      "for": "deletion",
-      "note": "something that goes leaves, so that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "When"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "H is the standard abbreviation for husband"
-     },
-     {
-      "clueFragment": "women only",
-      "gives": "HEN",
-      "note": "a hen party or hen night is for women only"
-     },
-     {
-      "clueFragment": "cry",
-      "gives": "CHANT",
-      "note": "to chant is to call out repeatedly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "CHANT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "goes",
+       "note": "something that goes leaves, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "husband",
+         "gives": "H",
+         "note": "H is the standard abbreviation for husband"
+        },
+        {
+         "words": "women only",
+         "gives": "HEN",
+         "note": "a hen party or hen night is for women only"
+        },
+        {
+         "words": "cry",
+         "gives": "CHANT",
+         "note": "to chant is to call out repeatedly"
+        }
+       ]
+      },
+      {
+       "gives": "HH"
+      }
      ]
     },
     "explanation": {
@@ -437,41 +405,29 @@
    },
    "solution": "BEACON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEACON",
     "definitions": [
      {
       "text": "Danger warning",
       "at": 18
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Live",
-      "gives": "BE",
-      "note": "to be is to exist or live"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "CON",
-      "note": "Con is short for Conservative, the party of the Tories"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "A",
-      "CON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Live",
+       "gives": "BE",
+       "note": "to be is to exist or live"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Tory",
+       "gives": "CON",
+       "note": "Con is short for Conservative, the party of the Tories"
+      }
      ]
     },
     "explanation": {
@@ -507,32 +463,25 @@
    },
    "solution": "CURRENTAFFAIRS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CURRENT AFFAIRS",
     "definitions": [
      {
       "text": "Facts about what our politicians are up to, etc?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fashionable",
-      "gives": "CURRENT",
-      "note": "what is current is in fashion now"
-     },
-     {
-      "clueFragment": "scandalous pairings",
-      "gives": "AFFAIRS",
-      "note": "illicit romances between couples"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CURRENT",
-      "AFFAIRS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fashionable",
+       "gives": "CURRENT",
+       "note": "what is current is in fashion now"
+      },
+      {
+       "words": "scandalous pairings",
+       "gives": "AFFAIRS",
+       "note": "illicit romances between couples"
+      }
      ]
     },
     "explanation": {
@@ -562,42 +511,30 @@
    },
    "solution": "DISTILLER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISTILLER",
     "definitions": [
      {
       "text": "who'll produce the booze?",
       "at": 27
      }
     ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Date",
-      "gives": "D",
-      "note": "D is the abbreviation for date"
-     },
-     {
-      "clueFragment": "Cyclops",
-      "gives": "I",
-      "note": "the setter refers to himself, so his name stands for I"
-     },
-     {
-      "clueFragment": "Ben",
-      "gives": "STILLER",
-      "note": "Ben Stiller is the American comic actor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "I",
-      "STILLER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Date",
+       "gives": "D",
+       "note": "D is the abbreviation for date"
+      },
+      {
+       "words": "Cyclops",
+       "gives": "I",
+       "note": "the setter refers to himself, so his name stands for I"
+      },
+      {
+       "words": "Ben",
+       "gives": "STILLER",
+       "note": "Ben Stiller is the American comic actor"
+      }
      ]
     },
     "explanation": {
@@ -633,51 +570,48 @@
    },
    "solution": "LIGHTENUP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "LIGHTEN UP",
     "definitions": [
      {
       "text": "Relax",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader comes first, so only the opening letter of the party name is meant"
-     },
-     {
-      "text": "to give way to",
-      "for": "substitution",
-      "note": "giving way means stepping aside for someone else, so one letter is swapped out for another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "put the squeeze on",
-      "gives": "TIGHTENUP",
-      "note": "to squeeze is to make things tighter or stricter"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of the party name"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IGHTENUP"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LIGHTENUP",
+     "indicators": [
+      {
+       "text": "to give way to",
+       "note": "giving way means stepping aside for someone else, so one letter is swapped out for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "put the squeeze on",
+       "gives": "TIGHTENUP",
+       "note": "to squeeze is to make things tighter or stricter"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader comes first, so only the opening letter of the party name is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "note": "the first letter of the party name"
+        }
+       ]
+      },
+      {
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -706,26 +640,25 @@
    },
    "solution": "RULE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RULE",
     "definitions": [
      {
       "text": "Markedly rigid length",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Markedly rigid",
-      "note": "surface reading: notably stiff or inflexible"
-     },
-     {
-      "clueFragment": "length",
-      "note": "setter's reading: a stiff strip with marks along it for measuring distances"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Markedly rigid",
+       "note": "surface reading: notably stiff or inflexible"
+      },
+      {
+       "words": "length",
+       "note": "setter's reading: a stiff strip with marks along it for measuring distances"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Markedly' looks like an adverb meaning noticeably, but it describes a stick literally marked with graduations, and also hints at the rigidity of regulations.",
      "definitionFit": "A rule, as in a carpenter's folding rule, is a straight measuring stick marked in inches or centimetres."
@@ -752,40 +685,31 @@
    },
    "solution": "GENIUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GENIUS",
     "definitions": [
      {
       "text": "a real clever bastard",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something that is in a group sits inside it, so one piece is placed within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cyclops",
-      "gives": "I",
-      "note": "the setter refers to himself, so his name stands for I"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "GENUS",
-      "note": "a genus is a biological class or category"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEN",
-      "I",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something that is in a group sits inside it, so one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "class",
+       "gives": "GENUS",
+       "note": "a genus is a biological class or category"
+      },
+      {
+       "words": "Cyclops",
+       "gives": "I",
+       "note": "the setter refers to himself, so his name stands for I"
+      }
      ]
     },
     "explanation": {
@@ -821,28 +745,16 @@
    },
    "solution": "GOSTEADY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GO STEADY",
     "definitions": [
      {
       "text": "Court",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to date someone regularly as a couple"
      },
      {
       "text": "proceed with care",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Court",
-      "note": "first meaning: to date someone regularly as a couple"
-     },
-     {
-      "clueFragment": "proceed with care",
-      "note": "second meaning: move forward cautiously, without rushing"
+      "at": 8,
+      "meaning": "second meaning: move forward cautiously, without rushing"
      }
     ],
     "explanation": {
@@ -870,11 +782,6 @@
    },
    "solution": "HOSPITALITY",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HOSPITALITY",
     "definitions": [
      {
       "text": "guest area",
@@ -882,43 +789,38 @@
       "note": "the answer is used as a noun modifier, as in a hospitality suite or tent"
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "something awful is a mess, so these letters come out jumbled"
-     }
-    ],
-    "linkWords": [
-     "After",
-     "entered"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Henry",
-      "gives": "H",
-      "note": "H is the symbol for the henry, the unit of inductance"
-     },
-     {
-      "clueFragment": "A-list typo",
-      "gives": "ALISTTYPO",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "Cyclops",
-      "gives": "I",
-      "note": "the setter refers to himself, so his name stands for I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OSPITALITY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ALISTTYPOI",
-       "gives": "OSPITALITY"
+       "words": "Henry",
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "note": "something awful is a mess, so these letters come out jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A-list typo",
+           "note": "taken letter for letter"
+          },
+          {
+           "words": "Cyclops",
+           "gives": "I",
+           "note": "the setter refers to himself, so his name stands for I"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -949,41 +851,30 @@
    },
    "solution": "PARADIGM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARADIGM",
     "definitions": [
      {
       "text": "Example",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'short soldier'",
-      "gives": "PARA",
-      "note": "a para is a paratrooper, the word cut short"
-     },
-     {
-      "clueFragment": "taunt",
-      "gives": "DIG",
-      "note": "a dig is a jibe or snide remark"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the abbreviation for male"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARA",
-      "DIG",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'short soldier'",
+       "gives": "PARA",
+       "note": "a para is a paratrooper, the word cut short"
+      },
+      {
+       "words": "taunt",
+       "gives": "DIG",
+       "note": "a dig is a jibe or snide remark"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M is the abbreviation for male"
+      }
      ]
     },
     "explanation": {
@@ -1013,10 +904,6 @@
    },
    "solution": "FLORIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FLORIST",
     "definitions": [
      {
       "text": "bloomers here",
@@ -1024,30 +911,25 @@
       "note": "a shop or person where flowers are found, defined by place"
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "going round something encircles it, so one piece wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Closed hand",
-      "gives": "FIST",
-      "note": "a hand with the fingers curled shut"
-     },
-     {
-      "clueFragment": "blimey",
-      "gives": "LOR",
-      "note": "Lor is an old Cockney exclamation of surprise, short for Lord"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "LOR",
-      "IST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "going round something encircles it, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Closed hand",
+       "gives": "FIST",
+       "note": "a hand with the fingers curled shut"
+      },
+      {
+       "words": "blimey",
+       "gives": "LOR",
+       "note": "Lor is an old Cockney exclamation of surprise, short for Lord"
+      }
      ]
     },
     "explanation": {
@@ -1077,40 +959,31 @@
    },
    "solution": "LAWYERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LAWYERS",
     "definitions": [
      {
       "text": "briefs",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold it, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bands",
-      "gives": "LAYERS",
-      "note": "layers are strata or horizontal bands"
-     },
-     {
-      "clueFragment": "women's",
-      "gives": "W",
-      "note": "W is the abbreviation for women"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "W",
-      "YERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "to keep something is to hold it, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bands",
+       "gives": "LAYERS",
+       "note": "layers are strata or horizontal bands"
+      },
+      {
+       "words": "women's",
+       "gives": "W",
+       "note": "W is the abbreviation for women"
+      }
      ]
     },
     "explanation": {
@@ -1146,51 +1019,40 @@
    },
    "solution": "CLOSERUN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CLOSE-RUN",
     "definitions": [
      {
       "text": "tight",
       "at": 68
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader goes first, so just the opening letter of the word is meant"
-     }
-    ],
-    "linkWords": [
-     "against",
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crappy",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "one doomed to fail",
-      "gives": "LOSER",
-      "note": "someone bound to lose"
-     },
-     {
-      "clueFragment": "countries in league",
-      "gives": "UN",
-      "note": "the United Nations is a league of countries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOSER",
-      "UN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader goes first, so just the opening letter of the word is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Crappy",
+         "note": "the first letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "one doomed to fail",
+       "gives": "LOSER",
+       "note": "someone bound to lose"
+      },
+      {
+       "words": "countries in league",
+       "gives": "UN",
+       "note": "the United Nations is a league of countries"
+      }
      ]
     },
     "explanation": {
@@ -1220,50 +1082,39 @@
    },
    "solution": "GUFFAW",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GUFFAW",
     "definitions": [
      {
       "text": "Roar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "a head comes at the top, so only the opening letter of the word is meant"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Balls",
-      "gives": "GUFF",
-      "note": "balls and guff are both slang for nonsense"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "wise",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUFF",
-      "A",
-      "W"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Balls",
+       "gives": "GUFF",
+       "note": "balls and guff are both slang for nonsense"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "a head comes at the top, so only the opening letter of the word is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wise",
+         "note": "the first letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1297,26 +1148,26 @@
     "20-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GROWTH AREA",
     "definitions": [
      {
       "text": "Commercial expansion here",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Commercial expansion here",
-      "note": "straight reading: a sector of the economy that is booming"
-     },
-     {
-      "clueFragment": "in the lap of excited male?",
-      "note": "naughty reading: the region where an aroused man's body visibly swells"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Commercial expansion here",
+       "note": "straight reading: a sector of the economy that is booming"
+      },
+      {
+       "words": "in the lap of excited male?",
+       "note": "naughty reading: the region where an aroused man's body visibly swells"
+      }
+     ]
+    },
+    "spelling": "GROWTH AREA",
     "explanation": {
      "walkthrough": "The straight business phrase is given a smutty second reading, in Private Eye's schoolboy style; the question mark flags the joke.",
      "definitionFit": "A booming sector of business where sales and profits are rising fast is described with this stock economic phrase."
@@ -1357,44 +1208,35 @@
    },
    "solution": "DIPLOMACY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DIPLOMACY",
     "definitions": [
      {
       "text": "Statecraft",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "gutting removes the insides, so only the outer letters survive"
-     }
-    ],
-    "linkWords": [
-     "requires"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "certificate",
-      "gives": "DIPLOMA",
-      "note": "a diploma is a certificate of qualification"
-     },
-     {
-      "clueFragment": "Corby",
-      "gives": "CY",
-      "select": "outer",
-      "note": "the outside letters of the town's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIPLOMA",
-      "CY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "certificate",
+       "gives": "DIPLOMA",
+       "note": "a diploma is a certificate of qualification"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "gutting removes the insides, so only the outer letters survive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Corby",
+         "note": "the outside letters of the town's name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1424,40 +1266,31 @@
    },
    "solution": "SLEIGH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SLEIGH",
     "definitions": [
      {
       "text": "Means of conveying",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "audible disappointment",
-      "gives": "SIGH",
-      "note": "a sigh is a breath let out in dismay that can be heard"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LE",
-      "IGH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "audible disappointment",
+       "gives": "SIGH",
+       "note": "a sigh is a breath let out in dismay that can be heard"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for the"
+      }
      ]
     },
     "explanation": {
@@ -1492,36 +1325,25 @@
    },
    "solution": "STIRFRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STIR-FRY",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "linkWords": [
-     "produced when",
-     "has to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prison",
-      "gives": "STIR",
-      "note": "stir is old slang for jail"
-     },
-     {
-      "clueFragment": "use the electric chair",
-      "gives": "FRY",
-      "note": "to fry is grim slang for being executed by electrocution"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STIR",
-      "FRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "prison",
+       "gives": "STIR",
+       "note": "stir is old slang for jail"
+      },
+      {
+       "words": "use the electric chair",
+       "gives": "FRY",
+       "note": "to fry is grim slang for being executed by electrocution"
+      }
      ]
     },
     "explanation": {

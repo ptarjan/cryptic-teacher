@@ -1,8 +1,6 @@
 {
  "id": "toughie-3759",
  "number": 3759,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,759",
  "setter": "Django",
  "date": "2026-09-17",
  "dimensions": {
@@ -38,44 +36,38 @@
    },
    "solution": "BEDLAM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BEDLAM",
     "definitions": [
      {
       "text": "chaotic situation",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "delayed",
-      "for": "deletion",
-      "note": "something delayed turns up later than planned, so the strike word is lifted out of its place and arrives at the end"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Held accountable",
-      "gives": "BED",
-      "note": "blamed = held accountable; with its strike word lifted out, the B and ED around it are what remain"
-     },
-     {
-      "clueFragment": "strike's delayed",
-      "gives": "LAM",
-      "note": "to lam is to thrash or strike, an old word; it was inside BLAMED and now comes last"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ED",
-      "LAM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BEDLAM",
+     "indicators": [
+      {
+       "text": "delayed",
+       "note": "something delayed turns up later than planned, so the strike word is lifted out of its place and arrives at the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Held accountable",
+         "gives": "BED",
+         "note": "blamed = held accountable; with its strike word lifted out, the B and ED around it are what remain"
+        },
+        {
+         "words": "strike's delayed",
+         "gives": "LAM",
+         "note": "to lam is to thrash or strike, an old word; it was inside BLAMED and now comes last"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -104,44 +96,42 @@
    },
    "solution": "BUREAU",
    "annotation": {
-    "type": [
-     "container",
-     "homophone"
-    ],
-    "answer": "BUREAU",
     "definitions": [
      {
       "text": "office",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "heard"
-     },
-     {
-      "text": "inside",
-      "note": "'inside' places one thing within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boyfriend",
-      "gives": "BEAU",
-      "note": "a beau is a boyfriend"
-     },
-     {
-      "clueFragment": "you are",
-      "gives": "UR",
-      "soundsLike": "YOU ARE",
-      "note": "U R, as texted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "UR",
-      "EAU"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boyfriend",
+       "gives": "BEAU",
+       "note": "a beau is a boyfriend"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "'inside' places one thing within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you are",
+         "gives": "YOUARE",
+         "note": "U R, as texted"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -176,52 +166,67 @@
    },
    "solution": "DOTMATRIX",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DOT MATRIX",
     "definitions": [
      {
       "text": "it involves pins",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "in shed"
-     },
-     {
-      "text": "gripping"
-     },
-     {
-      "text": "backside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Miss Whiplash maybe",
-      "gives": "DOMINATRIX",
-      "note": "a Miss Whiplash is a stock name for a dominatrix"
-     },
-     {
-      "clueFragment": "in shed",
-      "gives": "DOMATRIX",
-      "note": "remove IN"
-     },
-     {
-      "clueFragment": "client's backside",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of client"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "T",
-      "MATRIX"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in shed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "gripping"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "backside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Miss Whiplash maybe",
+           "gives": "DOMINATRIX",
+           "note": "a Miss Whiplash is a stock name for a dominatrix"
+          },
+          {
+           "words": "in shed",
+           "gives": "DOMATRIX",
+           "note": "remove IN"
+          }
+         ]
+        },
+        {
+         "gives": "DOMINATRIX"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "T",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "client's backside",
+         "gives": "T",
+         "select": "last",
+         "note": "last letter of client"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -251,66 +256,65 @@
    },
    "solution": "ACKNOWLEDGEMENT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ACKNOWLEDGEMENT",
     "definitions": [
      {
       "text": "Praise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary"
-     },
-     {
-      "text": "assuming"
-     },
-     {
-      "text": "at work",
-      "for": "anagram",
-      "note": "MET LEGEND's letters are worked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chocolatier",
-      "gives": "WONKA",
-      "note": "Willy Wonka, Roald Dahl's chocolate-maker"
-     },
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "C is Charlie in the phonetic alphabet"
-     },
-     {
-      "clueFragment": "met legend",
-      "gives": "LEDGEMENT",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "KNOW",
-      "LEDGEMENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "METLEGEND",
-       "gives": "LEDGEMENT"
+       "text": "revolutionary"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "WONKA",
-       "to": "AKNOW"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "assuming"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "chocolatier",
+           "gives": "WONKA",
+           "note": "Willy Wonka, Roald Dahl's chocolate-maker"
+          },
+          {
+           "words": "Charlie",
+           "gives": "C",
+           "note": "C is Charlie in the phonetic alphabet"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "at work",
+           "note": "MET LEGEND's letters are worked into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "met legend",
+           "gives": "LEDGEMENT",
+           "note": "anagram fodder, 9 letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -341,26 +345,25 @@
    },
    "solution": "HARDBACK",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HARDBACK",
     "definitions": [
      {
       "text": "Strong support for book?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Strong support",
-      "note": "the surface pushes firm backing, as for a campaign; the setter means a rigid spine and cover"
-     },
-     {
-      "clueFragment": "for book?",
-      "note": "reads as backing a booking or a proposal; really the physical volume on a shelf"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Strong support",
+       "note": "the surface pushes firm backing, as for a campaign; the setter means a rigid spine and cover"
+      },
+      {
+       "words": "for book?",
+       "note": "reads as backing a booking or a proposal; really the physical volume on a shelf"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking who will firmly back a proposal or a booking.",
      "walkthrough": "'Support for book' reads like backing a plan, but a book's back is its spine and cover; make it hard and you have a hardback.",
@@ -388,37 +391,25 @@
    },
    "solution": "AKIN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "AKIN",
     "definitions": [
      {
       "text": "Like",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skipped oddly",
-      "for": "letter_selection",
-      "note": "the odd-numbered letters are skipped, keeping the even ones"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jack, giant",
-      "gives": "AKIN",
-      "select": "alternate",
-      "note": "jAcK gIaNt: letters 2, 4, 6 and 8"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "K",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "skipped oddly",
+       "note": "the odd-numbered letters are skipped, keeping the even ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jack, giant",
+       "note": "jAcK gIaNt: letters 2, 4, 6 and 8"
+      }
      ]
     },
     "explanation": {
@@ -453,46 +444,40 @@
    },
    "solution": "DIPLOMATICCORPS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DIPLOMATIC CORPS",
     "definitions": [
      {
       "text": "embassy staff",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "detaining",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Discreet",
-      "gives": "DIPLOMATIC",
-      "note": "diplomatic = tactful, discreet"
-     },
-     {
-      "clueFragment": "police",
-      "gives": "COPS",
-      "note": "cops = police"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIPLOMATIC",
-      "CO",
-      "R",
-      "PS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Discreet",
+       "gives": "DIPLOMATIC",
+       "note": "diplomatic = tactful, discreet"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "detaining"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police",
+         "gives": "COPS",
+         "note": "cops = police"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R = right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -521,44 +506,47 @@
    },
    "solution": "ACRID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ACRID",
     "definitions": [
      {
       "text": "bitter",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Unwrapped",
-      "note": "the outside letters of PACK come off like wrapping"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unwrapped pack",
-      "gives": "AC",
-      "select": "outer",
-      "note": "pack without P and K"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "rid = free, as in rid of pests"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "RID"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ACRID",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Unwrapped",
+         "note": "the outside letters of PACK come off like wrapping"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "AC",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Unwrapped pack",
+           "gives": "AC",
+           "select": "outer",
+           "note": "pack without P and K"
+          }
+         ]
+        },
+        {
+         "words": "free",
+         "gives": "RID",
+         "note": "rid = free, as in rid of pests"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -587,51 +575,47 @@
    },
    "solution": "KITEMARK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "KITEMARK",
     "definitions": [
      {
       "text": "stamp of approval",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Running",
-      "note": "MATE runs into a new order"
-     },
-     {
-      "text": "visits"
-     }
-    ],
-    "linkWords": [
-     "seeking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mate",
-      "gives": "TEMA",
-      "note": "anagram fodder, 4 letters"
-     },
-     {
-      "clueFragment": "Church of Scotland",
-      "gives": "KIRK",
-      "note": "kirk is the Scottish church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KI",
-      "TEMA",
-      "RK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "KITEMARK",
+     "parts": [
       {
-       "fodder": "MATE",
-       "gives": "TEMA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Running",
+         "note": "MATE runs into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "visits"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mate",
+           "gives": "TEMA",
+           "note": "anagram fodder, 4 letters"
+          },
+          {
+           "words": "Church of Scotland",
+           "gives": "KIRK",
+           "note": "kirk is the Scottish church"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -661,39 +645,31 @@
    },
    "solution": "RETAKE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RETAKE",
     "definitions": [
      {
       "text": "shoot again",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "'after' means following in order, so the word for appropriate is written following the soldiers"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soldiers",
-      "gives": "RE",
-      "note": "RE = Royal Engineers"
-     },
-     {
-      "clueFragment": "Appropriate",
-      "gives": "TAKE",
-      "note": "to appropriate is to take"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TAKE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "'after' means following in order, so the word for appropriate is written following the soldiers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "gives": "RE",
+       "note": "RE = Royal Engineers"
+      },
+      {
+       "words": "Appropriate",
+       "gives": "TAKE",
+       "note": "to appropriate is to take"
+      }
      ]
     },
     "explanation": {
@@ -722,44 +698,36 @@
    },
    "solution": "DISPIRIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DISPIRIT",
     "definitions": [
      {
       "text": "damp",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Occasionally",
-      "for": "letter_selection",
-      "note": "only now and then, every other letter, of ADMIT is used"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Occasionally admit",
-      "gives": "DI",
-      "select": "alternate",
-      "note": "aDmIt: letters 2 and 4"
-     },
-     {
-      "clueFragment": "enthusiasm",
-      "gives": "SPIRIT",
-      "note": "spirit = enthusiasm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "SPIRIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Occasionally",
+         "note": "only now and then, every other letter, of ADMIT is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Occasionally admit",
+         "gives": "ADMIT",
+         "note": "aDmIt: letters 2 and 4"
+        }
+       ]
+      },
+      {
+       "words": "enthusiasm",
+       "gives": "SPIRIT",
+       "note": "spirit = enthusiasm"
+      }
      ]
     },
     "explanation": {
@@ -788,51 +756,44 @@
    },
    "solution": "QUIETLY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "QUIETLY",
     "definitions": [
      {
       "text": "piano",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "in French",
-      "for": "letter_selection"
-     },
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "every second letter of PLAYS"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Who, in French",
-      "gives": "QUI",
-      "note": "qui = who"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "ET",
-      "note": "E.T., Spielberg's film"
-     },
-     {
-      "clueFragment": "regularly plays",
-      "gives": "LY",
-      "select": "alternate",
-      "note": "pLaYs: letters 2 and 4"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUI",
-      "ET",
-      "LY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Who, in French",
+       "gives": "QUI",
+       "note": "qui = who"
+      },
+      {
+       "words": "film",
+       "gives": "ET",
+       "note": "E.T., Spielberg's film"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "in French"
+        },
+        {
+         "text": "regularly",
+         "note": "every second letter of PLAYS"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regularly plays",
+         "gives": "PLAYS",
+         "note": "pLaYs: letters 2 and 4"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -862,45 +823,37 @@
    },
    "solution": "ANALOGUE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ANALOGUE",
     "definitions": [
      {
       "text": "a type of watch",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "spreading",
-      "for": "anagram",
-      "note": "GLUE ON A is spread into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "glue on a",
-      "gives": "NALOGUE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NALOGUE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ANALOGUE",
+     "indicators": [
       {
-       "fodder": "GLUEONA",
-       "gives": "NALOGUE"
+       "text": "spreading",
+       "note": "GLUE ON A is spread into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A = American"
+        },
+        {
+         "words": "glue on a",
+         "gives": "NALOGUE",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
       }
      ]
     },
@@ -930,44 +883,35 @@
    },
    "solution": "GODDAM",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GODDAM",
     "definitions": [
      {
       "text": "Cursed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making comeback",
-      "for": "reversal",
-      "note": "MADDOG comes back, read right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crazy",
-      "gives": "MAD",
-      "note": "mad = crazy"
-     },
-     {
-      "clueFragment": "boxer potentially",
-      "gives": "DOG",
-      "note": "a boxer is one breed of dog, hence 'potentially'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOD",
-      "DAM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MADDOG",
-       "to": "GODDAM"
+       "text": "making comeback",
+       "note": "MADDOG comes back, read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "crazy",
+         "gives": "MAD",
+         "note": "mad = crazy"
+        },
+        {
+         "words": "boxer potentially",
+         "gives": "DOG",
+         "note": "a boxer is one breed of dog, hence 'potentially'"
+        }
+       ]
       }
      ]
     },
@@ -1004,61 +948,50 @@
    },
    "solution": "ICESHOW",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ICE SHOW",
     "definitions": [
      {
       "text": "entertainment",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Essentially",
-      "for": "letter_selection",
-      "note": "the essence, the middle, of each word is taken"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nice",
-      "gives": "IC",
-      "select": "middle",
-      "note": "middle two letters of a four-letter word"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "E",
-      "note": "middle letter"
-     },
-     {
-      "clueFragment": "use",
-      "gives": "S",
-      "note": "middle letter"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "H",
-      "note": "middle letter"
-     },
-     {
-      "clueFragment": "town",
-      "gives": "OW",
-      "note": "middle two letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IC",
-      "E",
-      "S",
-      "H",
-      "OW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Essentially",
+         "note": "the essence, the middle, of each word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "note": "middle two letters of a four-letter word"
+        }
+       ]
+      },
+      {
+       "words": "men",
+       "gives": "E",
+       "note": "middle letter"
+      },
+      {
+       "words": "use",
+       "gives": "S",
+       "note": "middle letter"
+      },
+      {
+       "words": "the",
+       "gives": "H",
+       "note": "middle letter"
+      },
+      {
+       "words": "town",
+       "gives": "OW",
+       "note": "middle two letters"
+      }
      ]
     },
     "explanation": {
@@ -1087,52 +1020,48 @@
    },
    "solution": "ROLLERCOASTER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ROLLERCOASTER",
     "definitions": [
      {
       "text": "ride",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "starts"
-     },
-     {
-      "text": "to go",
-      "for": "deletion",
-      "note": "F, fine, goes from FASTER"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "car",
-      "gives": "ROLLER",
-      "note": "a Roller is slang for a Rolls-Royce"
-     },
-     {
-      "clueFragment": "Company",
-      "gives": "CO",
-      "note": "CO = company"
-     },
-     {
-      "clueFragment": "quicker — fine to go",
-      "gives": "ASTER",
-      "note": "FASTER without F (fine)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROLLER",
-      "CO",
-      "ASTER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ROLLERCOASTER",
+     "indicators": [
+      {
+       "text": "to go",
+       "note": "F, fine, goes from FASTER"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "starts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "gives": "ROLLER",
+         "note": "a Roller is slang for a Rolls-Royce"
+        },
+        {
+         "words": "Company",
+         "gives": "CO",
+         "note": "CO = company"
+        },
+        {
+         "words": "quicker — fine to go",
+         "gives": "ASTER",
+         "note": "FASTER without F (fine)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1167,64 +1096,63 @@
    },
    "solution": "TIGERMOTH",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "TIGER MOTH",
     "definitions": [
      {
       "text": "Plane",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "LAX",
-      "for": "anagram",
-      "note": "loose, so MORE's letters are loosened into a new order"
-     },
-     {
-      "text": "on board"
-     },
-     {
-      "text": "mostly",
-      "note": "TIGHT loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "more",
-      "gives": "ERMO",
-      "note": "anagram fodder, 4 letters"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T = tense, grammar abbreviation"
-     },
-     {
-      "clueFragment": "mostly drunk",
-      "gives": "TIGH",
-      "note": "TIGHT (drunk) minus its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIG",
-      "ERMO",
-      "T",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TIGERMOTH",
+     "parts": [
       {
-       "fodder": "MORE",
-       "gives": "ERMO"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "on board"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "mostly",
+           "note": "TIGHT loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tense",
+           "gives": "T",
+           "note": "T = tense, grammar abbreviation"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "LAX",
+             "note": "loose, so MORE's letters are loosened into a new order"
+            }
+           ],
+           "parts": [
+            {
+             "words": "mostly drunk",
+             "gives": "TIGH",
+             "note": "TIGHT (drunk) minus its last letter"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "more",
+         "gives": "ERMO",
+         "note": "anagram fodder, 4 letters"
+        }
+       ]
       }
      ]
     },
@@ -1255,32 +1183,25 @@
    },
    "solution": "SMOOTHIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SMOOTHIE",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "even",
-      "gives": "SMOOTH",
-      "note": "even = smooth, level"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. = that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SMOOTH",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "even",
+       "gives": "SMOOTH",
+       "note": "even = smooth, level"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. = that is"
+      }
      ]
     },
     "explanation": {
@@ -1315,30 +1236,32 @@
    },
    "solution": "MIXEDBLESSING",
    "annotation": {
-    "type": [
-     "cryptic_definition",
-     "anagram"
-    ],
-    "answer": "MIXED BLESSING",
     "definitions": [
      {
       "text": "it has pros and cons",
       "at": 30
      }
     ],
-    "linkWords": [
-     "—"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "This might suggest glibness",
-      "note": "GLIBNESS is the product, not the fodder: the answer, read as an instruction, would rearrange a word into these eight letters"
-     },
-     {
-      "clueFragment": "it has pros and cons",
-      "note": "the straight definition: something with good and bad sides"
-     }
-    ],
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MIXEDBLESSING",
+     "parts": [
+      {
+       "op": "cryptic",
+       "parts": [
+        {
+         "words": "This might suggest glibness",
+         "note": "GLIBNESS is the product, not the fodder: the answer, read as an instruction, would rearrange a word into these eight letters"
+        },
+        {
+         "words": "it has pros and cons",
+         "note": "the straight definition: something with good and bad sides"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A glib manner can be both an asset and a liability.",
      "walkthrough": "This is a reverse anagram: the answer is the instruction. BLESSING, mixed, spells GLIBNESS, the word printed in the clue.",
@@ -1372,40 +1295,31 @@
    },
    "solution": "NOFEAR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NO FEAR",
     "definitions": [
      {
       "text": "definitely not",
       "at": 2
      }
     ],
-    "indicators": [
-     {
-      "text": "stocks",
-      "for": "container",
-      "note": "a shop that stocks something keeps it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "made from",
-      "gives": "OF",
-      "note": "of = made from, as in a ring of gold"
-     },
-     {
-      "clueFragment": "local",
-      "gives": "NEAR",
-      "note": "near = local, close by"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "OF",
-      "EAR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stocks",
+       "note": "a shop that stocks something keeps it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local",
+       "gives": "NEAR",
+       "note": "near = local, close by"
+      },
+      {
+       "words": "made from",
+       "gives": "OF",
+       "note": "of = made from, as in a ring of gold"
+      }
      ]
     },
     "explanation": {
@@ -1434,35 +1348,25 @@
    },
    "solution": "OSPREY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSPREY",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very big",
-      "gives": "OS",
-      "note": "OS = outsize, a clothing label"
-     },
-     {
-      "clueFragment": "quarry",
-      "gives": "PREY",
-      "note": "quarry = hunted animal, prey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OS",
-      "PREY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very big",
+       "gives": "OS",
+       "note": "OS = outsize, a clothing label"
+      },
+      {
+       "words": "quarry",
+       "gives": "PREY",
+       "note": "quarry = hunted animal, prey"
+      }
      ]
     },
     "explanation": {
@@ -1491,48 +1395,46 @@
    },
    "solution": "PAYEE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PAYEE",
     "definitions": [
      {
       "text": "Beneficiary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to fill",
-      "note": "to fill something is to occupy its hollow, so the vote goes into the gap left in the place"
-     },
-     {
-      "text": "empty",
-      "note": "PLACE emptied of its middle leaves P and E"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty place",
-      "gives": "PE",
-      "select": "outer",
-      "note": "outer letters of place"
-     },
-     {
-      "clueFragment": "vote",
-      "gives": "AYE",
-      "note": "aye = a yes vote"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AYE",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "note": "to fill something is to occupy its hollow, so the vote goes into the gap left in the place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "PE",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "PLACE emptied of its middle leaves P and E"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "empty place",
+         "gives": "PE",
+         "select": "outer",
+         "note": "outer letters of place"
+        }
+       ]
+      },
+      {
+       "words": "vote",
+       "gives": "AYE",
+       "note": "aye = a yes vote"
+      }
      ]
     },
     "explanation": {
@@ -1561,46 +1463,39 @@
    },
    "solution": "CONCERTO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CONCERTO",
     "definitions": [
      {
       "text": "work",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crown",
-      "gives": "CR",
-      "note": "CR = crown, the old coin"
-     },
-     {
-      "clueFragment": "Previously",
-      "gives": "ONCE",
-      "note": "once = formerly"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ONCE",
-      "R",
-      "TO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crown",
+         "gives": "CR",
+         "note": "CR = crown, the old coin"
+        },
+        {
+         "words": "Previously",
+         "gives": "ONCE",
+         "note": "once = formerly"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "note": "used as printed"
+      }
      ]
     },
     "explanation": {
@@ -1629,36 +1524,27 @@
    },
    "solution": "MEGA",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "MEGA",
     "definitions": [
      {
       "text": "huge",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Cycling",
-      "for": "cycling"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "business",
-      "gives": "GAME",
-      "note": "game = line of work, as in 'what's your game?'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "GA"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "MEGA",
+     "indicators": [
+      {
+       "text": "Cycling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business",
+       "gives": "GAME",
+       "note": "game = line of work, as in 'what's your game?'"
+      }
      ]
     },
     "explanation": {
@@ -1694,52 +1580,46 @@
    },
    "solution": "HAYFEVER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "HAY FEVER",
     "definitions": [
      {
       "text": "complaint",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "contorted",
-      "note": "the letters are twisted into a new order"
-     },
-     {
-      "text": "ignoring",
-      "note": "to ignore something is to leave it out of account, so the news letters are left out of the fodder"
-     }
-    ],
-    "linkWords": [
-     "leads to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Her fan",
-      "gives": "HERFAN",
-      "note": "anagram fodder, 6 letters"
-     },
-     {
-      "clueFragment": "envy",
-      "gives": "ENVY",
-      "note": "anagram fodder, 4 letters"
-     },
-     {
-      "clueFragment": "news",
-      "gives": "NN",
-      "note": "N = new, so news is two Ns, dropped from the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HAYFEVER",
+     "parts": [
       {
-       "fodder": "HERFAEVY",
-       "gives": "HAYFEVER"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HAYFEVER",
+       "indicators": [
+        {
+         "text": "contorted",
+         "note": "the letters are twisted into a new order"
+        },
+        {
+         "text": "ignoring",
+         "note": "to ignore something is to leave it out of account, so the news letters are left out of the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Her fan",
+         "note": "anagram fodder, 6 letters"
+        },
+        {
+         "words": "envy",
+         "note": "anagram fodder, 4 letters"
+        },
+        {
+         "words": "news",
+         "gives": "NN",
+         "note": "N = new, so news is two Ns, dropped from the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1780,40 +1660,35 @@
    },
    "solution": "QRCODE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "Q R CODE",
     "definitions": [
      {
       "text": "one read on a mobile phone?",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "eviscerated",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quizmaster eviscerated",
-      "gives": "QR",
-      "select": "outer",
-      "note": "outer letters of quizmaster"
-     },
-     {
-      "clueFragment": "convention",
-      "gives": "CODE",
-      "note": "a code is a set of conventions, as in a dress code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QR",
-      "CODE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "eviscerated"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Quizmaster eviscerated",
+         "gives": "QUIZMASTER",
+         "note": "outer letters of quizmaster"
+        }
+       ]
+      },
+      {
+       "words": "convention",
+       "gives": "CODE",
+       "note": "a code is a set of conventions, as in a dress code"
+      }
      ]
     },
     "explanation": {
@@ -1842,38 +1717,24 @@
    },
    "solution": "EVENTUAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EVENTUAL",
     "definitions": [
      {
       "text": "Resulting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "change to",
-      "for": "anagram",
-      "note": "a change is made to the letters of NET VALUE"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "net value",
-      "gives": "NETVALUE",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NETVALUE",
-       "gives": "EVENTUAL"
+       "text": "change to",
+       "note": "a change is made to the letters of NET VALUE"
+      }
+     ],
+     "parts": [
+      {
+       "words": "net value",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1903,48 +1764,49 @@
    },
    "solution": "ESCHER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESCHER",
     "definitions": [
      {
       "text": "artist",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "focus"
-     },
-     {
-      "text": "on"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "School",
-      "gives": "SCH",
-      "note": "SCH = school"
-     },
-     {
-      "clueFragment": "term's focus",
-      "gives": "ER",
-      "select": "middle",
-      "note": "middle letters of term"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "SCH",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "focus"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      },
+      {
+       "words": "School",
+       "gives": "SCH",
+       "note": "SCH = school"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "ER",
+       "indicators": [
+        {
+         "text": "on"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "term's focus",
+         "gives": "ER",
+         "select": "middle",
+         "note": "middle letters of term"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

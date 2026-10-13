@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29918",
  "number": 29918,
- "series": "cryptic",
- "name": "Prize crossword No 29,918",
+ "prize": true,
  "setter": "Vlad",
  "date": "2026-01-31",
  "dimensions": {
@@ -44,35 +43,24 @@
    },
    "solution": "DOTBALL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOT BALL",
     "definitions": [
      {
       "text": "nothing will come from it",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctor",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so the letters get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "told lab",
-      "gives": "TOLDLAB",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOLDLAB",
-       "gives": "DOTBALL"
+       "text": "Doctor",
+       "note": "to doctor something is to tamper with it, so the letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "told lab",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -102,54 +90,51 @@
    },
    "solution": "DECENT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "DECENT",
     "definitions": [
      {
       "text": "OK",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "to accommodate",
-      "note": "the word takes Charlie in as a guest"
-     },
-     {
-      "text": "round",
-      "note": "turning something round writes it backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Want",
-      "gives": "NEED",
-      "note": "want = need"
-     },
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "C in the NATO alphabet, set inside NEED to make NECED, then turned round"
-     },
-     {
-      "clueFragment": "town",
-      "gives": "T",
-      "note": "t = town, a map abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECEN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NECED",
-       "to": "DECEN"
+       "text": "to accommodate",
+       "note": "the word takes Charlie in as a guest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "turning something round writes it backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Want",
+           "gives": "NEED",
+           "note": "want = need"
+          },
+          {
+           "words": "Charlie",
+           "gives": "C",
+           "note": "C in the NATO alphabet, set inside NEED to make NECED, then turned round"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "town",
+       "gives": "T",
+       "note": "t = town, a map abbreviation"
       }
      ]
     },
@@ -179,43 +164,38 @@
    },
    "solution": "TRIAGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TRIAGE",
     "definitions": [
      {
       "text": "What often awaits you at A&E?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with no",
-      "for": "deletion",
-      "note": "the word has to go without the letter named"
-     }
-    ],
-    "linkWords": [
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Visit with no parking",
-      "gives": "TRI",
-      "note": "TRIP (a visit) without P (parking)"
-     },
-     {
-      "clueFragment": "a very long time",
-      "gives": "AGE",
-      "note": "an age = a very long time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "AGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TRIAGE",
+     "indicators": [
+      {
+       "text": "with no",
+       "note": "the word has to go without the letter named"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Visit with no parking",
+         "gives": "TRI",
+         "note": "TRIP (a visit) without P (parking)"
+        },
+        {
+         "words": "a very long time",
+         "gives": "AGE",
+         "note": "an age = a very long time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -249,30 +229,16 @@
    },
    "solution": "ABOUTTURNS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ABOUT-TURNS",
     "definitions": [
      {
       "text": "Reverses",
-      "at": 0
+      "at": 0,
+      "meaning": "the verb: changes direction completely, as a soldier on parade does"
      },
      {
       "text": "so doing showing hesitation",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reverses",
-      "gives": "ABOUTTURNS",
-      "note": "the verb: changes direction completely, as a soldier on parade does"
-     },
-     {
-      "clueFragment": "so doing showing hesitation",
-      "gives": "ABOUTTURNS",
-      "note": "'so doing' means doing what the answer describes; the result is a hesitation noise, ER"
+      "at": 10,
+      "meaning": "'so doing' means doing what the answer describes; the result is a hesitation noise, ER"
      }
     ],
     "explanation": {
@@ -302,53 +268,45 @@
    },
    "solution": "LATHI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "LATHI",
     "definitions": [
      {
       "text": "Stick",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "note": "only now and then, so every other letter"
-     },
-     {
-      "text": "getting upset",
-      "note": "upset in a down clue tips the letters upside down, reading them bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with it",
-      "gives": "IHT",
-      "select": "alternate",
-      "note": "the even letters of wItH iT"
-     },
-     {
-      "clueFragment": "Fail",
-      "gives": "AL",
-      "note": "the even letters of fAiL, continuing the same run"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "THI"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "occasionally",
+       "note": "only now and then, so every other letter"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "AL",
-       "to": "LA"
-      },
-      {
-       "from": "IHT",
-       "to": "THI"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "getting upset",
+         "note": "upset in a down clue tips the letters upside down, reading them bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "parts": [
+          {
+           "words": "with it",
+           "note": "the even letters of wItH iT"
+          }
+         ]
+        },
+        {
+         "words": "Fail",
+         "gives": "AL",
+         "note": "the even letters of fAiL, continuing the same run"
+        }
+       ]
       }
      ]
     },
@@ -378,52 +336,44 @@
    },
    "solution": "PORKIES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PORKIES",
     "definitions": [
      {
       "text": "these",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "note": "running as in operating: the letters are set going in new order"
-     }
-    ],
-    "linkWords": [
-     "revealing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Corporate body",
-      "gives": "PO",
-      "note": "the Post Office, a corporate body"
-     },
-     {
-      "clueFragment": "risk",
-      "gives": "RISK",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "start of enquiry",
-      "gives": "E",
-      "note": "first letter of enquiry, placed after RISK before the letters are rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "RKIES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RISKE",
-       "gives": "RKIES"
+       "text": "running",
+       "note": "running as in operating: the letters are set going in new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Corporate body",
+           "gives": "PO",
+           "note": "the Post Office, a corporate body"
+          },
+          {
+           "words": "risk",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "start of enquiry",
+       "gives": "E",
+       "note": "first letter of enquiry, placed after RISK before the letters are rearranged"
       }
      ]
     },
@@ -459,45 +409,41 @@
    },
    "solution": "POSTHASTE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "POST-HASTE",
     "definitions": [
      {
       "text": "quickly",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "intervenes",
-      "for": "container",
-      "note": "to intervene is to come between"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Following",
-      "gives": "POST",
-      "note": "post = after, as in post-war"
-     },
-     {
-      "clueFragment": "bad feeling",
-      "gives": "HATE",
-      "note": "hate = bad feeling"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "s = second, inserted into HATE to make HASTE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POST",
-      "HASTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Following",
+       "gives": "POST",
+       "note": "post = after, as in post-war"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "intervenes",
+         "note": "to intervene is to come between"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bad feeling",
+         "gives": "HATE",
+         "note": "hate = bad feeling"
+        },
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "s = second, inserted into HATE to make HASTE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -526,30 +472,16 @@
    },
    "solution": "RAIL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAIL",
     "definitions": [
      {
       "text": "Train",
-      "at": 0
+      "at": 0,
+      "meaning": "the railway, as in going somewhere by train"
      },
      {
       "text": "flier",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Train",
-      "gives": "RAIL",
-      "note": "the railway, as in going somewhere by train"
-     },
-     {
-      "clueFragment": "flier",
-      "gives": "RAIL",
-      "note": "a bird: the corncrake is one of this marsh family"
+      "at": 6,
+      "meaning": "a bird: the corncrake is one of this marsh family"
      }
     ],
     "explanation": {
@@ -578,33 +510,16 @@
    },
    "solution": "INITIATE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INITIATE",
     "definitions": [
      {
       "text": "Why I went to Pizza Express",
-      "at": 0
+      "at": 0,
+      "meaning": "a cryptic reading: the diner's reason for walking into a restaurant, said as four short words"
      },
      {
       "text": "a starter",
-      "at": 32
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Why I went to Pizza Express",
-      "gives": "INITIATE",
-      "note": "a cryptic reading: the diner's reason for walking into a restaurant, said as four short words"
-     },
-     {
-      "clueFragment": "a starter",
-      "gives": "INITIATE",
-      "note": "a starter as a person, a beginner, not a first course"
+      "at": 32,
+      "meaning": "a starter as a person, a beginner, not a first course"
      }
     ],
     "explanation": {
@@ -634,46 +549,47 @@
    },
    "solution": "SCREECHY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SCREECHY",
     "definitions": [
      {
       "text": "Grating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a lot of",
-      "for": "deletion",
-      "note": "most but not all of the word, so its last letter goes"
-     },
-     {
-      "text": "after mishap",
-      "for": "anagram",
-      "note": "after a mishap the letters are in a mess"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a lot of cheese",
-      "gives": "CHEES",
-      "note": "CHEESE without its last letter"
-     },
-     {
-      "clueFragment": "cry",
-      "gives": "CRY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SCREECHY",
+     "indicators": [
       {
-       "fodder": "CHEESCRY",
-       "gives": "SCREECHY"
+       "text": "a lot of",
+       "note": "most but not all of the word, so its last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "after mishap",
+         "note": "after a mishap the letters are in a mess"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a lot of cheese",
+           "gives": "CHEES",
+           "note": "CHEESE without its last letter"
+          },
+          {
+           "words": "cry",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -704,32 +620,25 @@
    },
    "solution": "CHINO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHINO",
     "definitions": [
      {
       "text": "material",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Punch's",
-      "gives": "CHIN",
-      "note": "to chin someone is to punch them on the chin; the ’s reads as 'has' and joins"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "o = old, as in OT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Punch's",
+       "gives": "CHIN",
+       "note": "to chin someone is to punch them on the chin; the ’s reads as 'has' and joins"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "o = old, as in OT"
+      }
      ]
     },
     "explanation": {
@@ -758,53 +667,48 @@
    },
    "solution": "TESTIFIER",
    "annotation": {
-    "type": [
-     "substitution",
-     "reversal"
-    ],
-    "answer": "TESTIFIER",
     "definitions": [
      {
       "text": "witness",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "for",
-      "note": "one thing stands in for another"
-     },
-     {
-      "text": "rejected",
-      "note": "sent back, so the letters are written in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dummy",
-      "gives": "PACIFIER",
-      "note": "the American word for a baby's dummy"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "TEST",
-      "note": "trial = test, which replaces PAC"
-     },
-     {
-      "clueFragment": "Trump rejected",
-      "gives": "PAC",
-      "note": "to trump = to cap (outdo); CAP written backwards is PAC, removed from PACIFIER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEST",
-      "IFIER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TESTIFIER",
+     "parts": [
       {
-       "from": "CAP",
-       "to": "PAC"
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "TESTIFIER",
+       "indicators": [
+        {
+         "text": "for",
+         "note": "one thing stands in for another"
+        },
+        {
+         "text": "rejected",
+         "note": "sent back, so the letters are written in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dummy",
+         "gives": "PACIFIER",
+         "note": "the American word for a baby's dummy"
+        },
+        {
+         "words": "trial",
+         "gives": "TEST",
+         "note": "trial = test, which replaces PAC"
+        },
+        {
+         "words": "Trump rejected",
+         "gives": "PAC",
+         "note": "to trump = to cap (outdo); CAP written backwards is PAC, removed from PACIFIER"
+        }
+       ]
       }
      ]
     },
@@ -840,44 +744,37 @@
    },
    "solution": "NIGHTLIGHT",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "NIGHT-LIGHT",
     "definitions": [
      {
       "text": "one's not very bright",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "spoken, so what matters is the sound"
-     }
-    ],
-    "linkWords": [
-     "previously"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sir said",
-      "gives": "NIGHT",
-      "soundsLike": "KNIGHT",
-      "note": "a knight is addressed as Sir; KNIGHT sounds like NIGHT"
-     },
-     {
-      "clueFragment": "Easy to pick up",
-      "gives": "LIGHT",
-      "note": "light = not heavy, easy to lift"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGHT",
-      "LIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "NIGHT",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "spoken, so what matters is the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sir said",
+         "gives": "KNIGHT",
+         "note": "a knight is addressed as Sir; KNIGHT sounds like NIGHT"
+        }
+       ]
+      },
+      {
+       "words": "Easy to pick up",
+       "gives": "LIGHT",
+       "note": "light = not heavy, easy to lift"
+      }
      ]
     },
     "explanation": {
@@ -917,48 +814,34 @@
     "28-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "WINE TASTING",
     "definitions": [
      {
       "text": "drink for test",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "the letters are in the wrong order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Point",
-      "gives": "W",
-      "note": "W = west, a compass point"
-     },
-     {
-      "clueFragment": "neat gin — it's",
-      "gives": "NEATGINITS",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "INETASTING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NEATGINITS",
-       "gives": "INETASTING"
+       "words": "Point",
+       "gives": "W",
+       "note": "W = west, a compass point"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "note": "the letters are in the wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat gin — it's",
+         "note": "anagram fodder, 10 letters"
+        }
+       ]
       }
      ]
     },
@@ -989,48 +872,36 @@
    },
    "solution": "PRODIGIOUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRODIGIOUS",
     "definitions": [
      {
       "text": "great",
       "at": 70
      }
     ],
-    "indicators": [
-     {
-      "text": "upfront",
-      "for": "charade",
-      "note": "these pieces go at the front, before the promises"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro = for, in favour of"
-     },
-     {
-      "clueFragment": "archaeologist's work",
-      "gives": "DIG",
-      "note": "an excavation"
-     },
-     {
-      "clueFragment": "Promises to provide funding",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to pay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "DIG",
-      "IOUS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "upfront",
+       "note": "these pieces go at the front, before the promises"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro = for, in favour of"
+      },
+      {
+       "words": "archaeologist's work",
+       "gives": "DIG",
+       "note": "an excavation"
+      },
+      {
+       "words": "Promises to provide funding",
+       "gives": "IOUS",
+       "note": "IOUs are written promises to pay"
+      }
      ]
     },
     "explanation": {
@@ -1069,32 +940,25 @@
    },
    "solution": "UPTOSCRATCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UP TO SCRATCH",
     "definitions": [
      {
       "text": "no more than satisfactory",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Preceding",
-      "gives": "UPTO",
-      "note": "up to = before, preceding"
-     },
-     {
-      "clueFragment": "score",
-      "gives": "SCRATCH",
-      "note": "to score a surface is to scratch it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UPTO",
-      "SCRATCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Preceding",
+       "gives": "UPTO",
+       "note": "up to = before, preceding"
+      },
+      {
+       "words": "score",
+       "gives": "SCRATCH",
+       "note": "to score a surface is to scratch it"
+      }
      ]
     },
     "explanation": {
@@ -1129,40 +993,31 @@
    },
    "solution": "THEMISSUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THE MISSUS",
     "definitions": [
      {
       "text": "she",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about in its sense of around, so the outer word goes round the inner one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "So",
-      "gives": "THUS",
-      "note": "so = thus; it goes around the young woman"
-     },
-     {
-      "clueFragment": "young woman on the internet",
-      "gives": "EMISS",
-      "note": "e- for online plus MISS, a young woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "EMISS",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about in its sense of around, so the outer word goes round the inner one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "So",
+       "gives": "THUS",
+       "note": "so = thus; it goes around the young woman"
+      },
+      {
+       "words": "young woman on the internet",
+       "gives": "EMISS",
+       "note": "e- for online plus MISS, a young woman"
+      }
      ]
     },
     "explanation": {
@@ -1190,39 +1045,30 @@
    },
    "solution": "AUCKLAND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AUCKLAND",
     "definitions": [
      {
       "text": "the biggest city in the country",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caught",
-      "gives": "C",
-      "note": "c = caught, the cricket scorebook abbreviation"
-     },
-     {
-      "clueFragment": "Scotland, maybe",
-      "gives": "AUKLAND",
-      "note": "a land of auks, the seabirds of Scottish cliffs; C goes inside AUK"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AU",
-      "C",
-      "KLAND"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scotland, maybe",
+       "gives": "AUKLAND",
+       "note": "a land of auks, the seabirds of Scottish cliffs; C goes inside AUK"
+      },
+      {
+       "words": "Caught",
+       "gives": "C",
+       "note": "c = caught, the cricket scorebook abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1252,47 +1098,46 @@
    },
    "solution": "OBVIATES",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OBVIATES",
     "definitions": [
      {
       "text": "Prevents",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "take the original, first letter"
-     },
-     {
-      "text": "having"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "originally one",
-      "gives": "O",
-      "note": "first letter of one"
-     },
-     {
-      "clueFragment": "motelier",
-      "gives": "BATES",
-      "note": "Norman Bates, who runs the motel in Psycho"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "VI",
-      "note": "sex is Latin for six, VI in Roman numerals; it goes inside BATES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BVIATES"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "originally",
+       "note": "take the original, first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "originally one",
+       "gives": "O",
+       "note": "first letter of one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motelier",
+         "gives": "BATES",
+         "note": "Norman Bates, who runs the motel in Psycho"
+        },
+        {
+         "words": "sex",
+         "gives": "VI",
+         "note": "sex is Latin for six, VI in Roman numerals; it goes inside BATES"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1328,43 +1173,48 @@
    },
    "solution": "URBANLEGEND",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "URBAN LEGEND",
     "definitions": [
      {
       "text": "It won't be true",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Timeless",
-      "for": "deletion",
-      "note": "less means without, and time is T, so the phrase that follows drops a T"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Timeless Punjabi",
-      "gives": "URBAN",
-      "note": "TURBAN, the headwear of a Sikh Punjabi star, without T (time)"
-     },
-     {
-      "clueFragment": "superstar",
-      "gives": "LEGEND",
-      "note": "a legend = a superstar"
-     },
-     {
-      "clueFragment": "being fanciful?",
-      "note": "flags that 'turban legend' is a whimsical description, not a real phrase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URBAN",
-      "LEGEND"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "URBANLEGEND",
+     "indicators": [
+      {
+       "text": "Timeless",
+       "note": "less means without, and time is T, so the phrase that follows drops a T"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Timeless Punjabi",
+           "gives": "URBAN",
+           "note": "TURBAN, the headwear of a Sikh Punjabi star, without T (time)"
+          },
+          {
+           "words": "superstar",
+           "gives": "LEGEND",
+           "note": "a legend = a superstar"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "being fanciful?",
+         "note": "flags that 'turban legend' is a whimsical description, not a real phrase"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1394,45 +1244,34 @@
    },
    "solution": "ARGALI",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ARGALI",
     "definitions": [
      {
       "text": "Threatened horny individual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bothering",
-      "for": "anagram",
-      "note": "a bothered thing is disturbed, so the letters are stirred"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a = one"
-     },
-     {
-      "clueFragment": "a girl",
-      "gives": "AGIRL",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RGALI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AGIRL",
-       "gives": "RGALI"
+       "words": "one",
+       "gives": "A",
+       "note": "a = one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bothering",
+         "note": "a bothered thing is disturbed, so the letters are stirred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a girl",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1463,35 +1302,25 @@
    },
    "solution": "SPRING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPRING",
     "definitions": [
      {
       "text": "Pop up",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bookies'",
-      "gives": "SP",
-      "note": "SP = starting price, the bookmakers' odds when a race begins"
-     },
-     {
-      "clueFragment": "enclosure",
-      "gives": "RING",
-      "note": "the ring is the bookmakers' area at a racecourse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "RING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bookies'",
+       "gives": "SP",
+       "note": "SP = starting price, the bookmakers' odds when a race begins"
+      },
+      {
+       "words": "enclosure",
+       "gives": "RING",
+       "note": "the ring is the bookmakers' area at a racecourse"
+      }
      ]
     },
     "explanation": {
@@ -1519,31 +1348,29 @@
    },
    "solution": "KNIT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KNIT",
     "definitions": [
      {
       "text": "Come together",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shouting",
-      "for": "homophone",
-      "note": "a word shouted is heard, not seen"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Booby",
-      "gives": "KNIT",
-      "soundsLike": "NIT",
-      "note": "a booby is a fool, a nit"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNIT",
+     "indicators": [
+      {
+       "text": "shouting",
+       "note": "a word shouted is heard, not seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Booby",
+       "gives": "NIT",
+       "note": "a booby is a fool, a nit"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A crowd rallying while yelling insults.",
      "walkthrough": "Nit is British slang for a fool. 'Come together' is the way broken bones knit.",
@@ -1576,38 +1403,24 @@
    },
    "solution": "RIDINGCROP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RIDING CROP",
     "definitions": [
      {
       "text": "it may be used for beating",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "guidance",
-      "for": "anagram",
-      "note": "the letters are guided into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pricing rod",
-      "gives": "PRICINGROD",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRICINGROD",
-       "gives": "RIDINGCROP"
+       "text": "guidance",
+       "note": "the letters are guided into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pricing rod",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1637,42 +1450,29 @@
    },
    "solution": "INAPT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INAPT",
     "definitions": [
      {
       "text": "Not the done thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "through",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "it, taken as it is"
-     },
-     {
-      "clueFragment": "sleep",
-      "gives": "NAP",
-      "note": "a nap = a short sleep, placed inside IT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NAP",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it",
+       "note": "it, taken as it is"
+      },
+      {
+       "words": "sleep",
+       "gives": "NAP",
+       "note": "a nap = a short sleep, placed inside IT"
+      }
      ]
     },
     "explanation": {
@@ -1700,36 +1500,28 @@
    },
    "solution": "IMPI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IMPI",
     "definitions": [
      {
       "text": "Zulu fighters",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Content",
-      "for": "deletion",
-      "note": "the content of a word is its inside, without the outer letters"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Content to clear",
-      "gives": "IMPI",
-      "note": "LIMPID (clear) without its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IMPI",
+     "indicators": [
+      {
+       "text": "Content",
+       "note": "the content of a word is its inside, without the outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Content to clear",
+       "gives": "IMPI",
+       "note": "LIMPID (clear) without its outer letters"
+      }
      ]
     },
     "explanation": {
@@ -1758,44 +1550,47 @@
    },
    "solution": "ARTEMISIA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ARTEMISIA",
     "definitions": [
      {
       "text": "Herb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "releasing",
-      "note": "letting go of the letters of the record"
-     },
-     {
-      "text": "to get hit",
-      "note": "the letters take a beating and land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alpert releasing record",
-      "gives": "AERT",
-      "note": "ALPERT without LP (a long-playing record)"
-     },
-     {
-      "clueFragment": "aim is",
-      "gives": "AIMIS",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ARTEMISIA",
+     "parts": [
       {
-       "fodder": "AERTAIMIS",
-       "gives": "ARTEMISIA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "releasing",
+         "note": "letting go of the letters of the record"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "to get hit",
+           "note": "the letters take a beating and land in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Alpert releasing record",
+           "gives": "AERT",
+           "note": "ALPERT without LP (a long-playing record)"
+          },
+          {
+           "words": "aim is",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1826,38 +1621,25 @@
    },
    "solution": "OMANI",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "OMANI",
     "definitions": [
      {
       "text": "Arab",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "coming back, so read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very soon",
-      "gives": "INAMO",
-      "note": "in a mo(ment) = very soon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OMANI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "INAMO",
-       "to": "OMANI"
+       "text": "returning",
+       "note": "coming back, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very soon",
+       "gives": "INAMO",
+       "note": "in a mo(ment) = very soon"
       }
      ]
     },
@@ -1886,35 +1668,25 @@
    },
    "solution": "DISMISS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISMISS",
     "definitions": [
      {
       "text": "sack",
       "at": 25
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Badmouth",
-      "gives": "DIS",
-      "note": "to dis = to insult"
-     },
-     {
-      "clueFragment": "teacher",
-      "gives": "MISS",
-      "note": "pupils address a female teacher as Miss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "MISS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Badmouth",
+       "gives": "DIS",
+       "note": "to dis = to insult"
+      },
+      {
+       "words": "teacher",
+       "gives": "MISS",
+       "note": "pupils address a female teacher as Miss"
+      }
      ]
     },
     "explanation": {

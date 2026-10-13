@@ -1,8 +1,6 @@
 {
  "id": "times-29394",
  "number": 29394,
- "series": "times",
- "name": "Times cryptic crossword No 29,394",
  "date": "2025-11-22",
  "dimensions": {
   "cols": 15,
@@ -47,35 +45,24 @@
    },
    "solution": "ROADMOVIE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROAD MOVIE",
     "definitions": [
      {
       "text": "film genre",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "bizarre",
-      "for": "anagram",
-      "note": "bizarre = weird, so the letters come out in a strange order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Avoid more",
-      "gives": "AVOIDMORE",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AVOID MORE",
-       "gives": "ROADMOVIE"
+       "text": "bizarre",
+       "note": "bizarre = weird, so the letters come out in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Avoid more",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -105,37 +92,25 @@
    },
    "solution": "RAPID",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "RAPID",
     "definitions": [
      {
       "text": "fleet",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "regularly = at even intervals, so every other letter is taken"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reapplied",
-      "gives": "RAPID",
-      "select": "alternate",
-      "note": "the 1st, 3rd, 5th, 7th and 9th letters of reapplied"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAPID"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regularly",
+       "note": "regularly = at even intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reapplied",
+       "note": "the 1st, 3rd, 5th, 7th and 9th letters of reapplied"
+      }
      ]
     },
     "explanation": {
@@ -165,42 +140,30 @@
    },
    "solution": "ACRONYM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACRONYM",
     "definitions": [
      {
       "text": "Nato?",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "kept in check by",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America",
-      "gives": "AM",
-      "note": "Am. is the standard abbreviation for America"
-     },
-     {
-      "clueFragment": "China",
-      "gives": "CRONY",
-      "note": "china = mate in Cockney rhyming slang (china plate = mate), so a crony"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CRONY",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept in check by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "America",
+       "gives": "AM",
+       "note": "Am. is the standard abbreviation for America"
+      },
+      {
+       "words": "China",
+       "gives": "CRONY",
+       "note": "china = mate in Cockney rhyming slang (china plate = mate), so a crony"
+      }
      ]
     },
     "explanation": {
@@ -230,49 +193,51 @@
    },
    "solution": "MENSURATION",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MENSURATION",
     "definitions": [
      {
       "text": "Measuring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "second of",
-      "note": "takes the second letter of the next word"
-     },
-     {
-      "text": "after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chaps'",
-      "gives": "MENS",
-      "note": "chaps = men, so chaps' = men's"
-     },
-     {
-      "clueFragment": "second of surveys",
-      "gives": "U",
-      "select": 2,
-      "note": "the second letter of sUrveys"
-     },
-     {
-      "clueFragment": "allotment",
-      "gives": "RATION",
-      "note": "a ration is an allotted share"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MENS",
-      "U",
-      "RATION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "second of",
+       "note": "takes the second letter of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chaps'",
+       "gives": "MENS",
+       "note": "chaps = men, so chaps' = men's"
+      },
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "U",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "after"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "second of surveys",
+         "gives": "U",
+         "select": 2,
+         "note": "the second letter of sUrveys"
+        }
+       ]
+      },
+      {
+       "words": "allotment",
+       "gives": "RATION",
+       "note": "a ration is an allotted share"
+      }
      ]
     },
     "explanation": {
@@ -301,38 +266,24 @@
    },
    "solution": "VERBIAGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VERBIAGE",
     "definitions": [
      {
       "text": "waffle",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "nuts",
-      "for": "anagram",
-      "note": "nuts = crazy, so the letters go wild"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give bear",
-      "gives": "GIVEBEAR",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIVE BEAR",
-       "gives": "VERBIAGE"
+       "text": "nuts",
+       "note": "nuts = crazy, so the letters go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Give bear",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -363,41 +314,36 @@
    },
    "solution": "EARTHY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EARTHY",
     "definitions": [
      {
       "text": "Crude",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "foxhole",
-      "gives": "EARTH",
-      "note": "a fox's den is called its earth"
-     },
-     {
-      "clueFragment": "close to enemy",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of enemY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARTH",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "foxhole",
+       "gives": "EARTH",
+       "note": "a fox's den is called its earth"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to enemy",
+         "gives": "ENEMY",
+         "note": "the last letter of enemY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -427,30 +373,28 @@
    },
    "solution": "PESTO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "PESTO",
     "definitions": [
      {
       "text": "sauce",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Some of",
-      "for": "hidden_word",
-      "note": "only some of the letters are used, a run from inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Giuseppe's tomato",
-      "gives": "PESTO",
-      "note": "giusepPE'S TOmato"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some of",
+       "note": "only some of the letters are used, a run from inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Giuseppe's tomato",
+       "gives": "PESTO",
+       "note": "giusepPE'S TOmato"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An Italian cook named Giuseppe makes a tomato sauce.",
      "walkthrough": "The Italian setting makes 'tomato sauce' look like one phrase; the answer is a different Italian sauce, and it sits across the apostrophe.",
@@ -477,44 +421,46 @@
    },
    "solution": "PEA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PEA",
     "definitions": [
      {
       "text": "Pulse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "note": "takes the first letter of the next word"
-     },
-     {
-      "text": "after",
-      "note": "after = following in sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exercise",
-      "gives": "PE",
-      "note": "PE = physical education"
-     },
-     {
-      "clueFragment": "beginning to alter",
-      "gives": "A",
-      "select": "first",
-      "note": "the first letter of Alter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beginning to",
+       "note": "takes the first letter of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "gives": "PE",
+       "note": "PE = physical education"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "A",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "after = following in sequence"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "beginning to alter",
+         "gives": "A",
+         "select": "first",
+         "note": "the first letter of Alter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -544,48 +490,52 @@
    },
    "solution": "SNIFTER",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SNIFTER",
     "definitions": [
      {
       "text": "Tot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly = as it is said, so what you hear is used"
-     },
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "takes the first letters of the preceding words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reportedly smelt",
-      "gives": "SNIFT",
-      "soundsLike": "SNIFFED",
-      "note": "smelt = sniffed, which is said like SNIFT"
-     },
-     {
-      "clueFragment": "extremely rank at first",
-      "gives": "ER",
-      "select": "first",
-      "note": "the first letters of Extremely Rank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNIFT",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SNIFT",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly = as it is said, so what you hear is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reportedly smelt",
+         "gives": "SNIFFED",
+         "note": "smelt = sniffed, which is said like SNIFT"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "ER",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "takes the first letters of the preceding words"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "extremely rank at first",
+         "gives": "ER",
+         "select": "first",
+         "note": "the first letters of Extremely Rank"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -621,54 +571,50 @@
    },
    "solution": "OKEYDOKEY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OKEY-DOKEY",
     "definitions": [
      {
       "text": "Agreed",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "o = over, as on a cricket scorecard"
-     },
-     {
-      "clueFragment": "crucial",
-      "gives": "KEY",
-      "note": "key = crucial"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "D",
-      "note": "d = day"
-     },
-     {
-      "clueFragment": "on",
-      "note": "the pieces are joined on to one another"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love = nil = O, as in tennis scoring"
-     },
-     {
-      "clueFragment": "Island",
-      "gives": "KEY",
-      "note": "a key is a low island, as in the Florida Keys"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "KEY",
-      "D",
-      "O",
-      "KEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "o = over, as on a cricket scorecard"
+        },
+        {
+         "words": "crucial",
+         "gives": "KEY",
+         "note": "key = crucial"
+        },
+        {
+         "words": "day",
+         "gives": "D",
+         "note": "d = day"
+        },
+        {
+         "words": "Love",
+         "gives": "O",
+         "note": "love = nil = O, as in tennis scoring"
+        },
+        {
+         "words": "Island",
+         "gives": "KEY",
+         "note": "a key is a low island, as in the Florida Keys"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "on",
+       "note": "the pieces are joined on to one another"
+      }
      ]
     },
     "explanation": {
@@ -698,47 +644,35 @@
    },
    "solution": "PARTNER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PARTNER",
     "definitions": [
      {
       "text": "Other half",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put back",
-      "for": "reversal",
-      "note": "put back = turned round so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ripped",
-      "gives": "RENT",
-      "note": "rent = torn, ripped"
-     },
-     {
-      "clueFragment": "carpet",
-      "gives": "RAP",
-      "note": "to carpet someone is to reprimand them, to rap them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARTNER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RENTRAP",
-       "to": "PARTNER"
+       "text": "put back",
+       "note": "put back = turned round so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ripped",
+         "gives": "RENT",
+         "note": "rent = torn, ripped"
+        },
+        {
+         "words": "carpet",
+         "gives": "RAP",
+         "note": "to carpet someone is to reprimand them, to rap them"
+        }
+       ]
       }
      ]
     },
@@ -769,35 +703,24 @@
    },
    "solution": "REALISE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REALISE",
     "definitions": [
      {
       "text": "Come to see",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "bad = gone wrong, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lies are",
-      "gives": "LIESARE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LIES ARE",
-       "gives": "REALISE"
+       "text": "bad",
+       "note": "bad = gone wrong, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lies are",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -827,37 +750,28 @@
    },
    "solution": "DEN",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "DEN",
     "definitions": [
      {
       "text": "retreat",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling = going round, so the last letter moves round to the front"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stop",
-      "gives": "END",
-      "note": "end = stop; cycling moves the D to the front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "EN"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "DEN",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "cycling = going round, so the last letter moves round to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stop",
+       "gives": "END",
+       "note": "end = stop; cycling moves the D to the front"
+      }
      ]
     },
     "explanation": {
@@ -887,43 +801,33 @@
    },
    "solution": "UNINHABITED",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "UNINHABITED",
     "definitions": [
      {
       "text": "Desert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "change of heart",
-      "for": "substitution",
-      "note": "the heart is the middle letter, and it is changed"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frank",
-      "gives": "UNINHIBITED",
-      "note": "frank = open, uninhibited"
-     },
-     {
-      "clueFragment": "change of heart",
-      "gives": "UNINHABITED",
-      "note": "the middle letter of the 11, the sixth, I, becomes A"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNINH",
-      "A",
-      "BITED"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "UNINHABITED",
+     "indicators": [
+      {
+       "text": "change of heart",
+       "note": "the heart is the middle letter, and it is changed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Frank",
+       "gives": "UNINHIBITED",
+       "note": "frank = open, uninhibited"
+      },
+      {
+       "words": "change of heart",
+       "gives": "UNINHABITED",
+       "note": "the middle letter of the 11, the sixth, I, becomes A"
+      }
      ]
     },
     "explanation": {
@@ -959,32 +863,25 @@
    },
    "solution": "BANANASKINS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANANA SKINS",
     "definitions": [
      {
       "text": "potential sources of embarrassment",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crazy",
-      "gives": "BANANAS",
-      "note": "bananas = crazy"
-     },
-     {
-      "clueFragment": "family's",
-      "gives": "KINS",
-      "note": "family = kin, so family's = kin's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BANANAS",
-      "KINS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crazy",
+       "gives": "BANANAS",
+       "note": "bananas = crazy"
+      },
+      {
+       "words": "family's",
+       "gives": "KINS",
+       "note": "family = kin, so family's = kin's"
+      }
      ]
     },
     "explanation": {
@@ -1013,47 +910,40 @@
    },
    "solution": "CAMPAIGN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CAMPAIGN",
     "definitions": [
      {
       "text": "Lobby",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "refused",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "group",
-      "gives": "CAMP",
-      "note": "a camp is a faction, a group"
-     },
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "note": "L = Liberal"
-     },
-     {
-      "clueFragment": "to agree",
-      "gives": "ALIGN",
-      "note": "to align = to agree; with the L refused it is AIGN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAMP",
-      "AIGN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "group",
+       "gives": "CAMP",
+       "note": "a camp is a faction, a group"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "refused"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to agree",
+         "gives": "ALIGN",
+         "note": "to align = to agree; with the L refused it is AIGN"
+        },
+        {
+         "words": "Liberal",
+         "gives": "L",
+         "note": "L = Liberal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1082,35 +972,24 @@
    },
    "solution": "CASHPOINT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CASHPOINT",
     "definitions": [
      {
       "text": "hole in wall",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Shoved",
-      "for": "anagram",
-      "note": "shoved = pushed about, so the letters are knocked out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chaps into",
-      "gives": "CHAPSINTO",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHAPS INTO",
-       "gives": "CASHPOINT"
+       "text": "Shoved",
+       "note": "shoved = pushed about, so the letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chaps into",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1141,43 +1020,31 @@
    },
    "solution": "ANORAK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ANORAK",
     "definitions": [
      {
       "text": "trainspotter",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in = inside, so the woman sits within the state's letters"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alaska",
-      "gives": "AK",
-      "note": "AK = Alaska, its US state code"
-     },
-     {
-      "clueFragment": "Batty woman",
-      "gives": "NORA",
-      "note": "Nora Batty, a character in Last of the Summer Wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NORA",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in = inside, so the woman sits within the state's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alaska",
+       "gives": "AK",
+       "note": "AK = Alaska, its US state code"
+      },
+      {
+       "words": "Batty woman",
+       "gives": "NORA",
+       "note": "Nora Batty, a character in Last of the Summer Wine"
+      }
      ]
     },
     "explanation": {
@@ -1207,49 +1074,40 @@
    },
    "solution": "MAUSOLEA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MAUSOLEA",
     "definitions": [
      {
       "text": "vaults",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old lady",
-      "gives": "MA",
-      "note": "old lady = mother, MA"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "AU",
-      "note": "Au is the chemical symbol for gold"
-     },
-     {
-      "clueFragment": "only",
-      "gives": "SOLE",
-      "note": "sole = only"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "AU",
-      "SOLE",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old lady",
+       "gives": "MA",
+       "note": "old lady = mother, MA"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        },
+        {
+         "words": "only",
+         "gives": "SOLE",
+         "note": "sole = only"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1279,33 +1137,29 @@
    },
    "solution": "STATIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "STATIC",
     "definitions": [
      {
       "text": "Still",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after departure of first couple",
-      "for": "deletion",
-      "note": "the first two letters leave the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elated",
-      "gives": "ECSTATIC",
-      "note": "elated = overjoyed, a synonym whose first two letters then leave"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STATIC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after departure of first couple",
+       "note": "the first two letters leave the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "elated",
+       "gives": "ECSTATIC",
+       "note": "elated = overjoyed, a synonym whose first two letters then leave"
+      },
+      {
+       "gives": "EC"
+      }
      ]
     },
     "explanation": {
@@ -1334,41 +1188,30 @@
    },
    "solution": "ARRANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARRANGE",
     "definitions": [
      {
       "text": "Settle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "south of",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arabia",
-      "gives": "AR",
-      "note": "Ar. = Arabian or Arabic, the dictionary abbreviation"
-     },
-     {
-      "clueFragment": "open country",
-      "gives": "RANGE",
-      "note": "a range is open grazing land"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arabia",
+       "gives": "AR",
+       "note": "Ar. = Arabian or Arabic, the dictionary abbreviation"
+      },
+      {
+       "words": "open country",
+       "gives": "RANGE",
+       "note": "a range is open grazing land"
+      }
      ]
     },
     "explanation": {
@@ -1397,51 +1240,49 @@
    },
    "solution": "CARNALLY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CARNALLY",
     "definitions": [
      {
       "text": "in a lascivious way",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "inhaling",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caught",
-      "gives": "C",
-      "note": "c = caught on a cricket scorecard"
-     },
-     {
-      "clueFragment": "friend",
-      "gives": "ALLY",
-      "note": "an ally is a friend"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter a"
-     },
-     {
-      "clueFragment": "Senior Service",
-      "gives": "RN",
-      "note": "the Royal Navy, RN, is Britain's senior service"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "RN",
-      "ALLY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inhaling"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Caught",
+         "gives": "C",
+         "note": "c = caught on a cricket scorecard"
+        },
+        {
+         "words": "friend",
+         "gives": "ALLY",
+         "note": "an ally is a friend"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the letter a"
+        },
+        {
+         "words": "Senior Service",
+         "gives": "RN",
+         "note": "the Royal Navy, RN, is Britain's senior service"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1471,39 +1312,30 @@
    },
    "solution": "LASAGNE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LASAGNE",
     "definitions": [
      {
       "text": "dish",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "to eat",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Way",
-      "gives": "LANE",
-      "note": "a lane is a way"
-     },
-     {
-      "clueFragment": "Indian spinach",
-      "gives": "SAG",
-      "note": "sag or saag is the Hindi word for spinach, as in sag aloo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "SAG",
-      "NE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Way",
+       "gives": "LANE",
+       "note": "a lane is a way"
+      },
+      {
+       "words": "Indian spinach",
+       "gives": "SAG",
+       "note": "sag or saag is the Hindi word for spinach, as in sag aloo"
+      }
      ]
     },
     "explanation": {
@@ -1532,44 +1364,36 @@
    },
    "solution": "CHERUB",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHERUB",
     "definitions": [
      {
       "text": "cute kid",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter is taken"
-     }
-    ],
-    "linkWords": [
-     "adopted"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Singer",
-      "gives": "CHER",
-      "note": "Cher, the American singer"
-     },
-     {
-      "clueFragment": "hubby periodically",
-      "gives": "UB",
-      "select": "alternate",
-      "note": "the 2nd and 4th letters of hUbBy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHER",
-      "UB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Singer",
+       "gives": "CHER",
+       "note": "Cher, the American singer"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "periodically",
+         "note": "at regular intervals, so every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hubby periodically",
+         "gives": "HUBBY",
+         "note": "the 2nd and 4th letters of hUbBy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1598,41 +1422,30 @@
    },
    "solution": "PARENTHESIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARENTHESIS",
     "definitions": [
      {
       "text": "Bracket",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mum or dad",
-      "gives": "PARENT",
-      "note": "either is a parent"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "HE",
-      "note": "he = a male"
-     },
-     {
-      "clueFragment": "sibling",
-      "gives": "SIS",
-      "note": "sis = sister, a sibling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARENT",
-      "HE",
-      "SIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mum or dad",
+       "gives": "PARENT",
+       "note": "either is a parent"
+      },
+      {
+       "words": "male",
+       "gives": "HE",
+       "note": "he = a male"
+      },
+      {
+       "words": "sibling",
+       "gives": "SIS",
+       "note": "sis = sister, a sibling"
+      }
      ]
     },
     "explanation": {
@@ -1661,31 +1474,29 @@
    },
    "solution": "SUM",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SUM",
     "definitions": [
      {
       "text": "amount",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Overheard",
-      "for": "homophone",
-      "note": "what is overheard is what you hear, so the sound is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a certain",
-      "gives": "SUM",
-      "soundsLike": "SOME",
-      "note": "some = a certain, as in 'some person'"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SUM",
+     "indicators": [
+      {
+       "text": "Overheard",
+       "note": "what is overheard is what you hear, so the sound is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a certain",
+       "gives": "SOME",
+       "note": "some = a certain, as in 'some person'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Eavesdropping picks up a fair bit.",
      "walkthrough": "'A certain amount' reads as one phrase; 'a certain' is SOME, which is said like SUM.",
@@ -1712,47 +1523,40 @@
    },
    "solution": "MINSK",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "MINSK",
     "definitions": [
      {
       "text": "ex-Soviet city",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "coats"
-     },
-     {
-      "text": "originally",
-      "note": "at the origin, so the first letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fur",
-      "gives": "MINK",
-      "note": "mink is a fur"
-     },
-     {
-      "clueFragment": "seen originally",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Seen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIN",
-      "S",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coats"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fur",
+       "gives": "MINK",
+       "note": "mink is a fur"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "at the origin, so the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seen originally",
+         "note": "the first letter of Seen"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1781,45 +1585,37 @@
    },
    "solution": "IONISER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "IONISER",
     "definitions": [
      {
       "text": "it clears the air",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "clobbered",
-      "for": "anagram",
-      "note": "clobbered = battered, so the letters are knocked about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "senior",
-      "gives": "ONISER",
-      "note": "SENIOR rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "ONISER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IONISER",
+     "indicators": [
       {
-       "fodder": "SENIOR",
-       "gives": "ONISER"
+       "text": "clobbered",
+       "note": "clobbered = battered, so the letters are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        },
+        {
+         "words": "senior",
+         "gives": "ONISER",
+         "note": "SENIOR rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1850,36 +1646,25 @@
    },
    "solution": "SAD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SAD",
     "definitions": [
      {
       "text": "Blue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heads of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smurfs are delightful",
-      "gives": "SAD",
-      "select": "first",
-      "note": "the first letters of Smurfs Are Delightful"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "D"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "heads of",
+       "note": "the head of a word is its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Smurfs are delightful",
+       "note": "the first letters of Smurfs Are Delightful"
+      }
      ]
     },
     "explanation": {
@@ -1915,50 +1700,51 @@
    },
    "solution": "LYINGIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LYING-IN",
     "definitions": [
      {
       "text": "Confinement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "case of",
-      "note": "the case is the outside, so the first and last letters"
-     },
-     {
-      "text": "after",
-      "note": "after = following, so the home word follows the lousy letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "case of lousy",
-      "gives": "LY",
-      "select": "outer",
-      "note": "the outer letters of LousY"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "in = at home"
-     },
-     {
-      "clueFragment": "liquor",
-      "gives": "GIN",
-      "note": "gin is a liquor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LY",
-      "IN",
-      "GIN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "case of",
+       "note": "the case is the outside, so the first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "LY",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "after = following, so the home word follows the lousy letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "case of lousy",
+         "gives": "LY",
+         "select": "outer",
+         "note": "the outer letters of LousY"
+        }
+       ]
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "in = at home"
+      },
+      {
+       "words": "liquor",
+       "gives": "GIN",
+       "note": "gin is a liquor"
+      }
      ]
     },
     "explanation": {
@@ -1987,49 +1773,50 @@
    },
    "solution": "TREND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TREND",
     "definitions": [
      {
       "text": "Vogue",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "covers of",
-      "note": "the covers are the outside, so the first and last letters"
-     },
-     {
-      "text": "on"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "covers of Tatler",
-      "gives": "TR",
-      "select": "outer",
-      "note": "the outer letters of TatleR"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "EN",
-      "note": "the outer letters of EuropeaN, also covered"
-     },
-     {
-      "clueFragment": "Daughter",
-      "gives": "D",
-      "note": "d = daughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "EN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covers of",
+       "note": "the covers are the outside, so the first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "TR",
+       "indicators": [
+        {
+         "text": "on"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "covers of Tatler",
+         "gives": "TR",
+         "select": "outer",
+         "note": "the outer letters of TatleR"
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "gives": "EN",
+       "note": "the outer letters of EuropeaN, also covered"
+      },
+      {
+       "words": "Daughter",
+       "gives": "D",
+       "note": "d = daughter"
+      }
      ]
     },
     "explanation": {
@@ -2065,32 +1852,25 @@
    },
    "solution": "BRASSNECK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRASS NECK",
     "definitions": [
      {
       "text": "cheek",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Players",
-      "gives": "BRASS",
-      "note": "the brass are the players of brass instruments in an orchestra"
-     },
-     {
-      "clueFragment": "kiss",
-      "gives": "NECK",
-      "note": "to neck is to kiss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRASS",
-      "NECK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Players",
+       "gives": "BRASS",
+       "note": "the brass are the players of brass instruments in an orchestra"
+      },
+      {
+       "words": "kiss",
+       "gives": "NECK",
+       "note": "to neck is to kiss"
+      }
      ]
     },
     "explanation": {

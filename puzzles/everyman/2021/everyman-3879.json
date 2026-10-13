@@ -1,8 +1,6 @@
 {
  "id": "everyman-3879",
  "number": 3879,
- "series": "everyman",
- "name": "Everyman crossword No 3,879",
  "setter": "Everyman",
  "date": "2021-02-14",
  "dimensions": {
@@ -44,35 +42,24 @@
    },
    "solution": "SECRETSERVICE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SECRET SERVICE",
     "definitions": [
      {
       "text": "US government dept",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting redesign",
-      "for": "anagram",
-      "note": "something that needs a redesign must have its parts rearranged into a new layout"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "receives crest",
-      "gives": "RECEIVESCREST",
-      "note": "taken as written, all thirteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RECEIVESCREST",
-       "gives": "SECRETSERVICE"
+       "text": "wanting redesign",
+       "note": "something that needs a redesign must have its parts rearranged into a new layout"
+      }
+     ],
+     "parts": [
+      {
+       "words": "receives crest",
+       "note": "taken as written, all thirteen letters"
       }
      ]
     },
@@ -102,63 +89,60 @@
    },
    "solution": "SECLUDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SECLUDE",
     "definitions": [
      {
       "text": "cloister",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word is emptied of its insides and only its outer shell stays"
-     },
-     {
-      "text": "at the end",
-      "for": "letter_selection",
-      "note": "points to the final letter alone of the word just before it"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece is placed inside another, which then wraps around it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Some",
-      "gives": "SE",
-      "select": "outer",
-      "note": "first and last letters of the word"
-     },
-     {
-      "clueFragment": "clue",
-      "gives": "CLUE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "blind",
-      "gives": "D",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "CLU",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacuous",
+         "note": "vacuous means empty, so the word is emptied of its insides and only its outer shell stays"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Some",
+         "note": "first and last letters of the word"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece is placed inside another, which then wraps around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clue",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at the end",
+           "note": "points to the final letter alone of the word just before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "blind",
+           "note": "the closing letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -193,31 +177,16 @@
    },
    "solution": "COOPS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CO-OPS",
     "definitions": [
      {
       "text": "They benefit the workers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: cooperatives, businesses owned and run by their members"
      },
      {
       "text": "pounds",
-      "at": 34
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "They benefit the workers",
-      "note": "first meaning: cooperatives, businesses owned and run by their members"
-     },
-     {
-      "clueFragment": "pounds",
-      "note": "second meaning: enclosures for animals, such as hen houses"
+      "at": 34,
+      "meaning": "second meaning: enclosures for animals, such as hen houses"
      }
     ],
     "explanation": {
@@ -247,39 +216,33 @@
    },
    "solution": "ETCHING",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ETCHING",
     "definitions": [
      {
       "text": "Cutting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "replacing lead character in",
-      "for": "substitution",
-      "note": "one piece takes the place of the opening letter of another word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "ET is the film's extraterrestrial, a standard crossword alien"
-     },
-     {
-      "clueFragment": "Chinese book",
-      "gives": "ICHING",
-      "note": "the I Ching, the ancient Chinese Book of Changes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ET",
-      "CHING"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ETCHING",
+     "indicators": [
+      {
+       "text": "replacing lead character in",
+       "note": "one piece takes the place of the opening letter of another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alien",
+       "gives": "ET",
+       "note": "ET is the film's extraterrestrial, a standard crossword alien"
+      },
+      {
+       "words": "Chinese book",
+       "gives": "ICHING",
+       "note": "the I Ching, the ancient Chinese Book of Changes"
+      }
      ]
     },
     "explanation": {
@@ -314,35 +277,24 @@
    },
    "solution": "SPRINGERSPANIEL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPRINGER SPANIEL",
     "definitions": [
      {
       "text": "Dog",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "chewed",
-      "for": "anagram",
-      "note": "something chewed has been mangled and its original shape lost"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slippers in anger",
-      "gives": "SLIPPERSINANGER",
-      "note": "taken as written, fifteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SLIPPERSINANGER",
-       "gives": "SPRINGERSPANIEL"
+       "text": "chewed",
+       "note": "something chewed has been mangled and its original shape lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slippers in anger",
+       "note": "taken as written, fifteen letters"
       }
      ]
     },
@@ -372,30 +324,28 @@
    },
    "solution": "RENOWN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RENOWN",
     "definitions": [
      {
       "text": "celebrity",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "includes",
-      "for": "hidden_word",
-      "note": "the words contain the answer within them, running across their joins"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Literature' now normally",
-      "gives": "RENOWN",
-      "note": "the letters run across the end of the first word, all of the second and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "includes",
+       "note": "the words contain the answer within them, running across their joins"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Literature' now normally",
+       "gives": "RENOWN",
+       "note": "the letters run across the end of the first word, all of the second and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that what counts as literature these days tends to feature famous people.",
      "walkthrough": "The quotation marks around 'Literature' make it look like a term under discussion; they simply mark where the letters start.",
@@ -428,45 +378,44 @@
    },
    "solution": "ITCHYFEET",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ITCHY FEET",
     "definitions": [
      {
       "text": "Desire to move on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning",
-      "for": "deletion",
-      "note": "to abandon something is to leave it behind, so those letters are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bold",
-      "gives": "B",
-      "note": "B is the abbreviation for bold type, as on a formatting button"
-     },
-     {
-      "clueFragment": "malicious",
-      "gives": "BITCHY",
-      "note": "spiteful and cattily unkind"
-     },
-     {
-      "clueFragment": "poetry",
-      "gives": "FEET",
-      "note": "metrical feet are the units that poetry is measured in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ITCHY",
-      "FEET"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning",
+       "note": "to abandon something is to leave it behind, so those letters are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bold",
+         "gives": "B",
+         "note": "B is the abbreviation for bold type, as on a formatting button"
+        },
+        {
+         "words": "malicious",
+         "gives": "BITCHY",
+         "note": "spiteful and cattily unkind"
+        },
+        {
+         "words": "poetry",
+         "gives": "FEET",
+         "note": "metrical feet are the units that poetry is measured in"
+        }
+       ]
+      },
+      {
+       "gives": "BB"
+      }
      ]
     },
     "explanation": {
@@ -495,36 +444,29 @@
    },
    "solution": "EVEREST",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EVEREST",
     "definitions": [
      {
       "text": "mountain",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "with its heading taken off, a word loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Most dangerous",
-      "gives": "SEVEREST",
-      "note": "severe can mean grave or dangerous, as in a severe storm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVEREST"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "note": "with its heading taken off, a word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Most dangerous",
+       "gives": "SEVEREST",
+       "note": "severe can mean grave or dangerous, as in a severe storm"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -553,28 +495,16 @@
    },
    "solution": "ECHO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ECHO",
     "definitions": [
      {
       "text": "What's seen next to delta?",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the code word after Delta in the NATO phonetic alphabet"
      },
      {
       "text": "Sound (again)",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's seen next to delta?",
-      "note": "first meaning: the code word after Delta in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "Sound (again)",
-      "note": "second meaning: to repeat a sound, as a reverberation does"
+      "at": 27,
+      "meaning": "second meaning: to repeat a sound, as a reverberation does"
      }
     ],
     "explanation": {
@@ -604,41 +534,30 @@
    },
    "solution": "CHRONICLER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHRONICLER",
     "definitions": [
      {
       "text": "Historian",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "atrocious",
-      "gives": "CHRONIC",
-      "note": "chronic is British slang for very bad"
-     },
-     {
-      "clueFragment": "lecturer",
-      "gives": "L",
-      "note": "L is a standard abbreviation for lecturer"
-     },
-     {
-      "clueFragment": "hesitant expression",
-      "gives": "ER",
-      "note": "the sound of someone pausing to think"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHRONIC",
-      "L",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "atrocious",
+       "gives": "CHRONIC",
+       "note": "chronic is British slang for very bad"
+      },
+      {
+       "words": "lecturer",
+       "gives": "L",
+       "note": "L is a standard abbreviation for lecturer"
+      },
+      {
+       "words": "hesitant expression",
+       "gives": "ER",
+       "note": "the sound of someone pausing to think"
+      }
      ]
     },
     "explanation": {
@@ -667,63 +586,66 @@
    },
    "solution": "MUESLI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "MUESLI",
     "definitions": [
      {
       "text": "healthy meal",
       "at": 68
      }
     ],
-    "indicators": [
-     {
-      "text": "starter of",
-      "for": "letter_selection",
-      "note": "the starter of a word is its opening letter"
-     },
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of something is its core, so the central letters are kept"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "whatever eats something takes it inside itself"
-     }
-    ],
-    "linkWords": [
-     "followed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyman",
-      "gives": "ME",
-      "note": "the setter, Everyman, refers to himself"
-     },
-     {
-      "clueFragment": "udon",
-      "gives": "U",
-      "select": "first",
-      "note": "first letter of the noodle"
-     },
-     {
-      "clueFragment": "rieslings",
-      "gives": "SLI",
-      "select": "middle",
-      "note": "the central three of the nine letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "U",
-      "E",
-      "SLI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "note": "whatever eats something takes it inside itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everyman",
+         "gives": "ME",
+         "note": "the setter, Everyman, refers to himself"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starter of",
+           "note": "the starter of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "udon",
+           "note": "first letter of the noodle"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "SLI",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "the essence of something is its core, so the central letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "rieslings",
+         "gives": "SLI",
+         "select": "middle",
+         "note": "the central three of the nine letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -765,57 +687,46 @@
    },
    "solution": "NEWLYWED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NEWLY-WED",
     "definitions": [
      {
       "text": "Like blushing bride",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece sits inside another, which wraps around it"
-     }
-    ],
-    "linkWords": [
-     "… or",
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the abbreviation for northern"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife"
-     },
-     {
-      "clueFragment": "cathedral",
-      "gives": "ELY",
-      "note": "Ely is a cathedral city in Cambridgeshire, the classic crossword cathedral"
-     },
-     {
-      "clueFragment": "midweek",
-      "gives": "WED",
-      "note": "short for Wednesday, the middle day of the week"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "E",
-      "W",
-      "LY",
-      "WED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "northern",
+       "gives": "N",
+       "note": "N is the abbreviation for northern"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece sits inside another, which wraps around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cathedral",
+         "gives": "ELY",
+         "note": "Ely is a cathedral city in Cambridgeshire, the classic crossword cathedral"
+        },
+        {
+         "words": "wife",
+         "gives": "W",
+         "note": "W is the abbreviation for wife"
+        }
+       ]
+      },
+      {
+       "words": "midweek",
+       "gives": "WED",
+       "note": "short for Wednesday, the middle day of the week"
+      }
      ]
     },
     "explanation": {
@@ -850,38 +761,24 @@
    },
    "solution": "BERINGSEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BERING SEA",
     "definitions": [
      {
       "text": "Water",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "transplant",
-      "for": "anagram",
-      "note": "plants that are transplanted are moved and set down in new positions"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bergenias",
-      "gives": "BERGENIAS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BERGENIAS",
-       "gives": "BERINGSEA"
+       "text": "transplant",
+       "note": "plants that are transplanted are moved and set down in new positions"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bergenias",
+       "note": "taken as written"
       }
      ]
     },
@@ -911,45 +808,34 @@
    },
    "solution": "INHIBITED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "INHIBITED",
     "definitions": [
      {
       "text": "Shy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tossed and turned",
-      "for": "anagram",
-      "note": "a restless sleeper tossing and turning keeps shifting position"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not going out",
-      "gives": "IN",
-      "note": "someone not going out stays in"
-     },
-     {
-      "clueFragment": "I hit bed",
-      "gives": "IHITBED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "HIBITED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "IHITBED",
-       "gives": "HIBITED"
+       "words": "not going out",
+       "gives": "IN",
+       "note": "someone not going out stays in"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tossed and turned",
+         "note": "a restless sleeper tossing and turning keeps shifting position"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I hit bed",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -979,41 +865,25 @@
    },
    "solution": "MEET",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MEET",
     "definitions": [
      {
       "text": "Gather",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the opposite way, so the letters run from the end"
-     }
-    ],
-    "linkWords": [
-     "… and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flow",
-      "gives": "TEEM",
-      "note": "to teem is to pour or flow in abundance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TEEM",
-       "to": "MEET"
+       "text": "back",
+       "note": "going back means travelling the opposite way, so the letters run from the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flow",
+       "gives": "TEEM",
+       "note": "to teem is to pour or flow in abundance"
       }
      ]
     },
@@ -1043,48 +913,35 @@
    },
    "solution": "SOHO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "SOHO",
     "definitions": [
      {
       "text": "red-light district",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Naked",
-      "for": "letter_selection",
-      "note": "naked means stripped of covering, so the outer letters are removed"
-     },
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back the way one came, so the order runs backwards"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "co-host",
-      "gives": "OHOS",
-      "select": "middle",
-      "note": "the word with its first and last letters stripped away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOHO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OHOS",
-       "to": "SOHO"
+       "text": "returning",
+       "note": "returning means going back the way one came, so the order runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Naked",
+         "note": "naked means stripped of covering, so the outer letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "co-host",
+         "note": "the word with its first and last letters stripped away"
+        }
+       ]
       }
      ]
     },
@@ -1115,61 +972,58 @@
    },
    "solution": "SCATHES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "SCATHES",
     "definitions": [
      {
       "text": "Causes injury",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its closing letter"
-     },
-     {
-      "text": "the beginning",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter"
-     },
-     {
-      "text": "No",
-      "for": "substitution",
-      "note": "a flat rejection of one option in favour of another, so one letter is swapped for the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "farm implements",
-      "gives": "SCYTHES",
-      "note": "long-bladed tools for cutting grass or crops"
-     },
-     {
-      "clueFragment": "agony",
-      "gives": "Y",
-      "select": "last",
-      "note": "the closing letter of the word"
-     },
-     {
-      "clueFragment": "agony",
-      "gives": "A",
-      "select": "first",
-      "note": "the opening letter of the same word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "A",
-      "THES"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "SCATHES",
+     "indicators": [
+      {
+       "text": "No",
+       "note": "a flat rejection of one option in favour of another, so one letter is swapped for the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "farm implements",
+       "gives": "SCYTHES",
+       "note": "long-bladed tools for cutting grass or crops"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agony",
+         "note": "the closing letter of the word"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the beginning",
+         "note": "the beginning of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agony",
+         "note": "the opening letter of the same word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1198,35 +1052,24 @@
    },
    "solution": "ISOMETRIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ISOMETRIC",
     "definitions": [
      {
       "text": "Kind of graph line",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "displaying",
-      "for": "anagram",
-      "note": "a display lays things out in a new arrangement for show"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eroticism",
-      "gives": "EROTICISM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EROTICISM",
-       "gives": "ISOMETRIC"
+       "text": "displaying",
+       "note": "a display lays things out in a new arrangement for show"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eroticism",
+       "note": "taken as written"
       }
      ]
     },
@@ -1263,31 +1106,29 @@
    },
    "solution": "MRRIGHT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MR RIGHT",
     "definitions": [
      {
       "text": "Husband material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "what people say is heard rather than read, so the sound counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skipped a ceremony",
-      "gives": "MRRIGHT",
-      "soundsLike": "MISSED A RITE",
-      "note": "to skip is to miss, and a ceremony is a rite"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MRRIGHT",
+     "indicators": [
+      {
+       "text": "they say",
+       "note": "what people say is heard rather than read, so the sound counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skipped a ceremony",
+       "gives": "MISSEDARITE",
+       "note": "to skip is to miss, and a ceremony is a rite"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A suitor who seemed ideal but failed to turn up to the wedding.",
      "walkthrough": "'Missed a rite' said quickly matches 'Mister Right'; the abbreviation MR is spelt in the grid.",
@@ -1315,50 +1156,44 @@
    },
    "solution": "ICEBERG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ICEBERG",
     "definitions": [
      {
       "text": "Lettuce",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly enough",
-      "for": "letter_selection",
-      "note": "odd letters are those in the first, third and fifth places"
-     },
-     {
-      "text": "in salad",
-      "for": "anagram",
-      "note": "a salad is a jumble of mixed ingredients, so the letters are tossed together"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rice",
-      "gives": "RICE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "giblet",
-      "gives": "GBE",
-      "select": "alternate",
-      "note": "letters one, three and five of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RICEGBE",
-       "gives": "ICEBERG"
+       "text": "in salad",
+       "note": "a salad is a jumble of mixed ingredients, so the letters are tossed together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rice",
+         "note": "taken as written"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly enough",
+           "note": "odd letters are those in the first, third and fifth places"
+          }
+         ],
+         "parts": [
+          {
+           "words": "giblet",
+           "note": "letters one, three and five of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1389,57 +1224,54 @@
    },
    "solution": "DRIERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DRIERS",
     "definitions": [
      {
       "text": "sources of heat?",
       "at": 59
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of each word it follows"
-     },
-     {
-      "text": "regularly missing",
-      "for": "letter_selection",
-      "note": "losing letters at regular intervals leaves every second one behind"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Demobbed",
-      "gives": "D",
-      "select": "last",
-      "note": "closing letter of the first word"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "R",
-      "select": "last",
-      "note": "closing letter of the second word"
-     },
-     {
-      "clueFragment": "firearms",
-      "gives": "IERS",
-      "select": "alternate",
-      "note": "the even-placed letters, after the first, third, fifth and seventh go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "IERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the closing letter of each word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Demobbed",
+         "note": "closing letter of the first word"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "regularly missing",
+         "note": "losing letters at regular intervals leaves every second one behind"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldier",
+         "note": "closing letter of the second word"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "parts": [
+        {
+         "words": "firearms",
+         "note": "the even-placed letters, after the first, third, fifth and seventh go"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1468,86 +1300,96 @@
    },
    "solution": "CANBERRA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "CANBERRA",
     "definitions": [
      {
       "text": "City accommodating national building's elected representatives (representing Australia, primarily!)",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means in the first place, so each word gives only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "City",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "accommodating",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "national",
-      "gives": "N",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "building's",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "elected",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "representatives",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "representing",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "Australia",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "N",
-      "B",
-      "E",
-      "R",
-      "R",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means in the first place, so each word gives only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "City",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "accommodating",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "national",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "building's",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "elected",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "representatives",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "representing",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Australia",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A description of a capital that houses the parliament of elected members serving the nation.",
      "walkthrough": "The whole clue is both the definition and the wordplay: its eight initial letters spell the city it describes.",
@@ -1573,32 +1415,17 @@
    },
    "solution": "RASHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RASHER",
     "definitions": [
      {
       "text": "Bacon",
       "at": 0,
-      "note": "the clue's 'Bacon's' is 'Bacon is'; a rasher is a slice of bacon"
+      "note": "the clue's 'Bacon's' is 'Bacon is'; a rasher is a slice of bacon",
+      "meaning": "first meaning: a thin slice of bacon"
      },
      {
       "text": "increasingly hot-headed",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "'s getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bacon",
-      "note": "first meaning: a thin slice of bacon"
-     },
-     {
-      "clueFragment": "increasingly hot-headed",
-      "note": "second meaning: more impetuous, the comparative of an adjective for reckless"
+      "at": 16,
+      "meaning": "second meaning: more impetuous, the comparative of an adjective for reckless"
      }
     ],
     "explanation": {
@@ -1628,53 +1455,45 @@
    },
    "solution": "SUSHI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SUSHI",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last means at the very end, so only the closing letter counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South",
-      "gives": "S",
-      "note": "standard abbreviation for the compass point"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "short for United States"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H for hot, as on a tap"
-     },
-     {
-      "clueFragment": "chili",
-      "gives": "I",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "H",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "gives": "S",
+       "note": "standard abbreviation for the compass point"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "short for United States"
+      },
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H for hot, as on a tap"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last means at the very end, so only the closing letter counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chili",
+         "note": "the closing letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1709,48 +1528,38 @@
    },
    "solution": "CHATTERING",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "CHATTERING",
     "definitions": [
      {
       "text": "silly talk",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "substitution",
-      "note": "says one thing should appear instead of another inside the longer word"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Milliner",
-      "gives": "HATTER",
-      "note": "a milliner makes and sells hats"
-     },
-     {
-      "clueFragment": "dealer",
-      "gives": "HANDLER",
-      "note": "a handler deals with or trades goods"
-     },
-     {
-      "clueFragment": "candle-making",
-      "gives": "CHANDLERING",
-      "note": "a chandler makes and sells candles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HATTER",
-      "ING"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "CHATTERING",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "says one thing should appear instead of another inside the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Milliner",
+       "gives": "HATTER",
+       "note": "a milliner makes and sells hats"
+      },
+      {
+       "words": "dealer",
+       "gives": "HANDLER",
+       "note": "a handler deals with or trades goods"
+      },
+      {
+       "words": "candle-making",
+       "gives": "CHANDLERING",
+       "note": "a chandler makes and sells candles"
+      }
      ]
     },
     "explanation": {
@@ -1786,31 +1595,29 @@
    },
    "solution": "SEEN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SEEN",
     "definitions": [
      {
       "text": "Watched",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the auditorium",
-      "for": "homophone",
-      "note": "an auditorium is where an audience hears a performance, so sound is what counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some of a play",
-      "gives": "SEEN",
-      "soundsLike": "SCENE",
-      "note": "a scene is one section of a play"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEN",
+     "indicators": [
+      {
+       "text": "in the auditorium",
+       "note": "an auditorium is where an audience hears a performance, so sound is what counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some of a play",
+       "gives": "SCENE",
+       "note": "a scene is one section of a play"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A theatregoer watched part of a show from the stalls.",
      "walkthrough": "'In the auditorium' reads as where the watching happened; it signals a sound-alike instead.",
@@ -1844,52 +1651,47 @@
    },
    "solution": "SIDESPLITTING",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SIDE-SPLITTING",
     "definitions": [
      {
       "text": "Funny",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to include",
-      "for": "container",
-      "note": "including something means taking it in, so one piece goes inside the other"
-     },
-     {
-      "text": "alongside",
-      "for": "charade",
-      "note": "placed side by side, so two pieces join end to end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cutting",
-      "gives": "SLITTING",
-      "note": "slitting is making a long cut"
-     },
-     {
-      "clueFragment": "Freudian concept",
-      "gives": "ID",
-      "note": "the id is Freud's term for the instinctive part of the mind"
-     },
-     {
-      "clueFragment": "magic powers",
-      "gives": "ESP",
-      "note": "extrasensory perception, the supposed sixth sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ID",
-      "ESP",
-      "LITTING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "note": "including something means taking it in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cutting",
+       "gives": "SLITTING",
+       "note": "slitting is making a long cut"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "alongside",
+         "note": "placed side by side, so two pieces join end to end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Freudian concept",
+         "gives": "ID",
+         "note": "the id is Freud's term for the instinctive part of the mind"
+        },
+        {
+         "words": "magic powers",
+         "gives": "ESP",
+         "note": "extrasensory perception, the supposed sixth sense"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

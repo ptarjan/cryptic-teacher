@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5068",
  "number": 5068,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,068",
  "setter": "Robert Price",
  "date": "2023-07-16",
  "dimensions": {
@@ -42,42 +40,46 @@
    },
    "solution": "SOMERSAULT",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "SOMERSAULT",
     "definitions": [
      {
       "text": "Flip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of the radio",
-      "for": "homophone",
-      "note": "what comes out of a radio is heard rather than read, so the sound counts and not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a little",
-      "gives": "SOME",
-      "note": "a little of something is some of it"
-     },
-     {
-      "clueFragment": "battery",
-      "gives": "ASSAULT",
-      "note": "battery is the legal term for a physical attack"
-     },
-     {
-      "clueFragment": "a little battery",
-      "gives": "SOMERSAULT",
-      "soundsLike": "SOME ASSAULT",
-      "note": "the two words run together say the gymnastic word"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "SOMERSAULT",
+     "indicators": [
+      {
+       "text": "out of the radio",
+       "note": "what comes out of a radio is heard rather than read, so the sound counts and not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a little",
+       "gives": "SOME",
+       "note": "a little of something is some of it"
+      },
+      {
+       "words": "battery",
+       "gives": "ASSAULT",
+       "note": "battery is the legal term for a physical attack"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SOMERSAULT",
+       "parts": [
+        {
+         "words": "a little battery",
+         "gives": "SOMEASSAULT",
+         "note": "the two words run together say the gymnastic word"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone flips a switch and a small battery drops out of the back of a radio set.",
      "walkthrough": "'Flip' looks like an action on the radio, but it is the definition. Said quickly, SOME ASSAULT runs together into SOMERSAULT.",
@@ -105,32 +107,25 @@
    },
    "solution": "SWEDEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWEDEN",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in Cornwall?",
-      "gives": "SW",
-      "note": "Cornwall lies in the far south-west of England, abbreviated SW"
-     },
-     {
-      "clueFragment": "garden",
-      "gives": "EDEN",
-      "note": "the Garden of Eden in Genesis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SW",
-      "EDEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in Cornwall?",
+       "gives": "SW",
+       "note": "Cornwall lies in the far south-west of England, abbreviated SW"
+      },
+      {
+       "words": "garden",
+       "gives": "EDEN",
+       "note": "the Garden of Eden in Genesis"
+      }
      ]
     },
     "explanation": {
@@ -160,54 +155,51 @@
    },
    "solution": "MUPPET",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MUPPET",
     "definitions": [
      {
       "text": "Dimwit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stores",
-      "for": "container",
-      "note": "to store something is to keep it inside, so one piece is held within another"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ran into",
-      "gives": "MET",
-      "note": "to run into someone is to meet them by chance"
-     },
-     {
-      "clueFragment": "at Oxford",
-      "gives": "UP",
-      "note": "a student in residence at a university is said to be up"
-     },
-     {
-      "clueFragment": "panic",
-      "gives": "P",
-      "select": "first",
-      "note": "opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "UP",
-      "P",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stores",
+       "note": "to store something is to keep it inside, so one piece is held within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ran into",
+       "gives": "MET",
+       "note": "to run into someone is to meet them by chance"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at Oxford",
+         "gives": "UP",
+         "note": "a student in residence at a university is said to be up"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "note": "the beginning of a word is its opening letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "panic",
+           "note": "opening letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -236,35 +228,24 @@
    },
    "solution": "RECEPTIONIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RECEPTIONIST",
     "definitions": [
      {
       "text": "hotel worker",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "troubled",
-      "for": "anagram",
-      "note": "something troubled is disturbed and thrown out of order, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Priest nice to",
-      "gives": "PRIESTNICETO",
-      "note": "taken as written, twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRIESTNICETO",
-       "gives": "RECEPTIONIST"
+       "text": "troubled",
+       "note": "something troubled is disturbed and thrown out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Priest nice to",
+       "note": "taken as written, twelve letters"
       }
      ]
     },
@@ -294,32 +275,24 @@
    },
    "solution": "AJAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AJAR",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bit of a conflict",
-      "gives": "JAR",
-      "note": "a jar is a minor quarrel or clash, an old sense of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "JAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "bit of a conflict",
+       "gives": "JAR",
+       "note": "a jar is a minor quarrel or clash, an old sense of the word"
+      }
      ]
     },
     "explanation": {
@@ -348,10 +321,6 @@
    },
    "solution": "LACHRYMOSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LACHRYMOSE",
     "definitions": [
      {
       "text": "Tearing up",
@@ -359,28 +328,18 @@
       "note": "a participle phrase used adjectivally; the answer is an adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "improvised",
-      "for": "anagram",
-      "note": "an improvised performance is made up on the spot, so the letters are put together freshly"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "my carols, he",
-      "gives": "MYCAROLSHE",
-      "note": "taken as written, ten letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MYCAROLSHE",
-       "gives": "LACHRYMOSE"
+       "text": "improvised",
+       "note": "an improvised performance is made up on the spot, so the letters are put together freshly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "my carols, he",
+       "note": "taken as written, ten letters"
       }
      ]
     },
@@ -411,38 +370,25 @@
    },
    "solution": "PANS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "PANS",
     "definitions": [
      {
       "text": "Kitchen items",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when overturned",
-      "for": "reversal",
-      "note": "anything overturned is flipped end over end, so its order runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "break",
-      "gives": "SNAP",
-      "note": "to snap is to break suddenly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PANS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SNAP",
-       "to": "PANS"
+       "text": "when overturned",
+       "note": "anything overturned is flipped end over end, so its order runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "break",
+       "gives": "SNAP",
+       "note": "to snap is to break suddenly"
       }
      ]
     },
@@ -478,54 +424,45 @@
    },
    "solution": "ABUDHABI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ABU DHABI",
     "definitions": [
      {
       "text": "port",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "when something is leaving it departs, so a letter is taken away"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sprout",
-      "gives": "BUD",
-      "note": "a bud is a sprout on a plant"
-     },
-     {
-      "clueFragment": "addiction",
-      "gives": "HABIT",
-      "note": "a habit is a dependency on a drug"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BUD",
-      "HABI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "when something is leaving it departs, so a letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "sprout",
+         "gives": "BUD",
+         "note": "a bud is a sprout on a plant"
+        },
+        {
+         "words": "addiction",
+         "gives": "HABIT",
+         "note": "a habit is a dependency on a drug"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time; it is removed"
+      }
      ]
     },
     "explanation": {
@@ -555,31 +492,16 @@
    },
    "solution": "SQUASHES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SQUASHES",
     "definitions": [
      {
       "text": "Drinks made of fruit",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: fruit cordials diluted with water"
      },
      {
       "text": "vegetables",
-      "at": 25
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drinks made of fruit",
-      "note": "first meaning: fruit cordials diluted with water"
-     },
-     {
-      "clueFragment": "vegetables",
-      "note": "second meaning: gourds such as butternut or marrow"
+      "at": 25,
+      "meaning": "second meaning: gourds such as butternut or marrow"
      }
     ],
     "explanation": {
@@ -609,68 +531,70 @@
    },
    "solution": "EXPECTANCY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "container"
-    ],
-    "answer": "EXPECTANCY",
     "definitions": [
      {
       "text": "Hope",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the final letter is dropped"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing set in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former",
-      "gives": "EX",
-      "note": "ex means former"
-     },
-     {
-      "clueFragment": "film star",
-      "gives": "PECK",
-      "note": "Gregory Peck, Hollywood actor; mostly, so the last letter goes"
-     },
-     {
-      "clueFragment": "thanks",
-      "gives": "TA",
-      "note": "ta is British informal thanks"
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C is the card-suit abbreviation for clubs"
-     },
-     {
-      "clueFragment": "New York",
-      "gives": "NY",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "PEC",
-      "TA",
-      "N",
-      "C",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "former",
+           "gives": "EX",
+           "note": "ex means former"
+          },
+          {
+           "words": "film star",
+           "gives": "PECK",
+           "note": "Gregory Peck, Hollywood actor; mostly, so the last letter goes"
+          },
+          {
+           "words": "thanks",
+           "gives": "TA",
+           "note": "ta is British informal thanks"
+          }
+         ]
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing set in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New York",
+         "gives": "NY",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "clubs",
+         "gives": "C",
+         "note": "C is the card-suit abbreviation for clubs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -700,44 +624,35 @@
    },
    "solution": "GURU",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GURU",
     "definitions": [
      {
       "text": "Expert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "retired",
-      "for": "reversal",
-      "note": "to retire is to go back, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "runner",
-      "gives": "RUG",
-      "note": "a runner is a long narrow rug for a hall or stairs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GURU"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "URUG",
-       "to": "GURU"
+       "text": "retired",
+       "note": "to retire is to go back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "runner",
+         "gives": "RUG",
+         "note": "a runner is a long narrow rug for a hall or stairs"
+        }
+       ]
       }
      ]
     },
@@ -774,39 +689,31 @@
    },
    "solution": "NERVERACKING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NERVE-RACKING",
     "definitions": [
      {
       "text": "Trying",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, one thing placed on another sits above it, so it comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brass",
-      "gives": "NERVE",
-      "note": "brass, like nerve, means cheeky boldness"
-     },
-     {
-      "clueFragment": "shelved storage",
-      "gives": "RACKING",
-      "note": "racking is a system of shelves for storing goods"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NERVE",
-      "RACKING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue, one thing placed on another sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brass",
+       "gives": "NERVE",
+       "note": "brass, like nerve, means cheeky boldness"
+      },
+      {
+       "words": "shelved storage",
+       "gives": "RACKING",
+       "note": "racking is a system of shelves for storing goods"
+      }
      ]
     },
     "explanation": {
@@ -835,40 +742,39 @@
    },
    "solution": "EXEMPT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "EXEMPT",
     "definitions": [
      {
       "text": "free",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "not entirely",
-      "for": "deletion",
-      "note": "not entirely means short of the whole, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lover, once",
-      "gives": "EX",
-      "note": "a former partner is an ex"
-     },
-     {
-      "clueFragment": "clear",
-      "gives": "EMPTY",
-      "note": "to clear a room is to empty it; the last letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "EMPT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not entirely",
+       "note": "not entirely means short of the whole, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lover, once",
+         "gives": "EX",
+         "note": "a former partner is an ex"
+        },
+        {
+         "words": "clear",
+         "gives": "EMPTY",
+         "note": "to clear a room is to empty it; the last letter goes"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -897,50 +803,41 @@
    },
    "solution": "BREECHES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BREECHES",
     "definitions": [
      {
       "text": "parts of barrels",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points at the end, so only the closing letter is kept"
-     },
-     {
-      "text": "cuts",
-      "for": "container",
-      "note": "something that cuts into another enters it, so it ends up inside"
-     }
-    ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trees",
-      "gives": "BEECHES",
-      "note": "beeches are a kind of tree"
-     },
-     {
-      "clueFragment": "Cooper",
-      "gives": "R",
-      "select": "last",
-      "note": "closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "R",
-      "EECHES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts",
+       "note": "something that cuts into another enters it, so it ends up inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trees",
+       "gives": "BEECHES",
+       "note": "beeches are a kind of tree"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points at the end, so only the closing letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cooper",
+         "note": "closing letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -980,40 +877,31 @@
    },
    "solution": "FREEFORALL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FREE-FOR-ALL",
     "definitions": [
      {
       "text": "Scrap",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to protect",
-      "for": "container",
-      "note": "to protect something is to surround and shield it, so one piece encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of parachute jump",
-      "gives": "FREEFALL",
-      "note": "the stretch of a jump before the parachute opens is freefall"
-     },
-     {
-      "clueFragment": "soldiers",
-      "gives": "OR",
-      "note": "OR stands for other ranks, ordinary soldiers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FREEF",
-      "OR",
-      "ALL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "note": "to protect something is to surround and shield it, so one piece encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of parachute jump",
+       "gives": "FREEFALL",
+       "note": "the stretch of a jump before the parachute opens is freefall"
+      },
+      {
+       "words": "soldiers",
+       "gives": "OR",
+       "note": "OR stands for other ranks, ordinary soldiers"
+      }
      ]
     },
     "explanation": {
@@ -1042,35 +930,24 @@
    },
    "solution": "IRREMOVABLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IRREMOVABLE",
     "definitions": [
      {
       "text": "bolted down",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "frantically",
-      "for": "anagram",
-      "note": "acting frantically means flailing in disorder, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "More veal rib",
-      "gives": "MOREVEALRIB",
-      "note": "taken as written, eleven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MOREVEALRIB",
-       "gives": "IRREMOVABLE"
+       "text": "frantically",
+       "note": "acting frantically means flailing in disorder, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "More veal rib",
+       "note": "taken as written, eleven letters"
       }
      ]
     },
@@ -1101,32 +978,25 @@
    },
    "solution": "OBSCURED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBSCURED",
     "definitions": [
      {
       "text": "out of sight",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Pupils no longer",
-      "gives": "OBS",
-      "note": "former pupils are old boys, OBs"
-     },
-     {
-      "clueFragment": "put right",
-      "gives": "CURED",
-      "note": "to cure a fault is to put it right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OBS",
-      "CURED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pupils no longer",
+       "gives": "OBS",
+       "note": "former pupils are old boys, OBs"
+      },
+      {
+       "words": "put right",
+       "gives": "CURED",
+       "note": "to cure a fault is to put it right"
+      }
      ]
     },
     "explanation": {
@@ -1155,28 +1025,16 @@
    },
    "solution": "MAGAZINE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MAGAZINE",
     "definitions": [
      {
       "text": "One might be tucked in a paper",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a colour supplement slipped inside a weekend newspaper"
      },
      {
       "text": "clip",
-      "at": 31
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One might be tucked in a paper",
-      "note": "first meaning: a colour supplement slipped inside a weekend newspaper"
-     },
-     {
-      "clueFragment": "clip",
-      "note": "second meaning: the detachable holder of cartridges for a gun"
+      "at": 31,
+      "meaning": "second meaning: the detachable holder of cartridges for a gun"
      }
     ],
     "explanation": {
@@ -1205,45 +1063,34 @@
    },
    "solution": "BRAINTEASER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "BRAINTEASER",
     "definitions": [
      {
       "text": "Puzzle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rallied",
-      "for": "anagram",
-      "note": "troops that are rallied are regrouped into new formation, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "supporter",
-      "gives": "BRA",
-      "note": "a bra is an undergarment that supports"
-     },
-     {
-      "clueFragment": "trainees",
-      "gives": "TRAINEES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRA",
-      "INTEASER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TRAINEES",
-       "gives": "INTEASER"
+       "words": "supporter",
+       "gives": "BRA",
+       "note": "a bra is an undergarment that supports"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rallied",
+         "note": "troops that are rallied are regrouped into new formation, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trainees",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1273,40 +1120,30 @@
    },
    "solution": "VIRAGO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VIRAGO",
     "definitions": [
      {
       "text": "shrew",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "infiltrated by",
-      "for": "container",
-      "note": "something infiltrated has an intruder get inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House",
-      "gives": "VIRGO",
-      "note": "Virgo is a sign of the zodiac, which astrologers call a house"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIR",
-      "A",
-      "GO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infiltrated by",
+       "note": "something infiltrated has an intruder get inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "House",
+       "gives": "VIRGO",
+       "note": "Virgo is a sign of the zodiac, which astrologers call a house"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1336,40 +1173,31 @@
    },
    "solution": "BEREFT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEREFT",
     "definitions": [
      {
       "text": "Deprived",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing set in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "limp headgear",
-      "gives": "BERET",
-      "note": "a beret is a soft, floppy cap"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "F",
-      "note": "F is an abbreviation for fellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BERE",
-      "F",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing set in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "limp headgear",
+       "gives": "BERET",
+       "note": "a beret is a soft, floppy cap"
+      },
+      {
+       "words": "fellow",
+       "gives": "F",
+       "note": "F is an abbreviation for fellow"
+      }
      ]
     },
     "explanation": {
@@ -1404,40 +1232,31 @@
    },
    "solution": "CHATSHOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHAT SHOW",
     "definitions": [
      {
       "text": "programme",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "imports",
-      "for": "container",
-      "note": "to import goods is to bring them inside, so one piece takes in another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food",
-      "gives": "CHOW",
-      "note": "chow is slang for food"
-     },
-     {
-      "clueFragment": "Eg Panama's",
-      "gives": "HATS",
-      "note": "a Panama is an example of a hat, and the 's' turns it plural: Panama is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HATS",
-      "HOW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imports",
+       "note": "to import goods is to bring them inside, so one piece takes in another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "food",
+       "gives": "CHOW",
+       "note": "chow is slang for food"
+      },
+      {
+       "words": "Eg Panama's",
+       "gives": "HATS",
+       "note": "a Panama is an example of a hat, and the 's' turns it plural: Panama is"
+      }
      ]
     },
     "explanation": {
@@ -1467,49 +1286,41 @@
    },
    "solution": "ACTIVE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ACTIVE",
     "definitions": [
      {
       "text": "Working",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "container",
-      "note": "to box something is to enclose it, so one piece goes inside another"
-     },
-     {
-      "text": "to be sent back",
-      "for": "reversal",
-      "note": "whatever is sent back returns the way it came, so it runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical",
-      "gives": "EVITA",
-      "note": "the Lloyd Webber musical about Eva Perón"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "C is short for circa, about"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACTIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EVITCA",
-       "to": "ACTIVE"
+       "text": "to be sent back",
+       "note": "whatever is sent back returns the way it came, so it runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boxes",
+         "note": "to box something is to enclose it, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical",
+         "gives": "EVITA",
+         "note": "the Lloyd Webber musical about Eva Perón"
+        },
+        {
+         "words": "about",
+         "gives": "C",
+         "note": "C is short for circa, about"
+        }
+       ]
       }
      ]
     },
@@ -1539,34 +1350,28 @@
    },
    "solution": "KIWI",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "KIWI",
     "definitions": [
      {
       "text": "It will never take off",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Half promoted",
-      "for": "cycling",
-      "note": "in a down clue, promoting one half lifts it above the other, so the two halves swap places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "website",
-      "gives": "WIKI",
-      "note": "a wiki is a collaboratively edited website"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KI",
-      "WI"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "KIWI",
+     "indicators": [
+      {
+       "text": "Half promoted",
+       "note": "in a down clue, promoting one half lifts it above the other, so the two halves swap places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "website",
+       "gives": "WIKI",
+       "note": "a wiki is a collaboratively edited website"
+      }
      ]
     },
     "explanation": {
@@ -1596,34 +1401,29 @@
    },
    "solution": "ROIL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ROIL",
     "definitions": [
      {
       "text": "Make agitated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by a reporter",
-      "for": "homophone",
-      "note": "a reporter speaks on air, so the word is as spoken rather than as written"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like a prince",
-      "gives": "ROIL",
-      "soundsLike": "ROYAL",
-      "note": "a prince is royal, said with the vowels run together"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROIL",
+     "indicators": [
+      {
+       "text": "by a reporter",
+       "note": "a reporter speaks on air, so the word is as spoken rather than as written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "like a prince",
+       "gives": "ROYAL",
+       "note": "a prince is royal, said with the vowels run together"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A journalist describing a prince manages to stir things up.",
      "walkthrough": "The sound match relies on royal said quickly as one syllable.",
@@ -1650,51 +1450,41 @@
    },
    "solution": "FACILITATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "FACILITATE",
     "definitions": [
      {
       "text": "make possible",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "doing a turn",
-      "for": "reversal",
-      "note": "turning round faces the other way, so the order flips"
-     },
-     {
-      "text": "clothes",
-      "for": "container",
-      "note": "clothes cover and wrap a body, so one piece surrounds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple",
-      "gives": "FACILE",
-      "note": "facile means simple, easily done"
-     },
-     {
-      "clueFragment": "Mime",
-      "gives": "TATI",
-      "note": "Jacques Tati, French comic actor famed for near-silent physical comedy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FACIL",
-      "ITAT",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "TATI",
-       "to": "ITAT"
+       "text": "clothes",
+       "note": "clothes cover and wrap a body, so one piece surrounds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "simple",
+       "gives": "FACILE",
+       "note": "facile means simple, easily done"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "doing a turn",
+         "note": "turning round faces the other way, so the order flips"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mime",
+         "gives": "TATI",
+         "note": "Jacques Tati, French comic actor famed for near-silent physical comedy"
+        }
+       ]
       }
      ]
     },
@@ -1724,30 +1514,18 @@
    },
    "solution": "DOES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOES",
     "definitions": [
      {
       "text": "Female's",
       "at": 0,
-      "note": "read as Female is: plural noun, female deer"
+      "note": "read as Female is: plural noun, female deer",
+      "meaning": "first meaning: female deer are, in the plural, a word sounding like the possessive"
      },
      {
       "text": "effects",
       "at": 9,
-      "note": "a verb, third person singular"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female's",
-      "note": "first meaning: female deer are, in the plural, a word sounding like the possessive"
-     },
-     {
-      "clueFragment": "effects",
-      "note": "second meaning: brings about or carries out"
+      "note": "a verb, third person singular",
+      "meaning": "second meaning: brings about or carries out"
      }
     ],
     "explanation": {
@@ -1782,44 +1560,34 @@
    },
    "solution": "FLYINGBOAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLYING BOAT",
     "definitions": [
      {
       "text": "Special vehicle",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "race",
-      "gives": "FLY",
-      "note": "to race is to fly along"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "this country",
-      "gives": "GB",
-      "note": "a British setter's own country, Great Britain"
-     },
-     {
-      "clueFragment": "grass",
-      "gives": "OAT",
-      "note": "oat is a cereal grass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLY",
-      "IN",
-      "GB",
-      "OAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "race",
+       "gives": "FLY",
+       "note": "to race is to fly along"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "this country",
+       "gives": "GB",
+       "note": "a British setter's own country, Great Britain"
+      },
+      {
+       "words": "grass",
+       "gives": "OAT",
+       "note": "oat is a cereal grass"
+      }
      ]
     },
     "explanation": {

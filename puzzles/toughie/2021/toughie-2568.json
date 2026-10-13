@@ -1,8 +1,6 @@
 {
  "id": "toughie-2568",
  "number": 2568,
- "series": "toughie",
- "name": "Telegraph Toughie No 2,568",
  "setter": "Elgar",
  "date": "2021-01-01",
  "dimensions": {
@@ -38,37 +36,37 @@
    },
    "solution": "IBIS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IBIS",
     "definitions": [
      {
       "text": "flyer",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "unmentioned",
-      "for": "deletion",
-      "note": "what goes unmentioned is left out, so every letter standing for time is dropped from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Times",
-      "note": "T is the abbreviation for time; here every T is meant"
-     },
-     {
-      "clueFragment": "Tit-bits",
-      "gives": "TITBITS",
-      "note": "taken as written, without the hyphen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IBIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "The Times",
+       "note": "T is the abbreviation for time; here every T is meant"
+      },
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "IBIS",
+       "indicators": [
+        {
+         "text": "unmentioned",
+         "note": "what goes unmentioned is left out, so every letter standing for time is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tit-bits",
+         "note": "taken as written, without the hyphen"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -97,34 +95,25 @@
    },
    "solution": "FAERIE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FAERIE",
     "definitions": [
      {
       "text": "Something enchanting from poet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in steps",
-      "for": "letter_selection",
-      "note": "walking in steps lands on every second spot, so only alternate letters are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of rare praise",
-      "gives": "FAERIE",
-      "select": "alternate",
-      "note": "the second, fourth, sixth letters and so on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAERIE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "in steps",
+       "note": "walking in steps lands on every second spot, so only alternate letters are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of rare praise",
+       "note": "the second, fourth, sixth letters and so on"
+      }
      ]
     },
     "explanation": {
@@ -153,67 +142,58 @@
    },
    "solution": "EROTOMANIA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram",
-     "container"
-    ],
-    "answer": "EROTOMANIA",
     "definitions": [
      {
       "text": "In which, fixated by notable date, am I not deluded about love?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fixated by",
-      "for": "container",
-      "note": "something fixated by another is held fast within it, so the remaining letters sit inside"
-     },
-     {
-      "text": "deluded",
-      "for": "anagram",
-      "note": "a deluded mind has its thoughts scrambled, so these letters are rearranged"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the jumble goes around the next item, wrapping it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "notable date",
-      "gives": "ERA",
-      "note": "an era is a period dated from a notable event"
-     },
-     {
-      "clueFragment": "am I not",
-      "gives": "AMINOT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ER",
-      "OT",
-      "O",
-      "MANI",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AMINOT",
-       "gives": "OTMANI"
+       "text": "fixated by",
+       "note": "something fixated by another is held fast within it, so the remaining letters sit inside"
+      },
+      {
+       "text": "about",
+       "note": "the jumble goes around the next item, wrapping it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "notable date",
+       "gives": "ERA",
+       "note": "an era is a period dated from a notable event"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deluded",
+         "note": "a deluded mind has its thoughts scrambled, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "am I not",
+           "note": "taken as written"
+          },
+          {
+           "words": "love",
+           "gives": "O",
+           "note": "love is zero in tennis, shaped like O"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone obsessed with an anniversary asks whether they are really mistaken about romance.",
      "walkthrough": "Rearrange AM I NOT around O to get OTOMANI, then put that inside ERA. The whole clue also describes the condition: a deluded belief about love.",
@@ -240,34 +220,38 @@
    },
    "solution": "ETCHED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ETCHED",
     "definitions": [
      {
       "text": "Cut",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a slice of",
-      "for": "hidden_word",
-      "note": "a slice is a piece taken from within something larger, so the letters lie inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Somerset (or",
-      "note": "surface padding: the other county, which would hide the same letters"
-     },
-     {
-      "clueFragment": "Dorset??) Cheddar",
-      "gives": "ETCHED",
-      "note": "found running across the county name and the cheese"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Somerset (or",
+       "note": "surface padding: the other county, which would hide the same letters"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "a slice of",
+         "note": "a slice is a piece taken from within something larger, so the letters lie inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dorset??) Cheddar",
+         "gives": "ETCHED",
+         "note": "found running across the county name and the cheese"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Instructions to cut a piece of West Country cheese, with doubt over which county it comes from.",
      "walkthrough": "The joke is that it hides equally well in 'Somerset Cheddar' and 'Dorset Cheddar', hence the bemused question marks. Both are English counties.",
@@ -295,40 +279,31 @@
    },
    "solution": "LEATHERN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEATHERN",
     "definitions": [
      {
       "text": "made of tanned hide",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the first word goes around the following one, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Receive news",
-      "gives": "LEARN",
-      "note": "to learn something is to receive news of it"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "THE",
-      "note": "the definite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA",
-      "THE",
-      "RN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the first word goes around the following one, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Receive news",
+       "gives": "LEARN",
+       "note": "to learn something is to receive news of it"
+      },
+      {
+       "words": "article",
+       "gives": "THE",
+       "note": "the definite article"
+      }
      ]
     },
     "explanation": {
@@ -356,27 +331,16 @@
    },
    "solution": "ATOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATOP",
     "definitions": [
      {
       "text": "above",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "More than 50% of the letters",
-      "gives": "ATOP",
-      "note": "the alphabet from its first letter through to the sixteenth, which is over half of twenty-six"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATOP"
-     ]
+    "wordplay": {
+     "words": "More than 50% of the letters",
+     "gives": "ATOP",
+     "note": "the alphabet from its first letter through to the sixteenth, which is over half of twenty-six"
     },
     "explanation": {
      "surface": "A puzzle about what proportion of the characters sit higher up the page.",
@@ -405,40 +369,31 @@
    },
    "solution": "LORRAINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LORRAINE",
     "definitions": [
      {
       "text": "old French region",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "teaching",
-      "gives": "LORE",
-      "note": "lore is a body of teaching or traditional knowledge"
-     },
-     {
-      "clueFragment": "A fall",
-      "gives": "RAIN",
-      "note": "rain is a fall from the sky"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOR",
-      "RAIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teaching",
+       "gives": "LORE",
+       "note": "lore is a body of teaching or traditional knowledge"
+      },
+      {
+       "words": "A fall",
+       "gives": "RAIN",
+       "note": "rain is a fall from the sky"
+      }
      ]
     },
     "explanation": {
@@ -472,54 +427,40 @@
    },
    "solution": "LEADASTRAY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LEAD ASTRAY",
     "definitions": [
      {
       "text": "Take once-a-year drinker out, maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     },
-     {
-      "text": "getting tiddly",
-      "for": "anagram",
-      "note": "tiddly means tipsy, and a tipsy word staggers into a new order"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ely",
-      "gives": "ELY",
-      "note": "the cathedral city, taken as written"
-     },
-     {
-      "clueFragment": "to the Stars",
-      "gives": "ADASTRA",
-      "note": "Latin for to the stars, as in the RAF motto per ardua ad astra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "ADASTRA",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ELY",
-       "gives": "LEY"
+       "text": "in",
+       "note": "one item placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting tiddly",
+         "note": "tiddly means tipsy, and a tipsy word staggers into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ely",
+         "note": "the cathedral city, taken as written"
+        }
+       ]
+      },
+      {
+       "words": "to the Stars",
+       "gives": "ADASTRA",
+       "note": "Latin for to the stars, as in the RAF motto per ardua ad astra"
       }
      ]
     },
@@ -555,31 +496,29 @@
    },
    "solution": "BYAIR",
    "annotation": {
-    "type": [
-     "and_lit",
-     "hidden_word"
-    ],
-    "answer": "BY AIR",
     "definitions": [
      {
       "text": "This Libya-Ireland passage?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "passage",
-      "for": "hidden_word",
-      "note": "a passage is a section lifted from a text, so the letters lie within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Libya-Ireland",
-      "gives": "BYAIR",
-      "note": "found across the join of the two country names"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "passage",
+       "note": "a passage is a section lifted from a text, so the letters lie within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Libya-Ireland",
+       "gives": "BYAIR",
+       "note": "found across the join of the two country names"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A query about a journey between North Africa and Ireland.",
      "walkthrough": "The hidden letters also describe how such a journey would most likely be made, so the clue doubles as its own definition.",
@@ -613,26 +552,25 @@
    },
    "solution": "TWENTYONE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TWENTY-ONE",
     "definitions": [
      {
       "text": "Time to reject Old Year — insert this by end of date",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Time to reject Old Year",
-      "note": "surface reading: the moment to cast off the year just ending"
-     },
-     {
-      "clueFragment": "insert this by end of date",
-      "note": "setter's reading: the number now written at the end of every date in the new year"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Time to reject Old Year",
+       "note": "surface reading: the moment to cast off the year just ending"
+      },
+      {
+       "words": "insert this by end of date",
+       "note": "setter's reading: the number now written at the end of every date in the new year"
+      }
+     ]
+    },
     "explanation": {
      "surface": "New Year advice: time to throw out the old year and write the new figures when dating things.",
      "walkthrough": "The puzzle appeared at the start of 2021, so from now on the year's last two digits change from 20 to this number.",
@@ -660,61 +598,51 @@
    },
    "solution": "STRETCH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "STRETCH",
     "definitions": [
      {
       "text": "Some time",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginnings",
-      "for": "letter_selection",
-      "note": "beginnings are the starts of words, so only each first letter is kept"
-     },
-     {
-      "text": "looking back",
-      "for": "reversal",
-      "note": "looking back means facing the other way, so the place name is read from its end"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hatfield perhaps",
-      "gives": "HERTS",
-      "note": "Hatfield is a town in Hertfordshire, abbreviated Herts; 'perhaps' marks an example"
-     },
-     {
-      "clueFragment": "this compiler's",
-      "gives": "TC",
-      "select": "first",
-      "note": "the first letters of these two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRE",
-      "TC",
-      "H"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "HERTS",
-       "to": "STREH"
+       "text": "in",
+       "note": "one item placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "looking back",
+         "note": "looking back means facing the other way, so the place name is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hatfield perhaps",
+         "gives": "HERTS",
+         "note": "Hatfield is a town in Hertfordshire, abbreviated Herts; 'perhaps' marks an example"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginnings",
+         "note": "beginnings are the starts of words, so only each first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this compiler's",
+         "note": "the first letters of these two words"
+        }
+       ]
       }
      ]
     },
@@ -744,37 +672,28 @@
    },
    "solution": "TAPERED",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "TAPERED",
     "definitions": [
      {
       "text": "up to a point?",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Cart-horse",
-      "for": "cycling",
-      "note": "putting the cart before the horse swaps rear and front, so the back part moves to the front"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bureaucracy",
-      "gives": "REDTAPE",
-      "note": "red tape is bureaucratic procedure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAPE",
-      "RED"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "TAPERED",
+     "indicators": [
+      {
+       "text": "Cart-horse",
+       "note": "putting the cart before the horse swaps rear and front, so the back part moves to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bureaucracy",
+       "gives": "REDTAPE",
+       "note": "red tape is bureaucratic procedure"
+      }
      ]
     },
     "explanation": {
@@ -804,40 +723,31 @@
    },
    "solution": "RHEUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RHEUM",
     "definitions": [
      {
       "text": "sleep",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "features in",
-      "for": "container",
-      "note": "to feature in something is to appear within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weird",
-      "gives": "RUM",
-      "note": "rum is British slang for odd or weird"
-     },
-     {
-      "clueFragment": "This man",
-      "gives": "HE",
-      "note": "the pronoun for a man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "HE",
-      "UM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "features in",
+       "note": "to feature in something is to appear within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weird",
+       "gives": "RUM",
+       "note": "rum is British slang for odd or weird"
+      },
+      {
+       "words": "This man",
+       "gives": "HE",
+       "note": "the pronoun for a man"
+      }
      ]
     },
     "explanation": {
@@ -867,26 +777,25 @@
    },
    "solution": "RESOLUTION",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RESOLUTION",
     "definitions": [
      {
       "text": "Have you just made one on your completed grid?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Have you just made one",
-      "note": "surface reading: a New Year pledge you have just made"
-     },
-     {
-      "clueFragment": "on your completed grid",
-      "note": "setter's reading: a finished puzzle is solved, and solving is another sense of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Have you just made one",
+       "note": "surface reading: a New Year pledge you have just made"
+      },
+      {
+       "words": "on your completed grid",
+       "note": "setter's reading: a finished puzzle is solved, and solving is another sense of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A New Year question asked of a solver who has just finished this crossword.",
      "definitionFit": "The word means both a firm New Year pledge and the act of solving a problem, as a completed grid shows."
@@ -913,54 +822,48 @@
    },
    "solution": "DIETETICS",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DIETETICS",
     "definitions": [
      {
       "text": "It's tied up with restrictions of cuisine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "anagram",
-      "note": "something tied up is churned up and disordered, so the letters are rearranged"
-     },
-     {
-      "text": "restrictions of",
-      "for": "letter_selection",
-      "note": "restrictions are bounds, so only the outer edges of the word are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It's tied",
-      "gives": "ITSTIED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cuisine",
-      "gives": "CE",
-      "select": "outer",
-      "note": "the first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIETETICS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ITSTIEDCE",
-       "gives": "DIETETICS"
+       "text": "up",
+       "note": "something tied up is churned up and disordered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "It's tied",
+         "note": "taken as written"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "restrictions of",
+           "note": "restrictions are bounds, so only the outer edges of the word are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cuisine",
+           "note": "the first and last letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A field that is bound up with limits on what we may eat.",
      "walkthrough": "The whole clue also describes the subject: a discipline concerned with restricting food.",
@@ -987,56 +890,51 @@
    },
    "solution": "EDWARDIANA",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "EDWARDIANA",
     "definitions": [
      {
       "text": "early 20thC collection",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "Counteracting",
-      "for": "reversal",
-      "note": "counteracting works against something, turning it the opposite way"
-     },
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "the singer leaves, so his name departs from the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unfair treatment",
-      "gives": "RAWDEAL",
-      "note": "a raw deal is unfair treatment"
-     },
-     {
-      "clueFragment": "Jolson",
-      "gives": "AL",
-      "note": "Al Jolson, the American singer"
-     },
-     {
-      "clueFragment": "Ross",
-      "gives": "DIANA",
-      "note": "Diana Ross, the American singer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDWAR",
-      "DIANA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RAWDE",
-       "to": "EDWAR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Counteracting",
+         "note": "counteracting works against something, turning it the opposite way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaves",
+           "note": "the singer leaves, so his name departs from the phrase"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unfair treatment",
+           "gives": "RAWDEAL",
+           "note": "a raw deal is unfair treatment"
+          },
+          {
+           "words": "Jolson",
+           "gives": "AL",
+           "note": "Al Jolson, the American singer"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Ross",
+       "gives": "DIANA",
+       "note": "Diana Ross, the American singer"
       }
      ]
     },
@@ -1084,28 +982,16 @@
    },
    "solution": "SEEINTHENEWYEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SEE IN THE NEW YEAR",
     "definitions": [
      {
       "text": "Welcome 20 10, did you say?",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: greet twenty twenty-one, spoken from the figures plus the answers at 20 and 10"
      },
      {
       "text": "Enter here to make merry with wine and no end of beer",
-      "at": 28
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Welcome 20 10, did you say?",
-      "note": "first meaning: greet twenty twenty-one, spoken from the figures plus the answers at 20 and 10"
-     },
-     {
-      "clueFragment": "Enter here to make merry with wine and no end of beer",
-      "note": "second meaning: a description of a party on 31 December"
+      "at": 28,
+      "meaning": "second meaning: a description of a party on 31 December"
      }
     ],
     "explanation": {
@@ -1134,42 +1020,28 @@
    },
    "solution": "ENTRACTE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "ENTRACTE",
     "definitions": [
      {
       "text": "Music centre at which ____'s played?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "played",
-      "for": "anagram",
-      "note": "played suggests letters performed in a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre at",
-      "gives": "CENTREAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENTRACTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CENTREAT",
-       "gives": "ENTRACTE"
+       "text": "played",
+       "note": "played suggests letters performed in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "centre at",
+       "note": "taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Asks what is played at a music venue, with a blank where the act should be.",
      "walkthrough": "The blank stands for the gap in a show: the music is played in the middle, when nothing else is happening on stage.",
@@ -1197,38 +1069,30 @@
    },
    "solution": "HOGMANAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOGMANAY",
     "definitions": [
      {
       "text": "time to 16",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Meanly keep",
-      "gives": "HOG",
-      "note": "to hog is to keep selfishly"
-     },
-     {
-      "clueFragment": "mum",
-      "gives": "MA",
-      "note": "an informal word for mother"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "NAY",
-      "note": "an old word for no"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOG",
-      "MA",
-      "NAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Meanly keep",
+       "gives": "HOG",
+       "note": "to hog is to keep selfishly"
+      },
+      {
+       "words": "mum",
+       "gives": "MA",
+       "note": "an informal word for mother"
+      },
+      {
+       "words": "no",
+       "gives": "NAY",
+       "note": "an old word for no"
+      }
      ]
     },
     "explanation": {
@@ -1257,57 +1121,53 @@
    },
    "solution": "LETHARGIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "LETHARGIC",
     "definitions": [
      {
       "text": "Slow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moving",
-      "for": "anagram",
-      "note": "a moving thing shifts position, so the letters are reordered"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "the jumble goes round the next item, enclosing it"
-     },
-     {
-      "text": "is not detected",
-      "for": "deletion",
-      "note": "the word 'is' goes undetected, meaning those letters are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "glacier",
-      "gives": "GLACIER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "this",
-      "gives": "THIS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "TH",
-      "ARGIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GLACIER",
-       "gives": "LEARGIC"
+       "text": "round",
+       "note": "the jumble goes round the next item, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "note": "a moving thing shifts position, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glacier",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is not detected",
+         "note": "the word 'is' goes undetected, meaning those letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "note": "taken as written"
+        },
+        {
+         "gives": "IS"
+        }
+       ]
       }
      ]
     },
@@ -1336,58 +1196,50 @@
    },
    "solution": "CRECHE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "CRECHE",
     "definitions": [
      {
       "text": "nursery",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "A bit of",
-      "for": "letter_selection",
-      "note": "just a bit of the word is used, namely its first letter"
-     },
-     {
-      "text": "unusual",
-      "for": "anagram",
-      "note": "an unusual form is an altered one, so these letters are rearranged"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the jumble goes around the single letter, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cheer",
-      "gives": "CHEER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Christmas",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRE",
-      "C",
-      "HE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CHEER",
-       "gives": "CREHE"
+       "text": "around",
+       "note": "the jumble goes around the single letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "note": "an unusual form is an altered one, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheer",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "A bit of",
+         "note": "just a bit of the word is used, namely its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Christmas",
+         "note": "the first letter"
+        }
+       ]
       }
      ]
     },
@@ -1417,31 +1269,29 @@
    },
    "solution": "RITZY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RITZY",
     "definitions": [
      {
       "text": "with some style!",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Received",
-      "for": "homophone",
-      "note": "something received by the ear is heard, so the pieces are judged by how they are spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "summons notice",
-      "gives": "RITZY",
-      "soundsLike": "WRIT SEE",
-      "note": "a writ is a legal summons, and to see is to notice"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RITZY",
+     "indicators": [
+      {
+       "text": "Received",
+       "note": "something received by the ear is heard, so the pieces are judged by how they are spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "summons notice",
+       "gives": "WRITSEE",
+       "note": "a writ is a legal summons, and to see is to notice"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone served with a court summons takes the news with flair.",
      "walkthrough": "'Received' looks like part of the story of being served, but it signals sound.",
@@ -1468,45 +1318,35 @@
    },
    "solution": "TREMOR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TREMOR",
     "definitions": [
      {
       "text": "Shake",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from the bottom, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "what took over a day to build",
-      "gives": "ROME",
-      "note": "from the saying that Rome was not built in a day"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "RT",
-      "note": "a standard abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "EMOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ROMERT",
-       "to": "TREMOR"
+       "text": "up",
+       "note": "in a down clue, going up means reading from the bottom, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "what took over a day to build",
+         "gives": "ROME",
+         "note": "from the saying that Rome was not built in a day"
+        },
+        {
+         "words": "right",
+         "gives": "RT",
+         "note": "a standard abbreviation for right"
+        }
+       ]
       }
      ]
     },
@@ -1535,60 +1375,60 @@
    },
    "solution": "TUATARA",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "TUATARA",
     "definitions": [
      {
       "text": "NZ resident",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "clipped",
-      "for": "deletion",
-      "note": "something clipped has its end trimmed off"
-     },
-     {
-      "text": "reversing",
-      "for": "reversal",
-      "note": "a reversing car goes backwards, so its letters run backwards"
-     },
-     {
-      "text": "back over",
-      "for": "reversal",
-      "note": "turning back over flips the order of the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "car",
-      "gives": "AUTO",
-      "note": "auto is a car"
-     },
-     {
-      "clueFragment": "something suspicious",
-      "gives": "ARAT",
-      "note": "from the phrase to smell a rat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUA",
-      "TARA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AUT",
-       "to": "TUA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "note": "a reversing car goes backwards, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "clipped",
+           "note": "something clipped has its end trimmed off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "car",
+           "gives": "AUTO",
+           "note": "auto is a car"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
       },
       {
-       "from": "ARAT",
-       "to": "TARA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back over",
+         "note": "turning back over flips the order of the letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "something suspicious",
+         "gives": "ARAT",
+         "note": "from the phrase to smell a rat"
+        }
+       ]
       }
      ]
     },
@@ -1617,45 +1457,35 @@
    },
    "solution": "AVOW",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AVOW",
     "definitions": [
      {
       "text": "Justify what one's done",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the turn",
-      "for": "reversal",
-      "note": "something on the turn is turning round, so the letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "eggs",
-      "gives": "OVA",
-      "note": "ova are eggs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVO",
-      "W"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "WOVA",
-       "to": "AVOW"
+       "text": "on the turn",
+       "note": "something on the turn is turning round, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        },
+        {
+         "words": "eggs",
+         "gives": "OVA",
+         "note": "ova are eggs"
+        }
+       ]
       }
      ]
     },
@@ -1685,43 +1515,31 @@
    },
    "solution": "EXIGENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EXIGENT",
     "definitions": [
      {
       "text": "pressing",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "clothes",
-      "for": "container",
-      "note": "to clothe something is to wrap it up, so one word encloses the next"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Out-door",
-      "gives": "EXIT",
-      "note": "an exit is a door leading out"
-     },
-     {
-      "clueFragment": "dope",
-      "gives": "GEN",
-      "note": "dope and gen are both slang for information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXI",
-      "GEN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothes",
+       "note": "to clothe something is to wrap it up, so one word encloses the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Out-door",
+       "gives": "EXIT",
+       "note": "an exit is a door leading out"
+      },
+      {
+       "words": "dope",
+       "gives": "GEN",
+       "note": "dope and gen are both slang for information"
+      }
      ]
     },
     "explanation": {
@@ -1750,51 +1568,41 @@
    },
    "solution": "THEY",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "THEY",
     "definitions": [
      {
       "text": "Official figures",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "parts",
-      "for": "container",
-      "note": "the hot item parts the next word, splitting it to sit inside"
-     },
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue, rising means reading upwards, so backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "still",
-      "gives": "YET",
-      "note": "still and yet both mean nevertheless or up to now"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the abbreviation for hot, as on taps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "H",
-      "EY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "YEHT",
-       "to": "THEY"
+       "text": "rising",
+       "note": "in a down clue, rising means reading upwards, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "parts",
+         "note": "the hot item parts the next word, splitting it to sit inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "still",
+         "gives": "YET",
+         "note": "still and yet both mean nevertheless or up to now"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
       }
      ]
     },
@@ -1823,44 +1631,36 @@
    },
    "solution": "OSTEOPATH",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "OSTEOPATH",
     "definitions": [
      {
       "text": "Manipulating sort",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "features",
-      "for": "hidden_word",
-      "note": "what a phrase features it contains, so the letters lie within these words"
-     },
-     {
-      "text": "retro",
-      "for": "reversal",
-      "note": "retro means backward-looking, so the letters are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thought a poet's odes",
-      "gives": "HTAPOETSO",
-      "note": "running from the end of the first word into the last"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OSTEOPATH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HTAPOETSO",
-       "to": "OSTEOPATH"
+       "text": "retro",
+       "note": "retro means backward-looking, so the letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "features",
+         "note": "what a phrase features it contains, so the letters lie within these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thought a poet's odes",
+         "gives": "HTAPOETSO",
+         "note": "running from the end of the first word into the last"
+        }
+       ]
       }
      ]
     },
@@ -1897,44 +1697,35 @@
    },
    "solution": "NOONE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NO-ONE",
     "definitions": [
      {
       "text": "who's got any?",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "What's left of",
-      "for": "letter_selection",
-      "note": "the left end of a word is its start, so the first letter is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twelve",
-      "gives": "NOON",
-      "note": "noon is twelve o'clock midday"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOON",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "twelve",
+       "gives": "NOON",
+       "note": "noon is twelve o'clock midday"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "What's left of",
+         "note": "the left end of a word is its start, so the first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "energy",
+         "note": "the first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29930",
  "number": 29930,
- "series": "cryptic",
- "name": "Prize crossword No 29,930",
+ "prize": true,
  "setter": "Vlad",
  "date": "2026-02-14",
  "dimensions": {
@@ -38,45 +37,49 @@
    },
    "solution": "HORATIO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "HORATIO",
     "definitions": [
      {
       "text": "another character",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "note": "the first letter of Hamlet"
-     },
-     {
-      "text": "interrupted",
-      "note": "the speech is cut off before its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hamlet's first",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of Hamlet"
-     },
-     {
-      "clueFragment": "speech interrupted",
-      "gives": "ORATIO",
-      "note": "ORATION with its last letter cut off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ORATIO"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HORATIO",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "the first letter of Hamlet"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "interrupted",
+           "note": "the speech is cut off before its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Hamlet's first",
+           "gives": "HAMLETFIRST",
+           "note": "first letter of Hamlet"
+          }
+         ]
+        },
+        {
+         "words": "speech interrupted",
+         "gives": "ORATIO",
+         "note": "ORATION with its last letter cut off"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -105,40 +108,37 @@
    },
    "solution": "ORGANIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORGANIC",
     "definitions": [
      {
       "text": "Naturally growing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interfered with",
-      "for": "anagram",
-      "note": "letters that are interfered with are tampered with and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old, a standard abbreviation"
-     },
-     {
-      "clueFragment": "racing",
-      "gives": "RGANIC",
-      "note": "RACING rearranged after the O"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ORGANIC",
+     "indicators": [
       {
-       "fodder": "O RACING",
-       "gives": "ORGANIC"
+       "text": "interfered with",
+       "note": "letters that are interfered with are tampered with and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O = old, a standard abbreviation"
+        },
+        {
+         "words": "racing",
+         "gives": "RGANIC",
+         "note": "RACING rearranged after the O"
+        }
+       ]
       }
      ]
     },
@@ -168,39 +168,36 @@
    },
    "solution": "ALERT",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ALERT",
     "definitions": [
      {
       "text": "Warning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "note": "the answer is taken from inside the words that follow"
-     },
-     {
-      "text": "rebuffed",
-      "note": "pushed back, so the letters run backwards (up, in a down clue)"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "distant relative",
-      "gives": "TRELA",
-      "note": "the letters sitting across distanT RELAtive"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TRELA",
-       "to": "ALERT"
+       "text": "from",
+       "note": "the answer is taken from inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "rebuffed",
+         "note": "pushed back, so the letters run backwards (up, in a down clue)"
+        }
+       ],
+       "parts": [
+        {
+         "words": "distant relative",
+         "gives": "TRELA",
+         "note": "the letters sitting across distanT RELAtive"
+        }
+       ]
       }
      ]
     },
@@ -230,39 +227,30 @@
    },
    "solution": "IMPASTO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMPASTO",
     "definitions": [
      {
       "text": "Painting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I think",
-      "gives": "IMO",
-      "note": "IMO = in my opinion, text-speak for I think"
-     },
-     {
-      "clueFragment": "no more",
-      "gives": "PAST",
-      "note": "past = over, no more"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PAST",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I think",
+       "gives": "IMO",
+       "note": "IMO = in my opinion, text-speak for I think"
+      },
+      {
+       "words": "no more",
+       "gives": "PAST",
+       "note": "past = over, no more"
+      }
      ]
     },
     "explanation": {
@@ -297,49 +285,46 @@
    },
    "solution": "PUBBORE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PUB BORE",
     "definitions": [
      {
       "text": "one wouldn't be welcome locally",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "after means following in order"
-     },
-     {
-      "text": "admitted",
-      "note": "to admit is to let in, so the opening takes the other letters inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Opening",
-      "gives": "PORE",
-      "note": "a pore is a small opening in skin"
-     },
-     {
-      "clueFragment": "Union",
-      "gives": "U",
-      "note": "U = Union, a standard abbreviation"
-     },
-     {
-      "clueFragment": "B&B",
-      "gives": "BB",
-      "note": "the two Bs taken as they stand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "UBB",
-      "ORE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after means following in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Opening",
+       "gives": "PORE",
+       "note": "a pore is a small opening in skin"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "admitted",
+         "note": "to admit is to let in, so the opening takes the other letters inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Union",
+         "gives": "U",
+         "note": "U = Union, a standard abbreviation"
+        },
+        {
+         "words": "B&B",
+         "note": "the two Bs taken as they stand"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -369,32 +354,25 @@
    },
    "solution": "UNLOCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNLOCK",
     "definitions": [
      {
       "text": "Release",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one French",
-      "gives": "UN",
-      "note": "un is French for one"
-     },
-     {
-      "clueFragment": "rugby player",
-      "gives": "LOCK",
-      "note": "a lock is a second-row forward in rugby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "LOCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one French",
+       "gives": "UN",
+       "note": "un is French for one"
+      },
+      {
+       "words": "rugby player",
+       "gives": "LOCK",
+       "note": "a lock is a second-row forward in rugby"
+      }
      ]
     },
     "explanation": {
@@ -429,50 +407,47 @@
    },
    "solution": "BOXCAMERA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BOX CAMERA",
     "definitions": [
      {
       "text": "Shooter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "after means following in order"
-     },
-     {
-      "text": "wearing",
-      "note": "what is worn goes round the wearer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "strapping fellow",
-      "gives": "OX",
-      "note": "an ox is a big, strong man"
-     },
-     {
-      "clueFragment": "turned up",
-      "gives": "CAME",
-      "note": "came = turned up, arrived"
-     },
-     {
-      "clueFragment": "underwear",
-      "gives": "BRA",
-      "note": "a bra is underwear"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OX",
-      "CAME",
-      "RA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after means following in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "underwear",
+       "gives": "BRA",
+       "note": "a bra is underwear"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "wearing",
+         "note": "what is worn goes round the wearer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strapping fellow",
+         "gives": "OX",
+         "note": "an ox is a big, strong man"
+        },
+        {
+         "words": "turned up",
+         "gives": "CAME",
+         "note": "came = turned up, arrived"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -502,44 +477,45 @@
    },
    "solution": "RANTING",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "RANTING",
     "definitions": [
      {
       "text": "crosswords",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "A little",
-      "note": "only a little of the word is taken, its first letter"
-     },
-     {
-      "text": "in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "judging",
-      "gives": "RATING",
-      "note": "rating = judging, assessing"
-     },
-     {
-      "clueFragment": "A little narrow-minded",
-      "gives": "N",
-      "select": "first",
-      "note": "first letter of narrow-minded"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "N",
-      "TING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "A little",
+       "note": "only a little of the word is taken, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "judging",
+       "gives": "RATING",
+       "note": "rating = judging, assessing"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "N",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "A little narrow-minded",
+         "gives": "N",
+         "select": "first",
+         "note": "first letter of narrow-minded"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -575,38 +551,24 @@
    },
    "solution": "TRYSTINGPLACE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRYSTING PLACE",
     "definitions": [
      {
       "text": "where lovers are meeting",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "accidentally",
-      "for": "anagram",
-      "note": "the letters have been jumbled by accident"
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clanger! Typist",
-      "gives": "CLANGERTYPIST",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLANGER TYPIST",
-       "gives": "TRYSTINGPLACE"
+       "text": "accidentally",
+       "note": "the letters have been jumbled by accident"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Clanger! Typist",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -636,37 +598,30 @@
    },
    "solution": "OGLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OGLE",
     "definitions": [
      {
       "text": "not a good look?",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Search for information",
-      "gives": "GOOGLE",
-      "note": "to google = to search online"
-     },
-     {
-      "clueFragment": "turn",
-      "gives": "GO",
-      "note": "a go is a turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OGLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Search for information",
+       "gives": "GOOGLE",
+       "note": "to google = to search online"
+      },
+      {
+       "words": "turn",
+       "gives": "GO",
+       "note": "a go is a turn"
+      }
      ]
     },
     "explanation": {
@@ -696,57 +651,49 @@
    },
    "solution": "PERPLEXING",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PERPLEXING",
     "definitions": [
      {
       "text": "bewildering",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "occupying",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First Mrs Vlad",
-      "gives": "EX",
-      "note": "the setter's first wife would be his ex"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "PER",
-      "note": "per = a, as in ten pounds per head"
-     },
-     {
-      "clueFragment": "place",
-      "gives": "PL",
-      "note": "PL = place, as in street names"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "government",
-      "gives": "G",
-      "note": "G = government, as in HMG"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "PL",
-      "EX",
-      "IN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "occupying"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "gives": "PER",
+         "note": "per = a, as in ten pounds per head"
+        },
+        {
+         "words": "place",
+         "gives": "PL",
+         "note": "PL = place, as in street names"
+        },
+        {
+         "words": "in",
+         "note": "taken as it stands"
+        },
+        {
+         "words": "government",
+         "gives": "G",
+         "note": "G = government, as in HMG"
+        }
+       ]
+      },
+      {
+       "words": "First Mrs Vlad",
+       "gives": "EX",
+       "note": "the setter's first wife would be his ex"
+      }
      ]
     },
     "explanation": {
@@ -776,46 +723,48 @@
    },
    "solution": "UNITES",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "UNITES",
     "definitions": [
      {
       "text": "links",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Cross",
-      "for": "anagram",
-      "note": "cross means angry, so the letters are in a temper and scrambled"
-     },
-     {
-      "text": "forced to leave",
-      "for": "deletion",
-      "note": "G is made to go from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "country",
-      "gives": "NI",
-      "note": "NI = Northern Ireland"
-     },
-     {
-      "clueFragment": "guest forced to leave golf",
-      "gives": "UEST",
-      "note": "GUEST without G, golf in the radio alphabet"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNITES",
+     "indicators": [
       {
-       "fodder": "NI UEST",
-       "gives": "UNITES"
+       "text": "forced to leave",
+       "note": "G is made to go from the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cross",
+         "note": "cross means angry, so the letters are in a temper and scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "country",
+           "gives": "NI",
+           "note": "NI = Northern Ireland"
+          },
+          {
+           "words": "guest forced to leave golf",
+           "gives": "UEST",
+           "note": "GUEST without G, golf in the radio alphabet"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -845,11 +794,6 @@
    },
    "solution": "SOCRATIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SOCRATIC",
     "definitions": [
      {
       "text": "as a way of teaching",
@@ -857,40 +801,46 @@
       "note": "Socratic is an adjective; the definition describes a teaching method rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "Used",
-      "for": "anagram",
-      "note": "used means worn and knocked about, so the letters are disordered"
-     },
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "only now and then a letter is taken, every other one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actors'",
-      "gives": "SOCRAT",
-      "note": "ACTORS rearranged"
-     },
-     {
-      "clueFragment": "piece occasionally",
-      "gives": "IC",
-      "select": "alternate",
-      "note": "second and fourth letters of pIeCe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOCRAT",
-      "IC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SOCRATIC",
+     "indicators": [
       {
-       "fodder": "ACTORS",
-       "gives": "SOCRAT"
+       "text": "Used",
+       "note": "used means worn and knocked about, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "actors'",
+         "gives": "SOCRAT",
+         "note": "ACTORS rearranged"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "IC",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "note": "only now and then a letter is taken, every other one"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "piece occasionally",
+           "gives": "IC",
+           "select": "alternate",
+           "note": "second and fourth letters of pIeCe"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -920,46 +870,35 @@
    },
    "solution": "ACROPOLIS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ACROPOLIS",
     "definitions": [
      {
       "text": "highly secure location",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "reversal",
-      "note": "the store is turned round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grain perhaps",
-      "gives": "ACROP",
-      "note": "grain is a crop, one example of one"
-     },
-     {
-      "clueFragment": "where to store it",
-      "gives": "SILO",
-      "note": "grain is stored in a silo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CROP",
-      "OLIS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SILO",
-       "to": "OLIS"
+       "words": "Grain perhaps",
+       "gives": "ACROP",
+       "note": "grain is a crop, one example of one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "the store is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "where to store it",
+         "gives": "SILO",
+         "note": "grain is stored in a silo"
+        }
+       ]
       }
      ]
     },
@@ -989,41 +928,30 @@
    },
    "solution": "OSTRICHES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSTRICHES",
     "definitions": [
      {
       "text": "Birds",
       "at": 0
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O = over, a cricket abbreviation"
-     },
-     {
-      "clueFragment": "the road",
-      "gives": "ST",
-      "note": "ST = street"
-     },
-     {
-      "clueFragment": "bread",
-      "gives": "RICHES",
-      "note": "bread is slang for money, so riches"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ST",
-      "RICHES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "over",
+       "gives": "O",
+       "note": "O = over, a cricket abbreviation"
+      },
+      {
+       "words": "the road",
+       "gives": "ST",
+       "note": "ST = street"
+      },
+      {
+       "words": "bread",
+       "gives": "RICHES",
+       "note": "bread is slang for money, so riches"
+      }
      ]
     },
     "explanation": {
@@ -1052,31 +980,29 @@
    },
    "solution": "NEIGH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NEIGH",
     "definitions": [
      {
       "text": "that comes straight from the horse's mouth",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Reported",
-      "for": "homophone",
-      "note": "a report is spoken, so the word is heard, not seen"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reported denial",
-      "gives": "NEIGH",
-      "soundsLike": "NAY",
-      "note": "nay = no, a denial"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NEIGH",
+     "indicators": [
+      {
+       "text": "Reported",
+       "note": "a report is spoken, so the word is heard, not seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reported denial",
+       "gives": "NAY",
+       "note": "nay = no, a denial"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A denial that a journalist says is straight from the horse's mouth, the best source.",
      "walkthrough": "'Straight from the horse's mouth' is an idiom for reliable news; here it is literal, the sound a horse makes.",
@@ -1104,50 +1030,41 @@
    },
    "solution": "EMOTE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EMOTE",
     "definitions": [
      {
       "text": "What unsubtle actors do",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the limit of",
-      "for": "letter_selection",
-      "note": "the limit, the end, of patience is its last letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "direction",
-      "gives": "E",
-      "note": "E = east, a compass direction"
-     },
-     {
-      "clueFragment": "test",
-      "gives": "MOT",
-      "note": "the MOT is the UK's annual roadworthiness test for cars"
-     },
-     {
-      "clueFragment": "the limit of patience",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of patience"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MOT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "direction",
+       "gives": "E",
+       "note": "E = east, a compass direction"
+      },
+      {
+       "words": "test",
+       "gives": "MOT",
+       "note": "the MOT is the UK's annual roadworthiness test for cars"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the limit of",
+         "note": "the limit, the end, of patience is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the limit of patience",
+         "gives": "PATIENCE",
+         "note": "last letter of patience"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1176,39 +1093,30 @@
    },
    "solution": "MARLOWE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MARLOWE",
     "definitions": [
      {
       "text": "Old dramatist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hackney perhaps",
-      "gives": "MARE",
-      "note": "a hackney is a breed of horse, so perhaps a mare"
-     },
-     {
-      "clueFragment": "depressed",
-      "gives": "LOW",
-      "note": "low = depressed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "LOW",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hackney perhaps",
+       "gives": "MARE",
+       "note": "a hackney is a breed of horse, so perhaps a mare"
+      },
+      {
+       "words": "depressed",
+       "gives": "LOW",
+       "note": "low = depressed"
+      }
      ]
     },
     "explanation": {
@@ -1237,48 +1145,37 @@
    },
    "solution": "IGNORAMUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "IGNORAMUS",
     "definitions": [
      {
       "text": "its leader, some might say",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "anagram",
-      "note": "the letters are turned round and rearranged"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roaming",
-      "gives": "IGNORAM",
-      "note": "ROAMING rearranged"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "US",
-      "note": "US = United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IGNORAM",
-      "US"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IGNORAMUS",
+     "indicators": [
       {
-       "fodder": "ROAMING",
-       "gives": "IGNORAM"
+       "text": "round",
+       "note": "the letters are turned round and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Roaming",
+         "gives": "IGNORAM",
+         "note": "ROAMING rearranged"
+        },
+        {
+         "words": "country",
+         "gives": "US",
+         "note": "US = United States"
+        }
+       ]
       }
      ]
     },
@@ -1309,45 +1206,35 @@
    },
    "solution": "OPPOSER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "OPPOSER",
     "definitions": [
      {
       "text": "One not in favour of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing up",
-      "for": "reversal",
-      "note": "in a down clue, bringing letters up reverses them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vennells' former business",
-      "gives": "PO",
-      "note": "Paula Vennells ran the Post Office, the UK postal network, until 2019"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "POSER",
-      "note": "a model poses, so a poser"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "POSER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PO",
-       "to": "OP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "bringing up",
+         "note": "in a down clue, bringing letters up reverses them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vennells' former business",
+         "gives": "PO",
+         "note": "Paula Vennells ran the Post Office, the UK postal network, until 2019"
+        }
+       ]
+      },
+      {
+       "words": "model",
+       "gives": "POSER",
+       "note": "a model poses, so a poser"
       }
      ]
     },
@@ -1377,40 +1264,30 @@
    },
    "solution": "URINALS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "URINALS",
     "definitions": [
      {
       "text": "Where to stand conveniently",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "the range keeps IN inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "range",
-      "gives": "URALS",
-      "note": "the Urals are a mountain range"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UR",
-      "IN",
-      "ALS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "the range keeps IN inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "range",
+       "gives": "URALS",
+       "note": "the Urals are a mountain range"
+      },
+      {
+       "words": "in",
+       "note": "taken as it stands"
+      }
      ]
     },
     "explanation": {
@@ -1440,43 +1317,38 @@
    },
    "solution": "POETIC",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "POETIC",
     "definitions": [
      {
       "text": "imaginative",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "a lot of",
-      "for": "deletion",
-      "note": "most of the word, all but its last letter"
-     }
-    ],
-    "linkWords": [
-     "for being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "gives": "POE",
-      "note": "Edgar Allan Poe, the American writer"
-     },
-     {
-      "clueFragment": "a lot of credit",
-      "gives": "TIC",
-      "note": "TICK, British slang for credit (on tick), losing its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POE",
-      "TIC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "POETIC",
+     "indicators": [
+      {
+       "text": "a lot of",
+       "note": "most of the word, all but its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Writer",
+         "gives": "POE",
+         "note": "Edgar Allan Poe, the American writer"
+        },
+        {
+         "words": "a lot of credit",
+         "gives": "TIC",
+         "note": "TICK, British slang for credit (on tick), losing its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1517,35 +1389,24 @@
    },
    "solution": "TRAINOIL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRAIN OIL",
     "definitions": [
      {
       "text": "Blubber once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when affected",
-      "for": "anagram",
-      "note": "the letters are affected, altered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in Rialto",
-      "gives": "INRIALTO",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IN RIALTO",
-       "gives": "TRAINOIL"
+       "text": "when affected",
+       "note": "the letters are affected, altered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in Rialto",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1575,53 +1436,50 @@
    },
    "solution": "PUNDIT",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PUNDIT",
     "definitions": [
      {
       "text": "Expert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "container"
-     },
-     {
-      "text": "edge of",
-      "for": "letter_selection",
-      "note": "the edge of driveway is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "select": "first",
-      "note": "P = parking, as on road signs"
-     },
-     {
-      "clueFragment": "One's",
-      "gives": "UNIT",
-      "note": "a unit is one"
-     },
-     {
-      "clueFragment": "edge of driveway",
-      "gives": "D",
-      "note": "first letter of driveway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "UN",
-      "D",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "edge of",
+         "note": "the edge of driveway is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parking",
+         "note": "P = parking, as on road signs"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One's",
+         "gives": "UNIT",
+         "note": "a unit is one"
+        },
+        {
+         "words": "edge of driveway",
+         "gives": "D",
+         "note": "first letter of driveway"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1650,38 +1508,24 @@
    },
    "solution": "NAHUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NAHUM",
     "definitions": [
      {
       "text": "book",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "failing",
-      "for": "anagram",
-      "note": "the word falls apart and is reassembled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Human",
-      "gives": "HUMAN",
-      "note": "anagram fodder, 5 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HUMAN",
-       "gives": "NAHUM"
+       "text": "failing",
+       "note": "the word falls apart and is reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Human",
+       "note": "anagram fodder, 5 letters"
       }
      ]
     },
@@ -1711,48 +1555,35 @@
    },
    "solution": "POOHSTICKS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "POOHSTICKS",
     "definitions": [
      {
       "text": "game of bridge",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Backing",
-      "for": "reversal",
-      "note": "the band is backed, turned back to front"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "band",
-      "gives": "HOOP",
-      "note": "a hoop is a band"
-     },
-     {
-      "clueFragment": "stays",
-      "gives": "STICKS",
-      "note": "sticks = stays put"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POOH",
-      "STICKS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "HOOP",
-       "to": "POOH"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Backing",
+         "note": "the band is backed, turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "band",
+         "gives": "HOOP",
+         "note": "a hoop is a band"
+        }
+       ]
+      },
+      {
+       "words": "stays",
+       "gives": "STICKS",
+       "note": "sticks = stays put"
       }
      ]
     },
@@ -1783,45 +1614,43 @@
    },
    "solution": "HEAL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HEAL",
     "definitions": [
      {
       "text": "Get better",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "describing",
-      "note": "to describe is to draw round"
-     },
-     {
-      "text": "number 2",
-      "note": "the second letter of Meghan"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prince Harry",
-      "gives": "HAL",
-      "note": "Prince Hal, Shakespeare's name for the young Henry V"
-     },
-     {
-      "clueFragment": "Meghan's number 2",
-      "gives": "E",
-      "select": 2,
-      "note": "second letter of Meghan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "E",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describing",
+       "note": "to describe is to draw round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prince Harry",
+       "gives": "HAL",
+       "note": "Prince Hal, Shakespeare's name for the young Henry V"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "number 2",
+         "note": "the second letter of Meghan"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Meghan's number 2",
+         "gives": "MEGHANNUMBER",
+         "note": "second letter of Meghan"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1851,26 +1680,25 @@
    },
    "solution": "SEASICK",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SEASICK",
     "definitions": [
      {
       "text": "On the drink but not feeling great",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "On the drink",
-      "note": "reads as boozing, but the drink is slang for the sea, so this is being at sea"
-     },
-     {
-      "clueFragment": "but not feeling great",
-      "note": "reads as a hangover, but is the nausea of a rough crossing"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "On the drink",
+       "note": "reads as boozing, but the drink is slang for the sea, so this is being at sea"
+      },
+      {
+       "words": "but not feeling great",
+       "note": "reads as a hangover, but is the nausea of a rough crossing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone drinking heavily and feeling rough for it.",
      "walkthrough": "'On the drink' suggests boozing; the drink is also slang for the sea, and being ill at sea is being seasick.",
@@ -1898,41 +1726,30 @@
    },
    "solution": "PREMISE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PREMISE",
     "definitions": [
      {
       "text": "we assume it's true",
       "at": 36
      }
     ],
-    "linkWords": [
-     "accepted"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In short Starmer",
-      "gives": "PREM",
-      "note": "Starmer is Prime Minister, the premier, cut short"
-     },
-     {
-      "clueFragment": "'s",
-      "gives": "IS",
-      "note": "'s = is"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "E",
-      "note": "E = east, a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PREM",
-      "IS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In short Starmer",
+       "gives": "PREM",
+       "note": "Starmer is Prime Minister, the premier, cut short"
+      },
+      {
+       "words": "'s",
+       "gives": "IS",
+       "note": "'s = is"
+      },
+      {
+       "words": "point",
+       "gives": "E",
+       "note": "E = east, a compass point"
+      }
      ]
     },
     "explanation": {

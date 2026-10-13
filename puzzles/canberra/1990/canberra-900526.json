@@ -1,8 +1,7 @@
 {
  "id": "canberra-900526",
  "number": 900526,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Saturday 26 May 1990 (English cryptic)",
+ "label": "English cryptic",
  "date": "1990-05-26",
  "dimensions": {
   "cols": 15,
@@ -40,49 +39,35 @@
    },
    "solution": "DIATRIBE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DIATRIBE",
     "definitions": [
      {
       "text": "invective",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back the way it came, so the word for help is read backwards"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Help",
-      "gives": "AID",
-      "note": "aid is help"
-     },
-     {
-      "clueFragment": "race",
-      "gives": "TRIBE",
-      "note": "a tribe is a race or people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIA",
-      "TRIBE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AID",
-       "to": "DIA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "something rejected is sent back the way it came, so the word for help is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Help",
+         "gives": "AID",
+         "note": "aid is help"
+        }
+       ]
+      },
+      {
+       "words": "race",
+       "gives": "TRIBE",
+       "note": "a tribe is a race or people"
       }
      ]
     },
@@ -117,60 +102,53 @@
    },
    "solution": "DUMBBLONDE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "and_lit"
-    ],
-    "answer": "DUMB BLONDE",
     "definitions": [
      {
       "text": "French actress in strange muddle — no such here!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "strange",
-      "for": "anagram",
-      "note": "strange means odd or altered, so these letters are mixed into a new order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the actress inside the scrambled letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French actress",
-      "gives": "BB",
-      "note": "BB, Brigitte Bardot's initials, by which she was famous"
-     },
-     {
-      "clueFragment": "muddle",
-      "gives": "MUDDLE",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "NO",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUM",
-      "BB",
-      "LONDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MUDDLENO",
-       "gives": "DUMLONDE"
+       "text": "in",
+       "note": "in places the actress inside the scrambled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "note": "strange means odd or altered, so these letters are mixed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "muddle",
+           "note": "letters to rearrange"
+          },
+          {
+           "words": "no",
+           "note": "letters to rearrange"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "French actress",
+       "gives": "BB",
+       "note": "BB, Brigitte Bardot's initials, by which she was famous"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A French film star in a confused state, with a cheeky aside to the solver.",
      "walkthrough": "The whole clue is the definition as well as the wordplay: a muddled screen siren, and the setter jokes that no solver is one.",
@@ -198,58 +176,49 @@
    },
    "solution": "APOSTATISE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "APOSTATISE",
     "definitions": [
      {
       "text": "Rat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by accident",
-      "for": "anagram",
-      "note": "letters landing by accident fall into a random order, so they must be rearranged"
-     },
-     {
-      "text": "caught",
-      "for": "container",
-      "note": "something caught is held inside, so the band surrounds the rearranged letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sheriffs band",
-      "gives": "POSSE",
-      "note": "a posse is a band of men summoned by a sheriff"
-     },
-     {
-      "clueFragment": "at it",
-      "gives": "ATIT",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "POS",
-      "TATI",
-      "SE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ATIT",
-       "gives": "TATI"
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught",
+         "note": "something caught is held inside, so the band surrounds the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheriffs band",
+         "gives": "POSSE",
+         "note": "a posse is a band of men summoned by a sheriff"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "by accident",
+           "note": "letters landing by accident fall into a random order, so they must be rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "at it",
+           "note": "letters to rearrange"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -279,43 +248,35 @@
    },
    "solution": "REBEL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REBEL",
     "definitions": [
      {
       "text": "flout the rules",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "made",
-      "for": "anagram",
-      "note": "made means fashioned or built into something new, so the letters are refashioned into another word"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "23",
-      "gives": "BEER",
-      "note": "23 down is a drink"
-     },
-     {
-      "clueFragment": "students",
-      "gives": "L",
-      "note": "L is the learner's plate, standing for a student"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEERL",
-       "gives": "REBEL"
+       "text": "made",
+       "note": "made means fashioned or built into something new, so the letters are refashioned into another word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "23",
+         "gives": "BEER",
+         "note": "23 down is a drink"
+        },
+        {
+         "words": "students",
+         "gives": "L",
+         "note": "L is the learner's plate, standing for a student"
+        }
+       ]
       }
      ]
     },
@@ -350,26 +311,25 @@
    },
    "solution": "BENDSINISTER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BEND SINISTER",
     "definitions": [
      {
       "text": "Inauspicious display of arms?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Inauspicious display of arms?",
-      "note": "surface reading: an ill-omened show of weaponry"
-     },
-     {
-      "clueFragment": "display of arms?",
-      "note": "setter's reading: arms are a heraldic coat of arms, and inauspicious is the Latin-rooted word for left-handed and unlucky"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Inauspicious display of arms?",
+       "note": "surface reading: an ill-omened show of weaponry"
+      },
+      {
+       "words": "display of arms?",
+       "note": "setter's reading: arms are a heraldic coat of arms, and inauspicious is the Latin-rooted word for left-handed and unlucky"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A military parade that bodes ill.",
      "walkthrough": "A bend is a diagonal band on a shield; the left-handed one is traditionally said to mark illegitimacy.",
@@ -397,32 +357,25 @@
    },
    "solution": "IMPALE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPALE",
     "definitions": [
      {
       "text": "Stick",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "the devil's",
-      "gives": "IMP",
-      "note": "an imp is a little devil; the 's stands for 'is' or simply possession"
-     },
-     {
-      "clueFragment": "brew",
-      "gives": "ALE",
-      "note": "ale is a brew"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP",
-      "ALE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the devil's",
+       "gives": "IMP",
+       "note": "an imp is a little devil; the 's stands for 'is' or simply possession"
+      },
+      {
+       "words": "brew",
+       "gives": "ALE",
+       "note": "ale is a brew"
+      }
      ]
     },
     "explanation": {
@@ -456,26 +409,25 @@
    },
    "solution": "MOUSETRAP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MOUSE TRAP",
     "definitions": [
      {
       "text": "Cheese for taking the mickey?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cheese for taking the mickey?",
-      "note": "surface reading: some cheese to use when teasing someone"
-     },
-     {
-      "clueFragment": "taking the mickey?",
-      "note": "setter's reading: taking means catching and the mickey is a mouse, so the cheese is bait"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cheese for taking the mickey?",
+       "note": "surface reading: some cheese to use when teasing someone"
+      },
+      {
+       "words": "taking the mickey?",
+       "note": "setter's reading: taking means catching and the mickey is a mouse, so the cheese is bait"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Which cheese suits a bit of mockery?",
      "walkthrough": "To take the mickey is British slang for teasing; read literally it is capturing a Mickey Mouse. Mousetrap is also a nickname for cheap Cheddar.",
@@ -503,31 +455,16 @@
    },
    "solution": "AMIS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AMIS",
     "definitions": [
      {
       "text": "Writer",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Kingsley or Martin ..., British novelists"
      },
      {
       "text": "friends abroad",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "note": "first meaning: Kingsley or Martin ..., British novelists"
-     },
-     {
-      "clueFragment": "friends abroad",
-      "note": "second meaning: the French word for friends"
+      "at": 11,
+      "meaning": "second meaning: the French word for friends"
      }
     ],
     "explanation": {
@@ -555,34 +492,29 @@
    },
    "solution": "EYES",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EYES",
     "definitions": [
      {
       "text": "They look",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "audible",
-      "for": "homophone",
-      "note": "audible means heard, so the word is identified by its sound rather than its spelling"
-     }
-    ],
-    "linkWords": [
-     "to be in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agreement",
-      "gives": "EYES",
-      "soundsLike": "AYES",
-      "note": "ayes are votes of agreement"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYES",
+     "indicators": [
+      {
+       "text": "audible",
+       "note": "audible means heard, so the word is identified by its sound rather than its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "gives": "AYES",
+       "note": "ayes are votes of agreement"
+      }
+     ]
+    },
     "explanation": {
      "surface": "People seem, from what one can hear, to be in accord.",
      "walkthrough": "'They look' reads as 'they appear', but here eyes are what look.",
@@ -616,45 +548,34 @@
    },
    "solution": "MOORBAND",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "MOOR-BAND",
     "definitions": [
      {
       "text": "a bit rusty under the surface",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "back tells the solver to take the word that follows from its end to its start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "room",
-      "gives": "ROOM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "team",
-      "gives": "BAND",
-      "note": "a band is a group or team"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOOR",
-      "BAND"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ROOM",
-       "to": "MOOR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "note": "back tells the solver to take the word that follows from its end to its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "team",
+       "gives": "BAND",
+       "note": "a band is a group or team"
       }
      ]
     },
@@ -684,48 +605,35 @@
    },
    "solution": "NUBILE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NUBILE",
     "definitions": [
      {
       "text": "having sexual attraction",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "Over",
-      "for": "reversal",
-      "note": "turned over, the words that follow are read from right to left"
-     }
-    ],
-    "linkWords": [
-     "takes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the priest",
-      "gives": "ELI",
-      "note": "Eli is the priest in the Book of Samuel, a crossword regular"
-     },
-     {
-      "clueFragment": "the cake",
-      "gives": "BUN",
-      "note": "a bun is a small cake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUB",
-      "ILE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ELIBUN",
-       "to": "NUBILE"
+       "text": "Over",
+       "note": "turned over, the words that follow are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the priest",
+         "gives": "ELI",
+         "note": "Eli is the priest in the Book of Samuel, a crossword regular"
+        },
+        {
+         "words": "the cake",
+         "gives": "BUN",
+         "note": "a bun is a small cake"
+        }
+       ]
       }
      ]
     },
@@ -761,44 +669,37 @@
    },
    "solution": "HEAVYDRINKER",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "HEAVY DRINKER",
     "definitions": [
      {
       "text": "Tipsy Yank driver, he could be",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Tipsy",
-      "for": "anagram",
-      "note": "tipsy means unsteady with drink, so the letters stagger into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yank driver",
-      "gives": "YANKDRIVER",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YANKDRIVERHE",
-       "gives": "HEAVYDRINKER"
+       "text": "Tipsy",
+       "note": "tipsy means unsteady with drink, so the letters stagger into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Yank driver",
+         "note": "letters to rearrange"
+        },
+        {
+         "words": "he",
+         "note": "letters to rearrange"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An American motorist who is drunk might well be a big boozer.",
      "walkthrough": "The whole clue is both the anagram and the definition: a tipsy driver could be one.",
@@ -830,37 +731,30 @@
    },
    "solution": "BATTLESCENE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "BATTLE SCENE",
     "definitions": [
      {
       "text": "Field",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner says",
-      "for": "spoonerism",
-      "note": "Spooner famously swapped the opening sounds of words, so the phrase must be said with its initial sounds exchanged"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cows, have been",
-      "gives": "BATTLESCENE",
-      "soundsLike": "CATTLE'S BEEN",
-      "note": "cows are cattle, and 'have been' becomes 's been; swap the opening B and C sounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BATTLESCENE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "BATTLESCENE",
+     "indicators": [
+      {
+       "text": "Spooner says",
+       "note": "Spooner famously swapped the opening sounds of words, so the phrase must be said with its initial sounds exchanged"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "cows, have been",
+       "gives": "BATTLESCENE",
+       "soundsLike": "CATTLE'S BEEN",
+       "note": "cows are cattle, and 'have been' becomes 's been; swap the opening B and C sounds"
+      }
      ]
     },
     "explanation": {
@@ -896,50 +790,40 @@
    },
    "solution": "PIRATEFLAG",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PIRATE FLAG",
     "definitions": [
      {
       "text": "Jolly Roger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the pie"
-     }
-    ],
-    "linkWords": [
-     "may"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pie",
-      "gives": "PIE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "some of 17",
-      "gives": "RAT",
-      "note": "17 across is NEVER MIND, built around vermin; a rat is one of the vermin"
-     },
-     {
-      "clueFragment": "droop",
-      "gives": "FLAG",
-      "note": "to flag is to droop or tire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "RAT",
-      "E",
-      "FLAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places one piece inside the pie"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pie",
+         "note": "taken as written"
+        },
+        {
+         "words": "some of 17",
+         "gives": "RAT",
+         "note": "17 across is NEVER MIND, built around vermin; a rat is one of the vermin"
+        }
+       ]
+      },
+      {
+       "words": "droop",
+       "gives": "FLAG",
+       "note": "to flag is to droop or tire"
+      }
      ]
     },
     "explanation": {
@@ -968,38 +852,24 @@
    },
    "solution": "ADVERTISES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADVERTISES",
     "definitions": [
      {
       "text": "attracts attention",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "when drunk",
-      "for": "anagram",
-      "note": "drunk means reeling and disordered, so the letters are thrown into a different order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East drives",
-      "gives": "EASTDRIVES",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EASTDRIVES",
-       "gives": "ADVERTISES"
+       "text": "when drunk",
+       "note": "drunk means reeling and disordered, so the letters are thrown into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "East drives",
+       "note": "letters to rearrange"
       }
      ]
     },
@@ -1028,38 +898,24 @@
    },
    "solution": "OATHS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OATHS",
     "definitions": [
      {
       "text": "sayings",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "unbridled",
-      "for": "anagram",
-      "note": "unbridled means running loose without restraint, so these letters are let loose into a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A host",
-      "gives": "AHOST",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AHOST",
-       "gives": "OATHS"
+       "text": "unbridled",
+       "note": "unbridled means running loose without restraint, so these letters are let loose into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A host",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1088,57 +944,51 @@
    },
    "solution": "SCUPPERED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SCUPPERED",
     "definitions": [
      {
       "text": "Sunk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first asks for only the opening letter of the next word"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places that letter inside the meal"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "course",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of course"
-     },
-     {
-      "clueFragment": "meal",
-      "gives": "SUPPER",
-      "note": "supper is an evening meal"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "ED is the standard abbreviation for editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "UPPER",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places that letter inside the meal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "gives": "SUPPER",
+         "note": "supper is an evening meal"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "first asks for only the opening letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "course",
+           "note": "the opening letter of course"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "ED is the standard abbreviation for editor"
+      }
      ]
     },
     "explanation": {
@@ -1173,43 +1023,31 @@
    },
    "solution": "NEVERMIND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NEVER MIND",
     "definitions": [
      {
       "text": "no matter",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "infested with",
-      "for": "container",
-      "note": "a thing infested has pests living inside it, so one word is filled with the other"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Edward's",
-      "gives": "NED",
-      "note": "Ned is a short form of Edward; the 's reads as 'is'"
-     },
-     {
-      "clueFragment": "nasty things",
-      "gives": "VERMIN",
-      "note": "vermin are nasty creatures"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NE",
-      "VERMIN",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infested with",
+       "note": "a thing infested has pests living inside it, so one word is filled with the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Edward's",
+       "gives": "NED",
+       "note": "Ned is a short form of Edward; the 's reads as 'is'"
+      },
+      {
+       "words": "nasty things",
+       "gives": "VERMIN",
+       "note": "vermin are nasty creatures"
+      }
      ]
     },
     "explanation": {
@@ -1237,35 +1075,25 @@
    },
    "solution": "DISCUSSED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCUSSED",
     "definitions": [
      {
       "text": "Talked about",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hell",
-      "gives": "DIS",
-      "note": "Dis is the classical underworld, hell"
-     },
-     {
-      "clueFragment": "uttered 15",
-      "gives": "CUSSED",
-      "note": "15 across is oaths, and to utter oaths is to cuss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "CUSSED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hell",
+       "gives": "DIS",
+       "note": "Dis is the classical underworld, hell"
+      },
+      {
+       "words": "uttered 15",
+       "gives": "CUSSED",
+       "note": "15 across is oaths, and to utter oaths is to cuss"
+      }
      ]
     },
     "explanation": {
@@ -1293,35 +1121,25 @@
    },
    "solution": "PEACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEACE",
     "definitions": [
      {
       "text": "Tranquillity",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gymnast",
-      "gives": "PE",
-      "note": "PE, physical education, is school gym; here it stands for gymnastics"
-     },
-     {
-      "clueFragment": "champion",
-      "gives": "ACE",
-      "note": "an ace is a champion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gymnast",
+       "gives": "PE",
+       "note": "PE, physical education, is school gym; here it stands for gymnastics"
+      },
+      {
+       "words": "champion",
+       "gives": "ACE",
+       "note": "an ace is a champion"
+      }
      ]
     },
     "explanation": {
@@ -1350,54 +1168,44 @@
    },
    "solution": "PREDICAMENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PREDICAMENT",
     "definitions": [
      {
       "text": "Tricky situation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow says the word that follows arrives at its form in some unexplained way, so its letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "as they used to say"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pride",
-      "gives": "PRIDE",
-      "note": "the letters to rearrange"
-     },
-     {
-      "clueFragment": "prevented",
-      "gives": "CAME",
-      "note": "in old usage to prevent was to come before, so this supplies the verb came, placed before the next piece"
-     },
-     {
-      "clueFragment": "religious works",
-      "gives": "NT",
-      "note": "NT, the New Testament, is a body of religious writings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PREDI",
-      "CAME",
-      "NT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PRIDE",
-       "gives": "PREDI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "note": "somehow says the word that follows arrives at its form in some unexplained way, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pride",
+           "note": "the letters to rearrange"
+          },
+          {
+           "words": "prevented",
+           "gives": "CAME",
+           "note": "in old usage to prevent was to come before, so this supplies the verb came, placed before the next piece"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "religious works",
+       "gives": "NT",
+       "note": "NT, the New Testament, is a body of religious writings"
       }
      ]
     },
@@ -1427,48 +1235,35 @@
    },
    "solution": "ALTOS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ALTOS",
     "definitions": [
      {
       "text": "Voices",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turn up",
-      "for": "reversal",
-      "note": "in a down entry turning up flips the order so it reads from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "11",
-      "gives": "SOT",
-      "note": "11 down is a heavy drinker, a sot"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LA",
-      "note": "la is French for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "TOS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SOTLA",
-       "to": "ALTOS"
+       "text": "turn up",
+       "note": "in a down entry turning up flips the order so it reads from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "11",
+         "gives": "SOT",
+         "note": "11 down is a heavy drinker, a sot"
+        },
+        {
+         "words": "the French",
+         "gives": "LA",
+         "note": "la is French for the"
+        }
+       ]
       }
      ]
     },
@@ -1496,31 +1291,16 @@
    },
    "solution": "SPOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPOT",
     "definitions": [
      {
       "text": "A place",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a particular location"
      },
      {
       "text": "notice",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A place",
-      "note": "first meaning: a particular location"
-     },
-     {
-      "clueFragment": "notice",
-      "note": "second meaning: to catch sight of"
+      "at": 11,
+      "meaning": "second meaning: to catch sight of"
      }
     ],
     "explanation": {
@@ -1547,36 +1327,24 @@
    },
    "solution": "BEER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEER",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to",
-     "set before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "be",
-      "gives": "BE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "be",
+       "note": "taken as written"
+      },
+      {
+       "words": "a queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
      ]
     },
     "explanation": {
@@ -1604,35 +1372,25 @@
    },
    "solution": "POETRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POETRY",
     "definitions": [
      {
       "text": "Verse",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "U.S. writer",
-      "gives": "POE",
-      "note": "Edgar Allan Poe, the American writer"
-     },
-     {
-      "clueFragment": "essay",
-      "gives": "TRY",
-      "note": "an essay is an attempt, a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POE",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "U.S. writer",
+       "gives": "POE",
+       "note": "Edgar Allan Poe, the American writer"
+      },
+      {
+       "words": "essay",
+       "gives": "TRY",
+       "note": "an essay is an attempt, a try"
+      }
      ]
     },
     "explanation": {
@@ -1661,28 +1419,16 @@
    },
    "solution": "SKITTLES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SKITTLES",
     "definitions": [
      {
       "text": "Idle pleasure with 23",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: 23 down is beer, and 'beer and ___' is the stock phrase for easy idle pleasure"
      },
      {
       "text": "like races organised on board",
-      "at": 23
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Idle pleasure with 23",
-      "note": "first meaning: 23 down is beer, and 'beer and ___' is the stock phrase for easy idle pleasure"
-     },
-     {
-      "clueFragment": "like races organised on board",
-      "note": "second meaning: a game organised on a board or alley, competitive like races"
+      "at": 23,
+      "meaning": "second meaning: a game organised on a board or alley, competitive like races"
      }
     ],
     "explanation": {
@@ -1710,40 +1456,31 @@
    },
    "solution": "TIRADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TIRADE",
     "definitions": [
      {
       "text": "put one across",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first word inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "business",
-      "gives": "TRADE",
-      "note": "trade is business or commerce"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "I",
-      "RADE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first word inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business",
+       "gives": "TRADE",
+       "note": "trade is business or commerce"
+      },
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -1772,26 +1509,25 @@
    },
    "solution": "PRESAGES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PRESAGES",
     "definitions": [
      {
       "text": "Signs of the times in the Times?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Signs of the times",
-      "note": "surface reading: portents showing which way things are heading"
-     },
-     {
-      "clueFragment": "in the Times?",
-      "note": "setter's reading: the newspaper world is the press, and times are ages, so the word splits into those two"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Signs of the times",
+       "note": "surface reading: portents showing which way things are heading"
+      },
+      {
+       "words": "in the Times?",
+       "note": "setter's reading: the newspaper world is the press, and times are ages, so the word splits into those two"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Indicators of the era as reported in a famous newspaper.",
      "walkthrough": "The answer reads as PRES(S) AGES, the press's eras, with the shared S doing double duty; that is the joke behind 'in the Times'.",

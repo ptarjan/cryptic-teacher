@@ -1,8 +1,6 @@
 {
  "id": "cyclops-569",
  "number": 569,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 569",
  "setter": "Cyclops",
  "date": "2016-03-18",
  "dimensions": {
@@ -42,41 +40,40 @@
    },
    "solution": "SAVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "SAVE",
     "definitions": [
      {
       "text": "cut back",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "abandons",
-      "for": "deletion",
-      "note": "the staff word abandons the Tesco head, so that letter walks out of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staff",
-      "gives": "STAVE",
-      "note": "a stave is a staff or stick"
-     },
-     {
-      "clueFragment": "Head of Tesco",
-      "gives": "T",
-      "select": "first",
-      "note": "the head of Tesco is its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AVE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandons",
+       "note": "the staff word abandons the Tesco head, so that letter walks out of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staff",
+       "gives": "STAVE",
+       "note": "a stave is a staff or stick"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "T",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Head of Tesco",
+         "gives": "T",
+         "select": "first",
+         "note": "the head of Tesco is its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -120,54 +117,54 @@
    },
    "solution": "VENISON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade",
-     "anagram"
-    ],
-    "answer": "VENISON",
     "definitions": [
      {
       "text": "Flesh",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "'not Cameron's main' tells us to take the leading letter of Cameron away from Vince"
-     },
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "'out' as in out of order: the remaining letters and the disciple are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vince",
-      "gives": "VINCE",
-      "note": "Vince Cable, the Lib Dem in Cameron's coalition"
-     },
-     {
-      "clueFragment": "Cameron's main",
-      "gives": "C",
-      "select": "first",
-      "note": "the main, or leading, letter of Cameron"
-     },
-     {
-      "clueFragment": "disciple",
-      "gives": "SON",
-      "note": "son in the old sense of a follower or disciple"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "VENISON",
+     "indicators": [
       {
-       "fodder": "VINE SON",
-       "gives": "VENISON"
+       "text": "out",
+       "note": "'out' as in out of order: the remaining letters and the disciple are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "VENISON",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "'not Cameron's main' tells us to take the leading letter of Cameron away from Vince"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vince",
+         "note": "Vince Cable, the Lib Dem in Cameron's coalition"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Cameron's main",
+           "gives": "CAMERONMAIN",
+           "note": "the main, or leading, letter of Cameron"
+          }
+         ]
+        },
+        {
+         "words": "disciple",
+         "gives": "SON",
+         "note": "son in the old sense of a follower or disciple"
+        }
+       ]
       }
      ]
     },
@@ -197,49 +194,41 @@
    },
    "solution": "ASSAILANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ASSAILANT",
     "definitions": [
      {
       "text": "Aggressive type",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "full of",
-      "for": "container",
-      "note": "the idiot and presenter together are full of the trouble, so that word sits between them"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "idiot",
-      "gives": "ASS",
-      "note": "an ass is a fool"
-     },
-     {
-      "clueFragment": "TV presenter",
-      "gives": "ANT",
-      "note": "Ant of the British presenting duo Ant and Dec"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble or afflict"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASS",
-      "AIL",
-      "ANT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "full of",
+       "note": "the idiot and presenter together are full of the trouble, so that word sits between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "idiot",
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        },
+        {
+         "words": "TV presenter",
+         "gives": "ANT",
+         "note": "Ant of the British presenting duo Ant and Dec"
+        }
+       ]
+      },
+      {
+       "words": "trouble",
+       "gives": "AIL",
+       "note": "to ail is to trouble or afflict"
+      }
      ]
     },
     "explanation": {
@@ -268,42 +257,38 @@
    },
    "solution": "SUPINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "SUPINE",
     "definitions": [
      {
       "text": "Laid back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing with",
-      "for": "anagram",
-      "note": "playing with letters means moving them around, so the leader and the rude word get mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ukip leader",
-      "gives": "U",
-      "select": "first",
-      "note": "the leading letter of Ukip"
-     },
-     {
-      "clueFragment": "penis",
-      "gives": "PENIS",
-      "note": "taken as it stands, five letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "U PENIS",
-       "gives": "SUPINE"
+       "text": "playing with",
+       "note": "playing with letters means moving them around, so the leader and the rude word get mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Ukip leader",
+           "note": "the leading letter of Ukip"
+          }
+         ]
+        },
+        {
+         "words": "penis",
+         "note": "taken as it stands, five letters"
+        }
+       ]
       }
      ]
     },
@@ -348,44 +333,35 @@
    },
    "solution": "ALLPISSANDWIND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALL PISS AND WIND",
     "definitions": [
      {
       "text": "as so often passes Trump's lips?",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The whole",
-      "gives": "ALL",
-      "note": "the whole is all of it"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "PISS",
-      "note": "British slang for beer, as in 'on the piss'"
-     },
-     {
-      "clueFragment": "plus",
-      "gives": "AND",
-      "note": "plus is and"
-     },
-     {
-      "clueFragment": "roll",
-      "gives": "WIND",
-      "note": "to roll up, as yarn or a clock, is to wind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "PISS",
-      "AND",
-      "WIND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The whole",
+       "gives": "ALL",
+       "note": "the whole is all of it"
+      },
+      {
+       "words": "beer",
+       "gives": "PISS",
+       "note": "British slang for beer, as in 'on the piss'"
+      },
+      {
+       "words": "plus",
+       "gives": "AND",
+       "note": "plus is and"
+      },
+      {
+       "words": "roll",
+       "gives": "WIND",
+       "note": "to roll up, as yarn or a clock, is to wind"
+      }
      ]
     },
     "explanation": {
@@ -415,53 +391,45 @@
    },
    "solution": "LOGICAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "LOGICAL",
     "definitions": [
      {
       "text": "Reasoned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Maybe",
-      "for": "anagram",
-      "note": "'maybe' says the letters that follow could be arranged another way"
-     },
-     {
-      "text": "to split",
-      "for": "container",
-      "note": "the jumbled letters split the pair of leaders apart by going between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "liberal leaders",
-      "gives": "LL",
-      "select": "first",
-      "note": "the leading letters of both words, which open and close the answer"
-     },
-     {
-      "clueFragment": "go with CIA",
-      "gives": "GOCIA",
-      "note": "the anagram fodder, five letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OGICA",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GOCIA",
-       "gives": "OGICA"
+       "text": "to split",
+       "note": "the jumbled letters split the pair of leaders apart by going between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "liberal leaders",
+         "note": "the leading letters of both words, which open and close the answer"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Maybe",
+         "note": "'maybe' says the letters that follow could be arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "go with CIA",
+         "gives": "GOCIA",
+         "note": "the anagram fodder, five letters"
+        }
+       ]
       }
      ]
     },
@@ -497,26 +465,25 @@
    },
    "solution": "NUMBERTEN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NUMBER TEN",
     "definitions": [
      {
       "text": "A screw that eluded Ed Miliband?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A screw",
-      "note": "the surface reads a screw as a piece of hardware, or a sexual partner who got away"
-     },
-     {
-      "clueFragment": "eluded Ed Miliband",
-      "note": "the setter means the prize Miliband failed to win at the 2015 election: the Downing Street home of the Prime Minister"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A screw",
+       "note": "the surface reads a screw as a piece of hardware, or a sexual partner who got away"
+      },
+      {
+       "words": "eluded Ed Miliband",
+       "note": "the setter means the prize Miliband failed to win at the 2015 election: the Downing Street home of the Prime Minister"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A screw can be identified by a size number, and Ed Miliband led Labour to defeat in 2015, so the Prime Minister's residence at 10 Downing Street eluded him.",
      "definitionFit": "Number Ten is shorthand for the British Prime Minister's official London residence and office, which Miliband never occupied."
@@ -549,35 +516,24 @@
    },
    "solution": "CABINETMEETING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CABINET MEETING",
     "definitions": [
      {
       "text": "Cameron's lot all in one place?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "blowing up",
-      "for": "anagram",
-      "note": "blowing something up scatters its parts, so the enticement's letters are scattered and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A big enticement",
-      "gives": "ABIGENTICEMENT",
-      "note": "the anagram fodder, fourteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "A BIG ENTICEMENT",
-       "gives": "CABINETMEETING"
+       "text": "blowing up",
+       "note": "blowing something up scatters its parts, so the enticement's letters are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A big enticement",
+       "note": "the anagram fodder, fourteen letters"
       }
      ]
     },
@@ -608,43 +564,33 @@
    },
    "solution": "GUINEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GUINEA",
     "definitions": [
      {
       "text": "pig of sorts",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Ill-begotten",
-      "for": "anagram",
-      "note": "something ill-begotten is badly made, so these letters are formed in the wrong order"
-     }
-    ],
-    "linkWords": [
-     "involving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gain",
-      "gives": "GAIN",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "EU",
-      "gives": "EU",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GAIN EU",
-       "gives": "GUINEA"
+       "text": "Ill-begotten",
+       "note": "something ill-begotten is badly made, so these letters are formed in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gain",
+         "note": "taken as it stands"
+        },
+        {
+         "words": "EU",
+         "note": "taken as it stands"
+        }
+       ]
       }
      ]
     },
@@ -674,35 +620,25 @@
    },
    "solution": "POLYGAMY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POLYGAMY",
     "definitions": [
      {
       "text": "Simultaneous coupling",
       "at": 0
      }
     ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "institution",
-      "gives": "POLY",
-      "note": "a poly is a polytechnic, a former type of British college"
-     },
-     {
-      "clueFragment": "very smelly",
-      "gives": "GAMY",
-      "note": "gamy meat is high and strong-smelling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POLY",
-      "GAMY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "institution",
+       "gives": "POLY",
+       "note": "a poly is a polytechnic, a former type of British college"
+      },
+      {
+       "words": "very smelly",
+       "gives": "GAMY",
+       "note": "gamy meat is high and strong-smelling"
+      }
      ]
     },
     "explanation": {
@@ -731,56 +667,49 @@
    },
    "solution": "THESPIAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "THESPIAN",
     "definitions": [
      {
       "text": "Luvvie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "the underwear goes off, as in out of order, so its letters are rearranged"
-     },
-     {
-      "text": "captivated",
-      "for": "container",
-      "note": "the jumbled underwear takes the house's front captive, holding it inside"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "panties",
-      "gives": "PANTIES",
-      "note": "the anagram fodder, seven letters"
-     },
-     {
-      "clueFragment": "front of house",
-      "gives": "H",
-      "select": "first",
-      "note": "the front letter of house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "H",
-      "ESPIAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PANTIES",
-       "gives": "TESPIAN"
+       "text": "captivated",
+       "note": "the jumbled underwear takes the house's front captive, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "the underwear goes off, as in out of order, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "panties",
+         "note": "the anagram fodder, seven letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "H",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "front of house",
+         "gives": "H",
+         "select": "first",
+         "note": "the front letter of house"
+        }
+       ]
       }
      ]
     },
@@ -811,40 +740,31 @@
    },
    "solution": "ITCHES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ITCHES",
     "definitions": [
      {
       "text": "passions",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "stifling",
-      "for": "container",
-      "note": "to stifle is to smother, so the thing-is phrase wraps round the revolutionary"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The thing is",
-      "gives": "ITS",
-      "note": "the thing is = it is = it's"
-     },
-     {
-      "clueFragment": "iconic South American",
-      "gives": "CHE",
-      "note": "Che Guevara, the Argentine revolutionary of the famous poster"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IT",
-      "CHE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "note": "to stifle is to smother, so the thing-is phrase wraps round the revolutionary"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The thing is",
+       "gives": "ITS",
+       "note": "the thing is = it is = it's"
+      },
+      {
+       "words": "iconic South American",
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine revolutionary of the famous poster"
+      }
      ]
     },
     "explanation": {
@@ -873,35 +793,24 @@
    },
    "solution": "GRANDEE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GRANDEE",
     "definitions": [
      {
       "text": "Tebbit now?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "problem",
-      "for": "anagram",
-      "note": "a problem suggests something gone wrong, so these letters are wrongly ordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gender a",
-      "gives": "GENDERA",
-      "note": "the anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GENDER A",
-       "gives": "GRANDEE"
+       "text": "problem",
+       "note": "a problem suggests something gone wrong, so these letters are wrongly ordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gender a",
+       "note": "the anagram fodder, seven letters"
       }
      ]
     },
@@ -931,12 +840,6 @@
    },
    "solution": "RECTITUDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "RECTITUDE",
     "definitions": [
      {
       "text": "Political correctness",
@@ -944,46 +847,44 @@
       "note": "loosely: rectitude is moral correctness"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the parts sit in the rough surroundings, which wrap round them"
-     }
-    ],
-    "linkWords": [
-     "puts"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "end to the",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of 'the'"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "dickhead",
-      "gives": "TIT",
-      "note": "a tit is a fool"
-     },
-     {
-      "clueFragment": "rough surroundings",
-      "gives": "RUDE",
-      "note": "rude means rough or crude, forming the outside"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "E",
-      "C",
-      "TIT",
-      "UDE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the parts sit in the rough surroundings, which wrap round them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rough surroundings",
+       "gives": "RUDE",
+       "note": "rude means rough or crude, forming the outside"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "end to the",
+           "note": "the last letter of 'the'"
+          }
+         ]
+        },
+        {
+         "words": "Conservative",
+         "gives": "C",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "dickhead",
+         "gives": "TIT",
+         "note": "a tit is a fool"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1013,41 +914,30 @@
    },
    "solution": "ISOLATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ISOLATE",
     "definitions": [
      {
       "text": "cut off",
       "at": 38
      }
     ],
-    "linkWords": [
-     "forsaken prick"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer's",
-      "gives": "IS",
-      "note": "the writer is I, the setter, and 'writer's' is 'I is'"
-     },
-     {
-      "clueFragment": "oxygen",
-      "gives": "O",
-      "note": "the chemical symbol"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "LATE",
-      "note": "the late means the dead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "O",
-      "LATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Writer's",
+       "gives": "IS",
+       "note": "the writer is I, the setter, and 'writer's' is 'I is'"
+      },
+      {
+       "words": "oxygen",
+       "gives": "O",
+       "note": "the chemical symbol"
+      },
+      {
+       "words": "dead",
+       "gives": "LATE",
+       "note": "the late means the dead"
+      }
      ]
     },
     "explanation": {
@@ -1076,46 +966,41 @@
    },
    "solution": "ACADEMY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACADEMY",
     "definitions": [
      {
       "text": "that'll teach you",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "taken by",
-      "for": "container",
-      "note": "the late singer takes in the rogue and drug, holding them inside her name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rogue",
-      "gives": "CAD",
-      "note": "a cad is a rogue"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is ecstasy"
-     },
-     {
-      "clueFragment": "late pop star",
-      "gives": "AMY",
-      "note": "Amy Winehouse, who died in 2011"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CAD",
-      "E",
-      "MY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken by",
+       "note": "the late singer takes in the rogue and drug, holding them inside her name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "late pop star",
+         "gives": "AMY",
+         "note": "Amy Winehouse, who died in 2011"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E is ecstasy"
+        }
+       ]
+      },
+      {
+       "words": "Rogue",
+       "gives": "CAD",
+       "note": "a cad is a rogue"
+      }
      ]
     },
     "explanation": {
@@ -1145,41 +1030,30 @@
    },
    "solution": "DRINKER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRINKER",
     "definitions": [
      {
       "text": "Tosspot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Duke",
-      "gives": "D",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "skating on thin ice here",
-      "gives": "RINK",
-      "note": "where one skates on ice"
-     },
-     {
-      "clueFragment": "Brenda",
-      "gives": "ER",
-      "note": "Brenda is Private Eye's nickname for the Queen, Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "RINK",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duke",
+       "gives": "D",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "skating on thin ice here",
+       "gives": "RINK",
+       "note": "where one skates on ice"
+      },
+      {
+       "words": "Brenda",
+       "gives": "ER",
+       "note": "Brenda is Private Eye's nickname for the Queen, Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -1209,43 +1083,34 @@
    },
    "solution": "INSTANT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "INSTANT",
     "definitions": [
      {
       "text": "Mo",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elected",
-      "gives": "IN",
-      "note": "an elected candidate is in"
-     },
-     {
-      "clueFragment": "half of comedy act",
-      "gives": "STAN",
-      "note": "Stan Laurel of the double act Laurel and Hardy"
-     },
-     {
-      "clueFragment": "Tory leader",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of Tory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "STAN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "elected",
+       "gives": "IN",
+       "note": "an elected candidate is in"
+      },
+      {
+       "words": "half of comedy act",
+       "gives": "STAN",
+       "note": "Stan Laurel of the double act Laurel and Hardy"
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Tory leader",
+         "note": "the first letter of Tory"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1284,38 +1149,24 @@
    },
    "solution": "TRYITON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRY IT ON",
     "definitions": [
      {
       "text": "Have a cheeky go",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "screwing",
-      "for": "anagram",
-      "note": "screwing twists things round, so the letters of the Tory and the nit are twisted into a new order"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory nit",
-      "gives": "TORYNIT",
-      "note": "the anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TORY NIT",
-       "gives": "TRYITON"
+       "text": "screwing",
+       "note": "screwing twists things round, so the letters of the Tory and the nit are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tory nit",
+       "note": "the anagram fodder, seven letters"
       }
      ]
     },
@@ -1346,45 +1197,45 @@
    },
    "solution": "PLIGHT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PLIGHT",
     "definitions": [
      {
       "text": "Dire Straits",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking capital",
-      "for": "deletion",
-      "note": "the escape loses its capital, meaning its first letter, spelt out as 'f-off'"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "the trimmed escape comes after the pressure, so they are placed side by side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pressure",
-      "gives": "P",
-      "note": "P is the physics symbol for pressure"
-     },
-     {
-      "clueFragment": "escape, f-off",
-      "gives": "FLIGHT",
-      "note": "flight is escape, and 'f-off' says its F goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LIGHT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking capital",
+       "note": "the escape loses its capital, meaning its first letter, spelt out as 'f-off'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "the trimmed escape comes after the pressure, so they are placed side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pressure",
+         "gives": "P",
+         "note": "P is the physics symbol for pressure"
+        },
+        {
+         "words": "escape, f-off",
+         "gives": "FLIGHT",
+         "note": "flight is escape, and 'f-off' says its F goes"
+        }
+       ]
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -1434,32 +1285,25 @@
    },
    "solution": "LOWLYING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOW-LYING",
     "definitions": [
      {
       "text": "liable to go under?",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Base",
-      "gives": "LOW",
-      "note": "base means low, mean"
-     },
-     {
-      "clueFragment": "Archer-style",
-      "gives": "LYING",
-      "note": "Jeffrey Archer, novelist and peer, was jailed for perjury"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOW",
-      "LYING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Base",
+       "gives": "LOW",
+       "note": "base means low, mean"
+      },
+      {
+       "words": "Archer-style",
+       "gives": "LYING",
+       "note": "Jeffrey Archer, novelist and peer, was jailed for perjury"
+      }
      ]
     },
     "explanation": {
@@ -1494,38 +1338,28 @@
     "21-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NORTH SOUTH DIVIDE",
     "definitions": [
      {
       "text": "that sets Brits apart",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancing letters move about the floor, ending up in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hire out shit DVD on",
-      "gives": "HIREOUTSHITDVDON",
-      "note": "the anagram fodder, sixteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HIRE OUT SHIT DVD ON",
-       "gives": "NORTHSOUTHDIVIDE"
+       "text": "dancing",
+       "note": "dancing letters move about the floor, ending up in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hire out shit DVD on",
+       "note": "the anagram fodder, sixteen letters"
       }
      ]
     },
+    "spelling": "NORTH SOUTH DIVIDE",
     "explanation": {
      "surface": "Someone rents out a terrible dance DVD that divides British opinion.",
      "walkthrough": "The answer runs across 23 down, 1 down and 21 across. It names the economic and cultural gap between northern and southern England.",
@@ -1552,42 +1386,31 @@
    },
    "solution": "DUCKLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DUCKLING",
     "definitions": [
      {
       "text": "ugly little thing, maybe",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "one piece is on the other, so they are placed next to each other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nothing",
-      "gives": "DUCK",
-      "note": "a duck is a score of nothing in cricket"
-     },
-     {
-      "clueFragment": "Heather",
-      "gives": "LING",
-      "note": "ling is a common heather"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUCK",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "one piece is on the other, so they are placed next to each other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nothing",
+       "gives": "DUCK",
+       "note": "a duck is a score of nothing in cricket"
+      },
+      {
+       "words": "Heather",
+       "gives": "LING",
+       "note": "ling is a common heather"
+      }
      ]
     },
     "explanation": {
@@ -1617,49 +1440,41 @@
    },
    "solution": "NOTARY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "NOTARY",
     "definitions": [
      {
       "text": "Lawyer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "right away",
-      "for": "deletion",
-      "note": "the delay word sends one of its 'right' letters away"
-     }
-    ],
-    "linkWords": [
-     "causes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "negative",
-      "gives": "NO",
-      "note": "a negative answer"
-     },
-     {
-      "clueFragment": "delay",
-      "gives": "TARRY",
-      "note": "to tarry is to delay"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "TA",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "negative",
+       "gives": "NO",
+       "note": "a negative answer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "right away",
+         "note": "the delay word sends one of its 'right' letters away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delay",
+         "gives": "TARRY",
+         "note": "to tarry is to delay"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1688,51 +1503,48 @@
    },
    "solution": "SEGREGATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEGREGATE",
     "definitions": [
      {
       "text": "don't join!",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "to take top off",
-      "for": "deletion",
-      "note": "taking the top off removes the first letter of the agreeing word"
-     },
-     {
-      "text": "Rocky",
-      "for": "anagram",
-      "note": "rocky means unsteady, so the letters wobble into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agrees",
-      "gives": "AGREES",
-      "note": "taken as it stands, then topped"
-     },
-     {
-      "clueFragment": "scandal",
-      "gives": "GATE",
-      "note": "-gate is the suffix for a scandal, after Watergate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEGRE",
-      "GATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GREES",
-       "gives": "SEGRE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Rocky",
+         "note": "rocky means unsteady, so the letters wobble into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to take top off",
+           "note": "taking the top off removes the first letter of the agreeing word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "agrees",
+           "note": "taken as it stands, then topped"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "scandal",
+       "gives": "GATE",
+       "note": "-gate is the suffix for a scandal, after Watergate"
       }
      ]
     },
@@ -1762,38 +1574,31 @@
    },
    "solution": "INCH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INCH",
     "definitions": [
      {
       "text": "Creep",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacks",
-      "for": "deletion",
-      "note": "the steal word lacks the power letter, so it drops out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nick",
-      "gives": "PINCH",
-      "note": "to nick is to steal, to pinch"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the symbol for power"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacks",
+       "note": "the steal word lacks the power letter, so it drops out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nick",
+       "gives": "PINCH",
+       "note": "to nick is to steal, to pinch"
+      },
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P is the symbol for power"
+      }
      ]
     },
     "explanation": {

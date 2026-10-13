@@ -1,8 +1,6 @@
 {
  "id": "cryptic-23882",
  "number": 23882,
- "series": "cryptic",
- "name": "Cryptic crossword No 23,882",
  "setter": "Araucaria",
  "date": "2006-09-27",
  "preamble": "Eight characters are of a kind and may lack further definition.",
@@ -39,29 +37,17 @@
    },
    "solution": "ODDBALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ODDBALL",
     "definitions": [
      {
       "text": "First third or fifth of the over",
       "at": 0,
-      "note": "a noun phrase for a delivery; the answer read as two words, odd ball"
+      "note": "a noun phrase for a delivery; the answer read as two words, odd ball",
+      "meaning": "a cricket over has six deliveries, and the first, third and fifth are the odd-numbered balls"
      },
      {
       "text": "Curious",
-      "at": 34
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First third or fifth of the over",
-      "note": "a cricket over has six deliveries, and the first, third and fifth are the odd-numbered balls"
-     },
-     {
-      "clueFragment": "Curious",
-      "note": "second meaning: strange, eccentric"
+      "at": 34,
+      "meaning": "second meaning: strange, eccentric"
      }
     ],
     "explanation": {
@@ -90,55 +76,53 @@
    },
    "solution": "OSSIFY",
    "annotation": {
-    "type": [
-     "and_lit",
-     "substitution",
-     "anagram"
-    ],
-    "answer": "OSSIFY",
     "definitions": [
      {
       "text": "Turn to fossil (if fifty were unknown)",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "were",
-      "for": "substitution",
-      "note": "the bracket imagines a world where one letter stood for another, so we swap it"
-     },
-     {
-      "text": "Turn",
-      "for": "anagram",
-      "note": "to turn something is to twist it round, so the letters get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fossil",
-      "gives": "FOSSIL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fifty",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "x, y and z are the unknowns in algebra"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OSSIFY",
+     "indicators": [
       {
-       "fodder": "FOSSIY",
-       "gives": "OSSIFY"
+       "text": "Turn",
+       "note": "to turn something is to twist it round, so the letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "OSSIFY",
+       "indicators": [
+        {
+         "text": "were",
+         "note": "the bracket imagines a world where one letter stood for another, so we swap it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fossil",
+         "note": "taken as written"
+        },
+        {
+         "words": "fifty",
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        },
+        {
+         "words": "unknown",
+         "gives": "Y",
+         "note": "x, y and z are the unknowns in algebra"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A note about fossilisation with an odd mathematical aside in brackets.",
      "walkthrough": "'Turn' does double duty: it is part of the definition and also the signal to rearrange the altered word once its L has become a Y.",
@@ -184,58 +168,56 @@
    },
    "solution": "ALMATADEMA",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "ALMA-TADEMA",
     "definitions": [
      {
       "text": "painter",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "engulfs",
-      "for": "container",
-      "note": "to engulf is to swallow up, so one piece goes round another"
-     },
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "something missing is absent, so those letters are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "ALE",
-      "note": "ale is a drink"
-     },
-     {
-      "clueFragment": "bullfighter",
-      "gives": "MATADOR",
-      "note": "a matador kills the bull in a bullfight"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written, then removed"
-     },
-     {
-      "clueFragment": "master",
-      "gives": "MA",
-      "note": "MA, Master of Arts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "MATAD",
-      "E",
-      "MA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engulfs",
+         "note": "to engulf is to swallow up, so one piece goes round another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drink",
+         "gives": "ALE",
+         "note": "ale is a drink"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "note": "something missing is absent, so those letters are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bullfighter",
+           "gives": "MATADOR",
+           "note": "a matador kills the bull in a bullfight"
+          },
+          {
+           "words": "or",
+           "note": "taken as written, then removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "master",
+       "gives": "MA",
+       "note": "MA, Master of Arts"
+      }
      ]
     },
     "explanation": {
@@ -274,49 +256,35 @@
     "5-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LUCIE MANETTE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out can mean disordered or not in place, so the letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "came"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a crescent",
-      "gives": "LUNETTE",
-      "note": "a lunette is a crescent-shaped object or window"
-     },
-     {
-      "clueFragment": "I came",
-      "gives": "ICAME",
-      "note": "taken as written before rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LU",
-      "CIEMA",
-      "NETTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ICAME",
-       "gives": "CIEMA"
+       "text": "in",
+       "note": "to be in something is to sit inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a crescent",
+       "gives": "LUNETTE",
+       "note": "a lunette is a crescent-shaped object or window"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out can mean disordered or not in place, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I came",
+         "note": "taken as written before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -359,30 +327,28 @@
    },
    "solution": "MONORHYME",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MONORHYME",
     "definitions": [
      {
       "text": "Type of verse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inspired by",
-      "for": "hidden_word",
-      "note": "to inspire is literally to breathe in, so the answer is drawn from within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "daemon or Hymen",
-      "gives": "MONORHYME",
-      "note": "runs across the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inspired by",
+       "note": "to inspire is literally to breathe in, so the answer is drawn from within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "daemon or Hymen",
+       "gives": "MONORHYME",
+       "note": "runs across the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Poetry prompted by a guardian spirit or the Greek god of marriage.",
      "walkthrough": "'Inspired by' reads as muse-talk but signals letters drawn from inside the phrase; Hymen is the Greek god of weddings.",
@@ -409,26 +375,25 @@
    },
    "solution": "NOTE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NOTE",
     "definitions": [
      {
       "text": "A minute of music",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A minute",
-      "note": "surface reading: sixty seconds of a piece, or a written memo"
-     },
-     {
-      "clueFragment": "A minute of music",
-      "note": "setter's reading: minute as tiny, so the smallest unit of a tune"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A minute",
+       "note": "surface reading: sixty seconds of a piece, or a written memo"
+      },
+      {
+       "words": "A minute of music",
+       "note": "setter's reading: minute as tiny, so the smallest unit of a tune"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Read 'minute' as a span of time and you look for a short piece; read it as 'tiny' and you want the single sound. A minute is also a memo, adding a second sense.",
      "definitionFit": "A single sung or played tone is the smallest building block of a melody, and a minute is also a written memo."
@@ -455,11 +420,6 @@
    },
    "solution": "TABLOIDY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TABLOIDY",
     "definitions": [
      {
       "text": "not like us",
@@ -467,46 +427,45 @@
       "note": "a phrase describing a newspaper; the answer is an adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means coming later in order, so one piece is placed behind another"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one thing inside another"
-     },
-     {
-      "text": "surroundings",
-      "for": "container",
-      "note": "surroundings enclose whatever is placed among them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "well-ordered",
-      "gives": "TIDY",
-      "note": "tidy means neat, in good order"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "AB",
-      "note": "AB, able seaman"
-     },
-     {
-      "clueFragment": "Look",
-      "gives": "LO",
-      "note": "lo, an old word for look!"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AB",
-      "LO",
-      "IDY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one thing inside another"
+      },
+      {
+       "text": "surroundings",
+       "note": "surroundings enclose whatever is placed among them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "well-ordered",
+       "gives": "TIDY",
+       "note": "tidy means neat, in good order"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "after means coming later in order, so one piece is placed behind another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sailor",
+         "gives": "AB",
+         "note": "AB, able seaman"
+        },
+        {
+         "words": "Look",
+         "gives": "LO",
+         "note": "lo, an old word for look!"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -536,32 +495,25 @@
    },
    "solution": "EVENSONG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EVENSONG",
     "definitions": [
      {
       "text": "Service",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "flat",
-      "gives": "EVEN",
-      "note": "a flat surface is even"
-     },
-     {
-      "clueFragment": "at little expense",
-      "gives": "SONG",
-      "note": "bought for a song means bought cheaply"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVEN",
-      "SONG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "flat",
+       "gives": "EVEN",
+       "note": "a flat surface is even"
+      },
+      {
+       "words": "at little expense",
+       "gives": "SONG",
+       "note": "bought for a song means bought cheaply"
+      }
      ]
     },
     "explanation": {
@@ -590,34 +542,29 @@
    },
    "solution": "SCRAM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SCRAM",
     "definitions": [
      {
       "text": "run",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Steve",
-      "gives": "S",
-      "select": "first",
-      "note": "his initial"
-     },
-     {
-      "clueFragment": "Runner",
-      "gives": "CRAM",
-      "note": "Steve Cram, the British middle-distance runner and world mile record holder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CRAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Steve",
+         "note": "his initial"
+        }
+       ]
+      },
+      {
+       "words": "Runner",
+       "gives": "CRAM",
+       "note": "Steve Cram, the British middle-distance runner and world mile record holder"
+      }
      ]
     },
     "explanation": {
@@ -646,29 +593,17 @@
    },
    "solution": "CONSTABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CONSTABLE",
     "definitions": [
      {
       "text": "Bobby",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a British police officer"
      },
      {
       "text": "at Tate Britain",
       "at": 6,
-      "note": "a phrase for something hanging in a gallery; the answer is a painter's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bobby",
-      "note": "first meaning: a British police officer"
-     },
-     {
-      "clueFragment": "at Tate Britain",
-      "note": "second meaning: the English landscape painter whose works hang in that London gallery"
+      "note": "a phrase for something hanging in a gallery; the answer is a painter's name",
+      "meaning": "second meaning: the English landscape painter whose works hang in that London gallery"
      }
     ],
     "explanation": {
@@ -704,26 +639,25 @@
    },
    "solution": "FAINTHEART",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FAINT HEART",
     "definitions": [
      {
       "text": "Wanting the technique — that would pull the girls?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Wanting the technique — that would pull the girls?",
-      "note": "surface reading: someone lacking a seduction method"
-     },
-     {
-      "clueFragment": "Wanting",
-      "note": "setter's reading: the proverb says timidity never won a fair lady, so the timid one lacks what wins hearts"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Wanting the technique — that would pull the girls?",
+       "note": "surface reading: someone lacking a seduction method"
+      },
+      {
+       "words": "Wanting",
+       "note": "setter's reading: the proverb says timidity never won a fair lady, so the timid one lacks what wins hearts"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hapless man without the chat-up skills to attract women.",
      "walkthrough": "The clue leans on the proverb 'faint heart never won fair lady'; to pull is British slang for attracting a romantic partner.",
@@ -751,29 +685,17 @@
    },
    "solution": "BOSS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOSS",
     "definitions": [
      {
       "text": "Prominent",
       "at": 0,
-      "note": "an adjective; the answer here is a noun, a raised knob"
+      "note": "an adjective; the answer here is a noun, a raised knob",
+      "meaning": "first meaning: a stud or knob that sticks out, as on a shield or ceiling"
      },
      {
       "text": "leader",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prominent",
-      "note": "first meaning: a stud or knob that sticks out, as on a shield or ceiling"
-     },
-     {
-      "clueFragment": "leader",
-      "note": "second meaning: the person in charge"
+      "at": 10,
+      "meaning": "second meaning: the person in charge"
      }
     ],
     "explanation": {
@@ -808,40 +730,29 @@
    },
    "solution": "MARYGRAHAM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MARY GRAHAM",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Form of",
-      "for": "anagram",
-      "note": "a form of something is a new shape made from the same stuff, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "army",
-      "gives": "ARMY",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "biscuit",
-      "gives": "GRAHAM",
-      "note": "a graham cracker is a wholemeal biscuit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARY",
-      "GRAHAM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ARMY",
-       "gives": "MARY"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Form of",
+         "note": "a form of something is a new shape made from the same stuff, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "army",
+         "note": "taken as written before rearranging"
+        }
+       ]
+      },
+      {
+       "words": "biscuit",
+       "gives": "GRAHAM",
+       "note": "a graham cracker is a wholemeal biscuit"
       }
      ]
     },
@@ -877,75 +788,72 @@
    },
    "solution": "DOLLYVARDEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "DOLLY VARDEN",
     "definitions": [
      {
       "text": "hat",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly suggests one of several versions, so the letters can be rearranged"
-     },
-     {
-      "text": "Before",
-      "for": "charade",
-      "note": "before places one piece ahead of the rest"
-     },
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold it, so one piece goes round another"
-     },
-     {
-      "text": "among",
-      "for": "container",
-      "note": "to be among things is to sit in their midst, so one piece goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "OLD",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "LEN",
-      "note": "Len, a boy's name"
-     },
-     {
-      "clueFragment": "sleuths",
-      "gives": "YARD",
-      "note": "the Yard, Scotland Yard, London's police detectives"
-     },
-     {
-      "clueFragment": "5",
-      "gives": "V",
-      "note": "V is the Roman numeral for five"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOL",
-      "L",
-      "Y",
-      "V",
-      "ARD",
-      "EN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "OLD",
-       "gives": "DOL"
+       "text": "Before",
+       "note": "before places one piece ahead of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "note": "possibly suggests one of several versions, so the letters can be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old",
+         "note": "taken as written before rearranging"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "to keep something is to hold it, so one piece goes round another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "gives": "LEN",
+         "note": "Len, a boy's name"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "among",
+           "note": "to be among things is to sit in their midst, so one piece goes inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sleuths",
+           "gives": "YARD",
+           "note": "the Yard, Scotland Yard, London's police detectives"
+          },
+          {
+           "words": "5",
+           "gives": "V",
+           "note": "V is the Roman numeral for five"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -975,50 +883,43 @@
    },
    "solution": "LINCRUSTA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LINCRUSTA",
     "definitions": [
      {
       "text": "paper",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "for": "deletion",
-      "note": "reduced means cut down, so a letter is lost from the end"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "County",
-      "gives": "LINCS",
-      "note": "Lincs, the standard short form of Lincolnshire, an English county"
-     },
-     {
-      "clueFragment": "oxidisation",
-      "gives": "RUST",
-      "note": "rust is iron oxide formed by oxidisation"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LINC",
-      "RUST",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "reduced",
+       "note": "reduced means cut down, so a letter is lost from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "County",
+         "gives": "LINCS",
+         "note": "Lincs, the standard short form of Lincolnshire, an English county"
+        },
+        {
+         "words": "oxidisation",
+         "gives": "RUST",
+         "note": "rust is iron oxide formed by oxidisation"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1047,54 +948,40 @@
    },
    "solution": "LICENSEE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LICENSEE",
     "definitions": [
      {
       "text": "Publican maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "another",
-      "for": "anagram",
-      "note": "another version of something is a different arrangement of it"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one thing inside another"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scene",
-      "gives": "SCENE",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "fiction",
-      "gives": "LIE",
-      "note": "a lie is a fiction, an untruth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "CENSE",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SCENE",
-       "gives": "CENSE"
+       "text": "in",
+       "note": "in places one thing inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fiction",
+       "gives": "LIE",
+       "note": "a lie is a fiction, an untruth"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "another",
+         "note": "another version of something is a different arrangement of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scene",
+         "note": "taken as written before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1130,12 +1017,6 @@
    },
    "solution": "TOPLIMIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "TOP LIMIT",
     "definitions": [
      {
       "text": "as high as permitted",
@@ -1143,50 +1024,54 @@
       "note": "an adjectival phrase; the answer is a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "something broken has its parts out of order, so the letters are rearranged"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold is to grip, so one piece goes round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bandage",
-      "gives": "T",
-      "note": "a T-bandage is a T-shaped surgical dressing"
-     },
-     {
-      "clueFragment": "skip",
-      "gives": "OMIT",
-      "note": "to skip something is to leave it out"
-     },
-     {
-      "clueFragment": "lip",
-      "gives": "LIP",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "the sky",
-      "note": "surface padding that nods to the saying about the sky and limits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "O",
-      "PLI",
-      "MIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LIP",
-       "gives": "PLI"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bandage",
+         "gives": "T",
+         "note": "a T-bandage is a T-shaped surgical dressing"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "holding",
+           "note": "to hold is to grip, so one piece goes round another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "skip",
+           "gives": "OMIT",
+           "note": "to skip something is to leave it out"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "broken",
+             "note": "something broken has its parts out of order, so the letters are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "lip",
+             "note": "taken as written before rearranging"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "the sky",
+       "note": "surface padding that nods to the saying about the sky and limits"
       }
      ]
     },
@@ -1216,50 +1101,41 @@
    },
    "solution": "IRONMONGERY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IRONMONGERY",
     "definitions": [
      {
       "text": "hardware",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "in places the following pieces inside another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a manner of speaking",
-      "gives": "IRONY",
-      "note": "irony is a way of speaking that means the opposite of what is said"
-     },
-     {
-      "clueFragment": "my French",
-      "gives": "MON",
-      "note": "mon is French for my"
-     },
-     {
-      "clueFragment": "German",
-      "gives": "GER",
-      "note": "GER, the abbreviation for German"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRON",
-      "MON",
-      "GER",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "in places the following pieces inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a manner of speaking",
+       "gives": "IRONY",
+       "note": "irony is a way of speaking that means the opposite of what is said"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "my French",
+         "gives": "MON",
+         "note": "mon is French for my"
+        },
+        {
+         "words": "German",
+         "gives": "GER",
+         "note": "GER, the abbreviation for German"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1298,39 +1174,30 @@
     "2-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LITTLE DORRIT",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Letters",
-      "gives": "LITT",
-      "note": "Litt., as in D.Litt., Doctor of Letters"
-     },
-     {
-      "clueFragment": "were guide to",
-      "gives": "LED",
-      "note": "led means acted as guide, showed the way"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "go slow",
-      "gives": "RIT",
-      "note": "rit., ritardando, the musical direction to slow down"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LITT",
-      "LED",
-      "OR",
-      "RIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Letters",
+       "gives": "LITT",
+       "note": "Litt., as in D.Litt., Doctor of Letters"
+      },
+      {
+       "words": "were guide to",
+       "gives": "LED",
+       "note": "led means acted as guide, showed the way"
+      },
+      {
+       "words": "gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "go slow",
+       "gives": "RIT",
+       "note": "rit., ritardando, the musical direction to slow down"
+      }
      ]
     },
     "explanation": {
@@ -1369,57 +1236,49 @@
     "25-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ESTHER SUMMERSON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests disorder, so the letters are rearranged"
-     },
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "before places one piece ahead of the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Set",
-      "gives": "SET",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "season's",
-      "gives": "SUMMERS",
-      "note": "summer is a season, with its 's kept"
-     },
-     {
-      "clueFragment": "in progress",
-      "gives": "ON",
-      "note": "something on is happening now"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EST",
-      "HER",
-      "SUMMERS",
-      "ON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "SET",
-       "gives": "EST"
+       "text": "before",
+       "note": "before places one piece ahead of the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out suggests disorder, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Set",
+           "note": "taken as written before rearranging"
+          },
+          {
+           "words": "her",
+           "note": "taken as written"
+          },
+          {
+           "words": "season's",
+           "gives": "SUMMERS",
+           "note": "summer is a season, with its 's kept"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "in progress",
+       "gives": "ON",
+       "note": "something on is happening now"
       }
      ]
     },
@@ -1449,38 +1308,26 @@
    },
    "solution": "EMLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMLY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round another"
-     }
-    ],
-    "linkWords": [
-     "after 19"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "ELY",
-      "note": "a see is a bishop's diocese, and Ely is a cathedral city in Cambridgeshire"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "M",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "gives": "ELY",
+       "note": "a see is a bishop's diocese, and Ely is a cathedral city in Cambridgeshire"
+      },
+      {
+       "words": "number",
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
      ]
     },
     "explanation": {
@@ -1509,10 +1356,6 @@
    },
    "solution": "PROPERTIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROPERTIES",
     "definitions": [
      {
       "text": "for the stage",
@@ -1520,22 +1363,19 @@
       "note": "a phrase describing items; the answer is a plural noun"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Correct",
-      "gives": "PROPER",
-      "note": "proper means correct, right"
-     },
-     {
-      "clueFragment": "wear",
-      "gives": "TIES",
-      "note": "ties are worn round the neck"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROPER",
-      "TIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Correct",
+       "gives": "PROPER",
+       "note": "proper means correct, right"
+      },
+      {
+       "words": "wear",
+       "gives": "TIES",
+       "note": "ties are worn round the neck"
+      }
      ]
     },
     "explanation": {
@@ -1564,40 +1404,31 @@
    },
    "solution": "PANIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PANIC",
     "definitions": [
      {
       "text": "Fear",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one thing inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "film",
-      "gives": "PIC",
-      "note": "pic, short for picture, a film"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "an is the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AN",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one thing inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film",
+       "gives": "PIC",
+       "note": "pic, short for picture, a film"
+      },
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -1626,29 +1457,24 @@
    },
    "solution": "NELL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NELL",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "to be heard",
-      "for": "homophone",
-      "note": "what is heard is taken in by the ear, so only pronunciation counts and spelling may differ"
-     }
-    ],
-    "linkWords": [
-     "after 19"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Last sound",
-      "gives": "NELL",
-      "soundsLike": "KNELL",
-      "note": "a knell is the bell tolled at a death or funeral"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NELL",
+     "indicators": [
+      {
+       "text": "to be heard",
+       "note": "what is heard is taken in by the ear, so only pronunciation counts and spelling may differ"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Last sound",
+       "gives": "KNELL",
+       "note": "a knell is the bell tolled at a death or funeral"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The final ringing one hears when something is over.",
      "walkthrough": "'After 19' places the answer after LITTLE: Little Nell, whose death in The Old Curiosity Shop famously moved Victorian readers, fitting the funeral bell.",
@@ -1689,29 +1515,17 @@
    },
    "solution": "HITCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HITCH",
     "definitions": [
      {
       "text": "Drawback",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a snag or problem"
      },
      {
       "text": "familiar to film director",
       "at": 9,
-      "note": "a phrase; the answer is the nickname itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drawback",
-      "note": "first meaning: a snag or problem"
-     },
-     {
-      "clueFragment": "familiar to film director",
-      "note": "second meaning: the short pet name of Alfred Hitchcock"
+      "note": "a phrase; the answer is the nickname itself",
+      "meaning": "second meaning: the short pet name of Alfred Hitchcock"
      }
     ],
     "explanation": {
@@ -1741,30 +1555,20 @@
    },
    "solution": "ESTELLA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESTELLA",
     "definedByPreamble": true,
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "E, the compass point"
-     },
-     {
-      "clueFragment": "Star",
-      "gives": "STELLA",
-      "note": "stella is Latin for star"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "STELLA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "East",
+       "gives": "E",
+       "note": "E, the compass point"
+      },
+      {
+       "words": "Star",
+       "gives": "STELLA",
+       "note": "stella is Latin for star"
+      }
      ]
     },
     "explanation": {
@@ -1793,38 +1597,30 @@
    },
    "solution": "COMPEER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COMPEER",
     "definitions": [
      {
       "text": "fellow",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "CO",
-      "note": "co- is the prefix meaning joint or fellow, as in co-worker"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP, Member of Parliament"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EER",
-      "note": "e'er, the poetic contraction of ever"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "MP",
-      "EER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "CO",
+       "note": "co- is the prefix meaning joint or fellow, as in co-worker"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP, Member of Parliament"
+      },
+      {
+       "words": "always",
+       "gives": "EER",
+       "note": "e'er, the poetic contraction of ever"
+      }
      ]
     },
     "explanation": {

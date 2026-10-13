@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2925",
  "number": 2925,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,925",
  "setter": "Rongo",
  "date": "2025-03-01",
  "dimensions": {
@@ -42,33 +40,28 @@
    },
    "solution": "DISTANT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DISTANT",
     "definitions": [
      {
       "text": "remote",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "only a part of the region's name is wanted, so the answer sits inside the word 'Kurdistan' and the next word"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kurdistan that's",
-      "gives": "DISTANT",
-      "note": "the letters run across the end of the place name and into the next word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "only a part of the region's name is wanted, so the answer sits inside the word 'Kurdistan' and the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kurdistan that's",
+       "gives": "DISTANT",
+       "note": "the letters run across the end of the place name and into the next word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A geography note about a far-flung corner of the Kurdish homeland.",
      "walkthrough": "KurDISTAN That's holds DISTANT; the apostrophe-s is part of the link, not the fodder.",
@@ -95,38 +88,29 @@
    },
    "solution": "DISAPPOINTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISAPPOINTED",
     "definitions": [
      {
       "text": "Frustrated",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "standard abbreviation for a duke"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "given a job",
-      "gives": "APPOINTED",
-      "note": "someone given a post has been named to it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "APPOINTED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "duke",
+       "gives": "D",
+       "note": "standard abbreviation for a duke"
+      },
+      {
+       "words": "is",
+       "note": "used as it stands"
+      },
+      {
+       "words": "given a job",
+       "gives": "APPOINTED",
+       "note": "someone given a post has been named to it"
+      }
      ]
     },
     "explanation": {
@@ -155,41 +139,30 @@
    },
    "solution": "SOURNESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOURNESS",
     "definitions": [
      {
       "text": "acidity",
       "at": 24
      }
     ],
-    "linkWords": [
-     "shows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South",
-      "gives": "S",
-      "note": "compass abbreviation"
-     },
-     {
-      "clueFragment": "of us",
-      "gives": "OUR",
-      "note": "the possessive belonging to us"
-     },
-     {
-      "clueFragment": "loch",
-      "gives": "NESS",
-      "note": "the famous Scottish lake, home of the legendary monster"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "OUR",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "gives": "S",
+       "note": "compass abbreviation"
+      },
+      {
+       "words": "of us",
+       "gives": "OUR",
+       "note": "the possessive belonging to us"
+      },
+      {
+       "words": "loch",
+       "gives": "NESS",
+       "note": "the famous Scottish lake, home of the legendary monster"
+      }
      ]
     },
     "explanation": {
@@ -218,43 +191,56 @@
    },
    "solution": "ARTY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone"
-    ],
-    "answer": "ARTY",
     "definitions": [
      {
       "text": "Creative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "introductions",
-      "for": "letter_selection",
-      "note": "the introductions of words are their opening letters, taken from 'radio' and 'talker'"
-     },
-     {
-      "text": "pronunciation of",
-      "for": "homophone",
-      "note": "we are told to say the two chosen letters out loud and hear a word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "radio talker's introductions",
-      "gives": "RT",
-      "select": "first",
-      "note": "the opening letter of each of the two words"
-     },
-     {
-      "clueFragment": "radio talker's introductions",
-      "gives": "ARTY",
-      "soundsLike": "R T",
-      "note": "the two letter names said one after the other"
-     }
-    ],
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "ARTY",
+     "indicators": [
+      {
+       "text": "introductions",
+       "note": "the introductions of words are their opening letters, taken from 'radio' and 'talker'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "RT",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "radio talker's introductions",
+         "gives": "RT",
+         "select": "first",
+         "note": "the opening letter of each of the two words"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "ARTY",
+       "indicators": [
+        {
+         "text": "pronunciation of",
+         "note": "we are told to say the two chosen letters out loud and hear a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "radio talker's introductions",
+         "gives": "RT",
+         "note": "the two letter names said one after the other"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A broadcaster's inventive way of saying the words that open their show.",
      "walkthrough": "The letter names 'ar' and 'tee' said together make ARTY.",
@@ -281,52 +267,46 @@
    },
    "solution": "TREMOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "TREMOR",
     "definitions": [
      {
       "text": "Vibration",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "vacant",
-      "for": "letter_selection",
-      "note": "a vacant thing has had its insides emptied, so only the outside letters of 'tower' stay"
-     },
-     {
-      "text": "erected",
-      "for": "reversal",
-      "note": "in a down clue, putting the city upright means writing it from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vacant tower",
-      "gives": "TR",
-      "select": "outer",
-      "note": "first and last letters of the building"
-     },
-     {
-      "clueFragment": "Italian city",
-      "gives": "ROME",
-      "note": "the Italian capital"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "EMOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ROME",
-       "to": "EMOR"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacant",
+         "note": "a vacant thing has had its insides emptied, so only the outside letters of 'tower' stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vacant tower",
+         "gives": "TOWER",
+         "note": "first and last letters of the building"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "erected",
+         "note": "in a down clue, putting the city upright means writing it from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian city",
+         "gives": "ROME",
+         "note": "the Italian capital"
+        }
+       ]
       }
      ]
     },
@@ -356,39 +336,30 @@
    },
    "solution": "AMBIENCE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AMBIENCE",
     "definitions": [
      {
       "text": "Atmosphere",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after Val's departure",
-      "for": "deletion",
-      "note": "once Val has left, those three letters are taken out of the feelings word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mixed feelings",
-      "gives": "AMBIVALENCE",
-      "note": "the state of feeling two ways about something"
-     },
-     {
-      "clueFragment": "Val",
-      "gives": "VAL",
-      "note": "the name itself, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AMBI",
-      "ENCE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after Val's departure",
+       "note": "once Val has left, those three letters are taken out of the feelings word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mixed feelings",
+       "gives": "AMBIVALENCE",
+       "note": "the state of feeling two ways about something"
+      },
+      {
+       "words": "Val",
+       "note": "the name itself, removed"
+      }
      ]
     },
     "explanation": {
@@ -417,37 +388,25 @@
    },
    "solution": "STET",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "STET",
     "definitions": [
      {
       "text": "editor's instruction",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders in",
-      "for": "letter_selection",
-      "note": "the leaders of a line of words are their first letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sunday Times editions transmit",
-      "gives": "STET",
-      "select": "first",
-      "note": "first letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "T",
-      "E",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Leaders in",
+       "note": "the leaders of a line of words are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sunday Times editions transmit",
+       "note": "first letters of the four words"
+      }
      ]
     },
     "explanation": {
@@ -477,32 +436,25 @@
    },
    "solution": "REMATCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMATCH",
     "definitions": [
      {
       "text": "Repeat of contest",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "Latin-derived 'concerning', as in memo headings"
-     },
-     {
-      "clueFragment": "lighter alternative?",
-      "gives": "MATCH",
-      "note": "you can strike one instead of using a cigarette lighter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MATCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "Latin-derived 'concerning', as in memo headings"
+      },
+      {
+       "words": "lighter alternative?",
+       "gives": "MATCH",
+       "note": "you can strike one instead of using a cigarette lighter"
+      }
      ]
     },
     "explanation": {
@@ -532,35 +484,24 @@
    },
    "solution": "HYPOTHETICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HYPOTHETICAL",
     "definitions": [
      {
       "text": "Conceptual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "developed",
-      "for": "anagram",
-      "note": "something developed has been worked into a new form, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "policy that he",
-      "gives": "POLICYTHATHE",
-      "note": "the three words used as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POLICYTHATHE",
-       "gives": "HYPOTHETICAL"
+       "text": "developed",
+       "note": "something developed has been worked into a new form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "policy that he",
+       "note": "the three words used as letters"
       }
      ]
     },
@@ -590,48 +531,34 @@
    },
    "solution": "SHUTTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SHUTTLE",
     "definitions": [
      {
       "text": "Short-route transport",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "'out' can mean wrong or disordered, so the letters of 'let' are jumbled"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is closed",
-      "gives": "SHUT",
-      "note": "a closed door is one that is not open"
-     },
-     {
-      "clueFragment": "let",
-      "gives": "LET",
-      "note": "the word itself, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHUT",
-      "TLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LET",
-       "gives": "TLE"
+       "words": "is closed",
+       "gives": "SHUT",
+       "note": "a closed door is one that is not open"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "'out' can mean wrong or disordered, so the letters of 'let' are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let",
+         "note": "the word itself, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -661,41 +588,30 @@
    },
    "solution": "MAINTOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAINTOP",
     "definitions": [
      {
       "text": "platform on a ship",
       "at": 22
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother",
-      "gives": "MA",
-      "note": "informal word for a mother"
-     },
-     {
-      "clueFragment": "keen on",
-      "gives": "INTO",
-      "note": "being into something means being enthusiastic about it"
-     },
-     {
-      "clueFragment": "Papa",
-      "gives": "P",
-      "note": "P in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "INTO",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mother",
+       "gives": "MA",
+       "note": "informal word for a mother"
+      },
+      {
+       "words": "keen on",
+       "gives": "INTO",
+       "note": "being into something means being enthusiastic about it"
+      },
+      {
+       "words": "Papa",
+       "gives": "P",
+       "note": "P in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -724,44 +640,35 @@
    },
    "solution": "PUNK",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PUNK",
     "definitions": [
      {
       "text": "rebellious style?",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means in the first place, so only the opening letter of 'known' is taken"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joke using ambiguity",
-      "gives": "PUN",
-      "note": "wordplay on a double meaning"
-     },
-     {
-      "clueFragment": "known",
-      "gives": "K",
-      "select": "first",
-      "note": "opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUN",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Joke using ambiguity",
+       "gives": "PUN",
+       "note": "wordplay on a double meaning"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means in the first place, so only the opening letter of 'known' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "known",
+         "note": "opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -796,31 +703,16 @@
    },
    "solution": "STRUNGOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRUNG OUT",
     "definitions": [
      {
       "text": "On drugs",
-      "at": 0
+      "at": 0,
+      "meaning": "slang for being addicted to or high on narcotics"
      },
      {
       "text": "a clothes line?",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "On drugs",
-      "note": "slang for being addicted to or high on narcotics"
-     },
-     {
-      "clueFragment": "a clothes line?",
-      "note": "washing hung in a row along a cord, spread out along its length"
+      "at": 14,
+      "meaning": "washing hung in a row along a cord, spread out along its length"
      }
     ],
     "explanation": {
@@ -850,47 +742,35 @@
    },
    "solution": "SCIMITAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCIMITAR",
     "definitions": [
      {
       "text": "curved sword",
       "at": 25
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scene",
-      "gives": "SC",
-      "note": "abbreviation used in play scripts"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "MI",
-      "note": "third note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "old slang for a seaman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "I",
-      "MI",
-      "TAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scene",
+       "gives": "SC",
+       "note": "abbreviation used in play scripts"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral"
+      },
+      {
+       "words": "note",
+       "gives": "MI",
+       "note": "third note of the sol-fa scale"
+      },
+      {
+       "words": "sailor",
+       "gives": "TAR",
+       "note": "old slang for a seaman"
+      }
      ]
     },
     "explanation": {
@@ -919,32 +799,25 @@
    },
    "solution": "OVERALLS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERALLS",
     "definitions": [
      {
       "text": "Protective clothing",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "completed",
-      "gives": "OVER",
-      "note": "something finished is over"
-     },
-     {
-      "clueFragment": "start of Shakespeare comedy",
-      "gives": "ALLS",
-      "note": "first word of the title All's Well That Ends Well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "ALLS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "completed",
+       "gives": "OVER",
+       "note": "something finished is over"
+      },
+      {
+       "words": "start of Shakespeare comedy",
+       "gives": "ALLS",
+       "note": "first word of the title All's Well That Ends Well"
+      }
      ]
     },
     "explanation": {
@@ -973,35 +846,24 @@
    },
    "solution": "INSTIGATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INSTIGATE",
     "definitions": [
      {
       "text": "Prompt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "anagrams",
-      "for": "anagram",
-      "note": "used as a verb, the clue tells us that the preceding words get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "AI, setting",
-      "gives": "AISETTING",
-      "note": "the two words used as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AISETTING",
-       "gives": "INSTIGATE"
+       "text": "anagrams",
+       "note": "used as a verb, the clue tells us that the preceding words get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "AI, setting",
+       "note": "the two words used as letters"
       }
      ]
     },
@@ -1032,44 +894,35 @@
    },
    "solution": "ARMADA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ARMADA",
     "definitions": [
      {
       "text": "fleet of warships",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, lifting the pieces up means reading them from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First man",
-      "gives": "ADAM",
-      "note": "the first man in Genesis"
-     },
-     {
-      "clueFragment": "Rear Admiral",
-      "gives": "RA",
-      "note": "naval rank abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARMADA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ADAMRA",
-       "to": "ARMADA"
+       "text": "raised",
+       "note": "in a down clue, lifting the pieces up means reading them from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "First man",
+         "gives": "ADAM",
+         "note": "the first man in Genesis"
+        },
+        {
+         "words": "Rear Admiral",
+         "gives": "RA",
+         "note": "naval rank abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1099,40 +952,31 @@
    },
    "solution": "WRIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WRIT",
     "definitions": [
      {
       "text": "legal document",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "secures",
-      "for": "container",
-      "note": "to secure is to hold fast, so the humorist holds 'right' inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Humorist",
-      "gives": "WIT",
-      "note": "a clever, amusing person"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "R",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secures",
+       "note": "to secure is to hold fast, so the humorist holds 'right' inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Humorist",
+       "gives": "WIT",
+       "note": "a clever, amusing person"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1161,35 +1005,24 @@
    },
    "solution": "TOURISM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TOURISM",
     "definitions": [
      {
       "text": "travel",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctor",
-      "for": "anagram",
-      "note": "to doctor is to tamper with or alter, so the letters that follow are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "or I must",
-      "gives": "ORIMUST",
-      "note": "the three words used as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORIMUST",
-       "gives": "TOURISM"
+       "text": "Doctor",
+       "note": "to doctor is to tamper with or alter, so the letters that follow are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or I must",
+       "note": "the three words used as letters"
       }
      ]
     },
@@ -1219,38 +1052,27 @@
    },
    "solution": "USER",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "USER",
     "definitions": [
      {
       "text": "Druggie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "putting the head all the way down",
-      "for": "cycling",
-      "note": "in a down clue the top letter of 'trick' is moved to the very bottom"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trick",
-      "gives": "RUSE",
-      "note": "a deceptive ploy"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "USER",
+     "indicators": [
       {
-       "fodder": "RUSE",
-       "gives": "USER"
+       "text": "putting the head all the way down",
+       "note": "in a down clue the top letter of 'trick' is moved to the very bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trick",
+       "gives": "RUSE",
+       "note": "a deceptive ploy"
       }
      ]
     },
@@ -1280,41 +1102,30 @@
    },
    "solution": "IGOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IGOR",
     "definitions": [
      {
       "text": "Slavic man",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first person",
-      "gives": "I",
-      "note": "the grammatical first person singular"
-     },
-     {
-      "clueFragment": "to become",
-      "gives": "GO",
-      "note": "as in 'to go mad'"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "abbreviation for the US party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "GO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first person",
+       "gives": "I",
+       "note": "the grammatical first person singular"
+      },
+      {
+       "words": "to become",
+       "gives": "GO",
+       "note": "as in 'to go mad'"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "abbreviation for the US party"
+      }
      ]
     },
     "explanation": {
@@ -1343,50 +1154,44 @@
    },
    "solution": "ANGELIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ANGELIC",
     "definitions": [
      {
       "text": "very innocent",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Wacky",
-      "for": "anagram",
-      "note": "something wacky is crazy and disordered, so the letters of the studio name are jumbled"
-     },
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "the opening of the word 'comedy' is its first letter"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ealing",
-      "gives": "EALING",
-      "note": "the name used as letters"
-     },
-     {
-      "clueFragment": "comedy",
-      "gives": "C",
-      "select": "first",
-      "note": "opening letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EALINGC",
-       "gives": "ANGELIC"
+       "text": "Wacky",
+       "note": "something wacky is crazy and disordered, so the letters of the studio name are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ealing",
+         "note": "the name used as letters"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "note": "the opening of the word 'comedy' is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "comedy",
+           "note": "opening letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1422,38 +1227,30 @@
    },
    "solution": "DIEHARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIE-HARD",
     "definitions": [
      {
       "text": "Obstinately reactionary",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "genealogical abbreviation"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "abbreviation of the Latin id est"
-     },
-     {
-      "clueFragment": "difficult",
-      "gives": "HARD",
-      "note": "a simple synonym"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IE",
-      "HARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "genealogical abbreviation"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "abbreviation of the Latin id est"
+      },
+      {
+       "words": "difficult",
+       "gives": "HARD",
+       "note": "a simple synonym"
+      }
      ]
     },
     "explanation": {
@@ -1481,60 +1278,45 @@
    },
    "solution": "AEROSOL",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "charade"
-    ],
-    "answer": "AEROSOL",
     "definitions": [
      {
       "text": "spray",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "turbulent",
-      "for": "anagram",
-      "note": "turbulent water is churned up, so the letters of 'sea or' are stirred"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means reading the word for 'look' from right to left"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sea or",
-      "gives": "SEAOR",
-      "note": "the two words used as letters"
-     },
-     {
-      "clueFragment": "Look",
-      "gives": "LO",
-      "note": "old word for 'behold'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AEROS",
-      "OL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SEAOR",
-       "gives": "AEROS"
-      }
-     ],
-     "reversals": [
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turbulent",
+         "note": "turbulent water is churned up, so the letters of 'sea or' are stirred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sea or",
+         "note": "the two words used as letters"
+        }
+       ]
+      },
       {
-       "from": "LO",
-       "to": "OL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means reading the word for 'look' from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Look",
+         "gives": "LO",
+         "note": "old word for 'behold'"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2967",
  "number": 2967,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,967",
  "setter": "Cheeko",
  "date": "2025-04-19",
  "dimensions": {
@@ -42,32 +40,25 @@
    },
    "solution": "AMBIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AMBIT",
     "definitions": [
      {
       "text": "compass",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In the morning",
-      "gives": "AM",
-      "note": "am = ante meridiem, before noon"
-     },
-     {
-      "clueFragment": "gripped",
-      "gives": "BIT",
-      "note": "bit = gripped with the teeth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AM",
-      "BIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In the morning",
+       "gives": "AM",
+       "note": "am = ante meridiem, before noon"
+      },
+      {
+       "words": "gripped",
+       "gives": "BIT",
+       "note": "bit = gripped with the teeth"
+      }
      ]
     },
     "explanation": {
@@ -97,39 +88,31 @@
    },
    "solution": "ABUT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ABUT",
     "definitions": [
      {
       "text": "border",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "the word is lacking the next item, so it is taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nearly",
-      "gives": "ABOUT",
-      "note": "about = nearly, as in 'about ten'"
-     },
-     {
-      "clueFragment": "missing over",
-      "gives": "O",
-      "note": "O = over, the cricket abbreviation; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "UT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "note": "the word is lacking the next item, so it is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nearly",
+       "gives": "ABOUT",
+       "note": "about = nearly, as in 'about ten'"
+      },
+      {
+       "words": "missing over",
+       "gives": "O",
+       "note": "O = over, the cricket abbreviation; it is removed"
+      }
      ]
     },
     "explanation": {
@@ -158,40 +141,31 @@
    },
    "solution": "BOHR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BOHR",
     "definitions": [
      {
       "text": "Nobel laureate",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "to be embraced by",
-      "for": "container",
-      "note": "the exclamation is held inside the abbreviation, as if hugged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "BR",
-      "note": "Br = British, the standard abbreviation"
-     },
-     {
-      "clueFragment": "I'm surprised",
-      "gives": "OH",
-      "note": "oh! = an exclamation of surprise, placed inside BR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OH",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be embraced by",
+       "note": "the exclamation is held inside the abbreviation, as if hugged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British",
+       "gives": "BR",
+       "note": "Br = British, the standard abbreviation"
+      },
+      {
+       "words": "I'm surprised",
+       "gives": "OH",
+       "note": "oh! = an exclamation of surprise, placed inside BR"
+      }
      ]
     },
     "explanation": {
@@ -230,54 +204,56 @@
    },
    "solution": "TITFORTAT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TIT FOR TAT",
     "definitions": [
      {
       "text": "retaliation",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the first part goes inside the letters from Otranto"
-     },
-     {
-      "text": "periodically",
-      "note": "take letters at regular intervals: the 2nd, 4th and 6th"
-     }
-    ],
-    "linkWords": [
-     "offers"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Otranto periodically",
-      "gives": "TAT",
-      "select": "alternate",
-      "note": "the even letters of oTrAnTo, which wrap around the rest"
-     },
-     {
-      "clueFragment": "Italian",
-      "gives": "IT",
-      "note": "It = Italian, the abbreviation"
-     },
-     {
-      "clueFragment": "stronghold",
-      "gives": "FORT",
-      "note": "a fort is a stronghold; IT + FORT sits inside T…AT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "IT",
-      "FORT",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the first part goes inside the letters from Otranto"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "periodically",
+         "note": "take letters at regular intervals: the 2nd, 4th and 6th"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "TAT",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Otranto periodically",
+           "gives": "TAT",
+           "select": "alternate",
+           "note": "the even letters of oTrAnTo, which wrap around the rest"
+          }
+         ]
+        },
+        {
+         "words": "Italian",
+         "gives": "IT",
+         "note": "It = Italian, the abbreviation"
+        }
+       ]
+      },
+      {
+       "words": "stronghold",
+       "gives": "FORT",
+       "note": "a fort is a stronghold; IT + FORT sits inside T…AT"
+      }
      ]
     },
     "explanation": {
@@ -306,40 +282,31 @@
    },
    "solution": "REVILED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REVILED",
     "definitions": [
      {
       "text": "Hated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "encapsulates",
-      "for": "container",
-      "note": "the outer word holds the other inside it like a capsule"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "communist",
-      "gives": "RED",
-      "note": "a red = a communist"
-     },
-     {
-      "clueFragment": "wickedness",
-      "gives": "VILE",
-      "note": "vile = wicked; placed inside RE…D"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "VILE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encapsulates",
+       "note": "the outer word holds the other inside it like a capsule"
+      }
+     ],
+     "parts": [
+      {
+       "words": "communist",
+       "gives": "RED",
+       "note": "a red = a communist"
+      },
+      {
+       "words": "wickedness",
+       "gives": "VILE",
+       "note": "vile = wicked; placed inside RE…D"
+      }
      ]
     },
     "explanation": {
@@ -367,32 +334,25 @@
    },
    "solution": "REHASH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REHASH",
     "definitions": [
      {
       "text": "Hackneyed output",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on the subject of",
-      "gives": "RE",
-      "note": "re = concerning, as in a memo heading"
-     },
-     {
-      "clueFragment": "mess",
-      "gives": "HASH",
-      "note": "to make a hash of something is to make a mess of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HASH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on the subject of",
+       "gives": "RE",
+       "note": "re = concerning, as in a memo heading"
+      },
+      {
+       "words": "mess",
+       "gives": "HASH",
+       "note": "to make a hash of something is to make a mess of it"
+      }
      ]
     },
     "explanation": {
@@ -420,47 +380,51 @@
    },
    "solution": "VIM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "VIM",
     "definitions": [
      {
       "text": "Energy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centre",
-      "for": "letter_selection",
-      "note": "take the middle two letters of the word"
-     },
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "take the first letter of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "provider's centre",
-      "gives": "VI",
-      "select": "middle",
-      "note": "the middle two letters of proVIder"
-     },
-     {
-      "clueFragment": "opening in May",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of May"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VI",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre",
+         "note": "take the middle two letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "provider's centre",
+         "gives": "PROVIDER",
+         "note": "the middle two letters of proVIder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "M",
+       "indicators": [
+        {
+         "text": "opening",
+         "note": "take the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "opening in May",
+         "gives": "M",
+         "select": "first",
+         "note": "the first letter of May"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -489,45 +453,41 @@
    },
    "solution": "LAMENTED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LAMENTED",
     "definitions": [
      {
       "text": "Mourned for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container",
-      "note": "one part is placed in the middle of another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deceased",
-      "gives": "LATE",
-      "note": "the late = the deceased"
-     },
-     {
-      "clueFragment": "soldiers",
-      "gives": "MEN",
-      "note": "men = soldiers, as in 'officers and men'; placed inside LA…TE"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "D = 500 in Roman numerals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAMENTE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "note": "one part is placed in the middle of another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deceased",
+         "gives": "LATE",
+         "note": "the late = the deceased"
+        },
+        {
+         "words": "soldiers",
+         "gives": "MEN",
+         "note": "men = soldiers, as in 'officers and men'; placed inside LA…TE"
+        }
+       ]
+      },
+      {
+       "words": "500",
+       "gives": "D",
+       "note": "D = 500 in Roman numerals"
+      }
      ]
     },
     "explanation": {
@@ -555,48 +515,37 @@
    },
    "solution": "DISCRETE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DISCRETE",
     "definitions": [
      {
       "text": "Separate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "the letters of the word are broken up and rearranged"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "DISC",
-      "note": "a disc = a record, as in vinyl"
-     },
-     {
-      "clueFragment": "damaged tree",
-      "gives": "RETE",
-      "note": "the letters of TREE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISC",
-      "RETE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISCRETE",
+     "indicators": [
       {
-       "fodder": "TREE",
-       "gives": "RETE"
+       "text": "damaged",
+       "note": "the letters of the word are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "record",
+         "gives": "DISC",
+         "note": "a disc = a record, as in vinyl"
+        },
+        {
+         "words": "damaged tree",
+         "gives": "RETE",
+         "note": "the letters of TREE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -626,32 +575,25 @@
    },
    "solution": "UNHITCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNHITCH",
     "definitions": [
      {
       "text": "Release",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one French",
-      "gives": "UN",
-      "note": "un = one in French"
-     },
-     {
-      "clueFragment": "jerk",
-      "gives": "HITCH",
-      "note": "a hitch is a sudden jerk or tug"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "HITCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one French",
+       "gives": "UN",
+       "note": "un = one in French"
+      },
+      {
+       "words": "jerk",
+       "gives": "HITCH",
+       "note": "a hitch is a sudden jerk or tug"
+      }
      ]
     },
     "explanation": {
@@ -681,43 +623,35 @@
    },
    "solution": "MEMOS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MEMOS",
     "definitions": [
      {
       "text": "Notes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sent over",
-      "for": "reversal",
-      "note": "turned over, so written back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a few",
-      "gives": "SOME",
-      "note": "some = a few"
-     },
-     {
-      "clueFragment": "minutes",
-      "gives": "M",
-      "note": "m = minutes, the abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEMOS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SOMEM",
-       "to": "MEMOS"
+       "text": "sent over",
+       "note": "turned over, so written back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a few",
+         "gives": "SOME",
+         "note": "some = a few"
+        },
+        {
+         "words": "minutes",
+         "gives": "M",
+         "note": "m = minutes, the abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -754,35 +688,19 @@
    },
    "solution": "DOGSDINNER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOG'S DINNER",
     "definitions": [
      {
       "text": "Perhaps bone",
-      "at": 0
+      "at": 0,
+      "meaning": "a bone is an example of what a dog eats"
      },
      {
       "text": "a mess",
-      "at": 16
+      "at": 16,
+      "meaning": "a muddle or botched job; this sense is British slang"
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps bone",
-      "gives": "DOG'S DINNER",
-      "note": "a bone is an example of what a dog eats"
-     },
-     {
-      "clueFragment": "a mess",
-      "gives": "DOG'S DINNER",
-      "note": "a muddle or botched job; this sense is British slang"
-     }
-    ],
+    "spelling": "DOG'S DINNER",
     "explanation": {
      "surface": "A bone left lying around is untidy.",
      "walkthrough": "'Perhaps' marks a bone as just one example of a dog's dinner. In British slang, making a dog's dinner of something means making a mess of it.",
@@ -810,35 +728,24 @@
    },
    "solution": "INTRODUCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTRODUCE",
     "definitions": [
      {
       "text": "Preface",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "in some way or other, so the letters are arranged differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reduction",
-      "gives": "REDUCTION",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REDUCTION",
-       "gives": "INTRODUCE"
+       "text": "somehow",
+       "note": "in some way or other, so the letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reduction",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -868,47 +775,45 @@
    },
    "solution": "DISPUTED",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "DISPUTED",
     "definitions": [
      {
       "text": "in question",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminal",
-      "for": "anagram",
-      "note": "wrong or bad, so the letters go astray"
-     },
-     {
-      "text": "entrance to",
-      "for": "letter_selection",
-      "note": "the first letter, the way into the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "studied",
-      "gives": "STUDIED",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "entrance to prison",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of prison, added to the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STUDIED P",
-       "gives": "DISPUTED"
+       "text": "Criminal",
+       "note": "wrong or bad, so the letters go astray"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "studied",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "entrance to",
+           "note": "the first letter, the way into the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "entrance to prison",
+           "gives": "PRISON",
+           "note": "the first letter of prison, added to the fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -938,41 +843,37 @@
    },
    "solution": "OVERHAUL",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "OVERHAUL",
     "definitions": [
      {
       "text": "Make repairs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "spoken, so the word is what you hear rather than how it is spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "along",
-      "gives": "OVER",
-      "note": "over = along, as in 'walk over the bridge'"
-     },
-     {
-      "clueFragment": "said passage",
-      "gives": "HAUL",
-      "soundsLike": "HALL",
-      "note": "a hall is a passage; HAUL sounds the same in British speech"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "HAUL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "along",
+       "gives": "OVER",
+       "note": "over = along, as in 'walk over the bridge'"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HAUL",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "spoken, so the word is what you hear rather than how it is spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "said passage",
+         "gives": "HALL",
+         "note": "a hall is a passage; HAUL sounds the same in British speech"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1001,55 +902,68 @@
    },
    "solution": "INVITE",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "INVITE",
     "definitions": [
      {
       "text": "Welcome",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the letter goes inside the shortened word"
-     },
-     {
-      "text": "first of",
-      "note": "take only the first letter"
-     },
-     {
-      "text": "brief",
-      "note": "cut short, losing its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "the word in, used as itself"
-     },
-     {
-      "clueFragment": "brief inspection",
-      "gives": "VIE",
-      "note": "a view is an inspection; brief loses the W"
-     },
-     {
-      "clueFragment": "first of trainees",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of trainees, placed inside VI…E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "VITE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INVITE",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letter goes inside the shortened word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "note": "the word in, used as itself"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "first of",
+           "note": "take only the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "brief inspection",
+           "gives": "VIE",
+           "note": "a view is an inspection; brief loses the W"
+          },
+          {
+           "op": "first",
+           "unchecked": true,
+           "gives": "T",
+           "indicators": [
+            {
+             "text": "brief",
+             "note": "cut short, losing its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "first of trainees",
+             "gives": "T",
+             "select": "first",
+             "note": "the first letter of trainees, placed inside VI…E"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1084,40 +998,34 @@
    },
    "solution": "ATREST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AT REST",
     "definitions": [
      {
       "text": "Static",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "should change",
-      "for": "anagram",
-      "note": "the letters are to be altered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rates",
-      "gives": "RATES",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time, added to the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RATES T",
-       "gives": "ATREST"
+       "text": "should change",
+       "note": "the letters are to be altered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rates",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "t = time, added to the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1147,40 +1055,33 @@
    },
    "solution": "ULSTER",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ULSTER",
     "definitions": [
      {
       "text": "coat",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "lowers",
-      "for": "substitution",
-      "note": "in a down clue, moving a letter lower means moving it further along the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lecherous type",
-      "gives": "LUSTER",
-      "note": "a luster is one who lusts"
-     },
-     {
-      "clueFragment": "lowers large",
-      "gives": "ULSTER",
-      "note": "L = large, moved down one place from LUSTER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "L",
-      "STER"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ULSTER",
+     "indicators": [
+      {
+       "text": "lowers",
+       "note": "in a down clue, moving a letter lower means moving it further along the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lecherous type",
+       "gives": "LUSTER",
+       "note": "a luster is one who lusts"
+      },
+      {
+       "words": "lowers large",
+       "gives": "ULSTER",
+       "note": "L = large, moved down one place from LUSTER"
+      }
      ]
     },
     "explanation": {
@@ -1215,38 +1116,24 @@
    },
    "solution": "PORTTALBOT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PORT TALBOT",
     "definitions": [
      {
       "text": "Welsh town",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "the letters stagger about, out of order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part blotto",
-      "gives": "PARTBLOTTO",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PART BLOTTO",
-       "gives": "PORTTALBOT"
+       "text": "drunk",
+       "note": "the letters stagger about, out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part blotto",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1277,45 +1164,46 @@
    },
    "solution": "JEST",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "JEST",
     "definitions": [
      {
       "text": "Joke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "ultimately means in the end, so only the final letter of cigars is used"
-     },
-     {
-      "text": "wrapped in",
-      "note": "the letter goes inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "black",
-      "gives": "JET",
-      "note": "jet = black, as in jet-black"
-     },
-     {
-      "clueFragment": "cigars ultimately",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of cigars, placed inside JE…T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JE",
-      "S",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "ultimately means in the end, so only the final letter of cigars is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "black",
+       "gives": "JET",
+       "note": "jet = black, as in jet-black"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "S",
+       "indicators": [
+        {
+         "text": "wrapped in",
+         "note": "the letter goes inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "cigars ultimately",
+         "gives": "S",
+         "select": "last",
+         "note": "the last letter of cigars, placed inside JE…T"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1343,37 +1231,25 @@
    },
    "solution": "TUBA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TUBA",
     "definitions": [
      {
       "text": "instrument",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Starts to",
-      "for": "letter_selection",
-      "note": "take the starting letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take up bronze age",
-      "gives": "TUBA",
-      "select": "first",
-      "note": "the first letters of Take Up Bronze Age"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "U",
-      "B",
-      "A"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Starts to",
+       "note": "take the starting letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "take up bronze age",
+       "note": "the first letters of Take Up Bronze Age"
+      }
      ]
     },
     "explanation": {
@@ -1402,47 +1278,41 @@
    },
    "solution": "TWANG",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "TWANG",
     "definitions": [
      {
       "text": "accent",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "note": "a fly flying back travels the other way, so its letters are read right to left"
-     },
-     {
-      "text": "retaining",
-      "note": "the insect holds the letter inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fly",
-      "gives": "GNAT",
-      "note": "a gnat is a small fly"
-     },
-     {
-      "clueFragment": "western",
-      "gives": "W",
-      "note": "W = western, placed inside GNA…T before the turnaround"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWANG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GNAWT",
-       "to": "TWANG"
+       "text": "back",
+       "note": "a fly flying back travels the other way, so its letters are read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retaining",
+         "note": "the insect holds the letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fly",
+         "gives": "GNAT",
+         "note": "a gnat is a small fly"
+        },
+        {
+         "words": "western",
+         "gives": "W",
+         "note": "W = western, placed inside GNA…T before the turnaround"
+        }
+       ]
       }
      ]
     },
@@ -1472,48 +1342,50 @@
    },
    "solution": "GUV",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "GUV",
     "definitions": [
      {
       "text": "Boss",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Backing",
-      "note": "the letters are turned around"
-     },
-     {
-      "text": "essentially",
-      "note": "at their essence, the middle letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "essentially saved",
-      "gives": "V",
-      "select": "middle",
-      "note": "the middle letter of saVed"
-     },
-     {
-      "clueFragment": "Hugo",
-      "gives": "UG",
-      "note": "the middle letters of hUGo; 'essentially' covers both words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUV"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "VUG",
-       "to": "GUV"
+       "text": "Backing",
+       "note": "the letters are turned around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "at their essence, the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "V",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "essentially saved",
+           "gives": "V",
+           "select": "middle",
+           "note": "the middle letter of saVed"
+          }
+         ]
+        },
+        {
+         "words": "Hugo",
+         "gives": "UG",
+         "note": "the middle letters of hUGo; 'essentially' covers both words"
+        }
+       ]
       }
      ]
     },
@@ -1544,40 +1416,31 @@
    },
    "solution": "TRUDEAU",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRUDEAU",
     "definitions": [
      {
       "text": "Canadian Liberal",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "grabs",
-      "for": "container",
-      "note": "the outer word takes hold of the other word inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "TAU",
-      "note": "tau = the Greek letter T"
-     },
-     {
-      "clueFragment": "vulgar",
-      "gives": "RUDE",
-      "note": "rude = vulgar; placed inside T…AU"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RUDE",
-      "AU"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabs",
+       "note": "the outer word takes hold of the other word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek character",
+       "gives": "TAU",
+       "note": "tau = the Greek letter T"
+      },
+      {
+       "words": "vulgar",
+       "gives": "RUDE",
+       "note": "rude = vulgar; placed inside T…AU"
+      }
      ]
     },
     "explanation": {
@@ -1606,43 +1469,38 @@
    },
    "solution": "DELIVER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DELIVER",
     "definitions": [
      {
       "text": "Present",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first half of",
-      "for": "deletion",
-      "note": "keep only the first half of the word"
-     }
-    ],
-    "linkWords": [
-     "standing by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first half of demo",
-      "gives": "DE",
-      "note": "the first two of the four letters of demo"
-     },
-     {
-      "clueFragment": "organ",
-      "gives": "LIVER",
-      "note": "the liver is an organ of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "LIVER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DELIVER",
+     "indicators": [
+      {
+       "text": "first half of",
+       "note": "keep only the first half of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "first half of demo",
+         "gives": "DE",
+         "note": "the first two of the four letters of demo"
+        },
+        {
+         "words": "organ",
+         "gives": "LIVER",
+         "note": "the liver is an organ of the body"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1672,30 +1530,16 @@
    },
    "solution": "EXTRA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EXTRA",
     "definitions": [
      {
       "text": "Additional",
-      "at": 0
+      "at": 0,
+      "meaning": "more than is usual or expected"
      },
      {
       "text": "member of cast doing little",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Additional",
-      "gives": "EXTRA",
-      "note": "more than is usual or expected"
-     },
-     {
-      "clueFragment": "member of cast doing little",
-      "gives": "EXTRA",
-      "note": "a film or stage performer hired to stand in the background"
+      "at": 11,
+      "meaning": "a film or stage performer hired to stand in the background"
      }
     ],
     "explanation": {

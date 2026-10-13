@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29170",
  "number": 29170,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,170",
  "setter": "Brendan",
  "date": "2023-09-08",
  "dimensions": {
@@ -38,36 +36,39 @@
    },
    "solution": "SOLO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SOLO",
     "definitions": [
      {
       "text": "One player's performance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the letters sit inside the next word of the clue, not built from meanings"
-     },
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue, upset turns the run of letters upside down, so it reads backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "colossal",
-      "gives": "OLOS",
-      "note": "the run of letters o-l-o-s inside this word, read upward in the down entry"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "note": "in a down clue, upset turns the run of letters upside down, so it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters sit inside the next word of the clue, not built from meanings"
+        }
+       ],
+       "parts": [
+        {
+         "words": "colossal",
+         "gives": "OLOS",
+         "note": "the run of letters o-l-o-s inside this word, read upward in the down entry"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A single musician's turn goes badly wrong in a huge flop.",
      "walkthrough": "Reading colossal backwards gives lassoloc, which holds the answer SOLO.",
@@ -94,43 +95,31 @@
    },
    "solution": "SEXTON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEXTON",
     "definitions": [
      {
       "text": "He can ring the changes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed inside another, so the number goes into the middle of the word for attack"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attack",
-      "gives": "SETON",
-      "note": "to set on someone is to attack them"
-     },
-     {
-      "clueFragment": "ten",
-      "gives": "X",
-      "note": "X is the Roman numeral for ten"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "X",
-      "TON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed inside another, so the number goes into the middle of the word for attack"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attack",
+       "gives": "SETON",
+       "note": "to set on someone is to attack them"
+      },
+      {
+       "words": "ten",
+       "gives": "X",
+       "note": "X is the Roman numeral for ten"
+      }
      ]
     },
     "explanation": {
@@ -160,31 +149,16 @@
    },
    "solution": "CARDHOLDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CARDHOLDER",
     "definitions": [
      {
       "text": "Official when giving a send-off",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a referee holding up a red card to send a player off"
      },
      {
       "text": "sevens player",
-      "at": 36
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Official when giving a send-off",
-      "note": "first meaning: a referee holding up a red card to send a player off"
-     },
-     {
-      "clueFragment": "sevens player",
-      "note": "second meaning: someone playing the card game sevens, who holds cards in hand"
+      "at": 36,
+      "meaning": "second meaning: someone playing the card game sevens, who holds cards in hand"
      }
     ],
     "explanation": {
@@ -214,41 +188,35 @@
    },
    "solution": "WIDEST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "WIDEST",
     "definitions": [
      {
       "text": "most off target",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Leader of",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wallabies",
-      "gives": "W",
-      "select": "first",
-      "note": "the opening letter of the team name"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IDEST",
-      "note": "id est is the Latin for 'that is', usually shortened to i.e."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "IDEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "note": "the leader of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wallabies",
+         "note": "the opening letter of the team name"
+        }
+       ]
+      },
+      {
+       "words": "that is",
+       "gives": "IDEST",
+       "note": "id est is the Latin for 'that is', usually shortened to i.e."
+      }
      ]
     },
     "explanation": {
@@ -277,41 +245,29 @@
    },
    "solution": "AGITPROP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGITPROP",
     "definitions": [
      {
       "text": "Provocative statements",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "nasty person",
-      "gives": "GIT",
-      "note": "git is British slang for an unpleasant person"
-     },
-     {
-      "clueFragment": "one in pack",
-      "gives": "PROP",
-      "note": "a prop is a front-row forward in the rugby scrum, or pack"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GIT",
-      "PROP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "nasty person",
+       "gives": "GIT",
+       "note": "git is British slang for an unpleasant person"
+      },
+      {
+       "words": "one in pack",
+       "gives": "PROP",
+       "note": "a prop is a front-row forward in the rugby scrum, or pack"
+      }
      ]
     },
     "explanation": {
@@ -340,37 +296,28 @@
    },
    "solution": "HAKA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "HAKA",
     "definitions": [
      {
       "text": "Highly aggressive Kiwi activity, first of all?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of all",
-      "for": "letter_selection",
-      "note": "the first of all the words means take the opening letter of each one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Highly aggressive Kiwi activity",
-      "gives": "HAKA",
-      "select": "first",
-      "note": "the opening letters of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAKA"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "first of all",
+       "note": "the first of all the words means take the opening letter of each one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Highly aggressive Kiwi activity",
+       "note": "the opening letters of these four words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Something fierce that New Zealanders do before anything else.",
      "walkthrough": "The whole clue is both wordplay and definition: New Zealand's All Blacks perform their war dance before a match starts.",
@@ -396,28 +343,16 @@
    },
    "solution": "RETIRING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RETIRING",
     "definitions": [
      {
       "text": "Moving back",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: withdrawing or retreating"
      },
      {
       "text": "not forward",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Moving back",
-      "note": "first meaning: withdrawing or retreating"
-     },
-     {
-      "clueFragment": "not forward",
-      "note": "second meaning: shy and reserved, not bold or pushy"
+      "at": 13,
+      "meaning": "second meaning: shy and reserved, not bold or pushy"
      }
     ],
     "explanation": {
@@ -447,31 +382,16 @@
    },
    "solution": "GAME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GAME",
     "definitions": [
      {
       "text": "Like kicker that's injured",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: lame, as a hurt leg is described, kicker being a leg"
      },
      {
       "text": "rugby match, say",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like kicker that's injured",
-      "note": "first meaning: lame, as a hurt leg is described, kicker being a leg"
-     },
-     {
-      "clueFragment": "rugby match, say",
-      "note": "second meaning: a contest of play, of which a rugby match is one instance"
+      "at": 30,
+      "meaning": "second meaning: a contest of play, of which a rugby match is one instance"
      }
     ],
     "explanation": {
@@ -501,41 +421,30 @@
    },
    "solution": "OVERAWING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERAWING",
     "definitions": [
      {
       "text": "being dominant",
       "at": 35
      }
     ],
-    "linkWords": [
-     "on one side"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finished",
-      "gives": "OVER",
-      "note": "something finished is over"
-     },
-     {
-      "clueFragment": "with a",
-      "gives": "A",
-      "note": "the article taken as written, 'with' joining it on"
-     },
-     {
-      "clueFragment": "player",
-      "gives": "WING",
-      "note": "a wing is a rugby player who plays out on one flank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "A",
-      "WING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Finished",
+       "gives": "OVER",
+       "note": "something finished is over"
+      },
+      {
+       "words": "with a",
+       "gives": "A",
+       "note": "the article taken as written, 'with' joining it on"
+      },
+      {
+       "words": "player",
+       "gives": "WING",
+       "note": "a wing is a rugby player who plays out on one flank"
+      }
      ]
     },
     "explanation": {
@@ -564,41 +473,25 @@
    },
    "solution": "ARENA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "ARENA",
     "definitions": [
      {
       "text": "a place for important matches",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "going back means running from the end towards the start, so the letters are read the other way"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a time",
-      "gives": "ANERA",
-      "note": "an era is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARENA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANERA",
-       "to": "ARENA"
+       "text": "Back",
+       "note": "going back means running from the end towards the start, so the letters are read the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a time",
+       "gives": "ANERA",
+       "note": "an era is a period of time"
       }
      ]
     },
@@ -627,35 +520,25 @@
    },
    "solution": "OCTAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OCTAD",
     "definitions": [
      {
       "text": "forwards in pack, say",
       "at": 26
      }
     ],
-    "linkWords": [
-     "leading"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eg captain",
-      "gives": "OC",
-      "note": "OC is Officer Commanding, a role a captain might hold"
-     },
-     {
-      "clueFragment": "little",
-      "gives": "TAD",
-      "note": "a tad is a little bit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OC",
-      "TAD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eg captain",
+       "gives": "OC",
+       "note": "OC is Officer Commanding, a role a captain might hold"
+      },
+      {
+       "words": "little",
+       "gives": "TAD",
+       "note": "a tad is a little bit"
+      }
      ]
     },
     "explanation": {
@@ -690,26 +573,25 @@
    },
    "solution": "EXTRATIME",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EXTRA TIME",
     "definitions": [
      {
       "text": "final minutes",
       "at": 44
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "With this, centre makes a short distance",
-      "note": "surface reading: a centre gains a few yards in a rugby match"
-     },
-     {
-      "clueFragment": "centre makes a short distance",
-      "note": "setter's reading: the word centre plus four further letters can be rearranged into centimetre"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "With this, centre makes a short distance",
+       "note": "surface reading: a centre gains a few yards in a rugby match"
+      },
+      {
+       "words": "centre makes a short distance",
+       "note": "setter's reading: the word centre plus four further letters can be rearranged into centimetre"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A rugby centre gains a few yards late in the game.",
      "walkthrough": "Read the answer as 'extra TIME': adding the letters TIME to CENTRE lets them be rearranged as CENTIMETRE, a short distance. EXTRA TIME is the added period at the end of a match.",
@@ -743,31 +625,16 @@
    },
    "solution": "LINEOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LINE-OUT",
     "definitions": [
      {
       "text": "Minimal censorship",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the cutting of a single row of text"
      },
      {
       "text": "one way to get play restarted",
-      "at": 27
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Minimal censorship",
-      "note": "first meaning: the cutting of a single row of text"
-     },
-     {
-      "clueFragment": "one way to get play restarted",
-      "note": "second meaning: the rugby set piece after the ball goes into touch"
+      "at": 27,
+      "meaning": "second meaning: the rugby set piece after the ball goes into touch"
      }
     ],
     "explanation": {
@@ -797,48 +664,43 @@
    },
    "solution": "LOWER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOWER",
     "definitions": [
      {
       "text": "scowl",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "container",
-      "note": "something set between two things has them on either side of it, enclosing it"
-     }
-    ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sides",
-      "gives": "L",
-      "note": "left, the first of the two sides"
-     },
-     {
-      "clueFragment": "Have score to settle",
-      "gives": "OWE",
-      "note": "having a score to settle means owing a debt"
-     },
-     {
-      "clueFragment": "sides",
-      "gives": "R",
-      "note": "right, the second of the two sides"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OWE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LOWER",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "something set between two things has them on either side of it, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sides",
+         "gives": "L",
+         "note": "left, the first of the two sides"
+        },
+        {
+         "words": "Have score to settle",
+         "gives": "OWE",
+         "note": "having a score to settle means owing a debt"
+        },
+        {
+         "words": "sides",
+         "gives": "R",
+         "note": "right, the second of the two sides"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -867,32 +729,25 @@
    },
    "solution": "REPOINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPOINT",
     "definitions": [
      {
       "text": "Work on courses",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "small margin of victory in rugby",
-      "gives": "POINT",
-      "note": "winning by a single point is the narrowest win"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "POINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "small margin of victory in rugby",
+       "gives": "POINT",
+       "note": "winning by a single point is the narrowest win"
+      }
      ]
     },
     "explanation": {
@@ -927,28 +782,16 @@
    },
    "solution": "PARISMATCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PARIS MATCH",
     "definitions": [
      {
       "text": "Today's big event in local",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the day's fixture in the French capital, where the tournament was being held"
      },
      {
       "text": "publication",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Today's big event in local",
-      "note": "first meaning: the day's fixture in the French capital, where the tournament was being held"
-     },
-     {
-      "clueFragment": "publication",
-      "note": "second meaning: a French weekly news magazine"
+      "at": 27,
+      "meaning": "second meaning: a French weekly news magazine"
      }
     ],
     "explanation": {
@@ -978,36 +821,25 @@
    },
    "solution": "TRYST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TRYST",
     "definitions": [
      {
       "text": "passionate encounter",
       "at": 16
      }
     ],
-    "linkWords": [
-     "on",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Score",
-      "gives": "TRY",
-      "note": "a try is the main score in rugby"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "ST",
-      "note": "St is the abbreviation for street, a way"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRY",
-      "ST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Score",
+       "gives": "TRY",
+       "note": "a try is the main score in rugby"
+      },
+      {
+       "words": "way",
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      }
      ]
     },
     "explanation": {
@@ -1046,55 +878,44 @@
     "19-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "WORLD CUP",
     "definitions": [
      {
       "text": "global competition",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "Intoxicated",
-      "for": "anagram",
-      "note": "a drunk stumbles about unsteadily, so these letters lurch out of order"
-     }
-    ],
-    "linkWords": [
-     "getting over",
-     "and",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crowd",
-      "gives": "CROWD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L is the abbreviation for line"
-     },
-     {
-      "clueFragment": "leading",
-      "gives": "UP",
-      "note": "a team leading is up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WORLDC",
-      "UP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CROWDL",
-       "gives": "WORLDC"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Intoxicated",
+         "note": "a drunk stumbles about unsteadily, so these letters lurch out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "crowd",
+           "note": "taken as written"
+          },
+          {
+           "words": "line",
+           "gives": "L",
+           "note": "L is the abbreviation for line"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "leading",
+       "gives": "UP",
+       "note": "a team leading is up"
       }
      ]
     },
@@ -1123,57 +944,53 @@
    },
    "solution": "RUFFIANS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RUFFIANS",
     "definitions": [
      {
       "text": "Thugs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue, upset turns the short word upside down so it reads the other way"
-     },
-     {
-      "text": "surrounded by",
-      "for": "container",
-      "note": "to be surrounded is to have things on all sides, so the short word goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rugby",
-      "gives": "RU",
-      "note": "RU is short for rugby union"
-     },
-     {
-      "clueFragment": "supporters",
-      "gives": "FANS",
-      "note": "fans support a team"
-     },
-     {
-      "clueFragment": "if",
-      "gives": "FI",
-      "note": "the word if, read upward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "F",
-      "FI",
-      "ANS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "RUFFIANS",
+     "indicators": [
       {
-       "from": "IF",
-       "to": "FI"
+       "text": "upset",
+       "note": "in a down clue, upset turns the short word upside down so it reads the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rugby",
+         "gives": "RU",
+         "note": "RU is short for rugby union"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "surrounded by",
+           "note": "to be surrounded is to have things on all sides, so the short word goes inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "supporters",
+           "gives": "FANS",
+           "note": "fans support a team"
+          },
+          {
+           "words": "if",
+           "gives": "FI",
+           "note": "the word if, read upward"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1215,65 +1032,70 @@
    },
    "solution": "COERCION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "COERCION",
     "definitions": [
      {
       "text": "it's compelling",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "Start of",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, which is all that is kept"
-     },
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "things found in something are inside it, so the run of pieces goes within the word for study"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "study",
-      "gives": "CON",
-      "note": "to con is to study or learn by heart"
-     },
-     {
-      "clueFragment": "old English",
-      "gives": "OE",
-      "note": "OE is the abbreviation for Old English"
-     },
-     {
-      "clueFragment": "rugby",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of this word"
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C is the abbreviation for clubs in card games"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OE",
-      "R",
-      "C",
-      "I",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "things found in something are inside it, so the run of pieces goes within the word for study"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "op": "container",
+           "parts": [
+            {
+             "words": "study",
+             "gives": "CON",
+             "note": "to con is to study or learn by heart"
+            },
+            {
+             "words": "old English",
+             "gives": "OE",
+             "note": "OE is the abbreviation for Old English"
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "Start of",
+             "note": "the start of a word is its opening letter, which is all that is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rugby",
+             "note": "the opening letter of this word"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "clubs",
+         "gives": "C",
+         "note": "C is the abbreviation for clubs in card games"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1303,50 +1125,44 @@
    },
    "solution": "RUGBY",
    "annotation": {
-    "type": [
-     "container",
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "RUGBY",
     "definitions": [
      {
       "text": "Where you'll find beginning of game inscribed in stone",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inscribed in",
-      "for": "container",
-      "note": "lettering inscribed in something is cut into it, so one piece sits within the other"
-     },
-     {
-      "text": "beginning of",
-      "for": "letter_selection",
-      "note": "'beginning of' keeps only the first letter of 'game'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stone",
-      "gives": "RUBY",
-      "note": "a ruby is a precious stone"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "G",
-      "select": "first",
-      "note": "the opening letter of game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "G",
-      "BY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inscribed in",
+       "note": "lettering inscribed in something is cut into it, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stone",
+       "gives": "RUBY",
+       "note": "a ruby is a precious stone"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning of",
+         "note": "'beginning of' keeps only the first letter of 'game'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "note": "the opening letter of game"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "The birth of the sport is commemorated on a carved stone.",
      "walkthrough": "Rugby School has a plaque recording William Webb Ellis picking up the ball in 1823, the legendary start of the game, so the definition doubles as wordplay.",
@@ -1373,26 +1189,25 @@
    },
    "solution": "REFEREE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "REFEREE",
     "definitions": [
      {
       "text": "In any match he or she should play a fairly decisive role",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In any match he or she should play a fairly decisive role",
-      "note": "surface reading: a player who is quite influential in every game"
-     },
-     {
-      "clueFragment": "fairly decisive",
-      "note": "setter's reading: making decisions in a fair, impartial way, rather than being somewhat decisive"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "In any match he or she should play a fairly decisive role",
+       "note": "surface reading: a player who is quite influential in every game"
+      },
+      {
+       "words": "fairly decisive",
+       "note": "setter's reading: making decisions in a fair, impartial way, rather than being somewhat decisive"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Fairly' looks like 'quite', but it means 'justly': the person deciding things impartially in the match is the official in charge.",
      "definitionFit": "A referee is the official who controls a match and rules impartially on incidents."
@@ -1419,41 +1234,40 @@
    },
    "solution": "INSTANT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "INSTANT",
     "definitions": [
      {
       "text": "quick to get ready",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "centre",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle letters, so only those are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leinster",
-      "gives": "INST",
-      "select": "middle",
-      "note": "the middle four of these eight letters"
-     },
-     {
-      "clueFragment": "hard worker",
-      "gives": "ANT",
-      "note": "the ant is proverbially industrious"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INST",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "INST",
+       "indicators": [
+        {
+         "text": "centre",
+         "note": "the centre of a word is its middle letters, so only those are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Leinster",
+         "gives": "INST",
+         "select": "middle",
+         "note": "the middle four of these eight letters"
+        }
+       ]
+      },
+      {
+       "words": "hard worker",
+       "gives": "ANT",
+       "note": "the ant is proverbially industrious"
+      }
      ]
     },
     "explanation": {
@@ -1482,28 +1296,16 @@
    },
    "solution": "INSIDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INSIDE",
     "definitions": [
      {
       "text": "Restrained by locks",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: locked up, in jail"
      },
      {
       "text": "selected for team",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Restrained by locks",
-      "note": "first meaning: locked up, in jail"
-     },
-     {
-      "clueFragment": "selected for team",
-      "note": "second meaning: picked to play, written as two words"
+      "at": 20,
+      "meaning": "second meaning: picked to play, written as two words"
      }
     ],
     "explanation": {
@@ -1533,28 +1335,16 @@
    },
    "solution": "ACTION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ACTION",
     "definitions": [
      {
       "text": "Instruction to players to start",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a film director's call to actors to begin a take"
      },
      {
       "text": "fighting",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Instruction to players to start",
-      "note": "first meaning: a film director's call to actors to begin a take"
-     },
-     {
-      "clueFragment": "fighting",
-      "note": "second meaning: combat, as in soldiers seeing battle"
+      "at": 32,
+      "meaning": "second meaning: combat, as in soldiers seeing battle"
      }
     ],
     "explanation": {
@@ -1584,32 +1374,25 @@
    },
    "solution": "TAILBACKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAILBACKS",
     "definitions": [
      {
       "text": "Problems due to too many coaches etc",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "TAIL",
-      "note": "to dog someone is to follow, or tail, them"
-     },
-     {
-      "clueFragment": "almost half of XV",
-      "gives": "BACKS",
-      "note": "a rugby fifteen has seven backs, just under half the team"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAIL",
-      "BACKS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dog",
+       "gives": "TAIL",
+       "note": "to dog someone is to follow, or tail, them"
+      },
+      {
+       "words": "almost half of XV",
+       "gives": "BACKS",
+       "note": "a rugby fifteen has seven backs, just under half the team"
+      }
      ]
     },
     "explanation": {
@@ -1639,30 +1422,28 @@
    },
    "solution": "TEST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TEST",
     "definitions": [
      {
       "text": "International",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held in",
-      "for": "hidden_word",
-      "note": "letters held in a phrase are contained within it, spanning the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "appropriate stadium",
-      "gives": "TEST",
-      "note": "the end of the first word joined to the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "held in",
+       "note": "letters held in a phrase are contained within it, spanning the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appropriate stadium",
+       "gives": "TEST",
+       "note": "the end of the first word joined to the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An international fixture is staged at a suitable ground.",
      "definitionFit": "A Test is an international match between national sides in rugby or cricket."
@@ -1687,34 +1468,25 @@
    },
    "solution": "BOER",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "BOER",
     "definitions": [
      {
       "text": "South African",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts for",
-      "for": "letter_selection",
-      "note": "the starts of words are their opening letters, one from each"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boks, obviously enjoying rugby",
-      "gives": "BOER",
-      "select": "first",
-      "note": "the opening letters of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOER"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts for",
+       "note": "the starts of words are their opening letters, one from each"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boks, obviously enjoying rugby",
+       "note": "the opening letters of these four words"
+      }
      ]
     },
     "explanation": {
@@ -1742,32 +1514,24 @@
    },
    "solution": "AITCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AITCH",
     "definitions": [
      {
       "text": "that chap has to forego to become international",
       "at": 6
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "yen",
-      "gives": "ITCH",
-      "note": "a yen is a longing, an itch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "ITCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "yen",
+       "gives": "ITCH",
+       "note": "a yen is a longing, an itch"
+      }
      ]
     },
     "explanation": {
@@ -1797,31 +1561,16 @@
    },
    "solution": "HALF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HALF",
     "definitions": [
      {
       "text": "One of two in fifteen",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a ...-back, either the scrum or fly position in a rugby team"
      },
      {
       "text": "part of rugby match",
-      "at": 26
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One of two in fifteen",
-      "note": "first meaning: a ...-back, either the scrum or fly position in a rugby team"
-     },
-     {
-      "clueFragment": "part of rugby match",
-      "note": "second meaning: one of the two periods of forty minutes"
+      "at": 26,
+      "meaning": "second meaning: one of the two periods of forty minutes"
      }
     ],
     "explanation": {
@@ -1849,30 +1598,16 @@
    },
    "solution": "SENSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SENSE",
     "definitions": [
      {
       "text": "Touch, possibly",
       "at": 0
      }
     ],
-    "linkWords": [
-     "Otherwise it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "five points",
-      "gives": "SENSE",
-      "note": "five compass points: south, east, north, south, east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SENSE"
-     ]
+    "wordplay": {
+     "words": "five points",
+     "gives": "SENSE",
+     "note": "five compass points: south, east, north, south, east"
     },
     "explanation": {
      "surface": "Is the ball in touch, or would that be a five-point try?",
@@ -1907,36 +1642,25 @@
    },
    "solution": "OLDSCHOOL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OLD SCHOOL",
     "definitions": [
      {
       "text": "traditional",
       "at": 49
      }
     ],
-    "linkWords": [
-     "for Rugby, for instance?",
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mature",
-      "gives": "OLD",
-      "note": "mature in years means old"
-     },
-     {
-      "clueFragment": "train",
-      "gives": "SCHOOL",
-      "note": "to school is to train or teach"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLD",
-      "SCHOOL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mature",
+       "gives": "OLD",
+       "note": "mature in years means old"
+      },
+      {
+       "words": "train",
+       "gives": "SCHOOL",
+       "note": "to school is to train or teach"
+      }
      ]
     },
     "explanation": {

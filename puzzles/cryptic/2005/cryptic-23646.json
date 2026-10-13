@@ -1,8 +1,7 @@
 {
  "id": "cryptic-23646",
  "number": 23646,
- "series": "cryptic",
- "name": "Prize crossword No 23,646",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2005-12-24",
  "preamble": "The opening words of a novel (2,2,1,5,11,12) are to go across the top of the perimeter and down the two sides, the two long words each extending round the corner into the bottom line, in the rest of which goes the local town where perplexed beginners abandon trigonometry (7). Remaining solutions are to go into the diagram jigsaw-wise, wherever they will go; their clues are listed in alphabetical order of the solutions, acrosses and downs being considered separately. Characters in the novel are asterisked. Please note the numbers on this grid should be ignored.",
@@ -39,49 +38,43 @@
    },
    "solution": "INCOURSE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IN COURSE",
     "definitions": [
      {
       "text": "proceeding as planned",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep something is to hold it, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tend",
-      "gives": "NURSE",
-      "note": "to tend a patient is to nurse them"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "CO is the standard abbreviation for company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "N",
-      "CO",
-      "URSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "note": "to keep something is to hold it, so one piece sits inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tend",
+         "gives": "NURSE",
+         "note": "to tend a patient is to nurse them"
+        },
+        {
+         "words": "company",
+         "gives": "CO",
+         "note": "CO is the standard abbreviation for company"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "IN COURSE",
     "explanation": {
      "surface": "Someone admits they tend to keep company with others, as long as things go to plan.",
      "walkthrough": "The surface reads 'tend to' as 'usually'; here 'tend' is a verb of its own, nursing, and wraps round the company.",
@@ -108,32 +101,25 @@
    },
    "solution": "TOCSIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOCSIN",
     "definitions": [
      {
       "text": "Warning",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "signallers' letter's",
-      "gives": "TOC",
-      "note": "Toc was the old army signallers' word for the letter T"
-     },
-     {
-      "clueFragment": "wrong",
-      "gives": "SIN",
-      "note": "a sin is a moral wrong"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOC",
-      "SIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "signallers' letter's",
+       "gives": "TOC",
+       "note": "Toc was the old army signallers' word for the letter T"
+      },
+      {
+       "words": "wrong",
+       "gives": "SIN",
+       "note": "a sin is a moral wrong"
+      }
      ]
     },
     "explanation": {
@@ -162,53 +148,56 @@
    },
    "solution": "INSCROLL",
    "annotation": {
-    "type": [
-     "cycling",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "INSCROLL",
     "definitions": [
      {
       "text": "Write, as on parchment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inverted",
-      "for": "cycling",
-      "note": "turned upside down, so the back half of the name comes to the front"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "an end is the very last position, so only the closing character is kept"
-     },
-     {
-      "text": "kept by",
-      "for": "container",
-      "note": "something kept by another is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letter-writer",
-      "gives": "COLLINS",
-      "note": "Mr Collins of Pride and Prejudice, the starred theme, is famous for his pompous letters"
-     },
-     {
-      "clueFragment": "letter",
-      "gives": "R",
-      "select": "last",
-      "note": "the plain word, before the hyphenated one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INSC",
-      "R",
-      "OLL"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "INSCROLL",
+     "indicators": [
+      {
+       "text": "kept by",
+       "note": "something kept by another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "INSCROLL",
+       "indicators": [
+        {
+         "text": "inverted",
+         "note": "turned upside down, so the back half of the name comes to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "letter-writer",
+         "gives": "COLLINS",
+         "note": "Mr Collins of Pride and Prejudice, the starred theme, is famous for his pompous letters"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "an end is the very last position, so only the closing character is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "letter",
+           "note": "the plain word, before the hyphenated one"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -237,39 +226,21 @@
    },
    "solution": "STRAND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRAND",
     "definitions": [
      {
       "text": "Leave",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to leave someone stuck and helpless"
      },
      {
       "text": "thread",
-      "at": 6
+      "at": 6,
+      "meaning": "second meaning: a single fibre or filament"
      },
      {
       "text": "London street",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "note": "first meaning: to leave someone stuck and helpless"
-     },
-     {
-      "clueFragment": "thread",
-      "note": "second meaning: a single fibre or filament"
-     },
-     {
-      "clueFragment": "London street",
-      "note": "third meaning: a famous thoroughfare in the West End"
+      "at": 16,
+      "meaning": "third meaning: a famous thoroughfare in the West End"
      }
     ],
     "explanation": {
@@ -298,38 +269,29 @@
    },
    "solution": "APPLIERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APPLIERS",
     "definitions": [
      {
       "text": "People putting to use",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p is the musical abbreviation for piano, meaning softly"
-     },
-     {
-      "clueFragment": "tool",
-      "gives": "PLIERS",
-      "note": "pliers are a gripping tool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "P",
-      "PLIERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "piano",
+       "gives": "P",
+       "note": "p is the musical abbreviation for piano, meaning softly"
+      },
+      {
+       "words": "tool",
+       "gives": "PLIERS",
+       "note": "pliers are a gripping tool"
+      }
      ]
     },
     "explanation": {
@@ -358,48 +320,43 @@
    },
    "solution": "TINT",
    "annotation": {
-    "type": [
-     "homophone",
-     "deletion"
-    ],
-    "answer": "TINT",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken, so we want letters that sound like the word"
-     },
-     {
-      "text": "to be axed from",
-      "for": "deletion",
-      "note": "axing something cuts it out, so those letters are removed"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "carpet fixers",
-      "gives": "TINTACKS",
-      "note": "tin tacks are the short nails used to fix carpets"
-     },
-     {
-      "clueFragment": "axe",
-      "gives": "ACKS",
-      "soundsLike": "AX",
-      "note": "this spelling is pronounced the same as the tool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TINT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be axed from",
+       "note": "axing something cuts it out, so those letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "carpet fixers",
+       "gives": "TINTACKS",
+       "note": "tin tacks are the short nails used to fix carpets"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ACKS",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "said means spoken, so we want letters that sound like the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "axe",
+         "gives": "AX",
+         "note": "this spelling is pronounced the same as the tool"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -429,31 +386,29 @@
    },
    "solution": "RIME",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RIME",
     "definitions": [
      {
       "text": "Frost",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "report",
-      "for": "homophone",
-      "note": "a report is what is heard, so we want a word that sounds like another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in verse",
-      "gives": "RIME",
-      "soundsLike": "RHYME",
-      "note": "verse is written in rhyme"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RIME",
+     "indicators": [
+      {
+       "text": "report",
+       "note": "a report is what is heard, so we want a word that sounds like another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in verse",
+       "gives": "RHYME",
+       "note": "verse is written in rhyme"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A request for a weather report on frost written in verse, or a nod to the poet Robert Frost.",
      "walkthrough": "'Frost' looks like the poet Robert Frost, who wrote in verse; it is just the icy coating, and the question mark flags the pun.",
@@ -481,28 +436,16 @@
    },
    "solution": "USED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "USED",
     "definitions": [
      {
       "text": "Accustomed to",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: familiar with"
      },
      {
       "text": "being exploited",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Accustomed to",
-      "note": "first meaning: familiar with"
-     },
-     {
-      "clueFragment": "being exploited",
-      "note": "second meaning: taken advantage of"
+      "at": 14,
+      "meaning": "second meaning: taken advantage of"
      }
     ],
     "explanation": {
@@ -529,51 +472,41 @@
    },
    "solution": "TROIKA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TROIKA",
     "definitions": [
      {
       "text": "vehicle",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "reversing",
-      "for": "reversal",
-      "note": "something reversing goes backwards, so its letters run the other way"
-     },
-     {
-      "text": "caught in",
-      "for": "container",
-      "note": "a thing caught in another is trapped inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painting",
-      "gives": "ART",
-      "note": "painting is an art"
-     },
-     {
-      "clueFragment": "Cad",
-      "gives": "OIK",
-      "note": "an oik is a boorish lout, British slang"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "OIK",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ART",
-       "to": "TRA"
+       "text": "caught in",
+       "note": "a thing caught in another is trapped inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "note": "something reversing goes backwards, so its letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painting",
+         "gives": "ART",
+         "note": "painting is an art"
+        }
+       ]
+      },
+      {
+       "words": "Cad",
+       "gives": "OIK",
+       "note": "an oik is a boorish lout, British slang"
       }
      ]
     },
@@ -603,45 +536,41 @@
    },
    "solution": "HELIAC",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "HELIAC",
     "definitions": [
      {
       "text": "with the sun",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so those letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl who drowned",
-      "gives": "OPHELIA",
-      "note": "Ophelia drowns in Shakespeare's Hamlet"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op, short for opus, is a work"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c is the cricket scorecard abbreviation for caught"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HELIA",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so those letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Girl who drowned",
+         "gives": "OPHELIA",
+         "note": "Ophelia drowns in Shakespeare's Hamlet"
+        },
+        {
+         "words": "work",
+         "gives": "OP",
+         "note": "op, short for opus, is a work"
+        }
+       ]
+      },
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "c is the cricket scorecard abbreviation for caught"
+      }
      ]
     },
     "explanation": {
@@ -670,45 +599,40 @@
    },
    "solution": "UNBONNET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNBONNET",
     "definitions": [
      {
       "text": "Remove tied head covering",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "UN",
-      "note": "un is French for a"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "BON",
-      "note": "bon is French for good"
-     },
-     {
-      "clueFragment": "clean",
-      "gives": "NET",
-      "note": "net is French for clean"
-     },
-     {
-      "clueFragment": "Parisian",
-      "note": "qualifies all three words before it: each goes into French"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "BON",
-      "NET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "gives": "UN",
+         "note": "un is French for a"
+        },
+        {
+         "words": "good",
+         "gives": "BON",
+         "note": "bon is French for good"
+        },
+        {
+         "words": "clean",
+         "gives": "NET",
+         "note": "net is French for clean"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "Parisian",
+       "note": "qualifies all three words before it: each goes into French"
+      }
      ]
     },
     "explanation": {
@@ -737,35 +661,25 @@
    },
    "solution": "PHILIPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PHILIPS",
     "definitions": [
      {
       "text": "*Clerk to 9's grandfather",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letter to Greek",
-      "gives": "PHI",
-      "note": "phi is a letter of the Greek alphabet"
-     },
-     {
-      "clueFragment": "speakers",
-      "gives": "LIPS",
-      "note": "we speak with our lips"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PHI",
-      "LIPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "letter to Greek",
+       "gives": "PHI",
+       "note": "phi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "speakers",
+       "gives": "LIPS",
+       "note": "we speak with our lips"
+      }
      ]
     },
     "explanation": {
@@ -794,28 +708,16 @@
    },
    "solution": "RHEA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RHEA",
     "definitions": [
      {
       "text": "Bird",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a large flightless South American bird"
      },
      {
       "text": "part of the overheads of Saturn?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bird",
-      "note": "first meaning: a large flightless South American bird"
-     },
-     {
-      "clueFragment": "part of the overheads of Saturn?",
-      "note": "second meaning: one of the moons orbiting the planet"
+      "at": 6,
+      "meaning": "second meaning: one of the moons orbiting the planet"
      }
     ],
     "explanation": {
@@ -844,31 +746,16 @@
    },
    "solution": "NOUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOUS",
     "definitions": [
      {
       "text": "Setter and solver abroad",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: French for we, the pair of us in a foreign language"
      },
      {
       "text": "sense",
-      "at": 31
-     }
-    ],
-    "linkWords": [
-     "in a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Setter and solver abroad",
-      "note": "first meaning: French for we, the pair of us in a foreign language"
-     },
-     {
-      "clueFragment": "sense",
-      "note": "second meaning: common sense, gumption"
+      "at": 31,
+      "meaning": "second meaning: common sense, gumption"
      }
     ],
     "explanation": {
@@ -901,51 +788,41 @@
     "24-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CHARLOTTE LUCAS",
     "definitions": [
      {
       "text": "*9's friend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dressed",
-      "for": "anagram",
-      "note": "to dress material is to work it into shape, so the letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "put in means placed inside, so these letters go within the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coaches",
-      "gives": "CHARAS",
-      "note": "a chara is short for charabanc, an old motor coach"
-     },
-     {
-      "clueFragment": "cot with tulle",
-      "gives": "COTTULLE",
-      "note": "taken as written, the two words joined"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAR",
-      "LOTTELUC",
-      "AS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "COTTULLE",
-       "gives": "LOTTELUC"
+       "text": "in",
+       "note": "put in means placed inside, so these letters go within the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coaches",
+       "gives": "CHARAS",
+       "note": "a chara is short for charabanc, an old motor coach"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dressed",
+         "note": "to dress material is to work it into shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cot with tulle",
+         "gives": "COTTULLE",
+         "note": "taken as written, the two words joined"
+        }
+       ]
       }
      ]
     },
@@ -975,11 +852,6 @@
    },
    "solution": "DEIFIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "DEIFIC",
     "definitions": [
      {
       "text": "Death to the Roman emperor was",
@@ -987,41 +859,34 @@
       "note": "the answer completes this sentence as an adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "orphaned",
-      "for": "deletion",
-      "note": "an orphan has lost a parent, so the word for father is taken out"
-     },
-     {
-      "text": "backer",
-      "for": "reversal",
-      "note": "something going back runs the other way"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pacified",
-      "gives": "PACIFIED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "orphaned",
-      "gives": "PA",
-      "note": "pa, father, is the parent the word loses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEIFIC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CIFIED",
-       "to": "DEIFIC"
+       "text": "backer",
+       "note": "something going back runs the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "orphaned",
+         "note": "an orphan has lost a parent, so the word for father is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pacified",
+         "note": "taken as written"
+        },
+        {
+         "words": "orphaned",
+         "gives": "PA",
+         "note": "pa, father, is the parent the word loses"
+        }
+       ]
       }
      ]
     },
@@ -1051,49 +916,46 @@
    },
    "solution": "IRONWOOD",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "IRONWOOD",
     "definitions": [
      {
       "text": "Hornbeam, say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no extremes",
-      "for": "deletion",
-      "note": "without its extremes a word loses its two ends"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bordeaux region",
-      "gives": "GIRONDE",
-      "note": "the Gironde is the French department round Bordeaux"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court someone is to woo them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRON",
-      "WOO",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "IRONWOOD",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "IRONWOOD",
+       "indicators": [
+        {
+         "text": "no extremes",
+         "note": "without its extremes a word loses its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bordeaux region",
+         "gives": "GIRONDE",
+         "note": "the Gironde is the French department round Bordeaux"
+        },
+        {
+         "words": "court",
+         "gives": "WOO",
+         "note": "to court someone is to woo them"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1122,51 +984,48 @@
    },
    "solution": "EDDIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "EDDIC",
     "definitions": [
      {
       "text": "mythological",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "to produce",
-      "for": "anagram",
-      "note": "producing something new means making it out of the parts, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "that is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "novel",
-      "gives": "PRIDEANDPREJUDICE",
-      "note": "the novel of the starred theme"
-     },
-     {
-      "clueFragment": "Drape juniper",
-      "gives": "DRAPEJUNIPER",
-      "note": "taken as written; these letters are the ones taken out of the title"
-     },
-     {
-      "clueFragment": "this",
-      "note": "stands for the answer itself, whose letters complete the title"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDDIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EDDIC",
+     "indicators": [
       {
-       "fodder": "DRAPEJUNIPEREDDIC",
-       "gives": "PRIDEANDPREJUDICE"
+       "text": "to produce",
+       "note": "producing something new means making it out of the parts, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "unchecked": true,
+         "gives": "EDDIC",
+         "parts": [
+          {
+           "words": "novel",
+           "gives": "PRIDEANDPREJUDICE",
+           "note": "the novel of the starred theme"
+          },
+          {
+           "words": "Drape juniper",
+           "note": "taken as written; these letters are the ones taken out of the title"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "this",
+         "note": "stands for the answer itself, whose letters complete the title"
+        }
+       ]
       }
      ]
     },
@@ -1196,38 +1055,30 @@
    },
    "solution": "DELPHI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DELPHI",
     "definitions": [
      {
       "text": "Haunt of Apollo",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "deletion",
-      "note": "something lost is gone, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "theatre",
-      "gives": "ADELPHI",
-      "note": "the Adelphi is a theatre on London's Strand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELPHI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "note": "something lost is gone, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theatre",
+       "gives": "ADELPHI",
+       "note": "the Adelphi is a theatre on London's Strand"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1256,37 +1107,28 @@
    },
    "solution": "CARDRIVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAR DRIVER",
     "definitions": [
      {
       "text": "motorist",
       "at": 21
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eccentric",
-      "gives": "CARD",
-      "note": "a card is an eccentric or amusing person"
-     },
-     {
-      "clueFragment": "flower",
-      "gives": "RIVER",
-      "note": "a river flows, so it is a flower in crossword terms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARD",
-      "RIVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eccentric",
+       "gives": "CARD",
+       "note": "a card is an eccentric or amusing person"
+      },
+      {
+       "words": "flower",
+       "gives": "RIVER",
+       "note": "a river flows, so it is a flower in crossword terms"
+      }
      ]
     },
+    "spelling": "CAR DRIVER",
     "explanation": {
      "surface": "An odd bloom chosen as a gift for a driver.",
      "walkthrough": "'Flower' wants to be a bloom; read it as 'flow-er', something that flows.",
@@ -1314,35 +1156,25 @@
    },
    "solution": "FRANCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRANCK",
     "definitions": [
      {
       "text": "Composer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a coin",
-      "gives": "FRANC",
-      "note": "the franc was the French coin before the euro"
-     },
-     {
-      "clueFragment": "a sovereign",
-      "gives": "K",
-      "note": "K is the abbreviation for king, a sovereign"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRANC",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a coin",
+       "gives": "FRANC",
+       "note": "the franc was the French coin before the euro"
+      },
+      {
+       "words": "a sovereign",
+       "gives": "K",
+       "note": "K is the abbreviation for king, a sovereign"
+      }
      ]
     },
     "explanation": {
@@ -1372,38 +1204,30 @@
    },
    "solution": "FORSTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORSTER",
     "definitions": [
      {
       "text": "*Colonel",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in favour of",
-      "gives": "FOR",
-      "note": "to be for something is to favour it"
-     },
-     {
-      "clueFragment": "canonising",
-      "gives": "ST",
-      "note": "canonising makes a saint, abbreviated ST"
-     },
-     {
-      "clueFragment": "the Queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "ST",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in favour of",
+       "gives": "FOR",
+       "note": "to be for something is to favour it"
+      },
+      {
+       "words": "canonising",
+       "gives": "ST",
+       "note": "canonising makes a saint, abbreviated ST"
+      },
+      {
+       "words": "the Queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
      ]
     },
     "explanation": {
@@ -1433,44 +1257,36 @@
    },
    "solution": "VERB",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "VERB",
     "definitions": [
      {
       "text": "Sort of word",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "somewhat means to some extent, so only part of the next word is used"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means moving backwards, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "abbreviated",
-      "gives": "BREV",
-      "note": "the letters sit inside the word, after the first two"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BREV",
-       "to": "VERB"
+       "text": "backing",
+       "note": "backing means moving backwards, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "note": "somewhat means to some extent, so only part of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abbreviated",
+         "gives": "BREV",
+         "note": "the letters sit inside the word, after the first two"
+        }
+       ]
       }
      ]
     },
@@ -1500,37 +1316,28 @@
    },
    "solution": "BUZZSAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUZZ SAW",
     "definitions": [
      {
       "text": "circular cutter",
       "at": 25
      }
     ],
-    "linkWords": [
-     "it's a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Phone call",
-      "gives": "BUZZ",
-      "note": "to give someone a buzz is to ring them"
-     },
-     {
-      "clueFragment": "saying",
-      "gives": "SAW",
-      "note": "a saw is an old saying or proverb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUZZ",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Phone call",
+       "gives": "BUZZ",
+       "note": "to give someone a buzz is to ring them"
+      },
+      {
+       "words": "saying",
+       "gives": "SAW",
+       "note": "a saw is an old saying or proverb"
+      }
      ]
     },
+    "spelling": "BUZZ SAW",
     "explanation": {
      "surface": "A caller explains on the phone that the tool is a round blade.",
      "walkthrough": "'Saying' looks like part of the phone call; it is the noun meaning a proverb.",
@@ -1571,47 +1378,34 @@
    },
    "solution": "CATHERINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CATHERINE",
     "definitions": [
      {
       "text": "*9's sister or *6's aunt",
       "at": 0
      }
     ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beast",
-      "gives": "CAT",
-      "note": "a cat is a beast"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "HER",
-      "note": "her is the female pronoun"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the East",
-      "gives": "E",
-      "note": "E is the compass abbreviation for east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAT",
-      "HER",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "beast",
+       "gives": "CAT",
+       "note": "a cat is a beast"
+      },
+      {
+       "words": "female",
+       "gives": "HER",
+       "note": "her is the female pronoun"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "the East",
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      }
      ]
     },
     "explanation": {
@@ -1640,64 +1434,55 @@
    },
    "solution": "LORDROWTON",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "LORD ROWTON",
     "definitions": [
      {
       "text": "Victorian philanthropist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backword",
-      "for": "reversal",
-      "note": "the first half of this coinage says go back, so the second half is turned round"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is put inside it"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "backword",
-      "gives": "WORD",
-      "note": "the second half of the printed word, taken as written"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "L",
-      "note": "L is fifty in Roman numerals"
-     },
-     {
-      "clueFragment": "dramatist",
-      "gives": "ORTON",
-      "note": "Joe Orton, the 1960s English playwright"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OR",
-      "DROW",
-      "TON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "WORD",
-       "to": "DROW"
+       "text": "in",
+       "note": "one thing in another is put inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "number",
+         "gives": "L",
+         "note": "L is fifty in Roman numerals"
+        },
+        {
+         "words": "dramatist",
+         "gives": "ORTON",
+         "note": "Joe Orton, the 1960s English playwright"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backword",
+         "note": "the first half of this coinage says go back, so the second half is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "backword",
+         "gives": "WORD",
+         "note": "the second half of the printed word, taken as written"
+        }
+       ]
       }
      ]
     },
+    "spelling": "LORD ROWTON",
     "explanation": {
      "surface": "A Victorian do-gooder writes words backwards into a number by a playwright.",
      "walkthrough": "'Backword' is one printed word made of two parts: the signal and the word it turns. The dramatist's name opens up after OR.",
@@ -1724,35 +1509,25 @@
    },
    "solution": "WICKHAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WICKHAM",
     "definitions": [
      {
       "text": "*The baddie",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the burner",
-      "gives": "WICK",
-      "note": "the wick is the part of a candle or lamp that burns"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "HAM",
-      "note": "a ham is a joint of meat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WICK",
-      "HAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the burner",
+       "gives": "WICK",
+       "note": "the wick is the part of a candle or lamp that burns"
+      },
+      {
+       "words": "joint",
+       "gives": "HAM",
+       "note": "a ham is a joint of meat"
+      }
      ]
     },
     "explanation": {
@@ -1781,41 +1556,31 @@
    },
    "solution": "OUTDO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OUTDO",
     "definitions": [
      {
       "text": "excel",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "with no",
-      "for": "deletion",
-      "note": "with no means lacking, so those letters are taken away"
-     }
-    ],
-    "linkWords": [
-     "must"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Picnic scene",
-      "gives": "OUTDOOR",
-      "note": "a picnic is an outdoor scene"
-     },
-     {
-      "clueFragment": "alternative",
-      "gives": "OR",
-      "note": "or is the word that offers an alternative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUTDO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "note": "with no means lacking, so those letters are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Picnic scene",
+       "gives": "OUTDOOR",
+       "note": "a picnic is an outdoor scene"
+      },
+      {
+       "words": "alternative",
+       "gives": "OR",
+       "note": "or is the word that offers an alternative"
+      }
      ]
     },
     "explanation": {
@@ -1844,35 +1609,25 @@
    },
    "solution": "ELIZABETH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELIZABETH",
     "definitions": [
      {
       "text": "*She embodied the latter",
       "at": 0
      }
     ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "briefly",
-      "gives": "ELIZA",
-      "note": "one short form of the name, as Mr Collins and others call her"
-     },
-     {
-      "clueFragment": "divisible into two",
-      "gives": "BETH",
-      "note": "a second short form; the full name splits cleanly into the two"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELIZA",
-      "BETH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "briefly",
+       "gives": "ELIZA",
+       "note": "one short form of the name, as Mr Collins and others call her"
+      },
+      {
+       "words": "divisible into two",
+       "gives": "BETH",
+       "note": "a second short form; the full name splits cleanly into the two"
+      }
      ]
     },
     "explanation": {
@@ -1901,44 +1656,33 @@
    },
    "solution": "LAOZI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAO ZI",
     "definitions": [
      {
       "text": "Chinese philosopher",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American city",
-      "gives": "LA",
-      "note": "LA is Los Angeles"
-     },
-     {
-      "clueFragment": "Australian",
-      "gives": "OZ",
-      "note": "Oz is the informal name for Australia"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I is the map abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "OZ",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American city",
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      },
+      {
+       "words": "Australian",
+       "gives": "OZ",
+       "note": "Oz is the informal name for Australia"
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "I is the map abbreviation for island"
+      }
      ]
     },
+    "spelling": "LAO ZI",
     "explanation": {
      "surface": "A Chinese thinker who hails from somewhere in America and an island off Australia.",
      "walkthrough": "'Australian island' reads as one place; it splits into two abbreviations.",
@@ -1965,28 +1709,16 @@
    },
    "solution": "BINGLEY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BINGLEY",
     "definitions": [
      {
       "text": "*6's friend",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Darcy's amiable friend in Pride and Prejudice"
      },
      {
       "text": "in Yorkshire",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "*6's friend",
-      "note": "first meaning: Darcy's amiable friend in Pride and Prejudice"
-     },
-     {
-      "clueFragment": "in Yorkshire",
-      "note": "second meaning: a town near Bradford in West Yorkshire"
+      "at": 12,
+      "meaning": "second meaning: a town near Bradford in West Yorkshire"
      }
     ],
     "explanation": {
@@ -2013,38 +1745,24 @@
    },
    "solution": "HURST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HURST",
     "definitions": [
      {
       "text": "*32's brother-in-law",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bastard",
-      "for": "anagram",
-      "note": "a bastard form is a corrupted or impure one, so the letters are mixed"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ruth's",
-      "gives": "RUTHS",
-      "note": "taken as written, the possessive's s included"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RUTHS",
-       "gives": "HURST"
+       "text": "bastard",
+       "note": "a bastard form is a corrupted or impure one, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ruth's",
+       "note": "taken as written, the possessive's s included"
       }
      ]
     },
@@ -2074,35 +1792,25 @@
    },
    "solution": "CATO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CATO",
     "definitions": [
      {
       "text": "censor",
       "at": 17
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beast",
-      "gives": "CAT",
-      "note": "a cat is a beast"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is round in shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAT",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beast",
+       "gives": "CAT",
+       "note": "a cat is a beast"
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is round in shape"
+      }
      ]
     },
     "explanation": {
@@ -2131,31 +1839,16 @@
    },
    "solution": "SEAMER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SEAMER",
     "definitions": [
      {
       "text": "Fast bowler",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a cricket bowler who makes the ball deviate off its stitched seam"
      },
      {
       "text": "extract from Anglo-French dictionary?",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fast bowler",
-      "note": "first meaning: a cricket bowler who makes the ball deviate off its stitched seam"
-     },
-     {
-      "clueFragment": "extract from Anglo-French dictionary?",
-      "note": "second meaning: an entry giving an English word with its French translation, the ocean in both languages"
+      "at": 14,
+      "meaning": "second meaning: an entry giving an English word with its French translation, the ocean in both languages"
      }
     ],
     "explanation": {
@@ -2184,28 +1877,16 @@
    },
    "solution": "ROSS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROSS",
     "definitions": [
      {
       "text": "The sea",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an Antarctic sea named after the explorer James Clark"
      },
      {
       "text": "in Macbeth",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The sea",
-      "note": "first meaning: an Antarctic sea named after the explorer James Clark"
-     },
-     {
-      "clueFragment": "in Macbeth",
-      "note": "second meaning: a Scottish thane who appears in Shakespeare's play"
+      "at": 8,
+      "meaning": "second meaning: a Scottish thane who appears in Shakespeare's play"
      }
     ],
     "explanation": {
@@ -2233,40 +1914,31 @@
    },
    "solution": "NIECE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NIECE",
     "definitions": [
      {
       "text": "as 9 to Mrs 24",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "47",
-      "gives": "NICE",
-      "note": "points at the clue 'Agreeable resort' in the setter's numbering"
-     },
-     {
-      "clueFragment": "Bearing",
-      "gives": "E",
-      "note": "east is a compass bearing, abbreviated E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "E",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "47",
+       "gives": "NICE",
+       "note": "points at the clue 'Agreeable resort' in the setter's numbering"
+      },
+      {
+       "words": "Bearing",
+       "gives": "E",
+       "note": "east is a compass bearing, abbreviated E"
+      }
      ]
     },
     "explanation": {
@@ -2295,31 +1967,16 @@
    },
    "solution": "OVERTHROW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OVERTHROW",
     "definitions": [
      {
       "text": "Result of coup",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the toppling of a government"
      },
      {
       "text": "an extra run",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Result of coup",
-      "note": "first meaning: the toppling of a government"
-     },
-     {
-      "clueFragment": "an extra run",
-      "note": "second meaning: in cricket, a run scored when a fielder's throw goes past the stumps"
+      "at": 18,
+      "meaning": "second meaning: in cricket, a run scored when a fielder's throw goes past the stumps"
      }
     ],
     "explanation": {
@@ -2348,60 +2005,64 @@
    },
    "solution": "SIRWILLIAM",
    "annotation": {
-    "type": [
-     "substitution",
-     "container"
-    ],
-    "answer": "SIR WILLIAM",
     "definitions": [
      {
       "text": "*4 17's father",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to replace",
-      "for": "substitution",
-      "note": "replacing means one letter takes the place of another"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something in another is put inside it"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "IRWELL",
-      "note": "the Irwell is the river flowing through Manchester"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "energy",
-      "note": "E, the physics symbol for energy, is the letter swapped out"
-     },
-     {
-      "clueFragment": "Thailand",
-      "gives": "SIAM",
-      "note": "Siam is the former name of Thailand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "IRWILL",
-      "IAM"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SIRWILLIAM",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something in another is put inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "substitution",
+         "unchecked": true,
+         "gives": "SIRWILLIAM",
+         "indicators": [
+          {
+           "text": "to replace",
+           "note": "replacing means one letter takes the place of another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "river",
+           "gives": "IRWELL",
+           "note": "the Irwell is the river flowing through Manchester"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          },
+          {
+           "words": "Thailand",
+           "gives": "SIAM",
+           "note": "Siam is the former name of Thailand"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "energy",
+         "note": "E, the physics symbol for energy, is the letter swapped out"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "SIR WILLIAM",
     "explanation": {
      "surface": "A father takes someone along to stand in for the power on a Thai river.",
      "walkthrough": "4 17 is Charlotte Lucas in the setter's numbering. Swap the E of the Manchester river for I and put the result inside Thailand's old name after its S.",
@@ -2428,26 +2089,24 @@
    },
    "solution": "DARCY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "DARCY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Heard",
-      "for": "homophone",
-      "note": "something heard reaches us by ear, so the name meant here is judged by how it is spoken, not spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sound of bustle",
-      "gives": "DARCY",
-      "soundsLike": "DARCEY",
-      "note": "bustle is said like Bussell, and the ballerina Darcey Bussell has a first name pronounced like the hero's surname"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DARCY",
+     "indicators": [
+      {
+       "text": "Heard",
+       "note": "something heard reaches us by ear, so the name meant here is judged by how it is spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sound of bustle",
+       "gives": "DARCEY",
+       "note": "bustle is said like Bussell, and the ballerina Darcey Bussell has a first name pronounced like the hero's surname"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone hears the noise of a busy crowd.",
      "walkthrough": "The asterisk marks a character from the novel, which is the definition. Darcey Bussell was a famous British ballerina: bustle stands for her surname by sound, and her first name, heard, is the hero's.",
@@ -2475,53 +2134,44 @@
    },
    "solution": "DILIGENT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DILIGENT",
     "definitions": [
      {
       "text": "industrious",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means the letters read from the bottom"
-     }
-    ],
-    "linkWords": [
-     "who is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cover",
-      "gives": "LID",
-      "note": "a lid is a cover"
-     },
-     {
-      "clueFragment": "a chap",
-      "gives": "GENT",
-      "note": "a gent is a gentleman, a chap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DILI",
-      "GENT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ILID",
-       "to": "DILI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, going up means the letters read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "note": "taken as written"
+          },
+          {
+           "words": "cover",
+           "gives": "LID",
+           "note": "a lid is a cover"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a chap",
+       "gives": "GENT",
+       "note": "a gent is a gentleman, a chap"
       }
      ]
     },
@@ -2551,49 +2201,35 @@
    },
    "solution": "YARRAMAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "YARRAMAN",
     "definitions": [
      {
       "text": "Australian horse",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "backed",
-      "for": "reversal",
-      "note": "backed means sent backwards, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Impressive collection",
-      "gives": "ARRAY",
-      "note": "an array is an impressive display or collection"
-     },
-     {
-      "clueFragment": "chap",
-      "gives": "MAN",
-      "note": "a chap is a man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YARRA",
-      "MAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ARRAY",
-       "to": "YARRA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "note": "backed means sent backwards, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Impressive collection",
+         "gives": "ARRAY",
+         "note": "an array is an impressive display or collection"
+        }
+       ]
+      },
+      {
+       "words": "chap",
+       "gives": "MAN",
+       "note": "a chap is a man"
       }
      ]
     },
@@ -2623,33 +2259,29 @@
    },
    "solution": "MILL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MILL",
     "definitions": [
      {
       "text": "with wind or water",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "Some of",
-      "for": "deletion",
-      "note": "only some of a thing means part of it is left off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "many",
-      "gives": "MILLION",
-      "note": "a million is a great many"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MILL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Some of",
+       "note": "only some of a thing means part of it is left off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "many",
+       "gives": "MILLION",
+       "note": "a million is a great many"
+      },
+      {
+       "gives": "ION"
+      }
      ]
     },
     "explanation": {
@@ -2678,34 +2310,28 @@
    },
    "solution": "LANDLINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAND LINE",
     "definitions": [
      {
       "text": "Not radio",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Catch fish",
-      "gives": "LAND",
-      "note": "to land a fish is to bring it out of the water"
-     },
-     {
-      "clueFragment": "what with?",
-      "gives": "LINE",
-      "note": "the answer to the question: a fishing line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAND",
-      "LINE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Catch fish",
+       "gives": "LAND",
+       "note": "to land a fish is to bring it out of the water"
+      },
+      {
+       "words": "what with?",
+       "gives": "LINE",
+       "note": "the answer to the question: a fishing line"
+      }
      ]
     },
+    "spelling": "LAND LINE",
     "explanation": {
      "surface": "An angler asks what to catch fish with, and is told not to use a radio.",
      "walkthrough": "The question 'what with?' asks for the tackle you catch with.",
@@ -2733,32 +2359,24 @@
    },
    "solution": "APHONY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APHONY",
     "definitions": [
      {
       "text": "laryngitis?",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pretended",
-      "gives": "PHONY",
-      "note": "phony means fake, put on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PHONY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "pretended",
+       "gives": "PHONY",
+       "note": "phony means fake, put on"
+      }
      ]
     },
     "explanation": {
@@ -2788,26 +2406,26 @@
    },
    "solution": "PAYDAY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PAY DAY",
     "definitions": [
      {
       "text": "when we get our money",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Say 52s (say)",
-      "note": "surface reading: a cryptic instruction to say something aloud, with an unexplained clue number"
-     },
-     {
-      "clueFragment": "52s (say)",
-      "note": "setter's reading: 52 is the 'Frost report in verse' answer in the setter's numbering, so spoken it means verses that chime, and both words of the answer chime with the word say"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Say 52s (say)",
+       "note": "surface reading: a cryptic instruction to say something aloud, with an unexplained clue number"
+      },
+      {
+       "words": "52s (say)",
+       "note": "setter's reading: 52 is the 'Frost report in verse' answer in the setter's numbering, so spoken it means verses that chime, and both words of the answer chime with the word say"
+      }
+     ]
+    },
+    "spelling": "PAY DAY",
     "explanation": {
      "surface": "A cryptic instruction followed by a plain question of when wages arrive.",
      "walkthrough": "The numbers are the setter's own: 52 is RIME, which said aloud is rhyme. Both PAY and DAY rhyme with 'say', so they are 'say rhymes', and together they make the day wages come in.",
@@ -2835,31 +2453,29 @@
    },
    "solution": "ODIHAM",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ODIHAM",
     "definitions": [
      {
       "text": "in Hampshire",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Sound of",
-      "for": "homophone",
-      "note": "the sound of a word is how it is spoken, not spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reproach",
-      "gives": "ODIHAM",
-      "soundsLike": "ODIUM",
-      "note": "odium is the disgrace or reproach heaped on someone"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ODIHAM",
+     "indicators": [
+      {
+       "text": "Sound of",
+       "note": "the sound of a word is how it is spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reproach",
+       "gives": "ODIUM",
+       "note": "odium is the disgrace or reproach heaped on someone"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A disapproving tut heard somewhere in Hampshire.",
      "walkthrough": "Hampshire is a county in southern England; the definition 'in Hampshire' is a place found there.",
@@ -2886,39 +2502,38 @@
    },
    "solution": "ENROL",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ENROL",
     "definitions": [
      {
       "text": "Put your name down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put it for",
-      "for": "substitution",
-      "note": "to put one thing for another is to make it stand in its place"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flynn's",
-      "gives": "ERROL",
-      "note": "Errol Flynn, the swashbuckling film star"
-     },
-     {
-      "clueFragment": "right",
-      "note": "R, short for right, is the letter swapped out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "N",
-      "ROL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "ENROL",
+       "indicators": [
+        {
+         "text": "put it for",
+         "note": "to put one thing for another is to make it stand in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Flynn's",
+         "gives": "ERROL",
+         "note": "Errol Flynn, the swashbuckling film star"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "right",
+       "note": "R, short for right, is the letter swapped out"
+      }
      ]
     },
     "explanation": {
@@ -2947,33 +2562,19 @@
    },
    "solution": "MARYJANE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MARY JANE",
     "definitions": [
      {
       "text": "Grass",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: slang for cannabis"
      },
      {
       "text": "**9's sisters",
-      "at": 9
+      "at": 9,
+      "meaning": "second meaning: two of Elizabeth Bennet's sisters, one starred light per sister"
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grass",
-      "note": "first meaning: slang for cannabis"
-     },
-     {
-      "clueFragment": "**9's sisters",
-      "note": "second meaning: two of Elizabeth Bennet's sisters, one starred light per sister"
-     }
-    ],
+    "spelling": "MARY JANE",
     "explanation": {
      "surface": "Informing on Elizabeth's siblings, as a grass is a police informer.",
      "walkthrough": "The double star marks two characters; 9 is Elizabeth in the setter's numbering. 'Grass' looks like a verb meaning inform on, as 'on' supports.",
@@ -3001,34 +2602,28 @@
    },
    "solution": "MEANTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MEAN TO",
     "definitions": [
      {
       "text": "Will purposefully",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "signified",
-      "gives": "MEANT",
-      "note": "to signify is to mean"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEANT",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "signified",
+       "gives": "MEANT",
+       "note": "to signify is to mean"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
      ]
     },
+    "spelling": "MEAN TO",
     "explanation": {
      "surface": "A will that was drawn up with purpose turned out to mean nothing at all.",
      "walkthrough": "'Will' looks like a legal document; it is the verb of intention.",
@@ -3055,31 +2650,29 @@
    },
    "solution": "JOCUND",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "JOCUND",
     "definitions": [
      {
       "text": "like the Daffodils' company",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "They say",
-      "for": "homophone",
-      "note": "what people say is spoken, so we want a word that sounds like these"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scotsman and German",
-      "gives": "JOCUND",
-      "soundsLike": "JOCK UND",
-      "note": "a Jock is a Scotsman, and und is German for and"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "JOCUND",
+     "indicators": [
+      {
+       "text": "They say",
+       "note": "what people say is spoken, so we want a word that sounds like these"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scotsman and German",
+       "gives": "JOCKUND",
+       "note": "a Jock is a Scotsman, and und is German for and"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A Scot and a German, said to be as cheerful as Wordsworth's daffodils.",
      "walkthrough": "'And German' means the German word for 'and'. Jock is a British nickname for a Scotsman.",
@@ -3107,35 +2700,25 @@
    },
    "solution": "LYDIAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LYDIAN",
     "definitions": [
      {
       "text": "Like Croesus",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "*9's sister's",
-      "gives": "LYDIA",
-      "note": "the youngest Bennet sister, who elopes with Wickham"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LYDIA",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "*9's sister's",
+       "gives": "LYDIA",
+       "note": "the youngest Bennet sister, who elopes with Wickham"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N is the abbreviation for name"
+      }
      ]
     },
     "explanation": {
@@ -3164,28 +2747,16 @@
    },
    "solution": "NICE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NICE",
     "definitions": [
      {
       "text": "Agreeable",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: pleasant"
      },
      {
       "text": "resort",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agreeable",
-      "note": "first meaning: pleasant"
-     },
-     {
-      "clueFragment": "resort",
-      "note": "second meaning: the city on the French Riviera"
+      "at": 10,
+      "meaning": "second meaning: the city on the French Riviera"
      }
     ],
     "explanation": {
@@ -3212,10 +2783,6 @@
    },
    "solution": "GEORGIANA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GEORGIANA",
     "definitions": [
      {
       "text": "*6",
@@ -3223,35 +2790,32 @@
       "note": "the answer is Darcy's sister, whose full name includes the surname 6"
      }
     ],
-    "indicators": [
-     {
-      "text": "going out",
-      "for": "anagram",
-      "note": "going out of their places, the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are",
-      "gives": "ARE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "going",
-      "gives": "GOING",
-      "note": "taken as written; the word serves as fodder and as half the signal"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "A",
-      "note": "A is the first letter, as in A1 or A-grade"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AREGOINGA",
-       "gives": "GEORGIANA"
+       "text": "going out",
+       "note": "going out of their places, the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "are",
+         "note": "taken as written"
+        },
+        {
+         "words": "going",
+         "note": "taken as written; the word serves as fodder and as half the signal"
+        },
+        {
+         "words": "first",
+         "gives": "A",
+         "note": "A is the first letter, as in A1 or A-grade"
+        }
+       ]
       }
      ]
     },
@@ -3281,29 +2845,17 @@
    },
    "solution": "GEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GEAR",
     "definitions": [
      {
       "text": "Clothes",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: informal for clothing"
      },
      {
       "text": "to be changed?",
       "at": 8,
-      "note": "a cryptic hint at the thing a driver changes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clothes",
-      "note": "first meaning: informal for clothing"
-     },
-     {
-      "clueFragment": "to be changed?",
-      "note": "second meaning: what a driver shifts while driving"
+      "note": "a cryptic hint at the thing a driver changes",
+      "meaning": "second meaning: what a driver shifts while driving"
      }
     ],
     "explanation": {
@@ -3332,33 +2884,29 @@
    },
    "solution": "OILY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OILY",
     "definitions": [
      {
       "text": "Like some fish?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Cut top of",
-      "for": "deletion",
-      "note": "cutting the top off removes the first letter of a down entry"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mat to go under it",
-      "gives": "DOILY",
-      "note": "a doily is a small lace mat put under a cake or plate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OILY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cut top of",
+       "note": "cutting the top off removes the first letter of a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mat to go under it",
+       "gives": "DOILY",
+       "note": "a doily is a small lace mat put under a cake or plate"
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -3387,40 +2935,31 @@
    },
    "solution": "COLD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COLD",
     "definitions": [
      {
       "text": "which isn't friendly",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to be devoured by",
-      "for": "container",
-      "note": "something devoured goes inside the eater"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "COD",
-      "note": "the cod is a fish"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "L",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be devoured by",
+       "note": "something devoured goes inside the eater"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "COD",
+       "note": "the cod is a fish"
+      },
+      {
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -3449,33 +2988,28 @@
    },
    "solution": "LARA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LARA",
     "definitions": [
      {
       "text": "Cricket captain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part in",
-      "for": "hidden_word",
-      "note": "a part found in a word is a run of its letters"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "declaration",
-      "gives": "LARA",
-      "note": "the letters sit in the middle of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part in",
+       "note": "a part found in a word is a run of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "declaration",
+       "gives": "LARA",
+       "note": "the letters sit in the middle of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cricket captain's role in declaring an innings closed.",
      "walkthrough": "A declaration in cricket is a captain ending his side's innings early, so the surface is all cricket. Brian Lara captained the West Indies.",
@@ -3502,43 +3036,31 @@
    },
    "solution": "CHAPLIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHAPLIN",
     "definitions": [
      {
       "text": "Film maker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "series",
-      "gives": "CHAIN",
-      "note": "a chain is a series of linked things"
-     },
-     {
-      "clueFragment": "reduced place",
-      "gives": "PL",
-      "note": "PL is the shortened form of place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "PL",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "series",
+       "gives": "CHAIN",
+       "note": "a chain is a series of linked things"
+      },
+      {
+       "words": "reduced place",
+       "gives": "PL",
+       "note": "PL is the shortened form of place"
+      }
      ]
     },
     "explanation": {
@@ -3567,35 +3089,25 @@
    },
    "solution": "TRAINING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TRAINING",
     "definitions": [
      {
       "text": "Preparation",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "wet",
-      "gives": "RAINING",
-      "note": "when it is raining it is wet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAINING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "wet",
+       "gives": "RAINING",
+       "note": "when it is raining it is wet"
+      }
      ]
     },
     "explanation": {

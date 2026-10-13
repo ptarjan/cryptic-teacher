@@ -1,8 +1,6 @@
 {
  "id": "genius-166",
  "number": 166,
- "series": "genius",
- "name": "Guardian genius crossword No 166",
  "setter": "Picaroon",
  "date": "2017-04-03",
  "preamble": "Two across solutions taken together indicate something missing from all the other 14 across clues, either as the definition or as part of their wordplay.",
@@ -49,48 +47,40 @@
    },
    "solution": "OLDMAID",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OLD MAID",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "something that returns goes back the way it came, so the doctor and look pair is read from right to left"
-     }
-    ],
-    "linkWords": [
-     "to give"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "MD",
-      "note": "MD is a medical doctor"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "LO",
-      "note": "lo, as in 'lo and behold'"
-     },
-     {
-      "clueFragment": "succour",
-      "gives": "AID",
-      "note": "succour is help"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLDM",
-      "AID"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MDLO",
-       "to": "OLDM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "something that returns goes back the way it came, so the doctor and look pair is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Doctor",
+           "gives": "MD",
+           "note": "MD is a medical doctor"
+          },
+          {
+           "words": "look",
+           "gives": "LO",
+           "note": "lo, as in 'lo and behold'"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "succour",
+       "gives": "AID",
+       "note": "succour is help"
       }
      ]
     },
@@ -120,58 +110,56 @@
    },
    "solution": "LEAKAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "LEAKAGE",
     "definitions": [
      {
       "text": "Discharge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "letter_selection",
-      "note": "without its heart a word keeps only its outer letters"
-     },
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "admitting means letting in, so the general takes the other letters inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attack",
-      "gives": "AK",
-      "select": "outer",
-      "note": "the ends of attack"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is an abbreviation for American"
-     },
-     {
-      "clueFragment": "government",
-      "gives": "G",
-      "note": "G is an abbreviation for government"
-     },
-     {
-      "clueFragment": "American general",
-      "gives": "LEE",
-      "note": "Robert E Lee, the Confederate commander"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "AKAG",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "note": "admitting means letting in, so the general takes the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American general",
+       "gives": "LEE",
+       "note": "Robert E Lee, the Confederate commander"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "heartless",
+           "note": "without its heart a word keeps only its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "attack",
+           "note": "the ends of attack"
+          }
+         ]
+        },
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A is an abbreviation for American"
+        },
+        {
+         "words": "government",
+         "gives": "G",
+         "note": "G is an abbreviation for government"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -200,44 +188,36 @@
    },
    "solution": "MIDST",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "MIDST",
     "definitions": [
      {
       "text": "Centre of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not entirely",
-      "for": "hidden_word",
-      "note": "not entirely means only part of the phrase is used, a run of letters inside it"
-     },
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "recalled means called back, so the run of letters is read in the backwards direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Budapest's dimly",
-      "gives": "TSDIM",
-      "note": "the run of letters across the end of Budapest's and the start of dimly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIDST"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TSDIM",
-       "to": "MIDST"
+       "text": "recalled",
+       "note": "recalled means called back, so the run of letters is read in the backwards direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "note": "not entirely means only part of the phrase is used, a run of letters inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Budapest's dimly",
+         "gives": "TSDIM",
+         "note": "the run of letters across the end of Budapest's and the start of dimly"
+        }
+       ]
       }
      ]
     },
@@ -267,35 +247,25 @@
    },
    "solution": "INSANER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSANER",
     "definitions": [
      {
       "text": "more delirious",
       "at": 24
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hospitalised",
-      "gives": "INSAN",
-      "note": "in san, in a sanatorium"
-     },
-     {
-      "clueFragment": "monarch",
-      "gives": "ER",
-      "note": "ER is Elizabeth Regina, the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INSAN",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hospitalised",
+       "gives": "INSAN",
+       "note": "in san, in a sanatorium"
+      },
+      {
+       "words": "monarch",
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
+      }
      ]
     },
     "explanation": {
@@ -323,31 +293,24 @@
    },
    "solution": "ABRIDGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABRIDGE",
     "definitions": [
      {
       "text": "Reduce the size of",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is the abbreviation for area"
-     },
-     {
-      "gives": "BRIDGE",
-      "note": "the missing card game from the preamble, the four-player trick-taking game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BRIDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is the abbreviation for area"
+      },
+      {
+       "gives": "BRIDGE",
+       "note": "the missing card game from the preamble, the four-player trick-taking game"
+      }
      ]
     },
     "explanation": {
@@ -375,51 +338,41 @@
    },
    "solution": "BODILY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BODILY",
     "definitions": [
      {
       "text": "corporal",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Raised",
-      "for": "reversal",
-      "note": "in a down entry raising something turns it upside down, so the word reads from bottom to top"
-     },
-     {
-      "text": "held by",
-      "for": "container",
-      "note": "something held by another sits inside its grip"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hat",
-      "gives": "LID",
-      "note": "lid is slang for a hat"
-     },
-     {
-      "clueFragment": "junior",
-      "gives": "BOY",
-      "note": "a boy is a junior, a youngster"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "DIL",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LID",
-       "to": "DIL"
+       "text": "held by",
+       "note": "something held by another sits inside its grip"
+      }
+     ],
+     "parts": [
+      {
+       "words": "junior",
+       "gives": "BOY",
+       "note": "a boy is a junior, a youngster"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Raised",
+         "note": "in a down entry raising something turns it upside down, so the word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hat",
+         "gives": "LID",
+         "note": "lid is slang for a hat"
+        }
+       ]
       }
      ]
     },
@@ -449,48 +402,35 @@
    },
    "solution": "INAMORATA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INAMORATA",
     "definitions": [
      {
       "text": "mistress",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "follows",
-      "for": "charade",
-      "note": "following means coming after, so the traitor's word is placed after the time phrase"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shortly",
-      "gives": "INAMO",
-      "note": "in a mo, in a moment"
-     },
-     {
-      "clueFragment": "Traitor",
-      "gives": "RAT",
-      "note": "a rat is a betrayer"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INAMO",
-      "RAT",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "note": "following means coming after, so the traitor's word is placed after the time phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shortly",
+       "gives": "INAMO",
+       "note": "in a mo, in a moment"
+      },
+      {
+       "words": "Traitor",
+       "gives": "RAT",
+       "note": "a rat is a betrayer"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -524,47 +464,41 @@
    },
    "solution": "GROWNUP",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GROWN-UP",
     "definitions": [
      {
       "text": "Mature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "berobed",
-      "for": "container",
-      "note": "a person who is berobed has a garment wrapped round them, so the queen is dressed in it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "berobed",
-      "gives": "GOWN",
-      "note": "a gown is a robe"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "R",
-      "note": "R is Regina, Latin for queen"
-     },
-     {
-      "clueFragment": "not lying down",
-      "gives": "UP",
-      "note": "up as in out of bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "R",
-      "OWN",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "berobed",
+         "note": "a person who is berobed has a garment wrapped round them, so the queen is dressed in it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "berobed",
+         "gives": "GOWN",
+         "note": "a gown is a robe"
+        },
+        {
+         "words": "queen",
+         "gives": "R",
+         "note": "R is Regina, Latin for queen"
+        }
+       ]
+      },
+      {
+       "words": "not lying down",
+       "gives": "UP",
+       "note": "up as in out of bed"
+      }
      ]
     },
     "explanation": {
@@ -599,43 +533,33 @@
    },
    "solution": "RABBLEROUSING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RABBLE-ROUSING",
     "definitions": [
      {
       "text": "Demagogy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rambling",
-      "for": "anagram",
-      "note": "rambling means wandering without order, so the letters stray into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "burgeons",
-      "gives": "BURGEONS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Blair",
-      "gives": "BLAIR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BURGEONSBLAIR",
-       "gives": "RABBLEROUSING"
+       "text": "rambling",
+       "note": "rambling means wandering without order, so the letters stray into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "burgeons",
+         "note": "taken as written"
+        },
+        {
+         "words": "Blair",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -664,40 +588,31 @@
    },
    "solution": "CARD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CARD",
     "definitions": [
      {
       "text": "Knave maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is about",
-      "for": "container",
-      "note": "being about something means wrapping around it, so the rogue's word encloses the letter for right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Knave",
-      "gives": "CAD",
-      "note": "a cad is a dishonourable man, a knave"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "R",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "note": "being about something means wrapping around it, so the rogue's word encloses the letter for right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Knave",
+       "gives": "CAD",
+       "note": "a cad is a dishonourable man, a knave"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -727,34 +642,24 @@
    },
    "solution": "SNAPDRAGON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SNAPDRAGON",
     "definitions": [
      {
       "text": "a bloomer",
       "at": 26
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "gives": "SNAP",
-      "note": "the missing card game from the preamble, where players call out on matching cards"
-     },
-     {
-      "clueFragment": "Continue boringly",
-      "gives": "DRAGON",
-      "note": "to drag on is to continue tediously"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNAP",
-      "DRAGON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "SNAP",
+       "note": "the missing card game from the preamble, where players call out on matching cards"
+      },
+      {
+       "words": "Continue boringly",
+       "gives": "DRAGON",
+       "note": "to drag on is to continue tediously"
+      }
      ]
     },
     "explanation": {
@@ -790,27 +695,20 @@
    },
    "solution": "FANTAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FAN TAN",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Cooler",
-      "gives": "FAN",
-      "note": "a fan cools the air"
-     },
-     {
-      "clueFragment": "function",
-      "gives": "TAN",
-      "note": "tan is the tangent, a trigonometric function"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAN",
-      "TAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cooler",
+       "gives": "FAN",
+       "note": "a fan cools the air"
+      },
+      {
+       "words": "function",
+       "gives": "TAN",
+       "note": "tan is the tangent, a trigonometric function"
+      }
      ]
     },
     "explanation": {
@@ -839,53 +737,39 @@
    },
    "solution": "BALLOONS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BALLOONS",
     "definitions": [
      {
       "text": "party gear",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "backs",
-      "for": "reversal",
-      "note": "a party that backs goes into reverse, so its short name is read from the end"
-     }
-    ],
-    "linkWords": [
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Party",
-      "gives": "LAB",
-      "note": "Lab is short for Labour, the British political party"
-     },
-     {
-      "gives": "LOO",
-      "note": "the missing card game from the preamble, an old gambling game with penalties paid into a pool"
-     },
-     {
-      "clueFragment": "partners in 27",
-      "gives": "NS",
-      "note": "North and South are partners at the bridge table, a game, which is the answer to 27"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAL",
-      "LOO",
-      "NS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LAB",
-       "to": "BAL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backs",
+         "note": "a party that backs goes into reverse, so its short name is read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Party",
+         "gives": "LAB",
+         "note": "Lab is short for Labour, the British political party"
+        }
+       ]
+      },
+      {
+       "gives": "LOO",
+       "note": "the missing card game from the preamble, an old gambling game with penalties paid into a pool"
+      },
+      {
+       "words": "partners in 27",
+       "gives": "NS",
+       "note": "North and South are partners at the bridge table, a game, which is the answer to 27"
       }
      ]
     },
@@ -915,53 +799,46 @@
    },
    "solution": "NEWMARKET",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "NEWMARKET",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Return of",
-      "for": "reversal",
-      "note": "a return goes back the way it came, so the city's nickname is read backwards"
-     },
-     {
-      "text": "guarding",
-      "for": "container",
-      "note": "guards surround what they protect, so the police word goes round the vessel"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "city",
-      "gives": "WEN",
-      "note": "the Great Wen is an old name for London"
-     },
-     {
-      "clueFragment": "police",
-      "gives": "MET",
-      "note": "the Met is London's Metropolitan Police"
-     },
-     {
-      "clueFragment": "boat",
-      "gives": "ARK",
-      "note": "Noah's ark is a boat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "M",
-      "ARK",
-      "ET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "WEN",
-       "to": "NEW"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Return of",
+         "note": "a return goes back the way it came, so the city's nickname is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city",
+         "gives": "WEN",
+         "note": "the Great Wen is an old name for London"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "guarding",
+         "note": "guards surround what they protect, so the police word goes round the vessel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police",
+         "gives": "MET",
+         "note": "the Met is London's Metropolitan Police"
+        },
+        {
+         "words": "boat",
+         "gives": "ARK",
+         "note": "Noah's ark is a boat"
+        }
+       ]
       }
      ]
     },
@@ -991,51 +868,40 @@
    },
    "solution": "MOTOSCAFI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MOTOSCAFI",
     "definitions": [
      {
       "text": "Italian boats",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "turned around means facing the other way, so the conditional word is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Second",
-      "gives": "MO",
-      "note": "a mo is a moment, a second"
-     },
-     {
-      "clueFragment": "opera",
-      "gives": "TOSCA",
-      "note": "Tosca is Puccini's opera"
-     },
-     {
-      "clueFragment": "provided",
-      "gives": "IF",
-      "note": "if means provided that"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "TOSCA",
-      "FI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IF",
-       "to": "FI"
+       "words": "Second",
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
+      },
+      {
+       "words": "opera",
+       "gives": "TOSCA",
+       "note": "Tosca is Puccini's opera"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "turned around means facing the other way, so the conditional word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "provided",
+         "gives": "IF",
+         "note": "if means provided that"
+        }
+       ]
       }
      ]
     },
@@ -1065,43 +931,34 @@
    },
    "solution": "NAPPY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NAPPY",
     "definitions": [
      {
       "text": "What baby has",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely points to the extremes of the word, its first and last letters only"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "gives": "NAP",
-      "note": "the missing card game from the preamble, short for napoleon"
-     },
-     {
-      "clueFragment": "pretty",
-      "gives": "PY",
-      "select": "outer",
-      "note": "the two ends of pretty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAP",
-      "PY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "NAP",
+       "note": "the missing card game from the preamble, short for napoleon"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely points to the extremes of the word, its first and last letters only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pretty",
+         "note": "the two ends of pretty"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1130,40 +987,34 @@
    },
    "solution": "SKATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SKATE",
     "definitions": [
      {
       "text": "Runner",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Back in",
-      "for": "letter_selection",
-      "note": "the back of a word is its end, so only the final letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "SKAT",
-      "note": "the missing card game from the preamble, a three-player German game"
-     },
-     {
-      "clueFragment": "Blade",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of Blade"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKAT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "SKAT",
+       "note": "the missing card game from the preamble, a three-player German game"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Back in",
+         "note": "the back of a word is its end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blade",
+         "note": "the final letter of Blade"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1192,46 +1043,41 @@
    },
    "solution": "KEELMAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "KEELMAN",
     "definitions": [
      {
       "text": "Bargee",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the anxious word goes round the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "liberal",
-      "gives": "L",
-      "note": "L is the abbreviation for liberal"
-     },
-     {
-      "clueFragment": "arts graduate",
-      "gives": "MA",
-      "note": "Master of Arts"
-     },
-     {
-      "clueFragment": "anxious",
-      "gives": "KEEN",
-      "note": "keen as in eager to"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEE",
-      "LMA",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the anxious word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "anxious",
+       "gives": "KEEN",
+       "note": "keen as in eager to"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "liberal",
+         "gives": "L",
+         "note": "L is the abbreviation for liberal"
+        },
+        {
+         "words": "arts graduate",
+         "gives": "MA",
+         "note": "Master of Arts"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1260,43 +1106,35 @@
    },
    "solution": "SOLITAIRE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SOLITAIRE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "retiring",
-      "for": "deletion",
-      "note": "words that retire leave the scene, so those two letters drop out of the dancer"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Individual performances",
-      "gives": "SOLI",
-      "note": "soli is the plural of solo"
-     },
-     {
-      "clueFragment": "dancer",
-      "gives": "ASTAIRE",
-      "note": "Fred Astaire, the Hollywood dancer"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOLI",
-      "TAIRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Individual performances",
+       "gives": "SOLI",
+       "note": "soli is the plural of solo"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "retiring",
+         "note": "words that retire leave the scene, so those two letters drop out of the dancer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dancer",
+         "gives": "ASTAIRE",
+         "note": "Fred Astaire, the Hollywood dancer"
+        },
+        {
+         "words": "as",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1325,47 +1163,41 @@
    },
    "solution": "INFLECT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "INFLECT",
     "definitions": [
      {
       "text": "crook",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end of the word, so only its last letter is used"
-     },
-     {
-      "text": "stops",
-      "for": "container",
-      "note": "a stopper plugs a gap, so the letter goes into the middle of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Interpol",
-      "gives": "L",
-      "select": "last",
-      "note": "the last letter of Interpol"
-     },
-     {
-      "clueFragment": "corrupt",
-      "gives": "INFECT",
-      "note": "to infect is to corrupt or taint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INF",
-      "L",
-      "ECT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stops",
+       "note": "a stopper plugs a gap, so the letter goes into the middle of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corrupt",
+       "gives": "INFECT",
+       "note": "to infect is to corrupt or taint"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end of the word, so only its last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Interpol",
+         "note": "the last letter of Interpol"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1394,41 +1226,30 @@
    },
    "solution": "RAFTMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAFTMAN",
     "definitions": [
      {
       "text": "Sailor",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "towards the back",
-      "gives": "AFT",
-      "note": "aft is the nautical word for the stern"
-     },
-     {
-      "clueFragment": "isle",
-      "gives": "MAN",
-      "note": "the Isle of Man, in the Irish Sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AFT",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "towards the back",
+       "gives": "AFT",
+       "note": "aft is the nautical word for the stern"
+      },
+      {
+       "words": "isle",
+       "gives": "MAN",
+       "note": "the Isle of Man, in the Irish Sea"
+      }
      ]
     },
     "explanation": {
@@ -1456,40 +1277,31 @@
    },
    "solution": "DIVINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIVINE",
     "definitions": [
      {
       "text": "Priest",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "necking",
-      "for": "container",
-      "note": "necking a drink means taking it in, so the booze goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to stop",
-      "gives": "DIE",
-      "note": "to die is to stop working, as an engine does"
-     },
-     {
-      "clueFragment": "booze abroad",
-      "gives": "VIN",
-      "note": "vin is French for wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "VIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "necking",
+       "note": "necking a drink means taking it in, so the booze goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to stop",
+       "gives": "DIE",
+       "note": "to die is to stop working, as an engine does"
+      },
+      {
+       "words": "booze abroad",
+       "gives": "VIN",
+       "note": "vin is French for wine"
+      }
      ]
     },
     "explanation": {
@@ -1518,37 +1330,29 @@
    },
    "solution": "CESSPITS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CESSPITS",
     "definitions": [
      {
       "text": "You'll find waste here",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Tax",
-      "gives": "CESS",
-      "note": "a cess is a local tax"
-     },
-     {
-      "gives": "PIT",
-      "note": "the missing card game from the preamble, a noisy trading game imitating a commodities exchange"
-     },
-     {
-      "clueFragment": "society",
-      "gives": "S",
-      "note": "S is the abbreviation for society"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CESS",
-      "PIT",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tax",
+       "gives": "CESS",
+       "note": "a cess is a local tax"
+      },
+      {
+       "gives": "PIT",
+       "note": "the missing card game from the preamble, a noisy trading game imitating a commodities exchange"
+      },
+      {
+       "words": "society",
+       "gives": "S",
+       "note": "S is the abbreviation for society"
+      }
      ]
     },
     "explanation": {
@@ -1583,31 +1387,24 @@
    },
    "solution": "FAROFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FAR-OFF",
     "definitions": [
      {
       "text": "removed",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "gives": "FARO",
-      "note": "the missing card game from the preamble, an old gambling game against a banker"
-     },
-     {
-      "clueFragment": "Very loudly",
-      "gives": "FF",
-      "note": "ff, fortissimo, is the musical marking for very loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FARO",
-      "FF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "FARO",
+       "note": "the missing card game from the preamble, an old gambling game against a banker"
+      },
+      {
+       "words": "Very loudly",
+       "gives": "FF",
+       "note": "ff, fortissimo, is the musical marking for very loud"
+      }
      ]
     },
     "explanation": {
@@ -1636,40 +1433,31 @@
    },
    "solution": "RIGID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RIGID",
     "definitions": [
      {
       "text": "Set",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after capturing",
-      "for": "container",
-      "note": "capturing means taking prisoner, so the soldier ends up held inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "rid as in free of, as in 'get rid of'"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "GI",
-      "note": "a GI is an American soldier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "GI",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after capturing",
+       "note": "capturing means taking prisoner, so the soldier ends up held inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "free",
+       "gives": "RID",
+       "note": "rid as in free of, as in 'get rid of'"
+      },
+      {
+       "words": "soldier",
+       "gives": "GI",
+       "note": "a GI is an American soldier"
+      }
      ]
     },
     "explanation": {
@@ -1698,31 +1486,24 @@
    },
    "solution": "IMPATIENCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPATIENCE",
     "definitions": [
      {
       "text": "shortness",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The writer's",
-      "gives": "IM",
-      "note": "the writer is the setter, so 'the writer is' becomes I'm"
-     },
-     {
-      "gives": "PATIENCE",
-      "note": "the missing card game from the preamble, the British name for solitaire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PATIENCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The writer's",
+       "gives": "IM",
+       "note": "the writer is the setter, so 'the writer is' becomes I'm"
+      },
+      {
+       "gives": "PATIENCE",
+       "note": "the missing card game from the preamble, the British name for solitaire"
+      }
      ]
     },
     "explanation": {
@@ -1752,41 +1533,25 @@
    },
    "solution": "GAME",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GAME",
     "definitions": [
      {
       "text": "Willing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "turned over means flipped end to end, so the online magazine word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "to have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "internet issue",
-      "gives": "EMAG",
-      "note": "an e-mag is an online magazine, an issue published on the internet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAME"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EMAG",
-       "to": "GAME"
+       "text": "over",
+       "note": "turned over means flipped end to end, so the online magazine word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "internet issue",
+       "gives": "EMAG",
+       "note": "an e-mag is an online magazine, an issue published on the internet"
       }
      ]
     },
@@ -1816,39 +1581,33 @@
    },
    "solution": "ENGINES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENGINES",
     "definitions": [
      {
       "text": "Machines",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "malfunctioning",
-      "for": "anagram",
-      "note": "anything malfunctioning is out of order, so these letters are not in their working order"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "GIN",
-      "note": "the missing card game from the preamble, gin rummy"
-     },
-     {
-      "clueFragment": "seen",
-      "gives": "SEEN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GINSEEN",
-       "gives": "ENGINES"
+       "text": "malfunctioning",
+       "note": "anything malfunctioning is out of order, so these letters are not in their working order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "GIN",
+         "note": "the missing card game from the preamble, gin rummy"
+        },
+        {
+         "words": "seen",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1878,47 +1637,34 @@
    },
    "solution": "STUDENT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "STUDENT",
     "definitions": [
      {
       "text": "Scholar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "translated",
-      "for": "anagram",
-      "note": "translation turns words into another form, so the number's letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "gives": "STUD",
-      "note": "the missing card game from the preamble, stud poker"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "TEN",
-      "note": "the number written out as a word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUD",
-      "ENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TEN",
-       "gives": "ENT"
+       "gives": "STUD",
+       "note": "the missing card game from the preamble, stud poker"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translated",
+         "note": "translation turns words into another form, so the number's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "10",
+         "gives": "TEN",
+         "note": "the number written out as a word"
+        }
+       ]
       }
      ]
     },

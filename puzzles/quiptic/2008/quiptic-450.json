@@ -1,8 +1,6 @@
 {
  "id": "quiptic-450",
  "number": 450,
- "series": "quiptic",
- "name": "Quiptic crossword No 450",
  "setter": "Moley",
  "date": "2008-06-30",
  "dimensions": {
@@ -44,35 +42,25 @@
    },
    "solution": "CAPTIVEAUDIENCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAPTIVE AUDIENCE",
     "definitions": [
      {
       "text": "one has no alternative but to listen",
       "at": 25
      }
     ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prisoner",
-      "gives": "CAPTIVE",
-      "note": "a prisoner is held captive"
-     },
-     {
-      "clueFragment": "hearing",
-      "gives": "AUDIENCE",
-      "note": "a formal hearing, as in an audience with the Pope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAPTIVE",
-      "AUDIENCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prisoner",
+       "gives": "CAPTIVE",
+       "note": "a prisoner is held captive"
+      },
+      {
+       "words": "hearing",
+       "gives": "AUDIENCE",
+       "note": "a formal hearing, as in an audience with the Pope"
+      }
      ]
     },
     "explanation": {
@@ -100,50 +88,44 @@
    },
    "solution": "ADJUTANT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ADJUTANT",
     "definitions": [
      {
       "text": "Administrative officer's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests letters turned and moved around into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an ad is a piece of publicity"
-     },
-     {
-      "clueFragment": "jaunt",
-      "gives": "JAUNT",
-      "note": "taken as written, to be mixed"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "JUTANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "JAUNTT",
-       "gives": "JUTANT"
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an ad is a piece of publicity"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about suggests letters turned and moved around into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "jaunt",
+           "note": "taken as written, to be mixed"
+          },
+          {
+           "words": "time",
+           "gives": "T",
+           "note": "T is the abbreviation for time"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -173,31 +155,16 @@
    },
    "solution": "WOODS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WOODS",
     "definitions": [
      {
       "text": "Drivers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: golf clubs, the driver being the number one wood"
      },
      {
       "text": "forest",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drivers",
-      "note": "first meaning: golf clubs, the driver being the number one wood"
-     },
-     {
-      "clueFragment": "forest",
-      "note": "second meaning: an area of trees"
+      "at": 15,
+      "meaning": "second meaning: an area of trees"
      }
     ],
     "explanation": {
@@ -227,50 +194,45 @@
    },
    "solution": "CEREBRAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CEREBRAL",
     "definitions": [
      {
       "text": "brainy",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "letter_selection",
-      "note": "half asks for only the front portion of the following word"
-     },
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "containing means the first word holds the second inside it"
-     }
-    ],
-    "linkWords": [
-     "could make one"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cereal",
-      "gives": "CEREAL",
-      "note": "taken as written, the outer word"
-     },
-     {
-      "clueFragment": "bran",
-      "gives": "BR",
-      "select": "first",
-      "note": "the first two of four letters of bran"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CERE",
-      "BR",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "note": "containing means the first word holds the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cereal",
+       "note": "taken as written, the outer word"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "BR",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "half asks for only the front portion of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "bran",
+         "gives": "BR",
+         "select": "first",
+         "note": "the first two of four letters of bran"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -298,35 +260,25 @@
    },
    "solution": "GASBAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GASBAG",
     "definitions": [
      {
       "text": "One talks a lot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US fuel",
-      "gives": "GAS",
-      "note": "gas is American for petrol"
-     },
-     {
-      "clueFragment": "container",
-      "gives": "BAG",
-      "note": "a bag holds things"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAS",
-      "BAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US fuel",
+       "gives": "GAS",
+       "note": "gas is American for petrol"
+      },
+      {
+       "words": "container",
+       "gives": "BAG",
+       "note": "a bag holds things"
+      }
      ]
     },
     "explanation": {
@@ -355,34 +307,29 @@
    },
    "solution": "AVOIDABLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "AVOIDABLE",
     "definitions": [
      {
       "text": "could be missed",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "They say",
-      "for": "homophone",
-      "note": "they say points to how the phrase is spoken rather than written"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it's what a matador does",
-      "gives": "AVOIDABLE",
-      "soundsLike": "AVOID A BULL",
-      "note": "a matador dodges the charging animal"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AVOIDABLE",
+     "indicators": [
+      {
+       "text": "They say",
+       "note": "they say points to how the phrase is spoken rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "it's what a matador does",
+       "gives": "AVOIDABULL",
+       "note": "a matador dodges the charging animal"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark about bullfighting: the matador's work is skipping out of the way.",
      "definitionFit": "Something avoidable can be sidestepped or done without, so it could be missed."
@@ -409,51 +356,39 @@
    },
    "solution": "AGOUTI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AGOUTI",
     "definitions": [
      {
       "text": "creature",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "'finally' keeps only the first letter of 'I'"
-     }
-    ],
-    "linkWords": [
-     "get",
-     "for the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "select": "first",
-      "note": "the letter I, placed at the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "OUT",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "words": "out",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "'finally' keeps only the first letter of 'I'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "note": "the letter I, placed at the end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -482,32 +417,25 @@
    },
    "solution": "INSTITUTIONALLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSTITUTIONALLY",
     "definitions": [
      {
       "text": "behaving according to its precepts",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Establishment's",
-      "gives": "INSTITUTION",
-      "note": "an establishment is an institution; the 's joins it to what follows"
-     },
-     {
-      "clueFragment": "friend",
-      "gives": "ALLY",
-      "note": "an ally is a friend"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INSTITUTION",
-      "ALLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Establishment's",
+       "gives": "INSTITUTION",
+       "note": "an establishment is an institution; the 's joins it to what follows"
+      },
+      {
+       "words": "friend",
+       "gives": "ALLY",
+       "note": "an ally is a friend"
+      }
      ]
     },
     "explanation": {
@@ -535,35 +463,24 @@
    },
    "solution": "ANDROMEDA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANDROMEDA",
     "definitions": [
      {
       "text": "the daughter of Cassiopeia",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "for": "anagram",
-      "note": "could be hints the letters might form something else when rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dead Roman",
-      "gives": "DEADROMAN",
-      "note": "taken as written, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DEADROMAN",
-       "gives": "ANDROMEDA"
+       "text": "could be",
+       "note": "could be hints the letters might form something else when rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dead Roman",
+       "note": "taken as written, nine letters"
       }
      ]
     },
@@ -593,43 +510,31 @@
    },
    "solution": "VEGAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VEGAN",
     "definitions": [
      {
       "text": "with antipathy for animal products",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the example phrase inside the word for the front"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "forefront",
-      "gives": "VAN",
-      "note": "the van is the leading part, as in vanguard"
-     },
-     {
-      "clueFragment": "For example",
-      "gives": "EG",
-      "note": "e.g. abbreviates for example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "EG",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the example phrase inside the word for the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "forefront",
+       "gives": "VAN",
+       "note": "the van is the leading part, as in vanguard"
+      },
+      {
+       "words": "For example",
+       "gives": "EG",
+       "note": "e.g. abbreviates for example"
+      }
      ]
     },
     "explanation": {
@@ -658,45 +563,38 @@
    },
    "solution": "TRUNDLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRUNDLE",
     "definitions": [
      {
       "text": "to move in a clumsy way",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around suggests the letters are spun into a new order"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about also suggests letters scattered and moved round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Student",
-      "gives": "L",
-      "note": "L is a learner, the plate on a learner driver's car"
-     },
-     {
-      "clueFragment": "turned",
-      "gives": "TURNED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LTURNED",
-       "gives": "TRUNDLE"
+       "text": "around",
+       "note": "around suggests the letters are spun into a new order"
+      },
+      {
+       "text": "about",
+       "note": "about also suggests letters scattered and moved round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Student",
+         "gives": "L",
+         "note": "L is a learner, the plate on a learner driver's car"
+        },
+        {
+         "words": "turned",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -726,52 +624,48 @@
    },
    "solution": "BRIQUET",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "BRIQUET",
     "definitions": [
      {
       "text": "fuel",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "almost entirely",
-      "for": "deletion",
-      "note": "almost entirely means all but the very end of the word is kept"
-     },
-     {
-      "text": "recycled",
-      "for": "anagram",
-      "note": "recycled material is broken down and remade in a fresh form"
-     }
-    ],
-    "linkWords": [
-     "to make this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bet",
-      "gives": "BET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "quire's",
-      "gives": "QUIRE",
-      "note": "a quire is a set of sheets of paper; the 's is read as is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIQUET"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BETQUIR",
-       "gives": "BRIQUET"
+       "text": "recycled",
+       "note": "recycled material is broken down and remade in a fresh form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost entirely",
+         "note": "almost entirely means all but the very end of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bet",
+           "note": "taken as written"
+          },
+          {
+           "words": "quire's",
+           "gives": "QUIRE",
+           "note": "a quire is a set of sheets of paper; the 's is read as is"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
@@ -801,34 +695,29 @@
    },
    "solution": "VIAL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "VIAL",
     "definitions": [
      {
       "text": "Small container",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means we go by the spoken form of the word"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "disgusting",
-      "gives": "VIAL",
-      "soundsLike": "VILE",
-      "note": "vile means disgusting"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "VIAL",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "said means we go by the spoken form of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disgusting",
+       "gives": "VILE",
+       "note": "vile means disgusting"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A little pot that someone calls nasty.",
      "definitionFit": "A vial is a small glass bottle for liquids such as medicine."
@@ -854,51 +743,39 @@
    },
    "solution": "PRAGMATIST",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PRAGMATIST",
     "definitions": [
      {
       "text": "Utilitarian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unnatural",
-      "for": "anagram",
-      "note": "unnatural says the next word is in an abnormal, rearranged form"
-     },
-     {
-      "text": "bearing",
-      "for": "container",
-      "note": "bearing means carrying something within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prat",
-      "gives": "PRAT",
-      "note": "taken as written; a prat is a fool"
-     },
-     {
-      "clueFragment": "stigma",
-      "gives": "STIGMA",
-      "note": "taken as written, six letters to be mixed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRA",
-      "GMATIS",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "STIGMA",
-       "gives": "GMATIS"
+       "text": "bearing",
+       "note": "bearing means carrying something within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prat",
+       "note": "taken as written; a prat is a fool"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unnatural",
+         "note": "unnatural says the next word is in an abnormal, rearranged form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stigma",
+         "note": "taken as written, six letters to be mixed"
+        }
+       ]
       }
      ]
     },
@@ -928,41 +805,30 @@
    },
    "solution": "DIPLOMACY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIPLOMACY",
     "definitions": [
      {
       "text": "negotiation",
       "at": 41
      }
     ],
-    "linkWords": [
-     "got for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Certificate",
-      "gives": "DIPLOMA",
-      "note": "a diploma is a certificate of qualification"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C abbreviates Conservative"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "y is an algebraic unknown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIPLOMA",
-      "C",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Certificate",
+       "gives": "DIPLOMA",
+       "note": "a diploma is a certificate of qualification"
+      },
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C abbreviates Conservative"
+      },
+      {
+       "words": "unknown",
+       "gives": "Y",
+       "note": "y is an algebraic unknown"
+      }
      ]
     },
     "explanation": {
@@ -996,26 +862,25 @@
    },
    "solution": "ANTHILL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ANT HILL",
     "definitions": [
      {
       "text": "Rise for the worker?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Rise for the worker?",
-      "note": "surface reading: a pay increase for an employee"
-     },
-     {
-      "clueFragment": "Rise for the worker?",
-      "note": "setter's reading: a mound of earth made by the worker insect"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Rise for the worker?",
+       "note": "surface reading: a pay increase for an employee"
+      },
+      {
+       "words": "Rise for the worker?",
+       "note": "setter's reading: a mound of earth made by the worker insect"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A rise is British for a pay increase, but it is also a small hill; the worker is the insect caste in a colony.",
      "definitionFit": "Worker insects build a heap of soil over their nest, a little rise in the ground."
@@ -1042,32 +907,25 @@
    },
    "solution": "POLECAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POLECAT",
     "definitions": [
      {
       "text": "one known for its offensive smell",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "POLE",
-      "note": "a Pole is a European from Poland"
-     },
-     {
-      "clueFragment": "pet",
-      "gives": "CAT",
-      "note": "a cat is a common pet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POLE",
-      "CAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "gives": "POLE",
+       "note": "a Pole is a European from Poland"
+      },
+      {
+       "words": "pet",
+       "gives": "CAT",
+       "note": "a cat is a common pet"
+      }
      ]
     },
     "explanation": {
@@ -1095,10 +953,6 @@
    },
    "solution": "PHONETIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PHONETIC",
     "definitions": [
      {
       "text": "pronounced sound",
@@ -1106,25 +960,18 @@
       "note": "read as 'sounded as pronounced', describing spelling that matches speech"
      }
     ],
-    "indicators": [
-     {
-      "text": "changed",
-      "for": "anagram",
-      "note": "changed tells us the dictator's name has altered form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pinochet",
-      "gives": "PINOCHET",
-      "note": "taken as written; Pinochet was a Chilean dictator"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PINOCHET",
-       "gives": "PHONETIC"
+       "text": "changed",
+       "note": "changed tells us the dictator's name has altered form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pinochet",
+       "note": "taken as written; Pinochet was a Chilean dictator"
       }
      ]
     },
@@ -1153,45 +1000,40 @@
    },
    "solution": "CRUCIFIX",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CRUCIFIX",
     "definitions": [
      {
       "text": "Cross",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "deletion",
-      "note": "off means taken away from the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Capone",
-      "gives": "AL",
-      "note": "Al Capone, the Chicago gangster"
-     },
-     {
-      "clueFragment": "crucial",
-      "gives": "CRUCIAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "set up",
-      "gives": "FIX",
-      "note": "to fix is to rig or set up an outcome"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRUCI",
-      "FIX"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "off means taken away from the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crucial",
+         "note": "taken as written"
+        },
+        {
+         "words": "Capone",
+         "gives": "AL",
+         "note": "Al Capone, the Chicago gangster"
+        }
+       ]
+      },
+      {
+       "words": "set up",
+       "gives": "FIX",
+       "note": "to fix is to rig or set up an outcome"
+      }
      ]
     },
     "explanation": {
@@ -1220,35 +1062,24 @@
    },
    "solution": "DESOLATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DESOLATION",
     "definitions": [
      {
       "text": "despair?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "creating",
-      "for": "anagram",
-      "note": "creating implies the letters are worked into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stained loo",
-      "gives": "STAINEDLOO",
-      "note": "taken as written, ten letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAINEDLOO",
-       "gives": "DESOLATION"
+       "text": "creating",
+       "note": "creating implies the letters are worked into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stained loo",
+       "note": "taken as written, ten letters"
       }
      ]
     },
@@ -1279,10 +1110,6 @@
    },
    "solution": "SIDING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SIDING",
     "definitions": [
      {
       "text": "by the railway",
@@ -1290,25 +1117,18 @@
       "note": "a description of where it lies rather than a strict synonym"
      }
     ],
-    "indicators": [
-     {
-      "text": "Working",
-      "for": "anagram",
-      "note": "working means set in motion, so the letters are moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in digs",
-      "gives": "INDIGS",
-      "note": "taken as written, six letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INDIGS",
-       "gives": "SIDING"
+       "text": "Working",
+       "note": "working means set in motion, so the letters are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in digs",
+       "note": "taken as written, six letters"
       }
      ]
     },
@@ -1338,36 +1158,25 @@
    },
    "solution": "TICKET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TICKET",
     "definitions": [
      {
       "text": "permit to travel",
       "at": 37
      }
     ],
-    "linkWords": [
-     "when",
-     "'s given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sign of approval",
-      "gives": "TICK",
-      "note": "a tick mark shows something is correct"
-     },
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "ET, the extra-terrestrial of the film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TICK",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sign of approval",
+       "gives": "TICK",
+       "note": "a tick mark shows something is correct"
+      },
+      {
+       "words": "alien",
+       "gives": "ET",
+       "note": "ET, the extra-terrestrial of the film"
+      }
      ]
     },
     "explanation": {
@@ -1395,28 +1204,16 @@
    },
    "solution": "AUTO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AUTO",
     "definitions": [
      {
       "text": "American car",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: US informal word for a motor car"
      },
      {
       "text": "drives itself",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American car",
-      "note": "first meaning: US informal word for a motor car"
-     },
-     {
-      "clueFragment": "drives itself",
-      "note": "second meaning: automatic, self-operating"
+      "at": 13,
+      "meaning": "second meaning: automatic, self-operating"
      }
     ],
     "explanation": {
@@ -1445,35 +1242,24 @@
    },
    "solution": "DONOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DONOR",
     "definitions": [
      {
       "text": "One giving",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new twist",
-      "for": "anagram",
-      "note": "a new twist means the letters are wrung into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rondo",
-      "gives": "RONDO",
-      "note": "taken as written; a rondo is a musical form"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RONDO",
-       "gives": "DONOR"
+       "text": "new twist",
+       "note": "a new twist means the letters are wrung into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rondo",
+       "note": "taken as written; a rondo is a musical form"
       }
      ]
     },
@@ -1502,45 +1288,34 @@
    },
    "solution": "ENDEMIC",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ENDEMIC",
     "definitions": [
      {
       "text": "Native",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "destroyed",
-      "for": "anagram",
-      "note": "destroyed means broken apart, so the letters are scattered and rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at last",
-      "gives": "END",
-      "note": "the end comes at last"
-     },
-     {
-      "clueFragment": "mice",
-      "gives": "MICE",
-      "note": "taken as written, four letters to be mixed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "END",
-      "EMIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MICE",
-       "gives": "EMIC"
+       "words": "at last",
+       "gives": "END",
+       "note": "the end comes at last"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "destroyed",
+         "note": "destroyed means broken apart, so the letters are scattered and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mice",
+         "note": "taken as written, four letters to be mixed"
+        }
+       ]
       }
      ]
     },
@@ -1570,61 +1345,44 @@
    },
    "solution": "EXOTICA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EXOTICA",
     "definitions": [
      {
       "text": "rare items",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "return means go back the way it came, so the word runs backwards"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Divorcee",
-      "gives": "EX",
-      "note": "an ex is a former spouse"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "the little word taken as written"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "I",
-      "note": "an means one, written as the Roman numeral"
-     },
-     {
-      "clueFragment": "accountant",
-      "gives": "CA",
-      "note": "CA is a chartered accountant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "OT",
-      "I",
-      "CA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TO",
-       "to": "OT"
+       "words": "Divorcee",
+       "gives": "EX",
+       "note": "an ex is a former spouse"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "return means go back the way it came, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "note": "the little word taken as written"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "gives": "I",
+       "note": "an means one, written as the Roman numeral"
+      },
+      {
+       "words": "accountant",
+       "gives": "CA",
+       "note": "CA is a chartered accountant"
       }
      ]
     },
@@ -1654,33 +1412,28 @@
    },
    "solution": "CYNIC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CYNIC",
     "definitions": [
      {
       "text": "One doubting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "hidden_word",
-      "note": "part of tells us the answer is a stretch of letters inside the words that follow"
-     }
-    ],
-    "linkWords": [
-     "advocated"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "policy Nicaraguan",
-      "gives": "CYNIC",
-      "note": "the run of letters across the word break"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "note": "part of tells us the answer is a stretch of letters inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "policy Nicaraguan",
+       "gives": "CYNIC",
+       "note": "the run of letters across the word break"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sceptic questions a piece of Nicaraguan policy that was promoted.",
      "definitionFit": "A cynic distrusts people's sincerity and motives, so is someone who doubts."
@@ -1706,38 +1459,24 @@
    },
    "solution": "EDITORIAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EDITORIAL",
     "definitions": [
      {
       "text": "Leader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by arrangement",
-      "for": "anagram",
-      "note": "by arrangement means the letters are put into a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ideal trio",
-      "gives": "IDEALTRIO",
-      "note": "taken as written, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IDEALTRIO",
-       "gives": "EDITORIAL"
+       "text": "by arrangement",
+       "note": "by arrangement means the letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ideal trio",
+       "note": "taken as written, nine letters"
       }
      ]
     },

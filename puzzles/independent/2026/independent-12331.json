@@ -1,8 +1,6 @@
 {
  "id": "independent-12331",
  "number": 12331,
- "series": "independent",
- "name": "Independent cryptic crossword No 12,331",
  "setter": "Quince",
  "date": "2026-04-16",
  "dimensions": {
@@ -38,39 +36,28 @@
    },
    "solution": "HINTING",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "HINTING",
     "definitions": [
      {
       "text": "How you might get thing in a cryptic crossword?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cryptic",
-      "for": "anagram",
-      "note": "cryptic means hidden or puzzling, so THING and IN are to be read in a jumbled form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thing in",
-      "gives": "THINGIN",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THING IN",
-       "gives": "HINTING"
+       "text": "cryptic",
+       "note": "cryptic means hidden or puzzling, so THING and IN are to be read in a jumbled form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thing in",
+       "note": "the letters to rearrange"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about how a solver is helped towards an answer in a cryptic puzzle.",
      "walkthrough": "Read whole, the clue describes itself: you get the answer by hinting, and the letters of THING IN, made cryptic, spell HINTING.",
@@ -98,68 +85,69 @@
    },
    "solution": "INAMORATA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "INAMORATA",
     "definitions": [
      {
       "text": "Lover",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "note": "the head of a word is its top, which in a down clue is its first letter"
-     },
-     {
-      "text": "rejected",
-      "note": "sent back, so the following pieces are written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Head of ITV",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of ITV"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "pitch",
-      "gives": "TAR",
-      "note": "pitch is black tar"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love = nil = O"
-     },
-     {
-      "clueFragment": "Island",
-      "gives": "MAN",
-      "note": "the Isle of Man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NAM",
-      "O",
-      "RAT",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "ATAROMAN",
-       "to": "NAMORATA"
+       "text": "Head of",
+       "note": "the head of a word is its top, which in a down clue is its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "I",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "sent back, so the following pieces are written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Head of ITV",
+         "gives": "I",
+         "select": "first",
+         "note": "first letter of ITV"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "as written"
+          },
+          {
+           "words": "pitch",
+           "gives": "TAR",
+           "note": "pitch is black tar"
+          },
+          {
+           "words": "Love",
+           "gives": "O",
+           "note": "love = nil = O"
+          },
+          {
+           "words": "Island",
+           "gives": "MAN",
+           "note": "the Isle of Man"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -189,45 +177,37 @@
    },
    "solution": "TRIKE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TRIKE",
     "definitions": [
      {
       "text": "accessible transport",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "reformed",
-      "for": "anagram",
-      "note": "formed again, so the letters of KEIR are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "Keir reformed",
-      "gives": "RIKE",
-      "note": "KEIR rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RIKE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TRIKE",
+     "indicators": [
       {
-       "fodder": "KEIR",
-       "gives": "RIKE"
+       "text": "reformed",
+       "note": "formed again, so the letters of KEIR are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "Keir reformed",
+         "gives": "RIKE",
+         "note": "KEIR rearranged"
+        }
+       ]
       }
      ]
     },
@@ -257,35 +237,25 @@
    },
    "solution": "NECKLET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NECKLET",
     "definitions": [
      {
       "text": "Band",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kiss",
-      "gives": "NECK",
-      "note": "to neck is to kiss"
-     },
-     {
-      "clueFragment": "permit",
-      "gives": "LET",
-      "note": "to allow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NECK",
-      "LET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kiss",
+       "gives": "NECK",
+       "note": "to neck is to kiss"
+      },
+      {
+       "words": "permit",
+       "gives": "LET",
+       "note": "to allow"
+      }
      ]
     },
     "explanation": {
@@ -315,43 +285,31 @@
    },
    "solution": "THYROID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THYROID",
     "definitions": [
      {
       "text": "organ",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "inspired by",
-      "for": "container",
-      "note": "to be inspired is to be breathed in, so I goes inside the phrase"
-     }
-    ],
-    "linkWords": [
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something comforting in a psalm",
-      "gives": "THYROD",
-      "note": "Psalm 23: 'thy rod and thy staff, they comfort me'"
-     },
-     {
-      "clueFragment": "One's",
-      "gives": "I",
-      "note": "one = I, the Roman numeral; 's = is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THYRO",
-      "I",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspired by",
+       "note": "to be inspired is to be breathed in, so I goes inside the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something comforting in a psalm",
+       "gives": "THYROD",
+       "note": "Psalm 23: 'thy rod and thy staff, they comfort me'"
+      },
+      {
+       "words": "One's",
+       "gives": "I",
+       "note": "one = I, the Roman numeral; 's = is"
+      }
      ]
     },
     "explanation": {
@@ -381,54 +339,61 @@
    },
    "solution": "HARDTOP",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "HARDTOP",
     "definitions": [
      {
       "text": "Petrolhead short of fuel drove one finally for a spin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short of",
-      "note": "lacking, so letters are taken away"
-     },
-     {
-      "text": "finally",
-      "note": "the last letters of fuel, drove and one"
-     },
-     {
-      "text": "for a spin",
-      "note": "spun round into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Petrolhead",
-      "gives": "PETROLHEAD",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "fuel drove one finally",
-      "gives": "LEE",
-      "select": "last",
-      "note": "last letters of fuel, drove and one, taken out of PETROLHEAD"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HARDTOP",
+     "parts": [
       {
-       "fodder": "PTRHOAD",
-       "gives": "HARDTOP"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HARDTOP",
+       "indicators": [
+        {
+         "text": "short of",
+         "note": "lacking, so letters are taken away"
+        },
+        {
+         "text": "for a spin",
+         "note": "spun round into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Petrolhead",
+         "note": "the word itself"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "LEE",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "the last letters of fuel, drove and one"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "fuel drove one finally",
+           "gives": "LEE",
+           "select": "last",
+           "note": "last letters of fuel, drove and one, taken out of PETROLHEAD"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A car enthusiast, out of petrol, took one car out for a drive.",
      "walkthrough": "Read whole, the clue describes a hardtop: a car a petrolhead would take for a spin.",
@@ -461,47 +426,42 @@
    },
    "solution": "REDCARPET",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RED CARPET",
     "definitions": [
      {
       "text": "One laid down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting",
-      "note": "to be wanting something is to lack it"
-     },
-     {
-      "text": "for a change",
-      "note": "the remaining letters are changed round"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "procreated",
-      "gives": "PROCREATED",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = nil = O, removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "REDCARPET",
+     "parts": [
       {
-       "fodder": "PRCREATED",
-       "gives": "REDCARPET"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "REDCARPET",
+       "indicators": [
+        {
+         "text": "wanting",
+         "note": "to be wanting something is to lack it"
+        },
+        {
+         "text": "for a change",
+         "note": "the remaining letters are changed round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "procreated",
+         "note": "the word itself"
+        },
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "love = nil = O, removed"
+        }
+       ]
       }
      ]
     },
@@ -532,38 +492,25 @@
    },
    "solution": "IDEAL",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IDEAL",
     "definitions": [
      {
       "text": "model",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Occasionally",
-      "for": "letter_selection",
-      "note": "now and then, so every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mind recalls",
-      "gives": "IDEAL",
-      "select": "alternate",
-      "note": "the even letters of mInD rEcAlLs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "D",
-      "E",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Occasionally",
+       "note": "now and then, so every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mind recalls",
+       "note": "the even letters of mInD rEcAlLs"
+      }
      ]
     },
     "explanation": {
@@ -591,35 +538,24 @@
    },
    "solution": "TRANSMUTATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRANSMUTATION",
     "definitions": [
      {
       "text": "Change",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cast",
-      "for": "anagram",
-      "note": "thrown about, as dice or a mould reshapes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tarantino must",
-      "gives": "TARANTINOMUST",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TARANTINO MUST",
-       "gives": "TRANSMUTATION"
+       "text": "cast",
+       "note": "thrown about, as dice or a mould reshapes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tarantino must",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -650,31 +586,29 @@
    },
    "solution": "MALI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MALI",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "homophone",
-      "note": "something broadcast is heard, not seen, so we go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "singer",
-      "gives": "MALI",
-      "soundsLike": "MARLEY",
-      "note": "Bob Marley, the reggae singer; in a non-rhotic British accent the R is silent"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MALI",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "note": "something broadcast is heard, not seen, so we go by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "singer",
+       "gives": "MARLEY",
+       "note": "Bob Marley, the reggae singer; in a non-rhotic British accent the R is silent"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A country-and-western singer goes out on air.",
      "walkthrough": "Country singer reads as a country music star; split it, and Country is the definition while singer is Marley.",
@@ -701,51 +635,47 @@
    },
    "solution": "CARTRIDGES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CARTRIDGES",
     "definitions": [
      {
       "text": "articles in magazine",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Dab of",
-      "for": "letter_selection",
-      "note": "a dab is a small bit, here the first letter of cream"
-     },
-     {
-      "text": "on",
-      "note": "in an across clue, placed after what comes before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dab of cream",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of cream"
-     },
-     {
-      "clueFragment": "works",
-      "gives": "ART",
-      "note": "works of art"
-     },
-     {
-      "clueFragment": "wrinkles",
-      "gives": "RIDGES",
-      "note": "raised lines"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ART",
-      "RIDGES"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, placed after what comes before"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Dab of",
+         "note": "a dab is a small bit, here the first letter of cream"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dab of cream",
+         "gives": "CREAM",
+         "note": "first letter of cream"
+        }
+       ]
+      },
+      {
+       "words": "works",
+       "gives": "ART",
+       "note": "works of art"
+      },
+      {
+       "words": "wrinkles",
+       "gives": "RIDGES",
+       "note": "raised lines"
+      }
      ]
     },
     "explanation": {
@@ -781,47 +711,41 @@
    },
    "solution": "HOMEPLANET",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HOME PLANET",
     "definitions": [
      {
       "text": "Krypton to Superman",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In",
-      "gives": "HOME",
-      "note": "at home = in"
-     },
-     {
-      "clueFragment": "aircraft",
-      "gives": "PLANE",
-      "note": "an aircraft"
-     },
-     {
-      "clueFragment": "beginning to take",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of take"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOME",
-      "PLANE",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In",
+       "gives": "HOME",
+       "note": "at home = in"
+      },
+      {
+       "words": "aircraft",
+       "gives": "PLANE",
+       "note": "an aircraft"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning to take",
+         "gives": "TAKE",
+         "note": "first letter of take"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -856,10 +780,6 @@
    },
    "solution": "ALL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ALL",
     "definitions": [
      {
       "text": "Totally",
@@ -867,28 +787,33 @@
       "note": "Totally is an adverb; ALL works as one in 'all alone'"
      }
     ],
-    "indicators": [
-     {
-      "text": "on Eastenders",
-      "for": "deletion",
-      "note": "EastEnders is a London soap whose Cockney characters drop their Hs"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "posh gaff",
-      "gives": "HALL",
-      "note": "gaff is slang for home; a grand one is a hall"
-     },
-     {
-      "clueFragment": "on Eastenders",
-      "gives": "ALL",
-      "note": "said the Cockney way, HALL loses its H"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "on Eastenders",
+       "note": "EastEnders is a London soap whose Cockney characters drop their Hs"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "posh gaff",
+         "gives": "HALL",
+         "note": "gaff is slang for home; a grand one is a hall"
+        },
+        {
+         "words": "on Eastenders",
+         "gives": "ALL",
+         "note": "said the Cockney way, HALL loses its H"
+        }
+       ]
+      },
+      {
+       "gives": "HALL"
+      }
      ]
     },
     "explanation": {
@@ -923,35 +848,25 @@
    },
    "solution": "MAJORTOM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAJOR TOM",
     "definitions": [
      {
       "text": "man calling ground control",
       "at": 13
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big",
-      "gives": "MAJOR",
-      "note": "big, great"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "TOM",
-      "note": "a male cat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAJOR",
-      "TOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Big",
+       "gives": "MAJOR",
+       "note": "big, great"
+      },
+      {
+       "words": "cat",
+       "gives": "TOM",
+       "note": "a male cat"
+      }
      ]
     },
     "explanation": {
@@ -980,46 +895,40 @@
    },
    "solution": "OBNOXIOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OBNOXIOUS",
     "definitions": [
      {
       "text": "Nasty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "acquiring",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old boy",
-      "gives": "OB",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "no debts",
-      "gives": "NOIOUS",
-      "note": "NO + IOUS, written promises to pay"
-     },
-     {
-      "clueFragment": "Twitter now",
-      "gives": "X",
-      "note": "Twitter has been renamed X"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "NO",
-      "X",
-      "IOUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "gives": "OB",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "acquiring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "no debts",
+         "gives": "NOIOUS",
+         "note": "NO + IOUS, written promises to pay"
+        },
+        {
+         "words": "Twitter now",
+         "gives": "X",
+         "note": "Twitter has been renamed X"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1048,47 +957,44 @@
    },
    "solution": "PAPAWS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PAPAWS",
     "definitions": [
      {
       "text": "juicy stuff",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Successor to",
-      "for": "letter_selection",
-      "note": "the word that comes after Oscar in the NATO alphabet"
-     },
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "first, so the first letters of Wilde and staging"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Successor to Oscar",
-      "gives": "PAPA",
-      "note": "O is Oscar and P is Papa in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "Wilde staging primarily",
-      "gives": "WS",
-      "select": "first",
-      "note": "first letters of Wilde and staging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAPA",
-      "W",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Successor to Oscar",
+       "gives": "PAPA",
+       "note": "O is Oscar and P is Papa in the NATO phonetic alphabet"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "WS",
+       "indicators": [
+        {
+         "text": "Successor to",
+         "note": "the word that comes after Oscar in the NATO alphabet"
+        },
+        {
+         "text": "primarily",
+         "note": "first, so the first letters of Wilde and staging"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Wilde staging primarily",
+         "gives": "WS",
+         "select": "first",
+         "note": "first letters of Wilde and staging"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1118,50 +1024,45 @@
    },
    "solution": "WEBMASTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "WEBMASTER",
     "definitions": [
      {
       "text": "Online influencer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting content",
-      "for": "letter_selection",
-      "note": "without its inside letters"
-     },
-     {
-      "text": "put out",
-      "for": "anagram",
-      "note": "displaced, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "woke, wanting content",
-      "gives": "WE",
-      "select": "outer",
-      "note": "WOKE without its middle letters"
-     },
-     {
-      "clueFragment": "Mr Beast",
-      "gives": "MRBEAST",
-      "note": "the YouTuber's name, as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WE MRBEAST",
-       "gives": "WEBMASTER"
+       "text": "put out",
+       "note": "displaced, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "wanting content",
+           "note": "without its inside letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "woke, wanting content",
+           "gives": "WOKE",
+           "note": "WOKE without its middle letters"
+          }
+         ]
+        },
+        {
+         "words": "Mr Beast",
+         "note": "the YouTuber's name, as letters"
+        }
+       ]
       }
      ]
     },
@@ -1192,34 +1093,39 @@
    },
    "solution": "NARNIA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "NARNIA",
     "definitions": [
      {
       "text": "magical land",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "note": "only part of the words is used"
-     },
-     {
-      "text": "around",
-      "note": "the letters are turned round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mountain ranges",
-      "gives": "AINRAN",
-      "note": "the letters sit across the join: mount(AIN RAN)ges"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only part of the words is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "the letters are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain ranges",
+         "gives": "AINRAN",
+         "note": "the letters sit across the join: mount(AIN RAN)ges"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Mountain ranges encircle an enchanted realm.",
      "walkthrough": "Read mountAIN RANges backwards to find the land.",
@@ -1245,38 +1151,30 @@
    },
    "solution": "AUBERGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AUBERGE",
     "definitions": [
      {
       "text": "space to stay",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "spilling",
-      "for": "deletion",
-      "note": "what spills out of a container is lost from it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bit of moussaka",
-      "gives": "AUBERGINE",
-      "note": "aubergine, or eggplant, is a main ingredient of moussaka"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "these letters spill out of AUBERGINE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AUBERGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "spilling",
+       "note": "what spills out of a container is lost from it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bit of moussaka",
+       "gives": "AUBERGINE",
+       "note": "aubergine, or eggplant, is a main ingredient of moussaka"
+      },
+      {
+       "words": "in",
+       "note": "these letters spill out of AUBERGINE"
+      }
      ]
     },
     "explanation": {
@@ -1311,35 +1209,25 @@
    },
    "solution": "TESTTUBE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TEST TUBE",
     "definitions": [
      {
       "text": "part of experiment",
       "at": 25
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "gives": "TEST",
-      "note": "to try out"
-     },
-     {
-      "clueFragment": "piece of rigatoni",
-      "gives": "TUBE",
-      "note": "rigatoni is tube-shaped pasta"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEST",
-      "TUBE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Try",
+       "gives": "TEST",
+       "note": "to try out"
+      },
+      {
+       "words": "piece of rigatoni",
+       "gives": "TUBE",
+       "note": "rigatoni is tube-shaped pasta"
+      }
      ]
     },
     "explanation": {
@@ -1369,30 +1257,16 @@
    },
    "solution": "SPELLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPELLER",
     "definitions": [
      {
       "text": "One listing characters",
-      "at": 0
+      "at": 0,
+      "meaning": "one who spells out a word letter by letter"
      },
      {
       "text": "Harry, Ron, or Hermione?",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One listing characters",
-      "gives": "SPELLER",
-      "note": "one who spells out a word letter by letter"
-     },
-     {
-      "clueFragment": "Harry, Ron, or Hermione?",
-      "gives": "SPELLER",
-      "note": "the young wizards cast spells"
+      "at": 24,
+      "meaning": "the young wizards cast spells"
      }
     ],
     "explanation": {
@@ -1422,56 +1296,44 @@
    },
    "solution": "VEX",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "VEX",
     "definitions": [
      {
       "text": "bug",
       "at": 65
      }
     ],
-    "indicators": [
-     {
-      "text": "moved from Madrid to Rome",
-      "for": "reversal"
-     },
-     {
-      "text": "swallowing",
-      "note": "what is swallowed ends up inside"
-     },
-     {
-      "text": "about",
-      "note": "to turn about is to face the other way, so XEV is read backwards"
-     }
-    ],
-    "linkWords": [
-     "lies"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quince moved from Madrid to Rome",
-      "gives": "XV",
-      "note": "quince is Spanish for fifteen; in Roman numerals XV"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "E",
-      "X"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "XEV",
-       "to": "VEX"
+       "text": "moved from Madrid to Rome"
+      },
+      {
+       "text": "about",
+       "note": "to turn about is to face the other way, so XEV is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swallowing",
+         "note": "what is swallowed ends up inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Quince moved from Madrid to Rome",
+         "gives": "XV",
+         "note": "quince is Spanish for fifteen; in Roman numerals XV"
+        },
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "standard abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1502,53 +1364,51 @@
    },
    "solution": "VENOM",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "VENOM",
     "definitions": [
      {
       "text": "Hate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "to turn about is to face the other way, so ONE is read backwards"
-     },
-     {
-      "text": "to feed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "five",
-      "gives": "V",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "reversed to ENO"
-     },
-     {
-      "clueFragment": "thousand",
-      "gives": "M",
-      "note": "Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ENO",
-      "M"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "VENOM",
+     "parts": [
       {
-       "from": "ONE",
-       "to": "ENO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to turn about is to face the other way, so ONE is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "five",
+         "gives": "V",
+         "note": "Roman numeral"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "to feed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "note": "reversed to ENO"
+          }
+         ]
+        },
+        {
+         "words": "thousand",
+         "gives": "M",
+         "note": "Roman numeral"
+        }
+       ]
       }
      ]
     },
@@ -1578,51 +1438,46 @@
    },
    "solution": "BUTTERBEAN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BUTTER BEAN",
     "definitions": [
      {
       "text": "Pulse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after"
-     },
-     {
-      "text": "heart bypass",
-      "note": "the heart of began is skipped over"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bachelor",
-      "gives": "B",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "UTTER",
-      "note": "to say"
-     },
-     {
-      "clueFragment": "began after heart bypass",
-      "gives": "BEAN",
-      "note": "BEGAN without its middle letter G"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "UTTER",
-      "BEAN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BUTTERBEAN",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after"
+        },
+        {
+         "text": "heart bypass",
+         "note": "the heart of began is skipped over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bachelor",
+         "gives": "B",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "say",
+         "gives": "UTTER",
+         "note": "to say"
+        },
+        {
+         "words": "began after heart bypass",
+         "gives": "BEAN",
+         "note": "BEGAN without its middle letter G"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1652,45 +1507,32 @@
    },
    "solution": "BORED",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "BORED",
     "definitions": [
      {
       "text": "Fed up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shifting to the right on computer",
-      "for": "substitution",
-      "note": "each letter moves one key to the right on a QWERTY keyboard"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "views",
-      "gives": "VIEWS",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "shifting to the right on computer",
-      "gives": "BORED",
-      "note": "V to B, I to O, E to R, W to E, S to D on the keyboard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "O",
-      "R",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "BORED",
+     "indicators": [
+      {
+       "text": "shifting to the right on computer",
+       "note": "each letter moves one key to the right on a QWERTY keyboard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "views",
+       "note": "the word itself"
+      },
+      {
+       "words": "shifting to the right on computer",
+       "gives": "BORED",
+       "note": "V to B, I to O, E to R, W to E, S to D on the keyboard"
+      }
      ]
     },
     "explanation": {
@@ -1726,60 +1568,51 @@
    },
    "solution": "INDOORPOOL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "INDOOR POOL",
     "definitions": [
      {
       "text": "Hotel offering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "coming after means placed later"
-     },
-     {
-      "text": "back",
-      "note": "the ring is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trendy",
-      "gives": "IN",
-      "note": "fashionable"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a party"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "other ranks, soldiers who are not officers"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "LOOP",
-      "note": "a ring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "DO",
-      "OR",
-      "POOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "LOOP",
-       "to": "POOL"
+       "text": "after",
+       "note": "coming after means placed later"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trendy",
+       "gives": "IN",
+       "note": "fashionable"
+      },
+      {
+       "words": "party",
+       "gives": "DO",
+       "note": "a party"
+      },
+      {
+       "words": "men",
+       "gives": "OR",
+       "note": "other ranks, soldiers who are not officers"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the ring is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ring",
+         "gives": "LOOP",
+         "note": "a ring"
+        }
+       ]
       }
      ]
     },
@@ -1809,38 +1642,25 @@
    },
    "solution": "RATS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "RATS",
     "definitions": [
      {
       "text": "how disappointing",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "set to the west",
-      "for": "reversal",
-      "note": "in an across clue, west is leftward, so the word runs right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sun",
-      "gives": "STAR",
-      "note": "the sun is a star"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RATS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "STAR",
-       "to": "RATS"
+       "text": "set to the west",
+       "note": "in an across clue, west is leftward, so the word runs right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sun",
+       "gives": "STAR",
+       "note": "the sun is a star"
       }
      ]
     },
@@ -1870,41 +1690,36 @@
    },
    "solution": "SMASHED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SMASHED",
     "definitions": [
      {
       "text": "in pieces",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Entrance to",
-      "for": "letter_selection",
-      "note": "the way in, the first letter of sacred"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Entrance to sacred",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of sacred"
-     },
-     {
-      "clueFragment": "ground",
-      "gives": "MASHED",
-      "note": "ground down, crushed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "MASHED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Entrance to",
+         "note": "the way in, the first letter of sacred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Entrance to sacred",
+         "gives": "SACRED",
+         "note": "first letter of sacred"
+        }
+       ]
+      },
+      {
+       "words": "ground",
+       "gives": "MASHED",
+       "note": "ground down, crushed"
+      }
      ]
     },
     "explanation": {
@@ -1933,44 +1748,42 @@
    },
    "solution": "TRADERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "TRADERS",
     "definitions": [
      {
       "text": "Dealers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in order",
-      "note": "the letters are put in order, that is, arranged afresh"
-     },
-     {
-      "text": "to get rid of",
-      "note": "to get rid of something is to throw it out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrested",
-      "gives": "ARRESTED",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy; one E is taken out"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TRADERS",
+     "parts": [
       {
-       "fodder": "ARRSTED",
-       "gives": "TRADERS"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "TRADERS",
+       "indicators": [
+        {
+         "text": "in order",
+         "note": "the letters are put in order, that is, arranged afresh"
+        },
+        {
+         "text": "to get rid of",
+         "note": "to get rid of something is to throw it out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arrested",
+         "note": "the word itself"
+        },
+        {
+         "words": "ecstasy",
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy; one E is taken out"
+        }
+       ]
       }
      ]
     },

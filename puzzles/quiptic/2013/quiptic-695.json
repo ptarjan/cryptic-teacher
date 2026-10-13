@@ -1,8 +1,6 @@
 {
  "id": "quiptic-695",
  "number": 695,
- "series": "quiptic",
- "name": "Quiptic crossword No 695",
  "setter": "Moley",
  "date": "2013-03-11",
  "dimensions": {
@@ -38,31 +36,16 @@
    },
    "solution": "GANYMEDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GANYMEDE",
     "definitions": [
      {
       "text": "Trojan boy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the beautiful Trojan youth carried off by Zeus to be cupbearer to the gods"
      },
      {
       "text": "heavenly body",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trojan boy",
-      "note": "first meaning: the beautiful Trojan youth carried off by Zeus to be cupbearer to the gods"
-     },
-     {
-      "clueFragment": "heavenly body",
-      "note": "second meaning: the largest moon of Jupiter, named after that youth"
+      "at": 13,
+      "meaning": "second meaning: the largest moon of Jupiter, named after that youth"
      }
     ],
     "explanation": {
@@ -92,36 +75,38 @@
    },
    "solution": "GHETTO",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GHETTO",
     "definitions": [
      {
       "text": "a restricted area",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "sound",
-      "for": "homophone",
-      "note": "sound tells us to take the words as they are spoken rather than as they are spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get",
-      "gives": "GHET",
-      "soundsLike": "GET",
-      "note": "the first word said out loud, spelt as the start of a different word"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written, finishing the spoken pair"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "GHET",
+       "indicators": [
+        {
+         "text": "sound",
+         "note": "sound tells us to take the words as they are spoken rather than as they are spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Get",
+         "gives": "GET",
+         "note": "the first word said out loud, spelt as the start of a different word"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "note": "taken as written, finishing the spoken pair"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An instruction to make some noise on the way to an off-limits zone.",
      "walkthrough": "Said aloud, 'get to' is how the answer is pronounced; 'sound' sits between the two words it governs.",
@@ -148,26 +133,25 @@
    },
    "solution": "NOISES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NOISES",
     "definitions": [
      {
       "text": "Stage direction when these are off",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Stage direction when these are off",
-      "note": "surface reading: some things being cancelled or switched off, mentioned in a script"
-     },
-     {
-      "clueFragment": "these are off",
-      "note": "setter's reading: the famous script direction for sounds made out of the audience's sight, which completes the phrase with 'off'"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Stage direction when these are off",
+       "note": "surface reading: some things being cancelled or switched off, mentioned in a script"
+      },
+      {
+       "words": "these are off",
+       "note": "setter's reading: the famous script direction for sounds made out of the audience's sight, which completes the phrase with 'off'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A playscript instruction issued when certain things have been removed.",
      "walkthrough": "'Off' seems to mean cancelled, but in theatre it means offstage; the direction is the familiar one that also titles Michael Frayn's farce.",
@@ -195,54 +179,44 @@
    },
    "solution": "MARSEILLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MARSEILLE",
     "definitions": [
      {
       "text": "French port",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "deployed",
-      "for": "anagram",
-      "note": "troops that are deployed are spread out into new positions, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Armies",
-      "gives": "ARMIES",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "two Liberals",
-      "gives": "LL",
-      "note": "L is the abbreviation for Liberal, twice"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARSEI",
-      "LL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ARMIES",
-       "gives": "MARSEI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deployed",
+         "note": "troops that are deployed are spread out into new positions, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Armies",
+           "note": "taken as written, to be rearranged"
+          },
+          {
+           "words": "two Liberals",
+           "gives": "LL",
+           "note": "L is the abbreviation for Liberal, twice"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
       }
      ]
     },
@@ -271,38 +245,24 @@
    },
    "solution": "DEPRECIATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEPRECIATION",
     "definitions": [
      {
       "text": "reduction in value",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something new is made afresh, so the letters are put into a fresh order"
-     }
-    ],
-    "linkWords": [
-     "term for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pirate coined",
-      "gives": "PIRATECOINED",
-      "note": "both words taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PIRATECOINED",
-       "gives": "DEPRECIATION"
+       "text": "new",
+       "note": "something new is made afresh, so the letters are put into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pirate coined",
+       "note": "both words taken as written, to be rearranged"
       }
      ]
     },
@@ -332,31 +292,16 @@
    },
    "solution": "KISMET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KISMET",
     "definitions": [
      {
       "text": "Fate",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: destiny, a Turkish-Arabic loanword"
      },
      {
       "text": "the musical",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fate",
-      "note": "first meaning: destiny, a Turkish-Arabic loanword"
-     },
-     {
-      "clueFragment": "the musical",
-      "note": "second meaning: the 1953 Broadway show set in Baghdad"
+      "at": 8,
+      "meaning": "second meaning: the 1953 Broadway show set in Baghdad"
      }
     ],
     "explanation": {
@@ -384,36 +329,25 @@
    },
    "solution": "IDIOM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDIOM",
     "definitions": [
      {
       "text": "manner of speaking",
       "at": 41
      }
     ],
-    "linkWords": [
-     "for",
-     "in a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Identification",
-      "gives": "ID",
-      "note": "ID is the usual short form of identification"
-     },
-     {
-      "clueFragment": "the Isle of Man",
-      "gives": "IOM",
-      "note": "IOM is the abbreviation for the Isle of Man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ID",
-      "IOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Identification",
+       "gives": "ID",
+       "note": "ID is the usual short form of identification"
+      },
+      {
+       "words": "the Isle of Man",
+       "gives": "IOM",
+       "note": "IOM is the abbreviation for the Isle of Man"
+      }
      ]
     },
     "explanation": {
@@ -442,41 +376,30 @@
    },
    "solution": "MANDRILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANDRILL",
     "definitions": [
      {
       "text": "Primate",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellow",
-      "gives": "MAN",
-      "note": "a fellow is a man"
-     },
-     {
-      "clueFragment": "medic",
-      "gives": "DR",
-      "note": "DR is the abbreviation for doctor"
-     },
-     {
-      "clueFragment": "unwell",
-      "gives": "ILL",
-      "note": "a direct synonym"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "DR",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fellow",
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      },
+      {
+       "words": "medic",
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
+      },
+      {
+       "words": "unwell",
+       "gives": "ILL",
+       "note": "a direct synonym"
+      }
      ]
     },
     "explanation": {
@@ -504,35 +427,24 @@
    },
    "solution": "TIRELESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TIRELESS",
     "definitions": [
      {
       "text": "with boundless energy",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "anew",
-      "for": "anagram",
-      "note": "doing something anew means doing it over in a different way, so the letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Let's rise",
-      "gives": "LETSRISE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LETSRISE",
-       "gives": "TIRELESS"
+       "text": "anew",
+       "note": "doing something anew means doing it over in a different way, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Let's rise",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -561,48 +473,34 @@
    },
    "solution": "EPIGRAPH",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "EPIGRAPH",
     "definitions": [
      {
       "text": "inscription",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "new suggests a fresh version, so the letters that follow are put in a different order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pie",
-      "gives": "PIE",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "chart",
-      "gives": "GRAPH",
-      "note": "a chart is a graph"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPI",
-      "GRAPH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PIE",
-       "gives": "EPI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "note": "new suggests a fresh version, so the letters that follow are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pie",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "chart",
+       "gives": "GRAPH",
+       "note": "a chart is a graph"
       }
      ]
     },
@@ -632,54 +530,41 @@
    },
    "solution": "DINNER",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "DINNER",
     "definitions": [
      {
       "text": "meal",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "backward",
-      "for": "reversal",
-      "note": "going backward means the colour word is read from right to left"
-     },
-     {
-      "text": "goes around",
-      "for": "container",
-      "note": "going around something means enclosing it, so one piece wraps the other"
-     }
-    ],
-    "linkWords": [
-     "to get a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A shade",
-      "gives": "RED",
-      "note": "a shade or colour"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "INN",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "RED",
-       "to": "DER"
+       "text": "goes around",
+       "note": "going around something means enclosing it, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backward",
+         "note": "going backward means the colour word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A shade",
+         "gives": "RED",
+         "note": "a shade or colour"
+        }
+       ]
+      },
+      {
+       "words": "pub",
+       "gives": "INN",
+       "note": "an inn is a pub"
       }
      ]
     },
@@ -709,35 +594,25 @@
    },
    "solution": "CHAMPIONSHIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHAMPIONSHIP",
     "definitions": [
      {
       "text": "Competition",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first-class",
-      "gives": "CHAMPION",
-      "note": "champion as an informal adjective meaning excellent"
-     },
-     {
-      "clueFragment": "craft",
-      "gives": "SHIP",
-      "note": "a craft is a vessel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAMPION",
-      "SHIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first-class",
+       "gives": "CHAMPION",
+       "note": "champion as an informal adjective meaning excellent"
+      },
+      {
+       "words": "craft",
+       "gives": "SHIP",
+       "note": "a craft is a vessel"
+      }
      ]
     },
     "explanation": {
@@ -766,35 +641,25 @@
    },
    "solution": "THEME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THEME",
     "definitions": [
      {
       "text": "Burden",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "those people",
-      "gives": "THEM",
-      "note": "the pronoun for those people"
-     },
-     {
-      "clueFragment": "one point",
-      "gives": "E",
-      "note": "E for east, one point of the compass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THEM",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "those people",
+       "gives": "THEM",
+       "note": "the pronoun for those people"
+      },
+      {
+       "words": "one point",
+       "gives": "E",
+       "note": "E for east, one point of the compass"
+      }
      ]
     },
     "explanation": {
@@ -823,38 +688,24 @@
    },
    "solution": "EPHEMERAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EPHEMERAL",
     "definitions": [
      {
       "text": "Passing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new variety of",
-      "for": "anagram",
-      "note": "a new variety is a different form of something, so the letters take a different arrangement"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "maple here",
-      "gives": "MAPLEHERE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MAPLEHERE",
-       "gives": "EPHEMERAL"
+       "text": "new variety of",
+       "note": "a new variety is a different form of something, so the letters take a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maple here",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -889,35 +740,24 @@
    },
    "solution": "ELGINMARBLES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELGIN MARBLES",
     "definitions": [
      {
       "text": "statuary from Athens",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "to produce",
-      "for": "anagram",
-      "note": "producing something means making it out of raw material, so the letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gremlins able",
-      "gives": "GREMLINSABLE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GREMLINSABLE",
-       "gives": "ELGINMARBLES"
+       "text": "to produce",
+       "note": "producing something means making it out of raw material, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gremlins able",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -947,40 +787,30 @@
    },
    "solution": "REHEARSAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REHEARSAL",
     "definitions": [
      {
       "text": "practice",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbed in",
-      "for": "container",
-      "note": "something absorbed in another is taken inside it, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "real",
-      "gives": "REAL",
-      "note": "taken as written, the outer piece"
-     },
-     {
-      "clueFragment": "Pays attention",
-      "gives": "HEARS",
-      "note": "someone paying attention hears"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HEARS",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbed in",
+       "note": "something absorbed in another is taken inside it, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "real",
+       "note": "taken as written, the outer piece"
+      },
+      {
+       "words": "Pays attention",
+       "gives": "HEARS",
+       "note": "someone paying attention hears"
+      }
      ]
     },
     "explanation": {
@@ -1009,35 +839,25 @@
    },
    "solution": "BLIGHTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLIGHTER",
     "definitions": [
      {
       "text": "the old rogue",
       "at": 22
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "lost weight",
-      "gives": "LIGHTER",
-      "note": "having lost weight, one is lighter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LIGHTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bishop",
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "lost weight",
+       "gives": "LIGHTER",
+       "note": "having lost weight, one is lighter"
+      }
      ]
     },
     "explanation": {
@@ -1066,26 +886,25 @@
    },
    "solution": "UNIONISM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "UNIONISM",
     "definitions": [
      {
       "text": "Brothers and sisters acting together?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Brothers and sisters",
-      "note": "surface reading: siblings in a family"
-     },
-     {
-      "clueFragment": "Brothers and sisters acting together?",
-      "note": "setter's reading: trade union members address each other as brother and sister, and their principle is collective action"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Brothers and sisters",
+       "note": "surface reading: siblings in a family"
+      },
+      {
+       "words": "Brothers and sisters acting together?",
+       "note": "setter's reading: trade union members address each other as brother and sister, and their principle is collective action"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Siblings cooperating for once.",
      "walkthrough": "The family picture misleads: in the labour movement, fellow members are called brothers and sisters.",
@@ -1119,11 +938,6 @@
    },
    "solution": "LONGESTNIGHT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LONGEST NIGHT",
     "definitions": [
      {
       "text": "during a winter solstice",
@@ -1131,40 +945,34 @@
       "note": "describes when the answer occurs rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "prepared",
-      "for": "anagram",
-      "note": "something prepared has been worked into shape, so the letters are reordered"
-     },
-     {
-      "text": "to step into",
-      "for": "container",
-      "note": "stepping into something puts one piece inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No gents",
-      "gives": "NOGENTS",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "the light",
-      "gives": "LIGHT",
-      "note": "taken as written, the outer piece"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ONGESTN",
-      "IGHT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NOGENTS",
-       "gives": "ONGESTN"
+       "text": "to step into",
+       "note": "stepping into something puts one piece inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the light",
+       "gives": "LIGHT",
+       "note": "taken as written, the outer piece"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "note": "something prepared has been worked into shape, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "No gents",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1194,32 +1002,25 @@
    },
    "solution": "SPRINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPRINT",
     "definitions": [
      {
       "text": "Run",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "son's",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "hard copy",
-      "gives": "PRINT",
-      "note": "a hard copy is a printout"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PRINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son's",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      },
+      {
+       "words": "hard copy",
+       "gives": "PRINT",
+       "note": "a hard copy is a printout"
+      }
      ]
     },
     "explanation": {
@@ -1247,48 +1048,34 @@
    },
    "solution": "LEANER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "LEANER",
     "definitions": [
      {
       "text": "less encumbered",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "building",
-      "for": "anagram",
-      "note": "building something means assembling it from parts, so these letters are put together afresh"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The French",
-      "gives": "LE",
-      "note": "LE is French for the"
-     },
-     {
-      "clueFragment": "near",
-      "gives": "NEAR",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "ANER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NEAR",
-       "gives": "ANER"
+       "words": "The French",
+       "gives": "LE",
+       "note": "LE is French for the"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "building",
+         "note": "building something means assembling it from parts, so these letters are put together afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "near",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1323,26 +1110,25 @@
    },
    "solution": "GHOSTTOWN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GHOST TOWN",
     "definitions": [
      {
       "text": "A spirited settlement?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "spirited",
-      "note": "surface reading: a lively, energetic community"
-     },
-     {
-      "clueFragment": "A spirited settlement?",
-      "note": "setter's reading: a settlement inhabited only by spirits, being deserted by the living"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "spirited",
+       "note": "surface reading: a lively, energetic community"
+      },
+      {
+       "words": "A spirited settlement?",
+       "note": "setter's reading: a settlement inhabited only by spirits, being deserted by the living"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Spirited' normally means lively, the very opposite of an abandoned place; read literally it means full of spirits.",
      "definitionFit": "A deserted former settlement is jokingly said to be peopled only by phantoms of past residents."
@@ -1369,34 +1155,25 @@
    },
    "solution": "TSARS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TSARS",
     "definitions": [
      {
       "text": "Leaders",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of each of the preceding words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take some advice! Reduce staff",
-      "gives": "TSARS",
-      "select": "first",
-      "note": "the opening letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TSARS"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially points to the opening letter of each of the preceding words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "take some advice! Reduce staff",
+       "note": "the opening letters of the five words"
+      }
      ]
     },
     "explanation": {
@@ -1425,41 +1202,30 @@
    },
    "solution": "AMPLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AMPLE",
     "definitions": [
      {
       "text": "enough",
       "at": 34
      }
     ],
-    "linkWords": [
-     "find is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP is Member of Parliament"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "LE is French for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MP",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP is Member of Parliament"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "LE is French for the"
+      }
      ]
     },
     "explanation": {
@@ -1487,57 +1253,44 @@
    },
    "solution": "TAIPAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TAIPAN",
     "definitions": [
      {
       "text": "a venomous creature",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "back means the short word that follows is read in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "father",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "bearing",
-      "gives": "N",
-      "note": "N for north, a compass bearing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "I",
-      "PA",
-      "N"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AT",
-       "to": "TA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "note": "back means the short word that follows is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "father",
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "bearing",
+       "gives": "N",
+       "note": "N for north, a compass bearing"
       }
      ]
     },
@@ -1566,35 +1319,24 @@
    },
    "solution": "THESPIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THESPIAN",
     "definitions": [
      {
       "text": "actor",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "foreign",
-      "for": "anagram",
-      "note": "something foreign is strange or unfamiliar, so the letters appear in an altered order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He paints",
-      "gives": "HEPAINTS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HEPAINTS",
-       "gives": "THESPIAN"
+       "text": "foreign",
+       "note": "something foreign is strange or unfamiliar, so the letters appear in an altered order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He paints",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1623,35 +1365,25 @@
    },
    "solution": "REMISS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMISS",
     "definitions": [
      {
       "text": "careless",
       "at": 35
      }
     ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twice",
-      "gives": "RE",
-      "note": "the prefix re- means again, so an action done a second time"
-     },
-     {
-      "clueFragment": "Don't hit the target",
-      "gives": "MISS",
-      "note": "to fail to hit is to miss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MISS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "twice",
+       "gives": "RE",
+       "note": "the prefix re- means again, so an action done a second time"
+      },
+      {
+       "words": "Don't hit the target",
+       "gives": "MISS",
+       "note": "to fail to hit is to miss"
+      }
      ]
     },
     "explanation": {
@@ -1681,38 +1413,24 @@
    },
    "solution": "EPILATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EPILATOR",
     "definitions": [
      {
       "text": "a hair-remover",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "ill-informed",
-      "for": "anagram",
-      "note": "being ill-informed means having things wrong, so the letters are in the wrong order"
-     }
-    ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pale trio",
-      "gives": "PALETRIO",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PALETRIO",
-       "gives": "EPILATOR"
+       "text": "ill-informed",
+       "note": "being ill-informed means having things wrong, so the letters are in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pale trio",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },

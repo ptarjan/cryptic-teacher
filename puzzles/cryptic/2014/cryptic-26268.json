@@ -1,8 +1,7 @@
 {
  "id": "cryptic-26268",
  "number": 26268,
- "series": "cryptic",
- "name": "Prize crossword No 26,268",
+ "prize": true,
  "setter": "Brummie",
  "date": "2014-05-24",
  "preamble": "Eight clues lack a definition; their solutions are of a kind.",
@@ -39,61 +38,67 @@
    },
    "solution": "CHEF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "CHEF",
     "definitions": [
      {
       "text": "Oliver",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "'about' as in turned about, facing the other way"
-     },
-     {
-      "text": "cutting",
-      "note": "the reversed word cuts between the two initials, sitting inside them"
-     },
-     {
-      "text": "overtures of",
-      "note": "an overture opens a show, so each named show gives only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cats",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Cats"
-     },
-     {
-      "clueFragment": "What's that",
-      "gives": "EH",
-      "note": "what you say when you didn't catch something"
-     },
-     {
-      "clueFragment": "Follies",
-      "gives": "F",
-      "select": "first",
-      "note": "first letter of Follies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HE",
-      "F"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CHEF",
+     "parts": [
       {
-       "from": "EH",
-       "to": "HE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' as in turned about, facing the other way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "cutting",
+           "note": "the reversed word cuts between the two initials, sitting inside them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cats",
+           "note": "first letter of Cats"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "overtures of",
+           "note": "an overture opens a show, so each named show gives only its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "What's that",
+           "gives": "EH",
+           "note": "what you say when you didn't catch something"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Follies",
+           "note": "first letter of Follies"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -124,59 +129,64 @@
    },
    "solution": "CYCLICAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "CYCLICAL",
     "definitions": [
      {
       "text": "Recurring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with no tail",
-      "note": "a word's tail is its end, so the word loses its last letter"
-     },
-     {
-      "text": "put in",
-      "note": "to put something in is to place it inside, here inside the reshaped clay"
-     },
-     {
-      "text": "moulding",
-      "note": "clay being moulded is squeezed into a new shape, so its letters change order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clay",
-      "gives": "CY",
-      "note": "first part of the rearranged CLAY"
-     },
-     {
-      "clueFragment": "action of mouse with no tail",
-      "gives": "CLIC",
-      "note": "a mouse's action is a CLICK; lose the final K"
-     },
-     {
-      "clueFragment": "clay",
-      "gives": "AL",
-      "note": "rest of the rearranged CLAY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CY",
-      "CLIC",
-      "AL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CYCLICAL",
+     "parts": [
       {
-       "fodder": "CLAY",
-       "gives": "CYAL"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with no tail",
+         "note": "a word's tail is its end, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "put in",
+           "note": "to put something in is to place it inside, here inside the reshaped clay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "action of mouse with no tail",
+           "gives": "CLIC",
+           "note": "a mouse's action is a CLICK; lose the final K"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "moulding",
+             "note": "clay being moulded is squeezed into a new shape, so its letters change order"
+            }
+           ],
+           "parts": [
+            {
+             "words": "clay",
+             "gives": "CY",
+             "note": "first part of the rearranged CLAY"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "clay",
+         "gives": "AL",
+         "note": "rest of the rearranged CLAY"
+        }
+       ]
       }
      ]
     },
@@ -206,28 +216,21 @@
    },
    "solution": "LONG",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LONG",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Element of",
-      "for": "hidden_word",
-      "note": "an element is one component part, so the answer is a part of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "metal on glass",
-      "gives": "LONG",
-      "note": "metaL ON Glass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LONG"
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Element of",
+       "note": "an element is one component part, so the answer is a part of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "metal on glass",
+       "gives": "LONG",
+       "note": "metaL ON Glass"
+      }
      ]
     },
     "explanation": {
@@ -256,49 +259,41 @@
    },
    "solution": "ACCENTOR",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ACCENTOR",
     "definitions": [
      {
       "text": "Bird",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "moves",
-      "note": "the letters of NEC shift about"
-     },
-     {
-      "text": "assimilated by",
-      "note": "taken into the body of the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "player",
-      "gives": "ACTOR",
-      "note": "a player on stage"
-     },
-     {
-      "clueFragment": "NEC",
-      "gives": "CEN",
-      "note": "NEC rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "CEN",
-      "TOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ACCENTOR",
+     "parts": [
       {
-       "fodder": "NEC",
-       "gives": "CEN"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "moves",
+         "note": "the letters of NEC shift about"
+        },
+        {
+         "text": "assimilated by",
+         "note": "taken into the body of the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "player",
+         "gives": "ACTOR",
+         "note": "a player on stage"
+        },
+        {
+         "words": "NEC",
+         "gives": "CEN",
+         "note": "NEC rearranged"
+        }
+       ]
       }
      ]
     },
@@ -328,40 +323,31 @@
    },
    "solution": "GRADIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GRADIN",
     "definitions": [
      {
       "text": "Amphitheatre seating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs protection of",
-      "for": "container",
-      "note": "the outer word wraps round and shields the inner one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beam",
-      "gives": "GRIN",
-      "note": "to beam is to grin"
-     },
-     {
-      "clueFragment": "in present times",
-      "gives": "AD",
-      "note": "Anno Domini, the era we live in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "AD",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "needs protection of",
+       "note": "the outer word wraps round and shields the inner one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beam",
+       "gives": "GRIN",
+       "note": "to beam is to grin"
+      },
+      {
+       "words": "in present times",
+       "gives": "AD",
+       "note": "Anno Domini, the era we live in"
+      }
      ]
     },
     "explanation": {
@@ -391,42 +377,30 @@
    },
    "solution": "ESPADRILLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESPADRILLE",
     "definitions": [
      {
       "text": "footwear",
       "at": 58
      }
     ],
-    "linkWords": [
-     "associated with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Special faculty",
-      "gives": "ESP",
-      "note": "extrasensory perception"
-     },
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an advert"
-     },
-     {
-      "clueFragment": "moon furrow",
-      "gives": "RILLE",
-      "note": "a rille is a long channel on the moon's surface"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESP",
-      "AD",
-      "RILLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Special faculty",
+       "gives": "ESP",
+       "note": "extrasensory perception"
+      },
+      {
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an advert"
+      },
+      {
+       "words": "moon furrow",
+       "gives": "RILLE",
+       "note": "a rille is a long channel on the moon's surface"
+      }
      ]
     },
     "explanation": {
@@ -456,38 +430,24 @@
    },
    "solution": "EMBRYO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EMBRYO",
     "definitions": [
      {
       "text": "being in development",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Worked",
-      "for": "anagram",
-      "note": "the letters are worked into a new shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "more, by",
-      "gives": "MOREBY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMBRYO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MOREBY",
-       "gives": "EMBRYO"
+       "text": "Worked",
+       "note": "the letters are worked into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more, by",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -517,46 +477,40 @@
    },
    "solution": "ISIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ISIS",
     "definitions": [
      {
       "text": "A stretch in Oxford",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dual",
-      "for": "letter_selection",
-      "note": "the kept letters appear twice"
-     },
-     {
-      "text": "central",
-      "for": "letter_selection",
-      "note": "the central part of a word is its middle, so only the middle letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "central prison",
-      "gives": "IS",
-      "select": "middle",
-      "note": "the middle two letters of prISon"
-     },
-     {
-      "clueFragment": "dual",
-      "gives": "IS",
-      "note": "the same pair again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "dual",
+         "note": "the kept letters appear twice"
+        },
+        {
+         "text": "central",
+         "note": "the central part of a word is its middle, so only the middle letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "central prison",
+         "gives": "PRISON",
+         "note": "the middle two letters of prISon"
+        }
+       ]
+      },
+      {
+       "words": "dual",
+       "gives": "IS",
+       "note": "the same pair again"
+      }
      ]
     },
     "explanation": {
@@ -592,32 +546,25 @@
    },
    "solution": "HEYHO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEY-HO",
     "definitions": [
      {
       "text": "Heard from one who's resigned",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "rustic dance",
-      "gives": "HEY",
-      "note": "a hey is an old country dance"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "HO",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEY",
-      "HO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rustic dance",
+       "gives": "HEY",
+       "note": "a hey is an old country dance"
+      },
+      {
+       "words": "house",
+       "gives": "HO",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -647,40 +594,32 @@
    },
    "solution": "CHRISTMAS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CHRISTMAS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Uncommonly",
-      "for": "anagram",
-      "note": "letters arranged in an uncommon way are out of their usual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Speed of light",
-      "gives": "C",
-      "note": "c is the physics symbol for the speed of light"
-     },
-     {
-      "clueFragment": "smartish",
-      "gives": "HRISTMAS",
-      "note": "SMARTISH rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HRISTMAS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CHRISTMAS",
+     "indicators": [
       {
-       "fodder": "SMARTISH",
-       "gives": "HRISTMAS"
+       "text": "Uncommonly",
+       "note": "letters arranged in an uncommon way are out of their usual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Speed of light",
+         "gives": "C",
+         "note": "c is the physics symbol for the speed of light"
+        },
+        {
+         "words": "smartish",
+         "gives": "HRISTMAS",
+         "note": "SMARTISH rearranged"
+        }
+       ]
       }
      ]
     },
@@ -710,44 +649,37 @@
    },
    "solution": "FILIGREED",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "FILIGREED",
     "definitions": [
      {
       "text": "Made ornamental",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sound",
-      "for": "homophone",
-      "note": "take what the word sounds like"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "horse sound",
-      "gives": "FILI",
-      "soundsLike": "FILLY",
-      "note": "a filly is a young female horse"
-     },
-     {
-      "clueFragment": "eating too much",
-      "gives": "GREED",
-      "note": "gluttony"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FILI",
-      "GREED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "FILI",
+       "indicators": [
+        {
+         "text": "sound",
+         "note": "take what the word sounds like"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse sound",
+         "gives": "FILLY",
+         "note": "a filly is a young female horse"
+        }
+       ]
+      },
+      {
+       "words": "eating too much",
+       "gives": "GREED",
+       "note": "gluttony"
+      }
      ]
     },
     "explanation": {
@@ -776,41 +708,29 @@
    },
    "solution": "ARRAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARRAS",
     "definitions": [
      {
       "text": "Hanging",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arranged",
-      "gives": "ARR",
-      "note": "the abbreviation printed on sheet music"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "saint",
-      "gives": "S",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARR",
-      "A",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "arranged",
+       "gives": "ARR",
+       "note": "the abbreviation printed on sheet music"
+      },
+      {
+       "words": "a",
+       "note": "as printed"
+      },
+      {
+       "words": "saint",
+       "gives": "S",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -839,49 +759,41 @@
    },
    "solution": "BACKLIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BACKLIT",
     "definitions": [
      {
       "text": "display type",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "variety",
-      "note": "'lack variety' read as LACK varied: a variety of the word, its letters in another order"
-     },
-     {
-      "text": "in",
-      "note": "'in' puts the reshaped letters inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "touch",
-      "gives": "BIT",
-      "note": "a touch, as in a bit of"
-     },
-     {
-      "clueFragment": "Lack",
-      "gives": "ACKL",
-      "note": "LACK rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ACKL",
-      "IT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BACKLIT",
+     "parts": [
       {
-       "fodder": "LACK",
-       "gives": "ACKL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "variety",
+         "note": "'lack variety' read as LACK varied: a variety of the word, its letters in another order"
+        },
+        {
+         "text": "in",
+         "note": "'in' puts the reshaped letters inside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "touch",
+         "gives": "BIT",
+         "note": "a touch, as in a bit of"
+        },
+        {
+         "words": "Lack",
+         "gives": "ACKL",
+         "note": "LACK rearranged"
+        }
+       ]
       }
      ]
     },
@@ -911,39 +823,30 @@
    },
    "solution": "BASIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BASIC",
     "definitions": [
      {
       "text": "Simple language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entered in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pen",
-      "gives": "BIC",
-      "note": "the ballpoint brand"
-     },
-     {
-      "clueFragment": "when",
-      "gives": "AS",
-      "note": "as = when"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "AS",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pen",
+       "gives": "BIC",
+       "note": "the ballpoint brand"
+      },
+      {
+       "words": "when",
+       "gives": "AS",
+       "note": "as = when"
+      }
      ]
     },
     "explanation": {
@@ -973,43 +876,34 @@
    },
    "solution": "LINGUISTIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LINGUISTIC",
     "definitions": [
      {
       "text": "of tongues",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "flexible",
-      "for": "anagram",
-      "note": "the letters bend into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Utilising",
-      "gives": "UTILISING",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "capacitance",
-      "gives": "C",
-      "note": "the physics symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LINGUISTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UTILISINGC",
-       "gives": "LINGUISTIC"
+       "text": "flexible",
+       "note": "the letters bend into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Utilising",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "capacitance",
+         "gives": "C",
+         "note": "the physics symbol"
+        }
+       ]
       }
      ]
     },
@@ -1039,33 +933,25 @@
    },
    "solution": "NORFOLK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NORFOLK",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Absence of",
-      "gives": "NO",
-      "note": "no = none of"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "traditional music",
-      "gives": "FOLK",
-      "note": "folk music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "R",
-      "FOLK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Absence of",
+       "gives": "NO",
+       "note": "no = none of"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "traditional music",
+       "gives": "FOLK",
+       "note": "folk music"
+      }
      ]
     },
     "explanation": {
@@ -1094,32 +980,25 @@
    },
    "solution": "KIDDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KIDDO",
     "definitions": [
      {
       "text": "My young friend",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "tease",
-      "gives": "KID",
-      "note": "to kid is to tease"
-     },
-     {
-      "clueFragment": "act",
-      "gives": "DO",
-      "note": "to act is to do"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KID",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tease",
+       "gives": "KID",
+       "note": "to kid is to tease"
+      },
+      {
+       "words": "act",
+       "gives": "DO",
+       "note": "to act is to do"
+      }
      ]
     },
     "explanation": {
@@ -1147,45 +1026,37 @@
    },
    "solution": "SALON",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SALON",
     "definitions": [
      {
       "text": "Old writers' gathering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abstract",
-      "for": "anagram",
-      "note": "the letters are drawn out and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "also",
-      "gives": "SALO",
-      "note": "ALSO rearranged"
-     },
-     {
-      "clueFragment": "noun",
-      "gives": "N",
-      "note": "grammar abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SALO",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SALON",
+     "indicators": [
       {
-       "fodder": "ALSO",
-       "gives": "SALO"
+       "text": "abstract",
+       "note": "the letters are drawn out and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "also",
+         "gives": "SALO",
+         "note": "ALSO rearranged"
+        },
+        {
+         "words": "noun",
+         "gives": "N",
+         "note": "grammar abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1215,27 +1086,20 @@
    },
    "solution": "RUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUM",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Reverse",
-      "gives": "R",
-      "note": "R marks reverse on a gear stick"
-     },
-     {
-      "clueFragment": "hesitation in speech",
-      "gives": "UM",
-      "note": "the filler sound of hesitation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "UM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Reverse",
+       "gives": "R",
+       "note": "R marks reverse on a gear stick"
+      },
+      {
+       "words": "hesitation in speech",
+       "gives": "UM",
+       "note": "the filler sound of hesitation"
+      }
      ]
     },
     "explanation": {
@@ -1264,46 +1128,39 @@
    },
    "solution": "MACULOSE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "MACULOSE",
     "definitions": [
      {
       "text": "Spotted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "abnormality",
-      "note": "an abnormal muscle is not in its normal form, so its letters are out of their normal order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "a ring shape"
-     },
-     {
-      "clueFragment": "a muscle",
-      "gives": "AMUSCLE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MACULOSE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OAMUSCLE",
-       "gives": "MACULOSE"
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abnormality",
+         "note": "an abnormal muscle is not in its normal form, so its letters are out of their normal order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a muscle",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "gives": "O",
+       "note": "a ring shape"
       }
      ]
     },
@@ -1333,62 +1190,64 @@
    },
    "solution": "LUCID",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "LUCID",
     "definitions": [
      {
       "text": "easy to understand",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "Composed",
-      "note": "the letters are put together afresh"
-     },
-     {
-      "text": "replaced by",
-      "for": "letter_selection",
-      "note": "swap the one piece for the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Composed clue",
-      "gives": "LUCE",
-      "note": "CLUE rearranged"
-     },
-     {
-      "clueFragment": "clue finally",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of clue, to be removed"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "depth",
-      "gives": "D",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUC",
-      "I",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LUCID",
+     "parts": [
       {
-       "fodder": "CLUE",
-       "gives": "LUCE"
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "LUCID",
+       "indicators": [
+        {
+         "text": "Composed",
+         "note": "the letters are put together afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Composed clue",
+         "gives": "LUCE",
+         "note": "CLUE rearranged"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "E",
+         "indicators": [
+          {
+           "text": "replaced by",
+           "note": "swap the one piece for the other"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "clue finally",
+           "gives": "E",
+           "select": "last",
+           "note": "last letter of clue, to be removed"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral"
+        },
+        {
+         "words": "depth",
+         "gives": "D",
+         "note": "standard abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1418,50 +1277,41 @@
    },
    "solution": "CURLICUE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CURLICUE",
     "definitions": [
      {
       "text": "fancy twist",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "insert",
-      "for": "container",
-      "note": "an insert is a piece set into something else, so copper goes into the rest"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heel",
-      "gives": "CUR",
-      "note": "a heel is a rotter, a cur"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "LIE",
-      "note": "to rest is to lie"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "chemical symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUR",
-      "LI",
-      "CU",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Heel",
+       "gives": "CUR",
+       "note": "a heel is a rotter, a cur"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "insert",
+         "note": "an insert is a piece set into something else, so copper goes into the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rest",
+         "gives": "LIE",
+         "note": "to rest is to lie"
+        },
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "chemical symbol"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1490,40 +1340,18 @@
    },
    "solution": "COMMUTE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COMMUTE",
     "definitions": [
      {
       "text": "Make it easier to bear",
-      "at": 0
+      "at": 0,
+      "meaning": "the legal sense: what a governor does to a prison sentence, reducing it"
      },
      {
       "text": "go to work",
-      "at": 26
+      "at": 26,
+      "meaning": "to travel daily to work"
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Make it easier to bear",
-      "gives": "COMMUTE",
-      "note": "the legal sense: what a governor does to a prison sentence, reducing it"
-     },
-     {
-      "clueFragment": "go to work",
-      "gives": "COMMUTE",
-      "note": "to travel daily to work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMMUTE"
-     ]
-    },
     "explanation": {
      "surface": "Someone wonders what would make the trip to the office more bearable.",
      "walkthrough": "The first sense is legal: to commute a sentence is to reduce it.",
@@ -1550,40 +1378,30 @@
    },
    "solution": "MIDWAY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "MIDWAY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "'about' as in turned about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unclear",
-      "gives": "DIM",
-      "note": "dim = faint, unclear"
-     },
-     {
-      "clueFragment": "direction",
-      "gives": "WAY",
-      "note": "which way = which direction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MID",
-      "WAY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DIM",
-       "to": "MID"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' as in turned about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Unclear",
+         "gives": "DIM",
+         "note": "dim = faint, unclear"
+        }
+       ]
+      },
+      {
+       "words": "direction",
+       "gives": "WAY",
+       "note": "which way = which direction"
       }
      ]
     },
@@ -1613,34 +1431,25 @@
    },
    "solution": "EASTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EASTER",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's comforting",
-      "gives": "EASER",
-      "note": "something that eases, a comforter"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EAS",
-      "T",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What's comforting",
+       "gives": "EASER",
+       "note": "something that eases, a comforter"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1669,47 +1478,35 @@
    },
    "solution": "CHEERIO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHEERIO",
     "definitions": [
      {
       "text": "So long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "follows",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cult hero",
-      "gives": "CHE",
-      "note": "Che Guevara"
-     },
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "city",
-      "gives": "RIO",
-      "note": "Rio de Janeiro"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHE",
-      "E",
-      "RIO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cult hero",
+       "gives": "CHE",
+       "note": "Che Guevara"
+      },
+      {
+       "words": "eastern",
+       "gives": "E",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "city",
+       "gives": "RIO",
+       "note": "Rio de Janeiro"
+      }
      ]
     },
     "explanation": {
@@ -1738,32 +1535,25 @@
    },
    "solution": "HADES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HADES",
     "definitions": [
      {
       "text": "Hot destination",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "was in possession of",
-      "gives": "HAD",
-      "note": "had = possessed"
-     },
-     {
-      "clueFragment": "drugs",
-      "gives": "ES",
-      "note": "ecstasy tablets, plural of E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAD",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "was in possession of",
+       "gives": "HAD",
+       "note": "had = possessed"
+      },
+      {
+       "words": "drugs",
+       "gives": "ES",
+       "note": "ecstasy tablets, plural of E"
+      }
      ]
     },
     "explanation": {
@@ -1793,28 +1583,23 @@
    },
    "solution": "HOLY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HOLY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "left out",
-      "for": "deletion",
-      "note": "L, the abbreviation for left, is omitted from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bush left out",
-      "gives": "HOLY",
-      "note": "HOLLY, a bush, loses one L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOLY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOLY",
+     "indicators": [
+      {
+       "text": "left out",
+       "note": "L, the abbreviation for left, is omitted from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bush left out",
+       "gives": "HOLY",
+       "note": "HOLLY, a bush, loses one L"
+      }
      ]
     },
     "explanation": {
@@ -1843,38 +1628,24 @@
    },
    "solution": "SOLEMNIFY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SOLEMNIFY",
     "definitions": [
      {
       "text": "Make serious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "funny in the sense of peculiar: the letters are behaving oddly, out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "film, yes? No",
-      "gives": "FILMYESNO",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOLEMNIFY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FILMYESNO",
-       "gives": "SOLEMNIFY"
+       "text": "funny",
+       "note": "funny in the sense of peculiar: the letters are behaving oddly, out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film, yes? No",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1905,40 +1676,30 @@
    },
    "solution": "MUCK",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MUCK",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "uprising",
-      "for": "reversal",
-      "note": "in a down entry a word rising up is read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "MU",
-      "note": "the Greek letter"
-     },
-     {
-      "clueFragment": "one who once defended",
-      "gives": "KC",
-      "note": "King's Counsel, the old title for a senior barrister"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "CK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "KC",
-       "to": "CK"
+       "words": "Greek character",
+       "gives": "MU",
+       "note": "the Greek letter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uprising",
+         "note": "in a down entry a word rising up is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one who once defended",
+         "gives": "KC",
+         "note": "King's Counsel, the old title for a senior barrister"
+        }
+       ]
       }
      ]
     },
@@ -1968,40 +1729,31 @@
    },
    "solution": "YOKE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "YOKE",
     "definitions": [
      {
       "text": "Couple",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "breaks into the middle of"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you once",
-      "gives": "YE",
-      "note": "old form of you"
-     },
-     {
-      "clueFragment": "authorise",
-      "gives": "OK",
-      "note": "to OK is to approve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "OK",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "breaks into the middle of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you once",
+       "gives": "YE",
+       "note": "old form of you"
+      },
+      {
+       "words": "authorise",
+       "gives": "OK",
+       "note": "to OK is to approve"
+      }
      ]
     },
     "explanation": {
@@ -2030,50 +1782,41 @@
    },
    "solution": "LEAFINESS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LEAFINESS",
     "definitions": [
      {
       "text": "A feature of woodland",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "borders of",
-      "for": "letter_selection",
-      "note": "the edge letters of the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meadow",
-      "gives": "LEA",
-      "note": "poetic word for meadow"
-     },
-     {
-      "clueFragment": "narrow",
-      "gives": "FINE",
-      "note": "a fine line is a narrow one"
-     },
-     {
-      "clueFragment": "borders of spinneys",
-      "gives": "SS",
-      "select": "outer",
-      "note": "first and last letters of spinneys"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA",
-      "FINE",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "meadow",
+       "gives": "LEA",
+       "note": "poetic word for meadow"
+      },
+      {
+       "words": "narrow",
+       "gives": "FINE",
+       "note": "a fine line is a narrow one"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders of",
+         "note": "the edge letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "borders of spinneys",
+         "gives": "SPINNEYS",
+         "note": "first and last letters of spinneys"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2102,52 +1845,41 @@
    },
    "solution": "CAULK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CAULK",
     "definitions": [
      {
       "text": "Stop boat leaking",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "note": "one breaking into something gets inside it, so A goes into the other letters"
-     },
-     {
-      "text": "bad",
-      "note": "bad luck here is LUCK gone bad, spoilt out of its proper order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "luck",
-      "gives": "CULK",
-      "note": "LUCK rearranged"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a = one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "ULK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CAULK",
+     "parts": [
       {
-       "fodder": "LUCK",
-       "gives": "CULK"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "breaks",
+         "note": "one breaking into something gets inside it, so A goes into the other letters"
+        },
+        {
+         "text": "bad",
+         "note": "bad luck here is LUCK gone bad, spoilt out of its proper order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "luck",
+         "gives": "CULK",
+         "note": "LUCK rearranged"
+        },
+        {
+         "words": "one",
+         "gives": "A",
+         "note": "a = one"
+        }
+       ]
       }
      ]
     },

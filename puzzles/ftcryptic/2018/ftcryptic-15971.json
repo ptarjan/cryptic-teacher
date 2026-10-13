@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-15971",
  "number": 15971,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 15,971",
  "setter": "Crux",
  "date": "2018-09-24",
  "dimensions": {
@@ -42,30 +40,28 @@
    },
    "solution": "AGHAST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AGHAST",
     "definitions": [
      {
       "text": "horror-struck",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Inside",
-      "for": "hidden_word",
-      "note": "the answer sits inside the run of words that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Gulag has them",
-      "gives": "AGHAST",
-      "note": "starts at the last two letters of Gulag, takes all of has, and ends on the first letter of them"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Inside",
+       "note": "the answer sits inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Gulag has them",
+       "gives": "AGHAST",
+       "note": "starts at the last two letters of Gulag, takes all of has, and ends on the first letter of them"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Prisoners in a Soviet labour camp are appalled by what they find there.",
      "walkthrough": "The letters bridge three words: the end of Gulag, all of has, and the first letter of them.",
@@ -92,53 +88,46 @@
    },
    "solution": "ADDENDUM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ADDENDUM",
     "definitions": [
      {
       "text": "An extra",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "takes the final letter of term"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "put on",
-      "gives": "ADD",
-      "note": "to add is to put on more"
-     },
-     {
-      "clueFragment": "to conclude",
-      "gives": "END",
-      "note": "to end is to conclude"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "term (finally!)",
-      "gives": "M",
-      "select": "last",
-      "note": "last letter of term"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADD",
-      "END",
-      "U",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "put on",
+       "gives": "ADD",
+       "note": "to add is to put on more"
+      },
+      {
+       "words": "to conclude",
+       "gives": "END",
+       "note": "to end is to conclude"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U = university"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "takes the final letter of term"
+        }
+       ],
+       "parts": [
+        {
+         "words": "term (finally!)",
+         "gives": "TERM",
+         "note": "last letter of term"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -173,11 +162,6 @@
    },
    "solution": "HEADLOUSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HEAD LOUSE",
     "definitions": [
      {
       "text": "bad for the hair",
@@ -185,41 +169,35 @@
       "note": "the definition describes the insect rather than naming it: a head louse is something bad for the hair"
      }
     ],
-    "indicators": [
-     {
-      "text": "compound",
-      "note": "a compound mixes its elements, so the letters of lead are mixed"
-     },
-     {
-      "text": "found in",
-      "note": "the mixed letters are placed inside home"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "home",
-      "gives": "HOUSE",
-      "note": "a house is a home"
-     },
-     {
-      "clueFragment": "Lead",
-      "gives": "EADL",
-      "note": "LEAD rearranged, placed after the first letter of HOUSE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "EADL",
-      "OUSE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HEADLOUSE",
+     "parts": [
       {
-       "fodder": "LEAD",
-       "gives": "EADL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "compound",
+         "note": "a compound mixes its elements, so the letters of lead are mixed"
+        },
+        {
+         "text": "found in",
+         "note": "the mixed letters are placed inside home"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home",
+         "gives": "HOUSE",
+         "note": "a house is a home"
+        },
+        {
+         "words": "Lead",
+         "gives": "EADL",
+         "note": "LEAD rearranged, placed after the first letter of HOUSE"
+        }
+       ]
       }
      ]
     },
@@ -249,39 +227,36 @@
    },
    "solution": "SUMO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SUMO",
     "definitions": [
      {
       "text": "Heavyweight sport",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken up",
-      "note": "in a down clue, up means read from bottom to top"
-     },
-     {
-      "text": "in",
-      "note": "the letters are inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bedroom usually",
-      "gives": "OMUS",
-      "note": "the last two letters of bedroom and the first two of usually"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OMUS",
-       "to": "SUMO"
+       "text": "taken up",
+       "note": "in a down clue, up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters are inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bedroom usually",
+         "gives": "OMUS",
+         "note": "the last two letters of bedroom and the first two of usually"
+        }
+       ]
       }
      ]
     },
@@ -312,44 +287,37 @@
    },
    "solution": "CIABATTA",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "CIABATTA",
     "definitions": [
      {
       "text": "Italian bread",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "a report is spoken, so we want a word said like batter"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secret agents",
-      "gives": "CIA",
-      "note": "the CIA is the American intelligence agency"
-     },
-     {
-      "clueFragment": "strike reported",
-      "gives": "BATTA",
-      "soundsLike": "BATTER",
-      "note": "to batter is to strike repeatedly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CIA",
-      "BATTA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secret agents",
+       "gives": "CIA",
+       "note": "the CIA is the American intelligence agency"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BATTA",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "a report is spoken, so we want a word said like batter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strike reported",
+         "gives": "BATTER",
+         "note": "to batter is to strike repeatedly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -378,10 +346,6 @@
    },
    "solution": "INHALERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INHALERS",
     "definitions": [
      {
       "text": "could relieve congestion",
@@ -389,30 +353,28 @@
       "note": "the definition describes what inhalers do rather than naming them"
      }
     ],
-    "indicators": [
-     {
-      "text": "reform",
-      "for": "anagram",
-      "note": "to reform is to form again, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "real NHS",
-      "gives": "REALNHS",
-      "note": "anagram fodder with I"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "I REAL NHS",
-       "gives": "INHALERS"
+       "text": "reform",
+       "note": "to reform is to form again, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        },
+        {
+         "words": "real NHS",
+         "note": "anagram fodder with I"
+        }
+       ]
       }
      ]
     },
@@ -449,35 +411,25 @@
    },
    "solution": "BLUEPENCIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUE PENCIL",
     "definitions": [
      {
       "text": "make corrections",
       "at": 21
      }
     ],
-    "linkWords": [
-     "has to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Risqué",
-      "gives": "BLUE",
-      "note": "blue = indecent, as in a blue joke"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "PENCIL",
-      "note": "a pencil is a thing that writes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "PENCIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Risqué",
+       "gives": "BLUE",
+       "note": "blue = indecent, as in a blue joke"
+      },
+      {
+       "words": "writer",
+       "gives": "PENCIL",
+       "note": "a pencil is a thing that writes"
+      }
      ]
     },
     "explanation": {
@@ -506,26 +458,25 @@
    },
    "solution": "TUTTI",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TUTTI",
     "definitions": [
      {
       "text": "Musically all-inclusive",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Musically",
-      "note": "points to a term from a musical score"
-     },
-     {
-      "clueFragment": "all-inclusive",
-      "note": "reads like a holiday package, but means every performer at once"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Musically",
+       "note": "points to a term from a musical score"
+      },
+      {
+       "words": "all-inclusive",
+       "note": "reads like a holiday package, but means every performer at once"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An all-inclusive deal, but for music.",
      "walkthrough": "Tutti is Italian for all; in a score it marks the passage where every player joins in.",
@@ -552,41 +503,31 @@
    },
    "solution": "AUDITS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AUDITS",
     "definitions": [
      {
       "text": "financial examinations",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "have no",
-      "for": "deletion",
-      "note": "the word for congratulations must do without the letters for place, so they are dropped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Congratulations",
-      "gives": "PLAUDITS",
-      "note": "plaudits are praise"
-     },
-     {
-      "clueFragment": "place",
-      "gives": "PL",
-      "note": "PL = place, the map abbreviation; removed from the front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AUDITS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "have no",
+       "note": "the word for congratulations must do without the letters for place, so they are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Congratulations",
+       "gives": "PLAUDITS",
+       "note": "plaudits are praise"
+      },
+      {
+       "words": "place",
+       "gives": "PL",
+       "note": "PL = place, the map abbreviation; removed from the front"
+      }
      ]
     },
     "explanation": {
@@ -615,26 +556,25 @@
    },
    "solution": "ENEMY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ENEMY",
     "definitions": [
      {
       "text": "rival",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "\"Time\" requires article before this",
-      "note": "put THE in front of the answer and you get an old nickname for time"
-     },
-     {
-      "clueFragment": "rival",
-      "note": "the straight definition"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"Time\" requires article before this",
+       "note": "put THE in front of the answer and you get an old nickname for time"
+      },
+      {
+       "words": "rival",
+       "note": "the straight definition"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The old question \"How goes the enemy?\" means \"What's the time?\", so time is THE ENEMY.",
      "definitionFit": "A plain synonym: an opponent one is set against."
@@ -661,31 +601,17 @@
    },
    "solution": "DEADMEN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DEAD MEN",
     "definitions": [
      {
       "text": "Empty bottles",
       "at": 0,
-      "note": "the second definition is an adjective phrase: those who are proverbially silent"
+      "note": "the second definition is an adjective phrase: those who are proverbially silent",
+      "meaning": "slang for empties left after drinking"
      },
      {
       "text": "proverbially silent",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Empty bottles",
-      "gives": "DEADMEN",
-      "note": "slang for empties left after drinking"
-     },
-     {
-      "clueFragment": "proverbially silent",
-      "gives": "DEADMEN",
-      "note": "the proverb says they tell no tales"
+      "at": 14,
+      "meaning": "the proverb says they tell no tales"
      }
     ],
     "explanation": {
@@ -715,45 +641,35 @@
    },
    "solution": "HAUNTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HAUNTED",
     "definitions": [
      {
       "text": "Troubled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "welcome",
-      "for": "container",
-      "note": "to welcome someone is to take them in, so HE'D takes the relative inside"
-     },
-     {
-      "text": "briefly",
-      "for": "container",
-      "note": "said briefly, he would shrinks to the contraction HE'D"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "he would briefly",
-      "gives": "HED",
-      "note": "HE'D is the contraction of he would"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "AUNT",
-      "note": "an aunt is a relative; placed after the H"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AUNT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcome",
+       "note": "to welcome someone is to take them in, so HE'D takes the relative inside"
+      },
+      {
+       "text": "briefly",
+       "note": "said briefly, he would shrinks to the contraction HE'D"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he would briefly",
+       "gives": "HED",
+       "note": "HE'D is the contraction of he would"
+      },
+      {
+       "words": "relative",
+       "gives": "AUNT",
+       "note": "an aunt is a relative; placed after the H"
+      }
      ]
     },
     "explanation": {
@@ -782,44 +698,36 @@
    },
    "solution": "NILE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NILE",
     "definitions": [
      {
       "text": "much longer than 25",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "takes the last letter of game"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No score",
-      "gives": "NIL",
-      "note": "nil = nothing, a score of zero"
-     },
-     {
-      "clueFragment": "end of game",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIL",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No score",
+       "gives": "NIL",
+       "note": "nil = nothing, a score of zero"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "takes the last letter of game"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end of game",
+         "gives": "GAME",
+         "note": "last letter of game"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -854,40 +762,31 @@
    },
    "solution": "SMALLPRINT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SMALL PRINT",
     "definitions": [
      {
       "text": "a trap for the unwary",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the word for dash is placed around the shops, holding them inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dash",
-      "gives": "SPRINT",
-      "note": "a sprint is a dash"
-     },
-     {
-      "clueFragment": "the shops",
-      "gives": "MALL",
-      "note": "a mall is a shopping centre; placed after the S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "MALL",
-      "PRINT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the word for dash is placed around the shops, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dash",
+       "gives": "SPRINT",
+       "note": "a sprint is a dash"
+      },
+      {
+       "words": "the shops",
+       "gives": "MALL",
+       "note": "a mall is a shopping centre; placed after the S"
+      }
      ]
     },
     "explanation": {
@@ -916,35 +815,25 @@
    },
    "solution": "SPELLBOUND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPELLBOUND",
     "definitions": [
      {
       "text": "transported",
       "at": 36
      }
     ],
-    "linkWords": [
-     "to get you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Write letters",
-      "gives": "SPELL",
-      "note": "to spell is to write the letters of a word"
-     },
-     {
-      "clueFragment": "guaranteed",
-      "gives": "BOUND",
-      "note": "bound to = certain to"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPELL",
-      "BOUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Write letters",
+       "gives": "SPELL",
+       "note": "to spell is to write the letters of a word"
+      },
+      {
+       "words": "guaranteed",
+       "gives": "BOUND",
+       "note": "bound to = certain to"
+      }
      ]
     },
     "explanation": {
@@ -973,46 +862,41 @@
    },
    "solution": "USURPS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "USURPS",
     "definitions": [
      {
       "text": "takes over",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "without"
-     },
-     {
-      "text": "unfit",
-      "note": "the letters are not in fit order, so rearrange them"
-     }
-    ],
-    "linkWords": [
-     "yet still"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pursues",
-      "gives": "PURSUES",
-      "note": "the fodder as printed"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy; removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "USURPS",
+     "parts": [
       {
-       "fodder": "PURSUS",
-       "gives": "USURPS"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "USURPS",
+       "indicators": [
+        {
+         "text": "without"
+        },
+        {
+         "text": "unfit",
+         "note": "the letters are not in fit order, so rearrange them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pursues",
+         "note": "the fodder as printed"
+        },
+        {
+         "words": "energy",
+         "gives": "E",
+         "note": "E = energy; removed"
+        }
+       ]
       }
      ]
     },
@@ -1048,11 +932,6 @@
    },
    "solution": "IRONAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "IRON AGE",
     "definitions": [
      {
       "text": "dates back centuries",
@@ -1060,34 +939,31 @@
       "note": "the definition is a verb phrase describing the period rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "variety of",
-      "for": "anagram",
-      "note": "a variety of orange is its letters in a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Single",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "orange",
-      "gives": "RONAGE",
-      "note": "ORANGE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RONAGE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IRONAGE",
+     "indicators": [
       {
-       "fodder": "ORANGE",
-       "gives": "RONAGE"
+       "text": "variety of",
+       "note": "a variety of orange is its letters in a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Single",
+         "gives": "I",
+         "note": "I = one"
+        },
+        {
+         "words": "orange",
+         "gives": "RONAGE",
+         "note": "ORANGE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1123,10 +999,6 @@
    },
    "solution": "GLASSCASE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GLASS CASE",
     "definitions": [
      {
       "text": "that's just for show",
@@ -1134,31 +1006,24 @@
       "note": "the definition describes what a glass case is for rather than naming it"
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G = German"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "LASS",
-      "note": "a lass is a girl"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "CASE",
-      "note": "a case is a trial in court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LASS",
-      "CASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German",
+       "gives": "G",
+       "note": "G = German"
+      },
+      {
+       "words": "girl",
+       "gives": "LASS",
+       "note": "a lass is a girl"
+      },
+      {
+       "words": "trial",
+       "gives": "CASE",
+       "note": "a case is a trial in court"
+      }
      ]
     },
     "explanation": {
@@ -1188,32 +1053,25 @@
    },
    "solution": "EDENTATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDENTATE",
     "definitions": [
      {
       "text": "Toothless",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old PM",
-      "gives": "EDEN",
-      "note": "Anthony Eden, British Prime Minister 1955-57"
-     },
-     {
-      "clueFragment": "hanging here?",
-      "gives": "TATE",
-      "note": "the Tate is a London art gallery where pictures hang"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDEN",
-      "TATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old PM",
+       "gives": "EDEN",
+       "note": "Anthony Eden, British Prime Minister 1955-57"
+      },
+      {
+       "words": "hanging here?",
+       "gives": "TATE",
+       "note": "the Tate is a London art gallery where pictures hang"
+      }
      ]
     },
     "explanation": {
@@ -1243,49 +1101,41 @@
    },
    "solution": "NEBULOUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NEBULOUS",
     "definitions": [
      {
       "text": "Vague",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "commonsense goes around the mixed colour"
-     },
-     {
-      "text": "mixing",
-      "note": "the letters of blue are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "commonsense",
-      "gives": "NOUS",
-      "note": "nous is common sense"
-     },
-     {
-      "clueFragment": "colour (seen in 6)",
-      "gives": "EBUL",
-      "note": "BLUE, the colour in 6 down BLUE PENCIL, rearranged and placed after the N"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EBUL",
-      "OUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NEBULOUS",
+     "parts": [
       {
-       "fodder": "BLUE",
-       "gives": "EBUL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "commonsense goes around the mixed colour"
+        },
+        {
+         "text": "mixing",
+         "note": "the letters of blue are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commonsense",
+         "gives": "NOUS",
+         "note": "nous is common sense"
+        },
+        {
+         "words": "colour (seen in 6)",
+         "gives": "EBUL",
+         "note": "BLUE, the colour in 6 down BLUE PENCIL, rearranged and placed after the N"
+        }
+       ]
       }
      ]
     },
@@ -1315,43 +1165,34 @@
    },
    "solution": "CEILIDH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CEILIDH",
     "definitions": [
      {
       "text": "Scottish party",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "dressed up",
-      "for": "anagram",
-      "note": "dressing up changes appearance, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "child I",
-      "gives": "CHILDI",
-      "note": "anagram fodder with E"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "E CHILD I",
-       "gives": "CEILIDH"
+       "text": "dressed up",
+       "note": "dressing up changes appearance, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        },
+        {
+         "words": "child I",
+         "note": "anagram fodder with E"
+        }
+       ]
       }
      ]
     },
@@ -1381,38 +1222,24 @@
    },
    "solution": "DILATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DILATE",
     "definitions": [
      {
       "text": "What pupils can do",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surprising",
-      "for": "anagram",
-      "note": "the letters are rearranged into an unexpected order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "detail",
-      "gives": "DETAIL",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DETAIL",
-       "gives": "DILATE"
+       "text": "surprising",
+       "note": "the letters are rearranged into an unexpected order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "detail",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1443,32 +1270,24 @@
    },
    "solution": "ADEPTS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADEPTS",
     "definitions": [
      {
       "text": "most able people",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "branch's",
-      "gives": "DEPTS",
-      "note": "DEPT is short for department, a branch of an organisation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DEPTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as printed"
+      },
+      {
+       "words": "branch's",
+       "gives": "DEPTS",
+       "note": "DEPT is short for department, a branch of an organisation"
+      }
      ]
     },
     "explanation": {
@@ -1497,40 +1316,30 @@
    },
    "solution": "NIMBY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NIMBY",
     "definitions": [
      {
       "text": "Selfish citizen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "who's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quickly",
-      "gives": "NIMBLY",
-      "note": "nimbly = quickly"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIMBY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quickly",
+       "gives": "NIMBLY",
+       "note": "nimbly = quickly"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left; removed"
+      }
      ]
     },
     "explanation": {
@@ -1565,26 +1374,25 @@
    },
    "solution": "DUSTBINLID",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DUSTBIN LID",
     "definitions": [
      {
       "text": "Refuse cover",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Refuse",
-      "note": "reads as the verb to decline, but it is the noun: rubbish"
-     },
-     {
-      "clueFragment": "cover",
-      "note": "reads as insurance, but it is a literal lid"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Refuse",
+       "note": "reads as the verb to decline, but it is the noun: rubbish"
+      },
+      {
+       "words": "cover",
+       "note": "reads as insurance, but it is a literal lid"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Read as a verb, refuse cover means decline insurance; it is the noun refuse, rubbish. A dustbin is a British rubbish bin.",
      "definitionFit": "A literal reading: the lid of a rubbish bin covers the refuse inside."
@@ -1611,31 +1419,29 @@
    },
    "solution": "SEINE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SEINE",
     "definitions": [
      {
       "text": "flower",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding",
-      "for": "homophone",
-      "note": "we want a word that sounds like a word for sensible"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sensible",
-      "gives": "SEINE",
-      "soundsLike": "SANE",
-      "note": "sane = sensible; the French river is said the same way"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEINE",
+     "indicators": [
+      {
+       "text": "sounding",
+       "note": "we want a word that sounds like a word for sensible"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sensible",
+       "gives": "SANE",
+       "note": "sane = sensible; the French river is said the same way"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Flower is a thing that flows, a river, not a bloom.",
      "definitionFit": "A crossword-only sense: a flower is something that flows, here the river through Paris."
@@ -1662,30 +1468,28 @@
    },
    "solution": "ESAU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ESAU",
     "definitions": [
      {
       "text": "Man out of Genesis",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer is in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beatles audience",
-      "gives": "ESAU",
-      "note": "the last two letters of Beatles and the first two of audience"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer is in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Beatles audience",
+       "gives": "ESAU",
+       "note": "the last two letters of Beatles and the first two of audience"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A former member of the band Genesis is spotted in a Beatles crowd.",
      "walkthrough": "Genesis looks like the rock band beside the Beatles; it is the first book of the Bible, where Esau appears.",
@@ -1712,37 +1516,25 @@
    },
    "solution": "UFOS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "UFOS",
     "definitions": [
      {
       "text": "Odd sights",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starting",
-      "for": "letter_selection",
-      "note": "takes the starting letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "usually from outer space",
-      "gives": "UFOS",
-      "select": "first",
-      "note": "first letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "F",
-      "O",
-      "S"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starting",
+       "note": "takes the starting letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "usually from outer space",
+       "note": "first letters of the four words"
+      }
      ]
     },
     "explanation": {
@@ -1770,41 +1562,40 @@
    },
    "solution": "PRIMULA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PRIMULA",
     "definitions": [
      {
       "text": "flower",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "centrally",
-      "for": "letter_selection",
-      "note": "takes the central letters of regulated"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Proper",
-      "gives": "PRIM",
-      "note": "prim = proper, strait-laced"
-     },
-     {
-      "clueFragment": "centrally regulated",
-      "gives": "ULA",
-      "select": "middle",
-      "note": "middle three letters of reg(ULA)ted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRIM",
-      "ULA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Proper",
+       "gives": "PRIM",
+       "note": "prim = proper, strait-laced"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "ULA",
+       "indicators": [
+        {
+         "text": "centrally",
+         "note": "takes the central letters of regulated"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "centrally regulated",
+         "gives": "ULA",
+         "select": "middle",
+         "note": "middle three letters of reg(ULA)ted"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1832,33 +1623,16 @@
    },
    "solution": "BUFFALO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUFFALO",
     "definitions": [
      {
       "text": "One of the herd",
-      "at": 0
+      "at": 0,
+      "meaning": "a large wild ox that roams in herds"
      },
      {
       "text": "New York city",
-      "at": 19
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One of the herd",
-      "gives": "BUFFALO",
-      "note": "a large wild ox that roams in herds"
-     },
-     {
-      "clueFragment": "New York city",
-      "gives": "BUFFALO",
-      "note": "a city in New York State, on Lake Erie"
+      "at": 19,
+      "meaning": "a city in New York State, on Lake Erie"
      }
     ],
     "explanation": {
@@ -1887,49 +1661,41 @@
    },
    "solution": "STEADIER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "STEADIER",
     "definitions": [
      {
       "text": "More stable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flying",
-      "note": "the letters of aid fly about into a new order"
-     },
-     {
-      "text": "acquired by",
-      "note": "the pilot takes the mixed letters inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pilot",
-      "gives": "STEER",
-      "note": "to steer is to pilot"
-     },
-     {
-      "clueFragment": "aid",
-      "gives": "ADI",
-      "note": "AID rearranged, placed after STE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STE",
-      "ADI",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STEADIER",
+     "parts": [
       {
-       "fodder": "AID",
-       "gives": "ADI"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "flying",
+         "note": "the letters of aid fly about into a new order"
+        },
+        {
+         "text": "acquired by",
+         "note": "the pilot takes the mixed letters inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pilot",
+         "gives": "STEER",
+         "note": "to steer is to pilot"
+        },
+        {
+         "words": "aid",
+         "gives": "ADI",
+         "note": "AID rearranged, placed after STE"
+        }
+       ]
       }
      ]
     },
@@ -1959,39 +1725,30 @@
    },
    "solution": "USHERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "USHERS",
     "definitions": [
      {
       "text": "They escort",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drug addicts",
-      "gives": "USERS",
-      "note": "users = drug addicts"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H = hospital, as on road signs; placed after US"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "H",
-      "ERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drug addicts",
+       "gives": "USERS",
+       "note": "users = drug addicts"
+      },
+      {
+       "words": "hospital",
+       "gives": "H",
+       "note": "H = hospital, as on road signs; placed after US"
+      }
      ]
     },
     "explanation": {

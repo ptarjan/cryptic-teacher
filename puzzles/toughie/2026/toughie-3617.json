@@ -1,8 +1,6 @@
 {
  "id": "toughie-3617",
  "number": 3617,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,617",
  "setter": "Hudson",
  "date": "2026-01-13",
  "dimensions": {
@@ -38,52 +36,58 @@
    },
    "solution": "ARSENIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ARSENIC",
     "definitions": [
      {
       "text": "As",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "periodically means at regular intervals, so only every other letter of the words is kept"
-     },
-     {
-      "text": "getting stuck in",
-      "for": "container",
-      "note": "something stuck in another thing ends up lodged inside it, enclosed on both sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Circle Line",
-      "gives": "AR",
-      "note": "an arc is a curved line forming part of a circle; its first two letters come first"
-     },
-     {
-      "clueFragment": "she and I",
-      "gives": "SENI",
-      "select": "alternate",
-      "note": "the first, third, fifth and seventh letters of the phrase"
-     },
-     {
-      "clueFragment": "Circle Line",
-      "gives": "C",
-      "note": "the last letter of the arc closes around the inserted letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "SENI",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ARSENIC",
+     "indicators": [
+      {
+       "text": "getting stuck in",
+       "note": "something stuck in another thing ends up lodged inside it, enclosed on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Circle Line",
+         "gives": "AR",
+         "note": "an arc is a curved line forming part of a circle; its first two letters come first"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "SENI",
+         "indicators": [
+          {
+           "text": "periodically",
+           "note": "periodically means at regular intervals, so only every other letter of the words is kept"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "she and I",
+           "gives": "SENI",
+           "select": "alternate",
+           "note": "the first, third, fifth and seventh letters of the phrase"
+          }
+         ]
+        },
+        {
+         "words": "Circle Line",
+         "gives": "C",
+         "note": "the last letter of the arc closes around the inserted letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -113,51 +117,40 @@
    },
    "solution": "AFRICAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AFRICAN",
     "definitions": [
      {
       "text": "from the continent",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "to support",
-      "for": "charade",
-      "note": "in a down clue something that supports another sits beneath it, so these letters follow the earlier ones"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "father",
-      "gives": "FR",
-      "note": "Fr is the abbreviation for Father, a priest's title"
-     },
-     {
-      "clueFragment": "This compiler",
-      "gives": "I",
-      "note": "the setter refers to themself as I"
-     },
-     {
-      "clueFragment": "is able",
-      "gives": "CAN",
-      "note": "can means is able"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "FR",
-      "I",
-      "CAN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "note": "in a down clue something that supports another sits beneath it, so these letters follow the earlier ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "father",
+       "gives": "FR",
+       "note": "Fr is the abbreviation for Father, a priest's title"
+      },
+      {
+       "words": "This compiler",
+       "gives": "I",
+       "note": "the setter refers to themself as I"
+      },
+      {
+       "words": "is able",
+       "gives": "CAN",
+       "note": "can means is able"
+      }
      ]
     },
     "explanation": {
@@ -192,35 +185,24 @@
    },
    "solution": "SYNONYM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SYNONYM",
     "definitions": [
      {
       "text": "Boy for lad?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Playing",
-      "for": "anagram",
-      "note": "playing a tune can mean playing around with it, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "My Sonny",
-      "gives": "MYSONNY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MYSONNY",
-       "gives": "SYNONYM"
+       "text": "Playing",
+       "note": "playing a tune can mean playing around with it, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "My Sonny",
+       "note": "taken as written"
       }
      ]
     },
@@ -250,51 +232,40 @@
    },
    "solution": "NEGUS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "NEGUS",
     "definitions": [
      {
       "text": "Hot toddy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Rising",
-      "for": "reversal",
-      "note": "in a down clue rising means going upwards, so the word is read bottom to top"
-     },
-     {
-      "text": "stocked by",
-      "for": "container",
-      "note": "goods stocked by a shop are held inside it, so the word sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sun",
-      "gives": "SUN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g., for example, is what say means"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EG",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SUN",
-       "to": "NUS"
+       "text": "stocked by",
+       "note": "goods stocked by a shop are held inside it, so the word sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rising",
+         "note": "in a down clue rising means going upwards, so the word is read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sun",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "say",
+       "gives": "EG",
+       "note": "e.g., for example, is what say means"
       }
      ]
     },
@@ -324,47 +295,41 @@
    },
    "solution": "CLERGYMAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CLERGYMAN",
     "definitions": [
      {
       "text": "Dean",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the outside",
-      "for": "container",
-      "note": "on the outside means wrapping round, so the word surrounds the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spotless",
-      "gives": "CLEAN",
-      "note": "spotless means clean"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     },
-     {
-      "clueFragment": "fitness centre",
-      "gives": "GYM",
-      "note": "a gym is a fitness centre"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLE",
-      "R",
-      "GYM",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on the outside",
+       "note": "on the outside means wrapping round, so the word surrounds the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spotless",
+       "gives": "CLEAN",
+       "note": "spotless means clean"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "runs",
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        },
+        {
+         "words": "fitness centre",
+         "gives": "GYM",
+         "note": "a gym is a fitness centre"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -393,26 +358,25 @@
    },
    "solution": "TOBACCO",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TOBACCO",
     "definitions": [
      {
       "text": "leaves causing problems down the line?",
       "at": 2
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "leaves causing problems down the line",
-      "note": "surface reading: someone leaving a railway line, carrying on from the Circle Line in the previous clue, causes delays"
-     },
-     {
-      "clueFragment": "leaves causing problems down the line",
-      "note": "setter's reading: dried plant leaves that are smoked and cause health trouble years later"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "leaves causing problems down the line",
+       "note": "surface reading: someone leaving a railway line, carrying on from the Circle Line in the previous clue, causes delays"
+      },
+      {
+       "words": "leaves causing problems down the line",
+       "note": "setter's reading: dried plant leaves that are smoked and cause health trouble years later"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Continuing the Circle Line story, someone's departure causes disruption further along the railway.",
      "walkthrough": "'Leaves' looks like a verb and 'the line' like a railway; read leaves as plant foliage and down the line as in the future.",
@@ -440,40 +404,31 @@
    },
    "solution": "TIMER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TIMER",
     "definitions": [
      {
       "text": "recording device",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the first word goes around the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Row",
-      "gives": "TIER",
-      "note": "a tier is a row, as of seats"
-     },
-     {
-      "clueFragment": "minute",
-      "gives": "M",
-      "note": "standard abbreviation for minute"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "M",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the first word goes around the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Row",
+       "gives": "TIER",
+       "note": "a tier is a row, as of seats"
+      },
+      {
+       "words": "minute",
+       "gives": "M",
+       "note": "standard abbreviation for minute"
+      }
      ]
     },
     "explanation": {
@@ -502,34 +457,30 @@
    },
    "solution": "BARRICADE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "BARRICADE",
     "definitions": [
      {
       "text": "security fence",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "According to Spooner",
-      "for": "spoonerism",
-      "note": "Spooner was famous for swapping the opening sounds of words, which the solver must do here"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mrs Johnson ordered",
-      "gives": "BARRICADE",
-      "soundsLike": "BARRY CADE",
-      "note": "Mrs Johnson is Carrie, wife of former UK prime minister Boris Johnson, and ordered is bade; swap the opening sounds of Carrie bade"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARRICADE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "BARRICADE",
+     "indicators": [
+      {
+       "text": "According to Spooner",
+       "note": "Spooner was famous for swapping the opening sounds of words, which the solver must do here"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Mrs Johnson ordered",
+       "gives": "BARRICADE",
+       "soundsLike": "BARRY CADE",
+       "note": "Mrs Johnson is Carrie, wife of former UK prime minister Boris Johnson, and ordered is bade; swap the opening sounds of Carrie bade"
+      }
      ]
     },
     "explanation": {
@@ -558,41 +509,35 @@
    },
    "solution": "CHAPATI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHAPATI",
     "definitions": [
      {
       "text": "flatbread",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "unwrapped",
-      "for": "letter_selection",
-      "note": "unwrapped means with the wrapping off, so the outer letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "CHAP",
-      "note": "a chap is a fellow"
-     },
-     {
-      "clueFragment": "eat-in",
-      "gives": "ATI",
-      "select": "middle",
-      "note": "the phrase with its first and last letters taken off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAP",
-      "ATI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "CHAP",
+       "note": "a chap is a fellow"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unwrapped",
+         "note": "unwrapped means with the wrapping off, so the outer letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eat-in",
+         "note": "the phrase with its first and last letters taken off"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -620,41 +565,35 @@
    },
    "solution": "OCARINA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OCARINA",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first to",
-      "for": "letter_selection",
-      "note": "first to points to the opening letter of the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "observe",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of observe"
-     },
-     {
-      "clueFragment": "constellation",
-      "gives": "CARINA",
-      "note": "Carina, the Keel, is a southern constellation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "CARINA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "note": "first to points to the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "observe",
+         "note": "first letter of observe"
+        }
+       ]
+      },
+      {
+       "words": "constellation",
+       "gives": "CARINA",
+       "note": "Carina, the Keel, is a southern constellation"
+      }
      ]
     },
     "explanation": {
@@ -683,48 +622,35 @@
    },
    "solution": "RENEGUE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RENEGUE",
     "definitions": [
      {
       "text": "apostatise",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "something returned goes back the way it came, so the name is read from end to start"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "standard abbreviation for Republican"
-     },
-     {
-      "clueFragment": "O'Neill famously",
-      "gives": "EUGENE",
-      "note": "Eugene O'Neill was the famous American playwright"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ENEGUE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EUGENE",
-       "to": "ENEGUE"
+       "words": "Republican",
+       "gives": "R",
+       "note": "standard abbreviation for Republican"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "note": "something returned goes back the way it came, so the name is read from end to start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "O'Neill famously",
+         "gives": "EUGENE",
+         "note": "Eugene O'Neill was the famous American playwright"
+        }
+       ]
       }
      ]
     },
@@ -754,44 +680,35 @@
    },
    "solution": "MARSALA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MARSALA",
     "definitions": [
      {
       "text": "Wine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regular servings of",
-      "for": "letter_selection",
-      "note": "regular servings are helpings at even intervals, so every second letter of the dish is taken"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bar",
-      "gives": "MARS",
-      "note": "a Mars bar is a well-known chocolate bar"
-     },
-     {
-      "clueFragment": "paella",
-      "gives": "ALA",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters of paella"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARS",
-      "ALA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bar",
+       "gives": "MARS",
+       "note": "a Mars bar is a well-known chocolate bar"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regular servings of",
+         "note": "regular servings are helpings at even intervals, so every second letter of the dish is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paella",
+         "note": "the second, fourth and sixth letters of paella"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -826,26 +743,25 @@
    },
    "solution": "CANESUGAR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CANE SUGAR",
     "definitions": [
      {
       "text": "Sticky sweet stuff?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sticky sweet stuff",
-      "note": "surface reading: something gooey and sugary such as toffee or syrup"
-     },
-     {
-      "clueFragment": "Sticky sweet stuff",
-      "note": "setter's reading: sweet stuff that comes from a stick, the tall stalk of a plant"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sticky sweet stuff",
+       "note": "surface reading: something gooey and sugary such as toffee or syrup"
+      },
+      {
+       "words": "Sticky sweet stuff",
+       "note": "setter's reading: sweet stuff that comes from a stick, the tall stalk of a plant"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Sticky usually means gluey; here it means coming from a stick-like stalk.",
      "definitionFit": "This sweetener is extracted from the juice of a tall grass whose stems look like walking sticks."
@@ -872,41 +788,35 @@
    },
    "solution": "IRAQI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "IRAQI",
     "definitions": [
      {
       "text": "Arab",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "discovered",
-      "for": "letter_selection",
-      "note": "dis-covered means with its cover taken off, so the outer letters of the word are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "viral",
-      "gives": "IRA",
-      "select": "middle",
-      "note": "the word with its first and last letters stripped away"
-     },
-     {
-      "clueFragment": "quiz programme",
-      "gives": "QI",
-      "note": "QI is a long-running BBC television quiz show"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRA",
-      "QI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "note": "dis-covered means with its cover taken off, so the outer letters of the word are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "viral",
+         "note": "the word with its first and last letters stripped away"
+        }
+       ]
+      },
+      {
+       "words": "quiz programme",
+       "gives": "QI",
+       "note": "QI is a long-running BBC television quiz show"
+      }
      ]
     },
     "explanation": {
@@ -935,66 +845,62 @@
    },
    "solution": "NYMPH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "NYMPH",
     "definitions": [
      {
       "text": "Young maiden",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Head",
-      "for": "letter_selection",
-      "note": "the head of a word is its opening letter, so only the start of Nag's is used"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means turned round, so the little word is read the other way"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the turned word inside the surrounding letters"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nag's",
-      "gives": "N",
-      "select": "first",
-      "note": "first letter of Nag's"
-     },
-     {
-      "clueFragment": "my",
-      "gives": "MY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH is the map abbreviation for public house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "YM",
-      "PH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NYMPH",
+     "indicators": [
       {
-       "from": "MY",
-       "to": "YM"
+       "text": "in",
+       "note": "in places the turned word inside the surrounding letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Head",
+           "note": "the head of a word is its opening letter, so only the start of Nag's is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nag's",
+           "note": "first letter of Nag's"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "back means turned round, so the little word is read the other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "my",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "pub",
+         "gives": "PH",
+         "note": "PH is the map abbreviation for public house"
+        }
+       ]
       }
      ]
     },
@@ -1024,63 +930,51 @@
    },
    "solution": "HYGIENIST",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "HYGIENIST",
     "definitions": [
      {
       "text": "Ivory polisher",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "anagram",
-      "note": "turning means changing form, so the number's letters are rearranged"
-     },
-     {
-      "text": "admits",
-      "for": "container",
-      "note": "admits means lets in, so the jumbled letters hold another word inside"
-     },
-     {
-      "text": "revolting",
-      "for": "reversal",
-      "note": "revolting is read as revolving, turning the word round to run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eighty",
-      "gives": "EIGHTY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "offence",
-      "gives": "SIN",
-      "note": "a sin is a moral offence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HYGIE",
-      "NIS",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "EIGHTY",
-       "gives": "HYGIET"
+       "text": "revolting",
+       "note": "revolting is read as revolving, turning the word round to run backwards"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "SIN",
-       "to": "NIS"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admits",
+         "note": "admits means lets in, so the jumbled letters hold another word inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "turning",
+           "note": "turning means changing form, so the number's letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eighty",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "offence",
+         "gives": "SIN",
+         "note": "a sin is a moral offence"
+        }
+       ]
       }
      ]
     },
@@ -1111,57 +1005,61 @@
    },
    "solution": "MARGARITA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "container"
-    ],
-    "answer": "MARGARITA",
     "definitions": [
      {
       "text": "cocktail",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "drop",
-      "for": "deletion",
-      "note": "to drop something is to leave it out, so a letter is removed from the first name"
-     },
-     {
-      "text": "downing",
-      "for": "container",
-      "note": "downing means swallowing, so the names take the next letter inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mrs Simpson",
-      "gives": "MARGE",
-      "note": "Marge Simpson is Homer's wife in The Simpsons"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Ms Hayworth",
-      "gives": "RITA",
-      "note": "Rita Hayworth was a Hollywood film star"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARG",
-      "A",
-      "RITA"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "MARGARITA",
+     "indicators": [
+      {
+       "text": "downing",
+       "note": "downing means swallowing, so the names take the next letter inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drop",
+         "note": "to drop something is to leave it out, so a letter is removed from the first name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Mrs Simpson",
+           "gives": "MARGE",
+           "note": "Marge Simpson is Homer's wife in The Simpsons"
+          },
+          {
+           "words": "ecstasy",
+           "gives": "E",
+           "note": "E is slang for the drug ecstasy"
+          },
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "Ms Hayworth",
+           "gives": "RITA",
+           "note": "Rita Hayworth was a Hollywood film star"
+          }
+         ]
+        },
+        {
+         "gives": "EE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1190,26 +1088,25 @@
    },
    "solution": "RACONTEUR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RACONTEUR",
     "definitions": [
      {
       "text": "Entertaining character with interesting relations?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Entertaining character with interesting relations",
-      "note": "surface reading: a fun person with a colourful family"
-     },
-     {
-      "clueFragment": "interesting relations",
-      "note": "setter's reading: relations are things related, that is told, so this is someone who tells good stories"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Entertaining character with interesting relations",
+       "note": "surface reading: a fun person with a colourful family"
+      },
+      {
+       "words": "interesting relations",
+       "note": "setter's reading: relations are things related, that is told, so this is someone who tells good stories"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Relations looks like relatives; here it means narrations.",
      "definitionFit": "A raconteur is a skilled teller of anecdotes, someone who amuses company with stories."
@@ -1236,52 +1133,48 @@
    },
    "solution": "TELEGENIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TELEGENIC",
     "definitions": [
      {
       "text": "Ideal for broadcasting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the surname"
-     },
-     {
-      "text": "gets a break",
-      "for": "anagram",
-      "note": "a break smashes things, so the collected letters are broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "etc",
-      "gives": "ETC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Nigel",
-      "gives": "NIGEL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Farage",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of Farage"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETC NIGEL E",
-       "gives": "TELEGENIC"
+       "text": "gets a break",
+       "note": "a break smashes things, so the collected letters are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "etc",
+         "note": "taken as written"
+        },
+        {
+         "words": "Nigel",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the closing letter of the surname"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Farage",
+           "note": "last letter of Farage"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1311,32 +1204,25 @@
    },
    "solution": "TADPOLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TADPOLE",
     "definitions": [
      {
       "text": "young swimmer",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Little",
-      "gives": "TAD",
-      "note": "a tad is a little bit"
-     },
-     {
-      "clueFragment": "stick",
-      "gives": "POLE",
-      "note": "a pole is a long stick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAD",
-      "POLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little",
+       "gives": "TAD",
+       "note": "a tad is a little bit"
+      },
+      {
+       "words": "stick",
+       "gives": "POLE",
+       "note": "a pole is a long stick"
+      }
      ]
     },
     "explanation": {
@@ -1364,30 +1250,28 @@
    },
    "solution": "LEONINE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEONINE",
     "definitions": [
      {
       "text": "like some popes?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit",
-      "for": "hidden_word",
-      "note": "a bit means a part, so the answer is a stretch of the clue's own letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ramble on in English",
-      "gives": "LEONINE",
-      "note": "the letters run from the end of the first word to the start of the last"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a bit",
+       "note": "a bit means a part, so the answer is a stretch of the clue's own letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ramble on in English",
+       "gives": "LEONINE",
+       "note": "the letters run from the end of the first word to the start of the last"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone rambles on in English, rather like certain long-winded popes.",
      "walkthrough": "The answer sits inside rambLE ON IN English. Thirteen popes took the name Leo.",
@@ -1415,32 +1299,25 @@
    },
    "solution": "EASEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EASEL",
     "definitions": [
      {
       "text": "support for the arts?",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Moderate",
-      "gives": "EASE",
-      "note": "to ease is to moderate or lessen"
-     },
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "note": "standard abbreviation for Liberal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EASE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Moderate",
+       "gives": "EASE",
+       "note": "to ease is to moderate or lessen"
+      },
+      {
+       "words": "Liberal",
+       "gives": "L",
+       "note": "standard abbreviation for Liberal"
+      }
      ]
     },
     "explanation": {
@@ -1470,47 +1347,41 @@
    },
    "solution": "SEGMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SEGMENT",
     "definitions": [
      {
       "text": "Section",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "drafted into",
-      "for": "container",
-      "note": "agents drafted into a unit are placed inside it, so one word goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Southern",
-      "gives": "S",
-      "note": "standard abbreviation for southern"
-     },
-     {
-      "clueFragment": "Alien",
-      "gives": "ET",
-      "note": "ET is the alien from the Spielberg film"
-     },
-     {
-      "clueFragment": "Feds",
-      "gives": "GMEN",
-      "note": "G-men are US government agents, as are Feds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "E",
-      "GMEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Southern",
+       "gives": "S",
+       "note": "standard abbreviation for southern"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "drafted into",
+         "note": "agents drafted into a unit are placed inside it, so one word goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alien",
+         "gives": "ET",
+         "note": "ET is the alien from the Spielberg film"
+        },
+        {
+         "words": "Feds",
+         "gives": "GMEN",
+         "note": "G-men are US government agents, as are Feds"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1539,54 +1410,40 @@
    },
    "solution": "LENGTHY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LENGTHY",
     "definitions": [
      {
       "text": "tedious",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctor",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so the letters are altered in order"
-     },
-     {
-      "text": "accepting",
-      "for": "container",
-      "note": "accepting means taking in, so the jumbled letters take a letter inside"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gently",
-      "gives": "GENTLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "standard abbreviation for husband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LENGT",
-      "H",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GENTLY",
-       "gives": "LENGTY"
+       "text": "accepting",
+       "note": "accepting means taking in, so the jumbled letters take a letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Doctor",
+         "note": "to doctor something is to tamper with it, so the letters are altered in order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gently",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "standard abbreviation for husband"
       }
      ]
     },
@@ -1616,40 +1473,31 @@
    },
    "solution": "DRONE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DRONE",
     "definitions": [
      {
       "text": "bee",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "keeping means holding on to, so the first word holds the next inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finished",
-      "gives": "DONE",
-      "note": "done means finished"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "R",
-      "note": "R for Regina, Latin for queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "ONE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "keeping means holding on to, so the first word holds the next inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Finished",
+       "gives": "DONE",
+       "note": "done means finished"
+      },
+      {
+       "words": "queen",
+       "gives": "R",
+       "note": "R for Regina, Latin for queen"
+      }
      ]
     },
     "explanation": {
@@ -1678,38 +1526,30 @@
    },
    "solution": "BANDWAGON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANDWAGON",
     "definitions": [
      {
       "text": "trending topic",
       "at": 31
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Ring",
-      "gives": "BAND",
-      "note": "a ring is a band, as in a wedding band"
-     },
-     {
-      "clueFragment": "footballer's missus",
-      "gives": "WAG",
-      "note": "WAGs, wives and girlfriends, is British slang for footballers' partners"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "ON",
-      "note": "on means about, as in a talk on a subject"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAND",
-      "WAG",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ring",
+       "gives": "BAND",
+       "note": "a ring is a band, as in a wedding band"
+      },
+      {
+       "words": "footballer's missus",
+       "gives": "WAG",
+       "note": "WAGs, wives and girlfriends, is British slang for footballers' partners"
+      },
+      {
+       "words": "about",
+       "gives": "ON",
+       "note": "on means about, as in a talk on a subject"
+      }
      ]
     },
     "explanation": {
@@ -1738,44 +1578,38 @@
    },
    "solution": "BYRON",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "BYRON",
     "definitions": [
      {
       "text": "A darkly romantic man",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost his head",
-      "for": "deletion",
-      "note": "losing a head means losing the top, so the first letter of the name goes"
-     },
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "sadly suggests things have gone badly wrong, so the remaining letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Corbyn",
-      "gives": "CORBYN",
-      "note": "Jeremy Corbyn, former leader of the UK Labour Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BYRON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORBYN",
-       "gives": "BYRON"
+       "text": "sadly",
+       "note": "sadly suggests things have gone badly wrong, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost his head",
+         "note": "losing a head means losing the top, so the first letter of the name goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Corbyn",
+         "note": "Jeremy Corbyn, former leader of the UK Labour Party"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
@@ -1805,39 +1639,31 @@
    },
    "solution": "WRING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "WRING",
     "definitions": [
      {
       "text": "Squeeze",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "deletion",
-      "note": "out of means removed from, so a letter is taken away from the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "cables",
-      "gives": "WIRING",
-      "note": "wiring is a system of electrical cables"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "RING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "out of means removed from, so a letter is taken away from the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cables",
+       "gives": "WIRING",
+       "note": "wiring is a system of electrical cables"
+      },
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      }
      ]
     },
     "explanation": {
@@ -1865,47 +1691,41 @@
    },
    "solution": "OLIVIER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "OLIVIER",
     "definitions": [
      {
       "text": "actor",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "premier",
-      "for": "letter_selection",
-      "note": "premier means first, so only the opening letter of Italy is used"
-     },
-     {
-      "text": "featuring",
-      "for": "container",
-      "note": "a show featuring something includes it, so the show's name holds the letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Musical",
-      "gives": "OLIVER",
-      "note": "Oliver! is Lionel Bart's stage musical based on Oliver Twist"
-     },
-     {
-      "clueFragment": "Italy's",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of Italy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLIV",
-      "I",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featuring",
+       "note": "a show featuring something includes it, so the show's name holds the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Musical",
+       "gives": "OLIVER",
+       "note": "Oliver! is Lionel Bart's stage musical based on Oliver Twist"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "premier",
+         "note": "premier means first, so only the opening letter of Italy is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italy's",
+         "note": "first letter of Italy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1934,40 +1754,39 @@
    },
    "solution": "EMINENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EMINENT",
     "definitions": [
      {
       "text": "Famous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fails to finish",
-      "for": "deletion",
-      "note": "failing to finish leaves the end undone, so the final letter of the name is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rapper",
-      "gives": "EMINEM",
-      "note": "Eminem is the American rap star"
-     },
-     {
-      "clueFragment": "Bible books",
-      "gives": "NT",
-      "note": "NT is the New Testament, a collection of books of the Bible"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMINE",
-      "NT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "fails to finish",
+       "note": "failing to finish leaves the end undone, so the final letter of the name is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rapper",
+         "gives": "EMINEM",
+         "note": "Eminem is the American rap star"
+        },
+        {
+         "words": "Bible books",
+         "gives": "NT",
+         "note": "NT is the New Testament, a collection of books of the Bible"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1995,38 +1814,30 @@
    },
    "solution": "EVERTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EVERTON",
     "definitions": [
      {
       "text": "football team",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Turn out",
-      "gives": "EVERT",
-      "note": "to evert is to turn inside out"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "standard abbreviation for old"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "standard abbreviation for northern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVERT",
-      "O",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turn out",
+       "gives": "EVERT",
+       "note": "to evert is to turn inside out"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "standard abbreviation for old"
+      },
+      {
+       "words": "northern",
+       "gives": "N",
+       "note": "standard abbreviation for northern"
+      }
      ]
     },
     "explanation": {
@@ -2055,34 +1866,28 @@
    },
    "solution": "RIGHTLY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "RIGHTLY",
     "definitions": [
      {
       "text": "in a fitting manner",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "changing sides initially",
-      "for": "substitution",
-      "note": "changing sides swaps left for right, and initially says this happens at the very first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gently",
-      "gives": "LIGHTLY",
-      "note": "lightly means gently, with little force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "IGHTLY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "RIGHTLY",
+     "indicators": [
+      {
+       "text": "changing sides initially",
+       "note": "changing sides swaps left for right, and initially says this happens at the very first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gently",
+       "gives": "LIGHTLY",
+       "note": "lightly means gently, with little force"
+      }
      ]
     },
     "explanation": {

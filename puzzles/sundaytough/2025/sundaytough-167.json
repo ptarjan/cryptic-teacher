@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-167",
  "number": 167,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 167",
  "setter": "Beam",
  "date": "2025-04-06",
  "dimensions": {
@@ -38,50 +36,41 @@
    },
    "solution": "LONELINESS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LONELINESS",
     "definitions": [
      {
       "text": "Solitude",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "for": "container",
-      "note": "to circle something is to go right round it, so one set of letters wraps around another"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the standard abbreviation for large, as on clothing labels"
-     },
-     {
-      "clueFragment": "singles",
-      "gives": "ONES",
-      "note": "singles are ones, single units"
-     },
-     {
-      "clueFragment": "bars",
-      "gives": "LINES",
-      "note": "bars and lines are both straight strokes or stripes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ONE",
-      "LINES",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "note": "to circle something is to go right round it, so one set of letters wraps around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "singles",
+         "gives": "ONES",
+         "note": "singles are ones, single units"
+        },
+        {
+         "words": "bars",
+         "gives": "LINES",
+         "note": "bars and lines are both straight strokes or stripes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,47 +99,41 @@
    },
    "solution": "LARD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LARD",
     "definitions": [
      {
       "text": "Fat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of something is its final part, so only the closing letter is kept"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "whatever eats takes something inside itself, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy",
-      "gives": "LAD",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "burger",
-      "gives": "R",
-      "select": "last",
-      "note": "final letter of burger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "R",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "whatever eats takes something inside itself, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy",
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "the last of something is its final part, so only the closing letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burger",
+         "note": "final letter of burger"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -179,53 +162,58 @@
    },
    "solution": "NIGHTGOWN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "NIGHTGOWN",
     "definitions": [
      {
       "text": "negligee",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "something done occasionally happens only now and then, so only every other letter is used"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the outer letters surround the inner ones"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nearly",
-      "gives": "NIGH",
-      "note": "nigh is an old word for nearly"
-     },
-     {
-      "clueFragment": "togs",
-      "gives": "TG",
-      "select": "alternate",
-      "note": "first and third letters of togs"
-     },
-     {
-      "clueFragment": "personal",
-      "gives": "OWN",
-      "note": "your own things are personal to you"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGH",
-      "TG",
-      "OWN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NIGHTGOWN",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the outer letters surround the inner ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nearly",
+         "gives": "NIGH",
+         "note": "nigh is an old word for nearly"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "TG",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "note": "something done occasionally happens only now and then, so only every other letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "togs",
+           "gives": "TG",
+           "select": "alternate",
+           "note": "first and third letters of togs"
+          }
+         ]
+        },
+        {
+         "words": "personal",
+         "gives": "OWN",
+         "note": "your own things are personal to you"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -254,32 +242,25 @@
    },
    "solution": "LADEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LADEN",
     "definitions": [
      {
       "text": "carrying cargo",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "Arabian port",
-      "gives": "ADEN",
-      "note": "Aden is a port city in Yemen, on the Arabian peninsula"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ADEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      },
+      {
+       "words": "Arabian port",
+       "gives": "ADEN",
+       "note": "Aden is a port city in Yemen, on the Arabian peninsula"
+      }
      ]
     },
     "explanation": {
@@ -308,47 +289,40 @@
    },
    "solution": "NIPPING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NIPPING",
     "definitions": [
      {
       "text": "Rushing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "in a down clue the top of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shot",
-      "gives": "NIP",
-      "note": "a nip is a small shot of spirits"
-     },
-     {
-      "clueFragment": "clip",
-      "gives": "PIN",
-      "note": "a pin, like a clip, fastens things together"
-     },
-     {
-      "clueFragment": "goal",
-      "gives": "G",
-      "select": "first",
-      "note": "opening letter of goal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIP",
-      "PIN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shot",
+       "gives": "NIP",
+       "note": "a nip is a small shot of spirits"
+      },
+      {
+       "words": "clip",
+       "gives": "PIN",
+       "note": "a pin, like a clip, fastens things together"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "in a down clue the top of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "goal",
+         "note": "opening letter of goal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -377,51 +351,40 @@
    },
    "solution": "SURREAL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SURREAL",
     "definitions": [
      {
       "text": "funny",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning round makes something face the other way, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The French",
-      "gives": "LA",
-      "note": "la is the feminine form of 'the' in French"
-     },
-     {
-      "clueFragment": "offend",
-      "gives": "ERR",
-      "note": "to err is to sin or transgress, an old sense of offend"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "US is the abbreviation for the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "RRE",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LAERRUS",
-       "to": "SURREAL"
+       "text": "turning",
+       "note": "turning round makes something face the other way, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The French",
+         "gives": "LA",
+         "note": "la is the feminine form of 'the' in French"
+        },
+        {
+         "words": "offend",
+         "gives": "ERR",
+         "note": "to err is to sin or transgress, an old sense of offend"
+        },
+        {
+         "words": "America",
+         "gives": "US",
+         "note": "US is the abbreviation for the United States"
+        }
+       ]
       }
      ]
     },
@@ -451,40 +414,28 @@
    },
    "solution": "BLOC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "BLOC",
     "definitions": [
      {
       "text": "Big league or coalition initially",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of each word counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big league or coalition",
-      "gives": "BLOC",
-      "select": "first",
-      "note": "opening letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "O",
-      "C"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially means at the start, so only the opening letter of each word counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Big league or coalition",
+       "note": "opening letters of the four words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A description of a large alliance formed at the outset.",
      "walkthrough": "The whole clue is both wordplay and definition: the initials spell the answer, and the words describe it.",
@@ -510,50 +461,41 @@
    },
    "solution": "LLAMA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LLAMA",
     "definitions": [
      {
       "text": "Pack animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unevenly",
-      "for": "letter_selection",
-      "note": "uneven numbers are the odd ones, so the first and third letters are taken"
-     },
-     {
-      "text": "dividing",
-      "for": "container",
-      "note": "to divide something is to split it in two, so one piece goes into the middle of another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "load",
-      "gives": "LA",
-      "select": "alternate",
-      "note": "odd letters of load"
-     },
-     {
-      "clueFragment": "belt",
-      "gives": "LAM",
-      "note": "to lam is to thrash or belt someone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "LAM",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dividing",
+       "note": "to divide something is to split it in two, so one piece goes into the middle of another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "unevenly",
+         "note": "uneven numbers are the odd ones, so the first and third letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "load",
+         "note": "odd letters of load"
+        }
+       ]
+      },
+      {
+       "words": "belt",
+       "gives": "LAM",
+       "note": "to lam is to thrash or belt someone"
+      }
      ]
     },
     "explanation": {
@@ -582,46 +524,41 @@
    },
    "solution": "CONSECRATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CONSECRATE",
     "definitions": [
      {
       "text": "Devote",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cracking",
-      "for": "container",
-      "note": "something cracking another breaks into it, so it ends up inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the symbol for energy in physics"
-     },
-     {
-      "clueFragment": "criminal's",
-      "gives": "CONS",
-      "note": "a con is a convict, so criminal's gives con's"
-     },
-     {
-      "clueFragment": "case",
-      "gives": "CRATE",
-      "note": "a crate is a packing case"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CONS",
-      "E",
-      "CRATE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cracking",
+       "note": "something cracking another breaks into it, so it ends up inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "criminal's",
+         "gives": "CONS",
+         "note": "a con is a convict, so criminal's gives con's"
+        },
+        {
+         "words": "case",
+         "gives": "CRATE",
+         "note": "a crate is a packing case"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the symbol for energy in physics"
+      }
      ]
     },
     "explanation": {
@@ -650,43 +587,38 @@
    },
    "solution": "VERTEBRA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "VERTEBRA",
     "definitions": [
      {
       "text": "Supporting bone",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cropped",
-      "for": "deletion",
-      "note": "a cropped thing has been cut short, so the final letter is removed"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "top",
-      "gives": "VERTE",
-      "note": "vertex means the top or apex; dropping its end leaves VERTE"
-     },
-     {
-      "clueFragment": "undergarment",
-      "gives": "BRA",
-      "note": "a bra is a woman's undergarment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VERTE",
-      "BRA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VERTEBRA",
+     "indicators": [
+      {
+       "text": "cropped",
+       "note": "a cropped thing has been cut short, so the final letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "top",
+         "gives": "VERTE",
+         "note": "vertex means the top or apex; dropping its end leaves VERTE"
+        },
+        {
+         "words": "undergarment",
+         "gives": "BRA",
+         "note": "a bra is a woman's undergarment"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -716,35 +648,25 @@
    },
    "solution": "RAGED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAGED",
     "definitions": [
      {
       "text": "went mad",
       "at": 28
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the abbreviation for Republican"
-     },
-     {
-      "clueFragment": "deteriorated",
-      "gives": "AGED",
-      "note": "something that has aged has declined with time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AGED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R is the abbreviation for Republican"
+      },
+      {
+       "words": "deteriorated",
+       "gives": "AGED",
+       "note": "something that has aged has declined with time"
+      }
      ]
     },
     "explanation": {
@@ -772,53 +694,52 @@
    },
    "solution": "PORCELAIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PORCELAIN",
     "definitions": [
      {
       "text": "China",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exterior",
-      "for": "letter_selection",
-      "note": "an exterior is the outside, so only the outermost letters are kept"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "round means surrounding, so the outer word goes about the inner letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "undecorated",
-      "gives": "PLAIN",
-      "note": "plain means without decoration"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "centre's",
-      "gives": "CE",
-      "select": "outer",
-      "note": "first and last letters of centre"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "OR",
-      "CE",
-      "LAIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "round means surrounding, so the outer word goes about the inner letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "undecorated",
+         "gives": "PLAIN",
+         "note": "plain means without decoration"
+        },
+        {
+         "words": "gold",
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exterior",
+         "note": "an exterior is the outside, so only the outermost letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "centre's",
+         "gives": "CENTRE",
+         "note": "first and last letters of centre"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -847,54 +768,51 @@
    },
    "solution": "STANNITE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "STANNITE",
     "definitions": [
      {
       "text": "Mineral",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so only the last letter is used"
-     },
-     {
-      "text": "contains",
-      "for": "container",
-      "note": "to contain something is to hold it inside, so these letters go within the outer word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brown",
-      "gives": "TAN",
-      "note": "tan is a light brown colour"
-     },
-     {
-      "clueFragment": "iron",
-      "gives": "N",
-      "select": "last",
-      "note": "final letter of iron"
-     },
-     {
-      "clueFragment": "location",
-      "gives": "SITE",
-      "note": "a site is a location"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAN",
-      "N",
-      "ITE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "note": "to contain something is to hold it inside, so these letters go within the outer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "location",
+       "gives": "SITE",
+       "note": "a site is a location"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "brown",
+         "gives": "TAN",
+         "note": "tan is a light brown colour"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally means at the end, so only the last letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "iron",
+           "note": "final letter of iron"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -923,41 +841,35 @@
    },
    "solution": "TEASE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TEASE",
     "definitions": [
      {
       "text": "Tickle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head is the front end, so only the opening letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trout's",
-      "gives": "T",
-      "select": "first",
-      "note": "opening letter of trout"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "EASE",
-      "note": "ease is relaxation or rest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "EASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head is the front end, so only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trout's",
+         "note": "opening letter of trout"
+        }
+       ]
+      },
+      {
+       "words": "rest",
+       "gives": "EASE",
+       "note": "ease is relaxation or rest"
+      }
      ]
     },
     "explanation": {
@@ -986,47 +898,41 @@
    },
    "solution": "RETRACTION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RETRACTION",
     "definitions": [
      {
       "text": "Pulling back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unloaded",
-      "for": "letter_selection",
-      "note": "an unloaded thing has had its contents taken out, so only the shell of outer letters remains"
-     },
-     {
-      "text": "stopping",
-      "for": "container",
-      "note": "a stopper plugs a hole, so these letters fill a gap inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recoil",
-      "gives": "REACTION",
-      "note": "a recoil is a reaction, a springing back"
-     },
-     {
-      "clueFragment": "trigger",
-      "gives": "TR",
-      "select": "outer",
-      "note": "trigger without its middle letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TR",
-      "ACTION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopping",
+       "note": "a stopper plugs a hole, so these letters fill a gap inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "recoil",
+       "gives": "REACTION",
+       "note": "a recoil is a reaction, a springing back"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "unloaded",
+         "note": "an unloaded thing has had its contents taken out, so only the shell of outer letters remains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trigger",
+         "note": "trigger without its middle letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1055,49 +961,44 @@
    },
    "solution": "ELOPING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "ELOPING",
     "definitions": [
      {
       "text": "Running following sweetheart?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart is the centre, so only the middle letter of the word is kept"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following means coming after, so the earlier-printed piece is placed second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sweet",
-      "gives": "E",
-      "select": "middle",
-      "note": "the central letter of the five-letter word"
-     },
-     {
-      "clueFragment": "Running",
-      "gives": "LOPING",
-      "note": "loping is running with long easy strides"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LOPING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following means coming after, so the earlier-printed piece is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart is the centre, so only the middle letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sweet",
+         "note": "the central letter of the five-letter word"
+        }
+       ]
+      },
+      {
+       "words": "Running",
+       "gives": "LOPING",
+       "note": "loping is running with long easy strides"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Running off after one's beloved.",
      "walkthrough": "'Sweetheart' splits into sweet + heart, the heart of sweet being its middle letter, which LOPING follows. Read whole, the clue also defines the answer.",
@@ -1125,47 +1026,41 @@
    },
    "solution": "ISOLATED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ISOLATED",
     "definitions": [
      {
       "text": "Lonely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense means outside, so one word sits around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "single",
-      "gives": "I",
-      "note": "I is one, the Roman numeral for a single unit"
-     },
-     {
-      "clueFragment": "proposed",
-      "gives": "SLATED",
-      "note": "something slated is scheduled or proposed"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "O is ring-shaped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "S",
-      "O",
-      "LATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "single",
+       "gives": "I",
+       "note": "I is one, the Roman numeral for a single unit"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without in its old sense means outside, so one word sits around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "proposed",
+         "gives": "SLATED",
+         "note": "something slated is scheduled or proposed"
+        },
+        {
+         "words": "ring",
+         "gives": "O",
+         "note": "O is ring-shaped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1194,40 +1089,38 @@
    },
    "solution": "LOBSTER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LOBSTER",
     "definitions": [
      {
       "text": "shellfish",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "tailless",
-      "for": "deletion",
-      "note": "something tailless has lost its end, so the final letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Throw",
-      "gives": "LOB",
-      "note": "to lob is to throw in a high arc"
-     },
-     {
-      "clueFragment": "back",
-      "gives": "STER",
-      "note": "the stern is the back of a ship; without its end it leaves STER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOB",
-      "STER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOBSTER",
+     "indicators": [
+      {
+       "text": "tailless",
+       "note": "something tailless has lost its end, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Throw",
+         "gives": "LOB",
+         "note": "to lob is to throw in a high arc"
+        },
+        {
+         "words": "back",
+         "gives": "STER",
+         "note": "the stern is the back of a ship; without its end it leaves STER"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1256,30 +1149,28 @@
    },
    "solution": "TENDERISE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TENDERISE",
     "definitions": [
      {
       "text": "Pound",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "taking letters from a phrase means they are drawn out of it as a run within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East-ender is earned",
-      "gives": "TENDERISE",
-      "note": "a run of consecutive letters across the phrase"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "taking letters from a phrase means they are drawn out of it as a run within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "East-ender is earned",
+       "gives": "TENDERISE",
+       "note": "a run of consecutive letters across the phrase"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Every pound a Cockney has comes from hard work.",
      "walkthrough": "The answer runs from the end of 'East' through 'earned'. 'Pound' looks like money, but it is a verb.",
@@ -1306,32 +1197,30 @@
    },
    "solution": "RANSOMS",
    "annotation": {
-    "type": [
-     "homophone",
-     "and_lit"
-    ],
-    "answer": "RANSOMS",
     "definitions": [
      {
       "text": "They commanded amounts of money, say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say asks for the words as spoken, so the sound matters more than the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "commanded amounts",
-      "gives": "RANSOMS",
-      "soundsLike": "RAN SUMS",
-      "note": "ran means commanded or managed, and sums are amounts of money"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RANSOMS",
+     "indicators": [
+      {
+       "text": "say",
+       "note": "say asks for the words as spoken, so the sound matters more than the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "commanded amounts",
+       "gives": "RANSUMS",
+       "note": "ran means commanded or managed, and sums are amounts of money"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A description of people who controlled large funds.",
      "walkthrough": "Read whole, the clue also defines: ransoms are sums of money demanded, or commanded, from captives' families.",
@@ -1359,39 +1248,31 @@
    },
    "solution": "SURFACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURFACE",
     "definitions": [
      {
       "text": "Top",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beneath",
-      "for": "charade",
-      "note": "in a down entry, beneath means lower in the column, so that piece is written after the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "waves",
-      "gives": "SURF",
-      "note": "surf is breaking waves"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ACE",
-      "note": "an ace is an expert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURF",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath",
+       "note": "in a down entry, beneath means lower in the column, so that piece is written after the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "waves",
+       "gives": "SURF",
+       "note": "surf is breaking waves"
+      },
+      {
+       "words": "expert",
+       "gives": "ACE",
+       "note": "an ace is an expert"
+      }
      ]
     },
     "explanation": {
@@ -1420,41 +1301,36 @@
    },
    "solution": "DRAGNET",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "DRAGNET",
     "definitions": [
      {
       "text": "police search",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "hidden_word",
-      "note": "to hold is to keep inside, so the phrase keeps the letters within it"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the opposite way, so the letters read right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chasten Gardai",
-      "gives": "TENGARD",
-      "note": "a run of consecutive letters across the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TENGARD",
-       "to": "DRAGNET"
+       "text": "back",
+       "note": "going back means travelling the opposite way, so the letters read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "to hold is to keep inside, so the phrase keeps the letters within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chasten Gardai",
+         "gives": "TENGARD",
+         "note": "a run of consecutive letters across the two words"
+        }
+       ]
       }
      ]
     },
@@ -1484,35 +1360,25 @@
    },
    "solution": "DECRYPT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DECRYPT",
     "definitions": [
      {
       "text": "Crack",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "denounce",
-      "gives": "DECRY",
-      "note": "to decry is to denounce publicly"
-     },
-     {
-      "clueFragment": "exercise",
-      "gives": "PT",
-      "note": "PT is physical training"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECRY",
-      "PT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "denounce",
+       "gives": "DECRY",
+       "note": "to decry is to denounce publicly"
+      },
+      {
+       "words": "exercise",
+       "gives": "PT",
+       "note": "PT is physical training"
+      }
      ]
     },
     "explanation": {
@@ -1541,40 +1407,38 @@
    },
    "solution": "COPRA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "COPRA",
     "definitions": [
      {
       "text": "oil source",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "practically",
-      "for": "deletion",
-      "note": "practically means almost but not quite, so the word stops one letter short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acquire",
-      "gives": "COP",
-      "note": "to cop is informal for to get or obtain"
-     },
-     {
-      "clueFragment": "unrefined",
-      "gives": "RA",
-      "note": "raw means unrefined; cut short it leaves RA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COP",
-      "RA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "COPRA",
+     "indicators": [
+      {
+       "text": "practically",
+       "note": "practically means almost but not quite, so the word stops one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Acquire",
+         "gives": "COP",
+         "note": "to cop is informal for to get or obtain"
+        },
+        {
+         "words": "unrefined",
+         "gives": "RA",
+         "note": "raw means unrefined; cut short it leaves RA"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1603,40 +1467,31 @@
    },
    "solution": "PRIGS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRIGS",
     "definitions": [
      {
       "text": "They're smug",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "to embrace someone is to wrap your arms round them, so one word encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "swines",
-      "gives": "PIGS",
-      "note": "swine are pigs"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "IGS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "note": "to embrace someone is to wrap your arms round them, so one word encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "swines",
+       "gives": "PIGS",
+       "note": "swine are pigs"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1665,26 +1520,25 @@
    },
    "solution": "RICOCHET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RICOCHET",
     "definitions": [
      {
       "text": "Return of blasted slugs!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Return of blasted slugs!",
-      "note": "surface reading: a gardener cursing the pests that keep coming back"
-     },
-     {
-      "clueFragment": "Return of blasted slugs!",
-      "note": "setter's reading: slugs are bullets, and fired ones can bounce back off a hard surface"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Return of blasted slugs!",
+       "note": "surface reading: a gardener cursing the pests that keep coming back"
+      },
+      {
+       "words": "Return of blasted slugs!",
+       "note": "setter's reading: slugs are bullets, and fired ones can bounce back off a hard surface"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Blasted' looks like a mild curse on garden pests, but means fired from a gun, and slugs are bullets.",
      "definitionFit": "A ricochet is a projectile rebounding off a surface, so it is the return of a bullet that has been shot."
@@ -1711,50 +1565,42 @@
    },
    "solution": "CARVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CARVE",
     "definitions": [
      {
       "text": "Shape",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end is the final position, so just the closing letter is used"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means surrounding, so one word goes about the other"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grotto",
-      "gives": "CAVE",
-      "note": "a grotto is a small cave"
-     },
-     {
-      "clueFragment": "December's",
-      "gives": "R",
-      "select": "last",
-      "note": "final letter of December"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "R",
-      "VE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means surrounding, so one word goes about the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grotto",
+       "gives": "CAVE",
+       "note": "a grotto is a small cave"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "note": "the end is the final position, so just the closing letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "December's",
+         "gives": "DECEMBER",
+         "note": "final letter of December"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1783,41 +1629,25 @@
    },
    "solution": "GNAT",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GNAT",
     "definitions": [
      {
       "text": "Insect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue rising means going upward, so the letters read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bite",
-      "gives": "TANG",
-      "note": "a tang is a sharp taste, a bite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GNAT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TANG",
-       "to": "GNAT"
+       "text": "rising",
+       "note": "in a down clue rising means going upward, so the letters read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bite",
+       "gives": "TANG",
+       "note": "a tang is a sharp taste, a bite"
       }
      ]
     },
@@ -1847,44 +1677,35 @@
    },
    "solution": "ITINERARY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ITINERARY",
     "definitions": [
      {
       "text": "route",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "can",
-      "gives": "TIN",
-      "note": "a tin is a can"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "ERA",
-      "note": "an era is a period of time"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "RY",
-      "note": "RY is an abbreviation for railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "TIN",
-      "ERA",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "can",
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "time",
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      },
+      {
+       "words": "railway",
+       "gives": "RY",
+       "note": "RY is an abbreviation for railway"
+      }
      ]
     },
     "explanation": {
@@ -1913,50 +1734,41 @@
    },
    "solution": "REIGN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "REIGN",
     "definitions": [
      {
       "text": "Leadership",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader goes at the front, so only the opening letter is wanted"
-     },
-     {
-      "text": "over",
-      "for": "container",
-      "note": "something over another covers it, so the outer word encloses the inner letter"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "control",
-      "gives": "REIN",
-      "note": "a rein is a means of control"
-     },
-     {
-      "clueFragment": "government's",
-      "gives": "G",
-      "select": "first",
-      "note": "opening letter of government"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REI",
-      "G",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "something over another covers it, so the outer word encloses the inner letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "control",
+       "gives": "REIN",
+       "note": "a rein is a means of control"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader goes at the front, so only the opening letter is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "government's",
+         "note": "opening letter of government"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1985,39 +1797,31 @@
    },
    "solution": "NOSE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NOSE",
     "definitions": [
      {
       "text": "Bill",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "knocking out",
-      "for": "deletion",
-      "note": "knocking something out removes it, so a letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trap",
-      "gives": "NOOSE",
-      "note": "a noose is a looped snare for catching animals"
-     },
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "SE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "knocking out",
+       "note": "knocking something out removes it, so a letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trap",
+       "gives": "NOOSE",
+       "note": "a noose is a looped snare for catching animals"
+      },
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      }
      ]
     },
     "explanation": {
@@ -2046,31 +1850,16 @@
    },
    "solution": "SETTLEMENT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SETTLEMENT",
     "definitions": [
      {
       "text": "Hamlet possibly",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a small community, of which a hamlet is one kind"
      },
      {
       "text": "closure",
-      "at": 24
-     }
-    ],
-    "linkWords": [
-     "finding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hamlet possibly",
-      "note": "first meaning: a small community, of which a hamlet is one kind"
-     },
-     {
-      "clueFragment": "closure",
-      "note": "second meaning: the resolution of a dispute"
+      "at": 24,
+      "meaning": "second meaning: the resolution of a dispute"
      }
     ],
     "explanation": {

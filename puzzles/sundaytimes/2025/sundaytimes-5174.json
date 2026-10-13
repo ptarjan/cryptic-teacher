@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5174",
  "number": 5174,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,174",
  "setter": "David McLean",
  "date": "2025-07-27",
  "dimensions": {
@@ -42,33 +40,16 @@
    },
    "solution": "PART",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PART",
     "definitions": [
      {
       "text": "Region",
-      "at": 0
+      "at": 0,
+      "meaning": "a plain synonym: an area or section of a whole"
      },
      {
       "text": "Split",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Region",
-      "gives": "PART",
-      "note": "a plain synonym: an area or section of a whole"
-     },
-     {
-      "clueFragment": "Split",
-      "gives": "PART",
-      "note": "the verb: to divide or separate, as a crowd or the Red Sea"
+      "at": 10,
+      "meaning": "the verb: to divide or separate, as a crowd or the Red Sea"
      }
     ],
     "explanation": {
@@ -98,55 +79,53 @@
    },
    "solution": "POSTMASTER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "charade"
-    ],
-    "answer": "POSTMASTER",
     "definitions": [
      {
       "text": "Letterman?",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the pole goes inside the rest"
-     },
-     {
-      "text": "turning",
-      "note": "something turning ends up facing the other way, so 'on' is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "office",
-      "gives": "POST",
-      "note": "a post is an office or job"
-     },
-     {
-      "clueFragment": "Pole",
-      "gives": "MAST",
-      "note": "a mast is a pole"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POST",
-      "MAST",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "POSTMASTER",
+     "parts": [
       {
-       "from": "RE",
-       "to": "ER"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the pole goes inside the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "office",
+         "gives": "POST",
+         "note": "a post is an office or job"
+        },
+        {
+         "words": "Pole",
+         "gives": "MAST",
+         "note": "a mast is a pole"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "turning",
+           "note": "something turning ends up facing the other way, so 'on' is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "on",
+           "gives": "RE",
+           "note": "re = on, concerning"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -177,45 +156,46 @@
    },
    "solution": "RAILS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "RAILS",
     "definitions": [
      {
       "text": "bars",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the trouble sits inside the other letters"
-     },
-     {
-      "text": "extremely",
-      "note": "take only the extremes, first and last, of 'rambunctious'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extremely rambunctious",
-      "gives": "RS",
-      "select": "outer",
-      "note": "the first and last letters of RAMBUNCTIOUS"
-     },
-     {
-      "clueFragment": "Trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AIL",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the trouble sits inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "RS",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "take only the extremes, first and last, of 'rambunctious'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "extremely rambunctious",
+         "gives": "RS",
+         "select": "outer",
+         "note": "the first and last letters of RAMBUNCTIOUS"
+        }
+       ]
+      },
+      {
+       "words": "Trouble",
+       "gives": "AIL",
+       "note": "to ail is to trouble"
+      }
      ]
     },
     "explanation": {
@@ -250,10 +230,6 @@
    },
    "solution": "EMERYBOARD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EMERY BOARD",
     "definitions": [
      {
       "text": "I file",
@@ -261,25 +237,18 @@
       "note": "the answer speaks for itself: an emery board would say 'I file'"
      }
     ],
-    "indicators": [
-     {
-      "text": "release",
-      "for": "anagram",
-      "note": "the letters of 'order, maybe' are released to rearrange freely"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "order, maybe",
-      "gives": "ORDERMAYBE",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORDERMAYBE",
-       "gives": "EMERYBOARD"
+       "text": "release",
+       "note": "the letters of 'order, maybe' are released to rearrange freely"
+      }
+     ],
+     "parts": [
+      {
+       "words": "order, maybe",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -310,42 +279,31 @@
    },
    "solution": "MOONBOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOONBOW",
     "definitions": [
      {
       "text": "1am light show?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "atop",
-      "for": "charade",
-      "note": "in a down entry, the first piece sits on top of the second"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flash",
-      "gives": "MOON",
-      "note": "to moon is to flash one's bare bottom"
-     },
-     {
-      "clueFragment": "front of liner",
-      "gives": "BOW",
-      "note": "the bow is the front of a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOON",
-      "BOW"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "atop",
+       "note": "in a down entry, the first piece sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flash",
+       "gives": "MOON",
+       "note": "to moon is to flash one's bare bottom"
+      },
+      {
+       "words": "front of liner",
+       "gives": "BOW",
+       "note": "the bow is the front of a ship"
+      }
      ]
     },
     "explanation": {
@@ -375,41 +333,41 @@
    },
    "solution": "RAFTING",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "RAFTING",
     "definitions": [
      {
       "text": "messing about on river?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Start",
-      "note": "the first letter of the word is the one affected"
-     },
-     {
-      "text": "late",
-      "note": "late means dead, gone: the start is removed"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "working",
-      "gives": "RAFTING",
-      "select": "first",
-      "note": "grafting is British slang for working hard; its first letter is 'late', gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAFTING"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RAFTING",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "RAFTING",
+       "indicators": [
+        {
+         "text": "Start",
+         "note": "the first letter of the word is the one affected"
+        },
+        {
+         "text": "late",
+         "note": "late means dead, gone: the start is removed"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "working",
+         "gives": "RAFTING",
+         "select": "first",
+         "note": "grafting is British slang for working hard; its first letter is 'late', gone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -438,32 +396,25 @@
    },
    "solution": "BEARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEARD",
     "definitions": [
      {
       "text": "Vandyke?",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Beastly type",
-      "gives": "BEAR",
-      "note": "a bear is a type of beast"
-     },
-     {
-      "clueFragment": "Dutch",
-      "gives": "D",
-      "note": "D = Dutch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEAR",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beastly type",
+       "gives": "BEAR",
+       "note": "a bear is a type of beast"
+      },
+      {
+       "words": "Dutch",
+       "gives": "D",
+       "note": "D = Dutch"
+      }
      ]
     },
     "explanation": {
@@ -493,51 +444,45 @@
    },
    "solution": "ARGENTINA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ARGENTINA",
     "definitions": [
      {
       "text": "state",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "to stop",
-      "for": "container",
-      "note": "the king plugs, or stops, a gap in the intermediary"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "intermediary",
-      "gives": "AGENT",
-      "note": "an agent acts between two parties"
-     },
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R = rex, king"
-     },
-     {
-      "clueFragment": "visiting",
-      "gives": "IN",
-      "note": "in = at home, visiting"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARGENT",
-      "IN",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to stop",
+         "note": "the king plugs, or stops, a gap in the intermediary"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intermediary",
+         "gives": "AGENT",
+         "note": "an agent acts between two parties"
+        },
+        {
+         "words": "King",
+         "gives": "R",
+         "note": "R = rex, king"
+        }
+       ]
+      },
+      {
+       "words": "visiting",
+       "gives": "IN",
+       "note": "in = at home, visiting"
+      },
+      {
+       "words": "a",
+       "note": "as printed"
+      }
      ]
     },
     "explanation": {
@@ -566,51 +511,48 @@
    },
    "solution": "DIRE",
    "annotation": {
-    "type": [
-     "substitution",
-     "letter_selection"
-    ],
-    "answer": "DIRE",
     "definitions": [
      {
       "text": "Awful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making",
-      "for": "letter_selection",
-      "note": "the son is made into the other letter"
-     },
-     {
-      "text": "start to",
-      "for": "substitution",
-      "note": "only the first letter of 'despair' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "father",
-      "gives": "SIRE",
-      "note": "a sire is a father"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "select": "first",
-      "note": "S = son, the letter swapped out"
-     },
-     {
-      "clueFragment": "start to despair",
-      "gives": "D",
-      "note": "first letter of DESPAIR, swapped in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IRE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "DIRE",
+     "indicators": [
+      {
+       "text": "start to",
+       "note": "only the first letter of 'despair' is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "father",
+       "gives": "SIRE",
+       "note": "a sire is a father"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "making",
+         "note": "the son is made into the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "son",
+         "note": "S = son, the letter swapped out"
+        }
+       ]
+      },
+      {
+       "words": "start to despair",
+       "gives": "D",
+       "note": "first letter of DESPAIR, swapped in"
+      }
      ]
     },
     "explanation": {
@@ -638,26 +580,25 @@
    },
    "solution": "ACHILLES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ACHILLES",
     "definitions": [
      {
       "text": "World-class fighter who wasn't well-heeled?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "World-class fighter",
-      "note": "reads as a champion boxer, but means the greatest warrior of the ancient world"
-     },
-     {
-      "clueFragment": "who wasn't well-heeled?",
-      "note": "reads as 'who wasn't rich', but literally means his heel was not sound: it was his one vulnerable spot"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "World-class fighter",
+       "note": "reads as a champion boxer, but means the greatest warrior of the ancient world"
+      },
+      {
+       "words": "who wasn't well-heeled?",
+       "note": "reads as 'who wasn't rich', but literally means his heel was not sound: it was his one vulnerable spot"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A top boxer who grew up poor.",
      "walkthrough": "'Well-heeled' means rich, but read literally it means sound in the heel; Achilles, the greatest Greek warrior at Troy, died from an arrow in his heel.",
@@ -691,38 +632,24 @@
    },
    "solution": "SWITCHOFF",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SWITCH OFF",
     "definitions": [
      {
       "text": "to go to sleep",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "To change",
-      "for": "anagram",
-      "note": "the letters of 'cot whiffs' are to change places"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cot whiffs",
-      "gives": "COTWHIFFS",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COTWHIFFS",
-       "gives": "SWITCHOFF"
+       "text": "To change",
+       "note": "the letters of 'cot whiffs' are to change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cot whiffs",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -753,46 +680,41 @@
    },
    "solution": "ANGER",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "ANGER",
     "definitions": [
      {
       "text": "Wind up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "note": "the town is missing, lacking, the letter named, so it is dropped"
-     },
-     {
-      "text": "last of",
-      "note": "only the final letter of 'stops' is involved"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French town",
-      "gives": "ANGERS",
-      "note": "a town on the Loire in western France, famous for its castle"
-     },
-     {
-      "clueFragment": "last of stops",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of 'stops', which goes missing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANGER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "note": "the town is missing, lacking, the letter named, so it is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French town",
+       "gives": "ANGERS",
+       "note": "a town on the Loire in western France, famous for its castle"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "only the final letter of 'stops' is involved"
+        }
+       ],
+       "parts": [
+        {
+         "words": "last of stops",
+         "note": "the final letter of 'stops', which goes missing"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -821,44 +743,36 @@
    },
    "solution": "MESSI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MESSI",
     "definitions": [
      {
       "text": "Famous player",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close, or end, of 'Dubai'"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eatery",
-      "gives": "MESS",
-      "note": "the dining hall of a military unit"
-     },
-     {
-      "clueFragment": "close to Dubai",
-      "gives": "I",
-      "select": "last",
-      "note": "last letter of DUBAI"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MESS",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "eatery",
+       "gives": "MESS",
+       "note": "the dining hall of a military unit"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close, or end, of 'Dubai'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to Dubai",
+         "gives": "DUBAI",
+         "note": "last letter of DUBAI"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -887,45 +801,41 @@
    },
    "solution": "BLINDING",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BLINDING",
     "definitions": [
      {
       "text": "Brilliant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "saves",
-      "note": "the bandaging keeps the letter safe inside it"
-     },
-     {
-      "text": "at front",
-      "note": "only the front letter of 'lancer' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bandaging",
-      "gives": "BINDING",
-      "note": "binding a wound is bandaging it"
-     },
-     {
-      "clueFragment": "lancer at front",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of LANCER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "INDING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "saves",
+       "note": "the bandaging keeps the letter safe inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bandaging",
+       "gives": "BINDING",
+       "note": "binding a wound is bandaging it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at front",
+         "note": "only the front letter of 'lancer' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lancer at front",
+         "note": "first letter of LANCER"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -960,41 +870,30 @@
    },
    "solution": "TAKEFLIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAKE FLIGHT",
     "definitions": [
      {
       "text": "head for the hills",
       "at": 20
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steal",
-      "gives": "TAKE",
-      "note": "to take is to steal"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F = fine, on pencils"
-     },
-     {
-      "clueFragment": "lamp",
-      "gives": "LIGHT",
-      "note": "a lamp is a light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAKE",
-      "F",
-      "LIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Steal",
+       "gives": "TAKE",
+       "note": "to take is to steal"
+      },
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F = fine, on pencils"
+      },
+      {
+       "words": "lamp",
+       "gives": "LIGHT",
+       "note": "a lamp is a light"
+      }
      ]
     },
     "explanation": {
@@ -1023,43 +922,31 @@
    },
    "solution": "SHALLOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHALLOW",
     "definitions": [
      {
       "text": "superficial",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "everyone goes inside the show"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "say, Love Island",
-      "gives": "SHOW",
-      "note": "Love Island is an example of a TV show"
-     },
-     {
-      "clueFragment": "Everyone",
-      "gives": "ALL",
-      "note": "all = everyone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "ALL",
-      "OW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "everyone goes inside the show"
+      }
+     ],
+     "parts": [
+      {
+       "words": "say, Love Island",
+       "gives": "SHOW",
+       "note": "Love Island is an example of a TV show"
+      },
+      {
+       "words": "Everyone",
+       "gives": "ALL",
+       "note": "all = everyone"
+      }
      ]
     },
     "explanation": {
@@ -1094,54 +981,45 @@
    },
    "solution": "ALPHAMALE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ALPHA MALE",
     "definitions": [
      {
       "text": "leading man",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "put in",
-      "for": "container",
-      "note": "the actor is put inside the post"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L = line"
-     },
-     {
-      "clueFragment": "post",
-      "gives": "PALE",
-      "note": "a pale is a fence post or stake"
-     },
-     {
-      "clueFragment": "actor",
-      "gives": "HAM",
-      "note": "a ham is an overacting actor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "PHAMALE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "note": "the actor is put inside the post"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "as printed"
+        },
+        {
+         "words": "line",
+         "gives": "L",
+         "note": "L = line"
+        },
+        {
+         "words": "post",
+         "gives": "PALE",
+         "note": "a pale is a fence post or stake"
+        }
+       ]
+      },
+      {
+       "words": "actor",
+       "gives": "HAM",
+       "note": "a ham is an overacting actor"
+      }
      ]
     },
     "explanation": {
@@ -1170,45 +1048,40 @@
    },
    "solution": "GRANITA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GRANITA",
     "definitions": [
      {
       "text": "refreshment",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "opens",
-      "for": "container",
-      "note": "the one goes into the middle of the present, opening it up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "present",
-      "gives": "GRANT",
-      "note": "a grant is a gift"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRANIT",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "opens",
+         "note": "the one goes into the middle of the present, opening it up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "present",
+         "gives": "GRANT",
+         "note": "a grant is a gift"
+        },
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I = one"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "as printed"
+      }
      ]
     },
     "explanation": {
@@ -1237,35 +1110,24 @@
    },
    "solution": "ANTEATER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANTEATER",
     "definitions": [
      {
       "text": "killer of soldiers?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Wildly",
-      "for": "anagram",
-      "note": "the letters are rearranged wildly"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entreat a",
-      "gives": "ENTREATA",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENTREATA",
-       "gives": "ANTEATER"
+       "text": "Wildly",
+       "note": "the letters are rearranged wildly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "entreat a",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1296,47 +1158,41 @@
    },
    "solution": "EXPOSED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EXPOSED",
     "definitions": [
      {
       "text": "on show",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "foremost of",
-      "for": "letter_selection",
-      "note": "only the first letter of 'dancers'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "EX",
-      "note": "ex = former, old"
-     },
-     {
-      "clueFragment": "act",
-      "gives": "POSE",
-      "note": "to pose is to put on an act"
-     },
-     {
-      "clueFragment": "foremost of dancers",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of DANCERS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "POSE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "EX",
+       "note": "ex = former, old"
+      },
+      {
+       "words": "act",
+       "gives": "POSE",
+       "note": "to pose is to put on an act"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost of",
+         "note": "only the first letter of 'dancers'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foremost of dancers",
+         "gives": "DANCERS",
+         "note": "first letter of DANCERS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1365,55 +1221,56 @@
    },
    "solution": "DELILAH",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DELILAH",
     "definitions": [
      {
       "text": "Biblical figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "note": "a revolution is a turn, so the greeting is turned round"
-     },
-     {
-      "text": "without",
-      "note": "in its old sense of outside: the reversed word goes round the letter"
-     },
-     {
-      "text": "ultimately",
-      "note": "the last letter of 'zeal'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "greeted",
-      "gives": "HAILED",
-      "note": "hailed = greeted"
-     },
-     {
-      "clueFragment": "zeal ultimately",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of ZEAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELI",
-      "L",
-      "AH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HAILED",
-       "to": "DELIAH"
+       "text": "revolutionary",
+       "note": "a revolution is a turn, so the greeting is turned round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "in its old sense of outside: the reversed word goes round the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "greeted",
+         "gives": "HAILED",
+         "note": "hailed = greeted"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "L",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "the last letter of 'zeal'"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "zeal ultimately",
+           "gives": "L",
+           "select": "last",
+           "note": "last letter of ZEAL"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1443,49 +1300,43 @@
    },
    "solution": "ACTUATE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ACTUATE",
     "definitions": [
      {
       "text": "trip",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the husband leaves the word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do",
-      "gives": "ACT",
-      "note": "to do is to act"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "u = you, text speak"
-     },
-     {
-      "clueFragment": "despise leaving husband",
-      "gives": "ATE",
-      "note": "HATE without H, husband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACT",
-      "U",
-      "ATE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ACTUATE",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the husband leaves the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Do",
+         "gives": "ACT",
+         "note": "to do is to act"
+        },
+        {
+         "words": "you",
+         "gives": "U",
+         "note": "u = you, text speak"
+        },
+        {
+         "words": "despise leaving husband",
+         "gives": "ATE",
+         "note": "HATE without H, husband"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1514,34 +1365,29 @@
    },
    "solution": "ATTEMPT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ATTEMPT",
     "definitions": [
      {
       "text": "trial",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in hearing",
-      "for": "homophone",
-      "note": "what is heard, not what is written"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One did agency work",
-      "gives": "ATTEMPT",
-      "soundsLike": "A TEMPED",
-      "note": "one (a) temped, worked through an agency"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ATTEMPT",
+     "indicators": [
+      {
+       "text": "in hearing",
+       "note": "what is heard, not what is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One did agency work",
+       "gives": "ATEMPED",
+       "note": "one (a) temped, worked through an agency"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An agency worker took part in a court hearing ahead of a trial.",
      "walkthrough": "Hearing and trial sound like a courtroom; to temp is to do agency office work.",
@@ -1569,38 +1415,30 @@
    },
    "solution": "GAUNTLET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GAUNTLET",
     "definitions": [
      {
       "text": "one to take knight's hand",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G = good"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "AUNT",
-      "note": "an aunt is a relative"
-     },
-     {
-      "clueFragment": "allowed",
-      "gives": "LET",
-      "note": "let = allowed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AUNT",
-      "LET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "gives": "G",
+       "note": "G = good"
+      },
+      {
+       "words": "relative",
+       "gives": "AUNT",
+       "note": "an aunt is a relative"
+      },
+      {
+       "words": "allowed",
+       "gives": "LET",
+       "note": "let = allowed"
+      }
      ]
     },
     "explanation": {
@@ -1630,45 +1468,36 @@
    },
    "solution": "NEHRU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEHRU",
     "definitions": [
      {
       "text": "Statesman",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "is overlooked by",
-      "for": "charade",
-      "note": "in a down entry, the new letter sits on top of, overlooking, the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "What",
-      "gives": "EH",
-      "note": "eh? = what?"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "RU",
-      "note": "RU = rugby union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EH",
-      "RU"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "is overlooked by",
+       "note": "in a down entry, the new letter sits on top of, overlooking, the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N = new"
+      },
+      {
+       "words": "What",
+       "gives": "EH",
+       "note": "eh? = what?"
+      },
+      {
+       "words": "game",
+       "gives": "RU",
+       "note": "RU = rugby union"
+      }
      ]
     },
     "explanation": {
@@ -1697,55 +1526,51 @@
    },
    "solution": "ANGEL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "ANGEL",
     "definitions": [
      {
       "text": "White knight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "the final letter of 'pawn'"
-     },
-     {
-      "text": "put in",
-      "for": "letter_selection",
-      "note": "the letter is put inside the rest"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "select": "last",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "pawn finally",
-      "gives": "N",
-      "note": "last letter of PAWN"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "GEL",
-      "note": "to gel is to set, like jelly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "GEL"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ANGEL",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "the final letter of 'pawn'"
+          },
+          {
+           "text": "put in",
+           "note": "the letter is put inside the rest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "a",
+           "note": "as printed"
+          }
+         ]
+        },
+        {
+         "words": "pawn finally",
+         "gives": "N",
+         "note": "last letter of PAWN"
+        },
+        {
+         "words": "set",
+         "gives": "GEL",
+         "note": "to gel is to set, like jelly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1774,45 +1599,35 @@
    },
    "solution": "GRILL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GRILL",
     "definitions": [
      {
       "text": "Cook",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to take",
-      "for": "container",
-      "note": "one piece takes the other inside it"
-     },
-     {
-      "text": "Au contraire!",
-      "for": "container",
-      "note": "French for 'on the contrary': swap roles, so the breather takes the right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "breather",
-      "gives": "GILL",
-      "note": "a fish breathes through its gills"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "R",
-      "ILL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take",
+       "note": "one piece takes the other inside it"
+      },
+      {
+       "text": "Au contraire!",
+       "note": "French for 'on the contrary': swap roles, so the breather takes the right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "breather",
+       "gives": "GILL",
+       "note": "a fish breathes through its gills"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R = right"
+      }
      ]
     },
     "explanation": {
@@ -1841,33 +1656,16 @@
    },
    "solution": "CLOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLOT",
     "definitions": [
      {
       "text": "Lump",
-      "at": 0
+      "at": 0,
+      "meaning": "a thickened mass, as of blood or cream"
      },
      {
       "text": "dope",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lump",
-      "gives": "CLOT",
-      "note": "a thickened mass, as of blood or cream"
-     },
-     {
-      "clueFragment": "dope",
-      "gives": "CLOT",
-      "note": "mild British slang for a fool"
+      "at": 8,
+      "meaning": "mild British slang for a fool"
      }
     ],
     "explanation": {
@@ -1897,30 +1695,28 @@
    },
    "solution": "LEASH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEASH",
     "definitions": [
      {
       "text": "neckline, might I say",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Not all",
-      "for": "hidden_word",
-      "note": "only part of the phrase is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ridicule a showy",
-      "gives": "LEASH",
-      "note": "ridicuLE A SHowy"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Not all",
+       "note": "only part of the phrase is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ridicule a showy",
+       "gives": "LEASH",
+       "note": "ridicuLE A SHowy"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fashion comment that a flashy neckline shouldn't be mocked by everyone.",
      "walkthrough": "'Neckline' reads as the cut of a dress; 'might I say' flags a whimsical definition.",
@@ -1948,46 +1744,46 @@
    },
    "solution": "LUMBERING",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "LUMBERING",
     "definitions": [
      {
       "text": "ponderous",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "note": "in its plain sense of lacking: the letter is taken away"
-     },
-     {
-      "text": "ultimately",
-      "note": "the last letter of 'dreams'"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sleeping",
-      "gives": "SLUMBERING",
-      "note": "slumbering = sleeping"
-     },
-     {
-      "clueFragment": "dreams ultimately",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of DREAMS, the one removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUMBERING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "in its plain sense of lacking: the letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sleeping",
+       "gives": "SLUMBERING",
+       "note": "slumbering = sleeping"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "S",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "the last letter of 'dreams'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "dreams ultimately",
+         "gives": "S",
+         "select": "last",
+         "note": "last letter of DREAMS, the one removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2015,35 +1811,25 @@
    },
    "solution": "TREBUCHETS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TREBUCHETS",
     "definitions": [
      {
       "text": "They send up the Stones",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "the letters play about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set and butcher",
-      "gives": "SETBUTCHER",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SETBUTCHER",
-       "gives": "TREBUCHETS"
+       "text": "playing",
+       "note": "the letters play about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set and butcher",
+       "gives": "SETBUTCHER",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -2074,40 +1860,31 @@
    },
    "solution": "FLAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FLAT",
     "definitions": [
      {
       "text": "Depressed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gaining",
-      "for": "container",
-      "note": "the word gains a letter inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "needing to shed pounds?",
-      "gives": "FAT",
-      "note": "someone who needs to lose pounds is fat"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "L",
-      "note": "L = pound, from libra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "L",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gaining",
+       "note": "the word gains a letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "needing to shed pounds?",
+       "gives": "FAT",
+       "note": "someone who needs to lose pounds is fat"
+      },
+      {
+       "words": "pound",
+       "gives": "L",
+       "note": "L = pound, from libra"
+      }
      ]
     },
     "explanation": {

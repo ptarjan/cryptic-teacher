@@ -1,8 +1,6 @@
 {
  "id": "times-29518",
  "number": 29518,
- "series": "times",
- "name": "Times cryptic crossword No 29,518",
  "date": "2026-04-16",
  "dimensions": {
   "cols": 15,
@@ -41,56 +39,45 @@
    },
    "solution": "UMBRELLA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "UMBRELLA",
     "definitions": [
      {
       "text": "Protective cover",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "penned by",
-      "for": "container",
-      "note": "something penned is shut inside a pen"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "Mr",
-      "gives": "MR",
-      "note": "taken as printed"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "B",
-      "note": "standard abbreviation, held between M and R"
-     },
-     {
-      "clueFragment": "Fitzgerald?",
-      "gives": "ELLA",
-      "note": "Ella Fitzgerald, the jazz singer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "M",
-      "B",
-      "R",
-      "ELLA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "note": "something penned is shut inside a pen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mr",
+         "note": "taken as printed"
+        },
+        {
+         "words": "book",
+         "gives": "B",
+         "note": "standard abbreviation, held between M and R"
+        }
+       ]
+      },
+      {
+       "words": "Fitzgerald?",
+       "gives": "ELLA",
+       "note": "Ella Fitzgerald, the jazz singer"
+      }
      ]
     },
     "explanation": {
@@ -120,32 +107,25 @@
    },
    "solution": "UNDIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNDIES",
     "definitions": [
      {
       "text": "lingerie",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In France, one",
-      "gives": "UN",
-      "note": "French for one"
-     },
-     {
-      "clueFragment": "pegs out",
-      "gives": "DIES",
-      "note": "to peg out is slang for to die"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "DIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In France, one",
+       "gives": "UN",
+       "note": "French for one"
+      },
+      {
+       "words": "pegs out",
+       "gives": "DIES",
+       "note": "to peg out is slang for to die"
+      }
      ]
     },
     "explanation": {
@@ -175,52 +155,55 @@
    },
    "solution": "BANDIT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BANDIT",
     "definitions": [
      {
       "text": "Criminal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overcome by",
-      "for": "container"
-     },
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "takes only the opening letter of nab"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "temptation",
-      "gives": "BAIT",
-      "note": "a lure"
-     },
-     {
-      "clueFragment": "first to nab",
-      "gives": "N",
-      "select": "first",
-      "note": "opening letter of nab"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "card-suit abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "N",
-      "D",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overcome by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "temptation",
+         "gives": "BAIT",
+         "note": "a lure"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "N",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "takes only the opening letter of nab"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "first to nab",
+           "gives": "N",
+           "select": "first",
+           "note": "opening letter of nab"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "diamonds",
+       "gives": "D",
+       "note": "card-suit abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -249,35 +232,24 @@
    },
    "solution": "ENDEAVOUR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENDEAVOUR",
     "definitions": [
      {
       "text": "attempt",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Botch",
-      "for": "anagram",
-      "note": "to botch is to mess something up, so the letters come out wrong"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an overdue",
-      "gives": "ANOVERDUE",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AN OVERDUE",
-       "gives": "ENDEAVOUR"
+       "text": "Botch",
+       "note": "to botch is to mess something up, so the letters come out wrong"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an overdue",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },
@@ -313,73 +285,77 @@
    },
    "solution": "LONGDIVISION",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LONG DIVISION",
     "definitions": [
      {
       "text": "way to solve it",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "Entering"
-     },
-     {
-      "text": "into",
-      "note": "in its placing sense, putting one thing inside another"
-     },
-     {
-      "text": "grasps",
-      "note": "to grasp is to hold in the hand"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "put down",
-      "gives": "LOG",
-      "note": "to log is to record, put down in writing"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "standard abbreviation, inside LOG"
-     },
-     {
-      "clueFragment": "501",
-      "gives": "DI",
-      "note": "Roman numerals, D = 500 and I = 1"
-     },
-     {
-      "clueFragment": "4",
-      "gives": "IV",
-      "note": "Roman numeral, inside DI"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "SON",
-      "note": "a male child"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral, inside SON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "N",
-      "G",
-      "D",
-      "IV",
-      "I",
-      "S",
-      "I",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Entering"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "note": "in its placing sense, putting one thing inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put down",
+         "gives": "LOG",
+         "note": "to log is to record, put down in writing"
+        },
+        {
+         "words": "name",
+         "gives": "N",
+         "note": "standard abbreviation, inside LOG"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grasps",
+         "note": "to grasp is to hold in the hand"
+        }
+       ],
+       "parts": [
+        {
+         "words": "501",
+         "gives": "DI",
+         "note": "Roman numerals, D = 500 and I = 1"
+        },
+        {
+         "words": "4",
+         "gives": "IV",
+         "note": "Roman numeral, inside DI"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "boy",
+         "gives": "SON",
+         "note": "a male child"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral, inside SON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -409,45 +385,53 @@
    },
    "solution": "STRICT",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STRICT",
     "definitions": [
      {
       "text": "Tough",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with clipped wings",
-      "note": "a bird's wings are its sides, so both end letters are cut"
-     },
-     {
-      "text": "back from",
-      "note": "takes the rear letter of vet"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird with clipped wings",
-      "gives": "STRIC",
-      "note": "OSTRICH without its first and last letters"
-     },
-     {
-      "clueFragment": "back from vet",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of vet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRIC",
-      "T"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STRICT",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with clipped wings",
+         "note": "a bird's wings are its sides, so both end letters are cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird with clipped wings",
+         "gives": "STRIC",
+         "note": "OSTRICH without its first and last letters"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "T",
+         "indicators": [
+          {
+           "text": "back from",
+           "note": "takes the rear letter of vet"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "back from vet",
+           "gives": "T",
+           "select": "last",
+           "note": "last letter of vet"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -477,53 +461,48 @@
    },
    "solution": "THIEF",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "THIEF",
     "definitions": [
      {
       "text": "one rustles",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "bags",
-      "for": "letter_selection",
-      "note": "to bag is to capture, so THE holds I"
-     },
-     {
-      "text": "to open",
-      "for": "letter_selection",
-      "note": "takes the opening letter of failed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The",
-      "gives": "THE",
-      "note": "taken as printed"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "select": "first",
-      "note": "taken as printed, inside THE"
-     },
-     {
-      "clueFragment": "failed to open",
-      "gives": "F",
-      "note": "opening letter of failed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "I",
-      "E",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "The",
+         "note": "taken as printed"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bags",
+           "note": "to bag is to capture, so THE holds I"
+          },
+          {
+           "text": "to open",
+           "note": "takes the opening letter of failed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "I",
+           "note": "taken as printed, inside THE"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "failed to open",
+       "gives": "F",
+       "note": "opening letter of failed"
+      }
      ]
     },
     "explanation": {
@@ -553,41 +532,30 @@
    },
    "solution": "ISOLATED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ISOLATED",
     "definitions": [
      {
       "text": "Removed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "papers",
-      "gives": "ID",
-      "note": "identity papers"
-     },
-     {
-      "clueFragment": "notes in order",
-      "gives": "SOLATE",
-      "note": "sol-fa notes so, la, te, which follow one another up the scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "SO",
-      "LA",
-      "TE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping"
+      }
+     ],
+     "parts": [
+      {
+       "words": "papers",
+       "gives": "ID",
+       "note": "identity papers"
+      },
+      {
+       "words": "notes in order",
+       "gives": "SOLATE",
+       "note": "sol-fa notes so, la, te, which follow one another up the scale"
+      }
      ]
     },
     "explanation": {
@@ -616,64 +584,59 @@
    },
    "solution": "TRAVESTY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TRAVESTY",
     "definitions": [
      {
       "text": "caricature",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "Picked up",
-      "for": "reversal"
-     },
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "to capture is to take prisoner"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Picked up skill",
-      "gives": "TRA",
-      "note": "ART read upwards"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "pen",
-      "gives": "STY",
-      "note": "a pen for pigs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRA",
-      "V",
-      "E",
-      "STY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "TRAVESTY",
+     "indicators": [
       {
-       "from": "ART",
-       "to": "TRA"
+       "text": "capturing",
+       "note": "to capture is to take prisoner"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "TRAVESTY",
+       "indicators": [
+        {
+         "text": "Picked up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Picked up skill",
+           "gives": "TRA",
+           "note": "ART read upwards"
+          },
+          {
+           "words": "very",
+           "gives": "V",
+           "note": "standard abbreviation"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "standard abbreviation"
+          },
+          {
+           "words": "pen",
+           "gives": "STY",
+           "note": "a pen for pigs"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -709,62 +672,71 @@
    },
    "solution": "DINGDONG",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DING-DONG",
     "definitions": [
      {
       "text": "tussle",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "cuddling",
-      "note": "to cuddle is to wrap your arms round"
-     },
-     {
-      "text": "involves",
-      "for": "letter_selection"
-     },
-     {
-      "text": "mid-",
-      "note": "takes the central letter of morning"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Appreciate",
-      "gives": "DIG",
-      "note": "slang: I dig it, I appreciate it"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "standard abbreviation, inside DIG"
-     },
-     {
-      "clueFragment": "puppy",
-      "gives": "DOG",
-      "note": "a puppy is a young dog"
-     },
-     {
-      "clueFragment": "mid-morning",
-      "gives": "N",
-      "select": "middle",
-      "note": "the middle letter of morning, inside DOG"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "N",
-      "G",
-      "DO",
-      "N",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "cuddling",
+       "note": "to cuddle is to wrap your arms round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "mid-",
+         "note": "takes the central letter of morning"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Appreciate",
+         "gives": "DIG",
+         "note": "slang: I dig it, I appreciate it"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "standard abbreviation, inside DIG"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "puppy",
+         "gives": "DOG",
+         "note": "a puppy is a young dog"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "N",
+         "indicators": [
+          {
+           "text": "involves"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "mid-morning",
+           "gives": "N",
+           "select": "middle",
+           "note": "the middle letter of morning, inside DOG"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -793,47 +765,39 @@
    },
    "solution": "MIMOSA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MIMOSA",
     "definitions": [
      {
       "text": "cocktail",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "to get hammered"
-     },
-     {
-      "text": "gulping"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aims",
-      "gives": "MISA",
-      "note": "anagram fodder, rearranged"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "MO",
-      "note": "a mo is a moment, inside MI SA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MI",
-      "MO",
-      "SA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MIMOSA",
+     "parts": [
       {
-       "fodder": "AIMS",
-       "gives": "MISA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to get hammered"
+        },
+        {
+         "text": "gulping"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aims",
+         "gives": "MISA",
+         "note": "anagram fodder, rearranged"
+        },
+        {
+         "words": "second",
+         "gives": "MO",
+         "note": "a mo is a moment, inside MI SA"
+        }
+       ]
       }
      ]
     },
@@ -874,59 +838,51 @@
    },
    "solution": "COPYANDPASTE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "COPY-AND-PASTE",
     "definitions": [
      {
       "text": "publishing operation?",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "takes the closing letter of Kennedy"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bobby",
-      "gives": "COP",
-      "note": "a bobby is a British policeman"
-     },
-     {
-      "clueFragment": "Kennedy's final",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of Kennedy"
-     },
-     {
-      "clueFragment": "meeting with",
-      "gives": "AND",
-      "note": "together with"
-     },
-     {
-      "clueFragment": "former",
-      "gives": "PAST",
-      "note": "earlier, bygone"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COP",
-      "Y",
-      "AND",
-      "PAST",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bobby",
+       "gives": "COP",
+       "note": "a bobby is a British policeman"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final",
+         "note": "takes the closing letter of Kennedy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kennedy's final",
+         "gives": "KENNEDY",
+         "note": "last letter of Kennedy"
+        }
+       ]
+      },
+      {
+       "words": "meeting with",
+       "gives": "AND",
+       "note": "together with"
+      },
+      {
+       "words": "former",
+       "gives": "PAST",
+       "note": "earlier, bygone"
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -956,57 +912,49 @@
    },
    "solution": "ERICA",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "charade"
-    ],
-    "answer": "ERICA",
     "definitions": [
      {
       "text": "plant",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "brought about"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "physics symbol"
-     },
-     {
-      "clueFragment": "atmosphere",
-      "gives": "AIR",
-      "note": "the air around us"
-     },
-     {
-      "clueFragment": "Carbon",
-      "gives": "C",
-      "note": "chemical symbol, placed inside AIR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "RI",
-      "C",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AICR",
-       "to": "RCIA"
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "physics symbol"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "atmosphere",
+           "gives": "AIR",
+           "note": "the air around us"
+          },
+          {
+           "words": "Carbon",
+           "gives": "C",
+           "note": "chemical symbol, placed inside AIR"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1037,26 +985,25 @@
    },
    "solution": "DOORFRAME",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DOOR FRAME",
     "definitions": [
      {
       "text": "Support for opener that takes catch?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Support for opener",
-      "note": "the surface reads a cricket opener, the first batsman; the setter means a door, and the frame holds it up"
-     },
-     {
-      "clueFragment": "that takes catch?",
-      "note": "a catch dismisses a batsman; here it is the door's latch, which the frame receives"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Support for opener",
+       "note": "the surface reads a cricket opener, the first batsman; the setter means a door, and the frame holds it up"
+      },
+      {
+       "words": "that takes catch?",
+       "note": "a catch dismisses a batsman; here it is the door's latch, which the frame receives"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cricket question: what backs up the opening batsman who gets caught?",
      "walkthrough": "In cricket the opener is the first batsman and a catch gets him out; read domestically, every word describes a door frame instead.",
@@ -1090,26 +1037,25 @@
    },
    "solution": "CONVEYORBELT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CONVEYOR BELT",
     "definitions": [
      {
       "text": "Repetitive band churning out the same material?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Repetitive band",
-      "note": "the surface reads a pop group stuck in a rut; the setter means a band of rubber going round and round"
-     },
-     {
-      "clueFragment": "churning out the same material?",
-      "note": "not identical songs but identical products carried off a production line"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Repetitive band",
+       "note": "the surface reads a pop group stuck in a rut; the setter means a band of rubber going round and round"
+      },
+      {
+       "words": "churning out the same material?",
+       "note": "not identical songs but identical products carried off a production line"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dull pop group that keeps releasing identical songs.",
      "walkthrough": "'Band' and 'material' suggest musicians and their songs; both words have factory senses that fit the answer exactly.",
@@ -1143,62 +1089,56 @@
    },
    "solution": "RELIEFMAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "RELIEF MAP",
     "definitions": [
      {
       "text": "Mountain guide",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conclusion of",
-      "for": "letter_selection",
-      "note": "takes the closing letter of film"
-     },
-     {
-      "text": "round",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tale",
-      "gives": "LIE",
-      "note": "a false story"
-     },
-     {
-      "clueFragment": "following",
-      "gives": "F",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "conclusion of film",
-      "gives": "M",
-      "select": "last",
-      "note": "last letter of film"
-     },
-     {
-      "clueFragment": "gather",
-      "gives": "REAP",
-      "note": "to harvest, placed around LIE F M"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIE",
-      "F",
-      "M",
-      "AP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gather",
+       "gives": "REAP",
+       "note": "to harvest, placed around LIE F M"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "tale",
+         "gives": "LIE",
+         "note": "a false story"
+        },
+        {
+         "words": "following",
+         "gives": "F",
+         "note": "standard abbreviation"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusion of",
+           "note": "takes the closing letter of film"
+          }
+         ],
+         "parts": [
+          {
+           "words": "conclusion of film",
+           "gives": "FILM",
+           "note": "last letter of film"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1233,51 +1173,42 @@
    },
    "solution": "PSYCHOUT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PSYCH OUT",
     "definitions": [
      {
       "text": "Mentally unsettle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "treacherous",
-      "for": "anagram",
-      "note": "treacherous things are not what they seem, so the letters of spy turn"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "treacherous spy",
-      "gives": "PSY",
-      "note": "SPY rearranged"
-     },
-     {
-      "clueFragment": "chief",
-      "gives": "CH",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "exposed",
-      "gives": "OUT",
-      "note": "revealed, as in the secret is out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PSY",
-      "CH",
-      "OUT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PSYCHOUT",
+     "indicators": [
       {
-       "fodder": "SPY",
-       "gives": "PSY"
+       "text": "treacherous",
+       "note": "treacherous things are not what they seem, so the letters of spy turn"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "treacherous spy",
+         "gives": "PSY",
+         "note": "SPY rearranged"
+        },
+        {
+         "words": "chief",
+         "gives": "CH",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "exposed",
+         "gives": "OUT",
+         "note": "revealed, as in the secret is out"
+        }
+       ]
       }
      ]
     },
@@ -1307,49 +1238,46 @@
    },
    "solution": "ARMCHAIR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ARMCHAIR",
     "definitions": [
      {
       "text": "rest facility",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "grabbing"
-     },
-     {
-      "text": "behind",
-      "note": "in its sense of coming after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arrives",
-      "gives": "ARR",
-      "note": "timetable abbreviation for arrives"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "M",
-      "note": "British motorways are numbered M1, M25"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "CHAI",
-      "note": "spiced tea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "M",
-      "CHAI",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arrives",
+       "gives": "ARR",
+       "note": "timetable abbreviation for arrives"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "behind",
+         "note": "in its sense of coming after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motorway",
+         "gives": "M",
+         "note": "British motorways are numbered M1, M25"
+        },
+        {
+         "words": "tea",
+         "gives": "CHAI",
+         "note": "spiced tea"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1379,48 +1307,40 @@
    },
    "solution": "SURPRISINGLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SURPRISINGLY",
     "definitions": [
      {
       "text": "Unusually",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "next to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rude",
-      "gives": "SURLY",
-      "note": "bad-tempered, curt"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "road-sign abbreviation"
-     },
-     {
-      "clueFragment": "building",
-      "gives": "RISING",
-      "note": "increasing, as a storm builds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUR",
-      "P",
-      "RISING",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "rude",
+         "gives": "SURLY",
+         "note": "bad-tempered, curt"
+        },
+        {
+         "words": "parking",
+         "gives": "P",
+         "note": "road-sign abbreviation"
+        }
+       ]
+      },
+      {
+       "words": "building",
+       "gives": "RISING",
+       "note": "increasing, as a storm builds"
+      }
      ]
     },
     "explanation": {
@@ -1449,35 +1369,25 @@
    },
    "solution": "BURROW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BURROW",
     "definitions": [
      {
       "text": "Retreat",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rough edge",
-      "gives": "BURR",
-      "note": "a burr is the rough ridge left on cut metal"
-     },
-     {
-      "clueFragment": "that hurts!",
-      "gives": "OW",
-      "note": "a cry of pain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BURR",
-      "OW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rough edge",
+       "gives": "BURR",
+       "note": "a burr is the rough ridge left on cut metal"
+      },
+      {
+       "words": "that hurts!",
+       "gives": "OW",
+       "note": "a cry of pain"
+      }
      ]
     },
     "explanation": {
@@ -1506,56 +1416,51 @@
    },
    "solution": "GEYSER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "container"
-    ],
-    "answer": "GEYSER",
     "definitions": [
      {
       "text": "spring",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "shake-up",
-      "note": "the letters of yes are shaken into a new order"
-     },
-     {
-      "text": "within"
-     },
-     {
-      "text": "leaving",
-      "note": "MANY departs from GERMANY"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "country, many leaving",
-      "gives": "GER",
-      "note": "GERMANY with MANY removed"
-     },
-     {
-      "clueFragment": "Yes, given shake-up",
-      "gives": "EYS",
-      "note": "YES rearranged, placed inside GER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "EYS",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GEYSER",
+     "parts": [
       {
-       "fodder": "YES",
-       "gives": "EYS"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "GEYSER",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "shake-up",
+           "note": "the letters of yes are shaken into a new order"
+          },
+          {
+           "text": "within"
+          },
+          {
+           "text": "leaving",
+           "note": "MANY departs from GERMANY"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country, many leaving",
+           "gives": "GER",
+           "note": "GERMANY with MANY removed"
+          },
+          {
+           "words": "Yes, given shake-up",
+           "gives": "EYS",
+           "note": "YES rearranged, placed inside GER"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1596,11 +1501,6 @@
    },
    "solution": "COCKAHOOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "COCK-A-HOOP",
     "definitions": [
      {
       "text": "Delighted (with)",
@@ -1608,40 +1508,35 @@
       "note": "the bracketed 'with' marks that cock-a-hoop is usually followed by 'with' or 'about'"
      }
     ],
-    "indicators": [
-     {
-      "text": "retires",
-      "for": "reversal",
-      "note": "to retire is to go back, so POOH reads backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrangement of straw",
-      "gives": "COCK",
-      "note": "a cock is a small conical heap of hay or straw"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as printed"
-     },
-     {
-      "clueFragment": "bear retires",
-      "gives": "HOOP",
-      "note": "POOH, the bear, reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCK",
-      "A",
-      "HOOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "COCKAHOOP",
+     "indicators": [
       {
-       "from": "POOH",
-       "to": "HOOP"
+       "text": "retires",
+       "note": "to retire is to go back, so POOH reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "arrangement of straw",
+         "gives": "COCK",
+         "note": "a cock is a small conical heap of hay or straw"
+        },
+        {
+         "words": "a",
+         "note": "taken as printed"
+        },
+        {
+         "words": "bear retires",
+         "gives": "HOOP",
+         "note": "POOH, the bear, reversed"
+        }
+       ]
       }
      ]
     },
@@ -1672,43 +1567,30 @@
    },
    "solution": "ACUTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACUTE",
     "definitions": [
      {
       "text": "crucial",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "to check",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something used in pool",
-      "gives": "ACUE",
-      "note": "a cue, used to strike the balls in pool"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "standard abbreviation, inside A CUE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CU",
-      "T",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to check"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something used in pool",
+       "gives": "ACUE",
+       "note": "a cue, used to strike the balls in pool"
+      },
+      {
+       "words": "temperature",
+       "gives": "T",
+       "note": "standard abbreviation, inside A CUE"
+      }
      ]
     },
     "explanation": {
@@ -1737,38 +1619,25 @@
    },
    "solution": "ETUDE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ETUDE",
     "definitions": [
      {
       "text": "Musical piece",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "takes letters at regular intervals, every second one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "felt subdued",
-      "gives": "ETUDE",
-      "select": "alternate",
-      "note": "fElT sUbDuEd: the even letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "T",
-      "U",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "takes letters at regular intervals, every second one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "felt subdued",
+       "note": "fElT sUbDuEd: the even letters"
+      }
      ]
     },
     "explanation": {
@@ -1797,48 +1666,36 @@
    },
    "solution": "OPAQUE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPAQUE",
     "definitions": [
      {
       "text": "unclear",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "comes after",
-      "for": "charade",
-      "note": "in its sense of following in sequence"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "an opus, a musical work"
-     },
-     {
-      "clueFragment": "Answer",
-      "gives": "A",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "In Spain, what",
-      "gives": "QUE",
-      "note": "Spanish for what"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "A",
-      "QUE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "comes after",
+       "note": "in its sense of following in sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "an opus, a musical work"
+      },
+      {
+       "words": "Answer",
+       "gives": "A",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "In Spain, what",
+       "gives": "QUE",
+       "note": "Spanish for what"
+      }
      ]
     },
     "explanation": {
@@ -1867,32 +1724,25 @@
    },
    "solution": "OSTMARKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSTMARKS",
     "definitions": [
      {
       "text": "no longer minted coins",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "basilica",
-      "gives": "STMARKS",
-      "note": "St Mark's, the great basilica in Venice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "STMARKS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "basilica",
+       "gives": "STMARKS",
+       "note": "St Mark's, the great basilica in Venice"
+      }
      ]
     },
     "explanation": {
@@ -1921,45 +1771,46 @@
    },
    "solution": "TARGET",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TARGET",
     "definitions": [
      {
       "text": "quarry",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "encircles",
-      "note": "to encircle is to form a ring around"
-     },
-     {
-      "text": "boundaries of",
-      "note": "the outside letters of granite"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cutting",
-      "gives": "TART",
-      "note": "sharp, cutting remark"
-     },
-     {
-      "clueFragment": "boundaries of granite",
-      "gives": "GE",
-      "select": "outer",
-      "note": "first and last letters of granite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAR",
-      "GE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encircles",
+       "note": "to encircle is to form a ring around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cutting",
+       "gives": "TART",
+       "note": "sharp, cutting remark"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "GE",
+       "indicators": [
+        {
+         "text": "boundaries of",
+         "note": "the outside letters of granite"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "boundaries of granite",
+         "gives": "GE",
+         "select": "outer",
+         "note": "first and last letters of granite"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1995,54 +1846,54 @@
    },
    "solution": "SEAPOWER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SEA POWER",
     "definitions": [
      {
       "text": "Military might",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding"
-     },
-     {
-      "text": "attached to"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "consider",
-      "gives": "SEE",
-      "note": "as in I'll see about it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as printed, inside SEE"
-     },
-     {
-      "clueFragment": "prisoner",
-      "gives": "POW",
-      "note": "prisoner of war, inside SEE"
-     },
-     {
-      "clueFragment": "Resistance",
-      "gives": "R",
-      "note": "physics symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "A",
-      "POW",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "holding"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "attached to"
+        }
+       ],
+       "parts": [
+        {
+         "words": "consider",
+         "gives": "SEE",
+         "note": "as in I'll see about it"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as printed, inside SEE"
+          },
+          {
+           "words": "prisoner",
+           "gives": "POW",
+           "note": "prisoner of war, inside SEE"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Resistance",
+       "gives": "R",
+       "note": "physics symbol"
+      }
      ]
     },
     "explanation": {

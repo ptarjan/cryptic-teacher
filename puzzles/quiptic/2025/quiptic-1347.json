@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1347",
  "number": 1347,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,347",
  "setter": "Harpo",
  "date": "2025-09-14",
  "dimensions": {
@@ -44,44 +42,47 @@
    },
    "solution": "CRYSTALPALACE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "CRYSTAL PALACE",
     "definitions": [
      {
       "text": "Team",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting led off",
-      "note": "something led off is walked away from where it was standing, so the letters it names leave the rest behind"
-     },
-     {
-      "text": "ground",
-      "note": "ground is the past tense of grind, and anything put through a mill comes out in a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "players",
-      "gives": "PLAYERS",
-      "note": "seven letters of fodder, taken as they stand"
-     },
-     {
-      "clueFragment": "catcalled, getting led off",
-      "gives": "CATCAL",
-      "note": "CATCALLED with LED taken off it, leaving six more letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CRYSTALPALACE",
+     "parts": [
       {
-       "fodder": "PLAYERS CATCAL",
-       "gives": "CRYSTALPALACE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting led off",
+         "note": "something led off is walked away from where it was standing, so the letters it names leave the rest behind"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "ground",
+           "note": "ground is the past tense of grind, and anything put through a mill comes out in a different arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "players",
+           "note": "seven letters of fodder, taken as they stand"
+          },
+          {
+           "words": "catcalled, getting led off",
+           "gives": "CATCAL",
+           "note": "CATCALLED with LED taken off it, leaving six more letters of fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -118,47 +119,40 @@
    },
    "solution": "REDPLANET",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RED PLANET",
     "definitions": [
      {
       "text": "Mars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "to gut something is to take its insides out, which leaves only the letters on the outside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "communist",
-      "gives": "RED",
-      "note": "a red is a communist, after the colour of the flag"
-     },
-     {
-      "clueFragment": "plot",
-      "gives": "PLAN",
-      "note": "a plot is a plan, a scheme worked out in advance"
-     },
-     {
-      "clueFragment": "extremist",
-      "gives": "ET",
-      "select": "outer",
-      "note": "the outside letters of ExtremisT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "PLAN",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "communist",
+       "gives": "RED",
+       "note": "a red is a communist, after the colour of the flag"
+      },
+      {
+       "words": "plot",
+       "gives": "PLAN",
+       "note": "a plot is a plan, a scheme worked out in advance"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "to gut something is to take its insides out, which leaves only the letters on the outside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremist",
+         "note": "the outside letters of ExtremisT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -187,45 +181,46 @@
    },
    "solution": "SILLY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SILLY",
     "definitions": [
      {
       "text": "Frivolous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stopped by",
-      "note": "a word stopped by a caller is interrupted part of the way through, which is where the other letters go"
-     },
-     {
-      "text": "off and on",
-      "note": "something happening off and on happens every other time, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cunning",
-      "gives": "SLY",
-      "note": "sly = cunning, crafty"
-     },
-     {
-      "clueFragment": "girl off and on",
-      "gives": "IL",
-      "select": "alternate",
-      "note": "the second and fourth letters of gIrL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "IL",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopped by",
+       "note": "a word stopped by a caller is interrupted part of the way through, which is where the other letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cunning",
+       "gives": "SLY",
+       "note": "sly = cunning, crafty"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "IL",
+       "indicators": [
+        {
+         "text": "off and on",
+         "note": "something happening off and on happens every other time, so every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "girl off and on",
+         "gives": "IL",
+         "select": "alternate",
+         "note": "the second and fourth letters of gIrL"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -254,43 +249,31 @@
    },
    "solution": "APRIL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "APRIL",
     "definitions": [
      {
       "text": "month",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing described as in another sits inside it, letters and all"
-     }
-    ],
-    "linkWords": [
-     "for one"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Publicity staff",
-      "gives": "PR",
-      "note": "pr = public relations, the department that handles publicity"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail somebody is to trouble them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PR",
-      "IL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing described as in another sits inside it, letters and all"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trouble",
+       "gives": "AIL",
+       "note": "to ail somebody is to trouble them"
+      },
+      {
+       "words": "Publicity staff",
+       "gives": "PR",
+       "note": "pr = public relations, the department that handles publicity"
+      }
      ]
     },
     "explanation": {
@@ -319,39 +302,28 @@
    },
    "solution": "PROGNOSIS",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "PROGNOSIS",
     "definitions": [
      {
       "text": "What, when bad, could offer poor signs?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "something gone bad has gone wrong, and letters gone wrong are letters no longer in the order given"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poor signs",
-      "gives": "POORSIGNS",
-      "note": "the nine letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POOR SIGNS",
-       "gives": "PROGNOSIS"
+       "text": "bad",
+       "note": "something gone bad has gone wrong, and letters gone wrong are letters no longer in the order given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor signs",
+       "note": "the nine letters of fodder"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about the thing that, once it turns bad, starts showing poor indications.",
      "walkthrough": "The whole clue defines and builds at once, so 'bad' has two jobs: it belongs to the sense being described and it is the instruction to shuffle.",
@@ -383,45 +355,37 @@
    },
    "solution": "LAPDANCES",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "LAP DANCES",
     "definitions": [
      {
       "text": "erotic performances",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Upset",
-      "for": "reversal",
-      "note": "in a down clue an upset word has been tipped over, so it reads back up the grid"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Upset friend",
-      "gives": "LAP",
-      "note": "PAL, a friend, set down backwards"
-     },
-     {
-      "clueFragment": "skips",
-      "gives": "DANCES",
-      "note": "to skip is to dance about lightly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAP",
-      "DANCES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "LAPDANCES",
+     "indicators": [
       {
-       "from": "PAL",
-       "to": "LAP"
+       "text": "Upset",
+       "note": "in a down clue an upset word has been tipped over, so it reads back up the grid"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Upset friend",
+         "gives": "LAP",
+         "note": "PAL, a friend, set down backwards"
+        },
+        {
+         "words": "skips",
+         "gives": "DANCES",
+         "note": "to skip is to dance about lightly"
+        }
+       ]
       }
      ]
     },
@@ -451,30 +415,16 @@
    },
    "solution": "CHEST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHEST",
     "definitions": [
      {
       "text": "Box",
-      "at": 0
+      "at": 0,
+      "meaning": "a stout lidded box for blankets, tools or treasure"
      },
      {
       "text": "upper section of body",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Box",
-      "gives": "CHEST",
-      "note": "a stout lidded box for blankets, tools or treasure"
-     },
-     {
-      "clueFragment": "upper section of body",
-      "gives": "CHEST",
-      "note": "the front of the trunk, between neck and abdomen"
+      "at": 4,
+      "meaning": "the front of the trunk, between neck and abdomen"
      }
     ],
     "explanation": {
@@ -517,51 +467,43 @@
    },
    "solution": "FRESHASADAISY",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "FRESH AS A DAISY",
     "definitions": [
      {
       "text": "Bright and vigorous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going around",
-      "for": "container",
-      "note": "a thing going around another encircles it, so it splits to let the rest sit inside"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "letters sent about are sent every which way, and need not come back in the order they left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cook",
-      "gives": "FRY",
-      "note": "to fry is to cook, and the word opens up to take the rest inside"
-     },
-     {
-      "clueFragment": "Asia dashes about",
-      "gives": "ESHASADAIS",
-      "note": "the ten letters of ASIA DASHES redealt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "ESHASADAIS",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FRESHASADAISY",
+     "indicators": [
       {
-       "fodder": "ASIADASHES",
-       "gives": "ESHASADAIS"
+       "text": "about",
+       "note": "letters sent about are sent every which way, and need not come back in the order they left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going around",
+         "note": "a thing going around another encircles it, so it splits to let the rest sit inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cook",
+         "gives": "FRY",
+         "note": "to fry is to cook, and the word opens up to take the rest inside"
+        },
+        {
+         "words": "Asia dashes about",
+         "gives": "ESHASADAIS",
+         "note": "the ten letters of ASIA DASHES redealt"
+        }
+       ]
       }
      ]
     },
@@ -601,35 +543,24 @@
    },
    "solution": "ESPRITDECORPS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESPRIT DE CORPS",
     "definitions": [
      {
       "text": "team spirit",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "shattering",
-      "for": "anagram",
-      "note": "a shattered thing lies in pieces, and pieces can be picked up in any order at all"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disrespect pro",
-      "gives": "DISRESPECTPRO",
-      "note": "the thirteen letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DISRESPECT PRO",
-       "gives": "ESPRITDECORPS"
+       "text": "shattering",
+       "note": "a shattered thing lies in pieces, and pieces can be picked up in any order at all"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Disrespect pro",
+       "note": "the thirteen letters of fodder"
       }
      ]
     },
@@ -659,30 +590,16 @@
    },
    "solution": "RIDDLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RIDDLER",
     "definitions": [
      {
       "text": "Comic villain",
-      "at": 0
+      "at": 0,
+      "meaning": "the Batman adversary who leaves puzzles behind at his crimes"
      },
      {
       "text": "one poking holes",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Comic villain",
-      "gives": "RIDDLER",
-      "note": "the Batman adversary who leaves puzzles behind at his crimes"
-     },
-     {
-      "clueFragment": "one poking holes",
-      "gives": "RIDDLER",
-      "note": "to riddle a thing is to pierce it all over, so the agent noun follows"
+      "at": 15,
+      "meaning": "to riddle a thing is to pierce it all over, so the agent noun follows"
      }
     ],
     "explanation": {
@@ -712,35 +629,24 @@
    },
    "solution": "ORPHEUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORPHEUS",
     "definitions": [
      {
       "text": "old poet and musician",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "tipsy",
-      "for": "anagram",
-      "note": "somebody tipsy is unsteady on their feet, and letters in that state will not stand where they were put"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shore up",
-      "gives": "SHOREUP",
-      "note": "the seven letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHORE UP",
-       "gives": "ORPHEUS"
+       "text": "tipsy",
+       "note": "somebody tipsy is unsteady on their feet, and letters in that state will not stand where they were put"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shore up",
+       "note": "the seven letters of fodder"
       }
      ]
     },
@@ -770,32 +676,25 @@
    },
    "solution": "SPLAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPLAY",
     "definitions": [
      {
       "text": "spread out",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "s = small, the clothes-label abbreviation"
-     },
-     {
-      "clueFragment": "trifle",
-      "gives": "PLAY",
-      "note": "to trifle with something is to play with it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PLAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "s = small, the clothes-label abbreviation"
+      },
+      {
+       "words": "trifle",
+       "gives": "PLAY",
+       "note": "to trifle with something is to play with it"
+      }
      ]
     },
     "explanation": {
@@ -824,60 +723,51 @@
    },
    "solution": "LANCASTER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LANCASTER",
     "definitions": [
      {
       "text": "royal house",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "animatedly",
-      "for": "anagram",
-      "note": "anything done animatedly is done with lively movement, and letters moved about lively do not land where they started"
-     },
-     {
-      "text": "welcomes",
-      "for": "container",
-      "note": "a host who welcomes guests takes them inside, so what follows goes within"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Earl animatedly",
-      "gives": "LAER",
-      "note": "the four letters of EARL redealt, then opened up to take the rest"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "n = northern, the standard abbreviation"
-     },
-     {
-      "clueFragment": "actors",
-      "gives": "CAST",
-      "note": "the cast is the company of actors in a production"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "N",
-      "CAST",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "EARL",
-       "gives": "LAER"
+       "text": "welcomes",
+       "note": "a host who welcomes guests takes them inside, so what follows goes within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "animatedly",
+         "note": "anything done animatedly is done with lively movement, and letters moved about lively do not land where they started"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Earl animatedly",
+           "gives": "LAER",
+           "note": "the four letters of EARL redealt, then opened up to take the rest"
+          },
+          {
+           "words": "northern",
+           "gives": "N",
+           "note": "n = northern, the standard abbreviation"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "actors",
+       "gives": "CAST",
+       "note": "the cast is the company of actors in a production"
       }
      ]
     },
@@ -907,41 +797,39 @@
    },
    "solution": "ANNUL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ANNUL",
     "definitions": [
      {
       "text": "Scrap",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "removed",
-      "for": "deletion",
-      "note": "a thing removed is taken out and not put back, so the word loses that letter for good"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "book",
-      "gives": "ANNUAL",
-      "note": "an annual is the book that comes out once a year"
-     },
-     {
-      "clueFragment": "second article removed",
-      "gives": "ANNUL",
-      "note": "ANNUAL carries the indefinite article A twice, and the second of them goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANNUL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed",
+       "note": "a thing removed is taken out and not put back, so the word loses that letter for good"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "book",
+         "gives": "ANNUAL",
+         "note": "an annual is the book that comes out once a year"
+        },
+        {
+         "words": "second article removed",
+         "gives": "ANNUL",
+         "note": "ANNUAL carries the indefinite article A twice, and the second of them goes"
+        }
+       ]
+      },
+      {
+       "gives": "ANNUAL"
+      }
      ]
     },
     "explanation": {
@@ -971,32 +859,25 @@
    },
    "solution": "LANDSCAPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LANDSCAPE",
     "definitions": [
      {
       "text": "Painting",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "captures",
-      "gives": "LANDS",
-      "note": "to land a fish or a contract is to capture it"
-     },
-     {
-      "clueFragment": "headland",
-      "gives": "CAPE",
-      "note": "a cape is a headland running out into the sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LANDS",
-      "CAPE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "captures",
+       "gives": "LANDS",
+       "note": "to land a fish or a contract is to capture it"
+      },
+      {
+       "words": "headland",
+       "gives": "CAPE",
+       "note": "a cape is a headland running out into the sea"
+      }
      ]
     },
     "explanation": {
@@ -1025,46 +906,43 @@
    },
    "solution": "MASOCHIST",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MASOCHIST",
     "definitions": [
      {
       "text": "one who embraces suffering",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "away from",
-      "for": "deletion",
-      "note": "to take something away from a word is to leave it short by those letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Master of Arts",
-      "gives": "MA",
-      "note": "the initials of the degree"
-     },
-     {
-      "clueFragment": "thus",
-      "gives": "SO",
-      "note": "so = thus, therefore"
-     },
-     {
-      "clueFragment": "runs away from Saviour",
-      "gives": "CHIST",
-      "note": "CHRIST losing R, the cricket scorer's letter for runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "SO",
-      "CHIST"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MASOCHIST",
+     "indicators": [
+      {
+       "text": "away from",
+       "note": "to take something away from a word is to leave it short by those letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Master of Arts",
+         "gives": "MA",
+         "note": "the initials of the degree"
+        },
+        {
+         "words": "thus",
+         "gives": "SO",
+         "note": "so = thus, therefore"
+        },
+        {
+         "words": "runs away from Saviour",
+         "gives": "CHIST",
+         "note": "CHRIST losing R, the cricket scorer's letter for runs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1093,47 +971,41 @@
    },
    "solution": "MINORCANS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MINORCANS",
     "definitions": [
      {
       "text": "islanders",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "head off",
-      "for": "letter_selection",
-      "note": "the head of a word is the letter it begins with, and here that letter comes off to be used on its own"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Young person",
-      "gives": "MINOR",
-      "note": "a minor is somebody under the age of majority"
-     },
-     {
-      "clueFragment": "is able to",
-      "gives": "CAN",
-      "note": "can = is able to"
-     },
-     {
-      "clueFragment": "head off southern",
-      "gives": "S",
-      "select": "first",
-      "note": "the head of Southern, detached"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINOR",
-      "CAN",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Young person",
+       "gives": "MINOR",
+       "note": "a minor is somebody under the age of majority"
+      },
+      {
+       "words": "is able to",
+       "gives": "CAN",
+       "note": "can = is able to"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head off",
+         "note": "the head of a word is the letter it begins with, and here that letter comes off to be used on its own"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head off southern",
+         "gives": "SOUTHERN",
+         "note": "the head of Southern, detached"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1162,51 +1034,40 @@
    },
    "solution": "ISLINGTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ISLINGTON",
     "definitions": [
      {
       "text": "London borough",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "a piece that follows another is set down after it, so the throwing word comes second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "i = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "Chuck",
-      "gives": "SLING",
-      "note": "to chuck something is to sling it"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "the word is spelt out for its own two letters"
-     },
-     {
-      "clueFragment": "north",
-      "gives": "N",
-      "note": "n = north, the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "SLING",
-      "TO",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "a piece that follows another is set down after it, so the throwing word comes second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "i = one, the Roman numeral"
+      },
+      {
+       "words": "Chuck",
+       "gives": "SLING",
+       "note": "to chuck something is to sling it"
+      },
+      {
+       "words": "to",
+       "note": "the word is spelt out for its own two letters"
+      },
+      {
+       "words": "north",
+       "gives": "N",
+       "note": "n = north, the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1241,35 +1102,24 @@
    },
    "solution": "ANTONINUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANTONINUS",
     "definitions": [
      {
       "text": "Roman emperor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Horribilis",
-      "for": "anagram",
-      "note": "the Latin for horrible, and a word in a horrible state is one with its letters in disarray"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "into Annus",
-      "gives": "INTOANNUS",
-      "note": "the nine letters of fodder, the preposition included"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INTO ANNUS",
-       "gives": "ANTONINUS"
+       "text": "Horribilis",
+       "note": "the Latin for horrible, and a word in a horrible state is one with its letters in disarray"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into Annus",
+       "note": "the nine letters of fodder, the preposition included"
       }
      ]
     },
@@ -1299,40 +1149,31 @@
    },
    "solution": "SOLVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SOLVE",
     "definitions": [
      {
       "text": "what you're now trying to do?",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupts",
-      "for": "container",
-      "note": "to interrupt is to cut in part of the way through, which is where the letter lands"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "only",
-      "gives": "SOLE",
-      "note": "sole = only, the single one"
-     },
-     {
-      "clueFragment": "Victor",
-      "gives": "V",
-      "note": "v for Victor in the radio alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOL",
-      "V",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupts",
+       "note": "to interrupt is to cut in part of the way through, which is where the letter lands"
+      }
+     ],
+     "parts": [
+      {
+       "words": "only",
+       "gives": "SOLE",
+       "note": "sole = only, the single one"
+      },
+      {
+       "words": "Victor",
+       "gives": "V",
+       "note": "v for Victor in the radio alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1362,35 +1203,24 @@
    },
    "solution": "ANCESTRAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANCESTRAL",
     "definitions": [
      {
       "text": "of forebears",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Dicky",
-      "for": "anagram",
-      "note": "dicky is British for shaky or unsound — a dicky knee, a dicky heart — and nothing unsound holds its shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ran castle",
-      "gives": "RANCASTLE",
-      "note": "the nine letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAN CASTLE",
-       "gives": "ANCESTRAL"
+       "text": "Dicky",
+       "note": "dicky is British for shaky or unsound — a dicky knee, a dicky heart — and nothing unsound holds its shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ran castle",
+       "note": "the nine letters of fodder"
       }
      ]
     },
@@ -1420,40 +1250,31 @@
    },
    "solution": "CREDO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CREDO",
     "definitions": [
      {
       "text": "belief",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "adopts",
-      "for": "container",
-      "note": "a family that adopts takes somebody into itself, so those letters go inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Company",
-      "gives": "CO",
-      "note": "co = company, as on a firm's letterhead"
-     },
-     {
-      "clueFragment": "radical",
-      "gives": "RED",
-      "note": "a red is a political radical of the left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RED",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopts",
+       "note": "a family that adopts takes somebody into itself, so those letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Company",
+       "gives": "CO",
+       "note": "co = company, as on a firm's letterhead"
+      },
+      {
+       "words": "radical",
+       "gives": "RED",
+       "note": "a red is a political radical of the left"
+      }
      ]
     },
     "explanation": {
@@ -1482,50 +1303,51 @@
    },
    "solution": "LISLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LISLE",
     "definitions": [
      {
       "text": "Fine cotton",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "note": "in a down clue whatever sits on something else rests above it, so that piece is written first"
-     },
-     {
-      "text": "edges of",
-      "note": "the edges of a word are its first and last letters, everything between them falling away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "l = left, the standard abbreviation"
-     },
-     {
-      "clueFragment": "edges of inlays",
-      "gives": "IS",
-      "select": "outer",
-      "note": "the first and last of Inlay S"
-     },
-     {
-      "clueFragment": "and lace",
-      "gives": "LE",
-      "note": "the same edges taken again, from Lac E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IS",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue whatever sits on something else rests above it, so that piece is written first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "l = left, the standard abbreviation"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "IS",
+       "indicators": [
+        {
+         "text": "edges of",
+         "note": "the edges of a word are its first and last letters, everything between them falling away"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "edges of inlays",
+         "gives": "IS",
+         "select": "outer",
+         "note": "the first and last of Inlay S"
+        }
+       ]
+      },
+      {
+       "words": "and lace",
+       "gives": "LE",
+       "note": "the same edges taken again, from Lac E"
+      }
      ]
     },
     "explanation": {
@@ -1554,33 +1376,28 @@
    },
    "solution": "MANGO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MANGO",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stuffs",
-      "for": "hidden_word",
-      "note": "whatever stuffs a bird is packed away inside it, out of sight"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German goose",
-      "gives": "MANGO",
-      "note": "GerMAN GOose carries it across the gap between the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "stuffs",
+       "note": "whatever stuffs a bird is packed away inside it, out of sight"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German goose",
+       "gives": "MANGO",
+       "note": "GerMAN GOose carries it across the gap between the words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fruit used as the stuffing for a goose from Germany.",
      "walkthrough": "The join between two words is the hardest hiding place to see, because the eye insists on reading whole words. 'Stuffs' is both the hiding instruction and part of the cookery.",
@@ -1607,10 +1424,6 @@
    },
    "solution": "MOLAR",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "MOLAR",
     "definitions": [
      {
       "text": "that may be capped",
@@ -1618,24 +1431,19 @@
       "note": "The definition describes rather than names: it is a relative clause standing in for the noun, and the setter is entitled to it because only one sort of thing is meant."
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders among",
-      "for": "letter_selection",
-      "note": "the leader of a word is the letter standing at its head, and the clue wants one from each word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men of letters analyse rates",
-      "gives": "MOLAR",
-      "select": "first",
-      "note": "the opening letters of Men Of Letters Analyse Rates"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOLAR"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Leaders among",
+       "note": "the leader of a word is the letter standing at its head, and the clue wants one from each word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men of letters analyse rates",
+       "note": "the opening letters of Men Of Letters Analyse Rates"
+      }
      ]
     },
     "explanation": {
@@ -1665,35 +1473,24 @@
    },
    "solution": "SMETANA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SMETANA",
     "definitions": [
      {
       "text": "Composer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "worked",
-      "for": "anagram",
-      "note": "dough that is worked is kneaded into a new shape, and letters take the same treatment"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at Mensa",
-      "gives": "ATMENSA",
-      "note": "the seven letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AT MENSA",
-       "gives": "SMETANA"
+       "text": "worked",
+       "note": "dough that is worked is kneaded into a new shape, and letters take the same treatment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at Mensa",
+       "note": "the seven letters of fodder"
       }
      ]
     },
@@ -1729,41 +1526,40 @@
    },
    "solution": "SPLITUP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SPLIT UP",
     "definitions": [
      {
       "text": "Separate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tips of",
-      "for": "letter_selection",
-      "note": "a word's tip is the letter it starts with, and each word named here gives one up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tips of spark plugs",
-      "gives": "SP",
-      "select": "first",
-      "note": "the leading letters of Spark Plugs"
-     },
-     {
-      "clueFragment": "illuminated",
-      "gives": "LITUP",
-      "note": "lit up = illuminated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "LITUP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "SP",
+       "indicators": [
+        {
+         "text": "tips of",
+         "note": "a word's tip is the letter it starts with, and each word named here gives one up"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "tips of spark plugs",
+         "gives": "SP",
+         "select": "first",
+         "note": "the leading letters of Spark Plugs"
+        }
+       ]
+      },
+      {
+       "words": "illuminated",
+       "gives": "LITUP",
+       "note": "lit up = illuminated"
+      }
      ]
     },
     "explanation": {
@@ -1798,26 +1594,25 @@
    },
    "solution": "POWERSTEERING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "POWER STEERING",
     "definitions": [
      {
       "text": "Accessory that facilitates change of direction in estate?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Accessory that facilitates change of direction",
-      "note": "on the surface this is any fitting that helps something take a new course, which is how the sentence asks to be read"
-     },
-     {
-      "clueFragment": "in estate?",
-      "note": "an estate is also an estate car, and the question mark is the setter admitting that the accessory comes on every other model too"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Accessory that facilitates change of direction",
+       "note": "on the surface this is any fitting that helps something take a new course, which is how the sentence asks to be read"
+      },
+      {
+       "words": "in estate?",
+       "note": "an estate is also an estate car, and the question mark is the setter admitting that the accessory comes on every other model too"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fitting that helps a landed estate change the direction it is going in.",
      "walkthrough": "Nothing here breaks into letters: no fodder, no indicator, no container. The lever is 'estate', which the surface wants as land and property and the setter means as a car with a long back.",

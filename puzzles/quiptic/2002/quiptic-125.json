@@ -1,8 +1,6 @@
 {
  "id": "quiptic-125",
  "number": 125,
- "series": "quiptic",
- "name": "Quiptic crossword No 125",
  "setter": "Beale",
  "date": "2002-04-08",
  "dimensions": {
@@ -38,28 +36,16 @@
    },
    "solution": "VESSEL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VESSEL",
     "definitions": [
      {
       "text": "A dish",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a container such as a bowl for serving food"
      },
      {
       "text": "which may contain blood",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A dish",
-      "note": "first meaning: a container such as a bowl for serving food"
-     },
-     {
-      "clueFragment": "which may contain blood",
-      "note": "second meaning: a tube in the body carrying blood"
+      "at": 7,
+      "meaning": "second meaning: a tube in the body carrying blood"
      }
     ],
     "explanation": {
@@ -88,26 +74,25 @@
    },
    "solution": "FOOTLIGHTS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FOOTLIGHTS",
     "definitions": [
      {
       "text": "They're designed to provide a set amount of illumination",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a set amount of illumination",
-      "note": "surface reading: lamps rated to give a fixed, measured quantity of light"
-     },
-     {
-      "clueFragment": "set",
-      "note": "setter's reading: the set is the scenery on a theatre stage, lit from the front edge"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "a set amount of illumination",
+       "note": "surface reading: lamps rated to give a fixed, measured quantity of light"
+      },
+      {
+       "words": "set",
+       "note": "setter's reading: the set is the scenery on a theatre stage, lit from the front edge"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Lamps engineered to deliver a fixed, regulated level of brightness.",
      "walkthrough": "'Set' reads as an adjective meaning fixed, but it is the noun: the stage set.",
@@ -135,55 +120,49 @@
    },
    "solution": "SPRINKLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "SPRINKLE",
     "definitions": [
      {
       "text": "Scatter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "with no end, the water source loses its final letter"
-     },
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "an animal that returns goes back the way it came, so its word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "as",
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "water supply",
-      "gives": "SPRING",
-      "note": "a spring is a natural source of water"
-     },
-     {
-      "clueFragment": "animal",
-      "gives": "ELK",
-      "note": "a large deer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPRIN",
-      "KLE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ELK",
-       "to": "KLE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "note": "with no end, the water source loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "water supply",
+         "gives": "SPRING",
+         "note": "a spring is a natural source of water"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "an animal that returns goes back the way it came, so its word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "animal",
+         "gives": "ELK",
+         "note": "a large deer"
+        }
+       ]
       }
      ]
     },
@@ -213,28 +192,16 @@
    },
    "solution": "SUCKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SUCKER",
     "definitions": [
      {
       "text": "Fool",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a gullible person who is easily duped"
      },
      {
       "text": "to stick with?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fool",
-      "note": "first meaning: a gullible person who is easily duped"
-     },
-     {
-      "clueFragment": "to stick with?",
-      "note": "second meaning: a rubber cup or organ that clings to a surface"
+      "at": 5,
+      "meaning": "second meaning: a rubber cup or organ that clings to a surface"
      }
     ],
     "explanation": {
@@ -264,40 +231,33 @@
    },
    "solution": "SEASCAPE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SEASCAPE",
     "definitions": [
      {
       "text": "View",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crazy",
-      "for": "anagram",
-      "note": "something crazy is wild and disordered, so the preceding letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "escape",
-      "gives": "ESCAPE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ESCAPEAS",
-       "gives": "SEASCAPE"
+       "text": "crazy",
+       "note": "something crazy is wild and disordered, so the preceding letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "escape",
+         "note": "taken as written"
+        },
+        {
+         "words": "as",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -326,50 +286,40 @@
    },
    "solution": "CABINETS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CABINETS",
     "definitions": [
      {
       "text": "Furniture",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "set out means laid out afresh, so the word before it is rearranged"
-     },
-     {
-      "text": "at back of",
-      "for": "charade",
-      "note": "placing one thing at the back of another puts the rearranged piece after the home"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple home",
-      "gives": "CABIN",
-      "note": "a cabin is a basic hut or small house"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CABIN",
-      "ETS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "SET",
-       "gives": "ETS"
+       "text": "at back of",
+       "note": "placing one thing at the back of another puts the rearranged piece after the home"
+      }
+     ],
+     "parts": [
+      {
+       "words": "simple home",
+       "gives": "CABIN",
+       "note": "a cabin is a basic hut or small house"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "set out means laid out afresh, so the word before it is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -398,43 +348,33 @@
    },
    "solution": "HOSPITAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HOSPITAL",
     "definitions": [
      {
       "text": "health centre",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctor",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so the following letters are altered in order"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Polish",
-      "gives": "POLISH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POLISHAT",
-       "gives": "HOSPITAL"
+       "text": "Doctor",
+       "note": "to doctor something is to tamper with it, so the following letters are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Polish",
+         "note": "taken as written"
+        },
+        {
+         "words": "at",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -464,31 +404,29 @@
    },
    "solution": "TAUT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TAUT",
     "definitions": [
      {
       "text": "tense",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding",
-      "for": "homophone",
-      "note": "sounding means the preceding meaning is taken by how its word is spoken rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gave instruction",
-      "gives": "TAUT",
-      "soundsLike": "TAUGHT",
-      "note": "taught is the past tense of teach"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TAUT",
+     "indicators": [
+      {
+       "text": "sounding",
+       "note": "sounding means the preceding meaning is taken by how its word is spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gave instruction",
+       "gives": "TAUGHT",
+       "note": "taught is the past tense of teach"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A teacher whose voice sounded strained while giving a lesson.",
      "definitionFit": "Taut describes something pulled tight or a person under strain, matching tense in both senses."
@@ -514,41 +452,25 @@
    },
    "solution": "LEER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LEER",
     "definitions": [
      {
       "text": "a filthy look",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the word before it is read in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stagger",
-      "gives": "REEL",
-      "note": "to reel is to sway or lurch unsteadily"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REEL",
-       "to": "LEER"
+       "text": "back",
+       "note": "going back means the word before it is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stagger",
+       "gives": "REEL",
+       "note": "to reel is to sway or lurch unsteadily"
       }
      ]
     },
@@ -577,26 +499,25 @@
    },
    "solution": "ABBESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ABBESS",
     "definitions": [
      {
       "text": "She's responsible for order",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "responsible for order",
-      "note": "surface reading: a woman who keeps discipline, such as a manager or police officer"
-     },
-     {
-      "clueFragment": "order",
-      "note": "setter's reading: a religious order of nuns, headed by a woman"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "responsible for order",
+       "note": "surface reading: a woman who keeps discipline, such as a manager or police officer"
+      },
+      {
+       "words": "order",
+       "note": "setter's reading: a religious order of nuns, headed by a woman"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A woman in charge of keeping things tidy and disciplined.",
      "walkthrough": "'Order' means a community of nuns, not neatness or discipline.",
@@ -624,49 +545,47 @@
    },
    "solution": "ATTITUDE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ATTITUDE",
     "definitions": [
      {
       "text": "one's thinking",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Pointless",
-      "for": "deletion",
-      "note": "points here are compass points, so without them one compass letter is dropped"
-     },
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "confused letters are mixed up, so what remains is put in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "test",
-      "gives": "TEST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "audit",
-      "gives": "AUDIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATTITUDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TETAUDIT",
-       "gives": "ATTITUDE"
+       "text": "confused",
+       "note": "confused letters are mixed up, so what remains is put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Pointless",
+         "note": "points here are compass points, so without them one compass letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "test",
+           "note": "taken as written"
+          },
+          {
+           "words": "audit",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
@@ -696,36 +615,25 @@
    },
    "solution": "CANDLESTICK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CANDLESTICK",
     "definitions": [
      {
       "text": "light support",
       "at": 33
      }
     ],
-    "linkWords": [
-     "to",
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taper",
-      "gives": "CANDLE",
-      "note": "a taper is a slender candle"
-     },
-     {
-      "clueFragment": "a thin strip",
-      "gives": "STICK",
-      "note": "a stick is a thin piece of wood"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CANDLE",
-      "STICK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Taper",
+       "gives": "CANDLE",
+       "note": "a taper is a slender candle"
+      },
+      {
+       "words": "a thin strip",
+       "gives": "STICK",
+       "note": "a stick is a thin piece of wood"
+      }
      ]
     },
     "explanation": {
@@ -754,35 +662,25 @@
    },
    "solution": "STEREOTYPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STEREOTYPE",
     "definitions": [
      {
       "text": "a fixed impression",
       "at": 34
      }
     ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Music producer",
-      "gives": "STEREO",
-      "note": "a stereo is a sound system that plays music"
-     },
-     {
-      "clueFragment": "the sort",
-      "gives": "TYPE",
-      "note": "type means kind or sort"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEREO",
-      "TYPE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Music producer",
+       "gives": "STEREO",
+       "note": "a stereo is a sound system that plays music"
+      },
+      {
+       "words": "the sort",
+       "gives": "TYPE",
+       "note": "type means kind or sort"
+      }
      ]
     },
     "explanation": {
@@ -812,51 +710,40 @@
    },
    "solution": "DOUBTING",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DOUBTING",
     "definitions": [
      {
       "text": "like Thomas",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Confused",
-      "for": "anagram",
-      "note": "confused letters are jumbled, so the short word after it is rearranged"
-     },
-     {
-      "text": "outwardly",
-      "for": "container",
-      "note": "acting outwardly means the word for acting sits on the outside, wrapped round the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "acting",
-      "gives": "DOING",
-      "note": "doing means performing or carrying out"
-     },
-     {
-      "clueFragment": "but",
-      "gives": "BUT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "UBT",
-      "ING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BUT",
-       "gives": "UBT"
+       "text": "outwardly",
+       "note": "acting outwardly means the word for acting sits on the outside, wrapped round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "acting",
+       "gives": "DOING",
+       "note": "doing means performing or carrying out"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Confused",
+         "note": "confused letters are jumbled, so the short word after it is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "but",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -886,36 +773,29 @@
    },
    "solution": "INVENTOR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INVENTOR",
     "definitions": [
      {
       "text": "He creates",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "without an end, the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "list",
-      "gives": "INVENTORY",
-      "note": "an inventory is a full itemised record of stock or goods"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INVENTOR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "without an end, the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "list",
+       "gives": "INVENTORY",
+       "note": "an inventory is a full itemised record of stock or goods"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -949,31 +829,16 @@
    },
    "solution": "PETNAME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PET NAME",
     "definitions": [
      {
       "text": "Love handle",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: read cryptically, Love is a handle, an informal form of address used for someone dear"
      },
      {
       "text": "a term of endearment",
-      "at": 19
-     }
-    ],
-    "linkWords": [
-     "may be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Love handle",
-      "note": "first meaning: read cryptically, Love is a handle, an informal form of address used for someone dear"
-     },
-     {
-      "clueFragment": "a term of endearment",
-      "note": "second meaning: an affectionate word used in place of someone's real name"
+      "at": 19,
+      "meaning": "second meaning: an affectionate word used in place of someone's real name"
      }
     ],
     "explanation": {
@@ -1003,48 +868,35 @@
    },
    "solution": "APPOINTS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "APPOINTS",
     "definitions": [
      {
       "text": "Designates",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to come up",
-      "for": "reversal",
-      "note": "in a down clue coming up means the word is read from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secretary",
-      "gives": "PA",
-      "note": "PA is a personal assistant"
-     },
-     {
-      "clueFragment": "reasons",
-      "gives": "POINTS",
-      "note": "points are arguments put forward in a case"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AP",
-      "POINTS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PA",
-       "to": "AP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to come up",
+         "note": "in a down clue coming up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secretary",
+         "gives": "PA",
+         "note": "PA is a personal assistant"
+        }
+       ]
+      },
+      {
+       "words": "reasons",
+       "gives": "POINTS",
+       "note": "points are arguments put forward in a case"
       }
      ]
     },
@@ -1073,26 +925,25 @@
    },
    "solution": "HOEDOWN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HOEDOWN",
     "definitions": [
      {
       "text": "a dance",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One who'd break up a dance",
-      "note": "surface reading: a spoilsport or police officer who ends a party"
-     },
-     {
-      "clueFragment": "One who'd break up",
-      "note": "setter's reading: a gardener's tool breaking up soil, pushed downward into the ground"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who'd break up a dance",
+       "note": "surface reading: a spoilsport or police officer who ends a party"
+      },
+      {
+       "words": "One who'd break up",
+       "note": "setter's reading: a gardener's tool breaking up soil, pushed downward into the ground"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A killjoy who shuts down a dance party.",
      "walkthrough": "A hoe is the gardening tool that breaks up the soil, and the phrase for it working downwards names a lively American country dance.",
@@ -1120,43 +971,33 @@
    },
    "solution": "PLEASURABLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PLEASURABLE",
     "definitions": [
      {
       "text": "fun",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Uncharacteristically",
-      "for": "anagram",
-      "note": "acting out of character means behaving differently, so the names' letters fall out of their usual order"
-     }
-    ],
-    "linkWords": [
-     "and is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paula",
-      "gives": "PAULA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rebels",
-      "gives": "REBELS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PAULAREBELS",
-       "gives": "PLEASURABLE"
+       "text": "Uncharacteristically",
+       "note": "acting out of character means behaving differently, so the names' letters fall out of their usual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Paula",
+         "note": "taken as written"
+        },
+        {
+         "words": "rebels",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1185,36 +1026,25 @@
    },
    "solution": "REPAID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPAID",
     "definitions": [
      {
       "text": "Returned",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salesman",
-      "gives": "REP",
-      "note": "a rep is a sales representative"
-     },
-     {
-      "clueFragment": "help",
-      "gives": "AID",
-      "note": "aid means assistance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REP",
-      "AID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "salesman",
+       "gives": "REP",
+       "note": "a rep is a sales representative"
+      },
+      {
+       "words": "help",
+       "gives": "AID",
+       "note": "aid means assistance"
+      }
      ]
     },
     "explanation": {
@@ -1242,31 +1072,16 @@
    },
    "solution": "STAB",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STAB",
     "definitions": [
      {
       "text": "Try",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an attempt, as in having a go at something"
      },
      {
       "text": "use a knife",
-      "at": 7
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "note": "first meaning: an attempt, as in having a go at something"
-     },
-     {
-      "clueFragment": "use a knife",
-      "note": "second meaning: to thrust a blade into someone"
+      "at": 7,
+      "meaning": "second meaning: to thrust a blade into someone"
      }
     ],
     "explanation": {
@@ -1294,39 +1109,28 @@
    },
    "solution": "DUES",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "DUES",
     "definitions": [
      {
       "text": "Many be sued, if they're not paid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Many be",
-      "for": "anagram",
-      "note": "may be signals one possible form among others, so the word that follows is a rearrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sued",
-      "gives": "SUED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SUED",
-       "gives": "DUES"
+       "text": "Many be",
+       "note": "may be signals one possible form among others, so the word that follows is a rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sued",
+       "note": "taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Defaulters on their payments risk court action.",
      "walkthrough": "'Many be' is almost certainly a slip for 'May be', the anagram signal; the whole clue also describes the answer, since unpaid fees can lead to a lawsuit.",
@@ -1353,48 +1157,38 @@
    },
    "solution": "TOURISTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TOURISTS",
     "definitions": [
      {
       "text": "travellers",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "sorting things out means rearranging them, and out says the letters are put in fresh order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sorts",
-      "gives": "SORTS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "posh",
-      "gives": "U",
-      "note": "U means upper-class"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SORTSITU",
-       "gives": "TOURISTS"
+       "text": "out",
+       "note": "sorting things out means rearranging them, and out says the letters are put in fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sorts",
+         "note": "taken as written"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        },
+        {
+         "words": "posh",
+         "gives": "U",
+         "note": "U means upper-class"
+        }
+       ]
       }
      ]
     },
@@ -1424,26 +1218,25 @@
    },
    "solution": "SPRINT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPRINT",
     "definitions": [
      {
       "text": "Event which attracts dashing young men",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "attracts dashing young men",
-      "note": "surface reading: a social occasion that draws handsome, debonair suitors"
-     },
-     {
-      "clueFragment": "dashing",
-      "note": "setter's reading: dashing means running at full speed"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "attracts dashing young men",
+       "note": "surface reading: a social occasion that draws handsome, debonair suitors"
+      },
+      {
+       "words": "dashing",
+       "note": "setter's reading: dashing means running at full speed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A society function that pulls in eligible, stylish bachelors.",
      "walkthrough": "'Dashing' sounds like glamorous, but it means rushing, as on an athletics track.",
@@ -1477,26 +1270,25 @@
    },
    "solution": "BUSSTOPS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BUS STOPS",
     "definitions": [
      {
       "text": "Ideal places for people wanting to get on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "people wanting to get on",
-      "note": "surface reading: ambitious people keen to succeed in life"
-     },
-     {
-      "clueFragment": "get on",
-      "note": "setter's reading: to board a vehicle"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "people wanting to get on",
+       "note": "surface reading: ambitious people keen to succeed in life"
+      },
+      {
+       "words": "get on",
+       "note": "setter's reading: to board a vehicle"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The best spots for go-getters seeking advancement.",
      "walkthrough": "'Get on' reads as making progress in a career, but it means climbing aboard.",
@@ -1524,31 +1316,16 @@
    },
    "solution": "FINGER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FINGER",
     "definitions": [
      {
       "text": "On hand",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a digit found on the hand"
      },
      {
       "text": "a small amount of alcohol",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "On hand",
-      "note": "first meaning: a digit found on the hand"
-     },
-     {
-      "clueFragment": "a small amount of alcohol",
-      "note": "second meaning: a measure of spirits as deep as a digit is wide"
+      "at": 14,
+      "meaning": "second meaning: a measure of spirits as deep as a digit is wide"
      }
     ],
     "explanation": {

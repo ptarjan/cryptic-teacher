@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18472",
  "number": 18472,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,472",
  "setter": "Guy",
  "date": "2026-09-05",
  "dimensions": {
@@ -48,46 +46,44 @@
    },
    "solution": "SHOPTALK",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "SHOP TALK",
     "definitions": [
      {
       "text": "business discussion",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "a word with no end has lost its last letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' puts the shortened word inside the next one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hunt's",
-      "gives": "STALK",
-      "note": "to stalk = to hunt; the outer letters S…TALK"
-     },
-     {
-      "clueFragment": "Endless optimism",
-      "gives": "HOP",
-      "note": "HOPE without its last letter, placed inside STALK"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HOP",
-      "TALK"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SHOPTALK",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "a word with no end has lost its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' puts the shortened word inside the next one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hunt's",
+         "gives": "STALK",
+         "note": "to stalk = to hunt; the outer letters S…TALK"
+        },
+        {
+         "words": "Endless optimism",
+         "gives": "HOP",
+         "note": "HOPE without its last letter, placed inside STALK"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -116,45 +112,46 @@
    },
    "solution": "HIRER",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HIRER",
     "definitions": [
      {
       "text": "customer paying by the hour?",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "note": "'initially' means at the start, so take the first letter of each word"
-     },
-     {
-      "text": "full of",
-      "note": "the two letters are full of the next word, which fills the gap between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hôtel Ritz initially",
-      "gives": "HR",
-      "select": "first",
-      "note": "first letters of Hôtel and Ritz, H…R"
-     },
-     {
-      "clueFragment": "rage",
-      "gives": "IRE",
-      "note": "ire = rage, placed between H and R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "IRE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "'initially' means at the start, so take the first letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "HR",
+       "indicators": [
+        {
+         "text": "full of",
+         "note": "the two letters are full of the next word, which fills the gap between them"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Hôtel Ritz initially",
+         "gives": "HR",
+         "select": "first",
+         "note": "first letters of Hôtel and Ritz, H…R"
+        }
+       ]
+      },
+      {
+       "words": "rage",
+       "gives": "IRE",
+       "note": "ire = rage, placed between H and R"
+      }
      ]
     },
     "explanation": {
@@ -189,38 +186,24 @@
    },
    "solution": "PAULSMITH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PAUL SMITH",
     "definitions": [
      {
       "text": "snappy dresser (a 5 13)",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "the letters as given are wrong, so they must be put into the right order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is plum hat",
-      "gives": "ISPLUMHAT",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IS PLUM HAT",
-       "gives": "PAULSMITH"
+       "text": "wrong",
+       "note": "the letters as given are wrong, so they must be put into the right order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is plum hat",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -250,38 +233,30 @@
    },
    "solution": "ANTIPASTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTIPASTO",
     "definitions": [
      {
       "text": "part of Italian course",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Disliking",
-      "gives": "ANTI",
-      "note": "anti = against, disliking"
-     },
-     {
-      "clueFragment": "history",
-      "gives": "PAST",
-      "note": "history = the past"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = nil = O, as in tennis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANTI",
-      "PAST",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disliking",
+       "gives": "ANTI",
+       "note": "anti = against, disliking"
+      },
+      {
+       "words": "history",
+       "gives": "PAST",
+       "note": "history = the past"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love = nil = O, as in tennis"
+      }
      ]
     },
     "explanation": {
@@ -311,50 +286,41 @@
    },
    "solution": "KENWOOD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "KENWOOD",
     "definitions": [
      {
       "text": "London house",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "one word holds another in its arms"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K = king, in chess and cards"
-     },
-     {
-      "clueFragment": "to stop",
-      "gives": "END",
-      "note": "to end = to stop"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court = to woo, placed inside END as EN…D"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "EN",
-      "WOO",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King",
+       "gives": "K",
+       "note": "K = king, in chess and cards"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "one word holds another in its arms"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to stop",
+         "gives": "END",
+         "note": "to end = to stop"
+        },
+        {
+         "words": "court",
+         "gives": "WOO",
+         "note": "to court = to woo, placed inside END as EN…D"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -383,49 +349,43 @@
    },
    "solution": "REVAMP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "REVAMP",
     "definitions": [
      {
       "text": "shake-up",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "sent round",
-      "for": "reversal",
-      "note": "something sent round turns to face the other way"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Minister",
-      "gives": "REV",
-      "note": "a minister of religion is a Reverend, REV"
-     },
-     {
-      "clueFragment": "first on list",
-      "gives": "A",
-      "note": "A is the label of a list’s first item"
-     },
-     {
-      "clueFragment": "PM sent round",
-      "gives": "MP",
-      "note": "PM turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REV",
-      "A",
-      "MP"
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "REVAMP",
+     "indicators": [
+      {
+       "text": "sent round",
+       "note": "something sent round turns to face the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Minister",
+         "gives": "REV",
+         "note": "a minister of religion is a Reverend, REV"
+        },
+        {
+         "words": "first on list",
+         "gives": "A",
+         "note": "A is the label of a list’s first item"
+        },
+        {
+         "words": "PM sent round",
+         "gives": "MP",
+         "note": "PM turned round"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -454,51 +414,43 @@
    },
    "solution": "ROGUE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ROGUE",
     "definitions": [
      {
       "text": "Villain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from behind",
-      "for": "reversal",
-      "note": "read from behind means starting at the back"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the reversed word inside the street"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Parisian street",
-      "gives": "RUE",
-      "note": "rue is French for street; the outer letters R…UE"
-     },
-     {
-      "clueFragment": "shot from behind",
-      "gives": "OG",
-      "note": "a shot = a go, read backwards, inside RUE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "OG",
-      "UE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ROGUE",
+     "indicators": [
       {
-       "from": "GO",
-       "to": "OG"
+       "text": "from behind",
+       "note": "read from behind means starting at the back"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places the reversed word inside the street"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Parisian street",
+         "gives": "RUE",
+         "note": "rue is French for street; the outer letters R…UE"
+        },
+        {
+         "words": "shot from behind",
+         "gives": "OG",
+         "note": "a shot = a go, read backwards, inside RUE"
+        }
+       ]
       }
      ]
     },
@@ -528,35 +480,24 @@
    },
    "solution": "VOTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VOTER",
     "definitions": [
      {
       "text": "Choosing resident",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doctor",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so the letters are altered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "or vet",
-      "gives": "ORVET",
-      "note": "anagram fodder, 5 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OR VET",
-       "gives": "VOTER"
+       "text": "doctor",
+       "note": "to doctor something is to tamper with it, so the letters are altered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or vet",
+       "note": "anagram fodder, 5 letters"
       }
      ]
     },
@@ -593,49 +534,40 @@
    },
    "solution": "MARYBEARD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MARY BEARD",
     "definitions": [
      {
       "text": "academic (a 5 13)",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "gone into by",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Madonna",
-      "gives": "MARY",
-      "note": "the Madonna is the Virgin Mary"
-     },
-     {
-      "clueFragment": "Shakespeare",
-      "gives": "BARD",
-      "note": "Shakespeare is the Bard; the outer letters B…ARD"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English, going into BARD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARY",
-      "B",
-      "E",
-      "ARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Madonna",
+       "gives": "MARY",
+       "note": "the Madonna is the Virgin Mary"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gone into by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shakespeare",
+         "gives": "BARD",
+         "note": "Shakespeare is the Bard; the outer letters B…ARD"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English, going into BARD"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -664,47 +596,41 @@
    },
    "solution": "PROUST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PROUST",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back from",
-      "for": "letter_selection",
-      "note": "the back of a word is its end, so take the final letter of toilet"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro = for, in favour of"
-     },
-     {
-      "clueFragment": "the FT",
-      "gives": "US",
-      "note": "the setter writes for the FT, so the FT is 'us'"
-     },
-     {
-      "clueFragment": "back from toilet",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of toileT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "US",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro = for, in favour of"
+      },
+      {
+       "words": "the FT",
+       "gives": "US",
+       "note": "the setter writes for the FT, so the FT is 'us'"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back from",
+         "note": "the back of a word is its end, so take the final letter of toilet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "back from toilet",
+         "gives": "TOILET",
+         "note": "the last letter of toileT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -734,48 +660,37 @@
    },
    "solution": "NUGATORY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NUGATORY",
     "definitions": [
      {
       "text": "piddling",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "turned around means facing the other way"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an arm around",
-      "gives": "NUGA",
-      "note": "an arm = A GUN, turned round"
-     },
-     {
-      "clueFragment": "Michael Gove?",
-      "gives": "TORY",
-      "note": "Michael Gove is a Conservative (Tory) politician; the question mark says he is an example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUGA",
-      "TORY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "NUGATORY",
+     "indicators": [
       {
-       "from": "AGUN",
-       "to": "NUGA"
+       "text": "around",
+       "note": "turned around means facing the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an arm around",
+         "gives": "NUGA",
+         "note": "an arm = A GUN, turned round"
+        },
+        {
+         "words": "Michael Gove?",
+         "gives": "TORY",
+         "note": "Michael Gove is a Conservative (Tory) politician; the question mark says he is an example"
+        }
+       ]
       }
      ]
     },
@@ -806,49 +721,39 @@
    },
    "solution": "PRESUPPOSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESUPPOSE",
     "definitions": [
      {
       "text": "Assume",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "charade",
-      "note": "the phrase keeps another piece with it"
-     },
-     {
-      "text": "ahead",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "president",
-      "gives": "PRES",
-      "note": "Pres. is the abbreviation of president"
-     },
-     {
-      "clueFragment": "winning",
-      "gives": "UP",
-      "note": "up = ahead, winning, as in 'two goals up'"
-     },
-     {
-      "clueFragment": "attitude",
-      "gives": "POSE",
-      "note": "a pose = an attitude, a stance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRES",
-      "UP",
-      "POSE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "the phrase keeps another piece with it"
+      },
+      {
+       "text": "ahead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "president",
+       "gives": "PRES",
+       "note": "Pres. is the abbreviation of president"
+      },
+      {
+       "words": "winning",
+       "gives": "UP",
+       "note": "up = ahead, winning, as in 'two goals up'"
+      },
+      {
+       "words": "attitude",
+       "gives": "POSE",
+       "note": "a pose = an attitude, a stance"
+      }
      ]
     },
     "explanation": {
@@ -877,42 +782,38 @@
    },
    "solution": "RUBE",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "RUBE",
     "definitions": [
      {
       "text": "Unsophisticated American",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back to front",
-      "for": "cycling",
-      "note": "the back letter is sent to the front"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taxi",
-      "gives": "R",
-      "note": "Uber, the ride-hailing firm, stands for a taxi; its back letter R goes first"
-     },
-     {
-      "clueFragment": "back to front",
-      "gives": "UBE",
-      "note": "the rest of UBER follows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "UBE"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "RUBE",
+     "indicators": [
+      {
+       "text": "back to front",
+       "note": "the back letter is sent to the front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "taxi",
+         "gives": "R",
+         "note": "Uber, the ride-hailing firm, stands for a taxi; its back letter R goes first"
+        },
+        {
+         "words": "back to front",
+         "gives": "UBE",
+         "note": "the rest of UBER follows"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -941,49 +842,44 @@
    },
    "solution": "FLIES",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "FLIES",
     "definitions": [
      {
       "text": "fishing bait",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "cuts",
-      "for": "container",
-      "note": "the letter cuts into the word, splitting it in two"
-     },
-     {
-      "text": "a lot of",
-      "for": "deletion",
-      "note": "a lot of something is most but not all of it, so FLESH loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a lot of meat",
-      "gives": "FLES",
-      "note": "FLESH without its last letter; the outer letters FL…ES"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, the Roman numeral, cutting into FLES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FL",
-      "I",
-      "ES"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FLIES",
+     "indicators": [
+      {
+       "text": "a lot of",
+       "note": "a lot of something is most but not all of it, so FLESH loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "note": "the letter cuts into the word, splitting it in two"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a lot of meat",
+         "gives": "FLES",
+         "note": "FLESH without its last letter; the outer letters FL…ES"
+        },
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I = one, the Roman numeral, cutting into FLES"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1018,57 +914,52 @@
    },
    "solution": "FIONASHAW",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "FIONA SHAW",
     "definitions": [
      {
       "text": "Actor (a 5 13)",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down entry, climbing means reading upwards"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the reversed word goes around the others, holding them inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "neglected child climbing",
-      "gives": "FIAW",
-      "note": "a waif is a neglected child; WAIF read upwards, the outer letters FI…AW"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "on is used as itself, inside FIAW"
-     },
-     {
-      "clueFragment": "smoking waste",
-      "gives": "ASH",
-      "note": "ash is what smoking leaves, inside FIAW after ON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "ON",
-      "ASH",
-      "AW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "FIONASHAW",
+     "indicators": [
       {
-       "from": "WAIF",
-       "to": "FIAW"
+       "text": "climbing",
+       "note": "in a down entry, climbing means reading upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "the reversed word goes around the others, holding them inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "neglected child climbing",
+           "gives": "FIAW",
+           "note": "a waif is a neglected child; WAIF read upwards, the outer letters FI…AW"
+          },
+          {
+           "words": "on",
+           "note": "on is used as itself, inside FIAW"
+          }
+         ]
+        },
+        {
+         "words": "smoking waste",
+         "gives": "ASH",
+         "note": "ash is what smoking leaves, inside FIAW after ON"
+        }
+       ]
       }
      ]
     },
@@ -1098,52 +989,48 @@
    },
    "solution": "DEMOCRAT",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion"
-    ],
-    "answer": "DEMOCRAT",
     "definitions": [
      {
       "text": "this US politician",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "note": "mostly means not quite all, so COMEDY loses its last letter"
-     },
-     {
-      "text": "to the left",
-      "note": "in an across entry, going to the left means reading right to left"
-     }
-    ],
-    "linkWords": [
-     "For"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pitch",
-      "gives": "TAR",
-      "note": "pitch = tar, the black sticky stuff"
-     },
-     {
-      "clueFragment": "humour mostly",
-      "gives": "COMED",
-      "note": "COMEDY without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "MOC",
-      "RAT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DEMOCRAT",
+     "parts": [
       {
-       "from": "TARCOMED",
-       "to": "DEMOCRAT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means not quite all, so COMEDY loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "to the left",
+           "note": "in an across entry, going to the left means reading right to left"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pitch",
+           "gives": "TAR",
+           "note": "pitch = tar, the black sticky stuff"
+          },
+          {
+           "words": "humour mostly",
+           "gives": "COMED",
+           "note": "COMEDY without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1180,48 +1067,40 @@
    },
    "solution": "MOTHERWIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MOTHER WIT",
     "definitions": [
      {
       "text": "common sense",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "admitting",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Techy university",
-      "gives": "MIT",
-      "note": "MIT, the Massachusetts Institute of Technology; the outer letters M…IT"
-     },
-     {
-      "clueFragment": "additional",
-      "gives": "OTHER",
-      "note": "other = additional, inside MIT"
-     },
-     {
-      "clueFragment": "women",
-      "gives": "W",
-      "note": "W = women, inside MIT after OTHER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "OTHER",
-      "W",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Techy university",
+         "gives": "MIT",
+         "note": "MIT, the Massachusetts Institute of Technology; the outer letters M…IT"
+        },
+        {
+         "words": "additional",
+         "gives": "OTHER",
+         "note": "other = additional, inside MIT"
+        }
+       ]
+      },
+      {
+       "words": "women",
+       "gives": "W",
+       "note": "W = women, inside MIT after OTHER"
+      }
      ]
     },
     "explanation": {
@@ -1256,38 +1135,24 @@
    },
    "solution": "CARSTEREO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CAR STEREO",
     "definitions": [
      {
       "text": "Unit possibly connected to 5 18s",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "splitting",
-      "for": "anagram",
-      "note": "the words are split apart and their letters remade into new words"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Escort, ear",
-      "gives": "ESCORTEAR",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ESCORT EAR",
-       "gives": "CARSTEREO"
+       "text": "splitting",
+       "note": "the words are split apart and their letters remade into new words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Escort, ear",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1318,45 +1183,37 @@
    },
    "solution": "BOYHOODS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BOYHOODS",
     "definitions": [
      {
       "text": "Male youths",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "repelled",
-      "for": "reversal",
-      "note": "something repelled is driven back, so YOB is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "repelled lout",
-      "gives": "BOY",
-      "note": "a lout = a yob, turned back"
-     },
-     {
-      "clueFragment": "thugs",
-      "gives": "HOODS",
-      "note": "hoods = hoodlums, thugs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOY",
-      "HOODS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "BOYHOODS",
+     "indicators": [
       {
-       "from": "YOB",
-       "to": "BOY"
+       "text": "repelled",
+       "note": "something repelled is driven back, so YOB is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "repelled lout",
+         "gives": "BOY",
+         "note": "a lout = a yob, turned back"
+        },
+        {
+         "words": "thugs",
+         "gives": "HOODS",
+         "note": "hoods = hoodlums, thugs"
+        }
+       ]
       }
      ]
     },
@@ -1386,38 +1243,24 @@
    },
    "solution": "SPEAKER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPEAKER",
     "definitions": [
      {
       "text": "senior Parliamentary role",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "specially",
-      "for": "anagram",
-      "note": "something made specially is reworked for a purpose, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ask peer",
-      "gives": "ASKPEER",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASK PEER",
-       "gives": "SPEAKER"
+       "text": "specially",
+       "note": "something made specially is reworked for a purpose, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ask peer",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1447,44 +1290,46 @@
    },
    "solution": "TIRED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TIRED",
     "definitions": [
      {
       "text": "Stale",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "note": "in an across clue, A on B puts A after B, so the wine follows"
-     },
-     {
-      "text": "in odd places",
-      "note": "take the letters in the odd-numbered places of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trip in odd places",
-      "gives": "TI",
-      "select": "alternate",
-      "note": "TrIp, letters 1 and 3"
-     },
-     {
-      "clueFragment": "wine",
-      "gives": "RED",
-      "note": "red = red wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, A on B puts A after B, so the wine follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "TI",
+       "indicators": [
+        {
+         "text": "in odd places",
+         "note": "take the letters in the odd-numbered places of the word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "trip in odd places",
+         "gives": "TI",
+         "select": "alternate",
+         "note": "TrIp, letters 1 and 3"
+        }
+       ]
+      },
+      {
+       "words": "wine",
+       "gives": "RED",
+       "note": "red = red wine"
+      }
      ]
     },
     "explanation": {
@@ -1514,30 +1359,28 @@
    },
    "solution": "PASS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "PASS",
     "definitions": [
      {
       "text": "Possible route for mountaineer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "secured by",
-      "for": "hidden_word",
-      "note": "the answer is held securely inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sherpa's sweat",
-      "gives": "PASS",
-      "note": "sherPA’S Sweat"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "secured by",
+       "note": "the answer is held securely inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sherpa's sweat",
+       "gives": "PASS",
+       "note": "sherPA’S Sweat"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A climber roped up, relying on the sweat of the local guide.",
      "walkthrough": "Sherpas are the Himalayan people famed as mountain guides, which is why they sit so naturally here.",
@@ -1564,40 +1407,31 @@
    },
    "solution": "SIREN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SIREN",
     "definitions": [
      {
       "text": "Seductress",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trousers",
-      "for": "container",
-      "note": "as a verb, to trouser is to pocket, so it takes something inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wrong",
-      "gives": "SIN",
-      "note": "a sin = a wrong; the outer letters SI…N"
-     },
-     {
-      "clueFragment": "touching",
-      "gives": "RE",
-      "note": "re = concerning, touching on, inside SIN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SI",
-      "RE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trousers",
+       "note": "as a verb, to trouser is to pocket, so it takes something inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wrong",
+       "gives": "SIN",
+       "note": "a sin = a wrong; the outer letters SI…N"
+      },
+      {
+       "words": "touching",
+       "gives": "RE",
+       "note": "re = concerning, touching on, inside SIN"
+      }
      ]
     },
     "explanation": {
@@ -1637,32 +1471,19 @@
    },
    "solution": "WHEREITSAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WHERE IT'S AT",
     "definitions": [
      {
       "text": "5 for the FT festival",
-      "at": 0
+      "at": 0,
+      "meaning": "5 down, KENWOOD, is literally where the FT Weekend Festival is held"
      },
      {
       "text": "the place to be",
-      "at": 23
+      "at": 23,
+      "meaning": "the idiom for somewhere fashionable"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "5 for the FT festival",
-      "gives": "WHEREITSAT",
-      "note": "5 down, KENWOOD, is literally where the FT Weekend Festival is held"
-     },
-     {
-      "clueFragment": "the place to be",
-      "gives": "WHEREITSAT",
-      "note": "the idiom for somewhere fashionable"
-     }
-    ],
+    "spelling": "WHERE IT'S AT",
     "explanation": {
      "surface": "A plug for the newspaper’s own festival as the fashionable place to be.",
      "walkthrough": "The first sense takes the phrase literally: Kenwood (5 down) is where the festival is at.",
@@ -1689,32 +1510,25 @@
    },
    "solution": "WHOOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHOOP",
     "definitions": [
      {
       "text": "sound really happy",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Any people",
-      "gives": "WHO",
-      "note": "who = whichever people, as in 'who wants one'"
-     },
-     {
-      "clueFragment": "that work",
-      "gives": "OP",
-      "note": "op. = opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHO",
-      "OP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Any people",
+       "gives": "WHO",
+       "note": "who = whichever people, as in 'who wants one'"
+      },
+      {
+       "words": "that work",
+       "gives": "OP",
+       "note": "op. = opus, a work"
+      }
      ]
     },
     "explanation": {
@@ -1743,35 +1557,25 @@
    },
    "solution": "ALLAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALLAY",
     "definitions": [
      {
       "text": "calm down",
       "at": 20
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everybody",
-      "gives": "ALL",
-      "note": "all = everybody"
-     },
-     {
-      "clueFragment": "agreed",
-      "gives": "AY",
-      "note": "ay (aye) = yes, agreed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "AY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everybody",
+       "gives": "ALL",
+       "note": "all = everybody"
+      },
+      {
+       "words": "agreed",
+       "gives": "AY",
+       "note": "ay (aye) = yes, agreed"
+      }
      ]
     },
     "explanation": {
@@ -1800,46 +1604,41 @@
    },
    "solution": "SHERLOCK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHERLOCK",
     "definitions": [
      {
       "text": "Eye",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sandwiches",
-      "for": "container",
-      "note": "to sandwich is to hold filling between two halves"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "buffet",
-      "gives": "SOCK",
-      "note": "to buffet = to hit, sock; the outer letters S…OCK"
-     },
-     {
-      "clueFragment": "that woman's",
-      "gives": "HER",
-      "note": "her = that woman’s, inside SOCK"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left, inside SOCK after HER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HER",
-      "L",
-      "OCK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "note": "to sandwich is to hold filling between two halves"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "buffet",
+         "gives": "SOCK",
+         "note": "to buffet = to hit, sock; the outer letters S…OCK"
+        },
+        {
+         "words": "that woman's",
+         "gives": "HER",
+         "note": "her = that woman’s, inside SOCK"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left, inside SOCK after HER"
+      }
      ]
     },
     "explanation": {
@@ -1869,42 +1668,42 @@
    },
    "solution": "WORDLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "WORDLE",
     "definitions": [
      {
       "text": "this game",
       "at": 9
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "note": "the letters could be turned into the other word, so the two are anagrams of each other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wonderful",
-      "gives": "WODERL",
-      "note": "WONDERFUL with the letters of FUN taken out"
-     },
-     {
-      "clueFragment": "Fun",
-      "note": "the letters removed from WONDERFUL"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "WORDLE",
+     "parts": [
       {
-       "fodder": "WODERL",
-       "gives": "WORDLE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "could be",
+         "note": "the letters could be turned into the other word, so the two are anagrams of each other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "parts": [
+          {
+           "words": "wonderful",
+           "gives": "WODERL",
+           "note": "WONDERFUL with the letters of FUN taken out"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "Fun",
+         "note": "the letters removed from WONDERFUL"
+        }
+       ]
       }
      ]
     },
@@ -1940,40 +1739,31 @@
    },
    "solution": "SWANUP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWAN UP",
     "definitions": [
      {
       "text": "Blithely arrive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "through",
-      "for": "container",
-      "note": "one word runs through the middle of the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup = to drink; the outer letters S…UP"
-     },
-     {
-      "clueFragment": "weak",
-      "gives": "WAN",
-      "note": "wan = pale and weak, inside SUP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WAN",
-      "UP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "note": "one word runs through the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "SUP",
+       "note": "to sup = to drink; the outer letters S…UP"
+      },
+      {
+       "words": "weak",
+       "gives": "WAN",
+       "note": "wan = pale and weak, inside SUP"
+      }
      ]
     },
     "explanation": {
@@ -2002,40 +1792,34 @@
    },
    "solution": "RETRONYM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RETRONYM",
     "definitions": [
      {
       "text": "Name changed to suit new circumstances",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "a confused name has been muddled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Terry — no",
-      "gives": "TERRYNO",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Mike",
-      "gives": "M",
-      "note": "Mike is M in the NATO phonetic alphabet, joining the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TERRY NO M",
-       "gives": "RETRONYM"
+       "text": "confused",
+       "note": "a confused name has been muddled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Terry — no",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "Mike",
+         "gives": "M",
+         "note": "Mike is M in the NATO phonetic alphabet, joining the fodder"
+        }
+       ]
       }
      ]
     },

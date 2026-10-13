@@ -1,8 +1,6 @@
 {
  "id": "everyman-4170",
  "number": 4170,
- "series": "everyman",
- "name": "Everyman crossword No 4,170",
  "setter": "Everyman",
  "date": "2026-09-20",
  "dimensions": {
@@ -39,33 +37,16 @@
    },
    "solution": "ARCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ARCH",
     "definitions": [
      {
       "text": "Cunning",
-      "at": 0
+      "at": 0,
+      "meaning": "an adjective for knowingly sly, as in a smile that hints at a secret"
      },
      {
       "text": "Bow",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cunning",
-      "gives": "ARCH",
-      "note": "an adjective for knowingly sly, as in a smile that hints at a secret"
-     },
-     {
-      "clueFragment": "Bow",
-      "gives": "ARCH",
-      "note": "a curved shape, like a bent bow or a bridge's span"
+      "at": 11,
+      "meaning": "a curved shape, like a bent bow or a bridge's span"
      }
     ],
     "explanation": {
@@ -94,26 +75,25 @@
    },
    "solution": "AUTOGRAPHS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AUTOGRAPHS",
     "definitions": [
      {
       "text": "Handles made by your own fair hand",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Handles",
-      "note": "the surface pushes things you grip, on doors or cups; the setter means slang for names"
-     },
-     {
-      "clueFragment": "made by your own fair hand",
-      "note": "names written out in the owner's own handwriting, signatures"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Handles",
+       "note": "the surface pushes things you grip, on doors or cups; the setter means slang for names"
+      },
+      {
+       "words": "made by your own fair hand",
+       "note": "names written out in the owner's own handwriting, signatures"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Handles, as on doors or cups, apparently crafted by hand.",
      "walkthrough": "'Handles' looks like the things you grip, but it is slang for names; a name signed in your own hand is the answer.",
@@ -147,35 +127,25 @@
    },
    "solution": "CREDITCARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CREDIT CARD",
     "definitions": [
      {
       "text": "'Plastic'",
       "at": 0
      }
     ],
-    "linkWords": [
-     "carries"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attribute",
-      "gives": "CREDIT",
-      "note": "to attribute a deed to someone is to give them the praise for it"
-     },
-     {
-      "clueFragment": "comedian",
-      "gives": "CARD",
-      "note": "a joker, a funny person: 'he's a real ___'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREDIT",
-      "CARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "attribute",
+       "gives": "CREDIT",
+       "note": "to attribute a deed to someone is to give them the praise for it"
+      },
+      {
+       "words": "comedian",
+       "gives": "CARD",
+       "note": "a joker, a funny person: 'he's a real ___'"
+      }
      ]
     },
     "explanation": {
@@ -204,54 +174,58 @@
    },
    "solution": "SALAMANDER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SALAMANDER",
     "definitions": [
      {
       "text": "Amphibian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "note": "most of a word is all but its last letter"
-     },
-     {
-      "text": "a half of",
-      "note": "a half of a four-letter word is two of its letters, here the back pair"
-     }
-    ],
-    "linkWords": [
-     "making up"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "most of sausage",
-      "gives": "SALAM",
-      "select": "last",
-      "note": "the spicy Italian sausage without its final I"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and = with, together with"
-     },
-     {
-      "clueFragment": "a half of beer",
-      "gives": "ER",
-      "note": "the back half of BEER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SALAM",
-      "AND",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SALAMANDER",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "most of",
+         "note": "most of a word is all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "SALAM",
+         "indicators": [
+          {
+           "text": "a half of",
+           "note": "a half of a four-letter word is two of its letters, here the back pair"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "most of sausage",
+           "gives": "SALAM",
+           "select": "last",
+           "note": "the spicy Italian sausage without its final I"
+          }
+         ]
+        },
+        {
+         "words": "with",
+         "gives": "AND",
+         "note": "and = with, together with"
+        },
+        {
+         "words": "a half of beer",
+         "gives": "ER",
+         "note": "the back half of BEER"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -280,35 +254,24 @@
    },
    "solution": "APOSTLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APOSTLE",
     "definitions": [
      {
       "text": "Champion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uneasily",
-      "for": "anagram",
-      "note": "someone sitting uneasily shifts about, so the letters do not stay put"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pole — sat",
-      "gives": "POLESAT",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POLE SAT",
-       "gives": "APOSTLE"
+       "text": "uneasily",
+       "note": "someone sitting uneasily shifts about, so the letters do not stay put"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pole — sat",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -338,39 +301,28 @@
    },
    "solution": "ACRONYM",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "ACRONYM",
     "definitions": [
      {
       "text": "Not 'BBC' — nor 'YMCA' — in need of correction?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of correction",
-      "for": "anagram",
-      "note": "letters that need correcting are in the wrong order and must be rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nor 'YMCA'",
-      "gives": "NORYMCA",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOR YMCA",
-       "gives": "ACRONYM"
+       "text": "in need of correction",
+       "note": "letters that need correcting are in the wrong order and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nor 'YMCA'",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A pedant insists BBC is not the right term, and nor is YMCA.",
      "walkthrough": "The pedant's point: the strict term covers abbreviations said as words (NATO), while BBC is read letter by letter, an initialism. So the whole clue describes the answer as well as spelling it.",
@@ -408,47 +360,41 @@
    },
    "solution": "ACTEDONESAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ACTED ONES AGE",
     "definitions": [
      {
       "text": "eschewed immaturity",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so take the end letter of the word before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Responded to",
-      "gives": "ACTEDON",
-      "note": "to respond to advice is to follow it through, two words"
-     },
-     {
-      "clueFragment": "advice, ultimately",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of ADVICE"
-     },
-     {
-      "clueFragment": "wise",
-      "gives": "SAGE",
-      "note": "a synonym for wise, as in counsel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACTEDON",
-      "E",
-      "SAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Responded to",
+       "gives": "ACTEDON",
+       "note": "to respond to advice is to follow it through, two words"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so take the end letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advice, ultimately",
+         "gives": "ADVICE",
+         "note": "last letter of ADVICE"
+        }
+       ]
+      },
+      {
+       "words": "wise",
+       "gives": "SAGE",
+       "note": "a synonym for wise, as in counsel"
+      }
      ]
     },
     "explanation": {
@@ -483,30 +429,16 @@
    },
    "solution": "DOUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DO UP",
     "definitions": [
      {
       "text": "Redecorate",
-      "at": 0
+      "at": 0,
+      "meaning": "the phrasal verb for renovating a house"
      },
      {
       "text": "beehive?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Redecorate",
-      "gives": "DOUP",
-      "note": "the phrasal verb for renovating a house"
-     },
-     {
-      "clueFragment": "beehive?",
-      "gives": "DOUP",
-      "note": "a beehive is a hairdo piled high on the head"
+      "at": 11,
+      "meaning": "a beehive is a hairdo piled high on the head"
      }
     ],
     "explanation": {
@@ -536,33 +468,16 @@
    },
    "solution": "RAYS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAYS",
     "definitions": [
      {
       "text": "Skates",
-      "at": 0
+      "at": 0,
+      "meaning": "skates are flat, wing-finned sea fish"
      },
      {
       "text": "beams",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skates",
-      "gives": "RAYS",
-      "note": "skates are flat, wing-finned sea fish"
-     },
-     {
-      "clueFragment": "beams",
-      "gives": "RAYS",
-      "note": "beams of light or sunshine"
+      "at": 12,
+      "meaning": "beams of light or sunshine"
      }
     ],
     "explanation": {
@@ -591,33 +506,28 @@
    },
    "solution": "TWEE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TWEE",
     "definitions": [
      {
       "text": "affectedly quaint",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "largely",
-      "for": "deletion",
-      "note": "largely means for the most part, so keep most of the word and drop its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Professorial material largely",
-      "gives": "TWEE",
-      "note": "the woollen cloth of the stereotyped professor's jacket, minus its final D"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TWEE",
+     "indicators": [
+      {
+       "text": "largely",
+       "note": "largely means for the most part, so keep most of the word and drop its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Professorial material largely",
+       "gives": "TWEE",
+       "note": "the woollen cloth of the stereotyped professor's jacket, minus its final D"
+      }
      ]
     },
     "explanation": {
@@ -651,30 +561,16 @@
    },
    "solution": "YOURSTRULY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "YOURS TRULY",
     "definitions": [
      {
       "text": "Everyman?",
-      "at": 0
+      "at": 0,
+      "meaning": "Everyman is the setter's name, so the setter talking about himself: me"
      },
      {
       "text": "This means I'm about to say goodbye",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyman?",
-      "gives": "YOURSTRULY",
-      "note": "Everyman is the setter's name, so the setter talking about himself: me"
-     },
-     {
-      "clueFragment": "This means I'm about to say goodbye",
-      "gives": "YOURSTRULY",
-      "note": "the sign-off at the end of a letter, just before the name"
+      "at": 10,
+      "meaning": "the sign-off at the end of a letter, just before the name"
      }
     ],
     "explanation": {
@@ -718,44 +614,35 @@
    },
    "solution": "FLYINTOARAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLY INTO A RAGE",
     "definitions": [
      {
       "text": "snap!",
       "at": 35
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fashionable",
-      "gives": "FLY",
-      "note": "slang for stylish or cool"
-     },
-     {
-      "clueFragment": "following",
-      "gives": "INTO",
-      "note": "keen on, a follower of, as in 'she's ___ jazz'"
-     },
-     {
-      "clueFragment": "some",
-      "gives": "A",
-      "note": "the indefinite article: some, one"
-     },
-     {
-      "clueFragment": "trend",
-      "gives": "RAGE",
-      "note": "a craze: 'all the ___'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLY",
-      "INTO",
-      "A",
-      "RAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fashionable",
+       "gives": "FLY",
+       "note": "slang for stylish or cool"
+      },
+      {
+       "words": "following",
+       "gives": "INTO",
+       "note": "keen on, a follower of, as in 'she's ___ jazz'"
+      },
+      {
+       "words": "some",
+       "gives": "A",
+       "note": "the indefinite article: some, one"
+      },
+      {
+       "words": "trend",
+       "gives": "RAGE",
+       "note": "a craze: 'all the ___'"
+      }
      ]
     },
     "explanation": {
@@ -784,26 +671,25 @@
    },
    "solution": "GUILLOTINED",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GUILLOTINED",
     "definitions": [
      {
       "text": "Used a revolutionary means of capital reduction",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Used a revolutionary means",
-      "note": "the surface suggests a radical policy; the setter means the machine of the French Revolution"
-     },
-     {
-      "clueFragment": "of capital reduction",
-      "note": "capital sounds financial, but it is the head (Latin caput), and the reduction is its removal"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Used a revolutionary means",
+       "note": "the surface suggests a radical policy; the setter means the machine of the French Revolution"
+      },
+      {
+       "words": "of capital reduction",
+       "note": "capital sounds financial, but it is the head (Latin caput), and the reduction is its removal"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A radical government cuts the capital city's budget.",
      "walkthrough": "The clue reads as economics, cutting capital or funds; 'capital' is the head, and the revolution is the French one.",
@@ -831,10 +717,6 @@
    },
    "solution": "REPAINTING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REPAINTING",
     "definitions": [
      {
       "text": "that will get you a new coat",
@@ -842,25 +724,18 @@
       "note": "a relative clause standing for the noun: the answer is what gets you a new coat"
      }
     ],
-    "indicators": [
-     {
-      "text": "to change",
-      "for": "anagram",
-      "note": "letters that change are rearranged into a new word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pertaining",
-      "gives": "PERTAINING",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PERTAINING",
-       "gives": "REPAINTING"
+       "text": "to change",
+       "note": "letters that change are rearranged into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pertaining",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -897,26 +772,25 @@
    },
    "solution": "FAMILYTREE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FAMILY TREE",
     "definitions": [
      {
       "text": "Arboreal schema including many elders",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Arboreal schema",
-      "note": "a diagram shaped like a tree, with branches"
-     },
-     {
-      "clueFragment": "including many elders",
-      "note": "elder is a tree too, but here the elders are ancestors, grandparents and beyond"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Arboreal schema",
+       "note": "a diagram shaped like a tree, with branches"
+      },
+      {
+       "words": "including many elders",
+       "note": "elder is a tree too, but here the elders are ancestors, grandparents and beyond"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A diagram of a wood full of elder trees.",
      "walkthrough": "Elder is also a tree, so the clue can pass for botany; the elders are one's forebears.",
@@ -944,35 +818,24 @@
    },
    "solution": "ASCRIBE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASCRIBE",
     "definitions": [
      {
       "text": "credit",
       "at": 11
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "used as is"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "SCRIBE",
-      "note": "a copyist or writer, often a journalist in jest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SCRIBE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "used as is"
+      },
+      {
+       "words": "writer",
+       "gives": "SCRIBE",
+       "note": "a copyist or writer, often a journalist in jest"
+      }
      ]
     },
     "explanation": {
@@ -1000,54 +863,42 @@
    },
    "solution": "MANDELA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MANDELA",
     "definitions": [
      {
       "text": "hero of democracy",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "knocked back",
-      "for": "reversal",
-      "note": "a drink knocked back goes back the way it came, so write it backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frenchman",
-      "gives": "M",
-      "note": "M. = Monsieur"
-     },
-     {
-      "clueFragment": "then",
-      "gives": "AND",
-      "note": "and = then, next"
-     },
-     {
-      "clueFragment": "knocked back drink",
-      "gives": "ELA",
-      "note": "ALE, a pint of beer, written backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "AND",
-      "ELA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MANDELA",
+     "indicators": [
       {
-       "from": "ALE",
-       "to": "ELA"
+       "text": "knocked back",
+       "note": "a drink knocked back goes back the way it came, so write it backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Frenchman",
+         "gives": "M",
+         "note": "M. = Monsieur"
+        },
+        {
+         "words": "then",
+         "gives": "AND",
+         "note": "and = then, next"
+        },
+        {
+         "words": "knocked back drink",
+         "gives": "ELA",
+         "note": "ALE, a pint of beer, written backwards"
+        }
+       ]
       }
      ]
     },
@@ -1077,33 +928,28 @@
    },
    "solution": "HORATIO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HORATIO",
     "definitions": [
      {
       "text": "Danish friend",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "A little",
-      "for": "hidden_word",
-      "note": "a little of the phrase is just part of it, a run of letters inside"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "psycho rat I obtained",
-      "gives": "HORATIO",
-      "note": "starts in the last two letters of 'psycho' and ends at the first of 'obtained'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A little",
+       "note": "a little of the phrase is just part of it, a run of letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "psycho rat I obtained",
+       "gives": "HORATIO",
+       "note": "starts in the last two letters of 'psycho' and ends at the first of 'obtained'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone gets a pet rat for a Danish friend.",
      "walkthrough": "The Danish friend is Hamlet's: the Prince of Denmark's loyal companion in Shakespeare.",
@@ -1131,39 +977,28 @@
    },
    "solution": "OCTUPLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "OCTUPLE",
     "definitions": [
      {
       "text": "Couplet developed — needing three more?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "developed",
-      "for": "anagram",
-      "note": "something developed has been worked into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Couplet",
-      "gives": "COUPLET",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COUPLET",
-       "gives": "OCTUPLE"
+       "text": "developed",
+       "note": "something developed has been worked into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Couplet",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A poet's two-line couplet, grown, still wants more lines.",
      "walkthrough": "A couplet is a pair of lines; add three more couplets and you have eight, so the question mark flags a sum: two plus three twos makes eightfold.",
@@ -1191,49 +1026,40 @@
    },
    "solution": "BASMATI",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BASMATI",
     "definitions": [
      {
       "text": "kind of rice",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "about means around, in no fixed order, so the letters are shuffled"
-     },
-     {
-      "text": "devouring",
-      "note": "letters that devour something close round it, taking it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm bats",
-      "gives": "BASMTI",
-      "note": "the six letters of I'M BATS rearranged, then parted after the fourth to take the A"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "swallowed by the shuffled letters, after the fourth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BASM",
-      "A",
-      "TI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "IM BATS",
-       "gives": "BASMTI"
+       "text": "about",
+       "note": "about means around, in no fixed order, so the letters are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "devouring",
+         "note": "letters that devour something close round it, taking it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm bats",
+         "gives": "BASMTI",
+         "note": "the six letters of I'M BATS rearranged, then parted after the fourth to take the A"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "swallowed by the shuffled letters, after the fourth"
       }
      ]
     },
@@ -1269,30 +1095,16 @@
    },
    "solution": "BLISTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLISTER",
     "definitions": [
      {
       "text": "Not one most sought after by media",
-      "at": 0
+      "at": 0,
+      "meaning": "not an A-list celebrity, so the grade below"
      },
      {
       "text": "bubble",
-      "at": 35
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not one most sought after by media",
-      "gives": "BLISTER",
-      "note": "not an A-list celebrity, so the grade below"
-     },
-     {
-      "clueFragment": "bubble",
-      "gives": "BLISTER",
-      "note": "a raised pocket on skin or paint"
+      "at": 35,
+      "meaning": "a raised pocket on skin or paint"
      }
     ],
     "explanation": {
@@ -1322,38 +1134,24 @@
    },
    "solution": "ASTRINGENCY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ASTRINGENCY",
     "definitions": [
      {
       "text": "nature prone to biting",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Disturbed",
-      "for": "anagram",
-      "note": "disturbed things are knocked out of order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "angry insect",
-      "gives": "ANGRYINSECT",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANGRY INSECT",
-       "gives": "ASTRINGENCY"
+       "text": "Disturbed",
+       "note": "disturbed things are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "angry insect",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -1383,44 +1181,35 @@
    },
    "solution": "PRAM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PRAM",
     "definitions": [
      {
       "text": "Baby's here",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue, rising means read from the bottom up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to spoil",
-      "gives": "MAR",
-      "note": "a synonym for spoil or blemish"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p = piano, quietly in music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRAM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MARP",
-       "to": "PRAM"
+       "text": "rising",
+       "note": "in a down clue, rising means read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to spoil",
+         "gives": "MAR",
+         "note": "a synonym for spoil or blemish"
+        },
+        {
+         "words": "quiet",
+         "gives": "P",
+         "note": "p = piano, quietly in music"
+        }
+       ]
       }
      ]
     },
@@ -1450,33 +1239,28 @@
    },
    "solution": "ADEN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ADEN",
     "definitions": [
      {
       "text": "Arabian seaport",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "A spot of",
-      "for": "hidden_word",
-      "note": "a spot of something is a small amount of it, a few letters from inside"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "decadence",
-      "gives": "ADEN",
-      "note": "letters four to seven of 'decadence'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A spot of",
+       "note": "a spot of something is a small amount of it, a few letters from inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decadence",
+       "gives": "ADEN",
+       "note": "letters four to seven of 'decadence'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A little decadence in an Arabian port.",
      "walkthrough": "'A spot of' reads as a small helping of decadence; it asks for a run of letters from inside the word.",
@@ -1508,35 +1292,25 @@
    },
    "solution": "REDCARPETS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RED CARPETS",
     "definitions": [
      {
       "text": "VIP treatment",
       "at": 32
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yorkshire",
-      "gives": "REDCAR",
-      "note": "a seaside town in North Yorkshire"
-     },
-     {
-      "clueFragment": "cats and dogs",
-      "gives": "PETS",
-      "note": "cats and dogs are household animals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REDCAR",
-      "PETS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Yorkshire",
+       "gives": "REDCAR",
+       "note": "a seaside town in North Yorkshire"
+      },
+      {
+       "words": "cats and dogs",
+       "gives": "PETS",
+       "note": "cats and dogs are household animals"
+      }
      ]
     },
     "explanation": {
@@ -1565,31 +1339,29 @@
    },
    "solution": "LIAR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LIAR",
     "definitions": [
      {
       "text": "Don't trust me",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "can be heard",
-      "for": "homophone",
-      "note": "what can be heard is the sound of the word, not its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ancient Greek instrument",
-      "gives": "LIAR",
-      "soundsLike": "LYRE",
-      "note": "LYRE, the small Greek harp, which said aloud sounds like the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LIAR",
+     "indicators": [
+      {
+       "text": "can be heard",
+       "note": "what can be heard is the sound of the word, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ancient Greek instrument",
+       "gives": "LYRE",
+       "note": "LYRE, the small Greek harp, which said aloud sounds like the answer"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A lyre-player speaks, then warns you not to trust him.",
      "walkthrough": "The definition speaks in the answer's voice: 'don't trust me' is what the untrustworthy person would say.",
@@ -1616,35 +1388,24 @@
    },
    "solution": "MONTENEGRO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MONTENEGRO",
     "definitions": [
      {
       "text": "somewhere on the Adriatic",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "bananas",
-      "for": "anagram",
-      "note": "bananas means crazy, so the letters go wild"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mentor, gone",
-      "gives": "MENTORGONE",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENTOR GONE",
-       "gives": "MONTENEGRO"
+       "text": "bananas",
+       "note": "bananas means crazy, so the letters go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mentor, gone",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1675,55 +1436,48 @@
    },
    "solution": "OGLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "OGLE",
     "definitions": [
      {
       "text": "Offensively gaze, lecherously eyeing, primarily?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so take the first letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Offensively",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "gaze",
-      "gives": "G",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "lecherously",
-      "gives": "L",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "eyeing",
-      "gives": "E",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "G",
-      "L",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all, so take the first letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Offensively",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "words": "gaze",
+       "gives": "G",
+       "note": "first letter"
+      },
+      {
+       "words": "lecherously",
+       "gives": "L",
+       "note": "first letter"
+      },
+      {
+       "words": "eyeing",
+       "gives": "E",
+       "note": "first letter"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A description of leering at someone.",
      "walkthrough": "The whole clue both spells and describes the answer: the initials give the letters, and the words say what the act is.",

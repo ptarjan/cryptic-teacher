@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30077",
  "number": 30077,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,077",
  "setter": "Omnibus",
  "date": "2026-08-05",
  "dimensions": {
@@ -44,51 +42,43 @@
    },
    "solution": "MAKESURE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "MAKE SURE",
     "definitions": [
      {
       "text": "guarantee",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "To accept something is to take it in, and a word that takes another in has to open up and hold it."
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "A thing that is backing is travelling rear-end first, so the letters of the word beside it arrive in reverse."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brand",
-      "gives": "MAKE",
-      "note": "a car's brand is its make"
-     },
-     {
-      "clueFragment": "plan backing",
-      "gives": "ESUR",
-      "note": "a crafty plan is a RUSE, written back to front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAK",
-      "ESUR",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MAKESURE",
+     "indicators": [
       {
-       "from": "RUSE",
-       "to": "ESUR"
+       "text": "backing",
+       "note": "A thing that is backing is travelling rear-end first, so the letters of the word beside it arrive in reverse."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "note": "To accept something is to take it in, and a word that takes another in has to open up and hold it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brand",
+         "gives": "MAKE",
+         "note": "a car's brand is its make"
+        },
+        {
+         "words": "plan backing",
+         "gives": "ESUR",
+         "note": "a crafty plan is a RUSE, written back to front"
+        }
+       ]
       }
      ]
     },
@@ -112,44 +102,36 @@
    },
    "solution": "WISP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WISP",
     "definitions": [
      {
       "text": "strand",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "'Start to' points at the beginning of the action named next, so only the opening letter of that word is wanted."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to watch",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of watch"
-     },
-     {
-      "clueFragment": "broadband supplier",
-      "gives": "ISP",
-      "note": "an internet service provider is the firm that sells you broadband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ISP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "'Start to' points at the beginning of the action named next, so only the opening letter of that word is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to watch",
+         "gives": "WATCH",
+         "note": "the first letter of watch"
+        }
+       ]
+      },
+      {
+       "words": "broadband supplier",
+       "gives": "ISP",
+       "note": "an internet service provider is the firm that sells you broadband"
+      }
      ]
     },
     "explanation": {
@@ -172,34 +154,39 @@
    },
    "solution": "MUSTER",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "MUSTER",
     "definitions": [
      {
       "text": "rally",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Subsection of",
-      "note": "A subsection is a piece cut out of something longer, which is the instruction: take a run of letters from inside the words that follow."
-     },
-     {
-      "text": "turned around",
-      "note": "Turned around means facing the other way, so that run of letters has to be read from its far end back."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secret summons",
-      "gives": "MUSTER",
-      "note": "secRET SUMmons carries RETSUM, which reads the other way as the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Subsection of",
+       "note": "A subsection is a piece cut out of something longer, which is the instruction: take a run of letters from inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "turned around",
+         "note": "Turned around means facing the other way, so that run of letters has to be read from its far end back."
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret summons",
+         "gives": "RETSUM",
+         "note": "secRET SUMmons carries RETSUM, which reads the other way as the answer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A hidden run almost always straddles a word boundary, because your eye reads whole words and skips the join — and here it is buried backwards as well.",
      "definitionFit": "rally → MUSTER: to rally troops is to muster them, both verbs meaning to gather scattered people into one body ready for action."
@@ -226,39 +213,31 @@
    },
    "solution": "CLAMOUR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLAMOUR",
     "definitions": [
      {
       "text": "outcry",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "'Before' is positional, not temporal: the piece it follows is laid down first and the next one comes after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One who keeps quiet",
-      "gives": "CLAM",
-      "note": "someone who clams up gives nothing away"
-     },
-     {
-      "clueFragment": "the Guardian's",
-      "gives": "OUR",
-      "note": "the paper printing this puzzle calls what belongs to it ours"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLAM",
-      "OUR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "'Before' is positional, not temporal: the piece it follows is laid down first and the next one comes after it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "One who keeps quiet",
+       "gives": "CLAM",
+       "note": "someone who clams up gives nothing away"
+      },
+      {
+       "words": "the Guardian's",
+       "gives": "OUR",
+       "note": "the paper printing this puzzle calls what belongs to it ours"
+      }
      ]
     },
     "explanation": {
@@ -281,35 +260,24 @@
    },
    "solution": "ASHE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASHE",
     "definitions": [
      {
       "text": "male tennis icon",
       "at": 12
      }
     ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "the article is taken as it stands"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "SHE",
-      "note": "'female' is a common stand-in for the three-letter subject pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SHE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "the article is taken as it stands"
+      },
+      {
+       "words": "female",
+       "gives": "SHE",
+       "note": "'female' is a common stand-in for the three-letter subject pronoun"
+      }
      ]
     },
     "explanation": {
@@ -332,33 +300,16 @@
    },
    "solution": "PARLIAMENT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PARLIAMENT",
     "definitions": [
      {
       "text": "Chamber",
-      "at": 0
+      "at": 0,
+      "meaning": "the debating chamber where a country's laws are argued"
      },
      {
       "text": "diet for those chosen",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chamber",
-      "gives": "PARLIAMENT",
-      "note": "the debating chamber where a country's laws are argued"
-     },
-     {
-      "clueFragment": "diet for those chosen",
-      "gives": "PARLIAMENT",
-      "note": "a diet is a formal assembly — Japan still calls its own one — and its members are the elected"
+      "at": 10,
+      "meaning": "a diet is a formal assembly — Japan still calls its own one — and its members are the elected"
      }
     ],
     "explanation": {
@@ -381,43 +332,31 @@
    },
    "solution": "SEANCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEANCE",
     "definitions": [
      {
       "text": "Late meeting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' is doing spatial work rather than joining a phrase: what precedes it goes inside what follows."
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop's office",
-      "gives": "SEE",
-      "note": "a bishop's office and district is his see"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "ANC",
-      "note": "the African National Congress, South Africa's governing party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "ANC",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' is doing spatial work rather than joining a phrase: what precedes it goes inside what follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "bishop's office",
+       "gives": "SEE",
+       "note": "a bishop's office and district is his see"
+      },
+      {
+       "words": "party",
+       "gives": "ANC",
+       "note": "the African National Congress, South Africa's governing party"
+      }
      ]
     },
     "explanation": {
@@ -440,57 +379,56 @@
    },
    "solution": "HABITUAL",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HABITUAL",
     "definitions": [
      {
       "text": "normal",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "at the outset",
-      "note": "At the outset means right at the start, so each word it looks back at surrenders only its opening letter."
-     },
-     {
-      "text": "to involve",
-      "note": "To involve something is to have it inside you, so the letters already found close around what comes next."
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "holiday at Legoland at the outset",
-      "gives": "HAL",
-      "select": "first",
-      "note": "the opening letters of Holiday At Legoland"
-     },
-     {
-      "clueFragment": "a little",
-      "gives": "ABIT",
-      "note": "a little of something is a bit of it"
-     },
-     {
-      "clueFragment": "something for everyone",
-      "gives": "U",
-      "note": "a U certificate marks a film as universal, passed for everyone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "A",
-      "BIT",
-      "U",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "at the outset",
+       "note": "At the outset means right at the start, so each word it looks back at surrenders only its opening letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "HAL",
+       "indicators": [
+        {
+         "text": "to involve",
+         "note": "To involve something is to have it inside you, so the letters already found close around what comes next."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "holiday at Legoland at the outset",
+         "gives": "HAL",
+         "select": "first",
+         "note": "the opening letters of Holiday At Legoland"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a little",
+         "gives": "ABIT",
+         "note": "a little of something is a bit of it"
+        },
+        {
+         "words": "something for everyone",
+         "gives": "U",
+         "note": "a U certificate marks a film as universal, passed for everyone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -536,44 +474,42 @@
     "9-across"
    ],
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "DEEP STATE",
     "definitions": [
      {
       "text": "The Blob",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "expensive",
-      "gives": "DEEP",
-      "soundsLike": "STEEP",
-      "note": "expensive is steep, and Spooner takes its ST away in exchange for a D"
-     },
-     {
-      "clueFragment": "rendezvous",
-      "gives": "STATE",
-      "soundsLike": "DATE",
-      "note": "a rendezvous is a date, and it picks up the ST that steep gave up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEEP",
-      "STATE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "DEEPSTATE",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "expensive",
+         "gives": "DEEP",
+         "soundsLike": "STEEP",
+         "note": "expensive is steep, and Spooner takes its ST away in exchange for a D"
+        },
+        {
+         "unchecked": true,
+         "words": "rendezvous",
+         "gives": "STATE",
+         "soundsLike": "DATE",
+         "note": "a rendezvous is a date, and it picks up the ST that steep gave up"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -596,35 +532,27 @@
    },
    "solution": "TIMBERLINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TIMBERLINE",
     "definitions": [
      {
       "text": "place where the fuel runs out",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "feverish",
-      "for": "anagram",
-      "note": "Feverish is the shivering, restless state of a fever, and letters that cannot keep still will not stay in the order given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I tremble in",
-      "gives": "TIMBERLINE",
-      "note": "ten letters of I TREMBLE IN, rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TIMBERLINE",
+     "indicators": [
       {
-       "fodder": "I TREMBLE IN",
-       "gives": "TIMBERLINE"
+       "text": "feverish",
+       "note": "Feverish is the shivering, restless state of a fever, and letters that cannot keep still will not stay in the order given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "I tremble in",
+       "gives": "TIMBERLINE",
+       "note": "ten letters of I TREMBLE IN, rearranged"
       }
      ]
     },
@@ -648,30 +576,16 @@
    },
    "solution": "MURDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MURDER",
     "definitions": [
      {
       "text": "Relish",
-      "at": 0
+      "at": 0,
+      "meaning": "the slang sense of falling on something with great appetite, as in a familiar phrase about craving a curry"
      },
      {
       "text": "killing",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Relish",
-      "gives": "MURDER",
-      "note": "the slang sense of falling on something with great appetite, as in a familiar phrase about craving a curry"
-     },
-     {
-      "clueFragment": "killing",
-      "gives": "MURDER",
-      "note": "the crime itself, one person unlawfully killing another"
+      "at": 7,
+      "meaning": "the crime itself, one person unlawfully killing another"
      }
     ],
     "explanation": {
@@ -694,48 +608,37 @@
    },
    "solution": "DERAILLEUR",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DERAILLEUR",
     "definitions": [
      {
       "text": "gear shift",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "fickle",
-      "for": "anagram",
-      "note": "A fickle person will not stay as they were a minute ago, and letters that will not stay put have to be rearranged."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thwart",
-      "gives": "DERAIL",
-      "note": "to derail a plan is to thwart it"
-     },
-     {
-      "clueFragment": "fickle rule",
-      "gives": "LEUR",
-      "note": "the four letters of RULE, shuffled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DERAIL",
-      "LEUR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DERAILLEUR",
+     "indicators": [
       {
-       "fodder": "RULE",
-       "gives": "LEUR"
+       "text": "fickle",
+       "note": "A fickle person will not stay as they were a minute ago, and letters that will not stay put have to be rearranged."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Thwart",
+         "gives": "DERAIL",
+         "note": "to derail a plan is to thwart it"
+        },
+        {
+         "words": "fickle rule",
+         "gives": "LEUR",
+         "note": "the four letters of RULE, shuffled"
+        }
+       ]
       }
      ]
     },
@@ -759,40 +662,38 @@
    },
    "solution": "UNGLAZED",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UNGLAZED",
     "definitions": [
      {
       "text": "Open to the elements",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caps missing",
-      "for": "deletion",
-      "note": "A cap sits on top, so a word that has lost its cap has lost the letter at its front."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "air processor",
-      "gives": "UNG",
-      "note": "a lung processes air, and the L on top of it goes"
-     },
-     {
-      "clueFragment": "burned",
-      "gives": "LAZED",
-      "note": "burned is blazed, and the B on top of it goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNG",
-      "LAZED"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNGLAZED",
+     "indicators": [
+      {
+       "text": "caps missing",
+       "note": "A cap sits on top, so a word that has lost its cap has lost the letter at its front."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "air processor",
+         "gives": "UNG",
+         "note": "a lung processes air, and the L on top of it goes"
+        },
+        {
+         "words": "burned",
+         "gives": "LAZED",
+         "note": "burned is blazed, and the B on top of it goes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -815,33 +716,28 @@
    },
    "solution": "GAM",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GAM",
     "definitions": [
      {
       "text": "leg",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "To cut something short is to lop the end off it, so the final letter of the word never arrives."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sport",
-      "gives": "GAM",
-      "note": "a sport is a game, docked of its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GAM",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "To cut something short is to lop the end off it, so the final letter of the word never arrives."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sport",
+       "gives": "GAM",
+       "note": "a sport is a game, docked of its last letter"
+      }
      ]
     },
     "explanation": {
@@ -864,32 +760,25 @@
    },
    "solution": "DECRYPT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DECRYPT",
     "definitions": [
      {
       "text": "Unravel",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "slam",
-      "gives": "DECRY",
-      "note": "to slam a film in a review is to decry it"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "PT",
-      "note": "PT is the standard abbreviation for point, as on a chart"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECRY",
-      "PT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "slam",
+       "gives": "DECRY",
+       "note": "to slam a film in a review is to decry it"
+      },
+      {
+       "words": "point",
+       "gives": "PT",
+       "note": "PT is the standard abbreviation for point, as on a chart"
+      }
      ]
     },
     "explanation": {
@@ -912,10 +801,6 @@
    },
    "solution": "POD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "POD",
     "definitions": [
      {
       "text": "books made to order",
@@ -923,29 +808,19 @@
       "note": "The definition names what comes off the press rather than the process: POD is print on demand, a way of making books, and the clue defines it by its output."
      }
     ],
-    "indicators": [
-     {
-      "text": "every third letter",
-      "for": "letter_selection",
-      "note": "This is a counting instruction rather than a description: walk through the preceding words in threes and keep only the one you land on."
-     }
-    ],
-    "linkWords": [
-     "appears in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hope to God",
-      "gives": "POD",
-      "select": "regular",
-      "note": "HOPETOGOD falls into HOP, ETO, GOD, and the third letter of each group is what is kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "O",
-      "D"
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "every third letter",
+       "note": "This is a counting instruction rather than a description: walk through the preceding words in threes and keep only the one you land on."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hope to God",
+       "note": "HOPETOGOD falls into HOP, ETO, GOD, and the third letter of each group is what is kept"
+      }
      ]
     },
     "explanation": {
@@ -968,46 +843,43 @@
    },
    "solution": "IMMENSE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "IMMENSE",
     "definitions": [
      {
       "text": "Mammoth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "deletion",
-      "note": "Something stripped has had its outside removed, so the word beside it loses the letters at each end."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setter's",
-      "gives": "IM",
-      "note": "the setter speaks as I, so the setter is becomes I'M"
-     },
-     {
-      "clueFragment": "crew",
-      "gives": "MEN",
-      "note": "a ship's crew is its men"
-     },
-     {
-      "clueFragment": "user",
-      "gives": "SE",
-      "note": "uSEr with its outside letters taken off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "MEN",
-      "SE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IMMENSE",
+     "indicators": [
+      {
+       "text": "stripped",
+       "note": "Something stripped has had its outside removed, so the word beside it loses the letters at each end."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "setter's",
+         "gives": "IM",
+         "note": "the setter speaks as I, so the setter is becomes I'M"
+        },
+        {
+         "words": "crew",
+         "gives": "MEN",
+         "note": "a ship's crew is its men"
+        },
+        {
+         "words": "user",
+         "gives": "SE",
+         "note": "uSEr with its outside letters taken off"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1030,45 +902,41 @@
    },
    "solution": "SPRUCING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPRUCING",
     "definitions": [
      {
       "text": "Smartening up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' is a placement here, not a preposition of the surface: the two abbreviations go inside, not alongside."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "April and May",
-      "gives": "SPRING",
-      "note": "both months fall in the same season"
-     },
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U is the usual abbreviation, as in a degree from U of London"
-     },
-     {
-      "clueFragment": "College",
-      "gives": "C",
-      "note": "C abbreviates college in the names of institutions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPR",
-      "UC",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' is a placement here, not a preposition of the surface: the two abbreviations go inside, not alongside."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "April and May",
+         "gives": "SPRING",
+         "note": "both months fall in the same season"
+        },
+        {
+         "words": "University",
+         "gives": "U",
+         "note": "U is the usual abbreviation, as in a degree from U of London"
+        }
+       ]
+      },
+      {
+       "words": "College",
+       "gives": "C",
+       "note": "C abbreviates college in the names of institutions"
+      }
      ]
     },
     "explanation": {
@@ -1091,31 +959,17 @@
    },
    "solution": "UNCIVIL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNCIVIL",
     "definitions": [
      {
       "text": "Offensive",
       "at": 0,
-      "note": "The second definition is a phrase where the answer is an adjective: the setter is reading 'civil' as civilian, so somebody serving in the forces is literally un-civil."
+      "note": "The second definition is a phrase where the answer is an adjective: the setter is reading 'civil' as civilian, so somebody serving in the forces is literally un-civil.",
+      "meaning": "the everyday sense — rude, discourteous, giving offence"
      },
      {
       "text": "in the armed forces?",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Offensive",
-      "gives": "UNCIVIL",
-      "note": "the everyday sense — rude, discourteous, giving offence"
-     },
-     {
-      "clueFragment": "in the armed forces?",
-      "gives": "UNCIVIL",
-      "note": "a soldier is not a civilian and not in the civil service, so not civil"
+      "at": 10,
+      "meaning": "a soldier is not a civilian and not in the civil service, so not civil"
      }
     ],
     "explanation": {
@@ -1138,11 +992,6 @@
    },
    "solution": "STRIDDEN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "STRIDDEN",
     "definitions": [
      {
       "text": "Walked",
@@ -1150,35 +999,37 @@
       "note": "'Walked' serves as both past tense and past participle, and only the participle sense matches: you have walked, you have stridden."
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' says the piece before it drops inside, landing between the two short words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "road",
-      "gives": "ST",
-      "note": "street shortens to ST on any address"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "to be free of something is to be rid of it"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "DEN",
-      "note": "a den is a small private room in a house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "RID",
-      "DEN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "STRIDDEN",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' says the piece before it drops inside, landing between the two short words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "road",
+         "gives": "ST",
+         "note": "street shortens to ST on any address"
+        },
+        {
+         "words": "free",
+         "gives": "RID",
+         "note": "to be free of something is to be rid of it"
+        },
+        {
+         "words": "house",
+         "gives": "DEN",
+         "note": "a den is a small private room in a house"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1201,47 +1052,44 @@
    },
    "solution": "THORNY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "THORNY",
     "definitions": [
      {
       "text": "hard to please",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "leaderless",
-      "for": "deletion",
-      "note": "A leaderless group has lost the one at its head, so the word gives up its first letter."
-     },
-     {
-      "text": "after",
-      "note": "'After' fixes the order against the surface: the piece named first ends up behind the one named second."
-     }
-    ],
-    "linkWords": [
-     "proving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "god",
-      "gives": "THOR",
-      "note": "Thor, the Norse god of thunder"
-     },
-     {
-      "clueFragment": "Some leaderless",
-      "gives": "NY",
-      "note": "some is any, which loses the A at its head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THOR",
-      "NY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "THORNY",
+     "indicators": [
+      {
+       "text": "leaderless",
+       "note": "A leaderless group has lost the one at its head, so the word gives up its first letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "'After' fixes the order against the surface: the piece named first ends up behind the one named second."
+        }
+       ],
+       "parts": [
+        {
+         "words": "god",
+         "gives": "THOR",
+         "note": "Thor, the Norse god of thunder"
+        },
+        {
+         "words": "Some leaderless",
+         "gives": "NY",
+         "note": "some is any, which loses the A at its head"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1264,35 +1112,27 @@
    },
    "solution": "SUTURE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SUTURE",
     "definitions": [
      {
       "text": "Sew up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ruptured",
-      "for": "anagram",
-      "note": "A ruptured thing has burst apart, and once the letters are in pieces they can be put back in any order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "uterus",
-      "gives": "SUTURE",
-      "note": "the six letters of UTERUS, rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SUTURE",
+     "indicators": [
       {
-       "fodder": "UTERUS",
-       "gives": "SUTURE"
+       "text": "ruptured",
+       "note": "A ruptured thing has burst apart, and once the letters are in pieces they can be put back in any order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "uterus",
+       "gives": "SUTURE",
+       "note": "the six letters of UTERUS, rearranged"
       }
      ]
     },
@@ -1316,30 +1156,28 @@
    },
    "solution": "SKEINS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SKEINS",
     "definitions": [
      {
       "text": "networks",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "to include",
-      "for": "hidden_word",
-      "note": "To include is to contain already, so the letters are sitting inside the words as written rather than being built."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ask Einstein",
-      "gives": "SKEINS",
-      "note": "aSK EINStein runs the letters straight through the gap between the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to include",
+       "note": "To include is to contain already, so the letters are sitting inside the words as written rather than being built."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ask Einstein",
+       "gives": "SKEINS",
+       "note": "aSK EINStein runs the letters straight through the gap between the words"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A famous name is where setters like to bury things: you read Einstein as a person and never as six letters carried over from the word before.",
      "definitionFit": "networks → SKEINS: a skein is a loose coil of yarn, and the word carries over to any tangle of interwoven lines or connections."
@@ -1370,10 +1208,6 @@
     "27-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COLLECTIVE NOUNS",
     "definitions": [
      {
       "text": "Ten solutions",
@@ -1381,28 +1215,21 @@
       "note": "The definition points outside its own clue: ten of this puzzle's other answers belong to the class named, so the phrase defines the answer by what the grid holds."
      }
     ],
-    "indicators": [
-     {
-      "text": "may provide",
-      "for": "anagram",
-      "note": "'May provide' offers the words that follow as raw material — they can yield something else, so they are not to be read as they stand."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tonic with novel clues",
-      "gives": "COLLECTIVENOUNS",
-      "note": "the fifteen letters of TONIC, NOVEL and CLUES, rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "COLLECTIVENOUNS",
+     "indicators": [
       {
-       "fodder": "TONIC NOVEL CLUES",
-       "gives": "COLLECTIVENOUNS"
+       "text": "may provide",
+       "note": "'May provide' offers the words that follow as raw material — they can yield something else, so they are not to be read as they stand."
+      }
+     ],
+     "parts": [
+      {
+       "words": "tonic with novel clues",
+       "gives": "COLLECTIVENOUNS",
+       "note": "the fifteen letters of TONIC, NOVEL and CLUES, rearranged"
       }
      ]
     },
@@ -1426,35 +1253,25 @@
    },
    "solution": "COSH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COSH",
     "definitions": [
      {
       "text": "Whack",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the top guy",
-      "gives": "CO",
-      "note": "the commanding officer is the man in charge of a unit"
-     },
-     {
-      "clueFragment": "stay mum",
-      "gives": "SH",
-      "note": "SH is the noise you make telling someone to keep quiet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "SH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the top guy",
+       "gives": "CO",
+       "note": "the commanding officer is the man in charge of a unit"
+      },
+      {
+       "words": "stay mum",
+       "gives": "SH",
+       "note": "SH is the noise you make telling someone to keep quiet"
+      }
      ]
     },
     "explanation": {
@@ -1477,31 +1294,17 @@
    },
    "solution": "PACE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PACE",
     "definitions": [
      {
       "text": "Begging your permission",
       "at": 0,
-      "note": "'Pace' is the Latin preposition English borrowed — pace Dr Johnson — meaning 'with all respect to', which is why a whole polite phrase defines one short word."
+      "note": "'Pace' is the Latin preposition English borrowed — pace Dr Johnson — meaning 'with all respect to', which is why a whole polite phrase defines one short word.",
+      "meaning": "the bookish word used before disagreeing with someone, by their leave"
      },
      {
       "text": "tread carefully",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Begging your permission",
-      "gives": "PACE",
-      "note": "the bookish word used before disagreeing with someone, by their leave"
-     },
-     {
-      "clueFragment": "tread carefully",
-      "gives": "PACE",
-      "note": "the plain English verb for walking in measured, deliberate steps"
+      "at": 25,
+      "meaning": "the plain English verb for walking in measured, deliberate steps"
      }
     ],
     "explanation": {
@@ -1524,30 +1327,16 @@
    },
    "solution": "PACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PACK",
     "definitions": [
      {
       "text": "Wild Bunch",
-      "at": 0
+      "at": 0,
+      "meaning": "wolves and hounds run in one"
      },
      {
       "text": "get ready to hit the road",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wild Bunch",
-      "gives": "PACK",
-      "note": "wolves and hounds run in one"
-     },
-     {
-      "clueFragment": "get ready to hit the road",
-      "gives": "PACK",
-      "note": "filling a case is what you do before a journey"
+      "at": 11,
+      "meaning": "filling a case is what you do before a journey"
      }
     ],
     "explanation": {
@@ -1583,41 +1372,30 @@
    },
    "solution": "INNOCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INNOCENT",
     "definitions": [
      {
       "text": "in the clear",
       "at": 23
      }
     ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Local",
-      "gives": "INN",
-      "note": "your local is the pub, an inn"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "O",
-      "note": "O is the round nothing, as written on a scoresheet"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "CENT",
-      "note": "a cent is the smallest coin of American cash"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INN",
-      "O",
-      "CENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Local",
+       "gives": "INN",
+       "note": "your local is the pub, an inn"
+      },
+      {
+       "words": "no",
+       "gives": "O",
+       "note": "O is the round nothing, as written on a scoresheet"
+      },
+      {
+       "words": "cash",
+       "gives": "CENT",
+       "note": "a cent is the smallest coin of American cash"
+      }
      ]
     },
     "explanation": {

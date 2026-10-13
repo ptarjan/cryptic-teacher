@@ -1,8 +1,7 @@
 {
  "id": "cryptic-26172",
  "number": 26172,
- "series": "cryptic",
- "name": "Prize crossword No 26,172",
+ "prize": true,
  "setter": "Philistine",
  "date": "2014-02-01",
  "dimensions": {
@@ -38,42 +37,34 @@
    },
    "solution": "ADDENDA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADDENDA",
     "definitions": [
      {
       "text": "Supplements",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "injured",
-      "for": "anagram",
-      "note": "the words before it are hurt out of their shape, so their letters come out rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "note": "surface padding: it only makes the phrase read naturally"
-     },
-     {
-      "clueFragment": "dead and",
-      "gives": "DEADAND",
-      "note": "the letters of these two words are the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEADAND",
-       "gives": "ADDENDA"
+       "unchecked": true,
+       "words": "the",
+       "note": "surface padding: it only makes the phrase read naturally"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "injured",
+         "note": "the words before it are hurt out of their shape, so their letters come out rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead and",
+         "note": "the letters of these two words are the fodder"
+        }
+       ]
       }
      ]
     },
@@ -103,45 +94,37 @@
    },
    "solution": "DISTAFF",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DISTAFF",
     "definitions": [
      {
       "text": "Pertaining to females",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awfully",
-      "for": "anagram",
-      "note": "what is done awfully is done badly, and 'staid' done badly comes out jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staid",
-      "gives": "DISTA",
-      "note": "rearranged"
-     },
-     {
-      "clueFragment": "females",
-      "gives": "FF",
-      "note": "F is the abbreviation for female, doubled for the plural; the word is used twice on purpose"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISTA",
-      "FF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISTAFF",
+     "indicators": [
       {
-       "fodder": "STAID",
-       "gives": "DISTA"
+       "text": "awfully",
+       "note": "what is done awfully is done badly, and 'staid' done badly comes out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "staid",
+         "gives": "DISTA",
+         "note": "rearranged"
+        },
+        {
+         "words": "females",
+         "gives": "FF",
+         "note": "F is the abbreviation for female, doubled for the plural; the word is used twice on purpose"
+        }
+       ]
       }
      ]
     },
@@ -177,31 +160,29 @@
    },
    "solution": "ECOLI",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "and_lit"
-    ],
-    "answer": "E COLI",
     "definitions": [
      {
       "text": "What contributes to both ulcerative colitis and gastroenteritis?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contributes to",
-      "for": "hidden_word",
-      "note": "the two words each contribute letters, so the answer is spread across 'ulcerative colitis'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ulcerative colitis",
-      "gives": "ECOLI",
-      "note": "the last letter of 'ulcerative' runs into the start of 'colitis'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contributes to",
+       "note": "the two words each contribute letters, so the answer is spread across 'ulcerative colitis'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ulcerative colitis",
+       "gives": "ECOLI",
+       "note": "the last letter of 'ulcerative' runs into the start of 'colitis'"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A medical quiz question about what causes two gut complaints.",
      "walkthrough": "The whole clue is both the definition and the wordplay: the bug is spelt out across 'ulcerative colitis', and it can cause such illnesses.",
@@ -227,43 +208,31 @@
    },
    "solution": "DRACHMA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DRACHMA",
     "definitions": [
      {
       "text": "Money",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the church abbreviation is put in the play, sitting inside its letters"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "play",
-      "gives": "DRAMA",
-      "note": "a play is a drama"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the usual abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRA",
-      "CH",
-      "MA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the church abbreviation is put in the play, sitting inside its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "play",
+       "gives": "DRAMA",
+       "note": "a play is a drama"
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the usual abbreviation for church"
+      }
      ]
     },
     "explanation": {
@@ -292,42 +261,31 @@
    },
    "solution": "ABSENCE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ABSENCE",
     "definitions": [
      {
       "text": "Not being there",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "deletion",
-      "note": "the can is taken out of the word for not drinking, leaving the rest behind"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not drinking",
-      "gives": "ABSTINENCE",
-      "note": "not drinking alcohol is abstinence"
-     },
-     {
-      "clueFragment": "can",
-      "gives": "TIN",
-      "note": "a can is a tin, and it is the part removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABS",
-      "ENCE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "the can is taken out of the word for not drinking, leaving the rest behind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not drinking",
+       "gives": "ABSTINENCE",
+       "note": "not drinking alcohol is abstinence"
+      },
+      {
+       "words": "can",
+       "gives": "TIN",
+       "note": "a can is a tin, and it is the part removed"
+      }
      ]
     },
     "explanation": {
@@ -356,40 +314,31 @@
    },
    "solution": "BREATH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BREATH",
     "definitions": [
      {
       "text": "Inspiration",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "filed",
-      "for": "container",
-      "note": "something filed is put away inside a place, so the note goes inside the bath"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "where Archimedes found his",
-      "gives": "BATH",
-      "note": "Archimedes had his eureka moment in the bath"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "RE",
-      "note": "re is the second note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RE",
-      "ATH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filed",
+       "note": "something filed is put away inside a place, so the note goes inside the bath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "where Archimedes found his",
+       "gives": "BATH",
+       "note": "Archimedes had his eureka moment in the bath"
+      },
+      {
+       "words": "note",
+       "gives": "RE",
+       "note": "re is the second note of the sol-fa scale"
+      }
      ]
     },
     "explanation": {
@@ -419,48 +368,37 @@
    },
    "solution": "EXAMINING",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EXAMINING",
     "definitions": [
      {
       "text": "Considering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "the cut goes back, so it is written the other way round"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cutback",
-      "gives": "EXA",
-      "note": "to axe is to cut, and 'back' turns it round"
-     },
-     {
-      "clueFragment": "excavation",
-      "gives": "MINING",
-      "note": "mining is digging out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXA",
-      "MINING"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "EXAMINING",
+     "indicators": [
       {
-       "from": "AXE",
-       "to": "EXA"
+       "text": "back",
+       "note": "the cut goes back, so it is written the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cutback",
+         "gives": "EXA",
+         "note": "to axe is to cut, and 'back' turns it round"
+        },
+        {
+         "words": "excavation",
+         "gives": "MINING",
+         "note": "mining is digging out"
+        }
+       ]
       }
      ]
     },
@@ -490,36 +428,28 @@
    },
    "solution": "COLONEL",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "COLONEL",
     "definitions": [
      {
       "text": "Officer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its Rs, the right-hand letters, became Ls for left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "who called an inquest",
-      "gives": "CORONER",
-      "note": "a coroner is the official who calls an inquest into a death"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "L",
-      "ONE",
-      "L"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "COLONEL",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its Rs, the right-hand letters, became Ls for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "who called an inquest",
+       "gives": "CORONER",
+       "note": "a coroner is the official who calls an inquest into a death"
+      }
      ]
     },
     "explanation": {
@@ -554,50 +484,41 @@
    },
    "solution": "CHANGINGSIDES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CHANGING SIDES",
     "definitions": [
      {
       "text": "Defection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "what is suspended in the gas sits inside its two letters"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gas",
-      "gives": "CS",
-      "note": "CS gas is a tear gas"
-     },
-     {
-      "clueFragment": "suspended",
-      "gives": "HANGING",
-      "note": "something suspended is hanging"
-     },
-     {
-      "clueFragment": "on the 15th",
-      "gives": "IDES",
-      "note": "the Ides fall on the 15th of March, May, July and October"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HANGING",
-      "S",
-      "IDES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "what is suspended in the gas sits inside its two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gas",
+         "gives": "CS",
+         "note": "CS gas is a tear gas"
+        },
+        {
+         "words": "suspended",
+         "gives": "HANGING",
+         "note": "something suspended is hanging"
+        }
+       ]
+      },
+      {
+       "words": "on the 15th",
+       "gives": "IDES",
+       "note": "the Ides fall on the 15th of March, May, July and October"
+      }
      ]
     },
     "explanation": {
@@ -626,35 +547,32 @@
    },
    "solution": "ASBO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ASBO",
     "definitions": [
      {
       "text": "order",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "hidden_word",
-      "note": "the order comes straight out of the city's name"
-     },
-     {
-      "text": "On the contrary",
-      "for": "hidden_word",
-      "note": "it flips the words around, so the clue reads 'order out of Strasbourg'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strasbourg",
-      "gives": "ASBO",
-      "note": "the four letters after STR"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "the order comes straight out of the city's name"
+      },
+      {
+       "text": "On the contrary",
+       "note": "it flips the words around, so the clue reads 'order out of Strasbourg'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Strasbourg",
+       "gives": "ASBO",
+       "note": "the four letters after STR"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking whether the French city is broken, then turning the question around.",
      "walkthrough": "'On the contrary' reverses the words, not the letters. An ASBO was a British anti-social behaviour order, a court order restricting a troublemaker's conduct.",
@@ -682,49 +600,47 @@
    },
    "solution": "ACHIEVABLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ACHIEVABLE",
     "definitions": [
      {
       "text": "Possible",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "damage to",
-      "for": "anagram",
-      "note": "damage breaks up the vehicle and the car name, so their letters come out rearranged"
-     },
-     {
-      "text": "with front missing",
-      "for": "deletion",
-      "note": "the car loses its front, its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vehicle",
-      "gives": "VEHICLE",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "Saab",
-      "gives": "AAB",
-      "note": "Saab without its front letter S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACHIEVABLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ACHIEVABLE",
+     "indicators": [
       {
-       "fodder": "VEHICLEAAB",
-       "gives": "ACHIEVABLE"
+       "text": "with front missing",
+       "note": "the car loses its front, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damage to",
+         "note": "damage breaks up the vehicle and the car name, so their letters come out rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "vehicle",
+           "note": "taken as it stands"
+          },
+          {
+           "words": "Saab",
+           "gives": "AAB",
+           "note": "Saab without its front letter S"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -754,37 +670,28 @@
    },
    "solution": "LAVISH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LAVISH",
     "definitions": [
      {
       "text": "generous",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "linkWords": [
-     "in being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "delight",
-      "gives": "RAVISH",
-      "note": "to ravish is to delight enormously"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AVISH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LAVISH",
+     "indicators": [
+      {
+       "text": "Before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "delight",
+       "gives": "RAVISH",
+       "note": "to ravish is to delight enormously"
+      }
      ]
     },
     "explanation": {
@@ -812,50 +719,40 @@
    },
    "solution": "NUTRIENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NUTRIENT",
     "definitions": [
      {
       "text": "food",
       "at": 67
      }
     ],
-    "indicators": [
-     {
-      "text": "the ultimate in",
-      "for": "letter_selection",
-      "note": "the ultimate is the last, so only the final letter of restaurant is kept"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brazil may be",
-      "gives": "NUT",
-      "note": "a Brazil is one kind of nut; 'may be' signals the example"
-     },
-     {
-      "clueFragment": "nothing to France",
-      "gives": "RIEN",
-      "note": "rien is French for nothing"
-     },
-     {
-      "clueFragment": "restaurant",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of restaurant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUT",
-      "RIEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brazil may be",
+       "gives": "NUT",
+       "note": "a Brazil is one kind of nut; 'may be' signals the example"
+      },
+      {
+       "words": "nothing to France",
+       "gives": "RIEN",
+       "note": "rien is French for nothing"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the ultimate in",
+         "note": "the ultimate is the last, so only the final letter of restaurant is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restaurant",
+         "note": "the last letter of restaurant"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -884,66 +781,82 @@
    },
    "solution": "AFFIDAVIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "AFFIDAVIT",
     "definitions": [
      {
       "text": "statement",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "halved",
-      "for": "letter_selection",
-      "note": "each word loses its back half, keeping only its first half"
-     },
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "what is returned goes back the way it came, so the string is read backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tiny",
-      "gives": "TI",
-      "select": "first",
-      "note": "the first half of TINY"
-     },
-     {
-      "clueFragment": "vase",
-      "gives": "VA",
-      "select": "first",
-      "note": "the first half of VASE"
-     },
-     {
-      "clueFragment": "differed",
-      "gives": "DIFF",
-      "select": "first",
-      "note": "the first half of DIFFERED"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "A",
-      "select": "first",
-      "note": "the first half of AS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFFIDAVIT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TIVADIFFA",
-       "to": "AFFIDAVIT"
+       "text": "returned",
+       "note": "what is returned goes back the way it came, so the string is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "TI",
+         "indicators": [
+          {
+           "text": "halved",
+           "note": "each word loses its back half, keeping only its first half"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Tiny",
+           "gives": "TI",
+           "select": "first",
+           "note": "the first half of TINY"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "VA",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "vase",
+           "gives": "VA",
+           "select": "first",
+           "note": "the first half of VASE"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "DIFF",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "differed",
+           "gives": "DIFF",
+           "select": "first",
+           "note": "the first half of DIFFERED"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "as",
+           "note": "the first half of AS"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -973,38 +886,28 @@
    },
    "solution": "INCLEMENT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "INCLEMENT",
     "definitions": [
      {
       "text": "harsh",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rise",
-      "gives": "INCREMENT",
-      "note": "an increment is a rise, as in pay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INC",
-      "L",
-      "EMENT"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "INCLEMENT",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rise",
+       "gives": "INCREMENT",
+       "note": "an increment is a rise, as in pay"
+      }
      ]
     },
     "explanation": {
@@ -1033,36 +936,25 @@
    },
    "solution": "BIBLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BIBLE",
     "definitions": [
      {
       "text": "a book",
       "at": 37
      }
     ],
-    "linkWords": [
-     "joins",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tucker's partner",
-      "gives": "BIB",
-      "note": "'bib and tucker' is a set phrase for one's best clothes"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for 'the'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIB",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tucker's partner",
+       "gives": "BIB",
+       "note": "'bib and tucker' is a set phrase for one's best clothes"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for 'the'"
+      }
      ]
     },
     "explanation": {
@@ -1091,34 +983,28 @@
    },
    "solution": "LEACH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LEACH",
     "definitions": [
      {
       "text": "ooze",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get to",
-      "gives": "REACH",
-      "note": "to reach a place is to get to it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EACH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LEACH",
+     "indicators": [
+      {
+       "text": "Before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "get to",
+       "gives": "REACH",
+       "note": "to reach a place is to get to it"
+      }
      ]
     },
     "explanation": {
@@ -1146,39 +1032,35 @@
    },
    "solution": "EPILATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EPILATE",
     "definitions": [
      {
       "text": "Pluck",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     },
-     {
-      "clueFragment": "needed by",
-      "note": "puts the energy in front of the next piece"
-     },
-     {
-      "clueFragment": "someone washing hands",
-      "gives": "PILATE",
-      "note": "Pontius Pilate washed his hands of Jesus's fate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PILATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "energy",
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        },
+        {
+         "words": "someone washing hands",
+         "gives": "PILATE",
+         "note": "Pontius Pilate washed his hands of Jesus's fate"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "needed by",
+       "note": "puts the energy in front of the next piece"
+      }
      ]
     },
     "explanation": {
@@ -1208,38 +1090,24 @@
    },
    "solution": "AGGREGATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AGGREGATE",
     "definitions": [
      {
       "text": "total",
       "at": 7
      }
     ],
-    "indicators": [
-     {
-      "text": "wreck",
-      "for": "anagram",
-      "note": "a wreck is something smashed apart, and 'get garage' smashed comes out in a new order"
-     }
-    ],
-    "linkWords": [
-     "It's a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get garage",
-      "gives": "GETGARAGE",
-      "note": "the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GETGARAGE",
-       "gives": "AGGREGATE"
+       "text": "wreck",
+       "note": "a wreck is something smashed apart, and 'get garage' smashed comes out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "get garage",
+       "note": "the fodder"
       }
      ]
     },
@@ -1269,40 +1137,25 @@
    },
    "solution": "RIPOSTE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "RIPOSTE",
     "definitions": [
      {
       "text": "the answer",
       "at": 70
      }
     ],
-    "indicators": [
-     {
-      "text": "leads to",
-      "for": "letter_selection",
-      "note": "the leads of the words are their first letters, and they lead to the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rather intriguing puzzle — online solvers' thoughtful effort",
-      "gives": "RIPOSTE",
-      "select": "first",
-      "note": "the first letters of these seven words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "I",
-      "P",
-      "O",
-      "S",
-      "T",
-      "E"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leads to",
+       "note": "the leads of the words are their first letters, and they lead to the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rather intriguing puzzle — online solvers' thoughtful effort",
+       "note": "the first letters of these seven words"
+      }
      ]
     },
     "explanation": {
@@ -1338,38 +1191,24 @@
    },
    "solution": "THUSFAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THUS FAR",
     "definitions": [
      {
       "text": "To date",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a variety of",
-      "for": "anagram",
-      "note": "a variety offers the same letters in several arrangements, and one arrangement is the answer"
-     }
-    ],
-    "linkWords": [
-     "one needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fur hats",
-      "gives": "FURHATS",
-      "note": "the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FURHATS",
-       "gives": "THUSFAR"
+       "text": "a variety of",
+       "note": "a variety offers the same letters in several arrangements, and one arrangement is the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fur hats",
+       "note": "the fodder"
       }
      ]
     },
@@ -1400,34 +1239,28 @@
    },
    "solution": "CANCEL",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "CANCEL",
     "definitions": [
      {
       "text": "Wipe out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "\"tropical\" disease",
-      "gives": "CANCER",
-      "note": "a disease that also names a tropic, the Tropic of Cancer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CANCE",
-      "L"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "CANCEL",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "\"tropical\" disease",
+       "gives": "CANCER",
+       "note": "a disease that also names a tropic, the Tropic of Cancer"
+      }
      ]
     },
     "explanation": {
@@ -1457,33 +1290,28 @@
    },
    "solution": "LITERATI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LITERATI",
     "definitions": [
      {
       "text": "Really ravenous readers",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "only some of the word is wanted, a run of letters from inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alliteration",
-      "gives": "LITERATI",
-      "note": "the eight letters after AL"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only some of the word is wanted, a run of letters from inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alliteration",
+       "gives": "LITERATI",
+       "note": "the eight letters after AL"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Pointing out that 'really ravenous readers' is quite a string of Rs.",
      "walkthrough": "The quoted phrase looks like the example of alliteration; it is the definition.",
@@ -1510,38 +1338,28 @@
    },
    "solution": "PLAGUE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "PLAGUE",
     "definitions": [
      {
       "text": "Epidemic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the city",
-      "gives": "PRAGUE",
-      "note": "the Czech capital, one city among many"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "L",
-      "AGUE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "PLAGUE",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the city",
+       "gives": "PRAGUE",
+       "note": "the Czech capital, one city among many"
+      }
      ]
     },
     "explanation": {
@@ -1570,36 +1388,28 @@
    },
    "solution": "ALLAY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ALLAY",
     "definitions": [
      {
       "text": "Calm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its Rs, for right, became Ls, for left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrangement",
-      "gives": "ARRAY",
-      "note": "an array is an arrangement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "L",
-      "AY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ALLAY",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its Rs, for right, became Ls, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arrangement",
+       "gives": "ARRAY",
+       "note": "an array is an arrangement"
+      }
      ]
     },
     "explanation": {
@@ -1627,35 +1437,24 @@
    },
    "solution": "WATERCRESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WATERCRESS",
     "definitions": [
      {
       "text": "Leaves",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shocking",
-      "for": "anagram",
-      "note": "what is shocked is jolted out of place, so the letters of 'war secrets' come out jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "war secrets",
-      "gives": "WARSECRETS",
-      "note": "the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WARSECRETS",
-       "gives": "WATERCRESS"
+       "text": "shocking",
+       "note": "what is shocked is jolted out of place, so the letters of 'war secrets' come out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "war secrets",
+       "note": "the fodder"
       }
      ]
     },
@@ -1685,34 +1484,28 @@
    },
    "solution": "LIFE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LIFE",
     "definitions": [
      {
       "text": "Vitality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before 9",
-      "for": "substitution",
-      "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prevalent",
-      "gives": "RIFE",
-      "note": "rife means widespread, prevalent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IFE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LIFE",
+     "indicators": [
+      {
+       "text": "before 9",
+       "note": "9 is CHANGING SIDES, so the answer is what the word was before its R, for right, became L, for left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prevalent",
+       "gives": "RIFE",
+       "note": "rife means widespread, prevalent"
+      }
      ]
     },
     "explanation": {
@@ -1740,39 +1533,35 @@
    },
    "solution": "TEXTILE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TEXTILE",
     "definitions": [
      {
       "text": "material",
       "at": 40
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Send a message",
-      "gives": "TEXT",
-      "note": "to text is to send a phone message"
-     },
-     {
-      "clueFragment": "to",
-      "note": "puts the next piece after the message"
-     },
-     {
-      "clueFragment": "Maurice, perhaps",
-      "gives": "ILE",
-      "note": "Île Maurice is the French name of Mauritius, so Maurice is one example of an île, an island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEXT",
-      "ILE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Send a message",
+         "gives": "TEXT",
+         "note": "to text is to send a phone message"
+        },
+        {
+         "words": "Maurice, perhaps",
+         "gives": "ILE",
+         "note": "Île Maurice is the French name of Mauritius, so Maurice is one example of an île, an island"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "to",
+       "note": "puts the next piece after the message"
+      }
      ]
     },
     "explanation": {
@@ -1807,26 +1596,25 @@
    },
    "solution": "NEWYORK",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NEW YORK",
     "definitions": [
      {
       "text": "City accommodation in some anonymity",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "City accommodation",
-      "note": "the surface offers lodging in some big city"
-     },
-     {
-      "clueFragment": "in some anonymity",
-      "note": "but the city's two-letter abbreviation is accommodated in the middle of 'anonymity'"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "City accommodation",
+       "note": "the surface offers lodging in some big city"
+      },
+      {
+       "words": "in some anonymity",
+       "note": "but the city's two-letter abbreviation is accommodated in the middle of 'anonymity'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Staying somewhere in a big city where nobody knows you.",
      "walkthrough": "The clue reads as the anonymous lodging a big city offers, but it describes the answer's own postal abbreviation, NY, sitting inside 'anoNYmity'. Only the short form is hidden, which is why no letters can be lifted.",

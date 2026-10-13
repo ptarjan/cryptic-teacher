@@ -1,8 +1,7 @@
 {
  "id": "cryptic-28129",
  "number": 28129,
- "series": "cryptic",
- "name": "Prize crossword No 28,129",
+ "prize": true,
  "setter": "Pasquale",
  "date": "2020-05-09",
  "preamble": "Numbers in the wordplay of the clues all have something in common and require translation",
@@ -39,51 +38,44 @@
    },
    "solution": "TOUCAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TOUCAN",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flying",
-      "for": "anagram",
-      "note": "things sent flying are scattered, so the letters land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out",
-      "gives": "OUT",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "CA",
-      "note": "CA is short for circa, Latin for about"
-     },
-     {
-      "clueFragment": "7",
-      "gives": "N",
-      "note": "element 7 is nitrogen, symbol N"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOU",
-      "CA",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OUT",
-       "gives": "TOU"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flying",
+         "note": "things sent flying are scattered, so the letters land in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "out",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "about",
+           "gives": "CA",
+           "note": "CA is short for circa, Latin for about"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "7",
+       "gives": "N",
+       "note": "element 7 is nitrogen, symbol N"
       }
      ]
     },
@@ -113,61 +105,60 @@
    },
    "solution": "PARRAKEETS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "PARRAKEETS",
     "definitions": [
      {
       "text": "birds",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "to move things about is to rearrange them, so the letters change places"
-     },
-     {
-      "text": "trapping",
-      "for": "container",
-      "note": "a trap encloses its catch, so one group of letters is held inside the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quiet",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quiet"
-     },
-     {
-      "clueFragment": "debauched man",
-      "gives": "RAKE",
-      "note": "a rake is a dissolute, pleasure-seeking man"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "18",
-      "gives": "AR",
-      "note": "element 18 is argon, symbol Ar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ARRAKEETS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RAKESETAR",
-       "gives": "ARRAKEETS"
+       "text": "trapping",
+       "note": "a trap encloses its catch, so one group of letters is held inside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Quiet",
+         "gives": "P",
+         "note": "p (piano) is the musical marking for quiet"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "to move things about is to rearrange them, so the letters change places"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "debauched man",
+             "gives": "RAKE",
+             "note": "a rake is a dissolute, pleasure-seeking man"
+            },
+            {
+             "words": "set",
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "18",
+       "gives": "AR",
+       "note": "element 18 is argon, symbol Ar"
       }
      ]
     },
@@ -197,55 +188,47 @@
    },
    "solution": "BACCARAT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BACCARAT",
     "definitions": [
      {
       "text": "game",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "something cut short loses its end, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "56",
-      "gives": "BA",
-      "note": "element 56 is barium, symbol Ba"
-     },
-     {
-      "clueFragment": "cricket club",
-      "gives": "CC",
-      "note": "CC is the standard abbreviation for cricket club"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "AR",
-      "note": "the word with its final letter removed"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "CC",
-      "AR",
-      "AT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BACCARAT",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "something cut short loses its end, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "56",
+         "gives": "BA",
+         "note": "element 56 is barium, symbol Ba"
+        },
+        {
+         "words": "cricket club",
+         "gives": "CC",
+         "note": "CC is the standard abbreviation for cricket club"
+        },
+        {
+         "words": "are",
+         "gives": "AR",
+         "note": "the word with its final letter removed"
+        },
+        {
+         "words": "at",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -274,61 +257,51 @@
    },
    "solution": "EMPLOY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "EMPLOY",
     "definitions": [
      {
       "text": "exploit",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "something returned goes back the way it came, so the letters run backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "This writer",
-      "gives": "ME",
-      "note": "the setter refers to themself as 'this writer'"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "PLY",
-      "note": "to ply is to work at a trade"
-     },
-     {
-      "clueFragment": "8",
-      "gives": "O",
-      "note": "element 8 is oxygen, symbol O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "PL",
-      "O",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ME",
-       "to": "EM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "note": "something returned goes back the way it came, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "This writer",
+         "gives": "ME",
+         "note": "the setter refers to themself as 'this writer'"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing placed in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "gives": "PLY",
+         "note": "to ply is to work at a trade"
+        },
+        {
+         "words": "8",
+         "gives": "O",
+         "note": "element 8 is oxygen, symbol O"
+        }
+       ]
       }
      ]
     },
@@ -358,62 +331,51 @@
    },
    "solution": "EFFICACY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EFFICACY",
     "definitions": [
      {
       "text": "ability to achieve result",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "squashing",
-      "for": "container",
-      "note": "to squash something is to press in on it, so one piece is squeezed inside another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F is the abbreviation for female"
-     },
-     {
-      "clueFragment": "loud",
-      "gives": "F",
-      "note": "f (forte) is the musical marking for loud"
-     },
-     {
-      "clueFragment": "unfriendly",
-      "gives": "ICY",
-      "note": "an icy manner is cold and unfriendly"
-     },
-     {
-      "clueFragment": "20",
-      "gives": "CA",
-      "note": "element 20 is calcium, symbol Ca"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "F",
-      "F",
-      "I",
-      "CA",
-      "CY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "squashing",
+       "note": "to squash something is to press in on it, so one piece is squeezed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        },
+        {
+         "words": "female",
+         "gives": "F",
+         "note": "F is the abbreviation for female"
+        },
+        {
+         "words": "loud",
+         "gives": "F",
+         "note": "f (forte) is the musical marking for loud"
+        },
+        {
+         "words": "unfriendly",
+         "gives": "ICY",
+         "note": "an icy manner is cold and unfriendly"
+        }
+       ]
+      },
+      {
+       "words": "20",
+       "gives": "CA",
+       "note": "element 20 is calcium, symbol Ca"
+      }
      ]
     },
     "explanation": {
@@ -442,11 +404,6 @@
    },
    "solution": "PRESAGED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PRESAGED",
     "definitions": [
      {
       "text": "making forecast",
@@ -454,36 +411,35 @@
       "note": "the answer is a past tense, 'made a forecast'; the clue phrase is looser"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it, so one piece goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "15",
-      "gives": "P",
-      "note": "element 15 is phosphorus, symbol P"
-     },
-     {
-      "clueFragment": "looking embarrassed",
-      "gives": "RED",
-      "note": "an embarrassed face turns red"
-     },
-     {
-      "clueFragment": "wise person",
-      "gives": "SAGE",
-      "note": "a sage is a wise person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RE",
-      "SAGE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "15",
+       "gives": "P",
+       "note": "element 15 is phosphorus, symbol P"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to be about something is to surround it, so one piece goes around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "looking embarrassed",
+         "gives": "RED",
+         "note": "an embarrassed face turns red"
+        },
+        {
+         "words": "wise person",
+         "gives": "SAGE",
+         "note": "a sage is a wise person"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -512,44 +468,34 @@
    },
    "solution": "PALATINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PALATINE",
     "definitions": [
      {
       "text": "Privileged noble",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "friend",
-      "gives": "PAL",
-      "note": "a pal is a friend"
-     },
-     {
-      "clueFragment": "85",
-      "gives": "AT",
-      "note": "element 85 is astatine, symbol At"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the abbreviation for east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAL",
-      "AT",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "friend",
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "words": "85",
+       "gives": "AT",
+       "note": "element 85 is astatine, symbol At"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "east",
+       "gives": "E",
+       "note": "E is the abbreviation for east"
+      }
      ]
     },
     "explanation": {
@@ -578,45 +524,35 @@
    },
    "solution": "INRO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "INRO",
     "definitions": [
      {
       "text": "medical container",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "brought up",
-      "for": "reversal",
-      "note": "in a down entry, bringing something up turns it to read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "49",
-      "gives": "IN",
-      "note": "element 49 is indium, symbol In"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "OR (other ranks) is a crossword abbreviation for ordinary soldiers, i.e. men"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "RO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OR",
-       "to": "RO"
+       "words": "49",
+       "gives": "IN",
+       "note": "element 49 is indium, symbol In"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "note": "in a down entry, bringing something up turns it to read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "gives": "OR",
+         "note": "OR (other ranks) is a crossword abbreviation for ordinary soldiers, i.e. men"
+        }
+       ]
       }
      ]
     },
@@ -646,32 +582,25 @@
    },
    "solution": "EDDY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDDY",
     "definitions": [
      {
       "text": "to be in a whirl",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Journalist",
-      "gives": "ED",
-      "note": "ED, short for editor, is a stock crossword journalist"
-     },
-     {
-      "clueFragment": "66",
-      "gives": "DY",
-      "note": "element 66 is dysprosium, symbol Dy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ED",
-      "DY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Journalist",
+       "gives": "ED",
+       "note": "ED, short for editor, is a stock crossword journalist"
+      },
+      {
+       "words": "66",
+       "gives": "DY",
+       "note": "element 66 is dysprosium, symbol Dy"
+      }
      ]
     },
     "explanation": {
@@ -700,41 +629,30 @@
    },
    "solution": "FRESCO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRESCO",
     "definitions": [
      {
       "text": "Picture",
       "at": 0
      }
     ],
-    "linkWords": [
-     "obtained by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "87",
-      "gives": "FR",
-      "note": "element 87 is francium, symbol Fr"
-     },
-     {
-      "clueFragment": "Parisian art",
-      "gives": "ES",
-      "note": "'art' is the old English form of 'are', and the French for 'you are' (familiar) is tu es"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "CO",
-      "note": "CO is the abbreviation for company, a firm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "ES",
-      "CO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "87",
+       "gives": "FR",
+       "note": "element 87 is francium, symbol Fr"
+      },
+      {
+       "words": "Parisian art",
+       "gives": "ES",
+       "note": "'art' is the old English form of 'are', and the French for 'you are' (familiar) is tu es"
+      },
+      {
+       "words": "firm",
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      }
      ]
     },
     "explanation": {
@@ -764,46 +682,43 @@
    },
    "solution": "PROCURED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PROCURED",
     "definitions": [
      {
       "text": "Got",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to come in",
-      "for": "container",
-      "note": "something that comes in enters and sits inside the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "supporting",
-      "gives": "PRO",
-      "note": "pro means in favour of"
-     },
-     {
-      "clueFragment": "29",
-      "gives": "CU",
-      "note": "element 29 is copper, symbol Cu"
-     },
-     {
-      "clueFragment": "radical",
-      "gives": "RED",
-      "note": "a red is a left-wing radical"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "CU",
-      "RED"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PROCURED",
+     "indicators": [
+      {
+       "text": "to come in",
+       "note": "something that comes in enters and sits inside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "supporting",
+         "gives": "PRO",
+         "note": "pro means in favour of"
+        },
+        {
+         "words": "29",
+         "gives": "CU",
+         "note": "element 29 is copper, symbol Cu"
+        },
+        {
+         "words": "radical",
+         "gives": "RED",
+         "note": "a red is a left-wing radical"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -838,53 +753,46 @@
    },
    "solution": "CHAINSMOKER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CHAIN-SMOKER",
     "definitions": [
      {
       "text": "Taker of risk with health",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beset by",
-      "for": "container",
-      "note": "to be beset is to be surrounded on all sides, so these pieces go inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "adult",
-      "gives": "A",
-      "note": "A is the film-certificate abbreviation for adult"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     },
-     {
-      "clueFragment": "62",
-      "gives": "SM",
-      "note": "element 62 is samarium, symbol Sm"
-     },
-     {
-      "clueFragment": "threat to breathing",
-      "gives": "CHOKER",
-      "note": "something that chokes stops breathing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "A",
-      "IN",
-      "SM",
-      "OKER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "note": "to be beset is to be surrounded on all sides, so these pieces go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "threat to breathing",
+       "gives": "CHOKER",
+       "note": "something that chokes stops breathing"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "adult",
+         "gives": "A",
+         "note": "A is the film-certificate abbreviation for adult"
+        },
+        {
+         "words": "at home",
+         "gives": "IN",
+         "note": "someone at home is in"
+        },
+        {
+         "words": "62",
+         "gives": "SM",
+         "note": "element 62 is samarium, symbol Sm"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -913,46 +821,40 @@
    },
    "solution": "MORGANATIC",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "MORGANATIC",
     "definitions": [
      {
       "text": "marriage may be this",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is included among its letters"
-     },
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "something done terribly is badly messed up, so the letters are thrown out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "31",
-      "gives": "GA",
-      "note": "element 31 is gallium, symbol Ga"
-     },
-     {
-      "clueFragment": "romantic",
-      "gives": "ROMANTIC",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ROMANTICGA",
-       "gives": "MORGANATIC"
+       "text": "in",
+       "note": "one thing in another is included among its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "note": "something done terribly is badly messed up, so the letters are thrown out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "romantic",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "words": "31",
+       "gives": "GA",
+       "note": "element 31 is gallium, symbol Ga"
       }
      ]
     },
@@ -982,50 +884,41 @@
    },
    "solution": "SNOWBALL",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SNOWBALL",
     "definitions": [
      {
       "text": "drink",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "entertains",
-      "for": "container",
-      "note": "a host who entertains has guests within the house, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "getting a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Social-climbing type",
-      "gives": "SNOB",
-      "note": "a snob looks up to those of higher class"
-     },
-     {
-      "clueFragment": "74",
-      "gives": "W",
-      "note": "element 74 is tungsten, symbol W"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "all means everyone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNO",
-      "W",
-      "B",
-      "ALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertains",
+         "note": "a host who entertains has guests within the house, so one piece goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Social-climbing type",
+         "gives": "SNOB",
+         "note": "a snob looks up to those of higher class"
+        },
+        {
+         "words": "74",
+         "gives": "W",
+         "note": "element 74 is tungsten, symbol W"
+        }
+       ]
+      },
+      {
+       "words": "everyone",
+       "gives": "ALL",
+       "note": "all means everyone"
+      }
      ]
     },
     "explanation": {
@@ -1054,46 +947,40 @@
    },
    "solution": "ESURIENT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "ESURIENT",
     "definitions": [
      {
       "text": "very hungry",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Free",
-      "for": "anagram",
-      "note": "letters set free are loosened from their order and can rearrange"
-     },
-     {
-      "text": "allowing in",
-      "for": "container",
-      "note": "to allow something in is to admit it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entries",
-      "gives": "ENTRIES",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "92",
-      "gives": "U",
-      "note": "element 92 is uranium, symbol U"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ENTRIESU",
-       "gives": "ESURIENT"
+       "text": "allowing in",
+       "note": "to allow something in is to admit it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Free",
+         "note": "letters set free are loosened from their order and can rearrange"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entries",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "words": "92",
+       "gives": "U",
+       "note": "element 92 is uranium, symbol U"
       }
      ]
     },
@@ -1123,50 +1010,41 @@
    },
    "solution": "CHEERER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CHEERER",
     "definitions": [
      {
       "text": "Enthusiastic supporter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "joining in",
-      "for": "container",
-      "note": "someone joining in comes inside the group, so a piece goes within"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EER",
-      "note": "e'er is the poetic contraction of ever"
-     },
-     {
-      "clueFragment": "68",
-      "gives": "ER",
-      "note": "element 68 is erbium, symbol Er"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "E",
-      "ER",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the abbreviation for church"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "joining in",
+         "note": "someone joining in comes inside the group, so a piece goes within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "gives": "EER",
+         "note": "e'er is the poetic contraction of ever"
+        },
+        {
+         "words": "68",
+         "gives": "ER",
+         "note": "element 68 is erbium, symbol Er"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1201,52 +1079,47 @@
    },
    "solution": "RAGDOLLS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RAG DOLLS",
     "definitions": [
      {
       "text": "toys",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "a vehicle carrying something holds it inside"
-     },
-     {
-      "text": "behind",
-      "for": "charade",
-      "note": "one thing behind another follows it in sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Posh car",
-      "gives": "ROLLS",
-      "note": "a Rolls(-Royce) is a luxury car"
-     },
-     {
-      "clueFragment": "47",
-      "gives": "AG",
-      "note": "element 47 is silver, symbol Ag"
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AG",
-      "D",
-      "OLLS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "a vehicle carrying something holds it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Posh car",
+       "gives": "ROLLS",
+       "note": "a Rolls(-Royce) is a luxury car"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "behind",
+         "note": "one thing behind another follows it in sequence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "47",
+         "gives": "AG",
+         "note": "element 47 is silver, symbol Ag"
+        },
+        {
+         "words": "daughter",
+         "gives": "D",
+         "note": "D is the abbreviation for daughter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1275,57 +1148,54 @@
    },
    "solution": "EXTENDS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "EXTENDS",
     "definitions": [
      {
       "text": "stretches out",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "something without an end has lost its last letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to go around it"
-     }
-    ],
-    "linkWords": [
-     "facing",
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former lover",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "ordeal",
-      "gives": "TES",
-      "note": "a test is an ordeal; its last letter goes"
-     },
-     {
-      "clueFragment": "60",
-      "gives": "ND",
-      "note": "element 60 is neodymium, symbol Nd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "TE",
-      "ND",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EXTENDS",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "something without an end has lost its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Former lover",
+         "gives": "EX",
+         "note": "an ex is a former partner"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "to be about something is to go around it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ordeal",
+           "gives": "TES",
+           "note": "a test is an ordeal; its last letter goes"
+          },
+          {
+           "words": "60",
+           "gives": "ND",
+           "note": "element 60 is neodymium, symbol Nd"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1354,50 +1224,41 @@
    },
    "solution": "GLASSBLOWER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GLASSBLOWER",
     "definitions": [
      {
       "text": "Craftsperson",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting in the way",
-      "for": "container",
-      "note": "things getting in the way are placed in the middle of something"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "LASS",
-      "note": "a lass is a girl"
-     },
-     {
-      "clueFragment": "5",
-      "gives": "B",
-      "note": "element 5 is boron, symbol B"
-     },
-     {
-      "clueFragment": "to scowl",
-      "gives": "GLOWER",
-      "note": "to glower is to scowl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LASS",
-      "B",
-      "LOWER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in the way",
+       "note": "things getting in the way are placed in the middle of something"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to scowl",
+       "gives": "GLOWER",
+       "note": "to glower is to scowl"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "girl",
+         "gives": "LASS",
+         "note": "a lass is a girl"
+        },
+        {
+         "words": "5",
+         "gives": "B",
+         "note": "element 5 is boron, symbol B"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1426,52 +1287,35 @@
    },
    "solution": "LARRUP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LARRUP",
     "definitions": [
      {
       "text": "Beat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going north",
-      "for": "reversal",
-      "note": "in a down entry, heading north means reading upward, from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "happy sound",
-      "gives": "PURR",
-      "note": "a contented cat purrs"
-     },
-     {
-      "clueFragment": "13",
-      "gives": "AL",
-      "note": "element 13 is aluminium, symbol Al"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "RRUP"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going north",
+       "note": "in a down entry, heading north means reading upward, from bottom to top"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "PURR",
-       "to": "RRUP"
-      },
-      {
-       "from": "AL",
-       "to": "LA"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "happy sound",
+         "gives": "PURR",
+         "note": "a contented cat purrs"
+        },
+        {
+         "words": "13",
+         "gives": "AL",
+         "note": "element 13 is aluminium, symbol Al"
+        }
+       ]
       }
      ]
     },
@@ -1501,45 +1345,35 @@
    },
    "solution": "ATOP",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ATOP",
     "definitions": [
      {
       "text": "above",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down entry, turning up flips letters to read from the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "73",
-      "gives": "TA",
-      "note": "element 73 is tantalum, symbol Ta"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op (opus) is a musical work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AT",
-      "OP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TA",
-       "to": "AT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down entry, turning up flips letters to read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "73",
+         "gives": "TA",
+         "note": "element 73 is tantalum, symbol Ta"
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op (opus) is a musical work"
       }
      ]
     },
@@ -1569,39 +1403,31 @@
    },
    "solution": "LIDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIDO",
     "definitions": [
      {
       "text": "Pool",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "one thing after another follows it in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "3",
-      "gives": "LI",
-      "note": "element 3 is lithium, symbol Li"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "one thing after another follows it in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "3",
+       "gives": "LI",
+       "note": "element 3 is lithium, symbol Li"
+      },
+      {
+       "words": "party",
+       "gives": "DO",
+       "note": "a do is a party"
+      }
      ]
     },
     "explanation": {
@@ -1630,54 +1456,51 @@
    },
    "solution": "TRIPODAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "TRIPODAL",
     "definitions": [
      {
       "text": "with threefold foundation",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the end, so only the final letter counts"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "84",
-      "gives": "PO",
-      "note": "element 84 is polonium, symbol Po"
-     },
-     {
-      "clueFragment": "passed",
-      "gives": "D",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "examination",
-      "gives": "TRIAL",
-      "note": "a trial is a test or examination"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "PO",
-      "D",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "examination",
+       "gives": "TRIAL",
+       "note": "a trial is a test or examination"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "84",
+         "gives": "PO",
+         "note": "element 84 is polonium, symbol Po"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately means at the end, so only the final letter counts"
+          }
+         ],
+         "parts": [
+          {
+           "words": "passed",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1706,43 +1529,31 @@
    },
    "solution": "CREASE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CREASE",
     "definitions": [
      {
       "text": "Mark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pressing",
-      "for": "container",
-      "note": "pressing something into another pushes it inside"
-     }
-    ],
-    "linkWords": [
-     "made by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "75",
-      "gives": "RE",
-      "note": "element 75 is rhenium, symbol Re"
-     },
-     {
-      "clueFragment": "box",
-      "gives": "CASE",
-      "note": "a case is a box"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RE",
-      "ASE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pressing",
+       "note": "pressing something into another pushes it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "box",
+       "gives": "CASE",
+       "note": "a case is a box"
+      },
+      {
+       "words": "75",
+       "gives": "RE",
+       "note": "element 75 is rhenium, symbol Re"
+      }
      ]
     },
     "explanation": {
@@ -1772,50 +1583,41 @@
    },
    "solution": "PROCLAIM",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PROCLAIM",
     "definitions": [
      {
       "text": "broadcast",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "17",
-      "gives": "CL",
-      "note": "element 17 is chlorine, symbol Cl"
-     },
-     {
-      "clueFragment": "first class",
-      "gives": "AI",
-      "note": "A1 means first-class; it is written AI with a letter I"
-     },
-     {
-      "clueFragment": "concert",
-      "gives": "PROM",
-      "note": "a prom is a concert, as in the BBC Proms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "CL",
-      "AI",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "concert",
+       "gives": "PROM",
+       "note": "a prom is a concert, as in the BBC Proms"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "17",
+         "gives": "CL",
+         "note": "element 17 is chlorine, symbol Cl"
+        },
+        {
+         "words": "first class",
+         "gives": "AI",
+         "note": "A1 means first-class; it is written AI with a letter I"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1844,53 +1646,41 @@
    },
    "solution": "PULLET",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PULLET",
     "definitions": [
      {
       "text": "Young bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bowled over",
-      "for": "reversal",
-      "note": "something bowled over is knocked head over heels, so it ends up backwards"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "one thing after another follows it in order"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "94",
-      "gives": "PU",
-      "note": "element 94 is plutonium, symbol Pu"
-     },
-     {
-      "clueFragment": "William, maybe",
-      "gives": "TELL",
-      "note": "William Tell is the Swiss folk hero, so Tell can be a William"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "LLET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "TELL",
-       "to": "LLET"
+       "text": "after",
+       "note": "one thing after another follows it in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "94",
+       "gives": "PU",
+       "note": "element 94 is plutonium, symbol Pu"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "bowled over",
+         "note": "something bowled over is knocked head over heels, so it ends up backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "William, maybe",
+         "gives": "TELL",
+         "note": "William Tell is the Swiss folk hero, so Tell can be a William"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "everyman-3228",
  "number": 3228,
- "series": "everyman",
- "name": "Everyman crossword No 3,228",
  "setter": "Everyman",
  "date": "2008-08-10",
  "dimensions": {
@@ -38,28 +36,16 @@
    },
    "solution": "SIDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIDE",
     "definitions": [
      {
       "text": "English",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in billiards and snooker, spin put on a ball"
      },
      {
       "text": "bank",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "note": "first meaning: in billiards and snooker, spin put on a ball"
-     },
-     {
-      "clueFragment": "bank",
-      "note": "second meaning: the edge or slope beside a river"
+      "at": 8,
+      "meaning": "second meaning: the edge or slope beside a river"
      }
     ],
     "explanation": {
@@ -89,40 +75,31 @@
    },
    "solution": "STORMY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STORMY",
     "definitions": [
      {
       "text": "Passionate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gripping",
-      "for": "container",
-      "note": "to grip something is to hold it tightly in the middle of one's grasp, so one piece holds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tale",
-      "gives": "STORY",
-      "note": "a tale is a story"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "M is the standard abbreviation for million(s)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOR",
-      "M",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "note": "to grip something is to hold it tightly in the middle of one's grasp, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tale",
+       "gives": "STORY",
+       "note": "a tale is a story"
+      },
+      {
+       "words": "millions",
+       "gives": "M",
+       "note": "M is the standard abbreviation for million(s)"
+      }
      ]
     },
     "explanation": {
@@ -157,39 +134,28 @@
    },
    "solution": "DESERTORCHID",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "DESERT ORCHID",
     "definitions": [
      {
       "text": "Horse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "jumping",
-      "for": "anagram",
-      "note": "letters that are jumping leap about out of place, so they land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Horse, cert, did",
-      "gives": "HORSECERTDID",
-      "note": "the letters of these three words, punctuation ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HORSECERTDID",
-       "gives": "DESERTORCHID"
+       "text": "jumping",
+       "note": "letters that are jumping leap about out of place, so they land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horse, cert, did",
+       "note": "the letters of these three words, punctuation ignored"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A racing tip about a horse that was a sure bet, asking whether it won over the fences.",
      "walkthrough": "The whole clue also describes the answer: Desert Orchid was a famous British steeplechaser, a near-certainty that did win at jumping. A cert is racing slang for a horse sure to win.",
@@ -222,45 +188,44 @@
    },
    "solution": "INFACT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "IN FACT",
     "definitions": [
      {
       "text": "Actually",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "incomplete",
-      "for": "deletion",
-      "note": "something incomplete is missing a part, here its final letter"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across answer, one piece sitting on another comes after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gen",
-      "gives": "INF",
-      "note": "gen is British slang for information, INFO, shortened here by its last letter"
-     },
-     {
-      "clueFragment": "take measures",
-      "gives": "ACT",
-      "note": "to take measures is to act"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INF",
-      "ACT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INFACT",
+     "indicators": [
+      {
+       "text": "incomplete",
+       "note": "something incomplete is missing a part, here its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in an across answer, one piece sitting on another comes after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gen",
+         "gives": "INF",
+         "note": "gen is British slang for information, INFO, shortened here by its last letter"
+        },
+        {
+         "words": "take measures",
+         "gives": "ACT",
+         "note": "to take measures is to act"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -299,54 +264,40 @@
    },
    "solution": "ILLATEASE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ILL AT EASE",
     "definitions": [
      {
       "text": "awkward",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down answer, something upset is turned upside down, so the word reads from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "everyone means all"
-     },
-     {
-      "clueFragment": "guy",
-      "gives": "TEASE",
-      "note": "to guy someone is to mock or tease them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "LLA",
-      "TEASE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ALL",
-       "to": "LLA"
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "in a down answer, something upset is turned upside down, so the word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone",
+         "gives": "ALL",
+         "note": "everyone means all"
+        }
+       ]
+      },
+      {
+       "words": "guy",
+       "gives": "TEASE",
+       "note": "to guy someone is to mock or tease them"
       }
      ]
     },
@@ -376,43 +327,31 @@
    },
    "solution": "FARCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FARCE",
     "definitions": [
      {
       "text": "Rookery Nook?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the first piece goes round the second"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mug",
-      "gives": "FACE",
-      "note": "mug is slang for the face"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FA",
-      "R",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the first piece goes round the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mug",
+       "gives": "FACE",
+       "note": "mug is slang for the face"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -451,48 +390,35 @@
    },
    "solution": "COCKAHOOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COCK-A-HOOP",
     "definitions": [
      {
       "text": "extremely pleased",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "leading",
-      "for": "charade",
-      "note": "in a down answer the piece that is leading comes at the top, before the rest"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "COCK",
-      "note": "cock is old British slang for a fellow or mate"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "band",
-      "gives": "HOOP",
-      "note": "a hoop is a circular band, as round a barrel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCK",
-      "A",
-      "HOOP"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "note": "in a down answer the piece that is leading comes at the top, before the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "COCK",
+       "note": "cock is old British slang for a fellow or mate"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "band",
+       "gives": "HOOP",
+       "note": "a hoop is a circular band, as round a barrel"
+      }
      ]
     },
     "explanation": {
@@ -521,40 +447,31 @@
    },
    "solution": "BANG",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BANG",
     "definitions": [
      {
       "text": "Report",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "something found in a holder is located inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     },
-     {
-      "clueFragment": "case",
-      "gives": "BAG",
-      "note": "a case for carrying things is a bag"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "N",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "something found in a holder is located inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "case",
+       "gives": "BAG",
+       "note": "a case for carrying things is a bag"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N is the abbreviation for name"
+      }
      ]
     },
     "explanation": {
@@ -590,48 +507,34 @@
    },
    "solution": "OBSTACLERACE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "OBSTACLE RACE",
     "definitions": [
      {
       "text": "event",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "ordered means arranged, so these letters are put into a fresh sequence"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old boy",
-      "gives": "OB",
-      "note": "OB is the abbreviation for old boy, a former pupil of a school"
-     },
-     {
-      "clueFragment": "case — claret",
-      "gives": "CASECLARET",
-      "note": "the letters of these two words together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "STACLERACE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CASECLARET",
-       "gives": "STACLERACE"
+       "words": "Old boy",
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil of a school"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "note": "ordered means arranged, so these letters are put into a fresh sequence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "case — claret",
+         "note": "the letters of these two words together"
+        }
+       ]
       }
      ]
     },
@@ -667,38 +570,30 @@
    },
    "solution": "CAVALRYTWILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAVALRY TWILL",
     "definitions": [
      {
       "text": "fabric",
       "at": 34
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They used to charge",
-      "gives": "CAVALRY",
-      "note": "mounted soldiers who once made charges in battle"
-     },
-     {
-      "clueFragment": "tons",
-      "gives": "T",
-      "note": "T is the abbreviation for tons"
-     },
-     {
-      "clueFragment": "to leave",
-      "gives": "WILL",
-      "note": "to will something is to leave it to someone in a testament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAVALRY",
-      "T",
-      "WILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "They used to charge",
+       "gives": "CAVALRY",
+       "note": "mounted soldiers who once made charges in battle"
+      },
+      {
+       "words": "tons",
+       "gives": "T",
+       "note": "T is the abbreviation for tons"
+      },
+      {
+       "words": "to leave",
+       "gives": "WILL",
+       "note": "to will something is to leave it to someone in a testament"
+      }
      ]
     },
     "explanation": {
@@ -728,28 +623,16 @@
    },
    "solution": "WELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WELL",
     "definitions": [
      {
       "text": "A plentiful supply",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a source that can be drawn on"
      },
      {
       "text": "Very probably",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A plentiful supply",
-      "note": "first meaning: a source that can be drawn on"
-     },
-     {
-      "clueFragment": "Very probably",
-      "note": "second meaning: the adverb in phrases like 'it may ... rain'"
+      "at": 20,
+      "meaning": "second meaning: the adverb in phrases like 'it may ... rain'"
      }
     ],
     "explanation": {
@@ -782,40 +665,31 @@
    },
    "solution": "MRRIGHT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MR RIGHT",
     "definitions": [
      {
       "text": "her ideal partner?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to describe",
-      "for": "container",
-      "note": "to describe in the geometric sense is to draw a line around something, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ability",
-      "gives": "MIGHT",
-      "note": "might is power or ability"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "RR",
-      "note": "RR is short for Right Reverend, a bishop's title"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "RR",
-      "IGHT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to describe",
+       "note": "to describe in the geometric sense is to draw a line around something, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ability",
+       "gives": "MIGHT",
+       "note": "might is power or ability"
+      },
+      {
+       "words": "bishop",
+       "gives": "RR",
+       "note": "RR is short for Right Reverend, a bishop's title"
+      }
      ]
     },
     "explanation": {
@@ -844,55 +718,39 @@
    },
    "solution": "EMANATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EMANATE",
     "definitions": [
      {
       "text": "emerge",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Revolving",
-      "for": "reversal",
-      "note": "a revolving thing turns round, so the word is read from the other end"
-     }
-    ],
-    "linkWords": [
-     "gets",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "handle",
-      "gives": "NAME",
-      "note": "a handle is slang for a name"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "TE",
-      "note": "te is the seventh note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMAN",
-      "A",
-      "TE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NAME",
-       "to": "EMAN"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolving",
+         "note": "a revolving thing turns round, so the word is read from the other end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "handle",
+         "gives": "NAME",
+         "note": "a handle is slang for a name"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "note",
+       "gives": "TE",
+       "note": "te is the seventh note of the sol-fa scale"
       }
      ]
     },
@@ -936,35 +794,24 @@
    },
    "solution": "ONCEANDFORALL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ONCE AND FOR ALL",
     "definitions": [
      {
       "text": "Finally",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means intricately tangled, so these letters are twisted into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an old falconer",
-      "gives": "ANOLDFALCONER",
-      "note": "the letters of these three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANOLDFALCONER",
-       "gives": "ONCEANDFORALL"
+       "text": "involved",
+       "note": "involved means intricately tangled, so these letters are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an old falconer",
+       "note": "the letters of these three words"
       }
      ]
     },
@@ -999,38 +846,24 @@
    },
    "solution": "CUTTYSARK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CUTTY SARK",
     "definitions": [
      {
       "text": "Tea clipper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rocks",
-      "for": "anagram",
-      "note": "something that rocks is shaken about, so these letters are jolted out of order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tay struck",
-      "gives": "TAYSTRUCK",
-      "note": "the letters of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TAYSTRUCK",
-       "gives": "CUTTYSARK"
+       "text": "rocks",
+       "note": "something that rocks is shaken about, so these letters are jolted out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tay struck",
+       "note": "the letters of these two words"
       }
      ]
     },
@@ -1066,35 +899,24 @@
    },
    "solution": "DOINGTIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOING TIME",
     "definitions": [
      {
       "text": "in prison?",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminal",
-      "for": "anagram",
-      "note": "criminal suggests something bent or corrupt, so these letters are twisted out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gone timid",
-      "gives": "GONETIMID",
-      "note": "the letters of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GONETIMID",
-       "gives": "DOINGTIME"
+       "text": "Criminal",
+       "note": "criminal suggests something bent or corrupt, so these letters are twisted out of shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gone timid",
+       "note": "the letters of these two words"
       }
      ]
     },
@@ -1134,50 +956,40 @@
    },
    "solution": "JACKTHERIPPER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "JACK THE RIPPER",
     "definitions": [
      {
       "text": "Serial killer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught by",
-      "for": "container",
-      "note": "something caught by another is held within its grip"
-     }
-    ],
-    "linkWords": [
-     "got"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sailor",
-      "gives": "JACK",
-      "note": "jack, as in jack tar, is a sailor"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tourist",
-      "gives": "TRIPPER",
-      "note": "a tripper is a day tourist, a British word for a sightseer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "T",
-      "HE",
-      "RIPPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sailor",
+       "gives": "JACK",
+       "note": "jack, as in jack tar, is a sailor"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught by",
+         "note": "something caught by another is held within its grip"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tourist",
+         "gives": "TRIPPER",
+         "note": "a tripper is a day tourist, a British word for a sightseer"
+        },
+        {
+         "words": "he",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1205,50 +1017,41 @@
    },
    "solution": "JEEP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "JEEP",
     "definitions": [
      {
       "text": "vehicle",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "heart of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only the middle letters are kept"
-     },
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "touring means going round, so one piece travels around the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Magistrate",
-      "gives": "JP",
-      "note": "JP stands for Justice of the Peace, a magistrate"
-     },
-     {
-      "clueFragment": "Greece",
-      "gives": "EE",
-      "select": "middle",
-      "note": "the central two letters of the six-letter word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "EE",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "note": "touring means going round, so one piece travels around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Magistrate",
+       "gives": "JP",
+       "note": "JP stands for Justice of the Peace, a magistrate"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart of",
+         "note": "the heart of a word is its centre, so only the middle letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greece",
+         "note": "the central two letters of the six-letter word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1277,39 +1080,31 @@
    },
    "solution": "UNITED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNITED",
     "definitions": [
      {
       "text": "Joined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "one piece placed before another comes first in the sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "UNIT",
-      "note": "a unit is a single one of something"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "ED is the standard abbreviation for editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNIT",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "one piece placed before another comes first in the sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "UNIT",
+       "note": "a unit is a single one of something"
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "ED is the standard abbreviation for editor"
+      }
      ]
     },
     "explanation": {
@@ -1337,35 +1132,25 @@
    },
    "solution": "ERINYES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ERINYES",
     "definitions": [
      {
       "text": "Monsters",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ireland",
-      "gives": "ERIN",
-      "note": "Erin is a poetic name for Ireland"
-     },
-     {
-      "clueFragment": "That's right",
-      "gives": "YES",
-      "note": "an affirmation, agreeing that something is correct"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERIN",
-      "YES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ireland",
+       "gives": "ERIN",
+       "note": "Erin is a poetic name for Ireland"
+      },
+      {
+       "words": "That's right",
+       "gives": "YES",
+       "note": "an affirmation, agreeing that something is correct"
+      }
      ]
     },
     "explanation": {
@@ -1393,28 +1178,16 @@
    },
    "solution": "SWEEP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SWEEP",
     "definitions": [
      {
       "text": "Brush",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to clean a floor with a broom"
      },
      {
       "text": "a puppet",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brush",
-      "note": "first meaning: to clean a floor with a broom"
-     },
-     {
-      "clueFragment": "a puppet",
-      "note": "second meaning: the grey dog glove puppet from the British children's TV show Sooty"
+      "at": 7,
+      "meaning": "second meaning: the grey dog glove puppet from the British children's TV show Sooty"
      }
     ],
     "explanation": {
@@ -1441,28 +1214,16 @@
    },
    "solution": "GLUTTON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GLUTTON",
     "definitions": [
      {
       "text": "Forest animal",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: another name for the wolverine, a carnivore of northern forests"
      },
      {
       "text": "a pig",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Forest animal",
-      "note": "first meaning: another name for the wolverine, a carnivore of northern forests"
-     },
-     {
-      "clueFragment": "a pig",
-      "note": "second meaning: a person who eats greedily"
+      "at": 15,
+      "meaning": "second meaning: a person who eats greedily"
      }
     ],
     "explanation": {
@@ -1497,33 +1258,29 @@
    },
    "solution": "UPTO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UP TO",
     "definitions": [
      {
       "text": "As far as",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not quite",
-      "for": "deletion",
-      "note": "not quite means falling just short, so the word stops before its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chester suburb",
-      "gives": "UPTON",
-      "note": "Upton-by-Chester is a village suburb north of the city of Chester"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UPTO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not quite",
+       "note": "not quite means falling just short, so the word stops before its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chester suburb",
+       "gives": "UPTON",
+       "note": "Upton-by-Chester is a village suburb north of the city of Chester"
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -1557,35 +1314,24 @@
    },
    "solution": "LAKEDISTRICT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LAKE DISTRICT",
     "definitions": [
      {
       "text": "here in NW England",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "in ruins",
-      "for": "anagram",
-      "note": "something in ruins has fallen apart, so these letters are rebuilt in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skirt citadel",
-      "gives": "SKIRTCITADEL",
-      "note": "the letters of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SKIRTCITADEL",
-       "gives": "LAKEDISTRICT"
+       "text": "in ruins",
+       "note": "something in ruins has fallen apart, so these letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Skirt citadel",
+       "note": "the letters of these two words"
       }
      ]
     },
@@ -1615,54 +1361,40 @@
    },
    "solution": "SKOPJE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SKOPJE",
     "definitions": [
      {
       "text": "capital",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Silly",
-      "for": "anagram",
-      "note": "silly means scatterbrained, so these letters are jumbled"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece is wrapped around the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jokes",
-      "gives": "JOKES",
-      "note": "taken as written before rearranging"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P is the road-sign abbreviation for parking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKO",
-      "P",
-      "JE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "JOKES",
-       "gives": "SKOJE"
+       "text": "about",
+       "note": "about means around, so one piece is wrapped around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Silly",
+         "note": "silly means scatterbrained, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jokes",
+         "note": "taken as written before rearranging"
+        }
+       ]
+      },
+      {
+       "words": "parking",
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
@@ -1691,38 +1423,31 @@
    },
    "solution": "GLAD",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GLAD",
     "definitions": [
      {
       "text": "Happy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having lost",
-      "for": "deletion",
-      "note": "having lost something means it has been taken away, so a part of the name goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former PM",
-      "gives": "GLADSTONE",
-      "note": "William Gladstone, Liberal Prime Minister four times in Victorian Britain"
-     },
-     {
-      "clueFragment": "weight",
-      "gives": "STONE",
-      "note": "a stone is a British unit of weight, fourteen pounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLAD"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having lost",
+       "note": "having lost something means it has been taken away, so a part of the name goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former PM",
+       "gives": "GLADSTONE",
+       "note": "William Gladstone, Liberal Prime Minister four times in Victorian Britain"
+      },
+      {
+       "words": "weight",
+       "gives": "STONE",
+       "note": "a stone is a British unit of weight, fourteen pounds"
+      }
      ]
     },
     "explanation": {

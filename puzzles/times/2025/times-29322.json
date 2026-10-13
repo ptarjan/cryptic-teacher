@@ -1,8 +1,6 @@
 {
  "id": "times-29322",
  "number": 29322,
- "series": "times",
- "name": "Times cryptic crossword No 29,322",
  "date": "2025-08-30",
  "dimensions": {
   "cols": 15,
@@ -41,50 +39,55 @@
    },
    "solution": "PHLEBOTOMY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PHLEBOTOMY",
     "definitions": [
      {
       "text": "Drawing blood",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "busy",
-      "note": "busy letters are all over the place"
-     },
-     {
-      "text": "nurses",
-      "note": "the anagram holds the other letters as a nurse holds a patient"
-     },
-     {
-      "text": "at last",
-      "note": "take the final letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lymph too",
-      "gives": "LYMPHTOO",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "conclude job at last",
-      "gives": "EB",
-      "select": "last",
-      "note": "last letters of concludE and joB, held inside the anagram"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LYMPHTOOEB",
-       "gives": "PHLEBOTOMY"
+       "text": "busy",
+       "note": "busy letters are all over the place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nurses",
+         "note": "the anagram holds the other letters as a nurse holds a patient"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lymph too",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "EB",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "take the final letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "conclude job at last",
+         "gives": "EB",
+         "select": "last",
+         "note": "last letters of concludE and joB, held inside the anagram"
+        }
+       ]
       }
      ]
     },
@@ -114,44 +117,36 @@
    },
    "solution": "PELF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PELF",
     "definitions": [
      {
       "text": "bread",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Principal ingredient in",
-      "for": "letter_selection",
-      "note": "the principal, or first, letter of the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Principal ingredient in parkin",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of parkin"
-     },
-     {
-      "clueFragment": "brownie",
-      "gives": "ELF",
-      "note": "a brownie is a household sprite, like an elf"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ELF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Principal ingredient in",
+         "note": "the principal, or first, letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Principal ingredient in parkin",
+         "gives": "PARKIN",
+         "note": "first letter of parkin"
+        }
+       ]
+      },
+      {
+       "words": "brownie",
+       "gives": "ELF",
+       "note": "a brownie is a household sprite, like an elf"
+      }
      ]
     },
     "explanation": {
@@ -187,35 +182,24 @@
    },
    "solution": "LETDOWN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LET-DOWN",
     "definitions": [
      {
       "text": "disappointment",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "shattering",
-      "for": "anagram",
-      "note": "the letters are broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dwelt on",
-      "gives": "DWELTON",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DWELTON",
-       "gives": "LETDOWN"
+       "text": "shattering",
+       "note": "the letters are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dwelt on",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -245,46 +229,43 @@
    },
    "solution": "BRILLIANTINED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BRILLIANTINED",
     "definitions": [
      {
       "text": "Oily",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skinless",
-      "for": "deletion",
-      "note": "the word loses its outer letters, its skin"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "BRILL",
-      "note": "brill is a flatfish"
-     },
-     {
-      "clueFragment": "massive, skinless",
-      "gives": "IAN",
-      "note": "GIANT without its outer letters G and T"
-     },
-     {
-      "clueFragment": "spiky",
-      "gives": "TINED",
-      "note": "having tines, or prongs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRILL",
-      "IAN",
-      "TINED"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BRILLIANTINED",
+     "indicators": [
+      {
+       "text": "skinless",
+       "note": "the word loses its outer letters, its skin"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fish",
+         "gives": "BRILL",
+         "note": "brill is a flatfish"
+        },
+        {
+         "words": "massive, skinless",
+         "gives": "IAN",
+         "note": "GIANT without its outer letters G and T"
+        },
+        {
+         "words": "spiky",
+         "gives": "TINED",
+         "note": "having tines, or prongs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -313,30 +294,28 @@
    },
    "solution": "TANTRA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TANTRA",
     "definitions": [
      {
       "text": "religious writings",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the letters in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "important Rastafarian",
-      "gives": "TANTRA",
-      "note": "imporTANT RAstafarian"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the letters in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "important Rastafarian",
+       "gives": "TANTRA",
+       "note": "imporTANT RAstafarian"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Scriptures that matter to a Rastafarian.",
      "walkthrough": "The Rastafarian setting points toward the Bible, but the tantras are Hindu and Buddhist texts; the answer is simply sitting inside the words.",
@@ -363,54 +342,53 @@
    },
    "solution": "MARIGOLD",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MARIGOLD",
     "definitions": [
      {
       "text": "Flower",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cultivated",
-      "note": "the letters are worked over like soil"
-     },
-     {
-      "text": "in",
-      "note": "the anagram goes inside the abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maryland",
-      "gives": "M",
-      "note": "MD is the postal abbreviation for Maryland; this is its first half"
-     },
-     {
-      "clueFragment": "Gloria",
-      "gives": "ARIGOL",
-      "note": "GLORIA rearranged"
-     },
-     {
-      "clueFragment": "Maryland",
-      "gives": "D",
-      "note": "second half of MD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ARIGOL",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "MARIGOLD",
+     "parts": [
       {
-       "fodder": "GLORIA",
-       "gives": "ARIGOL"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "MARIGOLD",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "cultivated",
+           "note": "the letters are worked over like soil"
+          },
+          {
+           "text": "in",
+           "note": "the anagram goes inside the abbreviation"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Maryland",
+           "gives": "M",
+           "note": "MD is the postal abbreviation for Maryland; this is its first half"
+          },
+          {
+           "words": "Gloria",
+           "gives": "ARIGOL",
+           "note": "GLORIA rearranged"
+          },
+          {
+           "words": "Maryland",
+           "gives": "D",
+           "note": "second half of MD"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -440,46 +418,43 @@
    },
    "solution": "MASH",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MASH",
     "definitions": [
      {
       "text": "potatoes",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "dropping",
-      "for": "deletion",
-      "note": "OTHERS is dropped from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mums dropping others",
-      "gives": "M",
-      "note": "MOTHERS without OTHERS"
-     },
-     {
-      "clueFragment": "like",
-      "gives": "AS",
-      "note": "as = like"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H = hot, as on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "AS",
-      "H"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MASH",
+     "indicators": [
+      {
+       "text": "dropping",
+       "note": "OTHERS is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mums dropping others",
+         "gives": "M",
+         "note": "MOTHERS without OTHERS"
+        },
+        {
+         "words": "like",
+         "gives": "AS",
+         "note": "as = like"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H = hot, as on a tap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -508,40 +483,38 @@
    },
    "solution": "ALIMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ALIMENT",
     "definitions": [
      {
       "text": "a foodstuff",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "to give up",
-      "for": "deletion",
-      "note": "the word gives up one of its letters, the A that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boxer",
-      "gives": "ALI",
-      "note": "Muhammad Ali"
-     },
-     {
-      "clueFragment": "intended to give up a",
-      "gives": "MENT",
-      "note": "MEANT without its A"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALI",
-      "MENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ALIMENT",
+     "indicators": [
+      {
+       "text": "to give up",
+       "note": "the word gives up one of its letters, the A that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Boxer",
+         "gives": "ALI",
+         "note": "Muhammad Ali"
+        },
+        {
+         "words": "intended to give up a",
+         "gives": "MENT",
+         "note": "MEANT without its A"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -570,50 +543,41 @@
    },
    "solution": "HEARTBREAK",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HEARTBREAK",
     "definitions": [
      {
       "text": "Agony",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "the letter breaks into the middle of the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stag",
-      "gives": "HART",
-      "note": "a hart is a male deer, a stag"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E = the drug ecstasy; it goes inside HART"
-     },
-     {
-      "clueFragment": "weekend",
-      "gives": "BREAK",
-      "note": "a weekend break"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "E",
-      "ART",
-      "BREAK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupting",
+         "note": "the letter breaks into the middle of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stag",
+         "gives": "HART",
+         "note": "a hart is a male deer, a stag"
+        },
+        {
+         "words": "ecstasy",
+         "gives": "E",
+         "note": "E = the drug ecstasy; it goes inside HART"
+        }
+       ]
+      },
+      {
+       "words": "weekend",
+       "gives": "BREAK",
+       "note": "a weekend break"
+      }
      ]
     },
     "explanation": {
@@ -643,35 +607,24 @@
    },
    "solution": "LATVIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LATVIAN",
     "definitions": [
      {
       "text": "Northern European",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Terribly",
-      "for": "anagram",
-      "note": "the letters are in a terrible state"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "valiant",
-      "gives": "VALIANT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VALIANT",
-       "gives": "LATVIAN"
+       "text": "Terribly",
+       "note": "the letters are in a terrible state"
+      }
+     ],
+     "parts": [
+      {
+       "words": "valiant",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -701,45 +654,53 @@
    },
    "solution": "REPLICA",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REPLICA",
     "definitions": [
      {
       "text": "Model",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disheartened",
-      "note": "the heart, the middle letters, is taken out"
-     },
-     {
-      "text": "leader in",
-      "note": "the first letter of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "democracy disheartened",
-      "gives": "REPLIC",
-      "note": "REPUBLIC without its middle UB"
-     },
-     {
-      "clueFragment": "leader in Africa",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of Africa"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REPLIC",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "REPLICA",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "note": "the heart, the middle letters, is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "democracy disheartened",
+         "gives": "REPLIC",
+         "note": "REPUBLIC without its middle UB"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "A",
+         "indicators": [
+          {
+           "text": "leader in",
+           "note": "the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "leader in Africa",
+           "gives": "A",
+           "select": "first",
+           "note": "first letter of Africa"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -768,67 +729,73 @@
    },
    "solution": "PEREGRINATION",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PEREGRINATION",
     "definitions": [
      {
       "text": "Travel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "take the final letter of the word"
-     },
-     {
-      "text": "stops",
-      "note": "the letter plugs a gap in the anagram, like a stopper"
-     },
-     {
-      "text": "running",
-      "note": "running means on the move, so the letters of Pierre will not stay where they stand"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pierre running",
-      "gives": "PERE",
-      "note": "first part of PIERRE rearranged as PERERI"
-     },
-     {
-      "clueFragment": "bug ultimately",
-      "gives": "G",
-      "select": "last",
-      "note": "last letter of bug, plugged into the anagram"
-     },
-     {
-      "clueFragment": "Pierre running",
-      "gives": "RI",
-      "note": "rest of the anagram"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "NATION",
-      "note": "a nation is a country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERE",
-      "G",
-      "RI",
-      "NATION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PEREGRINATION",
+     "parts": [
       {
-       "fodder": "PIERRE",
-       "gives": "PERERI"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "PEREGRINATION",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "take the final letter of the word"
+          },
+          {
+           "text": "running",
+           "note": "running means on the move, so the letters of Pierre will not stay where they stand"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Pierre running",
+           "gives": "PERE",
+           "note": "first part of PIERRE rearranged as PERERI"
+          },
+          {
+           "op": "last",
+           "unchecked": true,
+           "gives": "G",
+           "indicators": [
+            {
+             "text": "stops",
+             "note": "the letter plugs a gap in the anagram, like a stopper"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "bug ultimately",
+             "gives": "G",
+             "select": "last",
+             "note": "last letter of bug, plugged into the anagram"
+            }
+           ]
+          },
+          {
+           "words": "Pierre running",
+           "gives": "RI",
+           "note": "rest of the anagram"
+          },
+          {
+           "words": "country",
+           "gives": "NATION",
+           "note": "a nation is a country"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -864,32 +831,25 @@
    },
    "solution": "JOLLYROGER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JOLLY ROGER",
     "definitions": [
      {
       "text": "flag",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Very",
-      "gives": "JOLLY",
-      "note": "jolly = very, as in 'jolly good'"
-     },
-     {
-      "clueFragment": "very good",
-      "gives": "ROGER",
-      "note": "roger = message received, understood: very good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOLLY",
-      "ROGER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very",
+       "gives": "JOLLY",
+       "note": "jolly = very, as in 'jolly good'"
+      },
+      {
+       "words": "very good",
+       "gives": "ROGER",
+       "note": "roger = message received, understood: very good"
+      }
      ]
     },
     "explanation": {
@@ -918,36 +878,25 @@
    },
    "solution": "EAT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EAT",
     "definitions": [
      {
       "text": "scoff",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Firstly",
-      "for": "letter_selection",
-      "note": "take the first letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elicit admission, then",
-      "gives": "EAT",
-      "select": "first",
-      "note": "first letters of Elicit Admission Then"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "A",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Firstly",
+       "note": "take the first letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "elicit admission, then",
+       "note": "first letters of Elicit Admission Then"
+      }
      ]
     },
     "explanation": {
@@ -977,41 +926,37 @@
    },
    "solution": "THROUGHOUT",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "THROUGHOUT",
     "definitions": [
      {
       "text": "in every part",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Delivery of",
-      "for": "homophone",
-      "note": "the word as it is delivered in speech"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Delivery of cast",
-      "gives": "THROUGH",
-      "soundsLike": "THREW",
-      "note": "threw = cast, said out loud"
-     },
-     {
-      "clueFragment": "at fault",
-      "gives": "OUT",
-      "note": "out = wrong, mistaken, as in 'your figures are out'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THROUGH",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "THROUGH",
+       "indicators": [
+        {
+         "text": "Delivery of",
+         "note": "the word as it is delivered in speech"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Delivery of cast",
+         "gives": "THREW",
+         "note": "threw = cast, said out loud"
+        }
+       ]
+      },
+      {
+       "words": "at fault",
+       "gives": "OUT",
+       "note": "out = wrong, mistaken, as in 'your figures are out'"
+      }
      ]
     },
     "explanation": {
@@ -1041,26 +986,25 @@
    },
    "solution": "HANGAR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HANGAR",
     "definitions": [
      {
       "text": "House of Lancaster?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "House of",
-      "note": "the surface wants a royal house, a dynasty; the setter means a building that houses something"
-     },
-     {
-      "clueFragment": "Lancaster?",
-      "note": "not the medieval kings but the Avro Lancaster, an RAF bomber of the Second World War"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "House of",
+       "note": "the surface wants a royal house, a dynasty; the setter means a building that houses something"
+      },
+      {
+       "words": "Lancaster?",
+       "note": "not the medieval kings but the Avro Lancaster, an RAF bomber of the Second World War"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The royal House of Lancaster, the line of English kings.",
      "walkthrough": "The House of Lancaster is a line of medieval English kings; the Lancaster here is the Second World War RAF bomber, and its house is a hangar.",
@@ -1088,43 +1032,38 @@
    },
    "solution": "BLIGHTER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BLIGHTER",
     "definitions": [
      {
       "text": "Fellow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "half of a word is one of its two halves, here the back three letters of the six"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Christian's senior officer",
-      "gives": "BLIGH",
-      "note": "Captain Bligh commanded Fletcher Christian on the Bounty"
-     },
-     {
-      "clueFragment": "better half",
-      "gives": "TER",
-      "note": "the second half of BETTER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLIGH",
-      "TER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BLIGHTER",
+     "indicators": [
+      {
+       "text": "half",
+       "note": "half of a word is one of its two halves, here the back three letters of the six"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Christian's senior officer",
+         "gives": "BLIGH",
+         "note": "Captain Bligh commanded Fletcher Christian on the Bounty"
+        },
+        {
+         "words": "better half",
+         "gives": "TER",
+         "note": "the second half of BETTER"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1154,46 +1093,43 @@
    },
    "solution": "BRUCKNER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BRUCKNER",
     "definitions": [
      {
       "text": "scorer",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "Successive boundaries eluding",
-      "for": "deletion",
-      "note": "the boundary, or end letter, of each of the next two words slips away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australian",
-      "gives": "BRUC",
-      "note": "BRUCE, the stock Australian name, without its last letter"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "KNE",
-      "note": "KNEE without its last letter"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "R = run, in cricket scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRUC",
-      "KNE",
-      "R"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BRUCKNER",
+     "indicators": [
+      {
+       "text": "Successive boundaries eluding",
+       "note": "the boundary, or end letter, of each of the next two words slips away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Australian",
+         "gives": "BRUC",
+         "note": "BRUCE, the stock Australian name, without its last letter"
+        },
+        {
+         "words": "joint",
+         "gives": "KNE",
+         "note": "KNEE without its last letter"
+        },
+        {
+         "words": "run",
+         "gives": "R",
+         "note": "R = run, in cricket scoring"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1223,41 +1159,30 @@
    },
    "solution": "OVERTURE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERTURE",
     "definitions": [
      {
       "text": "Music",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Open",
-      "gives": "OVERT",
-      "note": "overt = open, not hidden"
-     },
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "subject",
-      "gives": "RE",
-      "note": "RE = religious education, a school subject"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVERT",
-      "U",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Open",
+       "gives": "OVERT",
+       "note": "overt = open, not hidden"
+      },
+      {
+       "words": "University",
+       "gives": "U",
+       "note": "U = university"
+      },
+      {
+       "words": "subject",
+       "gives": "RE",
+       "note": "RE = religious education, a school subject"
+      }
      ]
     },
     "explanation": {
@@ -1286,44 +1211,40 @@
    },
    "solution": "EMPLANE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EMPLANE",
     "definitions": [
      {
       "text": "board",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Starts to",
-      "for": "letter_selection",
-      "note": "the starting letters of the words that follow"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Starts to etch motif",
-      "gives": "EM",
-      "select": "first",
-      "note": "first letters of Etch Motif"
-     },
-     {
-      "clueFragment": "flat",
-      "gives": "PLANE",
-      "note": "a plane is a flat surface"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "PLANE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "EM",
+       "indicators": [
+        {
+         "text": "Starts to",
+         "note": "the starting letters of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Starts to etch motif",
+         "gives": "EM",
+         "select": "first",
+         "note": "first letters of Etch Motif"
+        }
+       ]
+      },
+      {
+       "words": "flat",
+       "gives": "PLANE",
+       "note": "a plane is a flat surface"
+      }
      ]
     },
     "explanation": {
@@ -1353,39 +1274,36 @@
    },
    "solution": "SIERRA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SIERRA",
     "definitions": [
      {
       "text": "mountains",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Travelling west",
-      "note": "in an across clue, going west means reading right to left"
-     },
-     {
-      "text": "in",
-      "note": "the letters sit inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Navarre, I spot",
-      "gives": "ARREIS",
-      "note": "navARRE I Spot"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ARREIS",
-       "to": "SIERRA"
+       "text": "Travelling west",
+       "note": "in an across clue, going west means reading right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters sit inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Navarre, I spot",
+         "gives": "ARREIS",
+         "note": "navARRE I Spot"
+        }
+       ]
       }
      ]
     },
@@ -1415,31 +1333,29 @@
    },
    "solution": "RECITED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RECITED",
     "definitions": [
      {
       "text": "spoke from memory",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Audibly",
-      "for": "homophone",
-      "note": "the answer is how the word sounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moved",
-      "gives": "RECITED",
-      "soundsLike": "RESITED",
-      "note": "resited = moved to a new site"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RECITED",
+     "indicators": [
+      {
+       "text": "Audibly",
+       "note": "the answer is how the word sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moved",
+       "gives": "RESITED",
+       "note": "resited = moved to a new site"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone visibly emotional reciting from memory.",
      "walkthrough": "'Audibly moved' reads as audibly emotional; moved here means relocated, RESITED.",
@@ -1467,41 +1383,30 @@
    },
    "solution": "CORPUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CORPUS",
     "definitions": [
      {
       "text": "collection of texts",
       "at": 27
      }
     ],
-    "linkWords": [
-     "added to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "my",
-      "gives": "COR",
-      "note": "cor! = my! as an exclamation"
-     },
-     {
-      "clueFragment": "Quiet",
-      "gives": "P",
-      "note": "p = piano, quietly in music"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "P",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "my",
+       "gives": "COR",
+       "note": "cor! = my! as an exclamation"
+      },
+      {
+       "words": "Quiet",
+       "gives": "P",
+       "note": "p = piano, quietly in music"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -1530,50 +1435,58 @@
    },
    "solution": "GAP",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "GAP",
     "definitions": [
      {
       "text": "Hiatus",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "note": "the final letter of the word"
-     },
-     {
-      "text": "checked by",
-      "note": "held in check, surrounded"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doctor",
-      "gives": "G",
-      "note": "GP = general practitioner, a doctor; first half"
-     },
-     {
-      "clueFragment": "hernia finally",
-      "gives": "A",
-      "select": "last",
-      "note": "last letter of hernia, held inside GP"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "P",
-      "note": "second half of GP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "A",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GAP",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "gives": "G",
+         "note": "GP = general practitioner, a doctor; first half"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "A",
+         "indicators": [
+          {
+           "text": "checked by",
+           "note": "held in check, surrounded"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "hernia finally",
+           "gives": "A",
+           "select": "last",
+           "note": "last letter of hernia, held inside GP"
+          }
+         ]
+        },
+        {
+         "words": "doctor",
+         "gives": "P",
+         "note": "second half of GP"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1602,52 +1515,51 @@
    },
    "solution": "NECROMANCY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NECROMANCY",
     "definitions": [
      {
       "text": "magic",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "to be entertained by",
-      "for": "container",
-      "note": "the letter is taken in as a guest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Centre of Birmingham",
-      "gives": "NEC",
-      "note": "the National Exhibition Centre, near Birmingham"
-     },
-     {
-      "clueFragment": "gypsy",
-      "gives": "ROMAN",
-      "note": "ROMANY, first part"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c = circa, about; inside ROMANY"
-     },
-     {
-      "clueFragment": "gypsy",
-      "gives": "Y",
-      "note": "last letter of ROMANY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEC",
-      "ROMAN",
-      "C",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to be entertained by",
+         "note": "the letter is taken in as a guest"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Centre of Birmingham",
+           "gives": "NEC",
+           "note": "the National Exhibition Centre, near Birmingham"
+          },
+          {
+           "words": "gypsy",
+           "gives": "ROMAN",
+           "note": "ROMANY, first part"
+          }
+         ]
+        },
+        {
+         "words": "about",
+         "gives": "C",
+         "note": "c = circa, about; inside ROMANY"
+        }
+       ]
+      },
+      {
+       "words": "gypsy",
+       "gives": "Y",
+       "note": "last letter of ROMANY"
+      }
      ]
     },
     "explanation": {
@@ -1676,36 +1588,28 @@
    },
    "solution": "PREY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PREY",
     "definitions": [
      {
       "text": "raven",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "dropping",
-      "for": "deletion",
-      "note": "the bone is dropped from the bird"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Raptor dropping bone",
-      "gives": "PREY",
-      "note": "OSPREY without OS, Latin for bone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PREY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PREY",
+     "indicators": [
+      {
+       "text": "dropping",
+       "note": "the bone is dropped from the bird"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Raptor dropping bone",
+       "gives": "PREY",
+       "note": "OSPREY without OS, Latin for bone"
+      }
      ]
     },
     "explanation": {
@@ -1745,45 +1649,36 @@
    },
    "solution": "ONANDON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ON AND ON",
     "definitions": [
      {
       "text": "relentlessly",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "tailing",
-      "for": "charade",
-      "note": "comes behind, at the tail"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O = old"
-     },
-     {
-      "clueFragment": "grandma",
-      "gives": "NAN",
-      "note": "nan = grandma"
-     },
-     {
-      "clueFragment": "Spanish gentleman",
-      "gives": "DON",
-      "note": "Don is a Spanish title for a gentleman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "NAN",
-      "DON"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "tailing",
+       "note": "comes behind, at the tail"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O = old"
+      },
+      {
+       "words": "grandma",
+       "gives": "NAN",
+       "note": "nan = grandma"
+      },
+      {
+       "words": "Spanish gentleman",
+       "gives": "DON",
+       "note": "Don is a Spanish title for a gentleman"
+      }
      ]
     },
     "explanation": {
@@ -1812,30 +1707,16 @@
    },
    "solution": "POINTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POINTER",
     "definitions": [
      {
       "text": "Dog",
-      "at": 0
+      "at": 0,
+      "meaning": "a breed of gun dog that stands still and aims its nose at game"
      },
      {
       "text": "lead",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dog",
-      "gives": "POINTER",
-      "note": "a breed of gun dog that stands still and aims its nose at game"
-     },
-     {
-      "clueFragment": "lead",
-      "gives": "POINTER",
-      "note": "lead as a noun: a hint or tip that sends you in the right direction"
+      "at": 4,
+      "meaning": "lead as a noun: a hint or tip that sends you in the right direction"
      }
     ],
     "explanation": {
@@ -1865,31 +1746,29 @@
    },
    "solution": "TOED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TOED",
     "definitions": [
      {
       "text": "Kicked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "escaping from trap",
-      "for": "homophone",
-      "note": "trap is slang for mouth, so what escapes it is spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rat",
-      "gives": "TOED",
-      "soundsLike": "TOAD",
-      "note": "a toad, like a rat, is a contemptible person"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TOED",
+     "indicators": [
+      {
+       "text": "escaping from trap",
+       "note": "trap is slang for mouth, so what escapes it is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rat",
+       "gives": "TOAD",
+       "note": "a toad, like a rat, is a contemptible person"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone booting a rat that was trying to get out of a trap.",
      "walkthrough": "Trap is British slang for mouth ('shut your trap'). The rat is a nasty person, a toad.",
@@ -1923,30 +1802,16 @@
    },
    "solution": "PRESENTDAY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PRESENT-DAY",
     "definitions": [
      {
       "text": "Modern",
-      "at": 0
+      "at": 0,
+      "meaning": "belonging to the current era, of now"
      },
      {
       "text": "Christmas?",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Modern",
-      "gives": "PRESENTDAY",
-      "note": "belonging to the current era, of now"
-     },
-     {
-      "clueFragment": "Christmas?",
-      "gives": "PRESENTDAY",
-      "note": "whimsically, the day on which gifts are given; the question mark flags the pun"
+      "at": 7,
+      "meaning": "whimsically, the day on which gifts are given; the question mark flags the pun"
      }
     ],
     "explanation": {

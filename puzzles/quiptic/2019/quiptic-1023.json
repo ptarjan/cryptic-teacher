@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1023",
  "number": 1023,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,023",
  "setter": "Anto",
  "date": "2019-06-24",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "ALLEGRO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ALLEGRO",
     "definitions": [
      {
       "text": "briskly",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "only a portion of the following run of words is wanted, so the letters sit inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "final leg rowed",
-      "gives": "ALLEGRO",
-      "note": "the letters run across the end of the first word, all of the second and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "only a portion of the following run of words is wanted, so the letters sit inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "final leg rowed",
+       "gives": "ALLEGRO",
+       "note": "the letters run across the end of the first word, all of the second and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A rower takes the closing stretch of a race at speed.",
      "definitionFit": "Allegro is the musical tempo marking meaning to be played quickly and lively."
@@ -87,35 +83,25 @@
    },
    "solution": "ANDANTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANDANTE",
     "definitions": [
      {
       "text": "quite slowly",
       "at": 26
      }
     ],
-    "linkWords": [
-     "put together"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Article",
-      "gives": "AN",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "poet",
-      "gives": "DANTE",
-      "note": "Dante Alighieri, the Italian poet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "DANTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Article",
+       "gives": "AN",
+       "note": "the indefinite article"
+      },
+      {
+       "words": "poet",
+       "gives": "DANTE",
+       "note": "Dante Alighieri, the Italian poet"
+      }
      ]
     },
     "explanation": {
@@ -143,41 +129,35 @@
    },
    "solution": "LATERAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LATERAL",
     "definitions": [
      {
       "text": "Moving sideways",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "odd characters",
-      "for": "letter_selection",
-      "note": "odd characters are those in the first, third and fifth positions of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "behind",
-      "gives": "LATE",
-      "note": "behind schedule"
-     },
-     {
-      "clueFragment": "really",
-      "gives": "RAL",
-      "select": "alternate",
-      "note": "its first, third and fifth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATE",
-      "RAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "behind",
+       "gives": "LATE",
+       "note": "behind schedule"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "odd characters",
+         "note": "odd characters are those in the first, third and fifth positions of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really",
+         "note": "its first, third and fifth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -205,41 +185,44 @@
    },
    "solution": "GNASH",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "GNASH",
     "definitions": [
      {
       "text": "Grind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the middle",
-      "for": "letter_selection",
-      "note": "in the middle asks for the central letters of each of the two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "magnet",
-      "gives": "GN",
-      "select": "middle",
-      "note": "the two central letters"
-     },
-     {
-      "clueFragment": "smashed",
-      "gives": "ASH",
-      "select": "middle",
-      "note": "the three central letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GN",
-      "ASH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in the middle",
+         "note": "in the middle asks for the central letters of each of the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "magnet",
+         "note": "the two central letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "ASH",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "smashed",
+         "gives": "ASH",
+         "select": "middle",
+         "note": "the three central letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -267,35 +250,25 @@
    },
    "solution": "OUTSOURCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTSOURCE",
     "definitions": [
      {
       "text": "Hire third party",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "expose",
-      "gives": "OUT",
-      "note": "to out someone is to expose them"
-     },
-     {
-      "clueFragment": "informer",
-      "gives": "SOURCE",
-      "note": "a journalist's source is an informant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "SOURCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "expose",
+       "gives": "OUT",
+       "note": "to out someone is to expose them"
+      },
+      {
+       "words": "informer",
+       "gives": "SOURCE",
+       "note": "a journalist's source is an informant"
+      }
      ]
     },
     "explanation": {
@@ -323,38 +296,24 @@
    },
    "solution": "VISCERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VISCERA",
     "definitions": [
      {
       "text": "what's inside",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "disturbed",
-      "for": "anagram",
-      "note": "something disturbed is knocked out of its proper order, so these letters get rearranged"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caver is",
-      "gives": "CAVERIS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAVERIS",
-       "gives": "VISCERA"
+       "text": "disturbed",
+       "note": "something disturbed is knocked out of its proper order, so these letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caver is",
+       "note": "taken as written"
       }
      ]
     },
@@ -383,34 +342,25 @@
    },
    "solution": "VOICE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "VOICE",
     "definitions": [
      {
       "text": "Tenor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "starts means the opening letter of each following word is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vary oratorio in choral event",
-      "gives": "VOICE",
-      "select": "first",
-      "note": "first letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VOICE"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts to",
+       "note": "starts means the opening letter of each following word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vary oratorio in choral event",
+       "note": "first letters of the five words"
+      }
      ]
     },
     "explanation": {
@@ -438,51 +388,40 @@
    },
    "solution": "STARBUCKS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "STARBUCKS",
     "definitions": [
      {
       "text": "Coffee chain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doing headstand",
-      "for": "reversal",
-      "note": "in a down clue, standing on one's head turns the word upside down, reading from the bottom"
-     },
-     {
-      "text": "when ejecting",
-      "for": "container",
-      "note": "the outer word is pictured spitting out the other from its middle, so one sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is unfair",
-      "gives": "SUCKS",
-      "note": "slang: that sucks, it's unfair"
-     },
-     {
-      "clueFragment": "brat",
-      "gives": "BRAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TARB",
-      "UCKS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "BRAT",
-       "to": "TARB"
+       "text": "when ejecting",
+       "note": "the outer word is pictured spitting out the other from its middle, so one sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is unfair",
+       "gives": "SUCKS",
+       "note": "slang: that sucks, it's unfair"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "doing headstand",
+         "note": "in a down clue, standing on one's head turns the word upside down, reading from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brat",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -512,47 +451,41 @@
    },
    "solution": "EDIFICE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EDIFICE",
     "definitions": [
      {
       "text": "Structure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the condition word inside the game"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "DICE",
-      "note": "a game played with dice"
-     },
-     {
-      "clueFragment": "provided",
-      "gives": "IF",
-      "note": "provided that = if"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "D",
-      "IF",
-      "ICE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the condition word inside the game"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "gives": "DICE",
+         "note": "a game played with dice"
+        },
+        {
+         "words": "provided",
+         "gives": "IF",
+         "note": "provided that = if"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -580,28 +513,16 @@
    },
    "solution": "ANSWERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ANSWERS",
     "definitions": [
      {
       "text": "explains",
-      "at": 2
+      "at": 2,
+      "meaning": "first meaning: responds to or accounts for, verb"
      },
      {
       "text": "all you need to complete what you're doing",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "explains",
-      "note": "first meaning: responds to or accounts for, verb"
-     },
-     {
-      "clueFragment": "all you need to complete what you're doing",
-      "note": "second meaning: the solutions that fill a crossword grid"
+      "at": 11,
+      "meaning": "second meaning: the solutions that fill a crossword grid"
      }
     ],
     "explanation": {
@@ -630,46 +551,41 @@
    },
    "solution": "DETRACT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DETRACT",
     "definitions": [
      {
       "text": "Take away",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is depleted",
-      "for": "letter_selection",
-      "note": "a depleted word has lost its insides, leaving only its outer letters behind"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "the section is placed following the reduced word rather than before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "database",
-      "gives": "DE",
-      "select": "outer",
-      "note": "first and last letters only"
-     },
-     {
-      "clueFragment": "section",
-      "gives": "TRACT",
-      "note": "a tract is a section or stretch of land"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "TRACT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the section is placed following the reduced word rather than before it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "is depleted",
+         "note": "a depleted word has lost its insides, leaving only its outer letters behind"
+        }
+       ],
+       "parts": [
+        {
+         "words": "database",
+         "note": "first and last letters only"
+        }
+       ]
+      },
+      {
+       "words": "section",
+       "gives": "TRACT",
+       "note": "a tract is a section or stretch of land"
+      }
      ]
     },
     "explanation": {
@@ -697,26 +613,25 @@
    },
    "solution": "ITALICS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ITALICS",
     "definitions": [
      {
       "text": "Type that leans forward for emphasis, perhaps",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Type that leans forward",
-      "note": "surface reading: a person of a type who leans in to stress a point"
-     },
-     {
-      "clueFragment": "for emphasis, perhaps",
-      "note": "setter's reading: printing type that slopes to the right, used to stress words"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Type that leans forward",
+       "note": "surface reading: a person of a type who leans in to stress a point"
+      },
+      {
+       "words": "for emphasis, perhaps",
+       "note": "setter's reading: printing type that slopes to the right, used to stress words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An eager kind of speaker leans in to drive home a point.",
      "walkthrough": "'Type' reads as a kind of person; it is printing type, the sloping letters used for stress.",
@@ -750,38 +665,24 @@
    },
    "solution": "NORTHPOLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NORTH POLE",
     "definitions": [
      {
       "text": "The high point",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "kinky",
-      "for": "anagram",
-      "note": "kinky means twisted or bent out of shape, so these letters are bent into a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotel porn",
-      "gives": "HOTELPORN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOTELPORN",
-       "gives": "NORTHPOLE"
+       "text": "kinky",
+       "note": "kinky means twisted or bent out of shape, so these letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel porn",
+       "note": "taken as written"
       }
      ]
     },
@@ -811,11 +712,6 @@
    },
    "solution": "BEIGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BEIGE",
     "definitions": [
      {
       "text": "a bit bland, perhaps",
@@ -823,30 +719,29 @@
       "note": "a colour adjective, offered as an example of blandness"
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of each of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Live",
-      "gives": "BE",
-      "note": "to be is to live or exist"
-     },
-     {
-      "clueFragment": "in green environment",
-      "gives": "IGE",
-      "select": "first",
-      "note": "first letters of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "IGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Live",
+       "gives": "BE",
+       "note": "to be is to live or exist"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of each of the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in green environment",
+         "note": "first letters of the three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -875,31 +770,29 @@
    },
    "solution": "ELLEN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ELLEN",
     "definitions": [
      {
       "text": "She",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sounds out",
-      "for": "homophone",
-      "note": "sounding out means saying the letters as spoken, so their spoken names count"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large number",
-      "gives": "ELLEN",
-      "soundsLike": "L N",
-      "note": "L is the abbreviation for large and N for number; spoken, the two letter names run together"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ELLEN",
+     "indicators": [
+      {
+       "text": "sounds out",
+       "note": "sounding out means saying the letters as spoken, so their spoken names count"
+      }
+     ],
+     "parts": [
+      {
+       "words": "large number",
+       "gives": "LN",
+       "note": "L is the abbreviation for large and N for number; spoken, the two letter names run together"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A woman calls out a big figure.",
      "definitionFit": "Ellen is a woman's first name, and crosswords use 'she' to stand for any female name."
@@ -931,46 +824,40 @@
    },
    "solution": "NONALLIED",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "NON-ALLIED",
     "definitions": [
      {
       "text": "that isn't connected",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into puts the ring shape inside the phone word"
-     },
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "a broken item is in pieces, so the letters are put back in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ring",
-      "gives": "O",
-      "note": "a ring is round like the letter O"
-     },
-     {
-      "clueFragment": "landline",
-      "gives": "LANDLINE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LANDLINEO",
-       "gives": "NONALLIED"
+       "text": "into",
+       "note": "into puts the ring shape inside the phone word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "note": "a broken item is in pieces, so the letters are put back in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "landline",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Ring",
+       "gives": "O",
+       "note": "a ring is round like the letter O"
       }
      ]
     },
@@ -1000,35 +887,24 @@
    },
    "solution": "RICOCHETS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RICOCHETS",
     "definitions": [
      {
       "text": "bounces back",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "with violation",
-      "for": "anagram",
-      "note": "a violation breaks something, so these words are broken apart and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soccer, hit",
-      "gives": "SOCCERHIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOCCERHIT",
-       "gives": "RICOCHETS"
+       "text": "with violation",
+       "note": "a violation breaks something, so these words are broken apart and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Soccer, hit",
+       "note": "taken as written"
       }
      ]
     },
@@ -1058,43 +934,31 @@
    },
    "solution": "CURIOUSER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CURIOUSER",
     "definitions": [
      {
       "text": "stranger",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "takes in",
-      "for": "container",
-      "note": "takes in means one item swallows the other within it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maybe doctor",
-      "gives": "CURER",
-      "note": "a doctor is one who cures, an example"
-     },
-     {
-      "clueFragment": "personal debts",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to repay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUR",
-      "IOUS",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes in",
+       "note": "takes in means one item swallows the other within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Maybe doctor",
+       "gives": "CURER",
+       "note": "a doctor is one who cures, an example"
+      },
+      {
+       "words": "personal debts",
+       "gives": "IOUS",
+       "note": "IOUs are written promises to repay"
+      }
      ]
     },
     "explanation": {
@@ -1123,31 +987,29 @@
    },
    "solution": "RACONTEUR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RACONTEUR",
     "definitions": [
      {
       "text": "Storyteller",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "talked of",
-      "for": "homophone",
-      "note": "talked signals that the phrase is to be heard spoken rather than read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "torture while travelling",
-      "gives": "RACONTEUR",
-      "soundsLike": "RACK ON TOUR",
-      "note": "rack is torture, on tour means travelling"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RACONTEUR",
+     "indicators": [
+      {
+       "text": "talked of",
+       "note": "talked signals that the phrase is to be heard spoken rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "torture while travelling",
+       "gives": "RACKONTOUR",
+       "note": "rack is torture, on tour means travelling"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A narrator recounts torments suffered on a journey.",
      "definitionFit": "A raconteur is someone who tells anecdotes skilfully and entertainingly."
@@ -1180,10 +1042,6 @@
    },
    "solution": "REDCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RED CENT",
     "definitions": [
      {
       "text": "little value",
@@ -1191,25 +1049,19 @@
       "note": "a phrase naming a thing worth almost nothing"
      }
     ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Socialist",
-      "gives": "RED",
-      "note": "a left-winger"
-     },
-     {
-      "clueFragment": "currency",
-      "gives": "CENT",
-      "note": "a coin, a unit of currency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "CENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Socialist",
+       "gives": "RED",
+       "note": "a left-winger"
+      },
+      {
+       "words": "currency",
+       "gives": "CENT",
+       "note": "a coin, a unit of currency"
+      }
      ]
     },
     "explanation": {
@@ -1237,46 +1089,41 @@
    },
    "solution": "CUISINE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CUISINE",
     "definitions": [
      {
       "text": "Food",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contains",
-      "for": "container",
-      "note": "contains places the following pair within the sign word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sign",
-      "gives": "CUE",
-      "note": "a signal to an actor"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "error",
-      "gives": "SIN",
-      "note": "a sin is a moral error"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "ISIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "note": "contains places the following pair within the sign word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sign",
+       "gives": "CUE",
+       "note": "a signal to an actor"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral"
+        },
+        {
+         "words": "error",
+         "gives": "SIN",
+         "note": "a sin is a moral error"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1304,45 +1151,35 @@
    },
    "solution": "SCOOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SCOOP",
     "definitions": [
      {
       "text": "Exclusive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming back",
-      "for": "reversal",
-      "note": "coming back means travelling the other way, so the letters are read from the end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Waste",
-      "gives": "POO",
-      "note": "informal word for excrement"
-     },
-     {
-      "clueFragment": "gas",
-      "gives": "CS",
-      "note": "CS gas is a tear gas"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "OOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "POOCS",
-       "to": "SCOOP"
+       "text": "coming back",
+       "note": "coming back means travelling the other way, so the letters are read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Waste",
+         "gives": "POO",
+         "note": "informal word for excrement"
+        },
+        {
+         "words": "gas",
+         "gives": "CS",
+         "note": "CS gas is a tear gas"
+        }
+       ]
       }
      ]
     },
@@ -1372,35 +1209,25 @@
    },
    "solution": "OROTUND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OROTUND",
     "definitions": [
      {
       "text": "Booming",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "a round shape, the letter O"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "ROTUND",
-      "note": "rotund means plump or round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ROTUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "a round shape, the letter O"
+      },
+      {
+       "words": "round",
+       "gives": "ROTUND",
+       "note": "rotund means plump or round"
+      }
      ]
     },
     "explanation": {
@@ -1429,39 +1256,31 @@
    },
    "solution": "PRESSIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESSIE",
     "definitions": [
      {
       "text": "Gift",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found under",
-      "for": "charade",
-      "note": "in a down clue, found under means the abbreviation comes after the furniture word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cupboard",
-      "gives": "PRESS",
-      "note": "a press is a large cupboard, especially in Ireland and Scotland"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e., id est"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRESS",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found under",
+       "note": "in a down clue, found under means the abbreviation comes after the furniture word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cupboard",
+       "gives": "PRESS",
+       "note": "a press is a large cupboard, especially in Ireland and Scotland"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e., id est"
+      }
      ]
     },
     "explanation": {
@@ -1490,28 +1309,16 @@
    },
    "solution": "DRILL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DRILL",
     "definitions": [
      {
       "text": "Practise",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to train by repetition, verb"
      },
      {
       "text": "boring routine",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Practise",
-      "note": "first meaning: to train by repetition, verb"
-     },
-     {
-      "clueFragment": "boring routine",
-      "note": "second meaning: a tedious repeated exercise, or the tool that bores holes"
+      "at": 9,
+      "meaning": "second meaning: a tedious repeated exercise, or the tool that bores holes"
      }
     ],
     "explanation": {
@@ -1546,35 +1353,25 @@
    },
    "solution": "WRONGNOTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WRONG NOTE",
     "definitions": [
      {
       "text": "it sets a bad tone",
       "at": 14
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Offend",
-      "gives": "WRONG",
-      "note": "to wrong someone is to offend against them"
-     },
-     {
-      "clueFragment": "me",
-      "gives": "NOTE",
-      "note": "me (mi) is the third note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WRONG",
-      "NOTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Offend",
+       "gives": "WRONG",
+       "note": "to wrong someone is to offend against them"
+      },
+      {
+       "words": "me",
+       "gives": "NOTE",
+       "note": "me (mi) is the third note of the sol-fa scale"
+      }
      ]
     },
     "explanation": {
@@ -1604,42 +1401,31 @@
    },
    "solution": "WINCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WINCE",
     "definitions": [
      {
       "text": "Cringe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "goes after",
-      "for": "charade",
-      "note": "goes after places the church abbreviation following the other piece"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "land",
-      "gives": "WIN",
-      "note": "to land a prize is to win it"
-     },
-     {
-      "clueFragment": "Church",
-      "gives": "CE",
-      "note": "Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIN",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "goes after",
+       "note": "goes after places the church abbreviation following the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "land",
+       "gives": "WIN",
+       "note": "to land a prize is to win it"
+      },
+      {
+       "words": "Church",
+       "gives": "CE",
+       "note": "Church of England"
+      }
      ]
     },
     "explanation": {
@@ -1668,10 +1454,6 @@
    },
    "solution": "GENTS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GENTS",
     "definitions": [
      {
       "text": "a place to go",
@@ -1679,28 +1461,24 @@
       "note": "noun phrase for a lavatory"
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so the named letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spies",
-      "gives": "AGENTS",
-      "note": "secret agents"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written, the letter removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GENTS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without means lacking, so the named letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spies",
+       "gives": "AGENTS",
+       "note": "secret agents"
+      },
+      {
+       "words": "a",
+       "note": "taken as written, the letter removed"
+      }
      ]
     },
     "explanation": {
@@ -1730,35 +1508,25 @@
    },
    "solution": "ELISION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELISION",
     "definitions": [
      {
       "text": "Joining together",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jewish boy",
-      "gives": "ELI",
-      "note": "the boy priest Eli of the Old Testament, and a Hebrew name"
-     },
-     {
-      "clueFragment": "Welsh girl",
-      "gives": "SION",
-      "note": "a Welsh name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELI",
-      "SION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jewish boy",
+       "gives": "ELI",
+       "note": "the boy priest Eli of the Old Testament, and a Hebrew name"
+      },
+      {
+       "words": "Welsh girl",
+       "gives": "SION",
+       "note": "a Welsh name"
+      }
      ]
     },
     "explanation": {
@@ -1793,35 +1561,25 @@
    },
    "solution": "SENDUPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEND-UPS",
     "definitions": [
      {
       "text": "caricatures",
       "at": 28
      }
     ],
-    "linkWords": [
-     "to deliver"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dispatch",
-      "gives": "SEND",
-      "note": "to dispatch is to send"
-     },
-     {
-      "clueFragment": "courier",
-      "gives": "UPS",
-      "note": "United Parcel Service, a delivery company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEND",
-      "UPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dispatch",
+       "gives": "SEND",
+       "note": "to dispatch is to send"
+      },
+      {
+       "words": "courier",
+       "gives": "UPS",
+       "note": "United Parcel Service, a delivery company"
+      }
      ]
     },
     "explanation": {
@@ -1849,35 +1607,24 @@
    },
    "solution": "TREADLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TREADLE",
     "definitions": [
      {
       "text": "pedal that makes wheel turn",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Engineer",
-      "for": "anagram",
-      "note": "to engineer is to construct or contrive, so these letters are built into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "altered",
-      "gives": "ALTERED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALTERED",
-       "gives": "TREADLE"
+       "text": "Engineer",
+       "note": "to engineer is to construct or contrive, so these letters are built into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "altered",
+       "note": "taken as written"
       }
      ]
     },
@@ -1907,48 +1654,38 @@
    },
    "solution": "RESIDUE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "RESIDUE",
     "definitions": [
      {
       "text": "what's left",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "replacing",
-      "for": "substitution",
-      "note": "replacing tells you one item is swapped out and another put in its place"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Save",
-      "gives": "RESCUE",
-      "note": "to save is to rescue"
-     },
-     {
-      "clueFragment": "papers",
-      "gives": "ID",
-      "note": "identity papers"
-     },
-     {
-      "clueFragment": "copyright",
-      "gives": "C",
-      "note": "the copyright symbol is a C"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "ID",
-      "UE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "RESIDUE",
+     "indicators": [
+      {
+       "text": "replacing",
+       "note": "replacing tells you one item is swapped out and another put in its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Save",
+       "gives": "RESCUE",
+       "note": "to save is to rescue"
+      },
+      {
+       "words": "papers",
+       "gives": "ID",
+       "note": "identity papers"
+      },
+      {
+       "words": "copyright",
+       "gives": "C",
+       "note": "the copyright symbol is a C"
+      }
      ]
     },
     "explanation": {

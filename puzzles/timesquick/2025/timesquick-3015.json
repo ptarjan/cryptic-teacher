@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3015",
  "number": 3015,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,015",
  "setter": "Cheeko",
  "date": "2025-06-14",
  "dimensions": {
@@ -48,35 +46,24 @@
    },
    "solution": "INCAMERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN CAMERA",
     "definitions": [
      {
       "text": "privately",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "something working is in operation, set in motion, so the letters get moving"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "AMERICAN",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AMERICAN",
-       "gives": "INCAMERA"
+       "text": "working",
+       "note": "something working is in operation, set in motion, so the letters get moving"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -106,45 +93,46 @@
    },
    "solution": "CARBON",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CARBON",
     "definitions": [
      {
       "text": "Element",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "originally points to where each word starts, its first letter"
-     },
-     {
-      "text": "in",
-      "note": "the letters sit in the prison word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prison",
-      "gives": "CAN",
-      "note": "the can is slang for prison"
-     },
-     {
-      "clueFragment": "riotous behaviour outlawed originally",
-      "gives": "RBO",
-      "select": "first",
-      "note": "first letters of Riotous Behaviour Outlawed, placed inside CAN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "RBO",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "originally",
+       "note": "originally points to where each word starts, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison",
+       "gives": "CAN",
+       "note": "the can is slang for prison"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "RBO",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters sit in the prison word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "riotous behaviour outlawed originally",
+         "gives": "RBO",
+         "select": "first",
+         "note": "first letters of Riotous Behaviour Outlawed, placed inside CAN"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -174,54 +162,40 @@
    },
    "solution": "CAMBODIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CAMBODIA",
     "definitions": [
      {
       "text": "country",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "going up",
-      "for": "reversal",
-      "note": "in a down clue, going up reads the letters from bottom to top, backwards"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Help",
-      "gives": "AID",
-      "note": "aid = help"
-     },
-     {
-      "clueFragment": "old boy",
-      "gives": "OB",
-      "note": "OB = old boy, a former pupil"
-     },
-     {
-      "clueFragment": "raincoat",
-      "gives": "MAC",
-      "note": "a mac (mackintosh) is a raincoat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAM",
-      "BO",
-      "DIA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AIDOBMAC",
-       "to": "CAMBODIA"
+       "text": "going up",
+       "note": "in a down clue, going up reads the letters from bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Help",
+         "gives": "AID",
+         "note": "aid = help"
+        },
+        {
+         "words": "old boy",
+         "gives": "OB",
+         "note": "OB = old boy, a former pupil"
+        },
+        {
+         "words": "raincoat",
+         "gives": "MAC",
+         "note": "a mac (mackintosh) is a raincoat"
+        }
+       ]
       }
      ]
     },
@@ -251,30 +225,16 @@
    },
    "solution": "BASS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BASS",
     "definitions": [
      {
       "text": "Deep",
-      "at": 0
+      "at": 0,
+      "meaning": "describing a low voice or note"
      },
      {
       "text": "fish",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Deep",
-      "gives": "BASS",
-      "note": "describing a low voice or note"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "BASS",
-      "note": "a sea and freshwater fish"
+      "at": 5,
+      "meaning": "a sea and freshwater fish"
      }
     ],
     "explanation": {
@@ -304,40 +264,30 @@
    },
    "solution": "CHERUB",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHERUB",
     "definitions": [
      {
       "text": "innocent child",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "cuddles",
-      "for": "container",
-      "note": "to cuddle is to wrap your arms round, so one word goes round the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small animal",
-      "gives": "CUB",
-      "note": "a cub is a young animal"
-     },
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "taken as written, placed inside CUB"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HER",
-      "UB"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuddles",
+       "note": "to cuddle is to wrap your arms round, so one word goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Small animal",
+       "gives": "CUB",
+       "note": "a cub is a young animal"
+      },
+      {
+       "words": "her",
+       "note": "taken as written, placed inside CUB"
+      }
      ]
     },
     "explanation": {
@@ -366,46 +316,43 @@
    },
    "solution": "HIRE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HIRE",
     "definitions": [
      {
       "text": "Pay for the use of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shunning",
-      "for": "deletion",
-      "note": "to shun is to avoid, so the word TREAT is kept out of 'retreat'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H = hotel in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I = island, a map abbreviation"
-     },
-     {
-      "clueFragment": "retreat, shunning freebie",
-      "gives": "RE",
-      "note": "retreat minus TREAT (a freebie) leaves RE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "I",
-      "RE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HIRE",
+     "indicators": [
+      {
+       "text": "shunning",
+       "note": "to shun is to avoid, so the word TREAT is kept out of 'retreat'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "H = hotel in the NATO phonetic alphabet"
+        },
+        {
+         "words": "island",
+         "gives": "I",
+         "note": "I = island, a map abbreviation"
+        },
+        {
+         "words": "retreat, shunning freebie",
+         "gives": "RE",
+         "note": "retreat minus TREAT (a freebie) leaves RE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -434,30 +381,28 @@
    },
    "solution": "INCA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INCA",
     "definitions": [
      {
       "text": "one from ancient Peru",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Fragment of",
-      "for": "hidden_word",
-      "note": "a fragment is a piece broken off, so the answer is a piece of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coin case",
-      "gives": "INCA",
-      "note": "the letters run across the gap between the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Fragment of",
+       "note": "a fragment is a piece broken off, so the answer is a piece of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coin case",
+       "gives": "INCA",
+       "note": "the letters run across the gap between the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An archaeologist finds a piece of a coin holder from ancient Peru.",
      "walkthrough": "The Inca ruled an empire in the Andes centred on Peru before the Spanish conquest.",
@@ -484,38 +429,24 @@
    },
    "solution": "ARACHNID",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARACHNID",
     "definitions": [
      {
       "text": "Maybe scorpion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "suspect as an adjective means dubious, not in its proper state, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "handcar, I",
-      "gives": "HANDCARI",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HANDCAR I",
-       "gives": "ARACHNID"
+       "text": "suspect",
+       "note": "suspect as an adjective means dubious, not in its proper state, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "handcar, I",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -545,54 +476,52 @@
    },
    "solution": "BAOBAB",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "BAOBAB",
     "definitions": [
      {
       "text": "Tree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pulled back",
-      "note": "pulled back suggests drawn backwards, so the word is reversed"
-     },
-     {
-      "text": "grabbed by",
-      "note": "what is grabbed is held inside the grabber"
-     },
-     {
-      "text": "short",
-      "note": "short means cut off, the last letter dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "snake pulled back",
-      "gives": "AOB",
-      "note": "BOA, a snake, reversed"
-     },
-     {
-      "clueFragment": "short infant",
-      "gives": "BAB",
-      "note": "BABY without its last letter; AOB goes after the first B"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "AOB",
-      "AB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BAOBAB",
+     "parts": [
       {
-       "from": "BOA",
-       "to": "AOB"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "BAOBAB",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "pulled back",
+           "note": "pulled back suggests drawn backwards, so the word is reversed"
+          },
+          {
+           "text": "grabbed by",
+           "note": "what is grabbed is held inside the grabber"
+          },
+          {
+           "text": "short",
+           "note": "short means cut off, the last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "short infant",
+           "gives": "BAB",
+           "note": "BABY without its last letter; AOB goes after the first B"
+          },
+          {
+           "words": "snake pulled back",
+           "gives": "AOB",
+           "note": "BOA, a snake, reversed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -622,39 +551,36 @@
    },
    "solution": "STREET",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "STREET",
     "definitions": [
      {
       "text": "thoroughfare",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Unopened",
-      "note": "a letter not opened has lost its opening, the first letter"
-     },
-     {
-      "text": "scattered about",
-      "note": "scattered letters are thrown in every direction, so they are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unopened letters",
-      "gives": "ETTERS",
-      "note": "LETTERS without its first letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STREET",
+     "parts": [
       {
-       "fodder": "ETTERS",
-       "gives": "STREET"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unopened",
+         "note": "a letter not opened has lost its opening, the first letter"
+        },
+        {
+         "text": "scattered about",
+         "note": "scattered letters are thrown in every direction, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Unopened letters",
+         "gives": "ETTERS",
+         "note": "LETTERS without its first letter"
+        }
+       ]
       }
      ]
     },
@@ -685,42 +611,31 @@
    },
    "solution": "DEAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DEAN",
     "definitions": [
      {
       "text": "One churchman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "what is missing is left out"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "another",
-      "gives": "DEACON",
-      "note": "a deacon is another kind of churchman"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "CO = company, removed from DEACON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEA",
-      "N"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "note": "what is missing is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "another",
+       "gives": "DEACON",
+       "note": "a deacon is another kind of churchman"
+      },
+      {
+       "words": "company",
+       "gives": "CO",
+       "note": "CO = company, removed from DEACON"
+      }
      ]
     },
     "explanation": {
@@ -749,42 +664,31 @@
    },
    "solution": "DRAWBACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRAWBACK",
     "definitions": [
      {
       "text": "Disadvantage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pursuing",
-      "for": "charade",
-      "note": "one who pursues comes after, so this piece follows the other"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "0-0",
-      "gives": "DRAW",
-      "note": "a 0-0 score is a draw"
-     },
-     {
-      "clueFragment": "defender",
-      "gives": "BACK",
-      "note": "in football, a back is a defender"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAW",
-      "BACK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "note": "one who pursues comes after, so this piece follows the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "0-0",
+       "gives": "DRAW",
+       "note": "a 0-0 score is a draw"
+      },
+      {
+       "words": "defender",
+       "gives": "BACK",
+       "note": "in football, a back is a defender"
+      }
      ]
     },
     "explanation": {
@@ -813,44 +717,40 @@
    },
    "solution": "ALDERMEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ALDERMEN",
     "definitions": [
      {
       "text": "Civic dignitaries",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "note": "somehow means in some unknown way, so the letters come out in some other order"
-     },
-     {
-      "text": "to hold",
-      "note": "what is held sits inside the holder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "learned",
-      "gives": "LEARNED",
-      "note": "anagram fodder, 7 letters"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "M",
-      "note": "m = mass in physics, held within the rearranged letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LEARNED M",
-       "gives": "ALDERMEN"
+       "text": "somehow",
+       "note": "somehow means in some unknown way, so the letters come out in some other order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to hold",
+         "note": "what is held sits inside the holder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "learned",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
+      },
+      {
+       "words": "mass",
+       "gives": "M",
+       "note": "m = mass in physics, held within the rearranged letters"
       }
      ]
     },
@@ -881,54 +781,56 @@
    },
    "solution": "CINERAMA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CINERAMA",
     "definitions": [
      {
       "text": "Film-projection method",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "developed",
-      "note": "something developed has changed form, so the letters are rearranged"
-     },
-     {
-      "text": "under",
-      "note": "in a down clue, what is under comes below, after the other piece"
-     },
-     {
-      "text": "initially",
-      "note": "initially points to the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Communism, initially",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Communism"
-     },
-     {
-      "clueFragment": "Armenia developed",
-      "gives": "INERAMA",
-      "note": "ARMENIA rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "INERAMA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CINERAMA",
+     "parts": [
       {
-       "fodder": "ARMENIA",
-       "gives": "INERAMA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "developed",
+         "note": "something developed has changed form, so the letters are rearranged"
+        },
+        {
+         "text": "initially",
+         "note": "initially points to the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "C",
+         "indicators": [
+          {
+           "text": "under",
+           "note": "in a down clue, what is under comes below, after the other piece"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Communism, initially",
+           "gives": "C",
+           "select": "first",
+           "note": "first letter of Communism"
+          }
+         ]
+        },
+        {
+         "words": "Armenia developed",
+         "gives": "INERAMA",
+         "note": "ARMENIA rearranged"
+        }
+       ]
       }
      ]
     },
@@ -959,35 +861,25 @@
    },
    "solution": "BACKWARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BACKWARD",
     "definitions": [
      {
       "text": "Conservative",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "returned",
-      "gives": "BACK",
-      "note": "to have returned is to be back"
-     },
-     {
-      "clueFragment": "electoral division",
-      "gives": "WARD",
-      "note": "a ward is an electoral division of a town"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACK",
-      "WARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "returned",
+       "gives": "BACK",
+       "note": "to have returned is to be back"
+      },
+      {
+       "words": "electoral division",
+       "gives": "WARD",
+       "note": "a ward is an electoral division of a town"
+      }
      ]
     },
     "explanation": {
@@ -1017,43 +909,38 @@
    },
    "solution": "KEEPER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "KEEPER",
     "definitions": [
      {
       "text": "Guardian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "most but not all, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "goes on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mostly enthusiastic",
-      "gives": "KEE",
-      "note": "KEEN without its last letter"
-     },
-     {
-      "clueFragment": "through",
-      "gives": "PER",
-      "note": "per = through, by means of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEE",
-      "PER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "KEEPER",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most but not all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mostly enthusiastic",
+         "gives": "KEE",
+         "note": "KEEN without its last letter"
+        },
+        {
+         "words": "through",
+         "gives": "PER",
+         "note": "per = through, by means of"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1082,40 +969,38 @@
    },
    "solution": "DANE",
    "annotation": {
-    "type": [
-     "cycling",
-     "charade"
-    ],
-    "answer": "DANE",
     "definitions": [
      {
       "text": "Scandinavian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling moves letters round, the last one going to the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "also cycling",
-      "gives": "DAN",
-      "note": "AND with its last letter moved to the front"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E = east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAN",
-      "E"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "DANE",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "cycling moves letters round, the last one going to the front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "also cycling",
+         "gives": "DAN",
+         "note": "AND with its last letter moved to the front"
+        },
+        {
+         "words": "east",
+         "gives": "E",
+         "note": "E = east"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1145,39 +1030,25 @@
    },
    "solution": "DESERT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DESERT",
     "definitions": [
      {
       "text": "Abandon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "every so often",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deeds learnt",
-      "gives": "DESERT",
-      "select": "alternate",
-      "note": "the odd letters: D-e-E-d-S l-E-a-R-n-T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "E",
-      "S",
-      "E",
-      "R",
-      "T"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every so often",
+       "note": "at regular intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deeds learnt",
+       "note": "the odd letters: D-e-E-d-S l-E-a-R-n-T"
+      }
      ]
     },
     "explanation": {
@@ -1206,47 +1077,41 @@
    },
    "solution": "CHEEKY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHEEKY",
     "definitions": [
      {
       "text": "Fresh",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at the end",
-      "for": "letter_selection",
-      "note": "the letter at the end of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chapter",
-      "gives": "CH",
-      "note": "ch. = chapter"
-     },
-     {
-      "clueFragment": "that's shocking",
-      "gives": "EEK",
-      "note": "eek! is what you say when something is shocking"
-     },
-     {
-      "clueFragment": "racy at the end",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of racY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "EEK",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chapter",
+       "gives": "CH",
+       "note": "ch. = chapter"
+      },
+      {
+       "words": "that's shocking",
+       "gives": "EEK",
+       "note": "eek! is what you say when something is shocking"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the end",
+         "note": "the letter at the end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "racy at the end",
+         "gives": "RACY",
+         "note": "last letter of racY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1276,34 +1141,29 @@
    },
    "solution": "HEIR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HEIR",
     "definitions": [
      {
       "text": "Beneficiary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mentioned",
-      "for": "homophone",
-      "note": "a word mentioned is said out loud, so the answer sounds like it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish town",
-      "gives": "HEIR",
-      "soundsLike": "AYR",
-      "note": "Ayr is a town on the west coast of Scotland"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEIR",
+     "indicators": [
+      {
+       "text": "mentioned",
+       "note": "a word mentioned is said out loud, so the answer sounds like it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish town",
+       "gives": "AYR",
+       "note": "Ayr is a town on the west coast of Scotland"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone named as an heir in a will from a Scottish town.",
      "walkthrough": "Ayr is a seaside town in south-west Scotland; the H of the answer is silent, so the two sound alike.",
@@ -1330,32 +1190,25 @@
    },
    "solution": "YEAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "YEAR",
     "definitions": [
      {
       "text": "time",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Indeed",
-      "gives": "YEA",
-      "note": "yea = indeed, an old word for yes"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YEA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Indeed",
+       "gives": "YEA",
+       "note": "yea = indeed, an old word for yes"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R = right"
+      }
      ]
     },
     "explanation": {
@@ -1384,45 +1237,46 @@
    },
    "solution": "RESORT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "RESORT",
     "definitions": [
      {
       "text": "holiday location",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "note": "one word goes outside, around, the other"
-     },
-     {
-      "text": "centre in",
-      "note": "the centre of the word, its middle letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alight",
-      "gives": "REST",
-      "note": "to alight is to come to rest, as a bird does"
-     },
-     {
-      "clueFragment": "centre in Azores",
-      "gives": "OR",
-      "select": "middle",
-      "note": "the middle two letters of azORes, placed inside REST"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "OR",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "one word goes outside, around, the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alight",
+       "gives": "REST",
+       "note": "to alight is to come to rest, as a bird does"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "OR",
+       "indicators": [
+        {
+         "text": "centre in",
+         "note": "the centre of the word, its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "centre in Azores",
+         "gives": "OR",
+         "select": "middle",
+         "note": "the middle two letters of azORes, placed inside REST"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1451,58 +1305,43 @@
    },
    "solution": "LIBERATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LIBERATE",
     "definitions": [
      {
       "text": "free",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Stopping",
-      "for": "container",
-      "note": "to stop a gap is to fill it, so this word goes inside the other"
-     },
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly means in some possible arrangement, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "retail, possibly",
-      "gives": "LIRATE",
-      "note": "RETAIL rearranged"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live, exist; it goes inside LIRATE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "BE",
-      "RATE"
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LIBERATE",
+     "indicators": [
+      {
+       "text": "possibly",
+       "note": "possibly means in some possible arrangement, so the letters are rearranged"
+      }
      ],
-     "anagrams": [
+     "parts": [
       {
-       "fodder": "RETAIL BE",
-       "gives": "LIBERATE"
-      },
-      {
-       "fodder": "RETAIL",
-       "gives": "LIRATE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Stopping",
+         "note": "to stop a gap is to fill it, so this word goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "retail, possibly",
+         "gives": "LIRATE",
+         "note": "RETAIL rearranged"
+        },
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be is to live, exist; it goes inside LIRATE"
+        }
+       ]
       }
      ]
     },
@@ -1532,38 +1371,31 @@
    },
    "solution": "RUMP",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RUMP",
     "definitions": [
      {
       "text": "Behind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doesn't come into it",
-      "for": "deletion",
-      "note": "the letter is not included, so it is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "POTUS",
-      "gives": "TRUMP",
-      "note": "POTUS = President of the United States, here Donald Trump"
-     },
-     {
-      "clueFragment": "Tense",
-      "gives": "T",
-      "note": "T = tense in grammar, removed from TRUMP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUMP"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doesn't come into it",
+       "note": "the letter is not included, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "POTUS",
+       "gives": "TRUMP",
+       "note": "POTUS = President of the United States, here Donald Trump"
+      },
+      {
+       "words": "Tense",
+       "gives": "T",
+       "note": "T = tense in grammar, removed from TRUMP"
+      }
      ]
     },
     "explanation": {

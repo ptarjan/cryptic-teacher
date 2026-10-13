@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29894",
  "number": 29894,
- "series": "cryptic",
- "name": "Prize crossword No 29,894",
+ "prize": true,
  "setter": "Brockwell",
  "date": "2026-01-03",
  "dimensions": {
@@ -38,63 +37,61 @@
    },
    "solution": "SPACESHIP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SPACESHIP",
     "definitions": [
      {
       "text": "Craft",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "No.1",
-      "for": "letter_selection",
-      "note": "the number one item in a list comes first, so only the opening letter is kept"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to keep it inside, so one piece wraps around the others"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spain's",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Spain"
-     },
-     {
-      "clueFragment": "seed",
-      "gives": "PIP",
-      "note": "a pip is the seed of a fruit"
-     },
-     {
-      "clueFragment": "serve",
-      "gives": "ACE",
-      "note": "an ace is an unreturnable serve in tennis"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "SH",
-      "note": "sh is the call for quiet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "ACE",
-      "SH",
-      "IP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "to hold something is to keep it inside, so one piece wraps around the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "No.1",
+           "note": "the number one item in a list comes first, so only the opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Spain's",
+           "note": "the first letter of Spain"
+          }
+         ]
+        },
+        {
+         "words": "seed",
+         "gives": "PIP",
+         "note": "a pip is the seed of a fruit"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "serve",
+         "gives": "ACE",
+         "note": "an ace is an unreturnable serve in tennis"
+        },
+        {
+         "words": "quietly",
+         "gives": "SH",
+         "note": "sh is the call for quiet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -124,11 +121,6 @@
    },
    "solution": "SNAIL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SNAIL",
     "definitions": [
      {
       "text": "crawl",
@@ -136,30 +128,30 @@
       "note": "the answer is a noun for a creature famous for crawling, while the definition names what it does"
      }
     ],
-    "indicators": [
-     {
-      "text": "Attributes of",
-      "for": "hidden_word",
-      "note": "an attribute belongs to something, so the letters are a property sitting within the words that follow"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so the letters are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australian swimmer's",
-      "gives": "LIANS",
-      "note": "the letters run across the end of the first word and the start of the second"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LIANS",
-       "to": "SNAIL"
+       "text": "back",
+       "note": "going back means travelling the other way, so the letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Attributes of",
+         "note": "an attribute belongs to something, so the letters are a property sitting within the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Australian swimmer's",
+         "gives": "LIANS",
+         "note": "the letters run across the end of the first word and the start of the second"
+        }
+       ]
       }
      ]
     },
@@ -190,54 +182,41 @@
    },
    "solution": "ASSUMES",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ASSUMES",
     "definitions": [
      {
       "text": "Pretends",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "to upset is to knock over, and in a down clue that turns the letters upside down"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "of Sesame Street?"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big Bird's",
-      "gives": "EMUS",
-      "note": "the emu is a big bird, and the possessive supplies the S"
-     },
-     {
-      "clueFragment": "bottom",
-      "gives": "ASS",
-      "note": "ass is slang for the backside"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "SUME",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EMUS",
-       "to": "SUME"
+       "text": "in",
+       "note": "one piece placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bottom",
+       "gives": "ASS",
+       "note": "ass is slang for the backside"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "to upset is to knock over, and in a down clue that turns the letters upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Big Bird's",
+         "gives": "EMUS",
+         "note": "the emu is a big bird, and the possessive supplies the S"
+        }
+       ]
       }
      ]
     },
@@ -268,38 +247,25 @@
    },
    "solution": "EYOTS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EYOTS",
     "definitions": [
      {
       "text": "Islands",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter of each word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take ferry to visit Galapagos",
-      "gives": "EYOTS",
-      "select": "last",
-      "note": "the last letters of these five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "Y",
-      "O",
-      "T",
-      "S"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Ultimately",
+       "note": "ultimately means in the end, so only the final letter of each word is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "take ferry to visit Galapagos",
+       "note": "the last letters of these five words"
+      }
      ]
     },
     "explanation": {
@@ -328,41 +294,31 @@
    },
    "solution": "HANDBAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HANDBAG",
     "definitions": [
      {
       "text": "purse from Kate Spade",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue one piece written on another sits above it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tips from heart-throb",
-      "gives": "HANDB",
-      "note": "the tips of heart-throb are H and B, and the phrase 'H and B' is written out in full"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AND",
-      "B",
-      "AG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue one piece written on another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tips from heart-throb",
+       "gives": "HANDB",
+       "note": "the tips of heart-throb are H and B, and the phrase 'H and B' is written out in full"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      }
      ]
     },
     "explanation": {
@@ -391,44 +347,35 @@
    },
    "solution": "PREMIERED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PREMIERED",
     "definitions": [
      {
       "text": "gave first performance",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to what comes at the end, so each word yields its closing letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prime Minister",
-      "gives": "PREMIER",
-      "note": "a premier is a prime minister"
-     },
-     {
-      "clueFragment": "came round",
-      "gives": "ED",
-      "select": "last",
-      "note": "the last letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PREMIER",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prime Minister",
+       "gives": "PREMIER",
+       "note": "a premier is a prime minister"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to what comes at the end, so each word yields its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "came round",
+         "note": "the last letters of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -457,39 +404,31 @@
    },
    "solution": "MAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAIL",
     "definitions": [
      {
       "text": "Post",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "coming after something means being placed behind it in the line"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a month in Paris",
-      "gives": "MAI",
-      "note": "mai is French for May"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAI",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "coming after something means being placed behind it in the line"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a month in Paris",
+       "gives": "MAI",
+       "note": "mai is French for May"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -518,40 +457,38 @@
    },
    "solution": "MELANGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MELANGE",
     "definitions": [
      {
       "text": "medley",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "in brief",
-      "for": "deletion",
-      "note": "in brief means cut short, so both names lose their endings"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two",
-      "gives": "MEL",
-      "note": "the first girl: Mel, short for Melanie or Melissa"
-     },
-     {
-      "clueFragment": "girls",
-      "gives": "ANGE",
-      "note": "the second girl: Ange, short for Angela"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEL",
-      "ANGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MELANGE",
+     "indicators": [
+      {
+       "text": "in brief",
+       "note": "in brief means cut short, so both names lose their endings"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Two",
+         "gives": "MEL",
+         "note": "the first girl: Mel, short for Melanie or Melissa"
+        },
+        {
+         "words": "girls",
+         "gives": "ANGE",
+         "note": "the second girl: Ange, short for Angela"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -580,44 +517,35 @@
    },
    "solution": "IMITATIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "IMITATIVE",
     "definitions": [
      {
       "text": "Copying",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue going up means reading from the bottom, so the order flips"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical",
-      "gives": "EVITA",
-      "note": "Evita is the Lloyd Webber musical about Eva Perón"
-     },
-     {
-      "clueFragment": "notes",
-      "gives": "TIMI",
-      "note": "ti and mi are notes of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMITATIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EVITATIMI",
-       "to": "IMITATIVE"
+       "text": "up",
+       "note": "in a down clue going up means reading from the bottom, so the order flips"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "musical",
+         "gives": "EVITA",
+         "note": "Evita is the Lloyd Webber musical about Eva Perón"
+        },
+        {
+         "words": "notes",
+         "gives": "TIMI",
+         "note": "ti and mi are notes of the sol-fa scale"
+        }
+       ]
       }
      ]
     },
@@ -653,41 +581,30 @@
    },
    "solution": "RAMSHORN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAMS HORN",
     "definitions": [
      {
       "text": "Trumpet",
       "at": 1
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "God",
-      "gives": "RA",
-      "note": "Ra is the Egyptian sun god"
-     },
-     {
-      "clueFragment": "Miles",
-      "gives": "M",
-      "note": "M is the abbreviation for miles"
-     },
-     {
-      "clueFragment": "fleeced",
-      "gives": "SHORN",
-      "note": "a fleeced sheep has been shorn of its wool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "M",
-      "SHORN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "God",
+       "gives": "RA",
+       "note": "Ra is the Egyptian sun god"
+      },
+      {
+       "words": "Miles",
+       "gives": "M",
+       "note": "M is the abbreviation for miles"
+      },
+      {
+       "words": "fleeced",
+       "gives": "SHORN",
+       "note": "a fleeced sheep has been shorn of its wool"
+      }
      ]
     },
     "explanation": {
@@ -717,54 +634,45 @@
    },
    "solution": "ECLAIR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "ECLAIR",
     "definitions": [
      {
       "text": "Fancy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crust",
-      "for": "letter_selection",
-      "note": "a crust is the outer layer, so only the outside letters are kept"
-     },
-     {
-      "text": "on the counter",
-      "for": "reversal",
-      "note": "counter means against or opposite, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Middle-Eastern bread",
-      "gives": "RIAL",
-      "note": "bread is slang for money, and the rial is the currency of Iran and Oman"
-     },
-     {
-      "clueFragment": "cheese",
-      "gives": "CE",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECLAIR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RIALCE",
-       "to": "ECLAIR"
+       "text": "on the counter",
+       "note": "counter means against or opposite, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Middle-Eastern bread",
+         "gives": "RIAL",
+         "note": "bread is slang for money, and the rial is the currency of Iran and Oman"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "crust",
+           "note": "a crust is the outer layer, so only the outside letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cheese",
+           "note": "the first and last letters of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -795,47 +703,44 @@
    },
    "solution": "SLIMES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "SLIMES",
     "definitions": [
      {
       "text": "matters?",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Finish from",
-      "for": "letter_selection",
-      "note": "the finish of a word is its end, so only the final letter is kept"
-     },
-     {
-      "text": "resolved",
-      "for": "anagram",
-      "note": "to resolve can mean to break down and recombine, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lionel",
-      "gives": "L",
-      "select": "last",
-      "note": "the last letter of the name"
-     },
-     {
-      "clueFragment": "Messi",
-      "gives": "MESSI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LMESSI",
-       "gives": "SLIMES"
+       "text": "resolved",
+       "note": "to resolve can mean to break down and recombine, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Finish from",
+           "note": "the finish of a word is its end, so only the final letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lionel",
+           "note": "the last letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "Messi",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -871,54 +776,48 @@
    },
    "solution": "BRIANMAY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BRIAN MAY",
     "definitions": [
      {
       "text": "Guitarist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is thrown into disorder, so the letters are jumbled"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one piece placed outside another wraps around it"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mani",
-      "gives": "IANM",
-      "note": "the name, jumbled"
-     },
-     {
-      "clueFragment": "grating sound",
-      "gives": "BRAY",
-      "note": "a bray is the harsh cry of a donkey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "IANMA",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BRIANMAY",
+     "indicators": [
       {
-       "fodder": "MANI",
-       "gives": "IANM"
+       "text": "outside",
+       "note": "one piece placed outside another wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "something upset is thrown into disorder, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Mani",
+           "gives": "IANM",
+           "note": "the name, jumbled"
+          },
+          {
+           "words": "grating sound",
+           "gives": "BRAY",
+           "note": "a bray is the harsh cry of a donkey"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -948,43 +847,31 @@
    },
    "solution": "DIESEL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIESEL",
     "definitions": [
      {
       "text": "fuel",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "limiting",
-      "for": "container",
-      "note": "to limit is to set boundaries, so two pieces hem another in"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European articles",
-      "gives": "DIEEL",
-      "note": "die is German for the and el is Spanish for the"
-     },
-     {
-      "clueFragment": "sulphur",
-      "gives": "S",
-      "note": "S is the chemical symbol for sulphur"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIE",
-      "S",
-      "EL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limiting",
+       "note": "to limit is to set boundaries, so two pieces hem another in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European articles",
+       "gives": "DIEEL",
+       "note": "die is German for the and el is Spanish for the"
+      },
+      {
+       "words": "sulphur",
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      }
      ]
     },
     "explanation": {
@@ -1014,51 +901,41 @@
    },
    "solution": "INAMORATO",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "INAMORATO",
     "definitions": [
      {
       "text": "Sweetheart",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "to flip something is to turn it over, so the order runs backwards"
-     },
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "to catch is to take hold, so one piece closes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enthusiastic about",
-      "gives": "INTO",
-      "note": "to be into something is to be keen on it"
-     },
-     {
-      "clueFragment": "bouquet",
-      "gives": "AROMA",
-      "note": "the bouquet of a wine is its aroma"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "AMORA",
-      "TO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "AROMA",
-       "to": "AMORA"
+       "text": "catching",
+       "note": "to catch is to take hold, so one piece closes around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enthusiastic about",
+       "gives": "INTO",
+       "note": "to be into something is to be keen on it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "to flip something is to turn it over, so the order runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bouquet",
+         "gives": "AROMA",
+         "note": "the bouquet of a wine is its aroma"
+        }
+       ]
       }
      ]
     },
@@ -1088,50 +965,41 @@
    },
    "solution": "LESCARGOT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LESCARGOT",
     "definitions": [
      {
       "text": "Grand National winner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carry",
-      "for": "container",
-      "note": "whatever is carried is held within, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "allowed",
-      "gives": "LET",
-      "note": "allowed means let"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "load",
-      "gives": "CARGO",
-      "note": "a cargo is a load carried by a ship or plane"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "S",
-      "CARGO",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carry",
+       "note": "whatever is carried is held within, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "allowed",
+       "gives": "LET",
+       "note": "allowed means let"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "gives": "S",
+         "note": "S is the abbreviation for small"
+        },
+        {
+         "words": "load",
+         "gives": "CARGO",
+         "note": "a cargo is a load carried by a ship or plane"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1160,38 +1028,24 @@
    },
    "solution": "GARDENIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GARDENIA",
     "definitions": [
      {
       "text": "plant",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Poor",
-      "for": "anagram",
-      "note": "something poor is in bad shape, so the letters are knocked into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drainage",
-      "gives": "DRAINAGE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRAINAGE",
-       "gives": "GARDENIA"
+       "text": "Poor",
+       "note": "something poor is in bad shape, so the letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drainage",
+       "note": "taken as written"
       }
      ]
     },
@@ -1221,51 +1075,41 @@
    },
    "solution": "MATISSES",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "MATISSES",
     "definitions": [
      {
       "text": "paintings",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution is a full turn, so the letters are turned round"
-     },
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "to take something in is to admit it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crowds",
-      "gives": "MASSES",
-      "note": "the masses are crowds of people"
-     },
-     {
-      "clueFragment": "Italian",
-      "gives": "IT",
-      "note": "It is the short form for Italian, as in gin and It"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "TI",
-      "SSES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "IT",
-       "to": "TI"
+       "text": "taking in",
+       "note": "to take something in is to admit it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crowds",
+       "gives": "MASSES",
+       "note": "the masses are crowds of people"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "a revolution is a full turn, so the letters are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "gives": "IT",
+         "note": "It is the short form for Italian, as in gin and It"
+        }
+       ]
       }
      ]
     },
@@ -1295,38 +1139,30 @@
    },
    "solution": "IMPLIED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPLIED",
     "definitions": [
      {
       "text": "Suggested",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP is a Member of Parliament"
-     },
-     {
-      "clueFragment": "didn't tell the truth",
-      "gives": "LIED",
-      "note": "someone who lied did not tell the truth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP",
-      "LIED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      },
+      {
+       "words": "didn't tell the truth",
+       "gives": "LIED",
+       "note": "someone who lied did not tell the truth"
+      }
      ]
     },
     "explanation": {
@@ -1354,31 +1190,29 @@
    },
    "solution": "SHELLEY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SHELLEY",
     "definitions": [
      {
       "text": "Poet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "read out",
-      "for": "homophone",
-      "note": "reading something out means speaking it, so the sound counts rather than the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "description of 1d?",
-      "gives": "SHELLEY",
-      "soundsLike": "SHELLY",
-      "note": "1d is a snail, which is shelly, having a shell"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHELLEY",
+     "indicators": [
+      {
+       "text": "read out",
+       "note": "reading something out means speaking it, so the sound counts rather than the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "description of 1d?",
+       "gives": "SHELLY",
+       "note": "1d is a snail, which is shelly, having a shell"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A poet recites a verse describing the creature found at 1 down.",
      "walkthrough": "You need 1d first: a snail carries a shell, so it is shelly, which sounds like the Romantic poet Percy Bysshe SHELLEY.",
@@ -1411,52 +1245,45 @@
    },
    "solution": "DARTER",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DARTER",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reflected",
-      "for": "reversal",
-      "note": "a reflection shows things back to front, so the order is flipped"
-     },
-     {
-      "text": "finales from",
-      "for": "letter_selection",
-      "note": "a finale is the ending, so only the last letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "style of jazz",
-      "gives": "TRAD",
-      "note": "trad is traditional jazz"
-     },
-     {
-      "clueFragment": "Charlie Parker",
-      "gives": "ER",
-      "select": "last",
-      "note": "the last letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DART",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TRAD",
-       "to": "DART"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "note": "a reflection shows things back to front, so the order is flipped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "style of jazz",
+         "gives": "TRAD",
+         "note": "trad is traditional jazz"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finales from",
+         "note": "a finale is the ending, so only the last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Charlie Parker",
+         "note": "the last letters of the two words"
+        }
+       ]
       }
      ]
     },
@@ -1487,48 +1314,34 @@
    },
    "solution": "RERAISE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "RERAISE",
     "definitions": [
      {
       "text": "erect again",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow means by some unspecified method, so the letters come in any order"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Romeo",
-      "gives": "R",
-      "note": "Romeo is R in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "easier",
-      "gives": "EASIER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ERAISE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EASIER",
-       "gives": "ERAISE"
+       "words": "Romeo",
+       "gives": "R",
+       "note": "Romeo is R in the NATO phonetic alphabet"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "note": "somehow means by some unspecified method, so the letters come in any order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "easier",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1559,45 +1372,35 @@
    },
    "solution": "HOTPLATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "HOTPLATE",
     "definitions": [
      {
       "text": "Warmer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "letter_selection",
-      "note": "the inside of a word is everything bar its ends, so the outer letters go"
-     },
-     {
-      "text": "training",
-      "for": "anagram",
-      "note": "training shapes and reforms, so the letters are worked into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heptathlon",
-      "gives": "EPTATHLO",
-      "select": "middle",
-      "note": "the word without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EPTATHLO",
-       "gives": "HOTPLATE"
+       "text": "training",
+       "note": "training shapes and reforms, so the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "the inside of a word is everything bar its ends, so the outer letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heptathlon",
+         "note": "the word without its first and last letters"
+        }
+       ]
       }
      ]
     },
@@ -1627,41 +1430,36 @@
    },
    "solution": "GARLIC",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "GARLIC",
     "definitions": [
      {
       "text": "constituent from Kyiv?",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Characters in",
-      "for": "hidden_word",
-      "note": "characters are letters, and these ones sit inside the following words"
-     },
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about can mean turned round, so the letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "council raging",
-      "gives": "CILRAG",
-      "note": "the letters straddle the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CILRAG",
-       "to": "GARLIC"
+       "text": "about",
+       "note": "about can mean turned round, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Characters in",
+         "note": "characters are letters, and these ones sit inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "council raging",
+         "gives": "CILRAG",
+         "note": "the letters straddle the two words"
+        }
+       ]
       }
      ]
     },
@@ -1692,42 +1490,31 @@
    },
    "solution": "GLASS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GLASS",
     "definitions": [
      {
       "text": "clear material",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "supports",
-      "for": "charade",
-      "note": "in a down clue what supports something sits beneath it"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "government",
-      "gives": "G",
-      "note": "G is the abbreviation for government"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "LASS",
-      "note": "a lass is a girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LASS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "note": "in a down clue what supports something sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "government",
+       "gives": "G",
+       "note": "G is the abbreviation for government"
+      },
+      {
+       "words": "girl",
+       "gives": "LASS",
+       "note": "a lass is a girl"
+      }
      ]
     },
     "explanation": {
@@ -1757,44 +1544,38 @@
    },
    "solution": "IBSEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "IBSEN",
     "definitions": [
      {
       "text": "Playwright",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end means the final letter is dropped"
-     },
-     {
-      "text": "sent up",
-      "for": "reversal",
-      "note": "in a down clue sending something up makes it read from the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "children's author",
-      "gives": "NESBI",
-      "note": "E. Nesbit wrote The Railway Children; her surname loses its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IBSEN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IBSEN",
+     "indicators": [
       {
-       "from": "NESBI",
-       "to": "IBSEN"
+       "text": "endlessly",
+       "note": "without an end means the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent up",
+         "note": "in a down clue sending something up makes it read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "children's author",
+         "gives": "NESBI",
+         "note": "E. Nesbit wrote The Railway Children; her surname loses its last letter"
+        }
+       ]
       }
      ]
     },
@@ -1824,47 +1605,41 @@
    },
    "solution": "RACING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RACING",
     "definitions": [
      {
       "text": "Sport",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "a cover goes all round something, so one piece wraps another"
-     },
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means taking every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "newspaper",
-      "gives": "RAG",
-      "note": "a rag is a low-quality newspaper"
-     },
-     {
-      "clueFragment": "action",
-      "gives": "CIN",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "CIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "a cover goes all round something, so one piece wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "newspaper",
+       "gives": "RAG",
+       "note": "a rag is a low-quality newspaper"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals means taking every other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "action",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1893,48 +1668,32 @@
    },
    "solution": "LEAFIEST",
    "annotation": {
-    "type": [
-     "charade",
-     "cycling"
-    ],
-    "answer": "LEAFIEST",
     "definitions": [
      {
       "text": "most verdant",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "going round in a cycle moves a letter from one end of the word to the other"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The French",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "holiday",
-      "gives": "FIESTA",
-      "note": "a fiesta is a festive holiday"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "AFIEST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "LEAFIEST",
+     "indicators": [
       {
-       "fodder": "FIESTA",
-       "gives": "AFIEST"
+       "text": "cycling",
+       "note": "going round in a cycle moves a letter from one end of the word to the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The French",
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "holiday",
+       "gives": "FIESTA",
+       "note": "a fiesta is a festive holiday"
       }
      ]
     },
@@ -1965,47 +1724,42 @@
    },
    "solution": "POND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "POND",
     "definitions": [
      {
       "text": "Pool",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ending",
-      "for": "letter_selection",
-      "note": "the ending of a word is its last letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece put in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hull",
-      "gives": "POD",
-      "note": "a hull is the outer casing of a seed, a pod"
-     },
-     {
-      "clueFragment": "competition's",
-      "gives": "N",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "N",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece put in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hull",
+       "gives": "POD",
+       "note": "a hull is the outer casing of a seed, a pod"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "note": "the ending of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "competition's",
+         "gives": "COMPETITION",
+         "note": "the final letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2034,12 +1788,6 @@
    },
    "solution": "THYESTEAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "THYESTEAN",
     "definitions": [
      {
       "text": "for cannibal",
@@ -2047,42 +1795,45 @@
       "note": "the answer is an adjective meaning cannibalistic, while the definition is a looser phrase"
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly points to the odd-numbered positions, first, third, fifth"
-     },
-     {
-      "text": "inspiring",
-      "for": "container",
-      "note": "to inspire is literally to breathe in, so one piece takes others inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tahini",
-      "gives": "THN",
-      "select": "alternate",
-      "note": "the first, third and fifth letters"
-     },
-     {
-      "clueFragment": "cool",
-      "gives": "YES",
-      "note": "cool! is an exclamation of approval, like yes!"
-     },
-     {
-      "clueFragment": "meal",
-      "gives": "TEA",
-      "note": "tea is an evening meal in parts of Britain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "YES",
-      "TEA",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspiring",
+       "note": "to inspire is literally to breathe in, so one piece takes others inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "note": "oddly points to the odd-numbered positions, first, third, fifth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tahini",
+         "note": "the first, third and fifth letters"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cool",
+         "gives": "YES",
+         "note": "cool! is an exclamation of approval, like yes!"
+        },
+        {
+         "words": "meal",
+         "gives": "TEA",
+         "note": "tea is an evening meal in parts of Britain"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

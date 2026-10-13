@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3354",
  "number": 3354,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,354",
  "setter": "Kybos",
  "date": "2026-07-15",
  "dimensions": {
@@ -45,66 +43,60 @@
    },
    "solution": "SUPERB",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "SUPERB",
     "definitions": [
      {
       "text": "excellent",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "retreating",
-      "for": "reversal",
-      "note": "Anything retreating goes back the way it came, so the letters named before it are written in the opposite order."
-     },
-     {
-      "text": "hemming",
-      "for": "container",
-      "note": "A hem runs along the edges of a cloth, so the letters on either side of the word close round what sits between them."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US",
-      "gives": "SU",
-      "note": "the two letters of the country written back to front"
-     },
-     {
-      "clueFragment": "pawn",
-      "gives": "P",
-      "note": "p = pawn, as the piece is written on a chess scoresheet"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "ER is Elizabeth Regina, the royal cipher that was stamped on British postboxes"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "b = bishop, the other chessman shortened to its initial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "P",
-      "ER",
-      "B"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SUPERB",
+     "indicators": [
       {
-       "from": "US",
-       "to": "SU"
+       "text": "hemming",
+       "note": "A hem runs along the edges of a cloth, so the letters on either side of the word close round what sits between them."
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "SUPERB",
+       "indicators": [
+        {
+         "text": "retreating",
+         "note": "Anything retreating goes back the way it came, so the letters named before it are written in the opposite order."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "US",
+           "gives": "SU",
+           "note": "the two letters of the country written back to front"
+          },
+          {
+           "words": "pawn",
+           "gives": "P",
+           "note": "p = pawn, as the piece is written on a chess scoresheet"
+          },
+          {
+           "words": "queen",
+           "gives": "ER",
+           "note": "ER is Elizabeth Regina, the royal cipher that was stamped on British postboxes"
+          },
+          {
+           "words": "bishop",
+           "gives": "B",
+           "note": "b = bishop, the other chessman shortened to its initial"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -140,44 +132,49 @@
    },
    "solution": "USEUP",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "USE UP",
     "definitions": [
      {
       "text": "Finish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recklessly",
-      "note": "Something done recklessly is done without care for how it comes out, so the letters beside it will not stay in the order they were handed over in."
-     },
-     {
-      "text": "dodging",
-      "note": "To dodge a thing is to get out of its way, so the letter named next is never there to be used."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pursue",
-      "gives": "PUSUE",
-      "note": "the six letters of the word with the R dropped, the five left over re-set"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R is resistance in physics, the letter Ohm's law uses, and it is the one dodged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PUSUE",
-       "gives": "USEUP"
+       "text": "recklessly",
+       "note": "Something done recklessly is done without care for how it comes out, so the letters beside it will not stay in the order they were handed over in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dodging",
+         "note": "To dodge a thing is to get out of its way, so the letter named next is never there to be used."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pursue",
+           "gives": "PUSUE",
+           "note": "the six letters of the word with the R dropped, the five left over re-set"
+          },
+          {
+           "words": "resistance",
+           "gives": "R",
+           "note": "R is resistance in physics, the letter Ohm's law uses, and it is the one dodged"
+          }
+         ]
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
@@ -213,32 +210,25 @@
    },
    "solution": "EARLYON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EARLY ON",
     "definitions": [
      {
       "text": "near the beginning",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Feature",
-      "gives": "EAR",
-      "note": "an ear is a feature of the head"
-     },
-     {
-      "clueFragment": "French city",
-      "gives": "LYON",
-      "note": "Lyon stands where the Saône meets the Rhône and is France's third city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EAR",
-      "LYON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Feature",
+       "gives": "EAR",
+       "note": "an ear is a feature of the head"
+      },
+      {
+       "words": "French city",
+       "gives": "LYON",
+       "note": "Lyon stands where the Saône meets the Rhône and is France's third city"
+      }
      ]
     },
     "explanation": {
@@ -267,36 +257,28 @@
    },
    "solution": "BIB",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "BIB",
     "definitions": [
      {
       "text": "apron",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Each character taking one step",
-      "for": "substitution",
-      "note": "A character is a letter here, and a letter that takes one step moves one place further along the alphabet."
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aha!",
-      "gives": "BIB",
-      "note": "A, H and A each advanced by one place in the alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIB"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "BIB",
+     "indicators": [
+      {
+       "text": "Each character taking one step",
+       "note": "A character is a letter here, and a letter that takes one step moves one place further along the alphabet."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aha!",
+       "gives": "BIB",
+       "note": "A, H and A each advanced by one place in the alphabet"
+      }
      ]
     },
     "explanation": {
@@ -325,44 +307,42 @@
    },
    "solution": "PUBLIC",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "PUBLIC",
     "definitions": [
      {
       "text": "Well-known",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "containing",
-      "note": "What contains a thing holds it inside, so the letters named before close round the ones that follow."
-     },
-     {
-      "text": "without clothing",
-      "note": "Clothing is what goes on the outside, so a name without it gives up the letter at each of its ends."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "photo",
-      "gives": "PIC",
-      "note": "a pic is a photo, and it opens to take something in"
-     },
-     {
-      "clueFragment": "Bublé",
-      "gives": "UBL",
-      "note": "Michael Bublé, the Canadian singer of standards, stripped of the letter at each end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "UBL",
-      "IC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PUBLIC",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "note": "What contains a thing holds it inside, so the letters named before close round the ones that follow."
+        },
+        {
+         "text": "without clothing",
+         "note": "Clothing is what goes on the outside, so a name without it gives up the letter at each of its ends."
+        }
+       ],
+       "parts": [
+        {
+         "words": "photo",
+         "gives": "PIC",
+         "note": "a pic is a photo, and it opens to take something in"
+        },
+        {
+         "words": "Bublé",
+         "gives": "UBL",
+         "note": "Michael Bublé, the Canadian singer of standards, stripped of the letter at each end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -392,26 +372,25 @@
    },
    "solution": "PREGNANCY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PREGNANCY",
     "definitions": [
      {
       "text": "Time taken to get issue ready for delivery?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Time taken to get issue ready",
-      "note": "the surface offers a print shop's schedule: the hours it takes to put an issue of a magazine to bed"
-     },
-     {
-      "clueFragment": "for delivery?",
-      "note": "delivery sounds like the van at the door, but the setter means birth, and the issue is offspring rather than a print run"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Time taken to get issue ready",
+       "note": "the surface offers a print shop's schedule: the hours it takes to put an issue of a magazine to bed"
+      },
+      {
+       "words": "for delivery?",
+       "note": "delivery sounds like the van at the door, but the setter means birth, and the issue is offspring rather than a print run"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A magazine working out how long it needs before the issue can go out.",
      "walkthrough": "Issue is the word doing double duty: a number of a periodical, and the old legal word for a person's children. Nine months is the human answer, and the question mark is the only warning that the sentence has a second reading.",
@@ -439,40 +418,30 @@
    },
    "solution": "BLOOM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLOOM",
     "definitions": [
      {
       "text": "Flush",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "A thing inside another is enclosed by it, so the letters named first go within the ones named next."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "B&M",
-      "gives": "BM",
-      "note": "B&M is a British discount chain, and its name is the two letters with nothing but an ampersand between them"
-     },
-     {
-      "clueFragment": "toilet",
-      "gives": "LOO",
-      "note": "the loo is the British household word for the toilet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LOO",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "A thing inside another is enclosed by it, so the letters named first go within the ones named next."
+      }
+     ],
+     "parts": [
+      {
+       "words": "B&M",
+       "note": "B&M is a British discount chain, and its name is the two letters with nothing but an ampersand between them"
+      },
+      {
+       "words": "toilet",
+       "gives": "LOO",
+       "note": "the loo is the British household word for the toilet"
+      }
      ]
     },
     "explanation": {
@@ -502,30 +471,28 @@
    },
    "solution": "INTENSE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INTENSE",
     "definitions": [
      {
       "text": "Passionate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contribution to",
-      "for": "hidden_word",
-      "note": "A contribution to something is a part of it, so a run of letters is taken from inside the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "explain ten secrets",
-      "gives": "INTENSE",
-      "note": "seven letters in a row that start three into the first word and finish one into the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contribution to",
+       "note": "A contribution to something is a part of it, so a run of letters is taken from inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "explain ten secrets",
+       "gives": "INTENSE",
+       "note": "seven letters in a row that start three into the first word and finish one into the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An impassioned offer to help lay ten secrets open.",
      "walkthrough": "The run crosses two word-breaks, and the middle word of the three is swallowed whole, which is the hardest kind of hiding place to see. 'Contribution to' is doing the work 'some of' or 'part of' usually does.",
@@ -552,48 +519,37 @@
    },
    "solution": "BEARABLE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BEARABLE",
     "definitions": [
      {
       "text": "possible to live with",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "Something returning comes back along the road it went out on, so the name beside it is read from its last letter to its first."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maybe \"Grizzly\"",
-      "gives": "BEAR",
-      "note": "a grizzly is one kind of bear, and 'maybe' marks it as an example rather than a synonym"
-     },
-     {
-      "clueFragment": "Idris",
-      "gives": "ABLE",
-      "note": "Idris Elba, the London-born actor, with his surname read backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEAR",
-      "ABLE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "BEARABLE",
+     "indicators": [
       {
-       "from": "ELBA",
-       "to": "ABLE"
+       "text": "returning",
+       "note": "Something returning comes back along the road it went out on, so the name beside it is read from its last letter to its first."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Maybe \"Grizzly\"",
+         "gives": "BEAR",
+         "note": "a grizzly is one kind of bear, and 'maybe' marks it as an example rather than a synonym"
+        },
+        {
+         "words": "Idris",
+         "gives": "ABLE",
+         "note": "Idris Elba, the London-born actor, with his surname read backwards"
+        }
+       ]
       }
      ]
     },
@@ -623,38 +579,31 @@
    },
    "solution": "OATH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OATH",
     "definitions": [
      {
       "text": "promise",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "to forget",
-      "for": "deletion",
-      "note": "To forget a thing is to lose hold of it altogether, so the letter named alongside drops out of the word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unwilling",
-      "gives": "LOATH",
-      "note": "loath means unwilling, as in loath to admit it"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "L",
-      "note": "the head of a word is the letter standing at its front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OATH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to forget",
+       "note": "To forget a thing is to lose hold of it altogether, so the letter named alongside drops out of the word."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unwilling",
+       "gives": "LOATH",
+       "note": "loath means unwilling, as in loath to admit it"
+      },
+      {
+       "words": "head",
+       "gives": "L",
+       "note": "the head of a word is the letter standing at its front"
+      }
      ]
     },
     "explanation": {
@@ -683,38 +632,31 @@
    },
    "solution": "SPRY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SPRY",
     "definitions": [
      {
       "text": "Agile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flees",
-      "for": "deletion",
-      "note": "Something that flees runs off and is gone, so the letter named before it leaves the word it was sitting in."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jet",
-      "gives": "SPRAY",
-      "note": "a jet of water is a spray"
-     },
-     {
-      "clueFragment": "ace",
-      "gives": "A",
-      "note": "a = ace, the card and the flier alike"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPRY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "flees",
+       "note": "Something that flees runs off and is gone, so the letter named before it leaves the word it was sitting in."
+      }
+     ],
+     "parts": [
+      {
+       "words": "jet",
+       "gives": "SPRAY",
+       "note": "a jet of water is a spray"
+      },
+      {
+       "words": "ace",
+       "gives": "A",
+       "note": "a = ace, the card and the flier alike"
+      }
      ]
     },
     "explanation": {
@@ -743,35 +685,27 @@
    },
    "solution": "OINTMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OINTMENT",
     "definitions": [
      {
       "text": "balm",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "massaged",
-      "for": "anagram",
-      "note": "Something massaged is worked over and pushed about under the hand, so the letters do not stay where they were put."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mitten on",
-      "gives": "OINTMENT",
-      "note": "the eight letters of those two words re-set"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OINTMENT",
+     "indicators": [
       {
-       "fodder": "MITTENON",
-       "gives": "OINTMENT"
+       "text": "massaged",
+       "note": "Something massaged is worked over and pushed about under the hand, so the letters do not stay where they were put."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mitten on",
+       "gives": "OINTMENT",
+       "note": "the eight letters of those two words re-set"
       }
      ]
     },
@@ -801,35 +735,27 @@
    },
    "solution": "OVERTIRED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OVERTIRED",
     "definitions": [
      {
       "text": "Knackered",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "Letters sent about are sent every which way, so the ones named will not be read in the order given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diver tore",
-      "gives": "OVERTIRED",
-      "note": "the nine letters of those two words re-set"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OVERTIRED",
+     "indicators": [
       {
-       "fodder": "DIVERTORE",
-       "gives": "OVERTIRED"
+       "text": "about",
+       "note": "Letters sent about are sent every which way, so the ones named will not be read in the order given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "diver tore",
+       "gives": "OVERTIRED",
+       "note": "the nine letters of those two words re-set"
       }
      ]
     },
@@ -859,40 +785,31 @@
    },
    "solution": "TWINGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TWINGE",
     "definitions": [
      {
       "text": "pain that comes on suddenly",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "Something set about a thing is wrapped round it, so the letters named first close over the ones that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "TE",
-      "note": "te is the seventh note of the sol-fa scale, the one before the octave closes"
-     },
-     {
-      "clueFragment": "side",
-      "gives": "WING",
-      "note": "a wing is a side, of a building, of an army or of a football pitch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WING",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "Something set about a thing is wrapped round it, so the letters named first close over the ones that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Note",
+       "gives": "TE",
+       "note": "te is the seventh note of the sol-fa scale, the one before the octave closes"
+      },
+      {
+       "words": "side",
+       "gives": "WING",
+       "note": "a wing is a side, of a building, of an army or of a football pitch"
+      }
      ]
     },
     "explanation": {
@@ -921,31 +838,16 @@
    },
    "solution": "WINDING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WINDING",
     "definitions": [
      {
       "text": "Releasing excess gas",
-      "at": 0
+      "at": 0,
+      "meaning": "patting a baby on the back after a feed until the trapped air comes back up"
      },
      {
       "text": "bending",
-      "at": 26
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Releasing excess gas",
-      "note": "patting a baby on the back after a feed until the trapped air comes back up"
-     },
-     {
-      "clueFragment": "bending",
-      "note": "turning this way and that, the way a lane makes its way between hedges"
+      "at": 26,
+      "meaning": "turning this way and that, the way a lane makes its way between hedges"
      }
     ],
     "explanation": {
@@ -974,32 +876,25 @@
    },
    "solution": "NIPPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NIPPER",
     "definitions": [
      {
       "text": "tot",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Tot",
-      "gives": "NIP",
-      "note": "a tot of rum is a nip, a small measure of spirits"
-     },
-     {
-      "clueFragment": "for every",
-      "gives": "PER",
-      "note": "per is the Latin for each, as in miles per hour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIP",
-      "PER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tot",
+       "gives": "NIP",
+       "note": "a tot of rum is a nip, a small measure of spirits"
+      },
+      {
+       "words": "for every",
+       "gives": "PER",
+       "note": "per is the Latin for each, as in miles per hour"
+      }
      ]
     },
     "explanation": {
@@ -1029,35 +924,27 @@
    },
    "solution": "PARENTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PARENTS",
     "definitions": [
      {
       "text": "individuals with children",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "A suspect account is not to be trusted as it stands, so the letters beside it are not in the order they should be read in."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Entraps",
-      "gives": "PARENTS",
-      "note": "the seven letters of the opening word re-set"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PARENTS",
+     "indicators": [
       {
-       "fodder": "ENTRAPS",
-       "gives": "PARENTS"
+       "text": "suspect",
+       "note": "A suspect account is not to be trusted as it stands, so the letters beside it are not in the order they should be read in."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Entraps",
+       "gives": "PARENTS",
+       "note": "the seven letters of the opening word re-set"
       }
      ]
     },
@@ -1087,10 +974,6 @@
    },
    "solution": "INFANTRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFANTRY",
     "definitions": [
      {
       "text": "Soldiers",
@@ -1098,35 +981,30 @@
       "note": "Infantry is a collective singular where the definition is plural, but British usage gives it a plural verb — the infantry are advancing — so naming them as soldiers is fair."
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "What goes after a thing follows it, so the letters named ahead of the word end up behind the rest of them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fashionable",
-      "gives": "IN",
-      "note": "what is in is what is fashionable this season"
-     },
-     {
-      "clueFragment": "lover",
-      "gives": "FAN",
-      "note": "a fan is somebody who loves a team, a band or a writer"
-     },
-     {
-      "clueFragment": "go",
-      "gives": "TRY",
-      "note": "to have a go at something is to try it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "FAN",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "What goes after a thing follows it, so the letters named ahead of the word end up behind the rest of them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "fashionable",
+       "gives": "IN",
+       "note": "what is in is what is fashionable this season"
+      },
+      {
+       "words": "lover",
+       "gives": "FAN",
+       "note": "a fan is somebody who loves a team, a band or a writer"
+      },
+      {
+       "words": "go",
+       "gives": "TRY",
+       "note": "to have a go at something is to try it"
+      }
      ]
     },
     "explanation": {
@@ -1155,48 +1033,37 @@
    },
    "solution": "ANKLE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ANKLE",
     "definitions": [
      {
       "text": "Joint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from the south",
-      "for": "reversal",
-      "note": "South is the bottom of the grid, so in a down entry something coming from the south is written upwards, last letter first."
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "an is the indefinite article, the form used before a vowel"
-     },
-     {
-      "clueFragment": "deer",
-      "gives": "KLE",
-      "note": "the deer is an elk, the big deer of the northern forests, with its three letters written up the grid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "KLE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ANKLE",
+     "indicators": [
       {
-       "from": "ELK",
-       "to": "KLE"
+       "text": "from the south",
+       "note": "South is the bottom of the grid, so in a down entry something coming from the south is written upwards, last letter first."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "gives": "AN",
+         "note": "an is the indefinite article, the form used before a vowel"
+        },
+        {
+         "words": "deer",
+         "gives": "KLE",
+         "note": "the deer is an elk, the big deer of the northern forests, with its three letters written up the grid"
+        }
+       ]
       }
      ]
     },
@@ -1226,32 +1093,25 @@
    },
    "solution": "RIPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RIPE",
     "definitions": [
      {
       "text": "ready for consumption",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Split",
-      "gives": "RIP",
-      "note": "to rip something is to split it along a tear"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is ecstasy, the tablet of the dance floor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIP",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Split",
+       "gives": "RIP",
+       "note": "to rip something is to split it along a tear"
+      },
+      {
+       "words": "drug",
+       "gives": "E",
+       "note": "E is ecstasy, the tablet of the dance floor"
+      }
      ]
     },
     "explanation": {
@@ -1280,47 +1140,41 @@
    },
    "solution": "PIECE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PIECE",
     "definitions": [
      {
       "text": "Man",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "during",
-      "for": "container",
-      "note": "What happens during something happens inside it, so the letters named before it go within the ones named after."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "games at school",
-      "gives": "PE",
-      "note": "PE is physical education, the games lesson on a British school timetable"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "ie is the Latin id est, which is what that is translates"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c = caught, written beside a batsman's name on a cricket scorecard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "IE",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "What happens during something happens inside it, so the letters named before it go within the ones named after."
+      }
+     ],
+     "parts": [
+      {
+       "words": "games at school",
+       "gives": "PE",
+       "note": "PE is physical education, the games lesson on a British school timetable"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "ie is the Latin id est, which is what that is translates"
+        },
+        {
+         "words": "caught",
+         "gives": "C",
+         "note": "c = caught, written beside a batsman's name on a cricket scorecard"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1349,41 +1203,36 @@
    },
    "solution": "MILK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MILK",
     "definitions": [
      {
       "text": "food mother makes",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "The first of a word is the letter it starts on, and nothing behind that letter is wanted."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Moussaka's first",
-      "gives": "M",
-      "select": "first",
-      "note": "the letter the Greek dish starts on"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "ILK",
-      "note": "ilk is a class or kind, the word that survives in 'people of that ilk'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ILK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "The first of a word is the letter it starts on, and nothing behind that letter is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Moussaka's first",
+         "gives": "MOUSSAKAS",
+         "note": "the letter the Greek dish starts on"
+        }
+       ]
+      },
+      {
+       "words": "class",
+       "gives": "ILK",
+       "note": "ilk is a class or kind, the word that survives in 'people of that ilk'"
+      }
      ]
     },
     "explanation": {
@@ -1412,32 +1261,25 @@
    },
    "solution": "REMINDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMINDER",
     "definitions": [
      {
       "text": "Memo",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re means concerning, the word standing at the head of a memo"
-     },
-     {
-      "clueFragment": "bodyguard",
-      "gives": "MINDER",
-      "note": "a minder is British for a hired bodyguard, from the sense of minding somebody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MINDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerning",
+       "gives": "RE",
+       "note": "re means concerning, the word standing at the head of a memo"
+      },
+      {
+       "words": "bodyguard",
+       "gives": "MINDER",
+       "note": "a minder is British for a hired bodyguard, from the sense of minding somebody"
+      }
      ]
     },
     "explanation": {
@@ -1466,40 +1308,30 @@
    },
    "solution": "MAP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAP",
     "definitions": [
      {
       "text": "plan",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "To accept a thing is to take it in, so the letters named before close round what follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Politician",
-      "gives": "MP",
-      "note": "MP is a Member of Parliament, the British politician elected for a constituency"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the single letter, taken exactly as it stands in the clue"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "A",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "note": "To accept a thing is to take it in, so the letters named before close round what follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Politician",
+       "gives": "MP",
+       "note": "MP is a Member of Parliament, the British politician elected for a constituency"
+      },
+      {
+       "words": "a",
+       "note": "the single letter, taken exactly as it stands in the clue"
+      }
      ]
     },
     "explanation": {
@@ -1528,32 +1360,25 @@
    },
    "solution": "AGREED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGREED",
     "definitions": [
      {
       "text": "Matched",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver, from the Latin argentum"
-     },
-     {
-      "clueFragment": "part of clarinet",
-      "gives": "REED",
-      "note": "the reed is the thin strip of cane in the mouthpiece that vibrates to make the note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "REED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver, from the Latin argentum"
+      },
+      {
+       "words": "part of clarinet",
+       "gives": "REED",
+       "note": "the reed is the thin strip of cane in the mouthpiece that vibrates to make the note"
+      }
      ]
     },
     "explanation": {
@@ -1582,48 +1407,41 @@
    },
    "solution": "PUSHER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PUSHER",
     "definitions": [
      {
       "text": "dealer",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Knock back",
-      "note": "Knocking a thing back sends it the way it came, so the word named next is written in reverse."
-     },
-     {
-      "text": "in front of",
-      "note": "What stands in front of something is written before it, so the letters already made go ahead of the ones that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "PUS",
-      "note": "to sup is to drink, and those three letters are turned round"
-     },
-     {
-      "clueFragment": "that female",
-      "gives": "HER",
-      "note": "her is how you refer to that female once she has been mentioned"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUS",
-      "HER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "PUSHER",
+     "parts": [
       {
-       "from": "SUP",
-       "to": "PUS"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Knock back",
+         "note": "Knocking a thing back sends it the way it came, so the word named next is written in reverse."
+        },
+        {
+         "text": "in front of",
+         "note": "What stands in front of something is written before it, so the letters already made go ahead of the ones that follow."
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "PUS",
+         "note": "to sup is to drink, and those three letters are turned round"
+        },
+        {
+         "words": "that female",
+         "gives": "HER",
+         "note": "her is how you refer to that female once she has been mentioned"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "times-28444",
  "number": 28444,
- "series": "times",
- "name": "Times cryptic crossword No 28,444",
  "date": "2022-11-10",
  "dimensions": {
   "cols": 15,
@@ -41,30 +39,28 @@
    },
    "solution": "SOFA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SOFA",
     "definitions": [
      {
       "text": "Crash site potentially",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "located in",
-      "for": "hidden_word",
-      "note": "something located in the following words sits inside them, spanning the gap between two of them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plains of Armenia",
-      "gives": "SOFA",
-      "note": "read across the end of plains, all of of and the start of Armenia"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "located in",
+       "note": "something located in the following words sits inside them, spanning the gap between two of them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plains of Armenia",
+       "gives": "SOFA",
+       "note": "read across the end of plains, all of of and the start of Armenia"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An air accident investigator reports where a plane may have come down on an Armenian plain.",
      "walkthrough": "'Crash' is slang for sleeping somewhere informally, so a crash site is where a guest might bed down.",
@@ -92,54 +88,48 @@
    },
    "solution": "SCHERZANDO",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SCHERZANDO",
     "definitions": [
      {
       "text": "with playfulness",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "removed",
-      "for": "deletion",
-      "note": "removed tells us to take the single letter for one out of the word chairs"
-     },
-     {
-      "text": "thrown around",
-      "for": "anagram",
-      "note": "letters that are thrown around land in a jumbled new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dozen",
-      "gives": "DOZEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "chairs",
-      "gives": "CHAIRS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral for one, the letter dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCHERZANDO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SCHERZANDO",
+     "indicators": [
       {
-       "fodder": "DOZENCHARS",
-       "gives": "SCHERZANDO"
+       "text": "thrown around",
+       "note": "letters that are thrown around land in a jumbled new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SCHERZANDO",
+       "indicators": [
+        {
+         "text": "removed",
+         "note": "removed tells us to take the single letter for one out of the word chairs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dozen",
+         "note": "taken as written"
+        },
+        {
+         "words": "chairs",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral for one, the letter dropped"
+        }
+       ]
       }
      ]
     },
@@ -169,55 +159,58 @@
    },
    "solution": "FETID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "FETID",
     "definitions": [
      {
       "text": "foul",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means taking letters at even intervals, every other one"
-     },
-     {
-      "text": "consumes",
-      "for": "container",
-      "note": "what consumes something takes it inside itself, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Iron",
-      "gives": "FE",
-      "note": "Fe is the chemical symbol for iron"
-     },
-     {
-      "clueFragment": "this",
-      "gives": "TI",
-      "select": "alternate",
-      "note": "first and third letters of this"
-     },
-     {
-      "clueFragment": "Duke",
-      "gives": "D",
-      "note": "D is the abbreviation for duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FE",
-      "TI",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "FETID",
+     "indicators": [
+      {
+       "text": "consumes",
+       "note": "what consumes something takes it inside itself, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Iron",
+         "gives": "FE",
+         "note": "Fe is the chemical symbol for iron"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "TI",
+         "indicators": [
+          {
+           "text": "regularly",
+           "note": "regularly means taking letters at even intervals, every other one"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "this",
+           "gives": "TI",
+           "select": "alternate",
+           "note": "first and third letters of this"
+          }
+         ]
+        },
+        {
+         "words": "Duke",
+         "gives": "D",
+         "note": "D is the abbreviation for duke"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -246,51 +239,47 @@
    },
    "solution": "EPISTOLARY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "EPISTOLARY",
     "definitions": [
      {
       "text": "Dealing with letters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so the letter for wife must be dropped"
-     },
-     {
-      "text": "to hold",
-      "for": "container",
-      "note": "to hold something is to keep it inside, so one piece is placed within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exhausted",
-      "gives": "WEARY",
-      "note": "synonym: tired out"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife, removed"
-     },
-     {
-      "clueFragment": "arm",
-      "gives": "PISTOL",
-      "note": "a pistol is a firearm, an arm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PISTOL",
-      "ARY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hold",
+       "note": "to hold something is to keep it inside, so one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so the letter for wife must be dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exhausted",
+         "gives": "WEARY",
+         "note": "synonym: tired out"
+        },
+        {
+         "words": "wife",
+         "gives": "W",
+         "note": "W is the abbreviation for wife, removed"
+        }
+       ]
+      },
+      {
+       "words": "arm",
+       "gives": "PISTOL",
+       "note": "a pistol is a firearm, an arm"
+      }
      ]
     },
     "explanation": {
@@ -319,40 +308,31 @@
    },
    "solution": "PINSTRIPE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PINSTRIPE",
     "definitions": [
      {
       "text": "cloth",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "laid into",
-      "for": "container",
-      "note": "something laid into another thing is set inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "long",
-      "gives": "PINE",
-      "note": "to pine is to long for"
-     },
-     {
-      "clueFragment": "Narrow piece",
-      "gives": "STRIP",
-      "note": "a strip is a narrow piece of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIN",
-      "STRIP",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "laid into",
+       "note": "something laid into another thing is set inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "long",
+       "gives": "PINE",
+       "note": "to pine is to long for"
+      },
+      {
+       "words": "Narrow piece",
+       "gives": "STRIP",
+       "note": "a strip is a narrow piece of something"
+      }
      ]
     },
     "explanation": {
@@ -381,38 +361,25 @@
    },
    "solution": "SUMAC",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SUMAC",
     "definitions": [
      {
       "text": "Small tree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down entry, climbing means read upwards, from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pessimistic French writer's",
-      "gives": "CAMUS",
-      "note": "Albert Camus, French author of absurdist, bleak works; the 's means 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUMAC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CAMUS",
-       "to": "SUMAC"
+       "text": "climbing",
+       "note": "in a down entry, climbing means read upwards, from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pessimistic French writer's",
+       "gives": "CAMUS",
+       "note": "Albert Camus, French author of absurdist, bleak works; the 's means 'is'"
       }
      ]
     },
@@ -442,42 +409,30 @@
    },
    "solution": "ORGANZA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORGANZA",
     "definitions": [
      {
       "text": "Material",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in",
-     "along with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paper",
-      "gives": "ORGAN",
-      "note": "a newspaper is an organ, a publication voicing views"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Z",
-      "note": "z is a mathematical unknown"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORGAN",
-      "Z",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "paper",
+       "gives": "ORGAN",
+       "note": "a newspaper is an organ, a publication voicing views"
+      },
+      {
+       "words": "unknown",
+       "gives": "Z",
+       "note": "z is a mathematical unknown"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -506,38 +461,29 @@
    },
    "solution": "ANNAPOLIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANNAPOLIS",
     "definitions": [
      {
       "text": "the state capital",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the abbreviation for northern"
-     },
-     {
-      "clueFragment": "city in Italy's",
-      "gives": "NAPOLIS",
-      "note": "Napoli is the Italian name for Naples, plus S from the 's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "NAPOLIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "northern",
+       "gives": "N",
+       "note": "N is the abbreviation for northern"
+      },
+      {
+       "words": "city in Italy's",
+       "gives": "NAPOLIS",
+       "note": "Napoli is the Italian name for Naples, plus S from the 's"
+      }
      ]
     },
     "explanation": {
@@ -566,46 +512,41 @@
    },
    "solution": "YARN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "YARN",
     "definitions": [
      {
       "text": "an incredible story",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so one piece sits within the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "your",
-      "gives": "YR",
-      "note": "yr is the abbreviation for your"
-     },
-     {
-      "clueFragment": "Article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "A",
-      "R",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so one piece sits within the others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "gives": "YR",
+         "note": "yr is the abbreviation for your"
+        },
+        {
+         "words": "Article",
+         "gives": "A",
+         "note": "the indefinite article"
+        }
+       ]
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N is the abbreviation for name"
+      }
      ]
     },
     "explanation": {
@@ -634,31 +575,16 @@
    },
    "solution": "GROUND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GROUND",
     "definitions": [
      {
       "text": "Where footballers play",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a sports field or stadium"
      },
      {
       "text": "train",
-      "at": 27
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where footballers play",
-      "note": "first meaning: a sports field or stadium"
-     },
-     {
-      "clueFragment": "train",
-      "note": "second meaning: to instruct thoroughly in the basics"
+      "at": 27,
+      "meaning": "second meaning: to instruct thoroughly in the basics"
      }
     ],
     "explanation": {
@@ -688,63 +614,53 @@
    },
    "solution": "HETERONYM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "reversal"
-    ],
-    "answer": "HETERONYM",
     "definitions": [
      {
       "text": "one might be bowed, for example",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "worked",
-      "for": "anagram",
-      "note": "something worked has been shaped or kneaded into a new form"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back says to read the word in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Three",
-      "gives": "THREE",
-      "note": "the fodder for the rearrangement"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "my",
-      "gives": "MY",
-      "note": "taken as written, then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HETER",
-      "ON",
-      "YM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THREE",
-       "gives": "HETER"
-      }
-     ],
-     "reversals": [
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "note": "something worked has been shaped or kneaded into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Three",
+           "note": "the fodder for the rearrangement"
+          },
+          {
+           "words": "on",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
       {
-       "from": "MY",
-       "to": "YM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back says to read the word in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "my",
+         "note": "taken as written, then turned round"
+        }
+       ]
       }
      ]
     },
@@ -775,40 +691,31 @@
    },
    "solution": "GONER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GONER",
     "definitions": [
      {
       "text": "Person with no future",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one word inside the abbreviation that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greece",
-      "gives": "GR",
-      "note": "GR is the international code for Greece"
-     },
-     {
-      "clueFragment": "married",
-      "gives": "ONE",
-      "note": "a married couple are made one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ONE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one word inside the abbreviation that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greece",
+       "gives": "GR",
+       "note": "GR is the international code for Greece"
+      },
+      {
+       "words": "married",
+       "gives": "ONE",
+       "note": "a married couple are made one"
+      }
      ]
     },
     "explanation": {
@@ -838,50 +745,41 @@
    },
    "solution": "REDOUBT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "REDOUBT",
     "definitions": [
      {
       "text": "stronghold",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep something is to hold it within, so a letter goes inside"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Revolutionary",
-      "gives": "RED",
-      "note": "a Red is a communist revolutionary"
-     },
-     {
-      "clueFragment": "determined",
-      "gives": "OUT",
-      "note": "out to do something means determined to do it"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "OU",
-      "B",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Revolutionary",
+       "gives": "RED",
+       "note": "a Red is a communist revolutionary"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "note": "to keep something is to hold it within, so a letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "determined",
+         "gives": "OUT",
+         "note": "out to do something means determined to do it"
+        },
+        {
+         "words": "bishop",
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -910,10 +808,6 @@
    },
    "solution": "CANAPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CANAPE",
     "definitions": [
      {
       "text": "to bite",
@@ -921,25 +815,19 @@
       "note": "means 'something to bite'; the answer is a noun"
      }
     ],
-    "linkWords": [
-     "Does"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "have the skills",
-      "gives": "CAN",
-      "note": "to be able, as in 'can do'"
-     },
-     {
-      "clueFragment": "chimpanzee perhaps",
-      "gives": "APE",
-      "note": "a chimpanzee is an example of an ape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "APE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "have the skills",
+       "gives": "CAN",
+       "note": "to be able, as in 'can do'"
+      },
+      {
+       "words": "chimpanzee perhaps",
+       "gives": "APE",
+       "note": "a chimpanzee is an example of an ape"
+      }
      ]
     },
     "explanation": {
@@ -969,56 +857,46 @@
    },
    "solution": "STROGANOFF",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "STROGANOFF",
     "definitions": [
      {
       "text": "meat dish",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "consumes",
-      "for": "container",
-      "note": "consumes means takes inside, so a letter goes into the horse"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Way",
-      "gives": "ST",
-      "note": "St is the abbreviation for street, a way"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "ROAN",
-      "note": "a roan is a horse with a mixed-colour coat"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "bad",
-      "gives": "OFF",
-      "note": "food gone bad has gone off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "RO",
-      "G",
-      "AN",
-      "OFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "consumes",
+         "note": "consumes means takes inside, so a letter goes into the horse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse",
+         "gives": "ROAN",
+         "note": "a roan is a horse with a mixed-colour coat"
+        },
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "G is the abbreviation for good"
+        }
+       ]
+      },
+      {
+       "words": "bad",
+       "gives": "OFF",
+       "note": "food gone bad has gone off"
+      }
      ]
     },
     "explanation": {
@@ -1062,38 +940,24 @@
    },
    "solution": "ASTUDYINSCARLET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "A STUDY IN SCARLET",
     "definitions": [
      {
       "text": "detective story",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "labyrinthine",
-      "for": "anagram",
-      "note": "a labyrinthine thing is tangled and twisting, so the letters are mixed up"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saturday's Client",
-      "gives": "SATURDAYSCLIENT",
-      "note": "every letter of these words, the apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SATURDAYSCLIENT",
-       "gives": "ASTUDYINSCARLET"
+       "text": "labyrinthine",
+       "note": "a labyrinthine thing is tangled and twisting, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Saturday's Client",
+       "note": "every letter of these words, the apostrophe ignored"
       }
      ]
     },
@@ -1123,35 +987,24 @@
    },
    "solution": "TRANSPOSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRANSPOSE",
     "definitions": [
      {
       "text": "change position",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Damaged",
-      "for": "anagram",
-      "note": "something damaged is broken up, so its letters come out in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nose parts",
-      "gives": "NOSEPARTS",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOSEPARTS",
-       "gives": "TRANSPOSE"
+       "text": "Damaged",
+       "note": "something damaged is broken up, so its letters come out in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nose parts",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1180,35 +1033,25 @@
    },
    "solution": "SLOVENIAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SLOVENIAN",
     "definitions": [
      {
       "text": "Some European",
       "at": 0
      }
     ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "habitually negligent",
-      "gives": "SLOVEN",
-      "note": "a sloven is a habitually untidy, careless person"
-     },
-     {
-      "clueFragment": "Scot",
-      "gives": "IAN",
-      "note": "Ian is a typically Scottish first name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLOVEN",
-      "IAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "habitually negligent",
+       "gives": "SLOVEN",
+       "note": "a sloven is a habitually untidy, careless person"
+      },
+      {
+       "words": "Scot",
+       "gives": "IAN",
+       "note": "Ian is a typically Scottish first name"
+      }
      ]
     },
     "explanation": {
@@ -1256,59 +1099,49 @@
    },
    "solution": "DOASTHEROMANSDO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DO AS THE ROMANS DO",
     "definitions": [
      {
       "text": "follow local conventions",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "forced",
-      "for": "anagram",
-      "note": "forced suggests twisted out of shape, so these letters are rearranged"
-     },
-     {
-      "text": "protecting",
-      "for": "container",
-      "note": "protecting means surrounding on both sides, so the outer pieces enclose the middle"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Parties",
-      "gives": "DODO",
-      "note": "a do is a party; two of them, one on each side"
-     },
-     {
-      "clueFragment": "short",
-      "gives": "SHORT",
-      "note": "taken as written, part of the anagram fodder"
-     },
-     {
-      "clueFragment": "seaman",
-      "gives": "SEAMAN",
-      "note": "taken as written, part of the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "ASTHEROMANS",
-      "DO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SHORTSEAMAN",
-       "gives": "ASTHEROMANS"
+       "text": "protecting",
+       "note": "protecting means surrounding on both sides, so the outer pieces enclose the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Parties",
+       "gives": "DODO",
+       "note": "a do is a party; two of them, one on each side"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "forced",
+         "note": "forced suggests twisted out of shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "short",
+           "note": "taken as written, part of the anagram fodder"
+          },
+          {
+           "words": "seaman",
+           "note": "taken as written, part of the anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1338,35 +1171,25 @@
    },
    "solution": "TWADDLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWADDLE",
     "definitions": [
      {
       "text": "nonsense",
       "at": 41
      }
     ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tango",
-      "gives": "T",
-      "note": "Tango is T in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "side-to-side movement",
-      "gives": "WADDLE",
-      "note": "a waddle is a swaying walk from side to side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WADDLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tango",
+       "gives": "T",
+       "note": "Tango is T in the NATO phonetic alphabet"
+      },
+      {
+       "words": "side-to-side movement",
+       "gives": "WADDLE",
+       "note": "a waddle is a swaying walk from side to side"
+      }
      ]
     },
     "explanation": {
@@ -1394,43 +1217,31 @@
    },
    "solution": "AVESTA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AVESTA",
     "definitions": [
      {
       "text": "sacred works",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in sets one piece within the letters of the other"
-     }
-    ],
-    "linkWords": [
-     "For"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sober company",
-      "gives": "AA",
-      "note": "Alcoholics Anonymous, whose members stay sober"
-     },
-     {
-      "clueFragment": "put on holy robes",
-      "gives": "VEST",
-      "note": "to vest is to dress in ecclesiastical vestments"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VEST",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in sets one piece within the letters of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sober company",
+       "gives": "AA",
+       "note": "Alcoholics Anonymous, whose members stay sober"
+      },
+      {
+       "words": "put on holy robes",
+       "gives": "VEST",
+       "note": "to vest is to dress in ecclesiastical vestments"
+      }
      ]
     },
     "explanation": {
@@ -1459,35 +1270,25 @@
    },
    "solution": "ASSAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASSAIL",
     "definitions": [
      {
       "text": "attack",
       "at": 29
      }
     ],
-    "linkWords": [
-     "dogs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American behind",
-      "gives": "ASS",
-      "note": "ass is the American word for the backside"
-     },
-     {
-      "clueFragment": "Trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble or afflict"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASS",
-      "AIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American behind",
+       "gives": "ASS",
+       "note": "ass is the American word for the backside"
+      },
+      {
+       "words": "Trouble",
+       "gives": "AIL",
+       "note": "to ail is to trouble or afflict"
+      }
      ]
     },
     "explanation": {
@@ -1517,34 +1318,29 @@
    },
    "solution": "LISZT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LISZT",
     "definitions": [
      {
       "text": "virtuoso pianist",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Sound",
-      "for": "homophone",
-      "note": "sound means we go by how the word is spoken rather than spelt"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tip",
-      "gives": "LISZT",
-      "soundsLike": "LIST",
-      "note": "to list is to tip or lean over, as a ship does"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LISZT",
+     "indicators": [
+      {
+       "text": "Sound",
+       "note": "sound means we go by how the word is spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tip",
+       "gives": "LIST",
+       "note": "to list is to tip or lean over, as a ship does"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Sound advice offered to a brilliant concert pianist.",
      "walkthrough": "'Sound tip' reads as good advice, but sound is the homophone signal and tip means lean.",
@@ -1572,35 +1368,25 @@
    },
    "solution": "ELECTRA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELECTRA",
     "definitions": [
      {
       "text": "Clytemnestra's child",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chosen",
-      "gives": "ELECT",
-      "note": "the elect are the chosen"
-     },
-     {
-      "clueFragment": "hawk-headed god",
-      "gives": "RA",
-      "note": "Ra, the Egyptian sun god, is shown with a falcon's head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELECT",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chosen",
+       "gives": "ELECT",
+       "note": "the elect are the chosen"
+      },
+      {
+       "words": "hawk-headed god",
+       "gives": "RA",
+       "note": "Ra, the Egyptian sun god, is shown with a falcon's head"
+      }
      ]
     },
     "explanation": {
@@ -1628,42 +1414,31 @@
    },
    "solution": "TRACE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TRACE",
     "definitions": [
      {
       "text": "hint",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "leaving means departing, so those letters go out of the phrase"
-     }
-    ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artist",
-      "gives": "RA",
-      "note": "RA, Royal Academician, a British artist"
-     },
-     {
-      "clueFragment": "daily grind",
-      "gives": "RATRACE",
-      "note": "the rat race is the relentless daily round of work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RACE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "leaving means departing, so those letters go out of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "daily grind",
+       "gives": "RATRACE",
+       "note": "the rat race is the relentless daily round of work"
+      },
+      {
+       "words": "Artist",
+       "gives": "RA",
+       "note": "RA, Royal Academician, a British artist"
+      }
      ]
     },
     "explanation": {
@@ -1692,46 +1467,41 @@
    },
    "solution": "HARP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HARP",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regular parts in",
-      "for": "letter_selection",
-      "note": "regular parts means letters taken at an even spacing, every other one"
-     },
-     {
-      "text": "accompanies",
-      "for": "charade",
-      "note": "accompanies means goes along with, so one piece is set beside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "theatre",
-      "gives": "HAR",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters of theatre"
-     },
-     {
-      "clueFragment": "softly",
-      "gives": "P",
-      "note": "p for piano, the musical direction for quietly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAR",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "accompanies",
+       "note": "accompanies means goes along with, so one piece is set beside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regular parts in",
+         "note": "regular parts means letters taken at an even spacing, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre",
+         "note": "second, fourth and sixth letters of theatre"
+        }
+       ]
+      },
+      {
+       "words": "softly",
+       "gives": "P",
+       "note": "p for piano, the musical direction for quietly"
+      }
      ]
     },
     "explanation": {
@@ -1759,31 +1529,29 @@
    },
    "solution": "ALOUD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ALOUD",
     "definitions": [
      {
       "text": "for all to hear",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Broadcast",
-      "for": "homophone",
-      "note": "what is broadcast is transmitted to listeners, so we go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agreed",
-      "gives": "ALOUD",
-      "soundsLike": "ALLOWED",
-      "note": "allowed means agreed to, permitted"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ALOUD",
+     "indicators": [
+      {
+       "text": "Broadcast",
+       "note": "what is broadcast is transmitted to listeners, so we go by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreed",
+       "gives": "ALLOWED",
+       "note": "allowed means agreed to, permitted"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An agreement announced publicly so everyone can hear.",
      "walkthrough": "'Broadcast' looks like a verb meaning announced, but it signals that the word sounds like a synonym of agreed.",
@@ -1816,62 +1584,50 @@
    },
    "solution": "SAINTMALO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SAINT-MALO",
     "definitions": [
      {
       "text": "walled city",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "close means end, so only the final letter of the following word is wanted"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "is not",
-      "gives": "AINT",
-      "note": "ain't is the colloquial contraction of is not"
-     },
-     {
-      "clueFragment": "mother",
-      "gives": "MA",
-      "note": "familiar word for mother"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "bordello",
-      "gives": "O",
-      "select": "last",
-      "note": "the last letter of bordello"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AINT",
-      "MA",
-      "L",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      },
+      {
+       "words": "is not",
+       "gives": "AINT",
+       "note": "ain't is the colloquial contraction of is not"
+      },
+      {
+       "words": "mother",
+       "gives": "MA",
+       "note": "familiar word for mother"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "close means end, so only the final letter of the following word is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bordello",
+         "note": "the last letter of bordello"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1899,51 +1655,41 @@
    },
    "solution": "PREDESTINE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PREDESTINE",
     "definitions": [
      {
       "text": "doom",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the earlier pieces inside the word for wood"
-     }
-    ],
-    "linkWords": [
-     "given by",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wood",
-      "gives": "PINE",
-      "note": "pine is a kind of timber"
-     },
-     {
-      "clueFragment": "Old fashioned counsel",
-      "gives": "REDE",
-      "note": "rede is an archaic word for advice"
-     },
-     {
-      "clueFragment": "good man",
-      "gives": "ST",
-      "note": "St for saint, a good man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "REDE",
-      "ST",
-      "INE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the earlier pieces inside the word for wood"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wood",
+       "gives": "PINE",
+       "note": "pine is a kind of timber"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old fashioned counsel",
+         "gives": "REDE",
+         "note": "rede is an archaic word for advice"
+        },
+        {
+         "words": "good man",
+         "gives": "ST",
+         "note": "St for saint, a good man"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1972,36 +1718,25 @@
    },
    "solution": "BEEF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEEF",
     "definitions": [
      {
       "text": "muscle",
       "at": 39
      }
     ],
-    "linkWords": [
-     "meeting",
-     "displays"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Garden visitor",
-      "gives": "BEE",
-      "note": "a bee visits flowers in gardens"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F is the abbreviation for female"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEE",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Garden visitor",
+       "gives": "BEE",
+       "note": "a bee visits flowers in gardens"
+      },
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "F is the abbreviation for female"
+      }
      ]
     },
     "explanation": {

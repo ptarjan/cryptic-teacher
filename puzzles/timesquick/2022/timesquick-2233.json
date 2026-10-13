@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2233",
  "number": 2233,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,233",
  "setter": "Hurley",
  "date": "2022-09-29",
  "dimensions": {
@@ -42,44 +40,35 @@
    },
    "solution": "BEQUEST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BEQUEST",
     "definitions": [
      {
       "text": "Feature of Will",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "'Extremely brave' points at the extremes of 'brave', its first and last letters."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brave",
-      "gives": "BE",
-      "select": "outer",
-      "note": "The outside letters of 'brave'."
-     },
-     {
-      "clueFragment": "search",
-      "gives": "QUEST",
-      "note": "A quest is a search."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "QUEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "'Extremely brave' points at the extremes of 'brave', its first and last letters."
+        }
+       ],
+       "parts": [
+        {
+         "words": "brave",
+         "note": "The outside letters of 'brave'."
+        }
+       ]
+      },
+      {
+       "words": "search",
+       "gives": "QUEST",
+       "note": "A quest is a search."
+      }
      ]
     },
     "explanation": {
@@ -109,37 +98,28 @@
    },
    "solution": "BOGUS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "BOGUS",
     "definitions": [
      {
       "text": "Perhaps describing bill of goods under suspicion at first",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "'At first' asks for the opening letter of each of the words before it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bill of goods under suspicion",
-      "gives": "BOGUS",
-      "select": "first",
-      "note": "The first letters of bill, of, goods, under, suspicion."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOGUS"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at first",
+       "note": "'At first' asks for the opening letter of each of the words before it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "bill of goods under suspicion",
+       "note": "The first letters of bill, of, goods, under, suspicion."
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A bill for goods is under suspicion, and we wonder what word fits it.",
      "walkthrough": "The whole clue is both the wordplay and the definition: a bill under suspicion might well be called bogus.",
@@ -165,45 +145,37 @@
    },
    "solution": "QUESTIONNAIRE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUESTIONNAIRE",
     "definitions": [
      {
       "text": "search for answers?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "'New' tells us the letters before it are to be made into something new."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Senora",
-      "gives": "SENORA",
-      "note": "Used as printed."
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "QUIET",
-      "note": "Used as printed."
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "Used as printed."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SENORAQUIETIN",
-       "gives": "QUESTIONNAIRE"
+       "text": "new",
+       "note": "'New' tells us the letters before it are to be made into something new."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Senora",
+         "note": "Used as printed."
+        },
+        {
+         "words": "quiet",
+         "note": "Used as printed."
+        },
+        {
+         "words": "in",
+         "note": "Used as printed."
+        }
+       ]
       }
      ]
     },
@@ -233,30 +205,28 @@
    },
    "solution": "EXTRA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EXTRA",
     "definitions": [
      {
       "text": "a bonus",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Participating in",
-      "for": "hidden_word",
-      "note": "The answer takes part in the words 'next race', sitting inside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "next race",
-      "gives": "EXTRA",
-      "note": "neXT RAce contains the letters."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Participating in",
+       "note": "The answer takes part in the words 'next race', sitting inside them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "next race",
+       "gives": "EXTRA",
+       "note": "neXT RAce contains the letters."
+      }
+     ]
+    },
     "explanation": {
      "surface": "Taking part in the next race brings a reward.",
      "walkthrough": "The answer runs across the word break between 'next' and 'race'.",
@@ -282,46 +252,40 @@
    },
    "solution": "THAMES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THAMES",
     "definitions": [
      {
       "text": "river",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "dipping in",
-      "for": "container",
-      "note": "Morning 'dips in' to the other letters, going inside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "Used as printed."
-     },
-     {
-      "clueFragment": "Morning",
-      "gives": "AM",
-      "note": "AM is the abbreviation for morning."
-     },
-     {
-      "clueFragment": "Southern",
-      "gives": "S",
-      "note": "S is the abbreviation for southern."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "AM",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "dipping in",
+         "note": "Morning 'dips in' to the other letters, going inside them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "Used as printed."
+        },
+        {
+         "words": "Morning",
+         "gives": "AM",
+         "note": "AM is the abbreviation for morning."
+        }
+       ]
+      },
+      {
+       "words": "Southern",
+       "gives": "S",
+       "note": "S is the abbreviation for southern."
+      }
      ]
     },
     "explanation": {
@@ -350,30 +314,28 @@
    },
    "solution": "CACHE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CACHE",
     "definitions": [
      {
       "text": "store",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "The answer is in the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Africa, cheerful",
-      "gives": "CACHE",
-      "note": "AfriCA CHEerful contains the letters."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "The answer is in the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Africa, cheerful",
+       "gives": "CACHE",
+       "note": "AfriCA CHEerful contains the letters."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A happy shop somewhere in Africa.",
      "walkthrough": "'Store' looks like a shop, but it is the definition as a hoard.",
@@ -400,49 +362,41 @@
    },
    "solution": "COMRADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COMRADE",
     "definitions": [
      {
       "text": "Associate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing",
-      "for": "container",
-      "note": "'Bringing ... in' says the arriving word takes the other letters inside it."
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrive",
-      "gives": "COME",
-      "note": "To come is to arrive."
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA is a Royal Academician, an artist."
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COM",
-      "RA",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing",
+       "note": "'Bringing ... in' says the arriving word takes the other letters inside it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "arrive",
+         "gives": "COME",
+         "note": "To come is to arrive."
+        },
+        {
+         "words": "artist",
+         "gives": "RA",
+         "note": "RA is a Royal Academician, an artist."
+        }
+       ]
+      },
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "D is the abbreviation for daughter."
+      }
      ]
     },
     "explanation": {
@@ -471,49 +425,43 @@
    },
    "solution": "COUNTERFEITER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "COUNTERFEITER",
     "definitions": [
      {
       "text": "Fraudster",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not hard",
-      "for": "deletion",
-      "note": "'Not hard' says to leave out H, the abbreviation for hard."
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "token",
-      "gives": "COUNTER",
-      "note": "A counter is a token used in games."
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F is the abbreviation for female."
-     },
-     {
-      "clueFragment": "Either",
-      "gives": "EITHER",
-      "note": "Used as printed, before losing its H."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUNTER",
-      "F",
-      "EITER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not hard",
+       "note": "'Not hard' says to leave out H, the abbreviation for hard."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "token",
+         "gives": "COUNTER",
+         "note": "A counter is a token used in games."
+        },
+        {
+         "words": "female",
+         "gives": "F",
+         "note": "F is the abbreviation for female."
+        },
+        {
+         "words": "Either",
+         "note": "Used as printed, before losing its H."
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -542,57 +490,50 @@
    },
    "solution": "ETHICAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ETHICAL",
     "definitions": [
      {
       "text": "moral",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "coming back",
-      "for": "reversal",
-      "note": "'Late' comes back, so it is read right to left."
-     },
-     {
-      "text": "receiving",
-      "for": "container",
-      "note": "The turned word receives the others inside it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Late",
-      "gives": "LATE",
-      "note": "Used as printed."
-     },
-     {
-      "clueFragment": "greeting",
-      "gives": "HI",
-      "note": "Hi is a greeting."
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold, as on a tap."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ET",
-      "HI",
-      "C",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LATE",
-       "to": "ETAL"
+       "text": "receiving",
+       "note": "The turned word receives the others inside it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "coming back",
+           "note": "'Late' comes back, so it is read right to left."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Late",
+           "note": "Used as printed."
+          }
+         ]
+        },
+        {
+         "words": "greeting",
+         "gives": "HI",
+         "note": "Hi is a greeting."
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap."
       }
      ]
     },
@@ -628,54 +569,40 @@
    },
    "solution": "GREATYARMOUTH",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GREAT YARMOUTH",
     "definitions": [
      {
       "text": "Seaside town",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought back",
-      "for": "reversal",
-      "note": "The fish is brought back, so it is read right to left."
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wonderful",
-      "gives": "GREAT",
-      "note": "Great means wonderful."
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "RAY",
-      "note": "A ray is a flat fish."
-     },
-     {
-      "clueFragment": "trap",
-      "gives": "MOUTH",
-      "note": "Trap is British slang for mouth, as in 'shut your trap'."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREAT",
-      "YAR",
-      "MOUTH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RAY",
-       "to": "YAR"
+       "words": "wonderful",
+       "gives": "GREAT",
+       "note": "Great means wonderful."
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought back",
+         "note": "The fish is brought back, so it is read right to left."
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "gives": "RAY",
+         "note": "A ray is a flat fish."
+        }
+       ]
+      },
+      {
+       "words": "trap",
+       "gives": "MOUTH",
+       "note": "Trap is British slang for mouth, as in 'shut your trap'."
       }
      ]
     },
@@ -705,10 +632,6 @@
    },
    "solution": "SATIATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SATIATE",
     "definitions": [
      {
       "text": "Having had one's fill",
@@ -716,25 +639,18 @@
       "note": "satiate is here the old adjective meaning satiated"
      }
     ],
-    "indicators": [
-     {
-      "text": "lively",
-      "for": "anagram",
-      "note": "'Is lively' tells us the letters before it jump about."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at tea, is",
-      "gives": "ATTEAIS",
-      "note": "Used as printed."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ATTEAIS",
-       "gives": "SATIATE"
+       "text": "lively",
+       "note": "'Is lively' tells us the letters before it jump about."
+      }
+     ],
+     "parts": [
+      {
+       "words": "at tea, is",
+       "note": "Used as printed."
       }
      ]
     },
@@ -764,35 +680,25 @@
    },
    "solution": "ANTIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTIC",
     "definitions": [
      {
       "text": "Playful act",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worker",
-      "gives": "ANT",
-      "note": "A worker ant; worker = ANT is a crossword staple."
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "IC is the abbreviation for in charge."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANT",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "worker",
+       "gives": "ANT",
+       "note": "A worker ant; worker = ANT is a crossword staple."
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "IC is the abbreviation for in charge."
+      }
      ]
     },
     "explanation": {
@@ -821,43 +727,31 @@
    },
    "solution": "SLOVEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SLOVEN",
     "definitions": [
      {
       "text": "untidy person",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "put in",
-      "for": "container",
-      "note": "Nothing is put in the other letters."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tin",
-      "gives": "SN",
-      "note": "Sn is the chemical symbol for tin."
-     },
-     {
-      "clueFragment": "Nothing",
-      "gives": "LOVE",
-      "note": "Love is nothing, a score of zero in tennis."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LOVE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "note": "Nothing is put in the other letters."
+      }
+     ],
+     "parts": [
+      {
+       "words": "tin",
+       "gives": "SN",
+       "note": "Sn is the chemical symbol for tin."
+      },
+      {
+       "words": "Nothing",
+       "gives": "LOVE",
+       "note": "Love is nothing, a score of zero in tennis."
+      }
      ]
     },
     "explanation": {
@@ -886,49 +780,45 @@
    },
    "solution": "SNIPPET",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SNIPPET",
     "definitions": [
      {
       "text": "Small piece",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not quite finished",
-      "for": "deletion",
-      "note": "The child is not quite finished, so it loses its last letter."
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "The shortened child goes in the street."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street."
-     },
-     {
-      "clueFragment": "child",
-      "gives": "NIPPER",
-      "note": "Nipper is British slang for a small child."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "NIPPE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "The shortened child goes in the street."
+      }
+     ],
+     "parts": [
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street."
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite finished",
+         "note": "The child is not quite finished, so it loses its last letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "child",
+         "gives": "NIPPER",
+         "note": "Nipper is British slang for a small child."
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -956,34 +846,29 @@
    },
    "solution": "EARNEST",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EARNEST",
     "definitions": [
      {
       "text": "Serious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "given a hearing",
-      "for": "homophone",
-      "note": "The man is heard, not seen, so we want his name's sound."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "man",
-      "gives": "EARNEST",
-      "soundsLike": "ERNEST",
-      "note": "Ernest is a man's name."
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EARNEST",
+     "indicators": [
+      {
+       "text": "given a hearing",
+       "note": "The man is heard, not seen, so we want his name's sound."
+      }
+     ],
+     "parts": [
+      {
+       "words": "man",
+       "gives": "ERNEST",
+       "note": "Ernest is a man's name."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A serious man gets his day in court.",
      "walkthrough": "Wilde's play 'The Importance of Being Earnest' turns on this very pun.",
@@ -1011,43 +896,38 @@
    },
    "solution": "PETROL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PETROL",
     "definitions": [
      {
       "text": "fuel",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "stopping early",
-      "for": "deletion",
-      "note": "The role stops before its end, losing its last letter."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Favourite",
-      "gives": "PET",
-      "note": "A pet is a favourite, as in teacher's pet."
-     },
-     {
-      "clueFragment": "role",
-      "gives": "ROLE",
-      "note": "Used as printed, before losing its E."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PET",
-      "ROL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "stopping early",
+       "note": "The role stops before its end, losing its last letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Favourite",
+         "gives": "PET",
+         "note": "A pet is a favourite, as in teacher's pet."
+        },
+        {
+         "words": "role",
+         "note": "Used as printed, before losing its E."
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1076,40 +956,31 @@
    },
    "solution": "FACILE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FACILE",
     "definitions": [
      {
       "text": "easy",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Insert",
-      "for": "container",
-      "note": "An instruction to put one piece inside the other."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "document folder",
-      "gives": "FILE",
-      "note": "A file is a document folder."
-     },
-     {
-      "clueFragment": "account",
-      "gives": "AC",
-      "note": "AC is the abbreviation for account."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "AC",
-      "ILE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Insert",
+       "note": "An instruction to put one piece inside the other."
+      }
+     ],
+     "parts": [
+      {
+       "words": "document folder",
+       "gives": "FILE",
+       "note": "A file is a document folder."
+      },
+      {
+       "words": "account",
+       "gives": "AC",
+       "note": "AC is the abbreviation for account."
+      }
      ]
     },
     "explanation": {
@@ -1137,33 +1008,29 @@
    },
    "solution": "INNER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INNER",
     "definitions": [
      {
       "text": "Private",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "The word's head, its first letter, goes."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Victor",
-      "gives": "WINNER",
-      "note": "A victor is a winner."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INNER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "note": "The word's head, its first letter, goes."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Victor",
+       "gives": "WINNER",
+       "note": "A victor is a winner."
+      },
+      {
+       "gives": "W"
+      }
      ]
     },
     "explanation": {
@@ -1192,47 +1059,44 @@
    },
    "solution": "ADDRESS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ADDRESS",
     "definitions": [
      {
       "text": "Speech",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "'Son initially' is the first letter of son."
-     },
-     {
-      "text": "is rewritten",
-      "for": "anagram",
-      "note": "The letters are written again in a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "select": "first",
-      "note": "The first letter of son."
-     },
-     {
-      "clueFragment": "dreads",
-      "gives": "DREADS",
-      "note": "Used as printed."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SDREADS",
-       "gives": "ADDRESS"
+       "text": "is rewritten",
+       "note": "The letters are written again in a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "'Son initially' is the first letter of son."
+          }
+         ],
+         "parts": [
+          {
+           "words": "son",
+           "note": "The first letter of son."
+          }
+         ]
+        },
+        {
+         "words": "dreads",
+         "note": "Used as printed."
+        }
+       ]
       }
      ]
     },
@@ -1261,40 +1125,31 @@
    },
    "solution": "DRIVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DRIVE",
     "definitions": [
      {
       "text": "ambition",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to be gripped by",
-      "for": "container",
-      "note": "Right is gripped, held inside, by the joint."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "joint",
-      "gives": "DIVE",
-      "note": "A dive is a seedy bar or club, a joint."
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "IVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be gripped by",
+       "note": "Right is gripped, held inside, by the joint."
+      }
+     ],
+     "parts": [
+      {
+       "words": "joint",
+       "gives": "DIVE",
+       "note": "A dive is a seedy bar or club, a joint."
+      },
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "R is the abbreviation for right."
+      }
      ]
     },
     "explanation": {
@@ -1323,28 +1178,16 @@
    },
    "solution": "STRAW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRAW",
     "definitions": [
      {
       "text": "Tube",
-      "at": 0
+      "at": 0,
+      "meaning": "a thin tube you suck a drink through"
      },
      {
       "text": "a pale yellow colour",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tube",
-      "note": "a thin tube you suck a drink through"
-     },
-     {
-      "clueFragment": "a pale yellow colour",
-      "note": "the colour of dried stalks of corn"
+      "at": 6,
+      "meaning": "the colour of dried stalks of corn"
      }
     ],
     "explanation": {
@@ -1378,35 +1221,24 @@
    },
    "solution": "PRIMEMINISTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PRIME MINISTER",
     "definitions": [
      {
       "text": "Heath, say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to roam",
-      "for": "anagram",
-      "note": "The letters roam about into a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I permit miners",
-      "gives": "IPERMITMINERS",
-      "note": "Used as printed."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IPERMITMINERS",
-       "gives": "PRIMEMINISTER"
+       "text": "to roam",
+       "note": "The letters roam about into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "I permit miners",
+       "note": "Used as printed."
       }
      ]
     },
@@ -1437,35 +1269,25 @@
    },
    "solution": "TWEET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWEET",
     "definitions": [
      {
       "text": "Message",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over-sentimental",
-      "gives": "TWEE",
-      "note": "Twee is British for excessively sweet or sentimental."
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "over-sentimental",
+       "gives": "TWEE",
+       "note": "Twee is British for excessively sweet or sentimental."
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time."
+      }
      ]
     },
     "explanation": {
@@ -1493,31 +1315,29 @@
    },
    "solution": "EYEBROW",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EYEBROW",
     "definitions": [
      {
       "text": "Raise this in surprise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "listening to",
-      "for": "homophone",
-      "note": "We are to hear the word, and hear it in a Cockney accent."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cockney intellectual",
-      "gives": "EYEBROW",
-      "soundsLike": "'IGHBROW",
-      "note": "An intellectual is a highbrow; a Cockney drops the H."
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYEBROW",
+     "indicators": [
+      {
+       "text": "listening to",
+       "note": "We are to hear the word, and hear it in a Cockney accent."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cockney intellectual",
+       "gives": "IGHBROW",
+       "note": "An intellectual is a highbrow; a Cockney drops the H."
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is astonished to hear a Cockney talk like an intellectual.",
      "walkthrough": "Cockney is the working-class London accent, which famously drops initial H, so highbrow comes out as 'ighbrow.",

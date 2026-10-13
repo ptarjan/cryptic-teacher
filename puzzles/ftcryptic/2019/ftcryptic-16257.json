@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-16257",
  "number": 16257,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 16,257",
  "setter": "Julius",
  "date": "2019-08-28",
  "dimensions": {
@@ -42,30 +40,28 @@
    },
    "solution": "AGHAST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AGHAST",
     "definitions": [
      {
       "text": "Horrified",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "hidden_word",
-      "note": "only a part of the following words is wanted, a run of letters spanning them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reichstag has termites",
-      "gives": "AGHAST",
-      "note": "the letters run across the end of the building, the verb and the start of the insects"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "note": "only a part of the following words is wanted, a run of letters spanning them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reichstag has termites",
+       "gives": "AGHAST",
+       "note": "the letters run across the end of the building, the verb and the start of the insects"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is appalled to discover that the German parliament building is infested with wood-eating insects.",
      "walkthrough": "The answer straddles three words: reichstAG HAS Termites. The dash and exclamation mark make the whole thing read as a shocked outburst.",
@@ -98,47 +94,41 @@
    },
    "solution": "FLASHMOB",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FLASH MOB",
     "definitions": [
      {
       "text": "Ad hoc social media group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "putting on",
-      "for": "container",
-      "note": "weight that is put on like a garment wraps around what comes before it, so the extra pounds enclose the silence and the runner"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weight",
-      "gives": "FLAB",
-      "note": "flab is the extra body weight someone puts on"
-     },
-     {
-      "clueFragment": "keep it quiet",
-      "gives": "SH",
-      "note": "sh! is the call to keep quiet"
-     },
-     {
-      "clueFragment": "Farah",
-      "gives": "MO",
-      "note": "Mo Farah, the British Olympic distance runner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLA",
-      "SH",
-      "MO",
-      "B"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "putting on",
+       "note": "weight that is put on like a garment wraps around what comes before it, so the extra pounds enclose the silence and the runner"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weight",
+       "gives": "FLAB",
+       "note": "flab is the extra body weight someone puts on"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "keep it quiet",
+         "gives": "SH",
+         "note": "sh! is the call to keep quiet"
+        },
+        {
+         "words": "Farah",
+         "gives": "MO",
+         "note": "Mo Farah, the British Olympic distance runner"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -173,53 +163,51 @@
    },
    "solution": "NOVASCOTIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "anagram"
-    ],
-    "answer": "NOVA SCOTIA",
     "definitions": [
      {
       "text": "island",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "premier",
-      "for": "letter_selection",
-      "note": "the premier of anything is its first, so only the opening letter of the province is kept"
-     },
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "the holidays take in the extra letter, absorbing it into the pile of letters"
-     },
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "something at sea is confused and adrift, so the letters lose their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vacations",
-      "gives": "VACATIONS",
-      "note": "taken as printed, anagram fodder"
-     },
-     {
-      "clueFragment": "Ontario's premier",
-      "gives": "O",
-      "select": "first",
-      "note": "the first letter of the Canadian province"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "VACATIONSO",
-       "gives": "NOVASCOTIA"
+       "text": "taking in",
+       "note": "the holidays take in the extra letter, absorbing it into the pile of letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "note": "something at sea is confused and adrift, so the letters lose their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vacations",
+         "note": "taken as printed, anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "premier",
+         "note": "the premier of anything is its first, so only the opening letter of the province is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ontario's premier",
+         "gives": "ONTARIOS",
+         "note": "the first letter of the Canadian province"
+        }
+       ]
       }
      ]
     },
@@ -249,35 +237,25 @@
    },
    "solution": "PIPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PIPE",
     "definitions": [
      {
       "text": "put the icing on the cake",
       "at": 19
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Constant",
-      "gives": "PI",
-      "note": "pi is the mathematical constant, about 3.14"
-     },
-     {
-      "clueFragment": "sport",
-      "gives": "PE",
-      "note": "PE is physical education, school sport"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "PE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Constant",
+       "gives": "PI",
+       "note": "pi is the mathematical constant, about 3.14"
+      },
+      {
+       "words": "sport",
+       "gives": "PE",
+       "note": "PE is physical education, school sport"
+      }
      ]
     },
     "explanation": {
@@ -307,46 +285,47 @@
    },
    "solution": "EGGBEATERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "EGGBEATERS",
     "definitions": [
      {
       "text": "Whisks",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing the second part",
-      "for": "deletion",
-      "note": "the two-word answer at 21 drops its second word, so only the first stays"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something that has gone off is spoilt and out of shape, so these letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Best",
-      "gives": "BEST",
-      "note": "taken as printed, anagram fodder"
-     },
-     {
-      "clueFragment": "21, missing the second part",
-      "gives": "REGGAE",
-      "note": "the answer to 21 across without its second word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EGGBEATERS",
+     "indicators": [
       {
-       "fodder": "BESTREGGAE",
-       "gives": "EGGBEATERS"
+       "text": "missing the second part",
+       "note": "the two-word answer at 21 drops its second word, so only the first stays"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something that has gone off is spoilt and out of shape, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Best",
+           "note": "taken as printed, anagram fodder"
+          },
+          {
+           "words": "21, missing the second part",
+           "gives": "REGGAE",
+           "note": "the answer to 21 across without its second word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -376,44 +355,41 @@
    },
    "solution": "AMIR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AMIR",
     "definitions": [
      {
       "text": "Arab ruler",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "failing to",
-      "for": "deletion",
-      "note": "the two countries fail to appear in the verb that follows, so their letters drop out of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "respect",
-      "gives": "ADMIRE",
-      "note": "to admire someone is to respect them"
-     },
-     {
-      "clueFragment": "Germany",
-      "gives": "D",
-      "note": "D is the international vehicle code for Germany"
-     },
-     {
-      "clueFragment": "Spain",
-      "gives": "E",
-      "note": "E is the international vehicle code for Spain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MIR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing to",
+       "note": "the two countries fail to appear in the verb that follows, so their letters drop out of it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "respect",
+         "gives": "ADMIRE",
+         "note": "to admire someone is to respect them"
+        },
+        {
+         "words": "Germany",
+         "gives": "D",
+         "note": "D is the international vehicle code for Germany"
+        }
+       ]
+      },
+      {
+       "words": "Spain",
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
+      }
      ]
     },
     "explanation": {
@@ -442,50 +418,42 @@
    },
    "solution": "AJWAIN",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "AJWAIN",
     "definitions": [
      {
       "text": "a seed",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "announced",
-      "for": "homophone",
-      "note": "announcing is saying out loud, so the footballer's first name is heard rather than spelt"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Amateur",
-      "gives": "A",
-      "note": "A is the standard abbreviation for amateur"
-     },
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is jack in a pack of cards"
-     },
-     {
-      "clueFragment": "Rooney announced",
-      "gives": "WAIN",
-      "soundsLike": "WAYNE",
-      "note": "Wayne Rooney, the England footballer; a wain is a farm wagon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "J",
-      "WAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Amateur",
+       "gives": "A",
+       "note": "A is the standard abbreviation for amateur"
+      },
+      {
+       "words": "Jack",
+       "gives": "J",
+       "note": "J is jack in a pack of cards"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WAIN",
+       "indicators": [
+        {
+         "text": "announced",
+         "note": "announcing is saying out loud, so the footballer's first name is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rooney announced",
+         "gives": "WAYNE",
+         "note": "Wayne Rooney, the England footballer; a wain is a farm wagon"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -515,37 +483,45 @@
    },
    "solution": "ARMAMENT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ARMAMENT",
     "definitions": [
      {
       "text": "weapons",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "reporting",
-      "for": "homophone",
-      "note": "a report is spoken, so the two synonyms are to be heard rather than read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mail",
-      "gives": "ARMA",
-      "soundsLike": "ARMOUR",
-      "note": "chain mail is armour"
-     },
-     {
-      "clueFragment": "intended",
-      "gives": "MENT",
-      "soundsLike": "MEANT",
-      "note": "what you intended is what you meant"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "ARMA",
+       "indicators": [
+        {
+         "text": "reporting",
+         "note": "a report is spoken, so the two synonyms are to be heard rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mail",
+         "gives": "ARMOUR",
+         "note": "chain mail is armour"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MENT",
+       "parts": [
+        {
+         "words": "intended",
+         "gives": "MEANT",
+         "note": "what you intended is what you meant"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Letters sent through the post are said to have been aimed at weapons.",
      "walkthrough": "'Mail' looks like post but is chain mail. Said with a British accent that drops the final R, ARMOUR MEANT runs together as ARMAMENT.",
@@ -572,43 +548,31 @@
    },
    "solution": "GALLOPING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GALLOPING",
     "definitions": [
      {
       "text": "flying",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "getting hold of",
-      "for": "container",
-      "note": "the adjective for annoying grabs the short word for operator and holds it inside"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It's exasperating",
-      "gives": "GALLING",
-      "note": "something galling is exasperating"
-     },
-     {
-      "clueFragment": "operator",
-      "gives": "OP",
-      "note": "the word cut short to its first two letters, the clipped form used for camera operators"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GALL",
-      "OP",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting hold of",
+       "note": "the adjective for annoying grabs the short word for operator and holds it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's exasperating",
+       "gives": "GALLING",
+       "note": "something galling is exasperating"
+      },
+      {
+       "words": "operator",
+       "gives": "OP",
+       "note": "the word cut short to its first two letters, the clipped form used for camera operators"
+      }
      ]
     },
     "explanation": {
@@ -637,40 +601,31 @@
    },
    "solution": "MAJOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAJOR",
     "definitions": [
      {
       "text": "Officer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in custody",
-      "for": "container",
-      "note": "someone in custody is held by another, so the little woman sits inside the word for harm"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "harm",
-      "gives": "MAR",
-      "note": "to mar is to spoil or harm"
-     },
-     {
-      "clueFragment": "little woman",
-      "gives": "JO",
-      "note": "Jo March, one of the sisters in Little Women"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "JO",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in custody",
+       "note": "someone in custody is held by another, so the little woman sits inside the word for harm"
+      }
+     ],
+     "parts": [
+      {
+       "words": "harm",
+       "gives": "MAR",
+       "note": "to mar is to spoil or harm"
+      },
+      {
+       "words": "little woman",
+       "gives": "JO",
+       "note": "Jo March, one of the sisters in Little Women"
+      }
      ]
     },
     "explanation": {
@@ -700,51 +655,40 @@
    },
    "solution": "ASSUAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ASSUAGE",
     "definitions": [
      {
       "text": "Pacify",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back the way it came, so the mathematician's name runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ace",
-      "gives": "A",
-      "note": "A is ace on playing cards"
-     },
-     {
-      "clueFragment": "German mathematician",
-      "gives": "GAUSS",
-      "note": "Carl Friedrich Gauss, the German mathematician"
-     },
-     {
-      "clueFragment": "base",
-      "gives": "E",
-      "note": "e is the base of natural logarithms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SSUAG",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GAUSS",
-       "to": "SSUAG"
+       "words": "ace",
+       "gives": "A",
+       "note": "A is ace on playing cards"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "note": "returning means going back the way it came, so the mathematician's name runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German mathematician",
+         "gives": "GAUSS",
+         "note": "Carl Friedrich Gauss, the German mathematician"
+        }
+       ]
+      },
+      {
+       "words": "base",
+       "gives": "E",
+       "note": "e is the base of natural logarithms"
       }
      ]
     },
@@ -774,45 +718,34 @@
    },
    "solution": "BARBARA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BARBARA",
     "definitions": [
      {
       "text": "Bush",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling west",
-      "for": "reversal",
-      "note": "across entries read west to east, so heading west means the word runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to stop",
-      "gives": "BAR",
-      "note": "to bar someone is to stop them"
-     },
-     {
-      "clueFragment": "Arab",
-      "gives": "ARAB",
-      "note": "taken as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "BARA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ARAB",
-       "to": "BARA"
+       "words": "to stop",
+       "gives": "BAR",
+       "note": "to bar someone is to stop them"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "travelling west",
+         "note": "across entries read west to east, so heading west means the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arab",
+         "note": "taken as printed"
+        }
+       ]
       }
      ]
     },
@@ -842,36 +775,25 @@
    },
    "solution": "TOM",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TOM",
     "definitions": [
      {
       "text": "Cat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "the starts of the following words are their first letters, the only ones kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "torment old Macavity",
-      "gives": "TOM",
-      "select": "first",
-      "note": "the first letter of each of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "O",
-      "M"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts to",
+       "note": "the starts of the following words are their first letters, the only ones kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "torment old Macavity",
+       "note": "the first letter of each of the three words"
+      }
      ]
     },
     "explanation": {
@@ -899,52 +821,46 @@
    },
    "solution": "CARCASSONNE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CARCASSONNE",
     "definitions": [
      {
       "text": "French citadel",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "buried in",
-      "for": "container",
-      "note": "something buried lies inside what covers it, so the knight goes within the old compass direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Body",
-      "gives": "CARCASS",
-      "note": "a carcass is a dead body"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the standard abbreviation for old"
-     },
-     {
-      "clueFragment": "knight",
-      "gives": "N",
-      "note": "N is the knight in chess notation"
-     },
-     {
-      "clueFragment": "north- east",
-      "gives": "NE",
-      "note": "NE is the compass abbreviation for north-east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARCASS",
-      "O",
-      "N",
-      "NE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Body",
+       "gives": "CARCASS",
+       "note": "a carcass is a dead body"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the standard abbreviation for old"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "buried in",
+         "note": "something buried lies inside what covers it, so the knight goes within the old compass direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "north- east",
+         "gives": "NE",
+         "note": "NE is the compass abbreviation for north-east"
+        },
+        {
+         "words": "knight",
+         "gives": "N",
+         "note": "N is the knight in chess notation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -973,48 +889,34 @@
    },
    "solution": "REGIMENTAL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "REGIMENTAL",
     "definitions": [
      {
       "text": "relating to military manouevres",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "terrible",
-      "for": "anagram",
-      "note": "a terrible state is a mess, so the illness is scrambled"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kray",
-      "gives": "REG",
-      "note": "Reggie Kray, one of the notorious London gangster twins"
-     },
-     {
-      "clueFragment": "ailment",
-      "gives": "AILMENT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REG",
-      "IMENTAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AILMENT",
-       "gives": "IMENTAL"
+       "words": "Kray",
+       "gives": "REG",
+       "note": "Reggie Kray, one of the notorious London gangster twins"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "note": "a terrible state is a mess, so the illness is scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ailment",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1044,50 +946,42 @@
    },
    "solution": "STRYCHNINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STRYCHNINE",
     "definitions": [
      {
       "text": "poison",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter of the name is kept"
-     },
-     {
-      "text": "Featured in",
-      "for": "container",
-      "note": "a thing featured in another appears within it, so the chosen letters sit inside the dialect"
-     }
-    ],
-    "linkWords": [
-     "taken"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australian commonly",
-      "gives": "STRINE",
-      "note": "Strine is the popular name for broad Australian speech"
-     },
-     {
-      "clueFragment": "Syd Cohen's regularly",
-      "gives": "YCHN",
-      "select": "alternate",
-      "note": "the even-numbered letters of SYD COHEN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STR",
-      "YCHN",
-      "INE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Featured in",
+       "note": "a thing featured in another appears within it, so the chosen letters sit inside the dialect"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australian commonly",
+       "gives": "STRINE",
+       "note": "Strine is the popular name for broad Australian speech"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every other letter of the name is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Syd Cohen's regularly",
+         "gives": "SYDCOHENS",
+         "note": "the even-numbered letters of SYD COHEN"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1116,50 +1010,40 @@
    },
    "solution": "SABOT",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion"
-    ],
-    "answer": "SABOT",
     "definitions": [
      {
       "text": "shoe",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "the name is returned the way it came, so it reads backwards"
-     },
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "the numeral for one goes missing, so that letter drops out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tobias",
-      "gives": "TOBIAS",
-      "note": "taken as printed"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "BOT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TOBIAS",
-       "to": "SAIBOT"
+       "text": "returned",
+       "note": "the name is returned the way it came, so it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "the numeral for one goes missing, so that letter drops out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tobias",
+         "note": "taken as printed"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
@@ -1189,51 +1073,40 @@
    },
    "solution": "SERGEANT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SERGEANT",
     "definitions": [
      {
       "text": "Copper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "criminal means crooked, so the equipment's letters are bent out of order"
-     },
-     {
-      "text": "to seize",
-      "for": "container",
-      "note": "to seize something is to grab it, so the word for despatched closes around the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "despatched",
-      "gives": "SENT",
-      "note": "despatched means sent off"
-     },
-     {
-      "clueFragment": "gear",
-      "gives": "GEAR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "RGEA",
-      "NT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GEAR",
-       "gives": "RGEA"
+       "text": "to seize",
+       "note": "to seize something is to grab it, so the word for despatched closes around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "despatched",
+       "gives": "SENT",
+       "note": "despatched means sent off"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "note": "criminal means crooked, so the equipment's letters are bent out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gear",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1263,39 +1136,31 @@
    },
    "solution": "GEE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GEE",
     "definitions": [
      {
       "text": "Blimey",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "runs out of",
-      "for": "deletion",
-      "note": "the hotel runs out of the butter, so its letter leaves the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clarified butter",
-      "gives": "GHEE",
-      "note": "ghee is the clarified butter of Indian cooking"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "Hotel is H in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "EE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "runs out of",
+       "note": "the hotel runs out of the butter, so its letter leaves the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clarified butter",
+       "gives": "GHEE",
+       "note": "ghee is the clarified butter of Indian cooking"
+      },
+      {
+       "words": "hotel",
+       "gives": "H",
+       "note": "Hotel is H in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1324,28 +1189,16 @@
    },
    "solution": "ROAST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROAST",
     "definitions": [
      {
       "text": "Criticise",
-      "at": 0
+      "at": 0,
+      "meaning": "to pan or savage someone's work harshly, often mockingly"
      },
      {
       "text": "Sunday lunch",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Criticise",
-      "note": "to pan or savage someone's work harshly, often mockingly"
-     },
-     {
-      "clueFragment": "Sunday lunch",
-      "note": "the traditional British weekend meal of a joint of meat cooked in the oven"
+      "at": 10,
+      "meaning": "the traditional British weekend meal of a joint of meat cooked in the oven"
      }
     ],
     "explanation": {
@@ -1374,40 +1227,34 @@
    },
    "solution": "ARBOREAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARBOREAL",
     "definitions": [
      {
       "text": "in sylvan setting",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "melted",
-      "for": "anagram",
-      "note": "a melted chocolate bar has lost its shape, so its letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aero Bar",
-      "gives": "AEROBAR",
-      "note": "an Aero is a British chocolate bar full of bubbles; anagram fodder"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AEROBARL",
-       "gives": "ARBOREAL"
+       "text": "melted",
+       "note": "a melted chocolate bar has lost its shape, so its letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Aero Bar",
+         "note": "an Aero is a British chocolate bar full of bubbles; anagram fodder"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left"
+        }
+       ]
       }
      ]
     },
@@ -1443,35 +1290,24 @@
    },
    "solution": "REGGAEMUSIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REGGAE MUSIC",
     "definitions": [
      {
       "text": "score from the West Indies",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcasting",
-      "for": "anagram",
-      "note": "broadcasting scatters things widely, so these letters are thrown into new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cue Aggers — I'm",
-      "gives": "CUEAGGERSIM",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CUEAGGERSIM",
-       "gives": "REGGAEMUSIC"
+       "text": "broadcasting",
+       "note": "broadcasting scatters things widely, so these letters are thrown into new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cue Aggers — I'm",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -1502,39 +1338,31 @@
    },
    "solution": "GOVERN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOVERN",
     "definitions": [
      {
       "text": "Direct",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to support",
-      "for": "charade",
-      "note": "in a down entry the supporting piece is underneath, so the navy follows the minister"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory minister",
-      "gives": "GOVE",
-      "note": "Michael Gove, a Conservative cabinet minister"
-     },
-     {
-      "clueFragment": "navy",
-      "gives": "RN",
-      "note": "RN is the Royal Navy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOVE",
-      "RN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "note": "in a down entry the supporting piece is underneath, so the navy follows the minister"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tory minister",
+       "gives": "GOVE",
+       "note": "Michael Gove, a Conservative cabinet minister"
+      },
+      {
+       "words": "navy",
+       "gives": "RN",
+       "note": "RN is the Royal Navy"
+      }
      ]
     },
     "explanation": {
@@ -1563,42 +1391,31 @@
    },
    "solution": "BOB",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BOB",
     "definitions": [
      {
       "text": "another bloke",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "left",
-      "for": "deletion",
-      "note": "Mike has left the word for a fortune, so his letter is gone from it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a fortune",
-      "gives": "BOMB",
-      "note": "in British slang, a bomb is a lot of money, as in 'cost a bomb'"
-     },
-     {
-      "clueFragment": "Mike",
-      "gives": "M",
-      "note": "Mike is M in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "B"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "left",
+       "note": "Mike has left the word for a fortune, so his letter is gone from it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a fortune",
+       "gives": "BOMB",
+       "note": "in British slang, a bomb is a lot of money, as in 'cost a bomb'"
+      },
+      {
+       "words": "Mike",
+       "gives": "M",
+       "note": "Mike is M in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1627,30 +1444,28 @@
    },
    "solution": "BULLET",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "BULLET",
     "definitions": [
      {
       "text": "Explosive device",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "the answer is found inside the following words, spanning the gap between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kabul letterbomb",
-      "gives": "BULLET",
-      "note": "the letters run from the end of the Afghan capital into the start of the second word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "the answer is found inside the following words, spanning the gap between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kabul letterbomb",
+       "gives": "BULLET",
+       "note": "the letters run from the end of the Afghan capital into the start of the second word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A bomb disguised as a letter is discovered in the Afghan capital.",
      "walkthrough": "kaBUL LETterbomb. The definition is loose: a bullet is fired by an explosive charge rather than being a bomb.",
@@ -1677,46 +1492,43 @@
    },
    "solution": "ENVIRON",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "ENVIRON",
     "definitions": [
      {
       "text": "Besiege",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rumour of",
-      "for": "homophone",
-      "note": "a rumour is something heard said, so the feeling is taken by its sound"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "the gangster comes after the other piece, so his name is placed second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rumour of jealousy",
-      "gives": "ENVI",
-      "soundsLike": "ENVY",
-      "note": "envy is jealousy"
-     },
-     {
-      "clueFragment": "Kray",
-      "gives": "RON",
-      "note": "Ronnie Kray, one of the notorious London gangster twins"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENVI",
-      "RON"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "the gangster comes after the other piece, so his name is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "ENVI",
+       "indicators": [
+        {
+         "text": "rumour of",
+         "note": "a rumour is something heard said, so the feeling is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rumour of jealousy",
+         "gives": "ENVY",
+         "note": "envy is jealousy"
+        }
+       ]
+      },
+      {
+       "words": "Kray",
+       "gives": "RON",
+       "note": "Ronnie Kray, one of the notorious London gangster twins"
+      }
      ]
     },
     "explanation": {
@@ -1745,34 +1557,29 @@
    },
    "solution": "ROAD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ROAD",
     "definitions": [
      {
       "text": "street",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Allegedly",
-      "for": "homophone",
-      "note": "what is alleged is only said, so the verb is taken as it is spoken"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pulled a blade",
-      "gives": "ROAD",
-      "soundsLike": "ROWED",
-      "note": "an oar's blade is pulled through the water when rowing"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROAD",
+     "indicators": [
+      {
+       "text": "Allegedly",
+       "note": "what is alleged is only said, so the verb is taken as it is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pulled a blade",
+       "gives": "ROWED",
+       "note": "an oar's blade is pulled through the water when rowing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is accused of drawing a knife in a public thoroughfare.",
      "walkthrough": "'Pulled a blade' reads as producing a knife, but the blade is the flat end of an oar.",
@@ -1800,44 +1607,39 @@
    },
    "solution": "GENERAL",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "GENERAL",
     "definitions": [
      {
       "text": "military rank",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "letter_selection",
-      "note": "both names are stripped of their outer layers, leaving only their insides"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agent",
-      "gives": "GEN",
-      "select": "middle",
-      "note": "the word without its first and last letters"
-     },
-     {
-      "clueFragment": "Gerald",
-      "gives": "ERAL",
-      "select": "middle",
-      "note": "the name without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEN",
-      "ERAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped",
+         "note": "both names are stripped of their outer layers, leaving only their insides"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Agent",
+         "note": "the word without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Gerald",
+         "note": "the name without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1866,39 +1668,31 @@
    },
    "solution": "GAVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GAVE",
     "definitions": [
      {
       "text": "Donated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upfront",
-      "for": "charade",
-      "note": "being upfront means going at the head, so the thousand is placed first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grand",
-      "gives": "G",
-      "note": "G is slang for a grand, a thousand pounds or dollars"
-     },
-     {
-      "clueFragment": "26",
-      "gives": "AVE",
-      "note": "the answer to 26 down is ROAD, and Ave (avenue) is another road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AVE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "upfront",
+       "note": "being upfront means going at the head, so the thousand is placed first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grand",
+       "gives": "G",
+       "note": "G is slang for a grand, a thousand pounds or dollars"
+      },
+      {
+       "words": "26",
+       "gives": "AVE",
+       "note": "the answer to 26 down is ROAD, and Ave (avenue) is another road"
+      }
      ]
     },
     "explanation": {
@@ -1927,32 +1721,25 @@
    },
    "solution": "NORMA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NORMA",
     "definitions": [
      {
       "text": "opera",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Standard",
-      "gives": "NORM",
-      "note": "a norm is a standard"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the abbreviation for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NORM",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Standard",
+       "gives": "NORM",
+       "note": "a norm is a standard"
+      },
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A is the abbreviation for American"
+      }
      ]
     },
     "explanation": {
@@ -1981,47 +1768,35 @@
    },
    "solution": "ADVANTAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADVANTAGE",
     "definitions": [
      {
       "text": "profit",
       "at": 44
      }
     ],
-    "linkWords": [
-     "making a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Commercial",
-      "gives": "AD",
-      "note": "an ad is a commercial on TV or radio"
-     },
-     {
-      "clueFragment": "vehicle",
-      "gives": "VAN",
-      "note": "a van is a vehicle"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a long period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "VAN",
-      "T",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Commercial",
+       "gives": "AD",
+       "note": "an ad is a commercial on TV or radio"
+      },
+      {
+       "words": "vehicle",
+       "gives": "VAN",
+       "note": "a van is a vehicle"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "time",
+       "gives": "AGE",
+       "note": "an age is a long period of time"
+      }
      ]
     },
     "explanation": {

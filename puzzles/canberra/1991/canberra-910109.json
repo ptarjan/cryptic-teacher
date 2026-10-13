@@ -1,8 +1,7 @@
 {
  "id": "canberra-910109",
  "number": 910109,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Wednesday 9 January 1991 (English cryptic)",
+ "label": "English cryptic",
  "date": "1991-01-09",
  "dimensions": {
   "cols": 15,
@@ -40,28 +39,16 @@
    },
    "solution": "SURFACES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SURFACES",
     "definitions": [
      {
       "text": "Joseph and his brother dramatically",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Joseph and Charles, the two brothers in Sheridan's play The School for Scandal, share this surname, pluralised"
      },
      {
       "text": "champions of wind and wave",
-      "at": 36
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joseph and his brother dramatically",
-      "note": "first meaning: Joseph and Charles, the two brothers in Sheridan's play The School for Scandal, share this surname, pluralised"
-     },
-     {
-      "clueFragment": "champions of wind and wave",
-      "note": "second meaning: read as two words, ..., experts at riding the sea"
+      "at": 36,
+      "meaning": "second meaning: read as two words, ..., experts at riding the sea"
      }
     ],
     "explanation": {
@@ -91,26 +78,25 @@
    },
    "solution": "SHOO",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SHOO",
     "definitions": [
      {
       "text": "Go away",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Go away",
-      "note": "surface reading: a shouted order to clear off"
-     },
-     {
-      "clueFragment": "or I'll t",
-      "note": "setter's reading: a threat whose last word is missing all but its final letter, so the answer is the part left out"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Go away",
+       "note": "surface reading: a shouted order to clear off"
+      },
+      {
+       "words": "or I'll t",
+       "note": "setter's reading: a threat whose last word is missing all but its final letter, so the answer is the part left out"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The OCR shows '1', which would point at 1 Down, but that makes no sense; a printed 't' does: the answer plus t completes the threat.",
      "definitionFit": "The word is an interjection used to drive off animals or people, telling them to leave at once."
@@ -136,31 +122,29 @@
    },
    "solution": "PIDGIN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PIDGIN",
     "definitions": [
      {
       "text": "Language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spoken by",
-      "for": "homophone",
-      "note": "something spoken is heard rather than read, so the bird's name is taken by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dove",
-      "gives": "PIDGIN",
-      "soundsLike": "PIGEON",
-      "note": "a dove is a kind of pigeon"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PIDGIN",
+     "indicators": [
+      {
+       "text": "spoken by",
+       "note": "something spoken is heard rather than read, so the bird's name is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dove",
+       "gives": "PIGEON",
+       "note": "a dove is a kind of pigeon"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about what tongue a dove might talk in.",
      "definitionFit": "A pidgin is a simplified contact tongue that grows up between speakers who share no common one."
@@ -187,49 +171,48 @@
    },
    "solution": "VIENNESE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "VIENNESE",
     "definitions": [
      {
       "text": "capital people",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "headless",
-      "for": "deletion",
-      "note": "something headless has lost its top, so the opening letter of the second number is dropped"
-     },
-     {
-      "text": "make",
-      "for": "anagram",
-      "note": "to make here is to build something new out of the materials, so the letters are put together in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "7",
-      "gives": "SEVEN",
-      "note": "the number written as a word"
-     },
-     {
-      "clueFragment": "9",
-      "gives": "INE",
-      "note": "the number nine written as a word, without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIENNESE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VIENNESE",
+     "indicators": [
       {
-       "fodder": "SEVENINE",
-       "gives": "VIENNESE"
+       "text": "headless",
+       "note": "something headless has lost its top, so the opening letter of the second number is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "make",
+         "note": "to make here is to build something new out of the materials, so the letters are put together in another order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "7",
+           "gives": "SEVEN",
+           "note": "the number written as a word"
+          },
+          {
+           "words": "9",
+           "gives": "INE",
+           "note": "the number nine written as a word, without its first letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -265,50 +248,40 @@
    },
    "solution": "PLAINCHANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PLAIN-CHANT",
     "definitions": [
      {
       "text": "a sound in the monastery",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it, so the measure goes within the word for the works"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "measure",
-      "gives": "INCH",
-      "note": "an inch is a unit of length"
-     },
-     {
-      "clueFragment": "the factory",
-      "gives": "PLANT",
-      "note": "a plant is an industrial works"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PL",
-      "A",
-      "INCH",
-      "ANT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it, so the measure goes within the word for the works"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the factory",
+       "gives": "PLANT",
+       "note": "a plant is an industrial works"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "measure",
+         "gives": "INCH",
+         "note": "an inch is a unit of length"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -337,35 +310,25 @@
    },
    "solution": "HEXHAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEXHAM",
     "definitions": [
      {
       "text": "abbey town",
       "at": 29
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hoodoo",
-      "gives": "HEX",
-      "note": "a hoodoo is a jinx or curse, as is a hex"
-     },
-     {
-      "clueFragment": "radio opera tor",
-      "gives": "HAM",
-      "note": "an amateur radio operator is a ham; the OCR splits 'operator'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEX",
-      "HAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hoodoo",
+       "gives": "HEX",
+       "note": "a hoodoo is a jinx or curse, as is a hex"
+      },
+      {
+       "words": "radio opera tor",
+       "gives": "HAM",
+       "note": "an amateur radio operator is a ham; the OCR splits 'operator'"
+      }
      ]
     },
     "explanation": {
@@ -400,26 +363,25 @@
    },
    "solution": "BUSHFIRE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BUSH FIRE",
     "definitions": [
      {
       "text": "Danger of dry land",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Danger of dry land",
-      "note": "surface reading: a hazard facing parched country in an Australian summer"
-     },
-     {
-      "clueFragment": "If otherwise, play on word \"Horrific\"",
-      "note": "setter's reading: the clue admits to being a pun, with 'if' turned the other way round making the start of the second word"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Danger of dry land",
+       "note": "surface reading: a hazard facing parched country in an Australian summer"
+      },
+      {
+       "words": "If otherwise, play on word \"Horrific\"",
+       "note": "setter's reading: the clue admits to being a pun, with 'if' turned the other way round making the start of the second word"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "In January 1991 this works two ways: the menace of the dry Australian bush in summer, and the US president's firepower aimed at the desert of the Gulf. Only the reversed 'if' of the tail is clear.",
      "definitionFit": "A bushfire is a wildfire in scrub or forest, the great seasonal hazard of dry Australian country."
@@ -452,46 +414,43 @@
    },
    "solution": "ERENOW",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ERE NOW",
     "definitions": [
      {
       "text": "Hitherto",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "container",
-      "note": "something between two things is flanked by them, so the city goes inside the pair"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "couple that never meet",
-      "gives": "E",
-      "note": "east and west, opposite compass points that never meet; this is the first"
-     },
-     {
-      "clueFragment": "place of divorce",
-      "gives": "RENO",
-      "note": "Reno, Nevada, was famous for quick divorces"
-     },
-     {
-      "clueFragment": "couple that never meet",
-      "gives": "W",
-      "note": "the second of the pair, west"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "RENO",
-      "W"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ERENOW",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "something between two things is flanked by them, so the city goes inside the pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "couple that never meet",
+         "gives": "E",
+         "note": "east and west, opposite compass points that never meet; this is the first"
+        },
+        {
+         "words": "place of divorce",
+         "gives": "RENO",
+         "note": "Reno, Nevada, was famous for quick divorces"
+        },
+        {
+         "words": "couple that never meet",
+         "gives": "W",
+         "note": "the second of the pair, west"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -527,26 +486,25 @@
    },
    "solution": "ILLMET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ILL MET",
     "definitions": [
      {
       "text": "Oberon and Titania, moonlighting, were",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Oberon and Titania, moonlighting, were",
-      "note": "surface reading: the fairy king and queen working a second job by night"
-     },
-     {
-      "clueFragment": "with me, it doesn't say for how long",
-      "note": "setter's reading: Oberon greets Titania in A Midsummer Night's Dream with a famous line about an unlucky moonlit meeting; the clue quotes it, leaving out the moonlight"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Oberon and Titania, moonlighting, were",
+       "note": "surface reading: the fairy king and queen working a second job by night"
+      },
+      {
+       "words": "with me, it doesn't say for how long",
+       "note": "setter's reading: Oberon greets Titania in A Midsummer Night's Dream with a famous line about an unlucky moonlit meeting; the clue quotes it, leaving out the moonlight"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "In A Midsummer Night's Dream Oberon greets Titania with 'Ill met by moonlight, proud Titania', so by moonlight they were badly met; the rest of the clue is padding whose wordplay is not clear.",
      "definitionFit": "Two people who are ill met encounter each other unluckily or with hostility, as the quarrelling fairy rulers do."
@@ -579,31 +537,21 @@
    },
    "solution": "IFSO",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "IF SO",
     "definitions": [
      {
       "text": "in that case",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Parched condition in Paris",
-      "gives": "SOIF",
-      "note": "soif is the French word for thirst"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IFSO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "IFSO",
+     "parts": [
       {
-       "fodder": "SOIF",
-       "gives": "IFSO"
+       "words": "Parched condition in Paris",
+       "gives": "SOIF",
+       "note": "soif is the French word for thirst"
       }
      ]
     },
@@ -639,31 +587,16 @@
    },
    "solution": "GREENLIGHT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GREEN LIGHT",
     "definitions": [
      {
       "text": "Go-ahead",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: permission to proceed, the signal at a crossing"
      },
      {
       "text": "eau-de-Nil",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go-ahead",
-      "note": "first meaning: permission to proceed, the signal at a crossing"
-     },
-     {
-      "clueFragment": "eau-de-Nil",
-      "note": "second meaning: eau-de-Nil is a pale, light green colour, so it is literally a light green"
+      "at": 13,
+      "meaning": "second meaning: eau-de-Nil is a pale, light green colour, so it is literally a light green"
      }
     ],
     "explanation": {
@@ -692,26 +625,25 @@
    },
    "solution": "ACUMEN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ACUMEN",
     "definitions": [
      {
       "text": "point",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Comer on stage",
-      "note": "surface reading: someone making an entrance in a play"
-     },
-     {
-      "clueFragment": "crazy on point",
-      "note": "setter's reading: the definition is the last word, sharpness of mind; how the opening words build the answer is not clear from the printed clue"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Comer on stage",
+       "note": "surface reading: someone making an entrance in a play"
+      },
+      {
+       "words": "crazy on point",
+       "note": "setter's reading: the definition is the last word, sharpness of mind; how the opening words build the answer is not clear from the printed clue"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The first part may play on 'a cue man', an actor who comes on at his cue, but 'crazy' has no clear role, so treat this parse as uncertain; the crossings fix the answer.",
      "definitionFit": "Acumen is keenness of judgement, a mind with a sharp point to it, from the Latin for sharpness."
@@ -747,35 +679,24 @@
    },
    "solution": "MOWTHELAWN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MOW THE LAWN",
     "definitions": [
      {
       "text": "blades at blades",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "to set",
-      "for": "anagram",
-      "note": "to set is to put in order or arrange, so these letters are laid out afresh"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "We want Holm",
-      "gives": "WEWANTHOLM",
-      "note": "the three words as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WEWANTHOLM",
-       "gives": "MOWTHELAWN"
+       "text": "to set",
+       "note": "to set is to put in order or arrange, so these letters are laid out afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "We want Holm",
+       "note": "the three words as letters"
       }
      ]
     },
@@ -806,39 +727,27 @@
    },
    "solution": "OVERCOME",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "OVERCOME",
     "definitions": [
      {
       "text": "We shall one day",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "or",
-      "for": "cycling",
-      "note": "or offers the alternative arrangement, so the two words of the phrase trade places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "give an impression or cross to our side",
-      "gives": "COMEOVER",
-      "note": "to come over is both to give an impression (he comes over as shy) and to cross to our side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "COME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "OVERCOME",
+     "indicators": [
       {
-       "fodder": "COMEOVER",
-       "gives": "OVERCOME"
+       "text": "or",
+       "note": "or offers the alternative arrangement, so the two words of the phrase trade places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "give an impression or cross to our side",
+       "gives": "COMEOVER",
+       "note": "to come over is both to give an impression (he comes over as shy) and to cross to our side"
       }
      ]
     },
@@ -874,32 +783,25 @@
    },
    "solution": "SAWFLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SAW-FLY",
     "definitions": [
      {
       "text": "it has a serrated ovipositor",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "saying",
-      "gives": "SAW",
-      "note": "a saw is an old saying or proverb"
-     },
-     {
-      "clueFragment": "Avoid",
-      "gives": "FLY",
-      "note": "to fly from something is to flee or avoid it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAW",
-      "FLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "saying",
+       "gives": "SAW",
+       "note": "a saw is an old saying or proverb"
+      },
+      {
+       "words": "Avoid",
+       "gives": "FLY",
+       "note": "to fly from something is to flee or avoid it"
+      }
      ]
     },
     "explanation": {
@@ -928,41 +830,30 @@
    },
    "solution": "LEVERAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEVERAGE",
     "definitions": [
      {
       "text": "Power of movement",
       "at": 0
      }
     ],
-    "linkWords": [
-     "means"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a number",
-      "gives": "L",
-      "note": "L is the Roman numeral fifty"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EVER",
-      "note": "ever means always"
-     },
-     {
-      "clueFragment": "get older",
-      "gives": "AGE",
-      "note": "to age is to grow older"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EVER",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a number",
+       "gives": "L",
+       "note": "L is the Roman numeral fifty"
+      },
+      {
+       "words": "always",
+       "gives": "EVER",
+       "note": "ever means always"
+      },
+      {
+       "words": "get older",
+       "gives": "AGE",
+       "note": "to age is to grow older"
+      }
      ]
     },
     "explanation": {
@@ -996,32 +887,21 @@
    },
    "solution": "SEAAIR",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "SEA AIR",
     "definitions": [
      {
       "text": "Ozone",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "to the rescue in . World War II",
-      "gives": "AIRSEA",
-      "note": "the wartime Air-Sea Rescue service picked up airmen downed at sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEA",
-      "AIR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "SEAAIR",
+     "parts": [
       {
-       "fodder": "AIRSEA",
-       "gives": "SEAAIR"
+       "words": "to the rescue in . World War II",
+       "gives": "AIRSEA",
+       "note": "the wartime Air-Sea Rescue service picked up airmen downed at sea"
       }
      ]
     },
@@ -1051,32 +931,25 @@
    },
    "solution": "RESCRIPT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESCRIPT",
     "definitions": [
      {
       "text": "Decree",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning or about"
-     },
-     {
-      "clueFragment": "epitaph in its first word",
-      "gives": "SCRIPT",
-      "note": "writing that holds the letters RIP, the usual opening of an epitaph"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SCRIPT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means concerning or about"
+      },
+      {
+       "words": "epitaph in its first word",
+       "gives": "SCRIPT",
+       "note": "writing that holds the letters RIP, the usual opening of an epitaph"
+      }
      ]
     },
     "explanation": {
@@ -1105,34 +978,28 @@
    },
    "solution": "ASIMOV",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ASIMOV",
     "definitions": [
      {
       "text": "Sci-fi writer",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis scoring, written O"
-     },
-     {
-      "clueFragment": "Mavis",
-      "gives": "MAVIS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
       {
-       "fodder": "OMAVIS",
-       "gives": "ASIMOV"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "love is zero in tennis scoring, written O"
+        },
+        {
+         "words": "Mavis",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1162,54 +1029,50 @@
    },
    "solution": "ARCHIVES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ARCHIVES",
     "definitions": [
      {
       "text": "records",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "a head start",
-      "for": "letter_selection",
-      "note": "a head start is a lead at the very front, so only the opening letter of the next word is used"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joan's",
-      "gives": "ARC",
-      "note": "Joan of Arc"
-     },
-     {
-      "clueFragment": "has",
-      "gives": "H",
-      "select": "first",
-      "note": "the word has supplies only its opening letter"
-     },
-     {
-      "clueFragment": "Saint",
-      "gives": "IVES",
-      "note": "St Ives, the Cornish seaside town named after a saint"
-     },
-     {
-      "clueFragment": "place",
-      "note": "padding that tells you the saint stands for a town"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARC",
-      "H",
-      "IVES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Joan's",
+         "gives": "ARC",
+         "note": "Joan of Arc"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a head start",
+           "note": "a head start is a lead at the very front, so only the opening letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "has",
+           "note": "the word has supplies only its opening letter"
+          }
+         ]
+        },
+        {
+         "words": "Saint",
+         "gives": "IVES",
+         "note": "St Ives, the Cornish seaside town named after a saint"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "place",
+       "note": "padding that tells you the saint stands for a town"
+      }
      ]
     },
     "explanation": {
@@ -1238,41 +1101,31 @@
    },
    "solution": "RUNWAY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RUNWAY",
     "definitions": [
      {
       "text": "airfield",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "drops",
-      "for": "deletion",
-      "note": "to drop something is to let it fall away, so the little word goes missing"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fugitive",
-      "gives": "RUNAWAY",
-      "note": "a fugitive is one who has run off"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a is the indefinite article, the letter taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUNWAY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "drops",
+       "note": "to drop something is to let it fall away, so the little word goes missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fugitive",
+       "gives": "RUNAWAY",
+       "note": "a fugitive is one who has run off"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "a is the indefinite article, the letter taken out"
+      }
      ]
     },
     "explanation": {
@@ -1301,43 +1154,39 @@
    },
    "solution": "POTASH",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "POTASH",
     "definitions": [
      {
       "text": "alkali",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "'Ere's",
-      "for": "deletion",
-      "note": "the dropped aitch of a Cockney 'here's' tells you to treat the next word the same way, losing its opening letter"
-     }
-    ],
-    "linkWords": [
-     "is an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cannabis",
-      "gives": "POT",
-      "note": "pot is slang for cannabis"
-     },
-     {
-      "clueFragment": "cannabis",
-      "gives": "HASH",
-      "note": "hash, short for hashish, is another name for the drug; it loses its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POT",
-      "ASH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "'Ere's",
+       "note": "the dropped aitch of a Cockney 'here's' tells you to treat the next word the same way, losing its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cannabis",
+         "gives": "POT",
+         "note": "pot is slang for cannabis"
+        },
+        {
+         "words": "cannabis",
+         "gives": "HASH",
+         "note": "hash, short for hashish, is another name for the drug; it loses its first letter"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -1367,41 +1216,30 @@
    },
    "solution": "POSING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "POSING",
     "definitions": [
      {
       "text": "Model task",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "I'm on top of it",
-      "for": "deletion",
-      "note": "the answer becomes the longer word once these two letters are placed above it, so the clue builds the answer by taking them off"
-     }
-    ],
-    "linkWords": [
-     "if"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "impressive",
-      "gives": "IMPOSING",
-      "note": "impressive means grand or imposing"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, the letters to remove"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POSING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "I'm on top of it",
+       "note": "the answer becomes the longer word once these two letters are placed above it, so the clue builds the answer by taking them off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "impressive",
+       "gives": "IMPOSING",
+       "note": "impressive means grand or imposing"
+      },
+      {
+       "words": "I'm",
+       "note": "taken as written, the letters to remove"
+      }
      ]
     },
     "explanation": {
@@ -1436,38 +1274,34 @@
    },
    "solution": "UNCLEREMUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNCLE REMUS",
     "definitions": [
      {
       "text": "Negro who told stories",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning or about"
-     },
-     {
-      "clueFragment": "United Nations",
-      "gives": "UN",
-      "note": "UN is the standard abbreviation"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "MUSCLE",
-      "note": "muscle means power or force"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
       {
-       "fodder": "REUNMUSCLE",
-       "gives": "UNCLEREMUS"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re means concerning or about"
+        },
+        {
+         "words": "United Nations",
+         "gives": "UN",
+         "note": "UN is the standard abbreviation"
+        },
+        {
+         "words": "force",
+         "gives": "MUSCLE",
+         "note": "muscle means power or force"
+        }
+       ]
       }
      ]
     },
@@ -1503,32 +1337,21 @@
    },
    "solution": "INRE",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "IN RE",
     "definitions": [
      {
       "text": "Legal term relating to",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "check",
-      "gives": "REIN",
-      "note": "to rein in is to check or restrain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "RE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "INRE",
+     "parts": [
       {
-       "fodder": "REIN",
-       "gives": "INRE"
+       "words": "check",
+       "gives": "REIN",
+       "note": "to rein in is to check or restrain"
       }
      ]
     },
@@ -1558,35 +1381,25 @@
    },
    "solution": "IMPI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPI",
     "definitions": [
      {
       "text": "Zulu warriors",
       "at": 17
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Devil",
-      "gives": "IMP",
-      "note": "an imp is a little devil"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "I",
-      "note": "I is the Roman numeral one, as in first"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Devil",
+       "gives": "IMP",
+       "note": "an imp is a little devil"
+      },
+      {
+       "words": "first",
+       "gives": "I",
+       "note": "I is the Roman numeral one, as in first"
+      }
      ]
     },
     "explanation": {
@@ -1615,26 +1428,25 @@
    },
    "solution": "EARWIG",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EARWIG",
     "definitions": [
      {
       "text": "Insect",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Insect with garments",
-      "note": "surface reading: a creepy-crawly dressed up in clothes"
-     },
-     {
-      "clueFragment": "garments worn in Mayfair",
-      "note": "setter's reading: the answer splits into a body part and a hairpiece, the sort of thing worn in a smart district"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Insect with garments",
+       "note": "surface reading: a creepy-crawly dressed up in clothes"
+      },
+      {
+       "words": "garments worn in Mayfair",
+       "note": "setter's reading: the answer splits into a body part and a hairpiece, the sort of thing worn in a smart district"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Mayfair is an expensive district of London. The second half of the answer is a hairpiece; how the clue gets the first half is not clear, but the crossings fix the answer.",
      "definitionFit": "An earwig is a small insect with pincers at the tail end, once believed to crawl into ears."
@@ -1667,39 +1479,33 @@
    },
    "solution": "VENTPIPE",
    "annotation": {
-    "type": [
-     "cycling",
-     "container"
-    ],
-    "answer": "VENT-PIPE",
     "definitions": [
      {
       "text": "to let gas escape",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "happening",
-      "gives": "EVENT",
-      "note": "an event is a happening; its first letter moves to the end"
-     },
-     {
-      "clueFragment": "Dickens hero",
-      "gives": "PIP",
-      "note": "Pip is the hero of Great Expectations"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VENT",
-      "PIP",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "VENTPIPE",
+     "parts": [
       {
-       "fodder": "EVENT",
-       "gives": "VENTE"
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "VENTPIPE",
+       "parts": [
+        {
+         "words": "happening",
+         "gives": "EVENT",
+         "note": "an event is a happening; its first letter moves to the end"
+        },
+        {
+         "words": "Dickens hero",
+         "gives": "PIP",
+         "note": "Pip is the hero of Great Expectations"
+        }
+       ]
       }
      ]
     },

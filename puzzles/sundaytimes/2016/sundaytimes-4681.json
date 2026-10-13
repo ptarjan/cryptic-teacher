@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4681",
  "number": 4681,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,681",
  "setter": "David McLean",
  "date": "2016-02-14",
  "dimensions": {
@@ -42,42 +40,29 @@
    },
    "solution": "LOOT",
    "annotation": {
-    "type": [
-     "and_lit",
-     "reversal"
-    ],
-    "answer": "LOOT",
     "definitions": [
      {
       "text": "Pull back jemmy, perhaps to get this?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Pull back",
-      "for": "reversal",
-      "note": "pulling something back draws it the opposite way, so the word is read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jemmy, perhaps",
-      "gives": "TOOL",
-      "note": "a jemmy is an example of a burglar's tool, a short crowbar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOOT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TOOL",
-       "to": "LOOT"
+       "text": "Pull back",
+       "note": "pulling something back draws it the opposite way, so the word is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jemmy, perhaps",
+       "gives": "TOOL",
+       "note": "a jemmy is an example of a burglar's tool, a short crowbar"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A burglar levers open a window with a crowbar in the hope of grabbing something worth taking.",
      "walkthrough": "The whole clue is both wordplay and definition: what a burglar wielding a jemmy is after is LOOT, and 'pull back' also describes levering with it.",
@@ -114,58 +99,50 @@
    },
    "solution": "LIFEONMARS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "LIFE ON MARS",
     "definitions": [
      {
       "text": "tune",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "humming",
-      "for": "anagram",
-      "note": "humming suggests something busily buzzing about, so these letters are stirred into a new order"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means wrapping around another piece, so one letter sits inside the rearranged group"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fifty",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     },
-     {
-      "clueFragment": "Romanies",
-      "gives": "ROMANIES",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F is the pencil-grade abbreviation for fine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "F",
-      "EONMARS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ROMANIES",
-       "gives": "IEONMARS"
+       "words": "Fifty",
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "holding means wrapping around another piece, so one letter sits inside the rearranged group"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "humming",
+           "note": "humming suggests something busily buzzing about, so these letters are stirred into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Romanies",
+           "note": "taken as written, to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "fine",
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        }
+       ]
       }
      ]
     },
@@ -195,51 +172,48 @@
    },
    "solution": "OWLET",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "reversal"
-    ],
-    "answer": "OWLET",
     "definitions": [
      {
       "text": "new hooter?",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Briefly",
-      "for": "deletion",
-      "note": "briefly means cutting a word short, so its final letter is lopped off"
-     },
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about here means turned around, so the combined letters are read backwards in this down entry"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "inform",
-      "gives": "TEL",
-      "note": "tell, meaning inform, without its last letter"
-     },
-     {
-      "clueFragment": "warrant officer",
-      "gives": "WO",
-      "note": "WO is the military abbreviation for warrant officer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OW",
-      "LET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OWLET",
+     "indicators": [
       {
-       "from": "TELWO",
-       "to": "OWLET"
+       "text": "Briefly",
+       "note": "briefly means cutting a word short, so its final letter is lopped off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about here means turned around, so the combined letters are read backwards in this down entry"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "inform",
+           "gives": "TEL",
+           "note": "tell, meaning inform, without its last letter"
+          },
+          {
+           "words": "warrant officer",
+           "gives": "WO",
+           "note": "WO is the military abbreviation for warrant officer"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -270,35 +244,24 @@
    },
    "solution": "MATRIFOCAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MATRIFOCAL",
     "definitions": [
      {
       "text": "centred on the mum",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "in pieces",
-      "for": "anagram",
-      "note": "something in pieces has been broken up, so these letters are reassembled differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A film actor",
-      "gives": "AFILMACTOR",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AFILMACTOR",
-       "gives": "MATRIFOCAL"
+       "text": "in pieces",
+       "note": "something in pieces has been broken up, so these letters are reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A film actor",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -327,47 +290,41 @@
    },
    "solution": "APOLLOS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "APOLLOS",
     "definitions": [
      {
       "text": "striking lads",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "guards",
-      "for": "container",
-      "note": "guards means surrounds protectively, so one word sits around the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "When",
-      "gives": "AS",
-      "note": "as can mean when, as in 'as I left'"
-     },
-     {
-      "clueFragment": "ask opinion",
-      "gives": "POLL",
-      "note": "to poll is to canvass people's views"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O is the cricket scorebook abbreviation for an over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "POLL",
-      "O",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guards",
+       "note": "guards means surrounds protectively, so one word sits around the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "When",
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ask opinion",
+         "gives": "POLL",
+         "note": "to poll is to canvass people's views"
+        },
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "O is the cricket scorebook abbreviation for an over"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -396,47 +353,41 @@
    },
    "solution": "RESISTS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RESISTS",
     "definitions": [
      {
       "text": "Is reluctant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boxing in",
-      "for": "container",
-      "note": "boxing in means enclosing, so one short word is held inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re means concerning, as in business letters"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "SIS",
-      "note": "sis is short for sister, a relative"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "St is the address abbreviation for street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SI",
-      "ST",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerning",
+       "gives": "RE",
+       "note": "re means concerning, as in business letters"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boxing in",
+         "note": "boxing in means enclosing, so one short word is held inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relative",
+         "gives": "SIS",
+         "note": "sis is short for sister, a relative"
+        },
+        {
+         "words": "street",
+         "gives": "ST",
+         "note": "St is the address abbreviation for street"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -470,53 +421,46 @@
    },
    "solution": "FEATHERBRAINED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FEATHER-BRAINED",
     "definitions": [
      {
       "text": "Daft",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "describing",
-      "for": "container",
-      "note": "describing in the sense of drawing a line around, so one word surrounds the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American cop",
-      "gives": "FED",
-      "note": "a fed is a US federal agent"
-     },
-     {
-      "clueFragment": "what zombie may do",
-      "gives": "EAT",
-      "note": "zombies are said to eat brains"
-     },
-     {
-      "clueFragment": "to girl",
-      "gives": "HER",
-      "note": "her stands for any girl"
-     },
-     {
-      "clueFragment": "zombie may do to girl",
-      "gives": "BRAIN",
-      "note": "the object of the zombie's eating, the girl's brain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "EAT",
-      "HER",
-      "BRAIN",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describing",
+       "note": "describing in the sense of drawing a line around, so one word surrounds the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American cop",
+       "gives": "FED",
+       "note": "a fed is a US federal agent"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "what zombie may do",
+         "gives": "EAT",
+         "note": "zombies are said to eat brains"
+        },
+        {
+         "words": "to girl",
+         "gives": "HER",
+         "note": "her stands for any girl"
+        },
+        {
+         "words": "zombie may do to girl",
+         "gives": "BRAIN",
+         "note": "the object of the zombie's eating, the girl's brain"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -546,46 +490,43 @@
    },
    "solution": "CORPORATE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CORPORATE",
     "definitions": [
      {
       "text": "United",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped-down",
-      "for": "deletion",
-      "note": "stripped down means stripped of its outer layer, so the first and last letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "My",
-      "gives": "COR",
-      "note": "cor is an exclamation of surprise like 'my!'"
-     },
-     {
-      "clueFragment": "play",
-      "gives": "POR",
-      "note": "sport, meaning play, without its outer letters"
-     },
-     {
-      "clueFragment": "worried",
-      "gives": "ATE",
-      "note": "ate means worried, as in 'what's eating you?'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "POR",
-      "ATE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CORPORATE",
+     "indicators": [
+      {
+       "text": "stripped-down",
+       "note": "stripped down means stripped of its outer layer, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "My",
+         "gives": "COR",
+         "note": "cor is an exclamation of surprise like 'my!'"
+        },
+        {
+         "words": "play",
+         "gives": "POR",
+         "note": "sport, meaning play, without its outer letters"
+        },
+        {
+         "words": "worried",
+         "gives": "ATE",
+         "note": "ate means worried, as in 'what's eating you?'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -614,51 +555,48 @@
    },
    "solution": "LEWD",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "LEWD",
     "definitions": [
      {
       "text": "Dirty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming up",
-      "for": "reversal",
-      "note": "in a down entry, coming up means rising from bottom to top, so the letters run backwards"
-     },
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "short means lacking its end, so the last letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spring",
-      "gives": "WEL",
-      "note": "well, a spring of water, missing its last letter"
-     },
-     {
-      "clueFragment": "depth",
-      "gives": "D",
-      "note": "D is the standard abbreviation for depth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEW",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEWD",
+     "indicators": [
       {
-       "from": "WEL",
-       "to": "LEW"
+       "text": "short",
+       "note": "short means lacking its end, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "coming up",
+           "note": "in a down entry, coming up means rising from bottom to top, so the letters run backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spring",
+           "gives": "WEL",
+           "note": "well, a spring of water, missing its last letter"
+          }
+         ]
+        },
+        {
+         "words": "depth",
+         "gives": "D",
+         "note": "D is the standard abbreviation for depth"
+        }
+       ]
       }
      ]
     },
@@ -687,35 +625,24 @@
    },
    "solution": "UNRECIPROCATED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNRECIPROCATED",
     "definitions": [
      {
       "text": "not returned",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "nobbled",
-      "for": "anagram",
-      "note": "something nobbled has been tampered with, so the letters are interfered with and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Certain produce",
-      "gives": "CERTAINPRODUCE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CERTAINPRODUCE",
-       "gives": "UNRECIPROCATED"
+       "text": "nobbled",
+       "note": "something nobbled has been tampered with, so the letters are interfered with and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Certain produce",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -745,47 +672,56 @@
    },
    "solution": "FELONIOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "FELONIOUS",
     "definitions": [
      {
       "text": "Criminal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "reported means said out loud, so the result is how the words sound when spoken"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chap",
-      "gives": "FELO",
-      "soundsLike": "FELLOW",
-      "note": "a fellow is a chap"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "NI",
-      "soundsLike": "KNEE",
-      "note": "the knee is a joint of the leg"
-     },
-     {
-      "clueFragment": "setters",
-      "gives": "OUS",
-      "soundsLike": "US",
-      "note": "crossword setters refer to themselves as us"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "FELO",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "reported means said out loud, so the result is how the words sound when spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chap",
+         "gives": "FELLOW",
+         "note": "a fellow is a chap"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NI",
+       "parts": [
+        {
+         "words": "joint",
+         "gives": "KNEE",
+         "note": "the knee is a joint of the leg"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "OUS",
+       "parts": [
+        {
+         "words": "setters",
+         "gives": "US",
+         "note": "crossword setters refer to themselves as us"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man and his fellow crossword compilers are said to be crooks.",
      "walkthrough": "Spoken quickly, 'fellow knee us' runs together into the answer.",
@@ -813,26 +749,25 @@
    },
    "solution": "ARROW",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ARROW",
     "definitions": [
      {
       "text": "Pointer one wouldn't want to take to heart?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Pointer",
-      "note": "surface reading: a hint or tip one would rather not take seriously"
-     },
-     {
-      "clueFragment": "one wouldn't want to take to heart",
-      "note": "setter's reading: a pointed missile that nobody wants lodged in their chest"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Pointer",
+       "note": "surface reading: a hint or tip one would rather not take seriously"
+      },
+      {
+       "words": "one wouldn't want to take to heart",
+       "note": "setter's reading: a pointed missile that nobody wants lodged in their chest"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "To take advice to heart is to heed it; read literally, the heart is where the pointed projectile would strike, unless Cupid fired it.",
      "definitionFit": "An arrow is a pointing sign and also a shaft fired from a bow, which could pierce someone's chest."
@@ -873,35 +808,24 @@
    },
    "solution": "OFTHEOLDSCHOOL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OF THE OLD SCHOOL",
     "definitions": [
      {
       "text": "Traditional",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reinvented",
-      "for": "anagram",
-      "note": "reinvented means remade in a new form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food loch hotels",
-      "gives": "FOODLOCHHOTELS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FOODLOCHHOTELS",
-       "gives": "OFTHEOLDSCHOOL"
+       "text": "reinvented",
+       "note": "reinvented means remade in a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "food loch hotels",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -930,32 +854,25 @@
    },
    "solution": "DEALERSHIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEALERSHIP",
     "definitions": [
      {
       "text": "Business",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "of long-standing croupier",
-      "gives": "DEALERS",
-      "note": "a croupier is a casino dealer, and 'of' makes it possessive"
-     },
-     {
-      "clueFragment": "complaint",
-      "gives": "HIP",
-      "note": "a hip complaint, the ailment of someone who stands for long hours"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEALERS",
-      "HIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of long-standing croupier",
+       "gives": "DEALERS",
+       "note": "a croupier is a casino dealer, and 'of' makes it possessive"
+      },
+      {
+       "words": "complaint",
+       "gives": "HIP",
+       "note": "a hip complaint, the ailment of someone who stands for long hours"
+      }
      ]
     },
     "explanation": {
@@ -985,46 +902,43 @@
    },
    "solution": "MOULINS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MOULINS",
     "definitions": [
      {
       "text": "glacial ice shafts",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "cut means trimmed, so the word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shape",
-      "gives": "MOUL",
-      "note": "mould, meaning shape, with its final letter removed"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "IN",
-      "note": "by and in are interchangeable in 'drop by' and 'drop in'"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the clothing abbreviation for small"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOUL",
-      "IN",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MOULINS",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "cut means trimmed, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Shape",
+         "gives": "MOUL",
+         "note": "mould, meaning shape, with its final letter removed"
+        },
+        {
+         "words": "by",
+         "gives": "IN",
+         "note": "by and in are interchangeable in 'drop by' and 'drop in'"
+        },
+        {
+         "words": "small",
+         "gives": "S",
+         "note": "S is the clothing abbreviation for small"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1058,35 +972,24 @@
    },
    "solution": "UNBRITISH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UN-BRITISH",
     "definitions": [
      {
       "text": "not cricket",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "after running",
-      "for": "anagram",
-      "note": "after running the letters have been set in motion and land in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rub this in",
-      "gives": "RUBTHISIN",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RUBTHISIN",
-       "gives": "UNBRITISH"
+       "text": "after running",
+       "note": "after running the letters have been set in motion and land in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rub this in",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1116,10 +1019,6 @@
    },
    "solution": "SURFACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURFACE",
     "definitions": [
      {
       "text": "Riseof",
@@ -1127,22 +1026,19 @@
       "note": "the source runs 'Rise of' together; Rise is the definition and of is a link word"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on board",
-      "gives": "SURF",
-      "note": "to surf is to ride the waves on a board"
-     },
-     {
-      "clueFragment": "brilliant sportsperson",
-      "gives": "ACE",
-      "note": "an ace is a star performer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURF",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on board",
+       "gives": "SURF",
+       "note": "to surf is to ride the waves on a board"
+      },
+      {
+       "words": "brilliant sportsperson",
+       "gives": "ACE",
+       "note": "an ace is a star performer"
+      }
      ]
     },
     "explanation": {
@@ -1178,38 +1074,30 @@
    },
    "solution": "RUBYRED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUBY-RED",
     "definitions": [
      {
       "text": "kind of lippy",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Are you",
-      "gives": "RU",
-      "note": "text-message shorthand, R and U"
-     },
-     {
-      "clueFragment": "through",
-      "gives": "BY",
-      "note": "by means through, as in 'by means of'"
-     },
-     {
-      "clueFragment": "wine",
-      "gives": "RED",
-      "note": "red is a wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "BY",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Are you",
+       "gives": "RU",
+       "note": "text-message shorthand, R and U"
+      },
+      {
+       "words": "through",
+       "gives": "BY",
+       "note": "by means through, as in 'by means of'"
+      },
+      {
+       "words": "wine",
+       "gives": "RED",
+       "note": "red is a wine"
+      }
      ]
     },
     "explanation": {
@@ -1239,40 +1127,38 @@
    },
    "solution": "DYNASTY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DYNASTY",
     "definitions": [
      {
       "text": "show",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Run out of",
-      "for": "deletion",
-      "note": "run out of means the letter for a run is taken out of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brut",
-      "gives": "DY",
-      "note": "brut describes dry champagne; dry with R, cricket's run, removed"
-     },
-     {
-      "clueFragment": "Very bad",
-      "gives": "NASTY",
-      "note": "nasty means very bad"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DY",
-      "NASTY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DYNASTY",
+     "indicators": [
+      {
+       "text": "Run out of",
+       "note": "run out of means the letter for a run is taken out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "brut",
+         "gives": "DY",
+         "note": "brut describes dry champagne; dry with R, cricket's run, removed"
+        },
+        {
+         "words": "Very bad",
+         "gives": "NASTY",
+         "note": "nasty means very bad"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1307,47 +1193,41 @@
    },
    "solution": "FORREAL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FOR REAL",
     "definitions": [
      {
       "text": "Serious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to load",
-      "for": "container",
-      "note": "to load something is to put it inside, so these letters are packed into the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Colt",
-      "gives": "FOAL",
-      "note": "a colt is a young horse, a foal"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the abbreviation for Republican"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "R",
-      "RE",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to load",
+       "note": "to load something is to put it inside, so these letters are packed into the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Colt",
+       "gives": "FOAL",
+       "note": "a colt is a young horse, a foal"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Republican",
+         "gives": "R",
+         "note": "R is the abbreviation for Republican"
+        },
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re means about"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1376,47 +1256,41 @@
    },
    "solution": "FRIGATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FRIGATE",
     "definitions": [
      {
       "text": "vessel",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "aboard",
-      "for": "container",
-      "note": "aboard means inside, so one word goes within the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large",
-      "gives": "FAT",
-      "note": "fat means large"
-     },
-     {
-      "clueFragment": "Gear",
-      "gives": "RIG",
-      "note": "rig is equipment or gear"
-     },
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "E is the abbreviation for eastern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RIG",
-      "AT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "aboard",
+         "note": "aboard means inside, so one word goes within the others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large",
+         "gives": "FAT",
+         "note": "fat means large"
+        },
+        {
+         "words": "Gear",
+         "gives": "RIG",
+         "note": "rig is equipment or gear"
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "gives": "E",
+       "note": "E is the abbreviation for eastern"
+      }
      ]
     },
     "explanation": {
@@ -1450,37 +1324,39 @@
    },
    "solution": "AIRCONDITIONER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AIR CONDITIONER",
     "definitions": [
      {
       "text": "Cooler",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "East End",
-      "for": "deletion",
-      "note": "East End speakers traditionally drop the H at the start of a word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "product found in",
-      "gives": "HAIRCONDITIONER",
-      "note": "a product found in a hairdresser's"
-     },
-     {
-      "clueFragment": "salon",
-      "note": "surface padding: the salon is where the hair product is found"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIRCONDITIONER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "East End",
+         "note": "East End speakers traditionally drop the H at the start of a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "product found in",
+         "gives": "HAIRCONDITIONER",
+         "note": "a product found in a hairdresser's"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "salon",
+       "note": "surface padding: the salon is where the hair product is found"
+      }
      ]
     },
     "explanation": {
@@ -1510,41 +1386,36 @@
    },
    "solution": "NOISE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NOISE",
     "definitions": [
      {
       "text": "report",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "last",
-      "for": "letter_selection",
-      "note": "last points to the final letter of the word before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps Smash Hits",
-      "gives": "NOIS",
-      "note": "smash hits are, for example, number ones, No 1s"
-     },
-     {
-      "clueFragment": "magazine's",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of magazine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOIS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perhaps Smash Hits",
+       "gives": "NOIS",
+       "note": "smash hits are, for example, number ones, No 1s"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "note": "last points to the final letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "magazine's",
+         "gives": "MAGAZINE",
+         "note": "the final letter of magazine"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1573,44 +1444,35 @@
    },
    "solution": "HADJ",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HADJ",
     "definitions": [
      {
       "text": "Spiritual trip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the opening letter is taken"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "experienced",
-      "gives": "HAD",
-      "note": "had means experienced, as in 'had a good time'"
-     },
-     {
-      "clueFragment": "joints",
-      "gives": "J",
-      "select": "first",
-      "note": "the opening letter of joints"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAD",
-      "J"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "experienced",
+       "gives": "HAD",
+       "note": "had means experienced, as in 'had a good time'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all, so only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joints",
+         "note": "the opening letter of joints"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1646,30 +1508,28 @@
    },
    "solution": "ALIST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "A-LIST",
     "definitions": [
      {
       "text": "of the highest class?",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "nurses",
-      "for": "hidden_word",
-      "note": "to nurse is to hold close, so the word is carried inside the clue word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Idealistic",
-      "gives": "ALIST",
-      "note": "the run of letters inside this word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "nurses",
+       "note": "to nurse is to hold close, so the word is carried inside the clue word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Idealistic",
+       "gives": "ALIST",
+       "note": "the run of letters inside this word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An idealistic person cares for the sick of the highest social class.",
      "definitionFit": "A-list means top-tier, the most sought-after celebrities, used as an adjective for the elite."
@@ -1695,40 +1555,34 @@
    },
    "solution": "SPADEFISH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPADEFISH",
     "definitions": [
      {
       "text": "Swimmer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swimming",
-      "for": "anagram",
-      "note": "swimming means moving about freely, so the letters float into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "passed if",
-      "gives": "PASSEDIF",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the pencil-grade abbreviation for hard"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PASSEDIFH",
-       "gives": "SPADEFISH"
+       "text": "swimming",
+       "note": "swimming means moving about freely, so the letters float into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "passed if",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the pencil-grade abbreviation for hard"
+        }
+       ]
       }
      ]
     },
@@ -1763,45 +1617,43 @@
    },
    "solution": "JOHNDRYDEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "JOHN DRYDEN",
     "definitions": [
      {
       "text": "glorious poet",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "parts",
-      "for": "container",
-      "note": "parts means separates, so one piece comes between the two others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can",
-      "gives": "JOHN",
-      "note": "can and john are both slang for a toilet"
-     },
-     {
-      "clueFragment": "Boring",
-      "gives": "DRY",
-      "note": "dry means dull or boring"
-     },
-     {
-      "clueFragment": "haunt",
-      "gives": "DEN",
-      "note": "a den is a favourite haunt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOHN",
-      "DRY",
-      "DEN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "JOHNDRYDEN",
+     "indicators": [
+      {
+       "text": "parts",
+       "note": "parts means separates, so one piece comes between the two others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "can",
+         "gives": "JOHN",
+         "note": "can and john are both slang for a toilet"
+        },
+        {
+         "words": "Boring",
+         "gives": "DRY",
+         "note": "dry means dull or boring"
+        },
+        {
+         "words": "haunt",
+         "gives": "DEN",
+         "note": "a den is a favourite haunt"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1830,43 +1682,31 @@
    },
    "solution": "LEAP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEAP",
     "definitions": [
      {
       "text": "Sudden surge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "consuming",
-      "for": "container",
-      "note": "consuming means swallowing up, so one letter sits inside another word"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "circuit",
-      "gives": "LAP",
-      "note": "a lap is one circuit of a track"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "E",
-      "AP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consuming",
+       "note": "consuming means swallowing up, so one letter sits inside another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "circuit",
+       "gives": "LAP",
+       "note": "a lap is one circuit of a track"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "genius-103",
  "number": 103,
- "series": "genius",
- "name": "Guardian genius crossword No 103",
  "setter": "Lavatch",
  "date": "2012-01-02",
  "dimensions": {
@@ -50,52 +48,55 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SEESAM",
     "definitions": [
      {
       "text": "It's seedy stuff",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "with no end, the word loses its final letter"
-     },
-     {
-      "text": "involved in",
-      "for": "container",
-      "note": "things involved in something sit inside it, so the players and the living go into the middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "romping",
-      "gives": "SEX",
-      "note": "romping is slang for sexual frolics"
-     },
-     {
-      "clueFragment": "Two players",
-      "gives": "ES",
-      "note": "East and South, two of the four bridge players"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "AM",
-      "note": "I am means I live, I exist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ES",
-      "AM",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "things involved in something sit inside it, so the players and the living go into the middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "note": "with no end, the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "romping",
+           "gives": "SEX",
+           "note": "romping is slang for sexual frolics"
+          },
+          {
+           "gives": "X"
+          }
+         ]
+        },
+        {
+         "words": "Two players",
+         "gives": "ES",
+         "note": "East and South, two of the four bridge players"
+        }
+       ]
+      },
+      {
+       "words": "live",
+       "gives": "AM",
+       "note": "I am means I live, I exist"
+      }
      ]
     },
     "explanation": {
@@ -133,49 +134,54 @@
     ]
    },
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone",
-     "charade"
-    ],
-    "answer": "ORNEDDAI",
     "definitions": [
      {
       "text": "like a priest",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "leader in",
-      "for": "letter_selection",
-      "note": "the leader of a word is its first letter, so only the start of the city's name is kept"
-     },
-     {
-      "text": "to speak",
-      "for": "homophone",
-      "note": "what is spoken is heard, not read, so the word is replaced by a spelling that sounds the same"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the standard abbreviation for old"
-     },
-     {
-      "clueFragment": "Rome",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of Rome"
-     },
-     {
-      "clueFragment": "vouchsafed",
-      "gives": "DAINED",
-      "soundsLike": "DEIGNED",
-      "note": "to vouchsafe is to deign to give; deigned said out loud matches this spelling"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the standard abbreviation for old"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "note": "the leader of a word is its first letter, so only the start of the city's name is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rome",
+         "note": "the first letter of Rome"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "DAINED",
+       "indicators": [
+        {
+         "text": "to speak",
+         "note": "what is spoken is heard, not read, so the word is replaced by a spelling that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vouchsafed",
+         "gives": "DEIGNED",
+         "note": "to vouchsafe is to deign to give; deigned said out loud matches this spelling"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about how an ancient Roman leader, condescending to talk, sounded like a priest.",
      "walkthrough": "The clue gives ORDAINED; the name DAI is moved to the end for the grid entry ORNEDDAI.",
@@ -210,51 +216,41 @@
     ]
    },
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ERSPIP",
     "definitions": [
      {
       "text": "Players",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "the drink goes round, enclosing the theatre"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the whole assembled string is read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "SIP",
-      "note": "a sip is a small drink"
-     },
-     {
-      "clueFragment": "theatre's",
-      "gives": "REP",
-      "note": "rep is short for repertory theatre"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "PER",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SREPIP",
-       "to": "PIPERS"
+       "text": "back",
+       "note": "going back means the whole assembled string is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "the drink goes round, enclosing the theatre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "SIP",
+         "note": "a sip is a small drink"
+        },
+        {
+         "words": "theatre's",
+         "gives": "REP",
+         "note": "rep is short for repertory theatre"
+        }
+       ]
       }
      ]
     },
@@ -292,48 +288,41 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BORMENID",
     "definitions": [
      {
       "text": "holiday resort",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking something means doing without it, so a letter is dropped from the country"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Country",
-      "gives": "BENIN",
-      "note": "Benin is a country in West Africa"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new; this is the letter removed"
-     },
-     {
-      "clueFragment": "accommodation",
-      "gives": "DORM",
-      "note": "a dorm, short for dormitory, is shared sleeping accommodation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BENI",
-      "DORM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking something means doing without it, so a letter is dropped from the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Country",
+         "gives": "BENIN",
+         "note": "Benin is a country in West Africa"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new; this is the letter removed"
+        }
+       ]
+      },
+      {
+       "words": "accommodation",
+       "gives": "DORM",
+       "note": "a dorm, short for dormitory, is shared sleeping accommodation"
+      }
      ]
     },
     "explanation": {
@@ -362,47 +351,57 @@
    },
    "solution": "LINEAR",
    "annotation": {
-    "type": [
-     "homophone",
-     "container"
-    ],
-    "answer": "LINEAR",
     "definitions": [
      {
       "text": "without digressions",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "In recitation",
-      "for": "homophone",
-      "note": "recitation is speaking aloud, so a word is given by how it sounds when spoken"
-     },
-     {
-      "text": "keeps it",
-      "for": "container",
-      "note": "to keep something is to hold it inside, so the teller encloses the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "teller of tales",
-      "gives": "LI",
-      "note": "first part of LIAR, one who tells tales"
-     },
-     {
-      "clueFragment": "any",
-      "gives": "NE",
-      "soundsLike": "ANY",
-      "note": "the letters N-E said one after another sound like any"
-     },
-     {
-      "clueFragment": "teller of tales",
-      "gives": "AR",
-      "note": "rest of LIAR"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LINEAR",
+     "indicators": [
+      {
+       "text": "keeps it",
+       "note": "to keep something is to hold it inside, so the teller encloses the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "teller of tales",
+         "gives": "LI",
+         "note": "first part of LIAR, one who tells tales"
+        },
+        {
+         "op": "homophone",
+         "spelt": "NE",
+         "indicators": [
+          {
+           "text": "In recitation",
+           "note": "recitation is speaking aloud, so a word is given by how it sounds when spoken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "any",
+           "gives": "ANY",
+           "note": "the letters N-E said one after another sound like any"
+          }
+         ]
+        },
+        {
+         "words": "teller of tales",
+         "gives": "AR",
+         "note": "rest of LIAR"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A storyteller who sticks to the plot when reciting, without going off on tangents.",
      "walkthrough": "A liar tells tales; spoken letter by letter, NE sounds like any, and that sits inside LIAR.",
@@ -437,49 +436,44 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "IGNTNORA",
     "definitions": [
      {
       "text": "imbecilic",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Tip off",
-      "for": "deletion",
-      "note": "with its tip taken off, the word loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mark",
-      "gives": "SIGN",
-      "note": "a sign is a mark; its first letter is removed"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O is the cricket scorer's abbreviation for an over"
-     },
-     {
-      "clueFragment": "speech",
-      "gives": "RANT",
-      "note": "a rant is a loud, impassioned speech"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IGN",
-      "O",
-      "RANT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Tip off",
+       "note": "with its tip taken off, the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mark",
+         "gives": "SIGN",
+         "note": "a sign is a mark; its first letter is removed"
+        },
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "O is the cricket scorer's abbreviation for an over"
+        },
+        {
+         "words": "speech",
+         "gives": "RANT",
+         "note": "a rant is a loud, impassioned speech"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -508,12 +502,6 @@
    },
    "solution": "SCROOGES",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SCROOGES",
     "definitions": [
      {
       "text": "they're near",
@@ -521,50 +509,51 @@
       "note": "near is British for stingy; the definition is a description of the plural noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "turned around, the killers' word reads from right to left"
-     },
-     {
-      "text": "camouflaged",
-      "for": "anagram",
-      "note": "camouflaged things are disguised, so the letters are rearranged"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "one piece follows another, so the disguised word comes after the turned killers"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "killers",
-      "gives": "ORCS",
-      "note": "orcs are the murderous creatures of Tolkien's fiction"
-     },
-     {
-      "clueFragment": "Goes",
-      "gives": "OGES",
-      "note": "the letters of goes, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCRO",
-      "OGES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "GOES",
-       "gives": "OGES"
+       "text": "following",
+       "note": "one piece follows another, so the disguised word comes after the turned killers"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "ORCS",
-       "to": "SCRO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "turned around, the killers' word reads from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "killers",
+         "gives": "ORCS",
+         "note": "orcs are the murderous creatures of Tolkien's fiction"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "camouflaged",
+           "note": "camouflaged things are disguised, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Goes",
+           "gives": "OGES",
+           "note": "the letters of goes, rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -603,48 +592,35 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SPSTOM",
     "definitions": [
      {
       "text": "dances",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "spinning",
-      "for": "reversal",
-      "note": "something spinning turns round, so the pieces are read backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Special",
-      "gives": "SP",
-      "note": "SP is an abbreviation for special"
-     },
-     {
-      "clueFragment": "girls",
-      "gives": "MOTS",
-      "note": "mot is Irish and dialect slang for a girl or woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOM",
-      "PS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SPMOTS",
-       "to": "STOMPS"
+       "text": "spinning",
+       "note": "something spinning turns round, so the pieces are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Special",
+         "gives": "SP",
+         "note": "SP is an abbreviation for special"
+        },
+        {
+         "words": "girls",
+         "gives": "MOTS",
+         "note": "mot is Irish and dialect slang for a girl or woman"
+        }
+       ]
       }
      ]
     },
@@ -682,28 +658,16 @@
     ]
    },
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EHAL",
     "definitions": [
      {
       "text": "Pace alongside this",
-      "at": 0
+      "at": 0,
+      "meaning": "the partner of Pace in the British comedy double act Hale and Pace"
      },
      {
       "text": "well",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pace alongside this",
-      "note": "the partner of Pace in the British comedy double act Hale and Pace"
-     },
-     {
-      "clueFragment": "well",
-      "note": "healthy, as in hale and hearty"
+      "at": 20,
+      "meaning": "healthy, as in hale and hearty"
      }
     ],
     "explanation": {
@@ -732,51 +696,41 @@
    },
    "solution": "GNASHERS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "GNASHERS",
     "definitions": [
      {
       "text": "facial features",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "On reflection",
-      "for": "reversal",
-      "note": "a reflection is a mirror image, so the word is read backwards"
-     },
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "to capture is to hold inside, so the actor sits within the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "celebrated",
-      "gives": "SANG",
-      "note": "to celebrate someone in song is to sing of them; reversed this becomes the outer piece"
-     },
-     {
-      "clueFragment": "actor's",
-      "gives": "SHER",
-      "note": "Antony Sher, the South African-born British actor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GNA",
-      "SHER",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SANG",
-       "to": "GNAS"
+       "text": "capturing",
+       "note": "to capture is to hold inside, so the actor sits within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "On reflection",
+         "note": "a reflection is a mirror image, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "celebrated",
+         "gives": "SANG",
+         "note": "to celebrate someone in song is to sing of them; reversed this becomes the outer piece"
+        }
+       ]
+      },
+      {
+       "words": "actor's",
+       "gives": "SHER",
+       "note": "Antony Sher, the South African-born British actor"
       }
      ]
     },
@@ -806,32 +760,25 @@
    },
    "solution": "PAMPAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAMPAS",
     "definitions": [
      {
       "text": "Plain",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "PAM",
-      "note": "Pam is a girl's name"
-     },
-     {
-      "clueFragment": "not for Norman",
-      "gives": "PAS",
-      "note": "pas is French for not; Normandy is in France, so a Norman says it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAM",
-      "PAS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "gives": "PAM",
+       "note": "Pam is a girl's name"
+      },
+      {
+       "words": "not for Norman",
+       "gives": "PAS",
+       "note": "pas is French for not; Normandy is in France, so a Norman says it"
+      }
      ]
     },
     "explanation": {
@@ -866,72 +813,61 @@
    },
    "solution": "NAMEDROPPING",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "charade"
-    ],
-    "answer": "NAME-DROPPING",
     "definitions": [
      {
       "text": "Showing off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy means elaborate or ornamental, so the letters are dressed up in a new order"
-     },
-     {
-      "text": "twirling",
-      "for": "reversal",
-      "note": "a twirl turns something round, so the Spanish word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "dame",
-      "gives": "AMED",
-      "note": "the letters of dame, rearranged"
-     },
-     {
-      "clueFragment": "se√íorita's for",
-      "gives": "POR",
-      "note": "por is Spanish for for, as a señorita would say it"
-     },
-     {
-      "clueFragment": "a whistling",
-      "gives": "PING",
-      "note": "a ping is a high whistling sound, like a bullet's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "AMED",
-      "ROP",
-      "PING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DAME",
-       "gives": "AMED"
-      }
-     ],
-     "reversals": [
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
       {
-       "from": "POR",
-       "to": "ROP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "twirling",
+         "note": "a twirl turns something round, so the Spanish word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "fancy",
+           "note": "fancy means elaborate or ornamental, so the letters are dressed up in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "dame",
+             "gives": "AMED",
+             "note": "the letters of dame, rearranged"
+            },
+            {
+             "words": "se√íorita's for",
+             "gives": "POR",
+             "note": "por is Spanish for for, as a señorita would say it"
+            },
+            {
+             "words": "a whistling",
+             "gives": "PING",
+             "note": "a ping is a high whistling sound, like a bullet's"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -969,43 +905,30 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CACTTARA",
     "definitions": [
      {
       "text": "trouble for \"The Spectator\"",
       "at": 41
      }
     ],
-    "linkWords": [
-     "in",
-     "with",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roughly",
-      "gives": "CA",
-      "note": "ca, short for circa, means roughly"
-     },
-     {
-      "clueFragment": "Pitch",
-      "gives": "TAR",
-      "note": "pitch is a black tarry substance"
-     },
-     {
-      "clueFragment": "legislation",
-      "gives": "ACT",
-      "note": "an Act of Parliament is a piece of legislation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "TAR",
-      "ACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "roughly",
+       "gives": "CA",
+       "note": "ca, short for circa, means roughly"
+      },
+      {
+       "words": "Pitch",
+       "gives": "TAR",
+       "note": "pitch is a black tarry substance"
+      },
+      {
+       "words": "legislation",
+       "gives": "ACT",
+       "note": "an Act of Parliament is a piece of legislation"
+      }
      ]
     },
     "explanation": {
@@ -1035,51 +958,41 @@
    },
    "solution": "ORECTIC",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ORECTIC",
     "definitions": [
      {
       "text": "of desire",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "overcome",
-      "for": "reversal",
-      "note": "overcome suggests being turned over, so the speaker's name is read backwards"
-     },
-     {
-      "text": "filled with",
-      "for": "container",
-      "note": "something filled with another thing has it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Orator's",
-      "gives": "CICERO",
-      "note": "Cicero, the great orator of ancient Rome"
-     },
-     {
-      "clueFragment": "tons",
-      "gives": "T",
-      "note": "T is the abbreviation for tons"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OREC",
-      "T",
-      "IC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CITCERO",
-       "to": "ORECTIC"
+       "text": "overcome",
+       "note": "overcome suggests being turned over, so the speaker's name is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filled with",
+         "note": "something filled with another thing has it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Orator's",
+         "gives": "CICERO",
+         "note": "Cicero, the great orator of ancient Rome"
+        },
+        {
+         "words": "tons",
+         "gives": "T",
+         "note": "T is the abbreviation for tons"
+        }
+       ]
       }
      ]
     },
@@ -1117,50 +1030,41 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CITYTONI",
     "definitions": [
      {
       "text": "Muscular quality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "carrying something means holding it, so the cool word wraps round the appeal"
-     }
-    ],
-    "linkWords": [
-     "'s in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fashion",
-      "gives": "TON",
-      "note": "ton means the prevailing fashion, as in the bon ton"
-     },
-     {
-      "clueFragment": "very cool",
-      "gives": "ICY",
-      "note": "icy means very cold"
-     },
-     {
-      "clueFragment": "appeal",
-      "gives": "IT",
-      "note": "it is old slang for sex appeal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TON",
-      "IC",
-      "IT",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fashion",
+       "gives": "TON",
+       "note": "ton means the prevailing fashion, as in the bon ton"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "note": "carrying something means holding it, so the cool word wraps round the appeal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very cool",
+         "gives": "ICY",
+         "note": "icy means very cold"
+        },
+        {
+         "words": "appeal",
+         "gives": "IT",
+         "note": "it is old slang for sex appeal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1189,43 +1093,31 @@
    },
    "solution": "UNIDEAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNIDEAL",
     "definitions": [
      {
       "text": "far from satisfactory",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Associating",
-      "for": "charade",
-      "note": "associating things puts them together, so the two pieces are joined end to end"
-     }
-    ],
-    "linkWords": [
-     "and",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "higher education",
-      "gives": "UNI",
-      "note": "uni is short for university"
-     },
-     {
-      "clueFragment": "business",
-      "gives": "DEAL",
-      "note": "a deal is a business transaction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNI",
-      "DEAL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Associating",
+       "note": "associating things puts them together, so the two pieces are joined end to end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "higher education",
+       "gives": "UNI",
+       "note": "uni is short for university"
+      },
+      {
+       "words": "business",
+       "gives": "DEAL",
+       "note": "a deal is a business transaction"
+      }
      ]
     },
     "explanation": {
@@ -1261,59 +1153,58 @@
     ]
    },
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NDAHVERA",
     "definitions": [
      {
       "text": "gallery",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "first in",
-      "for": "letter_selection",
-      "note": "the first letter in the next word is the only one kept"
-     },
-     {
-      "text": "outside",
-      "for": "charade",
-      "note": "the setter used outside to place a letter on the outer side, after the royal piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "museum",
-      "gives": "V",
-      "note": "the V&A, London's Victoria and Albert Museum; its first letter"
-     },
-     {
-      "clueFragment": "Royal",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the royal cipher of the Queen"
-     },
-     {
-      "clueFragment": "museum",
-      "gives": "ANDA",
-      "note": "the rest of V AND A"
-     },
-     {
-      "clueFragment": "having",
-      "gives": "H",
-      "select": "first",
-      "note": "the first letter of having"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ER",
-      "ANDA",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "VERANDAH",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "the setter used outside to place a letter on the outer side, after the royal piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "museum",
+         "gives": "V",
+         "note": "the V&A, London's Victoria and Albert Museum; its first letter"
+        },
+        {
+         "words": "Royal",
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, the royal cipher of the Queen"
+        },
+        {
+         "words": "museum",
+         "gives": "ANDA",
+         "note": "the rest of V AND A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first in",
+           "note": "the first letter in the next word is the only one kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "having",
+           "note": "the first letter of having"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1350,32 +1241,25 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "XTHORA",
     "definitions": [
      {
       "text": "chest",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "God",
-      "gives": "THOR",
-      "note": "Thor is the Norse god of thunder"
-     },
-     {
-      "clueFragment": "A transatlantic tool",
-      "gives": "AX",
-      "note": "ax is the American spelling of axe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THOR",
-      "AX"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "God",
+       "gives": "THOR",
+       "note": "Thor is the Norse god of thunder"
+      },
+      {
+       "words": "A transatlantic tool",
+       "gives": "AX",
+       "note": "ax is the American spelling of axe"
+      }
      ]
     },
     "explanation": {
@@ -1404,77 +1288,68 @@
    },
    "solution": "STRAITJACKET",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "and_lit"
-    ],
-    "answer": "STRAITJACKET",
     "definitions": [
      {
       "text": "Crazy attire restraining chap, in a way?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Crazy",
-      "for": "anagram",
-      "note": "crazy suggests something deranged, so the letters of the clothing word are jumbled"
-     },
-     {
-      "text": "restraining",
-      "for": "container",
-      "note": "restraining something holds it in, so the rearranged clothing surrounds the man"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "everything built so far goes inside the road abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a way",
-      "gives": "S",
-      "note": "ST, short for street, a way; its first letter starts the outer shell"
-     },
-     {
-      "clueFragment": "attire",
-      "gives": "TRAI",
-      "note": "the letters of attire, rearranged, first part"
-     },
-     {
-      "clueFragment": "chap",
-      "gives": "JACK",
-      "note": "Jack, a man's name, so any chap"
-     },
-     {
-      "clueFragment": "attire",
-      "gives": "E",
-      "note": "the last letter of the rearranged attire"
-     },
-     {
-      "clueFragment": "a way",
-      "gives": "T",
-      "note": "the T of ST closes the shell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TRAI",
-      "TJACK",
-      "E",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STRAITJACKET",
+     "indicators": [
       {
-       "fodder": "ATTIRE",
-       "gives": "TRAITE"
+       "text": "Crazy",
+       "note": "crazy suggests something deranged, so the letters of the clothing word are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "STRAITJACKET",
+       "indicators": [
+        {
+         "text": "restraining",
+         "note": "restraining something holds it in, so the rearranged clothing surrounds the man"
+        },
+        {
+         "text": "in",
+         "note": "everything built so far goes inside the road abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a way",
+         "gives": "S",
+         "note": "ST, short for street, a way; its first letter starts the outer shell"
+        },
+        {
+         "words": "attire",
+         "gives": "TRAI",
+         "note": "the letters of attire, rearranged, first part"
+        },
+        {
+         "words": "chap",
+         "gives": "JACK",
+         "note": "Jack, a man's name, so any chap"
+        },
+        {
+         "words": "attire",
+         "gives": "E",
+         "note": "the last letter of the rearranged attire"
+        },
+        {
+         "words": "a way",
+         "gives": "T",
+         "note": "the T of ST closes the shell"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A garment for the insane that holds a man in, in a manner of speaking.",
      "walkthrough": "The whole clue defines: a straitjacket is clothing used on the crazy to restrain a person. ATTIRE rearranged as TRAITE holds JACK after TRAIT, and the lot sits inside ST.",
@@ -1509,11 +1384,6 @@
     ]
    },
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AHYPAT",
     "definitions": [
      {
       "text": "Having no zip",
@@ -1521,40 +1391,35 @@
       "note": "a gerund phrase standing for the noun, as the setter explained"
      }
     ],
-    "indicators": [
-     {
-      "text": "closes",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, so only its last letter is used"
-     },
-     {
-      "text": "press on it",
-      "for": "charade",
-      "note": "to press on something is to push up against it, so one piece is set right before the other"
-     }
-    ],
-    "linkWords": [
-     "thus?",
-     "There's",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a way",
-      "gives": "APATH",
-      "note": "a path is a way"
-     },
-     {
-      "clueFragment": "fly",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of fly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APATH",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "press on it",
+       "note": "to press on something is to push up against it, so one piece is set right before the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a way",
+       "gives": "APATH",
+       "note": "a path is a way"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closes",
+         "note": "the close of a word is its end, so only its last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fly",
+         "note": "the last letter of fly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1592,30 +1457,28 @@
     ]
    },
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "KSEINA",
     "definitions": [
      {
       "text": "enzyme",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "container for",
-      "for": "hidden_word",
-      "note": "the words act as a container that holds the answer inside their run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crack in a sealed",
-      "gives": "KINASE",
-      "note": "the letters run across the words from the end of the first to the start of the last"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "container for",
+       "note": "the words act as a container that holds the answer inside their run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crack in a sealed",
+       "gives": "KINASE",
+       "note": "the letters run across the words from the end of the first to the start of the last"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A split in a sealed vessel lets an enzyme out.",
      "walkthrough": "The clue gives KINASE; INA moves to the end, giving the entry KSEINA.",
@@ -1650,38 +1513,31 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EROD",
     "definitions": [
      {
       "text": "Travelled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to avoid",
-      "for": "deletion",
-      "note": "avoiding something means leaving it out, so a letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "display of stocktaking",
-      "gives": "RODEO",
-      "note": "a rodeo was originally a cattle round-up, a taking stock of livestock, now a show"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is round in shape; this letter is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RODE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to avoid",
+       "note": "avoiding something means leaving it out, so a letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "display of stocktaking",
+       "gives": "RODEO",
+       "note": "a rodeo was originally a cattle round-up, a taking stock of livestock, now a show"
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is round in shape; this letter is removed"
+      }
      ]
     },
     "explanation": {
@@ -1711,40 +1567,31 @@
    },
    "solution": "PRETTY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRETTY",
     "definitions": [
      {
       "text": "Rather",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is covering",
-      "for": "container",
-      "note": "covering something means wrapping round it, so the small word holds the monarch"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "little",
-      "gives": "PETTY",
-      "note": "petty means small or trivial"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "R",
-      "note": "R for Regina, Latin for queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "ETTY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is covering",
+       "note": "covering something means wrapping round it, so the small word holds the monarch"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little",
+       "gives": "PETTY",
+       "note": "petty means small or trivial"
+      },
+      {
+       "words": "Queen",
+       "gives": "R",
+       "note": "R for Regina, Latin for queen"
+      }
      ]
     },
     "explanation": {
@@ -1773,50 +1620,43 @@
    },
    "solution": "ORVIETAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ORVIETAN",
     "definitions": [
      {
       "text": "antidote",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "treated",
-      "for": "anagram",
-      "note": "something treated has been processed or worked on, so the letters are reworked"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so the two pieces stand next to each other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alternative",
-      "gives": "OR",
-      "note": "or introduces an alternative"
-     },
-     {
-      "clueFragment": "Native",
-      "gives": "VIETAN",
-      "note": "the letters of native, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "VIETAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ORVIETAN",
+     "indicators": [
       {
-       "fodder": "NATIVE",
-       "gives": "VIETAN"
+       "text": "treated",
+       "note": "something treated has been processed or worked on, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "by means beside, so the two pieces stand next to each other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alternative",
+         "gives": "OR",
+         "note": "or introduces an alternative"
+        },
+        {
+         "words": "Native",
+         "gives": "VIETAN",
+         "note": "the letters of native, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1846,42 +1686,31 @@
    },
    "solution": "EDENTATA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDENTATA",
     "definitions": [
      {
       "text": "They lack 9",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be by",
-      "for": "charade",
-      "note": "being by something means standing next to it, so the pieces are placed side by side"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "garden",
-      "gives": "EDEN",
-      "note": "the Garden of Eden"
-     },
-     {
-      "clueFragment": "so long",
-      "gives": "TATA",
-      "note": "ta-ta is a British informal goodbye, like so long"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDEN",
-      "TATA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to be by",
+       "note": "being by something means standing next to it, so the pieces are placed side by side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "garden",
+       "gives": "EDEN",
+       "note": "the Garden of Eden"
+      },
+      {
+       "words": "so long",
+       "gives": "TATA",
+       "note": "ta-ta is a British informal goodbye, like so long"
+      }
      ]
     },
     "explanation": {
@@ -1910,48 +1739,45 @@
    },
    "solution": "RUNWAY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "RUNWAY",
     "definitions": [
      {
       "text": "Strip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moving",
-      "for": "deletion",
-      "note": "moving a letter takes it out of its place in the word"
-     },
-     {
-      "text": "to the front",
-      "for": "charade",
-      "note": "the removed letter is put back at the very start"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "reckless",
-      "gives": "UNWARY",
-      "note": "unwary means careless, not on guard; its R is taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "UNWAY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "moving",
+       "note": "moving a letter takes it out of its place in the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to the front",
+         "note": "the removed letter is put back at the very start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        },
+        {
+         "words": "reckless",
+         "gives": "UNWARY",
+         "note": "unwary means careless, not on guard; its R is taken out"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {

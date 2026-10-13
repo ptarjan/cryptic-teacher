@@ -1,8 +1,6 @@
 {
  "id": "toughie-3280",
  "number": 3280,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,280",
  "setter": "Elgar",
  "date": "2024-05-31",
  "dimensions": {
@@ -38,11 +36,6 @@
    },
    "solution": "SOLVERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SOLVERS",
     "definitions": [
      {
       "text": "You",
@@ -50,29 +43,41 @@
       "note": "a pronoun standing for the noun: the setter addresses the people doing the puzzle"
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "something cut short loses its end, so each of the two words drops its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alone",
-      "gives": "SOLO",
-      "note": "alone, unaccompanied"
-     },
-     {
-      "clueFragment": "poetry",
-      "gives": "VERSE",
-      "note": "poetry in general"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOL",
-      "VERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "note": "something cut short loses its end, so each of the two words drops its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alone",
+         "gives": "SOLO",
+         "note": "alone, unaccompanied"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "poetry",
+         "gives": "VERSE",
+         "note": "poetry in general"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -107,12 +112,6 @@
    },
    "solution": "SLIMJIM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SLIM JIM",
     "definitions": [
      {
       "text": "Thin",
@@ -120,41 +119,47 @@
       "note": "an adjective, while SLIM JIM is a noun for a thin person"
      }
     ],
-    "indicators": [
-     {
-      "text": "the start of",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, so only that is kept"
-     },
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into the middle of something, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sid",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of Sid"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L is the standard abbreviation for line"
-     },
-     {
-      "clueFragment": "James's intro",
-      "gives": "IMJIM",
-      "note": "how a James called Jim would introduce himself: 'I'm Jim'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "L",
-      "IMJIM"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SLIMJIM",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "to interrupt is to break into the middle of something, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "the start of",
+           "note": "the start of a word is its opening letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sid",
+           "note": "first letter of Sid"
+          }
+         ]
+        },
+        {
+         "words": "line",
+         "gives": "L",
+         "note": "L is the standard abbreviation for line"
+        },
+        {
+         "words": "James's intro",
+         "gives": "IMJIM",
+         "note": "how a James called Jim would introduce himself: 'I'm Jim'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -184,11 +189,6 @@
    },
    "solution": "LIFER",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion"
-    ],
-    "answer": "LIFER",
     "definitions": [
      {
       "text": "me",
@@ -196,28 +196,27 @@
       "note": "the speaker of the clue, a prisoner serving a life sentence"
      }
     ],
-    "indicators": [
-     {
-      "text": "Upcoming",
-      "for": "reversal",
-      "note": "in a down clue, coming up means the word is read from the bottom to the top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "new charge",
-      "gives": "REFILL",
-      "note": "a new charge, as of ink, fuel or a glass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIFER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REFILL",
-       "to": "LLIFER"
+       "text": "Upcoming",
+       "note": "in a down clue, coming up means the word is read from the bottom to the top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "new charge",
+         "gives": "REFILL",
+         "note": "a new charge, as of ink, fuel or a glass"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
@@ -248,10 +247,6 @@
    },
    "solution": "ERR",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ERR",
     "definitions": [
      {
       "text": "are human",
@@ -259,20 +254,22 @@
       "note": "a verb phrase; the proverb says to err is human, so erring is what humans do"
      }
     ],
-    "indicators": [
-     {
-      "text": "Only 30 per cent",
-      "for": "hidden_word",
-      "note": "a small fraction of the ten-letter phrase is kept, three consecutive letters from its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Master Race",
-      "gives": "ERR",
-      "note": "letters 4 to 6 of the ten-letter phrase"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Only 30 per cent",
+       "note": "a small fraction of the ten-letter phrase is kept, three consecutive letters from its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Master Race",
+       "gives": "ERR",
+       "note": "letters 4 to 6 of the ten-letter phrase"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dig at the idea of a 'master race': only a minority of them are actually human beings.",
      "walkthrough": "The definition leans on the proverb 'To err is human, to forgive divine'.",
@@ -306,11 +303,6 @@
    },
    "solution": "STARSIGN",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "STAR SIGN",
     "definitions": [
      {
       "text": "the scales?",
@@ -318,25 +310,33 @@
       "note": "Libra, the Scales, is one example of the answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "the answer is sitting inside the run of words that follows"
-     },
-     {
-      "text": "tipping",
-      "for": "reversal",
-      "note": "tipping something over turns it upside down, so in a down clue the letters read upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "strike-breaking is rat still",
-      "gives": "NGISRATS",
-      "note": "the letters spanning the end of breaking, all of is and rat, and the s of still"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "tipping",
+       "note": "tipping something over turns it upside down, so in a down clue the letters read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "the answer is sitting inside the run of words that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strike-breaking is rat still",
+         "gives": "NGISRATS",
+         "note": "the letters spanning the end of breaking, all of is and rat, and the s of still"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wondering whether a scab who breaks a strike is still swinging the balance.",
      "walkthrough": "'Rat' looks like the strike-breaker of the surface, but it is just letters for the run. The question mark flags that the scales is an example: Libra.",
@@ -377,68 +377,55 @@
     "9-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TOO MUCH INFORMATION",
     "definitions": [
      {
       "text": "Details I didn't need",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the preceding group of letters inside the following ones"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, which looks like the letter O"
-     },
-     {
-      "clueFragment": "maiden",
-      "gives": "M",
-      "note": "M is the cricket scorecard abbreviation for a maiden over"
-     },
-     {
-      "clueFragment": "refined",
-      "gives": "U",
-      "note": "U means upper-class, hence refined"
-     },
-     {
-      "clueFragment": "feature",
-      "gives": "CHIN",
-      "note": "the chin is a facial feature"
-     },
-     {
-      "clueFragment": "making",
-      "gives": "FORMATION",
-      "note": "the making or forming of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "O",
-      "O",
-      "M",
-      "U",
-      "CHIN",
-      "FORMATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the preceding group of letters inside the following ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "note": "taken as written"
+        },
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "love is zero in tennis, which looks like the letter O"
+        }
+       ]
+      },
+      {
+       "words": "maiden",
+       "gives": "M",
+       "note": "M is the cricket scorecard abbreviation for a maiden over"
+      },
+      {
+       "words": "refined",
+       "gives": "U",
+       "note": "U means upper-class, hence refined"
+      },
+      {
+       "words": "feature",
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      },
+      {
+       "words": "making",
+       "gives": "FORMATION",
+       "note": "the making or forming of something"
+      }
      ]
     },
     "explanation": {
@@ -468,57 +455,46 @@
    },
    "solution": "TRIPPY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TRIPPY",
     "definitions": [
      {
       "text": "Mind-blowing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to cut",
-      "for": "container",
-      "note": "cutting into something goes inside it, so these letters sit within the outer word"
-     }
-    ],
-    "linkWords": [
-     "added to",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "strain",
-      "gives": "TRY",
-      "note": "to try is to strain or make an effort"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "pressure",
-      "gives": "P",
-      "note": "P is the physics symbol for pressure"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the symbol for power"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "I",
-      "P",
-      "P",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cut",
+       "note": "cutting into something goes inside it, so these letters sit within the outer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strain",
+       "gives": "TRY",
+       "note": "to try is to strain or make an effort"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        },
+        {
+         "words": "pressure",
+         "gives": "P",
+         "note": "P is the physics symbol for pressure"
+        },
+        {
+         "words": "power",
+         "gives": "P",
+         "note": "P is the symbol for power"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -552,52 +528,48 @@
    },
    "solution": "OWNERDRIVER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "OWNER-DRIVER",
     "definitions": [
      {
       "text": "I may take my car out",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Wearing",
-      "for": "container",
-      "note": "the pieces that follow have the first one on, so they surround it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "anorak",
-      "gives": "NERD",
-      "note": "an anorak is an obsessive enthusiast"
-     },
-     {
-      "clueFragment": "flower",
-      "gives": "RIVER",
-      "note": "a flower here is something that flows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "W",
-      "NERD",
-      "RIVER"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "OWNERDRIVER",
+     "indicators": [
+      {
+       "text": "Wearing",
+       "note": "the pieces that follow have the first one on, so they surround it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O is the abbreviation for old"
+        },
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        },
+        {
+         "words": "anorak",
+         "gives": "NERD",
+         "note": "an anorak is an obsessive enthusiast"
+        },
+        {
+         "words": "flower",
+         "gives": "RIVER",
+         "note": "a flower here is something that flows"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -627,45 +599,44 @@
    },
    "solution": "UNBLOCKER",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "UNBLOCKER",
     "definitions": [
      {
       "text": "What liberates",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in sound",
-      "for": "homophone",
-      "note": "in sound means as heard, so the word is replaced by a letter pronounced the same"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "soundsLike": "YOU",
-      "note": "the letter U is said like the word you"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "NB",
-      "note": "NB, nota bene, means take note"
-     },
-     {
-      "clueFragment": "key",
-      "gives": "LOCKER",
-      "note": "a key is a thing that locks"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "in sound",
+         "note": "in sound means as heard, so the word is replaced by a letter pronounced the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "gives": "YOU",
+         "note": "the letter U is said like the word you"
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "gives": "NB",
+       "note": "NB, nota bene, means take note"
+      },
+      {
+       "words": "key",
+       "gives": "LOCKER",
+       "note": "a key is a thing that locks"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A musical riddle about what sets you free in the sound of a note and key.",
      "walkthrough": "'Note' and 'key' suggest music; here they are NB and a device that locks.",
@@ -692,38 +663,31 @@
    },
    "solution": "HANDLER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HANDLER",
     "definitions": [
      {
       "text": "Second",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "withdrawn from",
-      "for": "deletion",
-      "note": "withdrawing from something removes it, so these letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chapter",
-      "gives": "C",
-      "note": "C is the abbreviation for chapter"
-     },
-     {
-      "clueFragment": "Marlowe yarn",
-      "gives": "CHANDLER",
-      "note": "Raymond Chandler wrote the Philip Marlowe detective stories"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HANDLER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "withdrawn from",
+       "note": "withdrawing from something removes it, so these letters are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Marlowe yarn",
+       "gives": "CHANDLER",
+       "note": "Raymond Chandler wrote the Philip Marlowe detective stories"
+      },
+      {
+       "words": "chapter",
+       "gives": "C",
+       "note": "C is the abbreviation for chapter"
+      }
      ]
     },
     "explanation": {
@@ -765,38 +729,25 @@
    },
    "solution": "BUN",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "BUN",
     "definitions": [
      {
       "text": "this hairstyle",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about can mean turned round, so the word is written back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The main point",
-      "gives": "NUB",
-      "note": "the nub is the crux or central point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NUB",
-       "to": "BUN"
+       "text": "about",
+       "note": "about can mean turned round, so the word is written back to front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The main point",
+       "gives": "NUB",
+       "note": "the nub is the crux or central point"
       }
      ]
     },
@@ -825,64 +776,61 @@
    },
    "solution": "JUROR",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "JUROR",
     "definitions": [
      {
       "text": "court figure",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "suspect as an adjective means dubious, so the letters are not to be trusted in their given order"
-     },
-     {
-      "text": "principal",
-      "for": "letter_selection",
-      "note": "the principal letter is the first, so only the opening of the name is used"
-     },
-     {
-      "text": "framed by",
-      "for": "container",
-      "note": "a frame surrounds a picture, so the middle letters sit between the outer pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is the card abbreviation for a jack"
-     },
-     {
-      "clueFragment": "Our",
-      "gives": "URO",
-      "note": "the three letters rearranged"
-     },
-     {
-      "clueFragment": "Reacher's",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Reacher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "U",
-      "R",
-      "OR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OUR",
-       "gives": "URO"
+       "text": "framed by",
+       "note": "a frame surrounds a picture, so the middle letters sit between the outer pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suspect",
+         "note": "suspect as an adjective means dubious, so the letters are not to be trusted in their given order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Jack",
+           "gives": "J",
+           "note": "J is the card abbreviation for a jack"
+          },
+          {
+           "words": "Our",
+           "gives": "URO",
+           "note": "the three letters rearranged"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principal",
+         "note": "the principal letter is the first, so only the opening of the name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reacher's",
+         "note": "first letter of Reacher"
+        }
+       ]
       }
      ]
     },
@@ -922,45 +870,34 @@
    },
    "solution": "RAISONDETRE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "RAISON D'ETRE",
     "definitions": [
      {
       "text": "purpose",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Novel",
-      "for": "anagram",
-      "note": "novel means new, so the letters are made into something fresh"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is not read",
-      "gives": "ISNOTREAD",
-      "note": "the letters to rearrange"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on or concerning, as in a memo heading"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAISONDET",
-      "RE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ISNOTREAD",
-       "gives": "RAISONDET"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Novel",
+         "note": "novel means new, so the letters are made into something fresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is not read",
+         "note": "the letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on or concerning, as in a memo heading"
       }
      ]
     },
@@ -996,47 +933,41 @@
    },
    "solution": "SUPERBOWL",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SUPER BOWL",
     "definitions": [
      {
       "text": "Big game",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in which to see",
-      "for": "container",
-      "note": "the first word is a place inside which the next piece can be seen, so one goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reserve",
-      "gives": "SUB",
-      "note": "a sub, or substitute, is a reserve player"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "PER",
-      "note": "a as in 'five pounds a head' means per"
-     },
-     {
-      "clueFragment": "predator of the night",
-      "gives": "OWL",
-      "note": "the owl hunts at night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "PER",
-      "B",
-      "OWL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which to see",
+         "note": "the first word is a place inside which the next piece can be seen, so one goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reserve",
+         "gives": "SUB",
+         "note": "a sub, or substitute, is a reserve player"
+        },
+        {
+         "words": "a",
+         "gives": "PER",
+         "note": "a as in 'five pounds a head' means per"
+        }
+       ]
+      },
+      {
+       "words": "predator of the night",
+       "gives": "OWL",
+       "note": "the owl hunts at night"
+      }
      ]
     },
     "explanation": {
@@ -1076,26 +1007,25 @@
     "16-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MARRIAGE BROKER",
     "definitions": [
      {
       "text": "Who's sealing the deal to get Man United?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Who's sealing the deal to get Man United?",
-      "note": "surface reading: a football agent or club owner closing a deal to buy Manchester United"
-     },
-     {
-      "clueFragment": "Who's sealing the deal to get Man United?",
-      "note": "setter's reading: someone paid to arrange a match so that a man is united with a wife"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Who's sealing the deal to get Man United?",
+       "note": "surface reading: a football agent or club owner closing a deal to buy Manchester United"
+      },
+      {
+       "words": "Who's sealing the deal to get Man United?",
+       "note": "setter's reading: someone paid to arrange a match so that a man is united with a wife"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A business tycoon trying to close a takeover of Manchester United football club.",
      "walkthrough": "Man United, the usual nickname of Manchester United, splits into 'man' and 'united', as in wed.",
@@ -1129,11 +1059,6 @@
    },
    "solution": "ROOMINGIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ROOMING-IN",
     "definitions": [
      {
       "text": "shared apartment",
@@ -1141,32 +1066,33 @@
       "note": "a noun phrase for the arrangement; ROOMING-IN names the practice of lodging in shared accommodation"
      }
     ],
-    "indicators": [
-     {
-      "text": "floor scrubbed in",
-      "for": "deletion",
-      "note": "in a down clue the floor is the bottom letter, and scrubbing it out removes it"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aussie resident",
-      "gives": "ROO",
-      "note": "a kangaroo, a native resident of Australia"
-     },
-     {
-      "clueFragment": "fetid",
-      "gives": "MINGING",
-      "note": "minging is British slang for foul-smelling or disgusting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROO",
-      "MINGIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "floor scrubbed in",
+       "note": "in a down clue the floor is the bottom letter, and scrubbing it out removes it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Aussie resident",
+         "gives": "ROO",
+         "note": "a kangaroo, a native resident of Australia"
+        },
+        {
+         "words": "fetid",
+         "gives": "MINGING",
+         "note": "minging is British slang for foul-smelling or disgusting"
+        }
+       ]
+      },
+      {
+       "gives": "G"
+      }
      ]
     },
     "explanation": {
@@ -1208,47 +1134,41 @@
    },
    "solution": "PRODNOSE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PRODNOSE",
     "definitions": [
      {
       "text": "Jack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in puts the preceding letters inside the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "writing",
-      "gives": "PROSE",
-      "note": "prose is ordinary written language"
-     },
-     {
-      "clueFragment": "Dee",
-      "gives": "D",
-      "note": "the letter dee spelt out"
-     },
-     {
-      "clueFragment": "I refuse",
-      "gives": "NO",
-      "note": "the word of refusal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "D",
-      "NO",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in puts the preceding letters inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writing",
+       "gives": "PROSE",
+       "note": "prose is ordinary written language"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dee",
+         "gives": "D",
+         "note": "the letter dee spelt out"
+        },
+        {
+         "words": "I refuse",
+         "gives": "NO",
+         "note": "the word of refusal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1291,64 +1211,55 @@
     "19-across"
    ],
    "annotation": {
-    "type": [
-     "cycling",
-     "container",
-     "charade"
-    ],
-    "answer": "BOOK OF PROVERBS",
     "definitions": [
      {
       "text": "Wise words from Solomon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling moves letters round in a loop, so the front letters go to the back"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the outer piece goes round the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roberts",
-      "gives": "BOBS",
-      "note": "Bob is a pet form of Robert, so several Roberts are Bobs"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "OK",
-      "note": "OK means fine or all right"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "PROF",
-      "note": "a professor is an academic fellow, PROF for short"
-     },
-     {
-      "clueFragment": "past",
-      "gives": "OVER",
-      "note": "over means past or finished"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "OK",
-      "OFPR",
-      "OVER",
-      "BS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BOOKOFPROVERBS",
+     "indicators": [
       {
-       "fodder": "PROF",
-       "gives": "OFPR"
+       "text": "about",
+       "note": "about means surrounding, so the outer piece goes round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "BOOKOFPROVERBS",
+       "indicators": [
+        {
+         "text": "cycling",
+         "note": "cycling moves letters round in a loop, so the front letters go to the back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Roberts",
+         "gives": "BOBS",
+         "note": "Bob is a pet form of Robert, so several Roberts are Bobs"
+        },
+        {
+         "words": "fine",
+         "gives": "OK",
+         "note": "OK means fine or all right"
+        },
+        {
+         "words": "fellow",
+         "gives": "PROF",
+         "note": "a professor is an academic fellow, PROF for short"
+        },
+        {
+         "words": "past",
+         "gives": "OVER",
+         "note": "over means past or finished"
+        }
+       ]
       }
      ]
     },
@@ -1384,51 +1295,39 @@
    },
    "solution": "BOTANIC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BOTANIC",
     "definitions": [
      {
       "text": "of Plants?",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "Looking up",
-      "for": "reversal",
-      "note": "in a down clue, looking up means the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "commonest of cyclamens",
-      "gives": "C",
-      "note": "C is the only letter appearing twice in cyclamens"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Vol 1 of Encyclopaedia",
-      "gives": "ATOB",
-      "note": "the first volume of an encyclopaedia typically covers A to B"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOTA",
-      "NI",
-      "C"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CINATOB",
-       "to": "BOTANIC"
+       "text": "Looking up",
+       "note": "in a down clue, looking up means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "commonest of cyclamens",
+         "gives": "C",
+         "note": "C is the only letter appearing twice in cyclamens"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "Vol 1 of Encyclopaedia",
+         "gives": "ATOB",
+         "note": "the first volume of an encyclopaedia typically covers A to B"
+        }
+       ]
       }
      ]
     },
@@ -1477,32 +1376,25 @@
    },
    "solution": "SPRAYON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPRAY-ON",
     "definitions": [
      {
       "text": "applied by aerosol?",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The latest",
-      "gives": "SP",
-      "note": "SP, the starting price, is the latest odds offered on a horse before a race"
-     },
-     {
-      "clueFragment": "synthetic",
-      "gives": "RAYON",
-      "note": "rayon is a synthetic fabric"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "RAYON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The latest",
+       "gives": "SP",
+       "note": "SP, the starting price, is the latest odds offered on a horse before a race"
+      },
+      {
+       "words": "synthetic",
+       "gives": "RAYON",
+       "note": "rayon is a synthetic fabric"
+      }
      ]
     },
     "explanation": {
@@ -1530,35 +1422,24 @@
    },
    "solution": "DARWIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DARWIN",
     "definitions": [
      {
       "text": "One for whom fitness was paramount",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "convulsing",
-      "for": "anagram",
-      "note": "convulsing means jerking violently, so the letters are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in ward",
-      "gives": "INWARD",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INWARD",
-       "gives": "DARWIN"
+       "text": "convulsing",
+       "note": "convulsing means jerking violently, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in ward",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1595,28 +1476,16 @@
    },
    "solution": "THIRDHAND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THIRD-HAND",
     "definitions": [
      {
       "text": "Appreciation of second encore",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a round of applause is a hand, and the applause for a second encore is the third such hand"
      },
      {
       "text": "passed on down the line?",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Appreciation of second encore",
-      "note": "first meaning: a round of applause is a hand, and the applause for a second encore is the third such hand"
-     },
-     {
-      "clueFragment": "passed on down the line?",
-      "note": "second meaning: information relayed through more than one intermediary"
+      "at": 30,
+      "meaning": "second meaning: information relayed through more than one intermediary"
      }
     ],
     "explanation": {
@@ -1646,43 +1515,34 @@
    },
    "solution": "RACER",
    "annotation": {
-    "type": [
-     "and_lit",
-     "container"
-    ],
-    "answer": "RACER",
     "definitions": [
      {
       "text": "One likely to pip others in smart car?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the next one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "ACE",
-      "note": "an ace counts as one in cards and has a single pip"
-     },
-     {
-      "clueFragment": "smart car",
-      "gives": "RR",
-      "note": "RR stands for Rolls-Royce, the smartest of cars"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ACE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smart car",
+       "gives": "RR",
+       "note": "RR stands for Rolls-Royce, the smartest of cars"
+      },
+      {
+       "words": "One",
+       "gives": "ACE",
+       "note": "an ace counts as one in cards and has a single pip"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A driver in a flashy car who is liable to beat everyone else.",
      "walkthrough": "The whole clue is both definition and wordplay. 'Pip' backs up the card reading of One: an ace is the card with a single pip, and Rolls-Royce is the byword for a smart car.",
@@ -1710,33 +1570,29 @@
    },
    "solution": "COMET",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "COMET",
     "definitions": [
      {
       "text": "Long-distance traveller",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not quite reaching",
-      "for": "deletion",
-      "note": "falling just short means the last letter is lost"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wake",
-      "gives": "COMETO",
-      "note": "to come to is to regain consciousness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMET"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not quite reaching",
+       "note": "falling just short means the last letter is lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wake",
+       "gives": "COMETO",
+       "note": "to come to is to regain consciousness"
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -1764,28 +1620,16 @@
    },
    "solution": "NAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NAG",
     "definitions": [
      {
       "text": "Repeatedly find fault with",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to scold or pester persistently"
      },
      {
       "text": "horse",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Repeatedly find fault with",
-      "note": "first meaning: to scold or pester persistently"
-     },
-     {
-      "clueFragment": "horse",
-      "note": "second meaning: an old or worn-out horse"
+      "at": 27,
+      "meaning": "second meaning: an old or worn-out horse"
      }
     ],
     "explanation": {
@@ -1835,40 +1679,33 @@
     "28-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TO WHOM IT MAY CONCERN",
     "definitions": [
      {
       "text": "I'm not certain of recipient",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs redirecting",
-      "for": "anagram",
-      "note": "redirecting sends things on a new route, so the letters are put in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "contact or why memo",
-      "gives": "CONTACTORWHYMEMO",
-      "note": "the words to rearrange"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "also part of the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INCONTACTORWHYMEMO",
-       "gives": "TOWHOMITMAYCONCERN"
+       "text": "needs redirecting",
+       "note": "redirecting sends things on a new route, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "contact or why memo",
+         "note": "the words to rearrange"
+        },
+        {
+         "words": "in",
+         "note": "also part of the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -1907,45 +1744,43 @@
    },
    "solution": "IPA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "I P A",
     "definitions": [
      {
       "text": "beer",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Waving goodbye to",
-      "for": "deletion",
-      "note": "someone waved goodbye has left, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SIP",
-      "note": "a sip is a small drink"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IP",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Waving goodbye to",
+       "note": "someone waved goodbye has left, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "son",
+         "gives": "S",
+         "note": "S is the abbreviation for son"
+        },
+        {
+         "words": "drink",
+         "gives": "SIP",
+         "note": "a sip is a small drink"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "SS"
+      }
      ]
     },
     "explanation": {
@@ -1986,44 +1821,35 @@
    },
    "solution": "ELASTIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ELASTIN",
     "definitions": [
      {
       "text": "Shape is resumed thanks to this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opener",
-      "for": "letter_selection",
-      "note": "an opener comes first, so only the initial letter is taken"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "England's",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of England"
-     },
-     {
-      "clueFragment": "No 11",
-      "gives": "LASTIN",
-      "note": "in cricket the number 11 batsman is the last in to bat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LASTIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener",
+         "note": "an opener comes first, so only the initial letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England's",
+         "note": "first letter of England"
+        }
+       ]
+      },
+      {
+       "words": "No 11",
+       "gives": "LASTIN",
+       "note": "in cricket the number 11 batsman is the last in to bat"
+      }
      ]
     },
     "explanation": {

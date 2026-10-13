@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3065",
  "number": 3065,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,065",
  "date": "2020-07-19",
  "dimensions": {
   "cols": 15,
@@ -37,38 +35,25 @@
    },
    "solution": "DRAW",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DRAW",
     "definitions": [
      {
       "text": "Pull",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the word is read from the bottom to the top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charge",
-      "gives": "WARD",
-      "note": "a ward is someone placed in another's charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "WARD",
-       "to": "DRAW"
+       "text": "up",
+       "note": "in a down clue, up means the word is read from the bottom to the top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "charge",
+       "gives": "WARD",
+       "note": "a ward is someone placed in another's charge"
       }
      ]
     },
@@ -97,50 +82,44 @@
    },
    "solution": "TISSUE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TISSUE",
     "definitions": [
      {
       "text": "Wipe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "new suggests the letters are made over into a fresh order"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "end of asks for just the final letter of the following word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "suits",
-      "gives": "SUITS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sleeve",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of sleeve"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SUITSE",
-       "gives": "TISSUE"
+       "text": "new",
+       "note": "new suggests the letters are made over into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "suits",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "end of asks for just the final letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sleeve",
+           "note": "last letter of sleeve"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -169,35 +148,24 @@
    },
    "solution": "UNDERPANTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNDERPANTS",
     "definitions": [
      {
       "text": "boxers, say?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "after duffing up",
-      "for": "anagram",
-      "note": "duffing up is British slang for beating up, so the words are knocked about out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nuns depart",
-      "gives": "NUNSDEPART",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NUNSDEPART",
-       "gives": "UNDERPANTS"
+       "text": "after duffing up",
+       "note": "duffing up is British slang for beating up, so the words are knocked about out of shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nuns depart",
+       "note": "taken as written"
       }
      ]
     },
@@ -228,41 +196,35 @@
    },
    "solution": "STENCH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STENCH",
     "definitions": [
      {
       "text": "stink",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Initially",
-      "for": "letter_selection",
-      "note": "initially points at the opening letter of the next word only"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smelly",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of smelly"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "TENCH",
-      "note": "a tench is a freshwater fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TENCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "note": "initially points at the opening letter of the next word only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smelly",
+         "note": "first letter of smelly"
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "gives": "TENCH",
+       "note": "a tench is a freshwater fish"
+      }
      ]
     },
     "explanation": {
@@ -289,43 +251,31 @@
    },
    "solution": "PRIGGISH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRIGGISH",
     "definitions": [
      {
       "text": "Smug",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "to entertain a guest is to take them in, so one piece holds the other"
-     }
-    ],
-    "linkWords": [
-     ":"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as a swine",
-      "gives": "PIGGISH",
-      "note": "like a pig"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "IGGISH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "note": "to entertain a guest is to take them in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as a swine",
+       "gives": "PIGGISH",
+       "note": "like a pig"
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      }
      ]
     },
     "explanation": {
@@ -353,30 +303,28 @@
    },
    "solution": "ANTI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ANTI",
     "definitions": [
      {
       "text": "Challenger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in says the letters sit inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sportswoman, tiring",
-      "gives": "ANTI",
-      "note": "spans the end of sportswoman and the start of tiring"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in says the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sportswoman, tiring",
+       "gives": "ANTI",
+       "note": "spans the end of sportswoman and the start of tiring"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A rival appears within a tiring sportswoman.",
      "definitionFit": "An anti is a person opposed to something, so one who challenges or contests it."
@@ -402,48 +350,37 @@
    },
    "solution": "BUDDLEIA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "BUDDLEIA",
     "definitions": [
      {
       "text": "bloom",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "developing",
-      "for": "anagram",
-      "note": "something developing changes shape, so the word's letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Potential flower perhaps",
-      "gives": "BUD",
-      "note": "a bud is a flower yet to open"
-     },
-     {
-      "clueFragment": "ideal",
-      "gives": "DLEIA",
-      "note": "the letters of ideal rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUD",
-      "DLEIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BUDDLEIA",
+     "indicators": [
       {
-       "fodder": "IDEAL",
-       "gives": "DLEIA"
+       "text": "developing",
+       "note": "something developing changes shape, so the word's letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Potential flower perhaps",
+         "gives": "BUD",
+         "note": "a bud is a flower yet to open"
+        },
+        {
+         "words": "ideal",
+         "gives": "DLEIA",
+         "note": "the letters of ideal rearranged"
+        }
+       ]
       }
      ]
     },
@@ -472,48 +409,37 @@
    },
    "solution": "MADELEINES",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MADELEINES",
     "definitions": [
      {
       "text": "French cakes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "mixed means the following letters are stirred into a new order"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prepared",
-      "gives": "MADE",
-      "note": "made as in made ready"
-     },
-     {
-      "clueFragment": "in eels",
-      "gives": "LEINES",
-      "note": "the letters of in eels rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MADE",
-      "LEINES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MADELEINES",
+     "indicators": [
       {
-       "fodder": "INEELS",
-       "gives": "LEINES"
+       "text": "mixed",
+       "note": "mixed means the following letters are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "prepared",
+         "gives": "MADE",
+         "note": "made as in made ready"
+        },
+        {
+         "words": "in eels",
+         "gives": "LEINES",
+         "note": "the letters of in eels rearranged"
+        }
+       ]
       }
      ]
     },
@@ -542,31 +468,29 @@
    },
    "solution": "REIGN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "REIGN",
     "definitions": [
      {
       "text": "Power",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "it's said",
-      "for": "homophone",
-      "note": "it's said means the word is to be heard spoken rather than read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drops from the sky",
-      "gives": "REIGN",
-      "soundsLike": "RAIN",
-      "note": "rain is water drops falling from the sky"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REIGN",
+     "indicators": [
+      {
+       "text": "it's said",
+       "note": "it's said means the word is to be heard spoken rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drops from the sky",
+       "gives": "RAIN",
+       "note": "rain is water drops falling from the sky"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A riddle asking whether power falls from the heavens.",
      "definitionFit": "A reign is a monarch's period of rule, so sovereign power or authority."
@@ -593,48 +517,37 @@
    },
    "solution": "TARANTULA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TARANTULA",
     "definitions": [
      {
       "text": "hairy creature",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "gambolling",
-      "for": "anagram",
-      "note": "gambolling is skipping about playfully, so the letters jump into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I appreciate that",
-      "gives": "TA",
-      "note": "ta is British informal thanks"
-     },
-     {
-      "clueFragment": "natural",
-      "gives": "RANTULA",
-      "note": "the letters of natural rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "RANTULA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TARANTULA",
+     "indicators": [
       {
-       "fodder": "NATURAL",
-       "gives": "RANTULA"
+       "text": "gambolling",
+       "note": "gambolling is skipping about playfully, so the letters jump into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I appreciate that",
+         "gives": "TA",
+         "note": "ta is British informal thanks"
+        },
+        {
+         "words": "natural",
+         "gives": "RANTULA",
+         "note": "the letters of natural rearranged"
+        }
+       ]
       }
      ]
     },
@@ -663,32 +576,25 @@
    },
    "solution": "WESTERN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WESTERN",
     "definitions": [
      {
       "text": "Film",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "partners when playing",
-      "gives": "WE",
-      "note": "West and East are partners at the bridge table"
-     },
-     {
-      "clueFragment": "tough",
-      "gives": "STERN",
-      "note": "stern means harsh or tough"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WE",
-      "STERN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "partners when playing",
+       "gives": "WE",
+       "note": "West and East are partners at the bridge table"
+      },
+      {
+       "words": "tough",
+       "gives": "STERN",
+       "note": "stern means harsh or tough"
+      }
      ]
     },
     "explanation": {
@@ -717,32 +623,25 @@
    },
    "solution": "GRIDDLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIDDLE",
     "definitions": [
      {
       "text": "Cook",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "poser",
-      "gives": "RIDDLE",
-      "note": "a poser is a puzzling question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RIDDLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the abbreviation for good"
+      },
+      {
+       "words": "poser",
+       "gives": "RIDDLE",
+       "note": "a poser is a puzzling question"
+      }
      ]
     },
     "explanation": {
@@ -770,28 +669,16 @@
    },
    "solution": "STEEP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STEEP",
     "definitions": [
      {
       "text": "Very dear",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: excessively expensive"
      },
      {
       "text": "soak",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Very dear",
-      "note": "first meaning: excessively expensive"
-     },
-     {
-      "clueFragment": "soak",
-      "note": "second meaning: to leave immersed in liquid"
+      "at": 10,
+      "meaning": "second meaning: to leave immersed in liquid"
      }
     ],
     "explanation": {
@@ -820,50 +707,43 @@
    },
    "solution": "SEAMSTRESS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEAMSTRESS",
     "definitions": [
      {
       "text": "sewer?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "cracked",
-      "for": "anagram",
-      "note": "something cracked is broken apart, so these letters are reassembled differently"
-     },
-     {
-      "text": "beneath",
-      "for": "charade",
-      "note": "in a down clue, beneath puts one piece lower in the column than the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "same",
-      "gives": "SEAM",
-      "note": "the letters of same rearranged"
-     },
-     {
-      "clueFragment": "Pressure",
-      "gives": "STRESS",
-      "note": "stress is pressure or strain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEAM",
-      "STRESS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SEAMSTRESS",
+     "indicators": [
       {
-       "fodder": "SAME",
-       "gives": "SEAM"
+       "text": "cracked",
+       "note": "something cracked is broken apart, so these letters are reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "beneath",
+         "note": "in a down clue, beneath puts one piece lower in the column than the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "same",
+         "gives": "SEAM",
+         "note": "the letters of same rearranged"
+        },
+        {
+         "words": "Pressure",
+         "gives": "STRESS",
+         "note": "stress is pressure or strain"
+        }
+       ]
       }
      ]
     },
@@ -894,32 +774,25 @@
    },
    "solution": "HAIRPIECE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HAIRPIECE",
     "definitions": [
      {
       "text": "that may go to one's head?",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Musical",
-      "gives": "HAIR",
-      "note": "Hair is a 1960s rock musical"
-     },
-     {
-      "clueFragment": "composition",
-      "gives": "PIECE",
-      "note": "a piece is a musical or written composition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAIR",
-      "PIECE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Musical",
+       "gives": "HAIR",
+       "note": "Hair is a 1960s rock musical"
+      },
+      {
+       "words": "composition",
+       "gives": "PIECE",
+       "note": "a piece is a musical or written composition"
+      }
      ]
     },
     "explanation": {
@@ -955,42 +828,31 @@
    },
    "solution": "PAGETURNER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAGE-TURNER",
     "definitions": [
      {
       "text": "great book",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "under",
-      "for": "charade",
-      "note": "in a down clue, under places one piece below the other in the column"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "servant",
-      "gives": "PAGE",
-      "note": "a page is a young servant or attendant"
-     },
-     {
-      "clueFragment": "Master",
-      "gives": "TURNER",
-      "note": "J. M. W. Turner, the English painter, is an Old Master"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAGE",
-      "TURNER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "note": "in a down clue, under places one piece below the other in the column"
+      }
+     ],
+     "parts": [
+      {
+       "words": "servant",
+       "gives": "PAGE",
+       "note": "a page is a young servant or attendant"
+      },
+      {
+       "words": "Master",
+       "gives": "TURNER",
+       "note": "J. M. W. Turner, the English painter, is an Old Master"
+      }
      ]
     },
     "explanation": {
@@ -1028,28 +890,16 @@
    },
    "solution": "AGAINSTTHEGRAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AGAINST THE GRAIN",
     "definitions": [
      {
       "text": "Contrary to what is expected",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an idiom for going against the natural inclination"
      },
      {
       "text": "unlikely to drink whisky?",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Contrary to what is expected",
-      "note": "first meaning: an idiom for going against the natural inclination"
-     },
-     {
-      "clueFragment": "unlikely to drink whisky?",
-      "note": "second meaning, whimsical: opposed to grain whisky"
+      "at": 30,
+      "meaning": "second meaning, whimsical: opposed to grain whisky"
      }
     ],
     "explanation": {
@@ -1078,48 +928,37 @@
    },
    "solution": "ARTISTRY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ARTISTRY",
     "definitions": [
      {
       "text": "Skill",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to weave",
-      "for": "anagram",
-      "note": "weaving interlaces strands into a new pattern, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "shown,"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I start",
-      "gives": "ARTIST",
-      "note": "the letters of I start rearranged"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "RY",
-      "note": "RY is short for railway, a line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARTIST",
-      "RY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARTISTRY",
+     "indicators": [
       {
-       "fodder": "ISTART",
-       "gives": "ARTIST"
+       "text": "to weave",
+       "note": "weaving interlaces strands into a new pattern, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I start",
+         "gives": "ARTIST",
+         "note": "the letters of I start rearranged"
+        },
+        {
+         "words": "line",
+         "gives": "RY",
+         "note": "RY is short for railway, a line"
+        }
+       ]
       }
      ]
     },
@@ -1148,32 +987,25 @@
    },
    "solution": "TAILSPIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAILSPIN",
     "definitions": [
      {
       "text": "sudden descent of aeroplane",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "50/50 chance",
-      "gives": "TAILS",
-      "note": "tails is one side of a tossed coin, an even chance"
-     },
-     {
-      "clueFragment": "fix",
-      "gives": "PIN",
-      "note": "to pin is to fix in place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAILS",
-      "PIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "50/50 chance",
+       "gives": "TAILS",
+       "note": "tails is one side of a tossed coin, an even chance"
+      },
+      {
+       "words": "fix",
+       "gives": "PIN",
+       "note": "to pin is to fix in place"
+      }
      ]
     },
     "explanation": {
@@ -1201,51 +1033,45 @@
    },
    "solution": "SATISFIED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SATISFIED",
     "definitions": [
      {
       "text": "Pleased",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to escape",
-      "for": "deletion",
-      "note": "escape means getting out, so that letter leaves the word it was in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "day",
-      "gives": "SAT",
-      "note": "Sat is short for Saturday"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "competitors",
-      "gives": "FIELD",
-      "note": "the field is everyone competing in a race"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is short for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "IS",
-      "FIED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to escape",
+       "note": "escape means getting out, so that letter leaves the word it was in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "day",
+         "gives": "SAT",
+         "note": "Sat is short for Saturday"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "words": "competitors",
+         "gives": "FIELD",
+         "note": "the field is everyone competing in a race"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is short for left"
+      }
      ]
     },
     "explanation": {
@@ -1273,32 +1099,25 @@
    },
    "solution": "DOSAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOSAGE",
     "definitions": [
      {
       "text": "how much medicine to prescribe",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Party",
-      "gives": "DO",
-      "note": "a do is a party"
-     },
-     {
-      "clueFragment": "learned",
-      "gives": "SAGE",
-      "note": "sage means wise or learned"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "SAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "words": "learned",
+       "gives": "SAGE",
+       "note": "sage means wise or learned"
+      }
      ]
     },
     "explanation": {
@@ -1326,40 +1145,30 @@
    },
    "solution": "TUNIS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TUNIS",
     "definitions": [
      {
       "text": "Capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in",
-      "for": "container",
-      "note": "money invested in something is put inside it, so one piece goes into the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large containers",
-      "gives": "TUNS",
-      "note": "a tun is a large cask"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUN",
-      "I",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invested in",
+       "note": "money invested in something is put inside it, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "large containers",
+       "gives": "TUNS",
+       "note": "a tun is a large cask"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1389,28 +1198,16 @@
    },
    "solution": "NIPPER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NIPPER",
     "definitions": [
      {
       "text": "Baby",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: British informal word for a small child"
      },
      {
       "text": "crab?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Baby",
-      "note": "first meaning: British informal word for a small child"
-     },
-     {
-      "clueFragment": "crab?",
-      "note": "second meaning: something that nips with its claws"
+      "at": 5,
+      "meaning": "second meaning: something that nips with its claws"
      }
     ],
     "explanation": {
@@ -1439,47 +1236,39 @@
    },
    "solution": "RASHERS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RASHERS",
     "definitions": [
      {
       "text": "Bacon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the periphery",
-      "for": "letter_selection",
-      "note": "the periphery is the outside edge, so only the two end letters are wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA, Royal Academician, is an artist"
-     },
-     {
-      "clueFragment": "she",
-      "gives": "SHE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "reveals",
-      "gives": "RS",
-      "select": "outer",
-      "note": "first and last letters of reveals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "SHE",
-      "RS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "RA, Royal Academician, is an artist"
+      },
+      {
+       "words": "she",
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on the periphery",
+         "note": "the periphery is the outside edge, so only the two end letters are wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reveals",
+         "note": "first and last letters of reveals"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1509,37 +1298,25 @@
    },
    "solution": "ESPY",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ESPY",
     "definitions": [
      {
       "text": "Clock",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "all concluding",
-      "for": "letter_selection",
-      "note": "concluding points at endings, so each word gives only its final letter"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time speeds up gradually",
-      "gives": "ESPY",
-      "select": "last",
-      "note": "last letters of time, speeds, up and gradually"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESPY"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "all concluding",
+       "note": "concluding points at endings, so each word gives only its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time speeds up gradually",
+       "note": "last letters of time, speeds, up and gradually"
+      }
      ]
     },
     "explanation": {
@@ -1568,53 +1345,50 @@
    },
    "solution": "STRIPED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "anagram"
-    ],
-    "answer": "STRIPED",
     "definitions": [
      {
       "text": "like a bumblebee?",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Spinning of",
-      "for": "anagram",
-      "note": "spinning turns things round and round, so the letters are tumbled into a new order"
-     },
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "catching means trapping something inside, so one piece is taken in"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally asks for the closing letter of the word before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spider",
-      "gives": "SPIDER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "insect",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of insect"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SPIDERT",
-       "gives": "STRIPED"
+       "text": "catching",
+       "note": "catching means trapping something inside, so one piece is taken in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Spinning of",
+         "note": "spinning turns things round and round, so the letters are tumbled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spider",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally asks for the closing letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insect",
+         "note": "last letter of insect"
+        }
+       ]
       }
      ]
     },
@@ -1643,28 +1417,16 @@
    },
    "solution": "DATE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DATE",
     "definitions": [
      {
       "text": "Take out",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to go out with someone romantically"
      },
      {
       "text": "dried fruit",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take out",
-      "note": "first meaning: to go out with someone romantically"
-     },
-     {
-      "clueFragment": "dried fruit",
-      "note": "second meaning: the sweet fruit of a palm, usually sold dried"
+      "at": 9,
+      "meaning": "second meaning: the sweet fruit of a palm, usually sold dried"
      }
     ],
     "explanation": {
@@ -1692,28 +1454,16 @@
    },
    "solution": "STRAPPING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRAPPING",
     "definitions": [
      {
       "text": "Strong",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: big and sturdily built"
      },
      {
       "text": "binding",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strong",
-      "note": "first meaning: big and sturdily built"
-     },
-     {
-      "clueFragment": "binding",
-      "note": "second meaning: tying up with straps"
+      "at": 7,
+      "meaning": "second meaning: tying up with straps"
      }
     ],
     "explanation": {
@@ -1741,36 +1491,28 @@
    },
    "solution": "EVENT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EVENT",
     "definitions": [
      {
       "text": "competition",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "removing coat",
-      "for": "deletion",
-      "note": "taking off a coat strips away the outer layer, so the end letters go"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Figure",
-      "gives": "SEVENTY",
-      "note": "seventy is a number, a figure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EVENT",
+     "indicators": [
+      {
+       "text": "removing coat",
+       "note": "taking off a coat strips away the outer layer, so the end letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Figure",
+       "gives": "SEVENTY",
+       "note": "seventy is a number, a figure"
+      }
      ]
     },
     "explanation": {

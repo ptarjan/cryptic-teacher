@@ -1,8 +1,6 @@
 {
  "id": "times-29456",
  "number": 29456,
- "series": "times",
- "name": "Times cryptic crossword No 29,456",
  "date": "2026-02-03",
  "dimensions": {
   "cols": 15,
@@ -41,30 +39,28 @@
    },
    "solution": "SATCHEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SATCHEL",
     "definitions": [
      {
       "text": "Bag",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "only some of the letters of the following words are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bargains at Chelsea",
-      "gives": "SATCHEL",
-      "note": "bargainS AT CHELsea"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only some of the letters of the following words are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bargains at Chelsea",
+       "gives": "SATCHEL",
+       "note": "bargainS AT CHELsea"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A shopper picks up a few bargains in a smart London district.",
      "walkthrough": "'Bag' reads as the verb 'grab' in the surface, but it is the noun definition. Chelsea is a wealthy area of London.",
@@ -92,60 +88,57 @@
    },
    "solution": "SCORSESE",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SCORSESE",
     "definitions": [
      {
       "text": "Director",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "take only the extreme letters of 'savage'"
-     },
-     {
-      "text": "about",
-      "note": "the first pieces go around the next one"
-     },
-     {
-      "text": "End of",
-      "note": "take just the last letter"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut",
-      "gives": "SCORE",
-      "note": "to score is to cut a line into"
-     },
-     {
-      "clueFragment": "extremely savage",
-      "gives": "SE",
-      "note": "first and last letters of SavagE"
-     },
-     {
-      "clueFragment": "End of Days",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of dayS, placed inside SCORE+SE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCOR",
-      "S",
-      "E",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the first pieces go around the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cut",
+       "gives": "SCORE",
+       "note": "to score is to cut a line into"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "End of",
+         "note": "take just the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely savage",
+         "gives": "SE",
+         "note": "first and last letters of SavagE"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "extremely",
+           "note": "take only the extreme letters of 'savage'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "End of Days",
+           "note": "last letter of dayS, placed inside SCORE+SE"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -184,38 +177,24 @@
    },
    "solution": "THEMORNINGAFTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE MORNING AFTER",
     "definitions": [
      {
       "text": "recovery period",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Dicky",
-      "for": "anagram",
-      "note": "dicky means unsound or faulty, so the letters are in bad order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mentoring father",
-      "gives": "MENTORINGFATHER",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENTORING FATHER",
-       "gives": "THEMORNINGAFTER"
+       "text": "Dicky",
+       "note": "dicky means unsound or faulty, so the letters are in bad order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mentoring father",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -251,35 +230,24 @@
    },
    "solution": "HOUSEPARTY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HOUSE PARTY",
     "definitions": [
      {
       "text": "Do",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "a drunk staggers about, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "her autopsy",
-      "gives": "HERAUTOPSY",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HER AUTOPSY",
-       "gives": "HOUSEPARTY"
+       "text": "drunk",
+       "note": "a drunk staggers about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "her autopsy",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -310,40 +278,38 @@
    },
    "solution": "LADDISH",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LADDISH",
     "definitions": [
      {
       "text": "Boisterous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without first",
-      "for": "deletion",
-      "note": "remove the first of the H's, the one at the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "note": "L = Liberal"
-     },
-     {
-      "clueFragment": "ate food without first husband",
-      "gives": "ADDISH",
-      "note": "ate food = HAD DISH; drop the first H (husband)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ADDISH"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LADDISH",
+     "indicators": [
+      {
+       "text": "without first",
+       "note": "remove the first of the H's, the one at the front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Liberal",
+         "gives": "L",
+         "note": "L = Liberal"
+        },
+        {
+         "words": "ate food without first husband",
+         "gives": "ADDISH",
+         "note": "ate food = HAD DISH; drop the first H (husband)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -372,11 +338,6 @@
    },
    "solution": "PEGASUS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PEGASUS",
     "definitions": [
      {
       "text": "stars",
@@ -384,42 +345,40 @@
       "note": "plural definition for a single constellation, which is a group of stars"
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to pray",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of Pray"
-     },
-     {
-      "clueFragment": "for example",
-      "gives": "EG",
-      "note": "e.g. = for example"
-     },
-     {
-      "clueFragment": "like",
-      "gives": "AS",
-      "note": "as = like"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EG",
-      "AS",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "the start of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to pray",
+         "gives": "PRAY",
+         "note": "first letter of Pray"
+        }
+       ]
+      },
+      {
+       "words": "for example",
+       "gives": "EG",
+       "note": "e.g. = for example"
+      },
+      {
+       "words": "like",
+       "gives": "AS",
+       "note": "as = like"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -448,40 +407,38 @@
    },
    "solution": "PORTENT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PORTENT",
     "definitions": [
      {
       "text": "Sign",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with time-sharing",
-      "for": "deletion",
-      "note": "the two words share one T (time), so it is written only once"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "PORT",
-      "note": "port = the left side of a ship"
-     },
-     {
-      "clueFragment": "shelter",
-      "gives": "ENT",
-      "note": "TENT, whose T is shared with the end of PORT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PORT",
-      "ENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PORTENT",
+     "indicators": [
+      {
+       "text": "with time-sharing",
+       "note": "the two words share one T (time), so it is written only once"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "gives": "PORT",
+         "note": "port = the left side of a ship"
+        },
+        {
+         "words": "shelter",
+         "gives": "ENT",
+         "note": "TENT, whose T is shared with the end of PORT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -511,41 +468,25 @@
    },
    "solution": "GARB",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GARB",
     "definitions": [
      {
       "text": "Clothes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about as in 'about turn': the word faces the other way, so its letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boast",
-      "gives": "BRAG",
-      "note": "to brag is to boast; turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GARB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BRAG",
-       "to": "GARB"
+       "text": "about",
+       "note": "about as in 'about turn': the word faces the other way, so its letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boast",
+       "gives": "BRAG",
+       "note": "to brag is to boast; turned round"
       }
      ]
     },
@@ -588,47 +529,41 @@
    },
    "solution": "SPUROFTHEMOMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SPUR-OF-THE-MOMENT",
     "definitions": [
      {
       "text": "Spontaneous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is received",
-      "for": "container",
-      "note": "the outpouring takes in the other words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outpouring",
-      "gives": "SPURT",
-      "note": "a spurt is a sudden gush"
-     },
-     {
-      "clueFragment": "their",
-      "gives": "OFTHEM",
-      "note": "their = of them"
-     },
-     {
-      "clueFragment": "warning",
-      "gives": "OMEN",
-      "note": "an omen is a warning; OFTHEM + OMEN go inside SPURT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPUR",
-      "OFTHEM",
-      "OMEN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is received",
+       "note": "the outpouring takes in the other words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outpouring",
+       "gives": "SPURT",
+       "note": "a spurt is a sudden gush"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "their",
+         "gives": "OFTHEM",
+         "note": "their = of them"
+        },
+        {
+         "words": "warning",
+         "gives": "OMEN",
+         "note": "an omen is a warning; OFTHEM + OMEN go inside SPURT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -657,35 +592,25 @@
    },
    "solution": "SADDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SADDER",
     "definitions": [
      {
       "text": "less happy",
       "at": 15
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S = small"
-     },
-     {
-      "clueFragment": "snake",
-      "gives": "ADDER",
-      "note": "the adder is Britain's venomous snake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ADDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "S = small"
+      },
+      {
+       "words": "snake",
+       "gives": "ADDER",
+       "note": "the adder is Britain's venomous snake"
+      }
      ]
     },
     "explanation": {
@@ -714,33 +639,28 @@
    },
    "solution": "ONE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ONE",
     "definitions": [
      {
       "text": "An",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not using frame",
-      "for": "deletion",
-      "note": "drop the outside letters, the frame round the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "impressionist painter",
-      "gives": "ONE",
-      "note": "MONET without its outer M and T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ONE",
+     "indicators": [
+      {
+       "text": "not using frame",
+       "note": "drop the outside letters, the frame round the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "impressionist painter",
+       "gives": "ONE",
+       "note": "MONET without its outer M and T"
+      }
      ]
     },
     "explanation": {
@@ -770,30 +690,16 @@
    },
    "solution": "UNDERGROUND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNDERGROUND",
     "definitions": [
      {
       "text": "Tube",
-      "at": 0
+      "at": 0,
+      "meaning": "the Tube is the nickname of London's metro railway"
      },
      {
       "text": "not fine enough?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tube",
-      "gives": "UNDERGROUND",
-      "note": "the Tube is the nickname of London's metro railway"
-     },
-     {
-      "clueFragment": "not fine enough?",
-      "gives": "UNDERGROUND",
-      "note": "split the answer into a prefix meaning 'insufficiently' plus the past tense of grind"
+      "at": 5,
+      "meaning": "split the answer into a prefix meaning 'insufficiently' plus the past tense of grind"
      }
     ],
     "explanation": {
@@ -823,49 +729,41 @@
    },
    "solution": "SHORELINES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SHORELINES",
     "definitions": [
      {
       "text": "coasts",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Taking",
-      "note": "the second word takes the first inside it"
-     },
-     {
-      "text": "unusual",
-      "note": "an unusual arrangement is not the normal one, so the letters of 'role' are put out of their usual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stands out",
-      "gives": "SHINES",
-      "note": "to shine is to stand out"
-     },
-     {
-      "clueFragment": "role",
-      "gives": "OREL",
-      "note": "ROLE rearranged, placed inside SHINES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "OREL",
-      "INES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SHORELINES",
+     "parts": [
       {
-       "fodder": "ROLE",
-       "gives": "OREL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Taking",
+         "note": "the second word takes the first inside it"
+        },
+        {
+         "text": "unusual",
+         "note": "an unusual arrangement is not the normal one, so the letters of 'role' are put out of their usual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stands out",
+         "gives": "SHINES",
+         "note": "to shine is to stand out"
+        },
+        {
+         "words": "role",
+         "gives": "OREL",
+         "note": "ROLE rearranged, placed inside SHINES"
+        }
+       ]
       }
      ]
     },
@@ -896,35 +794,25 @@
    },
    "solution": "HOLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOLE",
     "definitions": [
      {
       "text": "slum",
       "at": 20
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House",
-      "gives": "HO",
-      "note": "ho. = house, as in addresses"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le = the in French"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "House",
+       "gives": "HO",
+       "note": "ho. = house, as in addresses"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le = the in French"
+      }
      ]
     },
     "explanation": {
@@ -959,48 +847,35 @@
    },
    "solution": "PLANECHART",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLANE CHART",
     "definitions": [
      {
       "text": "Sailor's map",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "container",
-      "note": "earth is one example of a planet"
-     },
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "the first word holds the second"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earth perhaps",
-      "gives": "PLANET",
-      "note": "Earth is a planet"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "CHAR",
-      "note": "char is a fish of the trout family, placed inside PLANET"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLANE",
-      "CHAR",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "note": "earth is one example of a planet"
+      },
+      {
+       "text": "containing",
+       "note": "the first word holds the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earth perhaps",
+       "gives": "PLANET",
+       "note": "Earth is a planet"
+      },
+      {
+       "words": "fish",
+       "gives": "CHAR",
+       "note": "char is a fish of the trout family, placed inside PLANET"
+      }
      ]
     },
     "explanation": {
@@ -1029,38 +904,25 @@
    },
    "solution": "SENNA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SENNA",
     "definitions": [
      {
       "text": "winner at racetrack",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "backed",
-      "for": "reversal",
-      "note": "backed as in 'backed up': moved in reverse, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen's",
-      "gives": "ANNES",
-      "note": "Queen Anne's, read backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SENNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANNES",
-       "to": "SENNA"
+       "text": "backed",
+       "note": "backed as in 'backed up': moved in reverse, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Queen's",
+       "gives": "ANNES",
+       "note": "Queen Anne's, read backwards"
       }
      ]
     },
@@ -1091,32 +953,25 @@
    },
    "solution": "HOTPLATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOTPLATE",
     "definitions": [
      {
       "text": "One's hobby?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Intense",
-      "gives": "HOT",
-      "note": "hot = intense, as in hot pursuit"
-     },
-     {
-      "clueFragment": "competition",
-      "gives": "PLATE",
-      "note": "a plate is a race for a prize, as in a selling plate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT",
-      "PLATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Intense",
+       "gives": "HOT",
+       "note": "hot = intense, as in hot pursuit"
+      },
+      {
+       "words": "competition",
+       "gives": "PLATE",
+       "note": "a plate is a race for a prize, as in a selling plate"
+      }
      ]
     },
     "explanation": {
@@ -1146,39 +1001,36 @@
    },
    "solution": "TELEPORT",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TELEPORT",
     "definitions": [
      {
       "text": "move instantaneously",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "note": "in a down clue, read from bottom to top"
-     },
-     {
-      "text": "grasping",
-      "note": "the words hold the answer within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maestro Pele turned",
-      "gives": "TROPELET",
-      "note": "maesTRO PELE Turned, read upwards"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TROPELET",
-       "to": "TELEPORT"
+       "text": "up",
+       "note": "in a down clue, read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "grasping",
+         "note": "the words hold the answer within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maestro Pele turned",
+         "gives": "TROPELET",
+         "note": "maesTRO PELE Turned, read upwards"
+        }
+       ]
       }
      ]
     },
@@ -1208,38 +1060,29 @@
    },
    "solution": "INITIATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INITIATE",
     "definitions": [
      {
       "text": "Admit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "at that restaurant",
-      "gives": "INIT",
-      "note": "at that = in it"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "I as itself"
-     },
-     {
-      "clueFragment": "had meal",
-      "gives": "ATE",
-      "note": "ate = had a meal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INIT",
-      "I",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "at that restaurant",
+       "gives": "INIT",
+       "note": "at that = in it"
+      },
+      {
+       "words": "I",
+       "note": "I as itself"
+      },
+      {
+       "words": "had meal",
+       "gives": "ATE",
+       "note": "ate = had a meal"
+      }
      ]
     },
     "explanation": {
@@ -1268,11 +1111,6 @@
    },
    "solution": "AIRHEAD",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AIRHEAD",
     "definitions": [
      {
       "text": "I'm dizzy",
@@ -1280,32 +1118,32 @@
       "note": "the answer speaks: 'I'm dizzy' stands for a dizzy person, a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "removing top",
-      "for": "deletion",
-      "note": "in a down clue the top of a word is its first letter, so that letter comes off"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blonde, removing top",
-      "gives": "AIR",
-      "note": "FAIR (blonde) without its first letter"
-     },
-     {
-      "clueFragment": "summit",
-      "gives": "HEAD",
-      "note": "the head of a valley or pass is its summit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "HEAD"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AIRHEAD",
+     "indicators": [
+      {
+       "text": "removing top",
+       "note": "in a down clue the top of a word is its first letter, so that letter comes off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "blonde, removing top",
+         "gives": "AIR",
+         "note": "FAIR (blonde) without its first letter"
+        },
+        {
+         "words": "summit",
+         "gives": "HEAD",
+         "note": "the head of a valley or pass is its summit"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1335,49 +1173,41 @@
    },
    "solution": "ENTICER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ENTICER",
     "definitions": [
      {
       "text": "temptress?",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "entertaining",
-      "note": "the first word takes in the letter"
-     },
-     {
-      "text": "lies about",
-      "note": "the whole lies turned about, reversed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Repeat from memory",
-      "gives": "RECITE",
-      "note": "to recite is to repeat from memory"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new, placed inside RECITE; then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "N",
-      "TICER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RECITNE",
-       "to": "ENTICER"
+       "text": "entertaining",
+       "note": "the first word takes in the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "lies about",
+         "note": "the whole lies turned about, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Repeat from memory",
+         "gives": "RECITE",
+         "note": "to recite is to repeat from memory"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N = new, placed inside RECITE; then turned round"
+        }
+       ]
       }
      ]
     },
@@ -1407,52 +1237,45 @@
    },
    "solution": "NIECE",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NIECE",
     "definitions": [
      {
       "text": "Relative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "read at home's word backwards"
-     },
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "something done periodically happens at regular intervals, so only every second letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "in = at home; backwards"
-     },
-     {
-      "clueFragment": "retches",
-      "gives": "ECE",
-      "select": "alternate",
-      "note": "rEtChEs, even letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "ECE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IN",
-       "to": "NI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "read at home's word backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at home",
+         "gives": "IN",
+         "note": "in = at home; backwards"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "periodically",
+         "note": "something done periodically happens at regular intervals, so only every second letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "retches",
+         "note": "rEtChEs, even letters"
+        }
+       ]
       }
      ]
     },
@@ -1487,33 +1310,28 @@
    },
    "solution": "FLAGUP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "FLAG UP",
     "definitions": [
      {
       "text": "Highlight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "clue for",
-      "for": "reversal",
-      "note": "the answer is itself a clue whose solution is the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clue for Eid",
-      "gives": "FLAGUP",
-      "note": "FLAG = DIE; DIE up (reversed in a down clue) = EID"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLAGUP"
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "FLAGUP",
+     "indicators": [
+      {
+       "text": "clue for",
+       "note": "the answer is itself a clue whose solution is the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clue for Eid",
+       "gives": "FLAGUP",
+       "note": "FLAG = DIE; DIE up (reversed in a down clue) = EID"
+      }
      ]
     },
     "explanation": {
@@ -1542,33 +1360,28 @@
    },
    "solution": "LEAD",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LEAD",
     "definitions": [
      {
       "text": "Escort",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to take clothes off",
-      "for": "deletion",
-      "note": "strip the outer letters, the clothing round the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "begs",
-      "gives": "LEAD",
-      "note": "PLEADS (begs) without its outer P and S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAD"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEAD",
+     "indicators": [
+      {
+       "text": "to take clothes off",
+       "note": "strip the outer letters, the clothing round the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "begs",
+       "gives": "LEAD",
+       "note": "PLEADS (begs) without its outer P and S"
+      }
      ]
     },
     "explanation": {
@@ -1604,38 +1417,24 @@
    },
    "solution": "ARCTICZONE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARCTIC ZONE",
     "definitions": [
      {
       "text": "far north",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "relocated",
-      "for": "anagram",
-      "note": "the letters are moved to new places"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Notice czar",
-      "gives": "NOTICECZAR",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTICE CZAR",
-       "gives": "ARCTICZONE"
+       "text": "relocated",
+       "note": "the letters are moved to new places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Notice czar",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1665,32 +1464,25 @@
    },
    "solution": "BANE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANE",
     "definitions": [
      {
       "text": "the cause of much distress",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Prohibit",
-      "gives": "BAN",
-      "note": "to ban is to prohibit"
-     },
-     {
-      "clueFragment": "class A drug",
-      "gives": "E",
-      "note": "E = ecstasy, a class A drug in UK law"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prohibit",
+       "gives": "BAN",
+       "note": "to ban is to prohibit"
+      },
+      {
+       "words": "class A drug",
+       "gives": "E",
+       "note": "E = ecstasy, a class A drug in UK law"
+      }
      ]
     },
     "explanation": {
@@ -1724,45 +1516,36 @@
    },
    "solution": "GUTTAPERCHA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GUTTA-PERCHA",
     "definitions": [
      {
       "text": "waterproof material",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across clue, A on B puts A after B"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dieter's good",
-      "gives": "GUT",
-      "note": "gut is German for good; Dieter is a typical German name"
-     },
-     {
-      "clueFragment": "Spill",
-      "gives": "TAPER",
-      "note": "a spill is a thin strip for lighting a fire, a taper"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "CHA",
-      "note": "cha = tea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUT",
-      "TAPER",
-      "CHA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, A on B puts A after B"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dieter's good",
+       "gives": "GUT",
+       "note": "gut is German for good; Dieter is a typical German name"
+      },
+      {
+       "words": "Spill",
+       "gives": "TAPER",
+       "note": "a spill is a thin strip for lighting a fire, a taper"
+      },
+      {
+       "words": "tea",
+       "gives": "CHA",
+       "note": "cha = tea"
+      }
      ]
     },
     "explanation": {
@@ -1792,39 +1575,31 @@
    },
    "solution": "EGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EGO",
     "definitions": [
      {
       "text": "I",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to follow",
-      "for": "charade",
-      "note": "the second part comes after the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Earl",
-      "gives": "E",
-      "note": "E = Earl"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "GO",
-      "note": "a go = a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "note": "the second part comes after the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Earl",
+       "gives": "E",
+       "note": "E = Earl"
+      },
+      {
+       "words": "try",
+       "gives": "GO",
+       "note": "a go = a try"
+      }
      ]
     },
     "explanation": {
@@ -1853,32 +1628,25 @@
    },
    "solution": "PERSEID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PERSEID",
     "definitions": [
      {
       "text": "heavenly body",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Essentially",
-      "gives": "PERSE",
-      "note": "per se = in itself, essentially"
-     },
-     {
-      "clueFragment": "setter had",
-      "gives": "ID",
-      "note": "the setter is 'I', so setter had = I'd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERSE",
-      "ID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Essentially",
+       "gives": "PERSE",
+       "note": "per se = in itself, essentially"
+      },
+      {
+       "words": "setter had",
+       "gives": "ID",
+       "note": "the setter is 'I', so setter had = I'd"
+      }
      ]
     },
     "explanation": {
@@ -1918,55 +1686,57 @@
    },
    "solution": "RATATAT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RAT-A-TAT",
     "definitions": [
      {
       "text": "Knock",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "introduction of",
-      "for": "letter_selection",
-      "note": "an introduction comes at the beginning, so only the opening letter of 'robots' is used"
-     },
-     {
-      "text": "evacuated",
-      "note": "emptied of its inside, leaving the outer letters"
-     },
-     {
-      "text": "repeatedly",
-      "note": "use the piece several times"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "introduction of robots",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Robots"
-     },
-     {
-      "clueFragment": "airport evacuated repeatedly",
-      "gives": "ATATAT",
-      "select": "outer",
-      "note": "AirporT emptied = AT, three times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AT",
-      "AT",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "evacuated",
+       "note": "emptied of its inside, leaving the outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "note": "an introduction comes at the beginning, so only the opening letter of 'robots' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "introduction of robots",
+         "gives": "ROBOTS",
+         "note": "first letter of Robots"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ATATAT",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "note": "use the piece several times"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "airport evacuated repeatedly",
+         "gives": "ATATAT",
+         "select": "outer",
+         "note": "AirporT emptied = AT, three times"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

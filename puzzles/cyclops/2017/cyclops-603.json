@@ -1,8 +1,6 @@
 {
  "id": "cyclops-603",
  "number": 603,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 603",
  "setter": "Cyclops",
  "date": "2017-07-14",
  "dimensions": {
@@ -42,51 +40,41 @@
    },
    "solution": "BLATANT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BLATANT",
     "definitions": [
      {
       "text": "Shameless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conceals",
-      "for": "container",
-      "note": "whatever conceals something wraps around it, so the baronet goes outside the other piece"
-     },
-     {
-      "text": "backtracking about",
-      "for": "reversal",
-      "note": "to backtrack is to go the way you came, so the word for birth is read right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "baronet",
-      "gives": "BT",
-      "note": "the standard abbreviation after a baronet's name"
-     },
-     {
-      "clueFragment": "birth",
-      "gives": "NATAL",
-      "note": "adjective relating to birth, as in antenatal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LATAN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "NATAL",
-       "to": "LATAN"
+       "text": "conceals",
+       "note": "whatever conceals something wraps around it, so the baronet goes outside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "baronet",
+       "gives": "BT",
+       "note": "the standard abbreviation after a baronet's name"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backtracking about",
+         "note": "to backtrack is to go the way you came, so the word for birth is read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "birth",
+         "gives": "NATAL",
+         "note": "adjective relating to birth, as in antenatal"
+        }
+       ]
       }
      ]
     },
@@ -116,51 +104,40 @@
    },
    "solution": "LAPTOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LAPTOP",
     "definitions": [
      {
       "text": "PC",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue going up means reading the officer's letters from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lake",
-      "gives": "L",
-      "note": "map abbreviation for lake"
-     },
-     {
-      "clueFragment": "fitting",
-      "gives": "APT",
-      "note": "fitting means suitable"
-     },
-     {
-      "clueFragment": "RAF officer",
-      "gives": "PO",
-      "note": "Pilot Officer, a Royal Air Force rank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "APT",
-      "OP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PO",
-       "to": "OP"
+       "words": "Lake",
+       "gives": "L",
+       "note": "map abbreviation for lake"
+      },
+      {
+       "words": "fitting",
+       "gives": "APT",
+       "note": "fitting means suitable"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue going up means reading the officer's letters from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "RAF officer",
+         "gives": "PO",
+         "note": "Pilot Officer, a Royal Air Force rank"
+        }
+       ]
       }
      ]
     },
@@ -191,52 +168,49 @@
    },
    "solution": "TENACIOUS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TENACIOUS",
     "definitions": [
      {
       "text": "tough",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only the last of Conservative is kept"
-     },
-     {
-      "text": "disaster",
-      "for": "anagram",
-      "note": "a disaster leaves things wrecked and jumbled, so the letters before it are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative's end",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of Conservative"
-     },
-     {
-      "clueFragment": "count",
-      "gives": "COUNT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "is a",
-      "gives": "ISA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ECOUNTISA",
-       "gives": "TENACIOUS"
+       "text": "disaster",
+       "note": "a disaster leaves things wrecked and jumbled, so the letters before it are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end",
+           "note": "the end of a word is its final letter, so only the last of Conservative is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Conservative's end",
+           "gives": "CONSERVATIVE",
+           "note": "last letter of Conservative"
+          }
+         ]
+        },
+        {
+         "words": "count",
+         "note": "taken as written"
+        },
+        {
+         "words": "is a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -272,35 +246,24 @@
    },
    "solution": "NEWYORK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEW YORK",
     "definitions": [
      {
       "text": "First Lady reluctant to leave it?",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "scatty",
-      "for": "anagram",
-      "note": "scatty means scatterbrained and disorganised, so the letters before it are scattered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Er … wonky",
-      "gives": "ERWONKY",
-      "note": "the hesitation plus the adjective, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ERWONKY",
-       "gives": "NEWYORK"
+       "text": "scatty",
+       "note": "scatty means scatterbrained and disorganised, so the letters before it are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Er … wonky",
+       "note": "the hesitation plus the adjective, taken letter for letter"
       }
      ]
     },
@@ -331,30 +294,28 @@
    },
    "solution": "OUTSIDE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OUTSIDE",
     "definitions": [
      {
       "text": "on the surface",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "housing",
-      "for": "hidden_word",
-      "note": "the phrase before it houses, or holds inside it, a run of consecutive letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lout's ideal",
-      "gives": "OUTSIDE",
-      "note": "letters two to eight of the phrase run straight through"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "housing",
+       "note": "the phrase before it houses, or holds inside it, a run of consecutive letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lout's ideal",
+       "gives": "OUTSIDE",
+       "note": "letters two to eight of the phrase run straight through"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A yob's dream home is described, apparently superficially.",
      "walkthrough": "The answer runs across 'lOUT'S IDEal', ignoring the apostrophe.",
@@ -381,35 +342,24 @@
    },
    "solution": "UPENDED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UPENDED",
     "definitions": [
      {
       "text": "Arse-over-tip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reforming",
-      "for": "anagram",
-      "note": "to reform something is to form it anew, so the letters before it are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "DUP need",
-      "gives": "DUPNEED",
-      "note": "the Democratic Unionist Party's initials plus the verb, letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DUPNEED",
-       "gives": "UPENDED"
+       "text": "reforming",
+       "note": "to reform something is to form it anew, so the letters before it are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "DUP need",
+       "note": "the Democratic Unionist Party's initials plus the verb, letter for letter"
       }
      ]
     },
@@ -439,11 +389,6 @@
    },
    "solution": "STOIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "STOIC",
     "definitions": [
      {
       "text": "who suffers in silence",
@@ -451,34 +396,28 @@
       "note": "a relative clause standing for a noun: one who suffers in silence"
      }
     ],
-    "indicators": [
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "the first two words go bad, spoilt out of their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "So it",
-      "gives": "SOIT",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOI",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SOIT",
-       "gives": "STOI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "note": "the first two words go bad, spoilt out of their proper order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "So it",
+         "note": "taken letter for letter"
+        }
+       ]
+      },
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "standard abbreviation"
       }
      ]
     },
@@ -508,35 +447,25 @@
    },
    "solution": "DISARRAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISARRAY",
     "definitions": [
      {
       "text": "shambolic state of May's government?",
       "at": 27
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Abbott's",
-      "gives": "DIS",
-      "note": "Diane Abbott, a Labour MP, shortened to Di, with the possessive kept"
-     },
-     {
-      "clueFragment": "having parade",
-      "gives": "ARRAY",
-      "note": "a parade is an impressive display, an array"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "ARRAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Abbott's",
+       "gives": "DIS",
+       "note": "Diane Abbott, a Labour MP, shortened to Di, with the possessive kept"
+      },
+      {
+       "words": "having parade",
+       "gives": "ARRAY",
+       "note": "a parade is an impressive display, an array"
+      }
      ]
     },
     "explanation": {
@@ -570,10 +499,6 @@
     "17-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPEN ARMS",
     "definitions": [
      {
       "text": "They welcome",
@@ -581,33 +506,27 @@
       "note": "a clause standing for a plural noun: the things that welcome"
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "a round thing is shaped like the letter O"
-     },
-     {
-      "clueFragment": "to shut up",
-      "gives": "PEN",
-      "note": "to pen is to shut up or enclose, as sheep"
-     },
-     {
-      "clueFragment": "members",
-      "gives": "ARMS",
-      "note": "limbs of the body are members"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "PEN",
-      "ARMS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "a round thing is shaped like the letter O"
+      },
+      {
+       "words": "to shut up",
+       "gives": "PEN",
+       "note": "to pen is to shut up or enclose, as sheep"
+      },
+      {
+       "words": "members",
+       "gives": "ARMS",
+       "note": "limbs of the body are members"
+      }
      ]
     },
+    "spelling": "OPEN ARMS",
     "explanation": {
      "surface": "Hosts turn to the task of silencing their members.",
      "walkthrough": "'Shut up' tempts you to think of silence; here it means confine. 'Members' are limbs, not people in a club.",
@@ -641,33 +560,16 @@
    },
    "solution": "WHITEHOUSE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WHITEHOUSE",
     "definitions": [
      {
       "text": "Moral campaigner once",
-      "at": 0
+      "at": 0,
+      "meaning": "Mary, the late British crusader against sex and swearing on television, surnamed after a pale dwelling"
      },
      {
       "text": "symbol of Trump and his staff",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "split a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Moral campaigner once",
-      "gives": "WHITEHOUSE",
-      "note": "Mary, the late British crusader against sex and swearing on television, surnamed after a pale dwelling"
-     },
-     {
-      "clueFragment": "symbol of Trump and his staff",
-      "gives": "WHITEHOUSE",
-      "note": "the presidential residence in Washington, standing for the administration"
+      "at": 30,
+      "meaning": "the presidential residence in Washington, standing for the administration"
      }
     ],
     "explanation": {
@@ -697,56 +599,46 @@
    },
    "solution": "IMPEACHMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "IMPEACHMENT",
     "definitions": [
      {
       "text": "what Trump's headed for?",
       "at": 65
      }
     ],
-    "indicators": [
-     {
-      "text": "started",
-      "for": "letter_selection",
-      "note": "the word is only just started, so only its opening letter is used"
-     }
-    ],
-    "linkWords": [
-     "revealing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yours truly is",
-      "gives": "IM",
-      "note": "yours truly means the speaker, so I am, shortened to I'm"
-     },
-     {
-      "clueFragment": "a great looker",
-      "gives": "PEACH",
-      "note": "a peach is a very attractive person"
-     },
-     {
-      "clueFragment": "guys",
-      "gives": "MEN",
-      "note": "guys are men"
-     },
-     {
-      "clueFragment": "tweet started",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of tweet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PEACH",
-      "MEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Yours truly is",
+       "gives": "IM",
+       "note": "yours truly means the speaker, so I am, shortened to I'm"
+      },
+      {
+       "words": "a great looker",
+       "gives": "PEACH",
+       "note": "a peach is a very attractive person"
+      },
+      {
+       "words": "guys",
+       "gives": "MEN",
+       "note": "guys are men"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "started",
+         "note": "the word is only just started, so only its opening letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tweet started",
+         "gives": "TWEET",
+         "note": "first letter of tweet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -776,44 +668,35 @@
    },
    "solution": "HONCHO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HONCHO",
     "definitions": [
      {
       "text": "leader",
       "at": 38
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "pencil-grade abbreviation"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is working is on"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "House",
-      "gives": "HO",
-      "note": "abbreviation for house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ON",
-      "C",
-      "HO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "gives": "H",
+       "note": "pencil-grade abbreviation"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is working is on"
+      },
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "House",
+       "gives": "HO",
+       "note": "abbreviation for house"
+      }
      ]
     },
     "explanation": {
@@ -842,56 +725,50 @@
    },
    "solution": "PEDICURE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PEDICURE",
     "definitions": [
      {
       "text": "sort of treatment dogs get",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "sloshed",
-      "for": "anagram",
-      "note": "sloshed means drunk, and a drunk's letters stagger out of order"
-     },
-     {
-      "text": "covered",
-      "for": "container",
-      "note": "the urine covers, so goes all round, the jumbled muck and the one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Piss",
-      "gives": "PEE",
-      "note": "slang for urine"
-     },
-     {
-      "clueFragment": "crud",
-      "gives": "CRUD",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "DICUR",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CRUDI",
-       "gives": "DICUR"
+       "text": "covered",
+       "note": "the urine covers, so goes all round, the jumbled muck and the one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piss",
+       "gives": "PEE",
+       "note": "slang for urine"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sloshed",
+         "note": "sloshed means drunk, and a drunk's letters stagger out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "crud",
+           "note": "taken letter for letter"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -928,50 +805,40 @@
    },
    "solution": "ROCKBAND",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ROCK BAND",
     "definitions": [
      {
       "text": "Possibly Queen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first and foremost",
-      "for": "letter_selection",
-      "note": "the name's first letter comes foremost, so only that opening letter of Donald is used"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tip",
-      "gives": "ROCK",
-      "note": "to tip is to tilt or sway, as does rock"
-     },
-     {
-      "clueFragment": "bar",
-      "gives": "BAN",
-      "note": "to bar is to prohibit"
-     },
-     {
-      "clueFragment": "Donald",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of Donald"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROCK",
-      "BAN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tip",
+       "gives": "ROCK",
+       "note": "to tip is to tilt or sway, as does rock"
+      },
+      {
+       "words": "bar",
+       "gives": "BAN",
+       "note": "to bar is to prohibit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first and foremost",
+         "note": "the name's first letter comes foremost, so only that opening letter of Donald is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Donald",
+         "note": "first letter of Donald"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1005,11 +872,6 @@
     "25-across"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REAL LIFE",
     "definitions": [
      {
       "text": "It's no dream",
@@ -1017,32 +879,32 @@
       "note": "a clause standing for a noun: the thing that is no dream"
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders of",
-      "for": "letter_selection",
-      "note": "the leaders of a line of words are their opening letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Republican extremists articulate lucid",
-      "gives": "REAL",
-      "select": "first",
-      "note": "first letters of these four words"
-     },
-     {
-      "clueFragment": "sentence",
-      "gives": "LIFE",
-      "note": "the longest prison term, a sentence lasting until death"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAL",
-      "LIFE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders of",
+         "note": "the leaders of a line of words are their opening letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican extremists articulate lucid",
+         "note": "first letters of these four words"
+        }
+       ]
+      },
+      {
+       "words": "sentence",
+       "gives": "LIFE",
+       "note": "the longest prison term, a sentence lasting until death"
+      }
      ]
     },
+    "spelling": "REAL LIFE",
     "explanation": {
      "surface": "A wake-up call: hardline Republicans are delivering clear pronouncements.",
      "walkthrough": "'Sentence' wants to be grammar after 'articulate lucid'; it is a prison term, LIFE.",
@@ -1079,10 +941,6 @@
    },
    "solution": "RULEOFLAW",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RULE OF LAW",
     "definitions": [
      {
       "text": "which Trump apparently rides roughshod over",
@@ -1090,25 +948,18 @@
       "note": "a relative clause standing for the noun it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "Constructing",
-      "for": "anagram",
-      "note": "constructing builds something new out of the materials that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wall for EU",
-      "gives": "WALLFOREU",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WALLFOREU",
-       "gives": "RULEOFLAW"
+       "text": "Constructing",
+       "note": "constructing builds something new out of the materials that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wall for EU",
+       "note": "taken letter for letter"
       }
      ]
     },
@@ -1144,38 +995,30 @@
    },
    "solution": "IRONWILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IRON WILL",
     "definitions": [
      {
       "text": "Thatcher-style determination",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Press",
-      "gives": "IRON",
-      "note": "to press clothes is to iron them"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "abbreviation for with"
-     },
-     {
-      "clueFragment": "evil",
-      "gives": "ILL",
-      "note": "ill as a noun means harm or evil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRON",
-      "W",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Press",
+       "gives": "IRON",
+       "note": "to press clothes is to iron them"
+      },
+      {
+       "words": "with",
+       "gives": "W",
+       "note": "abbreviation for with"
+      },
+      {
+       "words": "evil",
+       "gives": "ILL",
+       "note": "ill as a noun means harm or evil"
+      }
      ]
     },
     "explanation": {
@@ -1218,69 +1061,72 @@
    },
    "solution": "SCHEDULE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "SCHEDULE",
     "definitions": [
      {
       "text": "programme",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Sad",
-      "for": "anagram",
-      "note": "the lechers are in a sad, sorry state, so their letters fall out of order"
-     },
-     {
-      "text": "accept",
-      "for": "container",
-      "note": "to accept is to take in, so the jumbled word holds the other letters inside"
-     },
-     {
-      "text": "lead from",
-      "for": "letter_selection",
-      "note": "the lead of a word is the letter at its front"
-     },
-     {
-      "text": "core",
-      "for": "letter_selection",
-      "note": "the core of a word is its middle, so only the central letter of Trump is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leches",
-      "gives": "LECHES",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "lead from Donald",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of Donald"
-     },
-     {
-      "clueFragment": "Trump's core",
-      "gives": "U",
-      "select": "middle",
-      "note": "middle letter of Trump"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCHE",
-      "DU",
-      "LE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LECHES",
-       "gives": "SCHELE"
+       "text": "accept",
+       "note": "to accept is to take in, so the jumbled word holds the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Sad",
+         "note": "the lechers are in a sad, sorry state, so their letters fall out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "leches",
+           "note": "taken letter for letter"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "lead from",
+             "note": "the lead of a word is the letter at its front"
+            }
+           ],
+           "parts": [
+            {
+             "words": "lead from Donald",
+             "gives": "DONALD",
+             "note": "first letter of Donald"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "core",
+         "note": "the core of a word is its middle, so only the central letter of Trump is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trump's core",
+         "gives": "TRUMP",
+         "note": "middle letter of Trump"
+        }
+       ]
       }
      ]
     },
@@ -1310,48 +1156,34 @@
    },
    "solution": "SCHEMER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SCHEMER",
     "definitions": [
      {
       "text": "He has plans",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "diversion",
-      "for": "anagram",
-      "note": "a diversion sends things off their usual route, so the letters of mere go a different way"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut school",
-      "gives": "SCH",
-      "note": "school cut short to its standard abbreviation"
-     },
-     {
-      "clueFragment": "mere",
-      "gives": "MERE",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCH",
-      "EMER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MERE",
-       "gives": "EMER"
+       "words": "cut school",
+       "gives": "SCH",
+       "note": "school cut short to its standard abbreviation"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "diversion",
+         "note": "a diversion sends things off their usual route, so the letters of mere go a different way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mere",
+         "note": "taken letter for letter"
+        }
+       ]
       }
      ]
     },
@@ -1381,62 +1213,60 @@
    },
    "solution": "DEFICIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "DEFICIT",
     "definitions": [
      {
       "text": "Failure to meet requirement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue going up reverses the preceding run of letters from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative leader",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Conservative"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "fed",
-      "gives": "FED",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "PCs etc.",
-      "gives": "IT",
-      "note": "information technology, which covers computers and the like"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEFIC",
-      "IT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CIFED",
-       "to": "DEFIC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue going up reverses the preceding run of letters from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leader",
+             "note": "the leader of a word is its opening letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Conservative leader",
+             "gives": "CONSERVATIVE",
+             "note": "first letter of Conservative"
+            }
+           ]
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral"
+          },
+          {
+           "words": "fed",
+           "note": "taken letter for letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "PCs etc.",
+       "gives": "IT",
+       "note": "information technology, which covers computers and the like"
       }
      ]
     },
@@ -1472,67 +1302,60 @@
    },
    "solution": "OPTFOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "OPT FOR",
     "definitions": [
      {
       "text": "Decide on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "letter_selection",
-      "note": "with its heart removed only the outside letters of Trump survive"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going in reverse, so the words after it are read backwards"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "zero, shaped like the letter"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "OF",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "heartless Trump",
-      "gives": "TP",
-      "select": "outer",
-      "note": "Trump with its middle letters removed"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "PTFO",
-      "R"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OFTP",
-       "to": "PTFO"
+       "words": "nothing",
+       "gives": "O",
+       "note": "zero, shaped like the letter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "backing means going in reverse, so the words after it are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "of",
+           "note": "taken letter for letter"
+          },
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "heartless",
+             "note": "with its heart removed only the outside letters of Trump survive"
+            }
+           ],
+           "parts": [
+            {
+             "words": "heartless Trump",
+             "gives": "TRUMP",
+             "note": "Trump with its middle letters removed"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "standard abbreviation"
       }
      ]
     },
@@ -1562,11 +1385,6 @@
    },
    "solution": "SNOWSHOE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SNOWSHOE",
     "definitions": [
      {
       "text": "which is useful to an Inuit",
@@ -1574,42 +1392,39 @@
       "note": "a relative clause standing for the noun it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "to accept is to take in, so the man holds the ring inside him"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cocaine",
-      "gives": "SNOW",
-      "note": "slang for cocaine"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "S",
-      "note": "first letter of sex, as abbreviated on forms"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "a ring is shaped like the letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNOW",
-      "S",
-      "H",
-      "O",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "note": "to accept is to take in, so the man holds the ring inside him"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cocaine",
+         "gives": "SNOW",
+         "note": "slang for cocaine"
+        },
+        {
+         "words": "sex",
+         "gives": "S",
+         "note": "first letter of sex, as abbreviated on forms"
+        },
+        {
+         "words": "he",
+         "note": "taken letter for letter"
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "gives": "O",
+       "note": "a ring is shaped like the letter"
+      }
      ]
     },
     "explanation": {
@@ -1639,55 +1454,52 @@
    },
    "solution": "WALES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "WALES",
     "definitions": [
      {
       "text": "the nation",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter"
-     },
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking something means being without it, so that letter is taken away"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Washington",
-      "gives": "WA",
-      "note": "postal abbreviation for Washington State"
-     },
-     {
-      "clueFragment": "diminished",
-      "gives": "LESS",
-      "note": "less means reduced or smaller"
-     },
-     {
-      "clueFragment": "sympathetic leader",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of sympathetic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WA",
-      "LES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Washington",
+       "gives": "WA",
+       "note": "postal abbreviation for Washington State"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking something means being without it, so that letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diminished",
+         "gives": "LESS",
+         "note": "less means reduced or smaller"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "note": "the leader of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sympathetic leader",
+           "gives": "SYMPATHETIC",
+           "note": "first letter of sympathetic"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1716,51 +1528,40 @@
    },
    "solution": "FLOPPY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FLOPPY",
     "definitions": [
      {
       "text": "Possibly in need of push-up bra",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "the word pop is knocked out of shape, so its letters change places"
-     },
-     {
-      "text": "internal",
-      "for": "container",
-      "note": "internal means inside, so the rearranged letters go inside the word for smart"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smart",
-      "gives": "FLY",
-      "note": "fly is British slang for sharp or knowing"
-     },
-     {
-      "clueFragment": "pop",
-      "gives": "POP",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FL",
-      "OPP",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "POP",
-       "gives": "OPP"
+       "text": "internal",
+       "note": "internal means inside, so the rearranged letters go inside the word for smart"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smart",
+       "gives": "FLY",
+       "note": "fly is British slang for sharp or knowing"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "the word pop is knocked out of shape, so its letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pop",
+         "note": "taken letter for letter"
+        }
+       ]
       }
      ]
     },
@@ -1791,38 +1592,24 @@
    },
    "solution": "DIPLOMATIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DIPLOMATIC",
     "definitions": [
      {
       "text": "Not how you'd describe Trump",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crisis",
-      "for": "anagram",
-      "note": "in a crisis everything is thrown into turmoil, so the letters before it are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Capitol, mid",
-      "gives": "CAPITOLMID",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAPITOLMID",
-       "gives": "DIPLOMATIC"
+       "text": "crisis",
+       "note": "in a crisis everything is thrown into turmoil, so the letters before it are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Capitol, mid",
+       "note": "taken letter for letter"
       }
      ]
     },
@@ -1867,54 +1654,40 @@
    },
    "solution": "CLOSURE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CLOSURE",
     "definitions": [
      {
       "text": "a satisfactory climax?",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "bollocks",
-      "for": "anagram",
-      "note": "bollocks is British slang for rubbish or a mess, so the word before it is made a mess of"
-     },
-     {
-      "text": "injected with",
-      "for": "container",
-      "note": "something injected goes inside, so the gas element is placed within the jumbled letters"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cluer's",
-      "gives": "CLUERS",
-      "note": "taken letter for letter, ignoring the apostrophe"
-     },
-     {
-      "clueFragment": "oxygen",
-      "gives": "O",
-      "note": "chemical symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CL",
-      "O",
-      "SURE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CLUERS",
-       "gives": "CLSURE"
+       "text": "injected with",
+       "note": "something injected goes inside, so the gas element is placed within the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bollocks",
+         "note": "bollocks is British slang for rubbish or a mess, so the word before it is made a mess of"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cluer's",
+         "note": "taken letter for letter, ignoring the apostrophe"
+        }
+       ]
+      },
+      {
+       "words": "oxygen",
+       "gives": "O",
+       "note": "chemical symbol"
       }
      ]
     },
@@ -1945,55 +1718,44 @@
    },
    "solution": "STEWARD",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "STEWARD",
     "definitions": [
      {
       "text": "official",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "Perversely",
-      "for": "anagram",
-      "note": "perversely means contrarily, against the natural order, so the letters are put in a contrary order"
-     }
-    ],
-    "linkWords": [
-     "to engage in",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "conflict",
-      "gives": "WAR",
-      "note": "war is armed conflict"
-     },
-     {
-      "clueFragment": "Germany",
-      "gives": "D",
-      "note": "international vehicle registration for Deutschland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STE",
-      "WAR",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SET",
-       "gives": "STE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Perversely",
+         "note": "perversely means contrarily, against the natural order, so the letters are put in a contrary order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "set",
+           "note": "taken letter for letter"
+          },
+          {
+           "words": "conflict",
+           "gives": "WAR",
+           "note": "war is armed conflict"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Germany",
+       "gives": "D",
+       "note": "international vehicle registration for Deutschland"
       }
      ]
     },

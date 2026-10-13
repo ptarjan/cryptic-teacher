@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3065",
  "number": 3065,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,065",
  "setter": "Jalna",
  "date": "2025-08-12",
  "dimensions": {
@@ -42,47 +40,44 @@
    },
    "solution": "PITEOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PITEOUS",
     "definitions": [
      {
       "text": "Heart-rending",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "at the end, so take the final letter of each of the next two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "depression",
-      "gives": "PIT",
-      "note": "a pit is a depression in the ground"
-     },
-     {
-      "clueFragment": "ultimately ate into",
-      "gives": "EO",
-      "select": "last",
-      "note": "the last letters of 'ate' and 'into'"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIT",
-      "EO",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "depression",
+       "gives": "PIT",
+       "note": "a pit is a depression in the ground"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "EO",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "at the end, so take the final letter of each of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "ultimately ate into",
+         "gives": "EO",
+         "select": "last",
+         "note": "the last letters of 'ate' and 'into'"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -125,52 +120,41 @@
    },
    "solution": "PATONTHEBACK",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "PAT ON THE BACK",
     "definitions": [
      {
       "text": "Show of approval",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "note": "whoever eats something takes it inside, so the pack holds the other letters"
-     },
-     {
-      "text": "frantically",
-      "note": "something done frantically is wild and disordered, so the letters of 'that bone' lose their order"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "group of animals",
-      "gives": "PACK",
-      "note": "a pack of wolves or dogs"
-     },
-     {
-      "clueFragment": "that bone",
-      "gives": "ATONTHEB",
-      "note": "anagram fodder, 8 letters, placed between P and ACK"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ATONTHEB",
-      "ACK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PATONTHEBACK",
+     "parts": [
       {
-       "fodder": "THATBONE",
-       "gives": "ATONTHEB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "note": "whoever eats something takes it inside, so the pack holds the other letters"
+        },
+        {
+         "text": "frantically",
+         "note": "something done frantically is wild and disordered, so the letters of 'that bone' lose their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "group of animals",
+         "gives": "PACK",
+         "note": "a pack of wolves or dogs"
+        },
+        {
+         "words": "that bone",
+         "gives": "ATONTHEB",
+         "note": "anagram fodder, 8 letters, placed between P and ACK"
+        }
+       ]
       }
      ]
     },
@@ -200,54 +184,46 @@
    },
    "solution": "TERAFLOP",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TERAFLOP",
     "definitions": [
      {
       "text": "Computer processing speed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "changed",
-      "note": "a word that has been changed is no longer as written, so the letters of 'after' are rearranged"
-     },
-     {
-      "text": "after",
-      "note": "the rearranged letters come first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "after",
-      "gives": "TERAF",
-      "note": "anagram fodder, 5 letters"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L = large, as on clothing labels"
-     },
-     {
-      "clueFragment": "operation",
-      "gives": "OP",
-      "note": "an op is an operation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TERAF",
-      "L",
-      "OP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TERAFLOP",
+     "parts": [
       {
-       "fodder": "AFTER",
-       "gives": "TERAF"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "changed",
+         "note": "a word that has been changed is no longer as written, so the letters of 'after' are rearranged"
+        },
+        {
+         "text": "after",
+         "note": "the rearranged letters come first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "after",
+         "gives": "TERAF",
+         "note": "anagram fodder, 5 letters"
+        },
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L = large, as on clothing labels"
+        },
+        {
+         "words": "operation",
+         "gives": "OP",
+         "note": "an op is an operation"
+        }
+       ]
       }
      ]
     },
@@ -277,35 +253,25 @@
    },
    "solution": "ONUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONUS",
     "definitions": [
      {
       "text": "Responsibility",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old, a standard abbreviation"
-     },
-     {
-      "clueFragment": "group of students",
-      "gives": "NUS",
-      "note": "the NUS is the National Union of Students in the UK"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "NUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O = old, a standard abbreviation"
+      },
+      {
+       "words": "group of students",
+       "gives": "NUS",
+       "note": "the NUS is the National Union of Students in the UK"
+      }
      ]
     },
     "explanation": {
@@ -333,51 +299,40 @@
    },
    "solution": "SCHISM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SCHISM",
     "definitions": [
      {
       "text": "division",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of a word in a down clue is its first letter"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "School",
-      "gives": "SCH",
-      "note": "sch. is an abbreviation for school"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "top of multiplication",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of 'multiplication'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCH",
-      "IS",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "School",
+       "gives": "SCH",
+       "note": "sch. is an abbreviation for school"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top of multiplication",
+         "gives": "MULTIPLICATION",
+         "note": "first letter of 'multiplication'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -413,45 +368,44 @@
    },
    "solution": "WATCHOUT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "WATCH OUT",
     "definitions": [
      {
       "text": "Be careful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "note": "what is possibly so is not fixed, so the letters could be arranged another way"
-     },
-     {
-      "text": "initially",
-      "note": "take the first letter of 'throbs'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "how a cut",
-      "gives": "HOWACUT",
-      "note": "anagram fodder, 7 letters"
-     },
-     {
-      "clueFragment": "throbs initially",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of 'throbs', added to the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOWACUTT",
-       "gives": "WATCHOUT"
+       "text": "possibly",
+       "note": "what is possibly so is not fixed, so the letters could be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "take the first letter of 'throbs'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "how a cut",
+         "note": "anagram fodder, 7 letters"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "throbs initially",
+           "note": "first letter of 'throbs', added to the fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -481,39 +435,29 @@
    },
    "solution": "ANTI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ANTI",
     "definitions": [
      {
       "text": "Against",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting fed into",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "AI",
-      "gives": "AI",
-      "note": "taken as written, split to hold NT"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "NT",
-      "note": "NT = New Testament, a set of books"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NT",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting fed into"
+      }
+     ],
+     "parts": [
+      {
+       "words": "AI",
+       "note": "taken as written, split to hold NT"
+      },
+      {
+       "words": "books",
+       "gives": "NT",
+       "note": "NT = New Testament, a set of books"
+      }
      ]
     },
     "explanation": {
@@ -542,30 +486,16 @@
    },
    "solution": "CHANNEL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHANNEL",
     "definitions": [
      {
       "text": "Sound",
-      "at": 0
+      "at": 0,
+      "meaning": "not audio: a sound is a narrow stretch of sea between two coasts"
      },
      {
       "text": "broadcasting organisation",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sound",
-      "gives": "CHANNEL",
-      "note": "not audio: a sound is a narrow stretch of sea between two coasts"
-     },
-     {
-      "clueFragment": "broadcasting organisation",
-      "gives": "CHANNEL",
-      "note": "a television or radio station"
+      "at": 6,
+      "meaning": "a television or radio station"
      }
     ],
     "explanation": {
@@ -601,35 +531,24 @@
    },
    "solution": "LIGHTHEARTED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LIGHT-HEARTED",
     "definitions": [
      {
       "text": "Jovial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancers whirl about and swap places, so the letters of 'girl hated the' do the same"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl hated the",
-      "gives": "GIRLHATEDTHE",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIRLHATEDTHE",
-       "gives": "LIGHTHEARTED"
+       "text": "dancing",
+       "note": "dancers whirl about and swap places, so the letters of 'girl hated the' do the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl hated the",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -659,43 +578,38 @@
    },
    "solution": "THROUGH",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "THROUGH",
     "definitions": [
      {
       "text": "Finished",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "'the' is cut short, losing its last letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the short",
-      "gives": "TH",
-      "note": "'the' without its last letter"
-     },
-     {
-      "clueFragment": "stuff next to the fairway",
-      "gives": "ROUGH",
-      "note": "in golf, the rough is the long grass beside the fairway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "ROUGH"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "THROUGH",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "'the' is cut short, losing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the short",
+         "gives": "TH",
+         "note": "'the' without its last letter"
+        },
+        {
+         "words": "stuff next to the fairway",
+         "gives": "ROUGH",
+         "note": "in golf, the rough is the long grass beside the fairway"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -725,36 +639,29 @@
    },
    "solution": "ITCHING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ITCHING",
     "definitions": [
      {
       "text": "irritation",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "starting late",
-      "for": "deletion",
-      "note": "the word begins one letter later than normal, so its first letter goes"
-     }
-    ],
-    "linkWords": [
-     "is cause of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Casting",
-      "gives": "PITCHING",
-      "note": "pitching a ball is casting it; its P is then dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ITCHING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "starting late",
+       "note": "the word begins one letter later than normal, so its first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Casting",
+       "gives": "PITCHING",
+       "note": "pitching a ball is casting it; its P is then dropped"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -783,30 +690,28 @@
    },
    "solution": "NAFF",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NAFF",
     "definitions": [
      {
       "text": "Crass",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "only some of the letters in the phrase are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bacchanalian affair",
-      "gives": "NAFF",
-      "note": "the last letter of the first word plus the first three of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "somewhat",
+       "note": "only some of the letters in the phrase are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bacchanalian affair",
+       "gives": "NAFF",
+       "note": "the last letter of the first word plus the first three of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A verdict on a vulgar, drunken party.",
      "walkthrough": "NAFF sits across the join, bacchanalia(N AFF)air; it is British slang for tacky or uncool.",
@@ -842,32 +747,25 @@
    },
    "solution": "COMEOFFIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COME OFF IT",
     "definitions": [
      {
       "text": "Don't be daft!",
       "at": 39
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Be successful",
-      "gives": "COMEOFF",
-      "note": "a plan that comes off succeeds"
-     },
-     {
-      "clueFragment": "with computers and such",
-      "gives": "IT",
-      "note": "IT = information technology; 'with' just joins the pieces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMEOFF",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Be successful",
+       "gives": "COMEOFF",
+       "note": "a plan that comes off succeeds"
+      },
+      {
+       "words": "with computers and such",
+       "gives": "IT",
+       "note": "IT = information technology; 'with' just joins the pieces"
+      }
      ]
     },
     "explanation": {
@@ -895,30 +793,16 @@
    },
    "solution": "CASHIERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CASHIERS",
     "definitions": [
      {
       "text": "Dismisses",
-      "at": 0
+      "at": 0,
+      "meaning": "the military verb for throwing an officer out of service"
      },
      {
       "text": "employees who take money",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dismisses",
-      "gives": "CASHIERS",
-      "note": "the military verb for throwing an officer out of service"
-     },
-     {
-      "clueFragment": "employees who take money",
-      "gives": "CASHIERS",
-      "note": "the staff at a till"
+      "at": 10,
+      "meaning": "the staff at a till"
      }
     ],
     "explanation": {
@@ -948,45 +832,37 @@
    },
    "solution": "FORTIETH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FORTIETH",
     "definitions": [
      {
       "text": "ruby wedding anniversary",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling",
-      "for": "anagram",
-      "note": "things that travel move from where they were, so the letters of 'to their' shift position"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "F",
-      "note": "F = female"
-     },
-     {
-      "clueFragment": "to their",
-      "gives": "ORTIETH",
-      "note": "anagram fodder, 7 letters; 'to' belongs to the fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ORTIETH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FORTIETH",
+     "indicators": [
       {
-       "fodder": "TOTHEIR",
-       "gives": "ORTIETH"
+       "text": "travelling",
+       "note": "things that travel move from where they were, so the letters of 'to their' shift position"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Female",
+         "gives": "F",
+         "note": "F = female"
+        },
+        {
+         "words": "to their",
+         "gives": "ORTIETH",
+         "note": "anagram fodder, 7 letters; 'to' belongs to the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1022,35 +898,24 @@
    },
    "solution": "ENPASSANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EN PASSANT",
     "definitions": [
      {
       "text": "By the way",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when agitated",
-      "for": "anagram",
-      "note": "something agitated is shaken up, so the letters are stirred out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ann's a pest",
-      "gives": "ANNSAPEST",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANNSAPEST",
-       "gives": "ENPASSANT"
+       "text": "when agitated",
+       "note": "something agitated is shaken up, so the letters are stirred out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ann's a pest",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1079,43 +944,31 @@
    },
    "solution": "AGENDA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AGENDA",
     "definitions": [
      {
       "text": "List",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbed by",
-      "for": "container",
-      "note": "what is absorbed is soaked up inside, so the first part goes within the second"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a US legal representative",
-      "gives": "ADA",
-      "note": "A + DA, a District Attorney in the US"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "GEN",
-      "note": "gen is British slang for information; it goes inside A…DA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GEN",
-      "DA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbed by",
+       "note": "what is absorbed is soaked up inside, so the first part goes within the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a US legal representative",
+       "gives": "ADA",
+       "note": "A + DA, a District Attorney in the US"
+      },
+      {
+       "words": "information",
+       "gives": "GEN",
+       "note": "gen is British slang for information; it goes inside A…DA"
+      }
      ]
     },
     "explanation": {
@@ -1143,39 +996,31 @@
    },
    "solution": "ETNA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ETNA",
     "definitions": [
      {
       "text": "Mountain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in France",
-      "for": "charade",
-      "note": "translate the next word into French"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in France and",
-      "gives": "ET",
-      "note": "et is French for 'and'"
-     },
-     {
-      "clueFragment": "North America",
-      "gives": "NA",
-      "note": "NA = North America"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ET",
-      "NA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in France",
+       "note": "translate the next word into French"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in France and",
+       "gives": "ET",
+       "note": "et is French for 'and'"
+      },
+      {
+       "words": "North America",
+       "gives": "NA",
+       "note": "NA = North America"
+      }
      ]
     },
     "explanation": {
@@ -1204,34 +1049,29 @@
    },
    "solution": "APPRISE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "APPRISE",
     "definitions": [
      {
       "text": "Inform",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "radio is heard, not seen, so go by sound"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a competition reward",
-      "gives": "APPRISE",
-      "soundsLike": "A PRIZE",
-      "note": "a prize is a competition reward"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "APPRISE",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "radio is heard, not seen, so go by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a competition reward",
+       "gives": "APRIZE",
+       "note": "a prize is a competition reward"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A radio station announces a contest winner.",
      "walkthrough": "'Inform of' reads as one phrase, and 'of' does double duty since you apprise someone of news.",
@@ -1257,43 +1097,40 @@
    },
    "solution": "PINK",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PINK",
     "definitions": [
      {
       "text": "Lightly-coloured",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beneath"
-     },
-     {
-      "text": "bottom of",
-      "note": "the bottom of a word is its end, so take the last letter of 'hip'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bottom of hip",
-      "gives": "P",
-      "select": "last",
-      "note": "last letter of 'hip'"
-     },
-     {
-      "clueFragment": "tattoo",
-      "gives": "INK",
-      "note": "ink is slang for a tattoo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "INK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "bottom of",
+         "note": "the bottom of a word is its end, so take the last letter of 'hip'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bottom of hip",
+         "note": "last letter of 'hip'"
+        }
+       ]
+      },
+      {
+       "words": "tattoo",
+       "gives": "INK",
+       "note": "ink is slang for a tattoo"
+      }
      ]
     },
     "explanation": {
@@ -1322,44 +1159,34 @@
    },
    "solution": "ASIA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASIA",
     "definitions": [
      {
       "text": "where most people live",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "southern",
-      "gives": "S",
-      "note": "S = southern"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I = island, as on maps"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A = area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "southern",
+       "gives": "S",
+       "note": "S = southern"
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "I = island, as on maps"
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A = area"
+      }
      ]
     },
     "explanation": {
@@ -1388,32 +1215,25 @@
    },
    "solution": "NASCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NASCENT",
     "definitions": [
      {
       "text": "being developed",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "route up peak maybe",
-      "gives": "ASCENT",
-      "note": "an ascent is a way up a mountain; 'maybe' because a peak is only one example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ASCENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N = new"
+      },
+      {
+       "words": "route up peak maybe",
+       "gives": "ASCENT",
+       "note": "an ascent is a way up a mountain; 'maybe' because a peak is only one example"
+      }
      ]
     },
     "explanation": {
@@ -1442,32 +1262,25 @@
    },
    "solution": "KINDRED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KINDRED",
     "definitions": [
      {
       "text": "family",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Good-natured",
-      "gives": "KIND",
-      "note": "kind = good-natured"
-     },
-     {
-      "clueFragment": "socialist",
-      "gives": "RED",
-      "note": "a red is a left-winger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIND",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good-natured",
+       "gives": "KIND",
+       "note": "kind = good-natured"
+      },
+      {
+       "words": "socialist",
+       "gives": "RED",
+       "note": "a red is a left-winger"
+      }
      ]
     },
     "explanation": {
@@ -1495,48 +1308,35 @@
    },
    "solution": "ABASHED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABASHED",
     "definitions": [
      {
       "text": "humiliated",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Following",
-      "for": "charade",
-      "note": "what follows comes after, so the journalist's letters go after 'a strike'"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "strike",
-      "gives": "BASH",
-      "note": "a bash is a blow"
-     },
-     {
-      "clueFragment": "senior journalist",
-      "gives": "ED",
-      "note": "ED = editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BASH",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Following",
+       "note": "what follows comes after, so the journalist's letters go after 'a strike'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "strike",
+       "gives": "BASH",
+       "note": "a bash is a blow"
+      },
+      {
+       "words": "senior journalist",
+       "gives": "ED",
+       "note": "ED = editor"
+      }
      ]
     },
     "explanation": {

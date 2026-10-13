@@ -1,8 +1,6 @@
 {
  "id": "toughie-3574",
  "number": 3574,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,574",
  "setter": "Hudson",
  "date": "2025-10-29",
  "dimensions": {
@@ -44,47 +42,40 @@
    },
    "solution": "CREAMTEA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CREAM TEA",
     "definitions": [
      {
       "text": "British speciality",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Entertaining",
-      "for": "container",
-      "note": "a host entertaining guests takes them in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Monsieur",
-      "gives": "M",
-      "note": "M. is the French abbreviation for Monsieur"
-     },
-     {
-      "clueFragment": "make",
-      "gives": "CREATE",
-      "note": "to make something is to create it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREA",
-      "M",
-      "TE",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Entertaining",
+         "note": "a host entertaining guests takes them in, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "make",
+         "gives": "CREATE",
+         "note": "to make something is to create it"
+        },
+        {
+         "words": "Monsieur",
+         "gives": "M",
+         "note": "M. is the French abbreviation for Monsieur"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -113,41 +104,36 @@
    },
    "solution": "MENELAUS",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "MENELAUS",
     "definitions": [
      {
       "text": "Spartan leader",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "in a down clue, turning something up makes it read from bottom to top"
-     },
-     {
-      "text": "to besiege",
-      "for": "hidden_word",
-      "note": "besieging forces surround their target, so the words enclose the letters wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Usual enemies",
-      "gives": "SUALENEM",
-      "note": "the run of letters spanning the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SUALENEM",
-       "to": "MENELAUS"
+       "text": "turned up",
+       "note": "in a down clue, turning something up makes it read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to besiege",
+         "note": "besieging forces surround their target, so the words enclose the letters wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Usual enemies",
+         "gives": "SUALENEM",
+         "note": "the run of letters spanning the two words"
+        }
+       ]
       }
      ]
     },
@@ -177,47 +163,40 @@
    },
    "solution": "ALIDADE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ALIDADE",
     "definitions": [
      {
       "text": "surveying equipment",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "first to",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter, so only that letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The greatest",
-      "gives": "ALI",
-      "note": "Muhammad Ali famously called himself the greatest"
-     },
-     {
-      "clueFragment": "old man",
-      "gives": "DAD",
-      "note": "your old man is your father"
-     },
-     {
-      "clueFragment": "engineer",
-      "gives": "E",
-      "select": "first",
-      "note": "opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALI",
-      "DAD",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The greatest",
+       "gives": "ALI",
+       "note": "Muhammad Ali famously called himself the greatest"
+      },
+      {
+       "words": "old man",
+       "gives": "DAD",
+       "note": "your old man is your father"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "note": "the first of a word is its opening letter, so only that letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "engineer",
+         "note": "opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -246,28 +225,16 @@
    },
    "solution": "STILLS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STILLS",
     "definitions": [
      {
       "text": "Silences",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: calms or quietens, as a verb"
      },
      {
       "text": "shots",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Silences",
-      "note": "first meaning: calms or quietens, as a verb"
-     },
-     {
-      "clueFragment": "shots",
-      "note": "second meaning: single photographs, as from a film"
+      "at": 9,
+      "meaning": "second meaning: single photographs, as from a film"
      }
     ],
     "explanation": {
@@ -296,51 +263,44 @@
    },
    "solution": "SWERVE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SWERVE",
     "definitions": [
      {
       "text": "Turn aside",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "misbehaving",
-      "for": "anagram",
-      "note": "something misbehaving will not keep to its proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife"
-     },
-     {
-      "clueFragment": "ever",
-      "gives": "EVER",
-      "note": "taken as written before rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "W",
-      "ERVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EVER",
-       "gives": "ERVE"
+       "words": "second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misbehaving",
+         "note": "something misbehaving will not keep to its proper order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "wife",
+           "gives": "W",
+           "note": "W is the abbreviation for wife"
+          },
+          {
+           "words": "ever",
+           "note": "taken as written before rearranging"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -376,26 +336,25 @@
    },
    "solution": "MARTELLOTOWER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MARTELLO TOWER",
     "definitions": [
      {
       "text": "Keep off the beach?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Keep off the beach?",
-      "note": "surface reading: an instruction to stay away from the seaside"
-     },
-     {
-      "clueFragment": "Keep off the beach?",
-      "note": "setter's reading: a keep is a castle stronghold, here one standing just off the shore"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Keep off the beach?",
+       "note": "surface reading: an instruction to stay away from the seaside"
+      },
+      {
+       "words": "Keep off the beach?",
+       "note": "setter's reading: a keep is a castle stronghold, here one standing just off the shore"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Keep off' reads as a warning sign, but 'keep' is a noun: a fortified tower. These small round forts were built along British coasts against Napoleon.",
      "definitionFit": "These squat circular coastal forts were defensive strongholds, the kind of fortification a castle keep represents, sited by the sea."
@@ -428,39 +387,28 @@
    },
    "solution": "MELTONMOWBRAY",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "MELTON MOWBRAY",
     "definitions": [
      {
       "text": "Town memorably turning out its pork pies",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning out",
-      "for": "anagram",
-      "note": "turning something out can mean turning it inside out, upsetting its order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Town memorably",
-      "gives": "TOWNMEMORABLY",
-      "note": "the letters of both words together"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOWNMEMORABLY",
-       "gives": "MELTONMOWBRAY"
+       "text": "turning out",
+       "note": "turning something out can mean turning it inside out, upsetting its order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Town memorably",
+       "note": "the letters of both words together"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A town famous for producing its signature pork pies.",
      "walkthrough": "The whole clue describes the answer, while its first two words supply the letters. Melton Mowbray is a Leicestershire market town whose pork pies have protected status.",
@@ -493,35 +441,24 @@
    },
    "solution": "ROMANNUMERALS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROMAN NUMERALS",
     "definitions": [
      {
       "text": "XI?",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Playing",
-      "for": "anagram",
-      "note": "playing about with something rearranges it freely"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mon: rum Arsenal",
-      "gives": "MONRUMARSENAL",
-      "note": "the letters of all three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MONRUMARSENAL",
-       "gives": "ROMANNUMERALS"
+       "text": "Playing",
+       "note": "playing about with something rearranges it freely"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mon: rum Arsenal",
+       "note": "the letters of all three words"
       }
      ]
     },
@@ -552,41 +489,35 @@
    },
    "solution": "ALSACE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ALSACE",
     "definitions": [
      {
       "text": "here in France",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly cleared",
-      "for": "letter_selection",
-      "note": "clearing away at regular intervals leaves every other letter behind"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tables",
-      "gives": "ALS",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     },
-     {
-      "clueFragment": "great service",
-      "gives": "ACE",
-      "note": "an ace in tennis is a serve the opponent cannot touch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALS",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly cleared",
+         "note": "clearing away at regular intervals leaves every other letter behind"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tables",
+         "note": "second, fourth and sixth letters"
+        }
+       ]
+      },
+      {
+       "words": "great service",
+       "gives": "ACE",
+       "note": "an ace in tennis is a serve the opponent cannot touch"
+      }
      ]
     },
     "explanation": {
@@ -616,55 +547,48 @@
    },
    "solution": "DOLDRUMS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "DOLDRUMS",
     "definitions": [
      {
       "text": "low spirits",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "downing",
-      "for": "container",
-      "note": "downing a drink takes it inside, so one piece is swallowed by others"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     },
-     {
-      "clueFragment": "vintage",
-      "gives": "OLD",
-      "note": "something vintage is old"
-     },
-     {
-      "clueFragment": "grog",
-      "gives": "RUM",
-      "note": "grog is rum diluted with water, the old naval ration"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "OLD",
-      "RUM",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DOLDRUMS",
+     "indicators": [
+      {
+       "text": "downing",
+       "note": "downing a drink takes it inside, so one piece is swallowed by others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Daughter",
+         "gives": "D",
+         "note": "D is the abbreviation for daughter"
+        },
+        {
+         "words": "vintage",
+         "gives": "OLD",
+         "note": "something vintage is old"
+        },
+        {
+         "words": "grog",
+         "gives": "RUM",
+         "note": "grog is rum diluted with water, the old naval ration"
+        },
+        {
+         "words": "son",
+         "gives": "S",
+         "note": "S is the abbreviation for son"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -694,36 +618,28 @@
    },
    "solution": "LEA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LEA",
     "definitions": [
      {
       "text": "field",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Unlimited",
-      "for": "deletion",
-      "note": "without limits means without its boundaries, so both ends are dropped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "biting insects",
-      "gives": "FLEAS",
-      "note": "fleas are small biting insects"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEA",
+     "indicators": [
+      {
+       "text": "Unlimited",
+       "note": "without limits means without its boundaries, so both ends are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "biting insects",
+       "gives": "FLEAS",
+       "note": "fleas are small biting insects"
+      }
      ]
     },
     "explanation": {
@@ -752,45 +668,35 @@
    },
    "solution": "PORTIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PORTIA",
     "definitions": [
      {
       "text": "Belmont heiress",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "something returning goes back the way it came, so it reads backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left on board",
-      "gives": "PORT",
-      "note": "port is the left side of a ship"
-     },
-     {
-      "clueFragment": "first-class",
-      "gives": "AI",
-      "note": "A1 means first-class, with 1 read as I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PORT",
-      "IA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AI",
-       "to": "IA"
+       "words": "left on board",
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "note": "something returning goes back the way it came, so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "first-class",
+         "gives": "AI",
+         "note": "A1 means first-class, with 1 read as I"
+        }
+       ]
       }
      ]
     },
@@ -820,47 +726,40 @@
    },
    "solution": "DISCERNS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DISCERNS",
     "definitions": [
      {
       "text": "Perceives",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "at regular periods means taking letters at fixed intervals"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "senior detective's",
-      "gives": "DIS",
-      "note": "a DI is a detective inspector; with the possessive S"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold on taps"
-     },
-     {
-      "clueFragment": "weirdness",
-      "gives": "ERNS",
-      "select": "alternate",
-      "note": "second, fourth, sixth and eighth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "C",
-      "ERNS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "senior detective's",
+       "gives": "DIS",
+       "note": "a DI is a detective inspector; with the possessive S"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold on taps"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "periodically",
+         "note": "at regular periods means taking letters at fixed intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weirdness",
+         "note": "second, fourth, sixth and eighth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -889,28 +788,16 @@
    },
    "solution": "COL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COL",
     "definitions": [
      {
       "text": "Senior officer",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: abbreviation for colonel"
      },
      {
       "text": "high-level pass",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Senior officer",
-      "note": "first meaning: abbreviation for colonel"
-     },
-     {
-      "clueFragment": "high-level pass",
-      "note": "second meaning: a mountain pass between peaks"
+      "at": 17,
+      "meaning": "second meaning: a mountain pass between peaks"
      }
     ],
     "explanation": {
@@ -939,47 +826,40 @@
    },
    "solution": "EMBASSY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EMBASSY",
     "definitions": [
      {
       "text": "mission",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "discharged",
-      "for": "letter_selection",
-      "note": "something discharged is unloaded of its contents, leaving just its shell"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     },
-     {
-      "clueFragment": "finance grads",
-      "gives": "MBAS",
-      "note": "MBAs are Masters of Business Administration graduates"
-     },
-     {
-      "clueFragment": "study",
-      "gives": "SY",
-      "select": "outer",
-      "note": "first and last letters only"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MBAS",
-      "SY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
+      },
+      {
+       "words": "finance grads",
+       "gives": "MBAS",
+       "note": "MBAs are Masters of Business Administration graduates"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "discharged",
+         "note": "something discharged is unloaded of its contents, leaving just its shell"
+        }
+       ],
+       "parts": [
+        {
+         "words": "study",
+         "note": "first and last letters only"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1006,53 +886,7 @@
     "text": "Maxim used to be upwardly mobile",
     "enumeration": "3"
    },
-   "solution": "SAW",
-   "annotation": {
-    "type": [
-     "double_definition",
-     "reversal"
-    ],
-    "answer": "SAW",
-    "definitions": [
-     {
-      "text": "Maxim",
-      "at": 0
-     }
-    ],
-    "indicators": [
-     {
-      "text": "upwardly mobile",
-      "for": "reversal",
-      "note": "moving upward in a down clue means reading from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "used to be",
-      "gives": "WAS",
-      "note": "the past tense of be"
-     }
-    ],
-    "assembly": {
-     "reversals": [
-      {
-       "from": "WAS",
-       "to": "SAW"
-      }
-     ]
-    },
-    "explanation": {
-     "surface": "A saying that someone was once socially ambitious.",
-     "walkthrough": "'Upwardly mobile' reads as social climbing, but here it turns the past tense upward.",
-     "definitionFit": "A saw is an old saying or proverb, the same as a maxim expressing a general truth."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "mobile"
-    }
-   }
+   "solution": "SAW"
   },
   {
    "number": 16,
@@ -1068,41 +902,37 @@
    },
    "solution": "OBLIQUE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "OBLIQUE",
     "definitions": [
      {
       "text": "Underhand",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "a report is something spoken, so the word is taken by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former pupil",
-      "gives": "OB",
-      "note": "OB is old boy, a former pupil of a school"
-     },
-     {
-      "clueFragment": "release of privileged info",
-      "gives": "LIQUE",
-      "soundsLike": "LEAK",
-      "note": "a leak lets out confidential information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "LIQUE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former pupil",
+       "gives": "OB",
+       "note": "OB is old boy, a former pupil of a school"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LIQUE",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "a report is something spoken, so the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "release of privileged info",
+         "gives": "LEAK",
+         "note": "a leak lets out confidential information"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1131,58 +961,44 @@
    },
    "solution": "BELGRADE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BELGRADE",
     "definitions": [
      {
       "text": "the capital",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "a drunk staggers about, so the letters lurch out of order"
-     },
-     {
-      "text": "rollicking",
-      "for": "anagram",
-      "note": "rollicking means boisterous and unruly, so the letters are thrown around"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elgar",
-      "gives": "ELGAR",
-      "note": "the composer's name taken as written"
-     },
-     {
-      "clueFragment": "bed",
-      "gives": "BED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ELGRA",
-      "DE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "parts": [
       {
-       "fodder": "ELGAR",
-       "gives": "ELGRA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "note": "a drunk staggers about, so the letters lurch out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bed",
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "fodder": "BED",
-       "gives": "BDE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rollicking",
+         "note": "rollicking means boisterous and unruly, so the letters are thrown around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elgar",
+         "note": "the composer's name taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1219,36 +1035,25 @@
    },
    "solution": "ICELOLLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ICE LOLLY",
     "definitions": [
      {
       "text": "Fab for one",
       "at": 0
      }
     ],
-    "linkWords": [
-     "having",
-     "on top of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diamonds",
-      "gives": "ICE",
-      "note": "ice is slang for diamonds"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "LOLLY",
-      "note": "lolly is British slang for money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICE",
-      "LOLLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "diamonds",
+       "gives": "ICE",
+       "note": "ice is slang for diamonds"
+      },
+      {
+       "words": "cash",
+       "gives": "LOLLY",
+       "note": "lolly is British slang for money"
+      }
      ]
     },
     "explanation": {
@@ -1284,33 +1089,28 @@
    },
    "solution": "ARCLAMP",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARC-LAMP",
     "definitions": [
      {
       "text": "light",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "A portion of",
-      "for": "hidden_word",
-      "note": "a portion is only part of the whole, so the letters sit within the words"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "regular clam pasta",
-      "gives": "ARCLAMP",
-      "note": "the run of letters spanning the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A portion of",
+       "note": "a portion is only part of the whole, so the letters sit within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "regular clam pasta",
+       "gives": "ARCLAMP",
+       "note": "the run of letters spanning the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A serving of ordinary clam pasta that is low in calories.",
      "walkthrough": "'Light' suggests a low-fat dish, but it is a source of illumination.",
@@ -1338,41 +1138,33 @@
    },
    "solution": "SWIMWEAR",
    "annotation": {
-    "type": [
-     "charade",
-     "cycling"
-    ],
-    "answer": "SWIMWEAR",
     "definitions": [
      {
       "text": "Cossie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back to front",
-      "for": "cycling",
-      "note": "bringing the back to the front moves the last letter to the start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wenders",
-      "gives": "WIM",
-      "note": "Wim Wenders is the German film director"
-     },
-     {
-      "clueFragment": "puts on",
-      "gives": "WEARS",
-      "note": "one wears clothes one puts on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WIM",
-      "WEAR"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "SWIMWEAR",
+     "indicators": [
+      {
+       "text": "back to front",
+       "note": "bringing the back to the front moves the last letter to the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wenders",
+       "gives": "WIM",
+       "note": "Wim Wenders is the German film director"
+      },
+      {
+       "words": "puts on",
+       "gives": "WEARS",
+       "note": "one wears clothes one puts on"
+      }
      ]
     },
     "explanation": {
@@ -1402,46 +1194,41 @@
    },
    "solution": "MUSEUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MUSEUM",
     "definitions": [
      {
       "text": "study centre",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "bored by",
-      "for": "container",
-      "note": "something bored by a drill has a hole made in it, so another piece goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother's",
-      "gives": "MUM",
-      "note": "mum is mother; the 's is 'is'"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is the abbreviation for American"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "US",
-      "E",
-      "UM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bored by",
+       "note": "something bored by a drill has a hole made in it, so another piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Mother's",
+         "gives": "MUM",
+         "note": "mum is mother; the 's is 'is'"
+        },
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US is the abbreviation for American"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1471,51 +1258,40 @@
    },
    "solution": "EFFIGY",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "EFFIGY",
     "definitions": [
      {
       "text": "guy",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "upset means knocked over, which in a down clue turns it upside down"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Swear",
-      "gives": "EFF",
-      "note": "to eff is to swear, from the euphemism for the F-word"
-     },
-     {
-      "clueFragment": "US soldier",
-      "gives": "GI",
-      "note": "a GI is an American soldier"
-     },
-     {
-      "clueFragment": "Yankee",
-      "gives": "Y",
-      "note": "Yankee is Y in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EFF",
-      "IG",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GI",
-       "to": "IG"
+       "words": "Swear",
+       "gives": "EFF",
+       "note": "to eff is to swear, from the euphemism for the F-word"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "upset means knocked over, which in a down clue turns it upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US soldier",
+         "gives": "GI",
+         "note": "a GI is an American soldier"
+        }
+       ]
+      },
+      {
+       "words": "Yankee",
+       "gives": "Y",
+       "note": "Yankee is Y in the NATO alphabet"
       }
      ]
     },
@@ -1546,31 +1322,29 @@
    },
    "solution": "LIEDER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LIEDER",
     "definitions": [
      {
       "text": "Songs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recorded",
-      "for": "homophone",
-      "note": "a recording captures sound, so the word is judged by how it is said"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Boss",
-      "gives": "LIEDER",
-      "soundsLike": "LEADER",
-      "note": "the boss is the leader"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LIEDER",
+     "indicators": [
+      {
+       "text": "recorded",
+       "note": "a recording captures sound, so the word is judged by how it is said"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The Boss",
+       "gives": "LEADER",
+       "note": "the boss is the leader"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Bruce Springsteen, nicknamed The Boss, cutting tracks in a studio.",
      "walkthrough": "The Boss suggests Springsteen, but it is just a head person; lieder are German art songs, as by Schubert.",
@@ -1598,34 +1372,25 @@
    },
    "solution": "COG",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "COG",
     "definitions": [
      {
       "text": "a lowly employee",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically sacked",
-      "for": "letter_selection",
-      "note": "dismissing at regular intervals throws out every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrooge",
-      "gives": "COG",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COG"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "periodically sacked",
+       "note": "dismissing at regular intervals throws out every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scrooge",
+       "note": "second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -1654,50 +1419,55 @@
    },
    "solution": "TRUSTFUL",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TRUSTFUL",
     "definitions": [
      {
       "text": "Credulous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter is dropped"
-     },
-     {
-      "text": "ignoring",
-      "for": "deletion",
-      "note": "to ignore something is to leave it out, so those letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former PM",
-      "gives": "TRUSS",
-      "note": "Liz Truss was briefly UK Prime Minister in 2022"
-     },
-     {
-      "clueFragment": "lachrymose",
-      "gives": "TEARFUL",
-      "note": "lachrymose means given to weeping"
-     },
-     {
-      "clueFragment": "Listener",
-      "gives": "EAR",
-      "note": "an ear is the organ that listens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRUS",
-      "TFUL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "note": "to ignore something is to leave it out, so those letters go"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "former PM",
+           "gives": "TRUSS",
+           "note": "Liz Truss was briefly UK Prime Minister in 2022"
+          },
+          {
+           "words": "lachrymose",
+           "gives": "TEARFUL",
+           "note": "lachrymose means given to weeping"
+          }
+         ]
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "Listener",
+       "gives": "EAR",
+       "note": "an ear is the organ that listens"
+      }
      ]
     },
     "explanation": {
@@ -1732,48 +1502,48 @@
    },
    "solution": "ROOBAR",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ROO BAR",
     "definitions": [
      {
       "text": "One stops Joey",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking covers off",
-      "for": "letter_selection",
-      "note": "removing the covers strips away the outermost letters, leaving the insides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "from",
-      "gives": "RO",
-      "select": "middle",
-      "note": "the inner letters"
-     },
-     {
-      "clueFragment": "Bob's",
-      "gives": "OB",
-      "select": "middle",
-      "note": "the inner letters"
-     },
-     {
-      "clueFragment": "farm",
-      "gives": "AR",
-      "select": "middle",
-      "note": "the inner letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "OB",
-      "AR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "taking covers off",
+         "note": "removing the covers strips away the outermost letters, leaving the insides"
+        }
+       ],
+       "parts": [
+        {
+         "words": "from",
+         "note": "the inner letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Bob's",
+         "note": "the inner letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "farm",
+         "note": "the inner letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1809,35 +1579,24 @@
    },
    "solution": "YOUNGSMODULUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "YOUNGS MODULUS",
     "definitions": [
      {
       "text": "It's to do with stress and strain",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "wrestling",
-      "for": "anagram",
-      "note": "wrestlers twist and throw each other about, so the letters are thrown into new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ugly sound sumo",
-      "gives": "UGLYSOUNDSUMO",
-      "note": "the letters of all three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UGLYSOUNDSUMO",
-       "gives": "YOUNGSMODULUS"
+       "text": "wrestling",
+       "note": "wrestlers twist and throw each other about, so the letters are thrown into new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ugly sound sumo",
+       "note": "the letters of all three words"
       }
      ]
     },

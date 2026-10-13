@@ -1,8 +1,6 @@
 {
  "id": "quiptic-126",
  "number": 126,
- "series": "quiptic",
- "name": "Quiptic crossword No 126",
  "setter": "Arachne",
  "date": "2002-04-15",
  "dimensions": {
@@ -38,43 +36,33 @@
    },
    "solution": "ASININE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ASININE",
     "definitions": [
      {
       "text": "moronic",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "mad",
-      "for": "anagram",
-      "note": "something mad is deranged, so the letters before it are thrown into disorder"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Insane",
-      "gives": "INSANE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IINSANE",
-       "gives": "ASININE"
+       "text": "mad",
+       "note": "something mad is deranged, so the letters before it are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "Insane",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -109,32 +97,25 @@
    },
    "solution": "SELLOFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SELL OFF",
     "definitions": [
      {
       "text": "privatisation",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Push",
-      "gives": "SELL",
-      "note": "to push goods is to sell them hard"
-     },
-     {
-      "clueFragment": "bad",
-      "gives": "OFF",
-      "note": "food that is off has gone bad"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SELL",
-      "OFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Push",
+       "gives": "SELL",
+       "note": "to push goods is to sell them hard"
+      },
+      {
+       "words": "bad",
+       "gives": "OFF",
+       "note": "food that is off has gone bad"
+      }
      ]
     },
     "explanation": {
@@ -162,35 +143,24 @@
    },
    "solution": "NIGHT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NIGHT",
     "definitions": [
      {
       "text": "Dark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "misshapen",
-      "for": "anagram",
-      "note": "misshapen means deformed out of its proper form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thing",
-      "gives": "THING",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THING",
-       "gives": "NIGHT"
+       "text": "misshapen",
+       "note": "misshapen means deformed out of its proper form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thing",
+       "note": "taken as written"
       }
      ]
     },
@@ -219,58 +189,54 @@
    },
    "solution": "NOSTRIL",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NOSTRIL",
     "definitions": [
      {
       "text": "part of nose",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Horrible",
-      "for": "anagram",
-      "note": "something horrible is in a terrible state, so the letters are mixed up"
-     },
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "the starts of words are their opening letters, which alone are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "snot",
-      "gives": "SNOT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "run in",
-      "gives": "RI",
-      "select": "first",
-      "note": "opening letters of run and in"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOST",
-      "RI",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SNOT",
-       "gives": "NOST"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Horrible",
+         "note": "something horrible is in a terrible state, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "snot",
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "starts to",
+             "note": "the starts of words are their opening letters, which alone are kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "run in",
+             "note": "opening letters of run and in"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
       }
      ]
     },
@@ -306,47 +272,49 @@
    },
    "solution": "HOLDUPS",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HOLD-UPS",
     "definitions": [
      {
       "text": "robberies",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Said",
-      "for": "homophone",
-      "note": "said means spoken, so the phrase for hiding is wanted as heard rather than as written"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "first of asks for only the opening letter of the following word"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to be hiding",
-      "gives": "HOLDUP",
-      "soundsLike": "HOLED UP",
-      "note": "someone holed up is hiding; the phrase sounds like this spelling"
-     },
-     {
-      "clueFragment": "spectacular",
-      "gives": "S",
-      "select": "first",
-      "note": "opening letter of spectacular"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HOLDUP",
+       "indicators": [
+        {
+         "text": "Said",
+         "note": "said means spoken, so the phrase for hiding is wanted as heard rather than as written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to be hiding",
+         "gives": "HOLEDUP",
+         "note": "someone holed up is hiding; the phrase sounds like this spelling"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "first of asks for only the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spectacular",
+         "note": "opening letter of spectacular"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tale of spectacular robberies carried out by gangs lying low beforehand.",
      "walkthrough": "Holed up, meaning hiding, is pronounced like HOLD UP; 'before' places it ahead of the S.",
@@ -379,31 +347,16 @@
    },
    "solution": "ODDJOB",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ODD JOB",
     "definitions": [
      {
       "text": "Bond villain",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Goldfinger's hat-throwing henchman in the James Bond story"
      },
      {
       "text": "bit of casual work",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bond villain",
-      "note": "first meaning: Goldfinger's hat-throwing henchman in the James Bond story"
-     },
-     {
-      "clueFragment": "bit of casual work",
-      "note": "second meaning: a small occasional task, often domestic"
+      "at": 15,
+      "meaning": "second meaning: a small occasional task, often domestic"
      }
     ],
     "explanation": {
@@ -431,50 +384,44 @@
    },
    "solution": "DICTATORS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DICTATORS",
     "definitions": [
      {
       "text": "Perhaps Saddam Hussain, Milosevic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mingled with",
-      "for": "anagram",
-      "note": "mingled means mixed together, so the letters are stirred up and recombined"
-     },
-     {
-      "text": "leaders of",
-      "for": "letter_selection",
-      "note": "leaders are those at the front, so the opening letters of the next words are kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Castro",
-      "gives": "CASTRO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "international trade delegation",
-      "gives": "ITD",
-      "select": "first",
-      "note": "opening letters of international, trade and delegation"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CASTROITD",
-       "gives": "DICTATORS"
+       "text": "mingled with",
+       "note": "mingled means mixed together, so the letters are stirred up and recombined"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Castro",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leaders of",
+           "note": "leaders are those at the front, so the opening letters of the next words are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "international trade delegation",
+           "note": "opening letters of international, trade and delegation"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -504,28 +451,16 @@
    },
    "solution": "PROJECT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PROJECT",
     "definitions": [
      {
       "text": "Plan",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a planned undertaking or scheme"
      },
      {
       "text": "piece of school work",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plan",
-      "note": "first meaning: a planned undertaking or scheme"
-     },
-     {
-      "clueFragment": "piece of school work",
-      "note": "second meaning: an extended assignment a pupil researches"
+      "at": 5,
+      "meaning": "second meaning: an extended assignment a pupil researches"
      }
     ],
     "explanation": {
@@ -551,10 +486,6 @@
    },
    "solution": "FILIBUSTERING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FILIBUSTERING",
     "definitions": [
      {
       "text": "a waste of time",
@@ -562,25 +493,18 @@
       "note": "the answer is a gerund, a noun naming the activity"
      }
     ],
-    "indicators": [
-     {
-      "text": "Anyhow",
-      "for": "anagram",
-      "note": "anyhow means in a careless, haphazard way, so the letters land in any order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in brief, guilt's",
-      "gives": "INBRIEFGUILTS",
-      "note": "the letters as written, punctuation dropped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INBRIEFGUILTS",
-       "gives": "FILIBUSTERING"
+       "text": "Anyhow",
+       "note": "anyhow means in a careless, haphazard way, so the letters land in any order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in brief, guilt's",
+       "note": "the letters as written, punctuation dropped"
       }
      ]
     },
@@ -609,44 +533,35 @@
    },
    "solution": "PLUG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLUG",
     "definitions": [
      {
       "text": "push",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, which alone is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pull",
-      "gives": "P",
-      "select": "first",
-      "note": "opening letter of pull"
-     },
-     {
-      "clueFragment": "drag",
-      "gives": "LUG",
-      "note": "to lug is to drag something heavy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LUG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Beginning to",
+         "note": "the beginning of a word is its opening letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pull",
+         "note": "opening letter of pull"
+        }
+       ]
+      },
+      {
+       "words": "drag",
+       "gives": "LUG",
+       "note": "to lug is to drag something heavy"
+      }
      ]
     },
     "explanation": {
@@ -680,35 +595,25 @@
    },
    "solution": "SPINDOCTOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPIN DOCTOR",
     "definitions": [
      {
       "text": "Alastair Campbell, perhaps",
       "at": 20
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drive",
-      "gives": "SPIN",
-      "note": "a spin is a short drive in a car"
-     },
-     {
-      "clueFragment": "emasculate",
-      "gives": "DOCTOR",
-      "note": "to doctor an animal is to castrate it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPIN",
-      "DOCTOR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drive",
+       "gives": "SPIN",
+       "note": "a spin is a short drive in a car"
+      },
+      {
+       "words": "emasculate",
+       "gives": "DOCTOR",
+       "note": "to doctor an animal is to castrate it"
+      }
      ]
     },
     "explanation": {
@@ -738,38 +643,24 @@
    },
    "solution": "ROTTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROTTER",
     "definitions": [
      {
       "text": "Cad",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outrageous",
-      "for": "anagram",
-      "note": "outrageous suggests something wildly out of order, so the letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "retort",
-      "gives": "RETORT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RETORT",
-       "gives": "ROTTER"
+       "text": "outrageous",
+       "note": "outrageous suggests something wildly out of order, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "retort",
+       "note": "taken as written"
       }
      ]
     },
@@ -798,41 +689,29 @@
    },
    "solution": "IDOLATER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDOLATER",
     "definitions": [
      {
       "text": "a passionate admirer",
       "at": 32
      }
     ],
-    "linkWords": [
-     "to become"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'd",
-      "gives": "ID",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like the letter O"
-     },
-     {
-      "clueFragment": "subsequently",
-      "gives": "LATER",
-      "note": "subsequently means afterwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ID",
-      "O",
-      "LATER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'd",
+       "note": "taken as written, apostrophe dropped"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like the letter O"
+      },
+      {
+       "words": "subsequently",
+       "gives": "LATER",
+       "note": "subsequently means afterwards"
+      }
      ]
     },
     "explanation": {
@@ -866,44 +745,40 @@
    },
    "solution": "OFFCOLOUR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OFF-COLOUR",
     "definitions": [
      {
       "text": "Smutty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "letter_selection",
-      "note": "somewhat means only part of the following word is used, here its opening letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "offensive",
-      "gives": "OFF",
-      "select": "first",
-      "note": "the first three letters of offensive"
-     },
-     {
-      "clueFragment": "blue, perhaps",
-      "gives": "COLOUR",
-      "note": "blue is an example of a colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "COLOUR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "OFF",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "note": "somewhat means only part of the following word is used, here its opening letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "offensive",
+         "gives": "OFF",
+         "select": "first",
+         "note": "the first three letters of offensive"
+        }
+       ]
+      },
+      {
+       "words": "blue, perhaps",
+       "gives": "COLOUR",
+       "note": "blue is an example of a colour"
+      }
      ]
     },
     "explanation": {
@@ -933,41 +808,30 @@
    },
    "solution": "CROSSFIRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CROSSFIRE",
     "definitions": [
      {
       "text": "heated exchange",
       "at": 23
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vexed",
-      "gives": "CROSS",
-      "note": "cross means annoyed"
-     },
-     {
-      "clueFragment": "loud",
-      "gives": "F",
-      "note": "f, forte, is the musical marking for loud"
-     },
-     {
-      "clueFragment": "anger",
-      "gives": "IRE",
-      "note": "ire is a literary word for anger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CROSS",
-      "F",
-      "IRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vexed",
+       "gives": "CROSS",
+       "note": "cross means annoyed"
+      },
+      {
+       "words": "loud",
+       "gives": "F",
+       "note": "f, forte, is the musical marking for loud"
+      },
+      {
+       "words": "anger",
+       "gives": "IRE",
+       "note": "ire is a literary word for anger"
+      }
      ]
     },
     "explanation": {
@@ -996,31 +860,29 @@
    },
    "solution": "LOOTS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LOOTS",
     "definitions": [
      {
       "text": "Steals",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is a sound, so the word for the instruments is taken by pronunciation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "instruments",
-      "gives": "LOOTS",
-      "soundsLike": "LUTES",
-      "note": "lutes are plucked stringed instruments"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LOOTS",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "what we hear is a sound, so the word for the instruments is taken by pronunciation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instruments",
+       "gives": "LUTES",
+       "note": "lutes are plucked stringed instruments"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A thief makes off with musical instruments, apparently.",
      "definitionFit": "To loot is to plunder or rob, especially during a riot, a vivid synonym for steals."
@@ -1046,35 +908,24 @@
    },
    "solution": "MANOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MANOR",
     "definitions": [
      {
       "text": "villa",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Reconstructed",
-      "for": "anagram",
-      "note": "something reconstructed is put together again in a new form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roman",
-      "gives": "ROMAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROMAN",
-       "gives": "MANOR"
+       "text": "Reconstructed",
+       "note": "something reconstructed is put together again in a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roman",
+       "note": "taken as written"
       }
      ]
     },
@@ -1103,36 +954,29 @@
    },
    "solution": "AROUSAL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AROUSAL",
     "definitions": [
      {
       "text": "excitement",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Topless",
-      "for": "deletion",
-      "note": "in a down answer the top is the first letter, so topless means that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "causes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "partying",
-      "gives": "CAROUSAL",
-      "note": "a carousal is a noisy, drunken party or revelry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AROUSAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Topless",
+       "note": "in a down answer the top is the first letter, so topless means that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "partying",
+       "gives": "CAROUSAL",
+       "note": "a carousal is a noisy, drunken party or revelry"
+      },
+      {
+       "gives": "C"
+      }
      ]
     },
     "explanation": {
@@ -1161,32 +1005,25 @@
    },
    "solution": "STATESMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STATESMAN",
     "definitions": [
      {
       "text": "Senior politician",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "sets out",
-      "gives": "STATES",
-      "note": "to set out an argument is to state it"
-     },
-     {
-      "clueFragment": "to work",
-      "gives": "MAN",
-      "note": "to man a machine or post is to work it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STATES",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sets out",
+       "gives": "STATES",
+       "note": "to set out an argument is to state it"
+      },
+      {
+       "words": "to work",
+       "gives": "MAN",
+       "note": "to man a machine or post is to work it"
+      }
      ]
     },
     "explanation": {
@@ -1215,38 +1052,24 @@
    },
    "solution": "TORPEDO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TORPEDO",
     "definitions": [
      {
       "text": "Ruin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crash",
-      "for": "anagram",
-      "note": "in a crash things are smashed apart, so the letters end up jumbled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poor Ted",
-      "gives": "POORTED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POORTED",
-       "gives": "TORPEDO"
+       "text": "crash",
+       "note": "in a crash things are smashed apart, so the letters end up jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poor Ted",
+       "note": "taken as written"
       }
      ]
     },
@@ -1275,58 +1098,53 @@
    },
    "solution": "AMERICA",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AMERICA",
     "definitions": [
      {
       "text": "the US",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "terrible",
-      "for": "anagram",
-      "note": "terrible means dreadfully bad, so the word is knocked out of shape"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "crime",
-      "gives": "CRIME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "appalled",
-      "gives": "A",
-      "select": "first",
-      "note": "opening letter of appalled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MERIC",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CRIME",
-       "gives": "MERIC"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "note": "terrible means dreadfully bad, so the word is knocked out of shape"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "crime",
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially means at the start, so only the opening letter is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "appalled",
+             "note": "opening letter of appalled"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1355,30 +1173,28 @@
    },
    "solution": "EDITED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EDITED",
     "definitions": [
      {
       "text": "corrected",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "some means a portion, so the answer is a run of letters within the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "screed I tediously",
-      "gives": "EDITED",
-      "note": "a run of letters spanning the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "some means a portion, so the answer is a run of letters within the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "screed I tediously",
+       "gives": "EDITED",
+       "note": "a run of letters spanning the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone describes laboriously fixing a long-winded piece of writing.",
      "definitionFit": "To edit text is to revise it and remove errors, so edited text has been corrected."
@@ -1404,40 +1220,33 @@
    },
    "solution": "CONSIDER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONSIDER",
     "definitions": [
      {
       "text": "judge",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "corrupt",
-      "for": "anagram",
-      "note": "corrupt means spoiled or altered from its proper form, so the letters change order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "scorned",
-      "gives": "SCORNED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISCORNED",
-       "gives": "CONSIDER"
+       "text": "corrupt",
+       "note": "corrupt means spoiled or altered from its proper form, so the letters change order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "scorned",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1466,32 +1275,25 @@
    },
    "solution": "ROCKET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROCKET",
     "definitions": [
      {
       "text": "spaceship",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Disturb",
-      "gives": "ROCK",
-      "note": "to rock is to shake or unsettle"
-     },
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "ET is the extraterrestrial of Spielberg's film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROCK",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disturb",
+       "gives": "ROCK",
+       "note": "to rock is to shake or unsettle"
+      },
+      {
+       "words": "alien",
+       "gives": "ET",
+       "note": "ET is the extraterrestrial of Spielberg's film"
+      }
      ]
     },
     "explanation": {
@@ -1519,28 +1321,16 @@
    },
    "solution": "CURES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CURES",
     "definitions": [
      {
       "text": "Makes better",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: heals an illness or patient"
      },
      {
       "text": "kippers",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Makes better",
-      "note": "first meaning: heals an illness or patient"
-     },
-     {
-      "clueFragment": "kippers",
-      "note": "second meaning: preserves fish by salting and smoking, as a verb"
+      "at": 13,
+      "meaning": "second meaning: preserves fish by salting and smoking, as a verb"
      }
     ],
     "explanation": {
@@ -1569,51 +1359,39 @@
    },
    "solution": "ASSISTANCE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ASSISTANCE",
     "definitions": [
      {
       "text": "Help",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unhappy",
-      "for": "anagram",
-      "note": "an unhappy name is out of sorts, so its letters are put in a different order"
-     },
-     {
-      "text": "to accept",
-      "for": "container",
-      "note": "to accept is to take in, so one set of letters receives the other inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cassie",
-      "gives": "CASSIE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Stan",
-      "gives": "STAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASSI",
-      "STAN",
-      "CE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CASSIE",
-       "gives": "ASSICE"
+       "text": "to accept",
+       "note": "to accept is to take in, so one set of letters receives the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unhappy",
+         "note": "an unhappy name is out of sorts, so its letters are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cassie",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Stan",
+       "note": "taken as written"
       }
      ]
     },
@@ -1642,32 +1420,24 @@
    },
    "solution": "RUIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUIN",
     "definitions": [
      {
       "text": "state of collapse",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sport",
-      "gives": "RU",
-      "note": "RU is rugby union"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sport",
+       "gives": "RU",
+       "note": "RU is rugby union"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1695,55 +1465,49 @@
    },
    "solution": "ALMEIDA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ALMEIDA",
     "definitions": [
      {
       "text": "theatre",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders of",
-      "for": "letter_selection",
-      "note": "leaders are those at the front, so the opening letters of the next words are kept"
-     },
-     {
-      "text": "unconventional",
-      "for": "anagram",
-      "note": "unconventional means not in the usual order, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "avant-garde love",
-      "gives": "AL",
-      "select": "first",
-      "note": "opening letters of avant-garde and love"
-     },
-     {
-      "clueFragment": "media",
-      "gives": "MEDIA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "MEIDA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MEDIA",
-       "gives": "MEIDA"
+       "op": "first",
+       "unchecked": true,
+       "gives": "AL",
+       "indicators": [
+        {
+         "text": "Leaders of",
+         "note": "leaders are those at the front, so the opening letters of the next words are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "avant-garde love",
+         "gives": "AL",
+         "select": "first",
+         "note": "opening letters of avant-garde and love"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unconventional",
+         "note": "unconventional means not in the usual order, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "media",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1779,36 +1543,25 @@
    },
    "solution": "POPSTAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POP STAR",
     "definitions": [
      {
       "text": "Madonna, for example",
       "at": 0
      }
     ],
-    "linkWords": [
-     "has",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drinks",
-      "gives": "POPS",
-      "note": "pop is fizzy drink, plural here"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "a tar is an old word for a sailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POPS",
-      "TAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drinks",
+       "gives": "POPS",
+       "note": "pop is fizzy drink, plural here"
+      },
+      {
+       "words": "sailor",
+       "gives": "TAR",
+       "note": "a tar is an old word for a sailor"
+      }
      ]
     },
     "explanation": {

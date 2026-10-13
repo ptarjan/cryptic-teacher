@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22201",
  "number": 22201,
- "series": "cryptic",
- "name": "Prize crossword No 22,201",
+ "prize": true,
  "setter": "Bunthorne",
  "date": "2001-05-05",
  "dimensions": {
@@ -54,39 +53,28 @@
     "11-down"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "THE OPERA AIN'T OVER TIL THE FAT LADY SINGS",
     "definitions": [
      {
       "text": "He lets no thin diva type forget last aria, perhaps in \"Patience\"",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "'perhaps' says the preceding words are only one possible arrangement, so their letters may be set out differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He lets no thin diva type forget last aria",
-      "gives": "HELETSNOTHINDIVATYPEFORGETLASTARIA",
-      "note": "all thirty-four letters of the opening words form the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HELETSNOTHINDIVATYPEFORGETLASTARIA",
-       "gives": "THEOPERAAINTOVERTILTHEFATLADYSINGS"
+       "text": "perhaps",
+       "note": "'perhaps' says the preceding words are only one possible arrangement, so their letters may be set out differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He lets no thin diva type forget last aria",
+       "note": "all thirty-four letters of the opening words form the fodder"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A producer refuses to let a slim soprano skip the closing number of Gilbert and Sullivan's Patience.",
      "walkthrough": "The setter Bunthorne is named after a character in Patience, which has a stout contralto, Lady Jane. The whole clue both supplies the letters and describes the saying in action.",
@@ -114,57 +102,54 @@
    },
    "solution": "TRANSGRESS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "TRANSGRESS",
     "definitions": [
      {
       "text": "encroach",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Start of",
-      "for": "letter_selection",
-      "note": "'Start of' asks for only the opening letter of the following word"
-     },
-     {
-      "text": "collapse",
-      "for": "anagram",
-      "note": "a collapse leaves things fallen in disorder, so the letters before it are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of 'the'"
-     },
-     {
-      "clueFragment": "Rangers'",
-      "gives": "RANGERS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Saints",
-      "gives": "SS",
-      "note": "S is the abbreviation for saint, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRANSGRE",
-      "SS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TRANGERS",
-       "gives": "TRANSGRE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start of",
+         "note": "'Start of' asks for only the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "first letter of 'the'"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collapse",
+         "note": "a collapse leaves things fallen in disorder, so the letters before it are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Rangers'",
+           "note": "taken as written"
+          },
+          {
+           "words": "Saints",
+           "gives": "SS",
+           "note": "S is the abbreviation for saint, doubled for the plural"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -193,49 +178,43 @@
    },
    "solution": "ENNEAGONAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ENNEAGONAL",
     "definitions": [
      {
       "text": "shape like this",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "You hadn't",
-      "for": "deletion",
-      "note": "telling her she had no 'a' means one letter A is taken away from her words"
-     },
-     {
-      "text": "dreadful",
-      "for": "anagram",
-      "note": "something dreadful is in a terrible state, so the remaining letters are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "O, Anna Neagle",
-      "gives": "OANNANEAGLE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the single letter to be removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENNEAGONAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENNEAGONAL",
+     "indicators": [
       {
-       "fodder": "ONNANEAGLE",
-       "gives": "ENNEAGONAL"
+       "text": "dreadful",
+       "note": "something dreadful is in a terrible state, so the remaining letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ENNEAGONAL",
+       "indicators": [
+        {
+         "text": "You hadn't",
+         "note": "telling her she had no 'a' means one letter A is taken away from her words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "O, Anna Neagle",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "the single letter to be removed"
+        }
+       ]
       }
      ]
     },
@@ -266,32 +245,25 @@
    },
    "solution": "PRODI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRODI",
     "definitions": [
      {
       "text": "wasn't he once the Italian PM?",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Remind",
-      "gives": "PROD",
-      "note": "to prod someone is to jog their memory"
-     },
-     {
-      "clueFragment": "me",
-      "gives": "I",
-      "note": "the speaker refers to himself as I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROD",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Remind",
+       "gives": "PROD",
+       "note": "to prod someone is to jog their memory"
+      },
+      {
+       "words": "me",
+       "gives": "I",
+       "note": "the speaker refers to himself as I"
+      }
      ]
     },
     "explanation": {
@@ -330,35 +302,24 @@
    },
    "solution": "RUEINGTHEDAY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RUEING THE DAY",
     "definitions": [
      {
       "text": "Kicking oneself",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "'perhaps' hints that the phrase before it is just one possible ordering of its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in the gaudery",
-      "gives": "INTHEGAUDERY",
-      "note": "the three words supply all twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INTHEGAUDERY",
-       "gives": "RUEINGTHEDAY"
+       "text": "perhaps",
+       "note": "'perhaps' hints that the phrase before it is just one possible ordering of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in the gaudery",
+       "note": "the three words supply all twelve letters"
       }
      ]
     },
@@ -388,26 +349,25 @@
    },
    "solution": "ABSEIL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ABSEIL",
     "definitions": [
      {
       "text": "Let oneself down, on the face of it",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Let oneself down",
-      "note": "surface reading: to disappoint oneself, fall short of one's own standards"
-     },
-     {
-      "clueFragment": "on the face of it",
-      "note": "setter's reading: lower oneself on a rope literally down a cliff face"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Let oneself down",
+       "note": "surface reading: to disappoint oneself, fall short of one's own standards"
+      },
+      {
+       "words": "on the face of it",
+       "note": "setter's reading: lower oneself on a rope literally down a cliff face"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'On the face of it' sounds like the idiom 'apparently', but here it is a rock face.",
      "definitionFit": "Climbers descend a vertical cliff by rope, lowering themselves down the face."
@@ -434,35 +394,24 @@
    },
    "solution": "BLINDWORM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLINDWORM",
     "definitions": [
      {
       "text": "One's sting is in the hell-broth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brew",
-      "for": "anagram",
-      "note": "brewing stirs ingredients together, so the preceding letters are mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mild brown",
-      "gives": "MILDBROWN",
-      "note": "the two words supply all nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MILDBROWN",
-       "gives": "BLINDWORM"
+       "text": "brew",
+       "note": "brewing stirs ingredients together, so the preceding letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mild brown",
+       "note": "the two words supply all nine letters"
       }
      ]
     },
@@ -492,30 +441,28 @@
    },
    "solution": "ERTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ERTE",
     "definitions": [
      {
       "text": "designing figure for the Folies-Bergere",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "part in",
-      "for": "hidden_word",
-      "note": "'part in' says only a portion of the following words is wanted, found inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Albert Einstein's",
-      "gives": "ERTE",
-      "note": "spans the end of the first name and the start of the surname"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part in",
+       "note": "'part in' says only a portion of the following words is wanted, found inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Albert Einstein's",
+       "gives": "ERTE",
+       "note": "spans the end of the first name and the start of the surname"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Einstein, improbably, takes a role in creating a show at the Paris music hall.",
      "definitionFit": "Erté was a Russian-born Art Deco artist who created costumes and sets for the Folies-Bergère revues."
@@ -542,41 +489,25 @@
    },
    "solution": "LEEK",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LEEK",
     "definitions": [
      {
       "text": "emblem",
       "at": 12
      }
     ],
-    "indicators": [
-     {
-      "text": "Careen",
-      "for": "reversal",
-      "note": "to careen a vessel is to turn it right over on its side, signalling an overturn"
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Careen",
-      "gives": "KEEL",
-      "note": "to careen a ship is to keel it over, so the word wanted is keel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEEK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "KEEL",
-       "to": "LEEK"
+       "text": "Careen",
+       "note": "to careen a vessel is to turn it right over on its side, signalling an overturn"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Careen",
+       "gives": "KEEL",
+       "note": "to careen a ship is to keel it over, so the word wanted is keel"
       }
      ]
     },
@@ -680,41 +611,29 @@
    },
    "solution": "STATIONHAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STATION HAND",
     "definitions": [
      {
       "text": "Outback worker",
       "at": 0
      }
     ],
-    "linkWords": [
-     "needed:"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "the possessive ending taken as a letter"
-     },
-     {
-      "clueFragment": "Mon Oncle",
-      "gives": "TATI",
-      "note": "Jacques Tati directed and starred in the film Mon Oncle"
-     },
-     {
-      "clueFragment": "available",
-      "gives": "ONHAND",
-      "note": "something available is on hand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TATI",
-      "ONHAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'s",
+       "note": "the possessive ending taken as a letter"
+      },
+      {
+       "words": "Mon Oncle",
+       "gives": "TATI",
+       "note": "Jacques Tati directed and starred in the film Mon Oncle"
+      },
+      {
+       "words": "available",
+       "gives": "ONHAND",
+       "note": "something available is on hand"
+      }
      ]
     },
     "explanation": {
@@ -744,47 +663,47 @@
    },
    "solution": "ODONTOLITE",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "ODONTOLITE",
     "definitions": [
      {
       "text": "some toothsome relic",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "'they say' points to how a word is spoken rather than how it is written"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "O",
-      "gives": "O",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "he's the fellow",
-      "gives": "DON",
-      "note": "a don is a university fellow"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "chance upon",
-      "gives": "LITE",
-      "soundsLike": "LIGHT",
-      "note": "to light upon something is to chance upon it"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "O",
+       "note": "taken as written"
+      },
+      {
+       "words": "he's the fellow",
+       "gives": "DON",
+       "note": "a don is a university fellow"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LITE",
+       "indicators": [
+        {
+         "text": "they say",
+         "note": "'they say' points to how a word is spoken rather than how it is written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chance upon",
+         "gives": "LIGHT",
+         "note": "to light upon something is to chance upon it"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cry of delight about the man who stumbles on a fossil.",
      "walkthrough": "'Toothsome' here means tooth-like, not tasty.",
@@ -812,32 +731,25 @@
    },
    "solution": "GREENHORNS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GREENHORNS",
     "definitions": [
      {
       "text": "Saps",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "environmentally friendly",
-      "gives": "GREEN",
-      "note": "green means eco-friendly"
-     },
-     {
-      "clueFragment": "fog warnings",
-      "gives": "HORNS",
-      "note": "foghorns sound warnings at sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "HORNS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "environmentally friendly",
+       "gives": "GREEN",
+       "note": "green means eco-friendly"
+      },
+      {
+       "words": "fog warnings",
+       "gives": "HORNS",
+       "note": "foghorns sound warnings at sea"
+      }
      ]
     },
     "explanation": {
@@ -866,51 +778,48 @@
    },
    "solution": "RHOMB",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "RHOMB",
     "definitions": [
      {
       "text": "figure",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "but not",
-      "for": "deletion",
-      "note": "'but not' tells us to remove the item named after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take",
-      "gives": "R",
-      "note": "R stands for recipe, Latin for take, on prescriptions"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "HOME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "HOM",
-      "B"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but not",
+       "note": "'but not' tells us to remove the item named after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Take",
+         "gives": "R",
+         "note": "R stands for recipe, Latin for take, on prescriptions"
+        },
+        {
+         "words": "home",
+         "note": "taken as written"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        },
+        {
+         "words": "British",
+         "gives": "B",
+         "note": "B is the abbreviation for British"
+        }
+       ]
+      },
+      {
+       "gives": "EE"
+      }
      ]
     },
     "explanation": {
@@ -939,28 +848,16 @@
    },
    "solution": "BATHHOUSE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BATHHOUSE",
     "definitions": [
      {
       "text": "Where Beau Nash was immersed",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a building with public baths, where one is immersed"
      },
      {
       "text": "his country residence",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where Beau Nash was immersed",
-      "note": "first meaning: a building with public baths, where one is immersed"
-     },
-     {
-      "clueFragment": "his country residence",
-      "note": "second meaning: a house in the spa town that was Nash's domain"
+      "at": 32,
+      "meaning": "second meaning: a house in the spa town that was Nash's domain"
      }
     ],
     "explanation": {
@@ -995,28 +892,16 @@
    },
    "solution": "TALLORDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TALL ORDER",
     "definitions": [
      {
       "text": "A lot to ask",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the idiom for an unreasonably demanding request"
      },
      {
       "text": "of a Lilliputian",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A lot to ask",
-      "note": "first meaning: the idiom for an unreasonably demanding request"
-     },
-     {
-      "clueFragment": "of a Lilliputian",
-      "note": "second meaning, read literally: a command to a six-inch person to be lofty"
+      "at": 13,
+      "meaning": "second meaning, read literally: a command to a six-inch person to be lofty"
      }
     ],
     "explanation": {
@@ -1045,54 +930,40 @@
    },
    "solution": "SMARTWEED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SMARTWEED",
     "definitions": [
      {
       "text": "Pungent plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "something returned goes back the way it came, so the pieces are read in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "DEE",
-      "note": "the Dee is a river in Britain"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "railed transport",
-      "gives": "TRAMS",
-      "note": "trams run on rails"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SMART",
-      "W",
-      "EED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DEEWTRAMS",
-       "to": "SMARTWEED"
+       "text": "returned",
+       "note": "something returned goes back the way it came, so the pieces are read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "river",
+         "gives": "DEE",
+         "note": "the Dee is a river in Britain"
+        },
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        },
+        {
+         "words": "railed transport",
+         "gives": "TRAMS",
+         "note": "trams run on rails"
+        }
+       ]
       }
      ]
     },
@@ -1121,28 +992,16 @@
    },
    "solution": "MINCE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MINCE",
     "definitions": [
      {
       "text": "Be affected",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: walk or speak in a dainty, prissy way"
      },
      {
       "text": "food from a runcible spoon",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be affected",
-      "note": "first meaning: walk or speak in a dainty, prissy way"
-     },
-     {
-      "clueFragment": "food from a runcible spoon",
-      "note": "second meaning: in Lear's 'The Owl and the Pussy-cat' they dined on this with a runcible spoon"
+      "at": 15,
+      "meaning": "second meaning: in Lear's 'The Owl and the Pussy-cat' they dined on this with a runcible spoon"
      }
     ],
     "explanation": {
@@ -1176,41 +1035,30 @@
    },
    "solution": "HEARSECLOTH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEARSE-CLOTH",
     "definitions": [
      {
       "text": "no life cover",
       "at": 38
      }
     ],
-    "linkWords": [
-     "to provide"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Catches",
-      "gives": "HEARS",
-      "note": "to catch a remark is to hear it"
-     },
-     {
-      "clueFragment": "the City",
-      "gives": "EC",
-      "note": "EC is the postcode of the City of London"
-     },
-     {
-      "clueFragment": "unwilling",
-      "gives": "LOTH",
-      "note": "loth is a spelling of loath, reluctant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEARS",
-      "EC",
-      "LOTH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Catches",
+       "gives": "HEARS",
+       "note": "to catch a remark is to hear it"
+      },
+      {
+       "words": "the City",
+       "gives": "EC",
+       "note": "EC is the postcode of the City of London"
+      },
+      {
+       "words": "unwilling",
+       "gives": "LOTH",
+       "note": "loth is a spelling of loath, reluctant"
+      }
      ]
     },
     "explanation": {
@@ -1240,40 +1088,31 @@
    },
    "solution": "CREDO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CREDO",
     "definitions": [
      {
       "text": "principles",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "'about' places one item around another, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Firm",
-      "gives": "CO",
-      "note": "Co. is the abbreviation for company"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "RED",
-      "note": "a red is a revolutionary, a communist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RED",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "'about' places one item around another, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Firm",
+       "gives": "CO",
+       "note": "Co. is the abbreviation for company"
+      },
+      {
+       "words": "revolutionary",
+       "gives": "RED",
+       "note": "a red is a revolutionary, a communist"
+      }
      ]
     },
     "explanation": {
@@ -1301,30 +1140,28 @@
    },
    "solution": "ABEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ABEL",
     "definitions": [
      {
       "text": "Fourth World figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "'in' says the letters wanted sit inside the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Matabeleland",
-      "gives": "ABEL",
-      "note": "lies in the middle of the place name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' says the letters wanted sit inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Matabeleland",
+       "gives": "ABEL",
+       "note": "lies in the middle of the place name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A figure from the developing Fourth World in Matabeleland, a region of Zimbabwe.",
      "walkthrough": "'Fourth World' looks like economics, but it means the fourth person in the world after Adam, Eve and Cain.",
@@ -1352,43 +1189,31 @@
    },
    "solution": "BRAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BRAT",
     "definitions": [
      {
       "text": "Pack member",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' puts one item inside another"
-     }
-    ],
-    "linkWords": [
-     "putting one"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "the club",
-      "gives": "BAT",
-      "note": "a bat is a club for hitting a ball"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "R",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' puts one item inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the club",
+       "gives": "BAT",
+       "note": "a bat is a club for hitting a ball"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1417,32 +1242,25 @@
    },
    "solution": "BARNUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BARNUM",
     "definitions": [
      {
       "text": "He admitted all to his circus",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "except",
-      "gives": "BAR",
-      "note": "bar means except, as in 'all bar one'"
-     },
-     {
-      "clueFragment": "miners",
-      "gives": "NUM",
-      "note": "NUM is the National Union of Mineworkers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "NUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "except",
+       "gives": "BAR",
+       "note": "bar means except, as in 'all bar one'"
+      },
+      {
+       "words": "miners",
+       "gives": "NUM",
+       "note": "NUM is the National Union of Mineworkers"
+      }
      ]
     },
     "explanation": {
@@ -1471,38 +1289,29 @@
    },
    "solution": "INFERIOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFERIOR",
     "definitions": [
      {
       "text": "less",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Conclude",
-      "gives": "INFER",
-      "note": "to infer is to conclude"
-     },
-     {
-      "clueFragment": "with one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INFER",
-      "I",
-      "OR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conclude",
+       "gives": "INFER",
+       "note": "to infer is to conclude"
+      },
+      {
+       "words": "with one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "or",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1530,28 +1339,16 @@
    },
    "solution": "LATHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LATHER",
     "definitions": [
      {
       "text": "Agitation",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a nervous fluster"
      },
      {
       "text": "raised in the 16",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agitation",
-      "note": "first meaning: a nervous fluster"
-     },
-     {
-      "clueFragment": "raised in the 16",
-      "note": "second meaning: soap foam worked up in the place at 16 down, where people bathe"
+      "at": 10,
+      "meaning": "second meaning: soap foam worked up in the place at 16 down, where people bathe"
      }
     ],
     "explanation": {
@@ -1579,59 +1376,50 @@
    },
    "solution": "ASMODEUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ASMODEUS",
     "definitions": [
      {
       "text": "what the devil!",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "include",
-      "for": "container",
-      "note": "'include' means one group takes something into its midst"
-     },
-     {
-      "text": "developers",
-      "for": "anagram",
-      "note": "developers rework something into a new form, so the letters before it are rearranged"
-     }
-    ],
-    "linkWords": [
-     ":"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "When",
-      "gives": "AS",
-      "note": "as means when, as in 'as I left'"
-     },
-     {
-      "clueFragment": "Dome",
-      "gives": "DOME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Guardian readers",
-      "gives": "US",
-      "note": "the readers of the Guardian, where the puzzle appears, are us"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "MODE",
-      "US"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DOME",
-       "gives": "MODE"
+       "text": "include",
+       "note": "'include' means one group takes something into its midst"
+      }
+     ],
+     "parts": [
+      {
+       "words": "When",
+       "gives": "AS",
+       "note": "as means when, as in 'as I left'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developers",
+         "note": "developers rework something into a new form, so the letters before it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Dome",
+           "note": "taken as written"
+          },
+          {
+           "words": "Guardian readers",
+           "gives": "US",
+           "note": "the readers of the Guardian, where the puzzle appears, are us"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

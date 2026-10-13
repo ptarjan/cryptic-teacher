@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2586",
  "number": 2586,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,586",
  "setter": "Orpheus",
  "date": "2024-01-31",
  "dimensions": {
@@ -42,28 +40,16 @@
    },
    "solution": "APPRECIATE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "APPRECIATE",
     "definitions": [
      {
       "text": "Be thankful for",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to value or be grateful for something"
      },
      {
       "text": "increase in value",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be thankful for",
-      "note": "first meaning: to value or be grateful for something"
-     },
-     {
-      "clueFragment": "increase in value",
-      "note": "second meaning: to rise in worth, as property or shares do"
+      "at": 16,
+      "meaning": "second meaning: to rise in worth, as property or shares do"
      }
     ],
     "explanation": {
@@ -91,30 +77,28 @@
    },
    "solution": "AMBER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AMBER",
     "definitions": [
      {
       "text": "Warning light",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits inside the run of letters of the place names that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wokingham, Berks",
-      "gives": "AMBER",
-      "note": "the letters straddle the end of the town and the start of the county"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits inside the run of letters of the place names that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wokingham, Berks",
+       "gives": "AMBER",
+       "note": "the letters straddle the end of the town and the start of the county"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A traffic light seen in a Berkshire town.",
      "walkthrough": "Wokingham is a town in Berkshire, often shortened to Berks.",
@@ -140,48 +124,35 @@
    },
    "solution": "PERSEVERANCE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PERSEVERANCE",
     "definitions": [
      {
       "text": "Tenacity",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overturned",
-      "for": "reversal",
-      "note": "in a down entry, overturned means the word for the salesman is turned upside down, read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "shown by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salesman",
-      "gives": "REP",
-      "note": "a rep is a sales representative"
-     },
-     {
-      "clueFragment": "separation",
-      "gives": "SEVERANCE",
-      "note": "severance is a cutting off or parting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "SEVERANCE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "REP",
-       "to": "PER"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "note": "in a down entry, overturned means the word for the salesman is turned upside down, read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salesman",
+         "gives": "REP",
+         "note": "a rep is a sales representative"
+        }
+       ]
+      },
+      {
+       "words": "separation",
+       "gives": "SEVERANCE",
+       "note": "severance is a cutting off or parting"
       }
      ]
     },
@@ -210,46 +181,43 @@
    },
    "solution": "ELAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ELAN",
     "definitions": [
      {
       "text": "Vivacity",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "to tour a place is to go all round it, so the first pair of letters wraps around the city"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "US city",
-      "gives": "LA",
-      "note": "Los Angeles"
-     },
-     {
-      "clueFragment": "knight",
-      "gives": "N",
-      "note": "the chess notation for a knight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LA",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ELAN",
+     "indicators": [
+      {
+       "text": "touring",
+       "note": "to tour a place is to go all round it, so the first pair of letters wraps around the city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "US city",
+         "gives": "LA",
+         "note": "Los Angeles"
+        },
+        {
+         "words": "knight",
+         "gives": "N",
+         "note": "the chess notation for a knight"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -278,54 +246,41 @@
    },
    "solution": "INDIAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "INDIAN",
     "definitions": [
      {
       "text": "Asian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "in a down entry, turned up means the word is read upwards, from its last letter back"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the reversed word is placed inside the word for a lodging-place"
-     }
-    ],
-    "linkWords": [
-     "needing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lodging-place",
-      "gives": "INN",
-      "note": "an inn offers rooms for travellers"
-     },
-     {
-      "clueFragment": "help",
-      "gives": "AID",
-      "note": "synonym"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "DIA",
-      "N"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "AID",
-       "to": "DIA"
+       "text": "in",
+       "note": "the reversed word is placed inside the word for a lodging-place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lodging-place",
+       "gives": "INN",
+       "note": "an inn offers rooms for travellers"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "note": "in a down entry, turned up means the word is read upwards, from its last letter back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "help",
+         "gives": "AID",
+         "note": "synonym"
+        }
+       ]
       }
      ]
     },
@@ -353,32 +308,25 @@
    },
    "solution": "THINKING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THINKING",
     "definitions": [
      {
       "text": "philosophy",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Underweight",
-      "gives": "THIN",
-      "note": "lean, too light"
-     },
-     {
-      "clueFragment": "ruler's",
-      "gives": "KING",
-      "note": "a king is a ruler; the 's is read as 'is', joining the pieces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THIN",
-      "KING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Underweight",
+       "gives": "THIN",
+       "note": "lean, too light"
+      },
+      {
+       "words": "ruler's",
+       "gives": "KING",
+       "note": "a king is a ruler; the 's is read as 'is', joining the pieces"
+      }
      ]
     },
     "explanation": {
@@ -408,40 +356,30 @@
    },
    "solution": "BESPECTACLED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BESPECTACLED",
     "definitions": [
      {
       "text": "wearing glasses",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the sight is placed inside the word for a bed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed",
-      "gives": "BED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "A sight",
-      "gives": "SPECTACLE",
-      "note": "a spectacle is a striking sight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "SPECTACLE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the sight is placed inside the word for a bed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "note": "taken as written"
+      },
+      {
+       "words": "A sight",
+       "gives": "SPECTACLE",
+       "note": "a spectacle is a striking sight"
+      }
      ]
     },
     "explanation": {
@@ -471,50 +409,41 @@
    },
    "solution": "STARVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STARVE",
     "definitions": [
      {
       "text": "go without food",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "entrance to",
-      "for": "letter_selection",
-      "note": "the entrance to a word is its opening letter"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the word for stick goes around the selected letter"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stick",
-      "gives": "STAVE",
-      "note": "a stave is a stout stick"
-     },
-     {
-      "clueFragment": "restaurant",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of restaurant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "R",
-      "VE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the word for stick goes around the selected letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stick",
+       "gives": "STAVE",
+       "note": "a stave is a stout stick"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance to",
+         "note": "the entrance to a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restaurant",
+         "note": "the opening letter of restaurant"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -542,54 +471,43 @@
    },
    "solution": "BARMAID",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BARMAID",
     "definitions": [
      {
       "text": "pub employee",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "curious",
-      "for": "anagram",
-      "note": "curious means odd, so the following letters are put into an odd order"
-     },
-     {
-      "text": "nursing",
-      "for": "container",
-      "note": "to nurse is to hold close, so the poet holds the shuffled letters"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poet",
-      "gives": "BARD",
-      "note": "a bard is a poet"
-     },
-     {
-      "clueFragment": "aim",
-      "gives": "MAI",
-      "note": "rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "MAI",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BARMAID",
+     "indicators": [
       {
-       "fodder": "AIM",
-       "gives": "MAI"
+       "text": "curious",
+       "note": "curious means odd, so the following letters are put into an odd order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "nursing",
+         "note": "to nurse is to hold close, so the poet holds the shuffled letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Poet",
+         "gives": "BARD",
+         "note": "a bard is a poet"
+        },
+        {
+         "words": "aim",
+         "gives": "MAI",
+         "note": "rearranged"
+        }
+       ]
       }
      ]
     },
@@ -618,54 +536,51 @@
    },
    "solution": "INEPT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "INEPT",
     "definitions": [
      {
       "text": "Bungling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word before it"
-     },
-     {
-      "text": "employed in",
-      "for": "container",
-      "note": "employed in means put to use inside, so the letter goes within the film"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "in means fashionable"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "ET",
-      "note": "E.T., Spielberg's film about an extra-terrestrial"
-     },
-     {
-      "clueFragment": "players",
-      "gives": "P",
-      "select": "first",
-      "note": "the opening letter of players"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "E",
-      "P",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "gives": "IN",
+       "note": "in means fashionable"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "employed in",
+         "note": "employed in means put to use inside, so the letter goes within the film"
+        }
+       ],
+       "parts": [
+        {
+         "words": "film",
+         "gives": "ET",
+         "note": "E.T., Spielberg's film about an extra-terrestrial"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "players",
+           "note": "the opening letter of players"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -693,38 +608,25 @@
    },
    "solution": "REED",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "REED",
     "definitions": [
      {
       "text": "Grass",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought back",
-      "for": "reversal",
-      "note": "brought back means turned round to read from its end to its start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "certain ruminants",
-      "gives": "DEER",
-      "note": "deer chew the cud, so they are ruminants"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DEER",
-       "to": "REED"
+       "text": "brought back",
+       "note": "brought back means turned round to read from its end to its start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certain ruminants",
+       "gives": "DEER",
+       "note": "deer chew the cud, so they are ruminants"
       }
      ]
     },
@@ -753,43 +655,39 @@
    },
    "solution": "LARKSPUR",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LARKSPUR",
     "definitions": [
      {
       "text": "flowering plant",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means all but a little, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "finding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Birds",
-      "gives": "LARKS",
-      "note": "larks are songbirds"
-     },
-     {
-      "clueFragment": "sound contented",
-      "gives": "PURR",
-      "note": "a cat purrs when contented"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LARKS",
-      "PUR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means all but a little, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Birds",
+         "gives": "LARKS",
+         "note": "larks are songbirds"
+        },
+        {
+         "words": "sound contented",
+         "gives": "PURR",
+         "note": "a cat purrs when contented"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -816,30 +714,28 @@
    },
    "solution": "ERITREAN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ERITREAN",
     "definitions": [
      {
       "text": "African citizen",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "In part",
-      "for": "hidden_word",
-      "note": "in part says the answer is only a portion of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "merit reanimated",
-      "gives": "ERITREAN",
-      "note": "the letters run from after the first letter of merit to the middle of reanimated"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In part",
+       "note": "in part says the answer is only a portion of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "merit reanimated",
+       "gives": "ERITREAN",
+       "note": "the letters run from after the first letter of merit to the middle of reanimated"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An African national's worth brought back to life.",
      "definitionFit": "Eritrea is a country in the Horn of Africa, so one of its nationals is an African citizen."
@@ -864,28 +760,16 @@
    },
    "solution": "STEER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STEER",
     "definitions": [
      {
       "text": "Direct",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to guide or point the way"
      },
      {
       "text": "animal on farm",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Direct",
-      "note": "first meaning: to guide or point the way"
-     },
-     {
-      "clueFragment": "animal on farm",
-      "note": "second meaning: a young castrated bull raised for beef"
+      "at": 7,
+      "meaning": "second meaning: a young castrated bull raised for beef"
      }
     ],
     "explanation": {
@@ -914,47 +798,41 @@
    },
    "solution": "STATUE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "STATUE",
     "definitions": [
      {
       "text": "sculpture",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodating",
-      "for": "container",
-      "note": "to accommodate is to house, so the gallery holds the next letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "gallery",
-      "gives": "TATE",
-      "note": "the Tate, London's famous art gallery"
-     },
-     {
-      "clueFragment": "high-class",
-      "gives": "U",
-      "note": "U means upper-class, the opposite of non-U"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAT",
-      "U",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accommodating",
+         "note": "to accommodate is to house, so the gallery holds the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gallery",
+         "gives": "TATE",
+         "note": "the Tate, London's famous art gallery"
+        },
+        {
+         "words": "high-class",
+         "gives": "U",
+         "note": "U means upper-class, the opposite of non-U"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -982,40 +860,31 @@
    },
    "solution": "NICHE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NICHE",
     "definitions": [
      {
       "text": "Opening",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "found in says one piece is located inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Riviera resort",
-      "gives": "NICE",
-      "note": "Nice, the city on the French Riviera"
-     },
-     {
-      "clueFragment": "Henry",
-      "gives": "H",
-      "note": "H is the symbol for the henry, the unit of inductance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIC",
-      "H",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "found in says one piece is located inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Riviera resort",
+       "gives": "NICE",
+       "note": "Nice, the city on the French Riviera"
+      },
+      {
+       "words": "Henry",
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      }
      ]
     },
     "explanation": {
@@ -1041,52 +910,7 @@
     "text": "Seal, or young bird, do we hear?",
     "enumeration": "6"
    },
-   "solution": "SIGNET",
-   "annotation": {
-    "type": [
-     "double_definition",
-     "homophone"
-    ],
-    "answer": "SIGNET",
-    "definitions": [
-     {
-      "text": "Seal",
-      "at": 0
-     }
-    ],
-    "indicators": [
-     {
-      "text": "do we hear",
-      "for": "homophone",
-      "note": "asking what we hear points to a word that is only a match by its sound"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seal",
-      "note": "first meaning: a ring or stamp used to seal documents"
-     },
-     {
-      "clueFragment": "young bird",
-      "gives": "SIGNET",
-      "soundsLike": "CYGNET",
-      "note": "a cygnet is a young swan"
-     }
-    ],
-    "explanation": {
-     "surface": "Asks whether a sea creature or a baby bird is being named.",
-     "definitionFit": "A signet is a small seal, often set in a ring, used to stamp wax on documents."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Seal"
-    }
-   }
+   "solution": "SIGNET"
   },
   {
    "number": 16,
@@ -1102,41 +926,29 @@
    },
    "solution": "ALASTAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALASTAIR",
     "definitions": [
      {
       "text": "Chap",
       "at": 0
      }
     ],
-    "linkWords": [
-     "demanding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "final",
-      "gives": "LAST",
-      "note": "synonym"
-     },
-     {
-      "clueFragment": "song, perhaps",
-      "gives": "AIR",
-      "note": "an air is a tune, perhaps a song"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LAST",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "final",
+       "gives": "LAST",
+       "note": "synonym"
+      },
+      {
+       "words": "song, perhaps",
+       "gives": "AIR",
+       "note": "an air is a tune, perhaps a song"
+      }
      ]
     },
     "explanation": {
@@ -1163,31 +975,29 @@
    },
    "solution": "BAND",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BAND",
     "definitions": [
      {
       "text": "Group of musicians",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on radio",
-      "for": "homophone",
-      "note": "on the radio we only hear words, so this points to a word that sounds the same"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prohibited",
-      "gives": "BAND",
-      "soundsLike": "BANNED",
-      "note": "banned means prohibited"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BAND",
+     "indicators": [
+      {
+       "text": "on radio",
+       "note": "on the radio we only hear words, so this points to a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prohibited",
+       "gives": "BANNED",
+       "note": "banned means prohibited"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pop group barred from the airwaves.",
      "definitionFit": "A band is an ensemble of people playing instruments together."
@@ -1213,28 +1023,16 @@
    },
    "solution": "DATED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DATED",
     "definitions": [
      {
       "text": "Out of fashion",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: old-fashioned"
      },
      {
       "text": "being invited for a tryst",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Out of fashion",
-      "note": "first meaning: old-fashioned"
-     },
-     {
-      "clueFragment": "being invited for a tryst",
-      "note": "second meaning: taken out on a romantic outing"
+      "at": 16,
+      "meaning": "second meaning: taken out on a romantic outing"
      }
     ],
     "explanation": {
@@ -1262,44 +1060,35 @@
    },
    "solution": "STYE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "STYE",
     "definitions": [
      {
       "text": "an eyesore",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its closing letter"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Animal pen",
-      "gives": "STY",
-      "note": "a sty is a pen for pigs"
-     },
-     {
-      "clueFragment": "lane",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of lane"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STY",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Animal pen",
+       "gives": "STY",
+       "note": "a sty is a pen for pigs"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lane",
+         "note": "the closing letter of lane"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1329,28 +1118,16 @@
    },
    "solution": "UNCLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNCLE",
     "definitions": [
      {
       "text": "Mum or Dad's brother",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a parent's brother"
      },
      {
       "text": "a pawnbroker",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mum or Dad's brother",
-      "note": "first meaning: a parent's brother"
-     },
-     {
-      "clueFragment": "a pawnbroker",
-      "note": "second meaning: old slang for a pawnbroker"
+      "at": 22,
+      "meaning": "second meaning: old slang for a pawnbroker"
      }
     ],
     "explanation": {
@@ -1378,58 +1155,50 @@
    },
    "solution": "NOTELET",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NOTELET",
     "definitions": [
      {
       "text": "brief communication",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Backing",
-      "for": "reversal",
-      "note": "backing means moving backwards, so the school is read in reverse"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally picks out the closing letter of the word before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "school",
-      "gives": "ETON",
-      "note": "Eton, the famous English public school"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "sent",
-      "gives": "T",
-      "select": "last",
-      "note": "the closing letter of sent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOTE",
-      "LE",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ETON",
-       "to": "NOTE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Backing",
+         "note": "backing means moving backwards, so the school is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school",
+         "gives": "ETON",
+         "note": "Eton, the famous English public school"
+        }
+       ]
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally picks out the closing letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sent",
+         "note": "the closing letter of sent"
+        }
+       ]
       }
      ]
     },
@@ -1458,47 +1227,41 @@
    },
    "solution": "UNATTENDED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "UNATTENDED",
     "definitions": [
      {
       "text": "alone",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "to accept",
-      "for": "container",
-      "note": "to accept is to take in, so the inclined word takes in the next letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl",
-      "gives": "UNA",
-      "note": "a girl's name"
-     },
-     {
-      "clueFragment": "was inclined",
-      "gives": "TENDED",
-      "note": "tended means was inclined or disposed"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNA",
-      "T",
-      "T",
-      "ENDED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "gives": "UNA",
+       "note": "a girl's name"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to accept",
+         "note": "to accept is to take in, so the inclined word takes in the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was inclined",
+         "gives": "TENDED",
+         "note": "tended means was inclined or disposed"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

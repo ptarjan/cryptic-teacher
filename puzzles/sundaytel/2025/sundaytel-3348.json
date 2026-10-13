@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3348",
  "number": 3348,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,348",
  "date": "2025-12-21",
  "dimensions": {
   "cols": 15,
@@ -43,28 +41,16 @@
    },
    "solution": "ANYTHINGGOES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ANYTHING GOES",
     "definitions": [
      {
       "text": "All That Jazz passes",
-      "at": 0
+      "at": 0,
+      "meaning": "not the show title here: 'all that jazz' is loose talk for everything of the kind, and every bit of it is allowed through"
      },
      {
       "text": "musical song",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "All That Jazz passes",
-      "note": "not the show title here: 'all that jazz' is loose talk for everything of the kind, and every bit of it is allowed through"
-     },
-     {
-      "clueFragment": "musical song",
-      "note": "a 1934 Cole Porter show whose title number is its best-known song"
+      "at": 25,
+      "meaning": "a 1934 Cole Porter show whose title number is its best-known song"
      }
     ],
     "explanation": {
@@ -94,54 +80,43 @@
    },
    "solution": "ACCUSER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ACCUSER",
     "definitions": [
      {
       "text": "Plaintiff",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fixed",
-      "for": "anagram",
-      "note": "races that are fixed have been rigged, so their letters are not in honest order"
-     },
-     {
-      "text": "brought in",
-      "for": "container",
-      "note": "copper brought in is taken inside the rearranged letters"
-     }
-    ],
-    "linkWords": [
-     "seeing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "races",
-      "gives": "ACSER",
-      "note": "RACES rearranged"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "CU",
-      "SER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ACCUSER",
+     "indicators": [
       {
-       "fodder": "RACES",
-       "gives": "ACSER"
+       "text": "fixed",
+       "note": "races that are fixed have been rigged, so their letters are not in honest order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "brought in",
+         "note": "copper brought in is taken inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "races",
+         "gives": "ACSER",
+         "note": "RACES rearranged"
+        },
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        }
+       ]
       }
      ]
     },
@@ -171,52 +146,54 @@
    },
    "solution": "YEAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "container"
-    ],
-    "answer": "YEAR",
     "definitions": [
      {
       "text": "period",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "End of",
-      "for": "letter_selection",
-      "note": "the end of tale is its final letter"
-     },
-     {
-      "text": "incomplete",
-      "for": "deletion",
-      "note": "an incomplete story lacks its last letter"
-     },
-     {
-      "text": "wrapped up",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "incomplete story",
-      "gives": "YAR",
-      "note": "a story is a yarn; incomplete, it loses the N"
-     },
-     {
-      "clueFragment": "End of tale",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of talE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "E",
-      "AR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "YEAR",
+     "indicators": [
+      {
+       "text": "incomplete",
+       "note": "an incomplete story lacks its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wrapped up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "incomplete story",
+         "gives": "YAR",
+         "note": "a story is a yarn; incomplete, it loses the N"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "End of",
+           "note": "the end of tale is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "End of tale",
+           "gives": "TALE",
+           "note": "the last letter of talE"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -246,40 +223,31 @@
    },
    "solution": "HADDOCK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HADDOCK",
     "definitions": [
      {
       "text": "fish",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "tucked into",
-      "for": "container",
-      "note": "the count is tucked inside the wine"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "white",
-      "gives": "HOCK",
-      "note": "hock is a white wine from the Rhine"
-     },
-     {
-      "clueFragment": "Count",
-      "gives": "ADD",
-      "note": "to count up is to add"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ADD",
-      "OCK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucked into",
+       "note": "the count is tucked inside the wine"
+      }
+     ],
+     "parts": [
+      {
+       "words": "white",
+       "gives": "HOCK",
+       "note": "hock is a white wine from the Rhine"
+      },
+      {
+       "words": "Count",
+       "gives": "ADD",
+       "note": "to count up is to add"
+      }
      ]
     },
     "explanation": {
@@ -309,52 +277,59 @@
    },
    "solution": "NOTELET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "NOTELET",
     "definitions": [
      {
       "text": "card",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points at the first letter of daddy"
-     },
-     {
-      "text": "forgotten",
-      "for": "deletion"
-     },
-     {
-      "text": "to amend",
-      "for": "anagram",
-      "note": "the letters are amended into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "daddy initially",
-      "gives": "D",
-      "select": "first",
-      "note": "the first letter of Daddy, which is removed"
-     },
-     {
-      "clueFragment": "teen told",
-      "gives": "TEENTOL",
-      "note": "TEEN TOLD without its D"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEENTOL",
-       "gives": "NOTELET"
+       "text": "to amend",
+       "note": "the letters are amended into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forgotten"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially points at the first letter of daddy"
+            }
+           ],
+           "parts": [
+            {
+             "words": "daddy initially",
+             "gives": "DADDY",
+             "note": "the first letter of Daddy, which is removed"
+            }
+           ]
+          },
+          {
+           "words": "teen told",
+           "gives": "TEENTOL",
+           "note": "TEEN TOLD without its D"
+          }
+         ]
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
@@ -384,33 +359,28 @@
    },
    "solution": "GARB",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GARB",
     "definitions": [
      {
       "text": "dress",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "the actress's name cut short loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old actress's short",
-      "gives": "GARB",
-      "note": "Greta GARBO, cut short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GARB"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GARB",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "the actress's name cut short loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old actress's short",
+       "gives": "GARB",
+       "note": "Greta GARBO, cut short"
+      }
      ]
     },
     "explanation": {
@@ -439,33 +409,28 @@
    },
    "solution": "ELATION",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ELATION",
     "definitions": [
      {
       "text": "Joy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "scratching head",
-      "for": "deletion",
-      "note": "scratching out the head of the word removes its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aunt for example scratching head",
-      "gives": "ELATION",
-      "note": "an aunt is a RELATION, which loses its R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELATION"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ELATION",
+     "indicators": [
+      {
+       "text": "scratching head",
+       "note": "scratching out the head of the word removes its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aunt for example scratching head",
+       "gives": "ELATION",
+       "note": "an aunt is a RELATION, which loses its R"
+      }
      ]
     },
     "explanation": {
@@ -501,35 +466,24 @@
    },
    "solution": "MOUTHWATERING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MOUTH-WATERING",
     "definitions": [
      {
       "text": "Tempting to eat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stews",
-      "for": "anagram",
-      "note": "the letters are stewed, cooked into a new mix"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "without German",
-      "gives": "WITHOUTGERMAN",
-      "note": "thirteen letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WITHOUT GERMAN",
-       "gives": "MOUTHWATERING"
+       "text": "stews",
+       "note": "the letters are stewed, cooked into a new mix"
+      }
+     ],
+     "parts": [
+      {
+       "words": "without German",
+       "note": "thirteen letters of fodder"
       }
      ]
     },
@@ -569,26 +523,25 @@
    },
    "solution": "SOONERORLATER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SOONER OR LATER",
     "definitions": [
      {
       "text": "One fine day — but not now?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One fine day",
-      "note": "not a sunny afternoon but some unspecified day to come"
-     },
-     {
-      "clueFragment": "but not now?",
-      "note": "rules out the present, leaving an indefinite future time"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One fine day",
+       "note": "not a sunny afternoon but some unspecified day to come"
+      },
+      {
+       "words": "but not now?",
+       "note": "rules out the present, leaving an indefinite future time"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'One fine day' sounds like weather or a song title, but it means some day in the future; 'but not now' confirms the answer is a vague time other than the present.",
      "definitionFit": "An idiom for 'eventually, at some unspecified time', which is exactly what 'one fine day' promises, and never the present."
@@ -614,32 +567,24 @@
    },
    "solution": "ORCHARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORCHARD",
     "definitions": [
      {
       "text": "Where apples might grow",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "Swiss vegetable",
-      "gives": "CHARD",
-      "note": "Swiss chard is a leafy vegetable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "CHARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "or",
+       "note": "used as printed"
+      },
+      {
+       "words": "Swiss vegetable",
+       "gives": "CHARD",
+       "note": "Swiss chard is a leafy vegetable"
+      }
      ]
     },
     "explanation": {
@@ -668,38 +613,29 @@
    },
    "solution": "TORNADO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TORNADO",
     "definitions": [
      {
       "text": "Storm",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "ruined",
-      "gives": "TORN",
-      "note": "torn = ruined, ripped"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "fleece",
-      "gives": "DO",
-      "note": "to fleece someone is to do them, to swindle them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TORN",
-      "A",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ruined",
+       "gives": "TORN",
+       "note": "torn = ruined, ripped"
+      },
+      {
+       "words": "a",
+       "note": "used as printed"
+      },
+      {
+       "words": "fleece",
+       "gives": "DO",
+       "note": "to fleece someone is to do them, to swindle them"
+      }
      ]
     },
     "explanation": {
@@ -728,40 +664,28 @@
    },
    "solution": "TOSH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "TOSH",
     "definitions": [
      {
       "text": "Tripe, or senseless hogwash, for starters?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for starters",
-      "for": "letter_selection",
-      "note": "the starters of the words are their opening letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tripe, or senseless hogwash",
-      "gives": "TOSH",
-      "select": "first",
-      "note": "the first letters of Tripe Or Senseless Hogwash"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "O",
-      "S",
-      "H"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "for starters",
+       "note": "the starters of the words are their opening letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tripe, or senseless hogwash",
+       "note": "the first letters of Tripe Or Senseless Hogwash"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A diner rejecting the menu's first courses as offal and pigswill.",
      "walkthrough": "Tripe and hogwash both sound like food on a menu, and 'starters' plays along; the opening letters spell the answer, and the whole clue also describes it.",
@@ -789,28 +713,16 @@
    },
    "solution": "JOLLY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "JOLLY",
     "definitions": [
      {
       "text": "Extremely",
-      "at": 0
+      "at": 0,
+      "meaning": "an adverb here, the British informal intensifier meaning 'very'"
      },
      {
       "text": "merry",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremely",
-      "note": "an adverb here, the British informal intensifier meaning 'very'"
-     },
-     {
-      "clueFragment": "merry",
-      "note": "cheerful, the ordinary adjective"
+      "at": 10,
+      "meaning": "cheerful, the ordinary adjective"
      }
     ],
     "explanation": {
@@ -837,30 +749,28 @@
    },
    "solution": "SIGN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SIGN",
     "definitions": [
      {
       "text": "Hint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crosswords ignored",
-      "gives": "SIGN",
-      "note": "crosswordS IGNored"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crosswords ignored",
+       "gives": "SIGN",
+       "note": "crosswordS IGNored"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A solver complaining that the hint in the puzzle was overlooked.",
      "walkthrough": "The surface is about crossword hints, which makes the hidden answer easy to walk past.",
@@ -887,40 +797,31 @@
    },
    "solution": "BISON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BISON",
     "definitions": [
      {
       "text": "Bovine animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' is read literally as placement: the word for thus is put inside the word for dump"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dump",
-      "gives": "BIN",
-      "note": "to bin something is to dump it"
-     },
-     {
-      "clueFragment": "thus",
-      "gives": "SO",
-      "note": "so = thus"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "SO",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' is read literally as placement: the word for thus is put inside the word for dump"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dump",
+       "gives": "BIN",
+       "note": "to bin something is to dump it"
+      },
+      {
+       "words": "thus",
+       "gives": "SO",
+       "note": "so = thus"
+      }
      ]
     },
     "explanation": {
@@ -949,41 +850,36 @@
    },
    "solution": "MAYOR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MAYOR",
     "definitions": [
      {
       "text": "civic dignitary",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "leader in",
-      "for": "letter_selection",
-      "note": "the leader in Roscommon is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irish county",
-      "gives": "MAYO",
-      "note": "Mayo is a county in the west of Ireland"
-     },
-     {
-      "clueFragment": "leader in Roscommon",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of Roscommon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAYO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish county",
+       "gives": "MAYO",
+       "note": "Mayo is a county in the west of Ireland"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "note": "the leader in Roscommon is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leader in Roscommon",
+         "gives": "ROSCOMMON",
+         "note": "the first letter of Roscommon"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1012,35 +908,25 @@
    },
    "solution": "WARWICK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WARWICK",
     "definitions": [
      {
       "text": "town near Coventry",
       "at": 30
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "conflict",
-      "gives": "WAR",
-      "note": "war = conflict"
-     },
-     {
-      "clueFragment": "What might ignite",
-      "gives": "WICK",
-      "note": "the string you light on a candle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR",
-      "WICK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "conflict",
+       "gives": "WAR",
+       "note": "war = conflict"
+      },
+      {
+       "words": "What might ignite",
+       "gives": "WICK",
+       "note": "the string you light on a candle"
+      }
      ]
     },
     "explanation": {
@@ -1070,46 +956,44 @@
    },
    "solution": "TRAINER",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "TRAINER",
     "definitions": [
      {
       "text": "Coach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "winless",
-      "for": "deletion",
-      "note": "winless means with WIN taken away"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the shower goes in what is left of the season"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "winless season",
-      "gives": "TER",
-      "note": "WINTER without WIN"
-     },
-     {
-      "clueFragment": "shower",
-      "gives": "RAIN",
-      "note": "a shower is a fall of rain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAIN",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TRAINER",
+     "indicators": [
+      {
+       "text": "winless",
+       "note": "winless means with WIN taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the shower goes in what is left of the season"
+        }
+       ],
+       "parts": [
+        {
+         "words": "winless season",
+         "gives": "TER",
+         "note": "WINTER without WIN"
+        },
+        {
+         "words": "shower",
+         "gives": "RAIN",
+         "note": "a shower is a fall of rain"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1139,38 +1023,24 @@
    },
    "solution": "TEDIOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEDIOUS",
     "definitions": [
      {
       "text": "prosaic",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Rewrite",
-      "for": "anagram",
-      "note": "the words are to be rewritten in a new order"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is due to",
-      "gives": "ISDUETO",
-      "note": "seven letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IS DUE TO",
-       "gives": "TEDIOUS"
+       "text": "Rewrite",
+       "note": "the words are to be rewritten in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is due to",
+       "note": "seven letters of fodder"
       }
      ]
     },
@@ -1200,54 +1070,51 @@
    },
    "solution": "DISPUTE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "DISPUTE",
     "definitions": [
      {
       "text": "Argument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "is situated goes in between the ends of debate"
-     },
-     {
-      "text": "extremes of",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extremes of debate",
-      "gives": "DE",
-      "select": "outer",
-      "note": "the outer letters of DebatE"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "situated",
-      "gives": "PUT",
-      "note": "put = placed, situated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "PUT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "is situated goes in between the ends of debate"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremes of",
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremes of debate",
+         "gives": "DEBATE",
+         "note": "the outer letters of DebatE"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "note": "used as printed"
+        },
+        {
+         "words": "situated",
+         "gives": "PUT",
+         "note": "put = placed, situated"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1276,28 +1143,16 @@
    },
    "solution": "SWALLOW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SWALLOW",
     "definitions": [
      {
       "text": "Take down",
-      "at": 0
+      "at": 0,
+      "meaning": "to get food down your throat"
      },
      {
       "text": "flier",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take down",
-      "note": "to get food down your throat"
-     },
-     {
-      "clueFragment": "flier",
-      "note": "the fork-tailed summer bird"
+      "at": 10,
+      "meaning": "the fork-tailed summer bird"
      }
     ],
     "explanation": {
@@ -1326,29 +1181,17 @@
    },
    "solution": "BLOOMER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLOOMER",
     "definitions": [
      {
       "text": "Bread",
-      "at": 0
+      "at": 0,
+      "meaning": "a British loaf with a rounded top slashed across"
      },
      {
       "text": "perhaps …",
       "at": 9,
-      "note": "the ellipsis runs on to 'flower' at the start of 23 across: a flower is something that blooms"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bread",
-      "note": "a British loaf with a rounded top slashed across"
-     },
-     {
-      "clueFragment": "perhaps …",
-      "note": "runs on into 23's 'flower', one example of a thing that blooms"
+      "note": "the ellipsis runs on to 'flower' at the start of 23 across: a flower is something that blooms",
+      "meaning": "runs on into 23's 'flower', one example of a thing that blooms"
      }
     ],
     "explanation": {
@@ -1376,41 +1219,30 @@
    },
    "solution": "BENGALI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BENGALI",
     "definitions": [
      {
       "text": "from Asian region",
       "at": 22
      }
     ],
-    "linkWords": [
-     "meeting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boy",
-      "gives": "BEN",
-      "note": "Ben is a boy's name"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "GAL",
-      "note": "gal = girl"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEN",
-      "GAL",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boy",
+       "gives": "BEN",
+       "note": "Ben is a boy's name"
+      },
+      {
+       "words": "girl",
+       "gives": "GAL",
+       "note": "gal = girl"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1439,35 +1271,25 @@
    },
    "solution": "MARMITE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARMITE",
     "definitions": [
      {
       "text": "cooking pot",
       "at": 19
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stain",
-      "gives": "MAR",
-      "note": "to mar is to spoil or stain"
-     },
-     {
-      "clueFragment": "morsel",
-      "gives": "MITE",
-      "note": "a mite is a tiny bit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "MITE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stain",
+       "gives": "MAR",
+       "note": "to mar is to spoil or stain"
+      },
+      {
+       "words": "morsel",
+       "gives": "MITE",
+       "note": "a mite is a tiny bit"
+      }
      ]
     },
     "explanation": {
@@ -1496,28 +1318,16 @@
    },
    "solution": "ROSE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROSE",
     "definitions": [
      {
       "text": "flower",
-      "at": 2
+      "at": 2,
+      "meaning": "the garden bloom"
      },
      {
       "text": "got off the ground",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flower",
-      "note": "the garden bloom"
-     },
-     {
-      "clueFragment": "got off the ground",
-      "note": "past tense of a verb for going up"
+      "at": 9,
+      "meaning": "past tense of a verb for going up"
      }
     ],
     "explanation": {
@@ -1544,41 +1354,36 @@
    },
    "solution": "MAINE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "MAINE",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "What is in a phrase sits inside it, so the answer is a run of letters within the words that follow."
-     },
-     {
-      "text": "to the west",
-      "for": "reversal",
-      "note": "West is leftwards on the page, so in an across entry the letters run from right to left."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Armenia misplaced",
-      "gives": "ENIAM",
-      "note": "the letters run on unbroken across the words, read backwards"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ENIAM",
-       "to": "MAINE"
+       "text": "to the west",
+       "note": "West is leftwards on the page, so in an across entry the letters run from right to left."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "What is in a phrase sits inside it, so the answer is a run of letters within the words that follow."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Armenia misplaced",
+         "gives": "ENIAM",
+         "note": "the letters run on unbroken across the words, read backwards"
+        }
+       ]
       }
      ]
     },
@@ -1608,43 +1413,37 @@
    },
    "solution": "AREA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "AREA",
     "definitions": [
      {
       "text": "quarter",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Three-quarters of",
-      "for": "deletion",
-      "note": "keeping three quarters of a four-letter word drops one letter"
-     }
-    ],
-    "linkWords": [
-     "added to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "Three-quarters of rump",
-      "gives": "REA",
-      "note": "rump = REAR, with its last letter dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "REA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AREA",
+     "indicators": [
+      {
+       "text": "Three-quarters of",
+       "note": "keeping three quarters of a four-letter word drops one letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as printed"
+        },
+        {
+         "words": "Three-quarters of rump",
+         "gives": "REA",
+         "note": "rump = REAR, with its last letter dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1673,41 +1472,36 @@
    },
    "solution": "IRAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "IRAN",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points at the last letter of Khomeini"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Khomeini ultimately",
-      "gives": "I",
-      "select": "last",
-      "note": "the last letter of KhomeinI"
-     },
-     {
-      "clueFragment": "reigned over",
-      "gives": "RAN",
-      "note": "to run a country is to reign over it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately points at the last letter of Khomeini"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Khomeini ultimately",
+         "gives": "KHOMEINI",
+         "note": "the last letter of KhomeinI"
+        }
+       ]
+      },
+      {
+       "words": "reigned over",
+       "gives": "RAN",
+       "note": "to run a country is to reign over it"
+      }
      ]
     },
     "explanation": {
@@ -1735,40 +1529,30 @@
    },
    "solution": "FIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FIST",
     "definitions": [
      {
       "text": "Hand",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is crushed by",
-      "for": "container",
-      "note": "IS is crushed between the letters of feet"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "feet",
-      "gives": "FT",
-      "note": "ft is the abbreviation for feet"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "IS",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is crushed by",
+       "note": "IS is crushed between the letters of feet"
+      }
+     ],
+     "parts": [
+      {
+       "words": "feet",
+       "gives": "FT",
+       "note": "ft is the abbreviation for feet"
+      },
+      {
+       "words": "is",
+       "note": "used as printed"
+      }
      ]
     },
     "explanation": {
@@ -1797,35 +1581,24 @@
    },
    "solution": "NEUTRAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEUTRAL",
     "definitions": [
      {
       "text": "unremarkable",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "After working out",
-      "for": "anagram",
-      "note": "the letters are worked out into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "late run",
-      "gives": "LATERUN",
-      "note": "seven letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LATE RUN",
-       "gives": "NEUTRAL"
+       "text": "After working out",
+       "note": "the letters are worked out into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "late run",
+       "note": "seven letters of fodder"
       }
      ]
     },
@@ -1856,45 +1629,35 @@
    },
    "solution": "ASININE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASININE",
     "definitions": [
      {
       "text": "Brainless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having come first",
-      "for": "charade",
-      "note": "the word for while is moved to the front of the other pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "while",
-      "gives": "AS",
-      "note": "as = while"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "figure",
-      "gives": "NINE",
-      "note": "nine is a figure, a number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "I",
-      "NINE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "having come first",
+       "note": "the word for while is moved to the front of the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "while",
+       "gives": "AS",
+       "note": "as = while"
+      },
+      {
+       "words": "I",
+       "note": "used as printed"
+      },
+      {
+       "words": "figure",
+       "gives": "NINE",
+       "note": "nine is a figure, a number"
+      }
      ]
     },
     "explanation": {
@@ -1929,46 +1692,43 @@
    },
    "solution": "PENNYWHISTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PENNY WHISTLE",
     "definitions": [
      {
       "text": "One's played",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "but no heart",
-      "for": "deletion",
-      "note": "with no heart, love loses its middle letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money",
-      "gives": "PENNY",
-      "note": "a penny is a coin"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "WHIST",
-      "note": "whist is a card game"
-     },
-     {
-      "clueFragment": "love, but no heart",
-      "gives": "LE",
-      "note": "LOVE without its centre OV"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PENNY",
-      "WHIST",
-      "LE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PENNYWHISTLE",
+     "indicators": [
+      {
+       "text": "but no heart",
+       "note": "with no heart, love loses its middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "money",
+         "gives": "PENNY",
+         "note": "a penny is a coin"
+        },
+        {
+         "words": "game",
+         "gives": "WHIST",
+         "note": "whist is a card game"
+        },
+        {
+         "words": "love, but no heart",
+         "gives": "LE",
+         "note": "LOVE without its centre OV"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

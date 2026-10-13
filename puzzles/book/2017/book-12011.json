@@ -1,8 +1,6 @@
 {
  "id": "book-12011",
  "number": 12011,
- "series": "book",
- "name": "Times cryptic crossword, book 21 No 11",
  "year": 2017,
  "dimensions": {
   "cols": 15,
@@ -47,58 +45,51 @@
    },
    "solution": "SPECKLED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SPECKLED",
     "definitions": [
      {
       "text": "Spotted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word it follows"
-     },
-     {
-      "text": "closed",
-      "for": "container",
-      "note": "something closed in is shut inside, so that letter goes within the word for kissed"
-     }
-    ],
-    "linkWords": [
-     "getting",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the standard abbreviation for son"
-     },
-     {
-      "clueFragment": "kissed",
-      "gives": "PECKED",
-      "note": "a peck is a quick kiss"
-     },
-     {
-      "clueFragment": "lips",
-      "gives": "L",
-      "select": "first",
-      "note": "the first letter of lips"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PECK",
-      "L",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the standard abbreviation for son"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "closed",
+         "note": "something closed in is shut inside, so that letter goes within the word for kissed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kissed",
+         "gives": "PECKED",
+         "note": "a peck is a quick kiss"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening letter of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lips",
+           "note": "the first letter of lips"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -127,35 +118,25 @@
    },
    "solution": "PETERLEE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PETERLEE",
     "definitions": [
      {
       "text": "Northern town",
       "at": 0
      }
     ],
-    "linkWords": [
-     "offering"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "safe",
-      "gives": "PETER",
-      "note": "peter is old criminal slang for a safe"
-     },
-     {
-      "clueFragment": "shelter from wind",
-      "gives": "LEE",
-      "note": "the lee is the sheltered side, away from the wind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PETER",
-      "LEE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "safe",
+       "gives": "PETER",
+       "note": "peter is old criminal slang for a safe"
+      },
+      {
+       "words": "shelter from wind",
+       "gives": "LEE",
+       "note": "the lee is the sheltered side, away from the wind"
+      }
      ]
     },
     "explanation": {
@@ -184,51 +165,47 @@
    },
    "solution": "COLOSSAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "COLOSSAL",
     "definitions": [
      {
       "text": "Giant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "straying",
-      "for": "deletion",
-      "note": "something straying wanders off, so those letters leave the word for the dog"
-     },
-     {
-      "text": "across",
-      "for": "container",
-      "note": "lying across something means spanning it on both sides, so what remains of the dog wraps round the mountain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "COLLIE",
-      "note": "a collie is a breed of sheepdog"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the abbreviation of id est, Latin for that is"
-     },
-     {
-      "clueFragment": "mountain in Greece",
-      "gives": "OSSA",
-      "note": "Ossa is a mountain in Thessaly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COL",
-      "OSSA",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "note": "lying across something means spanning it on both sides, so what remains of the dog wraps round the mountain"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "straying",
+         "note": "something straying wanders off, so those letters leave the word for the dog"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "gives": "COLLIE",
+         "note": "a collie is a breed of sheepdog"
+        },
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. is the abbreviation of id est, Latin for that is"
+        }
+       ]
+      },
+      {
+       "words": "mountain in Greece",
+       "gives": "OSSA",
+       "note": "Ossa is a mountain in Thessaly"
+      }
      ]
     },
     "explanation": {
@@ -257,31 +234,16 @@
    },
    "solution": "LOAF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LOAF",
     "definitions": [
      {
       "text": "Bread",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a shaped mass of baked bread"
      },
      {
       "text": "veg",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bread",
-      "note": "first meaning: a shaped mass of baked bread"
-     },
-     {
-      "clueFragment": "veg",
-      "note": "second meaning: to idle about doing nothing, as in veg out"
+      "at": 10,
+      "meaning": "second meaning: to idle about doing nothing, as in veg out"
      }
     ],
     "explanation": {
@@ -310,52 +272,55 @@
    },
    "solution": "DESPAIR",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "container"
-    ],
-    "answer": "DESPAIR",
     "definitions": [
      {
       "text": "gloom",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all of the word, so its last letter goes"
-     },
-     {
-      "text": "beset by",
-      "for": "container",
-      "note": "to be beset is to be surrounded on all sides, so the resort sits inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terrible",
-      "gives": "DIRE",
-      "note": "dire means terrible or dreadful"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "resort",
-      "gives": "SPA",
-      "note": "a spa is a resort town with mineral springs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ESPA",
-      "IR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "note": "to be beset is to be surrounded on all sides, so the resort sits inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means most but not all of the word, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "terrible",
+         "gives": "DIRE",
+         "note": "dire means terrible or dreadful"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        },
+        {
+         "words": "resort",
+         "gives": "SPA",
+         "note": "a spa is a resort town with mineral springs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -384,49 +349,41 @@
    },
    "solution": "SUNBATHING",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SUNBATHING",
     "definitions": [
      {
       "text": "holidaymakers' activity?",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so the preoccupation wraps round the abbreviation"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Newspaper",
-      "gives": "SUN",
-      "note": "The Sun is a British tabloid newspaper"
-     },
-     {
-      "clueFragment": "a preoccupation",
-      "gives": "ATHING",
-      "note": "to have a thing about something is to be preoccupied with it"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "B",
-      "ATHING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so the preoccupation wraps round the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Newspaper",
+         "gives": "SUN",
+         "note": "The Sun is a British tabloid newspaper"
+        },
+        {
+         "words": "a preoccupation",
+         "gives": "ATHING",
+         "note": "to have a thing about something is to be preoccupied with it"
+        }
+       ]
+      },
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B is the abbreviation for British"
+      }
      ]
     },
     "explanation": {
@@ -455,43 +412,39 @@
    },
    "solution": "PASTRAMI",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PASTRAMI",
     "definitions": [
      {
       "text": "Meat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not unknown",
-      "for": "deletion",
-      "note": "algebra's unknowns are x, y and z, so 'not unknown' drops one of those letters"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pie",
-      "gives": "PASTRY",
-      "note": "a pie is a pastry dish"
-     },
-     {
-      "clueFragment": "friend abroad",
-      "gives": "AMI",
-      "note": "ami is French for friend"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PASTR",
-      "AMI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not unknown",
+       "note": "algebra's unknowns are x, y and z, so 'not unknown' drops one of those letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pie",
+         "gives": "PASTRY",
+         "note": "a pie is a pastry dish"
+        },
+        {
+         "words": "friend abroad",
+         "gives": "AMI",
+         "note": "ami is French for friend"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -526,40 +479,39 @@
    },
    "solution": "WELLNIGH",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "WELL-NIGH",
     "definitions": [
      {
       "text": "Almost",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "becoming shorter",
-      "for": "deletion",
-      "note": "becoming shorter means losing its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spring",
-      "gives": "WELL",
-      "note": "a spring is a natural source of water, as is a well"
-     },
-     {
-      "clueFragment": "hours of darkness",
-      "gives": "NIGHT",
-      "note": "the night is the dark part of the day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WELL",
-      "NIGH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "becoming shorter",
+       "note": "becoming shorter means losing its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "spring",
+         "gives": "WELL",
+         "note": "a spring is a natural source of water, as is a well"
+        },
+        {
+         "words": "hours of darkness",
+         "gives": "NIGHT",
+         "note": "the night is the dark part of the day"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -588,57 +540,45 @@
    },
    "solution": "EQUIPAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EQUIPAGE",
     "definitions": [
      {
       "text": "carriage",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "rear of",
-      "for": "letter_selection",
-      "note": "the rear of a word is its last letter"
-     }
-    ],
-    "linkWords": [
-     "wants",
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of the"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "QU",
-      "note": "QU is a recognised abbreviation for queen"
-     },
-     {
-      "clueFragment": "single",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "attendant",
-      "gives": "PAGE",
-      "note": "a page is a young attendant or servant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "QU",
-      "I",
-      "PAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "note": "the rear of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "the final letter of the"
+        }
+       ]
+      },
+      {
+       "words": "Queen",
+       "gives": "QU",
+       "note": "QU is a recognised abbreviation for queen"
+      },
+      {
+       "words": "single",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "attendant",
+       "gives": "PAGE",
+       "note": "a page is a young attendant or servant"
+      }
      ]
     },
     "explanation": {
@@ -673,43 +613,39 @@
    },
    "solution": "STALBANS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ST ALBANS",
     "definitions": [
      {
       "text": "English city",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Largely",
-      "for": "deletion",
-      "note": "largely means most of it, so the word loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musty",
-      "gives": "STALE",
-      "note": "stale means musty, no longer fresh"
-     },
-     {
-      "clueFragment": "bars",
-      "gives": "BANS",
-      "note": "to bar something is to ban it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAL",
-      "BANS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Largely",
+       "note": "largely means most of it, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "musty",
+         "gives": "STALE",
+         "note": "stale means musty, no longer fresh"
+        },
+        {
+         "words": "bars",
+         "gives": "BANS",
+         "note": "to bar something is to ban it"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -738,45 +674,34 @@
    },
    "solution": "PUBERTAL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "PUBERTAL",
     "definitions": [
      {
       "text": "concerning young teenager",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "put out",
-      "for": "anagram",
-      "note": "something put out is disturbed or upset, so these letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Local",
-      "gives": "PUB",
-      "note": "a local is the pub nearest your home"
-     },
-     {
-      "clueFragment": "alert",
-      "gives": "ALERT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUB",
-      "ERTAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ALERT",
-       "gives": "ERTAL"
+       "words": "Local",
+       "gives": "PUB",
+       "note": "a local is the pub nearest your home"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "put out",
+         "note": "something put out is disturbed or upset, so these letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alert",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -812,57 +737,51 @@
    },
    "solution": "GLOSSPAINT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "GLOSS PAINT",
     "definitions": [
      {
       "text": "shiny coat",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter"
-     },
-     {
-      "text": "going round",
-      "for": "container",
-      "note": "going round means surrounding, so the word for disorientated encircles the country"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get",
-      "gives": "G",
-      "select": "first",
-      "note": "the opening letter of get"
-     },
-     {
-      "clueFragment": "disorientated",
-      "gives": "LOST",
-      "note": "someone disorientated does not know where they are"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "SPAIN",
-      "note": "a European country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LOS",
-      "SPAIN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "note": "the opening letter of get"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going round",
+         "note": "going round means surrounding, so the word for disorientated encircles the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disorientated",
+         "gives": "LOST",
+         "note": "someone disorientated does not know where they are"
+        },
+        {
+         "words": "country",
+         "gives": "SPAIN",
+         "note": "a European country"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -891,49 +810,45 @@
    },
    "solution": "PARADIDDLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "PARADIDDLE",
     "definitions": [
      {
       "text": "Sound of drums",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "briefly means cut short, so the word loses its last letter"
-     },
-     {
-      "text": "drowning",
-      "for": "container",
-      "note": "something drowning is plunged under, so the shortened broadcaster sinks inside the word for row"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "row",
-      "gives": "PADDLE",
-      "note": "to paddle a boat is to row it"
-     },
-     {
-      "clueFragment": "broadcaster",
-      "gives": "RADIO",
-      "note": "the radio broadcasts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "RADI",
-      "DDLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drowning",
+       "note": "something drowning is plunged under, so the shortened broadcaster sinks inside the word for row"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "gives": "PADDLE",
+       "note": "to paddle a boat is to row it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "note": "briefly means cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broadcaster",
+         "gives": "RADIO",
+         "note": "the radio broadcasts"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -962,30 +877,28 @@
    },
    "solution": "MALI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MALI",
     "definitions": [
      {
       "text": "Land",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "captured by",
-      "for": "hidden_word",
-      "note": "captured by means held inside, so the answer sits within the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Somalians",
-      "gives": "MALI",
-      "note": "letters three to six of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "captured by",
+       "note": "captured by means held inside, so the answer sits within the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Somalians",
+       "gives": "MALI",
+       "note": "letters three to six of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Territory seized by Somali fighters.",
      "definitionFit": "Mali is a West African country, and land is a general word for a country or nation."
@@ -1017,40 +930,39 @@
    },
    "solution": "SEALORD",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SEA LORD",
     "definitions": [
      {
       "text": "officer",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in absence of first",
-      "for": "deletion",
-      "note": "with its first letter absent, the word begins one letter later"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Secure",
-      "gives": "SEAL",
-      "note": "to seal something is to close it securely"
-     },
-     {
-      "clueFragment": "command",
-      "gives": "WORD",
-      "note": "to give the word is to give the command"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEAL",
-      "ORD"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in absence of first",
+       "note": "with its first letter absent, the word begins one letter later"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Secure",
+         "gives": "SEAL",
+         "note": "to seal something is to close it securely"
+        },
+        {
+         "words": "command",
+         "gives": "WORD",
+         "note": "to give the word is to give the command"
+        }
+       ]
+      },
+      {
+       "gives": "W"
+      }
      ]
     },
     "explanation": {
@@ -1079,35 +991,25 @@
    },
    "solution": "SCAMPISH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCAMPISH",
     "definitions": [
      {
       "text": "full of sauce?",
       "at": 18
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seafood's",
-      "gives": "SCAMPIS",
-      "note": "scampi are breaded langoustines, plus the 's"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the abbreviation for hot, as on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCAMPIS",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Seafood's",
+       "gives": "SCAMPIS",
+       "note": "scampi are breaded langoustines, plus the 's"
+      },
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      }
      ]
     },
     "explanation": {
@@ -1137,47 +1039,40 @@
    },
    "solution": "ANARCHIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANARCHIC",
     "definitions": [
      {
       "text": "ignoring the law",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "arrests",
-      "for": "container",
-      "note": "to arrest is to take into custody, so the officer holds the character inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "US officer",
-      "gives": "NARC",
-      "note": "a narc is an American narcotics agent"
-     },
-     {
-      "clueFragment": "Greek character",
-      "gives": "CHI",
-      "note": "chi is a letter of the Greek alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NAR",
-      "CHI",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arrests",
+         "note": "to arrest is to take into custody, so the officer holds the character inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US officer",
+         "gives": "NARC",
+         "note": "a narc is an American narcotics agent"
+        },
+        {
+         "words": "Greek character",
+         "gives": "CHI",
+         "note": "chi is a letter of the Greek alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1206,59 +1101,57 @@
    },
    "solution": "WIMPISH",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "WIMPISH",
     "definitions": [
      {
       "text": "Ineffective",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "besieged by",
-      "for": "container",
-      "note": "a besieged town is surrounded on every side, so the following words wrap round"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "'end of' keeps only the last letter of 'speech'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "women's group",
-      "gives": "WI",
-      "note": "the WI is the Women's Institute"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "a Member of Parliament"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "speech",
-      "gives": "H",
-      "select": "last",
-      "note": "the final letter of speech"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WI",
-      "MP",
-      "IS",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "WIMPISH",
+     "indicators": [
+      {
+       "text": "besieged by",
+       "note": "a besieged town is surrounded on every side, so the following words wrap round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "women's group",
+         "gives": "WI",
+         "note": "the WI is the Women's Institute"
+        },
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "a Member of Parliament"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "'end of' keeps only the last letter of 'speech'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "speech",
+           "note": "the final letter of speech"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1287,51 +1180,40 @@
    },
    "solution": "PITTANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PITTANCE",
     "definitions": [
      {
       "text": "very little dough",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter is kept"
-     }
-    ],
-    "linkWords": [
-     "With",
-     "used"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one type of bread",
-      "gives": "PITTA",
-      "note": "pitta is a flat bread"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "chef",
-      "gives": "CE",
-      "select": "alternate",
-      "note": "the first and third letters of chef"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PITTA",
-      "N",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one type of bread",
+       "gives": "PITTA",
+       "note": "pitta is a flat bread"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chef",
+         "note": "the first and third letters of chef"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1361,32 +1243,25 @@
    },
    "solution": "SPILLAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPILLAGE",
     "definitions": [
      {
       "text": "Discharge",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "rifle",
-      "gives": "PILLAGE",
-      "note": "to rifle is to ransack or plunder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PILLAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "rifle",
+       "gives": "PILLAGE",
+       "note": "to rifle is to ransack or plunder"
+      }
      ]
     },
     "explanation": {
@@ -1421,37 +1296,30 @@
    },
    "solution": "FLYPAST",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "FLY-PAST",
     "definitions": [
      {
       "text": "display",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "as Spooner might have said",
-      "for": "spoonerism",
-      "note": "Spooner was famed for swapping the opening sounds of two words"
-     }
-    ],
-    "linkWords": [
-     "in this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Travel at speed",
-      "gives": "FLYPAST",
-      "soundsLike": "PLY FAST",
-      "note": "to ply is to travel a route, and fast means at speed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLYPAST"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "FLYPAST",
+     "indicators": [
+      {
+       "text": "as Spooner might have said",
+       "note": "Spooner was famed for swapping the opening sounds of two words"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Travel at speed",
+       "gives": "FLYPAST",
+       "soundsLike": "PLY FAST",
+       "note": "to ply is to travel a route, and fast means at speed"
+      }
      ]
     },
     "explanation": {
@@ -1479,44 +1347,39 @@
    },
    "solution": "ALAS",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "ALAS",
     "definitions": [
      {
       "text": "sadly",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "unfinished",
-      "for": "deletion",
-      "note": "unfinished means missing its end, so the last letter goes"
-     },
-     {
-      "text": "sent back",
-      "for": "reversal",
-      "note": "sent back means returned, so the word is read in the other direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Healthy meal",
-      "gives": "SALAD",
-      "note": "a salad is a healthy meal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALAS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SALA",
-       "to": "ALAS"
+       "text": "sent back",
+       "note": "sent back means returned, so the word is read in the other direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "note": "unfinished means missing its end, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Healthy meal",
+         "gives": "SALAD",
+         "note": "a salad is a healthy meal"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
@@ -1550,48 +1413,34 @@
    },
    "solution": "DELIGHTSIN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DELIGHTS IN",
     "definitions": [
      {
       "text": "Enjoys",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "ordered means arranged or sorted, so these letters are set out afresh"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food store",
-      "gives": "DELI",
-      "note": "a delicatessen"
-     },
-     {
-      "clueFragment": "things",
-      "gives": "THINGS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELI",
-      "GHTSIN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THINGS",
-       "gives": "GHTSIN"
+       "words": "food store",
+       "gives": "DELI",
+       "note": "a delicatessen"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "note": "ordered means arranged or sorted, so these letters are set out afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "things",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1627,28 +1476,16 @@
    },
    "solution": "PACKEDUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PACKED UP",
     "definitions": [
      {
       "text": "Ready for a holiday",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: with the suitcases all filled"
      },
      {
       "text": "stopped working",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ready for a holiday",
-      "note": "first meaning: with the suitcases all filled"
-     },
-     {
-      "clueFragment": "stopped working",
-      "note": "second meaning: broke down, as a machine does"
+      "at": 21,
+      "meaning": "second meaning: broke down, as a machine does"
      }
     ],
     "explanation": {
@@ -1677,38 +1514,24 @@
    },
    "solution": "AMEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMEN",
     "definitions": [
      {
       "text": "Grace's final word",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to boot",
-      "for": "anagram",
-      "note": "to boot is read as giving a kick, and a kicked word gets knocked into a new order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mean",
-      "gives": "MEAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MEAN",
-       "gives": "AMEN"
+       "text": "to boot",
+       "note": "to boot is read as giving a kick, and a kicked word gets knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mean",
+       "note": "taken as written"
       }
      ]
     },
@@ -1738,63 +1561,56 @@
    },
    "solution": "ARMENIAN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "ARMENIAN",
     "definitions": [
      {
       "text": "language",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "garbled",
-      "for": "anagram",
-      "note": "garbled means jumbled and confused, so these letters are mixed up"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the soldiers inside the mixed-up letters"
-     },
-     {
-      "text": "west of",
-      "for": "charade",
-      "note": "in an across answer, west of means placed to the left of what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is the abbreviation for area"
-     },
-     {
-      "clueFragment": "Iran",
-      "gives": "IRAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Soldiers",
-      "gives": "MEN",
-      "note": "soldiers are the men of an army"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "MEN",
-      "IAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "IRAN",
-       "gives": "RIAN"
+       "text": "west of",
+       "note": "in an across answer, west of means placed to the left of what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is the abbreviation for area"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the soldiers inside the mixed-up letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "garbled",
+           "note": "garbled means jumbled and confused, so these letters are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Iran",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "Soldiers",
+         "gives": "MEN",
+         "note": "soldiers are the men of an army"
+        }
+       ]
       }
      ]
     },
@@ -1824,35 +1640,25 @@
    },
    "solution": "SWIZZLES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWIZZLES",
     "definitions": [
      {
       "text": "Manhattan cocktails",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a disappointment",
-      "gives": "SWIZZ",
-      "note": "a swizz is British slang for a swindle or letdown"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LES",
-      "note": "les is French for the, plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWIZZ",
-      "LES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a disappointment",
+       "gives": "SWIZZ",
+       "note": "a swizz is British slang for a swindle or letdown"
+      },
+      {
+       "words": "the French",
+       "gives": "LES",
+       "note": "les is French for the, plural"
+      }
      ]
     },
     "explanation": {
@@ -1881,42 +1687,30 @@
    },
    "solution": "TENDERER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TENDERER",
     "definitions": [
      {
       "text": "I'll make a bid",
       "at": 42
      }
     ],
-    "linkWords": [
-     "With",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quite a few",
-      "gives": "TEN",
-      "note": "ten is a fair number"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "D is the abbreviation for diamonds in card games"
-     },
-     {
-      "clueFragment": "two queens",
-      "gives": "ERER",
-      "note": "ER, Elizabeth Regina, twice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEN",
-      "D",
-      "ERER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quite a few",
+       "gives": "TEN",
+       "note": "ten is a fair number"
+      },
+      {
+       "words": "diamonds",
+       "gives": "D",
+       "note": "D is the abbreviation for diamonds in card games"
+      },
+      {
+       "words": "two queens",
+       "gives": "ERER",
+       "note": "ER, Elizabeth Regina, twice"
+      }
      ]
     },
     "explanation": {

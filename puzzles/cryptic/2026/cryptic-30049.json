@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30049",
  "number": 30049,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,049",
  "setter": "Brummie",
  "date": "2026-07-03",
  "dimensions": {
@@ -38,43 +36,33 @@
    },
    "solution": "ANGELOU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANGELOU",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "An actor playing a part is being somebody other than themselves, and letters told to play will not stay as the clue sets them down."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "along",
-      "gives": "ALONG",
-      "note": "anagram fodder, five letters"
-     },
-     {
-      "clueFragment": "EU",
-      "gives": "EU",
-      "note": "the European Union by its usual two initials"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALONG EU",
-       "gives": "ANGELOU"
+       "text": "playing",
+       "note": "An actor playing a part is being somebody other than themselves, and letters told to play will not stay as the clue sets them down."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "along",
+         "note": "anagram fodder, five letters"
+        },
+        {
+         "words": "EU",
+         "note": "the European Union by its usual two initials"
+        }
+       ]
       }
      ]
     },
@@ -98,58 +86,41 @@
    },
    "solution": "ALGEBRA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ALGEBRA",
     "definitions": [
      {
       "text": "In which X often appears",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "Something broken has come apart and been put back together wrongly, which is what happens to the three letters it sits next to."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own 'a', taken as a single letter"
-     },
-     {
-      "clueFragment": "broken leg",
-      "gives": "LGE",
-      "note": "the three letters of LEG, reset in another order"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "BRA",
-      "note": "the undergarment is the crossword's standard support"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LGE",
-      "BRA"
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALGEBRA",
+     "indicators": [
+      {
+       "text": "broken",
+       "note": "Something broken has come apart and been put back together wrongly, which is what happens to the three letters it sits next to."
+      }
      ],
-     "anagrams": [
+     "parts": [
       {
-       "fodder": "A LEG BRA",
-       "gives": "ALGEBRA"
-      },
-      {
-       "fodder": "LEG",
-       "gives": "LGE"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the clue's own 'a', taken as a single letter"
+        },
+        {
+         "words": "broken leg",
+         "gives": "LGE",
+         "note": "the three letters of LEG, reset in another order"
+        },
+        {
+         "words": "support",
+         "gives": "BRA",
+         "note": "the undergarment is the crossword's standard support"
+        }
+       ]
       }
      ]
     },
@@ -173,51 +144,55 @@
    },
    "solution": "GLADIOLUS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "GLADIOLUS",
     "definitions": [
      {
       "text": "flower",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing round",
-      "note": "A dancer whirling round the floor finishes facing every way but the one they set off in, and so do these letters."
-     },
-     {
-      "text": "top",
-      "note": "The top of a word printed down the page is where it starts, so only Ireland's opening letter is wanted."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Happy",
-      "gives": "GLAD",
-      "note": "glad = happy, and these four letters lead off unshuffled"
-     },
-     {
-      "clueFragment": "soul",
-      "gives": "SOUL",
-      "note": "anagram fodder, four letters"
-     },
-     {
-      "clueFragment": "Ireland's top",
-      "gives": "I",
-      "select": "first",
-      "note": "the letter Ireland begins with"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "GLAD SOUL I",
-       "gives": "GLADIOLUS"
+       "text": "dancing round",
+       "note": "A dancer whirling round the floor finishes facing every way but the one they set off in, and so do these letters."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Happy",
+       "gives": "GLAD",
+       "note": "glad = happy, and these four letters lead off unshuffled"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "The top of a word printed down the page is where it starts, so only Ireland's opening letter is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "soul",
+           "note": "anagram fodder, four letters"
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "Ireland's top",
+             "gives": "IRELANDTOP",
+             "note": "the letter Ireland begins with"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -241,39 +216,31 @@
    },
    "solution": "LOPED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOPED",
     "definitions": [
      {
       "text": "Was wolf-like",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "against",
-      "for": "charade",
-      "note": "To lean one thing against another is to set them side by side, so this letter simply sits in front of what follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lecturer",
-      "gives": "L",
-      "note": "l = lecturer, the academic abbreviation"
-     },
-     {
-      "clueFragment": "journalist's opinion piece",
-      "gives": "OPED",
-      "note": "an op-ed is the signed column a paper prints opposite its editorial page"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OPED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "against",
+       "note": "To lean one thing against another is to set them side by side, so this letter simply sits in front of what follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "lecturer",
+       "gives": "L",
+       "note": "l = lecturer, the academic abbreviation"
+      },
+      {
+       "words": "journalist's opinion piece",
+       "gives": "OPED",
+       "note": "an op-ed is the signed column a paper prints opposite its editorial page"
+      }
      ]
     },
     "explanation": {
@@ -296,40 +263,34 @@
    },
    "solution": "UNCROWNED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNCROWNED",
     "definitions": [
      {
       "text": "Like a single draughts piece",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "review",
-      "for": "anagram",
-      "note": "A review looks at something again and hands it back rearranged, which is what becomes of the nine letters in front of it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "100",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     },
-     {
-      "clueFragment": "now under",
-      "gives": "NOWUNDER",
-      "note": "anagram fodder, eight letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "C NOW UNDER",
-       "gives": "UNCROWNED"
+       "text": "review",
+       "note": "A review looks at something again and hands it back rearranged, which is what becomes of the nine letters in front of it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "100",
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        },
+        {
+         "words": "now under",
+         "note": "anagram fodder, eight letters"
+        }
+       ]
       }
      ]
     },
@@ -359,32 +320,25 @@
    },
    "solution": "LACEDUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LACED UP",
     "definitions": [
      {
       "text": "As corsets are",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "spiked",
-      "gives": "LACED",
-      "note": "a drink spiked with spirits has been laced"
-     },
-     {
-      "clueFragment": "all over",
-      "gives": "UP",
-      "note": "when time is up it is all over — the sense in 'the game's up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LACED",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spiked",
+       "gives": "LACED",
+       "note": "a drink spiked with spirits has been laced"
+      },
+      {
+       "words": "all over",
+       "gives": "UP",
+       "note": "when time is up it is all over — the sense in 'the game's up'"
+      }
      ]
     },
     "explanation": {
@@ -407,31 +361,16 @@
    },
    "solution": "LINED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LINED",
     "definitions": [
      {
       "text": "Scored",
-      "at": 0
+      "at": 0,
+      "meaning": "to score a surface is to cut or rule straight marks across it"
      },
      {
       "text": "showing signs of age",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "though"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scored",
-      "note": "to score a surface is to cut or rule straight marks across it"
-     },
-     {
-      "clueFragment": "showing signs of age",
-      "note": "a face that has weathered years is creased and furrowed"
+      "at": 15,
+      "meaning": "a face that has weathered years is creased and furrowed"
      }
     ],
     "explanation": {
@@ -454,47 +393,41 @@
    },
    "solution": "CAPACITOR",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CAPACITOR",
     "definitions": [
      {
       "text": "electrical store",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "opens",
-      "for": "container",
-      "note": "To open something is to make a gap in it, and the letter named just before slips into that gap."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Test player",
-      "gives": "CAP",
-      "note": "a Test is an international cricket match, and a player who appears in one wins a cap"
-     },
-     {
-      "clueFragment": "another player",
-      "gives": "ACTOR",
-      "note": "the other kind of player treads the boards, and this word parts after two letters"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "i = international, the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAP",
-      "AC",
-      "I",
-      "TOR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Test player",
+       "gives": "CAP",
+       "note": "a Test is an international cricket match, and a player who appears in one wins a cap"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "opens",
+         "note": "To open something is to make a gap in it, and the letter named just before slips into that gap."
+        }
+       ],
+       "parts": [
+        {
+         "words": "another player",
+         "gives": "ACTOR",
+         "note": "the other kind of player treads the boards, and this word parts after two letters"
+        },
+        {
+         "words": "international",
+         "gives": "I",
+         "note": "i = international, the standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -517,46 +450,40 @@
    },
    "solution": "DANTE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DANTE",
     "definitions": [
      {
       "text": "Poet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to drop",
-      "for": "deletion",
-      "note": "Dropping something lets it fall away, so the two letters named after this are simply lost from the word."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slowish",
-      "gives": "ANDANTE",
-      "note": "the musical direction for a moderate, walking pace — on the slow side of the tempo markings"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the first letter to go is the clue's own 'a'"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "n = name, the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DANTE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to drop",
+       "note": "Dropping something lets it fall away, so the two letters named after this are simply lost from the word."
+      }
+     ],
+     "parts": [
+      {
+       "words": "slowish",
+       "gives": "ANDANTE",
+       "note": "the musical direction for a moderate, walking pace — on the slow side of the tempo markings"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the first letter to go is the clue's own 'a'"
+        },
+        {
+         "words": "name",
+         "gives": "N",
+         "note": "n = name, the usual abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -579,45 +506,35 @@
    },
    "solution": "PERUSAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PERUSAL",
     "definitions": [
      {
       "text": "examination",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "introducing",
-      "for": "charade",
-      "note": "To introduce is to bring something new in — used loosely here, since the letters brought in arrive at the end rather than inside."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Country's",
-      "gives": "PERUS",
-      "note": "the South American country with the S of the possessive left on"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own 'a', taken as a letter"
-     },
-     {
-      "clueFragment": "Latin",
-      "gives": "L",
-      "note": "l = Latin, as on a school timetable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERUS",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "introducing",
+       "note": "To introduce is to bring something new in — used loosely here, since the letters brought in arrive at the end rather than inside."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Country's",
+       "gives": "PERUS",
+       "note": "the South American country with the S of the possessive left on"
+      },
+      {
+       "words": "a",
+       "note": "the clue's own 'a', taken as a letter"
+      },
+      {
+       "words": "Latin",
+       "gives": "L",
+       "note": "l = Latin, as on a school timetable"
+      }
      ]
     },
     "explanation": {
@@ -640,41 +557,36 @@
    },
    "solution": "GRASP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GRASP",
     "definitions": [
      {
       "text": "Master",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lead",
-      "for": "letter_selection",
-      "note": "A lead is what goes in front, so it asks for the letter standing at the front of the word before it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "goldsmith's lead",
-      "gives": "G",
-      "select": "first",
-      "note": "the letter at the head of the word goldsmith"
-     },
-     {
-      "clueFragment": "file",
-      "gives": "RASP",
-      "note": "a rasp is a coarse file for wood or metal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RASP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead",
+         "note": "A lead is what goes in front, so it asks for the letter standing at the front of the word before it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "goldsmith's lead",
+         "gives": "GOLDSMITHS",
+         "note": "the letter at the head of the word goldsmith"
+        }
+       ]
+      },
+      {
+       "words": "file",
+       "gives": "RASP",
+       "note": "a rasp is a coarse file for wood or metal"
+      }
      ]
     },
     "explanation": {
@@ -703,36 +615,25 @@
    },
    "solution": "CANOPENER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAN-OPENER",
     "definitions": [
      {
       "text": "a handy means of access for consumers",
       "at": 29
      }
     ],
-    "linkWords": [
-     "Is",
-     "to provide"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "able",
-      "gives": "CAN",
-      "note": "able to do a thing = can do it"
-     },
-     {
-      "clueFragment": "cricketer",
-      "gives": "OPENER",
-      "note": "in cricket the opener is the batter who goes in first, at the start of an innings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "OPENER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "able",
+       "gives": "CAN",
+       "note": "able to do a thing = can do it"
+      },
+      {
+       "words": "cricketer",
+       "gives": "OPENER",
+       "note": "in cricket the opener is the batter who goes in first, at the start of an innings"
+      }
      ]
     },
     "explanation": {
@@ -765,45 +666,37 @@
     "12-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLINDFOLD CHESS",
     "definitions": [
      {
       "text": "You won't see board members taking part in this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "A criminal breaks the rules and leaves things out of place, which is exactly what befalls the letters that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bloc's",
-      "gives": "BLOCS",
-      "note": "a bloc is a group acting together, plus the S of the possessive"
-     },
-     {
-      "clueFragment": "NHS",
-      "gives": "NHS",
-      "note": "the National Health Service, Britain's state health system, by its initials"
-     },
-     {
-      "clueFragment": "fiddle",
-      "gives": "FIDDLE",
-      "note": "a fiddle is a swindle, which is what the surface is describing"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BLOCS NHS FIDDLE",
-       "gives": "BLINDFOLDCHESS"
+       "text": "criminal",
+       "note": "A criminal breaks the rules and leaves things out of place, which is exactly what befalls the letters that follow."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bloc's",
+         "note": "a bloc is a group acting together, plus the S of the possessive"
+        },
+        {
+         "words": "NHS",
+         "note": "the National Health Service, Britain's state health system, by its initials"
+        },
+        {
+         "words": "fiddle",
+         "note": "a fiddle is a swindle, which is what the surface is describing"
+        }
+       ]
       }
      ]
     },
@@ -840,45 +733,42 @@
    },
    "solution": "AGLOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AGLOW",
     "definitions": [
      {
       "text": "Ruddy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "get in",
-      "for": "container",
-      "note": "Getting in means arriving inside something, so the letter named before it lands within the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own 'a', taken as a letter"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "g = good, the standard abbreviation"
-     },
-     {
-      "clueFragment": "depressed state",
-      "gives": "LOW",
-      "note": "a low is a slump — a depressed state of mind or of the market"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "G",
-      "LOW"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "AGLOW",
+     "indicators": [
+      {
+       "text": "get in",
+       "note": "Getting in means arriving inside something, so the letter named before it lands within the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the clue's own 'a', taken as a letter"
+        },
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "g = good, the standard abbreviation"
+        },
+        {
+         "words": "depressed state",
+         "gives": "LOW",
+         "note": "a low is a slump — a depressed state of mind or of the market"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -901,60 +791,46 @@
    },
    "solution": "WORCESTER",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram"
-    ],
-    "answer": "WORCESTER",
     "definitions": [
      {
       "text": "China might be after this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "This is a down clue, so a piece told to go up is read from the bottom of the grid back towards the top."
-     },
-     {
-      "text": "open",
-      "for": "anagram",
-      "note": "To open something out is to spread it apart and lay it down differently, so the letters after it need not keep their order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "line-up",
-      "gives": "WOR",
-      "note": "a line is a row, and this one is read upwards"
-     },
-     {
-      "clueFragment": "secret",
-      "gives": "CESTER",
-      "note": "the six letters of SECRET, opened out into another order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOR",
-      "CESTER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "ROW SECRET",
-       "gives": "WORCESTER"
-      },
-      {
-       "fodder": "SECRET",
-       "gives": "CESTER"
+       "text": "up",
+       "note": "This is a down clue, so a piece told to go up is read from the bottom of the grid back towards the top."
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "ROW",
-       "to": "WOR"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "open",
+         "note": "To open something out is to spread it apart and lay it down differently, so the letters after it need not keep their order."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "line-up",
+           "gives": "WOR",
+           "note": "a line is a row, and this one is read upwards"
+          },
+          {
+           "words": "secret",
+           "gives": "CESTER",
+           "note": "the six letters of SECRET, opened out into another order"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -978,41 +854,30 @@
    },
    "solution": "NIGHTFALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NIGHTFALL",
     "definitions": [
      {
       "text": "Evening",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "almost",
-      "gives": "NIGH",
-      "note": "nigh is the old word for near — 'the end is nigh'"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time, as in the physics formulae"
-     },
-     {
-      "clueFragment": "collapse",
-      "gives": "FALL",
-      "note": "a government or a wall that collapses is said to fall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGH",
-      "T",
-      "FALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "almost",
+       "gives": "NIGH",
+       "note": "nigh is the old word for near — 'the end is nigh'"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time, as in the physics formulae"
+      },
+      {
+       "words": "collapse",
+       "gives": "FALL",
+       "note": "a government or a wall that collapses is said to fall"
+      }
      ]
     },
     "explanation": {
@@ -1035,59 +900,53 @@
    },
    "solution": "GATECRASH",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "charade"
-    ],
-    "answer": "GATECRASH",
     "definitions": [
      {
       "text": "break in",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "note": "What you accept you take in, so the billionaire's letters open up and receive the ones named next."
-     },
-     {
-      "text": "new",
-      "note": "Something made new is remade from the same material, so those three letters are rebuilt in a different order."
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Billionaire",
-      "gives": "GATES",
-      "note": "the software billionaire Bill supplies his surname"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "CRA",
-      "note": "the three letters of CAR, reordered"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "h = hard, the grade stamped on a pencil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GATE",
-      "CRA",
-      "S",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GATECRASH",
+     "parts": [
       {
-       "fodder": "CAR",
-       "gives": "CRA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "accepts",
+         "note": "What you accept you take in, so the billionaire's letters open up and receive the ones named next."
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "Something made new is remade from the same material, so those three letters are rebuilt in a different order."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Billionaire",
+           "gives": "GATES",
+           "note": "the software billionaire Bill supplies his surname"
+          },
+          {
+           "words": "car",
+           "gives": "CRA",
+           "note": "the three letters of CAR, reordered"
+          }
+         ]
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "h = hard, the grade stamped on a pencil"
+        }
+       ]
       }
      ]
     },
@@ -1111,47 +970,45 @@
    },
    "solution": "ATTRITION",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ATTRITION",
     "definitions": [
      {
       "text": "form of grinding",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Maybe",
-      "for": "anagram",
-      "note": "A loose anagram signal: it offers the letters that follow as only one possible arrangement, so you may settle them another way."
-     },
-     {
-      "text": "main",
-      "for": "letter_selection",
-      "note": "The main letter of a name is its chief one, which is a loose way of asking for the initial and nothing else."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Titian or",
-      "gives": "TITIANOR",
-      "note": "anagram fodder — the painter's name and the little word after it, eight letters"
-     },
-     {
-      "clueFragment": "Turner's main",
-      "gives": "T",
-      "select": "first",
-      "note": "the chief, and so the first, letter of Turner"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TITIAN OR T",
-       "gives": "ATTRITION"
+       "text": "Maybe",
+       "note": "A loose anagram signal: it offers the letters that follow as only one possible arrangement, so you may settle them another way."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Titian or",
+         "note": "anagram fodder — the painter's name and the little word after it, eight letters"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "main",
+           "note": "The main letter of a name is its chief one, which is a loose way of asking for the initial and nothing else."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Turner's main",
+           "gives": "TURNERS",
+           "note": "the chief, and so the first, letter of Turner"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1175,50 +1032,40 @@
    },
    "solution": "DISCREDIT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DISCREDIT",
     "definitions": [
      {
       "text": "Rubbish!",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "The head of anything is its top or its front, so this asks for the letter the previous word starts with."
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Department head",
-      "gives": "D",
-      "select": "first",
-      "note": "the letter at the front of Department"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "the clue's own 'is', taken at face value as two letters"
-     },
-     {
-      "clueFragment": "recognition",
-      "gives": "CREDIT",
-      "note": "credit is the recognition given for work done"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "CREDIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "The head of anything is its top or its front, so this asks for the letter the previous word starts with."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Department head",
+         "gives": "DEPARTMENT",
+         "note": "the letter at the front of Department"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "note": "the clue's own 'is', taken at face value as two letters"
+      },
+      {
+       "words": "recognition",
+       "gives": "CREDIT",
+       "note": "credit is the recognition given for work done"
+      }
      ]
     },
     "explanation": {
@@ -1241,29 +1088,17 @@
    },
    "solution": "DEPOSIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DEPOSIT",
     "definitions": [
      {
       "text": "Pledge from would-be MP",
       "at": 0,
-      "note": "'Dregs' is plural where the answer is singular: the sediment left in a bottle is spoken of as the dregs, a plural noun naming one settled layer."
+      "note": "'Dregs' is plural where the answer is singular: the sediment left in a bottle is spoken of as the dregs, a plural noun naming one settled layer.",
+      "meaning": "a parliamentary candidate in Britain must lodge £500, forfeited unless they win a twentieth of the votes cast"
      },
      {
       "text": "dregs",
-      "at": 26
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pledge from would-be MP",
-      "note": "a parliamentary candidate in Britain must lodge £500, forfeited unless they win a twentieth of the votes cast"
-     },
-     {
-      "clueFragment": "dregs",
-      "note": "what settles out of a liquid and lies at the bottom of the bottle"
+      "at": 26,
+      "meaning": "what settles out of a liquid and lies at the bottom of the bottle"
      }
     ],
     "explanation": {
@@ -1286,41 +1121,29 @@
    },
    "solution": "RATED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RATED",
     "definitions": [
      {
       "text": "judged",
       "at": 29
      }
     ],
-    "linkWords": [
-     "wants"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "r = right, the standard abbreviation"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own 'a', taken as a letter"
-     },
-     {
-      "clueFragment": "familiar ex-PM",
-      "gives": "TED",
-      "note": "Edward Heath, prime minister from 1970 to 1974, was known to everyone as Ted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "A",
-      "TED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "r = right, the standard abbreviation"
+      },
+      {
+       "words": "a",
+       "note": "the clue's own 'a', taken as a letter"
+      },
+      {
+       "words": "familiar ex-PM",
+       "gives": "TED",
+       "note": "Edward Heath, prime minister from 1970 to 1974, was known to everyone as Ted"
+      }
      ]
     },
     "explanation": {
@@ -1343,47 +1166,41 @@
    },
    "solution": "DISPLAY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "DISPLAY",
     "definitions": [
      {
       "text": "show",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' puts the letters named before it inside the word named after, rather than alongside it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doris's",
-      "gives": "DAY",
-      "note": "Doris Day, the American singer and film star, supplies the surname"
-     },
-     {
-      "clueFragment": "One's",
-      "gives": "IS",
-      "note": "one is the Roman numeral I, and the clue's own 's follows it"
-     },
-     {
-      "clueFragment": "place",
-      "gives": "PL",
-      "note": "pl is the abbreviation for Place in a street address"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "PL",
-      "AY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' puts the letters named before it inside the word named after, rather than alongside it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doris's",
+       "gives": "DAY",
+       "note": "Doris Day, the American singer and film star, supplies the surname"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One's",
+         "gives": "IS",
+         "note": "one is the Roman numeral I, and the clue's own 's follows it"
+        },
+        {
+         "words": "place",
+         "gives": "PL",
+         "note": "pl is the abbreviation for Place in a street address"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1416,44 +1233,47 @@
     "23-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "PLATE TECTONICS",
     "definitions": [
      {
       "text": "study of underground movement",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "without a",
-      "note": "To be without something is to lack it, so the letter named goes missing before anything else is done."
-     },
-     {
-      "text": "new",
-      "note": "What is made new is made over out of the same material, and these letters are rebuilt into different words."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Police state",
-      "gives": "POLICESTATE",
-      "note": "anagram fodder, eleven letters"
-     },
-     {
-      "clueFragment": "can't, without a",
-      "gives": "CNT",
-      "note": "CAN'T gives up its A, leaving three letters for the mix"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PLATETECTONICS",
+     "parts": [
       {
-       "fodder": "POLICE STATE CNT",
-       "gives": "PLATETECTONICS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "without a",
+         "note": "To be without something is to lack it, so the letter named goes missing before anything else is done."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "What is made new is made over out of the same material, and these letters are rebuilt into different words."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Police state",
+           "note": "anagram fodder, eleven letters"
+          },
+          {
+           "words": "can't, without a",
+           "gives": "CNT",
+           "note": "CAN'T gives up its A, leaving three letters for the mix"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1477,57 +1297,58 @@
    },
    "solution": "ANNEX",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ANNEX",
     "definitions": [
      {
       "text": "Seize",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader ousted",
-      "for": "deletion",
-      "note": "A word's leader is the letter at its front, and ousting throws that letter out of office altogether."
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' drops what precedes it inside the little assembly that follows, between its pieces rather than after them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own 'a', taken as a letter"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "n = new, the standard abbreviation"
-     },
-     {
-      "clueFragment": "one with leader ousted",
-      "gives": "NE",
-      "note": "ONE without the letter at its head"
-     },
-     {
-      "clueFragment": "vote",
-      "gives": "X",
-      "note": "a vote is cast by marking a cross on the ballot paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "NE",
-      "X"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANNEX",
+     "indicators": [
+      {
+       "text": "leader ousted",
+       "note": "A word's leader is the letter at its front, and ousting throws that letter out of office altogether."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the clue's own 'a', taken as a letter"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "'In' drops what precedes it inside the little assembly that follows, between its pieces rather than after them."
+          }
+         ],
+         "parts": [
+          {
+           "words": "one with leader ousted",
+           "gives": "NE",
+           "note": "ONE without the letter at its head"
+          },
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "n = new, the standard abbreviation"
+          }
+         ]
+        },
+        {
+         "words": "vote",
+         "gives": "X",
+         "note": "a vote is cast by marking a cross on the ballot paper"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1563,41 +1384,36 @@
    },
    "solution": "TORTE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TORTE",
     "definitions": [
      {
       "text": "dish",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "The end of a word is the letter it finishes on, so only the final character of the next word is wanted."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wrong",
-      "gives": "TORT",
-      "note": "in law a tort is a civil wrong, the injury one person does another"
-     },
-     {
-      "clueFragment": "end of the",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of the word 'the'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TORT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wrong",
+       "gives": "TORT",
+       "note": "in law a tort is a civil wrong, the injury one person does another"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "The end of a word is the letter it finishes on, so only the final character of the next word is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "words": "end of the",
+         "gives": "THE",
+         "note": "the last letter of the word 'the'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1620,32 +1436,25 @@
    },
    "solution": "OFFER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OFFER",
     "definitions": [
      {
       "text": "Tender",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "sickly",
-      "gives": "OFF",
-      "note": "someone feeling off is out of sorts, and milk that has gone off has turned"
-     },
-     {
-      "clueFragment": "even more",
-      "gives": "ER",
-      "note": "the comparative ending -er is what makes a word into more of itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sickly",
+       "gives": "OFF",
+       "note": "someone feeling off is out of sorts, and milk that has gone off has turned"
+      },
+      {
+       "words": "even more",
+       "gives": "ER",
+       "note": "the comparative ending -er is what makes a word into more of itself"
+      }
      ]
     },
     "explanation": {
@@ -1668,48 +1477,39 @@
    },
    "solution": "SANATORIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SANATORIA",
     "definitions": [
      {
       "text": "health centres",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "Something ordered has been put into an arrangement chosen by somebody else, not the one it arrived in."
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Top grade",
-      "gives": "A",
-      "note": "the top grade awarded in an exam is an A"
-     },
-     {
-      "clueFragment": "rations",
-      "gives": "RATIONS",
-      "note": "anagram fodder, seven letters"
-     },
-     {
-      "clueFragment": "advanced",
-      "gives": "A",
-      "note": "a = advanced, as in the A-levels taken at eighteen in England and Wales"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "A RATIONS A",
-       "gives": "SANATORIA"
+       "text": "ordered",
+       "note": "Something ordered has been put into an arrangement chosen by somebody else, not the one it arrived in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Top grade",
+         "gives": "A",
+         "note": "the top grade awarded in an exam is an A"
+        },
+        {
+         "words": "rations",
+         "note": "anagram fodder, seven letters"
+        },
+        {
+         "words": "advanced",
+         "gives": "A",
+         "note": "a = advanced, as in the A-levels taken at eighteen in England and Wales"
+        }
+       ]
       }
      ]
     },
@@ -1733,41 +1533,36 @@
    },
    "solution": "FRILL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "FRILL",
     "definitions": [
      {
       "text": "Gathering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "A close is an ending, so this asks for the letter that finishes the word after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close to Gulf",
-      "gives": "F",
-      "select": "last",
-      "note": "the final letter of Gulf"
-     },
-     {
-      "clueFragment": "Stream",
-      "gives": "RILL",
-      "note": "a rill is a small stream or brook"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "A close is an ending, so this asks for the letter that finishes the word after it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to Gulf",
+         "gives": "GULF",
+         "note": "the final letter of Gulf"
+        }
+       ]
+      },
+      {
+       "words": "Stream",
+       "gives": "RILL",
+       "note": "a rill is a small stream or brook"
+      }
      ]
     },
     "explanation": {
@@ -1796,45 +1591,36 @@
    },
    "solution": "TAXFREE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAX-FREE",
     "definitions": [
      {
       "text": "as, say, kid's clothing is",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "charade",
-      "note": "What lies between two things has one on either side of it, so these letters take the middle position."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "t = tense, the grammarian's abbreviation"
-     },
-     {
-      "clueFragment": "A cross",
-      "gives": "AX",
-      "note": "a cross is the letter X, with the clue's own A in front of it"
-     },
-     {
-      "clueFragment": "loose",
-      "gives": "FREE",
-      "note": "an animal that is loose has got free of its pen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AX",
-      "FREE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "What lies between two things has one on either side of it, so these letters take the middle position."
+      }
+     ],
+     "parts": [
+      {
+       "words": "tense",
+       "gives": "T",
+       "note": "t = tense, the grammarian's abbreviation"
+      },
+      {
+       "words": "A cross",
+       "gives": "AX",
+       "note": "a cross is the letter X, with the clue's own A in front of it"
+      },
+      {
+       "words": "loose",
+       "gives": "FREE",
+       "note": "an animal that is loose has got free of its pen"
+      }
      ]
     },
     "explanation": {
@@ -1857,51 +1643,43 @@
    },
    "solution": "HERONRY",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "HERONRY",
     "definitions": [
      {
       "text": "fledgling colony",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "protecting",
-      "for": "container",
-      "note": "To protect something is to stand all round it, so the king's letters close over what comes next."
-     },
-     {
-      "text": "regressing",
-      "for": "reversal",
-      "note": "To regress is to go back the way you came, and in an across answer that means reading those letters right to left."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old king",
-      "gives": "HENRY",
-      "note": "eight English kings bore the name, which makes it the crossword's default old king"
-     },
-     {
-      "clueFragment": "(or regressing)",
-      "gives": "RO",
-      "note": "the little word 'or', read backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "RO",
-      "NRY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "HERONRY",
+     "indicators": [
       {
-       "from": "OR",
-       "to": "RO"
+       "text": "regressing",
+       "note": "To regress is to go back the way you came, and in an across answer that means reading those letters right to left."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "protecting",
+         "note": "To protect something is to stand all round it, so the king's letters close over what comes next."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old king",
+         "gives": "HENRY",
+         "note": "eight English kings bore the name, which makes it the crossword's default old king"
+        },
+        {
+         "words": "(or regressing)",
+         "gives": "RO",
+         "note": "the little word 'or', read backwards"
+        }
+       ]
       }
      ]
     },

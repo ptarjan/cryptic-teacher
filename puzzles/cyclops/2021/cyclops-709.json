@@ -1,8 +1,6 @@
 {
  "id": "cyclops-709",
  "number": 709,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 709",
  "setter": "Cyclops",
  "date": "2021-08-20",
  "dimensions": {
@@ -42,52 +40,45 @@
    },
    "solution": "INFORMAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "INFORMAL",
     "definitions": [
      {
       "text": "quite relaxed",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "ends",
-      "for": "letter_selection",
-      "note": "the ends of a phrase are its first and last letters, so only those two are kept"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue going up means reading the letters from bottom to top, backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Playing as well as ever",
-      "gives": "INFORM",
-      "note": "a player at their best is said to be in form"
-     },
-     {
-      "clueFragment": "Labour diva",
-      "gives": "LA",
-      "select": "outer",
-      "note": "the first letter of Labour and the last letter of diva"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INFORM",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LA",
-       "to": "AL"
+       "words": "Playing as well as ever",
+       "gives": "INFORM",
+       "note": "a player at their best is said to be in form"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue going up means reading the letters from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "ends",
+           "note": "the ends of a phrase are its first and last letters, so only those two are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Labour diva",
+           "note": "the first letter of Labour and the last letter of diva"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -117,39 +108,31 @@
    },
    "solution": "OPAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPAL",
     "definitions": [
      {
       "text": "stone",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "underneath",
-      "for": "charade",
-      "note": "in a down clue one piece sitting underneath another means it is written after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "a round shape is the letter O"
-     },
-     {
-      "clueFragment": "Mate",
-      "gives": "PAL",
-      "note": "a mate is a friend, a pal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "PAL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "underneath",
+       "note": "in a down clue one piece sitting underneath another means it is written after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "a round shape is the letter O"
+      },
+      {
+       "words": "Mate",
+       "gives": "PAL",
+       "note": "a mate is a friend, a pal"
+      }
      ]
     },
     "explanation": {
@@ -192,54 +175,40 @@
    },
    "solution": "HATPEG",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HATPEG",
     "definitions": [
      {
       "text": "put a cap on this?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Sneaking",
-      "for": "container",
-      "note": "sneaking something in means slipping it inside, so one piece goes into another"
-     },
-     {
-      "text": "wrongly",
-      "for": "anagram",
-      "note": "done wrongly means put in the wrong order, so these letters must be rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the GP",
-      "gives": "THEGP",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "one is the article A"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "A",
-      "TPEG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "THEGP",
-       "gives": "HTPEG"
+       "text": "Sneaking",
+       "note": "sneaking something in means slipping it inside, so one piece goes into another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrongly",
+         "note": "done wrongly means put in the wrong order, so these letters must be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the GP",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "one is the article A"
       }
      ]
     },
@@ -270,28 +239,16 @@
    },
    "solution": "DISPATCHES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DISPATCHES",
     "definitions": [
      {
       "text": "Kills off",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: puts to death quickly"
      },
      {
       "text": "official reports",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kills off",
-      "note": "first meaning: puts to death quickly"
-     },
-     {
-      "clueFragment": "official reports",
-      "note": "second meaning: formal messages sent back, as from a war front"
+      "at": 10,
+      "meaning": "second meaning: formal messages sent back, as from a war front"
      }
     ],
     "explanation": {
@@ -319,55 +276,44 @@
    },
    "solution": "STADIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "STADIA",
     "definitions": [
      {
       "text": "grounds",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the very end, so each word gives its final letter"
-     },
-     {
-      "text": "foreign",
-      "for": "anagram",
-      "note": "something foreign is strange and unfamiliar, so the letters come out in an unfamiliar order"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boris lost charisma",
-      "gives": "STA",
-      "select": "last",
-      "note": "the last letters of the three words"
-     },
-     {
-      "clueFragment": "aid",
-      "gives": "AID",
-      "note": "taken as written, as letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "DIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AID",
-       "gives": "DIA"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means at the very end, so each word gives its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boris lost charisma",
+         "note": "the last letters of the three words"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foreign",
+         "note": "something foreign is strange and unfamiliar, so the letters come out in an unfamiliar order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aid",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -397,51 +343,40 @@
    },
    "solution": "SCULPTOR",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SCULPTOR",
     "definitions": [
      {
       "text": "Hirst?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "kept by",
-      "for": "container",
-      "note": "what is kept by something is held within it, so one piece goes inside the other"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about can mean moved around, so these letters are turned about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "courts",
-      "gives": "COURTS",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "Old record",
-      "gives": "LP",
-      "note": "an LP, long-playing record, is the old vinyl album format"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCU",
-      "LP",
-      "TOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "COURTS",
-       "gives": "SCUTOR"
+       "text": "kept by",
+       "note": "what is kept by something is held within it, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about can mean moved around, so these letters are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "courts",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "Old record",
+       "gives": "LP",
+       "note": "an LP, long-playing record, is the old vinyl album format"
       }
      ]
     },
@@ -477,53 +412,40 @@
    },
    "solution": "TONUP",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TON-UP",
     "definitions": [
      {
       "text": "Speed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "sadly suggests things have gone wrong, so the letters are put in disorder"
-     },
-     {
-      "text": "connected with",
-      "for": "charade",
-      "note": "connected with means joined on, so one piece is attached to the next"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not",
-      "gives": "NOT",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "having an erection",
-      "gives": "UP",
-      "note": "standing up, erect"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TON",
-      "UP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "NOT",
-       "gives": "TON"
+       "text": "connected with",
+       "note": "connected with means joined on, so one piece is attached to the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "note": "sadly suggests things have gone wrong, so the letters are put in disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "having an erection",
+       "gives": "UP",
+       "note": "standing up, erect"
       }
      ]
     },
@@ -554,35 +476,25 @@
    },
    "solution": "TITCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TITCH",
     "definitions": [
      {
       "text": "a small one",
       "at": 18
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boob",
-      "gives": "TIT",
-      "note": "slang for a breast"
-     },
-     {
-      "clueFragment": "chaplain",
-      "gives": "CH",
-      "note": "CH is the abbreviation for chaplain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIT",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boob",
+       "gives": "TIT",
+       "note": "slang for a breast"
+      },
+      {
+       "words": "chaplain",
+       "gives": "CH",
+       "note": "CH is the abbreviation for chaplain"
+      }
      ]
     },
     "explanation": {
@@ -612,70 +524,66 @@
    },
    "solution": "REALISTIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "REALISTIC",
     "definitions": [
      {
       "text": "Practical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "application of",
-      "for": "anagram",
-      "note": "an application puts material to new use, so these letters are reworked into a fresh order"
-     },
-     {
-      "text": "to bind",
-      "for": "container",
-      "note": "to bind is to tie around, so one piece wraps another"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter, so only that one is kept"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means following, so the earlier piece in the clue is written later"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "knee-trembler",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "elastic",
-      "gives": "ELASTIC",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "one is the Roman numeral I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EAL",
-      "I",
-      "STIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "ELASTIC",
-       "gives": "EALSTIC"
+       "text": "after",
+       "note": "after means following, so the earlier piece in the clue is written later"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its last letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knee-trembler",
+         "note": "the final letter of the word"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to bind",
+         "note": "to bind is to tie around, so one piece wraps another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "application of",
+           "note": "an application puts material to new use, so these letters are reworked into a fresh order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "elastic",
+           "note": "taken as written, as letters to rearrange"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
       }
      ]
     },
@@ -712,51 +620,44 @@
    },
    "solution": "TOODLEPIP",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TOODLE-PIP",
     "definitions": [
      {
       "text": "I'll be off",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "spilling",
-      "for": "anagram",
-      "note": "spilling scatters things all over, so these letters land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unreasonably",
-      "gives": "TOO",
-      "note": "too means excessively, beyond what is reasonable"
-     },
-     {
-      "clueFragment": "led",
-      "gives": "LED",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "seed",
-      "gives": "PIP",
-      "note": "a pip is a small fruit seed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOO",
-      "DLE",
-      "PIP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LED",
-       "gives": "DLE"
+       "words": "Unreasonably",
+       "gives": "TOO",
+       "note": "too means excessively, beyond what is reasonable"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spilling",
+         "note": "spilling scatters things all over, so these letters land in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "led",
+           "note": "taken as written, as letters to rearrange"
+          },
+          {
+           "words": "seed",
+           "gives": "PIP",
+           "note": "a pip is a small fruit seed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -787,40 +688,31 @@
    },
    "solution": "PEDAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PEDAL",
     "definitions": [
      {
       "text": "On yer bike!",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something means ending up inside it, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "China",
-      "gives": "PAL",
-      "note": "rhyming slang: china plate means mate, a pal"
-     },
-     {
-      "clueFragment": "Hack",
-      "gives": "ED",
-      "note": "a hack is a journalist; ED is short for editor, another newspaper person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ED",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "going into something means ending up inside it, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China",
+       "gives": "PAL",
+       "note": "rhyming slang: china plate means mate, a pal"
+      },
+      {
+       "words": "Hack",
+       "gives": "ED",
+       "note": "a hack is a journalist; ED is short for editor, another newspaper person"
+      }
      ]
     },
     "explanation": {
@@ -854,56 +746,49 @@
     "14-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HUMAN RIGHTS ACT",
     "definitions": [
      {
       "text": "The government plans to diminish this",
       "at": 9
      }
     ],
-    "indicators": [
-     {
-      "text": "transaction",
-      "for": "anagram",
-      "note": "a transaction trades things around, so these letters change places"
-     },
-     {
-      "text": "to be confined in",
-      "for": "container",
-      "note": "being confined in a place means being shut up inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small, basic building",
-      "gives": "HUT",
-      "note": "a hut is a small, simple shelter"
-     },
-     {
-      "clueFragment": "migrant",
-      "gives": "MIGRANT",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "CASH",
-      "note": "taken as written, as letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HU",
-      "MANRIGHTSAC",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MIGRANTCASH",
-       "gives": "MANRIGHTSAC"
+       "text": "to be confined in",
+       "note": "being confined in a place means being shut up inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small, basic building",
+       "gives": "HUT",
+       "note": "a hut is a small, simple shelter"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transaction",
+         "note": "a transaction trades things around, so these letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "migrant",
+           "note": "taken as written, as letters to rearrange"
+          },
+          {
+           "words": "cash",
+           "note": "taken as written, as letters to rearrange"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -933,50 +818,44 @@
    },
    "solution": "NEGOTIATOR",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "NEGOTIATOR",
     "definitions": [
      {
       "text": "Barnier?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means tangled and complicated, so these letters are jumbled"
-     },
-     {
-      "text": "at the end",
-      "for": "letter_selection",
-      "note": "at the end points to the final letter of the word, which alone is kept"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A reign too",
-      "gives": "AREIGNTOO",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "Brexit",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AREIGNTOOT",
-       "gives": "NEGOTIATOR"
+       "text": "involved",
+       "note": "involved means tangled and complicated, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A reign too",
+         "note": "taken as written, as letters to rearrange"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at the end",
+           "note": "at the end points to the final letter of the word, which alone is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Brexit",
+           "note": "the last letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1032,36 +911,25 @@
    },
    "solution": "FALLGUY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FALL GUY",
     "definitions": [
      {
       "text": "a sucker",
       "at": 29
      }
     ],
-    "linkWords": [
-     "on",
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go down",
-      "gives": "FALL",
-      "note": "to fall is to go down"
-     },
-     {
-      "clueFragment": "former spy",
-      "gives": "GUY",
-      "note": "Guy Burgess, one of the Cambridge spies who defected to Moscow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FALL",
-      "GUY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Go down",
+       "gives": "FALL",
+       "note": "to fall is to go down"
+      },
+      {
+       "words": "former spy",
+       "gives": "GUY",
+       "note": "Guy Burgess, one of the Cambridge spies who defected to Moscow"
+      }
      ]
     },
     "explanation": {
@@ -1091,48 +959,34 @@
    },
    "solution": "FANATICS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FANATICS",
     "definitions": [
      {
       "text": "extremists",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "adapted",
-      "for": "anagram",
-      "note": "something adapted has been altered to fit, so these letters are changed in order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blow job machine",
-      "gives": "FAN",
-      "note": "a fan is a machine whose job is to blow air"
-     },
-     {
-      "clueFragment": "act is",
-      "gives": "ACTIS",
-      "note": "taken as written, as letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAN",
-      "ATICS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ACTIS",
-       "gives": "ATICS"
+       "words": "Blow job machine",
+       "gives": "FAN",
+       "note": "a fan is a machine whose job is to blow air"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adapted",
+         "note": "something adapted has been altered to fit, so these letters are changed in order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act is",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -1163,40 +1017,31 @@
    },
    "solution": "SCHOLAR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCHOLAR",
     "definitions": [
      {
       "text": "academic",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "crushing",
-      "for": "container",
-      "note": "crushing something means squeezing it in tight, so one piece is pressed inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "To do with the Sun",
-      "gives": "SOLAR",
-      "note": "solar means relating to the sun"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CH",
-      "OLAR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crushing",
+       "note": "crushing something means squeezing it in tight, so one piece is pressed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "To do with the Sun",
+       "gives": "SOLAR",
+       "note": "solar means relating to the sun"
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the abbreviation for church"
+      }
      ]
     },
     "explanation": {
@@ -1225,32 +1070,25 @@
    },
    "solution": "SUNBURNT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUNBURNT",
     "definitions": [
      {
       "text": "Brown?",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Tabloid",
-      "gives": "SUN",
-      "note": "The Sun is a British tabloid newspaper"
-     },
-     {
-      "clueFragment": "grilled",
-      "gives": "BURNT",
-      "note": "food grilled too long ends up burnt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "BURNT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tabloid",
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "words": "grilled",
+       "gives": "BURNT",
+       "note": "food grilled too long ends up burnt"
+      }
      ]
     },
     "explanation": {
@@ -1280,12 +1118,6 @@
    },
    "solution": "LEGALITY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LEGALITY",
     "definitions": [
      {
       "text": "It's only right",
@@ -1293,46 +1125,45 @@
       "note": "a phrase standing for the noun: what is lawful"
      }
     ],
-    "indicators": [
-     {
-      "text": "the extremes of",
-      "for": "letter_selection",
-      "note": "the extremes are the two outermost points, so only the first and last letters are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means sitting inside it, so one piece is placed within the other"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a member",
-      "gives": "LEG",
-      "note": "a leg is a limb, a member of the body"
-     },
-     {
-      "clueFragment": "agony",
-      "gives": "AY",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     },
-     {
-      "clueFragment": "turned on",
-      "gives": "LIT",
-      "note": "a lamp turned on is lit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEG",
-      "A",
-      "LIT",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a member",
+       "gives": "LEG",
+       "note": "a leg is a limb, a member of the body"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "being in something means sitting inside it, so one piece is placed within the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "the extremes of",
+           "note": "the extremes are the two outermost points, so only the first and last letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "agony",
+           "note": "the first and last letters of the word"
+          }
+         ]
+        },
+        {
+         "words": "turned on",
+         "gives": "LIT",
+         "note": "a lamp turned on is lit"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1362,54 +1193,44 @@
    },
    "solution": "NIGHTGOWN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NIGHTGOWN",
     "definitions": [
      {
       "text": "Retiring person's habit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing with",
-      "for": "anagram",
-      "note": "playing with something means fiddling with it, so these letters are moved about"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thing",
-      "gives": "THING",
-      "note": "taken as written, as letters to rearrange"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "admit",
-      "gives": "OWN",
-      "note": "to own up is to admit, so own means admit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGHT",
-      "G",
-      "OWN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THING",
-       "gives": "NIGHT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing with",
+         "note": "playing with something means fiddling with it, so these letters are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "thing",
+           "note": "taken as written, as letters to rearrange"
+          },
+          {
+           "words": "good",
+           "gives": "G",
+           "note": "G is the abbreviation for good"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "admit",
+       "gives": "OWN",
+       "note": "to own up is to admit, so own means admit"
       }
      ]
     },
@@ -1446,42 +1267,31 @@
    },
    "solution": "GOBUST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GO BUST",
     "definitions": [
      {
       "text": "lose all your money",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "taking on",
-      "for": "charade",
-      "note": "taking something on means adding it, so a second piece is joined after the first"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "gives": "GO",
-      "note": "to have a go is to try"
-     },
-     {
-      "clueFragment": "knockers",
-      "gives": "BUST",
-      "note": "knockers is slang for breasts, a bust"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "BUST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking on",
+       "note": "taking something on means adding it, so a second piece is joined after the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Try",
+       "gives": "GO",
+       "note": "to have a go is to try"
+      },
+      {
+       "words": "knockers",
+       "gives": "BUST",
+       "note": "knockers is slang for breasts, a bust"
+      }
      ]
     },
     "explanation": {
@@ -1511,49 +1321,37 @@
    },
    "solution": "ORCHID",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "ORCHID",
     "definitions": [
      {
       "text": "Spectacular bloomer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moving right not left",
-      "for": "substitution",
-      "note": "moving one way and not the other swaps the left-hand letter out for the right-hand one"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, the letter O"
-     },
-     {
-      "clueFragment": "child",
-      "gives": "CHILD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "CHID"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ORCHID",
+     "indicators": [
+      {
+       "text": "moving right not left",
+       "note": "moving one way and not the other swaps the left-hand letter out for the right-hand one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      },
+      {
+       "words": "child",
+       "note": "taken as written"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1583,47 +1381,35 @@
    },
    "solution": "SUGAR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SUGAR",
     "definitions": [
      {
       "text": "a sweetener",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "making a U-turn",
-      "for": "reversal",
-      "note": "a U-turn goes back the way it came, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taunt",
-      "gives": "RAG",
-      "note": "to rag is to tease or taunt"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUGAR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RAGUS",
-       "to": "SUGAR"
+       "text": "making a U-turn",
+       "note": "a U-turn goes back the way it came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Taunt",
+         "gives": "RAG",
+         "note": "to rag is to tease or taunt"
+        },
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US is short for American"
+        }
+       ]
       }
      ]
     },
@@ -1653,28 +1439,16 @@
    },
    "solution": "ROWER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROWER",
     "definitions": [
      {
       "text": "Crafty sportsperson",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an oarsman, whose sport uses a boat, a craft"
      },
      {
       "text": "argumentative type",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crafty sportsperson",
-      "note": "first meaning: an oarsman, whose sport uses a boat, a craft"
-     },
-     {
-      "clueFragment": "argumentative type",
-      "note": "second meaning: someone who rows, rhyming with cows, meaning quarrels"
+      "at": 21,
+      "meaning": "second meaning: someone who rows, rhyming with cows, meaning quarrels"
      }
     ],
     "explanation": {
@@ -1703,59 +1477,50 @@
    },
    "solution": "TIBIA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TIBIA",
     "definitions": [
      {
       "text": "bony member",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "folded back",
-      "for": "reversal",
-      "note": "folding something back turns it the other way, so the letters run backwards"
-     },
-     {
-      "text": "over",
-      "for": "container",
-      "note": "folded over something means wrapped around it, so those letters end up enclosed by the rest"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "small piece",
-      "gives": "BIT",
-      "note": "a bit is a small piece"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "one is the Roman numeral I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIB",
-      "I",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ABIT",
-       "to": "TIBA"
+       "text": "folded back",
+       "note": "folding something back turns it the other way, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "folded over something means wrapped around it, so those letters end up enclosed by the rest"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "note": "taken as written"
+          },
+          {
+           "words": "small piece",
+           "gives": "BIT",
+           "note": "a bit is a small piece"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
       }
      ]
     },
@@ -1792,35 +1557,25 @@
    },
    "solution": "CRUELBLOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CRUEL BLOW",
     "definitions": [
      {
       "text": "Particularly hard setback",
       "at": 0
      }
     ],
-    "linkWords": [
-     "caused by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "raw",
-      "gives": "CRUEL",
-      "note": "raw, as in a raw deal, means harsh or cruel"
-     },
-     {
-      "clueFragment": "cannabis",
-      "gives": "BLOW",
-      "note": "blow is a slang name for cannabis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRUEL",
-      "BLOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "raw",
+       "gives": "CRUEL",
+       "note": "raw, as in a raw deal, means harsh or cruel"
+      },
+      {
+       "words": "cannabis",
+       "gives": "BLOW",
+       "note": "blow is a slang name for cannabis"
+      }
      ]
     },
     "explanation": {
@@ -1853,11 +1608,6 @@
     "3-down"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LOST PROPERTY",
     "definitions": [
      {
       "text": "as an owner might claim",
@@ -1865,40 +1615,40 @@
       "note": "the thing an owner claims, not a verb phrase"
      }
     ],
-    "indicators": [
-     {
-      "text": "gutless",
-      "for": "deletion",
-      "note": "without guts means with the inside removed, so only the outer letters stay"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Abandoned",
-      "gives": "LOST",
-      "note": "something abandoned is gone, mislaid"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "PROPER",
-      "note": "proper means right, correct"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "TY",
-      "note": "a Tory politician, emptied of its middle letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOST",
-      "PROPER",
-      "TY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOSTPROPERTY",
+     "indicators": [
+      {
+       "text": "gutless",
+       "note": "without guts means with the inside removed, so only the outer letters stay"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Abandoned",
+         "gives": "LOST",
+         "note": "something abandoned is gone, mislaid"
+        },
+        {
+         "words": "right",
+         "gives": "PROPER",
+         "note": "proper means right, correct"
+        },
+        {
+         "words": "politician",
+         "gives": "TY",
+         "note": "a Tory politician, emptied of its middle letters"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "LOST PROPERTY",
     "explanation": {
      "surface": "A gutless politician leaves something behind, and its owner declares it was abandoned.",
      "walkthrough": "Tory is the everyday name for a British Conservative. The definition works as a cryptic hint: owners claim back their things from a lost property office.",
@@ -1926,35 +1676,24 @@
    },
    "solution": "CUSTODIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CUSTODIAN",
     "definitions": [
      {
       "text": "Conservative type",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "organised",
-      "for": "anagram",
-      "note": "organised means put into order, so these letters are arranged afresh"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a discount",
-      "gives": "ADISCOUNT",
-      "note": "taken as written, as letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ADISCOUNT",
-       "gives": "CUSTODIAN"
+       "text": "organised",
+       "note": "organised means put into order, so these letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a discount",
+       "note": "taken as written, as letters to rearrange"
       }
      ]
     },
@@ -1985,32 +1724,25 @@
    },
    "solution": "SATYR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATYR",
     "definitions": [
      {
       "text": "Lecherous male",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "rested",
-      "gives": "SAT",
-      "note": "to sit down is to rest"
-     },
-     {
-      "clueFragment": "a short time",
-      "gives": "YR",
-      "note": "YR is the shortened form of year, a span of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "YR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rested",
+       "gives": "SAT",
+       "note": "to sit down is to rest"
+      },
+      {
+       "words": "a short time",
+       "gives": "YR",
+       "note": "YR is the shortened form of year, a span of time"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "genius-264",
  "number": 264,
- "series": "genius",
- "name": "Guardian genius crossword No 264",
  "setter": "Pangakupu",
  "date": "2025-06-02",
  "preamble": "Six answers are modified, with one part of each replaced by itself. Their clues are presented in ascending order so that none is entered in the numbered space indicated. Wordplay in each remaining clue gives an extra letter; these spell out the nature of the replacement. Lengths in brackets indicate the number of spaces to be filled at that number; hyphenation and indications such as ‘7 words’ are omitted.",
@@ -61,28 +59,18 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SERVICDSHARP",
     "definedByPreamble": true,
-    "linkWords": [
-     "Poor athlete cut muscle going round deserted part of estuary"
-    ],
-    "blocks": [
-     {
-      "gives": "SERVIC",
-      "note": "the opening letters of the answer clued at 29 across, kept as they are"
-     },
-     {
-      "gives": "EFLAT",
-      "note": "the note E flat ends the answer; the grid holds its twin D sharp instead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SERVIC",
-      "EFLAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "SERVIC",
+       "note": "the opening letters of the answer clued at 29 across, kept as they are"
+      },
+      {
+       "gives": "EFLAT",
+       "note": "the note E flat ends the answer; the grid holds its twin D sharp instead"
+      }
      ]
     },
     "explanation": {
@@ -111,46 +99,57 @@
    },
    "solution": "EYE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "deletion"
-    ],
-    "answer": "EYE",
     "definitions": [
      {
       "text": "Observe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the old article goes in the middle letters"
-     },
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a word is its inner letters, here the pair at its centre"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "week",
-      "gives": "EE",
-      "select": "middle",
-      "note": "only its middle two letters are used"
-     },
-     {
-      "clueFragment": "old article",
-      "gives": "YE",
-      "note": "ye is the old form of the, as in Ye Olde Tea Shoppe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EYE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EYE",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "EYE",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the old article goes in the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "EYE",
+         "parts": [
+          {
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "middle of",
+             "note": "the middle of a word is its inner letters, here the pair at its centre"
+            }
+           ],
+           "parts": [
+            {
+             "words": "week",
+             "note": "only its middle two letters are used"
+            }
+           ]
+          },
+          {
+           "words": "old article",
+           "gives": "YE",
+           "note": "ye is the old form of the, as in Ye Olde Tea Shoppe"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -183,39 +182,41 @@
    },
    "solution": "VITUPERATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "VITUPERATE",
     "definitions": [
      {
       "text": "reproach",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Unexpectedly",
-      "for": "anagram",
-      "note": "letters falling out unexpectedly come in a surprising new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quite private, avoiding one",
-      "gives": "QUTEPRIVATE",
-      "note": "the letters of these two words without one I, I being the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VITUPERATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VITUPERATE",
+     "parts": [
       {
-       "fodder": "UTEPRIVATE",
-       "gives": "VITUPERATE"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "VITUPERATE",
+       "indicators": [
+        {
+         "text": "Unexpectedly",
+         "note": "letters falling out unexpectedly come in a surprising new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "VITUPERATE",
+         "parts": [
+          {
+           "words": "quite private, avoiding one",
+           "gives": "QUTEPRIVATE",
+           "note": "the letters of these two words without one I, I being the Roman numeral for one"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -249,37 +250,34 @@
    },
    "solution": "CUSP",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CUSP",
     "definitions": [
      {
       "text": "point",
       "at": 27
      }
     ],
-    "linkWords": [
-     "with",
-     "making a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup is to drink in small mouthfuls"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "SP"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CUSP",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "CUSP",
+       "parts": [
+        {
+         "words": "Copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        },
+        {
+         "words": "drink",
+         "gives": "SUP",
+         "note": "to sup is to drink in small mouthfuls"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -313,39 +311,40 @@
    },
    "solution": "SPONTANEOUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SPONTANEOUS",
     "definitions": [
      {
       "text": "without prompting",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "burgeoning",
-      "for": "anagram",
-      "note": "plants burgeoning burst out and spread, so the letters break into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Petunias soon",
-      "gives": "PETUNIASSOON",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPONTANEOUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SPONTANEOUS",
+     "parts": [
       {
-       "fodder": "PETUNASSOON",
-       "gives": "SPONTANEOUS"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "SPONTANEOUS",
+       "indicators": [
+        {
+         "text": "burgeoning",
+         "note": "plants burgeoning burst out and spread, so the letters break into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "SPONTANEOUS",
+         "parts": [
+          {
+           "words": "Petunias soon",
+           "note": "the letters to be rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -379,50 +378,56 @@
    },
    "solution": "APRIORI",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "APRIORI",
     "definitions": [
      {
       "text": "from an original position",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "through",
-      "for": "container",
-      "note": "the river and runs pass through the other word, so they go inside it"
-     },
-     {
-      "text": "surroundings",
-      "for": "container",
-      "note": "the shortened flat word forms the surroundings that enclose them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "largely flat",
-      "gives": "VAPI",
-      "note": "vapid means flat and dull, as in a vapid remark; largely, most of it, drops the last letter"
-     },
-     {
-      "clueFragment": "Spanish river",
-      "gives": "RIO",
-      "note": "rio is Spanish for river"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APRIORI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "APRIORI",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "APRIORI",
+       "indicators": [
+        {
+         "text": "through",
+         "note": "the river and runs pass through the other word, so they go inside it"
+        },
+        {
+         "text": "surroundings",
+         "note": "the shortened flat word forms the surroundings that enclose them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "APRIORI",
+         "parts": [
+          {
+           "words": "largely flat",
+           "gives": "VAPI",
+           "note": "vapid means flat and dull, as in a vapid remark; largely, most of it, drops the last letter"
+          },
+          {
+           "words": "Spanish river",
+           "gives": "RIO",
+           "note": "rio is Spanish for river"
+          },
+          {
+           "words": "runs",
+           "gives": "R",
+           "note": "R is the cricket abbreviation for runs"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -455,45 +460,46 @@
    },
    "solution": "PREY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "PREY",
     "definitions": [
      {
       "text": "One pursued",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after upheaval",
-      "for": "anagram",
-      "note": "after an upheaval things are thrown into disorder, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p, piano, is the musical direction to play quietly"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "YEAR",
-      "note": "a year is a span of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PREY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PREY",
+     "parts": [
       {
-       "fodder": "PYER",
-       "gives": "PREY"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "PREY",
+       "indicators": [
+        {
+         "text": "after upheaval",
+         "note": "after an upheaval things are thrown into disorder, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "PREY",
+         "parts": [
+          {
+           "words": "quiet",
+           "gives": "P",
+           "note": "p, piano, is the musical direction to play quietly"
+          },
+          {
+           "words": "time",
+           "gives": "YEAR",
+           "note": "a year is a span of time"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -527,53 +533,59 @@
    },
    "solution": "PRESTO",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "deletion"
-    ],
-    "answer": "PRESTO",
     "definitions": [
      {
       "text": "Quickly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, up means the word is read from the bottom, backwards"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the reversed word goes about the others, holding them inside"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut",
-      "gives": "LOP",
-      "note": "to lop is to cut off"
-     },
-     {
-      "clueFragment": "others",
-      "gives": "REST",
-      "note": "the rest are the others"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRESTO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PRESTO",
+     "parts": [
       {
-       "from": "LOP",
-       "to": "POL"
+       "op": "container",
+       "unchecked": true,
+       "gives": "PRESTO",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the reversed word goes about the others, holding them inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "unchecked": true,
+         "gives": "PRESTO",
+         "indicators": [
+          {
+           "text": "up",
+           "note": "in a down answer, up means the word is read from the bottom, backwards"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "unchecked": true,
+           "gives": "PRESTO",
+           "parts": [
+            {
+             "words": "cut",
+             "gives": "LOP",
+             "note": "to lop is to cut off"
+            },
+            {
+             "words": "others",
+             "gives": "REST",
+             "note": "the rest are the others"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -607,33 +619,34 @@
    },
    "solution": "CORRECT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CORRECT",
     "definitions": [
      {
       "text": "right",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Heart",
-      "gives": "CORE",
-      "note": "the core of something is its heart"
-     },
-     {
-      "clueFragment": "muscle bumping us off",
-      "gives": "RECT",
-      "note": "the rectus is a straight muscle, as in the abdomen's rectus abdominis; bumping US off it leaves RECT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "RECT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CORRECT",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "CORRECT",
+       "parts": [
+        {
+         "words": "Heart",
+         "gives": "CORE",
+         "note": "the core of something is its heart"
+        },
+        {
+         "words": "muscle bumping us off",
+         "gives": "RECT",
+         "note": "the rectus is a straight muscle, as in the abdomen's rectus abdominis; bumping US off it leaves RECT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -678,28 +691,18 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAREFLAT",
     "definedByPreamble": true,
-    "linkWords": [
-     "What inspires a lot of bother about motoring problem"
-    ],
-    "blocks": [
-     {
-      "gives": "CAR",
-      "note": "the opening letters of the answer clued at 11 across, kept as they are"
-     },
-     {
-      "gives": "DSHARP",
-      "note": "the note D sharp ends the answer; the grid holds its twin E flat instead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "DSHARP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "CAR",
+       "note": "the opening letters of the answer clued at 11 across, kept as they are"
+      },
+      {
+       "gives": "DSHARP",
+       "note": "the note D sharp ends the answer; the grid holds its twin E flat instead"
+      }
      ]
     },
     "explanation": {
@@ -728,48 +731,52 @@
    },
    "solution": "SCOURGE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "SCOURGE",
     "definitions": [
      {
       "text": "affliction",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "one word goes about the other, enclosing the constant's letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disagreeable",
-      "gives": "SOUR",
-      "note": "a sour person is disagreeable"
-     },
-     {
-      "clueFragment": "constant",
-      "gives": "C",
-      "note": "C is the symbol for a constant, such as the speed of light"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "GEN",
-      "note": "gen is British slang for information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "OUR",
-      "GE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SCOURGE",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "SCOURGE",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "one word goes about the other, enclosing the constant's letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "SCOURGE",
+         "parts": [
+          {
+           "words": "Disagreeable",
+           "gives": "SOUR",
+           "note": "a sour person is disagreeable"
+          },
+          {
+           "words": "constant",
+           "gives": "C",
+           "note": "C is the symbol for a constant, such as the speed of light"
+          },
+          {
+           "words": "information",
+           "gives": "GEN",
+           "note": "gen is British slang for information"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -814,33 +821,22 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RDSHARPE",
     "definedByPreamble": true,
-    "linkWords": [
-     "Rotters circling right player in orchestra, one playing dodgily"
-    ],
-    "blocks": [
-     {
-      "gives": "R",
-      "note": "the first letter of the answer clued at 23 across"
-     },
-     {
-      "gives": "EFLAT",
-      "note": "the note E flat sits in the middle of the answer; the grid holds its twin D sharp instead"
-     },
-     {
-      "gives": "E",
-      "note": "the final letter, kept as it is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EFLAT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "R",
+       "note": "the first letter of the answer clued at 23 across"
+      },
+      {
+       "gives": "EFLAT",
+       "note": "the note E flat sits in the middle of the answer; the grid holds its twin D sharp instead"
+      },
+      {
+       "gives": "E",
+       "note": "the final letter, kept as it is"
+      }
      ]
     },
     "explanation": {
@@ -881,33 +877,22 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AENATURALUS",
     "definedByPreamble": true,
-    "linkWords": [
-     "Flag waving in Establishment shows poor economic conditions"
-    ],
-    "blocks": [
-     {
-      "gives": "A",
-      "note": "the first letter of the answer clued at 9 down, kept as it is"
-     },
-     {
-      "gives": "FFLAT",
-      "note": "the note F flat sits in the middle of the answer; the grid holds its twin E natural instead"
-     },
-     {
-      "gives": "US",
-      "note": "the closing letters, kept as they are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "FFLAT",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "A",
+       "note": "the first letter of the answer clued at 9 down, kept as it is"
+      },
+      {
+       "gives": "FFLAT",
+       "note": "the note F flat sits in the middle of the answer; the grid holds its twin E natural instead"
+      },
+      {
+       "gives": "US",
+       "note": "the closing letters, kept as they are"
+      }
      ]
     },
     "explanation": {
@@ -936,26 +921,29 @@
    },
    "solution": "TROT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TROT",
     "definitions": [
      {
       "text": "Communist",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "promise",
-      "gives": "TROTH",
-      "note": "troth is an old word for a pledge, as in plighting one's troth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TROT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TROT",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "TROT",
+       "parts": [
+        {
+         "words": "promise",
+         "gives": "TROTH",
+         "note": "troth is an old word for a pledge, as in plighting one's troth"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -986,39 +974,40 @@
    },
    "solution": "STIRRUPCUP",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "STIRRUPCUP",
     "definitions": [
      {
       "text": "Something for departing rider?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being repaired",
-      "for": "anagram",
-      "note": "something being repaired is put back together, so these letters are reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Picture spur",
-      "gives": "PICTURESPUR",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STIRRUPCUP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STIRRUPCUP",
+     "parts": [
       {
-       "fodder": "PICTURSPUR",
-       "gives": "STIRRUPCUP"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "STIRRUPCUP",
+       "indicators": [
+        {
+         "text": "being repaired",
+         "note": "something being repaired is put back together, so these letters are reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "STIRRUPCUP",
+         "parts": [
+          {
+           "words": "Picture spur",
+           "note": "the letters to be rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1052,36 +1041,34 @@
    },
    "solution": "DECREPIT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DECREPIT",
     "definitions": [
      {
       "text": "wretched",
       "at": 38
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Most of regulation",
-      "gives": "DECRE",
-      "note": "a decree is an official order or regulation; most of it is all but its last letter"
-     },
-     {
-      "clueFragment": "measure of beer",
-      "gives": "PINT",
-      "note": "a pint is the standard measure for a glass of beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECRE",
-      "PIT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DECREPIT",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "DECREPIT",
+       "parts": [
+        {
+         "words": "Most of regulation",
+         "gives": "DECRE",
+         "note": "a decree is an official order or regulation; most of it is all but its last letter"
+        },
+        {
+         "words": "measure of beer",
+         "gives": "PINT",
+         "note": "a pint is the standard measure for a glass of beer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1114,42 +1101,47 @@
    },
    "solution": "FROWN",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "FROWN",
     "definitions": [
      {
       "text": "look gloomy",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "the supporter takes the argument inside itself"
-     }
-    ],
-    "linkWords": [
-     "is to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Supporter",
-      "gives": "FAN",
-      "note": "a fan supports a team or a star"
-     },
-     {
-      "clueFragment": "argument",
-      "gives": "ROW",
-      "note": "a row is a noisy argument"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FROWN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FROWN",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "FROWN",
+       "indicators": [
+        {
+         "text": "taking in",
+         "note": "the supporter takes the argument inside itself"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "FROWN",
+         "parts": [
+          {
+           "words": "Supporter",
+           "gives": "FAN",
+           "note": "a fan supports a team or a star"
+          },
+          {
+           "words": "argument",
+           "gives": "ROW",
+           "note": "a row is a noisy argument"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1182,42 +1174,40 @@
    },
    "solution": "RETENTIVE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RETENTIVE",
     "definitions": [
      {
       "text": "Having a good memory",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in crisis",
-      "for": "anagram",
-      "note": "letters in crisis are thrown into disorder, so they are rearranged"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "never trite",
-      "gives": "NEVERTRITE",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETENTIVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RETENTIVE",
+     "parts": [
       {
-       "fodder": "NEVERTITE",
-       "gives": "RETENTIVE"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "RETENTIVE",
+       "indicators": [
+        {
+         "text": "in crisis",
+         "note": "letters in crisis are thrown into disorder, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "RETENTIVE",
+         "parts": [
+          {
+           "words": "never trite",
+           "note": "the letters to be rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1251,39 +1241,39 @@
    },
    "solution": "ANNOTATOR",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ANNOTATOR",
     "definitions": [
      {
       "text": "one comments",
       "at": 38
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Soldier",
-      "gives": "MAN",
-      "note": "a man is a private soldier, as in officers and men"
-     },
-     {
-      "clueFragment": "not attending",
-      "gives": "NOTAT",
-      "note": "not at, as in not at the meeting"
-     },
-     {
-      "clueFragment": "other soldiers",
-      "gives": "OR",
-      "note": "OR is short for other ranks, soldiers who are not officers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "NOTAT",
-      "OR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANNOTATOR",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "ANNOTATOR",
+       "parts": [
+        {
+         "words": "Soldier",
+         "gives": "MAN",
+         "note": "a man is a private soldier, as in officers and men"
+        },
+        {
+         "words": "not attending",
+         "gives": "NOTAT",
+         "note": "not at, as in not at the meeting"
+        },
+        {
+         "words": "other soldiers",
+         "gives": "OR",
+         "note": "OR is short for other ranks, soldiers who are not officers"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1316,46 +1306,44 @@
    },
    "solution": "NOVELLA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NOVELLA",
     "definitions": [
      {
       "text": "story",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "After",
-      "for": "charade",
-      "note": "the narrating piece comes after the month"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a month",
-      "gives": "NOV",
-      "note": "Nov is the calendar abbreviation for November"
-     },
-     {
-      "clueFragment": "narrate",
-      "gives": "TELL",
-      "note": "to tell a tale is to narrate it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOV",
-      "ELL",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NOVELLA",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "NOVELLA",
+       "indicators": [
+        {
+         "text": "After",
+         "note": "the narrating piece comes after the month"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a month",
+         "gives": "NOV",
+         "note": "Nov is the calendar abbreviation for November"
+        },
+        {
+         "words": "narrate",
+         "gives": "TELL",
+         "note": "to tell a tale is to narrate it"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1387,48 +1375,49 @@
    },
    "solution": "OFFER",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OFFER",
     "definitions": [
      {
       "text": "Suggestion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "source of",
-      "for": "letter_selection",
-      "note": "the source of a word is where it starts, so its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "from",
-      "gives": "OF",
-      "note": "of can mean from, as in a man of Kent"
-     },
-     {
-      "clueFragment": "enemy's",
-      "gives": "FOE",
-      "note": "a foe is an enemy; the 's joins it to what follows"
-     },
-     {
-      "clueFragment": "reconciliation",
-      "gives": "R",
-      "select": "first",
-      "note": "only the first letter is used"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OF",
-      "FE",
-      "R"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OFFER",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "OFFER",
+       "parts": [
+        {
+         "words": "from",
+         "gives": "OF",
+         "note": "of can mean from, as in a man of Kent"
+        },
+        {
+         "words": "enemy's",
+         "gives": "FOE",
+         "note": "a foe is an enemy; the 's joins it to what follows"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "note": "the source of a word is where it starts, so its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reconciliation",
+           "note": "only the first letter is used"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1461,33 +1450,34 @@
    },
    "solution": "FRAPPE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "FRAPPE",
     "definitions": [
      {
       "text": "chill",
       "at": 49
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fortepiano",
-      "gives": "FP",
-      "note": "fp is the musical marking fortepiano: loud, then at once soft"
-     },
-     {
-      "clueFragment": "mostly performed musical monologues",
-      "gives": "RAPPE",
-      "note": "rapping is a solo spoken performance over a beat, so rapped; mostly drops its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RAPPE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FRAPPE",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "FRAPPE",
+       "parts": [
+        {
+         "words": "Fortepiano",
+         "gives": "FP",
+         "note": "fp is the musical marking fortepiano: loud, then at once soft"
+        },
+        {
+         "words": "mostly performed musical monologues",
+         "gives": "RAPPE",
+         "note": "rapping is a solo spoken performance over a beat, so rapped; mostly drops its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1520,33 +1510,33 @@
    },
    "solution": "AVER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "AVER",
     "definitions": [
      {
       "text": "state",
       "at": 40
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "French writer spurning latest English",
-      "gives": "VERN",
-      "note": "Jules Verne, the French author, spurns his final letter, E for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AVER",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "AVER",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "French writer spurning latest English",
+         "gives": "VERN",
+         "note": "Jules Verne, the French author, spurns his final letter, E for English"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1591,28 +1581,18 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MUCSHARP",
     "definedByPreamble": true,
-    "linkWords": [
-     "Official not in time to increase amount of currency etc"
-    ],
-    "blocks": [
-     {
-      "gives": "MU",
-      "note": "the opening letters of the answer clued at 1 across, kept as they are"
-     },
-     {
-      "gives": "DFLAT",
-      "note": "the note D flat ends the answer; the grid holds its twin C sharp instead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "DFLAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "MU",
+       "note": "the opening letters of the answer clued at 1 across, kept as they are"
+      },
+      {
+       "gives": "DFLAT",
+       "note": "the note D flat ends the answer; the grid holds its twin C sharp instead"
+      }
      ]
     },
     "explanation": {
@@ -1641,46 +1621,45 @@
    },
    "solution": "AGES",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "AGES",
     "definitions": [
      {
       "text": "for a long time",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down answer, rising means read from the bottom up, so backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "sea",
-      "gives": "SEA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "ES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AGES",
+     "parts": [
       {
-       "from": "SEA",
-       "to": "AES"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "AGES",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down answer, rising means read from the bottom up, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "AGES",
+         "parts": [
+          {
+           "words": "Silver",
+           "gives": "AG",
+           "note": "Ag is the chemical symbol for silver"
+          },
+          {
+           "words": "sea",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1714,46 +1693,46 @@
    },
    "solution": "CODA",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "CODA",
     "definitions": [
      {
       "text": "final element",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down answer, upset means turned upside down, so read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One refusing to fight",
-      "gives": "CO",
-      "note": "CO is short for conscientious objector"
-     },
-     {
-      "clueFragment": "auxiliary",
-      "gives": "AID",
-      "note": "an aid is an auxiliary, a helper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "DA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CODA",
+     "parts": [
       {
-       "from": "AID",
-       "to": "DIA"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "CODA",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "in a down answer, upset means turned upside down, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "CODA",
+         "parts": [
+          {
+           "words": "One refusing to fight",
+           "gives": "CO",
+           "note": "CO is short for conscientious objector"
+          },
+          {
+           "words": "auxiliary",
+           "gives": "AID",
+           "note": "an aid is an auxiliary, a helper"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1787,36 +1766,34 @@
    },
    "solution": "GALILEO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GALILEO",
     "definitions": [
      {
       "text": "Astronomer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Biblical region shortened",
-      "gives": "GALILE",
-      "note": "Galilee, the region of Israel where much of the Gospels is set, cut short by its last letter"
-     },
-     {
-      "clueFragment": "invocation",
-      "gives": "IO",
-      "note": "io is a Greek and Latin cry calling on a god, an invocation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GALILE",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GALILEO",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "GALILEO",
+       "parts": [
+        {
+         "words": "Biblical region shortened",
+         "gives": "GALILE",
+         "note": "Galilee, the region of Israel where much of the Gospels is set, cut short by its last letter"
+        },
+        {
+         "words": "invocation",
+         "gives": "IO",
+         "note": "io is a Greek and Latin cry calling on a god, an invocation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1849,52 +1826,51 @@
    },
    "solution": "COALPIT",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "COALPIT",
     "definitions": [
      {
       "text": "Mine",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "invaded by",
-      "for": "container",
-      "note": "the pass is invaded, so the letter goes inside it"
-     }
-    ],
-    "linkWords": [
-     "'",
-     "'"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pass",
-      "gives": "COL",
-      "note": "a col is a mountain pass"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "former Scottish resident",
-      "gives": "PICT",
-      "note": "the Picts lived in what is now Scotland before the Scots"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "A",
-      "L",
-      "PIT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "COALPIT",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "COALPIT",
+       "indicators": [
+        {
+         "text": "invaded by",
+         "note": "the pass is invaded, so the letter goes inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "unchecked": true,
+         "gives": "COALPIT",
+         "parts": [
+          {
+           "words": "Pass",
+           "gives": "COL",
+           "note": "a col is a mountain pass"
+          },
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "former Scottish resident",
+           "gives": "PICT",
+           "note": "the Picts lived in what is now Scotland before the Scots"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1928,26 +1904,29 @@
    },
    "solution": "ADO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ADO",
     "definitions": [
      {
       "text": "trouble",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Broadcast medium dismissing current",
-      "gives": "RADO",
-      "note": "radio is a broadcasting medium; it dismisses I, the symbol for electric current"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADO"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ADO",
+     "parts": [
+      {
+       "op": "charade",
+       "unchecked": true,
+       "gives": "ADO",
+       "parts": [
+        {
+         "words": "Broadcast medium dismissing current",
+         "gives": "RADO",
+         "note": "radio is a broadcasting medium; it dismisses I, the symbol for electric current"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1992,33 +1971,22 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAFSHARPION",
     "definedByPreamble": true,
-    "linkWords": [
-     "Falters, unsettled about wrong housing for staff"
-    ],
-    "blocks": [
-     {
-      "gives": "STA",
-      "note": "the opening letters of the answer clued at 12 down, kept as they are"
-     },
-     {
-      "gives": "GFLAT",
-      "note": "the note G flat sits in the middle of the answer; the grid holds its twin F sharp instead"
-     },
-     {
-      "gives": "ION",
-      "note": "the closing letters, kept as they are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "GFLAT",
-      "ION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "STA",
+       "note": "the opening letters of the answer clued at 12 down, kept as they are"
+      },
+      {
+       "gives": "GFLAT",
+       "note": "the note G flat sits in the middle of the answer; the grid holds its twin F sharp instead"
+      },
+      {
+       "gives": "ION",
+       "note": "the closing letters, kept as they are"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "quiptic-723",
  "number": 723,
- "series": "quiptic",
- "name": "Quiptic crossword No 723",
  "setter": "Moley",
  "date": "2013-09-23",
  "dimensions": {
@@ -44,26 +42,25 @@
    },
    "solution": "ABSOLUTEZERO",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ABSOLUTE ZERO",
     "definitions": [
      {
       "text": "O Kelvin, it's cold!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "O Kelvin",
-      "note": "surface reading: a cheery remark addressed to someone named Kelvin about the weather"
-     },
-     {
-      "clueFragment": "it's cold!",
-      "note": "setter's reading: zero on the Kelvin scale, the coldest temperature possible"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "O Kelvin",
+       "note": "surface reading: a cheery remark addressed to someone named Kelvin about the weather"
+      },
+      {
+       "words": "it's cold!",
+       "note": "setter's reading: zero on the Kelvin scale, the coldest temperature possible"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The O looks like an exclamation to a person called Kelvin; it stands for the figure 0 on the Kelvin temperature scale.",
      "definitionFit": "Absolute zero is the theoretical lowest temperature, defined as nought on the Kelvin scale."
@@ -90,45 +87,34 @@
    },
    "solution": "ALMANAC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ALMANAC",
     "definitions": [
      {
       "text": "annual workbook",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "to return is to go back the way you came, so the word before it is read from its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The woman",
-      "gives": "ALMA",
-      "note": "taken as a woman's name, Alma"
-     },
-     {
-      "clueFragment": "can",
-      "gives": "CAN",
-      "note": "taken as written, then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALMA",
-      "NAC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAN",
-       "to": "NAC"
+       "words": "The woman",
+       "gives": "ALMA",
+       "note": "taken as a woman's name, Alma"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "to return is to go back the way you came, so the word before it is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "note": "taken as written, then turned round"
+        }
+       ]
       }
      ]
     },
@@ -158,52 +144,44 @@
    },
    "solution": "SPOILED",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SPOILED",
     "definitions": [
      {
       "text": "Ruined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "but not hard",
-      "for": "deletion",
-      "note": "not means without, so the letter standing for hard is taken out"
-     },
-     {
-      "text": "carelessly",
-      "for": "anagram",
-      "note": "done carelessly, the letters fall out of their proper order"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "polished",
-      "gives": "POLISHED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the pencil-grade abbreviation for hard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPOILED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SPOILED",
+     "indicators": [
       {
-       "fodder": "POLISED",
-       "gives": "SPOILED"
+       "text": "carelessly",
+       "note": "done carelessly, the letters fall out of their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SPOILED",
+       "indicators": [
+        {
+         "text": "but not hard",
+         "note": "not means without, so the letter standing for hard is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polished",
+         "note": "taken as written"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the pencil-grade abbreviation for hard"
+        }
+       ]
       }
      ]
     },
@@ -232,34 +210,38 @@
    },
    "solution": "LANDSLIDE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LANDSLIDE",
     "definitions": [
      {
       "text": "Cliff fall",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits inside the run of words that follows this little word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Iceland slid eventually",
-      "gives": "LANDSLIDE",
-      "note": "the letters run from the middle of the first word across the second into the start of the third"
-     },
-     {
-      "clueFragment": "into the sea",
-      "note": "surface padding that completes the picture of a coastal collapse"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the answer sits inside the run of words that follows this little word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Iceland slid eventually",
+         "gives": "LANDSLIDE",
+         "note": "the letters run from the middle of the first word across the second into the start of the third"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "into the sea",
+       "note": "surface padding that completes the picture of a coastal collapse"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Part of a cliff in Iceland gave way and slipped into the sea.",
      "walkthrough": "The closing words into the sea complete the picture of a coastal collapse and add nothing to the wordplay.",
@@ -285,31 +267,16 @@
    },
    "solution": "TACIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TACIT",
     "definitions": [
      {
       "text": "Taken for granted",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: assumed without being stated"
      },
      {
       "text": "understood",
-      "at": 23
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taken for granted",
-      "note": "first meaning: assumed without being stated"
-     },
-     {
-      "clueFragment": "understood",
-      "note": "second meaning: implied rather than spoken aloud"
+      "at": 23,
+      "meaning": "second meaning: implied rather than spoken aloud"
      }
     ],
     "explanation": {
@@ -337,43 +304,37 @@
    },
    "solution": "ZEALOUS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ZEALOUS",
     "definitions": [
      {
       "text": "Keen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves as last character's taken on",
-      "for": "substitution",
-      "note": "one letter departs and another is brought in to fill its place"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jealous",
-      "gives": "JEALOUS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "judge",
-      "gives": "J",
-      "note": "J is the abbreviation for judge, and it is the letter that leaves"
-     },
-     {
-      "clueFragment": "last character",
-      "gives": "Z",
-      "note": "Z is the last letter of the alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZEALOUS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ZEALOUS",
+     "indicators": [
+      {
+       "text": "leaves as last character's taken on",
+       "note": "one letter departs and another is brought in to fill its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jealous",
+       "note": "taken as written"
+      },
+      {
+       "words": "judge",
+       "gives": "J",
+       "note": "J is the abbreviation for judge, and it is the letter that leaves"
+      },
+      {
+       "words": "last character",
+       "gives": "Z",
+       "note": "Z is the last letter of the alphabet"
+      }
      ]
     },
     "explanation": {
@@ -402,38 +363,24 @@
    },
    "solution": "REGALIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REGALIA",
     "definitions": [
      {
       "text": "Finery",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints that the word is only a possible version of itself, its letters in some other order"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Algeria",
-      "gives": "ALGERIA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALGERIA",
-       "gives": "REGALIA"
+       "text": "perhaps",
+       "note": "perhaps hints that the word is only a possible version of itself, its letters in some other order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Algeria",
+       "note": "taken as written"
       }
      ]
     },
@@ -462,56 +409,49 @@
    },
    "solution": "PLANTAGENETS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PLANTAGENETS",
     "definitions": [
      {
       "text": "Royal house",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moves",
-      "for": "anagram",
-      "note": "when letters move about they end up in a new order"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one word goes outside the others, wrapping around them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plants",
-      "gives": "PLANTS",
-      "note": "taken as written, split to wrap around the rest"
-     },
-     {
-      "clueFragment": "agent",
-      "gives": "AGENT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLANT",
-      "AGENET",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AGENTE",
-       "gives": "AGENET"
+       "text": "outside",
+       "note": "one word goes outside the others, wrapping around them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plants",
+       "note": "taken as written, split to wrap around the rest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moves",
+         "note": "when letters move about they end up in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "agent",
+           "note": "taken as written"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E is the abbreviation for English"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -540,54 +480,40 @@
    },
    "solution": "LAMPOON",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LAMPOON",
     "definitions": [
      {
       "text": "Make fun of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "torn",
-      "for": "anagram",
-      "note": "something torn is ripped apart, so its letters are rearranged"
-     },
-     {
-      "text": "swallowed",
-      "for": "container",
-      "note": "what is swallowed ends up inside the swallower"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diving bird",
-      "gives": "LOON",
-      "note": "the loon is a diving bird, called a diver in Britain"
-     },
-     {
-      "clueFragment": "map",
-      "gives": "MAP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AMP",
-      "OON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MAP",
-       "gives": "AMP"
+       "text": "swallowed",
+       "note": "what is swallowed ends up inside the swallower"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diving bird",
+       "gives": "LOON",
+       "note": "the loon is a diving bird, called a diver in Britain"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "torn",
+         "note": "something torn is ripped apart, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "map",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -617,50 +543,44 @@
    },
    "solution": "CHARGED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CHARGED",
     "definitions": [
      {
       "text": "Given responsibility for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "manoeuvre",
-      "for": "anagram",
-      "note": "a manoeuvre is a change of position, so these letters are moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     },
-     {
-      "clueFragment": "dear",
-      "gives": "DEAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "ARGED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEARG",
-       "gives": "ARGED"
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the abbreviation for church"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvre",
+         "note": "a manoeuvre is a change of position, so these letters are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dear",
+           "note": "taken as written"
+          },
+          {
+           "words": "Good",
+           "gives": "G",
+           "note": "G is the abbreviation for good"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -699,35 +619,25 @@
    },
    "solution": "DRYSTONEWALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRY-STONE WALL",
     "definitions": [
      {
       "text": "a boundary construction",
       "at": 20
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boring",
-      "gives": "DRY",
-      "note": "dull, tedious"
-     },
-     {
-      "clueFragment": "delay",
-      "gives": "STONEWALL",
-      "note": "to stonewall is to hold things up by obstruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRY",
-      "STONEWALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boring",
+       "gives": "DRY",
+       "note": "dull, tedious"
+      },
+      {
+       "words": "delay",
+       "gives": "STONEWALL",
+       "note": "to stonewall is to hold things up by obstruction"
+      }
      ]
     },
     "explanation": {
@@ -755,37 +665,39 @@
    },
    "solution": "NONPLUS",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "NONPLUS",
     "definitions": [
      {
       "text": "Fox",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "something heard is taken by its sound rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no one",
-      "gives": "NON",
-      "soundsLike": "NONE",
-      "note": "no one means none, spelt here by sound"
-     },
-     {
-      "clueFragment": "on the positive side",
-      "gives": "PLUS",
-      "note": "plus is the positive sign"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "NON",
+       "indicators": [
+        {
+         "text": "heard",
+         "note": "something heard is taken by its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "no one",
+         "gives": "NONE",
+         "note": "no one means none, spelt here by sound"
+        }
+       ]
+      },
+      {
+       "words": "on the positive side",
+       "gives": "PLUS",
+       "note": "plus is the positive sign"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Nobody heard a fox, which looks on the bright side.",
      "walkthrough": "Fox is the verb meaning to baffle, not the animal.",
@@ -812,51 +724,40 @@
    },
    "solution": "TROLLEY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TROLLEY",
     "definitions": [
      {
       "text": "Cart",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "to return is to go back, so the word is read from its end"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "the turned word goes outside the other, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "go round",
-      "gives": "ROLL",
-      "note": "to roll is to turn over and over"
-     },
-     {
-      "clueFragment": "yet",
-      "gives": "YET",
-      "note": "taken as written, then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ROLL",
-      "EY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "YET",
-       "to": "TEY"
+       "text": "outside",
+       "note": "the turned word goes outside the other, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "to return is to go back, so the word is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yet",
+         "note": "taken as written, then turned round"
+        }
+       ]
+      },
+      {
+       "words": "go round",
+       "gives": "ROLL",
+       "note": "to roll is to turn over and over"
       }
      ]
     },
@@ -885,38 +786,24 @@
    },
    "solution": "ARCED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARCED",
     "definitions": [
      {
       "text": "bowed",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around suggests the letters are turned about into a fresh order"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Raced",
-      "gives": "RACED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RACED",
-       "gives": "ARCED"
+       "text": "around",
+       "note": "around suggests the letters are turned about into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Raced",
+       "note": "taken as written"
       }
      ]
     },
@@ -945,49 +832,41 @@
    },
    "solution": "INCESSANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "INCESSANT",
     "definitions": [
      {
       "text": "on-going",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "container",
-      "note": "to be involved in something is to be inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "illegal relationship",
-      "gives": "INCEST",
-      "note": "sexual relations between close relatives, which the law forbids"
-     },
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "an is the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCES",
-      "SAN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "to be involved in something is to be inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "illegal relationship",
+       "gives": "INCEST",
+       "note": "sexual relations between close relatives, which the law forbids"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small",
+         "gives": "S",
+         "note": "S is the abbreviation for small"
+        },
+        {
+         "words": "article",
+         "gives": "AN",
+         "note": "an is the indefinite article"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1015,35 +894,25 @@
    },
    "solution": "CLAMPDOWN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLAMPDOWN",
     "definitions": [
      {
       "text": "Sudden restriction",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on vice",
-      "gives": "CLAMP",
-      "note": "a vice is a gripping tool, like a clamp"
-     },
-     {
-      "clueFragment": "Irish county",
-      "gives": "DOWN",
-      "note": "County Down is in Northern Ireland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLAMP",
-      "DOWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on vice",
+       "gives": "CLAMP",
+       "note": "a vice is a gripping tool, like a clamp"
+      },
+      {
+       "words": "Irish county",
+       "gives": "DOWN",
+       "note": "County Down is in Northern Ireland"
+      }
      ]
     },
     "explanation": {
@@ -1072,45 +941,34 @@
    },
    "solution": "EMPHYSEMA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "EMPHYSEMA",
     "definitions": [
      {
       "text": "Respiratory disorder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inflicted",
-      "for": "anagram",
-      "note": "something inflicted is forced on by violence, so the letters are knocked out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "my sheep",
-      "gives": "MYSHEEP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "on mother",
-      "gives": "MA",
-      "note": "MA is a familiar word for mother, placed after"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMPHYSE",
-      "MA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MYSHEEP",
-       "gives": "EMPHYSE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "inflicted",
+         "note": "something inflicted is forced on by violence, so the letters are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "my sheep",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "on mother",
+       "gives": "MA",
+       "note": "MA is a familiar word for mother, placed after"
       }
      ]
     },
@@ -1140,35 +998,25 @@
    },
    "solution": "PATRIOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PATRIOT",
     "definitions": [
      {
       "text": "Country lover",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pet",
-      "gives": "PAT",
-      "note": "to pet an animal is to pat it"
-     },
-     {
-      "clueFragment": "disorder",
-      "gives": "RIOT",
-      "note": "a riot is public disorder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAT",
-      "RIOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pet",
+       "gives": "PAT",
+       "note": "to pet an animal is to pat it"
+      },
+      {
+       "words": "disorder",
+       "gives": "RIOT",
+       "note": "a riot is public disorder"
+      }
      ]
     },
     "explanation": {
@@ -1197,43 +1045,33 @@
    },
    "solution": "YOUNGER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "YOUNGER",
     "definitions": [
      {
       "text": "not so old",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "something new is made afresh, so these letters are remade in another order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guy",
-      "gives": "GUY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Nero",
-      "gives": "NERO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GUYNERO",
-       "gives": "YOUNGER"
+       "text": "New",
+       "note": "something new is made afresh, so these letters are remade in another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "guy",
+         "note": "taken as written"
+        },
+        {
+         "words": "Nero",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1262,35 +1100,25 @@
    },
    "solution": "SIREN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SIREN",
     "definitions": [
      {
       "text": "a warning signal",
       "at": 25
      }
     ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Teacher's",
-      "gives": "SIR",
-      "note": "pupils address a male teacher as sir; the 's means has"
-     },
-     {
-      "clueFragment": "directions",
-      "gives": "EN",
-      "note": "E and N, east and north, two compass directions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIR",
-      "EN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Teacher's",
+       "gives": "SIR",
+       "note": "pupils address a male teacher as sir; the 's means has"
+      },
+      {
+       "words": "directions",
+       "gives": "EN",
+       "note": "E and N, east and north, two compass directions"
+      }
      ]
     },
     "explanation": {
@@ -1318,35 +1146,25 @@
    },
    "solution": "STERNER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STERNER",
     "definitions": [
      {
       "text": "in a more serious mood",
       "at": 44
      }
     ],
-    "linkWords": [
-     "seen at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the back of the vessel",
-      "gives": "STERN",
-      "note": "the stern is the rear of a ship"
-     },
-     {
-      "clueFragment": "Her Majesty",
-      "gives": "ER",
-      "note": "ER is the Queen, Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STERN",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the back of the vessel",
+       "gives": "STERN",
+       "note": "the stern is the rear of a ship"
+      },
+      {
+       "words": "Her Majesty",
+       "gives": "ER",
+       "note": "ER is the Queen, Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -1374,44 +1192,34 @@
    },
    "solution": "RUINOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RUINOUS",
     "definitions": [
      {
       "text": "catastrophic",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out can mean disordered or wrong, so the letters are out of place"
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "promissory notes",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to pay"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "RUN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IOUSRUN",
-       "gives": "RUINOUS"
+       "text": "out",
+       "note": "out can mean disordered or wrong, so the letters are out of place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "promissory notes",
+         "gives": "IOUS",
+         "note": "IOUs are written promises to pay"
+        },
+        {
+         "words": "run",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1440,28 +1248,16 @@
    },
    "solution": "ENTRUST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ENTRUST",
     "definitions": [
      {
       "text": "Give custody to",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: hand something over to be looked after"
      },
      {
       "text": "charge",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give custody to",
-      "note": "first meaning: hand something over to be looked after"
-     },
-     {
-      "clueFragment": "charge",
-      "note": "second meaning: to give someone a duty or task"
+      "at": 16,
+      "meaning": "second meaning: to give someone a duty or task"
      }
     ],
     "explanation": {
@@ -1489,35 +1285,25 @@
    },
    "solution": "TONIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TONIC",
     "definitions": [
      {
       "text": "medicine",
       "at": 25
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heavyweight",
-      "gives": "TON",
-      "note": "a ton is a heavy weight"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "IC is the abbreviation for in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TON",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Heavyweight",
+       "gives": "TON",
+       "note": "a ton is a heavy weight"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "IC is the abbreviation for in charge"
+      }
      ]
     },
     "explanation": {
@@ -1545,35 +1331,25 @@
    },
    "solution": "PREVIEW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PREVIEW",
     "definitions": [
      {
       "text": "trailer",
       "at": 19
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quiet",
-      "gives": "P",
-      "note": "P is piano, the musical direction to play quietly"
-     },
-     {
-      "clueFragment": "appraisal",
-      "gives": "REVIEW",
-      "note": "a review is a critical assessment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "REVIEW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quiet",
+       "gives": "P",
+       "note": "P is piano, the musical direction to play quietly"
+      },
+      {
+       "words": "appraisal",
+       "gives": "REVIEW",
+       "note": "a review is a critical assessment"
+      }
      ]
     },
     "explanation": {
@@ -1601,38 +1377,30 @@
    },
    "solution": "SMIDGEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SMIDGEN",
     "definitions": [
      {
       "text": "A little bit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "insect",
-      "gives": "MIDGE",
-      "note": "a midge is a tiny biting fly"
-     },
-     {
-      "clueFragment": "Point",
-      "gives": "N",
-      "note": "N, north, is a point of the compass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "MIDGE",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "insect",
+       "gives": "MIDGE",
+       "note": "a midge is a tiny biting fly"
+      },
+      {
+       "words": "Point",
+       "gives": "N",
+       "note": "N, north, is a point of the compass"
+      }
      ]
     },
     "explanation": {
@@ -1667,35 +1435,25 @@
    },
    "solution": "OWNGOAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OWN GOAL",
     "definitions": [
      {
       "text": "The team's mistake",
       "at": 0
      }
     ],
-    "linkWords": [
-     "was to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "confess",
-      "gives": "OWN",
-      "note": "to own up is to admit"
-     },
-     {
-      "clueFragment": "an aim",
-      "gives": "GOAL",
-      "note": "a goal is an aim"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OWN",
-      "GOAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "confess",
+       "gives": "OWN",
+       "note": "to own up is to admit"
+      },
+      {
+       "words": "an aim",
+       "gives": "GOAL",
+       "note": "a goal is an aim"
+      }
      ]
     },
     "explanation": {
@@ -1730,54 +1488,40 @@
    },
    "solution": "STORMCENTRES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "STORM CENTRES",
     "definitions": [
      {
       "text": "focal points of agitation",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "development",
-      "for": "anagram",
-      "note": "a development changes how something is laid out, so the letters are reworked"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the reworked letters go inside the next word"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "disturbances",
-      "gives": "STORMS",
-      "note": "storms are uproars or upheavals"
-     },
-     {
-      "clueFragment": "Recent",
-      "gives": "RECENT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STORM",
-      "CENTRE",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RECENT",
-       "gives": "CENTRE"
+       "text": "in",
+       "note": "the reworked letters go inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disturbances",
+       "gives": "STORMS",
+       "note": "storms are uproars or upheavals"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "development",
+         "note": "a development changes how something is laid out, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Recent",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },

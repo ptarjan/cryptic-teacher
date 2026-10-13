@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22309",
  "number": 22309,
- "series": "cryptic",
- "name": "Prize crossword No 22,309",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2001-09-08",
  "dimensions": {
@@ -44,13 +43,6 @@
    },
    "solution": "MARGARETDRABBLE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "MARGARET DRABBLE",
     "definitions": [
      {
       "text": "our newish …",
@@ -58,54 +50,59 @@
       "note": "the definition runs on into 2 down: our newish Oxford Companion to English Literature, i.e. its editor"
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means the drink word is read from bottom to top"
-     },
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "the reversed drink word holds the boy's name inside it"
-     },
-     {
-      "text": "H-dropping",
-      "for": "deletion",
-      "note": "dropping one's aitches means the letter H is left out of the boy's name"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "DRAM",
-      "note": "a dram is a small drink of spirits"
-     },
-     {
-      "clueFragment": "Welsh boy",
-      "gives": "GARETH",
-      "note": "a typical Welsh boy's name"
-     },
-     {
-      "clueFragment": "mob",
-      "gives": "RABBLE",
-      "note": "a rabble is a disorderly crowd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "GARET",
-      "D",
-      "RABBLE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DRAM",
-       "to": "MARD"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "note": "the reversed drink word holds the boy's name inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "note": "in a down clue, going up means the drink word is read from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Drink",
+           "gives": "DRAM",
+           "note": "a dram is a small drink of spirits"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "H-dropping",
+           "note": "dropping one's aitches means the letter H is left out of the boy's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Welsh boy",
+           "gives": "GARETH",
+           "note": "a typical Welsh boy's name"
+          },
+          {
+           "gives": "H"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "mob",
+       "gives": "RABBLE",
+       "note": "a rabble is a disorderly crowd"
       }
      ]
     },
@@ -141,10 +138,6 @@
    },
    "solution": "OXFORDCOMPANION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OXFORD COMPANION",
     "definitions": [
      {
       "text": "in Eng. Lit.",
@@ -152,22 +145,19 @@
       "note": "read with 1 down: the newish Oxford Companion to English Literature"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "university",
-      "gives": "OXFORD",
-      "note": "the English university city"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "COMPANION",
-      "note": "a fellow is a companion or comrade"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OXFORD",
-      "COMPANION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "university",
+       "gives": "OXFORD",
+       "note": "the English university city"
+      },
+      {
+       "words": "fellow",
+       "gives": "COMPANION",
+       "note": "a fellow is a companion or comrade"
+      }
      ]
     },
     "explanation": {
@@ -197,47 +187,41 @@
    },
    "solution": "TALENTLESS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TALENTLESS",
     "definitions": [
      {
       "text": "Poor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the old story goes around the word for fast, holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old story",
-      "gives": "TALE",
-      "note": "a tale is a story, especially a traditional one"
-     },
-     {
-      "clueFragment": "fast",
-      "gives": "LENT",
-      "note": "Lent is the Christian season of fasting"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS stands for steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "LENT",
-      "LE",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the old story goes around the word for fast, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old story",
+         "gives": "TALE",
+         "note": "a tale is a story, especially a traditional one"
+        },
+        {
+         "words": "fast",
+         "gives": "LENT",
+         "note": "Lent is the Christian season of fasting"
+        }
+       ]
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      }
      ]
     },
     "explanation": {
@@ -266,55 +250,49 @@
    },
    "solution": "EFFACED",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "EFFACED",
     "definitions": [
      {
       "text": "caused to disappear",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "deletion",
-      "note": "only some of the drug's name is used, its first five letters"
-     },
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "in a down clue, turned up means the letters run from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "common drug",
-      "gives": "CAFFEINE",
-      "note": "the stimulant in coffee and tea, the commonest drug of all"
-     },
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "ED is short for editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EFFAC",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAFFE",
-       "to": "EFFAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "note": "in a down clue, turned up means the letters run from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Some",
+           "note": "only some of the drug's name is used, its first five letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "common drug",
+           "gives": "CAFFEINE",
+           "note": "the stimulant in coffee and tea, the commonest drug of all"
+          },
+          {
+           "gives": "INE"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "journalist",
+       "gives": "ED",
+       "note": "ED is short for editor"
       }
      ]
     },
@@ -343,35 +321,25 @@
    },
    "solution": "PAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAIR",
     "definitions": [
      {
       "text": "2",
       "at": 15
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soft",
-      "gives": "P",
-      "note": "p is piano, the musical direction for soft"
-     },
-     {
-      "clueFragment": "music",
-      "gives": "AIR",
-      "note": "an air is a tune"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soft",
+       "gives": "P",
+       "note": "p is piano, the musical direction for soft"
+      },
+      {
+       "words": "music",
+       "gives": "AIR",
+       "note": "an air is a tune"
+      }
      ]
     },
     "explanation": {
@@ -406,28 +374,16 @@
    },
    "solution": "COMPOSEYOURSELF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COMPOSE YOURSELF",
     "definitions": [
      {
       "text": "Be calm",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: steady your nerves"
      },
      {
       "text": "don't just play",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be calm",
-      "note": "first meaning: steady your nerves"
-     },
-     {
-      "clueFragment": "don't just play",
-      "note": "second meaning: write your own music rather than perform others'"
+      "at": 10,
+      "meaning": "second meaning: write your own music rather than perform others'"
      }
     ],
     "explanation": {
@@ -462,35 +418,25 @@
    },
    "solution": "ACCIDENTALDEATH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACCIDENTAL DEATH",
     "definitions": [
      {
       "text": "Verdict",
       "at": 0
      }
     ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "semitonic change",
-      "gives": "ACCIDENTAL",
-      "note": "in music an accidental is a sharp or flat that shifts a note by a semitone"
-     },
-     {
-      "clueFragment": "finale",
-      "gives": "DEATH",
-      "note": "death is life's end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACCIDENTAL",
-      "DEATH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "semitonic change",
+       "gives": "ACCIDENTAL",
+       "note": "in music an accidental is a sharp or flat that shifts a note by a semitone"
+      },
+      {
+       "words": "finale",
+       "gives": "DEATH",
+       "note": "death is life's end"
+      }
      ]
     },
     "explanation": {
@@ -525,40 +471,34 @@
    },
    "solution": "FAUXNAIF",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FAUX-NAIF",
     "definitions": [
      {
       "text": "with art that conceals art?",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "arrangement",
-      "for": "anagram",
-      "note": "an arrangement puts the letters into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Affix an",
-      "gives": "AFFIXAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "upper-class",
-      "gives": "U",
-      "note": "U is the abbreviation for upper-class"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AFFIXANU",
-       "gives": "FAUXNAIF"
+       "text": "arrangement",
+       "note": "an arrangement puts the letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Affix an",
+         "note": "taken as written"
+        },
+        {
+         "words": "upper-class",
+         "gives": "U",
+         "note": "U is the abbreviation for upper-class"
+        }
+       ]
       }
      ]
     },
@@ -594,40 +534,31 @@
    },
    "solution": "ATONCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AT ONCE",
     "definitions": [
      {
       "text": "without delay",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the phrase for making amends goes around the letter for a hundred"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Make up for",
-      "gives": "ATONE",
-      "note": "to atone is to make amends"
-     },
-     {
-      "clueFragment": "a hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for one hundred"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATON",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the phrase for making amends goes around the letter for a hundred"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Make up for",
+       "gives": "ATONE",
+       "note": "to atone is to make amends"
+      },
+      {
+       "words": "a hundred",
+       "gives": "C",
+       "note": "C is the Roman numeral for one hundred"
+      }
      ]
     },
     "explanation": {
@@ -655,50 +586,41 @@
    },
    "solution": "IGNORE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IGNORE",
     "definitions": [
      {
       "text": "Cut",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the point is placed inside the word for blood"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a single",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "blood",
-      "gives": "GORE",
-      "note": "gore is spilt blood"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "N",
-      "note": "N is north, a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "G",
-      "N",
-      "ORE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a single",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the point is placed inside the word for blood"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blood",
+         "gives": "GORE",
+         "note": "gore is spilt blood"
+        },
+        {
+         "words": "point",
+         "gives": "N",
+         "note": "N is north, a compass point"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -727,37 +649,39 @@
    },
    "solution": "AGRAPHIA",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "AGRAPHIA",
     "definitions": [
      {
       "text": "you can't write with it",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "they say signals that the fibre word is heard, not seen, so a different spelling is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "fibre for mats",
-      "gives": "RAPHIA",
-      "soundsLike": "RAFFIA",
-      "note": "palm fibre used for matting; the palm genus is spelt with ph"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RAPHIA",
+       "indicators": [
+        {
+         "text": "they say",
+         "note": "they say signals that the fibre word is heard, not seen, so a different spelling is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fibre for mats",
+         "gives": "RAFFIA",
+         "note": "palm fibre used for matting; the palm genus is spelt with ph"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A metallic weave for mats that leaves you unable to write.",
      "definitionFit": "This is the medical term for loss of the ability to write, so a sufferer cannot put words on paper."
@@ -783,28 +707,16 @@
    },
    "solution": "PROD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PROD",
     "definitions": [
      {
       "text": "Reminder",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a nudge to jog someone's memory"
      },
      {
       "text": "not applicable to Catholics?",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reminder",
-      "note": "first meaning: a nudge to jog someone's memory"
-     },
-     {
-      "clueFragment": "not applicable to Catholics?",
-      "note": "second meaning: Irish slang for a Protestant"
+      "at": 9,
+      "meaning": "second meaning: Irish slang for a Protestant"
      }
     ],
     "explanation": {
@@ -833,32 +745,25 @@
    },
    "solution": "TRESPASSES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TRESPASSES",
     "definitions": [
      {
       "text": "Old sins",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in Paris are very",
-      "gives": "TRES",
-      "note": "très is French for very"
-     },
-     {
-      "clueFragment": "old hat",
-      "gives": "PASSES",
-      "note": "passés, French for out of date, plural to match are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRES",
-      "PASSES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in Paris are very",
+       "gives": "TRES",
+       "note": "très is French for very"
+      },
+      {
+       "words": "old hat",
+       "gives": "PASSES",
+       "note": "passés, French for out of date, plural to match are"
+      }
      ]
     },
     "explanation": {
@@ -887,36 +792,25 @@
    },
    "solution": "POSSESSION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POSSESSION",
     "definitions": [
      {
       "text": "a chattel",
       "at": 30
      }
     ],
-    "linkWords": [
-     "find",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lots of lawmen",
-      "gives": "POSSES",
-      "note": "a posse is a band of men gathered by a sheriff"
-     },
-     {
-      "clueFragment": "heaven",
-      "gives": "SION",
-      "note": "Sion, or Zion, the heavenly city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POSSES",
-      "SION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lots of lawmen",
+       "gives": "POSSES",
+       "note": "a posse is a band of men gathered by a sheriff"
+      },
+      {
+       "words": "heaven",
+       "gives": "SION",
+       "note": "Sion, or Zion, the heavenly city"
+      }
      ]
     },
     "explanation": {
@@ -945,28 +839,16 @@
    },
    "solution": "STROKED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STROKED",
     "definitions": [
      {
       "text": "Was 8 or 8",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: rowed in the stroke seat of an eight, which is numbered 8"
      },
      {
       "text": "having hands laid on affectionately",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was 8 or 8",
-      "note": "first meaning: rowed in the stroke seat of an eight, which is numbered 8"
-     },
-     {
-      "clueFragment": "having hands laid on affectionately",
-      "note": "second meaning: caressed gently"
+      "at": 12,
+      "meaning": "second meaning: caressed gently"
      }
     ],
     "explanation": {
@@ -1005,11 +887,6 @@
    },
    "solution": "ASBYATT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "A S BYATT",
     "definitions": [
      {
       "text": "1's 22",
@@ -1020,39 +897,35 @@
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the word for passed sits inside the abbreviated day"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "daytime",
-      "gives": "SATT",
-      "note": "Sat, short for Saturday, a day, then T for time"
-     },
-     {
-      "clueFragment": "passed",
-      "gives": "BY",
-      "note": "gone by means passed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "BY",
-      "ATT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the word for passed sits inside the abbreviated day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "daytime",
+         "gives": "SATT",
+         "note": "Sat, short for Saturday, a day, then T for time"
+        },
+        {
+         "words": "passed",
+         "gives": "BY",
+         "note": "gone by means passed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1081,55 +954,42 @@
    },
    "solution": "BURNISH",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BURNISH",
     "definitions": [
      {
       "text": "Rub up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perversely",
-      "for": "reversal",
-      "note": "perversely means contrarily, so both rub and in are turned the wrong way round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rub",
-      "gives": "BUR",
-      "note": "rub turned round"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "NI",
-      "note": "in turned round"
-     },
-     {
-      "clueFragment": "silence",
-      "gives": "SH",
-      "note": "sh is a call for silence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUR",
-      "NI",
-      "SH"
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "BURNISH",
+     "indicators": [
+      {
+       "text": "perversely",
+       "note": "perversely means contrarily, so both rub and in are turned the wrong way round"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "RUB",
-       "to": "BUR"
-      },
-      {
-       "from": "IN",
-       "to": "NI"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rub",
+         "gives": "BUR",
+         "note": "rub turned round"
+        },
+        {
+         "words": "in",
+         "gives": "NI",
+         "note": "in turned round"
+        },
+        {
+         "words": "silence",
+         "gives": "SH",
+         "note": "sh is a call for silence"
+        }
+       ]
       }
      ]
     },
@@ -1159,53 +1019,51 @@
    },
    "solution": "CREPUSCULE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CREPUSCULE",
     "definitions": [
      {
       "text": "the dusk",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "for": "container",
-      "note": "the fabric word covers and so wraps around the following letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crinkly fabric",
-      "gives": "CREPE",
-      "note": "crêpe is a fabric with a crinkled surface"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for American"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is short for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREP",
-      "USCUL",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "note": "the fabric word covers and so wraps around the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Crinkly fabric",
+           "gives": "CREPE",
+           "note": "crêpe is a fabric with a crinkled surface"
+          },
+          {
+           "words": "American",
+           "gives": "US",
+           "note": "US is short for American"
+          }
+         ]
+        },
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is short for left"
+      }
      ]
     },
     "explanation": {
@@ -1244,43 +1102,33 @@
     "22-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UGLY SISTER",
     "definitions": [
      {
       "text": "could be Cinderella's",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Funny",
-      "for": "anagram",
-      "note": "funny suggests something odd, so the letters come out strangely arranged"
-     }
-    ],
-    "linkWords": [
-     "involved with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl's",
-      "gives": "GIRLS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "us yet",
-      "gives": "USYET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIRLSUSYET",
-       "gives": "UGLYSISTER"
+       "text": "Funny",
+       "note": "funny suggests something odd, so the letters come out strangely arranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "girl's",
+         "note": "taken as written"
+        },
+        {
+         "words": "us yet",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1310,10 +1158,6 @@
    },
    "solution": "ABINGDON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABINGDON",
     "definitions": [
      {
       "text": "2?",
@@ -1321,31 +1165,23 @@
       "note": "a fellow of Oxford, i.e. a neighbouring Oxfordshire town"
      }
     ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "crooner",
-      "gives": "BING",
-      "note": "Bing Crosby, the famous crooner"
-     },
-     {
-      "clueFragment": "a fellow",
-      "gives": "DON",
-      "note": "a don is a university fellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BING",
-      "DON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "crooner",
+       "gives": "BING",
+       "note": "Bing Crosby, the famous crooner"
+      },
+      {
+       "words": "a fellow",
+       "gives": "DON",
+       "note": "a don is a university fellow"
+      }
      ]
     },
     "explanation": {
@@ -1375,28 +1211,16 @@
    },
    "solution": "DIET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DIET",
     "definitions": [
      {
       "text": "Where people sit (after standing)",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a legislative assembly whose members stood for election"
      },
      {
       "text": "to eat",
-      "at": 34
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where people sit (after standing)",
-      "note": "first meaning: a legislative assembly whose members stood for election"
-     },
-     {
-      "clueFragment": "to eat",
-      "note": "second meaning: what one eats, or to eat restrictedly"
+      "at": 34,
+      "meaning": "second meaning: what one eats, or to eat restrictedly"
      }
     ],
     "explanation": {
@@ -1439,50 +1263,40 @@
    },
    "solution": "ALCOVE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ALCOVE",
     "definitions": [
      {
       "text": "recess",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without here means outside, so the heart word goes around the head"
-     }
-    ],
-    "linkWords": [
-     "which is in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "matter of the heart",
-      "gives": "LOVE",
-      "note": "love is the heart's business"
-     },
-     {
-      "clueFragment": "the head",
-      "gives": "C",
-      "note": "C is short for cape, a headland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "C",
-      "OVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without here means outside, so the heart word goes around the head"
+        }
+       ],
+       "parts": [
+        {
+         "words": "matter of the heart",
+         "gives": "LOVE",
+         "note": "love is the heart's business"
+        },
+        {
+         "words": "the head",
+         "gives": "C",
+         "note": "C is short for cape, a headland"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1511,43 +1325,31 @@
    },
    "solution": "SMOLLETT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SMOLLETT",
     "definitions": [
      {
       "text": "Satirist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the girl is placed inside the animal's home"
-     }
-    ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "burrow",
-      "gives": "SETT",
-      "note": "a sett is a badger's burrow"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "MOLL",
-      "note": "Moll is a girl's name, and slang for a gangster's girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "MOLL",
-      "ETT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the girl is placed inside the animal's home"
+      }
+     ],
+     "parts": [
+      {
+       "words": "burrow",
+       "gives": "SETT",
+       "note": "a sett is a badger's burrow"
+      },
+      {
+       "words": "girl",
+       "gives": "MOLL",
+       "note": "Moll is a girl's name, and slang for a gangster's girl"
+      }
      ]
     },
     "explanation": {

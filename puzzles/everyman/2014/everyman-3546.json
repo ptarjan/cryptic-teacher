@@ -1,8 +1,6 @@
 {
  "id": "everyman-3546",
  "number": 3546,
- "series": "everyman",
- "name": "Everyman crossword No 3,546",
  "setter": "Everyman",
  "date": "2014-09-21",
  "dimensions": {
@@ -38,36 +36,39 @@
    },
    "solution": "SABOT",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SABOT",
     "definitions": [
      {
       "text": "shoe",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Stocked by",
-      "for": "hidden_word",
-      "note": "goods stocked by a shop sit inside it, so the answer lies within the run of letters that follows"
-     },
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns something right round, so the concealed letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Manitoba store",
-      "gives": "TOBAS",
-      "note": "the letters run across the join of the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "revolutionary",
+       "note": "a revolution turns something right round, so the concealed letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Stocked by",
+         "note": "goods stocked by a shop sit inside it, so the answer lies within the run of letters that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Manitoba store",
+         "gives": "TOBAS",
+         "note": "the letters run across the join of the two words"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A Canadian shop in Manitoba stocks a radical new kind of footwear.",
      "walkthrough": "'Revolutionary' looks like a description of the shoe, but it tells you to read the concealed letters in reverse: TOBAS becomes SABOT.",
@@ -100,56 +101,44 @@
    },
    "solution": "SAVILEROW",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SAVILE ROW",
     "definitions": [
      {
       "text": "Mayfair street",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Ending in",
-      "for": "letter_selection",
-      "note": "the ending of a word is its final letter, so only that one is kept"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fisticuffs",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "very bad",
-      "gives": "VILE",
-      "note": "vile means very bad"
-     },
-     {
-      "clueFragment": "argument",
-      "gives": "ROW",
-      "note": "a row is a quarrel, rhyming with cow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "VILE",
-      "ROW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ending in",
+         "note": "the ending of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fisticuffs",
+         "note": "the final letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "very bad",
+       "gives": "VILE",
+       "note": "vile means very bad"
+      },
+      {
+       "words": "argument",
+       "gives": "ROW",
+       "note": "a row is a quarrel, rhyming with cow"
+      }
      ]
     },
     "explanation": {
@@ -178,40 +167,30 @@
    },
    "solution": "BALONEY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BALONEY",
     "definitions": [
      {
       "text": "foolish talk",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "something taken in is held inside, so the first piece goes within the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only",
-      "gives": "ALONE",
-      "note": "alone means only, as in he alone knew"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "BY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ALONE",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "something taken in is held inside, so the first piece goes within the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "by",
+       "note": "taken as written"
+      },
+      {
+       "words": "Only",
+       "gives": "ALONE",
+       "note": "alone means only, as in he alone knew"
+      }
      ]
     },
     "explanation": {
@@ -240,35 +219,24 @@
    },
    "solution": "TREFOIL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TREFOIL",
     "definitions": [
      {
       "text": "plant",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "spreading",
-      "for": "anagram",
-      "note": "spreading means sprawling apart, so the letters are scattered into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loftier",
-      "gives": "LOFTIER",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOFTIER",
-       "gives": "TREFOIL"
+       "text": "spreading",
+       "note": "spreading means sprawling apart, so the letters are scattered into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Loftier",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -297,51 +265,40 @@
    },
    "solution": "RESILIENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RESILIENT",
     "definitions": [
      {
       "text": "quick to bounce back",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "baffled",
-      "for": "anagram",
-      "note": "someone baffled is confused, so the letters of the word before are jumbled"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the jumbled letters go round the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Listener",
-      "gives": "LISTENER",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "I",
-      "LIENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LISTENER",
-       "gives": "RESLIENT"
+       "text": "about",
+       "note": "about means surrounding, so the jumbled letters go round the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "baffled",
+         "note": "someone baffled is confused, so the letters of the word before are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Listener",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
       }
      ]
     },
@@ -385,31 +342,16 @@
    },
    "solution": "RESTSONONESOARS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RESTS ON ONES OARS",
     "definitions": [
      {
       "text": "Stops rowing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: literally, an oarsman pausing with blades out of the water"
      },
      {
       "text": "relaxes",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stops rowing",
-      "note": "first meaning: literally, an oarsman pausing with blades out of the water"
-     },
-     {
-      "clueFragment": "relaxes",
-      "note": "second meaning: the idiom for taking a break after effort"
+      "at": 17,
+      "meaning": "second meaning: the idiom for taking a break after effort"
      }
     ],
     "explanation": {
@@ -443,54 +385,42 @@
    },
    "solution": "STOKEMANDEVILLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STOKE MANDEVILLE",
     "definitions": [
      {
       "text": "famous hospital",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "treated",
-      "for": "anagram",
-      "note": "something treated has been worked on and processed, so the collected letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poorly",
-      "gives": "ILL",
-      "note": "poorly means unwell"
-     },
-     {
-      "clueFragment": "Devon",
-      "gives": "DEVON",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "Keats",
-      "gives": "KEATS",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "me",
-      "gives": "ME",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ILLDEVONKEATSME",
-       "gives": "STOKEMANDEVILLE"
+       "text": "treated",
+       "note": "something treated has been worked on and processed, so the collected letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Poorly",
+         "gives": "ILL",
+         "note": "poorly means unwell"
+        },
+        {
+         "words": "Devon",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "Keats",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "me",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -519,43 +449,31 @@
    },
    "solution": "LACONIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LACONIC",
     "definitions": [
      {
       "text": "Terse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surroundings",
-      "for": "container",
-      "note": "surroundings enclose something, so the word for secular wraps the one for cheat"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secular",
-      "gives": "LAIC",
-      "note": "laic means lay, not clerical"
-     },
-     {
-      "clueFragment": "cheat",
-      "gives": "CON",
-      "note": "to con is to swindle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "CON",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surroundings",
+       "note": "surroundings enclose something, so the word for secular wraps the one for cheat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secular",
+       "gives": "LAIC",
+       "note": "laic means lay, not clerical"
+      },
+      {
+       "words": "cheat",
+       "gives": "CON",
+       "note": "to con is to swindle"
+      }
      ]
     },
     "explanation": {
@@ -584,35 +502,25 @@
    },
    "solution": "EXAMPLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXAMPLE",
     "definitions": [
      {
       "text": "model",
       "at": 33
      }
     ],
-    "linkWords": [
-     "for a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former partner",
-      "gives": "EX",
-      "note": "an ex is a former spouse or partner"
-     },
-     {
-      "clueFragment": "big enough",
-      "gives": "AMPLE",
-      "note": "ample means sufficient or large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "AMPLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former partner",
+       "gives": "EX",
+       "note": "an ex is a former spouse or partner"
+      },
+      {
+       "words": "big enough",
+       "gives": "AMPLE",
+       "note": "ample means sufficient or large"
+      }
      ]
     },
     "explanation": {
@@ -641,47 +549,41 @@
    },
    "solution": "TODDY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TODDY",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "empty",
-      "for": "letter_selection",
-      "note": "emptying a word removes its contents, leaving only its first and last letters"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first piece within the remaining shell"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Torquay",
-      "gives": "TY",
-      "select": "outer",
-      "note": "the first and last letters of the Devon resort"
-     },
-     {
-      "clueFragment": "rum",
-      "gives": "ODD",
-      "note": "rum is old British slang for strange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ODD",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first piece within the remaining shell"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "emptying a word removes its contents, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Torquay",
+         "note": "the first and last letters of the Devon resort"
+        }
+       ]
+      },
+      {
+       "words": "rum",
+       "gives": "ODD",
+       "note": "rum is old British slang for strange"
+      }
      ]
     },
     "explanation": {
@@ -710,49 +612,35 @@
    },
    "solution": "VALUERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "VALUERS",
     "definitions": [
      {
       "text": "Appraisers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something new is made afresh, so the letters of the following word are reformed"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "required"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Virginia",
-      "gives": "VA",
-      "note": "the standard abbreviation for the US state"
-     },
-     {
-      "clueFragment": "rules",
-      "gives": "ULERS",
-      "note": "the letters of rules rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VA",
-      "LUERS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RULES",
-       "gives": "ULERS"
+       "words": "Virginia",
+       "gives": "VA",
+       "note": "the standard abbreviation for the US state"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "note": "something new is made afresh, so the letters of the following word are reformed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rules",
+         "gives": "ULERS",
+         "note": "the letters of rules rearranged"
+        }
+       ]
       }
      ]
     },
@@ -781,32 +669,24 @@
    },
    "solution": "ORCHARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORCHARD",
     "definitions": [
      {
       "text": "In which one may pick apples",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a variety of beet",
-      "gives": "CHARD",
-      "note": "chard is a leafy vegetable of the beet family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "CHARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "words": "a variety of beet",
+       "gives": "CHARD",
+       "note": "chard is a leafy vegetable of the beet family"
+      }
      ]
     },
     "explanation": {
@@ -835,43 +715,33 @@
    },
    "solution": "LANGOUSTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LANGOUSTE",
     "definitions": [
      {
       "text": "Crayfish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "something that has gone unfortunately has gone wrong, so the letters are put out of order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sea",
-      "gives": "SEA",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "no glut",
-      "gives": "NOGLUT",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEANOGLUT",
-       "gives": "LANGOUSTE"
+       "text": "unfortunately",
+       "note": "something that has gone unfortunately has gone wrong, so the letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sea",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "no glut",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -900,31 +770,16 @@
    },
    "solution": "NIPPY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NIPPY",
     "definitions": [
      {
       "text": "Quick",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: nimble, fast-moving"
      },
      {
       "text": "inclined to bite",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quick",
-      "note": "first meaning: nimble, fast-moving"
-     },
-     {
-      "clueFragment": "inclined to bite",
-      "note": "second meaning: apt to give little nips, like a snappy dog"
+      "at": 10,
+      "meaning": "second meaning: apt to give little nips, like a snappy dog"
      }
     ],
     "explanation": {
@@ -962,26 +817,25 @@
    },
    "solution": "ROYALANDANCIENT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROYAL AND ANCIENT",
     "definitions": [
      {
       "text": "Descriptive of King James VI Golf Club in Scotland?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Descriptive of King James VI",
-      "note": "surface reading: words that fit a long-dead Scottish monarch, a king of long ago"
-     },
-     {
-      "clueFragment": "Golf Club in Scotland",
-      "note": "setter's reading: the name of the famous golf club at St Andrews, which governed the rules of golf"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Descriptive of King James VI",
+       "note": "surface reading: words that fit a long-dead Scottish monarch, a king of long ago"
+      },
+      {
+       "words": "Golf Club in Scotland",
+       "note": "setter's reading: the name of the famous golf club at St Andrews, which governed the rules of golf"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A king is regal and James VI lived four centuries ago, so the two adjectives describe him; together they name the St Andrews club where he is said to have played.",
      "definitionFit": "The Royal and Ancient Golf Club of St Andrews is the historic Scottish home of golf."
@@ -1008,40 +862,33 @@
    },
    "solution": "TAHITIANS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TAHITIANS",
     "definitions": [
      {
       "text": "islanders",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "drawn",
-      "for": "anagram",
-      "note": "drawn suggests pulled out of shape, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Has",
-      "gives": "HAS",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "Titian",
-      "gives": "TITIAN",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HASTITIAN",
-       "gives": "TAHITIANS"
+       "text": "drawn",
+       "note": "drawn suggests pulled out of shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Has",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "Titian",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1077,26 +924,25 @@
    },
    "solution": "WHIRLINGDERVISH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WHIRLING DERVISH",
     "definitions": [
      {
       "text": "Revolutionary Muslim?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Revolutionary",
-      "note": "surface reading: a political radical or insurgent"
-     },
-     {
-      "clueFragment": "Revolutionary Muslim?",
-      "note": "setter's reading: a Sufi ascetic who literally revolves, spinning in a trance-like dance"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Revolutionary",
+       "note": "surface reading: a political radical or insurgent"
+      },
+      {
+       "words": "Revolutionary Muslim?",
+       "note": "setter's reading: a Sufi ascetic who literally revolves, spinning in a trance-like dance"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Revolutionary' suggests politics, but here it means turning round and round.",
      "definitionFit": "The Mevlevi Sufi order is famous for its spinning devotional dance performed by these mystics."
@@ -1123,54 +969,50 @@
    },
    "solution": "INVITED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "INVITED",
     "definitions": [
      {
       "text": "Welcomed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep something is to hold it inside, so the word for strove encloses the next piece"
-     },
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, so only the final letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "strove",
-      "gives": "VIED",
-      "note": "vied means competed or strove"
-     },
-     {
-      "clueFragment": "host",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "VI",
-      "T",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "note": "to keep something is to hold it inside, so the word for strove encloses the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "strove",
+         "gives": "VIED",
+         "note": "vied means competed or strove"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "note": "the close of a word is its end, so only the final letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "host",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1199,28 +1041,16 @@
    },
    "solution": "LORELEI",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LORELEI",
     "definitions": [
      {
       "text": "Legendary German rock",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a steep slate cliff on the Rhine famed in folklore"
      },
      {
       "text": "singer",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Legendary German rock",
-      "note": "first meaning: a steep slate cliff on the Rhine famed in folklore"
-     },
-     {
-      "clueFragment": "singer",
-      "note": "second meaning: the siren of legend whose song lured boatmen to wreck there"
+      "at": 22,
+      "meaning": "second meaning: the siren of legend whose song lured boatmen to wreck there"
      }
     ],
     "explanation": {
@@ -1255,32 +1085,25 @@
    },
    "solution": "RINGSUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RINGS UP",
     "definitions": [
      {
       "text": "Phones",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "circles",
-      "gives": "RINGS",
-      "note": "rings are circles"
-     },
-     {
-      "clueFragment": "at university",
-      "gives": "UP",
-      "note": "a student in residence is said to be up at university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RINGS",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "circles",
+       "gives": "RINGS",
+       "note": "rings are circles"
+      },
+      {
+       "words": "at university",
+       "gives": "UP",
+       "note": "a student in residence is said to be up at university"
+      }
      ]
     },
     "explanation": {
@@ -1309,33 +1132,29 @@
    },
    "solution": "ITERATE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ITERATE",
     "definitions": [
      {
       "text": "Repeat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start's missing",
-      "for": "deletion",
-      "note": "if the start is missing, the opening letter has been dropped from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Learned",
-      "gives": "LITERATE",
-      "note": "literate means educated or learned"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ITERATE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "start's missing",
+       "note": "if the start is missing, the opening letter has been dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Learned",
+       "gives": "LITERATE",
+       "note": "literate means educated or learned"
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -1364,35 +1183,25 @@
    },
    "solution": "ROVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROVER",
     "definitions": [
      {
       "text": "a rambler",
       "at": 16
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "the standard abbreviation for right"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "OVER",
-      "note": "left in the sense of remaining, as in food left over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "OVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "the standard abbreviation for right"
+      },
+      {
+       "words": "left",
+       "gives": "OVER",
+       "note": "left in the sense of remaining, as in food left over"
+      }
      ]
     },
     "explanation": {
@@ -1421,35 +1230,25 @@
    },
    "solution": "REMUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMUS",
     "definitions": [
      {
       "text": "Famous twin",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rock band",
-      "gives": "REM",
-      "note": "R.E.M. was an American rock band"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "abbreviation for the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REM",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rock band",
+       "gives": "REM",
+       "note": "R.E.M. was an American rock band"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "abbreviation for the United States"
+      }
      ]
     },
     "explanation": {
@@ -1483,50 +1282,41 @@
    },
    "solution": "STVINCENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ST VINCENT",
     "definitions": [
      {
       "text": "part of the Windward Islands",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means encircling, so the first word's letters wrap the pieces that follow"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smell",
-      "gives": "SCENT",
-      "note": "a scent is a smell"
-     },
-     {
-      "clueFragment": "television",
-      "gives": "TV",
-      "note": "the usual abbreviation"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TV",
-      "IN",
-      "CENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means encircling, so the first word's letters wrap the pieces that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Smell",
+       "gives": "SCENT",
+       "note": "a scent is a smell"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "television",
+         "gives": "TV",
+         "note": "the usual abbreviation"
+        },
+        {
+         "words": "at home",
+         "gives": "IN",
+         "note": "someone at home is in"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1555,48 +1345,37 @@
    },
    "solution": "MATILDA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MATILDA",
     "definitions": [
      {
       "text": "Children's book",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "laid out suggests spread in a new arrangement, so the preceding letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rug",
-      "gives": "MAT",
-      "note": "a mat is a small rug"
-     },
-     {
-      "clueFragment": "laid",
-      "gives": "ILDA",
-      "note": "the letters of laid rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAT",
-      "ILDA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MATILDA",
+     "indicators": [
       {
-       "fodder": "LAID",
-       "gives": "ILDA"
+       "text": "out",
+       "note": "laid out suggests spread in a new arrangement, so the preceding letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rug",
+         "gives": "MAT",
+         "note": "a mat is a small rug"
+        },
+        {
+         "words": "laid",
+         "gives": "ILDA",
+         "note": "the letters of laid rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1632,50 +1411,44 @@
    },
    "solution": "LASCALA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "LA SCALA",
     "definitions": [
      {
       "text": "opera house",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Finale of",
-      "for": "letter_selection",
-      "note": "a finale is the closing part, so only the last letter of the next word is used"
-     },
-     {
-      "text": "performing",
-      "for": "anagram",
-      "note": "performing suggests putting on a show, so these letters are set in a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maria",
-      "gives": "A",
-      "select": "last",
-      "note": "the end of the first name"
-     },
-     {
-      "clueFragment": "Callas",
-      "gives": "CALLAS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACALLAS",
-       "gives": "LASCALA"
+       "text": "performing",
+       "note": "performing suggests putting on a show, so these letters are set in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Finale of",
+           "note": "a finale is the closing part, so only the last letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Maria",
+           "note": "the end of the first name"
+          }
+         ]
+        },
+        {
+         "words": "Callas",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1710,35 +1483,25 @@
    },
    "solution": "SIDEISSUE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SIDE ISSUE",
     "definitions": [
      {
       "text": "Diverting feature",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fringe",
-      "gives": "SIDE",
-      "note": "the side of something is its edge or fringe"
-     },
-     {
-      "clueFragment": "publication",
-      "gives": "ISSUE",
-      "note": "an issue is one edition of a magazine or paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIDE",
-      "ISSUE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fringe",
+       "gives": "SIDE",
+       "note": "the side of something is its edge or fringe"
+      },
+      {
+       "words": "publication",
+       "gives": "ISSUE",
+       "note": "an issue is one edition of a magazine or paper"
+      }
      ]
     },
     "explanation": {
@@ -1768,31 +1531,16 @@
    },
    "solution": "PRESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PRESS",
     "definitions": [
      {
       "text": "Iron",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to smooth clothes flat"
      },
      {
       "text": "cupboard",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Iron",
-      "note": "first meaning: to smooth clothes flat"
-     },
-     {
-      "clueFragment": "cupboard",
-      "note": "second meaning: a large storage cabinet, as for linen"
+      "at": 8,
+      "meaning": "second meaning: a large storage cabinet, as for linen"
      }
     ],
     "explanation": {

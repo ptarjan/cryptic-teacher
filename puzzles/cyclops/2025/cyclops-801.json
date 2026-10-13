@@ -1,8 +1,6 @@
 {
  "id": "cyclops-801",
  "number": 801,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 801",
  "setter": "Cyclops",
  "date": "2025-04-04",
  "dimensions": {
@@ -42,30 +40,16 @@
    },
    "solution": "BLOOMERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLOOMERS",
     "definitions": [
      {
       "text": "Underwear",
-      "at": 0
+      "at": 0,
+      "meaning": "long, loose knickers of the Victorian kind"
      },
      {
       "text": "gaffes",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Underwear",
-      "gives": "BLOOMERS",
-      "note": "long, loose knickers of the Victorian kind"
-     },
-     {
-      "clueFragment": "gaffes",
-      "gives": "BLOOMERS",
-      "note": "a bloomer is an embarrassing blunder"
+      "at": 10,
+      "meaning": "a bloomer is an embarrassing blunder"
      }
     ],
     "explanation": {
@@ -95,30 +79,28 @@
    },
    "solution": "SCAM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SCAM",
     "definitions": [
      {
       "text": "fraud",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "covering up",
-      "for": "hidden_word",
-      "note": "the phrase 'Was Cameron' covers the answer inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was Cameron",
-      "gives": "SCAM",
-      "note": "waS CAMeron"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "covering up",
+       "note": "the phrase 'Was Cameron' covers the answer inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was Cameron",
+       "gives": "SCAM",
+       "note": "waS CAMeron"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A suspicious question about whether David Cameron, the former Prime Minister, was hiding a fraud.",
      "walkthrough": "The political scandal story is a smokescreen: the answer sits across the join of 'Was' and 'Cameron'.",
@@ -145,57 +127,50 @@
    },
    "solution": "HELSINKI",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HELSINKI",
     "definitions": [
      {
       "text": "capital",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "note": "the letters of LIKES are played around with, rearranged"
-     },
-     {
-      "text": "in",
-      "note": "the rearranged letters go inside the greeting"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "greeting",
-      "gives": "HI",
-      "note": "hi = a greeting; it holds the rest"
-     },
-     {
-      "clueFragment": "Likes",
-      "gives": "LIKES",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "n = name, a standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ELSINK",
-      "I"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LIKESN",
-       "gives": "ELSINK"
+       "text": "playing",
+       "note": "the letters of LIKES are played around with, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "greeting",
+       "gives": "HI",
+       "note": "hi = a greeting; it holds the rest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the rearranged letters go inside the greeting"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Likes",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "name",
+           "gives": "N",
+           "note": "n = name, a standard abbreviation"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -225,61 +200,52 @@
    },
    "solution": "LEGIBLE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "LEGIBLE",
     "definitions": [
      {
       "text": "plain",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "dithering",
-      "for": "anagram",
-      "note": "a dithering LIB can't keep its letters in order"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "take the final letter of 'Conservative'"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Member",
-      "gives": "LEG",
-      "note": "a leg is a limb, a member of the body"
-     },
-     {
-      "clueFragment": "Lib",
-      "gives": "IBL",
-      "note": "LIB rearranged"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of ConservativE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEG",
-      "IBL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LEGIBLE",
+     "indicators": [
       {
-       "fodder": "LIB",
-       "gives": "IBL"
+       "text": "dithering",
+       "note": "a dithering LIB can't keep its letters in order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Member",
+         "gives": "LEG",
+         "note": "a leg is a limb, a member of the body"
+        },
+        {
+         "words": "Lib",
+         "gives": "IBL",
+         "note": "LIB rearranged"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "take the final letter of 'Conservative'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Conservative",
+           "note": "last letter of ConservativE"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -309,39 +275,30 @@
    },
    "solution": "PLANET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLANET",
     "definitions": [
      {
       "text": "Mars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grasp of",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bush's",
-      "gives": "PLANT",
-      "note": "a bush is a plant; it holds the next piece"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLAN",
-      "E",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasp of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bush's",
+       "gives": "PLANT",
+       "note": "a bush is a plant; it holds the next piece"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      }
      ]
     },
     "explanation": {
@@ -371,38 +328,29 @@
    },
    "solution": "HEROIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HEROIC",
     "definitions": [
      {
       "text": "Bold",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abandons",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heroin chic",
-      "gives": "HEROINCHIC",
-      "note": "the phrase to be cut down"
-     },
-     {
-      "clueFragment": "creep",
-      "gives": "INCH",
-      "note": "to creep = to inch along; these four letters go: HERO(INCH)IC"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HERO",
-      "IC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandons"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heroin chic",
+       "note": "the phrase to be cut down"
+      },
+      {
+       "words": "creep",
+       "gives": "INCH",
+       "note": "to creep = to inch along; these four letters go: HERO(INCH)IC"
+      }
      ]
     },
     "explanation": {
@@ -437,50 +385,41 @@
    },
    "solution": "BLACKEYE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BLACK EYE",
     "definitions": [
      {
       "text": "result of fight",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "main",
-      "for": "letter_selection",
-      "note": "the main, leading letter of Badenoch"
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Badenoch's main",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of Badenoch"
-     },
-     {
-      "clueFragment": "deficiency",
-      "gives": "LACK",
-      "note": "a lack = a deficiency"
-     },
-     {
-      "clueFragment": "magazine",
-      "gives": "EYE",
-      "note": "Private Eye, the magazine this puzzle appears in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LACK",
-      "EYE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "main",
+         "note": "the main, leading letter of Badenoch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Badenoch's main",
+         "gives": "BADENOCHS",
+         "note": "first letter of Badenoch"
+        }
+       ]
+      },
+      {
+       "words": "deficiency",
+       "gives": "LACK",
+       "note": "a lack = a deficiency"
+      },
+      {
+       "words": "magazine",
+       "gives": "EYE",
+       "note": "Private Eye, the magazine this puzzle appears in"
+      }
      ]
     },
     "explanation": {
@@ -509,47 +448,39 @@
    },
    "solution": "LECHER",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "LECHER",
     "definitions": [
      {
       "text": "sexual predator",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "about"
-     },
-     {
-      "text": "catching"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Act shocked",
-      "gives": "REEL",
-      "note": "to reel = to stagger back in shock"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH = church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "CH",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "REEL",
-       "to": "LEER"
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "catching"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Act shocked",
+         "gives": "REEL",
+         "note": "to reel = to stagger back in shock"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH = church"
       }
      ]
     },
@@ -579,45 +510,37 @@
    },
    "solution": "CIGARETTE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CIGARETTE",
     "definitions": [
      {
       "text": "cancer risk",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "the letters of GET IRATE are knocked about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clubs",
-      "gives": "C",
-      "note": "C = clubs, the card suit"
-     },
-     {
-      "clueFragment": "get irate",
-      "gives": "IGARETTE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "IGARETTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CIGARETTE",
+     "indicators": [
       {
-       "fodder": "GETIRATE",
-       "gives": "IGARETTE"
+       "text": "about",
+       "note": "the letters of GET IRATE are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Clubs",
+         "gives": "C",
+         "note": "C = clubs, the card suit"
+        },
+        {
+         "words": "get irate",
+         "gives": "IGARETTE",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -647,55 +570,51 @@
    },
    "solution": "COMMISSION",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "COMMISSION",
     "definitions": [
      {
       "text": "percentage",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "only the first letter of 'member'"
-     },
-     {
-      "text": "falling into",
-      "for": "container",
-      "note": "something that falls into a hole ends up inside it"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "select": "first",
-      "note": "C = Conservative"
-     },
-     {
-      "clueFragment": "disregard",
-      "gives": "OMISSION",
-      "note": "an omission = a thing disregarded or left out; it takes in the next piece"
-     },
-     {
-      "clueFragment": "member initially",
-      "gives": "M",
-      "note": "first letter of member, placed after the O: O(M)MISSION"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OMMISSION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "only the first letter of 'member'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Conservative",
+         "note": "C = Conservative"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "falling into",
+         "note": "something that falls into a hole ends up inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disregard",
+         "gives": "OMISSION",
+         "note": "an omission = a thing disregarded or left out; it takes in the next piece"
+        },
+        {
+         "words": "member initially",
+         "gives": "M",
+         "note": "first letter of member, placed after the O: O(M)MISSION"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -724,35 +643,25 @@
    },
    "solution": "GOOF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOOF",
     "definitions": [
      {
       "text": "Idiot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in pursuit of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "muck",
-      "gives": "GOO",
-      "note": "goo = sticky muck"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "F",
-      "note": "F = fellow; it comes after, in pursuit of, GOO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOO",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "muck",
+       "gives": "GOO",
+       "note": "goo = sticky muck"
+      },
+      {
+       "words": "fellow",
+       "gives": "F",
+       "note": "F = fellow; it comes after, in pursuit of, GOO"
+      }
      ]
     },
     "explanation": {
@@ -787,35 +696,25 @@
    },
    "solution": "YESMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "YES-MAN",
     "definitions": [
      {
       "text": "lackey",
       "at": 16
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old band",
-      "gives": "YES",
-      "note": "Yes, the 1970s progressive rock band"
-     },
-     {
-      "clueFragment": "crew",
-      "gives": "MAN",
-      "note": "to crew a ship = to man it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YES",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old band",
+       "gives": "YES",
+       "note": "Yes, the 1970s progressive rock band"
+      },
+      {
+       "words": "crew",
+       "gives": "MAN",
+       "note": "to crew a ship = to man it"
+      }
      ]
     },
     "explanation": {
@@ -850,10 +749,6 @@
    },
    "solution": "MERRYHELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MERRY HELL",
     "definitions": [
      {
       "text": "played for maximum disturbance",
@@ -861,25 +756,19 @@
       "note": "the answer is the noun phrase in the idiom 'play merry hell'; the clue gives the whole idiom"
      }
     ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pissed",
-      "gives": "MERRY",
-      "note": "pissed = drunk in British slang; merry = tipsy"
-     },
-     {
-      "clueFragment": "lower regions",
-      "gives": "HELL",
-      "note": "the underworld, below"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MERRY",
-      "HELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pissed",
+       "gives": "MERRY",
+       "note": "pissed = drunk in British slang; merry = tipsy"
+      },
+      {
+       "words": "lower regions",
+       "gives": "HELL",
+       "note": "the underworld, below"
+      }
      ]
     },
     "explanation": {
@@ -908,50 +797,41 @@
    },
    "solution": "LITERACY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LITERACY",
     "definitions": [
      {
       "text": "state of being educated",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "take the last letter of 'the'"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turned on",
-      "gives": "LIT",
-      "note": "a lamp turned on is lit"
-     },
-     {
-      "clueFragment": "the ultimately",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of thE"
-     },
-     {
-      "clueFragment": "risqué",
-      "gives": "RACY",
-      "note": "racy = risqué, slightly indecent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIT",
-      "E",
-      "RACY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turned on",
+       "gives": "LIT",
+       "note": "a lamp turned on is lit"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "take the last letter of 'the'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the ultimately",
+         "gives": "THE",
+         "note": "last letter of thE"
+        }
+       ]
+      },
+      {
+       "words": "risqué",
+       "gives": "RACY",
+       "note": "racy = risqué, slightly indecent"
+      }
      ]
     },
     "explanation": {
@@ -981,45 +861,40 @@
    },
    "solution": "SORDID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SORDID",
     "definitions": [
      {
       "text": "Sleazy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grabbed by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bastard",
-      "gives": "SOD",
-      "note": "sod = an unpleasant person, British slang; it holds the rest"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "RD",
-      "note": "RD = road, a way"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral; RD and I sit together inside SOD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "RD",
-      "I",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbed by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "bastard",
+         "gives": "SOD",
+         "note": "sod = an unpleasant person, British slang; it holds the rest"
+        },
+        {
+         "words": "way",
+         "gives": "RD",
+         "note": "RD = road, a way"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral; RD and I sit together inside SOD"
+      }
      ]
     },
     "explanation": {
@@ -1054,30 +929,16 @@
    },
    "solution": "SHUTUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHUT UP",
     "definitions": [
      {
       "text": "Hold your tongue",
-      "at": 0
+      "at": 0,
+      "meaning": "an order to be quiet"
      },
      {
       "text": "in prison",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hold your tongue",
-      "gives": "SHUTUP",
-      "note": "an order to be quiet"
-     },
-     {
-      "clueFragment": "in prison",
-      "gives": "SHUTUP",
-      "note": "locked away"
+      "at": 17,
+      "meaning": "locked away"
      }
     ],
     "explanation": {
@@ -1112,35 +973,25 @@
    },
    "solution": "HARDLUCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HARD LUCK",
     "definitions": [
      {
       "text": "That's inopportune",
       "at": 27
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Got an erection",
-      "gives": "HARD",
-      "note": "vulgar: to have got an erection is to be hard"
-     },
-     {
-      "clueFragment": "chance",
-      "gives": "LUCK",
-      "note": "luck = chance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "LUCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Got an erection",
+       "gives": "HARD",
+       "note": "vulgar: to have got an erection is to be hard"
+      },
+      {
+       "words": "chance",
+       "gives": "LUCK",
+       "note": "luck = chance"
+      }
      ]
     },
     "explanation": {
@@ -1170,39 +1021,30 @@
    },
    "solution": "PRESENTS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PRESENTS",
     "definitions": [
      {
       "text": "awards",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "missed",
-      "for": "deletion",
-      "note": "the letters of I'D go missing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "say, Putin's",
-      "gives": "PRESIDENTS",
-      "note": "Putin is, for example, a president; with the 's that is PRESIDENTS"
-     },
-     {
-      "clueFragment": "I'd",
-      "gives": "ID",
-      "note": "these letters come out: PRES(ID)ENTS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRES",
-      "ENTS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missed",
+       "note": "the letters of I'D go missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "say, Putin's",
+       "gives": "PRESIDENTS",
+       "note": "Putin is, for example, a president; with the 's that is PRESIDENTS"
+      },
+      {
+       "words": "I'd",
+       "note": "these letters come out: PRES(ID)ENTS"
+      }
      ]
     },
     "explanation": {
@@ -1231,30 +1073,16 @@
    },
    "solution": "STUNNER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STUNNER",
     "definitions": [
      {
       "text": "Very attractive sort",
-      "at": 0
+      "at": 0,
+      "meaning": "a gorgeous, knockout person"
      },
      {
       "text": "headbanger?",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Very attractive sort",
-      "gives": "STUNNER",
-      "note": "a gorgeous, knockout person"
-     },
-     {
-      "clueFragment": "headbanger?",
-      "gives": "STUNNER",
-      "note": "one who stuns, as by a bang on the head"
+      "at": 24,
+      "meaning": "one who stuns, as by a bang on the head"
      }
     ],
     "explanation": {
@@ -1290,49 +1118,55 @@
    },
    "solution": "ONLYJUST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ONLY JUST",
     "definitions": [
      {
       "text": "Barely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "note": "first letters of 'young Jack'"
-     },
-     {
-      "text": "swamped by"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "performing",
-      "gives": "ON",
-      "note": "a performer is on stage"
-     },
-     {
-      "clueFragment": "desire",
-      "gives": "LUST",
-      "note": "lust = desire; it holds the next piece"
-     },
-     {
-      "clueFragment": "young Jack, initially",
-      "gives": "YJ",
-      "select": "first",
-      "note": "first letters of Young Jack: L(YJ)UST"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "LYJUST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "first letters of 'young Jack'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "performing",
+       "gives": "ON",
+       "note": "a performer is on stage"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swamped by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desire",
+         "gives": "LUST",
+         "note": "lust = desire; it holds the next piece"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "YJ",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "young Jack, initially",
+           "gives": "YJ",
+           "select": "first",
+           "note": "first letters of Young Jack: L(YJ)UST"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1361,35 +1195,24 @@
    },
    "solution": "NEWTON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEWTON",
     "definitions": [
      {
       "text": "Mathematician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "screwing",
-      "for": "anagram",
-      "note": "WENT ON is screwed up, twisted into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "went on",
-      "gives": "WENTON",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WENT ON",
-       "gives": "NEWTON"
+       "text": "screwing",
+       "note": "WENT ON is screwed up, twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "went on",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1420,33 +1243,28 @@
    },
    "solution": "UNREST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "UNREST",
     "definitions": [
      {
       "text": "protest",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Just a bit",
-      "for": "hidden_word",
-      "note": "only a bit of 'Sun restrained' is wanted"
-     }
-    ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sun restrained",
-      "gives": "UNREST",
-      "note": "sUN RESTrained"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Just a bit",
+       "note": "only a bit of 'Sun restrained' is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sun restrained",
+       "gives": "UNREST",
+       "note": "sUN RESTrained"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joke about the Sun newspaper being only mildly muzzled, followed by a call to protest.",
      "walkthrough": "The Sun is a British tabloid newspaper; that reading is a decoy for a run of letters.",
@@ -1473,53 +1291,52 @@
    },
    "solution": "REEVES",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "REEVES",
     "definitions": [
      {
       "text": "Minister?",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "prepared",
-      "note": "EVER is prepared, made into a new form"
-     },
-     {
-      "text": "last two instalments of",
-      "note": "the last two letters of 'Yes'"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ever",
-      "gives": "REEV",
-      "note": "EVER rearranged"
-     },
-     {
-      "clueFragment": "Yes",
-      "gives": "ES",
-      "select": "last",
-      "note": "last two letters of yES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REEV",
-      "ES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "REEVES",
+     "parts": [
       {
-       "fodder": "EVER",
-       "gives": "REEV"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "prepared",
+         "note": "EVER is prepared, made into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ever",
+         "gives": "REEV",
+         "note": "EVER rearranged"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "ES",
+         "indicators": [
+          {
+           "text": "last two instalments of",
+           "note": "the last two letters of 'Yes'"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Yes",
+           "gives": "ES",
+           "select": "last",
+           "note": "last two letters of yES"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1549,41 +1366,36 @@
    },
    "solution": "TWEE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TWEE",
     "definitions": [
      {
       "text": "cutesy",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "the start of 'take', its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to take",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of Take"
-     },
-     {
-      "clueFragment": "piss",
-      "gives": "WEE",
-      "note": "wee = urine, piss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WEE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "the start of 'take', its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to take",
+         "gives": "TAKE",
+         "note": "first letter of Take"
+        }
+       ]
+      },
+      {
+       "words": "piss",
+       "gives": "WEE",
+       "note": "wee = urine, piss"
+      }
      ]
     },
     "explanation": {
@@ -1612,36 +1424,25 @@
    },
    "solution": "RINGLEADER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RINGLEADER",
     "definitions": [
      {
       "text": "Chief troublemaker",
       "at": 0
      }
     ],
-    "linkWords": [
-     "puts",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "halo",
-      "gives": "RING",
-      "note": "a halo is a ring of light"
-     },
-     {
-      "clueFragment": "Trump?",
-      "gives": "LEADER",
-      "note": "Trump is a leader, by example, as the '?' signals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RING",
-      "LEADER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "halo",
+       "gives": "RING",
+       "note": "a halo is a ring of light"
+      },
+      {
+       "words": "Trump?",
+       "gives": "LEADER",
+       "note": "Trump is a leader, by example, as the '?' signals"
+      }
      ]
     },
     "explanation": {
@@ -1671,40 +1472,30 @@
    },
    "solution": "ALLY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ALLY",
     "definitions": [
      {
       "text": "colleague",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "dumps",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clot",
-      "gives": "WALLY",
-      "note": "a wally is a fool, British slang"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W = wife; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALLY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dumps"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Clot",
+       "gives": "WALLY",
+       "note": "a wally is a fool, British slang"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W = wife; it is removed"
+      }
      ]
     },
     "explanation": {
@@ -1733,45 +1524,40 @@
    },
    "solution": "OODLES",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "OODLES",
     "definitions": [
      {
       "text": "Lots",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting"
-     },
-     {
-      "text": "tip from",
-      "note": "the end tip of 'Elon', its last letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twits",
-      "gives": "NOODLES",
-      "note": "a noodle is a fool"
-     },
-     {
-      "clueFragment": "tip from Elon",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of ElON; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OODLES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "wanting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "twits",
+       "gives": "NOODLES",
+       "note": "a noodle is a fool"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tip from",
+         "note": "the end tip of 'Elon', its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tip from Elon",
+         "note": "last letter of ElON; it is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1801,47 +1587,41 @@
    },
    "solution": "ESCALATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESCALATE",
     "definitions": [
      {
       "text": "refer to a higher-up",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head, first letter, of 'agency'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Key",
-      "gives": "ESC",
-      "note": "the Escape key on a keyboard"
-     },
-     {
-      "clueFragment": "agency head",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of Agency"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "LATE",
-      "note": "the late = the dead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESC",
-      "A",
-      "LATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Key",
+       "gives": "ESC",
+       "note": "the Escape key on a keyboard"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head, first letter, of 'agency'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agency head",
+         "gives": "AGENCY",
+         "note": "first letter of Agency"
+        }
+       ]
+      },
+      {
+       "words": "dead",
+       "gives": "LATE",
+       "note": "the late = the dead"
+      }
      ]
     },
     "explanation": {

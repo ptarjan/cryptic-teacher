@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30123",
  "number": 30123,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,123",
  "setter": "Brummie",
  "date": "2026-09-28",
  "dimensions": {
@@ -38,51 +36,44 @@
    },
    "solution": "CRISIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CRISIS",
     "definitions": [
      {
       "text": "Plight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heads",
-      "for": "letter_selection",
-      "note": "the heads of words are their first letters"
-     },
-     {
-      "text": "double",
-      "for": "letter_selection",
-      "note": "double asks for the next piece twice"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "leading"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "conflicted Republican heads",
-      "gives": "CR",
-      "select": "first",
-      "note": "first letters of Conflicted and Republican"
-     },
-     {
-      "clueFragment": "double lives",
-      "gives": "ISIS",
-      "note": "lives = IS (he lives = he is, he exists), taken twice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CR",
-      "IS",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CR",
+       "indicators": [
+        {
+         "text": "heads",
+         "note": "the heads of words are their first letters"
+        },
+        {
+         "text": "double",
+         "note": "double asks for the next piece twice"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "conflicted Republican heads",
+         "gives": "CR",
+         "select": "first",
+         "note": "first letters of Conflicted and Republican"
+        }
+       ]
+      },
+      {
+       "words": "double lives",
+       "gives": "ISIS",
+       "note": "lives = IS (he lives = he is, he exists), taken twice"
+      }
      ]
     },
     "explanation": {
@@ -111,30 +102,16 @@
    },
    "solution": "RARE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RARE",
     "definitions": [
      {
       "text": "Excellent",
-      "at": 0
+      "at": 0,
+      "meaning": "an old-fashioned sense of excellent, as in a fine old time"
      },
      {
       "text": "red for the diner",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Excellent",
-      "gives": "RARE",
-      "note": "an old-fashioned sense of excellent, as in a fine old time"
-     },
-     {
-      "clueFragment": "red for the diner",
-      "gives": "RARE",
-      "note": "how a diner orders a steak that is still red inside"
+      "at": 10,
+      "meaning": "how a diner orders a steak that is still red inside"
      }
     ],
     "explanation": {
@@ -164,33 +141,28 @@
    },
    "solution": "SKEDADDLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SKEDADDLE",
     "definitions": [
      {
       "text": "make tracks",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Somewhat",
-      "for": "hidden_word",
-      "note": "only some of the words that follow are used"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over-tasked, add lead",
-      "gives": "SKEDADDLE",
-      "note": "over-taSKED ADD LEad"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Somewhat",
+       "note": "only some of the words that follow are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "over-tasked, add lead",
+       "gives": "SKEDADDLE",
+       "note": "over-taSKED ADD LEad"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An overworked person is asked to take on the lead role as well.",
      "walkthrough": "The comma splits the run of letters on the surface, but a hidden word ignores punctuation and runs across it.",
@@ -217,35 +189,24 @@
    },
    "solution": "SNOOTY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SNOOTY",
     "definitions": [
      {
       "text": "Superior",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "high",
-      "for": "anagram",
-      "note": "high as on drugs: the letters are out of their right minds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toys on",
-      "gives": "TOYSON",
-      "note": "anagram fodder, 6 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOYS ON",
-       "gives": "SNOOTY"
+       "text": "high",
+       "note": "high as on drugs: the letters are out of their right minds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toys on",
+       "note": "anagram fodder, 6 letters"
       }
      ]
     },
@@ -281,48 +242,37 @@
    },
    "solution": "SOBSTORY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SOB STORY",
     "definitions": [
      {
       "text": "Pitiful account",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "for": "anagram",
-      "note": "turned over, jumbled: the letters change places"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boss turned",
-      "gives": "SOBS",
-      "note": "BOSS rearranged"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "TORY",
-      "note": "a Tory is a British Conservative politician"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOBS",
-      "TORY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SOBSTORY",
+     "indicators": [
       {
-       "fodder": "BOSS",
-       "gives": "SOBS"
+       "text": "turned",
+       "note": "turned over, jumbled: the letters change places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "boss turned",
+         "gives": "SOBS",
+         "note": "BOSS rearranged"
+        },
+        {
+         "words": "politician",
+         "gives": "TORY",
+         "note": "a Tory is a British Conservative politician"
+        }
+       ]
       }
      ]
     },
@@ -364,43 +314,34 @@
    },
    "solution": "SEDIMENTARYROCK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SEDIMENTARY ROCK",
     "definitions": [
      {
       "text": "White Cliffs of Dover composition",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be arranged",
-      "for": "anagram",
-      "note": "arranging puts the letters in a new order"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "morris dance yet",
-      "gives": "MORRISDANCEYET",
-      "note": "anagram fodder, 14 letters"
-     },
-     {
-      "clueFragment": "Kay",
-      "gives": "K",
-      "note": "Kay is how the letter K is spelt out"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MORRIS DANCE YET K",
-       "gives": "SEDIMENTARYROCK"
+       "text": "to be arranged",
+       "note": "arranging puts the letters in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "morris dance yet",
+         "note": "anagram fodder, 14 letters"
+        },
+        {
+         "words": "Kay",
+         "gives": "K",
+         "note": "Kay is how the letter K is spelt out"
+        }
+       ]
       }
      ]
     },
@@ -437,32 +378,25 @@
    },
    "solution": "BASECAMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BASE CAMP",
     "definitions": [
      {
       "text": "start of assault on Everest?",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Wretched",
-      "gives": "BASE",
-      "note": "base = low, contemptible"
-     },
-     {
-      "clueFragment": "mannered",
-      "gives": "CAMP",
-      "note": "camp = affected, theatrical"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BASE",
-      "CAMP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wretched",
+       "gives": "BASE",
+       "note": "base = low, contemptible"
+      },
+      {
+       "words": "mannered",
+       "gives": "CAMP",
+       "note": "camp = affected, theatrical"
+      }
      ]
     },
     "explanation": {
@@ -491,33 +425,29 @@
    },
    "solution": "TRESS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TRESS",
     "definitions": [
      {
       "text": "lock",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Not opening",
-      "for": "deletion",
-      "note": "without its opening, the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "force",
-      "gives": "STRESS",
-      "note": "stress = force, pressure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRESS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not opening",
+       "note": "without its opening, the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "force",
+       "gives": "STRESS",
+       "note": "stress = force, pressure"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -553,48 +483,37 @@
    },
    "solution": "RATCATCHER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "RAT-CATCHER",
     "definitions": [
      {
       "text": "The Pied Piper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abstract",
-      "for": "anagram",
-      "note": "abstract art distorts its subject, so the letters of ART are distorted"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "abstract art",
-      "gives": "RAT",
-      "note": "ART rearranged"
-     },
-     {
-      "clueFragment": "baseball player",
-      "gives": "CATCHER",
-      "note": "the catcher crouches behind home plate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAT",
-      "CATCHER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RATCATCHER",
+     "indicators": [
       {
-       "fodder": "ART",
-       "gives": "RAT"
+       "text": "abstract",
+       "note": "abstract art distorts its subject, so the letters of ART are distorted"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "abstract art",
+         "gives": "RAT",
+         "note": "ART rearranged"
+        },
+        {
+         "words": "baseball player",
+         "gives": "CATCHER",
+         "note": "the catcher crouches behind home plate"
+        }
+       ]
       }
      ]
     },
@@ -624,35 +543,25 @@
    },
    "solution": "FREELOAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FREELOAD",
     "definitions": [
      {
       "text": "Sponge",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loose",
-      "gives": "FREE",
-      "note": "loose = free, unconfined"
-     },
-     {
-      "clueFragment": "weight",
-      "gives": "LOAD",
-      "note": "a load is a weight carried"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FREE",
-      "LOAD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "loose",
+       "gives": "FREE",
+       "note": "loose = free, unconfined"
+      },
+      {
+       "words": "weight",
+       "gives": "LOAD",
+       "note": "a load is a weight carried"
+      }
      ]
     },
     "explanation": {
@@ -681,48 +590,40 @@
    },
    "solution": "SLEUTH",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "SLEUTH",
     "definitions": [
      {
       "text": "Dick",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "note": "playing with the letters moves them around"
-     },
-     {
-      "text": "to break"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "silence",
-      "gives": "SH",
-      "note": "sh! calls for silence"
-     },
-     {
-      "clueFragment": "lute",
-      "gives": "LEUT",
-      "note": "LUTE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LEUT",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SLEUTH",
+     "parts": [
       {
-       "fodder": "LUTE",
-       "gives": "LEUT"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "playing",
+         "note": "playing with the letters moves them around"
+        },
+        {
+         "text": "to break"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silence",
+         "gives": "SH",
+         "note": "sh! calls for silence"
+        },
+        {
+         "words": "lute",
+         "gives": "LEUT",
+         "note": "LUTE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -752,35 +653,24 @@
    },
    "solution": "ANTIMACASSAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANTIMACASSAR",
     "definitions": [
      {
       "text": "protection against greasy hair",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Applying",
-      "for": "anagram",
-      "note": "applying as in working on, putting to use: the letters are worked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mascara isn't a",
-      "gives": "MASCARAISNTA",
-      "note": "anagram fodder, 12 letters, ignoring the apostrophe"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MASCARA ISNT A",
-       "gives": "ANTIMACASSAR"
+       "text": "Applying",
+       "note": "applying as in working on, putting to use: the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mascara isn't a",
+       "note": "anagram fodder, 12 letters, ignoring the apostrophe"
       }
      ]
     },
@@ -810,55 +700,51 @@
    },
    "solution": "OCCASIONAL",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "OCCASIONAL",
     "definitions": [
      {
       "text": "Intermittent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sort of",
-      "note": "sorting shuffles the letters"
-     },
-     {
-      "text": "in",
-      "note": "the anagram sits inside the state"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ohio",
-      "gives": "O",
-      "note": "O is an abbreviation for Ohio"
-     },
-     {
-      "clueFragment": "state",
-      "gives": "CAL",
-      "note": "Cal. is short for California"
-     },
-     {
-      "clueFragment": "casino",
-      "gives": "CASION",
-      "note": "CASINO rearranged, placed after the C of CAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "C",
-      "CASION",
-      "AL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CASINO",
-       "gives": "CASION"
+       "text": "sort of",
+       "note": "sorting shuffles the letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the anagram sits inside the state"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "state",
+           "gives": "CAL",
+           "note": "Cal. is short for California"
+          },
+          {
+           "words": "casino",
+           "gives": "CASION",
+           "note": "CASINO rearranged, placed after the C of CAL"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Ohio",
+       "gives": "O",
+       "note": "O is an abbreviation for Ohio"
       }
      ]
     },
@@ -888,44 +774,36 @@
    },
    "solution": "SCUD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SCUD",
     "definitions": [
      {
       "text": "Rocket",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starter",
-      "for": "letter_selection",
-      "note": "the starter of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salad starter",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of salad"
-     },
-     {
-      "clueFragment": "re-processed food",
-      "gives": "CUD",
-      "note": "cud is food a cow brings back up to chew again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CUD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter",
+         "note": "the starter of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salad starter",
+         "gives": "SALAD",
+         "note": "first letter of salad"
+        }
+       ]
+      },
+      {
+       "words": "re-processed food",
+       "gives": "CUD",
+       "note": "cud is food a cow brings back up to chew again"
+      }
      ]
     },
     "explanation": {
@@ -955,44 +833,40 @@
    },
    "solution": "NUMERACY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NUMERACY",
     "definitions": [
      {
       "text": "ability to put two and two together",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "the leaders of words are their first letters"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Never underestimate Middle Eastern leaders",
-      "gives": "NUME",
-      "select": "first",
-      "note": "first letters of Never, Underestimate, Middle, Eastern"
-     },
-     {
-      "clueFragment": "lively",
-      "gives": "RACY",
-      "note": "racy = lively, spirited"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUME",
-      "RACY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "NUME",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "the leaders of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Never underestimate Middle Eastern leaders",
+         "gives": "NUME",
+         "select": "first",
+         "note": "first letters of Never, Underestimate, Middle, Eastern"
+        }
+       ]
+      },
+      {
+       "words": "lively",
+       "gives": "RACY",
+       "note": "racy = lively, spirited"
+      }
      ]
     },
     "explanation": {
@@ -1022,48 +896,35 @@
    },
    "solution": "RIGHTEOUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RIGHTEOUS",
     "definitions": [
      {
       "text": "Just",
       "at": 0
      }
     ],
-    "linkWords": [
-     "a blend of",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "proper",
-      "gives": "RIGHT",
-      "note": "right = proper, correct"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "ordinary",
-      "gives": "O",
-      "note": "O = ordinary, as in O level"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIGHT",
-      "E",
-      "O",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "proper",
+       "gives": "RIGHT",
+       "note": "right = proper, correct"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      },
+      {
+       "words": "ordinary",
+       "gives": "O",
+       "note": "O = ordinary, as in O level"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -1092,52 +953,40 @@
    },
    "solution": "ACADEMIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ACADEMIA",
     "definitions": [
      {
       "text": "scholarly environment",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Uplifted",
-      "for": "reversal",
-      "note": "lifted up: in a down clue the letters read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set sights on",
-      "gives": "AIMED",
-      "note": "aimed = set one's sights on"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a = one"
-     },
-     {
-      "clueFragment": "around",
-      "gives": "CA",
-      "note": "ca. = circa, around, before a date"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACADEMIA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AIMEDACA",
-       "to": "ACADEMIA"
+       "text": "Uplifted",
+       "note": "lifted up: in a down clue the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "set sights on",
+         "gives": "AIMED",
+         "note": "aimed = set one's sights on"
+        },
+        {
+         "words": "one",
+         "gives": "A",
+         "note": "a = one"
+        },
+        {
+         "words": "around",
+         "gives": "CA",
+         "note": "ca. = circa, around, before a date"
+        }
+       ]
       }
      ]
     },
@@ -1167,47 +1016,35 @@
    },
    "solution": "VALENCIA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VALENCIA",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "v = very"
-     },
-     {
-      "clueFragment": "bitter",
-      "gives": "ALE",
-      "note": "bitter is a British type of beer, an ale"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "n = new"
-     },
-     {
-      "clueFragment": "agents",
-      "gives": "CIA",
-      "note": "the CIA's agents, the US intelligence agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ALE",
-      "N",
-      "CIA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "v = very"
+      },
+      {
+       "words": "bitter",
+       "gives": "ALE",
+       "note": "bitter is a British type of beer, an ale"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "n = new"
+      },
+      {
+       "words": "agents",
+       "gives": "CIA",
+       "note": "the CIA's agents, the US intelligence agency"
+      }
      ]
     },
     "explanation": {
@@ -1236,39 +1073,33 @@
    },
    "solution": "GREW",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "GREW",
     "definitions": [
      {
       "text": "became mature",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "leader changed",
-      "for": "substitution",
-      "note": "the first letter is swapped for another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Team",
-      "gives": "CREW",
-      "note": "a crew is a team"
-     },
-     {
-      "clueFragment": "leader changed",
-      "gives": "G",
-      "note": "the C at the front becomes G"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "REW"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "GREW",
+     "indicators": [
+      {
+       "text": "leader changed",
+       "note": "the first letter is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Team",
+       "gives": "CREW",
+       "note": "a crew is a team"
+      },
+      {
+       "words": "leader changed",
+       "gives": "G",
+       "note": "the C at the front becomes G"
+      }
      ]
     },
     "explanation": {
@@ -1297,30 +1128,16 @@
    },
    "solution": "GUTTED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GUTTED",
     "definitions": [
      {
       "text": "Was a fish factory worker",
-      "at": 0
+      "at": 0,
+      "meaning": "a fish factory worker guts fish"
      },
      {
       "text": "disappointed",
-      "at": 26
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was a fish factory worker",
-      "gives": "GUTTED",
-      "note": "a fish factory worker guts fish"
-     },
-     {
-      "clueFragment": "disappointed",
-      "gives": "GUTTED",
-      "note": "British slang for crushed, as if your insides had been ripped out"
+      "at": 26,
+      "meaning": "British slang for crushed, as if your insides had been ripped out"
      }
     ],
     "explanation": {
@@ -1356,35 +1173,24 @@
    },
    "solution": "BIRTHDAYSUIT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BIRTHDAY SUIT",
     "definitions": [
      {
       "text": "nudity",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "to spread",
-      "for": "anagram",
-      "note": "spreading scatters the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A British duty",
-      "gives": "ABRITISHDUTY",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "A BRITISH DUTY",
-       "gives": "BIRTHDAYSUIT"
+       "text": "to spread",
+       "note": "spreading scatters the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A British duty",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -1415,32 +1221,25 @@
    },
    "solution": "TAINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAINT",
     "definitions": [
      {
       "text": "Soil",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "it",
-      "gives": "T",
-      "note": "'t, it shortened, as in 'twas"
-     },
-     {
-      "clueFragment": "isn't common",
-      "gives": "AINT",
-      "note": "ain't, the common or nonstandard form of isn't"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "it",
+       "gives": "T",
+       "note": "'t, it shortened, as in 'twas"
+      },
+      {
+       "words": "isn't common",
+       "gives": "AINT",
+       "note": "ain't, the common or nonstandard form of isn't"
+      }
      ]
     },
     "explanation": {
@@ -1469,30 +1268,28 @@
    },
    "solution": "USED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "USED",
     "definitions": [
      {
       "text": "was a druggie",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "the answer is found in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "house detective",
-      "gives": "USED",
-      "note": "hoUSE Detective"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "the answer is found in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house detective",
+       "gives": "USED",
+       "note": "hoUSE Detective"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hotel's own detective had a drug habit.",
      "walkthrough": "'In-house' reads as one word; split it, and 'In' is the pointer to letters inside 'house detective'.",
@@ -1518,35 +1315,25 @@
    },
    "solution": "INFIRM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFIRM",
     "definitions": [
      {
       "text": "failing",
       "at": 23
      }
     ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of",
-      "gives": "IN",
-      "note": "to be part of something is to be in it"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "FIRM",
-      "note": "a firm is a company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "FIRM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of",
+       "gives": "IN",
+       "note": "to be part of something is to be in it"
+      },
+      {
+       "words": "company",
+       "gives": "FIRM",
+       "note": "a firm is a company"
+      }
      ]
     },
     "explanation": {
@@ -1575,40 +1362,31 @@
    },
    "solution": "OUTHOUSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OUTHOUSE",
     "definitions": [
      {
       "text": "Privy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dumped in",
-      "for": "container",
-      "note": "one piece is dropped inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "OUSE",
-      "note": "the Ouse is an English river"
-     },
-     {
-      "clueFragment": "you once",
-      "gives": "THOU",
-      "note": "thou is the old word for you"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OU",
-      "THOU",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dumped in",
+       "note": "one piece is dropped inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "OUSE",
+       "note": "the Ouse is an English river"
+      },
+      {
+       "words": "you once",
+       "gives": "THOU",
+       "note": "thou is the old word for you"
+      }
      ]
     },
     "explanation": {
@@ -1638,35 +1416,25 @@
    },
    "solution": "FLATPACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLATPACK",
     "definitions": [
      {
       "text": "potential item of furniture",
       "at": 21
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Apartment",
-      "gives": "FLAT",
-      "note": "a flat is an apartment"
-     },
-     {
-      "clueFragment": "charge",
-      "gives": "PACK",
-      "note": "to charge is to load or pack, as you charge a gun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLAT",
-      "PACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Apartment",
+       "gives": "FLAT",
+       "note": "a flat is an apartment"
+      },
+      {
+       "words": "charge",
+       "gives": "PACK",
+       "note": "to charge is to load or pack, as you charge a gun"
+      }
      ]
     },
     "explanation": {
@@ -1705,49 +1473,41 @@
    },
    "solution": "DOSIDO",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "DO-SI-DO",
     "definitions": [
      {
       "text": "Dance figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "switched",
-      "note": "switched round, its two letters change places"
-     },
-     {
-      "text": "between",
-      "note": "the piece goes between the other two"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two parties",
-      "gives": "DODO",
-      "note": "a do is a party, and there are two"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "SI",
-      "note": "IS turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "SI",
-      "DO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "DOSIDO",
+     "parts": [
       {
-       "from": "IS",
-       "to": "SI"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "switched",
+         "note": "switched round, its two letters change places"
+        },
+        {
+         "text": "between",
+         "note": "the piece goes between the other two"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two parties",
+         "gives": "DODO",
+         "note": "a do is a party, and there are two"
+        },
+        {
+         "words": "is",
+         "gives": "SI",
+         "note": "IS turned round"
+        }
+       ]
       }
      ]
     },

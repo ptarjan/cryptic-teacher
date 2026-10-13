@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3328",
  "number": 3328,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,328",
  "setter": "Heron",
  "date": "2026-06-15",
  "dimensions": {
@@ -45,35 +43,25 @@
    },
    "solution": "INDUSTRIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INDUSTRIAL",
     "definitions": [
      {
       "text": "used for manufacturing",
       "at": 14
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "gives": "INDUS",
-      "note": "the Indus, the great river of Pakistan"
-     },
-     {
-      "clueFragment": "Test",
-      "gives": "TRIAL",
-      "note": "a test = a trial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INDUS",
-      "TRIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "gives": "INDUS",
+       "note": "the Indus, the great river of Pakistan"
+      },
+      {
+       "words": "Test",
+       "gives": "TRIAL",
+       "note": "a test = a trial"
+      }
      ]
     },
     "explanation": {
@@ -102,55 +90,47 @@
    },
    "solution": "NAVAL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NAVAL",
     "definitions": [
      {
       "text": "of ships",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Reverse",
-      "for": "reversal",
-      "note": "tells you to turn the vehicle back to front"
-     },
-     {
-      "text": "in front of",
-      "note": "puts the reversed vehicle before the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reverse vehicle",
-      "gives": "NAV",
-      "note": "vehicle = VAN, turned round"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L is the standard abbreviation for line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAV",
-      "A",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "NAVAL",
+     "indicators": [
       {
-       "from": "VAN",
-       "to": "NAV"
+       "text": "Reverse",
+       "note": "tells you to turn the vehicle back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in front of",
+         "note": "puts the reversed vehicle before the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reverse vehicle",
+         "gives": "NAV",
+         "note": "vehicle = VAN, turned round"
+        },
+        {
+         "words": "a",
+         "note": "kept as it is"
+        },
+        {
+         "words": "line",
+         "gives": "L",
+         "note": "L is the standard abbreviation for line"
+        }
+       ]
       }
      ]
     },
@@ -180,35 +160,25 @@
    },
    "solution": "UPRIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPRIGHT",
     "definitions": [
      {
       "text": "honourable",
       "at": 13
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "High",
-      "gives": "UP",
-      "note": "high = up"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "RIGHT",
-      "note": "a Tory is on the political right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "RIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "High",
+       "gives": "UP",
+       "note": "high = up"
+      },
+      {
+       "words": "Tory",
+       "gives": "RIGHT",
+       "note": "a Tory is on the political right"
+      }
      ]
     },
     "explanation": {
@@ -237,31 +207,29 @@
    },
    "solution": "TWO",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TWO",
     "definitions": [
      {
       "text": "Pair",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in conversation",
-      "for": "homophone",
-      "note": "spoken aloud, so a word is heard rather than read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "also",
-      "gives": "TWO",
-      "soundsLike": "TOO",
-      "note": "also = too, heard rather than spelt"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TWO",
+     "indicators": [
+      {
+       "text": "in conversation",
+       "note": "spoken aloud, so a word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "also",
+       "gives": "TOO",
+       "note": "also = too, heard rather than spelt"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Two people who also happen to be chatting.",
      "walkthrough": "The clue reads as a couple talking together, when the talking is the signal to listen to 'too'.",
@@ -289,30 +257,16 @@
    },
    "solution": "INSTITUTE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INSTITUTE",
     "definitions": [
      {
       "text": "Establish",
-      "at": 0
+      "at": 0,
+      "meaning": "verb sense: to set up, as proceedings or a rule"
      },
      {
       "text": "academy",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Establish",
-      "gives": "INSTITUTE",
-      "note": "verb sense: to set up, as proceedings or a rule"
-     },
-     {
-      "clueFragment": "academy",
-      "gives": "INSTITUTE",
-      "note": "noun sense: a college or learned society"
+      "at": 10,
+      "meaning": "noun sense: a college or learned society"
      }
     ],
     "explanation": {
@@ -341,44 +295,41 @@
    },
    "solution": "LEASE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LEASE",
     "definitions": [
      {
       "text": "Rent out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "note": "puts the fields ahead of the next piece"
-     },
-     {
-      "text": "close of",
-      "note": "the close of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fields",
-      "gives": "LEAS",
-      "note": "leas are meadows, a poetic word for fields"
-     },
-     {
-      "clueFragment": "close of June",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of June"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "puts the fields ahead of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fields",
+       "gives": "LEAS",
+       "note": "leas are meadows, a poetic word for fields"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close of",
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close of June",
+         "note": "last letter of June"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -407,48 +358,37 @@
    },
    "solution": "COTTON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "COTTON",
     "definitions": [
      {
       "text": "Material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned back",
-      "for": "reversal",
-      "note": "tells you to write NOT backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "child's bed",
-      "gives": "COT",
-      "note": "a cot is a baby's bed (a crib)"
-     },
-     {
-      "clueFragment": "not turned back",
-      "gives": "TON",
-      "note": "NOT written backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COT",
-      "TON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "COTTON",
+     "indicators": [
       {
-       "from": "NOT",
-       "to": "TON"
+       "text": "turned back",
+       "note": "tells you to write NOT backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "child's bed",
+         "gives": "COT",
+         "note": "a cot is a baby's bed (a crib)"
+        },
+        {
+         "words": "not turned back",
+         "gives": "TON",
+         "note": "NOT written backwards"
+        }
+       ]
       }
      ]
     },
@@ -478,30 +418,28 @@
    },
    "solution": "OVERDO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OVERDO",
     "definitions": [
      {
       "text": "Exaggerate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contents of",
-      "for": "hidden_word",
-      "note": "the answer is inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "undercover document",
-      "gives": "OVERDO",
-      "note": "under(COVER DO)cument"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contents of",
+       "note": "the answer is inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "undercover document",
+       "gives": "OVERDO",
+       "note": "under(COVER DO)cument"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A spy overstating what a secret file contains.",
      "walkthrough": "The answer runs across the gap between 'undercover' and 'document'.",
@@ -528,40 +466,31 @@
    },
    "solution": "SHADOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHADOW",
     "definitions": [
      {
       "text": "Outline",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "puts A and D inside the show"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exhibition",
-      "gives": "SH…OW",
-      "note": "an exhibition = a SHOW, opened up"
-     },
-     {
-      "clueFragment": "a day",
-      "gives": "AD",
-      "note": "A plus D, the abbreviation for day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "AD",
-      "OW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "puts A and D inside the show"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exhibition",
+       "gives": "SHOW",
+       "note": "an exhibition = a SHOW, opened up"
+      },
+      {
+       "words": "a day",
+       "gives": "AD",
+       "note": "A plus D, the abbreviation for day"
+      }
      ]
     },
     "explanation": {
@@ -590,30 +519,16 @@
    },
    "solution": "FLAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FLAG",
     "definitions": [
      {
       "text": "Highlight",
-      "at": 0
+      "at": 0,
+      "meaning": "verb: to mark something out for attention"
      },
      {
       "text": "paving stone",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Highlight",
-      "gives": "FLAG",
-      "note": "verb: to mark something out for attention"
-     },
-     {
-      "clueFragment": "paving stone",
-      "gives": "FLAG",
-      "note": "noun: a flat slab of stone used for paving"
+      "at": 10,
+      "meaning": "noun: a flat slab of stone used for paving"
      }
     ],
     "explanation": {
@@ -642,35 +557,24 @@
    },
    "solution": "ANISETTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANISETTE",
     "definitions": [
      {
       "text": "Liqueur",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "strangely",
-      "for": "anagram",
-      "note": "the letters are arranged in a strange order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in tea set",
-      "gives": "INTEASET",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IN TEA SET",
-       "gives": "ANISETTE"
+       "text": "strangely",
+       "note": "the letters are arranged in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in tea set",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -701,56 +605,49 @@
    },
    "solution": "ARBORETUM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ARBORETUM",
     "definitions": [
      {
       "text": "botanical garden",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "letter_selection",
-      "note": "a stripped word has lost its outer letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R is the abbreviation for river"
-     },
-     {
-      "clueFragment": "had",
-      "gives": "BORE",
-      "note": "had = bore, as in bore a child"
-     },
-     {
-      "clueFragment": "stripped stump",
-      "gives": "TUM",
-      "select": "outer",
-      "note": "sTUMp without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "BORE",
-      "TUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "kept as it is"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R is the abbreviation for river"
+      },
+      {
+       "words": "had",
+       "gives": "BORE",
+       "note": "had = bore, as in bore a child"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "TUM",
+       "indicators": [
+        {
+         "text": "stripped",
+         "note": "a stripped word has lost its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "stripped stump",
+         "gives": "TUM",
+         "select": "outer",
+         "note": "sTUMp without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -785,52 +682,43 @@
    },
    "solution": "HOTTUB",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "HOT TUB",
     "definitions": [
      {
       "text": "Outdoor bath",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put back",
-      "for": "reversal",
-      "note": "tells you to write BUTT backwards"
-     },
-     {
-      "text": "behind",
-      "note": "places the barrel after the house"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "house",
-      "gives": "HO",
-      "note": "HO is the abbreviation for house"
-     },
-     {
-      "clueFragment": "barrel put back",
-      "gives": "TTUB",
-      "note": "a butt is a large cask; BUTT reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "TTUB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "HOTTUB",
+     "indicators": [
       {
-       "from": "BUTT",
-       "to": "TTUB"
+       "text": "put back",
+       "note": "tells you to write BUTT backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "behind",
+         "note": "places the barrel after the house"
+        }
+       ],
+       "parts": [
+        {
+         "words": "house",
+         "gives": "HO",
+         "note": "HO is the abbreviation for house"
+        },
+        {
+         "words": "barrel put back",
+         "gives": "TTUB",
+         "note": "a butt is a large cask; BUTT reversed"
+        }
+       ]
       }
      ]
     },
@@ -860,35 +748,24 @@
    },
    "solution": "OWNERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OWNERS",
     "definitions": [
      {
       "text": "Proprietors",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supply",
-      "for": "anagram",
-      "note": "read as the adverb of supple: bent into a new shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worsen",
-      "gives": "WORSEN",
-      "note": "anagram fodder, 6 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WORSEN",
-       "gives": "OWNERS"
+       "text": "supply",
+       "note": "read as the adverb of supple: bent into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worsen",
+       "note": "anagram fodder, 6 letters"
       }
      ]
     },
@@ -919,41 +796,36 @@
    },
    "solution": "URGENT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "URGENT",
     "definitions": [
      {
       "text": "calling for immediate action",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every second letter of query is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Regularly query",
-      "gives": "UR",
-      "select": "alternate",
-      "note": "q U e R y, the even letters"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "GENT",
-      "note": "a fellow = a gent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UR",
-      "GENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Regularly",
+         "note": "at regular intervals, so every second letter of query is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Regularly query",
+         "gives": "QUERY",
+         "note": "q U e R y, the even letters"
+        }
+       ]
+      },
+      {
+       "words": "fellow",
+       "gives": "GENT",
+       "note": "a fellow = a gent"
+      }
      ]
     },
     "explanation": {
@@ -982,41 +854,36 @@
    },
    "solution": "GALLEYS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GALLEYS",
     "definitions": [
      {
       "text": "Cooking areas",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close to long",
-      "gives": "G",
-      "select": "last",
-      "note": "last letter of long"
-     },
-     {
-      "clueFragment": "passageways",
-      "gives": "ALLEYS",
-      "note": "alleys are narrow passages"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ALLEYS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to long",
+         "gives": "LONG",
+         "note": "last letter of long"
+        }
+       ]
+      },
+      {
+       "words": "passageways",
+       "gives": "ALLEYS",
+       "note": "alleys are narrow passages"
+      }
      ]
     },
     "explanation": {
@@ -1045,38 +912,24 @@
    },
    "solution": "UNIVERSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNIVERSE",
     "definitions": [
      {
       "text": "The world",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancers change places across the stage, so the letters of in revues swap positions"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in revues",
-      "gives": "INREVUES",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IN REVUES",
-       "gives": "UNIVERSE"
+       "text": "dancing",
+       "note": "dancers change places across the stage, so the letters of in revues swap positions"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in revues",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1106,44 +959,48 @@
    },
    "solution": "VODKA",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "VODKA",
     "definitions": [
      {
       "text": "spirit",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "composed",
-      "note": "the letters are put together afresh"
-     },
-     {
-      "text": "without right",
-      "note": "drop R, the abbreviation for right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dvořák",
-      "gives": "DVORAK",
-      "note": "the composer's name as letters"
-     },
-     {
-      "clueFragment": "without right",
-      "gives": "DVOAK",
-      "note": "remove R (right)"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DVOAK",
-       "gives": "VODKA"
+       "text": "composed",
+       "note": "the letters are put together afresh"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without right",
+         "note": "drop R, the abbreviation for right"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Dvořák",
+           "note": "the composer's name as letters"
+          },
+          {
+           "words": "without right",
+           "gives": "DVOAK",
+           "note": "remove R (right)"
+          }
+         ]
+        },
+        {
+         "gives": "DVORAK"
+        }
+       ]
       }
      ]
     },
@@ -1174,37 +1031,25 @@
    },
    "solution": "LENT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "LENT",
     "definitions": [
      {
       "text": "Fast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "take the first letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "laps ensure notable times",
-      "gives": "LENT",
-      "select": "first",
-      "note": "Laps Ensure Notable Times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "E",
-      "N",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts to",
+       "note": "take the first letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "laps ensure notable times",
+       "note": "Laps Ensure Notable Times"
+      }
      ]
     },
     "explanation": {
@@ -1234,39 +1079,30 @@
    },
    "solution": "NIECE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NIECE",
     "definitions": [
      {
       "text": "relative",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodates",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French city",
-      "gives": "NI…CE",
-      "note": "Nice, on the Riviera"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "E",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodates"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French city",
+       "gives": "NICE",
+       "note": "Nice, on the Riviera"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1294,33 +1130,28 @@
    },
    "solution": "CREDIT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CREDIT",
     "definitions": [
      {
       "text": "Believe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fragment of",
-      "for": "hidden_word",
-      "note": "the answer is a piece of the words that follow"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sacred item",
-      "gives": "CREDIT",
-      "note": "the letters straddle the end of sacred and the start of item"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "fragment of",
+       "note": "the answer is a piece of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sacred item",
+       "gives": "CREDIT",
+       "note": "the letters straddle the end of sacred and the start of item"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Faith placed in a splinter of a holy relic.",
      "walkthrough": "'Believe in' reads as one phrase; the definition is only 'Believe', and 'in' links it to the wordplay.",
@@ -1347,32 +1178,25 @@
    },
    "solution": "PREFER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PREFER",
     "definitions": [
      {
       "text": "favour",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Quietly",
-      "gives": "P",
-      "note": "p = piano, quietly in music"
-     },
-     {
-      "clueFragment": "mention",
-      "gives": "REFER",
-      "note": "to mention = to refer (to)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "REFER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "gives": "P",
+       "note": "p = piano, quietly in music"
+      },
+      {
+       "words": "mention",
+       "gives": "REFER",
+       "note": "to mention = to refer (to)"
+      }
      ]
     },
     "explanation": {
@@ -1401,30 +1225,16 @@
    },
    "solution": "PAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PAN",
     "definitions": [
      {
       "text": "Criticise",
-      "at": 0
+      "at": 0,
+      "meaning": "to slate or savage, as a reviewer does a flop"
      },
      {
       "text": "cooking implement",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Criticise",
-      "gives": "PAN",
-      "note": "to slate or savage, as a reviewer does a flop"
-     },
-     {
-      "clueFragment": "cooking implement",
-      "gives": "PAN",
-      "note": "a metal vessel for frying or boiling"
+      "at": 10,
+      "meaning": "a metal vessel for frying or boiling"
      }
     ],
     "explanation": {
@@ -1452,35 +1262,25 @@
    },
    "solution": "ADMINISTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADMINISTER",
     "definitions": [
      {
       "text": "Manage",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an ad(vert) is publicity"
-     },
-     {
-      "clueFragment": "clergywoman",
-      "gives": "MINISTER",
-      "note": "a minister of a church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "MINISTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an ad(vert) is publicity"
+      },
+      {
+       "words": "clergywoman",
+       "gives": "MINISTER",
+       "note": "a minister of a church"
+      }
      ]
     },
     "explanation": {

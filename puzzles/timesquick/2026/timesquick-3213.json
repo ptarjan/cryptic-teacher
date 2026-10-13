@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3213",
  "number": 3213,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,213",
  "setter": "Cheeko",
  "date": "2026-01-31",
  "dimensions": {
@@ -51,47 +49,41 @@
    },
    "solution": "COLDWAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "COLD WAR",
     "definitions": [
      {
       "text": "Hostile political period",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it, so a letter sits inside a longer word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Anglo-Icelandic dispute",
-      "gives": "CODWAR",
-      "note": "the Cod Wars were fishing-rights disputes between Britain and Iceland"
-     },
-     {
-      "clueFragment": "linger",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of linger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "L",
-      "DWAR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed by it, so a letter sits inside a longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anglo-Icelandic dispute",
+       "gives": "CODWAR",
+       "note": "the Cod Wars were fishing-rights disputes between Britain and Iceland"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "linger",
+         "note": "first letter of linger"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -126,44 +118,33 @@
    },
    "solution": "CHEESESTRAWS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHEESE STRAWS",
     "definitions": [
      {
       "text": "savoury snacks",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "distributed",
-      "for": "anagram",
-      "note": "things distributed are spread around and handed out in a new order"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chasers",
-      "gives": "CHASERS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sweet",
-      "gives": "SWEET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHASERSSWEET",
-       "gives": "CHEESESTRAWS"
+       "text": "distributed",
+       "note": "things distributed are spread around and handed out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chasers",
+         "note": "taken as written"
+        },
+        {
+         "words": "sweet",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -193,47 +174,44 @@
    },
    "solution": "LABURNUM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "LABURNUM",
     "definitions": [
      {
       "text": "poisonous tree",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
-     },
-     {
-      "text": "Chopped up",
-      "for": "anagram",
-      "note": "something chopped up is cut into bits that can be put back together differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unusual",
-      "gives": "UL",
-      "select": "outer",
-      "note": "the first and last letters of unusual"
-     },
-     {
-      "clueFragment": "Burman",
-      "gives": "BURMAN",
-      "note": "taken as written; Burman is an old word for a Burmese person"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ULBURMAN",
-       "gives": "LABURNUM"
+       "text": "Chopped up",
+       "note": "something chopped up is cut into bits that can be put back together differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "note": "the extremes of a word are its two ends, so only the outermost letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unusual",
+           "note": "the first and last letters of unusual"
+          }
+         ]
+        },
+        {
+         "words": "Burman",
+         "note": "taken as written; Burman is an old word for a Burmese person"
+        }
+       ]
       }
      ]
     },
@@ -264,28 +242,16 @@
    },
    "solution": "WORK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WORK",
     "definitions": [
      {
       "text": "Labour",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: toil, effort spent doing a job"
      },
      {
       "text": "function",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Labour",
-      "note": "first meaning: toil, effort spent doing a job"
-     },
-     {
-      "clueFragment": "function",
-      "note": "second meaning: to operate properly, as a machine does"
+      "at": 7,
+      "meaning": "second meaning: to operate properly, as a machine does"
      }
     ],
     "explanation": {
@@ -319,35 +285,24 @@
    },
    "solution": "ROOBAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROO BAR",
     "definitions": [
      {
       "text": "Vehicle protection against eg Skippy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bats",
-      "for": "anagram",
-      "note": "bats means crazy, so these letters go haywire into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boar or",
-      "gives": "BOAROR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BOAROR",
-       "gives": "ROOBAR"
+       "text": "bats",
+       "note": "bats means crazy, so these letters go haywire into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boar or",
+       "note": "taken as written"
       }
      ]
     },
@@ -378,52 +333,47 @@
    },
    "solution": "JAPANESE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "JAPANESE",
     "definitions": [
      {
       "text": "Asian language",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps round another"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, being on something means sitting above it, so one piece comes before the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jokes",
-      "gives": "JAPES",
-      "note": "japes are jokes or pranks"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "E is the compass abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JAP",
-      "AN",
-      "ES",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue, being on something means sitting above it, so one piece comes before the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece wraps round another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jokes",
+         "gives": "JAPES",
+         "note": "japes are jokes or pranks"
+        },
+        {
+         "words": "article",
+         "gives": "AN",
+         "note": "the indefinite article"
+        }
+       ]
+      },
+      {
+       "words": "East",
+       "gives": "E",
+       "note": "E is the compass abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -452,45 +402,36 @@
    },
    "solution": "WORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WORE",
     "definitions": [
      {
       "text": "Displayed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possible choice of",
-      "for": "charade",
-      "note": "a possible choice offers alternatives, so the word for picking between them sits between the two"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bridge partners",
-      "gives": "W",
-      "note": "West is one of the partnered seats at a bridge table"
-     },
-     {
-      "clueFragment": "possible choice",
-      "gives": "OR",
-      "note": "the word that offers an alternative"
-     },
-     {
-      "clueFragment": "bridge partners",
-      "gives": "E",
-      "note": "East is West's partner across the bridge table"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OR",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "possible choice of",
+       "note": "a possible choice offers alternatives, so the word for picking between them sits between the two"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bridge partners",
+       "gives": "W",
+       "note": "West is one of the partnered seats at a bridge table"
+      },
+      {
+       "words": "possible choice",
+       "gives": "OR",
+       "note": "the word that offers an alternative"
+      },
+      {
+       "words": "bridge partners",
+       "gives": "E",
+       "note": "East is West's partner across the bridge table"
+      }
      ]
     },
     "explanation": {
@@ -529,28 +470,16 @@
    },
    "solution": "ONAROLL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON A ROLL",
     "definitions": [
      {
       "text": "Where seeds could be",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: sesame or poppy seeds sit on top of a bread bun"
      },
      {
       "text": "enjoying continued success",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where seeds could be",
-      "note": "first meaning: sesame or poppy seeds sit on top of a bread bun"
-     },
-     {
-      "clueFragment": "enjoying continued success",
-      "note": "second meaning: on a winning streak"
+      "at": 21,
+      "meaning": "second meaning: on a winning streak"
      }
     ],
     "explanation": {
@@ -585,45 +514,34 @@
    },
    "solution": "LATINAMERICA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LATIN AMERICA",
     "definitions": [
      {
       "text": "country collection?",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "something new has been remade, so these letters take a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in Malta",
-      "gives": "INMALTA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Heather's",
-      "gives": "ERICA",
-      "note": "Erica is the botanical genus of heather; the 's means 'is' here, joining on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATINAM",
-      "ERICA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "INMALTA",
-       "gives": "LATINAM"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "note": "something new has been remade, so these letters take a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in Malta",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Heather's",
+       "gives": "ERICA",
+       "note": "Erica is the botanical genus of heather; the 's means 'is' here, joining on"
       }
      ]
     },
@@ -654,59 +572,60 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "Ban",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it, so a pair of letters wraps round the rest"
-     },
-     {
-      "text": "capital of",
-      "for": "letter_selection",
-      "note": "the capital of a word is its upper-case opening letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "business qualification",
-      "gives": "MBA",
-      "note": "Master of Business Administration"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "R is the cricket scoring abbreviation for a run"
-     },
-     {
-      "clueFragment": "eg",
-      "gives": "EG",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Oman",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of Oman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MBAR",
-      "G",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed by it, so a pair of letters wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "eg",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital of",
+           "note": "the capital of a word is its upper-case opening letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Oman",
+           "note": "first letter of Oman"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "business qualification",
+         "gives": "MBA",
+         "note": "Master of Business Administration"
+        },
+        {
+         "words": "run",
+         "gives": "R",
+         "note": "R is the cricket scoring abbreviation for a run"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -735,39 +654,31 @@
    },
    "solution": "BRAVEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRAVEST",
     "definitions": [
      {
       "text": "The most daring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "juxtaposition of",
-      "for": "charade",
-      "note": "a juxtaposition places things side by side, so the pieces are set next to each other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "underwear items",
-      "gives": "BRA",
-      "note": "a bra is a woman's undergarment"
-     },
-     {
-      "clueFragment": "two underwear items",
-      "gives": "VEST",
-      "note": "a vest is an undershirt in British English; the second of the two garments"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRA",
-      "VEST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "juxtaposition of",
+       "note": "a juxtaposition places things side by side, so the pieces are set next to each other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "underwear items",
+       "gives": "BRA",
+       "note": "a bra is a woman's undergarment"
+      },
+      {
+       "words": "two underwear items",
+       "gives": "VEST",
+       "note": "a vest is an undershirt in British English; the second of the two garments"
+      }
      ]
     },
     "explanation": {
@@ -796,38 +707,25 @@
    },
    "solution": "SORE",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SORE",
     "definitions": [
      {
       "text": "Irritable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipped",
-      "for": "reversal",
-      "note": "something flipped is turned over, so its letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek god",
-      "gives": "EROS",
-      "note": "Eros is the Greek god of love"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SORE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EROS",
-       "to": "SORE"
+       "text": "flipped",
+       "note": "something flipped is turned over, so its letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek god",
+       "gives": "EROS",
+       "note": "Eros is the Greek god of love"
       }
      ]
     },
@@ -858,47 +756,41 @@
    },
    "solution": "HARLEQUIN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HARLEQUIN",
     "definitions": [
      {
       "text": "Buffoon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bitten by",
-      "for": "container",
-      "note": "something bitten is held between jaws, so one piece is gripped inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "healthy",
-      "gives": "HALE",
-      "note": "hale means robust and healthy"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the abbreviation for Republican"
-     },
-     {
-      "clueFragment": "baby, one of many",
-      "gives": "QUIN",
-      "note": "a quin is a quintuplet, one of five babies born together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "R",
-      "LE",
-      "QUIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bitten by",
+         "note": "something bitten is held between jaws, so one piece is gripped inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "healthy",
+         "gives": "HALE",
+         "note": "hale means robust and healthy"
+        },
+        {
+         "words": "Republican",
+         "gives": "R",
+         "note": "R is the abbreviation for Republican"
+        }
+       ]
+      },
+      {
+       "words": "baby, one of many",
+       "gives": "QUIN",
+       "note": "a quin is a quintuplet, one of five babies born together"
+      }
      ]
     },
     "explanation": {
@@ -928,58 +820,51 @@
    },
    "solution": "HAPSBURG",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "reversal"
-    ],
-    "answer": "HAPSBURG",
     "definitions": [
      {
       "text": "German family",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into the middle of something, so one piece goes inside another"
-     },
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down clue, served up means sent upwards, so the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food",
-      "gives": "GRUB",
-      "note": "grub is slang for food"
-     },
-     {
-      "clueFragment": "mum",
-      "gives": "SH",
-      "note": "mum means silent, as in 'keep mum', and SH is the call for silence"
-     },
-     {
-      "clueFragment": "dad",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AP",
-      "S",
-      "BURG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GRUBSPAH",
-       "to": "HAPSBURG"
+       "text": "served up",
+       "note": "in a down clue, served up means sent upwards, so the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "food",
+         "gives": "GRUB",
+         "note": "grub is slang for food"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "interrupting",
+           "note": "to interrupt is to break into the middle of something, so one piece goes inside another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mum",
+           "gives": "SH",
+           "note": "mum means silent, as in 'keep mum', and SH is the call for silence"
+          },
+          {
+           "words": "dad",
+           "gives": "PA",
+           "note": "pa is an informal word for father"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1010,45 +895,35 @@
    },
    "solution": "UNIONIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNIONIST",
     "definitions": [
      {
       "text": "Opponent of Irish Home Rule",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "what follows comes after, so these pieces are placed behind the earlier one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agreement",
-      "gives": "UNION",
-      "note": "a union is a coming together in agreement"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T is the grammar abbreviation for tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNION",
-      "IS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "what follows comes after, so these pieces are placed behind the earlier one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "gives": "UNION",
+       "note": "a union is a coming together in agreement"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "tense",
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
+      }
      ]
     },
     "explanation": {
@@ -1077,35 +952,24 @@
    },
    "solution": "TIMEPIECE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TIMEPIECE",
     "definitions": [
      {
       "text": "Maybe watch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extravagantly",
-      "for": "anagram",
-      "note": "doing something extravagantly means wildly and without restraint, so the order is thrown about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "emcee I tip",
-      "gives": "EMCEEITIP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EMCEEITIP",
-       "gives": "TIMEPIECE"
+       "text": "extravagantly",
+       "note": "doing something extravagantly means wildly and without restraint, so the order is thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "emcee I tip",
+       "note": "taken as written"
       }
      ]
     },
@@ -1135,33 +999,29 @@
    },
    "solution": "ETCHES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ETCHES",
     "definitions": [
      {
       "text": "Vividly imprints",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after first pair are scrapped",
-      "for": "deletion",
-      "note": "scrapping the opening two letters means throwing them away from the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drawings",
-      "gives": "SKETCHES",
-      "note": "sketches are rough drawings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETCHES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after first pair are scrapped",
+       "note": "scrapping the opening two letters means throwing them away from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drawings",
+       "gives": "SKETCHES",
+       "note": "sketches are rough drawings"
+      },
+      {
+       "gives": "SK"
+      }
      ]
     },
     "explanation": {
@@ -1190,32 +1050,25 @@
    },
    "solution": "SOLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOLE",
     "definitions": [
      {
       "text": "Only",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small, as on clothing labels"
-     },
-     {
-      "clueFragment": "exclamation of approval in 8",
-      "gives": "OLE",
-      "note": "olé is the Spanish cry of approval, heard across the region that answers 8"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "OLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "exclamation of approval in 8",
+       "gives": "OLE",
+       "note": "olé is the Spanish cry of approval, heard across the region that answers 8"
+      }
      ]
     },
     "explanation": {
@@ -1243,41 +1096,35 @@
    },
    "solution": "AEROBIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AEROBIC",
     "definitions": [
      {
       "text": "relating to strenuous exercise",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "leads to",
-      "for": "letter_selection",
-      "note": "the leads of words are those at the front, so only opening letters are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chocolate bar",
-      "gives": "AERO",
-      "note": "Aero is a British bubbly chocolate bar made by Nestlé"
-     },
-     {
-      "clueFragment": "burst in calories",
-      "gives": "BIC",
-      "select": "first",
-      "note": "first letters of burst, in and calories"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AERO",
-      "BIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chocolate bar",
+       "gives": "AERO",
+       "note": "Aero is a British bubbly chocolate bar made by Nestlé"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "note": "the leads of words are those at the front, so only opening letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burst in calories",
+         "note": "first letters of burst, in and calories"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1306,44 +1153,36 @@
    },
    "solution": "ROLE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ROLE",
     "definitions": [
      {
       "text": "Part",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "some of a phrase is only a portion of it, so the letters lie inside the words"
-     },
-     {
-      "text": "uprising",
-      "for": "reversal",
-      "note": "in a down clue, rising up means the letters read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Byelorussian",
-      "gives": "ELOR",
-      "note": "letters three to six of the word"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ELOR",
-       "to": "ROLE"
+       "text": "uprising",
+       "note": "in a down clue, rising up means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "some",
+         "note": "some of a phrase is only a portion of it, so the letters lie inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Byelorussian",
+         "gives": "ELOR",
+         "note": "letters three to six of the word"
+        }
+       ]
       }
      ]
     },
@@ -1373,40 +1212,31 @@
    },
    "solution": "RULE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RULE",
     "definitions": [
      {
       "text": "government",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "introducing",
-      "for": "container",
-      "note": "to introduce is to put something into a place, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Regret",
-      "gives": "RUE",
-      "note": "to rue is to regret"
-     },
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "note": "L is the abbreviation for Liberal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "L",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introducing",
+       "note": "to introduce is to put something into a place, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regret",
+       "gives": "RUE",
+       "note": "to rue is to regret"
+      },
+      {
+       "words": "Liberal",
+       "gives": "L",
+       "note": "L is the abbreviation for Liberal"
+      }
      ]
     },
     "explanation": {
@@ -1435,41 +1265,36 @@
    },
    "solution": "HOUDINI",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "HOUDINI",
     "definitions": [
      {
       "text": "escape artist",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "excerpt from",
-      "for": "hidden_word",
-      "note": "an excerpt is a passage lifted from a longer work, so the letters lie within the words"
-     },
-     {
-      "text": "Recalled",
-      "for": "reversal",
-      "note": "something recalled is called back, so the letters come back the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Puccini duo heralding",
-      "gives": "INIDUOH",
-      "note": "the end of Puccini, all of duo and the start of heralding"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "INIDUOH",
-       "to": "HOUDINI"
+       "text": "Recalled",
+       "note": "something recalled is called back, so the letters come back the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "excerpt from",
+         "note": "an excerpt is a passage lifted from a longer work, so the letters lie within the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Puccini duo heralding",
+         "gives": "INIDUOH",
+         "note": "the end of Puccini, all of duo and the start of heralding"
+        }
+       ]
       }
      ]
     },
@@ -1499,47 +1324,41 @@
    },
    "solution": "SPLURGE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SPLURGE",
     "definitions": [
      {
       "text": "flashy display",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "trapped in",
-      "for": "container",
-      "note": "something trapped in another is held inside it, so one piece goes within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "empty",
-      "gives": "PURGE",
-      "note": "to purge is to empty or clear out"
-     },
-     {
-      "clueFragment": "learner",
-      "gives": "L",
-      "note": "L is for learner, from the L-plates on a learner driver's car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "L",
-      "URGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trapped in",
+         "note": "something trapped in another is held inside it, so one piece goes within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "empty",
+         "gives": "PURGE",
+         "note": "to purge is to empty or clear out"
+        },
+        {
+         "words": "learner",
+         "gives": "L",
+         "note": "L is for learner, from the L-plates on a learner driver's car"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1568,38 +1387,24 @@
    },
    "solution": "SPECTRA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPECTRA",
     "definitions": [
      {
       "text": "Ranges of colours",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy means elaborate or ornate, so these letters are worked into a new pattern"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "carpets",
-      "gives": "CARPETS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CARPETS",
-       "gives": "SPECTRA"
+       "text": "fancy",
+       "note": "fancy means elaborate or ornate, so these letters are worked into a new pattern"
+      }
+     ],
+     "parts": [
+      {
+       "words": "carpets",
+       "note": "taken as written"
       }
      ]
     },

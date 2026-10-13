@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-230",
  "number": 230,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 230",
  "setter": "Silvanus",
  "date": "2026-06-21",
  "dimensions": {
@@ -44,35 +42,24 @@
    },
    "solution": "MIDSOMERMURDERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MIDSOMER MURDERS",
     "definitions": [
      {
       "text": "Television programme",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rock",
-      "for": "anagram",
-      "note": "to rock is to shake, so the letters are shaken up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drummer missed or",
-      "gives": "DRUMMERMISSEDOR",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRUMMER MISSED OR",
-       "gives": "MIDSOMERMURDERS"
+       "text": "rock",
+       "note": "to rock is to shake, so the letters are shaken up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drummer missed or",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -102,39 +89,30 @@
    },
    "solution": "MOUSSES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MOUSSES",
     "definitions": [
      {
       "text": "hairstyling products",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "inspires",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hebrew teacher",
-      "gives": "MOSES",
-      "note": "Moses, the lawgiver who taught the Israelites"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "US",
-      "SES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspires"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hebrew teacher",
+       "gives": "MOSES",
+       "note": "Moses, the lawgiver who taught the Israelites"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -163,42 +141,45 @@
    },
    "solution": "DODGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "DODGE",
     "definitions": [
      {
       "text": "Trick",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hollow",
-      "note": "a hollow word keeps only its shell"
-     },
-     {
-      "text": "removed from"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fairground amusement",
-      "gives": "DODGEMS",
-      "note": "dodgems are the bumper cars at a fair"
-     },
-     {
-      "clueFragment": "hollow mirrors",
-      "gives": "MS",
-      "select": "outer",
-      "note": "MIRRORS with its inside emptied, removed from DODGEMS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DODGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "hollow",
+       "note": "a hollow word keeps only its shell"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fairground amusement",
+       "gives": "DODGEMS",
+       "note": "dodgems are the bumper cars at a fair"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "MS",
+       "indicators": [
+        {
+         "text": "removed from"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "hollow mirrors",
+         "gives": "MS",
+         "select": "outer",
+         "note": "MIRRORS with its inside emptied, removed from DODGEMS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -227,47 +208,40 @@
    },
    "solution": "OUTSTRIPS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OUTSTRIPS",
     "definitions": [
      {
       "text": "Leaves behind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading for",
-      "for": "letter_selection",
-      "note": "the head, or first letter, of STADIUM"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "away",
-      "gives": "OUT",
-      "note": "away = out, as in 'she is out'"
-     },
-     {
-      "clueFragment": "team's kit",
-      "gives": "STRIP",
-      "note": "a team's strip is its playing kit"
-     },
-     {
-      "clueFragment": "stadium",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of STADIUM"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "STRIP",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "away",
+       "gives": "OUT",
+       "note": "away = out, as in 'she is out'"
+      },
+      {
+       "words": "team's kit",
+       "gives": "STRIP",
+       "note": "a team's strip is its playing kit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "note": "the head, or first letter, of STADIUM"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stadium",
+         "note": "the first letter of STADIUM"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -296,37 +270,30 @@
    },
    "solution": "ENDING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ENDING",
     "definitions": [
      {
       "text": "death",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "escapes",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "imminent",
-      "gives": "IMPENDING",
-      "note": "imminent = impending"
-     },
-     {
-      "clueFragment": "Rascal",
-      "gives": "IMP",
-      "note": "an imp is a mischievous rascal; it is the part removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENDING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "escapes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "imminent",
+       "gives": "IMPENDING",
+       "note": "imminent = impending"
+      },
+      {
+       "words": "Rascal",
+       "gives": "IMP",
+       "note": "an imp is a mischievous rascal; it is the part removed"
+      }
      ]
     },
     "explanation": {
@@ -355,58 +322,60 @@
    },
    "solution": "MACARONI",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MACARONI",
     "definitions": [
      {
       "text": "medley",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "note": "said briefly, a word is cut short, so CAME loses its last letter"
-     },
-     {
-      "text": "upsetting"
-     },
-     {
-      "text": "centrepiece of",
-      "note": "the middle letter of MUSICAL"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Batty woman",
-      "gives": "NORA",
-      "note": "Nora Batty, the wrinkled-stockinged character in the BBC sitcom Last of the Summer Wine"
-     },
-     {
-      "clueFragment": "arrived briefly",
-      "gives": "CAM",
-      "note": "CAME without its last letter"
-     },
-     {
-      "clueFragment": "musical",
-      "gives": "I",
-      "select": "middle",
-      "note": "the central letter of MUSICAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MACARON",
-      "I"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NORACAM",
-       "to": "MACARON"
+       "text": "briefly",
+       "note": "said briefly, a word is cut short, so CAME loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upsetting"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "centrepiece of",
+           "note": "the middle letter of MUSICAL"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Batty woman",
+           "gives": "NORA",
+           "note": "Nora Batty, the wrinkled-stockinged character in the BBC sitcom Last of the Summer Wine"
+          },
+          {
+           "words": "arrived briefly",
+           "gives": "CAM",
+           "note": "CAME without its last letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "musical",
+         "note": "the central letter of MUSICAL"
+        }
+       ]
       }
      ]
     },
@@ -437,38 +406,31 @@
    },
    "solution": "RELY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RELY",
     "definitions": [
      {
       "text": "Bank",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ignores",
-      "for": "deletion",
-      "note": "to ignore something is to leave it out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "just",
-      "gives": "BARELY",
-      "note": "just = barely, as in 'just made it'"
-     },
-     {
-      "clueFragment": "graduate",
-      "gives": "BA",
-      "note": "a Bachelor of Arts, the part removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RELY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignores",
+       "note": "to ignore something is to leave it out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "just",
+       "gives": "BARELY",
+       "note": "just = barely, as in 'just made it'"
+      },
+      {
+       "words": "graduate",
+       "gives": "BA",
+       "note": "a Bachelor of Arts, the part removed"
+      }
      ]
     },
     "explanation": {
@@ -497,38 +459,24 @@
    },
    "solution": "EDUCATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EDUCATION",
     "definitions": [
      {
       "text": "coaching",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "when playing",
-      "for": "anagram",
-      "note": "the letters of CAUTIONED are played about with"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cautioned",
-      "gives": "CAUTIONED",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAUTIONED",
-       "gives": "EDUCATION"
+       "text": "when playing",
+       "note": "the letters of CAUTIONED are played about with"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cautioned",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -558,39 +506,30 @@
    },
    "solution": "SLEIGHT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SLEIGHT",
     "definitions": [
      {
       "text": "Cunning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "takes",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minor",
-      "gives": "SLIGHT",
-      "note": "minor = slight, of little importance"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E = ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SL",
-      "E",
-      "IGHT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "minor",
+       "gives": "SLIGHT",
+       "note": "minor = slight, of little importance"
+      },
+      {
+       "words": "drug",
+       "gives": "E",
+       "note": "E = ecstasy"
+      }
      ]
     },
     "explanation": {
@@ -619,41 +558,36 @@
    },
    "solution": "UNDATED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "UNDATED",
     "definitions": [
      {
       "text": "day not specified",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "takes the central letters of JUNE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "middle of June",
-      "gives": "UN",
-      "select": "middle",
-      "note": "the two central letters of JUNE"
-     },
-     {
-      "clueFragment": "saw",
-      "gives": "DATED",
-      "note": "to see someone is to go out with them, so saw = dated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "DATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "takes the central letters of JUNE"
+        }
+       ],
+       "parts": [
+        {
+         "words": "middle of June",
+         "gives": "JUNE",
+         "note": "the two central letters of JUNE"
+        }
+       ]
+      },
+      {
+       "words": "saw",
+       "gives": "DATED",
+       "note": "to see someone is to go out with them, so saw = dated"
+      }
      ]
     },
     "explanation": {
@@ -682,45 +616,43 @@
    },
    "solution": "CULTURE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CULTURE",
     "definitions": [
      {
       "text": "art, literature etc",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "feeds",
-      "for": "container",
-      "note": "to feed something in is to insert it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "craze",
-      "gives": "CULT",
-      "note": "a cult is a fad or craze"
-     },
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re = concerning, as in memo headers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CULT",
-      "U",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CULTURE",
+     "indicators": [
+      {
+       "text": "feeds",
+       "note": "to feed something in is to insert it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "craze",
+         "gives": "CULT",
+         "note": "a cult is a fad or craze"
+        },
+        {
+         "words": "University",
+         "gives": "U",
+         "note": "U = university"
+        },
+        {
+         "words": "concerning",
+         "gives": "RE",
+         "note": "re = concerning, as in memo headers"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -749,45 +681,38 @@
    },
    "solution": "SWEETENER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SWEETENER",
     "definitions": [
      {
       "text": "Bribe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "corrupt",
-      "for": "anagram",
-      "note": "the letters of WESTERN are corrupted into a new order"
-     },
-     {
-      "text": "being seized",
-      "for": "anagram",
-      "note": "the two Es are taken into the mix"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Western",
-      "gives": "WESTERN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Europeans",
-      "gives": "EE",
-      "note": "E = European, twice"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WESTERN E E",
-       "gives": "SWEETENER"
+       "text": "corrupt",
+       "note": "the letters of WESTERN are corrupted into a new order"
+      },
+      {
+       "text": "being seized",
+       "note": "the two Es are taken into the mix"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Western",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "Europeans",
+         "gives": "EE",
+         "note": "E = European, twice"
+        }
+       ]
       }
      ]
     },
@@ -817,30 +742,16 @@
    },
    "solution": "GANG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GANG",
     "definitions": [
      {
       "text": "Go for Glaswegian",
-      "at": 0
+      "at": 0,
+      "meaning": "the Scots verb for go, as a Glaswegian would say it"
      },
      {
       "text": "group committing crimes",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go for Glaswegian",
-      "gives": "GANG",
-      "note": "the Scots verb for go, as a Glaswegian would say it"
-     },
-     {
-      "clueFragment": "group committing crimes",
-      "gives": "GANG",
-      "note": "a band of criminals"
+      "at": 18,
+      "meaning": "a band of criminals"
      }
     ],
     "explanation": {
@@ -869,39 +780,31 @@
    },
    "solution": "SUBMIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUBMIT",
     "definitions": [
      {
       "text": "Offer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "previously",
-      "for": "charade",
-      "note": "previously means earlier, so the loan comes first, before the university"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loan",
-      "gives": "SUB",
-      "note": "a sub is a small advance or loan"
-     },
-     {
-      "clueFragment": "Cambridge University",
-      "gives": "MIT",
-      "note": "the Massachusetts Institute of Technology, in Cambridge, Massachusetts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUB",
-      "MIT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "previously",
+       "note": "previously means earlier, so the loan comes first, before the university"
+      }
+     ],
+     "parts": [
+      {
+       "words": "loan",
+       "gives": "SUB",
+       "note": "a sub is a small advance or loan"
+      },
+      {
+       "words": "Cambridge University",
+       "gives": "MIT",
+       "note": "the Massachusetts Institute of Technology, in Cambridge, Massachusetts"
+      }
      ]
     },
     "explanation": {
@@ -930,10 +833,6 @@
    },
    "solution": "BREADLINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BREADLINE",
     "definitions": [
      {
       "text": "Those queuing for free food",
@@ -941,25 +840,18 @@
       "note": "the definition names the people; the answer is the queue they form"
      }
     ],
-    "indicators": [
-     {
-      "text": "worried",
-      "for": "anagram",
-      "note": "worried letters are shaken about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rebel, and I",
-      "gives": "REBELANDI",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REBEL AND I",
-       "gives": "BREADLINE"
+       "text": "worried",
+       "note": "worried letters are shaken about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rebel, and I",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -989,31 +881,29 @@
    },
    "solution": "ANNALIST",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ANNALIST",
     "definitions": [
      {
       "text": "Historian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "radio is heard, not seen, so the answer only has to sound like the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one breaking down",
-      "gives": "ANNALIST",
-      "soundsLike": "AN ANALYST",
-      "note": "an analyst breaks things down into parts"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ANNALIST",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "radio is heard, not seen, so the answer only has to sound like the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one breaking down",
+       "gives": "ANANALYST",
+       "note": "an analyst breaks things down into parts"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A historian breaks down in tears during a radio interview.",
      "walkthrough": "'Breaking down' suggests collapse; it means analysing. 'One' supplies the article: 'an analyst' said quickly.",
@@ -1041,53 +931,55 @@
    },
    "solution": "ANTIPASTI",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ANTIPASTI",
     "definitions": [
      {
       "text": "Hors d'oeuvres",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "consumed by",
-      "for": "container"
-     },
-     {
-      "text": "downing",
-      "for": "deletion",
-      "note": "STILL drinks down, and so loses, the two Ls"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "social worker",
-      "gives": "ANT",
-      "note": "ants are social insects and workers"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "IPA",
-      "note": "India pale ale"
-     },
-     {
-      "clueFragment": "quietly downing two litres",
-      "gives": "STI",
-      "note": "STILL = quietly, minus L and L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANT",
-      "IPA",
-      "STI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANTIPASTI",
+     "indicators": [
+      {
+       "text": "downing",
+       "note": "STILL drinks down, and so loses, the two Ls"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "ANTIPASTI",
+       "indicators": [
+        {
+         "text": "consumed by"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "social worker",
+           "gives": "ANT",
+           "note": "ants are social insects and workers"
+          },
+          {
+           "words": "beer",
+           "gives": "IPA",
+           "note": "India pale ale"
+          },
+          {
+           "words": "quietly downing two litres",
+           "gives": "STI",
+           "note": "STILL = quietly, minus L and L"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1117,43 +1009,39 @@
    },
    "solution": "ANYWHERE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ANYWHERE",
     "definitions": [
      {
       "text": "in whatever location",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "enters"
-     },
-     {
-      "text": "drunk",
-      "note": "NEW YEAR is drunkenly rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Husband",
-      "gives": "H",
-      "note": "H = husband"
-     },
-     {
-      "clueFragment": "New Year",
-      "gives": "NEWYEAR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "H NEW YEAR",
-       "gives": "ANYWHERE"
+       "text": "enters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "note": "NEW YEAR is drunkenly rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New Year",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "Husband",
+       "gives": "H",
+       "note": "H = husband"
       }
      ]
     },
@@ -1183,30 +1071,16 @@
    },
    "solution": "DRESSING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DRESSING",
     "definitions": [
      {
       "text": "Type of table",
-      "at": 0
+      "at": 0,
+      "meaning": "the bedroom table with a mirror, where you get ready"
      },
      {
       "text": "sauce",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Type of table",
-      "gives": "DRESSING",
-      "note": "the bedroom table with a mirror, where you get ready"
-     },
-     {
-      "clueFragment": "sauce",
-      "gives": "DRESSING",
-      "note": "the oil-and-vinegar kind poured over salad"
+      "at": 14,
+      "meaning": "the oil-and-vinegar kind poured over salad"
      }
     ],
     "explanation": {
@@ -1235,55 +1109,51 @@
    },
    "solution": "DENMARK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DENMARK",
     "definitions": [
      {
       "text": "state",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "drained",
-      "for": "letter_selection"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'is in' places one thing inside another"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Emotion drained",
-      "gives": "EN",
-      "select": "outer",
-      "note": "the outer letters of EMOTION"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M = male"
-     },
-     {
-      "clueFragment": "gloomy",
-      "gives": "DARK",
-      "note": "gloomy = dark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "EN",
-      "M",
-      "ARK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'is in' places one thing inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "gloomy",
+         "gives": "DARK",
+         "note": "gloomy = dark"
+        },
+        {
+         "words": "male",
+         "gives": "M",
+         "note": "M = male"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "drained"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Emotion drained",
+         "gives": "EMOTION",
+         "note": "the outer letters of EMOTION"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1313,34 +1183,39 @@
    },
    "solution": "STONES",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "STONES",
     "definitions": [
      {
       "text": "sparklers, maybe",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "as in 'about turn', the letters face the other way and are read right to left"
-     },
-     {
-      "text": "holding",
-      "note": "the words hold the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Those not scared",
-      "gives": "SENOTS",
-      "note": "tho(SE NOT S)cared, read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "as in 'about turn', the letters face the other way and are read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "the words hold the answer inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Those not scared",
+         "gives": "SENOTS",
+         "note": "tho(SE NOT S)cared, read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "People brave enough to hold lit sparklers on bonfire night.",
      "walkthrough": "The sparklers look like fireworks; they are gems, and 'maybe' warns that stones are only one kind of sparkler.",
@@ -1368,35 +1243,25 @@
    },
    "solution": "SURGEON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURGEON",
     "definitions": [
      {
       "text": "ship's doctor",
       "at": 16
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jerk",
-      "gives": "SURGE",
-      "note": "a jerk is a sudden surge"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURGE",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jerk",
+       "gives": "SURGE",
+       "note": "a jerk is a sudden surge"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -1425,47 +1290,50 @@
    },
    "solution": "PLUMPS",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLUMPS",
     "definitions": [
      {
       "text": "Flops down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exhausted"
-     },
-     {
-      "text": "after"
-     },
-     {
-      "text": "endless",
-      "note": "PLUMB loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work mending pipes",
-      "gives": "PLUM",
-      "note": "to plumb is to do plumbing work; endless, it loses its B"
-     },
-     {
-      "clueFragment": "perhaps",
-      "gives": "PS",
-      "select": "outer",
-      "note": "the outer letters of PERHAPS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLUM",
-      "PS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PLUMPS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "exhausted"
+        },
+        {
+         "text": "endless",
+         "note": "PLUMB loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work mending pipes",
+         "gives": "PLUM",
+         "note": "to plumb is to do plumbing work; endless, it loses its B"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "after"
+          }
+         ],
+         "parts": [
+          {
+           "words": "perhaps",
+           "note": "the outer letters of PERHAPS"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1494,41 +1362,35 @@
    },
    "solution": "NODE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NODE",
     "definitions": [
      {
       "text": "Knot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last means at the end, so only the final letter of TIE is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bow",
-      "gives": "NOD",
-      "note": "a bow of the head is a nod"
-     },
-     {
-      "clueFragment": "tie",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of TIE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOD",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bow",
+       "gives": "NOD",
+       "note": "a bow of the head is a nod"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last means at the end, so only the final letter of TIE is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tie",
+         "note": "the last letter of TIE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1557,55 +1419,56 @@
    },
    "solution": "WILLPOWER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "WILLPOWER",
     "definitions": [
      {
       "text": "determination",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Discovered",
-      "note": "uncovered: TWERP loses its outer letters"
-     },
-     {
-      "text": "guards",
-      "note": "a guard stands on either side of what it protects"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Discovered idiot",
-      "gives": "WER",
-      "select": "outer",
-      "note": "TWERP without its cover letters T and P"
-     },
-     {
-      "clueFragment": "sick",
-      "gives": "ILL",
-      "note": "sick = ill"
-     },
-     {
-      "clueFragment": "prisoner",
-      "gives": "POW",
-      "note": "prisoner of war"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ILL",
-      "POW",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Discovered",
+       "note": "uncovered: TWERP loses its outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "WER",
+       "indicators": [
+        {
+         "text": "guards",
+         "note": "a guard stands on either side of what it protects"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Discovered idiot",
+         "gives": "WER",
+         "select": "outer",
+         "note": "TWERP without its cover letters T and P"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sick",
+         "gives": "ILL",
+         "note": "sick = ill"
+        },
+        {
+         "words": "prisoner",
+         "gives": "POW",
+         "note": "prisoner of war"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1634,31 +1497,29 @@
    },
    "solution": "WAIST",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "WAIST",
     "definitions": [
      {
       "text": "Place to find spare tyre",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "what is reported is passed on by word of mouth, so the answer only has to sound right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lying unused",
-      "gives": "WAIST",
-      "soundsLike": "WASTE",
-      "note": "land lying unused is waste"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WAIST",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "what is reported is passed on by word of mouth, so the answer only has to sound right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lying unused",
+       "gives": "WASTE",
+       "note": "land lying unused is waste"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A spare tyre is lying unused somewhere in the boot.",
      "walkthrough": "The car's spare tyre is the natural reading; a spare tyre is also a roll of fat round the middle.",
@@ -1686,38 +1547,28 @@
    },
    "solution": "POLO",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "POLO",
     "definitions": [
      {
       "text": "game",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately raised",
-      "for": "cycling",
-      "note": "in a down clue the last letter is lifted one place up"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kitty",
-      "gives": "POOL",
-      "note": "a kitty is a shared pool of money; its final L moves up past the second O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "L",
-      "O"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "POLO",
+     "indicators": [
+      {
+       "text": "ultimately raised",
+       "note": "in a down clue the last letter is lifted one place up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kitty",
+       "gives": "POOL",
+       "note": "a kitty is a shared pool of money; its final L moves up past the second O"
+      }
      ]
     },
     "explanation": {
@@ -1746,61 +1597,60 @@
    },
    "solution": "ADIPOSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "ADIPOSE",
     "definitions": [
      {
       "text": "\"Fatty\"",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "the first letter of ARBUCKLE"
-     },
-     {
-      "text": "flipping",
-      "note": "to flip something is to turn it over"
-     },
-     {
-      "text": "bears"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arbuckle",
-      "gives": "A",
-      "select": "first",
-      "note": "the first letter of ARBUCKLE"
-     },
-     {
-      "clueFragment": "shot",
-      "gives": "DOSE",
-      "note": "a shot of medicine is a dose"
-     },
-     {
-      "clueFragment": "religious",
-      "gives": "PI",
-      "note": "PI, short for pious"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "D",
-      "IP",
-      "OSE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "PI",
-       "to": "IP"
+       "text": "originally",
+       "note": "the first letter of ARBUCKLE"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "to flip something is to turn it over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arbuckle",
+         "note": "the first letter of ARBUCKLE"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bears"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shot",
+         "gives": "DOSE",
+         "note": "a shot of medicine is a dose"
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "religious",
+           "gives": "PI",
+           "note": "PI, short for pious"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1831,48 +1681,47 @@
    },
    "solution": "MASSIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "MASSIVE",
     "definitions": [
      {
       "text": "Popular",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be cut",
-      "note": "EVIL loses its last letter"
-     },
-     {
-      "text": "back"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "service",
-      "gives": "MASS",
-      "note": "a church service"
-     },
-     {
-      "clueFragment": "wrong",
-      "gives": "EVI",
-      "note": "EVIL, a wrong, with its last letter cut"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MASS",
-      "IVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MASSIVE",
+     "parts": [
       {
-       "from": "EVI",
-       "to": "IVE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to be cut",
+         "note": "EVIL loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "service",
+         "gives": "MASS",
+         "note": "a church service"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wrong",
+           "gives": "EVI",
+           "note": "EVIL, a wrong, with its last letter cut"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1916,32 +1765,19 @@
    },
    "solution": "KEEPONESSHIRTON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KEEP ONE'S SHIRT ON",
     "definitions": [
      {
       "text": "How to avoid a sunburnt back",
-      "at": 0
+      "at": 0,
+      "meaning": "the literal reading: stay covered up"
      },
      {
       "text": "Stay cool",
-      "at": 30
+      "at": 30,
+      "meaning": "the idiom for staying calm"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "How to avoid a sunburnt back",
-      "gives": "KEEPONESSHIRTON",
-      "note": "the literal reading: stay covered up"
-     },
-     {
-      "clueFragment": "Stay cool",
-      "gives": "KEEPONESSHIRTON",
-      "note": "the idiom for staying calm"
-     }
-    ],
+    "spelling": "KEEP ONE'S SHIRT ON",
     "explanation": {
      "surface": "Advice for a hot day: cover up to protect your back.",
      "walkthrough": "'Stay cool' looks like advice about heat, matching the sunburn; it is the idiom for not losing your temper.",

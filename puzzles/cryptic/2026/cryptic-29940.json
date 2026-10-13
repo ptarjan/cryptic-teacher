@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29940",
  "number": 29940,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,940",
  "setter": "Paul",
  "date": "2026-02-26",
  "dimensions": {
@@ -44,57 +42,52 @@
    },
    "solution": "WOOLFAT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WOOL FAT",
     "definitions": [
      {
       "text": "Grease",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "takes the final letter of McKenna"
-     },
-     {
-      "text": "lead from",
-      "for": "letter_selection",
-      "note": "the lead of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "where",
-     "has taken"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Virginia",
-      "gives": "WOOLF",
-      "note": "Virginia Woolf, the novelist"
-     },
-     {
-      "clueFragment": "McKenna finally",
-      "gives": "A",
-      "select": "last",
-      "note": "last letter of McKennA"
-     },
-     {
-      "clueFragment": "lead from Travolta",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of Travolta"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOOLF",
-      "A",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Virginia",
+       "gives": "WOOLF",
+       "note": "Virginia Woolf, the novelist"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "takes the final letter of McKenna"
+        }
+       ],
+       "parts": [
+        {
+         "words": "McKenna finally",
+         "gives": "MCKENNA",
+         "note": "last letter of McKennA"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead from",
+         "note": "the lead of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lead from Travolta",
+         "gives": "TRAVOLTA",
+         "note": "first letter of Travolta"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -123,43 +116,34 @@
    },
    "solution": "WOMBLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WOMBLE",
     "definitions": [
      {
       "text": "refuse collector",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Trash",
-      "for": "anagram",
-      "note": "to trash something is to wreck it, so its letters are wrecked"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "miles",
-      "gives": "M",
-      "note": "M is the standard abbreviation for miles"
-     },
-     {
-      "clueFragment": "below",
-      "gives": "BELOW",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "M BELOW",
-       "gives": "WOMBLE"
+       "text": "Trash",
+       "note": "to trash something is to wreck it, so its letters are wrecked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "miles",
+         "gives": "M",
+         "note": "M is the standard abbreviation for miles"
+        },
+        {
+         "words": "below",
+         "note": "taken as it stands"
+        }
+       ]
       }
      ]
     },
@@ -190,42 +174,36 @@
    },
    "solution": "OCTAVE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "OCTAVE",
     "definitions": [
      {
       "text": "the interval",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Short",
-      "note": "cut short: the last letter of ACT OVER goes"
-     },
-     {
-      "text": "in play",
-      "note": "letters in play are loose, free to be rearranged"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "act over",
-      "gives": "ACTOVE",
-      "note": "ACT OVER cut short loses its final R"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OCTAVE",
+     "parts": [
       {
-       "fodder": "ACT OVE",
-       "gives": "OCTAVE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Short",
+         "note": "cut short: the last letter of ACT OVER goes"
+        },
+        {
+         "text": "in play",
+         "note": "letters in play are loose, free to be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act over",
+         "gives": "ACTOVE",
+         "note": "ACT OVER cut short loses its final R"
+        }
+       ]
       }
      ]
     },
@@ -256,26 +234,25 @@
    },
    "solution": "FORTRESSES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FORTRESSES",
     "definitions": [
      {
       "text": "safe places",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Why one might have combs",
-      "note": "the surface asks a question; the setter wants its answer, the purpose combs serve, which is grooming locks of hair"
-     },
-     {
-      "clueFragment": "safe places",
-      "note": "the plain definition, strongholds"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Why one might have combs",
+       "note": "the surface asks a question; the setter wants its answer, the purpose combs serve, which is grooming locks of hair"
+      },
+      {
+       "words": "safe places",
+       "note": "the plain definition, strongholds"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A puzzled question about why anyone would keep combs in a safe.",
      "walkthrough": "Split the answer as FOR TRESSES and it answers the question: combs are for hair. Read whole, it names the safe places.",
@@ -303,33 +280,28 @@
    },
    "solution": "TOPER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TOPER",
     "definitions": [
      {
       "text": "drunk",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Half-hearted",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bowler, say",
-      "gives": "TOPPER",
-      "note": "a bowler hat is one kind of topper; 'say' marks the example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Half-hearted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bowler, say",
+       "gives": "TOPPER",
+       "note": "a bowler hat is one kind of topper; 'say' marks the example"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -359,52 +331,46 @@
    },
    "solution": "BOHEMIA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BOHEMIA",
     "definitions": [
      {
       "text": "unconventional community",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "worn by"
-     },
-     {
-      "text": "on",
-      "note": "one comes on, after, the border"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scarf",
-      "gives": "BOA",
-      "note": "a feather boa is a scarf"
-     },
-     {
-      "clueFragment": "border",
-      "gives": "HEM",
-      "note": "a hem is the border of a garment"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "HEM",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "worn by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scarf",
+       "gives": "BOA",
+       "note": "a feather boa is a scarf"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "one comes on, after, the border"
+        }
+       ],
+       "parts": [
+        {
+         "words": "border",
+         "gives": "HEM",
+         "note": "a hem is the border of a garment"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -439,50 +405,40 @@
    },
    "solution": "BOXCAMERA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BOX CAMERA",
     "definitions": [
      {
       "text": "snapper",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "crossed by",
-      "for": "container",
-      "note": "the river is straddled by the dog, sitting inside it"
-     }
-    ],
-    "linkWords": [
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "BOXER",
-      "note": "a boxer is a breed of dog"
-     },
-     {
-      "clueFragment": "River",
-      "gives": "CAM",
-      "note": "the Cam runs through Cambridge"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOX",
-      "CAM",
-      "ER",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "crossed by",
+         "note": "the river is straddled by the dog, sitting inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "gives": "BOXER",
+         "note": "a boxer is a breed of dog"
+        },
+        {
+         "words": "River",
+         "gives": "CAM",
+         "note": "the Cam runs through Cambridge"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as it stands"
+      }
      ]
     },
     "explanation": {
@@ -510,49 +466,7 @@
     "text": "Spot of bother showing full amount to the auditor?",
     "enumeration": "4"
    },
-   "solution": "HOLE",
-   "annotation": {
-    "type": [
-     "double_definition",
-     "homophone"
-    ],
-    "answer": "HOLE",
-    "definitions": [
-     {
-      "text": "Spot of bother",
-      "at": 0
-     }
-    ],
-    "indicators": [
-     {
-      "text": "to the auditor",
-      "for": "homophone",
-      "note": "an auditor is a listener, so it goes by sound"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "full amount",
-      "gives": "HOLE",
-      "soundsLike": "WHOLE",
-      "note": "the whole is the full amount"
-     }
-    ],
-    "explanation": {
-     "surface": "An accountant checking whether the books show the full amount, in a spot of bother.",
-     "walkthrough": "The auditor looks like the accountant checking the full amount, but here an auditor is simply a listener.",
-     "definitionFit": "An idiom: someone in trouble is said to be 'in a hole', a tight spot."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "auditor"
-    }
-   }
+   "solution": "HOLE"
   },
   {
    "number": 7,
@@ -568,40 +482,31 @@
    },
    "solution": "METHINKS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "METHINKS",
     "definitions": [
      {
       "text": "I suppose",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "broken by",
-      "for": "container",
-      "note": "the spirit is broken open with the stuff set inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spirit",
-      "gives": "METHS",
-      "note": "meths is methylated spirit"
-     },
-     {
-      "clueFragment": "cruciverbalist's stuff",
-      "gives": "INK",
-      "note": "a crossword setter's material is ink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "METH",
-      "INK",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "broken by",
+       "note": "the spirit is broken open with the stuff set inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spirit",
+       "gives": "METHS",
+       "note": "meths is methylated spirit"
+      },
+      {
+       "words": "cruciverbalist's stuff",
+       "gives": "INK",
+       "note": "a crossword setter's material is ink"
+      }
      ]
     },
     "explanation": {
@@ -630,58 +535,52 @@
    },
    "solution": "ABDICATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "ABDICATE",
     "definitions": [
      {
       "text": "hand back crown",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Shockingly",
-      "for": "anagram",
-      "note": "done shockingly, the letters are thrown about"
-     },
-     {
-      "text": "cutting",
-      "for": "container",
-      "note": "AT cuts into the diamonds, going inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bad",
-      "gives": "ABD",
-      "note": "BAD rearranged"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "ICE",
-      "note": "ice is slang for diamonds"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABD",
-      "IC",
-      "AT",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ABDICATE",
+     "indicators": [
       {
-       "fodder": "BAD",
-       "gives": "ABD"
+       "text": "Shockingly",
+       "note": "done shockingly, the letters are thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bad",
+         "gives": "ABD",
+         "note": "BAD rearranged"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "cutting",
+           "note": "AT cuts into the diamonds, going inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "diamonds",
+           "gives": "ICE",
+           "note": "ice is slang for diamonds"
+          },
+          {
+           "words": "at",
+           "note": "taken as it stands"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -712,44 +611,45 @@
    },
    "solution": "MOTOR",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "MOTOR",
     "definitions": [
      {
       "text": "Wheels",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the end",
-      "note": "only the end of stunt, its last letter, is used"
-     },
-     {
-      "text": "nailed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "land",
-      "gives": "MOOR",
-      "note": "a moor is open land"
-     },
-     {
-      "clueFragment": "stunt in the end",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of stunT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "T",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in the end",
+       "note": "only the end of stunt, its last letter, is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "land",
+       "gives": "MOOR",
+       "note": "a moor is open land"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "T",
+       "indicators": [
+        {
+         "text": "nailed"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "stunt in the end",
+         "gives": "T",
+         "select": "last",
+         "note": "last letter of stunT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -778,38 +678,30 @@
    },
    "solution": "PIXELATED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PIXELATED",
     "definitions": [
      {
       "text": "Hard to see",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "more than 3",
-      "gives": "PI",
-      "note": "pi is 3.14159…, a little more than 3"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "X",
-      "note": "X is the Roman numeral 10"
-     },
-     {
-      "clueFragment": "high",
-      "gives": "ELATED",
-      "note": "high in spirits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "X",
-      "ELATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "more than 3",
+       "gives": "PI",
+       "note": "pi is 3.14159…, a little more than 3"
+      },
+      {
+       "words": "10",
+       "gives": "X",
+       "note": "X is the Roman numeral 10"
+      },
+      {
+       "words": "high",
+       "gives": "ELATED",
+       "note": "high in spirits"
+      }
      ]
     },
     "explanation": {
@@ -838,54 +730,40 @@
    },
    "solution": "LAVERBREAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAVERBREAD",
     "definitions": [
      {
       "text": "Welsh table",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "the learner stands by, next to, the rest"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "learner",
-      "gives": "L",
-      "note": "L is the learner plate on a car"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "grammatical term",
-      "gives": "VERB",
-      "note": "a verb is a part of speech"
-     },
-     {
-      "clueFragment": "studied",
-      "gives": "READ",
-      "note": "to read a subject is to study it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "A",
-      "VERB",
-      "READ"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "note": "the learner stands by, next to, the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "learner",
+       "gives": "L",
+       "note": "L is the learner plate on a car"
+      },
+      {
+       "words": "a",
+       "note": "taken as it stands"
+      },
+      {
+       "words": "grammatical term",
+       "gives": "VERB",
+       "note": "a verb is a part of speech"
+      },
+      {
+       "words": "studied",
+       "gives": "READ",
+       "note": "to read a subject is to study it"
+      }
      ]
     },
     "explanation": {
@@ -915,40 +793,30 @@
    },
    "solution": "DISC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DISC",
     "definitions": [
      {
       "text": "Record",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "secreted in",
-      "for": "container",
-      "note": "IS is hidden away inside the White House"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the White House, perhaps",
-      "gives": "DC",
-      "note": "the White House is in Washington DC; 'perhaps' marks it as an example"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secreted in",
+       "note": "IS is hidden away inside the White House"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the White House, perhaps",
+       "gives": "DC",
+       "note": "the White House is in Washington DC; 'perhaps' marks it as an example"
+      },
+      {
+       "words": "is",
+       "note": "taken as it stands"
+      }
      ]
     },
     "explanation": {
@@ -977,50 +845,41 @@
    },
    "solution": "COINCIDENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "COINCIDENT",
     "definitions": [
      {
       "text": "in agreement",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "invested",
-      "for": "container",
-      "note": "money invested is put into something, so I'D goes inside"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nickel, say",
-      "gives": "COIN",
-      "note": "a nickel is a US five-cent coin"
-     },
-     {
-      "clueFragment": "20% of that",
-      "gives": "CENT",
-      "note": "a fifth of a five-cent nickel is one cent"
-     },
-     {
-      "clueFragment": "I had",
-      "gives": "ID",
-      "note": "I'd is short for I had"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COIN",
-      "C",
-      "ID",
-      "ENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nickel, say",
+       "gives": "COIN",
+       "note": "a nickel is a US five-cent coin"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "invested",
+         "note": "money invested is put into something, so I'D goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "20% of that",
+         "gives": "CENT",
+         "note": "a fifth of a five-cent nickel is one cent"
+        },
+        {
+         "words": "I had",
+         "gives": "ID",
+         "note": "I'd is short for I had"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1055,43 +914,31 @@
    },
    "solution": "SPACEROCKET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPACE ROCKET",
     "definitions": [
      {
       "text": "Speeding craft",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "torpedoed by",
-      "for": "container",
-      "note": "the pilot blasts into the wheel, landing inside it"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wheel",
-      "gives": "SPROCKET",
-      "note": "a sprocket is a toothed wheel"
-     },
-     {
-      "clueFragment": "pilot",
-      "gives": "ACE",
-      "note": "an ace is a star fighter pilot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "ACE",
-      "ROCKET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "torpedoed by",
+       "note": "the pilot blasts into the wheel, landing inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wheel",
+       "gives": "SPROCKET",
+       "note": "a sprocket is a toothed wheel"
+      },
+      {
+       "words": "pilot",
+       "gives": "ACE",
+       "note": "an ace is a star fighter pilot"
+      }
      ]
     },
     "explanation": {
@@ -1120,47 +967,40 @@
    },
    "solution": "ASTROTURF",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ASTROTURF",
     "definitions": [
      {
       "text": "that resembles grass",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "coming through",
-      "for": "container",
-      "note": "the rush goes through the middle of the water"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "ocean water",
-      "gives": "SURF",
-      "note": "surf is breaking sea water"
-     },
-     {
-      "clueFragment": "rush",
-      "gives": "TROT",
-      "note": "a trot is a quick run"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "TROT",
-      "URF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as it stands"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming through",
+         "note": "the rush goes through the middle of the water"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ocean water",
+         "gives": "SURF",
+         "note": "surf is breaking sea water"
+        },
+        {
+         "words": "rush",
+         "gives": "TROT",
+         "note": "a trot is a quick run"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1189,51 +1029,43 @@
    },
    "solution": "STORMIER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "STORMIER",
     "definitions": [
      {
       "text": "More violent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the rampage",
-      "for": "anagram",
-      "note": "rioters running wild, so their letters scatter"
-     },
-     {
-      "text": "kettled",
-      "for": "container",
-      "note": "kettling is police penning a crowd"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rioters",
-      "gives": "STORIER",
-      "note": "RIOTERS rearranged"
-     },
-     {
-      "clueFragment": "thousand",
-      "gives": "M",
-      "note": "M is the Roman numeral 1,000"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOR",
-      "M",
-      "IER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STORMIER",
+     "indicators": [
       {
-       "fodder": "RIOTERS",
-       "gives": "STORIER"
+       "text": "on the rampage",
+       "note": "rioters running wild, so their letters scatter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kettled",
+         "note": "kettling is police penning a crowd"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rioters",
+         "gives": "STORIER",
+         "note": "RIOTERS rearranged"
+        },
+        {
+         "words": "thousand",
+         "gives": "M",
+         "note": "M is the Roman numeral 1,000"
+        }
+       ]
       }
      ]
     },
@@ -1268,50 +1100,42 @@
    },
    "solution": "TIDIEDUP",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "and_lit"
-    ],
-    "answer": "TIDIED UP",
     "definitions": [
      {
       "text": "Did it having bagged last of garbage?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bagged",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Did it",
-      "gives": "TIDID",
-      "note": "written up, as a down entry is read upward"
-     },
-     {
-      "clueFragment": "last of garbage",
-      "gives": "E",
-      "note": "last letter of garbagE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIDI",
-      "E",
-      "D",
-      "UP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TIDIEDUP",
+     "indicators": [
       {
-       "from": "DIDIT",
-       "to": "TIDID"
+       "text": "bagged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "TIDIEDUP",
+       "parts": [
+        {
+         "words": "Did it",
+         "gives": "TIDID",
+         "note": "written up, as a down entry is read upward"
+        },
+        {
+         "words": "last of garbage",
+         "gives": "E",
+         "note": "last letter of garbagE"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone who bagged the last bit of rubbish has done the job.",
      "walkthrough": "A reverse clue: the answer holds the instruction. TIDIED UP reads as TIDIED, which is DID IT written 'up' with E inside. The whole clue also describes clearing up.",
@@ -1344,39 +1168,31 @@
    },
    "solution": "TOILETTRAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOILET-TRAIN",
     "definitions": [
      {
       "text": "ready to go",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "beyond",
-      "for": "charade",
-      "note": "the sequence comes after the cleansing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cleansing",
-      "gives": "TOILET",
-      "note": "one's toilet is washing and dressing"
-     },
-     {
-      "clueFragment": "Sequence",
-      "gives": "TRAIN",
-      "note": "a train of events is a sequence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOILET",
-      "TRAIN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beyond",
+       "note": "the sequence comes after the cleansing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cleansing",
+       "gives": "TOILET",
+       "note": "one's toilet is washing and dressing"
+      },
+      {
+       "words": "Sequence",
+       "gives": "TRAIN",
+       "note": "a train of events is a sequence"
+      }
      ]
     },
     "explanation": {
@@ -1406,40 +1222,31 @@
    },
    "solution": "SUPERB",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUPERB",
     "definitions": [
      {
       "text": "Palatial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "banks",
-      "for": "container",
-      "note": "the European lines both banks of the word, as a river is flanked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "SERB",
-      "note": "a Serb is a European"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "UP",
-      "note": "as in 'time's up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "UP",
-      "ERB"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "banks",
+       "note": "the European lines both banks of the word, as a river is flanked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European",
+       "gives": "SERB",
+       "note": "a Serb is a European"
+      },
+      {
+       "words": "finished",
+       "gives": "UP",
+       "note": "as in 'time's up'"
+      }
      ]
     },
     "explanation": {
@@ -1468,42 +1275,31 @@
    },
    "solution": "GENTRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GENTRY",
     "definitions": [
      {
       "text": "high society",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "led by",
-      "for": "charade",
-      "note": "the dope comes first, leading the labour"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dope",
-      "gives": "GEN",
-      "note": "gen and dope are both slang for information"
-     },
-     {
-      "clueFragment": "Labour",
-      "gives": "TRY",
-      "note": "to labour is to try hard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEN",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "led by",
+       "note": "the dope comes first, leading the labour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dope",
+       "gives": "GEN",
+       "note": "gen and dope are both slang for information"
+      },
+      {
+       "words": "Labour",
+       "gives": "TRY",
+       "note": "to labour is to try hard"
+      }
      ]
     },
     "explanation": {
@@ -1532,31 +1328,29 @@
    },
    "solution": "REIN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "REIN",
     "definitions": [
      {
       "text": "Check",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gets picked up",
-      "for": "homophone",
-      "note": "sounds are picked up by the ear"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "what comes down",
-      "gives": "REIN",
-      "soundsLike": "RAIN",
-      "note": "rain is what comes down from the sky"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REIN",
+     "indicators": [
+      {
+       "text": "gets picked up",
+       "note": "sounds are picked up by the ear"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what comes down",
+       "gives": "RAIN",
+       "note": "rain is what comes down from the sky"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A check on whatever falls to the ground and gets collected.",
      "walkthrough": "'Picked up' pretends to mean collected from the floor; it means heard.",
@@ -1584,49 +1378,41 @@
    },
    "solution": "CONTRIBUTE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CONTRIBUTE",
     "definitions": [
      {
       "text": "Chip in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has opened",
-      "note": "the bone opens up the rest and sits inside it"
-     },
-     {
-      "text": "after surgery",
-      "note": "operated on, the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut, note",
-      "gives": "CONTUTE",
-      "note": "CUT NOTE rearranged"
-     },
-     {
-      "clueFragment": "bone",
-      "gives": "RIB",
-      "note": "a rib is a bone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CONT",
-      "RIB",
-      "UTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CONTRIBUTE",
+     "parts": [
       {
-       "fodder": "CUTNOTE",
-       "gives": "CONTUTE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "has opened",
+         "note": "the bone opens up the rest and sits inside it"
+        },
+        {
+         "text": "after surgery",
+         "note": "operated on, the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut, note",
+         "gives": "CONTUTE",
+         "note": "CUT NOTE rearranged"
+        },
+        {
+         "words": "bone",
+         "gives": "RIB",
+         "note": "a rib is a bone"
+        }
+       ]
       }
      ]
     },
@@ -1657,46 +1443,40 @@
    },
    "solution": "THETA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "THETA",
     "definitions": [
      {
       "text": "Greek character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down entry, turned up means read from the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "what",
-      "gives": "EH",
-      "note": "eh? is a way of saying what?"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HE",
-      "TA"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning up",
+       "note": "in a down entry, turned up means read from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "note": "taken as it stands"
+        },
+        {
+         "words": "what",
+         "gives": "EH",
+         "note": "eh? is a way of saying what?"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1725,30 +1505,28 @@
    },
    "solution": "INTO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INTO",
     "definitions": [
      {
       "text": "Hooked on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hooked",
-      "for": "hidden_word",
-      "note": "the answer is hooked, caught, inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "point, object",
-      "gives": "INTO",
-      "note": "poINT Object"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hooked",
+       "note": "the answer is hooked, caught, inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "point, object",
+       "gives": "INTO",
+       "note": "poINT Object"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An angler's cry about a hook going into its target.",
      "walkthrough": "'Hooked' does two jobs across the clue: first a definition phrase meaning keen on, then a signal that the answer is caught in the text.",
@@ -1775,35 +1553,24 @@
    },
    "solution": "INDENTURE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INDENTURE",
     "definitions": [
      {
       "text": "contract",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "adjusted",
-      "for": "anagram",
-      "note": "the letters are set differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Under ten, I",
-      "gives": "UNDERTENI",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UNDER TEN I",
-       "gives": "INDENTURE"
+       "text": "adjusted",
+       "note": "the letters are set differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Under ten, I",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1833,48 +1600,35 @@
    },
    "solution": "EXERT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "EXERT",
     "definitions": [
      {
       "text": "Use",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "toppled over",
-      "for": "reversal",
-      "note": "knocked over, the dinosaur lies the other way round"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     },
-     {
-      "clueFragment": "old giant",
-      "gives": "TREX",
-      "note": "T. rex, the long-extinct giant dinosaur"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "XERT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TREX",
-       "to": "XERT"
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "toppled over",
+         "note": "knocked over, the dinosaur lies the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old giant",
+         "gives": "TREX",
+         "note": "T. rex, the long-extinct giant dinosaur"
+        }
+       ]
       }
      ]
     },
@@ -1904,32 +1658,25 @@
    },
    "solution": "REPROOF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPROOF",
     "definitions": [
      {
       "text": "carpeting",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Salesperson",
-      "gives": "REP",
-      "note": "a sales representative"
-     },
-     {
-      "clueFragment": "covering",
-      "gives": "ROOF",
-      "note": "a roof covers a building"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REP",
-      "ROOF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Salesperson",
+       "gives": "REP",
+       "note": "a sales representative"
+      },
+      {
+       "words": "covering",
+       "gives": "ROOF",
+       "note": "a roof covers a building"
+      }
      ]
     },
     "explanation": {
@@ -1959,49 +1706,40 @@
    },
    "solution": "ATTABOY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ATTABOY",
     "definitions": [
      {
       "text": "good work!",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the bill goes inside the plaything"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "play",
-      "gives": "TOY",
-      "note": "to toy with is to play with"
-     },
-     {
-      "clueFragment": "bill",
-      "gives": "TAB",
-      "note": "a tab is a bill, as in a bar tab"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "TAB",
-      "OY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as it stands"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the bill goes inside the plaything"
+        }
+       ],
+       "parts": [
+        {
+         "words": "play",
+         "gives": "TOY",
+         "note": "to toy with is to play with"
+        },
+        {
+         "words": "bill",
+         "gives": "TAB",
+         "note": "a tab is a bill, as in a bar tab"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-2911",
  "number": 2911,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 2,911",
  "date": "2017-08-06",
  "dimensions": {
   "cols": 15,
@@ -37,37 +35,38 @@
    },
    "solution": "ASTI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ASTI",
     "definitions": [
      {
       "text": "Wine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "'in' tells you the answer sits inside the following word, already spelt out in its letters"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "test",
-      "note": "surface padding for the wine-tasting picture; gives no letters"
-     },
-     {
-      "clueFragment": "tastiest",
-      "gives": "ASTI",
-      "note": "the four letters after the opening T of this word"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "test",
+       "note": "surface padding for the wine-tasting picture; gives no letters"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' tells you the answer sits inside the following word, already spelt out in its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tastiest",
+         "gives": "ASTI",
+         "note": "the four letters after the opening T of this word"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A wine-tasting verdict: the bottle that came top in the test was the most delicious.",
      "walkthrough": "ASTI sits inside tASTIest.",
@@ -94,35 +93,24 @@
    },
    "solution": "SAIGON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SAIGON",
     "definitions": [
      {
       "text": "recalled city in Asia",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "composed",
-      "for": "anagram",
-      "note": "something composed has been put together, so the letters are arranged into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A song I",
-      "gives": "ASONGI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASONGI",
-       "gives": "SAIGON"
+       "text": "composed",
+       "note": "something composed has been put together, so the letters are arranged into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A song I",
+       "note": "taken as written"
       }
      ]
     },
@@ -152,40 +140,38 @@
    },
    "solution": "ANEW",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ANEW",
     "definitions": [
      {
       "text": "again",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "without one",
-      "for": "deletion",
-      "note": "'without one' asks you to drop a single member of the group just named"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "quartet playing",
-      "gives": "NEWS",
-      "note": "the four players at a bridge table are North, East, West and South"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NEW"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without one",
+       "note": "'without one' asks you to drop a single member of the group just named"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "quartet playing",
+         "gives": "NEWS",
+         "note": "the four players at a bridge table are North, East, West and South"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -214,48 +200,37 @@
    },
    "solution": "SPIRIT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SPIRIT",
     "definitions": [
      {
       "text": "Courage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going up",
-      "for": "reversal",
-      "note": "in a down clue, going up means the word is read from the bottom of the column, back to front"
-     }
-    ],
-    "linkWords": [
-     "needed after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rents",
-      "gives": "SPIR",
-      "note": "rents are tears, RIPS, which read upwards becomes this"
-     },
-     {
-      "clueFragment": "it's",
-      "gives": "IT",
-      "note": "the word it, with the 's as part of the link 'it is needed'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPIR",
-      "IT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SPIRIT",
+     "indicators": [
       {
-       "from": "RIPS",
-       "to": "SPIR"
+       "text": "going up",
+       "note": "in a down clue, going up means the word is read from the bottom of the column, back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rents",
+         "gives": "SPIR",
+         "note": "rents are tears, RIPS, which read upwards becomes this"
+        },
+        {
+         "words": "it's",
+         "gives": "IT",
+         "note": "the word it, with the 's as part of the link 'it is needed'"
+        }
+       ]
       }
      ]
     },
@@ -286,45 +261,34 @@
    },
    "solution": "ORGANIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORGANIST",
     "definitions": [
      {
       "text": "Musician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "a broken thing has come apart, so these letters are reassembled differently"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "band",
-      "gives": "O",
-      "note": "a ring-shaped band is drawn as the letter O"
-     },
-     {
-      "clueFragment": "a string",
-      "gives": "ASTRING",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OASTRING",
-       "gives": "ORGANIST"
+       "text": "broken",
+       "note": "a broken thing has come apart, so these letters are reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "band",
+         "gives": "O",
+         "note": "a ring-shaped band is drawn as the letter O"
+        },
+        {
+         "words": "a string",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -354,35 +318,25 @@
    },
    "solution": "STANDSTILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STANDSTILL",
     "definitions": [
      {
       "text": "complete halt",
       "at": 53
      }
     ],
-    "linkWords": [
-     "comes to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Section of stadium",
-      "gives": "STANDS",
-      "note": "the stands are a stadium's banks of spectator seating"
-     },
-     {
-      "clueFragment": "work to prepare ground",
-      "gives": "TILL",
-      "note": "to till is to plough or dig soil before planting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STANDS",
-      "TILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Section of stadium",
+       "gives": "STANDS",
+       "note": "the stands are a stadium's banks of spectator seating"
+      },
+      {
+       "words": "work to prepare ground",
+       "gives": "TILL",
+       "note": "to till is to plough or dig soil before planting"
+      }
      ]
     },
     "explanation": {
@@ -411,47 +365,41 @@
    },
    "solution": "ASSASSIN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ASSASSIN",
     "definitions": [
      {
       "text": "Killer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "container",
-      "note": "something caught in a trap is held inside it, so one word goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dope",
-      "gives": "ASS",
-      "note": "a dope is a fool, an ass"
-     },
-     {
-      "clueFragment": "since",
-      "gives": "AS",
-      "note": "as can mean since, giving a reason"
-     },
-     {
-      "clueFragment": "offence",
-      "gives": "SIN",
-      "note": "a sin is a moral offence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "S",
-      "ASS",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "note": "something caught in a trap is held inside it, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "since",
+         "gives": "AS",
+         "note": "as can mean since, giving a reason"
+        },
+        {
+         "words": "offence",
+         "gives": "SIN",
+         "note": "a sin is a moral offence"
+        }
+       ]
+      },
+      {
+       "words": "dope",
+       "gives": "ASS",
+       "note": "a dope is a fool, an ass"
+      }
      ]
     },
     "explanation": {
@@ -480,40 +428,31 @@
    },
    "solution": "SPECIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPECIES",
     "definitions": [
      {
       "text": "Kind of creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "protected by",
-      "for": "container",
-      "note": "a thing protected by something is surrounded by it, so one piece is wrapped in the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "glasses",
-      "gives": "SPECS",
-      "note": "specs is short for spectacles"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e., Latin id est, means that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPEC",
-      "IE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "note": "a thing protected by something is surrounded by it, so one piece is wrapped in the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "glasses",
+       "gives": "SPECS",
+       "note": "specs is short for spectacles"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e., Latin id est, means that is"
+      }
      ]
     },
     "explanation": {
@@ -541,40 +480,31 @@
    },
    "solution": "PARITY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PARITY",
     "definitions": [
      {
       "text": "Egalitarian goal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accepted by",
-      "for": "container",
-      "note": "something accepted by a group is taken into it, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "political group",
-      "gives": "PARTY",
-      "note": "a political party"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "I",
-      "TY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "note": "something accepted by a group is taken into it, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "political group",
+       "gives": "PARTY",
+       "note": "a political party"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -601,30 +531,28 @@
    },
    "solution": "TINGLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TINGLE",
     "definitions": [
      {
       "text": "slightly shocking sensation",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "that contains this",
-      "for": "hidden_word",
-      "note": "the clue says the words in front hold the answer inside them, spelt out across the gap"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Editing letter",
-      "gives": "TINGLE",
-      "note": "the letters run across the end of the first word into the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "that contains this",
+       "note": "the clue says the words in front hold the answer inside them, spelt out across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Editing letter",
+       "gives": "TINGLE",
+       "note": "the letters run across the end of the first word into the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An editor tidying a letter finds something faintly scandalous in it.",
      "walkthrough": "TINGLE spans ediTING LEtter. 'Slightly shocking' suggests racy content, but it is a mild electric prickle.",
@@ -652,32 +580,25 @@
    },
    "solution": "WARPAINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WARPAINT",
     "definitions": [
      {
       "text": "what belligerent Indian wore",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Buckle",
-      "gives": "WARP",
-      "note": "to buckle is to bend or warp out of shape"
-     },
-     {
-      "clueFragment": "isn't",
-      "gives": "AINT",
-      "note": "ain't is a colloquial form of isn't"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WARP",
-      "AINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Buckle",
+       "gives": "WARP",
+       "note": "to buckle is to bend or warp out of shape"
+      },
+      {
+       "words": "isn't",
+       "gives": "AINT",
+       "note": "ain't is a colloquial form of isn't"
+      }
      ]
     },
     "explanation": {
@@ -712,28 +633,16 @@
    },
    "solution": "IDENTICALTWINS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IDENTICAL TWINS",
     "definitions": [
      {
       "text": "Undistinguished pair",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: two people who cannot be told apart"
      },
      {
       "text": "who share an annual celebration",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Undistinguished pair",
-      "note": "first meaning: two people who cannot be told apart"
-     },
-     {
-      "clueFragment": "who share an annual celebration",
-      "note": "second meaning: siblings with the same birthday"
+      "at": 21,
+      "meaning": "second meaning: siblings with the same birthday"
      }
     ],
     "explanation": {
@@ -763,10 +672,6 @@
    },
    "solution": "DEMOCRATIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEMOCRATIC",
     "definitions": [
      {
       "text": "for party in US",
@@ -774,25 +679,18 @@
       "note": "adjective: belonging to one of the two main American parties"
      }
     ],
-    "indicators": [
-     {
-      "text": "Oddly",
-      "for": "anagram",
-      "note": "done oddly means done in a strange way, so these letters come out in an unusual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "comedic art",
-      "gives": "COMEDICART",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COMEDICART",
-       "gives": "DEMOCRATIC"
+       "text": "Oddly",
+       "note": "done oddly means done in a strange way, so these letters come out in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "comedic art",
+       "note": "taken as written"
       }
      ]
     },
@@ -822,50 +720,39 @@
    },
    "solution": "AWARE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AWARE",
     "definitions": [
      {
       "text": "Conscious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points to the very end, so only the closing letter of the word is used"
-     }
-    ],
-    "linkWords": [
-     "leads to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "conflict",
-      "gives": "WAR",
-      "note": "a war is a conflict"
-     },
-     {
-      "clueFragment": "peace",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "WAR",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "conflict",
+       "gives": "WAR",
+       "note": "a war is a conflict"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately points to the very end, so only the closing letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peace",
+         "note": "the final letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -893,40 +780,31 @@
    },
    "solution": "AMID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AMID",
     "definitions": [
      {
       "text": "Surrounded by",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container",
-      "note": "a thing including another holds it within, so one piece goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "support",
-      "gives": "AID",
-      "note": "aid is help or support"
-     },
-     {
-      "clueFragment": "large number of Romans",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "M",
-      "ID"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "note": "a thing including another holds it within, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "support",
+       "gives": "AID",
+       "note": "aid is help or support"
+      },
+      {
+       "words": "large number of Romans",
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
      ]
     },
     "explanation": {
@@ -954,46 +832,42 @@
    },
    "solution": "DANGLING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DANGLING",
     "definitions": [
      {
       "text": "Offering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "End",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that letter is kept"
-     },
-     {
-      "text": "south of",
-      "for": "charade",
-      "note": "in a down clue, south of means placed underneath, so it comes later in the column"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Land's",
-      "gives": "D",
-      "select": "last",
-      "note": "the closing letter of the word land"
-     },
-     {
-      "clueFragment": "fishing",
-      "gives": "ANGLING",
-      "note": "angling is fishing with rod and line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ANGLING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "note": "in a down clue, south of means placed underneath, so it comes later in the column"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "End",
+         "note": "the end of a word is its final letter, so only that letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Land's",
+         "gives": "LAND",
+         "note": "the closing letter of the word land"
+        }
+       ]
+      },
+      {
+       "words": "fishing",
+       "gives": "ANGLING",
+       "note": "angling is fishing with rod and line"
+      }
      ]
     },
     "explanation": {
@@ -1023,28 +897,16 @@
    },
    "solution": "STAFF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STAFF",
     "definitions": [
      {
       "text": "Rod",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a stick or pole"
      },
      {
       "text": "teachers employed in school",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rod",
-      "note": "first meaning: a stick or pole"
-     },
-     {
-      "clueFragment": "teachers employed in school",
-      "note": "second meaning: the personnel of an institution"
+      "at": 4,
+      "meaning": "second meaning: the personnel of an institution"
      }
     ],
     "explanation": {
@@ -1072,42 +934,31 @@
    },
    "solution": "FACTION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FACTION",
     "definitions": [
      {
       "text": "part of party",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "in a down clue, put on means set on top, so this piece comes first in the column"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "F",
-      "note": "F is the abbreviation for fellow"
-     },
-     {
-      "clueFragment": "suit",
-      "gives": "ACTION",
-      "note": "a lawsuit is a legal action"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ACTION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "in a down clue, put on means set on top, so this piece comes first in the column"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "F",
+       "note": "F is the abbreviation for fellow"
+      },
+      {
+       "words": "suit",
+       "gives": "ACTION",
+       "note": "a lawsuit is a legal action"
+      }
      ]
     },
     "explanation": {
@@ -1137,28 +988,16 @@
    },
    "solution": "TWIG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TWIG",
     "definitions": [
      {
       "text": "Understand",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: grasp, catch on, in informal British use"
      },
      {
       "text": "small piece in plane, say",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Understand",
-      "note": "first meaning: grasp, catch on, in informal British use"
-     },
-     {
-      "clueFragment": "small piece in plane, say",
-      "note": "second meaning: a slender shoot of a tree, such as a plane tree"
+      "at": 11,
+      "meaning": "second meaning: a slender shoot of a tree, such as a plane tree"
      }
     ],
     "explanation": {
@@ -1194,38 +1033,24 @@
    },
    "solution": "CONFERENCECALL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONFERENCE CALL",
     "definitions": [
      {
       "text": "Virtual meeting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reorganised",
-      "for": "anagram",
-      "note": "reorganised means arranged again in a new way, so these letters take a different order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "France once cell",
-      "gives": "FRANCEONCECELL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FRANCEONCECELL",
-       "gives": "CONFERENCECALL"
+       "text": "reorganised",
+       "note": "reorganised means arranged again in a new way, so these letters take a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "France once cell",
+       "note": "taken as written"
       }
      ]
     },
@@ -1254,43 +1079,31 @@
    },
    "solution": "EMPIRE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMPIRE",
     "definitions": [
      {
       "text": "group of countries",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits within it, so the first piece is placed inside the second"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nearby country",
-      "gives": "EIRE",
-      "note": "Eire is the Irish name for Ireland, Britain's neighbour"
-     },
-     {
-      "clueFragment": "Elected politician",
-      "gives": "MP",
-      "note": "a Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MP",
-      "IRE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits within it, so the first piece is placed inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nearby country",
+       "gives": "EIRE",
+       "note": "Eire is the Irish name for Ireland, Britain's neighbour"
+      },
+      {
+       "words": "Elected politician",
+       "gives": "MP",
+       "note": "a Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -1323,35 +1136,24 @@
    },
    "solution": "COSTAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CO-STAR",
     "definitions": [
      {
       "text": "do this to share the limelight",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly signals one of several arrangements, so the letters may be put in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Actors",
-      "gives": "ACTORS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACTORS",
-       "gives": "COSTAR"
+       "text": "possibly",
+       "note": "possibly signals one of several arrangements, so the letters may be put in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Actors",
+       "note": "taken as written"
       }
      ]
     },
@@ -1381,35 +1183,25 @@
    },
    "solution": "TAILSPIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAILSPIN",
     "definitions": [
      {
       "text": "greatly agitated state",
       "at": 27
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Follows",
-      "gives": "TAILS",
-      "note": "to tail someone is to follow them covertly"
-     },
-     {
-      "clueFragment": "target in alley",
-      "gives": "PIN",
-      "note": "the pins are the targets in a bowling alley"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAILS",
-      "PIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Follows",
+       "gives": "TAILS",
+       "note": "to tail someone is to follow them covertly"
+      },
+      {
+       "words": "target in alley",
+       "gives": "PIN",
+       "note": "the pins are the targets in a bowling alley"
+      }
      ]
     },
     "explanation": {
@@ -1438,45 +1230,35 @@
    },
    "solution": "NAFF",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NAFF",
     "definitions": [
      {
       "text": "Unfashionable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "upset means turned over, and in a down clue that turns the letters to read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F is the abbreviation for female"
-     },
-     {
-      "clueFragment": "admirer",
-      "gives": "FAN",
-      "note": "a fan is an admirer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAF",
-      "F"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "FFAN",
-       "to": "NAFF"
+       "text": "upset",
+       "note": "upset means turned over, and in a down clue that turns the letters to read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "female",
+         "gives": "F",
+         "note": "F is the abbreviation for female"
+        },
+        {
+         "words": "admirer",
+         "gives": "FAN",
+         "note": "a fan is an admirer"
+        }
+       ]
       }
      ]
     },
@@ -1506,32 +1288,25 @@
    },
    "solution": "INSECT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSECT",
     "definitions": [
      {
       "text": "For example, fly",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "within",
-      "gives": "IN",
-      "note": "in means within"
-     },
-     {
-      "clueFragment": "breakaway formation",
-      "gives": "SECT",
-      "note": "a sect is a group that has split from a larger body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SECT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "within",
+       "gives": "IN",
+       "note": "in means within"
+      },
+      {
+       "words": "breakaway formation",
+       "gives": "SECT",
+       "note": "a sect is a group that has split from a larger body"
+      }
      ]
     },
     "explanation": {
@@ -1561,40 +1336,42 @@
    },
    "solution": "CAGY",
    "annotation": {
-    "type": [
-     "deletion",
-     "homophone"
-    ],
-    "answer": "CAGY",
     "definitions": [
      {
       "text": "secretive",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Most of",
-      "for": "deletion",
-      "note": "most of means not quite all, so the final letter is dropped"
-     },
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as it is said, so the letter names are heard rather than read"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "KGB",
-      "gives": "CAGY",
-      "soundsLike": "KAY GEE",
-      "note": "the initials less their last letter, spoken as letter names"
-     }
-    ],
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CAGY",
+     "indicators": [
+      {
+       "text": "Most of",
+       "note": "most of means not quite all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CAGY",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly means as it is said, so the letter names are heard rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "KGB",
+         "gives": "KAYGEE",
+         "note": "the initials less their last letter, spoken as letter names"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Most of the Soviet spy agency is said to be tight-lipped.",
      "walkthrough": "The KGB was the Soviet secret police, which fits 'secretive' perfectly in the surface.",
@@ -1621,35 +1398,25 @@
    },
    "solution": "SINNER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SINNER",
     "definitions": [
      {
       "text": "Person straying",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "less than perfect shot",
-      "gives": "INNER",
-      "note": "in archery or shooting, the inner is the ring just outside the bullseye"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "INNER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "words": "less than perfect shot",
+       "gives": "INNER",
+       "note": "in archery or shooting, the inner is the ring just outside the bullseye"
+      }
      ]
     },
     "explanation": {
@@ -1678,60 +1445,56 @@
    },
    "solution": "FANDANGO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "FANDANGO",
     "definitions": [
      {
       "text": "Spanish dance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ends off",
-      "for": "letter_selection",
-      "note": "the ends of a word are its first and last letters, so only those two are kept"
-     },
-     {
-      "text": "with",
-      "for": "container",
-      "note": "with here does double duty, being both the inserted word and the sign that it sits among those letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fiesta",
-      "gives": "FA",
-      "select": "outer",
-      "note": "the first and last letters of this word"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and means with, together with"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "GO",
-      "note": "go means energy, vigour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "AND",
-      "A",
-      "N",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "with",
+         "note": "with here does double duty, being both the inserted word and the sign that it sits among those letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "ends off",
+           "note": "the ends of a word are its first and last letters, so only those two are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fiesta",
+           "note": "the first and last letters of this word"
+          }
+         ]
+        },
+        {
+         "words": "with",
+         "gives": "AND",
+         "note": "and means with, together with"
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "energy",
+       "gives": "GO",
+       "note": "go means energy, vigour"
+      }
      ]
     },
     "explanation": {

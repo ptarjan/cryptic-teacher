@@ -1,8 +1,6 @@
 {
  "id": "times-29297",
  "number": 29297,
- "series": "times",
- "name": "Times cryptic crossword No 29,297",
  "date": "2025-08-01",
  "dimensions": {
   "cols": 15,
@@ -41,41 +39,30 @@
    },
    "solution": "UNDAMAGED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNDAMAGED",
     "definitions": [
      {
       "text": "in good nick",
       "at": 42
      }
     ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A French",
-      "gives": "UN",
-      "note": "un is French for 'a'"
-     },
-     {
-      "clueFragment": "litter-bearer",
-      "gives": "DAM",
-      "note": "a dam is an animal mother, who bears a litter"
-     },
-     {
-      "clueFragment": "possibly old",
-      "gives": "AGED",
-      "note": "aged = old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "DAM",
-      "AGED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A French",
+       "gives": "UN",
+       "note": "un is French for 'a'"
+      },
+      {
+       "words": "litter-bearer",
+       "gives": "DAM",
+       "note": "a dam is an animal mother, who bears a litter"
+      },
+      {
+       "words": "possibly old",
+       "gives": "AGED",
+       "note": "aged = old"
+      }
      ]
     },
     "explanation": {
@@ -105,45 +92,35 @@
    },
    "solution": "USAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "USAGE",
     "definitions": [
      {
       "text": "practice",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "finishes off",
-      "for": "letter_selection",
-      "note": "the finish of a word is its end, so the finishes of the next two words are their last letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America",
-      "gives": "USA",
-      "note": "USA = America"
-     },
-     {
-      "clueFragment": "peacekeeping force",
-      "gives": "GE",
-      "select": "last",
-      "note": "peacekeepinG forcE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USA",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "America",
+       "gives": "USA",
+       "note": "USA = America"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finishes off",
+         "note": "the finish of a word is its end, so the finishes of the next two words are their last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "peacekeeping force",
+         "note": "peacekeepinG forcE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -172,57 +149,62 @@
    },
    "solution": "DESPERADO",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DESPERADO",
     "definitions": [
      {
       "text": "Outlaw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "letter_selection",
-      "note": "does are one example of deer, and 'perhaps' warns that the example stands for the wider class"
-     },
-     {
-      "text": "to case",
-      "note": "to case something is to enclose it in a case"
-     },
-     {
-      "text": "empty",
-      "note": "an emptied word has lost its contents, leaving only its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "does perhaps",
-      "gives": "DEER",
-      "note": "does are female deer"
-     },
-     {
-      "clueFragment": "empty shop",
-      "gives": "SP",
-      "select": "outer",
-      "note": "ShoP with its middle removed"
-     },
-     {
-      "clueFragment": "bother",
-      "gives": "ADO",
-      "note": "ado = fuss, bother"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "SP",
-      "ER",
-      "ADO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to case",
+       "note": "to case something is to enclose it in a case"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "an emptied word has lost its contents, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "does perhaps",
+         "gives": "DEER",
+         "note": "does are female deer"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "SP",
+         "indicators": [
+          {
+           "text": "perhaps",
+           "note": "does are one example of deer, and 'perhaps' warns that the example stands for the wider class"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "empty shop",
+           "gives": "SP",
+           "select": "outer",
+           "note": "ShoP with its middle removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "bother",
+       "gives": "ADO",
+       "note": "ado = fuss, bother"
+      }
      ]
     },
     "explanation": {
@@ -252,30 +234,16 @@
    },
    "solution": "MINUTEMAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MINUTEMAN",
     "definitions": [
      {
       "text": "What may be used to blow up",
-      "at": 0
+      "at": 0,
+      "meaning": "an American intercontinental nuclear missile"
      },
      {
       "text": "tiny figure",
-      "at": 28
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What may be used to blow up",
-      "gives": "MINUTEMAN",
-      "note": "an American intercontinental nuclear missile"
-     },
-     {
-      "clueFragment": "tiny figure",
-      "gives": "MINUTEMAN",
-      "note": "split the answer into two words: a very small person"
+      "at": 28,
+      "meaning": "split the answer into two words: a very small person"
      }
     ],
     "explanation": {
@@ -311,42 +279,31 @@
    },
    "solution": "GOLDSMITHBEETLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOLDSMITH BEETLE",
     "definitions": [
      {
       "text": "glossy flyer",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to hold up",
-      "for": "charade",
-      "note": "to hold something up is to support it from below"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "craftsman",
-      "gives": "GOLDSMITH",
-      "note": "a goldsmith is a craftsman in gold"
-     },
-     {
-      "clueFragment": "Rush",
-      "gives": "BEETLE",
-      "note": "to beetle is to scurry or rush"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOLDSMITH",
-      "BEETLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to hold up",
+       "note": "to hold something up is to support it from below"
+      }
+     ],
+     "parts": [
+      {
+       "words": "craftsman",
+       "gives": "GOLDSMITH",
+       "note": "a goldsmith is a craftsman in gold"
+      },
+      {
+       "words": "Rush",
+       "gives": "BEETLE",
+       "note": "to beetle is to scurry or rush"
+      }
      ]
     },
     "explanation": {
@@ -382,43 +339,41 @@
    },
    "solution": "DENTALHYGIENIST",
    "annotation": {
-    "type": [
-     "substitution",
-     "anagram"
-    ],
-    "answer": "DENTAL HYGIENIST",
     "definitions": [
      {
       "text": "Cleaner of traps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reassembled",
-      "note": "something reassembled has been put back together in a new order"
-     },
-     {
-      "text": "first of traps, not second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dishearteningly",
-      "gives": "DISHEARTENINGLY",
-      "note": "the anagram fodder before the swap"
-     },
-     {
-      "clueFragment": "first of traps, not second",
-      "gives": "T",
-      "note": "T replaces R, giving DISHEATTENINGLY"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DENTALHYGIENIST",
+     "parts": [
       {
-       "fodder": "DISHEATTENINGLY",
-       "gives": "DENTALHYGIENIST"
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "DENTALHYGIENIST",
+       "indicators": [
+        {
+         "text": "reassembled",
+         "note": "something reassembled has been put back together in a new order"
+        },
+        {
+         "text": "first of traps, not second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dishearteningly",
+         "note": "the anagram fodder before the swap"
+        },
+        {
+         "words": "first of traps, not second",
+         "gives": "T",
+         "note": "T replaces R, giving DISHEATTENINGLY"
+        }
+       ]
       }
      ]
     },
@@ -449,52 +404,44 @@
    },
    "solution": "REHAB",
    "annotation": {
-    "type": [
-     "and_lit",
-     "reversal",
-     "container"
-    ],
-    "answer": "REHAB",
     "definitions": [
      {
       "text": "What boozer, on reflection, has to accept?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on reflection",
-      "note": "a reflection in a mirror shows a thing back to front, so BAR is turned round"
-     },
-     {
-      "text": "has to accept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boozer",
-      "gives": "RAB",
-      "note": "a boozer is a pub, a BAR, turned round"
-     },
-     {
-      "clueFragment": "What",
-      "gives": "EH",
-      "note": "eh? = what?"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EH",
-      "AB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "REHAB",
+     "parts": [
       {
-       "from": "BAR",
-       "to": "RAB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "note": "a reflection in a mirror shows a thing back to front, so BAR is turned round"
+        },
+        {
+         "text": "has to accept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boozer",
+         "gives": "RAB",
+         "note": "a boozer is a pub, a BAR, turned round"
+        },
+        {
+         "words": "What",
+         "gives": "EH",
+         "note": "eh? = what?"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about what a heavy drinker must eventually come to terms with.",
      "walkthrough": "'Boozer' reads as the drinker, but in the wordplay it is British slang for a pub; the whole clue then describes the answer.",
@@ -522,40 +469,31 @@
    },
    "solution": "ROUTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROUTE",
     "definitions": [
      {
       "text": "Course",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "charges",
-      "for": "container",
-      "note": "to charge a gun or glass is to fill it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "note",
-      "gives": "RE",
-      "note": "re is the second note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "published",
-      "gives": "OUT",
-      "note": "a book that is out has been published"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "OUT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "charges",
+       "note": "to charge a gun or glass is to fill it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "gives": "RE",
+       "note": "re is the second note of the sol-fa scale"
+      },
+      {
+       "words": "published",
+       "gives": "OUT",
+       "note": "a book that is out has been published"
+      }
      ]
     },
     "explanation": {
@@ -584,33 +522,26 @@
    },
    "solution": "HORSE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HORSE",
     "definitions": [
      {
       "text": "Mounted soldiers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "borders",
-      "for": "hidden_word",
-      "note": "a border is where two things meet, and the answer straddles the borders between the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "establish or secure",
-      "gives": "HORSE",
-      "note": "establisH OR SEcure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HORSE"
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "borders",
+       "note": "a border is where two things meet, and the answer straddles the borders between the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "establish or secure",
+       "gives": "HORSE",
+       "note": "establisH OR SEcure"
+      }
      ]
     },
     "explanation": {
@@ -639,54 +570,51 @@
    },
    "solution": "BELATEDLY",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BELATEDLY",
     "definitions": [
      {
       "text": "behind schedule",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "shipping",
-      "for": "container",
-      "note": "to ship cargo is to take it on board"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "the final part of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Corporation",
-      "gives": "BELLY",
-      "note": "corporation is jocular old slang for a paunch"
-     },
-     {
-      "clueFragment": "had",
-      "gives": "ATE",
-      "note": "had lunch = ate lunch"
-     },
-     {
-      "clueFragment": "departed",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of departeD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEL",
-      "ATE",
-      "D",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "shipping",
+       "note": "to ship cargo is to take it on board"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Corporation",
+       "gives": "BELLY",
+       "note": "corporation is jocular old slang for a paunch"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "had",
+         "gives": "ATE",
+         "note": "had lunch = ate lunch"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "the final part of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "departed",
+           "note": "last letter of departeD"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -716,54 +644,55 @@
    },
    "solution": "ARSENAL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ARSENAL",
     "definitions": [
      {
       "text": "Team",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "behind"
-     },
-     {
-      "text": "close to",
-      "note": "the close of a word is where it ends, its last letter"
-     },
-     {
-      "text": "in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stadium",
-      "gives": "ARENA",
-      "note": "an arena is a stadium"
-     },
-     {
-      "clueFragment": "close to tears",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of tearS"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "S",
-      "ENA",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is where it ends, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stadium",
+         "gives": "ARENA",
+         "note": "an arena is a stadium"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in"
+          }
+         ],
+         "parts": [
+          {
+           "words": "close to tears",
+           "note": "last letter of tearS"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      }
      ]
     },
     "explanation": {
@@ -792,48 +721,40 @@
    },
    "solution": "NEUTRAL",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "NEUTRAL",
     "definitions": [
      {
       "text": "not taking sides",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "dons"
-     },
-     {
-      "text": "about",
-      "note": "'about' as in moved around, so the letters of learnt change places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "learnt",
-      "gives": "NETRAL",
-      "note": "LEARNT rearranged"
-     },
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U = university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NE",
-      "U",
-      "TRAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NEUTRAL",
+     "parts": [
       {
-       "fodder": "LEARNT",
-       "gives": "NETRAL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "dons"
+        },
+        {
+         "text": "about",
+         "note": "'about' as in moved around, so the letters of learnt change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "learnt",
+         "gives": "NETRAL",
+         "note": "LEARNT rearranged"
+        },
+        {
+         "words": "University",
+         "gives": "U",
+         "note": "U = university"
+        }
+       ]
       }
      ]
     },
@@ -864,33 +785,28 @@
    },
    "solution": "EVENT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EVENT",
     "definitions": [
      {
       "text": "Something occurring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "twice revealed in letters from",
-      "for": "deletion",
-      "note": "the answer shows up among the letters of the decade written out, and does so twice"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1770s",
-      "gives": "EVENT",
-      "note": "write it out as seventeen-seventies; each word, minus its first S and its ending, gives the same five letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EVENT",
+     "indicators": [
+      {
+       "text": "twice revealed in letters from",
+       "note": "the answer shows up among the letters of the decade written out, and does so twice"
+      }
+     ],
+     "parts": [
+      {
+       "words": "1770s",
+       "gives": "EVENT",
+       "note": "write it out as seventeen-seventies; each word, minus its first S and its ending, gives the same five letters"
+      }
      ]
     },
     "explanation": {
@@ -919,48 +835,44 @@
    },
    "solution": "STATEMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "STATEMENT",
     "definitions": [
      {
       "text": "account",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "with introduction of",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Government",
-      "gives": "STATE",
-      "note": "the state is the government"
-     },
-     {
-      "clueFragment": "satisfied",
-      "gives": "MET",
-      "note": "a need met is satisfied"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "select": "first",
-      "note": "N = new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STATE",
-      "ME",
-      "N",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Government",
+       "gives": "STATE",
+       "note": "the state is the government"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "satisfied",
+         "gives": "MET",
+         "note": "a need met is satisfied"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "with introduction of"
+          }
+         ],
+         "parts": [
+          {
+           "words": "new",
+           "note": "N = new"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -989,41 +901,30 @@
    },
    "solution": "CHASM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHASM",
     "definitions": [
      {
       "text": "great opening",
       "at": 35
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C = Conservative"
-     },
-     {
-      "clueFragment": "receives",
-      "gives": "HAS",
-      "note": "has = receives"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "M = million(s)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HAS",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C = Conservative"
+      },
+      {
+       "words": "receives",
+       "gives": "HAS",
+       "note": "has = receives"
+      },
+      {
+       "words": "millions",
+       "gives": "M",
+       "note": "M = million(s)"
+      }
      ]
     },
     "explanation": {
@@ -1053,47 +954,44 @@
    },
    "solution": "COGNITION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "COGNITION",
     "definitions": [
      {
       "text": "Knowledge and awareness",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of a thing is its core, so take the middle letter"
-     },
-     {
-      "text": "changes",
-      "for": "anagram",
-      "note": "the letters of noticing change their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "O",
-      "select": "middle",
-      "note": "middle letter of abOut"
-     },
-     {
-      "clueFragment": "noticing",
-      "gives": "NOTICING",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONOTICING",
-       "gives": "COGNITION"
+       "text": "changes",
+       "note": "the letters of noticing change their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "note": "the essence of a thing is its core, so take the middle letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "about",
+           "note": "middle letter of abOut"
+          }
+         ]
+        },
+        {
+         "words": "noticing",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1123,53 +1021,51 @@
    },
    "solution": "INHIBITED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "INHIBITED",
     "definitions": [
      {
       "text": "suppressed",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep something is to hold on to it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Popular",
-      "gives": "IN",
-      "note": "in = fashionable, popular"
-     },
-     {
-      "clueFragment": "man had",
-      "gives": "HED",
-      "note": "he'd = he had"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "BIT",
-      "note": "a bit is a part"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "H",
-      "I",
-      "BIT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "note": "to keep something is to hold on to it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Popular",
+         "gives": "IN",
+         "note": "in = fashionable, popular"
+        },
+        {
+         "words": "man had",
+         "gives": "HED",
+         "note": "he'd = he had"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one"
+        },
+        {
+         "words": "part",
+         "gives": "BIT",
+         "note": "a bit is a part"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1198,49 +1094,44 @@
    },
    "solution": "BALLERINA",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "BALLERINA",
     "definitions": [
      {
       "text": "Performer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "a word cut short loses its last letter"
-     },
-     {
-      "text": "encapsulating",
-      "for": "container",
-      "note": "to encapsulate is to enclose in a capsule"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "short song",
-      "gives": "BALLA",
-      "note": "BALLAD without its last letter"
-     },
-     {
-      "clueFragment": "Ireland in verse",
-      "gives": "ERIN",
-      "note": "Erin is the poetic name for Ireland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BALL",
-      "ERIN",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BALLERINA",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "a word cut short loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "encapsulating",
+         "note": "to encapsulate is to enclose in a capsule"
+        }
+       ],
+       "parts": [
+        {
+         "words": "short song",
+         "gives": "BALLA",
+         "note": "BALLAD without its last letter"
+        },
+        {
+         "words": "Ireland in verse",
+         "gives": "ERIN",
+         "note": "Erin is the poetic name for Ireland"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1269,11 +1160,6 @@
    },
    "solution": "TERMINATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TERMINATE",
     "definitions": [
      {
       "text": "Finnish, we're told",
@@ -1281,39 +1167,34 @@
       "note": "the definition is 'finish', given by its sound-alike 'Finnish'"
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly seen",
-      "for": "letter_selection",
-      "note": "seen at regular intervals, so only every other letter shows"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Name",
-      "gives": "TERM",
-      "note": "a term is a name for something"
-     },
-     {
-      "clueFragment": "belonging to",
-      "gives": "IN",
-      "note": "belonging to a club = in a club"
-     },
-     {
-      "clueFragment": "partner",
-      "gives": "ATE",
-      "select": "alternate",
-      "note": "pArTnEr, even letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TERM",
-      "IN",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Name",
+       "gives": "TERM",
+       "note": "a term is a name for something"
+      },
+      {
+       "words": "belonging to",
+       "gives": "IN",
+       "note": "belonging to a club = in a club"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly seen",
+         "note": "seen at regular intervals, so only every other letter shows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "partner",
+         "note": "pArTnEr, even letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1343,47 +1224,40 @@
    },
    "solution": "GROUNDHOG",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GROUNDHOG",
     "definitions": [
      {
       "text": "Rodent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "border in",
-      "for": "letter_selection",
-      "note": "the border of a garden is its edge, and the leading edge of the word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chewed up",
-      "gives": "GROUND",
-      "note": "ground = crushed small, as by teeth"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "HO",
-      "note": "HO = house"
-     },
-     {
-      "clueFragment": "garden",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of Garden"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GROUND",
-      "HO",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chewed up",
+       "gives": "GROUND",
+       "note": "ground = crushed small, as by teeth"
+      },
+      {
+       "words": "house",
+       "gives": "HO",
+       "note": "HO = house"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "border in",
+         "note": "the border of a garden is its edge, and the leading edge of the word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "garden",
+         "note": "first letter of Garden"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1412,46 +1286,35 @@
    },
    "solution": "LORRY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LORRY",
     "definitions": [
      {
       "text": "Vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is where it ends, its last letter"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "choice of routes at T-junction",
-      "gives": "LORR",
-      "note": "at a T-junction you go left OR right: L OR R"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of motorwaY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OR",
-      "R",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "choice of routes at T-junction",
+       "gives": "LORR",
+       "note": "at a T-junction you go left OR right: L OR R"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is where it ends, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motorway",
+         "note": "last letter of motorwaY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1480,48 +1343,47 @@
    },
    "solution": "INTERCEDE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "INTERCEDE",
     "definitions": [
      {
       "text": "Act as mediator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning final"
-     },
-     {
-      "text": "out of hand",
-      "note": "a thing out of hand is out of control, so its letters run wild"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keen on",
-      "gives": "INT",
-      "note": "INTO (keen on) without its last letter"
-     },
-     {
-      "clueFragment": "decree",
-      "gives": "ERCEDE",
-      "note": "DECREE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "ERCEDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INTERCEDE",
+     "parts": [
       {
-       "fodder": "DECREE",
-       "gives": "ERCEDE"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "INTERCEDE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "abandoning final"
+          },
+          {
+           "text": "out of hand",
+           "note": "a thing out of hand is out of control, so its letters run wild"
+          }
+         ],
+         "parts": [
+          {
+           "words": "keen on",
+           "gives": "INT",
+           "note": "INTO (keen on) without its last letter"
+          },
+          {
+           "words": "decree",
+           "gives": "ERCEDE",
+           "note": "DECREE rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1551,32 +1413,25 @@
    },
    "solution": "TAPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAPER",
     "definitions": [
      {
       "text": "source that enlightens",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I'm grateful",
-      "gives": "TA",
-      "note": "ta is British informal for thank you"
-     },
-     {
-      "clueFragment": "for every",
-      "gives": "PER",
-      "note": "per = for each"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "PER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'm grateful",
+       "gives": "TA",
+       "note": "ta is British informal for thank you"
+      },
+      {
+       "words": "for every",
+       "gives": "PER",
+       "note": "per = for each"
+      }
      ]
     },
     "explanation": {
@@ -1606,52 +1461,41 @@
    },
    "solution": "RAISE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RAISE",
     "definitions": [
      {
       "text": "Jack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "'about' as in turned about, facing the other way"
-     },
-     {
-      "text": "gripping",
-      "note": "to grip something is to hold it inside your hand"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hearing",
-      "gives": "RAE",
-      "note": "an ear is a hearing, as in 'give an ear', turned round"
-     },
-     {
-      "clueFragment": "lives",
-      "gives": "IS",
-      "note": "is = lives, exists"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "IS",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "RAISE",
+     "parts": [
       {
-       "from": "EAR",
-       "to": "RAE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' as in turned about, facing the other way"
+        },
+        {
+         "text": "gripping",
+         "note": "to grip something is to hold it inside your hand"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hearing",
+         "gives": "RAE",
+         "note": "an ear is a hearing, as in 'give an ear', turned round"
+        },
+        {
+         "words": "lives",
+         "gives": "IS",
+         "note": "is = lives, exists"
+        }
+       ]
       }
      ]
     },
@@ -1681,39 +1525,30 @@
    },
    "solution": "ELIDE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ELIDE",
     "definitions": [
      {
       "text": "Cut off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hosted by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "network provider",
-      "gives": "EE",
-      "note": "EE is a British mobile phone network"
-     },
-     {
-      "clueFragment": "coverage for viewer",
-      "gives": "LID",
-      "note": "an eyelid covers the eye"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LID",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosted by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "network provider",
+       "gives": "EE",
+       "note": "EE is a British mobile phone network"
+      },
+      {
+       "words": "coverage for viewer",
+       "gives": "LID",
+       "note": "an eyelid covers the eye"
+      }
      ]
     },
     "explanation": {
@@ -1743,49 +1578,45 @@
    },
    "solution": "ERECT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ERECT",
     "definitions": [
      {
       "text": "Put up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after"
-     },
-     {
-      "text": "introduction of",
-      "note": "the introduction of a word is its opening, its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extremely",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of Extremely"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R = resistance in physics"
-     },
-     {
-      "clueFragment": "shocking treatment",
-      "gives": "ECT",
-      "note": "ECT is electroconvulsive therapy, treatment by electric shock"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "R",
-      "ECT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "note": "the introduction of a word is its opening, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely",
+         "note": "first letter of Extremely"
+        }
+       ]
+      },
+      {
+       "words": "resistance",
+       "gives": "R",
+       "note": "R = resistance in physics"
+      },
+      {
+       "words": "shocking treatment",
+       "gives": "ECT",
+       "note": "ECT is electroconvulsive therapy, treatment by electric shock"
+      }
      ]
     },
     "explanation": {
@@ -1814,35 +1645,25 @@
    },
    "solution": "IMPRINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPRINT",
     "definitions": [
      {
       "text": "sign of depression?",
       "at": 23
      }
     ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer's",
-      "gives": "IM",
-      "note": "the writer is 'I', so writer's = I'M"
-     },
-     {
-      "clueFragment": "still",
-      "gives": "PRINT",
-      "note": "a still is a single photograph, a print"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PRINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Writer's",
+       "gives": "IM",
+       "note": "the writer is 'I', so writer's = I'M"
+      },
+      {
+       "words": "still",
+       "gives": "PRINT",
+       "note": "a still is a single photograph, a print"
+      }
      ]
     },
     "explanation": {
@@ -1872,47 +1693,41 @@
    },
    "solution": "IMITATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IMITATE",
     "definitions": [
      {
       "text": "Copy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "harnessing",
-      "for": "container",
-      "note": "to harness something is to strap it in and use it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "India",
-      "gives": "I",
-      "note": "I is India in the phonetic alphabet"
-     },
-     {
-      "clueFragment": "China",
-      "gives": "MATE",
-      "note": "china plate = mate in Cockney rhyming slang"
-     },
-     {
-      "clueFragment": "computing resources",
-      "gives": "IT",
-      "note": "IT = information technology"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "IT",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "India",
+       "gives": "I",
+       "note": "I is India in the phonetic alphabet"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "harnessing",
+         "note": "to harness something is to strap it in and use it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "China",
+         "gives": "MATE",
+         "note": "china plate = mate in Cockney rhyming slang"
+        },
+        {
+         "words": "computing resources",
+         "gives": "IT",
+         "note": "IT = information technology"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1942,49 +1757,48 @@
    },
    "solution": "NURSE",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "NURSE",
     "definitions": [
      {
       "text": "tender",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "set back",
-      "note": "something set back is moved backwards, so RUN is read in reverse"
-     },
-     {
-      "text": "failing to complete",
-      "note": "a word that fails to complete stops before its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Career",
-      "gives": "NUR",
-      "note": "to career is to run headlong; RUN reversed"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "SE",
-      "note": "set = firm, as a jelly sets; SET without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUR",
-      "SE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NURSE",
+     "parts": [
       {
-       "from": "RUN",
-       "to": "NUR"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "NURSE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "set back",
+           "note": "something set back is moved backwards, so RUN is read in reverse"
+          },
+          {
+           "text": "failing to complete",
+           "note": "a word that fails to complete stops before its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Career",
+           "gives": "NUR",
+           "note": "to career is to run headlong; RUN reversed"
+          },
+          {
+           "words": "firm",
+           "gives": "SE",
+           "note": "set = firm, as a jelly sets; SET without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -2015,41 +1829,33 @@
    },
    "solution": "EXTRAVERT",
    "annotation": {
-    "type": [
-     "charade",
-     "cycling"
-    ],
-    "answer": "EXTRAVERT",
     "definitions": [
      {
       "text": "Outgoing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has first letter appearing last",
-      "for": "cycling",
-      "note": "the opening letter, T, is taken from the front and moved to the end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "SMS",
-      "gives": "TEXT",
-      "note": "an SMS is a text message"
-     },
-     {
-      "clueFragment": "madman",
-      "gives": "RAVER",
-      "note": "a raver is someone raving mad"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXT",
-      "RAVER",
-      "T"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "EXTRAVERT",
+     "indicators": [
+      {
+       "text": "has first letter appearing last",
+       "note": "the opening letter, T, is taken from the front and moved to the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "SMS",
+       "gives": "TEXT",
+       "note": "an SMS is a text message"
+      },
+      {
+       "words": "madman",
+       "gives": "RAVER",
+       "note": "a raver is someone raving mad"
+      }
      ]
     },
     "explanation": {

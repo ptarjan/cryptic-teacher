@@ -1,8 +1,6 @@
 {
  "id": "genius-261",
  "number": 261,
- "series": "genius",
- "name": "Guardian genius crossword No 261",
  "setter": "Pasquale",
  "date": "2025-03-03",
  "preamble": "Ten clues contain neither wordplay nor definition; each has a sequence of letters that can be arranged to form its entry, a thematic item. Wordplay in eight further clues each omits a different letter; these can be arranged to give the recipients of the items. The remaining clues are normal.",
@@ -49,34 +47,29 @@
    },
    "solution": "CRANBERRYTART",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CRANBERRY TART",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "What makes",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "Arab carry tent round",
-      "gives": "RABCARRYTENTR",
-      "note": "a run of thirteen letters straddling these words, from just after the first A to the first letter of the last word"
-     },
-     {
-      "clueFragment": "in the desert",
-      "note": "surface padding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRANBERRYTART"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RABCARRYTENTR",
-       "gives": "CRANBERRYTART"
+       "unchecked": true,
+       "words": "What makes",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "Arab carry tent round",
+         "gives": "RABCARRYTENTR",
+         "note": "a run of thirteen letters straddling these words, from just after the first A to the first letter of the last word"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "in the desert",
+       "note": "surface padding"
       }
      ]
     },
@@ -106,60 +99,57 @@
    },
    "solution": "CANTALOUP",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "CANTALOUP",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "deletion",
-      "note": "with its last letter taken off, the verb loses its final letter"
-     },
-     {
-      "text": "revolting",
-      "for": "anagram",
-      "note": "revolting means rising up in disorder, so the letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tin",
-      "gives": "CAN",
-      "note": "a tin is a can"
-     },
-     {
-      "clueFragment": "a lot",
-      "gives": "ALOT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "put",
-      "gives": "PUT",
-      "note": "taken as written, before trimming"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "TALOUP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ALOTPU",
-       "gives": "TALOUP"
+       "words": "tin",
+       "gives": "CAN",
+       "note": "a tin is a can"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolting",
+         "note": "revolting means rising up in disorder, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "off",
+           "note": "with its last letter taken off, the verb loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "a lot",
+             "note": "taken as written"
+            },
+            {
+             "words": "put",
+             "note": "taken as written, before trimming"
+            }
+           ]
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -189,47 +179,40 @@
    },
    "solution": "AUSTRAL",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AUSTRAL",
     "definitions": [
      {
       "text": "Southern",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "immersed in",
-      "for": "container",
-      "note": "something immersed in a river is surrounded by its water, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Russian river",
-      "gives": "URAL",
-      "note": "the Ural flows from Russia into the Caspian"
-     },
-     {
-      "clueFragment": "saint",
-      "gives": "ST",
-      "note": "ST is the abbreviation for saint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "U",
-      "ST",
-      "RAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "immersed in",
+         "note": "something immersed in a river is surrounded by its water, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Russian river",
+         "gives": "URAL",
+         "note": "the Ural flows from Russia into the Caspian"
+        },
+        {
+         "words": "saint",
+         "gives": "ST",
+         "note": "ST is the abbreviation for saint"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -257,31 +240,24 @@
    },
    "solution": "BYE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BYE",
     "definitions": [
      {
       "text": "Extra",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "times",
-      "gives": "BY",
-      "note": "as in multiplication: three by four"
-     },
-     {
-      "gives": "E",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BY",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "times",
+       "gives": "BY",
+       "note": "as in multiplication: three by four"
+      },
+      {
+       "gives": "E",
+       "note": "the letter this clue's wordplay leaves out, per the preamble"
+      }
      ]
     },
     "explanation": {
@@ -309,30 +285,28 @@
    },
    "solution": "RUT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RUT",
     "definitions": [
      {
       "text": "A dull routine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits in the following word, lying among its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "truth",
-      "gives": "RUT",
-      "note": "the middle three letters of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits in the following word, lying among its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "truth",
+       "gives": "RUT",
+       "note": "the middle three letters of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tedious habit is exposed as the honest reality.",
      "definitionFit": "Being in a rut means stuck in a monotonous, unchanging pattern of life."
@@ -357,46 +331,40 @@
    },
    "solution": "YORICK",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "YORICK",
     "definitions": [
      {
       "text": "Jester",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something placed in a city lies within it, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "northern city",
-      "gives": "YORK",
-      "note": "York is a cathedral city in the north of England"
-     },
-     {
-      "gives": "I",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "C is caught in cricket scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YOR",
-      "I",
-      "C",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something placed in a city lies within it, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "northern city",
+       "gives": "YORK",
+       "note": "York is a cathedral city in the north of England"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "I",
+         "note": "the letter this clue's wordplay leaves out, per the preamble"
+        },
+        {
+         "words": "caught",
+         "gives": "C",
+         "note": "C is caught in cricket scoring"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -425,49 +393,44 @@
    },
    "solution": "ARMADA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ARMADA",
     "definitions": [
      {
       "text": "Fleet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the street departs, so its letters are removed from what follows"
-     },
-     {
-      "text": "deranged",
-      "for": "anagram",
-      "note": "deranged means thrown out of order, so the remaining letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street"
-     },
-     {
-      "clueFragment": "a mad star",
-      "gives": "AMADSTAR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARMADA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARMADA",
+     "indicators": [
       {
-       "fodder": "AMADAR",
-       "gives": "ARMADA"
+       "text": "deranged",
+       "note": "deranged means thrown out of order, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ARMADA",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "the street departs, so its letters are removed from what follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Street",
+         "gives": "ST",
+         "note": "ST is the abbreviation for street"
+        },
+        {
+         "words": "a mad star",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -504,11 +467,6 @@
    },
    "solution": "THROWUP",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "THROW UP",
     "definitions": [
      {
       "text": "do this",
@@ -516,38 +474,28 @@
       "note": "the clue's last clause points at the answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "sozzled",
-      "for": "anagram",
-      "note": "sozzled means very drunk, so the word staggers into a new order"
-     }
-    ],
-    "linkWords": [
-     "getting",
-     "so long as you don't"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Worth",
-      "gives": "WORTH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "at university",
-      "gives": "UP",
-      "note": "to be up is to be in residence at university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THROW",
-      "UP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WORTH",
-       "gives": "THROW"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sozzled",
+         "note": "sozzled means very drunk, so the word staggers into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Worth",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "at university",
+       "gives": "UP",
+       "note": "to be up is to be in residence at university"
       }
      ]
     },
@@ -577,43 +525,38 @@
    },
    "solution": "NOSIEST",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NOSIEST",
     "definitions": [
      {
       "text": "most curious",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "without an end, the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No",
-      "gives": "NO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "SIESTA",
-      "note": "a siesta is an afternoon rest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "SIEST"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "without an end, the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No",
+         "note": "taken as written"
+        },
+        {
+         "words": "rest",
+         "gives": "SIESTA",
+         "note": "a siesta is an afternoon rest"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -641,40 +584,29 @@
    },
    "solution": "REMARK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMARK",
     "definitions": [
      {
       "text": "Note",
       "at": 0
      }
     ],
-    "linkWords": [
-     "attending"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "engineers",
-      "gives": "RE",
-      "note": "the Royal Engineers, a British Army corps"
-     },
-     {
-      "gives": "M",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     },
-     {
-      "clueFragment": "rescue vessel",
-      "gives": "ARK",
-      "note": "Noah's ark saved the animals from the flood"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "M",
-      "ARK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "engineers",
+       "gives": "RE",
+       "note": "the Royal Engineers, a British Army corps"
+      },
+      {
+       "gives": "M",
+       "note": "the letter this clue's wordplay leaves out, per the preamble"
+      },
+      {
+       "words": "rescue vessel",
+       "gives": "ARK",
+       "note": "Noah's ark saved the animals from the flood"
+      }
      ]
     },
     "explanation": {
@@ -703,38 +635,31 @@
    },
    "solution": "ARROW",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARROW",
     "definitions": [
      {
       "text": "one's shafted",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the head departs, so its letter is removed from the school's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "school",
-      "gives": "HARROW",
-      "note": "Harrow is a famous English public school"
-     },
-     {
-      "clueFragment": "Head",
-      "gives": "H",
-      "note": "H is the abbreviation for head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARROW"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the head departs, so its letter is removed from the school's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "gives": "HARROW",
+       "note": "Harrow is a famous English public school"
+      },
+      {
+       "words": "Head",
+       "gives": "H",
+       "note": "H is the abbreviation for head"
+      }
      ]
     },
     "explanation": {
@@ -764,36 +689,29 @@
    },
    "solution": "WARD",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "WARD",
     "definitions": [
      {
       "text": "District",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "but not first",
-      "for": "deletion",
-      "note": "the opening letter is excluded, so the word starts from its second letter"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prize",
-      "gives": "AWARD",
-      "note": "a prize is an award"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WARD"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but not first",
+       "note": "the opening letter is excluded, so the word starts from its second letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prize",
+       "gives": "AWARD",
+       "note": "a prize is an award"
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -821,26 +739,14 @@
    },
    "solution": "JACKDAWS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "JACKDAWS",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Music a DJ was keen",
-      "gives": "CADJWASK",
-      "note": "the last letter of the first word through the first letter of the last"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACKDAWS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
       {
-       "fodder": "CADJWASK",
-       "gives": "JACKDAWS"
+       "words": "Music a DJ was keen",
+       "gives": "CADJWASK",
+       "note": "the last letter of the first word through the first letter of the last"
       }
      ]
     },
@@ -870,46 +776,40 @@
    },
    "solution": "JOCK",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "JOCK",
     "definitions": [
      {
       "text": "Scotsman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having caught",
-      "for": "container",
-      "note": "having caught something means holding it, so one piece is held within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "J",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     },
-     {
-      "clueFragment": "all right",
-      "gives": "OK",
-      "note": "OK means all right"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is cold on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "O",
-      "C",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "J",
+       "note": "the letter this clue's wordplay leaves out, per the preamble"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having caught",
+         "note": "having caught something means holding it, so one piece is held within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all right",
+         "gives": "OK",
+         "note": "OK means all right"
+        },
+        {
+         "words": "cold",
+         "gives": "C",
+         "note": "C is cold on a tap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -938,30 +838,24 @@
    },
    "solution": "OWL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OWL",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Length of cloth, partially",
-      "note": "surface padding: a themed clue has no definition or indicator"
-     },
-     {
-      "clueFragment": "yellow",
-      "gives": "LOW",
-      "note": "the last three letters of the colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OWL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LOW",
-       "gives": "OWL"
+       "unchecked": true,
+       "words": "Length of cloth, partially",
+       "note": "surface padding: a themed clue has no definition or indicator"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "yellow",
+         "gives": "LOW",
+         "note": "the last three letters of the colour"
+        }
+       ]
       }
      ]
     },
@@ -991,30 +885,24 @@
    },
    "solution": "RICE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RICE",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Lava from",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "terrific eruption",
-      "gives": "ICER",
-      "note": "the last two letters of the first word and the first two of the second"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RICE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ICER",
-       "gives": "RICE"
+       "unchecked": true,
+       "words": "Lava from",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "terrific eruption",
+         "gives": "ICER",
+         "note": "the last two letters of the first word and the first two of the second"
+        }
+       ]
       }
      ]
     },
@@ -1044,38 +932,31 @@
    },
    "solution": "PER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PER",
     "definitions": [
      {
       "text": "A",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "the country goes without the letter, so it is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "country",
-      "gives": "PERU",
-      "note": "Peru is a country in South America"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "the country goes without the letter, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "country",
+       "gives": "PERU",
+       "note": "Peru is a country in South America"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      }
      ]
     },
     "explanation": {
@@ -1114,30 +995,23 @@
    },
    "solution": "RINGBOREE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RING-BO-REE",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Party offering",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "gin or beer",
-      "gives": "GINORBEER",
-      "note": "the three words read straight through"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RINGBOREE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GINORBEER",
-       "gives": "RINGBOREE"
+       "unchecked": true,
+       "words": "Party offering",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "gin or beer",
+         "note": "the three words read straight through"
+        }
+       ]
       }
      ]
     },
@@ -1167,34 +1041,29 @@
    },
    "solution": "BEES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEES",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Lot getting",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "obese",
-      "gives": "BESE",
-      "note": "the adjective without its first letter"
-     },
-     {
-      "clueFragment": "with little energy",
-      "note": "surface padding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BESE",
-       "gives": "BEES"
+       "unchecked": true,
+       "words": "Lot getting",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "obese",
+         "gives": "BESE",
+         "note": "the adjective without its first letter"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "with little energy",
+       "note": "surface padding"
       }
      ]
     },
@@ -1224,30 +1093,24 @@
    },
    "solution": "CART",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CART",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Magnetic",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "attraction",
-      "gives": "RACT",
-      "note": "letters four to seven of the noun; that the answer also sits backwards in this word is a coincidence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CART"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RACT",
-       "gives": "CART"
+       "unchecked": true,
+       "words": "Magnetic",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "attraction",
+         "gives": "RACT",
+         "note": "letters four to seven of the noun; that the answer also sits backwards in this word is a coincidence"
+        }
+       ]
       }
      ]
     },
@@ -1277,34 +1140,29 @@
    },
    "solution": "PIG",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PIG",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Something from",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "shop gift",
-      "gives": "PGI",
-      "note": "the end of the first word and the start of the second"
-     },
-     {
-      "clueFragment": "wrapped",
-      "note": "surface padding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PGI",
-       "gives": "PIG"
+       "unchecked": true,
+       "words": "Something from",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "shop gift",
+         "gives": "PGI",
+         "note": "the end of the first word and the start of the second"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "wrapped",
+       "note": "surface padding"
       }
      ]
     },
@@ -1334,51 +1192,41 @@
    },
    "solution": "GORGONS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "GORGONS",
     "definitions": [
      {
       "text": "sisters",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "going around",
-      "for": "container",
-      "note": "the fools go around the next piece, enclosing it"
-     },
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "upset means turned over, so in a down clue the letters are read upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fools",
-      "gives": "GOONS",
-      "note": "goons are fools"
-     },
-     {
-      "clueFragment": "Greece",
-      "gives": "GR",
-      "note": "GR is the international code for Greece"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "RG",
-      "ONS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "GR",
-       "to": "RG"
+       "text": "going around",
+       "note": "the fools go around the next piece, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fools",
+       "gives": "GOONS",
+       "note": "goons are fools"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "upset means turned over, so in a down clue the letters are read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greece",
+         "gives": "GR",
+         "note": "GR is the international code for Greece"
+        }
+       ]
       }
      ]
     },
@@ -1407,44 +1255,34 @@
    },
    "solution": "BETA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BETA",
     "definitions": [
      {
       "text": "Greek character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to retreat",
-      "for": "reversal",
-      "note": "a retreating word goes back the way it came, read right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "B",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     },
-     {
-      "clueFragment": "had",
-      "gives": "ATE",
-      "note": "had a meal: ate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ETA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ATE",
-       "to": "ETA"
+       "gives": "B",
+       "note": "the letter this clue's wordplay leaves out, per the preamble"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to retreat",
+         "note": "a retreating word goes back the way it came, read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had",
+         "gives": "ATE",
+         "note": "had a meal: ate"
+        }
+       ]
       }
      ]
     },
@@ -1474,41 +1312,31 @@
    },
    "solution": "VAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "VAN",
     "definitions": [
      {
       "text": "leading position",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "not wanted",
-      "for": "deletion",
-      "note": "what is not wanted is thrown out, so that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Terrible ruler",
-      "gives": "IVAN",
-      "note": "Ivan the Terrible, the first Tsar of Russia"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not wanted",
+       "note": "what is not wanted is thrown out, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Terrible ruler",
+       "gives": "IVAN",
+       "note": "Ivan the Terrible, the first Tsar of Russia"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -1536,40 +1364,31 @@
    },
    "solution": "VERBOSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VERBOSE",
     "definitions": [
      {
       "text": "going on a bit",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the poetry goes about the next piece, surrounding it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poetry",
-      "gives": "VERSE",
-      "note": "poetry is verse"
-     },
-     {
-      "clueFragment": "personal problem",
-      "gives": "BO",
-      "note": "BO is body odour, a classic personal problem"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VER",
-      "BO",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the poetry goes about the next piece, surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Poetry",
+       "gives": "VERSE",
+       "note": "poetry is verse"
+      },
+      {
+       "words": "personal problem",
+       "gives": "BO",
+       "note": "BO is body odour, a classic personal problem"
+      }
      ]
     },
     "explanation": {
@@ -1598,54 +1417,40 @@
    },
    "solution": "BHAKTI",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BHAKTI",
     "definitions": [
      {
       "text": "Hindu act of worship",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "a king wearing clothing has it around him, so the garment surrounds him"
-     },
-     {
-      "text": "special",
-      "for": "anagram",
-      "note": "special suggests a made-to-order version, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "habit",
-      "gives": "HABIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K is king in chess notation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BHA",
-      "K",
-      "TI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HABIT",
-       "gives": "BHATI"
+       "text": "wearing",
+       "note": "a king wearing clothing has it around him, so the garment surrounds him"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "special",
+         "note": "special suggests a made-to-order version, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "habit",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "King",
+       "gives": "K",
+       "note": "K is king in chess notation"
       }
      ]
     },
@@ -1680,40 +1485,31 @@
    },
    "solution": "PLAYAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLAY AT",
     "definitions": [
      {
       "text": "Give the appearance of being",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about it",
-      "for": "container",
-      "note": "one word goes about it, the preceding word, enclosing that piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "glib",
-      "gives": "PAT",
-      "note": "a pat answer is glib"
-     },
-     {
-      "clueFragment": "amateur",
-      "gives": "LAY",
-      "note": "lay means non-professional"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LAY",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about it",
+       "note": "one word goes about it, the preceding word, enclosing that piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "glib",
+       "gives": "PAT",
+       "note": "a pat answer is glib"
+      },
+      {
+       "words": "amateur",
+       "gives": "LAY",
+       "note": "lay means non-professional"
+      }
      ]
     },
     "explanation": {
@@ -1741,42 +1537,33 @@
    },
    "solution": "ARMHOLES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARMHOLES",
     "definitions": [
      {
       "text": "clothes features",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "a new version of something is a reworking, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rome has",
-      "gives": "ROMEHAS",
-      "note": "taken as written"
-     },
-     {
-      "gives": "L",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARMHOLES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROMEHASL",
-       "gives": "ARMHOLES"
+       "text": "new",
+       "note": "a new version of something is a reworking, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rome has",
+         "note": "taken as written"
+        },
+        {
+         "gives": "L",
+         "note": "the letter this clue's wordplay leaves out, per the preamble"
+        }
+       ]
       }
      ]
     },
@@ -1806,49 +1593,44 @@
    },
    "solution": "THROB",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "THROB",
     "definitions": [
      {
       "text": "Beat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "going without the hesitation means those letters are dropped"
-     },
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "bad suggests something gone wrong, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brother",
-      "gives": "BROTHER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hesitation",
-      "gives": "ER",
-      "note": "er is the sound of hesitating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THROB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "THROB",
+     "indicators": [
       {
-       "fodder": "BROTH",
-       "gives": "THROB"
+       "text": "bad",
+       "note": "bad suggests something gone wrong, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "THROB",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "going without the hesitation means those letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brother",
+         "note": "taken as written"
+        },
+        {
+         "words": "hesitation",
+         "gives": "ER",
+         "note": "er is the sound of hesitating"
+        }
+       ]
       }
      ]
     },
@@ -1877,30 +1659,24 @@
    },
    "solution": "MONKEY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MONKEY",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Crack my one",
-      "gives": "KMYONE",
-      "note": "the last letter of the first word and both words after it"
-     },
-     {
-      "clueFragment": "or two misleading clues",
-      "note": "surface padding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MONKEY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "KMYONE",
-       "gives": "MONKEY"
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "Crack my one",
+         "gives": "KMYONE",
+         "note": "the last letter of the first word and both words after it"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "or two misleading clues",
+       "note": "surface padding"
       }
      ]
     },
@@ -1930,42 +1706,33 @@
    },
    "solution": "CLAMOUR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLAMOUR",
     "definitions": [
      {
       "text": "din",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "something awful is a mess, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Calm or",
-      "gives": "CALMOR",
-      "note": "taken as written"
-     },
-     {
-      "gives": "U",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLAMOUR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CALMORU",
-       "gives": "CLAMOUR"
+       "text": "awful",
+       "note": "something awful is a mess, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Calm or",
+         "note": "taken as written"
+        },
+        {
+         "gives": "U",
+         "note": "the letter this clue's wordplay leaves out, per the preamble"
+        }
+       ]
       }
      ]
     },
@@ -1995,28 +1762,16 @@
    },
    "solution": "CAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAN",
     "definitions": [
      {
       "text": "Prison",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: slang for a jail"
      },
      {
       "text": "dump",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prison",
-      "note": "first meaning: slang for a jail"
-     },
-     {
-      "clueFragment": "dump",
-      "note": "second meaning: to get rid of or scrap something"
+      "at": 7,
+      "meaning": "second meaning: to get rid of or scrap something"
      }
     ],
     "explanation": {
@@ -2044,37 +1799,28 @@
    },
    "solution": "ASH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASH",
     "definitions": [
      {
       "text": "wood",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "gives": "S",
-      "note": "the letter this clue's wordplay leaves out, per the preamble"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is hard on a pencil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "gives": "S",
+       "note": "the letter this clue's wordplay leaves out, per the preamble"
+      },
+      {
+       "words": "hard",
+       "gives": "H",
+       "note": "H is hard on a pencil"
+      }
      ]
     },
     "explanation": {
@@ -2109,34 +1855,29 @@
    },
    "solution": "STILTONCHEESE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STILTON CHEESE",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "For",
-      "note": "surface padding: a themed clue has no definition"
-     },
-     {
-      "clueFragment": "Tories, the election's",
-      "gives": "STHEELECTIONS",
-      "note": "a run of thirteen letters from the last letter of the first word to the end of the possessive"
-     },
-     {
-      "clueFragment": "likely to pose problems",
-      "note": "surface padding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STILTONCHEESE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "STHEELECTIONS",
-       "gives": "STILTONCHEESE"
+       "unchecked": true,
+       "words": "For",
+       "note": "surface padding: a themed clue has no definition"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "Tories, the election's",
+         "gives": "STHEELECTIONS",
+         "note": "a run of thirteen letters from the last letter of the first word to the end of the possessive"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "likely to pose problems",
+       "note": "surface padding"
       }
      ]
     },

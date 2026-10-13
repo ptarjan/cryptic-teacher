@@ -1,8 +1,7 @@
 {
  "id": "cryptic-28010",
  "number": 28010,
- "series": "cryptic",
- "name": "Prize crossword No 28,010",
+ "prize": true,
  "setter": "Maskarade",
  "date": "2019-12-21",
  "preamble": "All solutions are locations or geographical features around Great Britain. 32 of the clues include a geographical or factual reference to their solutions, usually the least well-known ones. All the other clues are purely cryptic.",
@@ -39,11 +38,6 @@
    },
    "solution": "RONA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "RONA",
     "definitions": [
      {
       "text": "off 60",
@@ -51,34 +45,29 @@
       "note": "a location phrase standing for the island it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "something done regularly happens at even intervals, so every other letter is kept"
-     },
-     {
-      "text": "reflected",
-      "for": "reversal",
-      "note": "a reflection shows things the wrong way round, so the kept letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Barn doors",
-      "gives": "ANOR",
-      "select": "alternate",
-      "note": "the second, fourth, sixth and eighth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RONA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANOR",
-       "to": "RONA"
+       "text": "reflected",
+       "note": "a reflection shows things the wrong way round, so the kept letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "something done regularly happens at even intervals, so every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Barn doors",
+         "note": "the second, fourth, sixth and eighth letters"
+        }
+       ]
       }
      ]
     },
@@ -108,45 +97,45 @@
    },
    "solution": "ROACHES",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ROACHES",
     "definitions": [
      {
       "text": "The rocky ridge near Leek",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter is dropped"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue one piece sitting on another comes above it, so they join in that order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thoroughfare",
-      "gives": "ROAD",
-      "note": "a road is a thoroughfare; it loses its last letter"
-     },
-     {
-      "clueFragment": "small adjacent county",
-      "gives": "CHES",
-      "note": "Ches is the short form of Cheshire, the county next to Staffordshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROA",
-      "CHES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in a down clue one piece sitting on another comes above it, so they join in that order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thoroughfare",
+         "gives": "ROAD",
+         "note": "a road is a thoroughfare; it loses its last letter"
+        },
+        {
+         "words": "small adjacent county",
+         "gives": "CHES",
+         "note": "Ches is the short form of Cheshire, the county next to Staffordshire"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -175,35 +164,34 @@
    },
    "solution": "NAILSEA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "NAILSEA",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "half of",
-      "for": "deletion",
-      "note": "taking only half of a word means the other half is thrown away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Catch",
-      "gives": "NAIL",
-      "note": "to nail someone is to catch them"
-     },
-     {
-      "clueFragment": "winter, say",
-      "gives": "SEASON",
-      "note": "winter is an example of a season, signalled by 'say'; only its first half stays"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAIL",
-      "SEA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half of",
+       "note": "taking only half of a word means the other half is thrown away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Catch",
+         "gives": "NAIL",
+         "note": "to nail someone is to catch them"
+        },
+        {
+         "words": "winter, say",
+         "gives": "SEASON",
+         "note": "winter is an example of a season, signalled by 'say'; only its first half stays"
+        }
+       ]
+      },
+      {
+       "gives": "SON"
+      }
      ]
     },
     "explanation": {
@@ -232,35 +220,25 @@
    },
    "solution": "ISLAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ISLAY",
     "definitions": [
      {
       "text": "the Queen of the Hebrides",
       "at": 22
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ain't",
-      "gives": "IS",
-      "note": "read as 'is not'; the 'not' attaches to the next word"
-     },
-     {
-      "clueFragment": "professional",
-      "gives": "LAY",
-      "note": "not professional means lay, as in a layman or lay preacher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "LAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ain't",
+       "gives": "IS",
+       "note": "read as 'is not'; the 'not' attaches to the next word"
+      },
+      {
+       "words": "professional",
+       "gives": "LAY",
+       "note": "not professional means lay, as in a layman or lay preacher"
+      }
      ]
     },
     "explanation": {
@@ -290,41 +268,36 @@
    },
    "solution": "SLOUGH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SLOUGH",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Leading",
-      "for": "letter_selection",
-      "note": "what leads goes in front, so only the opening letter is taken"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue one piece placed on another sits above it, so they join in that order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seaman",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "Irish waters",
-      "gives": "LOUGH",
-      "note": "a lough is an Irish lake or sea inlet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LOUGH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue one piece placed on another sits above it, so they join in that order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leading",
+         "note": "what leads goes in front, so only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seaman",
+         "note": "the first letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "Irish waters",
+       "gives": "LOUGH",
+       "note": "a lough is an Irish lake or sea inlet"
+      }
      ]
     },
     "explanation": {
@@ -353,47 +326,38 @@
    },
    "solution": "AIRE",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "AIRE",
     "definitions": [
      {
       "text": "Flower",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "50%",
-      "for": "deletion",
-      "note": "fifty per cent is half, so half the letters are lost"
-     },
-     {
-      "text": "on reflection",
-      "for": "reversal",
-      "note": "a reflection shows things back to front, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "that is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wisteria",
-      "gives": "WISTERIA",
-      "note": "taken as written; its back half is kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIRE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ERIA",
-       "to": "AIRE"
+       "text": "on reflection",
+       "note": "a reflection shows things back to front, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50%",
+         "note": "fifty per cent is half, so half the letters are lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wisteria",
+         "note": "taken as written; its back half is kept"
+        },
+        {
+         "gives": "WIST"
+        }
+       ]
       }
      ]
     },
@@ -430,36 +394,38 @@
    },
    "solution": "HOLMESCHAPEL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HOLMES CHAPEL",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Suggested",
-      "for": "homophone",
-      "note": "a suggestion is only a hint of the real thing, so the words are approximated by their sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "residences",
-      "gives": "HOLMES",
-      "soundsLike": "HOMES",
-      "note": "residences are homes"
-     },
-     {
-      "clueFragment": "Aussie cricketing brothers",
-      "gives": "CHAPEL",
-      "soundsLike": "CHAPPELL",
-      "note": "Ian, Greg and Trevor Chappell all played Test cricket for Australia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOLMES",
-      "CHAPEL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HOLMES",
+       "indicators": [
+        {
+         "text": "Suggested",
+         "note": "a suggestion is only a hint of the real thing, so the words are approximated by their sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "residences",
+         "gives": "HOMES",
+         "note": "residences are homes"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "CHAPEL",
+       "parts": [
+        {
+         "words": "Aussie cricketing brothers",
+         "gives": "CHAPPELL",
+         "note": "Ian, Greg and Trevor Chappell all played Test cricket for Australia"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -489,10 +455,6 @@
    },
    "solution": "OADBY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OADBY",
     "definitions": [
      {
       "text": "near 24",
@@ -500,25 +462,18 @@
       "note": "a location phrase standing for the town it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "decomposed",
-      "for": "anagram",
-      "note": "something decomposed has broken down and lost its form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A body",
-      "gives": "ABODY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ABODY",
-       "gives": "OADBY"
+       "text": "decomposed",
+       "note": "something decomposed has broken down and lost its form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A body",
+       "note": "taken as written"
       }
      ]
     },
@@ -548,43 +503,37 @@
    },
    "solution": "MENTEITH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MENTEITH",
     "definitions": [
      {
       "text": "a unique Scottish lake",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "suggested",
-      "for": "homophone",
-      "note": "a suggestion only hints at the real words, so their sound stands in for the spelling"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chaps",
-      "gives": "MEN",
-      "note": "chaps are men"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "TEITH",
-      "soundsLike": "TEETH",
-      "note": "a law with teeth has force behind it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEN",
-      "TEITH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chaps",
+       "gives": "MEN",
+       "note": "chaps are men"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TEITH",
+       "indicators": [
+        {
+         "text": "suggested",
+         "note": "a suggestion only hints at the real words, so their sound stands in for the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "force",
+         "gives": "TEETH",
+         "note": "a law with teeth has force behind it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -613,41 +562,38 @@
    },
    "solution": "STANMORE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "STANMORE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "making something new means remaking it, so the letters are reworked"
-     },
-     {
-      "text": "but no",
-      "for": "deletion",
-      "note": "with this but not that, the named letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tam o'shanter",
-      "gives": "TAMOSHANTER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hat",
-      "gives": "HAT",
-      "note": "taken as written; these letters come out"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STANMORE",
+     "indicators": [
       {
-       "fodder": "TMOSANER",
-       "gives": "STANMORE"
+       "text": "New",
+       "note": "making something new means remaking it, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "STANMORE",
+       "indicators": [
+        {
+         "text": "but no",
+         "note": "with this but not that, the named letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tam o'shanter",
+         "note": "taken as written"
+        },
+        {
+         "words": "hat",
+         "note": "taken as written; these letters come out"
+        }
+       ]
       }
      ]
     },
@@ -678,11 +624,6 @@
    },
    "solution": "PENMACHNO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PENMACHNO",
     "definitions": [
      {
       "text": "near Betws-y-Coed",
@@ -690,44 +631,41 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "held by",
-      "for": "container",
-      "note": "something held by another is gripped inside it"
-     },
-     {
-      "text": "first",
-      "for": "charade",
-      "note": "coming first means placed at the front of the rest"
-     }
-    ],
-    "linkWords": [
-     "found"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "writer",
-      "gives": "PEN",
-      "note": "a pen is a writing implement"
-     },
-     {
-      "clueFragment": "virile",
-      "gives": "MACHO",
-      "note": "macho means aggressively virile"
-     },
-     {
-      "clueFragment": "Knight",
-      "gives": "N",
-      "note": "N is the chess notation for a knight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "MACH",
-      "N",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "note": "coming first means placed at the front of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer",
+       "gives": "PEN",
+       "note": "a pen is a writing implement"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held by",
+         "note": "something held by another is gripped inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "virile",
+         "gives": "MACHO",
+         "note": "macho means aggressively virile"
+        },
+        {
+         "words": "Knight",
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -756,38 +694,29 @@
    },
    "solution": "LISKEARD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LISKEARD",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Derived from",
-      "for": "anagram",
-      "note": "something derived from material is made out of it in a new form, so the letters are rebuilt"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Israel",
-      "gives": "ISRAEL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Denmark",
-      "gives": "DK",
-      "note": "DK is Denmark's international vehicle code"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISRAELDK",
-       "gives": "LISKEARD"
+       "text": "Derived from",
+       "note": "something derived from material is made out of it in a new form, so the letters are rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Israel",
+         "note": "taken as written"
+        },
+        {
+         "words": "Denmark",
+         "gives": "DK",
+         "note": "DK is Denmark's international vehicle code"
+        }
+       ]
       }
      ]
     },
@@ -817,38 +746,24 @@
    },
    "solution": "CANISBAY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CANISBAY",
     "definitions": [
      {
       "text": "hamlet near John o'Groats",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "to change something is to alter its form, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Any basic",
-      "gives": "ANYBASIC",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANYBASIC",
-       "gives": "CANISBAY"
+       "text": "change",
+       "note": "to change something is to alter its form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Any basic",
+       "note": "taken as written"
       }
      ]
     },
@@ -878,30 +793,20 @@
    },
    "solution": "CAMBRIDGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAMBRIDGE",
     "definedByPreamble": true,
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clubs",
-      "gives": "C",
-      "note": "C is the abbreviation for clubs in card games"
-     },
-     {
-      "clueFragment": "town in Borsetshire",
-      "gives": "AMBRIDGE",
-      "note": "Ambridge is the fictional village in Borsetshire where the BBC radio soap The Archers is set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "AMBRIDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Clubs",
+       "gives": "C",
+       "note": "C is the abbreviation for clubs in card games"
+      },
+      {
+       "words": "town in Borsetshire",
+       "gives": "AMBRIDGE",
+       "note": "Ambridge is the fictional village in Borsetshire where the BBC radio soap The Archers is set"
+      }
      ]
     },
     "explanation": {
@@ -930,11 +835,6 @@
    },
    "solution": "ARINAGOUR",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ARINAGOUR",
     "definitions": [
      {
       "text": "on Coll",
@@ -942,35 +842,37 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "deletion",
-      "note": "being separated off means being taken away, so those letters go"
-     },
-     {
-      "text": "wandering",
-      "for": "anagram",
-      "note": "things that wander do not keep their places, so the remaining letters move about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "praetorian guard",
-      "gives": "PRAETORIANGUARD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Parted",
-      "gives": "PARTED",
-      "note": "taken as written; these six letters are removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARINAGOUR",
+     "indicators": [
       {
-       "fodder": "ROIANGUAR",
-       "gives": "ARINAGOUR"
+       "text": "wandering",
+       "note": "things that wander do not keep their places, so the remaining letters move about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ARINAGOUR",
+       "indicators": [
+        {
+         "text": "from",
+         "note": "being separated off means being taken away, so those letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "praetorian guard",
+         "note": "taken as written"
+        },
+        {
+         "words": "Parted",
+         "note": "taken as written; these six letters are removed"
+        }
+       ]
       }
      ]
     },
@@ -1000,11 +902,6 @@
    },
    "solution": "ALDENHAM",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ALDENHAM",
     "definitions": [
      {
       "text": "near Watford",
@@ -1012,35 +909,37 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "deletion",
-      "note": "something lost is no longer there, so those letters drop out"
-     },
-     {
-      "text": "Poor",
-      "for": "anagram",
-      "note": "something in poor shape is out of order, so the leftover letters are reshuffled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Neanderthal man",
-      "gives": "NEANDERTHALMAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tanner",
-      "gives": "TANNER",
-      "note": "taken as written; these letters are removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALDENHAM",
+     "indicators": [
       {
-       "fodder": "EADHALMN",
-       "gives": "ALDENHAM"
+       "text": "Poor",
+       "note": "something in poor shape is out of order, so the leftover letters are reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ALDENHAM",
+       "indicators": [
+        {
+         "text": "lost",
+         "note": "something lost is no longer there, so those letters drop out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Neanderthal man",
+         "note": "taken as written"
+        },
+        {
+         "words": "tanner",
+         "note": "taken as written; these letters are removed"
+        }
+       ]
       }
      ]
     },
@@ -1071,10 +970,6 @@
    },
    "solution": "INGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INGS",
     "definitions": [
      {
       "text": "close to Lake Windermere",
@@ -1082,22 +977,19 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Popular",
-      "gives": "IN",
-      "note": "what is in is fashionable and popular"
-     },
-     {
-      "clueFragment": "grammar school",
-      "gives": "GS",
-      "note": "GS is the abbreviation for grammar school"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "GS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "gives": "IN",
+       "note": "what is in is fashionable and popular"
+      },
+      {
+       "words": "grammar school",
+       "gives": "GS",
+       "note": "GS is the abbreviation for grammar school"
+      }
      ]
     },
     "explanation": {
@@ -1126,33 +1018,25 @@
    },
    "solution": "IRWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IRWELL",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R is the abbreviation for river"
-     },
-     {
-      "clueFragment": "Good gracious!",
-      "gives": "WELL",
-      "note": "an exclamation of surprise, as in 'well, well!'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "R",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R is the abbreviation for river"
+      },
+      {
+       "words": "Good gracious!",
+       "gives": "WELL",
+       "note": "an exclamation of surprise, as in 'well, well!'"
+      }
      ]
     },
     "explanation": {
@@ -1181,35 +1065,26 @@
    },
    "solution": "HASTINGS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HASTINGS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "to admit",
-      "for": "container",
-      "note": "to admit someone is to let them in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is obliged",
-      "gives": "HAS",
-      "note": "one who is obliged has to do something"
-     },
-     {
-      "clueFragment": "scam",
-      "gives": "STING",
-      "note": "a sting is a confidence trick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "STING",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to admit",
+       "note": "to admit someone is to let them in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is obliged",
+       "gives": "HAS",
+       "note": "one who is obliged has to do something"
+      },
+      {
+       "words": "scam",
+       "gives": "STING",
+       "note": "a sting is a confidence trick"
+      }
      ]
     },
     "explanation": {
@@ -1238,10 +1113,6 @@
    },
    "solution": "ABOYNE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABOYNE",
     "definitions": [
      {
       "text": "on the River Dee",
@@ -1249,31 +1120,23 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "linkWords": [
-     "found"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lad",
-      "gives": "BOY",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "from Tyneside",
-      "gives": "NE",
-      "note": "Tyneside is in the North East of England, NE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BOY",
-      "NE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "lad",
+       "gives": "BOY",
+       "note": "a lad is a boy"
+      },
+      {
+       "words": "from Tyneside",
+       "gives": "NE",
+       "note": "Tyneside is in the North East of England, NE"
+      }
      ]
     },
     "explanation": {
@@ -1302,30 +1165,20 @@
    },
    "solution": "MARGATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARGATE",
     "definedByPreamble": true,
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Damage",
-      "gives": "MAR",
-      "note": "to mar is to damage"
-     },
-     {
-      "clueFragment": "those attending the game",
-      "gives": "GATE",
-      "note": "a gate is the number of spectators at a match"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "GATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Damage",
+       "gives": "MAR",
+       "note": "to mar is to damage"
+      },
+      {
+       "words": "those attending the game",
+       "gives": "GATE",
+       "note": "a gate is the number of spectators at a match"
+      }
      ]
     },
     "explanation": {
@@ -1354,27 +1207,20 @@
    },
    "solution": "ALDERSHOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALDERSHOT",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Artificial fishing flies",
-      "gives": "ALDERS",
-      "note": "the alder is an angler's artificial fly imitating the alderfly"
-     },
-     {
-      "clueFragment": "recently stolen",
-      "gives": "HOT",
-      "note": "hot goods are freshly stolen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALDERS",
-      "HOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Artificial fishing flies",
+       "gives": "ALDERS",
+       "note": "the alder is an angler's artificial fly imitating the alderfly"
+      },
+      {
+       "words": "recently stolen",
+       "gives": "HOT",
+       "note": "hot goods are freshly stolen"
+      }
      ]
     },
     "explanation": {
@@ -1403,42 +1249,27 @@
    },
    "solution": "SCARBA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SCARBA",
     "definitions": [
      {
       "text": "isle near 3",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "turns tail",
-      "for": "reversal",
-      "note": "turning the tail round flips its end, so the final two letters swap places"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dung beetle",
-      "gives": "SCARAB",
-      "note": "the scarab is the sacred dung beetle of ancient Egypt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCAR",
-      "BA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SCARBA",
+     "indicators": [
       {
-       "from": "AB",
-       "to": "BA"
+       "text": "turns tail",
+       "note": "turning the tail round flips its end, so the final two letters swap places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dung beetle",
+       "gives": "SCARAB",
+       "note": "the scarab is the sacred dung beetle of ancient Egypt"
       }
      ]
     },
@@ -1468,10 +1299,6 @@
    },
    "solution": "CHATTERIS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHATTERIS",
     "definitions": [
      {
       "text": "in the Fens",
@@ -1479,33 +1306,28 @@
       "note": "a location phrase standing for the town it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "are distributed",
-      "for": "anagram",
-      "note": "things distributed are spread around, so the letters are dealt out in a new order"
-     }
-    ],
-    "linkWords": [
-     "It's about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "rich teas",
-      "gives": "RICHTEAS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRICHTEAS",
-       "gives": "CHATTERIS"
+       "text": "are distributed",
+       "note": "things distributed are spread around, so the letters are dealt out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        },
+        {
+         "words": "rich teas",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1535,42 +1357,36 @@
    },
    "solution": "LEICESTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LEICESTER",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "borders of",
-      "for": "letter_selection",
-      "note": "a border is the edge, so only the outermost letters are kept"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "going around something means enclosing it, so one piece wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fish for salmon",
-      "gives": "LEISTER",
-      "note": "to leister is to spear fish, especially salmon, with a pronged spear"
-     },
-     {
-      "clueFragment": "Cheshire",
-      "gives": "CE",
-      "select": "outer",
-      "note": "the first and last letters of the county"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEI",
-      "CE",
-      "STER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "going around something means enclosing it, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fish for salmon",
+       "gives": "LEISTER",
+       "note": "to leister is to spear fish, especially salmon, with a pronged spear"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders of",
+         "note": "a border is the edge, so only the outermost letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cheshire",
+         "note": "the first and last letters of the county"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1599,39 +1415,28 @@
    },
    "solution": "EALING",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "EALING",
     "definitions": [
      {
       "text": "Obvious home of genial comic!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "comic",
-      "for": "anagram",
-      "note": "something comic is absurd and out of order, so the letters tumble about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "genial",
-      "gives": "GENIAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GENIAL",
-       "gives": "EALING"
+       "text": "comic",
+       "note": "something comic is absurd and out of order, so the letters tumble about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "genial",
+       "note": "taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "The natural home of good-natured comedy.",
      "walkthrough": "Ealing Studios in west London made the gentle Ealing comedies of the 1940s and 50s, such as Kind Hearts and Coronets, so the whole clue also describes the place.",
@@ -1659,34 +1464,26 @@
    },
    "solution": "ESHER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ESHER",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "something out is not in, so that letter is left out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dutch graphic artist",
-      "gives": "ESCHER",
-      "note": "M. C. Escher, the Dutch printmaker of impossible staircases"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "C is the cricket scorecard abbreviation for caught"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "HER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "note": "something out is not in, so that letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dutch graphic artist",
+       "gives": "ESCHER",
+       "note": "M. C. Escher, the Dutch printmaker of impossible staircases"
+      },
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
+      }
      ]
     },
     "explanation": {
@@ -1715,11 +1512,6 @@
    },
    "solution": "BALERNO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BALERNO",
     "definitions": [
      {
       "text": "near Edinburgh",
@@ -1727,39 +1519,35 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Graduate",
-      "gives": "BA",
-      "note": "a BA, Bachelor of Arts, is a graduate"
-     },
-     {
-      "clueFragment": "sign",
-      "gives": "LEO",
-      "note": "Leo is a sign of the zodiac"
-     },
-     {
-      "clueFragment": "sailors",
-      "gives": "RN",
-      "note": "the RN, Royal Navy, stands for sailors"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "LE",
-      "RN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Graduate",
+       "gives": "BA",
+       "note": "a BA, Bachelor of Arts, is a graduate"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece goes round the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sign",
+         "gives": "LEO",
+         "note": "Leo is a sign of the zodiac"
+        },
+        {
+         "words": "sailors",
+         "gives": "RN",
+         "note": "the RN, Royal Navy, stands for sailors"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1788,36 +1576,25 @@
    },
    "solution": "PABAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PABAY",
     "definitions": [
      {
       "text": "stamp-issuing isle off 60",
       "at": 16
      }
     ],
-    "linkWords": [
-     "by",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dad",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "inlet",
-      "gives": "BAY",
-      "note": "a bay is an inlet of the sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "BAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dad",
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "inlet",
+       "gives": "BAY",
+       "note": "a bay is an inlet of the sea"
+      }
      ]
     },
     "explanation": {
@@ -1846,10 +1623,6 @@
    },
    "solution": "ARNSIDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARNSIDE",
     "definitions": [
      {
       "text": "by Morecambe Bay",
@@ -1857,25 +1630,18 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "Cooked",
-      "for": "anagram",
-      "note": "cooking transforms ingredients, so the letters come out changed in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sardine",
-      "gives": "SARDINE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SARDINE",
-       "gives": "ARNSIDE"
+       "text": "Cooked",
+       "note": "cooking transforms ingredients, so the letters come out changed in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sardine",
+       "note": "taken as written"
       }
      ]
     },
@@ -1905,44 +1671,37 @@
    },
    "solution": "ABERGELE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ABERGELE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "parts of",
-      "for": "deletion",
-      "note": "only part of something is taken, so the rest of the word is dropped"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "student of Schoenberg",
-      "gives": "BERG",
-      "note": "Alban Berg studied composition under Arnold Schoenberg"
-     },
-     {
-      "clueFragment": "elegy",
-      "gives": "ELEGY",
-      "note": "taken as written; only its first three letters stay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BERG",
-      "ELE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "parts of",
+       "note": "only part of something is taken, so the rest of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "student of Schoenberg",
+         "gives": "BERG",
+         "note": "Alban Berg studied composition under Arnold Schoenberg"
+        },
+        {
+         "words": "elegy",
+         "note": "taken as written; only its first three letters stay"
+        }
+       ]
+      },
+      {
+       "gives": "GY"
+      }
      ]
     },
     "explanation": {
@@ -1971,11 +1730,6 @@
    },
    "solution": "ALTON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "ALTON",
     "definitions": [
      {
       "text": "the Towers?",
@@ -1983,34 +1737,35 @@
       "note": "a factual pointer: the place gives its name to the theme park"
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter alone"
-     },
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "what leaves is no longer present, so that letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Composer",
-      "gives": "WALTON",
-      "note": "Sir William Walton, the English composer"
-     },
-     {
-      "clueFragment": "was",
-      "gives": "W",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALTON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave",
+       "note": "what leaves is no longer present, so that letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Composer",
+       "gives": "WALTON",
+       "note": "Sir William Walton, the English composer"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "the first of a word is its opening letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2039,39 +1794,31 @@
    },
    "solution": "TREMORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TREMORE",
     "definitions": [
      {
       "text": "Cornish hamlet",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue one piece placed on another sits above it, so they join in that order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No great shakes",
-      "gives": "TREMOR",
-      "note": "a tremor is a slight shaking, not a big one"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the abbreviation for east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREMOR",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue one piece placed on another sits above it, so they join in that order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No great shakes",
+       "gives": "TREMOR",
+       "note": "a tremor is a slight shaking, not a big one"
+      },
+      {
+       "words": "east",
+       "gives": "E",
+       "note": "E is the abbreviation for east"
+      }
      ]
     },
     "explanation": {
@@ -2101,10 +1848,6 @@
    },
    "solution": "NANPANTAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NANPANTAN",
     "definitions": [
      {
       "text": "near Loughborough",
@@ -2112,32 +1855,24 @@
       "note": "a location phrase standing for the hamlet it describes"
      }
     ],
-    "linkWords": [
-     "gets",
-     "in rhyme"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Relative's",
-      "gives": "NAN",
-      "note": "a nan is a grandmother"
-     },
-     {
-      "clueFragment": "face",
-      "gives": "PAN",
-      "note": "pan is slang for face"
-     },
-     {
-      "clueFragment": "beat",
-      "gives": "TAN",
-      "note": "to tan someone's hide is to beat them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAN",
-      "PAN",
-      "TAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Relative's",
+       "gives": "NAN",
+       "note": "a nan is a grandmother"
+      },
+      {
+       "words": "face",
+       "gives": "PAN",
+       "note": "pan is slang for face"
+      },
+      {
+       "words": "beat",
+       "gives": "TAN",
+       "note": "to tan someone's hide is to beat them"
+      }
      ]
     },
     "explanation": {
@@ -2166,10 +1901,6 @@
    },
    "solution": "TIMSGARRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TIMSGARRY",
     "definitions": [
      {
       "text": "on the Isle of Lewis",
@@ -2177,25 +1908,19 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Comedian Vine's",
-      "gives": "TIMS",
-      "note": "Tim Vine is a British comedian known for one-liners"
-     },
-     {
-      "clueFragment": "Kasparov",
-      "gives": "GARRY",
-      "note": "Garry Kasparov, the chess world champion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIMS",
-      "GARRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Comedian Vine's",
+       "gives": "TIMS",
+       "note": "Tim Vine is a British comedian known for one-liners"
+      },
+      {
+       "words": "Kasparov",
+       "gives": "GARRY",
+       "note": "Garry Kasparov, the chess world champion"
+      }
      ]
     },
     "explanation": {
@@ -2225,28 +1950,24 @@
    },
    "solution": "ANDOVER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ANDOVER",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Cockney",
-      "for": "deletion",
-      "note": "a Cockney accent drops the H sound at the start of words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "highwayman's demand",
-      "gives": "HANDOVER",
-      "note": "a highwayman demands 'Hand over!' your valuables"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANDOVER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "note": "a Cockney accent drops the H sound at the start of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "highwayman's demand",
+       "gives": "HANDOVER",
+       "note": "a highwayman demands 'Hand over!' your valuables"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -2282,38 +2003,32 @@
    },
    "solution": "STANDREWS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ST ANDREWS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "is suggested",
-      "for": "homophone",
-      "note": "a suggestion only hints at the words, so their sound stands in for the spelling"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Partnership",
-      "gives": "STAND",
-      "note": "in cricket a stand is a partnership between two batsmen"
-     },
-     {
-      "clueFragment": "Aussie jumpers",
-      "gives": "REWS",
-      "soundsLike": "ROOS",
-      "note": "roos is Australian slang for kangaroos"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAND",
-      "REWS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Partnership",
+       "gives": "STAND",
+       "note": "in cricket a stand is a partnership between two batsmen"
+      },
+      {
+       "op": "homophone",
+       "spelt": "REWS",
+       "indicators": [
+        {
+         "text": "is suggested",
+         "note": "a suggestion only hints at the words, so their sound stands in for the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aussie jumpers",
+         "gives": "ROOS",
+         "note": "roos is Australian slang for kangaroos"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2349,12 +2064,6 @@
    },
    "solution": "INDIANQUEENS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "INDIAN QUEENS",
     "definitions": [
      {
       "text": "near Goss Moor",
@@ -2362,51 +2071,51 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so it runs the other way"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so the next piece is set alongside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Help",
-      "gives": "AID",
-      "note": "aid is help"
-     },
-     {
-      "clueFragment": "hostel",
-      "gives": "INN",
-      "note": "an inn is a hostelry"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "QUEENS",
-      "note": "queens are chessmen, pieces on a chessboard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "DIA",
-      "N",
-      "QUEENS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AID",
-       "to": "DIA"
+       "text": "by",
+       "note": "by means beside, so the next piece is set alongside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hostel",
+         "gives": "INN",
+         "note": "an inn is a hostelry"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rejected",
+           "note": "something rejected is sent back, so it runs the other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Help",
+           "gives": "AID",
+           "note": "aid is help"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "men",
+       "gives": "QUEENS",
+       "note": "queens are chessmen, pieces on a chessboard"
       }
      ]
     },
@@ -2437,27 +2146,20 @@
    },
    "solution": "JARROW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JARROW",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Be in conflict",
-      "gives": "JAR",
-      "note": "things that jar clash with each other"
-     },
-     {
-      "clueFragment": "have an argument",
-      "gives": "ROW",
-      "note": "to row is to quarrel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JAR",
-      "ROW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Be in conflict",
+       "gives": "JAR",
+       "note": "things that jar clash with each other"
+      },
+      {
+       "words": "have an argument",
+       "gives": "ROW",
+       "note": "to row is to quarrel"
+      }
      ]
     },
     "explanation": {
@@ -2486,10 +2188,6 @@
    },
    "solution": "CRAIGENDORAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CRAIGENDORAN",
     "definitions": [
      {
       "text": "by Helensburgh",
@@ -2497,38 +2195,32 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "review",
-      "for": "anagram",
-      "note": "to review is to go over material and rework it, so the letters are reshaped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A recording",
-      "gives": "ARECORDING",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARECORDINGAN",
-       "gives": "CRAIGENDORAN"
+       "text": "review",
+       "note": "to review is to go over material and rework it, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A recording",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        }
+       ]
       }
      ]
     },
@@ -2558,35 +2250,34 @@
    },
    "solution": "STORNOWAY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "STORNOWAY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "having no end means the final letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bad weather",
-      "gives": "STORM",
-      "note": "a storm is bad weather"
-     },
-     {
-      "clueFragment": "Not at all",
-      "gives": "NOWAY",
-      "note": "'no way' is a flat refusal, not at all"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOR",
-      "NOWAY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "having no end means the final letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bad weather",
+         "gives": "STORM",
+         "note": "a storm is bad weather"
+        },
+        {
+         "words": "Not at all",
+         "gives": "NOWAY",
+         "note": "'no way' is a flat refusal, not at all"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -2615,43 +2306,31 @@
    },
    "solution": "HAWTHORNS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HAWTHORNS",
     "definitions": [
      {
       "text": "the football ground",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "to embrace is to hold in one's arms, so one piece wraps round the other"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Actress Goldie's",
-      "gives": "HAWNS",
-      "note": "Goldie Hawn, the American film actress, with the possessive S"
-     },
-     {
-      "clueFragment": "god",
-      "gives": "THOR",
-      "note": "Thor is the Norse god of thunder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAW",
-      "THOR",
-      "NS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "note": "to embrace is to hold in one's arms, so one piece wraps round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Actress Goldie's",
+       "gives": "HAWNS",
+       "note": "Goldie Hawn, the American film actress, with the possessive S"
+      },
+      {
+       "words": "god",
+       "gives": "THOR",
+       "note": "Thor is the Norse god of thunder"
+      }
      ]
     },
     "explanation": {
@@ -2681,10 +2360,6 @@
    },
    "solution": "SPEKE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPEKE",
     "definitions": [
      {
       "text": "John Lennon",
@@ -2692,25 +2367,18 @@
       "note": "a factual pointer: the airport named after him stands in this district"
      }
     ],
-    "indicators": [
-     {
-      "text": "moving",
-      "for": "anagram",
-      "note": "letters that are moving do not stay where they were, so they end up rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keeps",
-      "gives": "KEEPS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "KEEPS",
-       "gives": "SPEKE"
+       "text": "moving",
+       "note": "letters that are moving do not stay where they were, so they end up rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "keeps",
+       "note": "taken as written"
       }
      ]
     },
@@ -2741,50 +2409,39 @@
    },
    "solution": "PETERHEAD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "PETERHEAD",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Frame of",
-      "for": "letter_selection",
-      "note": "a frame surrounds the edges, so only the outermost letters are kept"
-     },
-     {
-      "text": "representation",
-      "for": "anagram",
-      "note": "a representation renders material in another form, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "picture",
-      "gives": "PE",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     },
-     {
-      "clueFragment": "a three-D",
-      "gives": "ATHREED",
-      "note": "taken as written, the D included"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "TERHEAD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ATHREED",
-       "gives": "TERHEAD"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Frame of",
+         "note": "a frame surrounds the edges, so only the outermost letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "picture",
+         "note": "the first and last letters of the word"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "representation",
+         "note": "a representation renders material in another form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a three-D",
+         "note": "taken as written, the D included"
+        }
+       ]
       }
      ]
     },
@@ -2814,35 +2471,25 @@
    },
    "solution": "KENFIG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KENFIG",
     "definitions": [
      {
       "text": "village near Bridgend",
       "at": 28
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scots know",
-      "gives": "KEN",
-      "note": "ken is Scots for know"
-     },
-     {
-      "clueFragment": "small diagram",
-      "gives": "FIG",
-      "note": "fig. is the short form of figure, a diagram in a book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEN",
-      "FIG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scots know",
+       "gives": "KEN",
+       "note": "ken is Scots for know"
+      },
+      {
+       "words": "small diagram",
+       "gives": "FIG",
+       "note": "fig. is the short form of figure, a diagram in a book"
+      }
      ]
     },
     "explanation": {
@@ -2871,11 +2518,6 @@
    },
    "solution": "ARMADALE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ARMADALE",
     "definitions": [
      {
       "text": "on 60",
@@ -2883,34 +2525,29 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "rebuffed",
-      "for": "reversal",
-      "note": "something rebuffed is pushed back, so it runs the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Enemy fleet",
-      "gives": "ARMADA",
-      "note": "the Spanish Armada was the enemy fleet of 1588"
-     },
-     {
-      "clueFragment": "the Spanish",
-      "gives": "EL",
-      "note": "el is Spanish for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARMADA",
-      "LE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EL",
-       "to": "LE"
+       "words": "Enemy fleet",
+       "gives": "ARMADA",
+       "note": "the Spanish Armada was the enemy fleet of 1588"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rebuffed",
+         "note": "something rebuffed is pushed back, so it runs the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Spanish",
+         "gives": "EL",
+         "note": "el is Spanish for the"
+        }
+       ]
       }
      ]
     },
@@ -2940,25 +2577,23 @@
    },
    "solution": "KEITH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "KEITH",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the words are used, a run of letters inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like It Hot",
-      "gives": "KEITH",
-      "note": "the letters straddle the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the words are used, a run of letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Like It Hot",
+       "gives": "KEITH",
+       "note": "the letters straddle the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The title of the Billy Wilder comedy, Some Like It Hot.",
      "walkthrough": "The whole clue is the famous film title, so 'Some' looks like part of a name rather than an instruction. Keith is a town in Moray, north-east Scotland.",
@@ -2986,55 +2621,49 @@
    },
    "solution": "KNOWSLEY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "KNOWSLEY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Half of",
-      "for": "deletion",
-      "note": "keeping half a word means the other half is thrown away"
-     },
-     {
-      "text": "awfully",
-      "for": "anagram",
-      "note": "something done awfully is done badly, so the letters come out jumbled"
-     },
-     {
-      "text": "exterior",
-      "for": "container",
-      "note": "an exterior is the outside, so these letters wrap round the rest"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the sledge",
-      "gives": "SLEDGE",
-      "note": "the word itself; its front half stays"
-     },
-     {
-      "clueFragment": "wonky",
-      "gives": "WONKY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KNOW",
-      "SLE",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "WONKY",
-       "gives": "KNOWY"
+       "text": "exterior",
+       "note": "an exterior is the outside, so these letters wrap round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "note": "something done awfully is done badly, so the letters come out jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonky",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half of",
+         "note": "keeping half a word means the other half is thrown away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the sledge",
+         "gives": "SLEDGE",
+         "note": "the word itself; its front half stays"
+        },
+        {
+         "gives": "DGE"
+        }
+       ]
       }
      ]
     },
@@ -3064,53 +2693,45 @@
    },
    "solution": "NANTWICH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "NANTWICH",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "making something new means remaking it, so the letters are rearranged"
-     },
-     {
-      "text": "indoors",
-      "for": "container",
-      "note": "what is indoors is inside, so one piece is housed within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grandma",
-      "gives": "NAN",
-      "note": "nan is a familiar name for a grandmother"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "WITH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "canine",
-      "gives": "C",
-      "note": "the setter appears to take just the initial of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAN",
-      "TWI",
-      "C",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WITH",
-       "gives": "TWIH"
+       "words": "Grandma",
+       "gives": "NAN",
+       "note": "nan is a familiar name for a grandmother"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "indoors",
+         "note": "what is indoors is inside, so one piece is housed within the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "making something new means remaking it, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "with",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "canine",
+         "gives": "C",
+         "note": "the setter appears to take just the initial of the word"
+        }
+       ]
       }
      ]
     },
@@ -3140,46 +2761,43 @@
    },
    "solution": "DUMFRIES",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "DUMFRIES",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "dropping last",
-      "for": "deletion",
-      "note": "dropping the last letter means the end one is lost"
-     },
-     {
-      "text": "turns up",
-      "for": "reversal",
-      "note": "in a down clue turning up means reading from the bottom upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mudd",
-      "gives": "MUDD",
-      "note": "taken as written; it loses its final letter"
-     },
-     {
-      "clueFragment": "chips",
-      "gives": "FRIES",
-      "note": "fries is the American word for chips"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUM",
-      "FRIES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MUD",
-       "to": "DUM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns up",
+         "note": "in a down clue turning up means reading from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dropping last",
+           "note": "dropping the last letter means the end one is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mudd",
+           "note": "taken as written; it loses its final letter"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "chips",
+       "gives": "FRIES",
+       "note": "fries is the American word for chips"
       }
      ]
     },
@@ -3210,46 +2828,35 @@
    },
    "solution": "LLANELLI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LLANELLI",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "having flipped over",
-      "for": "reversal",
-      "note": "something flipped over is turned the other way up, so its letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "narrow road",
-      "gives": "LANE",
-      "note": "a lane is a narrow road"
-     },
-     {
-      "clueFragment": "badly",
-      "gives": "ILL",
-      "note": "ill means badly, as in ill-treated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "LANE",
-      "LLI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ILL",
-       "to": "LLI"
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      },
+      {
+       "words": "narrow road",
+       "gives": "LANE",
+       "note": "a lane is a narrow road"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "having flipped over",
+         "note": "something flipped over is turned the other way up, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "badly",
+         "gives": "ILL",
+         "note": "ill means badly, as in ill-treated"
+        }
+       ]
       }
      ]
     },
@@ -3279,32 +2886,20 @@
    },
    "solution": "ASTON",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ASTON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Even innards of",
-      "for": "letter_selection",
-      "note": "the even-numbered letters from the inside of the words are the ones kept"
-     }
-    ],
-    "linkWords": [
-     "are required!"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "basset hound",
-      "gives": "ASTON",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASTON"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Even innards of",
+       "note": "the even-numbered letters from the inside of the words are the ones kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "basset hound",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -3333,60 +2928,65 @@
    },
    "solution": "ULLSWATER",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "ULLSWATER",
     "definitions": [
      {
       "text": "lake",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "don't start",
-      "for": "deletion",
-      "note": "not starting means the opening letter is missing"
-     },
-     {
-      "text": "edges of",
-      "for": "letter_selection",
-      "note": "the edges of a word are its outermost letters"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "going around something means enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Birds",
-      "gives": "GULLS",
-      "note": "gulls are seabirds; the first letter goes"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "TE",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     },
-     {
-      "clueFragment": "fighting",
-      "gives": "WAR",
-      "note": "war is fighting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ULLS",
-      "WA",
-      "TE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "don't start",
+         "note": "not starting means the opening letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Birds",
+         "gives": "GULLS",
+         "note": "gulls are seabirds; the first letter goes"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "going around something means enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fighting",
+         "gives": "WAR",
+         "note": "war is fighting"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "edges of",
+           "note": "the edges of a word are its outermost letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "note": "the first and last letters of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -3415,35 +3015,26 @@
    },
    "solution": "WOKING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WOKING",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "All right",
-      "gives": "OK",
-      "note": "OK means all right"
-     },
-     {
-      "clueFragment": "annexe",
-      "gives": "WING",
-      "note": "a wing is an annexe built onto a building"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OK",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "annexe",
+       "gives": "WING",
+       "note": "a wing is an annexe built onto a building"
+      },
+      {
+       "words": "All right",
+       "gives": "OK",
+       "note": "OK means all right"
+      }
      ]
     },
     "explanation": {
@@ -3472,47 +3063,43 @@
    },
    "solution": "IPSWICH",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "IPSWICH",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "takes",
-      "for": "charade",
-      "note": "taking something on means adding it, so the next piece is attached"
-     },
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "what is reported is passed on by word of mouth, so its sound matters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the physics symbol for power"
-     },
-     {
-      "clueFragment": "using this",
-      "gives": "SWICH",
-      "soundsLike": "SWITCH",
-      "note": "you turn the power on by using a switch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "P",
-      "SWICH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "takes",
+       "note": "taking something on means adding it, so the next piece is attached"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SWICH",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "what is reported is passed on by word of mouth, so its sound matters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "using this",
+         "gives": "SWITCH",
+         "note": "you turn the power on by using a switch"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -3542,48 +3129,46 @@
    },
    "solution": "GLASGOW",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GLASGOW",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter"
-     },
-     {
-      "text": "bathed in",
-      "for": "container",
-      "note": "something bathed in a substance is surrounded by it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like",
-      "gives": "AS",
-      "note": "as means like"
-     },
-     {
-      "clueFragment": "evening",
-      "gives": "G",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "light",
-      "gives": "GLOW",
-      "note": "a glow is a soft light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GL",
-      "AS",
-      "G",
-      "OW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bathed in",
+       "note": "something bathed in a substance is surrounded by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "light",
+         "gives": "GLOW",
+         "note": "a glow is a soft light"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "the end of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "evening",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Like",
+       "gives": "AS",
+       "note": "as means like"
+      }
      ]
     },
     "explanation": {
@@ -3612,42 +3197,30 @@
    },
    "solution": "GRETNA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GRETNA",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worker",
-      "gives": "ANT",
-      "note": "the worker ant is the crossword's favourite worker"
-     },
-     {
-      "clueFragment": "some work",
-      "gives": "ERG",
-      "note": "an erg is a small unit of work in physics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRETNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANTERG",
-       "to": "GRETNA"
+       "text": "Back",
+       "note": "going back means travelling the other way, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "worker",
+         "gives": "ANT",
+         "note": "the worker ant is the crossword's favourite worker"
+        },
+        {
+         "words": "some work",
+         "gives": "ERG",
+         "note": "an erg is a small unit of work in physics"
+        }
+       ]
       }
      ]
     },
@@ -3677,46 +3250,36 @@
    },
    "solution": "TURRIFF",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TURRIFF",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "put back",
-      "for": "reversal",
-      "note": "putting something back sends it the other way, so its letters run backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Evergreen tree",
-      "gives": "FIR",
-      "note": "the fir is an evergreen conifer"
-     },
-     {
-      "clueFragment": "lawn",
-      "gives": "TURF",
-      "note": "a lawn is made of turf"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUR",
-      "RIF",
-      "F"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "FIR",
-       "to": "RIF"
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lawn",
+       "gives": "TURF",
+       "note": "a lawn is made of turf"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put back",
+         "note": "putting something back sends it the other way, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Evergreen tree",
+         "gives": "FIR",
+         "note": "the fir is an evergreen conifer"
+        }
+       ]
       }
      ]
     },
@@ -3746,10 +3309,6 @@
    },
    "solution": "NACTON",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "NACTON",
     "definitions": [
      {
       "text": "in east Suffolk",
@@ -3757,33 +3316,20 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "be reviewed backwards",
-      "for": "reversal",
-      "note": "looking at something again from the far end reads it in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cannot",
-      "gives": "CANNOT",
-      "note": "taken as written, as the two words can and not"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAC",
-      "TON"
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "NACTON",
+     "indicators": [
+      {
+       "text": "be reviewed backwards",
+       "note": "looking at something again from the far end reads it in the opposite direction"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "CAN",
-       "to": "NAC"
-      },
-      {
-       "from": "NOT",
-       "to": "TON"
+       "words": "Cannot",
+       "note": "taken as written, as the two words can and not"
       }
      ]
     },
@@ -3813,11 +3359,6 @@
    },
    "solution": "CRAIL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CRAIL",
     "definitions": [
      {
       "text": "in the East Neuk of Fife",
@@ -3825,30 +3366,29 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter alone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cream's",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "track",
-      "gives": "RAIL",
-      "note": "a rail is a track for trains"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RAIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "the first of a word is its opening letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cream's",
+         "note": "the opening letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "track",
+       "gives": "RAIL",
+       "note": "a rail is a track for trains"
+      }
      ]
     },
     "explanation": {
@@ -3884,53 +3424,45 @@
    },
    "solution": "IRISHSEA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "IRISH SEA",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "done somehow means done in some unspecified way, so the letters are rearranged"
-     },
-     {
-      "text": "to subsume",
-      "for": "container",
-      "note": "to subsume is to take something in and include it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plant",
-      "gives": "IRIS",
-      "note": "the iris is a flowering plant"
-     },
-     {
-      "clueFragment": "has",
-      "gives": "HAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "electricity",
-      "gives": "E",
-      "note": "E is the symbol for electricity, as in energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRIS",
-      "HS",
-      "E",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HAS",
-       "gives": "HSA"
+       "words": "Plant",
+       "gives": "IRIS",
+       "note": "the iris is a flowering plant"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to subsume",
+         "note": "to subsume is to take something in and include it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "somehow",
+           "note": "done somehow means done in some unspecified way, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "has",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "electricity",
+         "gives": "E",
+         "note": "E is the symbol for electricity, as in energy"
+        }
+       ]
       }
      ]
     },
@@ -3960,30 +3492,20 @@
    },
    "solution": "SKYE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SKYE",
     "definedByPreamble": true,
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Channel broadcasting cricket",
-      "gives": "SKY",
-      "note": "Sky Sports, the British satellite channel, broadcasts cricket"
-     },
-     {
-      "clueFragment": "Spain",
-      "gives": "E",
-      "note": "E is Spain's international vehicle code, from España"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKY",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Channel broadcasting cricket",
+       "gives": "SKY",
+       "note": "Sky Sports, the British satellite channel, broadcasts cricket"
+      },
+      {
+       "words": "Spain",
+       "gives": "E",
+       "note": "E is Spain's international vehicle code, from España"
+      }
      ]
     },
     "explanation": {
@@ -4012,10 +3534,6 @@
    },
    "solution": "IVER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IVER",
     "definitions": [
      {
       "text": "in Buckinghamshire",
@@ -4023,23 +3541,23 @@
       "note": "a location phrase standing for the village it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "one's missing",
-      "for": "deletion",
-      "note": "one letter is absent, the leading one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "FIVER",
-      "note": "a fiver is a five-pound note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IVER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "one's missing",
+       "note": "one letter is absent, the leading one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Note",
+       "gives": "FIVER",
+       "note": "a fiver is a five-pound note"
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -4068,35 +3586,26 @@
    },
    "solution": "KILLEARN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "KILLEARN",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "going round something means encircling it, so one piece wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oven —",
-      "gives": "KILN",
-      "note": "a kiln is an oven for firing pottery or drying hops"
-     },
-     {
-      "clueFragment": "oven",
-      "gives": "LEAR",
-      "note": "a lear, also spelt lehr, is a glassmaker's annealing oven"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIL",
-      "LEAR",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "going round something means encircling it, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oven —",
+       "gives": "KILN",
+       "note": "a kiln is an oven for firing pottery or drying hops"
+      },
+      {
+       "words": "oven",
+       "gives": "LEAR",
+       "note": "a lear, also spelt lehr, is a glassmaker's annealing oven"
+      }
      ]
     },
     "explanation": {
@@ -4126,39 +3635,33 @@
    },
    "solution": "KETTERING",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "KETTERING",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "replaces",
-      "for": "substitution",
-      "note": "replacing means taking another's place, so one letter is swapped for the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K is the chess abbreviation for king"
-     },
-     {
-      "clueFragment": "lord",
-      "gives": "L",
-      "note": "L is an abbreviation for lord"
-     },
-     {
-      "clueFragment": "calligraphy",
-      "gives": "LETTERING",
-      "note": "calligraphy is decorative lettering"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "ETTERING"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "KETTERING",
+     "indicators": [
+      {
+       "text": "replaces",
+       "note": "replacing means taking another's place, so one letter is swapped for the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "King",
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "lord",
+       "gives": "L",
+       "note": "L is an abbreviation for lord"
+      },
+      {
+       "words": "calligraphy",
+       "gives": "LETTERING",
+       "note": "calligraphy is decorative lettering"
+      }
      ]
     },
     "explanation": {
@@ -4187,43 +3690,31 @@
    },
    "solution": "HUDDERSFIELD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HUDDERSFIELD",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "in front",
-      "for": "charade",
-      "note": "placed in front means set before the rest"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the abbreviation for hot, as on taps"
-     },
-     {
-      "clueFragment": "milk containers",
-      "gives": "UDDERS",
-      "note": "a cow's udders hold its milk"
-     },
-     {
-      "clueFragment": "Background",
-      "gives": "FIELD",
-      "note": "the field is the background of a picture, flag or coin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "UDDERS",
-      "FIELD"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front",
+       "note": "placed in front means set before the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      },
+      {
+       "words": "milk containers",
+       "gives": "UDDERS",
+       "note": "a cow's udders hold its milk"
+      },
+      {
+       "words": "Background",
+       "gives": "FIELD",
+       "note": "the field is the background of a picture, flag or coin"
+      }
      ]
     },
     "explanation": {
@@ -4253,38 +3744,34 @@
    },
    "solution": "TEBAY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TEBAY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "something cut short loses its end, so the final letter goes"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Meal",
-      "gives": "TEA",
-      "note": "tea is an evening meal in much of Britain"
-     },
-     {
-      "clueFragment": "sound of loud bark",
-      "gives": "BAY",
-      "note": "to bay is the deep howl of a hound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "BAY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "something cut short loses its end, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Meal",
+         "gives": "TEA",
+         "note": "tea is an evening meal in much of Britain"
+        },
+        {
+         "words": "sound of loud bark",
+         "gives": "BAY",
+         "note": "to bay is the deep howl of a hound"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -4313,12 +3800,6 @@
    },
    "solution": "SHAW",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SHAW",
     "definitions": [
      {
       "text": "in Greater Manchester",
@@ -4326,43 +3807,38 @@
       "note": "a location phrase standing for the town it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "revised",
-      "for": "anagram",
-      "note": "a revision reworks its contents, so the letters are reordered"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter alone"
-     }
-    ],
-    "linkWords": [
-     "Playwright"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "has",
-      "gives": "HAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "works",
-      "gives": "W",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHA",
-      "W"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HAS",
-       "gives": "SHA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revised",
+         "note": "a revision reworks its contents, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "the first of a word is its opening letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "works",
+         "note": "the opening letter of the word"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29996",
  "number": 29996,
- "series": "cryptic",
- "name": "Prize crossword No 29,996",
+ "prize": true,
  "setter": "Fed",
  "date": "2026-05-02",
  "dimensions": {
@@ -38,10 +37,6 @@
    },
    "solution": "ANYBODY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANYBODY",
     "definitions": [
      {
       "text": "Who will volunteer",
@@ -49,31 +44,23 @@
       "note": "The definition is put as a question rather than as a synonym: the answer is the word that answers it, the pronoun for no particular person."
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own single letter, taken exactly as it stands"
-     },
-     {
-      "clueFragment": "big city",
-      "gives": "NY",
-      "note": "NY is New York, the big city a setter reaches for when two letters are wanted"
-     },
-     {
-      "clueFragment": "matter",
-      "gives": "BODY",
-      "note": "matter as opposed to spirit — the physical stuff a thing is made of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NY",
-      "BODY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "the clue's own single letter, taken exactly as it stands"
+      },
+      {
+       "words": "big city",
+       "gives": "NY",
+       "note": "NY is New York, the big city a setter reaches for when two letters are wanted"
+      },
+      {
+       "words": "matter",
+       "gives": "BODY",
+       "note": "matter as opposed to spirit — the physical stuff a thing is made of"
+      }
      ]
     },
     "explanation": {
@@ -97,12 +84,6 @@
    },
    "solution": "NIAGARA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "NIAGARA",
     "definitions": [
      {
       "text": "Falls",
@@ -110,38 +91,41 @@
       "note": "'Falls' is plural and the answer is one place name, because the cataract itself is always spoken of in the plural."
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "note": "Climbing goes upwards, and in a down entry that means these letters are read from the bottom of the answer towards the top."
-     },
-     {
-      "text": "out of bounds",
-      "note": "The bounds of a word are the letters at either end, and they are sent out, leaving only what sat between them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "NIAGA",
-      "note": "to do a thing over is to do it again, and that word is written upwards here"
-     },
-     {
-      "clueFragment": "crag",
-      "gives": "RA",
-      "select": "middle",
-      "note": "the pair left when the first and last letters of this word go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIAGA",
-      "RA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "NIAGARA",
+     "parts": [
       {
-       "from": "AGAIN",
-       "to": "NIAGA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "Climbing goes upwards, and in a down entry that means these letters are read from the bottom of the answer towards the top."
+        }
+       ],
+       "parts": [
+        {
+         "words": "over",
+         "gives": "NIAGA",
+         "note": "to do a thing over is to do it again, and that word is written upwards here"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "out of bounds",
+           "note": "The bounds of a word are the letters at either end, and they are sent out, leaving only what sat between them."
+          }
+         ],
+         "parts": [
+          {
+           "words": "crag",
+           "note": "the pair left when the first and last letters of this word go"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -166,30 +150,28 @@
    },
    "solution": "BANKNOTES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "BANKNOTES",
     "definitions": [
      {
       "text": "Cash that folds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "hidden_word",
-      "note": "Inside means already sitting within, so a run of consecutive letters is lying untouched in the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "turban knot essentially",
-      "gives": "BANKNOTES",
-      "note": "nine letters in a row, starting partway through the first word and running across two gaps"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "Inside means already sitting within, so a run of consecutive letters is lying untouched in the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "turban knot essentially",
+       "gives": "BANKNOTES",
+       "note": "nine letters in a row, starting partway through the first word and running across two gaps"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Money folded away inside the knot of a turban.",
      "walkthrough": "A long hidden run is the easiest kind to walk past, because the eye reads 'turban knot' as one object and never spells it out letter by letter.",
@@ -211,44 +193,36 @@
    },
    "solution": "DEVOTE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DEVOTE",
     "definitions": [
      {
       "text": "Commit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "seconds",
-      "for": "letter_selection",
-      "note": "A word's second is the letter standing in second place, and one is taken from each of the two words named after it."
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "advising Gen",
-      "gives": "DE",
-      "select": 2,
-      "note": "the letter standing second in each of these two words, in the order given"
-     },
-     {
-      "clueFragment": "X?",
-      "gives": "VOTE",
-      "note": "the X pencilled on a ballot paper is a choice cast, and the question mark flags that this is one use of the letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "VOTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "seconds",
+         "note": "A word's second is the letter standing in second place, and one is taken from each of the two words named after it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "advising Gen",
+         "note": "the letter standing second in each of these two words, in the order given"
+        }
+       ]
+      },
+      {
+       "words": "X?",
+       "gives": "VOTE",
+       "note": "the X pencilled on a ballot paper is a choice cast, and the question mark flags that this is one use of the letter"
+      }
      ]
     },
     "explanation": {
@@ -282,12 +256,6 @@
    },
    "solution": "NOCANDO",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "NO CAN DO",
     "definitions": [
      {
       "text": "impossible",
@@ -295,43 +263,46 @@
       "note": "The definition is an adjective and the answer a spoken phrase: the setter swaps a word for the flat refusal that means the same."
      }
     ],
-    "indicators": [
-     {
-      "text": "In retrospect",
-      "for": "reversal",
-      "note": "Looking back over what has just been said, so in an across entry the letters are written out the other way, right to left."
-     },
-     {
-      "text": "both sides of",
-      "for": "letter_selection",
-      "note": "The sides of a word are its first and last letters, and both of them are wanted with nothing from the middle."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "working",
-      "gives": "NO",
-      "note": "a machine that is working is on, and that little word is set down backwards"
-     },
-     {
-      "clueFragment": "both sides of casino",
-      "gives": "CANDO",
-      "select": "outer",
-      "note": "the outer letters of the word are C and O, and calling for both of them — C and O — writes the joining word into the middle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "CANDO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "NOCANDO",
+     "indicators": [
       {
-       "from": "ON",
-       "to": "NO"
+       "text": "In retrospect",
+       "note": "Looking back over what has just been said, so in an across entry the letters are written out the other way, right to left."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "working",
+         "gives": "NO",
+         "note": "a machine that is working is on, and that little word is set down backwards"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "CANDO",
+         "indicators": [
+          {
+           "text": "both sides of",
+           "note": "The sides of a word are its first and last letters, and both of them are wanted with nothing from the middle."
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "both sides of casino",
+           "gives": "CANDO",
+           "select": "outer",
+           "note": "the outer letters of the word are C and O, and calling for both of them — C and O — writes the joining word into the middle"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -356,11 +327,6 @@
    },
    "solution": "OLEANDER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "OLEANDER",
     "definitions": [
      {
       "text": "it's poisonous if ingested",
@@ -368,33 +334,34 @@
       "note": "The definition is a description, not a noun: the setter says what the thing does to you rather than naming the shrub it belongs to."
      }
     ],
-    "indicators": [
-     {
-      "text": "Refined",
-      "note": "Refining ore breaks it down and casts it again, so the words beside it will not stay in the order they are printed."
-     },
-     {
-      "text": "contains",
-      "note": "What a thing contains sits within it, so the letter named next goes into the middle of the shuffled letters."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lead ore",
-      "gives": "LEADORE",
-      "note": "anagram fodder, seven letters"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "N",
-      "note": "n = note, the standard abbreviation, taken inside the shuffle"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LEAD ORE N",
-       "gives": "OLEANDER"
+       "text": "Refined",
+       "note": "Refining ore breaks it down and casts it again, so the words beside it will not stay in the order they are printed."
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "contains",
+         "note": "What a thing contains sits within it, so the letter named next goes into the middle of the shuffled letters."
+        }
+       ],
+       "parts": [
+        {
+         "words": "lead ore",
+         "note": "anagram fodder, seven letters"
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "gives": "N",
+       "note": "n = note, the standard abbreviation, taken inside the shuffle"
       }
      ]
     },
@@ -419,38 +386,30 @@
    },
    "solution": "ALBUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALBUM",
     "definitions": [
      {
       "text": "Record",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "a = American, the standard abbreviation"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "l = left, as in stage directions or on a map"
-     },
-     {
-      "clueFragment": "behind",
-      "gives": "BUM",
-      "note": "bum is the everyday British word for the backside, which is what a behind is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "BUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "a = American, the standard abbreviation"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "l = left, as in stage directions or on a map"
+      },
+      {
+       "words": "behind",
+       "gives": "BUM",
+       "note": "bum is the everyday British word for the backside, which is what a behind is"
+      }
      ]
     },
     "explanation": {
@@ -474,38 +433,24 @@
    },
    "solution": "DETAINS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DETAINS",
     "definitions": [
      {
       "text": "Stays",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "Grinding a thing reduces it to loose material, and letters ground down go back together in some new arrangement."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "instead",
-      "gives": "INSTEAD",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INSTEAD",
-       "gives": "DETAINS"
+       "text": "ground",
+       "note": "Grinding a thing reduces it to loose material, and letters ground down go back together in some new arrangement."
+      }
+     ],
+     "parts": [
+      {
+       "words": "instead",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -559,54 +504,54 @@
    },
    "solution": "SATNAV",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade",
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "SAT-NAV",
     "definitions": [
      {
       "text": "This might help vehicle that's regularly going the wrong way",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "note": "Taken at regular intervals — the first, third and fifth letters of the word beside it, and none of the ones between."
-     },
-     {
-      "text": "going the wrong way",
-      "note": "The wrong way is the reverse of the right one, so in an across entry the pieces are written out from right to left."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vehicle",
-      "gives": "VAN",
-      "note": "a van is one, and it arrives back to front"
-     },
-     {
-      "clueFragment": "that's regularly",
-      "gives": "TAS",
-      "select": "alternate",
-      "note": "letters one, three and five of this word, the apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "NAV"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "VANTAS",
-       "to": "SATNAV"
+       "text": "regularly",
+       "note": "Taken at regular intervals — the first, third and fifth letters of the word beside it, and none of the ones between."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "going the wrong way",
+         "note": "The wrong way is the reverse of the right one, so in an across entry the pieces are written out from right to left."
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "gives": "VAN",
+         "note": "a van is one, and it arrives back to front"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "TAS",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "that's regularly",
+           "gives": "TAS",
+           "select": "alternate",
+           "note": "letters one, three and five of this word, the apostrophe ignored"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A driver who keeps taking wrong turnings and could do with some help.",
      "walkthrough": "Every word is working twice over: the sentence describes what the gadget is for while the same words hand over a vehicle and three letters to turn round.",
@@ -634,40 +579,31 @@
    },
    "solution": "FLEABITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FLEA-BITE",
     "definitions": [
      {
       "text": "minor inconvenience",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "Without is used in its old sense of outside — as in 'without the city walls' — so the piece before it wraps round the one before that."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get away",
-      "gives": "FLEE",
-      "note": "to flee is to get away, and the word opens up before its last letter"
-     },
-     {
-      "clueFragment": "Rather",
-      "gives": "ABIT",
-      "note": "'rather cold' and 'a bit cold' say the same thing, so the phrase goes in whole"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLE",
-      "ABIT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "Without is used in its old sense of outside — as in 'without the city walls' — so the piece before it wraps round the one before that."
+      }
+     ],
+     "parts": [
+      {
+       "words": "get away",
+       "gives": "FLEE",
+       "note": "to flee is to get away, and the word opens up before its last letter"
+      },
+      {
+       "words": "Rather",
+       "gives": "ABIT",
+       "note": "'rather cold' and 'a bit cold' say the same thing, so the phrase goes in whole"
+      }
      ]
     },
     "explanation": {
@@ -701,54 +637,40 @@
     "9-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUT OF THE QUESTION",
     "definitions": [
      {
       "text": "5",
       "at": 49
      }
     ],
-    "linkWords": [
-     "with",
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Abroad",
-      "gives": "OUT",
-      "note": "somebody abroad is away"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "o = old, the standard abbreviation"
-     },
-     {
-      "clueFragment": "newspaper",
-      "gives": "FT",
-      "note": "the FT is the Financial Times, the pink-paper City daily and the crossword's stock newspaper"
-     },
-     {
-      "clueFragment": "ambassador",
-      "gives": "HE",
-      "note": "an ambassador is styled His or Her Excellency, shortened to HE on the envelope"
-     },
-     {
-      "clueFragment": "issue",
-      "gives": "QUESTION",
-      "note": "the issue before a meeting is the question before it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "O",
-      "FT",
-      "HE",
-      "QUESTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Abroad",
+       "gives": "OUT",
+       "note": "somebody abroad is away"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "o = old, the standard abbreviation"
+      },
+      {
+       "words": "newspaper",
+       "gives": "FT",
+       "note": "the FT is the Financial Times, the pink-paper City daily and the crossword's stock newspaper"
+      },
+      {
+       "words": "ambassador",
+       "gives": "HE",
+       "note": "an ambassador is styled His or Her Excellency, shortened to HE on the envelope"
+      },
+      {
+       "words": "issue",
+       "gives": "QUESTION",
+       "note": "the issue before a meeting is the question before it"
+      }
      ]
     },
     "explanation": {
@@ -772,31 +694,16 @@
    },
    "solution": "BARNET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BARNET",
     "definitions": [
      {
       "text": "Bob maybe",
-      "at": 0
+      "at": 0,
+      "meaning": "a bob is one particular cut, and 'maybe' flags it as an example of the wider thing rather than the thing itself"
      },
      {
       "text": "N. London borough",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bob maybe",
-      "note": "a bob is one particular cut, and 'maybe' flags it as an example of the wider thing rather than the thing itself"
-     },
-     {
-      "clueFragment": "N. London borough",
-      "note": "one of the local authorities at the top of London, out past Finchley and Hendon"
+      "at": 13,
+      "meaning": "one of the local authorities at the top of London, out past Finchley and Hendon"
      }
     ],
     "explanation": {
@@ -820,50 +727,47 @@
    },
    "solution": "HANDMAID",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HANDMAID",
     "definitions": [
      {
       "text": "Attendant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possessing",
-      "note": "What you possess you have about you, so the piece named first opens up and takes the next one into its middle."
-     },
-     {
-      "text": "at the outset",
-      "note": "At the outset means at the very start, so this piece goes to the front of the answer rather than where the clue names it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "penmanship",
-      "gives": "HAND",
-      "note": "your hand is your handwriting — a fair hand, an illegible hand"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MD",
-      "note": "MD is the doctor's degree, and the two letters part company to make room"
-     },
-     {
-      "clueFragment": "perfect",
-      "gives": "AI",
-      "note": "A1 means first-rate, and in a grid the 1 is written as the letter I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAND",
-      "M",
-      "AI",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "possessing",
+       "note": "What you possess you have about you, so the piece named first opens up and takes the next one into its middle."
+      }
+     ],
+     "parts": [
+      {
+       "words": "penmanship",
+       "gives": "HAND",
+       "note": "your hand is your handwriting — a fair hand, an illegible hand"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "at the outset",
+         "note": "At the outset means at the very start, so this piece goes to the front of the answer rather than where the clue names it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "gives": "MD",
+         "note": "MD is the doctor's degree, and the two letters part company to make room"
+        },
+        {
+         "words": "perfect",
+         "gives": "AI",
+         "note": "A1 means first-rate, and in a grid the 1 is written as the letter I"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -887,42 +791,31 @@
    },
    "solution": "WALTZ",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WALTZ",
     "definitions": [
      {
       "text": "music",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "joining",
-      "for": "charade",
-      "note": "Joining says the two pieces simply run together end to end, one written straight after the other."
-     }
-    ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disney",
-      "gives": "WALT",
-      "note": "Disney's own first name, the man rather than the studio"
-     },
-     {
-      "clueFragment": "Unknown",
-      "gives": "Z",
-      "note": "algebra's unknown quantity is x, y or z, and only one of the three fits here"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WALT",
-      "Z"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joining",
+       "note": "Joining says the two pieces simply run together end to end, one written straight after the other."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Disney",
+       "gives": "WALT",
+       "note": "Disney's own first name, the man rather than the studio"
+      },
+      {
+       "words": "Unknown",
+       "gives": "Z",
+       "note": "algebra's unknown quantity is x, y or z, and only one of the three fits here"
+      }
      ]
     },
     "explanation": {
@@ -946,53 +839,41 @@
    },
    "solution": "SQUEAMISH",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "SQUEAMISH",
     "definitions": [
      {
       "text": "easily shocked",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "note": "A revolution turns a thing full circle, so the name beside it is written out the other way round."
-     },
-     {
-      "text": "invades",
-      "note": "An invader forces a way in, so those letters end up inside the word already assembled rather than beside it."
-     }
-    ],
-    "linkWords": [
-     "when",
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crush",
-      "gives": "SQUISH",
-      "note": "to squish a thing is to crush it, and this word splits after three letters"
-     },
-     {
-      "clueFragment": "West",
-      "gives": "EAM",
-      "note": "Mae West, the Hollywood star, lends her first name, and it turns round on the way in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SQU",
-      "EAM",
-      "ISH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SQUEAMISH",
+     "parts": [
       {
-       "from": "MAE",
-       "to": "EAM"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "A revolution turns a thing full circle, so the name beside it is written out the other way round."
+        },
+        {
+         "text": "invades",
+         "note": "An invader forces a way in, so those letters end up inside the word already assembled rather than beside it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Crush",
+         "gives": "SQUISH",
+         "note": "to squish a thing is to crush it, and this word splits after three letters"
+        },
+        {
+         "words": "West",
+         "gives": "EAM",
+         "note": "Mae West, the Hollywood star, lends her first name, and it turns round on the way in"
+        }
+       ]
       }
      ]
     },
@@ -1023,52 +904,41 @@
    },
    "solution": "MUCKRAKER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "MUCK-RAKER",
     "definitions": [
      {
       "text": "Scandalmonger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "note": "A cover goes over a thing and round it, so this word closes over the letters named after it."
-     },
-     {
-      "text": "up",
-      "note": "In a down entry up means read from the bottom towards the top, so those letters run in the opposite direction."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "best mate",
-      "gives": "MUCKER",
-      "note": "a mucker is British slang for a pal, and the word opens after three letters"
-     },
-     {
-      "clueFragment": "chest",
-      "gives": "KRA",
-      "note": "an ark is a chest — the Ark of the Covenant was a box — and it is written upwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUC",
-      "KRA",
-      "KER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MUCKRAKER",
+     "parts": [
       {
-       "from": "ARK",
-       "to": "KRA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covers",
+         "note": "A cover goes over a thing and round it, so this word closes over the letters named after it."
+        },
+        {
+         "text": "up",
+         "note": "In a down entry up means read from the bottom towards the top, so those letters run in the opposite direction."
+        }
+       ],
+       "parts": [
+        {
+         "words": "best mate",
+         "gives": "MUCKER",
+         "note": "a mucker is British slang for a pal, and the word opens after three letters"
+        },
+        {
+         "words": "chest",
+         "gives": "KRA",
+         "note": "an ark is a chest — the Ark of the Covenant was a box — and it is written upwards"
+        }
+       ]
       }
      ]
     },
@@ -1093,57 +963,71 @@
    },
    "solution": "IDLENESS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "IDLENESS",
     "definitions": [
      {
       "text": "Vegetating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "note": "At the finish — the last letter of each word named before it, and nothing else from either."
-     },
-     {
-      "text": "visiting",
-      "note": "A visitor goes inside the house, so these letters sit within the piece named after them."
-     },
-     {
-      "text": "on vacation",
-      "note": "A place on vacation stands empty, so this word keeps only the letters at its two ends and loses everything between."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "comic Eric",
-      "gives": "IDLE",
-      "note": "Eric Idle of Monty Python, one of two comic Erics the clue could mean"
-     },
-     {
-      "clueFragment": "Naxos on vacation",
-      "gives": "NS",
-      "select": "outer",
-      "note": "the Greek island emptied out, keeping only the letter at each end"
-     },
-     {
-      "clueFragment": "Morecambe is finally",
-      "gives": "ES",
-      "select": "last",
-      "note": "the last letter of each of these two words, in the order given"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDLE",
-      "N",
-      "ES",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "finally",
+       "note": "At the finish — the last letter of each word named before it, and nothing else from either."
+      }
+     ],
+     "parts": [
+      {
+       "words": "comic Eric",
+       "gives": "IDLE",
+       "note": "Eric Idle of Monty Python, one of two comic Erics the clue could mean"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "visiting",
+         "note": "A visitor goes inside the house, so these letters sit within the piece named after them."
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "NS",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "note": "A place on vacation stands empty, so this word keeps only the letters at its two ends and loses everything between."
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Naxos on vacation",
+           "gives": "NS",
+           "select": "outer",
+           "note": "the Greek island emptied out, keeping only the letter at each end"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "ES",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Morecambe is finally",
+           "gives": "ES",
+           "select": "last",
+           "note": "the last letter of each of these two words, in the order given"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1167,11 +1051,6 @@
    },
    "solution": "SUBSIDIES",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SUBSIDIES",
     "definitions": [
      {
       "text": "Financial assistance",
@@ -1179,37 +1058,35 @@
       "note": "The definition is a mass noun and the answer a plural: the help is counted as one lump of money rather than as the separate grants that make it up."
      }
     ],
-    "indicators": [
-     {
-      "text": "securing",
-      "note": "To secure a thing is to hold it fast, so the word beside it closes round the letter named next."
-     },
-     {
-      "text": "a little",
-      "note": "A little of a word is not the whole of it — here only the letter it begins with."
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "founders",
-      "gives": "SUBSIDES",
-      "note": "a boat that founders subsides — goes down — and the word opens before its last two letters"
-     },
-     {
-      "clueFragment": "investment",
-      "gives": "I",
-      "select": "first",
-      "note": "the opening letter of the word and no more of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUBSID",
-      "I",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "note": "To secure a thing is to hold it fast, so the word beside it closes round the letter named next."
+      }
+     ],
+     "parts": [
+      {
+       "words": "founders",
+       "gives": "SUBSIDES",
+       "note": "a boat that founders subsides — goes down — and the word opens before its last two letters"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a little",
+         "note": "A little of a word is not the whole of it — here only the letter it begins with."
+        }
+       ],
+       "parts": [
+        {
+         "words": "investment",
+         "note": "the opening letter of the word and no more of it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1233,62 +1110,56 @@
    },
    "solution": "UNICORN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "UNICORN",
     "definitions": [
      {
       "text": "symbol of Scotland",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "Round about — the letters named before it end up on either side of everything that follows."
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyone can see this",
-      "gives": "U",
-      "note": "a film classified U is universal, passed for viewers of any age"
-     },
-     {
-      "clueFragment": "news",
-      "gives": "NN",
-      "note": "n = new, and the plural asks for a second one, which is what leaves a gap between them"
-     },
-     {
-      "clueFragment": "independent",
-      "gives": "I",
-      "note": "i = independent, as printed beside a candidate's name on a ballot"
-     },
-     {
-      "clueFragment": "business",
-      "gives": "CO",
-      "note": "co = company, the abbreviation in half the firm names on a high street"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "r = run, the cricket scorer's abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "N",
-      "I",
-      "CO",
-      "R",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "Round about — the letters named before it end up on either side of everything that follows."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Everyone can see this",
+         "gives": "U",
+         "note": "a film classified U is universal, passed for viewers of any age"
+        },
+        {
+         "words": "news",
+         "gives": "NN",
+         "note": "n = new, and the plural asks for a second one, which is what leaves a gap between them"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "independent",
+         "gives": "I",
+         "note": "i = independent, as printed beside a candidate's name on a ballot"
+        },
+        {
+         "words": "business",
+         "gives": "CO",
+         "note": "co = company, the abbreviation in half the firm names on a high street"
+        },
+        {
+         "words": "run",
+         "gives": "R",
+         "note": "r = run, the cricket scorer's abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1312,47 +1183,40 @@
    },
    "solution": "SCOPE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SCOPE",
     "definitions": [
      {
       "text": "range",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "The close of a word is its end, so only the final letter of the word named after it is taken."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "s = small, as on the label in a shirt"
-     },
-     {
-      "clueFragment": "PC",
-      "gives": "COP",
-      "note": "a PC is a police constable, and a cop is the same officer in slang"
-     },
-     {
-      "clueFragment": "price",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "COP",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "s = small, as on the label in a shirt"
+      },
+      {
+       "words": "PC",
+       "gives": "COP",
+       "note": "a PC is a police constable, and a cop is the same officer in slang"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "The close of a word is its end, so only the final letter of the word named after it is taken."
+        }
+       ],
+       "parts": [
+        {
+         "words": "price",
+         "note": "the last letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1376,38 +1240,24 @@
    },
    "solution": "POLEMIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POLEMIC",
     "definitions": [
      {
       "text": "argument",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "12",
-      "for": "anagram",
-      "note": "The number sends you to 12 across, which supplies the word 'out', and letters that are out are no longer in the order they were given."
-     }
-    ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Compile",
-      "gives": "COMPILE",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COMPILE",
-       "gives": "POLEMIC"
+       "text": "12",
+       "note": "The number sends you to 12 across, which supplies the word 'out', and letters that are out are no longer in the order they were given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Compile",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -1445,45 +1295,36 @@
    },
    "solution": "VIRULENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VIRULENT",
     "definitions": [
      {
       "text": "Particularly noxious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "In an across entry a piece placed on another follows it, so the books come after the word for order rather than before it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "six",
-      "gives": "VI",
-      "note": "six written in Roman numerals"
-     },
-     {
-      "clueFragment": "order",
-      "gives": "RULE",
-      "note": "a rule is an order handed down, and the two nouns swap freely"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "NT",
-      "note": "the New Testament, the crossword's usual books alongside the OT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VI",
-      "RULE",
-      "NT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "In an across entry a piece placed on another follows it, so the books come after the word for order rather than before it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "six",
+       "gives": "VI",
+       "note": "six written in Roman numerals"
+      },
+      {
+       "words": "order",
+       "gives": "RULE",
+       "note": "a rule is an order handed down, and the two nouns swap freely"
+      },
+      {
+       "words": "books",
+       "gives": "NT",
+       "note": "the New Testament, the crossword's usual books alongside the OT"
+      }
      ]
     },
     "explanation": {
@@ -1507,32 +1348,25 @@
    },
    "solution": "UNDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNDER",
     "definitions": [
      {
       "text": "below",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Two European articles",
-      "gives": "UN",
-      "note": "un is French for 'a', the first of the pair"
-     },
-     {
-      "clueFragment": "European articles",
-      "gives": "DER",
-      "note": "der is German for 'the', the second of the pair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "DER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two European articles",
+       "gives": "UN",
+       "note": "un is French for 'a', the first of the pair"
+      },
+      {
+       "words": "European articles",
+       "gives": "DER",
+       "note": "der is German for 'the', the second of the pair"
+      }
      ]
     },
     "explanation": {
@@ -1555,48 +1389,45 @@
    },
    "solution": "HURDLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HURDLE",
     "definitions": [
      {
       "text": "difficulty",
       "at": 68
      }
     ],
-    "indicators": [
-     {
-      "text": "discovered",
-      "note": "Taking the cover off a word leaves what was underneath, so the first and last letters go and the middle stays."
-     },
-     {
-      "text": "characters bringing up the rear",
-      "note": "The character bringing up the rear is the one at the back, so it is the final letter of each word that is wanted."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Uhura",
-      "gives": "HUR",
-      "select": "middle",
-      "note": "the Star Trek communications officer's name with the letter at each end taken off"
-     },
-     {
-      "clueFragment": "red will die",
-      "gives": "DLE",
-      "select": "last",
-      "note": "the last letter of each of these three words, read in order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUR",
-      "DLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "discovered",
+       "note": "Taking the cover off a word leaves what was underneath, so the first and last letters go and the middle stays."
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "characters bringing up the rear",
+         "note": "The character bringing up the rear is the one at the back, so it is the final letter of each word that is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Uhura",
+         "note": "the Star Trek communications officer's name with the letter at each end taken off"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "red will die",
+         "note": "the last letter of each of these three words, read in order"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1630,10 +1461,6 @@
     "23-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ICE SHEETS",
     "definitions": [
      {
       "text": "They're melting",
@@ -1641,33 +1468,27 @@
       "note": "The definition is a statement about the answer rather than a synonym for it: the setter points at what these things are doing instead of naming them."
      }
     ],
-    "indicators": [
-     {
-      "text": "variety of",
-      "for": "anagram",
-      "note": "A variety is another form of the same thing, so the letters beside it come back arranged a different way."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cheeses",
-      "gives": "CHEESES",
-      "note": "anagram fodder, seven letters"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "two more letters for the shuffle, lifted from the clue as they stand"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHEESES IT",
-       "gives": "ICESHEETS"
+       "text": "variety of",
+       "note": "A variety is another form of the same thing, so the letters beside it come back arranged a different way."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cheeses",
+         "note": "anagram fodder, seven letters"
+        },
+        {
+         "words": "it",
+         "note": "two more letters for the shuffle, lifted from the clue as they stand"
+        }
+       ]
       }
      ]
     },
@@ -1698,47 +1519,41 @@
    },
    "solution": "TOODLEOO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TOODLE-OO",
     "definitions": [
      {
       "text": "saying farewell",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "to hold",
-      "for": "container",
-      "note": "To hold a thing is to keep it within you, so the word before opens up and takes the sign into its middle."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Also",
-      "gives": "TOO",
-      "note": "also and too are the same word in different registers"
-     },
-     {
-      "clueFragment": "manage",
-      "gives": "DO",
-      "note": "to do is to manage — 'that will do' — and the word splits in two"
-     },
-     {
-      "clueFragment": "sign",
-      "gives": "LEO",
-      "note": "Leo the lion is one of the twelve signs of the zodiac"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOO",
-      "D",
-      "LEO",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Also",
+       "gives": "TOO",
+       "note": "also and too are the same word in different registers"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to hold",
+         "note": "To hold a thing is to keep it within you, so the word before opens up and takes the sign into its middle."
+        }
+       ],
+       "parts": [
+        {
+         "words": "manage",
+         "gives": "DO",
+         "note": "to do is to manage — 'that will do' — and the word splits in two"
+        },
+        {
+         "words": "sign",
+         "gives": "LEO",
+         "note": "Leo the lion is one of the twelve signs of the zodiac"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1762,41 +1577,35 @@
    },
    "solution": "ESKIMO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ESKIMO",
     "definitions": [
      {
       "text": "language",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Originally",
-      "for": "letter_selection",
-      "note": "The origin of a word is the letter it starts from, and the run of words after this one gives up one letter each."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "everyone sees knitting is my",
-      "gives": "ESKIM",
-      "select": "first",
-      "note": "the opening letter of each of these five words in turn"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is nothing in tennis, and nothing is written as O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESKIM",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Originally",
+         "note": "The origin of a word is the letter it starts from, and the run of words after this one gives up one letter each."
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone sees knitting is my",
+         "note": "the opening letter of each of these five words in turn"
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is nothing in tennis, and nothing is written as O"
+      }
      ]
     },
     "explanation": {
@@ -1820,37 +1629,25 @@
    },
    "solution": "ENGROSS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ENGROSS",
     "definitions": [
      {
       "text": "completely engage",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Occasionally",
-      "for": "letter_selection",
-      "note": "Something done occasionally happens every so often rather than all the time — take every second letter and leave the rest behind."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "teenagers obsess",
-      "gives": "ENGROSS",
-      "select": "alternate",
-      "note": "every second letter across both words, beginning with the second letter of the first"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENGROSS"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Occasionally",
+       "note": "Something done occasionally happens every so often rather than all the time — take every second letter and leave the rest behind."
+      }
+     ],
+     "parts": [
+      {
+       "words": "teenagers obsess",
+       "note": "every second letter across both words, beginning with the second letter of the first"
+      }
      ]
     },
     "explanation": {
@@ -1874,52 +1671,47 @@
    },
    "solution": "OSTRICH",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OSTRICH",
     "definitions": [
      {
       "text": "Huge egg supplier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in Germany",
-      "note": "Said in Germany means said in German, so two of the words that follow are wanted in that language rather than in English."
-     },
-     {
-      "text": "involved",
-      "note": "Getting something involved brings it in among the rest, so the letter named lands inside the pieces already assembled."
-     }
-    ],
-    "linkWords": [
-     "must get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "east of Berlin",
-      "gives": "OST",
-      "note": "east as they say it in Berlin"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "r = right, the standard abbreviation"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "ICH",
-      "note": "the German for 'I', which is what the clue's own pronoun turns into"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OST",
-      "R",
-      "ICH"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "OSTRICH",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in Germany",
+         "note": "Said in Germany means said in German, so two of the words that follow are wanted in that language rather than in English."
+        },
+        {
+         "text": "involved",
+         "note": "Getting something involved brings it in among the rest, so the letter named lands inside the pieces already assembled."
+        }
+       ],
+       "parts": [
+        {
+         "words": "east of Berlin",
+         "gives": "OST",
+         "note": "east as they say it in Berlin"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "r = right, the standard abbreviation"
+        },
+        {
+         "words": "I",
+         "gives": "ICH",
+         "note": "the German for 'I', which is what the clue's own pronoun turns into"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

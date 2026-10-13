@@ -1,8 +1,6 @@
 {
  "id": "times-29271",
  "number": 29271,
- "series": "times",
- "name": "Times cryptic crossword No 29,271",
  "date": "2025-07-02",
  "dimensions": {
   "cols": 15,
@@ -41,41 +39,30 @@
    },
    "solution": "PITH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PITH",
     "definitions": [
      {
       "text": "Salient point",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sales talk",
-      "gives": "PITCH",
-      "note": "a sales pitch"
-     },
-     {
-      "clueFragment": "Conservative leaving",
-      "gives": "C",
-      "note": "C = Conservative, taken out of PITCH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIT",
-      "H"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sales talk",
+       "gives": "PITCH",
+       "note": "a sales pitch"
+      },
+      {
+       "words": "Conservative leaving",
+       "gives": "C",
+       "note": "C = Conservative, taken out of PITCH"
+      }
      ]
     },
     "explanation": {
@@ -104,58 +91,56 @@
    },
    "solution": "INOPERATIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "INOPERATIVE",
     "definitions": [
      {
       "text": "not working",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "Topsy-Turvy",
-      "note": "upside down: in a down entry the letters read bottom to top"
-     },
-     {
-      "text": "supports",
-      "note": "in a down entry, what supports sits underneath, so the reversed block goes below I"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "Musical",
-      "gives": "EVITA",
-      "note": "Evita, the Lloyd Webber musical"
-     },
-     {
-      "clueFragment": "agent",
-      "gives": "REP",
-      "note": "a rep is a sales agent"
-     },
-     {
-      "clueFragment": "dealing with",
-      "gives": "ON",
-      "note": "on = about, dealing with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NOPERATIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "EVITAREPON",
-       "to": "NOPERATIVE"
+       "text": "Topsy-Turvy",
+       "note": "upside down: in a down entry the letters read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "supports",
+         "note": "in a down entry, what supports sits underneath, so the reversed block goes below I"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Musical",
+           "gives": "EVITA",
+           "note": "Evita, the Lloyd Webber musical"
+          },
+          {
+           "words": "agent",
+           "gives": "REP",
+           "note": "a rep is a sales agent"
+          },
+          {
+           "words": "dealing with",
+           "gives": "ON",
+           "note": "on = about, dealing with"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -191,49 +176,51 @@
    },
    "solution": "HOTPOTATO",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HOT POTATO",
     "definitions": [
      {
       "text": "difficult issue",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "conceals"
-     },
-     {
-      "text": "first",
-      "note": "take only the opening letter of archbishop"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fiery",
-      "gives": "HOT",
-      "note": "hot = fiery"
-     },
-     {
-      "clueFragment": "primate",
-      "gives": "POTTO",
-      "note": "a potto is a small African primate"
-     },
-     {
-      "clueFragment": "archbishop's first",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of archbishop, placed inside POTTO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT",
-      "POTATO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "conceals"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fiery",
+       "gives": "HOT",
+       "note": "hot = fiery"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "take only the opening letter of archbishop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "primate",
+         "gives": "POTTO",
+         "note": "a potto is a small African primate"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "archbishop's first",
+           "gives": "ARCHBISHOPFIRST",
+           "note": "first letter of archbishop, placed inside POTTO"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -269,53 +256,57 @@
    },
    "solution": "SAFETYBELT",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SAFETY BELT",
     "definitions": [
      {
       "text": "protective gear",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "cops"
-     },
-     {
-      "text": "extremely",
-      "note": "take the two extreme letters of tentatively"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peter",
-      "gives": "SAFE",
-      "note": "peter is old criminal slang for a safe"
-     },
-     {
-      "clueFragment": "extremely tentatively",
-      "gives": "TY",
-      "select": "outer",
-      "note": "outer letters of tentatively"
-     },
-     {
-      "clueFragment": "hit",
-      "gives": "BELT",
-      "note": "belt = hit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAFE",
-      "TY",
-      "BELT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SAFETYBELT",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "cops"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Peter",
+         "gives": "SAFE",
+         "note": "peter is old criminal slang for a safe"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "TY",
+         "indicators": [
+          {
+           "text": "extremely",
+           "note": "take the two extreme letters of tentatively"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "extremely tentatively",
+           "gives": "TY",
+           "select": "outer",
+           "note": "outer letters of tentatively"
+          }
+         ]
+        },
+        {
+         "words": "hit",
+         "gives": "BELT",
+         "note": "belt = hit"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -344,44 +335,46 @@
    },
    "solution": "SEVERAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SEVERAL",
     "definitions": [
      {
       "text": "Some",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "note": "at regular intervals, so take every other letter of fail"
-     },
-     {
-      "text": "following",
-      "note": "following means coming after, so these letters are placed after the split"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "split",
-      "gives": "SEVER",
-      "note": "sever = split"
-     },
-     {
-      "clueFragment": "fail regularly",
-      "gives": "AL",
-      "select": "alternate",
-      "note": "the even letters of fAiL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEVER",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "at regular intervals, so take every other letter of fail"
+      }
+     ],
+     "parts": [
+      {
+       "words": "split",
+       "gives": "SEVER",
+       "note": "sever = split"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "AL",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "following means coming after, so these letters are placed after the split"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "fail regularly",
+         "gives": "AL",
+         "select": "alternate",
+         "note": "the even letters of fAiL"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -416,24 +409,31 @@
    },
    "solution": "FORBIDDENGROUND",
    "annotation": {
-    "type": [
-     "anagram",
-     "cryptic_definition"
-    ],
-    "answer": "FORBIDDEN GROUND",
     "definitions": [
      {
       "text": "This topic should be avoided",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in Bedford",
-      "gives": "FORBIDDEN",
-      "note": "IN BEDFORD rearranged, that is ground up"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "unchecked": true,
+     "gives": "FORBIDDENGROUND",
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "FORBIDDENGROUND",
+       "parts": [
+        {
+         "words": "in Bedford",
+         "gives": "FORBIDDEN",
+         "note": "IN BEDFORD rearranged, that is ground up"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A local warning that some subject is taboo in the town of Bedford.",
      "walkthrough": "The anagram indicator is the answer's own second word: FORBIDDEN is IN BEDFORD ground, crushed and remixed, so the answer describes its own wordplay.",
@@ -461,40 +461,31 @@
    },
    "solution": "TRIMMER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRIMMER",
     "definitions": [
      {
       "text": "More neat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means inside, so the gentlemen stand within the city's letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German city",
-      "gives": "TRIER",
-      "note": "Trier, on the Moselle"
-     },
-     {
-      "clueFragment": "French gentlemen",
-      "gives": "MM",
-      "note": "MM = Messieurs, placed inside TRIER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "MM",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in means inside, so the gentlemen stand within the city's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German city",
+       "gives": "TRIER",
+       "note": "Trier, on the Moselle"
+      },
+      {
+       "words": "French gentlemen",
+       "gives": "MM",
+       "note": "MM = Messieurs, placed inside TRIER"
+      }
      ]
     },
     "explanation": {
@@ -522,47 +513,41 @@
    },
    "solution": "EGRET",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EGRET",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "in a down entry, the top of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. = for example, say"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     },
-     {
-      "clueFragment": "top of tree",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of tree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EG",
-      "RE",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "say",
+       "gives": "EG",
+       "note": "e.g. = for example, say"
+      },
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re = on, concerning"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "in a down entry, the top of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top of tree",
+         "gives": "TREE",
+         "note": "first letter of tree"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -591,37 +576,28 @@
    },
    "solution": "TOWEL",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "TOWEL",
     "definitions": [
      {
       "text": "Dryer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "changing hands",
-      "for": "substitution",
-      "note": "right hand is swapped for left: R becomes L"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tall building",
-      "gives": "TOWER",
-      "note": "a tower; its R (right) changes to L (left)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOWE",
-      "L"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "TOWEL",
+     "indicators": [
+      {
+       "text": "changing hands",
+       "note": "right hand is swapped for left: R becomes L"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tall building",
+       "gives": "TOWER",
+       "note": "a tower; its R (right) changes to L (left)"
+      }
      ]
     },
     "explanation": {
@@ -651,38 +627,24 @@
    },
    "solution": "MONTEVERDI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MONTEVERDI",
     "definitions": [
      {
       "text": "Barman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Barking",
-      "for": "anagram",
-      "note": "barking means mad, so the letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "driven me to",
-      "gives": "DRIVENMETO",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRIVEN ME TO",
-       "gives": "MONTEVERDI"
+       "text": "Barking",
+       "note": "barking means mad, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "driven me to",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -713,30 +675,16 @@
    },
    "solution": "CREW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CREW",
     "definitions": [
      {
       "text": "Vaunted",
-      "at": 0
+      "at": 0,
+      "meaning": "boasted, the old past tense of crow"
      },
      {
       "text": "team",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vaunted",
-      "gives": "CREW",
-      "note": "boasted, the old past tense of crow"
-     },
-     {
-      "clueFragment": "team",
-      "gives": "CREW",
-      "note": "a group working together, on a ship or film set"
+      "at": 8,
+      "meaning": "a group working together, on a ship or film set"
      }
     ],
     "explanation": {
@@ -763,44 +711,40 @@
    },
    "solution": "RENOIR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RENOIR",
     "definitions": [
      {
       "text": "Impressionist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "the starts of words are their first letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US city",
-      "gives": "RENO",
-      "note": "Reno, Nevada"
-     },
-     {
-      "clueFragment": "starts to impersonate Romney",
-      "gives": "IR",
-      "select": "first",
-      "note": "first letters of impersonate and Romney"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RENO",
-      "IR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US city",
+       "gives": "RENO",
+       "note": "Reno, Nevada"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "IR",
+       "indicators": [
+        {
+         "text": "starts to",
+         "note": "the starts of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "starts to impersonate Romney",
+         "gives": "IR",
+         "select": "first",
+         "note": "first letters of impersonate and Romney"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -830,40 +774,31 @@
    },
    "solution": "IMMORTAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMMORTAL",
     "definitions": [
      {
       "text": "Great",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to enter",
-      "for": "container",
-      "note": "to enter is to go in, so the time letter goes inside the base word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "base",
-      "gives": "IMMORAL",
-      "note": "base = low, immoral"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time, entering IMMORAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMMOR",
-      "T",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enter",
+       "note": "to enter is to go in, so the time letter goes inside the base word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "base",
+       "gives": "IMMORAL",
+       "note": "base = low, immoral"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T = time, entering IMMORAL"
+      }
      ]
     },
     "explanation": {
@@ -892,38 +827,24 @@
    },
    "solution": "ABERYSTWYTH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ABERYSTWYTH",
     "definitions": [
      {
       "text": "holiday resort",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "replaced",
-      "for": "anagram",
-      "note": "the letters are put back in a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Why battery's",
-      "gives": "WHYBATTERYS",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WHY BATTERYS",
-       "gives": "ABERYSTWYTH"
+       "text": "replaced",
+       "note": "the letters are put back in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Why battery's",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -953,36 +874,28 @@
    },
    "solution": "NADA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NADA",
     "definitions": [
      {
       "text": "nothing",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "finishing early",
-      "for": "deletion",
-      "note": "the word stops one letter short"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tennis legend finishing early",
-      "gives": "NADA",
-      "note": "Rafael NADAL without his last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NADA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NADA",
+     "indicators": [
+      {
+       "text": "finishing early",
+       "note": "the word stops one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tennis legend finishing early",
+       "gives": "NADA",
+       "note": "Rafael NADAL without his last letter"
+      }
      ]
     },
     "explanation": {
@@ -1010,61 +923,63 @@
    },
    "solution": "LEDERHOSEN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "LEDERHOSEN",
     "definitions": [
      {
       "text": "part of Tyrolean ensemble?",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "note": "out means wrong or disordered, so SHONE is rearranged"
-     },
-     {
-      "text": "constraining"
-     },
-     {
-      "text": "exposed",
-      "for": "letter_selection",
-      "note": "exposed means stripped of covering, so very loses its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Light source",
-      "gives": "LED",
-      "note": "an LED, a light-emitting diode"
-     },
-     {
-      "clueFragment": "very exposed",
-      "gives": "ER",
-      "select": "middle",
-      "note": "vERy with its skin removed"
-     },
-     {
-      "clueFragment": "shone",
-      "gives": "HOSEN",
-      "note": "SHONE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LED",
-      "ER",
-      "HOSEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LEDERHOSEN",
+     "parts": [
       {
-       "fodder": "SHONE",
-       "gives": "HOSEN"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "LEDERHOSEN",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "out",
+           "note": "out means wrong or disordered, so SHONE is rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Light source",
+           "gives": "LED",
+           "note": "an LED, a light-emitting diode"
+          },
+          {
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "constraining"
+            },
+            {
+             "text": "exposed",
+             "note": "exposed means stripped of covering, so very loses its outer letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "very exposed",
+             "gives": "VERY",
+             "note": "vERy with its skin removed"
+            }
+           ]
+          },
+          {
+           "words": "shone",
+           "gives": "HOSEN",
+           "note": "SHONE rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1105,43 +1020,31 @@
    },
    "solution": "ONTHEMEND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ON THE MEND",
     "definitions": [
      {
       "text": "Getting better",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break in, so the pronoun breaks into the phrase for continuously"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "continuously",
-      "gives": "ONEND",
-      "note": "for hours on end"
-     },
-     {
-      "clueFragment": "those people",
-      "gives": "THEM",
-      "note": "them = those people, inside ON END"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "THEM",
-      "END"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "to interrupt is to break in, so the pronoun breaks into the phrase for continuously"
+      }
+     ],
+     "parts": [
+      {
+       "words": "continuously",
+       "gives": "ONEND",
+       "note": "for hours on end"
+      },
+      {
+       "words": "those people",
+       "gives": "THEM",
+       "note": "them = those people, inside ON END"
+      }
      ]
     },
     "explanation": {
@@ -1176,48 +1079,41 @@
    },
    "solution": "MINORCANON",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MINOR CANON",
     "definitions": [
      {
       "text": "Clergyman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accepting",
-      "for": "container",
-      "note": "to accept is to take in, so the argument word takes the article inside"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trifling",
-      "gives": "MINOR",
-      "note": "minor = trifling"
-     },
-     {
-      "clueFragment": "argument against",
-      "gives": "CON",
-      "note": "pros and cons"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "the indefinite article, inside CON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINOR",
-      "CANON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trifling",
+       "gives": "MINOR",
+       "note": "minor = trifling"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "note": "to accept is to take in, so the argument word takes the article inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "argument against",
+         "gives": "CON",
+         "note": "pros and cons"
+        },
+        {
+         "words": "article",
+         "gives": "AN",
+         "note": "the indefinite article, inside CON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1246,43 +1142,33 @@
    },
    "solution": "CHARMER",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "CHARMER",
     "definitions": [
      {
       "text": "Smooth-talker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing heart to",
-      "for": "substitution",
-      "note": "the middle letter is given up in exchange for what follows"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good spirits",
-      "gives": "CHEER",
-      "note": "cheer = good spirits; its middle E goes"
-     },
-     {
-      "clueFragment": "member",
-      "gives": "ARM",
-      "note": "an arm is a limb, a member; it takes the E's place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "ARM",
-      "ER"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "CHARMER",
+     "indicators": [
+      {
+       "text": "losing heart to",
+       "note": "the middle letter is given up in exchange for what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "good spirits",
+       "gives": "CHEER",
+       "note": "cheer = good spirits; its middle E goes"
+      },
+      {
+       "words": "member",
+       "gives": "ARM",
+       "note": "an arm is a limb, a member; it takes the E's place"
+      }
      ]
     },
     "explanation": {
@@ -1312,32 +1198,25 @@
    },
    "solution": "NIGHTIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NIGHTIE",
     "definitions": [
      {
       "text": "one's seen in bed",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Close",
-      "gives": "NIGH",
-      "note": "nigh = near, close"
-     },
-     {
-      "clueFragment": "match",
-      "gives": "TIE",
-      "note": "a tie is a match, as in a cup tie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGH",
-      "TIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Close",
+       "gives": "NIGH",
+       "note": "nigh = near, close"
+      },
+      {
+       "words": "match",
+       "gives": "TIE",
+       "note": "a tie is a match, as in a cup tie"
+      }
      ]
     },
     "explanation": {
@@ -1366,30 +1245,28 @@
    },
    "solution": "TOYO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TOYO",
     "definitions": [
      {
       "text": "hat might be made of this",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "the answer lies inside the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kyoto, your",
-      "gives": "TOYO",
-      "note": "kyoTO YOur"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "the answer lies inside the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kyoto, your",
+       "gives": "TOYO",
+       "note": "kyoTO YOur"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tourist in Kyoto is told what local hats are made from.",
      "walkthrough": "Toyo is a Japanese straw-like material, so the surface's setting is the answer's origin too.",
@@ -1415,32 +1292,25 @@
    },
    "solution": "DEBONAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEBONAIR",
     "definitions": [
      {
       "text": "Elegant",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "socialite",
-      "gives": "DEB",
-      "note": "a deb, a debutante"
-     },
-     {
-      "clueFragment": "broadcasting",
-      "gives": "ONAIR",
-      "note": "on air = broadcasting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEB",
-      "ONAIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "socialite",
+       "gives": "DEB",
+       "note": "a deb, a debutante"
+      },
+      {
+       "words": "broadcasting",
+       "gives": "ONAIR",
+       "note": "on air = broadcasting"
+      }
      ]
     },
     "explanation": {
@@ -1468,45 +1338,35 @@
    },
    "solution": "DROOL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DROOL",
     "definitions": [
      {
       "text": "quantity of saliva",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up reads bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "DR",
-      "note": "Dr = doctor"
-     },
-     {
-      "clueFragment": "can",
-      "gives": "LOO",
-      "note": "can is slang for a toilet, a loo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "OOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LOO",
-       "to": "OOL"
+       "words": "Doctor",
+       "gives": "DR",
+       "note": "Dr = doctor"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, up reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "gives": "LOO",
+         "note": "can is slang for a toilet, a loo"
+        }
+       ]
       }
      ]
     },
@@ -1536,39 +1396,37 @@
    },
    "solution": "BEGIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "BEGIN",
     "definitions": [
      {
       "text": "Start",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "living",
-      "gives": "BEIN",
-      "note": "BEING with its G taken out"
-     },
-     {
-      "clueFragment": "grand",
-      "gives": "G",
-      "note": "G = grand, a thousand; put back higher, after BE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "G",
-      "IN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BEGIN",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "raised"
+        }
+       ],
+       "parts": [
+        {
+         "words": "living",
+         "gives": "BEIN",
+         "note": "BEING with its G taken out"
+        },
+        {
+         "words": "grand",
+         "gives": "G",
+         "note": "G = grand, a thousand; put back higher, after BE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1597,47 +1455,40 @@
    },
    "solution": "GHETTO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "GHETTO",
     "definitions": [
      {
       "text": "distinct part of town",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "nursing"
-     },
-     {
-      "text": "to begin with",
-      "note": "only the first letter of home"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arrive at",
-      "gives": "GETTO",
-      "note": "get to = arrive at"
-     },
-     {
-      "clueFragment": "home, to begin with",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of home, inside GET TO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "H",
-      "ETTO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arrive at",
+       "gives": "GETTO",
+       "note": "get to = arrive at"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "note": "only the first letter of home"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home, to begin with",
+         "note": "first letter of home, inside GET TO"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1666,37 +1517,39 @@
    },
    "solution": "ORGY",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ORGY",
     "definitions": [
      {
       "text": "meeting of Congress",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "note": "part of the words holds the answer"
-     },
-     {
-      "text": "lying about",
-      "note": "about turns the letters round"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sleazy groper",
-      "gives": "YGRO",
-      "note": "sleazY GROper, then read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "part of the words holds the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "lying about",
+         "note": "about turns the letters round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sleazy groper",
+         "gives": "YGRO",
+         "note": "sleazY GROper, then read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A political scandal: a sleazy congressman lying about groping.",
      "walkthrough": "Congress, capitalised to look like the US legislature, is sexual intercourse.",
@@ -1730,51 +1583,53 @@
    },
    "solution": "MOUNTKENYA",
    "annotation": {
-    "type": [
-     "cycling",
-     "container"
-    ],
-    "answer": "MOUNT KENYA",
     "definitions": [
      {
       "text": "High Peak",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "container",
-      "note": "the first letter of AMOUNT goes round to the end"
-     },
-     {
-      "text": "in",
-      "for": "cycling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "number",
-      "gives": "MOUNTA",
-      "note": "AMOUNT with its A cycled to the back"
-     },
-     {
-      "clueFragment": "in Scotland know",
-      "gives": "KEN",
-      "note": "ken is Scots for know"
-     },
-     {
-      "clueFragment": "Unknown",
-      "gives": "Y",
-      "note": "y, an unknown in algebra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOUNT",
-      "KEN",
-      "Y",
-      "A"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "MOUNTKENYA",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cycling",
+         "note": "the first letter of AMOUNT goes round to the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "number",
+           "gives": "MOUNTA",
+           "note": "AMOUNT with its A cycled to the back"
+          },
+          {
+           "words": "in Scotland know",
+           "gives": "KEN",
+           "note": "ken is Scots for know"
+          }
+         ]
+        },
+        {
+         "words": "Unknown",
+         "gives": "Y",
+         "note": "y, an unknown in algebra"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1809,35 +1664,25 @@
    },
    "solution": "LANDBRIDGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAND BRIDGE",
     "definitions": [
      {
       "text": "Panama?",
       "at": 17
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Win",
-      "gives": "LAND",
-      "note": "to land a prize is to win it"
-     },
-     {
-      "clueFragment": "card game",
-      "gives": "BRIDGE",
-      "note": "the card game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAND",
-      "BRIDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Win",
+       "gives": "LAND",
+       "note": "to land a prize is to win it"
+      },
+      {
+       "words": "card game",
+       "gives": "BRIDGE",
+       "note": "the card game"
+      }
      ]
     },
     "explanation": {
@@ -1866,40 +1711,38 @@
    },
    "solution": "DOHA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DOHA",
     "definitions": [
      {
       "text": "port in Qatar",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "nearly",
-      "for": "deletion",
-      "note": "nearly means not quite all, so the word falls one letter short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     },
-     {
-      "clueFragment": "nearly obtains",
-      "gives": "HA",
-      "note": "HAS, which means obtains, without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "HA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DOHA",
+     "indicators": [
+      {
+       "text": "nearly",
+       "note": "nearly means not quite all, so the word falls one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "party",
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "words": "nearly obtains",
+         "gives": "HA",
+         "note": "HAS, which means obtains, without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

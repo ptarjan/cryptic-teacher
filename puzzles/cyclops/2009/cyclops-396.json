@@ -1,8 +1,6 @@
 {
  "id": "cyclops-396",
  "number": 396,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 396",
  "setter": "Cyclops",
  "date": "2009-07-24",
  "dimensions": {
@@ -42,54 +40,44 @@
    },
    "solution": "DISCLOSURE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DISCLOSURE",
     "definitions": [
      {
       "text": "A leak",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spent",
-      "for": "anagram",
-      "note": "money that is spent is gone and scattered, so the letters of the word before it are rearranged"
-     }
-    ],
-    "linkWords": [
-     "requires"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "DISC",
-      "note": "a disc is a gramophone record"
-     },
-     {
-      "clueFragment": "50",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     },
-     {
-      "clueFragment": "euros",
-      "gives": "EUROS",
-      "note": "taken as written, then shuffled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISC",
-      "L",
-      "OSURE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EUROS",
-       "gives": "OSURE"
+       "words": "record",
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spent",
+         "note": "money that is spent is gone and scattered, so the letters of the word before it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "50",
+           "gives": "L",
+           "note": "L is the Roman numeral for fifty"
+          },
+          {
+           "words": "euros",
+           "note": "taken as written, then shuffled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -118,41 +106,35 @@
    },
    "solution": "STAN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "STAN",
     "definitions": [
      {
       "text": "Half of a comedy act",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader goes in front, so only the opening letter of the word is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Socialists'",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Socialists"
-     },
-     {
-      "clueFragment": "Brown",
-      "gives": "TAN",
-      "note": "tan is a light brown colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader goes in front, so only the opening letter of the word is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Socialists'",
+         "note": "the first letter of Socialists"
+        }
+       ]
+      },
+      {
+       "words": "Brown",
+       "gives": "TAN",
+       "note": "tan is a light brown colour"
+      }
      ]
     },
     "explanation": {
@@ -181,58 +163,55 @@
    },
    "solution": "LAWMAKER",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LAWMAKER",
     "definitions": [
      {
       "text": "Legislator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pissed",
-      "for": "anagram",
-      "note": "someone drunk is all over the place, so the letters of the name are jumbled"
-     },
-     {
-      "text": "last two letters from",
-      "for": "letter_selection",
-      "note": "spells out that only the final pair of letters of the next word is used"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the jumbled letters go round the selected pair"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Walker",
-      "gives": "WALKER",
-      "note": "taken as written, then jumbled"
-     },
-     {
-      "clueFragment": "Obama",
-      "gives": "MA",
-      "select": "last",
-      "note": "the final two letters of Obama"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAW",
-      "MA",
-      "KER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "WALKER",
-       "gives": "LAWKER"
+       "text": "about",
+       "note": "about means surrounding, so the jumbled letters go round the selected pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pissed",
+         "note": "someone drunk is all over the place, so the letters of the name are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Walker",
+         "note": "taken as written, then jumbled"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "MA",
+       "indicators": [
+        {
+         "text": "last two letters from",
+         "note": "spells out that only the final pair of letters of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Obama",
+         "gives": "MA",
+         "select": "last",
+         "note": "the final two letters of Obama"
+        }
+       ]
       }
      ]
     },
@@ -262,41 +241,30 @@
    },
    "solution": "GOBSMACKED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOBSMACKED",
     "definitions": [
      {
       "text": "surprised",
       "at": 36
      }
     ],
-    "linkWords": [
-     "Makes you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spit",
-      "gives": "GOB",
-      "note": "gob is British slang for spit"
-     },
-     {
-      "clueFragment": "heroin",
-      "gives": "SMACK",
-      "note": "smack is slang for heroin"
-     },
-     {
-      "clueFragment": "hack",
-      "gives": "ED",
-      "note": "a hack is a journalist, and ED is short for editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOB",
-      "SMACK",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spit",
+       "gives": "GOB",
+       "note": "gob is British slang for spit"
+      },
+      {
+       "words": "heroin",
+       "gives": "SMACK",
+       "note": "smack is slang for heroin"
+      },
+      {
+       "words": "hack",
+       "gives": "ED",
+       "note": "a hack is a journalist, and ED is short for editor"
+      }
      ]
     },
     "explanation": {
@@ -329,34 +297,28 @@
     "9-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JACK SHIT",
     "definitions": [
      {
       "text": "sod all",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Straw's",
-      "gives": "JACKS",
-      "note": "His first name with the possessive S"
-     },
-     {
-      "clueFragment": "success",
-      "gives": "HIT",
-      "note": "a hit is a success"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACKS",
-      "HIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Straw's",
+       "gives": "JACKS",
+       "note": "His first name with the possessive S"
+      },
+      {
+       "words": "success",
+       "gives": "HIT",
+       "note": "a hit is a success"
+      }
      ]
     },
+    "spelling": "JACK SHIT",
     "explanation": {
      "surface": "A sneer at Jack Straw's achievements: they amount to nothing at all.",
      "walkthrough": "Straw is the politician Jack Straw, so his first name plus the S of the possessive starts the answer.",
@@ -384,54 +346,44 @@
    },
    "solution": "WALDORF",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "WALDORF",
     "definitions": [
      {
       "text": "Hotel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "buggered",
-      "for": "anagram",
-      "note": "something buggered is broken and messed up, so the name's letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "standing by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the standard abbreviation for wife"
-     },
-     {
-      "clueFragment": "ex-vice-President",
-      "gives": "AL",
-      "note": "Al Gore, US vice-president under Clinton"
-     },
-     {
-      "clueFragment": "Ford",
-      "gives": "FORD",
-      "note": "taken as written, then jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "AL",
-      "DORF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "FORD",
-       "gives": "DORF"
+       "words": "wife",
+       "gives": "W",
+       "note": "W is the standard abbreviation for wife"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "buggered",
+         "note": "something buggered is broken and messed up, so the name's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ex-vice-President",
+           "gives": "AL",
+           "note": "Al Gore, US vice-president under Clinton"
+          },
+          {
+           "words": "Ford",
+           "note": "taken as written, then jumbled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -461,47 +413,40 @@
    },
    "solution": "PLINTH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PLINTH",
     "definitions": [
      {
       "text": "bottom support",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "no.1",
-      "for": "letter_selection",
-      "note": "number one means the first in line, so just the opening letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prescott's",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of Prescott"
-     },
-     {
-      "clueFragment": "fabric",
-      "gives": "LINT",
-      "note": "lint is a soft fabric used for dressings"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the abbreviation for hot, as on taps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LINT",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "no.1",
+         "note": "number one means the first in line, so just the opening letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prescott's",
+         "note": "the first letter of Prescott"
+        }
+       ]
+      },
+      {
+       "words": "fabric",
+       "gives": "LINT",
+       "note": "lint is a soft fabric used for dressings"
+      },
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      }
      ]
     },
     "explanation": {
@@ -536,50 +481,40 @@
    },
    "solution": "PASSBY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PASS BY",
     "definitions": [
      {
       "text": "don't stop!",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "letter_selection",
-      "note": "without a heart the middle is removed, leaving only the outside letters"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soft",
-      "gives": "P",
-      "note": "P, piano, is the musical direction for soft"
-     },
-     {
-      "clueFragment": "buttocks",
-      "gives": "ASS",
-      "note": "ass is American slang for the buttocks"
-     },
-     {
-      "clueFragment": "beauty",
-      "gives": "BY",
-      "select": "outer",
-      "note": "beauty with its middle letters gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ASS",
-      "BY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "soft",
+       "gives": "P",
+       "note": "P, piano, is the musical direction for soft"
+      },
+      {
+       "words": "buttocks",
+       "gives": "ASS",
+       "note": "ass is American slang for the buttocks"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "note": "without a heart the middle is removed, leaving only the outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beauty",
+         "note": "beauty with its middle letters gone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -609,54 +544,43 @@
    },
    "solution": "PANORAMA",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "PANORAMA",
     "definitions": [
      {
       "text": "Prospect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "— not",
-      "for": "substitution",
-      "note": "the word that follows not is struck out and the word before it takes its place"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "against"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "censure",
-      "gives": "PAN",
-      "note": "to pan is to criticise harshly"
-     },
-     {
-      "clueFragment": "the President",
-      "gives": "OBAMA",
-      "note": "Barack Obama, US President at the time"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "B is the abbreviation for black, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAN",
-      "ORAMA"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "PANORAMA",
+     "indicators": [
+      {
+       "text": "— not",
+       "note": "the word that follows not is struck out and the word before it takes its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "censure",
+       "gives": "PAN",
+       "note": "to pan is to criticise harshly"
+      },
+      {
+       "words": "the President",
+       "gives": "OBAMA",
+       "note": "Barack Obama, US President at the time"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "black",
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      }
      ]
     },
     "explanation": {
@@ -705,45 +629,41 @@
    },
    "solution": "SECONDHOMES",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SECOND HOMES",
     "definitions": [
      {
       "text": "subject to claims by flipping MPs?",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "left out",
-      "for": "deletion",
-      "note": "out means removed, and left is the abbreviation the solver must drop"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not the no.1",
-      "gives": "SECOND",
-      "note": "whatever is not first is second"
-     },
-     {
-      "clueFragment": "fictional detective",
-      "gives": "HOLMES",
-      "note": "Sherlock Holmes, Conan Doyle's detective"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left; this letter is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SECOND",
-      "HOMES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not the no.1",
+       "gives": "SECOND",
+       "note": "whatever is not first is second"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left out",
+         "note": "out means removed, and left is the abbreviation the solver must drop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fictional detective",
+         "gives": "HOLMES",
+         "note": "Sherlock Holmes, Conan Doyle's detective"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left; this letter is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -773,47 +693,41 @@
    },
    "solution": "KID",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "KID",
     "definitions": [
      {
       "text": "Wind up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rear",
-      "for": "letter_selection",
-      "note": "the rear is the back end, so only the final letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bullock's",
-      "gives": "K",
-      "select": "last",
-      "note": "the last letter of bullock"
-     },
-     {
-      "clueFragment": "Cyclops",
-      "gives": "I",
-      "note": "the setter Cyclops refers to himself as I"
-     },
-     {
-      "clueFragment": "departs",
-      "gives": "D",
-      "note": "D is the abbreviation for departs, as in timetables"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "I",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear",
+         "note": "the rear is the back end, so only the final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bullock's",
+         "gives": "BULLOCK",
+         "note": "the last letter of bullock"
+        }
+       ]
+      },
+      {
+       "words": "Cyclops",
+       "gives": "I",
+       "note": "the setter Cyclops refers to himself as I"
+      },
+      {
+       "words": "departs",
+       "gives": "D",
+       "note": "D is the abbreviation for departs, as in timetables"
+      }
      ]
     },
     "explanation": {
@@ -846,52 +760,43 @@
     "24-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BROWN ALE",
     "definitions": [
      {
       "text": "drink",
       "at": 83
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimate in",
-      "for": "letter_selection",
-      "note": "ultimate means final, so only the closing letter of the next word is wanted"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gordon",
-      "gives": "BROWN",
-      "note": "Gordon Brown, Labour Prime Minister"
-     },
-     {
-      "clueFragment": "famous familiar political loser",
-      "gives": "AL",
-      "note": "Al Gore, who famously lost the 2000 US election, known by his familiar first name"
-     },
-     {
-      "clueFragment": "commiserative",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of commiserative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROWN",
-      "AL",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gordon",
+       "gives": "BROWN",
+       "note": "Gordon Brown, Labour Prime Minister"
+      },
+      {
+       "words": "famous familiar political loser",
+       "gives": "AL",
+       "note": "Al Gore, who famously lost the 2000 US election, known by his familiar first name"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimate in",
+         "note": "ultimate means final, so only the closing letter of the next word is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commiserative",
+         "note": "the final letter of commiserative"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "BROWN ALE",
     "explanation": {
      "surface": "Gordon Brown, a famous loser, needs a commiserating drink.",
      "walkthrough": "Gordon Brown was set to lose the 2010 election; the political loser is the other one, Al Gore.",
@@ -918,70 +823,71 @@
    },
    "solution": "NEWSPAPERS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "NEWSPAPERS",
     "definitions": [
      {
       "text": "Mail and Express?",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "wing",
-      "for": "letter_selection",
-      "note": "a wing is one end, and with right before it the rightmost letter is meant"
-     },
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "spewed out suggests letters scattered in disorder"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so the shuffled letters go round the next item"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cameron's",
-      "gives": "N",
-      "select": "last",
-      "note": "the rightmost letter of Cameron"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "spews",
-      "gives": "SPEWS",
-      "note": "taken as written, then jumbled"
-     },
-     {
-      "clueFragment": "copier",
-      "gives": "APE",
-      "note": "an ape is a copier, one who imitates"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EWSP",
-      "APE",
-      "RS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RSPEWS",
-       "gives": "EWSPRS"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "wing",
+         "note": "a wing is one end, and with right before it the rightmost letter is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cameron's",
+         "gives": "CAMERON",
+         "note": "the rightmost letter of Cameron"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without in its old sense of outside, so the shuffled letters go round the next item"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "out",
+           "note": "spewed out suggests letters scattered in disorder"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "right",
+             "gives": "R",
+             "note": "R is the abbreviation for right"
+            },
+            {
+             "words": "spews",
+             "note": "taken as written, then jumbled"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "copier",
+         "gives": "APE",
+         "note": "an ape is a copier, one who imitates"
+        }
+       ]
       }
      ]
     },
@@ -1017,35 +923,25 @@
    },
    "solution": "TAKEAFTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAKE AFTER",
     "definitions": [
      {
       "text": "Resemble",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in need of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nick",
-      "gives": "TAKE",
-      "note": "to nick is British slang for to steal or take"
-     },
-     {
-      "clueFragment": "following",
-      "gives": "AFTER",
-      "note": "after means following"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAKE",
-      "AFTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nick",
+       "gives": "TAKE",
+       "note": "to nick is British slang for to steal or take"
+      },
+      {
+       "words": "following",
+       "gives": "AFTER",
+       "note": "after means following"
+      }
      ]
     },
     "explanation": {
@@ -1074,59 +970,49 @@
    },
    "solution": "TRIUMPHANT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TRIUMPHANT",
     "definitions": [
      {
       "text": "Gloating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tangled",
-      "for": "anagram",
-      "note": "things tangled are mixed up, so the letters are rearranged"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the mixed letters surround the royal pair"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM",
-      "gives": "PM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "U Thant",
-      "gives": "UTHANT",
-      "note": "taken as written; U Thant was a UN Secretary-General"
-     },
-     {
-      "clueFragment": "King & I",
-      "gives": "RI",
-      "note": "R for rex, king, plus I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RI",
-      "UMPHANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PMUTHANT",
-       "gives": "TUMPHANT"
+       "text": "about",
+       "note": "about means around, so the mixed letters surround the royal pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tangled",
+         "note": "things tangled are mixed up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "PM",
+           "note": "taken as written"
+          },
+          {
+           "words": "U Thant",
+           "note": "taken as written; U Thant was a UN Secretary-General"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "King & I",
+       "gives": "RI",
+       "note": "R for rex, king, plus I"
       }
      ]
     },
@@ -1157,35 +1043,25 @@
    },
    "solution": "OUTWIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTWIT",
     "definitions": [
      {
       "text": "Excel in ingenuity",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to be gay"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "announce",
-      "gives": "OUT",
-      "note": "to out someone is to announce publicly that they are gay"
-     },
-     {
-      "clueFragment": "Oscar Wilde, say",
-      "gives": "WIT",
-      "note": "Oscar Wilde is the classic example of a wit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "WIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "announce",
+       "gives": "OUT",
+       "note": "to out someone is to announce publicly that they are gay"
+      },
+      {
+       "words": "Oscar Wilde, say",
+       "gives": "WIT",
+       "note": "Oscar Wilde is the classic example of a wit"
+      }
      ]
     },
     "explanation": {
@@ -1220,42 +1096,30 @@
    },
    "solution": "TANKEDUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TANKED UP",
     "definitions": [
      {
       "text": "pissed",
       "at": 47
      }
     ],
-    "linkWords": [
-     "possibly",
-     "getting you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "VAT",
-      "gives": "TANK",
-      "note": "a vat is a large tank for liquid"
-     },
-     {
-      "clueFragment": "Balls",
-      "gives": "ED",
-      "note": "Ed Balls, Labour cabinet minister"
-     },
-     {
-      "clueFragment": "increased",
-      "gives": "UP",
-      "note": "up means increased, as in prices up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TANK",
-      "ED",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "VAT",
+       "gives": "TANK",
+       "note": "a vat is a large tank for liquid"
+      },
+      {
+       "words": "Balls",
+       "gives": "ED",
+       "note": "Ed Balls, Labour cabinet minister"
+      },
+      {
+       "words": "increased",
+       "gives": "UP",
+       "note": "up means increased, as in prices up"
+      }
      ]
     },
     "explanation": {
@@ -1291,32 +1155,25 @@
    },
    "solution": "RAKEIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAKE IN",
     "definitions": [
      {
       "text": "Get rich like an expenses-claiming MP",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "profligate",
-      "gives": "RAKE",
-      "note": "a rake is a dissolute, profligate man"
-     },
-     {
-      "clueFragment": "elected",
-      "gives": "IN",
-      "note": "an elected candidate is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAKE",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "profligate",
+       "gives": "RAKE",
+       "note": "a rake is a dissolute, profligate man"
+      },
+      {
+       "words": "elected",
+       "gives": "IN",
+       "note": "an elected candidate is in"
+      }
      ]
     },
     "explanation": {
@@ -1345,35 +1202,24 @@
    },
    "solution": "REMAINS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REMAINS",
     "definitions": [
      {
       "text": "stays",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "kinky",
-      "for": "anagram",
-      "note": "something kinky is twisted, so the letters are bent into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Marine's",
-      "gives": "MARINES",
-      "note": "taken as written, then jumbled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MARINES",
-       "gives": "REMAINS"
+       "text": "kinky",
+       "note": "something kinky is twisted, so the letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Marine's",
+       "note": "taken as written, then jumbled"
       }
      ]
     },
@@ -1404,58 +1250,50 @@
    },
    "solution": "MYOPIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MYOPIC",
     "definitions": [
      {
       "text": "Magoo-like",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rattled",
-      "for": "anagram",
-      "note": "something rattled is shaken up, so its letters are disordered"
-     },
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "start means the very beginning, so only the first letter is taken"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the shaken letters go round the single letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM coy",
-      "gives": "PMCOY",
-      "note": "taken as written, then shaken"
-     },
-     {
-      "clueFragment": "insubordination",
-      "gives": "I",
-      "select": "first",
-      "note": "the first letter of insubordination"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MYOP",
-      "I",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PMCOY",
-       "gives": "MYOPC"
+       "text": "about",
+       "note": "about means around, so the shaken letters go round the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rattled",
+         "note": "something rattled is shaken up, so its letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "PM coy",
+         "note": "taken as written, then shaken"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "note": "start means the very beginning, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insubordination",
+         "note": "the first letter of insubordination"
+        }
+       ]
       }
      ]
     },
@@ -1491,35 +1329,25 @@
    },
    "solution": "EYEOPENER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EYE-OPENER",
     "definitions": [
      {
       "text": "a real surprise",
       "at": 24
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Some organ",
-      "gives": "EYE",
-      "note": "the eye is one organ of the body"
-     },
-     {
-      "clueFragment": "batsman",
-      "gives": "OPENER",
-      "note": "an opener is a batsman who opens the innings in cricket"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EYE",
-      "OPENER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some organ",
+       "gives": "EYE",
+       "note": "the eye is one organ of the body"
+      },
+      {
+       "words": "batsman",
+       "gives": "OPENER",
+       "note": "an opener is a batsman who opens the innings in cricket"
+      }
      ]
     },
     "explanation": {
@@ -1549,48 +1377,41 @@
    },
    "solution": "RUIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "RUIN",
     "definitions": [
      {
       "text": "wreck",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head is the top, so the first letter of the word is meant"
-     },
-     {
-      "text": "away",
-      "for": "deletion",
-      "note": "away means gone, so the selected letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bear",
-      "gives": "BRUIN",
-      "note": "Bruin is a traditional name for a bear"
-     },
-     {
-      "clueFragment": "Brown's",
-      "gives": "B",
-      "select": "first",
-      "note": "the first letter of Brown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "note": "away means gone, so the selected letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bear",
+       "gives": "BRUIN",
+       "note": "Bruin is a traditional name for a bear"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head is the top, so the first letter of the word is meant"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brown's",
+         "note": "the first letter of Brown"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1619,41 +1440,35 @@
    },
    "solution": "DUMPY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DUMPY",
     "definitions": [
      {
       "text": "Squat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end is the final position, so the last letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shit",
-      "gives": "DUMP",
-      "note": "a dump is slang for a defecation"
-     },
-     {
-      "clueFragment": "dry",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of dry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUMP",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shit",
+       "gives": "DUMP",
+       "note": "a dump is slang for a defecation"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "note": "the end is the final position, so the last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dry",
+         "note": "the last letter of dry"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1697,30 +1512,28 @@
    },
    "solution": "EMMA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EMMA",
     "definitions": [
      {
       "text": "Character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at heart",
-      "for": "hidden_word",
-      "note": "at heart means deep inside, so the letters lie within the words in front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "problem, Madonna",
-      "gives": "EMMA",
-      "note": "letters inside, across the comma"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "at heart",
+       "note": "at heart means deep inside, so the letters lie within the words in front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "problem, Madonna",
+       "gives": "EMMA",
+       "note": "letters inside, across the comma"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Madonna's personality is the problem, at heart.",
      "walkthrough": "Emma is the title character of Jane Austen's novel.",
@@ -1747,35 +1560,24 @@
    },
    "solution": "PREMIERSHIP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PREMIERSHIP",
     "definitions": [
      {
       "text": "On which Gordon's grip is weakening",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "makes",
-      "for": "anagram",
-      "note": "to make something out of material is to rebuild it, so the following letters are formed anew"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "him perspire",
-      "gives": "HIMPERSPIRE",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HIMPERSPIRE",
-       "gives": "PREMIERSHIP"
+       "text": "makes",
+       "note": "to make something out of material is to rebuild it, so the following letters are formed anew"
+      }
+     ],
+     "parts": [
+      {
+       "words": "him perspire",
+       "note": "taken as written, then rearranged"
       }
      ]
     },
@@ -1805,56 +1607,54 @@
    },
    "solution": "RACY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RACY",
     "definitions": [
      {
       "text": "quick",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "introduction",
-      "for": "letter_selection",
-      "note": "an introduction comes first, so only the opening letter of the name is used"
-     },
-     {
-      "text": "dropped",
-      "for": "deletion",
-      "note": "something dropped is let go, so the selected letter is removed"
-     },
-     {
-      "text": "Pisspoor",
-      "for": "anagram",
-      "note": "a very poor, shoddy job is a mess, so the remaining letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scary",
-      "gives": "SCARY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Spice's",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Spice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RACY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RACY",
+     "indicators": [
       {
-       "fodder": "CARY",
-       "gives": "RACY"
+       "text": "Pisspoor",
+       "note": "a very poor, shoddy job is a mess, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RACY",
+       "indicators": [
+        {
+         "text": "dropped",
+         "note": "something dropped is let go, so the selected letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scary",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction",
+           "note": "an introduction comes first, so only the opening letter of the name is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Spice's",
+           "note": "the first letter of Spice"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1884,55 +1684,47 @@
    },
    "solution": "NUMEROUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NUMEROUS",
     "definitions": [
      {
       "text": "Many",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round, so the word for intelligence wraps the rest"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us the setter's pronoun sits within the ancient place"
-     }
-    ],
-    "linkWords": [
-     "demanding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "intelligence",
-      "gives": "NOUS",
-      "note": "nous is common sense or intelligence"
-     },
-     {
-      "clueFragment": "Cyclops",
-      "gives": "ME",
-      "note": "the setter Cyclops refers to himself as me"
-     },
-     {
-      "clueFragment": "the City",
-      "gives": "UR",
-      "note": "Ur is the ancient Sumerian city, crosswords' favourite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "U",
-      "ME",
-      "R",
-      "OUS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going round, so the word for intelligence wraps the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "intelligence",
+       "gives": "NOUS",
+       "note": "nous is common sense or intelligence"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in tells us the setter's pronoun sits within the ancient place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the City",
+         "gives": "UR",
+         "note": "Ur is the ancient Sumerian city, crosswords' favourite"
+        },
+        {
+         "words": "Cyclops",
+         "gives": "ME",
+         "note": "the setter Cyclops refers to himself as me"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1961,58 +1753,54 @@
    },
    "solution": "SCENIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "SCENIC",
     "definitions": [
      {
       "text": "good to see",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "the top of a word in a down sense is its first letter"
-     },
-     {
-      "text": "wobbles",
-      "for": "anagram",
-      "note": "something that wobbles is unsteady, so the letters shift about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sun",
-      "gives": "S",
-      "note": "S is the abbreviation for sun or Sunday"
-     },
-     {
-      "clueFragment": "Camilla's",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of Camilla"
-     },
-     {
-      "clueFragment": "nice",
-      "gives": "NICE",
-      "note": "taken as written, then jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "ENIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NICE",
-       "gives": "ENIC"
+       "words": "Sun",
+       "gives": "S",
+       "note": "S is the abbreviation for sun or Sunday"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wobbles",
+         "note": "something that wobbles is unsteady, so the letters shift about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "top",
+             "note": "the top of a word in a down sense is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Camilla's",
+             "note": "the first letter of Camilla"
+            }
+           ]
+          },
+          {
+           "words": "nice",
+           "note": "taken as written, then jumbled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3221",
  "number": 3221,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,221",
  "date": "2023-07-16",
  "dimensions": {
   "cols": 15,
@@ -37,35 +35,24 @@
    },
    "solution": "FLEAPIT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FLEAPIT",
     "definitions": [
      {
       "text": "Dump",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "if broken",
-      "for": "anagram",
-      "note": "something broken has its parts scattered, so the letters before it are put back together in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plate, if",
-      "gives": "PLATEIF",
-      "note": "taken as written: the two words supply seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PLATEIF",
-       "gives": "FLEAPIT"
+       "text": "if broken",
+       "note": "something broken has its parts scattered, so the letters before it are put back together in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plate, if",
+       "note": "taken as written: the two words supply seven letters"
       }
      ]
     },
@@ -95,28 +82,16 @@
    },
    "solution": "FELT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FELT",
     "definitions": [
      {
       "text": "Soft material",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a matted woollen fabric"
      },
      {
       "text": "picked up",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soft material",
-      "note": "first meaning: a matted woollen fabric"
-     },
-     {
-      "clueFragment": "picked up",
-      "note": "second meaning: sensed or detected, as in picking up a vibe"
+      "at": 14,
+      "meaning": "second meaning: sensed or detected, as in picking up a vibe"
      }
     ],
     "explanation": {
@@ -145,40 +120,31 @@
    },
    "solution": "MAROON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAROON",
     "definitions": [
      {
       "text": "cast away",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodating",
-      "for": "container",
-      "note": "to accommodate is to give room to a guest, so one piece houses the other inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chap",
-      "gives": "MAN",
-      "note": "a chap is a man"
-     },
-     {
-      "clueFragment": "Australian native",
-      "gives": "ROO",
-      "note": "a roo is a kangaroo, a native animal of Australia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "ROO",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "note": "to accommodate is to give room to a guest, so one piece houses the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chap",
+       "gives": "MAN",
+       "note": "a chap is a man"
+      },
+      {
+       "words": "Australian native",
+       "gives": "ROO",
+       "note": "a roo is a kangaroo, a native animal of Australia"
+      }
      ]
     },
     "explanation": {
@@ -213,59 +179,56 @@
    },
    "solution": "GREENTEA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "GREEN TEA",
     "definitions": [
      {
       "text": "drink",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "getting to grips with",
-      "for": "container",
-      "note": "to get to grips with something is to grasp it, so one piece holds another in its grip"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "coming before means placed ahead of what follows, so the pieces join in this order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Author",
-      "gives": "GREENE",
-      "note": "Graham Greene, the English novelist"
-     },
-     {
-      "clueFragment": "script",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of script"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "T",
-      "E",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "coming before means placed ahead of what follows, so the pieces join in this order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "getting to grips with",
+         "note": "to get to grips with something is to grasp it, so one piece holds another in its grip"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Author",
+         "gives": "GREENE",
+         "note": "Graham Greene, the English novelist"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "the end of a word is its final letter, so only that one is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "script",
+           "note": "the final letter of script"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -308,29 +271,17 @@
    },
    "solution": "GETUPANDGO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GET-UP-AND-GO",
     "definitions": [
      {
       "text": "Split",
       "at": 0,
-      "note": "the phrase read as a verb, to leave promptly"
+      "note": "the phrase read as a verb, to leave promptly",
+      "meaning": "first meaning: slang for leaving"
      },
      {
       "text": "energy",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Split",
-      "note": "first meaning: slang for leaving"
-     },
-     {
-      "clueFragment": "energy",
-      "note": "second meaning: drive and vigour, as a noun"
+      "at": 6,
+      "meaning": "second meaning: drive and vigour, as a noun"
      }
     ],
     "explanation": {
@@ -365,28 +316,16 @@
    },
    "solution": "ONPAPER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON PAPER",
     "definitions": [
      {
       "text": "Theoretically",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in theory rather than in practice"
      },
      {
       "text": "working as journalist?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Theoretically",
-      "note": "first meaning: in theory rather than in practice"
-     },
-     {
-      "clueFragment": "working as journalist?",
-      "note": "second meaning, playful: someone employed by a newspaper works on a paper"
+      "at": 14,
+      "meaning": "second meaning, playful: someone employed by a newspaper works on a paper"
      }
     ],
     "explanation": {
@@ -414,52 +353,53 @@
    },
    "solution": "ILLEGAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ILLEGAL",
     "definitions": [
      {
       "text": "criminal",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Last of",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "pilfered by",
-      "for": "container",
-      "note": "something pilfered is pocketed by the thief, so it ends up tucked inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "peculiar",
-      "gives": "ILL",
-      "note": "feeling peculiar or queer means feeling unwell"
-     },
-     {
-      "clueFragment": "merchandise",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of merchandise"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "GAL",
-      "note": "gal is an informal word for a woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILL",
-      "E",
-      "GAL"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ILLEGAL",
+     "indicators": [
+      {
+       "text": "pilfered by",
+       "note": "something pilfered is pocketed by the thief, so it ends up tucked inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "peculiar",
+         "gives": "ILL",
+         "note": "feeling peculiar or queer means feeling unwell"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Last of",
+           "note": "the last of a word is its final letter, so only that one is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "merchandise",
+           "note": "the final letter of merchandise"
+          }
+         ]
+        },
+        {
+         "words": "female",
+         "gives": "GAL",
+         "note": "gal is an informal word for a woman"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -488,50 +428,40 @@
    },
    "solution": "ORLEANS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ORLEANS",
     "definitions": [
      {
       "text": "a French city",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "walls in",
-      "for": "container",
-      "note": "to wall something in is to surround it on every side, enclosing it"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gold",
-      "gives": "OR",
-      "note": "or is the heraldic word for gold"
-     },
-     {
-      "clueFragment": "glass",
-      "gives": "LENS",
-      "note": "a lens is a shaped piece of glass"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "LE",
-      "A",
-      "NS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gold",
+       "gives": "OR",
+       "note": "or is the heraldic word for gold"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "walls in",
+         "note": "to wall something in is to surround it on every side, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glass",
+         "gives": "LENS",
+         "note": "a lens is a shaped piece of glass"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -570,38 +500,30 @@
    },
    "solution": "HOTCROSSBUN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOT CROSS BUN",
     "definitions": [
      {
       "text": "Festival fare",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "sweater?",
-      "gives": "HOT",
-      "note": "someone who sweats is hot"
-     },
-     {
-      "clueFragment": "snappy",
-      "gives": "CROSS",
-      "note": "snappy means irritable or bad-tempered"
-     },
-     {
-      "clueFragment": "Chelsea",
-      "gives": "BUN",
-      "note": "a Chelsea is a spiral currant bun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT",
-      "CROSS",
-      "BUN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sweater?",
+       "gives": "HOT",
+       "note": "someone who sweats is hot"
+      },
+      {
+       "words": "snappy",
+       "gives": "CROSS",
+       "note": "snappy means irritable or bad-tempered"
+      },
+      {
+       "words": "Chelsea",
+       "gives": "BUN",
+       "note": "a Chelsea is a spiral currant bun"
+      }
      ]
     },
     "explanation": {
@@ -631,57 +553,50 @@
    },
    "solution": "GASTRONOME",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GASTRONOME",
     "definitions": [
      {
       "text": "bon vivant",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "crooked",
-      "for": "anagram",
-      "note": "something crooked is bent out of true, so these letters are twisted into a new order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means sitting inside it, so one piece is placed within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sort",
-      "gives": "STRO",
-      "note": "the letters of sort rearranged"
-     },
-     {
-      "clueFragment": "Swiss banker",
-      "gives": "GNOME",
-      "note": "the 'gnomes of Zurich' is a nickname for Swiss bankers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "A",
-      "STRO",
-      "NOME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SORT",
-       "gives": "STRO"
+       "text": "in",
+       "note": "being in something means sitting inside it, so one piece is placed within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crooked",
+         "note": "something crooked is bent out of true, so these letters are twisted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "sort",
+           "gives": "STRO",
+           "note": "the letters of sort rearranged"
+          },
+          {
+           "words": "Swiss banker",
+           "gives": "GNOME",
+           "note": "the 'gnomes of Zurich' is a nickname for Swiss bankers"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "A",
+       "note": "taken as written"
       }
      ]
     },
@@ -711,34 +626,29 @@
    },
    "solution": "UTAH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "UTAH",
     "definitions": [
      {
       "text": "US state",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out loud",
-      "for": "homophone",
-      "note": "saying something out loud means we go by its sound rather than its spelling"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "solver cheers",
-      "gives": "UTAH",
-      "soundsLike": "YOU TA",
-      "note": "the solver is 'you'; ta is British slang for thanks, or cheers"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "UTAH",
+     "indicators": [
+      {
+       "text": "out loud",
+       "note": "saying something out loud means we go by its sound rather than its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solver cheers",
+       "gives": "YOUTA",
+       "note": "the solver is 'you'; ta is British slang for thanks, or cheers"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking which American state has crossword fans celebrating noisily.",
      "walkthrough": "'Cheers' here is the British thank-you, not a celebration; 'ta' means the same. The solver is addressed as 'you'.",
@@ -766,32 +676,25 @@
    },
    "solution": "HISPANIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HISPANIC",
     "definitions": [
      {
       "text": "Latin",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "him",
-      "gives": "HIS",
-      "note": "the possessive form of him, the tizzy belonging to him"
-     },
-     {
-      "clueFragment": "tizzy",
-      "gives": "PANIC",
-      "note": "a tizzy is a state of nervous agitation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIS",
-      "PANIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "him",
+       "gives": "HIS",
+       "note": "the possessive form of him, the tizzy belonging to him"
+      },
+      {
+       "words": "tizzy",
+       "gives": "PANIC",
+       "note": "a tizzy is a state of nervous agitation"
+      }
      ]
     },
     "explanation": {
@@ -827,32 +730,25 @@
    },
    "solution": "POINTBLANK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POINT-BLANK",
     "definitions": [
      {
       "text": "frankly",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Position",
-      "gives": "POINT",
-      "note": "a point is a position or location"
-     },
-     {
-      "clueFragment": "void",
-      "gives": "BLANK",
-      "note": "a void or empty space is a blank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POINT",
-      "BLANK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Position",
+       "gives": "POINT",
+       "note": "a point is a position or location"
+      },
+      {
+       "words": "void",
+       "gives": "BLANK",
+       "note": "a void or empty space is a blank"
+      }
      ]
     },
     "explanation": {
@@ -880,49 +776,41 @@
    },
    "solution": "TRAVEL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRAVEL",
     "definitions": [
      {
       "text": "Go",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "coming after means placed behind, so the pieces are joined with this one second"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "concert",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of concert"
-     },
-     {
-      "clueFragment": "French maestro",
-      "gives": "RAVEL",
-      "note": "Maurice Ravel, French composer of Boléro"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAVEL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "coming after means placed behind, so the pieces are joined with this one second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concert",
+         "note": "the final letter of concert"
+        }
+       ]
+      },
+      {
+       "words": "French maestro",
+       "gives": "RAVEL",
+       "note": "Maurice Ravel, French composer of Boléro"
+      }
      ]
     },
     "explanation": {
@@ -957,35 +845,24 @@
    },
    "solution": "DIRKBOGARDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DIRK BOGARDE",
     "definitions": [
      {
       "text": "old player",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "naughty",
-      "for": "anagram",
-      "note": "naughty means misbehaving, so these letters refuse to stay in their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bad kid, Roger",
-      "gives": "BADKIDROGER",
-      "note": "taken as written: eleven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BADKIDROGER",
-       "gives": "DIRKBOGARDE"
+       "text": "naughty",
+       "note": "naughty means misbehaving, so these letters refuse to stay in their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bad kid, Roger",
+       "note": "taken as written: eleven letters"
       }
      ]
     },
@@ -1021,43 +898,31 @@
    },
    "solution": "KNEEDEEP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "KNEE-DEEP",
     "definitions": [
      {
       "text": "some way from going under?",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means encircling, so one piece wraps about the other"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Living",
-      "gives": "KEEP",
-      "note": "one's keep is one's living or upkeep"
-     },
-     {
-      "clueFragment": "poverty",
-      "gives": "NEED",
-      "note": "need is poverty or want"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "NEED",
-      "EEP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means encircling, so one piece wraps about the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Living",
+       "gives": "KEEP",
+       "note": "one's keep is one's living or upkeep"
+      },
+      {
+       "words": "poverty",
+       "gives": "NEED",
+       "note": "need is poverty or want"
+      }
      ]
     },
     "explanation": {
@@ -1093,46 +958,43 @@
    },
    "solution": "ROADHOG",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "ROAD HOG",
     "definitions": [
      {
       "text": "Thoughtless driver",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "something reported is passed on by word of mouth, so we go by its sound"
-     },
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down answer, over means placed above, so this piece comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "took vehicle",
-      "gives": "ROAD",
-      "soundsLike": "RODE",
-      "note": "to ride in a vehicle; the past tense sounds like a street"
-     },
-     {
-      "clueFragment": "corner",
-      "gives": "HOG",
-      "note": "to corner the market is to hog it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROAD",
-      "HOG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "in a down answer, over means placed above, so this piece comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "ROAD",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "something reported is passed on by word of mouth, so we go by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "took vehicle",
+         "gives": "RODE",
+         "note": "to ride in a vehicle; the past tense sounds like a street"
+        }
+       ]
+      },
+      {
+       "words": "corner",
+       "gives": "HOG",
+       "note": "to corner the market is to hog it"
+      }
      ]
     },
     "explanation": {
@@ -1161,11 +1023,6 @@
    },
    "solution": "MEDICAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MEDICAL",
     "definitions": [
      {
       "text": "Health",
@@ -1173,36 +1030,35 @@
       "note": "used as a modifier, as in health insurance"
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomes",
-      "for": "container",
-      "note": "a host welcomes a guest inside, so one piece is taken in by the other"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre",
-      "gives": "MEDIAL",
-      "note": "medial means situated in the middle"
-     },
-     {
-      "clueFragment": "customers",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of customers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEDI",
-      "C",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "note": "a host welcomes a guest inside, so one piece is taken in by the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "centre",
+       "gives": "MEDIAL",
+       "note": "medial means situated in the middle"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "the first of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "customers",
+         "note": "the opening letter of customers"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1231,38 +1087,30 @@
    },
    "solution": "SOOTHE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOOTHE",
     "definitions": [
      {
       "text": "still",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Very",
-      "gives": "SO",
-      "note": "so means very, as in so good"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "THE",
-      "note": "the definite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "O",
-      "THE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very",
+       "gives": "SO",
+       "note": "so means very, as in so good"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "article",
+       "gives": "THE",
+       "note": "the definite article"
+      }
      ]
     },
     "explanation": {
@@ -1291,28 +1139,16 @@
    },
    "solution": "SCHOONER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SCHOONER",
     "definitions": [
      {
       "text": "Ship",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a sailing vessel with fore-and-aft rigged masts"
      },
      {
       "text": "carrying drink from Jerez?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ship",
-      "note": "first meaning: a sailing vessel with fore-and-aft rigged masts"
-     },
-     {
-      "clueFragment": "carrying drink from Jerez?",
-      "note": "second meaning: a large glass holding sherry, which comes from Jerez in Spain"
+      "at": 5,
+      "meaning": "second meaning: a large glass holding sherry, which comes from Jerez in Spain"
      }
     ],
     "explanation": {
@@ -1341,40 +1177,31 @@
    },
    "solution": "HOLMES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HOLMES",
     "definitions": [
      {
       "text": "Solver of clues",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means encircling, so one piece wraps about the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cracks",
-      "gives": "HOLES",
-      "note": "cracks are gaps or holes"
-     },
-     {
-      "clueFragment": "a thousand",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOL",
-      "M",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means encircling, so one piece wraps about the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cracks",
+       "gives": "HOLES",
+       "note": "cracks are gaps or holes"
+      },
+      {
+       "words": "a thousand",
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
      ]
     },
     "explanation": {
@@ -1403,37 +1230,25 @@
    },
    "solution": "IDOL",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IDOL",
     "definitions": [
      {
       "text": "Star",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the start of each word, so only opening letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is dazzling, or luminous",
-      "gives": "IDOL",
-      "select": "first",
-      "note": "the opening letters of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "D",
-      "O",
-      "L"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at first",
+       "note": "at first points to the start of each word, so only opening letters are kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is dazzling, or luminous",
+       "note": "the opening letters of these four words"
+      }
      ]
     },
     "explanation": {
@@ -1468,40 +1283,39 @@
    },
    "solution": "DOUGLASFIR",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DOUGLAS FIR",
     "definitions": [
      {
       "text": "Tree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "something cut is shortened, so it loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an Isle of Man",
-      "gives": "DOUGLAS",
-      "note": "Douglas is the capital of the Isle of Man, a self-governing island in the Irish Sea"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "FIRM",
-      "note": "a firm is a company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOUGLAS",
-      "FIR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "something cut is shortened, so it loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an Isle of Man",
+         "gives": "DOUGLAS",
+         "note": "Douglas is the capital of the Isle of Man, a self-governing island in the Irish Sea"
+        },
+        {
+         "words": "company",
+         "gives": "FIRM",
+         "note": "a firm is a company"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1531,30 +1345,28 @@
    },
    "solution": "SORT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SORT",
     "definitions": [
      {
       "text": "Kind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "somewhat means to some degree, so only a part of the words that follow is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "generous, or thoughtful",
-      "gives": "SORT",
-      "note": "the letters run across the end of one word, the next, and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "somewhat",
+       "note": "somewhat means to some degree, so only a part of the words that follow is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "generous, or thoughtful",
+       "gives": "SORT",
+       "note": "the letters run across the end of one word, the next, and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Praising someone as kind, fairly generous, or considerate.",
      "walkthrough": "'Kind' looks like an adjective in a list of virtues, but it is the noun meaning type.",
@@ -1581,28 +1393,16 @@
    },
    "solution": "BOUNCER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOUNCER",
     "definitions": [
      {
       "text": "Delivery",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in cricket, a fast ball pitched short so it rears up at the batsman"
      },
      {
       "text": "worker at club's door",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Delivery",
-      "note": "first meaning: in cricket, a fast ball pitched short so it rears up at the batsman"
-     },
-     {
-      "clueFragment": "worker at club's door",
-      "note": "second meaning: a doorman who keeps out unwanted guests"
+      "at": 9,
+      "meaning": "second meaning: a doorman who keeps out unwanted guests"
      }
     ],
     "explanation": {
@@ -1631,43 +1431,31 @@
    },
    "solution": "HEARSAY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HEARSAY",
     "definitions": [
      {
       "text": "gossip",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means sitting inside it, so one piece is placed within another"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fodder",
-      "gives": "HAY",
-      "note": "hay is dried grass used as animal fodder"
-     },
-     {
-      "clueFragment": "Corny things",
-      "gives": "EARS",
-      "note": "ears of corn are the grain-bearing heads"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "EARS",
-      "AY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means sitting inside it, so one piece is placed within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fodder",
+       "gives": "HAY",
+       "note": "hay is dried grass used as animal fodder"
+      },
+      {
+       "words": "Corny things",
+       "gives": "EARS",
+       "note": "ears of corn are the grain-bearing heads"
+      }
      ]
     },
     "explanation": {

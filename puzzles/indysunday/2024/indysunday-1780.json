@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1780",
  "number": 1780,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,780",
  "setter": "Hippogryph",
  "date": "2024-04-07",
  "dimensions": {
@@ -38,51 +36,53 @@
    },
    "solution": "GORGONS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "GORGONS",
     "definitions": [
      {
       "text": "Monsters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "note": "most of the word, so GORGE loses its last letter"
-     },
-     {
-      "text": "heart",
-      "note": "the heart of a word is its central letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mostly guzzle",
-      "gives": "GORG",
-      "note": "GORGE = guzzle, minus its final E"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "select": "middle",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "bison's heart",
-      "gives": "S",
-      "note": "the middle letter of BISON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GORG",
-      "ON",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GORGONS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "most of the word, so GORGE loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mostly guzzle",
+         "gives": "GORG",
+         "note": "GORGE = guzzle, minus its final E"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart",
+           "note": "the heart of a word is its central letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "on",
+           "note": "taken as it stands"
+          }
+         ]
+        },
+        {
+         "words": "bison's heart",
+         "gives": "S",
+         "note": "the middle letter of BISON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -111,30 +111,28 @@
    },
    "solution": "GERMAN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "GERMAN",
     "definitions": [
      {
       "text": "of Mosel?",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "bottles",
-      "for": "hidden_word",
-      "note": "the phrase holds the answer inside it, as a bottle holds wine"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bollinger manufactures",
-      "gives": "GERMAN",
-      "note": "bolLINGER MANufactures: the answer sits across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bottles",
+       "note": "the phrase holds the answer inside it, as a bottle holds wine"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bollinger manufactures",
+       "gives": "GERMAN",
+       "note": "bolLINGER MANufactures: the answer sits across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A champagne house turning its hand to bottling Mosel wine.",
      "walkthrough": "Bollinger is a champagne house, so 'bottles' reads as the wine trade; the question mark marks Mosel as an example of something German.",
@@ -162,48 +160,35 @@
    },
    "solution": "RUNWAY",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RUNWAY",
     "definitions": [
      {
       "text": "touchdown zone",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, 'up' means read the next piece from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I say, are you writing",
-      "gives": "RU",
-      "note": "'are you' as texters write it: R U"
-     },
-     {
-      "clueFragment": "boring event",
-      "gives": "YAWN",
-      "note": "a yawn is something dull"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "NWAY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "YAWN",
-       "to": "NWAY"
+       "words": "I say, are you writing",
+       "gives": "RU",
+       "note": "'are you' as texters write it: R U"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, 'up' means read the next piece from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boring event",
+         "gives": "YAWN",
+         "note": "a yawn is something dull"
+        }
+       ]
       }
      ]
     },
@@ -234,33 +219,16 @@
    },
    "solution": "OVEREXPOSE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OVEREXPOSE",
     "definitions": [
      {
       "text": "Take too many clothes off",
-      "at": 0
+      "at": 0,
+      "meaning": "to expose too much of oneself"
      },
      {
       "text": "ruin film",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take too many clothes off",
-      "gives": "OVEREXPOSE",
-      "note": "to expose too much of oneself"
-     },
-     {
-      "clueFragment": "ruin film",
-      "gives": "OVEREXPOSE",
-      "note": "to let too much light onto photographic film"
+      "at": 30,
+      "meaning": "to let too much light onto photographic film"
      }
     ],
     "explanation": {
@@ -290,46 +258,44 @@
    },
    "solution": "SUSHI",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "SUSHI",
     "definitions": [
      {
       "text": "fare in Japan",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "pockets",
-      "for": "container",
-      "note": "the outer letters take the inner piece into them"
-     },
-     {
-      "text": "2/3 of",
-      "for": "deletion",
-      "note": "keep two of the word's three letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quietly one",
-      "gives": "SHI",
-      "note": "SH = quietly, I = one"
-     },
-     {
-      "clueFragment": "2/3 of bus",
-      "gives": "US",
-      "note": "BUS without its B"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "HI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SUSHI",
+     "indicators": [
+      {
+       "text": "2/3 of",
+       "note": "keep two of the word's three letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pockets",
+         "note": "the outer letters take the inner piece into them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Quietly one",
+         "gives": "SHI",
+         "note": "SH = quietly, I = one"
+        },
+        {
+         "words": "2/3 of bus",
+         "gives": "US",
+         "note": "BUS without its B"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -359,33 +325,16 @@
    },
    "solution": "FANFARE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FANFARE",
     "definitions": [
      {
       "text": "Enthusiastic display",
-      "at": 0
+      "at": 0,
+      "meaning": "a showy celebration"
      },
      {
       "text": "half-time pies and Bovril?",
-      "at": 24
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Enthusiastic display",
-      "gives": "FANFARE",
-      "note": "a showy celebration"
-     },
-     {
-      "clueFragment": "half-time pies and Bovril?",
-      "gives": "FANFARE",
-      "note": "the food and drink of football supporters at the interval, split 3+4"
+      "at": 24,
+      "meaning": "the food and drink of football supporters at the interval, split 3+4"
      }
     ],
     "explanation": {
@@ -421,47 +370,41 @@
    },
    "solution": "FIREALARM",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FIRE ALARM",
     "definitions": [
      {
       "text": "reason to leave restaurant in a hurry",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "dressing",
-      "for": "container",
-      "note": "the outer word clothes the inner pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ranch",
-      "gives": "FARM",
-      "note": "a ranch is a farm"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "genuine",
-      "gives": "REAL",
-      "note": "real = genuine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "I",
-      "REAL",
-      "ARM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dressing",
+       "note": "the outer word clothes the inner pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ranch",
+       "gives": "FARM",
+       "note": "a ranch is a farm"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral"
+        },
+        {
+         "words": "genuine",
+         "gives": "REAL",
+         "note": "real = genuine"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -491,26 +434,25 @@
    },
    "solution": "NILE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NILE",
     "definitions": [
      {
       "text": "Flower with blue and white roots",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Flower",
-      "note": "not a bloom but something that flows: a river"
-     },
-     {
-      "clueFragment": "with blue and white roots",
-      "note": "not plant roots but the river's two source branches, named for these colours"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Flower",
+       "note": "not a bloom but something that flows: a river"
+      },
+      {
+       "words": "with blue and white roots",
+       "note": "not plant roots but the river's two source branches, named for these colours"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Flower' wants to be a bloom with coloured roots; it is something that flows, a river whose sources are the Blue and White Nile.",
      "definitionFit": "The Nile is formed where the Blue Nile and White Nile meet at Khartoum."
@@ -537,43 +479,31 @@
    },
    "solution": "ALCATRAZ",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALCATRAZ",
     "definitions": [
      {
       "text": "US Grand Slammer?",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "the champion's name takes the letter into itself"
-     }
-    ],
-    "linkWords": [
-     "to become"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wimbledon champion",
-      "gives": "ALCARAZ",
-      "note": "Carlos Alcaraz, Wimbledon men's champion"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALCA",
-      "T",
-      "RAZ"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "the champion's name takes the letter into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wimbledon champion",
+       "gives": "ALCARAZ",
+       "note": "Carlos Alcaraz, Wimbledon men's champion"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T = time"
+      }
      ]
     },
     "explanation": {
@@ -603,47 +533,40 @@
    },
    "solution": "ENSNARED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ENSNARED",
     "definitions": [
      {
       "text": "entangled",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "screens",
-      "for": "container",
-      "note": "the outer word hides the inner letters behind it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Close",
-      "gives": "END",
-      "note": "close = end"
-     },
-     {
-      "clueFragment": "partners",
-      "gives": "SN",
-      "note": "South and North, partners at bridge"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "ARE",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "SN",
-      "ARE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "screens",
+       "note": "the outer word hides the inner letters behind it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Close",
+       "gives": "END",
+       "note": "close = end"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "partners",
+         "gives": "SN",
+         "note": "South and North, partners at bridge"
+        },
+        {
+         "words": "are",
+         "note": "taken as it stands"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -672,36 +595,28 @@
    },
    "solution": "RANGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RANGE",
     "definitions": [
      {
       "text": "bring to bear",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Peeled",
-      "for": "deletion",
-      "note": "the skin comes off, here the fruit's first letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peeled fruit",
-      "gives": "RANGE",
-      "note": "ORANGE without its O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RANGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RANGE",
+     "indicators": [
+      {
+       "text": "Peeled",
+       "note": "the skin comes off, here the fruit's first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Peeled fruit",
+       "gives": "RANGE",
+       "note": "ORANGE without its O"
+      }
      ]
     },
     "explanation": {
@@ -730,52 +645,41 @@
    },
    "solution": "SURPLICES",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "SURPLICES",
     "definitions": [
      {
       "text": "religious clothing",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "blocks",
-      "note": "Poland's letters sit in the middle, blocking the rest"
-     },
-     {
-      "text": "at sea",
-      "note": "confused, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "displaying"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cruises",
-      "gives": "SURICES",
-      "note": "CRUISES rearranged"
-     },
-     {
-      "clueFragment": "Poland",
-      "gives": "PL",
-      "note": "PL, Poland's international code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUR",
-      "PL",
-      "ICES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SURPLICES",
+     "parts": [
       {
-       "fodder": "CRUISES",
-       "gives": "SURICES"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "blocks",
+         "note": "Poland's letters sit in the middle, blocking the rest"
+        },
+        {
+         "text": "at sea",
+         "note": "confused, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cruises",
+         "gives": "SURICES",
+         "note": "CRUISES rearranged"
+        },
+        {
+         "words": "Poland",
+         "gives": "PL",
+         "note": "PL, Poland's international code"
+        }
+       ]
       }
      ]
     },
@@ -805,44 +709,40 @@
    },
    "solution": "ACADEMICAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ACADEMICAL",
     "definitions": [
      {
       "text": "of university",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "note": "a new version of the word, so its letters are rearranged"
-     },
-     {
-      "text": "nursing",
-      "note": "holds the extra letter inside, as a nurse holds a baby"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acclaimed",
-      "gives": "ACCLAIMED",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A = area"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ACCLAIMED A",
-       "gives": "ACADEMICAL"
+       "text": "new",
+       "note": "a new version of the word, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nursing",
+         "note": "holds the extra letter inside, as a nurse holds a baby"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Acclaimed",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A = area"
       }
      ]
     },
@@ -872,42 +772,29 @@
    },
    "solution": "ETNA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ETNA",
     "definitions": [
      {
       "text": "volcano",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Occasionally",
-      "for": "letter_selection",
-      "note": "only now and then, so every other letter"
-     },
-     {
-      "text": "falling from",
-      "for": "letter_selection",
-      "note": "the letters drop out of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Estonia's",
-      "gives": "ETNA",
-      "select": "alternate",
-      "note": "E s T o N i A: the odd letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "T",
-      "N",
-      "A"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Occasionally",
+       "note": "only now and then, so every other letter"
+      },
+      {
+       "text": "falling from",
+       "note": "the letters drop out of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Estonia's",
+       "note": "E s T o N i A: the odd letters"
+      }
      ]
     },
     "explanation": {
@@ -936,39 +823,36 @@
    },
    "solution": "CITRONELLA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "CITRONELLA",
     "definitions": [
      {
       "text": "oil?",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "turned about, so read backwards"
-     },
-     {
-      "text": "discovering",
-      "note": "uncovering what lies inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crestfallen or tickled",
-      "gives": "ALLENORTIC",
-      "note": "crestfALLEN OR TICkled"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ALLENORTIC",
-       "to": "CITRONELLA"
+       "text": "about",
+       "note": "turned about, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "discovering",
+         "note": "uncovering what lies inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Crestfallen or tickled",
+         "gives": "ALLENORTIC",
+         "note": "crestfALLEN OR TICkled"
+        }
+       ]
       }
      ]
     },
@@ -998,59 +882,55 @@
    },
    "solution": "PREVARICATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "anagram"
-    ],
-    "answer": "PREVARICATE",
     "definitions": [
      {
       "text": "Provide waffle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before"
-     },
-     {
-      "text": "up",
-      "note": "stirred up, so the letters are rearranged"
-     },
-     {
-      "text": "sandwiches",
-      "note": "the outer word holds the filling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pâté",
-      "gives": "PATE",
-      "note": "the bread of the sandwich, split P…ATE"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     },
-     {
-      "clueFragment": "I carve",
-      "gives": "EVARIC",
-      "note": "I CARVE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "EVARIC",
-      "ATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PREVARICATE",
+     "parts": [
       {
-       "fodder": "ICARVE",
-       "gives": "EVARIC"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "before"
+        },
+        {
+         "text": "sandwiches",
+         "note": "the outer word holds the filling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pâté",
+         "note": "the bread of the sandwich, split P…ATE"
+        },
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "up",
+           "note": "stirred up, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "right",
+           "gives": "R",
+           "note": "R = right"
+          },
+          {
+           "words": "I carve",
+           "gives": "EVARIC",
+           "note": "I CARVE rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1081,11 +961,6 @@
    },
    "solution": "ELABORATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ELABORATE",
     "definitions": [
      {
       "text": "in a flowery manner",
@@ -1093,34 +968,29 @@
       "note": "ELABORATE is an adjective; the definition is adverbial, describing a manner"
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue, going up means read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Christian perhaps",
-      "gives": "BALE",
-      "note": "Christian Bale, the actor; 'perhaps' because he is one Bale of many"
-     },
-     {
-      "clueFragment": "to speak",
-      "gives": "ORATE",
-      "note": "orate = speak formally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELAB",
-      "ORATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BALE",
-       "to": "ELAB"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down clue, going up means read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Christian perhaps",
+         "gives": "BALE",
+         "note": "Christian Bale, the actor; 'perhaps' because he is one Bale of many"
+        }
+       ]
+      },
+      {
+       "words": "to speak",
+       "gives": "ORATE",
+       "note": "orate = speak formally"
       }
      ]
     },
@@ -1150,54 +1020,40 @@
    },
    "solution": "SKEWERED",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "SKEWERED",
     "definitions": [
      {
       "text": "treated like pieces of meat",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "jockeys",
-      "for": "anagram",
-      "note": "jockeying moves things about, so the letters are rearranged"
-     },
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "the next word goes into the rearranged one"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Desk",
-      "gives": "SKED",
-      "note": "DESK rearranged, split SKE…D"
-     },
-     {
-      "clueFragment": "were",
-      "gives": "WERE",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKE",
-      "WERE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DESK",
-       "gives": "SKED"
+       "text": "inside",
+       "note": "the next word goes into the rearranged one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Desk",
+       "gives": "SKED",
+       "note": "DESK rearranged, split SKE…D"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jockeys",
+         "note": "jockeying moves things about, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "were",
+         "note": "taken as it stands"
+        }
+       ]
       }
      ]
     },
@@ -1227,45 +1083,35 @@
    },
    "solution": "LIBRETTO",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LIBRETTO",
     "definitions": [
      {
       "text": "volume of opera lyrics",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "turns up",
-      "for": "reversal",
-      "note": "in a down clue, the word turns over and reads bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Party",
-      "gives": "LIB",
-      "note": "Lib = Liberal party"
-     },
-     {
-      "clueFragment": "animal",
-      "gives": "OTTER",
-      "note": "an otter is an animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIB",
-      "RETTO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OTTER",
-       "to": "RETTO"
+       "words": "Party",
+       "gives": "LIB",
+       "note": "Lib = Liberal party"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns up",
+         "note": "in a down clue, the word turns over and reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "animal",
+         "gives": "OTTER",
+         "note": "an otter is an animal"
+        }
+       ]
       }
      ]
     },
@@ -1302,44 +1148,47 @@
    },
    "solution": "KEIRSTARMER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "KEIR STARMER",
     "definitions": [
      {
       "text": "leader in UK soon?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Model",
-      "note": "a model is a new form, so the letters are remade"
-     },
-     {
-      "text": "almost",
-      "note": "almost the whole word, so Sierra stops one letter short of its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sierra, almost",
-      "gives": "SIERR",
-      "note": "SIERRA without its last A"
-     },
-     {
-      "clueFragment": "market",
-      "gives": "MARKET",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "KEIRSTARMER",
+     "parts": [
       {
-       "fodder": "SIERR MARKET",
-       "gives": "KEIRSTARMER"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Model",
+         "note": "a model is a new form, so the letters are remade"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "almost",
+           "note": "almost the whole word, so Sierra stops one letter short of its end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sierra, almost",
+           "gives": "SIERR",
+           "note": "SIERRA without its last A"
+          },
+          {
+           "words": "market",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1369,33 +1218,16 @@
    },
    "solution": "RANCID",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RANCID",
     "definitions": [
      {
       "text": "What Detective Chief Superintendent typically did",
-      "at": 0
+      "at": 0,
+      "meaning": "a senior detective typically headed, i.e. ran, the CID, the Criminal Investigation Department; split the answer 3+3"
      },
      {
       "text": "rank",
-      "at": 57
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What Detective Chief Superintendent typically did",
-      "gives": "RANCID",
-      "note": "a senior detective typically headed, i.e. ran, the CID, the Criminal Investigation Department; split the answer 3+3"
-     },
-     {
-      "clueFragment": "rank",
-      "gives": "RANCID",
-      "note": "rank = foul-smelling"
+      "at": 57,
+      "meaning": "rank = foul-smelling"
      }
     ],
     "explanation": {
@@ -1425,35 +1257,24 @@
    },
    "solution": "SETTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SETTER",
     "definitions": [
      {
       "text": "This could be Eccles",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "High",
-      "for": "anagram",
-      "note": "high as in drunk, so the letters reel about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Street",
-      "gives": "STREET",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STREET",
-       "gives": "SETTER"
+       "text": "High",
+       "note": "high as in drunk, so the letters reel about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Street",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1484,33 +1305,16 @@
    },
    "solution": "WARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WARD",
     "definitions": [
      {
       "text": "Division",
-      "at": 0
+      "at": 0,
+      "meaning": "an electoral district of a city, or a section of a hospital"
      },
      {
       "text": "Guardian's responsibility",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Division",
-      "gives": "WARD",
-      "note": "an electoral district of a city, or a section of a hospital"
-     },
-     {
-      "clueFragment": "Guardian's responsibility",
-      "gives": "WARD",
-      "note": "a child in a guardian's care"
+      "at": 12,
+      "meaning": "a child in a guardian's care"
      }
     ],
     "explanation": {
@@ -1545,35 +1349,24 @@
    },
    "solution": "DOMAINNAME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOMAIN NAME",
     "definitions": [
      {
       "text": "network identification",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "crooked, so the letters are twisted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Madame in on",
-      "gives": "MADAMEINON",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MADAME IN ON",
-       "gives": "DOMAINNAME"
+       "text": "criminal",
+       "note": "crooked, so the letters are twisted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Madame in on",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1609,38 +1402,25 @@
    },
    "solution": "ATEAM",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "A-TEAM",
     "definitions": [
      {
       "text": "Top performers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at the farm",
-      "gives": "ATEAM",
-      "select": "alternate",
-      "note": "A t T h E f A r M"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "E",
-      "A",
-      "M"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "at regular intervals, so every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at the farm",
+       "note": "A t T h E f A r M"
+      }
      ]
     },
     "explanation": {
@@ -1669,34 +1449,29 @@
    },
    "solution": "BODE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BODE",
     "definitions": [
      {
       "text": "Herald",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on being heard",
-      "for": "homophone",
-      "note": "the answer is what you hear, not what you read"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bent",
-      "gives": "BODE",
-      "soundsLike": "BOWED",
-      "note": "bowed = bent"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BODE",
+     "indicators": [
+      {
+       "text": "on being heard",
+       "note": "the answer is what you hear, not what you read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bent",
+       "gives": "BOWED",
+       "note": "bowed = bent"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A town crier stoops as he is heard announcing.",
      "walkthrough": "'Herald' looks like a noun but is the verb: to bode is to herald, as in 'this bodes ill'.",
@@ -1723,32 +1498,25 @@
    },
    "solution": "RATIONALE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RATIONALE",
     "definitions": [
      {
       "text": "Basis",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "to restrict",
-      "gives": "RATION",
-      "note": "ration = restrict"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RATION",
-      "ALE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to restrict",
+       "gives": "RATION",
+       "note": "ration = restrict"
+      },
+      {
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is beer"
+      }
      ]
     },
     "explanation": {
@@ -1777,59 +1545,56 @@
    },
    "solution": "LICIT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LICIT",
     "definitions": [
      {
       "text": "within the law",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "'after' is about order: the word it follows comes first"
-     },
-     {
-      "text": "heading to",
-      "note": "the head, or first letter, of the next word"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heading to Long",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of LONG"
-     },
-     {
-      "clueFragment": "Island",
-      "gives": "I",
-      "note": "I = island"
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C = clubs, the card suit"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "'it' = sex, as in 'doing it'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "C",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "'after' is about order: the word it follows comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "L",
+       "indicators": [
+        {
+         "text": "heading to",
+         "note": "the head, or first letter, of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "heading to Long",
+         "gives": "L",
+         "select": "first",
+         "note": "first letter of LONG"
+        }
+       ]
+      },
+      {
+       "words": "Island",
+       "gives": "I",
+       "note": "I = island"
+      },
+      {
+       "words": "clubs",
+       "gives": "C",
+       "note": "C = clubs, the card suit"
+      },
+      {
+       "words": "sex",
+       "gives": "IT",
+       "note": "'it' = sex, as in 'doing it'"
+      }
      ]
     },
     "explanation": {
@@ -1858,45 +1623,37 @@
    },
    "solution": "DIOCESE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DIOCESE",
     "definitions": [
      {
       "text": "London?",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancers move round and change places, so the letters of DO ICE do too"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do ice",
-      "gives": "DIOCE",
-      "note": "DO ICE rearranged"
-     },
-     {
-      "clueFragment": "near South East",
-      "gives": "SE",
-      "note": "SE = South East, placed next to it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIOCE",
-      "SE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DIOCESE",
+     "indicators": [
       {
-       "fodder": "DOICE",
-       "gives": "DIOCE"
+       "text": "dancing",
+       "note": "dancers move round and change places, so the letters of DO ICE do too"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Do ice",
+         "gives": "DIOCE",
+         "note": "DO ICE rearranged"
+        },
+        {
+         "words": "near South East",
+         "gives": "SE",
+         "note": "SE = South East, placed next to it"
+        }
+       ]
       }
      ]
     },
@@ -1926,38 +1683,29 @@
    },
    "solution": "MEANDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MEANDER",
     "definitions": [
      {
       "text": "take a circuitous route",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "ME",
-      "note": "the speaker, as 'me'"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "AND",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "The trouble",
-      "gives": "ER",
-      "note": "the trouble and strife = the wife, i.e. her, said 'er"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "AND",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "gives": "ME",
+       "note": "the speaker, as 'me'"
+      },
+      {
+       "words": "and",
+       "note": "taken as it stands"
+      },
+      {
+       "words": "The trouble",
+       "gives": "ER",
+       "note": "the trouble and strife = the wife, i.e. her, said 'er"
+      }
      ]
     },
     "explanation": {

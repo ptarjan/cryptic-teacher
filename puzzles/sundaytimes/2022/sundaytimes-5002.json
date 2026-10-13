@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5002",
  "number": 5002,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,002",
  "setter": "Robert Price",
  "date": "2022-04-10",
  "dimensions": {
@@ -42,35 +40,25 @@
    },
    "solution": "WORDPLAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WORDPLAY",
     "definitions": [
      {
       "text": "meat and drink to a setter",
       "at": 16
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Promise",
-      "gives": "WORD",
-      "note": "to give your word is to promise"
-     },
-     {
-      "clueFragment": "give",
-      "gives": "PLAY",
-      "note": "give as in slack or looseness, like play in a rope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WORD",
-      "PLAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Promise",
+       "gives": "WORD",
+       "note": "to give your word is to promise"
+      },
+      {
+       "words": "give",
+       "gives": "PLAY",
+       "note": "give as in slack or looseness, like play in a rope"
+      }
      ]
     },
     "explanation": {
@@ -99,45 +87,40 @@
    },
    "solution": "WASABI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "WASABI",
     "definitions": [
      {
       "text": "Hot paste",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking something means being without it, so a letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "used to be",
-      "gives": "WAS",
-      "note": "past tense of 'be'"
-     },
-     {
-      "clueFragment": "a bit",
-      "gives": "ABIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "T is the standard abbreviation for temperature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAS",
-      "ABI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "used to be",
+       "gives": "WAS",
+       "note": "past tense of 'be'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking something means being without it, so a letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a bit",
+         "note": "taken as written"
+        },
+        {
+         "words": "temperature",
+         "gives": "T",
+         "note": "T is the standard abbreviation for temperature"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -166,40 +149,39 @@
    },
    "solution": "RASCAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RASCAL",
     "definitions": [
      {
       "text": "Monkey",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shortened",
-      "for": "deletion",
-      "note": "something shortened has been cut, so its final letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "god's",
-      "gives": "RAS",
-      "note": "Ra is the Egyptian sun god, with the possessive S"
-     },
-     {
-      "clueFragment": "title",
-      "gives": "CALL",
-      "note": "to title someone is to call them by a name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAS",
-      "CAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shortened",
+       "note": "something shortened has been cut, so its final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "god's",
+         "gives": "RAS",
+         "note": "Ra is the Egyptian sun god, with the possessive S"
+        },
+        {
+         "words": "title",
+         "gives": "CALL",
+         "note": "to title someone is to call them by a name"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -228,42 +210,51 @@
    },
    "solution": "PTEROSAUR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PTEROSAUR",
     "definitions": [
      {
       "text": "this beast",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Expressed",
-      "for": "homophone",
-      "note": "to express something is to put it into speech, so the sound matters, not the spelling"
-     },
-     {
-      "text": "saying",
-      "for": "homophone",
-      "note": "saying something is speaking it, so we work from pronunciation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alarm",
-      "gives": "PTERO",
-      "soundsLike": "TERROR",
-      "note": "terror is great alarm; the P is silent"
-     },
-     {
-      "clueFragment": "could fly",
-      "gives": "SAUR",
-      "soundsLike": "SOAR",
-      "note": "to soar is to fly high"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PTERO",
+       "indicators": [
+        {
+         "text": "Expressed",
+         "note": "to express something is to put it into speech, so the sound matters, not the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alarm",
+         "gives": "TERROR",
+         "note": "terror is great alarm; the P is silent"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SAUR",
+       "indicators": [
+        {
+         "text": "saying",
+         "note": "saying something is speaking it, so we work from pronunciation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "could fly",
+         "gives": "SOAR",
+         "note": "to soar is to fly high"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone shrieks in fright that a creature might take to the air.",
      "walkthrough": "Said aloud, 'terror' plus 'soar' gives the name of the flying reptile, whose initial P is silent; the wordplay also describes the creature, so the clue reads almost as a whole.",
@@ -297,55 +288,47 @@
    },
    "solution": "ABSENTMINDED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ABSENT-MINDED",
     "definitions": [
      {
       "text": "forgetful",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "to become"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "rapture",
-      "gives": "SENT",
-      "note": "to be sent is to be in raptures, carried away with delight"
-     },
-     {
-      "clueFragment": "tended",
-      "gives": "MINDED",
-      "note": "to mind something is to tend or look after it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "B",
-      "SENT",
-      "MINDED"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ABSENTMINDED",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "bishop",
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        },
+        {
+         "words": "rapture",
+         "gives": "SENT",
+         "note": "to be sent is to be in raptures, carried away with delight"
+        },
+        {
+         "words": "tended",
+         "gives": "MINDED",
+         "note": "to mind something is to tend or look after it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -374,56 +357,49 @@
    },
    "solution": "ADDICT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADDICT",
     "definitions": [
      {
       "text": "fiend",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "something criminal is crooked or bent, so these letters are twisted out of order"
-     },
-     {
-      "text": "go after",
-      "for": "charade",
-      "note": "to go after is to follow, so pieces are placed in sequence behind another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Did",
-      "gives": "DID",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is the standard abbreviation for court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DDI",
-      "CT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "DID",
-       "gives": "DDI"
+       "text": "go after",
+       "note": "to go after is to follow, so pieces are placed in sequence behind another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "note": "something criminal is crooked or bent, so these letters are twisted out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Did",
+           "note": "taken as written"
+          },
+          {
+           "words": "court",
+           "gives": "CT",
+           "note": "CT is the standard abbreviation for court"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -453,30 +429,28 @@
    },
    "solution": "DEATH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DEATH",
     "definitions": [
      {
       "text": "Passing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stores",
-      "for": "hidden_word",
-      "note": "to store something is to keep it inside, so the letters lie within the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trade at hardware",
-      "gives": "DEATH",
-      "note": "the run of letters across these three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "stores",
+       "note": "to store something is to keep it inside, so the letters lie within the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trade at hardware",
+       "gives": "DEATH",
+       "note": "the run of letters across these three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Casual customers walking in to shops selling tools.",
      "walkthrough": "'Passing trade' is a set phrase for casual custom, which hides that 'Passing' alone is the definition.",
@@ -503,46 +477,45 @@
    },
    "solution": "INHALERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "INHALERS",
     "definitions": [
      {
       "text": "Vapers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-heartedly",
-      "for": "deletion",
-      "note": "doing half the heart means losing one of the central pair of letters"
-     },
-     {
-      "text": "admit",
-      "for": "container",
-      "note": "to admit is to let in, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pubs",
-      "gives": "INNS",
-      "note": "an inn is a pub"
-     },
-     {
-      "clueFragment": "healthier",
-      "gives": "HALER",
-      "note": "hale means healthy, so haler is healthier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "HALER",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admit",
+       "note": "to admit is to let in, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-heartedly",
+         "note": "doing half the heart means losing one of the central pair of letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pubs",
+         "gives": "INNS",
+         "note": "an inn is a pub"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "healthier",
+       "gives": "HALER",
+       "note": "hale means healthy, so haler is healthier"
+      }
      ]
     },
     "explanation": {
@@ -571,54 +544,51 @@
    },
    "solution": "TROUSERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "TROUSERS",
     "definitions": [
      {
       "text": "pockets",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "latest",
-      "for": "letter_selection",
-      "note": "the latest is the most recent, the final one, so we keep the last letter"
-     },
-     {
-      "text": "cuts",
-      "for": "container",
-      "note": "something that cuts a thing goes into it, splitting it apart"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chancellor's",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "consumers'",
-      "gives": "USERS",
-      "note": "consumers are users"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "O",
-      "USERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "note": "something that cuts a thing goes into it, splitting it apart"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "latest",
+           "note": "the latest is the most recent, the final one, so we keep the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Chancellor's",
+           "gives": "CHANCELLOR",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "consumers'",
+       "gives": "USERS",
+       "note": "consumers are users"
+      }
      ]
     },
     "explanation": {
@@ -648,51 +618,41 @@
    },
    "solution": "SUSPENSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUSPENSE",
     "definitions": [
      {
       "text": "Tension",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "capital",
-      "for": "charade",
-      "note": "a capital letter stands at the head, so only the opening letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South",
-      "gives": "S",
-      "note": "S is the abbreviation for South"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "the US is America"
-     },
-     {
-      "clueFragment": "hems in",
-      "gives": "PENS",
-      "note": "to pen in is to confine, as hemming in does"
-     },
-     {
-      "clueFragment": "Ecuador's",
-      "gives": "E",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "PENS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "capital",
+       "note": "a capital letter stands at the head, so only the opening letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "South",
+       "gives": "S",
+       "note": "S is the abbreviation for South"
+      },
+      {
+       "words": "America",
+       "gives": "US",
+       "note": "the US is America"
+      },
+      {
+       "words": "hems in",
+       "gives": "PENS",
+       "note": "to pen in is to confine, as hemming in does"
+      },
+      {
+       "words": "Ecuador's",
+       "gives": "E",
+       "note": "the opening letter of the word"
+      }
      ]
     },
     "explanation": {
@@ -721,55 +681,47 @@
    },
    "solution": "PASHTO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PASHTO",
     "definitions": [
      {
       "text": "Language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     },
-     {
-      "text": "pursuing",
-      "for": "charade",
-      "note": "to pursue is to come behind, so one piece follows the rest"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "days gone by",
-      "gives": "PAST",
-      "note": "days gone by are the past"
-     },
-     {
-      "clueFragment": "hearts",
-      "gives": "H",
-      "note": "H is the card abbreviation for hearts"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAS",
-      "H",
-      "T",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "note": "to pursue is to come behind, so one piece follows the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "days gone by",
+         "gives": "PAST",
+         "note": "days gone by are the past"
+        },
+        {
+         "words": "hearts",
+         "gives": "H",
+         "note": "H is the card abbreviation for hearts"
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like O"
+      }
      ]
     },
     "explanation": {
@@ -798,46 +750,40 @@
    },
    "solution": "STRAPHANGERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STRAPHANGERS",
     "definitions": [
      {
       "text": "Travellers gripping",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "something outside wraps around another thing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "newcomers",
-      "gives": "STRANGERS",
-      "note": "strangers are newcomers to a place"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH, public house, is the map abbreviation for a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STR",
-      "A",
-      "PH",
-      "ANGERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "something outside wraps around another thing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "newcomers",
+         "gives": "STRANGERS",
+         "note": "strangers are newcomers to a place"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "pub",
+       "gives": "PH",
+       "note": "PH, public house, is the map abbreviation for a pub"
+      }
      ]
     },
     "explanation": {
@@ -866,28 +812,16 @@
    },
    "solution": "BEANO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BEANO",
     "definitions": [
      {
       "text": "Do",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a party or celebration"
      },
      {
       "text": "vote, but not \"Yes\"",
-      "at": 3
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do",
-      "note": "first meaning: a party or celebration"
-     },
-     {
-      "clueFragment": "vote, but not \"Yes\"",
-      "note": "second meaning, read cryptically as an instruction split into three words"
+      "at": 3,
+      "meaning": "second meaning, read cryptically as an instruction split into three words"
      }
     ],
     "explanation": {
@@ -916,26 +850,25 @@
    },
    "solution": "NUTSHELLS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NUTSHELLS",
     "definitions": [
      {
       "text": "Cases one's crackers to tackle",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cases one's crackers to tackle",
-      "note": "surface reading: legal cases that only a madman would take on"
-     },
-     {
-      "clueFragment": "Cases one's crackers to tackle",
-      "note": "setter's reading: hard casings that a pair of nutcrackers is made to break open"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cases one's crackers to tackle",
+       "note": "surface reading: legal cases that only a madman would take on"
+      },
+      {
+       "words": "Cases one's crackers to tackle",
+       "note": "setter's reading: hard casings that a pair of nutcrackers is made to break open"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Crackers' means mad on the surface, but the setter means the tool for cracking. The cases are the hard coverings it attacks.",
      "definitionFit": "The woody outer casing around a kernel is precisely what a nutcracker is designed to break open."
@@ -968,35 +901,24 @@
    },
    "solution": "FARMLABOURER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FARM LABOURER",
     "definitions": [
      {
       "text": "thresher?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Working",
-      "for": "anagram",
-      "note": "letters that are working are being put to use and reshaped into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for rum, a baler",
-      "gives": "FORRUMABALER",
-      "note": "all twelve letters, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FORRUMABALER",
-       "gives": "FARMLABOURER"
+       "text": "Working",
+       "note": "letters that are working are being put to use and reshaped into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for rum, a baler",
+       "note": "all twelve letters, taken as written"
       }
      ]
     },
@@ -1032,43 +954,31 @@
    },
    "solution": "OILTANKER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OIL TANKER",
     "definitions": [
      {
       "text": "crude transport",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Without",
-      "for": "container",
-      "note": "without in its old sense means outside, so one piece surrounds the other"
-     }
-    ],
-    "linkWords": [
-     "will provide"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "greaser",
-      "gives": "OILER",
-      "note": "someone who greases machinery is an oiler"
-     },
-     {
-      "clueFragment": "fail",
-      "gives": "TANK",
-      "note": "to tank is to fail badly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OIL",
-      "TANK",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Without",
+       "note": "without in its old sense means outside, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "greaser",
+       "gives": "OILER",
+       "note": "someone who greases machinery is an oiler"
+      },
+      {
+       "words": "fail",
+       "gives": "TANK",
+       "note": "to tank is to fail badly"
+      }
      ]
     },
     "explanation": {
@@ -1104,46 +1014,40 @@
    },
    "solution": "TWOTIMER",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "TWO-TIMER",
     "definitions": [
      {
       "text": "Cheat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pinching",
-      "for": "container",
-      "note": "to pinch is to grip between, so one piece is held inside another"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests turning round and moving letters here and there"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to write",
-      "gives": "TOWRITE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "M is the abbreviation for million"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TOWRITEM",
-       "gives": "TWOTIMER"
+       "text": "pinching",
+       "note": "to pinch is to grip between, so one piece is held inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about suggests turning round and moving letters here and there"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to write",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "millions",
+       "gives": "M",
+       "note": "M is the abbreviation for million"
       }
      ]
     },
@@ -1173,43 +1077,31 @@
    },
    "solution": "STRUMPET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STRUMPET",
     "definitions": [
      {
       "text": "Tart",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "filling",
-      "for": "container",
-      "note": "a filling sits inside its case, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fixed",
-      "gives": "SET",
-      "note": "something set is fixed in place"
-     },
-     {
-      "clueFragment": "better",
-      "gives": "TRUMP",
-      "note": "to trump is to better or outdo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TRUMP",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling",
+       "note": "a filling sits inside its case, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fixed",
+       "gives": "SET",
+       "note": "something set is fixed in place"
+      },
+      {
+       "words": "better",
+       "gives": "TRUMP",
+       "note": "to trump is to better or outdo"
+      }
      ]
     },
     "explanation": {
@@ -1245,46 +1137,45 @@
    },
    "solution": "WATERINGHOLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "WATERING HOLE",
     "definitions": [
      {
       "text": "Bar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing the starter",
-      "for": "deletion",
-      "note": "the starter is the first item, so going without it drops the opening letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "full",
-      "gives": "WHOLE",
-      "note": "whole means full or complete"
-     },
-     {
-      "clueFragment": "serving meals",
-      "gives": "CATERING",
-      "note": "catering is providing meals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ATERING",
-      "HOLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "full",
+       "gives": "WHOLE",
+       "note": "whole means full or complete"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing the starter",
+         "note": "the starter is the first item, so going without it drops the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "serving meals",
+         "gives": "CATERING",
+         "note": "catering is providing meals"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1313,46 +1204,41 @@
    },
    "solution": "OOLONG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OOLONG",
     "definitions": [
      {
       "text": "tea",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "limitless",
-      "for": "letter_selection",
-      "note": "without limits means without ends, so only the middle letters remain"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so one piece sits next to the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "OO",
-      "select": "middle",
-      "note": "the word with its outer letters removed"
-     },
-     {
-      "clueFragment": "Sustained",
-      "gives": "LONG",
-      "note": "a sustained note is a long one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OO",
-      "LONG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "note": "by means beside, so one piece sits next to the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "limitless",
+         "note": "without limits means without ends, so only the middle letters remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good",
+         "note": "the word with its outer letters removed"
+        }
+       ]
+      },
+      {
+       "words": "Sustained",
+       "gives": "LONG",
+       "note": "a sustained note is a long one"
+      }
      ]
     },
     "explanation": {
@@ -1381,35 +1267,25 @@
    },
    "solution": "WEASEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WEASEL",
     "definitions": [
      {
       "text": "someone crafty",
       "at": 20
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Women's",
-      "gives": "W",
-      "note": "W is the abbreviation for women"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "EASEL",
-      "note": "an easel is a support for a painting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "EASEL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Women's",
+       "gives": "W",
+       "note": "W is the abbreviation for women"
+      },
+      {
+       "words": "support",
+       "gives": "EASEL",
+       "note": "an easel is a support for a painting"
+      }
      ]
     },
     "explanation": {
@@ -1439,51 +1315,40 @@
    },
    "solution": "TRUNCHEON",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TRUNCHEON",
     "definitions": [
      {
       "text": "Club",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancing moves around, so these letters change positions"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Techno",
-      "gives": "TECHNO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "course",
-      "gives": "RUN",
-      "note": "a run is a course, as in a ski run"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RUN",
-      "CHEON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TECHNO",
-       "gives": "TCHEON"
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "note": "dancing moves around, so these letters change positions"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Techno",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "course",
+       "gives": "RUN",
+       "note": "a run is a course, as in a ski run"
       }
      ]
     },
@@ -1514,42 +1379,35 @@
    },
    "solution": "CLEAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CLEAN",
     "definitions": [
      {
       "text": "Inoffensive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boring",
-      "for": "container",
-      "note": "to bore is to drill into something, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European's",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of European, a standard abbreviation"
-     },
-     {
-      "clueFragment": "family",
-      "gives": "CLAN",
-      "note": "a clan is an extended family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CL",
-      "E",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boring",
+       "note": "to bore is to drill into something, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "family",
+       "gives": "CLAN",
+       "note": "a clan is an extended family"
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "European's",
+         "note": "the first letter of European, a standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1578,42 +1436,40 @@
    },
    "solution": "ADORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADORE",
     "definitions": [
      {
       "text": "Love",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "notes",
-      "gives": "A",
-      "note": "A is a note named by letter"
-     },
-     {
-      "clueFragment": "notes",
-      "gives": "DO",
-      "note": "do is the first sol-fa syllable"
-     },
-     {
-      "clueFragment": "notes",
-      "gives": "RE",
-      "note": "re is the second sol-fa syllable"
-     },
-     {
-      "clueFragment": "three of them",
-      "note": "tells us how many notes to string together; it adds no letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DO",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "notes",
+         "gives": "A",
+         "note": "A is a note named by letter"
+        },
+        {
+         "words": "notes",
+         "gives": "DO",
+         "note": "do is the first sol-fa syllable"
+        },
+        {
+         "words": "notes",
+         "gives": "RE",
+         "note": "re is the second sol-fa syllable"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "three of them",
+       "note": "tells us how many notes to string together; it adds no letters"
+      }
      ]
     },
     "explanation": {
@@ -1642,47 +1498,41 @@
    },
    "solution": "MAPLES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MAPLES",
     "definitions": [
      {
       "text": "Trees",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "planted around",
-      "for": "container",
-      "note": "things planted around something are set to encircle it"
-     },
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "the origin is the start, so only the opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men",
-      "gives": "MALES",
-      "note": "men are males"
-     },
-     {
-      "clueFragment": "ponds",
-      "gives": "P",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "P",
-      "LES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "planted around",
+       "note": "things planted around something are set to encircle it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men",
+       "gives": "MALES",
+       "note": "men are males"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "the origin is the start, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ponds",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1711,60 +1561,50 @@
    },
    "solution": "DESKTOPS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DESKTOPS",
     "definitions": [
      {
       "text": "Computers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crashing",
-      "for": "anagram",
-      "note": "something crashing is wrecked and thrown into disorder"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of a word, its closing letter"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means following, so one piece comes behind the other"
-     }
-    ],
-    "linkWords": [
-     "using"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "DOS kept",
-      "gives": "DOSKEPT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Windows",
-      "gives": "S",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DESKTOP",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "DOSKEPT",
-       "gives": "DESKTOP"
+       "text": "after",
+       "note": "after means following, so one piece comes behind the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashing",
+         "note": "something crashing is wrecked and thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "DOS kept",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the very end of a word, its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Windows",
+         "note": "the closing letter of the word"
+        }
+       ]
       }
      ]
     },
@@ -1794,40 +1634,31 @@
    },
    "solution": "ROTUND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROTUND",
     "definitions": [
      {
       "text": "stout",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "getting hold of",
-      "for": "container",
-      "note": "to get hold of something is to grip it, so one piece surrounds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bar",
-      "gives": "ROD",
-      "note": "a rod is a bar"
-     },
-     {
-      "clueFragment": "cask",
-      "gives": "TUN",
-      "note": "a tun is a large cask"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "TUN",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting hold of",
+       "note": "to get hold of something is to grip it, so one piece surrounds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bar",
+       "gives": "ROD",
+       "note": "a rod is a bar"
+      },
+      {
+       "words": "cask",
+       "gives": "TUN",
+       "note": "a tun is a large cask"
+      }
      ]
     },
     "explanation": {
@@ -1857,46 +1688,40 @@
    },
    "solution": "ASTRAGAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ASTRAGAL",
     "definitions": [
      {
       "text": "semicircular moulding",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "something round another encircles it, so it holds that piece inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like stars",
-      "gives": "ASTRAL",
-      "note": "astral means of or like the stars"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "grand",
-      "gives": "G",
-      "note": "G is the abbreviation for grand, a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASTR",
-      "A",
-      "G",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "something round another encircles it, so it holds that piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Like stars",
+         "gives": "ASTRAL",
+         "note": "astral means of or like the stars"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "grand",
+       "gives": "G",
+       "note": "G is the abbreviation for grand, a thousand"
+      }
      ]
     },
     "explanation": {

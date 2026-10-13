@@ -1,8 +1,6 @@
 {
  "id": "independent-12373",
  "number": 12373,
- "series": "independent",
- "name": "Independent cryptic crossword No 12,373",
  "setter": "Bluebird",
  "date": "2026-06-04",
  "dimensions": {
@@ -38,44 +36,36 @@
    },
    "solution": "CODA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CODA",
     "definitions": [
      {
       "text": "Extra bit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unwrapped",
-      "for": "letter_selection",
-      "note": "a parcel unwrapped has had the covering taken off both ends, so the outside letters go and the middle is what is left"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "COD",
-      "note": "cod is the fish of the British chip shop, three letters every setter keeps handy"
-     },
-     {
-      "clueFragment": "was unwrapped",
-      "gives": "A",
-      "select": "middle",
-      "note": "take the w and the s off the ends of was and one letter is left in the middle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COD",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "COD",
+       "note": "cod is the fish of the British chip shop, three letters every setter keeps handy"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unwrapped",
+         "note": "a parcel unwrapped has had the covering taken off both ends, so the outside letters go and the middle is what is left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was unwrapped",
+         "gives": "WAS",
+         "note": "take the w and the s off the ends of was and one letter is left in the middle"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,45 +100,35 @@
    },
    "solution": "CHIPS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHIPS",
     "definitions": [
      {
       "text": "TV cop show",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has",
-      "for": "container",
-      "note": "what a thing has, it is holding, so the letters named next go inside the ones named first"
-     },
-     {
-      "text": "content",
-      "for": "container",
-      "note": "the content of a thing is what sits inside it, so cool is the filling here rather than the wrapper"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lewis",
-      "gives": "CS",
-      "note": "C S Lewis wrote the Narnia books, and his two initials part to take something between them"
-     },
-     {
-      "clueFragment": "cool",
-      "gives": "HIP",
-      "note": "hip is cool in the fashionable sense, and it goes within"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HIP",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has",
+       "note": "what a thing has, it is holding, so the letters named next go inside the ones named first"
+      },
+      {
+       "text": "content",
+       "note": "the content of a thing is what sits inside it, so cool is the filling here rather than the wrapper"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lewis",
+       "gives": "CS",
+       "note": "C S Lewis wrote the Narnia books, and his two initials part to take something between them"
+      },
+      {
+       "words": "cool",
+       "gives": "HIP",
+       "note": "hip is cool in the fashionable sense, and it goes within"
+      }
      ]
     },
     "explanation": {
@@ -187,58 +167,52 @@
    },
    "solution": "DISHTHEDIRT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DISH THE DIRT",
     "definitions": [
      {
       "text": "gossip",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "exhausted",
-      "for": "letter_selection",
-      "note": "a thing exhausted has had everything inside it used up, so the word is left with only the letters at its two ends"
-     },
-     {
-      "text": "to spread",
-      "for": "anagram",
-      "note": "to spread a handful is to scatter it about, and scattered letters do not land in the order they were handed over"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Handsome chap",
-      "gives": "DISH",
-      "note": "a dish is a good-looking person, the compliment of the 1950s"
-     },
-     {
-      "clueFragment": "though",
-      "gives": "TH",
-      "select": "outer",
-      "note": "the outer letters of though, with everything between them used up"
-     },
-     {
-      "clueFragment": "tried",
-      "gives": "EDIRT",
-      "note": "the five letters of tried re-set, and they close the phrase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISH",
-      "TH",
-      "EDIRT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISHTHEDIRT",
+     "indicators": [
       {
-       "fodder": "TRIED",
-       "gives": "EDIRT"
+       "text": "to spread",
+       "note": "to spread a handful is to scatter it about, and scattered letters do not land in the order they were handed over"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Handsome chap",
+         "gives": "DISH",
+         "note": "a dish is a good-looking person, the compliment of the 1950s"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "exhausted",
+           "note": "a thing exhausted has had everything inside it used up, so the word is left with only the letters at its two ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "though",
+           "note": "the outer letters of though, with everything between them used up"
+          }
+         ]
+        },
+        {
+         "words": "tried",
+         "gives": "EDIRT",
+         "note": "the five letters of tried re-set, and they close the phrase"
+        }
+       ]
       }
      ]
     },
@@ -268,44 +242,37 @@
    },
    "solution": "CHECKMATED",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "CHECKMATED",
     "definitions": [
      {
       "text": "defeated",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "soundly",
-      "for": "homophone",
-      "note": "what is done soundly is done by ear, so the word is wanted as it is said rather than as it is written"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bohemian",
-      "gives": "CHECK",
-      "soundsLike": "CZECH",
-      "note": "Bohemia is the western half of the Czech lands, so a Bohemian is a Czech, and the two words come out of the mouth alike"
-     },
-     {
-      "clueFragment": "screwed",
-      "gives": "MATED",
-      "note": "animals that have mated have screwed, in the blunt sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHECK",
-      "MATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CHECK",
+       "indicators": [
+        {
+         "text": "soundly",
+         "note": "what is done soundly is done by ear, so the word is wanted as it is said rather than as it is written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bohemian",
+         "gives": "CZECH",
+         "note": "Bohemia is the western half of the Czech lands, so a Bohemian is a Czech, and the two words come out of the mouth alike"
+        }
+       ]
+      },
+      {
+       "words": "screwed",
+       "gives": "MATED",
+       "note": "animals that have mated have screwed, in the blunt sense"
+      }
      ]
     },
     "explanation": {
@@ -335,38 +302,31 @@
    },
    "solution": "HOT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HOT",
     "definitions": [
      {
       "text": "Contraband",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken from",
-      "for": "deletion",
-      "note": "what is taken from a thing is carried off out of it, so those letters come away from the word they were in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caesar's Palace?",
-      "gives": "HOTEL",
-      "note": "Caesars Palace is a hotel and casino on the Las Vegas strip, and the question mark owns that it is only one hotel of many"
-     },
-     {
-      "clueFragment": "article used by Pablo Escobar",
-      "gives": "EL",
-      "note": "el is the Spanish for the, the article a Colombian would reach for, and these are the two letters that go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken from",
+       "note": "what is taken from a thing is carried off out of it, so those letters come away from the word they were in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caesar's Palace?",
+       "gives": "HOTEL",
+       "note": "Caesars Palace is a hotel and casino on the Las Vegas strip, and the question mark owns that it is only one hotel of many"
+      },
+      {
+       "words": "article used by Pablo Escobar",
+       "gives": "EL",
+       "note": "el is the Spanish for the, the article a Colombian would reach for, and these are the two letters that go"
+      }
      ]
     },
     "explanation": {
@@ -396,58 +356,58 @@
    },
    "solution": "CHEERINESS",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "deletion"
-    ],
-    "answer": "CHEERINESS",
     "definitions": [
      {
       "text": "joy",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "popping",
-      "note": "a pill is popped by putting it in, so what is popped goes inside the word standing beside it"
-     },
-     {
-      "text": "topless",
-      "note": "something topless has lost what was on top of it, so the word goes without its first letter"
-     }
-    ],
-    "linkWords": [
-     "bringing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pop star",
-      "gives": "CHER",
-      "note": "Cher has been a pop star since the 1960s, and her name opens after the second letter"
-     },
-     {
-      "clueFragment": "Pill",
-      "gives": "E",
-      "note": "E is ecstasy, the tablet of the dance floor"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "two letters taken down exactly as they stand"
-     },
-     {
-      "clueFragment": "soldier's canteen",
-      "gives": "ESS",
-      "note": "soldiers eat in the mess, and the M on top of it comes away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHEER",
-      "IN",
-      "ESS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHEERINESS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "popping",
+         "note": "a pill is popped by putting it in, so what is popped goes inside the word standing beside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "topless",
+           "note": "something topless has lost what was on top of it, so the word goes without its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pop star",
+           "gives": "CHER",
+           "note": "Cher has been a pop star since the 1960s, and her name opens after the second letter"
+          },
+          {
+           "words": "Pill",
+           "gives": "E",
+           "note": "E is ecstasy, the tablet of the dance floor"
+          }
+         ]
+        },
+        {
+         "words": "in",
+         "note": "two letters taken down exactly as they stand"
+        },
+        {
+         "words": "soldier's canteen",
+         "gives": "ESS",
+         "note": "soldiers eat in the mess, and the M on top of it comes away"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -476,35 +436,25 @@
    },
    "solution": "MISTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MISTER",
     "definitions": [
      {
       "text": "Title",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "film",
-      "gives": "MIST",
-      "note": "a film of mist on the glass is a thin covering"
-     },
-     {
-      "clueFragment": "TV show",
-      "gives": "ER",
-      "note": "ER is the American hospital drama that ran from 1994, named for the emergency room"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIST",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "film",
+       "gives": "MIST",
+       "note": "a film of mist on the glass is a thin covering"
+      },
+      {
+       "words": "TV show",
+       "gives": "ER",
+       "note": "ER is the American hospital drama that ran from 1994, named for the emergency room"
+      }
      ]
     },
     "explanation": {
@@ -533,52 +483,48 @@
    },
    "solution": "TIG",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TIG",
     "definitions": [
      {
       "text": "touching gesture",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Stuck-up",
-      "for": "reversal",
-      "note": "something stuck up is fixed the other way up, and in a down entry that has its letters read from the bottom"
-     },
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a word is the letter it starts on, and that one letter is all that is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It",
-      "gives": "TI",
-      "note": "the two letters of it, set down the other way up"
-     },
-     {
-      "clueFragment": "Girl's first",
-      "gives": "G",
-      "select": "first",
-      "note": "the opening letter of girl, and the only one taken from it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "G"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TIG",
+     "indicators": [
       {
-       "from": "IT",
-       "to": "TI"
+       "text": "Stuck-up",
+       "note": "something stuck up is fixed the other way up, and in a down entry that has its letters read from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "It",
+         "gives": "TI",
+         "note": "the two letters of it, set down the other way up"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "the first of a word is the letter it starts on, and that one letter is all that is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Girl's first",
+           "gives": "GIRLS",
+           "note": "the opening letter of girl, and the only one taken from it"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -608,51 +554,41 @@
    },
    "solution": "DISMANTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DISMANTLE",
     "definitions": [
      {
       "text": "Break up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "messed around with",
-      "note": "letters messed around with have been pushed out of their places, so they come back in some other order"
-     },
-     {
-      "text": "following",
-      "note": "what follows a thing comes along after it, so in a down entry these letters are written underneath the one already down"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D is the standard short form of date"
-     },
-     {
-      "clueFragment": "18 men I",
-      "gives": "ISMANTLE",
-      "note": "the answer at 18 is SALT, and those four letters with men and I make the eight that are re-set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ISMANTLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISMANTLE",
+     "parts": [
       {
-       "fodder": "SALTMENI",
-       "gives": "ISMANTLE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "messed around with",
+         "note": "letters messed around with have been pushed out of their places, so they come back in some other order"
+        },
+        {
+         "text": "following",
+         "note": "what follows a thing comes along after it, so in a down entry these letters are written underneath the one already down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "date",
+         "gives": "D",
+         "note": "D is the standard short form of date"
+        },
+        {
+         "words": "18 men I",
+         "gives": "ISMANTLE",
+         "note": "the answer at 18 is SALT, and those four letters with men and I make the eight that are re-set"
+        }
+       ]
       }
      ]
     },
@@ -682,35 +618,25 @@
    },
    "solution": "GALLOPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GALLOPS",
     "definitions": [
      {
       "text": "runs",
       "at": 21
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Young woman",
-      "gives": "GAL",
-      "note": "gal is how girl is spelt when it is said broadly, in song and in dialect"
-     },
-     {
-      "clueFragment": "cuts",
-      "gives": "LOPS",
-      "note": "to lop a branch is to cut it off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAL",
-      "LOPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Young woman",
+       "gives": "GAL",
+       "note": "gal is how girl is spelt when it is said broadly, in song and in dialect"
+      },
+      {
+       "words": "cuts",
+       "gives": "LOPS",
+       "note": "to lop a branch is to cut it off"
+      }
      ]
     },
     "explanation": {
@@ -739,51 +665,52 @@
    },
    "solution": "INSTANT",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "INSTANT",
     "definitions": [
      {
       "text": "fast",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "spreads in",
-      "note": "what spreads in gets inside and takes up room there, so the name before it lands within the letters that follow"
-     },
-     {
-      "text": "eastern edge of",
-      "note": "an across answer is written west to east, so the eastern edge of a word is the letter at its right-hand end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "two letters taken as they stand, the front of the wrapper"
-     },
-     {
-      "clueFragment": "Laurel",
-      "gives": "STAN",
-      "note": "Stan Laurel, the thin half of Laurel and Hardy"
-     },
-     {
-      "clueFragment": "allotment",
-      "gives": "T",
-      "select": "last",
-      "note": "the closing letter of allotment, the end furthest east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "STAN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "INSTANT",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "spreads in",
+         "note": "what spreads in gets inside and takes up room there, so the name before it lands within the letters that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "note": "two letters taken as they stand, the front of the wrapper"
+        },
+        {
+         "words": "Laurel",
+         "gives": "STAN",
+         "note": "Stan Laurel, the thin half of Laurel and Hardy"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "eastern edge of",
+           "note": "an across answer is written west to east, so the eastern edge of a word is the letter at its right-hand end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "allotment",
+           "note": "the closing letter of allotment, the end furthest east"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -812,63 +739,68 @@
    },
    "solution": "ENSIGNS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ENSIGNS",
     "definitions": [
      {
       "text": "banners",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "note": "a word without something goes on lacking it, so the letter named next is struck out of it"
-     },
-     {
-      "text": "moving",
-      "note": "a letter told to move leaves the place it was standing in and settles somewhere else in the word"
-     },
-     {
-      "text": "start to",
-      "note": "the start of a word is the letter it begins on, and only that one is taken"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Guys without mike",
-      "gives": "EN",
-      "note": "guys are men, and mike is M in the radio alphabet, so the M goes"
-     },
-     {
-      "clueFragment": "sing moving number",
-      "gives": "SIGN",
-      "note": "the number is N, and it shifts along sing to the far end"
-     },
-     {
-      "clueFragment": "start to shake",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of shake, and the only one wanted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "SIGN",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENSIGNS",
+     "parts": [
       {
-       "fodder": "SING",
-       "gives": "SIGN"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ENSIGNS",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "without",
+           "note": "a word without something goes on lacking it, so the letter named next is struck out of it"
+          },
+          {
+           "text": "start to",
+           "note": "the start of a word is the letter it begins on, and only that one is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Guys without mike",
+           "gives": "EN",
+           "note": "guys are men, and mike is M in the radio alphabet, so the M goes"
+          },
+          {
+           "words": "sing moving number",
+           "gives": "SIGN",
+           "note": "the number is N, and it shifts along sing to the far end"
+          },
+          {
+           "op": "first",
+           "unchecked": true,
+           "gives": "S",
+           "indicators": [
+            {
+             "text": "moving",
+             "note": "a letter told to move leaves the place it was standing in and settles somewhere else in the word"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "start to shake",
+             "gives": "S",
+             "select": "first",
+             "note": "the opening letter of shake, and the only one wanted"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -898,54 +830,43 @@
    },
    "solution": "SETTLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SETTLE",
     "definitions": [
      {
       "text": "Fix",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "letters that have been damaged have lost their shape, so they will not come back in the order they were given"
-     },
-     {
-      "text": "casing",
-      "for": "container",
-      "note": "a casing is what is built round a thing to hold it, so the letters just re-set close over the one named before them"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "damaged steel",
-      "gives": "SETLE",
-      "note": "the five letters of steel re-set, and they part after the third"
-     },
-     {
-      "clueFragment": "Tesla",
-      "gives": "T",
-      "note": "T is the symbol for the tesla, the unit of magnetic flux density named after the engineer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SET",
-      "T",
-      "LE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SETTLE",
+     "indicators": [
       {
-       "fodder": "STEEL",
-       "gives": "SETLE"
+       "text": "damaged",
+       "note": "letters that have been damaged have lost their shape, so they will not come back in the order they were given"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "casing",
+         "note": "a casing is what is built round a thing to hold it, so the letters just re-set close over the one named before them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "damaged steel",
+         "gives": "SETLE",
+         "note": "the five letters of steel re-set, and they part after the third"
+        },
+        {
+         "words": "Tesla",
+         "gives": "T",
+         "note": "T is the symbol for the tesla, the unit of magnetic flux density named after the engineer"
+        }
+       ]
       }
      ]
     },
@@ -981,52 +902,48 @@
    },
    "solution": "GREENTEA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "GREEN TEA",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rum",
-      "note": "rum in British usage means odd or queer, and letters in a queer state are not standing in their right order"
-     },
-     {
-      "text": "endless",
-      "note": "a word made endless loses the letter it finishes on"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "voracity",
-      "gives": "GREE",
-      "note": "voracity is greed, and the last letter is taken off it"
-     },
-     {
-      "clueFragment": "neat",
-      "gives": "NTEA",
-      "note": "the four letters of neat re-set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREE",
-      "NTEA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GREENTEA",
+     "parts": [
       {
-       "fodder": "NEAT",
-       "gives": "NTEA"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "GREENTEA",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "rum",
+           "note": "rum in British usage means odd or queer, and letters in a queer state are not standing in their right order"
+          },
+          {
+           "text": "endless",
+           "note": "a word made endless loses the letter it finishes on"
+          }
+         ],
+         "parts": [
+          {
+           "words": "voracity",
+           "gives": "GREE",
+           "note": "voracity is greed, and the last letter is taken off it"
+          },
+          {
+           "words": "neat",
+           "gives": "NTEA",
+           "note": "the four letters of neat re-set"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1056,55 +973,51 @@
    },
    "solution": "TRANSMITTAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TRANSMITTAL",
     "definitions": [
      {
       "text": "Broadcast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling",
-      "note": "things travelling are on the move and away from where they set out, so the letters beside it come to rest in another order"
-     },
-     {
-      "text": "intercepted by",
-      "note": "what is intercepted is caught on its way through, so the letters named next cut into the middle of the ones before them"
-     },
-     {
-      "text": "following evacuation",
-      "note": "a building evacuated has had everybody out of the middle of it, leaving only what stands at the two ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "travelling martians left",
-      "gives": "TRANSMIAL",
-      "note": "the eight letters of martians re-set with L for left joining them, and the run parts after the seventh"
-     },
-     {
-      "clueFragment": "telegraphist",
-      "gives": "TT",
-      "select": "outer",
-      "note": "the two ends of telegraphist, everything between them emptied out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRANSMI",
-      "TT",
-      "AL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TRANSMITTAL",
+     "parts": [
       {
-       "fodder": "MARTIANSL",
-       "gives": "TRANSMIAL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "travelling",
+         "note": "things travelling are on the move and away from where they set out, so the letters beside it come to rest in another order"
+        },
+        {
+         "text": "following evacuation",
+         "note": "a building evacuated has had everybody out of the middle of it, leaving only what stands at the two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "travelling martians left",
+         "gives": "TRANSMIAL",
+         "note": "the eight letters of martians re-set with L for left joining them, and the run parts after the seventh"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "intercepted by",
+           "note": "what is intercepted is caught on its way through, so the letters named next cut into the middle of the ones before them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "telegraphist",
+           "note": "the two ends of telegraphist, everything between them emptied out"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1134,55 +1047,51 @@
    },
    "solution": "SMARTWATCH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SMARTWATCH",
     "definitions": [
      {
       "text": "gadget",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "Misguidedly",
-      "note": "what is done misguidedly is done wrong, and letters put down wrongly are not in their proper order"
-     },
-     {
-      "text": "empty",
-      "note": "an empty thing has had its insides taken out, leaving only what stands at either end"
-     },
-     {
-      "text": "to the bottom of",
-      "for": "letter_selection",
-      "note": "what is fixed to the bottom of a thing hangs below it, so in a down entry the letters named next are written above"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "S&M",
-      "gives": "SM",
-      "select": "outer",
-      "note": "the ampersand falls away and the two letters stay as they are"
-     },
-     {
-      "clueFragment": "attach empty wheelchair",
-      "gives": "ARTWATCH",
-      "note": "the six letters of attach with the W and R from the ends of wheelchair, all eight re-set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SM",
-      "ARTWATCH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SMARTWATCH",
+     "parts": [
       {
-       "fodder": "ATTACHWR",
-       "gives": "ARTWATCH"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Misguidedly",
+         "note": "what is done misguidedly is done wrong, and letters put down wrongly are not in their proper order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "note": "an empty thing has had its insides taken out, leaving only what stands at either end"
+          },
+          {
+           "text": "to the bottom of",
+           "note": "what is fixed to the bottom of a thing hangs below it, so in a down entry the letters named next are written above"
+          }
+         ],
+         "parts": [
+          {
+           "words": "S&M",
+           "note": "the ampersand falls away and the two letters stay as they are"
+          }
+         ]
+        },
+        {
+         "words": "attach empty wheelchair",
+         "gives": "ARTWATCH",
+         "note": "the six letters of attach with the W and R from the ends of wheelchair, all eight re-set"
+        }
+       ]
       }
      ]
     },
@@ -1213,30 +1122,30 @@
    },
    "solution": "CHEAP",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CHEAP",
     "definitions": [
      {
       "text": "Cut-price",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "what comes from something is drawn out of it, so the letters wanted are already sitting in order in the words named"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "26 a penny",
-      "gives": "CHEAP",
-      "note": "the answer at 26 is FICHE, and written out in front of a penny the run of words buries what is wanted, starting three letters in"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "CHEAP",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "what comes from something is drawn out of it, so the letters wanted are already sitting in order in the words named"
+      }
+     ],
+     "parts": [
+      {
+       "words": "26 a penny",
+       "gives": "CHEAP",
+       "note": "the answer at 26 is FICHE, and written out in front of a penny the run of words buries what is wanted, starting three letters in"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Goods going at a penny apiece.",
      "walkthrough": "The number is an instruction to fetch another answer and write it out before you can see anything at all. Ten a penny is the idiom the surface is leaning on, and the definition sits on the far side of the dash.",
@@ -1262,50 +1171,41 @@
    },
    "solution": "CHOCOLATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CHOCOLATE",
     "definitions": [
      {
       "text": "Something sweet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eaten by",
-      "for": "container",
-      "note": "what is eaten by a thing ends up inside it, so the letter named first goes within the word that follows"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clown",
-      "gives": "COCO",
-      "note": "Coco the Clown was the big-shoed star of the British circus, and his name opens after the first letter"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the letter on the hot tap"
-     },
-     {
-      "clueFragment": "in the evening",
-      "gives": "LATE",
-      "note": "late in the day is in the evening"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "H",
-      "OCO",
-      "LATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eaten by",
+         "note": "what is eaten by a thing ends up inside it, so the letter named first goes within the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clown",
+         "gives": "COCO",
+         "note": "Coco the Clown was the big-shoed star of the British circus, and his name opens after the first letter"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H is the letter on the hot tap"
+        }
+       ]
+      },
+      {
+       "words": "in the evening",
+       "gives": "LATE",
+       "note": "late in the day is in the evening"
+      }
      ]
     },
     "explanation": {
@@ -1334,54 +1234,56 @@
    },
    "solution": "MONK",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MONK",
     "definitions": [
      {
       "text": "Say, lama",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "focus of",
-      "note": "the focus of a thing is its very centre, so only the letters at the middle of the word are taken"
-     },
-     {
-      "text": "following",
-      "note": "what follows a thing comes after it, so these letters are written behind the ones named next"
-     },
-     {
-      "text": "from the East",
-      "note": "an across answer is written west to east, so letters arriving from the east arrive back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mantra",
-      "gives": "MO",
-      "note": "om is the syllable chanted as a mantra, and it is set down the other way round"
-     },
-     {
-      "clueFragment": "thinking",
-      "gives": "NK",
-      "select": "middle",
-      "note": "the two letters at the dead centre of thinking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "NK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MONK",
+     "parts": [
       {
-       "from": "OM",
-       "to": "MO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "focus of",
+         "note": "the focus of a thing is its very centre, so only the letters at the middle of the word are taken"
+        },
+        {
+         "text": "from the East",
+         "note": "an across answer is written west to east, so letters arriving from the east arrive back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mantra",
+         "gives": "MO",
+         "note": "om is the syllable chanted as a mantra, and it is set down the other way round"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "NK",
+         "indicators": [
+          {
+           "text": "following",
+           "note": "what follows a thing comes after it, so these letters are written behind the ones named next"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "thinking",
+           "gives": "NK",
+           "select": "middle",
+           "note": "the two letters at the dead centre of thinking"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1411,44 +1313,47 @@
    },
    "solution": "SALT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SALT",
     "definitions": [
      {
       "text": "season",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "No.9",
-      "note": "a number set in front of a word points at the letter standing in that position, and only that one is taken"
-     },
-     {
-      "text": "ahead of",
-      "note": "what is ahead of a thing goes in front of it, so this letter is written before the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No.9 to decompress",
-      "gives": "S",
-      "select": 9,
-      "note": "count nine letters into decompress and stop on the one you land on"
-     },
-     {
-      "clueFragment": "key",
-      "gives": "ALT",
-      "note": "Alt is a key on a computer keyboard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ALT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "No.9",
+       "note": "a number set in front of a word points at the letter standing in that position, and only that one is taken"
+      }
+     ],
+     "parts": [
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "S",
+       "n": 9,
+       "indicators": [
+        {
+         "text": "ahead of",
+         "note": "what is ahead of a thing goes in front of it, so this letter is written before the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "No.9 to decompress",
+         "gives": "S",
+         "select": 9,
+         "note": "count nine letters into decompress and stop on the one you land on"
+        }
+       ]
+      },
+      {
+       "words": "key",
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      }
      ]
     },
     "explanation": {
@@ -1477,48 +1382,36 @@
    },
    "solution": "VINEGAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VINEGAR",
     "definitions": [
      {
       "text": "Condiment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "what is put on a thing rests on top of it, so in a down entry these letters go above the ones named next"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French wine",
-      "gives": "VIN",
-      "note": "vin is the French word for wine"
-     },
-     {
-      "clueFragment": "base",
-      "gives": "E",
-      "note": "e is the base of natural logarithms in mathematics"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "GAR",
-      "note": "the gar is a long-snouted fish, three letters that keep turning up in grids"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIN",
-      "E",
-      "GAR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "what is put on a thing rests on top of it, so in a down entry these letters go above the ones named next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French wine",
+       "gives": "VIN",
+       "note": "vin is the French word for wine"
+      },
+      {
+       "words": "base",
+       "gives": "E",
+       "note": "e is the base of natural logarithms in mathematics"
+      },
+      {
+       "words": "fish",
+       "gives": "GAR",
+       "note": "the gar is a long-snouted fish, three letters that keep turning up in grids"
+      }
      ]
     },
     "explanation": {
@@ -1547,42 +1440,36 @@
    },
    "solution": "ODIN",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ODIN",
     "definitions": [
      {
       "text": "Once-revered figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "seen",
-      "note": "what can be seen is there to be looked at, so the letters wanted are sitting in the word that follows"
-     },
-     {
-      "text": "about",
-      "note": "a thing turned about is facing the other way, so the letters are read backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Benidorm",
-      "gives": "ODIN",
-      "note": "a run of four letters out of the middle of Benidorm, read backwards"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NIDO",
-       "to": "ODIN"
+       "text": "seen",
+       "note": "what can be seen is there to be looked at, so the letters wanted are sitting in the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "a thing turned about is facing the other way, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Benidorm",
+         "gives": "NIDO",
+         "note": "a run of four letters out of the middle of Benidorm, read backwards"
+        }
+       ]
       }
      ]
     },
@@ -1612,36 +1499,28 @@
    },
    "solution": "EROS",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "EROS",
     "definitions": [
      {
       "text": "Archer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back-to-front",
-      "for": "cycling",
-      "note": "back to front sends the letter at the back round to the front, the word rotating rather than shuffling"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "warring house's heraldic badge",
-      "gives": "ROSE",
-      "note": "the Wars of the Roses were fought between the royal houses of York and Lancaster, each with a rose for its badge, and the word then turns"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EROS"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "EROS",
+     "indicators": [
+      {
+       "text": "back-to-front",
+       "note": "back to front sends the letter at the back round to the front, the word rotating rather than shuffling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "warring house's heraldic badge",
+       "gives": "ROSE",
+       "note": "the Wars of the Roses were fought between the royal houses of York and Lancaster, each with a rose for its badge, and the word then turns"
+      }
      ]
     },
     "explanation": {
@@ -1670,45 +1549,43 @@
    },
    "solution": "ISSUE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ISSUE",
     "definitions": [
      {
       "text": "Result",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "away",
-      "for": "deletion",
-      "note": "what is sent away is got rid of altogether, so the letter named just before it drops out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "the word taken down exactly as it stands"
-     },
-     {
-      "clueFragment": "certain",
-      "gives": "SUE",
-      "note": "certain is sure, and a letter is taken out of the middle of it"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the standard short form of right, and this is the letter that goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "SUE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "note": "what is sent away is got rid of altogether, so the letter named just before it drops out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "note": "the word taken down exactly as it stands"
+        },
+        {
+         "words": "certain",
+         "gives": "SUE",
+         "note": "certain is sure, and a letter is taken out of the middle of it"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the standard short form of right, and this is the letter that goes"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -1737,44 +1614,36 @@
    },
    "solution": "GREEDY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GREEDY",
     "definitions": [
      {
       "text": "Often hungry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is the letter it starts on, and nothing else is taken from it"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning to grow",
-      "gives": "G",
-      "select": "first",
-      "note": "the opening letter of grow, and the only one taken"
-     },
-     {
-      "clueFragment": "thin",
-      "gives": "REEDY",
-      "note": "a reedy voice is thin and piping, the sound a reed makes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "REEDY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is the letter it starts on, and nothing else is taken from it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning to grow",
+         "gives": "GROW",
+         "note": "the opening letter of grow, and the only one taken"
+        }
+       ]
+      },
+      {
+       "words": "thin",
+       "gives": "REEDY",
+       "note": "a reedy voice is thin and piping, the sound a reed makes"
+      }
      ]
     },
     "explanation": {
@@ -1803,52 +1672,51 @@
    },
    "solution": "OUTGROWN",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OUTGROWN",
     "definitions": [
      {
       "text": "Gotten too big for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "note": "what comes finally is the last of it, so only the closing letter of the word is taken"
-     },
-     {
-      "text": "gets brought in",
-      "note": "what is brought in is carried inside, so the letter just taken goes within the word named before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unfashionable",
-      "gives": "OUT",
-      "note": "what is out is no longer in fashion"
-     },
-     {
-      "clueFragment": "dress",
-      "gives": "GOWN",
-      "note": "a gown is a dress, and the word opens after its first letter"
-     },
-     {
-      "clueFragment": "Finally, tailor",
-      "gives": "R",
-      "select": "last",
-      "note": "the closing letter of tailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "G",
-      "R",
-      "OWN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Finally",
+       "note": "what comes finally is the last of it, so only the closing letter of the word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unfashionable",
+       "gives": "OUT",
+       "note": "what is out is no longer in fashion"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gets brought in",
+         "note": "what is brought in is carried inside, so the letter just taken goes within the word named before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dress",
+         "gives": "GOWN",
+         "note": "a gown is a dress, and the word opens after its first letter"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "Finally, tailor",
+           "note": "the closing letter of tailor"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1877,40 +1745,31 @@
    },
    "solution": "RELIEF",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RELIEF",
     "definitions": [
      {
       "text": "Help",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put about",
-      "for": "container",
-      "note": "to put a thing about is to set it round something, so the word named first closes over the one named next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "official",
-      "gives": "REF",
-      "note": "the referee is the official on the pitch, and the word opens after its second letter"
-     },
-     {
-      "clueFragment": "fake news",
-      "gives": "LIE",
-      "note": "a lie is what the quotation marks are calling fake news"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIE",
-      "F"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put about",
+       "note": "to put a thing about is to set it round something, so the word named first closes over the one named next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "official",
+       "gives": "REF",
+       "note": "the referee is the official on the pitch, and the word opens after its second letter"
+      },
+      {
+       "words": "fake news",
+       "gives": "LIE",
+       "note": "a lie is what the quotation marks are calling fake news"
+      }
      ]
     },
     "explanation": {
@@ -1939,48 +1798,37 @@
    },
    "solution": "FICHE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "FICHE",
     "definitions": [
      {
       "text": "microfilm",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns a thing right round, so the word beside it is written the other way up in a down entry"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "provided",
-      "gives": "FI",
-      "note": "provided is if, and the two letters are set down upwards"
-     },
-     {
-      "clueFragment": "Guevara",
-      "gives": "CHE",
-      "note": "Che Guevara, the Argentine revolutionary known by his first name alone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "CHE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "FICHE",
+     "indicators": [
       {
-       "from": "IF",
-       "to": "FI"
+       "text": "Revolutionary",
+       "note": "a revolution turns a thing right round, so the word beside it is written the other way up in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "provided",
+         "gives": "FI",
+         "note": "provided is if, and the two letters are set down upwards"
+        },
+        {
+         "words": "Guevara",
+         "gives": "CHE",
+         "note": "Che Guevara, the Argentine revolutionary known by his first name alone"
+        }
+       ]
       }
      ]
     },
@@ -2010,40 +1858,38 @@
    },
    "solution": "ALIMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ALIMENT",
     "definitions": [
      {
       "text": "support",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to lose core",
-      "for": "deletion",
-      "note": "the core of a word is the letter at its very centre, and losing it takes that one out of the middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great boxer",
-      "gives": "ALI",
-      "note": "Muhammad Ali, who called himself the greatest, three letters every setter keeps handy"
-     },
-     {
-      "clueFragment": "destined",
-      "gives": "MENT",
-      "note": "destined is meant, and the letter in the middle is lost"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALI",
-      "MENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ALIMENT",
+     "indicators": [
+      {
+       "text": "to lose core",
+       "note": "the core of a word is the letter at its very centre, and losing it takes that one out of the middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Great boxer",
+         "gives": "ALI",
+         "note": "Muhammad Ali, who called himself the greatest, three letters every setter keeps handy"
+        },
+        {
+         "words": "destined",
+         "gives": "MENT",
+         "note": "destined is meant, and the letter in the middle is lost"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2072,36 +1918,28 @@
    },
    "solution": "ICE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ICE",
     "definitions": [
      {
       "text": "Dessert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no starter",
-      "for": "deletion",
-      "note": "the starter of a word is the letter it opens on, and having none takes that letter off the front"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fine",
-      "gives": "ICE",
-      "note": "nice means fine, and it goes without the letter it started on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ICE",
+     "indicators": [
+      {
+       "text": "no starter",
+       "note": "the starter of a word is the letter it opens on, and having none takes that letter off the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fine",
+       "gives": "ICE",
+       "note": "nice means fine, and it goes without the letter it started on"
+      }
      ]
     },
     "explanation": {
@@ -2131,45 +1969,37 @@
    },
    "solution": "PLASTIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PLASTIC",
     "definitions": [
      {
       "text": "Artificial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blown",
-      "for": "anagram",
-      "note": "something blown has been scattered by the wind, and scattered letters come down in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plaits",
-      "gives": "PLASTI",
-      "note": "the six letters of plaits re-set"
-     },
-     {
-      "clueFragment": "around",
-      "gives": "C",
-      "note": "c is short for circa, the Latin for around, used of dates"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLASTI",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PLASTIC",
+     "indicators": [
       {
-       "fodder": "PLAITS",
-       "gives": "PLASTI"
+       "text": "blown",
+       "note": "something blown has been scattered by the wind, and scattered letters come down in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "plaits",
+         "gives": "PLASTI",
+         "note": "the six letters of plaits re-set"
+        },
+        {
+         "words": "around",
+         "gives": "C",
+         "note": "c is short for circa, the Latin for around, used of dates"
+        }
+       ]
       }
      ]
     },
@@ -2199,35 +2029,25 @@
    },
    "solution": "PIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PIN",
     "definitions": [
      {
       "text": "Part of badge",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two numbers",
-      "gives": "PI",
-      "note": "the first of the two is pi, the number that starts 3.14"
-     },
-     {
-      "clueFragment": "two numbers",
-      "gives": "N",
-      "note": "the second is N, the letter standing in for any number you please"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two numbers",
+       "gives": "PI",
+       "note": "the first of the two is pi, the number that starts 3.14"
+      },
+      {
+       "words": "two numbers",
+       "gives": "N",
+       "note": "the second is N, the letter standing in for any number you please"
+      }
      ]
     },
     "explanation": {
@@ -2256,30 +2076,28 @@
    },
    "solution": "EVERYTHING",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EVERYTHING",
     "definitions": [
      {
       "text": "the lot",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "has",
-      "for": "hidden_word",
-      "note": "what a thing has, it is holding, so the letters wanted are already sitting in the words just given"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caviare? Very thin gourmand",
-      "gives": "EVERYTHING",
-      "note": "the letters run on unbroken through the four words, starting on the last letter of the first"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "has",
+       "note": "what a thing has, it is holding, so the letters wanted are already sitting in the words just given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caviare? Very thin gourmand",
+       "gives": "EVERYTHING",
+       "note": "the letters run on unbroken through the four words, starting on the last letter of the first"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A very thin gourmet who eats the lot, caviare included.",
      "walkthrough": "The question mark makes caviare look like a definition standing on its own, which is where the eye goes first. A gourmand eats for quantity where a gourmet eats for quality, so thin is the joke.",
@@ -2307,31 +2125,29 @@
    },
    "solution": "BLUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BLUE",
     "definitions": [
      {
       "text": "Boy band",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on a record",
-      "for": "homophone",
-      "note": "what reaches you on a record reaches you as sound alone, so the word is wanted as it is said rather than as it is spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "played trumpets",
-      "gives": "BLUE",
-      "soundsLike": "BLEW",
-      "note": "a trumpet is played by blowing it, and blew said aloud is the other word entirely"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BLUE",
+     "indicators": [
+      {
+       "text": "on a record",
+       "note": "what reaches you on a record reaches you as sound alone, so the word is wanted as it is said rather than as it is spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "played trumpets",
+       "gives": "BLEW",
+       "note": "a trumpet is played by blowing it, and blew said aloud is the other word entirely"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A boy band's trumpets, heard on an old record.",
      "walkthrough": "Blue were the British boy band of All Rise and One Love, four singers who filled the charts in the early 2000s. Played is doing the work of blew, which is what makes the trumpets look like scenery.",

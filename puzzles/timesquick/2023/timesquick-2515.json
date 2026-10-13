@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2515",
  "number": 2515,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,515",
  "setter": "Trelawney",
  "date": "2023-10-30",
  "dimensions": {
@@ -42,11 +40,6 @@
    },
    "solution": "HITCHHIKER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HITCHHIKER",
     "definitions": [
      {
       "text": "I need a lift",
@@ -54,44 +47,40 @@
       "note": "a cryptic, first-person definition: what the answer would say"
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after places the second-named piece behind the first, fixing the order of the pieces"
-     },
-     {
-      "text": "back of",
-      "for": "letter_selection",
-      "note": "'back of' keeps only the last letter of 'car'"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "problem",
-      "gives": "HITCH",
-      "note": "a hitch is a snag or problem"
-     },
-     {
-      "clueFragment": "steep rise",
-      "gives": "HIKE",
-      "note": "a hike is a sharp increase, as in a price hike"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HITCH",
-      "HIKE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after places the second-named piece behind the first, fixing the order of the pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "problem",
+       "gives": "HITCH",
+       "note": "a hitch is a snag or problem"
+      },
+      {
+       "words": "steep rise",
+       "gives": "HIKE",
+       "note": "a hike is a sharp increase, as in a price hike"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "note": "'back of' keeps only the last letter of 'car'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "note": "the final letter of car"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -120,41 +109,36 @@
    },
    "solution": "HYDRA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "HYDRA",
     "definitions": [
      {
       "text": "many-headed monster",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "holds",
-      "for": "hidden_word",
-      "note": "the phrase holds the letters inside it, spanning the two words"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the letters read from bottom to top, backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hardy hero",
-      "gives": "ARDYH",
-      "note": "the letters run across the two words, missing the outer H and ERO"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ARDYH",
-       "to": "HYDRA"
+       "text": "up",
+       "note": "in a down clue, up means the letters read from bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "holds",
+         "note": "the phrase holds the letters inside it, spanning the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hardy hero",
+         "gives": "ARDYH",
+         "note": "the letters run across the two words, missing the outer H and ERO"
+        }
+       ]
       }
      ]
     },
@@ -184,47 +168,41 @@
    },
    "solution": "TREATMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TREATMENT",
     "definitions": [
      {
       "text": "Use",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "something found in a place sits inside it, so these letters go within the river"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     },
-     {
-      "clueFragment": "cash machine",
-      "gives": "ATM",
-      "note": "an automated teller machine"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "TRENT",
-      "note": "the Trent is a major river in the English Midlands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "E",
-      "ATM",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "something found in a place sits inside it, so these letters go within the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "TRENT",
+       "note": "the Trent is a major river in the English Midlands"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "E is the abbreviation for European"
+        },
+        {
+         "words": "cash machine",
+         "gives": "ATM",
+         "note": "an automated teller machine"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -253,47 +231,41 @@
    },
    "solution": "HASTE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HASTE",
     "definitions": [
      {
       "text": "urgency",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodating",
-      "for": "container",
-      "note": "to accommodate is to house something, so the first word wraps around the next piece"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the very end, so only the final letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Detest",
-      "gives": "HATE",
-      "note": "to detest is to hate"
-     },
-     {
-      "clueFragment": "needless",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of needless"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "S",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "note": "to accommodate is to house something, so the first word wraps around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Detest",
+       "gives": "HATE",
+       "note": "to detest is to hate"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means at the very end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "needless",
+         "note": "the final letter of needless"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -322,41 +294,31 @@
    },
    "solution": "ILL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ILL",
     "definitions": [
      {
       "text": "sick",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Without",
-      "for": "deletion",
-      "note": "without means lacking, so the named letter is taken away"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is the abbreviation for jack in a pack of cards"
-     },
-     {
-      "clueFragment": "Jack's companion",
-      "gives": "JILL",
-      "note": "Jack and Jill of the nursery rhyme"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Without",
+       "note": "without means lacking, so the named letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jack's companion",
+       "gives": "JILL",
+       "note": "Jack and Jill of the nursery rhyme"
+      },
+      {
+       "words": "Jack",
+       "gives": "J",
+       "note": "J is the abbreviation for jack in a pack of cards"
+      }
      ]
     },
     "explanation": {
@@ -385,42 +347,31 @@
    },
    "solution": "EXAMPLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXAMPLE",
     "definitions": [
      {
       "text": "instance",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "to support",
-      "for": "charade",
-      "note": "in a down clue the supporting piece stands underneath, so it is written second"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old partner",
-      "gives": "EX",
-      "note": "an ex is a former spouse or partner"
-     },
-     {
-      "clueFragment": "More than enough",
-      "gives": "AMPLE",
-      "note": "ample means plentiful, more than enough"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "AMPLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "note": "in a down clue the supporting piece stands underneath, so it is written second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old partner",
+       "gives": "EX",
+       "note": "an ex is a former spouse or partner"
+      },
+      {
+       "words": "More than enough",
+       "gives": "AMPLE",
+       "note": "ample means plentiful, more than enough"
+      }
      ]
     },
     "explanation": {
@@ -449,38 +400,30 @@
    },
    "solution": "CHARDONNAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHARDONNAY",
     "definitions": [
      {
       "text": "white wine",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Toast",
-      "gives": "CHAR",
-      "note": "to char is to scorch or toast"
-     },
-     {
-      "clueFragment": "put on",
-      "gives": "DON",
-      "note": "to don clothes is to put them on"
-     },
-     {
-      "clueFragment": "No",
-      "gives": "NAY",
-      "note": "nay is an old word for no"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAR",
-      "DON",
-      "NAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Toast",
+       "gives": "CHAR",
+       "note": "to char is to scorch or toast"
+      },
+      {
+       "words": "put on",
+       "gives": "DON",
+       "note": "to don clothes is to put them on"
+      },
+      {
+       "words": "No",
+       "gives": "NAY",
+       "note": "nay is an old word for no"
+      }
      ]
     },
     "explanation": {
@@ -509,28 +452,16 @@
    },
    "solution": "HEDGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HEDGE",
     "definitions": [
      {
       "text": "Protect oneself against losing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to ... one's bets, limiting possible loss"
      },
      {
       "text": "fence",
-      "at": 31
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Protect oneself against losing",
-      "note": "first meaning: to ... one's bets, limiting possible loss"
-     },
-     {
-      "clueFragment": "fence",
-      "note": "second meaning: a row of bushes forming a boundary"
+      "at": 31,
+      "meaning": "second meaning: a row of bushes forming a boundary"
      }
     ],
     "explanation": {
@@ -557,35 +488,24 @@
    },
    "solution": "SULTANA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SULTANA",
     "definitions": [
      {
       "text": "piece of dried fruit",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooked suggests ingredients mixed and changed, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aunt Sal",
-      "gives": "AUNTSAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AUNTSAL",
-       "gives": "SULTANA"
+       "text": "cooked",
+       "note": "cooked suggests ingredients mixed and changed, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aunt Sal",
+       "note": "taken as written"
       }
      ]
     },
@@ -615,28 +535,16 @@
    },
    "solution": "ACCIDENTAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ACCIDENTAL",
     "definitions": [
      {
       "text": "Unexpected",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: happening by chance"
      },
      {
       "text": "note",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unexpected",
-      "note": "first meaning: happening by chance"
-     },
-     {
-      "clueFragment": "note",
-      "note": "second meaning: in music, a sharp, flat or natural sign not in the key signature"
+      "at": 11,
+      "meaning": "second meaning: in music, a sharp, flat or natural sign not in the key signature"
      }
     ],
     "explanation": {
@@ -670,38 +578,24 @@
    },
    "solution": "ROASTBEEF",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROAST BEEF",
     "definitions": [
      {
       "text": "option for Sunday lunch",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "weird",
-      "for": "anagram",
-      "note": "something weird is strange and out of shape, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boar's feet",
-      "gives": "BOARSFEET",
-      "note": "taken as written, ignoring the apostrophe"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BOARSFEET",
-       "gives": "ROASTBEEF"
+       "text": "weird",
+       "note": "something weird is strange and out of shape, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boar's feet",
+       "note": "taken as written, ignoring the apostrophe"
       }
      ]
     },
@@ -732,32 +626,25 @@
    },
    "solution": "FANTASTIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FANTASTIC",
     "definitions": [
      {
       "text": "brilliant",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fizzy drink's",
-      "gives": "FANTAS",
-      "note": "Fanta is a brand of fizzy orange drink, with the S of the possessive"
-     },
-     {
-      "clueFragment": "quirk",
-      "gives": "TIC",
-      "note": "a tic is a habitual quirk or twitch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FANTAS",
-      "TIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fizzy drink's",
+       "gives": "FANTAS",
+       "note": "Fanta is a brand of fizzy orange drink, with the S of the possessive"
+      },
+      {
+       "words": "quirk",
+       "gives": "TIC",
+       "note": "a tic is a habitual quirk or twitch"
+      }
      ]
     },
     "explanation": {
@@ -785,33 +672,29 @@
    },
    "solution": "PIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PIC",
     "definitions": [
      {
       "text": "film",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Skip first bit of",
-      "for": "deletion",
-      "note": "skipping the first bit means leaving out the opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very long",
-      "gives": "EPIC",
-      "note": "epic means very long and grand in scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Skip first bit of",
+       "note": "skipping the first bit means leaving out the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very long",
+       "gives": "EPIC",
+       "note": "epic means very long and grand in scale"
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -840,30 +723,28 @@
    },
    "solution": "OYSTER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OYSTER",
     "definitions": [
      {
       "text": "seafood",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Sample of",
-      "for": "hidden_word",
-      "note": "a sample is a small portion taken from within, so the letters lie inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy's terrible",
-      "gives": "OYSTER",
-      "note": "the letters span the two words, after the first B"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Sample of",
+       "note": "a sample is a small portion taken from within, so the letters lie inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy's terrible",
+       "gives": "OYSTER",
+       "note": "the letters span the two words, after the first B"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A child tastes some seafood and finds it awful.",
      "definitionFit": "The oyster is a shellfish eaten as seafood, often raw."
@@ -889,38 +770,24 @@
    },
    "solution": "SOPRANO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SOPRANO",
     "definitions": [
      {
       "text": "Singer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going wrong",
-      "for": "anagram",
-      "note": "going wrong means turning out badly, so the letters fall out of order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rap soon",
-      "gives": "RAPSOON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAPSOON",
-       "gives": "SOPRANO"
+       "text": "going wrong",
+       "note": "going wrong means turning out badly, so the letters fall out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rap soon",
+       "note": "taken as written"
       }
      ]
     },
@@ -950,38 +817,29 @@
    },
    "solution": "INTEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INTEND",
     "definitions": [
      {
       "text": "Mean",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "to finish",
-      "gives": "END",
-      "note": "to finish is to end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "T",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "to finish",
+       "gives": "END",
+       "note": "to finish is to end"
+      }
      ]
     },
     "explanation": {
@@ -1009,34 +867,25 @@
    },
    "solution": "NAP",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "NAP",
     "definitions": [
      {
       "text": "Rest for a bit",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Periodically",
-      "for": "letter_selection",
-      "note": "periodically means at regular intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unhappy",
-      "gives": "NAP",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAP"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Periodically",
+       "note": "periodically means at regular intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unhappy",
+       "note": "the second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -1070,35 +919,24 @@
    },
    "solution": "TEAGARDEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEA GARDEN",
     "definitions": [
      {
       "text": "place for an outdoor cuppa",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "strange",
-      "for": "anagram",
-      "note": "strange means odd or out of the usual order, so the letters are reshuffled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Angered at",
-      "gives": "ANGEREDAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANGEREDAT",
-       "gives": "TEAGARDEN"
+       "text": "strange",
+       "note": "strange means odd or out of the usual order, so the letters are reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Angered at",
+       "note": "taken as written"
       }
      ]
     },
@@ -1128,48 +966,41 @@
    },
    "solution": "ADDER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "ADDER",
     "definitions": [
      {
       "text": "Snake",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so the chosen letter is removed"
-     },
-     {
-      "text": "in the end",
-      "for": "letter_selection",
-      "note": "in the end points to the final letter of the word before"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crazier",
-      "gives": "MADDER",
-      "note": "madder means more mad, crazier"
-     },
-     {
-      "clueFragment": "venom",
-      "gives": "M",
-      "select": "last",
-      "note": "the final letter of venom"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADDER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without means lacking, so the chosen letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crazier",
+       "gives": "MADDER",
+       "note": "madder means more mad, crazier"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "note": "in the end points to the final letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venom",
+         "note": "the final letter of venom"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1198,47 +1029,41 @@
    },
    "solution": "DRAWN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DRAWN",
     "definitions": [
      {
       "text": "Sketched",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means surrounding, so one piece is wrapped about the other"
-     },
-     {
-      "text": "summit of",
-      "for": "letter_selection",
-      "note": "the summit is the top, which in a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sunrise",
-      "gives": "DAWN",
-      "note": "dawn is sunrise"
-     },
-     {
-      "clueFragment": "ridge",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of ridge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "AWN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means surrounding, so one piece is wrapped about the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sunrise",
+       "gives": "DAWN",
+       "note": "dawn is sunrise"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "summit of",
+         "note": "the summit is the top, which in a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ridge",
+         "note": "the first letter of ridge"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1267,35 +1092,24 @@
    },
    "solution": "YEARNED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "YEARNED",
     "definitions": [
      {
       "text": "ached",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Falsely",
-      "for": "anagram",
-      "note": "falsely means wrongly or not truly, so the letters are put in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deny ear",
-      "gives": "DENYEAR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DENYEAR",
-       "gives": "YEARNED"
+       "text": "Falsely",
+       "note": "falsely means wrongly or not truly, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deny ear",
+       "note": "taken as written"
       }
      ]
     },
@@ -1325,28 +1139,16 @@
    },
    "solution": "NET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NET",
     "definitions": [
      {
       "text": "Acquire",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to gain"
      },
      {
       "text": "piece of fishing gear",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acquire",
-      "note": "first meaning: to gain"
-     },
-     {
-      "clueFragment": "piece of fishing gear",
-      "note": "second meaning: a mesh for catching fish"
+      "at": 8,
+      "meaning": "second meaning: a mesh for catching fish"
      }
     ],
     "explanation": {
@@ -1373,40 +1175,31 @@
    },
    "solution": "TIARA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TIARA",
     "definitions": [
      {
       "text": "small crown",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "carrying means holding within, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See you later",
-      "gives": "TARA",
-      "note": "ta-ra is British informal for goodbye"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "I",
-      "ARA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "carrying means holding within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See you later",
+       "gives": "TARA",
+       "note": "ta-ra is British informal for goodbye"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1441,47 +1234,40 @@
    },
    "solution": "COSTARICAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COSTA RICAN",
     "definitions": [
      {
       "text": "from Central America",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow actor",
-      "gives": "COSTAR",
-      "note": "a co-star shares top billing with another actor"
-     },
-     {
-      "clueFragment": "import",
-      "gives": "I",
-      "select": "first",
-      "note": "the first letter of import"
-     },
-     {
-      "clueFragment": "tin",
-      "gives": "CAN",
-      "note": "a can is a tin container"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COSTAR",
-      "I",
-      "CAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow actor",
+       "gives": "COSTAR",
+       "note": "a co-star shares top billing with another actor"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its first letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "import",
+         "note": "the first letter of import"
+        }
+       ]
+      },
+      {
+       "words": "tin",
+       "gives": "CAN",
+       "note": "a can is a tin container"
+      }
      ]
     },
     "explanation": {

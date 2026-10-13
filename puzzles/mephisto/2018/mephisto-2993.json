@@ -1,8 +1,6 @@
 {
  "id": "mephisto-2993",
  "number": 2993,
- "series": "mephisto",
- "name": "Sunday Times mephisto crossword No 2,993",
  "setter": "Tim Moorey",
  "date": "2018-01-07",
  "dimensions": {
@@ -56,63 +54,63 @@
    },
    "solution": "PERFUMY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PERFUMY",
     "definitions": [
      {
       "text": "like Cologne",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in",
-      "for": "container",
-      "note": "money invested in something is put inside it, so these letters go into the middle of the rest"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points to the final letter of the word it follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "PER",
-      "note": "'a' as in 'ten pounds a day' means per"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F is the pencil-grade abbreviation for fine"
-     },
-     {
-      "clueFragment": "Union",
-      "gives": "U",
-      "note": "U is a standard abbreviation for union"
-     },
-     {
-      "clueFragment": "money's",
-      "gives": "M",
-      "note": "M is short for money"
-     },
-     {
-      "clueFragment": "city",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERF",
-      "UM",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PERFUMY",
+     "indicators": [
+      {
+       "text": "invested in",
+       "note": "money invested in something is put inside it, so these letters go into the middle of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "gives": "PER",
+         "note": "'a' as in 'ten pounds a day' means per"
+        },
+        {
+         "words": "fine",
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        },
+        {
+         "words": "Union",
+         "gives": "U",
+         "note": "U is a standard abbreviation for union"
+        },
+        {
+         "words": "money's",
+         "gives": "M",
+         "note": "M is short for money"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately points to the final letter of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "city",
+           "note": "last letter of city"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -142,48 +140,35 @@
    },
    "solution": "PSIS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PSIS",
     "definitions": [
      {
       "text": "letters from abroad",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "shown up",
-      "for": "reversal",
-      "note": "in a down clue, shown up means read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Relative",
-      "gives": "SIS",
-      "note": "a sister is a relative"
-     },
-     {
-      "clueFragment": "pressure",
-      "gives": "P",
-      "note": "P is the physics symbol for pressure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "SIS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SISP",
-       "to": "PSIS"
+       "text": "shown up",
+       "note": "in a down clue, shown up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Relative",
+         "gives": "SIS",
+         "note": "a sister is a relative"
+        },
+        {
+         "words": "pressure",
+         "gives": "P",
+         "note": "P is the physics symbol for pressure"
+        }
+       ]
       }
      ]
     },
@@ -214,43 +199,47 @@
    },
    "solution": "ENROUND",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ENROUND",
     "definitions": [
      {
       "text": "Ring dated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting introductions",
-      "for": "deletion",
-      "note": "lacking their introductions means each word loses its opening letter"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chaps",
-      "gives": "MEN",
-      "note": "chaps are men"
-     },
-     {
-      "clueFragment": "land",
-      "gives": "GROUND",
-      "note": "land as in a piece of ground"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "ROUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting introductions",
+         "note": "lacking their introductions means each word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chaps",
+         "gives": "MEN",
+         "note": "chaps are men"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "land",
+         "gives": "GROUND",
+         "note": "land as in a piece of ground"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -279,40 +268,31 @@
    },
    "solution": "ROLLABOUT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROLLABOUT",
     "definitions": [
      {
       "text": "Rather fat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one item inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "launch",
-      "gives": "ROLLOUT",
-      "note": "a product's launch is its rollout"
-     },
-     {
-      "clueFragment": "seaman",
-      "gives": "AB",
-      "note": "AB, able-bodied seaman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROLL",
-      "AB",
-      "OUT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one item inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "launch",
+       "gives": "ROLLOUT",
+       "note": "a product's launch is its rollout"
+      },
+      {
+       "words": "seaman",
+       "gives": "AB",
+       "note": "AB, able-bodied seaman"
+      }
      ]
     },
     "explanation": {
@@ -340,56 +320,46 @@
    },
    "solution": "ULOTRICHALES",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ULOTRICHALES",
     "definitions": [
      {
       "text": "Type of algae",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us the preceding string sits inside the abbreviation that follows"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "US, the United States"
-     },
-     {
-      "clueFragment": "great deal",
-      "gives": "LOT",
-      "note": "a lot is a great deal"
-     },
-     {
-      "clueFragment": "loaded",
-      "gives": "RICH",
-      "note": "loaded means wealthy"
-     },
-     {
-      "clueFragment": "porter",
-      "gives": "ALE",
-      "note": "porter is a dark ale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "LOT",
-      "RICH",
-      "ALE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells us the preceding string sits inside the abbreviation that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "America",
+       "gives": "US",
+       "note": "US, the United States"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "great deal",
+         "gives": "LOT",
+         "note": "a lot is a great deal"
+        },
+        {
+         "words": "loaded",
+         "gives": "RICH",
+         "note": "loaded means wealthy"
+        },
+        {
+         "words": "porter",
+         "gives": "ALE",
+         "note": "porter is a dark ale"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -418,45 +388,34 @@
    },
    "solution": "MASTERATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MASTERATE",
     "definitions": [
      {
       "text": "degree",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "School",
-      "for": "anagram",
-      "note": "to school is to drill or train, putting things into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "teams",
-      "gives": "TEAMS",
-      "note": "taken as written for the shuffle"
-     },
-     {
-      "clueFragment": "value",
-      "gives": "RATE",
-      "note": "to value is to rate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MASTE",
-      "RATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TEAMS",
-       "gives": "MASTE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "School",
+         "note": "to school is to drill or train, putting things into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teams",
+         "note": "taken as written for the shuffle"
+        }
+       ]
+      },
+      {
+       "words": "value",
+       "gives": "RATE",
+       "note": "to value is to rate"
       }
      ]
     },
@@ -486,51 +445,41 @@
    },
    "solution": "COMMENSURATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "COMMENSURATE",
     "definitions": [
      {
       "text": "well-proportioned",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around something, so one word wraps the other"
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "initially"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remark",
-      "gives": "COMMENT",
-      "note": "a remark is a comment"
-     },
-     {
-      "clueFragment": "part of Koran",
-      "gives": "SURA",
-      "note": "a sura is a chapter of the Koran"
-     },
-     {
-      "clueFragment": "Echo",
-      "gives": "E",
-      "note": "Echo is E in the radio alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMMEN",
-      "SURA",
-      "T",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means going around something, so one word wraps the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remark",
+         "gives": "COMMENT",
+         "note": "a remark is a comment"
+        },
+        {
+         "words": "part of Koran",
+         "gives": "SURA",
+         "note": "a sura is a chapter of the Koran"
+        }
+       ]
+      },
+      {
+       "words": "Echo",
+       "gives": "E",
+       "note": "Echo is E in the radio alphabet"
+      }
      ]
     },
     "explanation": {
@@ -559,41 +508,35 @@
    },
    "solution": "COSS",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "COSS",
     "definitions": [
      {
       "text": "An Indian measure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no end of",
-      "for": "deletion",
-      "note": "having no end of means one specific letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is expensive",
-      "gives": "COSTS",
-      "note": "something expensive costs a lot"
-     },
-     {
-      "clueFragment": "loot",
-      "gives": "T",
-      "select": "last",
-      "note": "the end of loot is its last letter, which is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COS",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no end of",
+       "note": "having no end of means one specific letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is expensive",
+       "gives": "COSTS",
+       "note": "something expensive costs a lot"
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "loot",
+         "note": "the end of loot is its last letter, which is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -622,39 +565,31 @@
    },
    "solution": "CLEG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLEG",
     "definitions": [
      {
       "text": "Fly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after sends the word before it to second place, behind the country's code"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cuba",
-      "gives": "C",
-      "note": "C is the international vehicle code for Cuba"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "LEG",
-      "note": "in cricket, the on side is also called the leg side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LEG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after sends the word before it to second place, behind the country's code"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cuba",
+       "gives": "C",
+       "note": "C is the international vehicle code for Cuba"
+      },
+      {
+       "words": "on",
+       "gives": "LEG",
+       "note": "in cricket, the on side is also called the leg side"
+      }
      ]
     },
     "explanation": {
@@ -684,41 +619,25 @@
    },
    "solution": "STRAD",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "STRAD",
     "definitions": [
      {
       "text": "fiddle",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Preposterous",
-      "for": "reversal",
-      "note": "preposterous literally means before-after, putting the last part first"
-     }
-    ],
-    "linkWords": [
-     "it's a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "DARTS",
-      "note": "darts is a pub game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DARTS",
-       "to": "STRAD"
+       "text": "Preposterous",
+       "note": "preposterous literally means before-after, putting the last part first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "gives": "DARTS",
+       "note": "darts is a pub game"
       }
      ]
     },
@@ -749,49 +668,55 @@
    },
    "solution": "SLYBOOTS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SLYBOOTS",
     "definitions": [
      {
       "text": "Fox",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "only half-seen",
-      "for": "deletion",
-      "note": "only half of each word is seen, so its front half is dropped"
-     }
-    ],
-    "linkWords": [
-     "before reaching"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written; only its back half is kept"
-     },
-     {
-      "clueFragment": "only",
-      "gives": "ONLY",
-      "note": "taken as written; only its back half is kept"
-     },
-     {
-      "clueFragment": "high-street store",
-      "gives": "BOOTS",
-      "note": "Boots is a chain of chemists found on every British high street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LY",
-      "BOOTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "only half-seen",
+         "note": "only half of each word is seen, so its front half is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "note": "taken as written; only its back half is kept"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "only",
+           "note": "taken as written; only its back half is kept"
+          },
+          {
+           "words": "high-street store",
+           "gives": "BOOTS",
+           "note": "Boots is a chain of chemists found on every British high street"
+          }
+         ]
+        },
+        {
+         "gives": "ON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -820,41 +745,25 @@
    },
    "solution": "SNOOL",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SNOOL",
     "definitions": [
      {
       "text": "snub in Edinburgh",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means read from the end towards the start"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pros",
-      "gives": "LOONS",
-      "note": "in Scots, loon can mean a harlot, so pros (prostitutes) are loons"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNOOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LOONS",
-       "to": "SNOOL"
+       "text": "back",
+       "note": "back means read from the end towards the start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pros",
+       "gives": "LOONS",
+       "note": "in Scots, loon can mean a harlot, so pros (prostitutes) are loons"
       }
      ]
     },
@@ -884,56 +793,50 @@
    },
    "solution": "AXOLOTL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AXOLOTL",
     "definitions": [
      {
       "text": "Amphibian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awfully",
-      "for": "anagram",
-      "note": "awfully means badly done, so the letters come out disordered"
-     },
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "catching means holding something within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lax",
-      "gives": "LAX",
-      "note": "taken as written for the shuffle"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O is zero, nothing"
-     },
-     {
-      "clueFragment": "by chance",
-      "gives": "LOT",
-      "note": "deciding by lot is deciding by chance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AX",
-      "OLOT",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LAX",
-       "gives": "AXL"
+       "text": "catching",
+       "note": "catching means holding something within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "note": "awfully means badly done, so the letters come out disordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "lax",
+           "note": "taken as written for the shuffle"
+          },
+          {
+           "words": "nothing",
+           "gives": "O",
+           "note": "O is zero, nothing"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "by chance",
+       "gives": "LOT",
+       "note": "deciding by lot is deciding by chance"
       }
      ]
     },
@@ -962,35 +865,25 @@
    },
    "solution": "DOSIMETRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOSIMETRY",
     "definitions": [
      {
       "text": "Radiation measurement",
       "at": 0
      }
     ],
-    "linkWords": [
-     "follows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "three notes",
-      "gives": "DOSIME",
-      "note": "do, si and me are notes of the sol-fa scale"
-     },
-     {
-      "clueFragment": "test",
-      "gives": "TRY",
-      "note": "to test is to try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOSIME",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "three notes",
+       "gives": "DOSIME",
+       "note": "do, si and me are notes of the sol-fa scale"
+      },
+      {
+       "words": "test",
+       "gives": "TRY",
+       "note": "to test is to try"
+      }
      ]
     },
     "explanation": {
@@ -1018,31 +911,29 @@
    },
    "solution": "SOLI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SOLI",
     "definitions": [
      {
       "text": "Pieces for one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "heard means we go by how a word sounds when spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "only",
-      "gives": "SOLI",
-      "soundsLike": "SOLELY",
-      "note": "only means solely"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SOLI",
+     "indicators": [
+      {
+       "text": "heard",
+       "note": "heard means we go by how a word sounds when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "only",
+       "gives": "SOLELY",
+       "note": "only means solely"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Pieces for a single performer, only ever heard rather than seen.",
      "definitionFit": "Soli is the plural of solo, a musical piece for a single performer."
@@ -1068,10 +959,6 @@
    },
    "solution": "SWOUNDING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWOUNDING",
     "definitions": [
      {
       "text": "Poet's faint",
@@ -1079,30 +966,25 @@
       "note": "faint here is a noun, matching the verbal noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "piercing",
-      "for": "container",
-      "note": "piercing means going into something, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alarm signal",
-      "gives": "SOUNDING",
-      "note": "an alarm sounding is its signal"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is short for with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "W",
-      "OUNDING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "piercing",
+       "note": "piercing means going into something, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alarm signal",
+       "gives": "SOUNDING",
+       "note": "an alarm sounding is its signal"
+      },
+      {
+       "words": "with",
+       "gives": "W",
+       "note": "W is short for with"
+      }
      ]
     },
     "explanation": {
@@ -1131,46 +1013,44 @@
    },
    "solution": "TRIPITAKA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TRIPITAKA",
     "definitions": [
      {
       "text": "Buddhist literature",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "endless means the word loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rubbish",
-      "gives": "TRIPE",
-      "note": "tripe is nonsense"
-     },
-     {
-      "clueFragment": "it's",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "also known as",
-      "gives": "AKA",
-      "note": "aka is the abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRIP",
-      "IT",
-      "AKA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "endless means the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rubbish",
+         "gives": "TRIPE",
+         "note": "tripe is nonsense"
+        },
+        {
+         "words": "it's",
+         "gives": "IT",
+         "note": "taken as written"
+        },
+        {
+         "words": "also known as",
+         "gives": "AKA",
+         "note": "aka is the abbreviation"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1196,42 +1076,7 @@
     "text": "Inquire?!",
     "enumeration": "6"
    },
-   "solution": "QUAERE",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "QUAERE",
-    "definitions": [
-     {
-      "text": "Inquire",
-      "at": 0
-     },
-     {
-      "text": "?",
-      "at": 7,
-      "note": "a noun: a question mark or query"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Inquire",
-      "note": "first meaning: the Latin imperative, used in English for ask or seek"
-     },
-     {
-      "clueFragment": "?",
-      "note": "second meaning: a query, the thing the question mark stands for"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "The punctuation is part of the clue: the question mark is itself the second definition.",
-     "definitionFit": "Quaere is Latin for seek, used in English to introduce a doubtful point, and as a noun for a query."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true
-    }
-   }
+   "solution": "QUAERE"
   },
   {
    "number": 16,
@@ -1247,50 +1092,41 @@
    },
    "solution": "QAIMAQAM",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "QAIMAQAM",
     "definitions": [
      {
       "text": "Turkish officer's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boring",
-      "for": "container",
-      "note": "boring means drilling into, so the repeated pair goes inside"
-     }
-    ],
-    "linkWords": [
-     "followed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "question and answer",
-      "gives": "QA",
-      "note": "Q and A are the abbreviations"
-     },
-     {
-      "clueFragment": "mosque leader",
-      "gives": "IMAM",
-      "note": "an imam leads prayers in a mosque"
-     },
-     {
-      "clueFragment": "another",
-      "gives": "QA",
-      "note": "a second question and answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QA",
-      "IMA",
-      "QA",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "question and answer",
+       "gives": "QA",
+       "note": "Q and A are the abbreviations"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boring",
+         "note": "boring means drilling into, so the repeated pair goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mosque leader",
+         "gives": "IMAM",
+         "note": "an imam leads prayers in a mosque"
+        },
+        {
+         "words": "another",
+         "gives": "QA",
+         "note": "a second question and answer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1320,35 +1156,25 @@
    },
    "solution": "WEIRDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WEIRDO",
     "definitions": [
      {
       "text": "Odd fish",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dam",
-      "gives": "WEIR",
-      "note": "a weir is a small dam"
-     },
-     {
-      "clueFragment": "as before",
-      "gives": "DO",
-      "note": "do, short for ditto, means as before"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WEIR",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dam",
+       "gives": "WEIR",
+       "note": "a weir is a small dam"
+      },
+      {
+       "words": "as before",
+       "gives": "DO",
+       "note": "do, short for ditto, means as before"
+      }
      ]
     },
     "explanation": {
@@ -1378,41 +1204,35 @@
    },
    "solution": "GIRON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GIRON",
     "definitions": [
      {
       "text": "charge",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Social security payment",
-      "gives": "GIRO",
-      "note": "a giro was a British benefit payment by cheque"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "N",
-      "select": "first",
-      "note": "first letter of no"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GIRO",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Social security payment",
+       "gives": "GIRO",
+       "note": "a giro was a British benefit payment by cheque"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "no",
+         "note": "first letter of no"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1442,47 +1262,41 @@
    },
    "solution": "TICO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TICO",
     "definitions": [
      {
       "text": "a Central American",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "leaving means these letters depart from the word"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP, Member of Parliament"
-     },
-     {
-      "clueFragment": "Mexican port",
-      "gives": "TAMPICO",
-      "note": "Tampico is a port on Mexico's Gulf coast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ICO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "leaving means these letters depart from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mexican port",
+       "gives": "TAMPICO",
+       "note": "Tampico is a port on Mexico's Gulf coast"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "A",
+         "note": "a means one"
+        },
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "MP, Member of Parliament"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1509,51 +1323,48 @@
    },
    "solution": "CREOLES",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "CREOLES",
     "definitions": [
      {
       "text": "Natives",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most of the word, losing its last letter"
-     },
-     {
-      "text": "supply",
-      "for": "anagram",
-      "note": "read as an adverb, supply means flexibly, so the letters bend into another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boasted",
-      "gives": "CREW",
-      "note": "crew is an old past tense of crow, to boast"
-     },
-     {
-      "clueFragment": "sole",
-      "gives": "SOLE",
-      "note": "taken as written for the shuffle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRE",
-      "OLES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SOLE",
-       "gives": "OLES"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means most of the word, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boasted",
+         "gives": "CREW",
+         "note": "crew is an old past tense of crow, to boast"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "supply",
+         "note": "read as an adverb, supply means flexibly, so the letters bend into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sole",
+         "note": "taken as written for the shuffle"
+        }
+       ]
       }
      ]
     },
@@ -1583,31 +1394,29 @@
    },
    "solution": "IDOL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "IDOL",
     "definitions": [
      {
       "text": "Old impostor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when speaking",
-      "for": "homophone",
-      "note": "when speaking means the word counts by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "useless",
-      "gives": "IDOL",
-      "soundsLike": "IDLE",
-      "note": "idle means useless or futile"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "IDOL",
+     "indicators": [
+      {
+       "text": "when speaking",
+       "note": "when speaking means the word counts by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "useless",
+       "gives": "IDLE",
+       "note": "idle means useless or futile"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An old fraud is no use when giving a speech.",
      "definitionFit": "In obsolete use an idol was a counterfeit or impostor, a false likeness."
@@ -1633,48 +1442,34 @@
    },
    "solution": "CAUSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CAUSE",
     "definitions": [
      {
       "text": "Will's affair",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "upset means knocked over and jumbled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "California",
-      "gives": "CA",
-      "note": "CA is the state abbreviation"
-     },
-     {
-      "clueFragment": "Sue",
-      "gives": "SUE",
-      "note": "taken as written for the shuffle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "USE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SUE",
-       "gives": "USE"
+       "words": "California",
+       "gives": "CA",
+       "note": "CA is the state abbreviation"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "upset means knocked over and jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sue",
+         "note": "taken as written for the shuffle"
+        }
+       ]
       }
      ]
     },
@@ -1705,49 +1500,34 @@
    },
    "solution": "MOUGHT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MOUGHT",
     "definitions": [
      {
       "text": "Might once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "violent",
-      "for": "anagram",
-      "note": "violent means wild and disordered"
-     }
-    ],
-    "linkWords": [
-     "used by",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maurice",
-      "gives": "MO",
-      "note": "Mo is a short form of Maurice"
-     },
-     {
-      "clueFragment": "thug",
-      "gives": "THUG",
-      "note": "taken as written for the shuffle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "UGHT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THUG",
-       "gives": "UGHT"
+       "words": "Maurice",
+       "gives": "MO",
+       "note": "Mo is a short form of Maurice"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "violent",
+         "note": "violent means wild and disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thug",
+         "note": "taken as written for the shuffle"
+        }
+       ]
       }
      ]
     },
@@ -1778,41 +1558,35 @@
    },
    "solution": "OCULI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OCULI",
     "definitions": [
      {
       "text": "Windows",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "foremost in",
-      "for": "letter_selection",
-      "note": "foremost picks the leading letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "operating computers, usually",
-      "gives": "OCU",
-      "select": "first",
-      "note": "first letters of these three words"
-     },
-     {
-      "clueFragment": "Chinese units",
-      "gives": "LI",
-      "note": "the li is a Chinese unit of length"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OCU",
-      "LI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost in",
+         "note": "foremost picks the leading letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "operating computers, usually",
+         "note": "first letters of these three words"
+        }
+       ]
+      },
+      {
+       "words": "Chinese units",
+       "gives": "LI",
+       "note": "the li is a Chinese unit of length"
+      }
      ]
     },
     "explanation": {
@@ -1842,35 +1616,25 @@
    },
    "solution": "NUDIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NUDIES",
     "definitions": [
      {
       "text": "Playboy pics?",
       "at": 29
      }
     ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "NU",
-      "note": "nu is a Greek letter"
-     },
-     {
-      "clueFragment": "longs",
-      "gives": "DIES",
-      "note": "to be dying for something is to long for it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "DIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "gives": "NU",
+       "note": "nu is a Greek letter"
+      },
+      {
+       "words": "longs",
+       "gives": "DIES",
+       "note": "to be dying for something is to long for it"
+      }
      ]
     },
     "explanation": {
@@ -1899,47 +1663,41 @@
    },
    "solution": "ELMY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ELMY",
     "definitions": [
      {
       "text": "covered by trees",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of a down word is its first letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round something else"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "ELY",
-      "note": "Ely is a cathedral city and bishop's see"
-     },
-     {
-      "clueFragment": "mountain",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of mountain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "M",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going round something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "gives": "ELY",
+       "note": "Ely is a cathedral city and bishop's see"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "the top of a down word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "note": "first letter of mountain"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1968,33 +1726,29 @@
    },
    "solution": "STOW",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "STOW",
     "definitions": [
      {
       "text": "pack",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Incomplete",
-      "for": "deletion",
-      "note": "incomplete means the word falls one letter short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "school",
-      "gives": "STOWE",
-      "note": "Stowe is an English public school"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOW"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Incomplete",
+       "note": "incomplete means the word falls one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "gives": "STOWE",
+       "note": "Stowe is an English public school"
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -2023,52 +1777,44 @@
    },
    "solution": "WADT",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "WADT",
     "definitions": [
      {
       "text": "Black lead",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "forgetting",
-      "for": "deletion",
-      "note": "forgetting means leaving something out"
-     },
-     {
-      "text": "play",
-      "for": "anagram",
-      "note": "play means move freely, so the letters shift about"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tawdry",
-      "gives": "TAWDRY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lines",
-      "gives": "RY",
-      "note": "RY, railway: railway lines"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WADT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WADT",
+     "indicators": [
       {
-       "fodder": "TAWD",
-       "gives": "WADT"
+       "text": "play",
+       "note": "play means move freely, so the letters shift about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "WADT",
+       "indicators": [
+        {
+         "text": "forgetting",
+         "note": "forgetting means leaving something out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tawdry",
+         "note": "taken as written"
+        },
+        {
+         "words": "lines",
+         "gives": "RY",
+         "note": "RY, railway: railway lines"
+        }
+       ]
       }
      ]
     },
@@ -2099,41 +1845,30 @@
    },
    "solution": "QUILLAIAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "QUILLAIAS",
     "definitions": [
      {
       "text": "S American trees",
       "at": 34
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Question",
-      "gives": "QU",
-      "note": "QU is short for question"
-     },
-     {
-      "clueFragment": "with difficulty",
-      "gives": "ILL",
-      "note": "as in 'ill afford': with difficulty"
-     },
-     {
-      "clueFragment": "maids",
-      "gives": "AIAS",
-      "note": "an aia (ayah) is an Indian nursemaid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QU",
-      "ILL",
-      "AIAS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Question",
+       "gives": "QU",
+       "note": "QU is short for question"
+      },
+      {
+       "words": "with difficulty",
+       "gives": "ILL",
+       "note": "as in 'ill afford': with difficulty"
+      },
+      {
+       "words": "maids",
+       "gives": "AIAS",
+       "note": "an aia (ayah) is an Indian nursemaid"
+      }
      ]
     },
     "explanation": {
@@ -2161,43 +1896,31 @@
    },
    "solution": "ALAMEIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALAMEIN",
     "definitions": [
      {
       "text": "battle",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "guards",
-      "for": "container",
-      "note": "guards means surrounds and protects"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scots own",
-      "gives": "AIN",
-      "note": "ain is Scots for own"
-     },
-     {
-      "clueFragment": "weak",
-      "gives": "LAME",
-      "note": "a lame excuse is a weak one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LAME",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guards",
+       "note": "guards means surrounds and protects"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scots own",
+       "gives": "AIN",
+       "note": "ain is Scots for own"
+      },
+      {
+       "words": "weak",
+       "gives": "LAME",
+       "note": "a lame excuse is a weak one"
+      }
      ]
     },
     "explanation": {
@@ -2225,40 +1948,31 @@
    },
    "solution": "TOKED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOKED",
     "definitions": [
      {
       "text": "puffed",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "tearing around",
-      "for": "container",
-      "note": "running around something encloses it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unruly youngster",
-      "gives": "TED",
-      "note": "a Ted is a Teddy boy, a 1950s British youth rebel"
-     },
-     {
-      "clueFragment": "certainly",
-      "gives": "OK",
-      "note": "OK means certainly, sure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "OK",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tearing around",
+       "note": "running around something encloses it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unruly youngster",
+       "gives": "TED",
+       "note": "a Ted is a Teddy boy, a 1950s British youth rebel"
+      },
+      {
+       "words": "certainly",
+       "gives": "OK",
+       "note": "OK means certainly, sure"
+      }
      ]
     },
     "explanation": {
@@ -2288,38 +2002,31 @@
    },
    "solution": "MITY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MITY",
     "definitions": [
      {
       "text": "infested with insects",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "leaving means the letter departs"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Friendly relations",
-      "gives": "AMITY",
-      "note": "amity is friendship"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is short for area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MITY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "leaving means the letter departs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Friendly relations",
+       "gives": "AMITY",
+       "note": "amity is friendship"
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is short for area"
+      }
      ]
     },
     "explanation": {
@@ -2347,46 +2054,40 @@
    },
    "solution": "AGELAST",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AGELAST",
     "definitions": [
      {
       "text": "One wouldn't laugh",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "engaging",
-      "for": "container",
-      "note": "engaging means taking hold of, so the word wraps round the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "upper-class girl",
-      "gives": "GEL",
-      "note": "gel is the posh pronunciation of girl"
-     },
-     {
-      "clueFragment": "for instance",
-      "gives": "AS",
-      "note": "as means for instance, as in 'cities as Paris'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GELAS",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engaging",
+       "note": "engaging means taking hold of, so the word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "upper-class girl",
+         "gives": "GEL",
+         "note": "gel is the posh pronunciation of girl"
+        },
+        {
+         "words": "for instance",
+         "gives": "AS",
+         "note": "as means for instance, as in 'cities as Paris'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

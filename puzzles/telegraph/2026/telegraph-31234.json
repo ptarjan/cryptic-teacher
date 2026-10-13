@@ -1,8 +1,6 @@
 {
  "id": "telegraph-31234",
  "number": 31234,
- "series": "telegraph",
- "name": "Telegraph cryptic crossword No 31,234",
  "date": "2026-05-08",
  "dimensions": {
   "cols": 15,
@@ -37,41 +35,36 @@
    },
    "solution": "FLIPSIDE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "FLIPSIDE",
     "definitions": [
      {
       "text": "Drawback",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in recession",
-      "for": "reversal",
-      "note": "something in recession goes backwards, so the letters are read from right to left"
-     },
-     {
-      "text": "sandwiches",
-      "for": "hidden_word",
-      "note": "to sandwich is to hold between two outer layers, so the wanted letters sit inside the surrounding words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "maître d' is pilfering",
-      "gives": "EDISPILF",
-      "note": "the run of letters straddling these words, ending inside the last one"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EDISPILF",
-       "to": "FLIPSIDE"
+       "text": "in recession",
+       "note": "something in recession goes backwards, so the letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "sandwiches",
+         "note": "to sandwich is to hold between two outer layers, so the wanted letters sit inside the surrounding words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maître d' is pilfering",
+         "gives": "EDISPILF",
+         "note": "the run of letters straddling these words, ending inside the last one"
+        }
+       ]
       }
      ]
     },
@@ -101,42 +94,31 @@
    },
    "solution": "FORSOOTH",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FORSOOTH",
     "definitions": [
      {
       "text": "old-fashioned indeed",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "houses",
-      "for": "container",
-      "note": "a building houses its occupants by holding them inside, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish river",
-      "gives": "FORTH",
-      "note": "the Forth flows into the Firth of Forth near Edinburgh"
-     },
-     {
-      "clueFragment": "really old",
-      "gives": "SOO",
-      "note": "really is SO, as in 'so good', and O is the standard abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "SO",
-      "O",
-      "TH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "note": "a building houses its occupants by holding them inside, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish river",
+       "gives": "FORTH",
+       "note": "the Forth flows into the Firth of Forth near Edinburgh"
+      },
+      {
+       "words": "really old",
+       "gives": "SOO",
+       "note": "really is SO, as in 'so good', and O is the standard abbreviation for old"
+      }
      ]
     },
     "explanation": {
@@ -165,32 +147,25 @@
    },
    "solution": "INPUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INPUT",
     "definitions": [
      {
       "text": "Enter",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "hot",
-      "gives": "IN",
-      "note": "hot in the sense of fashionable or popular"
-     },
-     {
-      "clueFragment": "place",
-      "gives": "PUT",
-      "note": "to place something is to put it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "PUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "gives": "IN",
+       "note": "hot in the sense of fashionable or popular"
+      },
+      {
+       "words": "place",
+       "gives": "PUT",
+       "note": "to place something is to put it"
+      }
      ]
     },
     "explanation": {
@@ -219,46 +194,42 @@
    },
    "solution": "SASHIMI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SASHIMI",
     "definitions": [
      {
       "text": "Japanese food",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "snubbed",
-      "for": "deletion",
-      "note": "snubbed can mean cut short, like a snub nose, so the word loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Band",
-      "gives": "SASH",
-      "note": "a sash is a band of cloth worn round the waist or over the shoulder"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "I",
-      "note": "the word with its last letter cut off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SASH",
-      "IM",
-      "I"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SASHIMI",
+     "indicators": [
+      {
+       "text": "snubbed",
+       "note": "snubbed can mean cut short, like a snub nose, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Band",
+         "gives": "SASH",
+         "note": "a sash is a band of cloth worn round the waist or over the shoulder"
+        },
+        {
+         "words": "I'm",
+         "note": "taken as written, apostrophe dropped"
+        },
+        {
+         "words": "in",
+         "gives": "I",
+         "note": "the word with its last letter cut off"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -287,42 +258,31 @@
    },
    "solution": "DUEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DUEL",
     "definitions": [
      {
       "text": "fight",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to join with",
-      "for": "charade",
-      "note": "joining two things puts them side by side, so the pieces are simply placed one after another"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Expected",
-      "gives": "DUE",
-      "note": "a baby or train that is due is expected"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L for learner, as on British learner-driver plates"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to join with",
+       "note": "joining two things puts them side by side, so the pieces are simply placed one after another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expected",
+       "gives": "DUE",
+       "note": "a baby or train that is due is expected"
+      },
+      {
+       "words": "student",
+       "gives": "L",
+       "note": "L for learner, as on British learner-driver plates"
+      }
      ]
     },
     "explanation": {
@@ -350,45 +310,35 @@
    },
    "solution": "ADAPTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ADAPTS",
     "definitions": [
      {
       "text": "Changes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sitting in another is held inside it"
-     },
-     {
-      "text": "Quite the opposite",
-      "for": "container",
-      "note": "this flips the stated relation, so the holder and the thing held swap roles"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plugs",
-      "gives": "ADS",
-      "note": "a plug is a piece of publicity, an advertisement"
-     },
-     {
-      "clueFragment": "apartment",
-      "gives": "APT",
-      "note": "common abbreviation for apartment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "APT",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing sitting in another is held inside it"
+      },
+      {
+       "text": "Quite the opposite",
+       "note": "this flips the stated relation, so the holder and the thing held swap roles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plugs",
+       "gives": "ADS",
+       "note": "a plug is a piece of publicity, an advertisement"
+      },
+      {
+       "words": "apartment",
+       "gives": "APT",
+       "note": "common abbreviation for apartment"
+      }
      ]
     },
     "explanation": {
@@ -424,61 +374,50 @@
    },
    "solution": "DASHOFF",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "DASH OFF",
     "definitions": [
      {
       "text": "run away",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminal",
-      "for": "anagram",
-      "note": "a criminal act is a crooked one, so the letters are bent into a new order"
-     },
-     {
-      "text": "to enter",
-      "for": "container",
-      "note": "entering means going inside, so one piece is placed within another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "has",
-      "gives": "HAS",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is an informal British word for a party"
-     },
-     {
-      "clueFragment": "two females",
-      "gives": "FF",
-      "note": "F is the abbreviation for female, doubled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ASH",
-      "O",
-      "FF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HAS",
-       "gives": "ASH"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to enter",
+         "note": "entering means going inside, so one piece is placed within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "gives": "DO",
+         "note": "a do is an informal British word for a party"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Criminal",
+           "note": "a criminal act is a crooked one, so the letters are bent into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "has",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "two females",
+       "gives": "FF",
+       "note": "F is the abbreviation for female, doubled"
       }
      ]
     },
@@ -508,49 +447,47 @@
    },
    "solution": "PAPARAZZI",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "PAPARAZZI",
     "definitions": [
      {
       "text": "flash-mob",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Eschewing topping",
-      "for": "deletion",
-      "note": "to eschew is to avoid, and in a down clue the topping is the first letter, so that letter is dropped"
-     },
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "something done badly is messed up, so the letters end up jumbled"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wrap",
-      "gives": "RAP",
-      "note": "the word without its first letter"
-     },
-     {
-      "clueFragment": "a pizza",
-      "gives": "APIZZA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PAPARAZZI",
+     "indicators": [
       {
-       "fodder": "RAPAPIZZA",
-       "gives": "PAPARAZZI"
+       "text": "Eschewing topping",
+       "note": "to eschew is to avoid, and in a down clue the topping is the first letter, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "note": "something done badly is messed up, so the letters end up jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "wrap",
+           "gives": "RAP",
+           "note": "the word without its first letter"
+          },
+          {
+           "words": "a pizza",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -581,45 +518,38 @@
    },
    "solution": "STAIRS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "STAIRS",
     "definitions": [
      {
       "text": "flight?",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "making one",
-      "for": "substitution",
-      "note": "making one thing into another means changing it, so one letter is swapped for a different one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ringo's",
-      "gives": "STARRS",
-      "note": "Ringo Starr was the Beatles' drummer; add the possessive S"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right; this is the letter that goes"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I is the abbreviation for international; this is the letter that comes in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "I",
-      "RS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "STAIRS",
+     "indicators": [
+      {
+       "text": "making one",
+       "note": "making one thing into another means changing it, so one letter is swapped for a different one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ringo's",
+       "gives": "STARRS",
+       "note": "Ringo Starr was the Beatles' drummer; add the possessive S"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right; this is the letter that goes"
+      },
+      {
+       "words": "international",
+       "gives": "I",
+       "note": "I is the abbreviation for international; this is the letter that comes in"
+      }
      ]
     },
     "explanation": {
@@ -649,35 +579,24 @@
    },
    "solution": "REPOSSESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REPOSSESS",
     "definitions": [
      {
       "text": "Take back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "incorrectly ordered",
-      "for": "anagram",
-      "note": "things placed in the wrong order have been mixed up, so the letters need rearranging"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "espressos",
-      "gives": "ESPRESSOS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ESPRESSOS",
-       "gives": "REPOSSESS"
+       "text": "incorrectly ordered",
+       "note": "things placed in the wrong order have been mixed up, so the letters need rearranging"
+      }
+     ],
+     "parts": [
+      {
+       "words": "espressos",
+       "note": "taken as written, then rearranged"
       }
      ]
     },
@@ -713,35 +632,25 @@
    },
    "solution": "STANDSBY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STANDS BY",
     "definitions": [
      {
       "text": "Supports",
       "at": 0
      }
     ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tolerates",
-      "gives": "STANDS",
-      "note": "as in 'I can't stand it'"
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "BY",
-      "note": "multiplication: three times four is three by four"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STANDS",
-      "BY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tolerates",
+       "gives": "STANDS",
+       "note": "as in 'I can't stand it'"
+      },
+      {
+       "words": "Times",
+       "gives": "BY",
+       "note": "multiplication: three times four is three by four"
+      }
      ]
     },
     "explanation": {
@@ -770,51 +679,41 @@
    },
    "solution": "SEPIA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SEPIA",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the counter",
-      "for": "reversal",
-      "note": "counter suggests running against the usual direction, so the word is read backwards"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "to go around something is to enclose it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copies",
-      "gives": "APES",
-      "note": "to ape is to imitate or copy"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEP",
-      "I",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "APES",
-       "to": "SEPA"
+       "text": "on the counter",
+       "note": "counter suggests running against the usual direction, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "to go around something is to enclose it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copies",
+         "gives": "APES",
+         "note": "to ape is to imitate or copy"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
@@ -844,41 +743,39 @@
    },
    "solution": "OBTAIN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "OBTAIN",
     "definitions": [
      {
       "text": "Get",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "doing something regularly means at even intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "combat",
-      "gives": "OBT",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     },
-     {
-      "clueFragment": "rations",
-      "gives": "AIN",
-      "select": "alternate",
-      "note": "the alternation carries on: the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OBT",
-      "AIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "doing something regularly means at even intervals, so every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "combat",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "parts": [
+        {
+         "words": "rations",
+         "note": "the alternation carries on: the second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -907,51 +804,44 @@
    },
    "solution": "LABOURER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LABOURER",
     "definitions": [
      {
       "text": "hand",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter of each word is kept"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Party",
-      "gives": "LABOUR",
-      "note": "the Labour Party, one of Britain's two main parties"
-     },
-     {
-      "clueFragment": "conference",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "leader",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LABOUR",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "gives": "LABOUR",
+       "note": "the Labour Party, one of Britain's two main parties"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "conference",
+         "note": "the final letter of the word"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "leader",
+         "note": "the final letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -981,42 +871,30 @@
    },
    "solution": "WARINESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WARINESS",
     "definitions": [
      {
       "text": "caution",
       "at": 33
      }
     ],
-    "linkWords": [
-     "with",
-     "leads to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fight",
-      "gives": "WAR",
-      "note": "a war is a large-scale fight"
-     },
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current in physics"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "NESS",
-      "note": "a ness is a headland, as in Loch Ness's neighbour Dungeness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR",
-      "I",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fight",
+       "gives": "WAR",
+       "note": "a war is a large-scale fight"
+      },
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current in physics"
+      },
+      {
+       "words": "head",
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness's neighbour Dungeness"
+      }
      ]
     },
     "explanation": {
@@ -1059,53 +937,44 @@
    },
    "solution": "THEWIZARDOFOZ",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "THE WIZARD OF OZ",
     "definitions": [
      {
       "text": "Picture",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "roughly about",
-      "for": "anagram",
-      "note": "roughly means carelessly and about means around, so the letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "what I froze",
-      "gives": "WHATIFROZE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "D is the Roman numeral for 500"
-     },
-     {
-      "clueFragment": "ounces",
-      "gives": "OZ",
-      "note": "oz is the standard abbreviation for ounces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THEWIZARDOF",
-      "OZ"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WHATIFROZED",
-       "gives": "THEWIZARDOF"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly about",
+         "note": "roughly means carelessly and about means around, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "what I froze",
+           "note": "taken as written"
+          },
+          {
+           "words": "500",
+           "gives": "D",
+           "note": "D is the Roman numeral for 500"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "ounces",
+       "gives": "OZ",
+       "note": "oz is the standard abbreviation for ounces"
       }
      ]
     },
@@ -1135,32 +1004,25 @@
    },
    "solution": "EXTOLLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXTOLLING",
     "definitions": [
      {
       "text": "celebrating",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Former spouse",
-      "gives": "EX",
-      "note": "an ex is a former husband or wife"
-     },
-     {
-      "clueFragment": "ringing",
-      "gives": "TOLLING",
-      "note": "a bell tolls when it rings slowly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "TOLLING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former spouse",
+       "gives": "EX",
+       "note": "an ex is a former husband or wife"
+      },
+      {
+       "words": "ringing",
+       "gives": "TOLLING",
+       "note": "a bell tolls when it rings slowly"
+      }
      ]
     },
     "explanation": {
@@ -1195,55 +1057,51 @@
    },
    "solution": "EGGTIMER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EGG TIMER",
     "definitions": [
      {
       "text": "kitchen gadget",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "from the south",
-      "for": "reversal",
-      "note": "in a down entry, reading from the bottom upward runs the letters backwards"
-     },
-     {
-      "text": "beginning with",
-      "for": "charade",
-      "note": "beginning with something means having it placed at the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "electronic",
-      "gives": "E",
-      "note": "E is the abbreviation for electronic, as in e-mail"
-     },
-     {
-      "clueFragment": "Transfer",
-      "gives": "REMIT",
-      "note": "to remit money is to transfer it"
-     },
-     {
-      "clueFragment": "goods",
-      "gives": "GG",
-      "note": "G is the abbreviation for good, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "GGTIMER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "REMITGG",
-       "to": "GGTIMER"
+       "text": "beginning with",
+       "note": "beginning with something means having it placed at the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "electronic",
+       "gives": "E",
+       "note": "E is the abbreviation for electronic, as in e-mail"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the south",
+         "note": "in a down entry, reading from the bottom upward runs the letters backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Transfer",
+           "gives": "REMIT",
+           "note": "to remit money is to transfer it"
+          },
+          {
+           "words": "goods",
+           "gives": "GG",
+           "note": "G is the abbreviation for good, doubled for the plural"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1279,44 +1137,33 @@
    },
    "solution": "TENPINBOWLING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TENPIN BOWLING",
     "definitions": [
      {
       "text": "Sport with lanes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stupidly",
-      "for": "anagram",
-      "note": "doing something stupidly means doing it in a muddled way, so the letters come out jumbled"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PE",
-      "gives": "PE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Bolt winning",
-      "gives": "BOLTWINNING",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PEBOLTWINNING",
-       "gives": "TENPINBOWLING"
+       "text": "stupidly",
+       "note": "doing something stupidly means doing it in a muddled way, so the letters come out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "PE",
+         "note": "taken as written"
+        },
+        {
+         "words": "Bolt winning",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1346,35 +1193,25 @@
    },
    "solution": "NOODLES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOODLES",
     "definitions": [
      {
       "text": "Pasta",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "bags",
-      "gives": "OODLES",
-      "note": "bags of something means lots of it, as does oodles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "OODLES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "bags",
+       "gives": "OODLES",
+       "note": "bags of something means lots of it, as does oodles"
+      }
      ]
     },
     "explanation": {
@@ -1403,41 +1240,35 @@
    },
    "solution": "WASTREL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WASTREL",
     "definitions": [
      {
       "text": "Ne'er-do-well",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end, so only the closing letter of each word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Used to be",
-      "gives": "WAS",
-      "note": "the past tense of 'is'"
-     },
-     {
-      "clueFragment": "but over the hill",
-      "gives": "TREL",
-      "select": "last",
-      "note": "the final letter of each of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAS",
-      "TREL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Used to be",
+       "gives": "WAS",
+       "note": "the past tense of 'is'"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end, so only the closing letter of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "but over the hill",
+         "note": "the final letter of each of these four words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1466,43 +1297,31 @@
    },
    "solution": "SWIPED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWIPED",
     "definitions": [
      {
       "text": "made a decision on Tinder",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "having",
-      "for": "container",
-      "note": "to have something around you is to hold it inside"
-     }
-    ],
-    "linkWords": [
-     "around"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Women's group",
-      "gives": "WI",
-      "note": "the Women's Institute, a British community organisation for women"
-     },
-     {
-      "clueFragment": "rushed",
-      "gives": "SPED",
-      "note": "to speed is to rush"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WI",
-      "PED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having",
+       "note": "to have something around you is to hold it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rushed",
+       "gives": "SPED",
+       "note": "to speed is to rush"
+      },
+      {
+       "words": "Women's group",
+       "gives": "WI",
+       "note": "the Women's Institute, a British community organisation for women"
+      }
      ]
     },
     "explanation": {
@@ -1530,60 +1349,55 @@
    },
    "solution": "WALKOVER",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "WALKOVER",
     "definitions": [
      {
       "text": "easy victory",
       "at": 3
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold onto it, so one piece goes inside another"
-     },
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, so only its last letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fan",
-      "gives": "LOVER",
-      "note": "a fan of jazz is a jazz lover"
-     },
-     {
-      "clueFragment": "track",
-      "gives": "K",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "A",
-      "L",
-      "K",
-      "OVER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "to keep something is to hold onto it, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "fan",
+         "gives": "LOVER",
+         "note": "a fan of jazz is a jazz lover"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its end, so only its last letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "track",
+         "note": "the final letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1612,41 +1426,30 @@
    },
    "solution": "ESCORT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESCORT",
     "definitions": [
      {
       "text": "Take out",
       "at": 0
      }
     ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "key",
-      "gives": "ESC",
-      "note": "the Escape key on a computer keyboard"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "other ranks, soldiers who are not officers"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESC",
-      "OR",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "key",
+       "gives": "ESC",
+       "note": "the Escape key on a computer keyboard"
+      },
+      {
+       "words": "men",
+       "gives": "OR",
+       "note": "other ranks, soldiers who are not officers"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1675,32 +1478,25 @@
    },
    "solution": "ONION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONION",
     "definitions": [
      {
       "text": "Bulb",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     },
-     {
-      "clueFragment": "one that's electrically charged",
-      "gives": "ION",
-      "note": "an ion is an atom carrying an electric charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "ION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      },
+      {
+       "words": "one that's electrically charged",
+       "gives": "ION",
+       "note": "an ion is an atom carrying an electric charge"
+      }
      ]
     },
     "explanation": {
@@ -1730,31 +1526,29 @@
    },
    "solution": "ANTI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ANTI",
     "definitions": [
      {
       "text": "against",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Reportedly",
-      "for": "homophone",
-      "note": "something reported is passed on by word of mouth, so the sound counts rather than the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bet",
-      "gives": "ANTI",
-      "soundsLike": "ANTE",
-      "note": "an ante is a stake put into the pot in poker"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ANTI",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "note": "something reported is passed on by word of mouth, so the sound counts rather than the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bet",
+       "gives": "ANTE",
+       "note": "an ante is a stake put into the pot in poker"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The poker stake and the prefix are pronounced the same in many accents.",
      "definitionFit": "Someone who is anti a proposal opposes it, a colloquial preposition meaning opposed to."
@@ -1779,41 +1573,29 @@
    },
    "solution": "PHIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PHIAL",
     "definitions": [
      {
       "text": "bottle",
       "at": 29
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "PHI",
-      "note": "phi is a letter of the Greek alphabet"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large, as on clothing labels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PHI",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "gives": "PHI",
+       "note": "phi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the abbreviation for large, as on clothing labels"
+      }
      ]
     },
     "explanation": {
@@ -1842,46 +1624,44 @@
    },
    "solution": "SYNERGISM",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SYNERGISM",
     "definitions": [
      {
       "text": "it's better with others",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "going out",
-      "for": "deletion",
-      "note": "things going out leave the room, so those letters are taken away"
-     },
-     {
-      "text": "wasted",
-      "for": "anagram",
-      "note": "wasted can mean drunk, and drunken letters stagger into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Giro money's so",
-      "gives": "GIROMONEYSSO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "loves",
-      "gives": "OOO",
-      "note": "love is zero in tennis, which looks like O, so several loves are several Os"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SYNERGISM",
+     "indicators": [
       {
-       "fodder": "GIRMNEYSS",
-       "gives": "SYNERGISM"
+       "text": "wasted",
+       "note": "wasted can mean drunk, and drunken letters stagger into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SYNERGISM",
+       "indicators": [
+        {
+         "text": "going out",
+         "note": "things going out leave the room, so those letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Giro money's so",
+         "note": "taken as written"
+        },
+        {
+         "words": "loves",
+         "gives": "OOO",
+         "note": "love is zero in tennis, which looks like O, so several loves are several Os"
+        }
+       ]
       }
      ]
     },
@@ -1911,32 +1691,25 @@
    },
    "solution": "DIGEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIGEST",
     "definitions": [
      {
       "text": "Understand",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "mine",
-      "gives": "DIG",
-      "note": "to mine is to dig, and a dig is also an excavation"
-     },
-     {
-      "clueFragment": "is in Paris",
-      "gives": "EST",
-      "note": "est is French for 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIG",
-      "EST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mine",
+       "gives": "DIG",
+       "note": "to mine is to dig, and a dig is also an excavation"
+      },
+      {
+       "words": "is in Paris",
+       "gives": "EST",
+       "note": "est is French for 'is'"
+      }
      ]
     },
     "explanation": {
@@ -1971,35 +1744,25 @@
    },
    "solution": "BINLINER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BIN-LINER",
     "definitions": [
      {
       "text": "Plastic bag",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "container",
-      "gives": "BIN",
-      "note": "a bin is a container for rubbish"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "LINER",
-      "note": "a liner is a large passenger ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIN",
-      "LINER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "container",
+       "gives": "BIN",
+       "note": "a bin is a container for rubbish"
+      },
+      {
+       "words": "ship",
+       "gives": "LINER",
+       "note": "a liner is a large passenger ship"
+      }
      ]
     },
     "explanation": {

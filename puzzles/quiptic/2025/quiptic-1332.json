@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1332",
  "number": 1332,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,332",
  "setter": "Hectence",
  "date": "2025-06-01",
  "dimensions": {
@@ -48,44 +46,42 @@
    },
    "solution": "PLAYSITCOOL",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "PLAYS IT COOL",
     "definitions": [
      {
       "text": "appears unbothered",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "unexpectedly",
-      "note": "the letters turn up in an unexpected order"
-     },
-     {
-      "text": "losing",
-      "note": "one letter is dropped from the fodder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Posh locality",
-      "gives": "POSHLOCALITY",
-      "note": "anagram fodder before the loss"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H is hotel in the NATO alphabet; it is removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PLAYSITCOOL",
+     "parts": [
       {
-       "fodder": "POSLOCALITY",
-       "gives": "PLAYSITCOOL"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "PLAYSITCOOL",
+       "indicators": [
+        {
+         "text": "unexpectedly",
+         "note": "the letters turn up in an unexpected order"
+        },
+        {
+         "text": "losing",
+         "note": "one letter is dropped from the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Posh locality",
+         "note": "anagram fodder before the loss"
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "H is hotel in the NATO alphabet; it is removed"
+        }
+       ]
       }
      ]
     },
@@ -129,52 +125,50 @@
    },
    "solution": "PUTSTHEKETTLEON",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "PUTS THE KETTLE ON",
     "definitions": [
      {
       "text": "Prepares tea",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "evenly",
-      "for": "letter_selection",
-      "note": "take the even-numbered letters, 2nd and 4th"
-     },
-     {
-      "text": "for brewing",
-      "for": "anagram",
-      "note": "brewing stirs the letters together into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set",
-      "gives": "PUT",
-      "note": "to set something down = to put it"
-     },
-     {
-      "clueFragment": "evenly soaks",
-      "gives": "OK",
-      "select": "alternate",
-      "note": "the even letters of sOaKs"
-     },
-     {
-      "clueFragment": "the nettles",
-      "gives": "THENETTLES",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PUTOKTHENETTLES",
-       "gives": "PUTSTHEKETTLEON"
+       "text": "for brewing",
+       "note": "brewing stirs the letters together into something new"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "set",
+         "gives": "PUT",
+         "note": "to set something down = to put it"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "evenly",
+           "note": "take the even-numbered letters, 2nd and 4th"
+          }
+         ],
+         "parts": [
+          {
+           "words": "evenly soaks",
+           "gives": "SOAKS",
+           "note": "the even letters of sOaKs"
+          }
+         ]
+        },
+        {
+         "words": "the nettles",
+         "note": "used as printed"
+        }
+       ]
       }
      ]
     },
@@ -204,55 +198,51 @@
    },
    "solution": "AORTA",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "AORTA",
     "definitions": [
      {
       "text": "Vessel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "capturing",
-      "for": "container"
-     },
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painting",
-      "gives": "ART",
-      "note": "painting is an art"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is a standard abbreviation for old"
-     },
-     {
-      "clueFragment": "voyager's heart",
-      "gives": "A",
-      "select": "middle",
-      "note": "the middle letter of voyAger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "O",
-      "RT",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "capturing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painting",
+         "gives": "ART",
+         "note": "painting is an art"
+        },
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O is a standard abbreviation for old"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "voyager's heart",
+         "gives": "VOYAGER",
+         "note": "the middle letter of voyAger"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -282,48 +272,49 @@
    },
    "solution": "STERILE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "STERILE",
     "definitions": [
      {
       "text": "antiseptic",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "analysed",
-      "note": "to analyse is to break down, so the letters are broken up and rearranged"
-     },
-     {
-      "text": "finally",
-      "note": "finally means at the end, so only the word's closing letter is used"
-     }
-    ],
-    "linkWords": [
-     "finding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lister",
-      "gives": "LISTER",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "disease, finally",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of diseasE"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LISTERE",
-       "gives": "STERILE"
+       "text": "analysed",
+       "note": "to analyse is to break down, so the letters are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally means at the end, so only the word's closing letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lister",
+         "note": "used as printed"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "E",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "disease, finally",
+           "gives": "E",
+           "select": "last",
+           "note": "the last letter of diseasE"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -353,48 +344,39 @@
    },
    "solution": "TWINGES",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "TWINGES",
     "definitions": [
      {
       "text": "spasms",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "SET turns about, back to front"
-     },
-     {
-      "text": "suppressing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Set",
-      "gives": "SET",
-      "note": "used as printed, then turned round"
-     },
-     {
-      "clueFragment": "arm",
-      "gives": "WING",
-      "note": "a wing is an arm of a building or organisation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WING",
-      "ES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SET",
-       "to": "TES"
+       "text": "about",
+       "note": "SET turns about, back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "suppressing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Set",
+         "note": "used as printed, then turned round"
+        }
+       ]
+      },
+      {
+       "words": "arm",
+       "gives": "WING",
+       "note": "a wing is an arm of a building or organisation"
       }
      ]
     },
@@ -424,35 +406,25 @@
    },
    "solution": "OVERCAST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERCAST",
     "definitions": [
      {
       "text": "dull",
       "at": 27
      }
     ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Some cricket",
-      "gives": "OVER",
-      "note": "in cricket an over is a set of six balls bowled from one end"
-     },
-     {
-      "clueFragment": "players",
-      "gives": "CAST",
-      "note": "the players in a show are its cast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "CAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some cricket",
+       "gives": "OVER",
+       "note": "in cricket an over is a set of six balls bowled from one end"
+      },
+      {
+       "words": "players",
+       "gives": "CAST",
+       "note": "the players in a show are its cast"
+      }
      ]
     },
     "explanation": {
@@ -495,35 +467,19 @@
    },
    "solution": "LETONESHAIRDOWN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LET ONE'S HAIR DOWN",
     "definitions": [
      {
       "text": "Undo locks",
-      "at": 0
+      "at": 0,
+      "meaning": "literally, locks of hair unpinned and let fall"
      },
      {
       "text": "drop barriers for fun",
-      "at": 15
+      "at": 15,
+      "meaning": "the idiom: relax and stop being inhibited"
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Undo locks",
-      "gives": "LETONESHAIRDOWN",
-      "note": "literally, locks of hair unpinned and let fall"
-     },
-     {
-      "clueFragment": "drop barriers for fun",
-      "gives": "LETONESHAIRDOWN",
-      "note": "the idiom: relax and stop being inhibited"
-     }
-    ],
+    "spelling": "LET ONE'S HAIR DOWN",
     "explanation": {
      "surface": "Someone unbolts the doors and lifts the barriers, apparently for a laugh.",
      "walkthrough": "'Locks' and 'barriers' paint security on a door; locks are hair. The question mark flags the playful literal reading.",
@@ -551,56 +507,51 @@
    },
    "solution": "UNABLE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "UNABLE",
     "definitions": [
      {
       "text": "Powerless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lifted"
-     },
-     {
-      "text": "breaking",
-      "note": "NAB breaks into the other word"
-     },
-     {
-      "text": "endless",
-      "note": "a word with no ends has lost the letter at each end, first and last"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "embargo's",
-      "gives": "BAN",
-      "note": "an embargo is a ban"
-     },
-     {
-      "clueFragment": "endless rules",
-      "gives": "ULE",
-      "note": "rULEs without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NAB",
-      "LE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNABLE",
+     "parts": [
       {
-       "from": "BAN",
-       "to": "NAB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "lifted"
+        },
+        {
+         "text": "endless",
+         "note": "a word with no ends has lost the letter at each end, first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "endless rules",
+         "gives": "ULE",
+         "note": "rULEs without its first and last letters"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "breaking",
+           "note": "NAB breaks into the other word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "embargo's",
+           "gives": "BAN",
+           "note": "an embargo is a ban"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -630,46 +581,39 @@
    },
    "solution": "CAVERN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CAVERN",
     "definitions": [
      {
       "text": "large underground chamber",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "incorporates",
-      "for": "container",
-      "note": "CERN takes the new letters into its body"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "CERN",
-      "gives": "CERN",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the standard abbreviation for very"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "V",
-      "ERN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "incorporates",
+       "note": "CERN takes the new letters into its body"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "CERN",
+         "note": "used as printed"
+        },
+        {
+         "words": "a",
+         "note": "used as printed"
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "V is the standard abbreviation for very"
+      }
      ]
     },
     "explanation": {
@@ -704,53 +648,46 @@
    },
    "solution": "NOTTRUE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "NOT TRUE",
     "definitions": [
      {
       "text": "false",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "no",
-      "for": "deletion"
-     },
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "to be taken in by something is to be held inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump's",
-      "gives": "TRUMP",
-      "note": "used as printed, before the loss"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP = Member of Parliament, removed from TRUMP"
-     },
-     {
-      "clueFragment": "message",
-      "gives": "NOTE",
-      "note": "a note is a short message"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOT",
-      "TRU",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "to be taken in by something is to be held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "message",
+       "gives": "NOTE",
+       "note": "a note is a short message"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trump's",
+         "gives": "TRUMP",
+         "note": "used as printed, before the loss"
+        },
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "MP = Member of Parliament, removed from TRUMP"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -785,44 +722,42 @@
    },
    "solution": "ICEDTEA",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "ICED TEA",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cocktail",
-      "note": "a cocktail is a mixture, so the letters are mixed"
-     },
-     {
-      "text": "disregarded",
-      "note": "the letter is ignored and dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "delicate",
-      "gives": "DELICATE",
-      "note": "anagram fodder before the loss"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left; it is removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ICEDTEA",
+     "parts": [
       {
-       "fodder": "DEICATE",
-       "gives": "ICEDTEA"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ICEDTEA",
+       "indicators": [
+        {
+         "text": "cocktail",
+         "note": "a cocktail is a mixture, so the letters are mixed"
+        },
+        {
+         "text": "disregarded",
+         "note": "the letter is ignored and dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delicate",
+         "note": "anagram fodder before the loss"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L = left; it is removed"
+        }
+       ]
       }
      ]
     },
@@ -852,46 +787,40 @@
    },
    "solution": "BETRAYING",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BETRAYING",
     "definitions": [
      {
       "text": "selling out",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Risk's",
-      "gives": "BET",
-      "note": "a bet is a risk; the 's is 'has', joining it to what follows"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "AY",
-      "note": "ay (or aye) is an old word for always"
-     },
-     {
-      "clueFragment": "syndicate",
-      "gives": "RING",
-      "note": "a ring is a syndicate, as in a crime ring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BET",
-      "R",
-      "AY",
-      "ING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Risk's",
+       "gives": "BET",
+       "note": "a bet is a risk; the 's is 'has', joining it to what follows"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "syndicate",
+         "gives": "RING",
+         "note": "a ring is a syndicate, as in a crime ring"
+        },
+        {
+         "words": "always",
+         "gives": "AY",
+         "note": "ay (or aye) is an old word for always"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -920,39 +849,30 @@
    },
    "solution": "CANOE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CANOE",
     "definitions": [
      {
       "text": "boat",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stick",
-      "gives": "CANE",
-      "note": "a cane is a walking stick"
-     },
-     {
-      "clueFragment": "around",
-      "gives": "O",
-      "note": "read as 'a round': O is the round letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "O",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stick",
+       "gives": "CANE",
+       "note": "a cane is a walking stick"
+      },
+      {
+       "words": "around",
+       "gives": "O",
+       "note": "read as 'a round': O is the round letter"
+      }
      ]
     },
     "explanation": {
@@ -982,33 +902,28 @@
    },
    "solution": "EWER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EWER",
     "definitions": [
      {
       "text": "jug",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Sample from",
-      "for": "hidden_word",
-      "note": "a sample is a small piece taken from inside the word"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "microbrewery",
-      "gives": "EWER",
-      "note": "microbrEWERy"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Sample from",
+       "note": "a sample is a small piece taken from inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "microbrewery",
+       "gives": "EWER",
+       "note": "microbrEWERy"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A taste of craft beer served in a jug.",
      "walkthrough": "The beer theme makes 'jug' sound like a pint vessel; the answer is the old washstand jug.",
@@ -1041,48 +956,39 @@
    },
    "solution": "PERSISTSIN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PERSISTS IN",
     "definitions": [
      {
       "text": "Perseveres",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "training",
-      "note": "training reshapes, so the letters are reshaped"
-     },
-     {
-      "text": "to break"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sisters",
-      "gives": "SISTERS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "code",
-      "gives": "PIN",
-      "note": "a PIN is a personal code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ERSISTS",
-      "IN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SISTERS",
-       "gives": "ERSISTS"
+       "text": "training",
+       "note": "training reshapes, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "code",
+       "gives": "PIN",
+       "note": "a PIN is a personal code"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to break"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sisters",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1112,43 +1018,33 @@
    },
    "solution": "QUESTION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUESTION",
     "definitions": [
      {
       "text": "problem",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Unusually",
-      "for": "anagram",
-      "note": "the letters are set out in an unusual order"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "QUIET",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "SON",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "QUIETSON",
-       "gives": "QUESTION"
+       "text": "Unusually",
+       "note": "the letters are set out in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "note": "used as printed"
+        },
+        {
+         "words": "son",
+         "note": "used as printed"
+        }
+       ]
       }
      ]
     },
@@ -1178,53 +1074,46 @@
    },
    "solution": "PREJUDICED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PREJUDICED",
     "definitions": [
      {
       "text": "Discriminatory",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the word's final letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "before",
-      "gives": "PRE",
-      "note": "pre- means before"
-     },
-     {
-      "clueFragment": "judge",
-      "gives": "J",
-      "note": "J is the abbreviation for judge"
-     },
-     {
-      "clueFragment": "you ultimately",
-      "gives": "U",
-      "select": "last",
-      "note": "the last letter of yoU"
-     },
-     {
-      "clueFragment": "played a risky game",
-      "gives": "DICED",
-      "note": "to dice is to gamble, especially in 'diced with death'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRE",
-      "J",
-      "U",
-      "DICED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "before",
+       "gives": "PRE",
+       "note": "pre- means before"
+      },
+      {
+       "words": "judge",
+       "gives": "J",
+       "note": "J is the abbreviation for judge"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the word's final letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you ultimately",
+         "gives": "YOU",
+         "note": "the last letter of yoU"
+        }
+       ]
+      },
+      {
+       "words": "played a risky game",
+       "gives": "DICED",
+       "note": "to dice is to gamble, especially in 'diced with death'"
+      }
      ]
     },
     "explanation": {
@@ -1253,53 +1142,51 @@
    },
    "solution": "PILLAR",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "PILLAR",
     "definitions": [
      {
       "text": "column",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Start off",
-      "note": "the start of the word is taken off"
-     },
-     {
-      "text": "design",
-      "note": "the letters are redesigned into a new shape"
-     },
-     {
-      "text": "encircling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start off spiral",
-      "gives": "PIRAL",
-      "note": "sPIRAL without its first letter"
-     },
-     {
-      "clueFragment": "long",
-      "gives": "L",
-      "note": "L is the abbreviation for long"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIL",
-      "L",
-      "AR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PILLAR",
+     "parts": [
       {
-       "fodder": "PIRAL",
-       "gives": "PILAR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Start off",
+         "note": "the start of the word is taken off"
+        },
+        {
+         "text": "encircling"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "design",
+           "note": "the letters are redesigned into a new shape"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Start off spiral",
+           "gives": "PIRAL",
+           "note": "sPIRAL without its first letter"
+          }
+         ]
+        },
+        {
+         "words": "long",
+         "gives": "L",
+         "note": "L is the abbreviation for long"
+        }
+       ]
       }
      ]
     },
@@ -1329,55 +1216,50 @@
    },
    "solution": "INEXACT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "INEXACT",
     "definitions": [
      {
       "text": "not correct",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "set up",
-      "note": "in a down clue, setting up reads the letters from the bottom up"
-     },
-     {
-      "text": "by"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cancel",
-      "gives": "AXE",
-      "note": "to axe a project is to cancel it"
-     },
-     {
-      "clueFragment": "tax",
-      "gives": "NI",
-      "note": "NI is National Insurance, a British payroll tax"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is the abbreviation for court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INEXA",
-      "CT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AXENI",
-       "to": "INEXA"
+       "text": "set up",
+       "note": "in a down clue, setting up reads the letters from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "by"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Cancel",
+           "gives": "AXE",
+           "note": "to axe a project is to cancel it"
+          },
+          {
+           "words": "tax",
+           "gives": "NI",
+           "note": "NI is National Insurance, a British payroll tax"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "court",
+       "gives": "CT",
+       "note": "CT is the abbreviation for court"
       }
      ]
     },
@@ -1407,48 +1289,39 @@
    },
    "solution": "ERRATIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ERRATIC",
     "definitions": [
      {
       "text": "Shifting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in"
-     },
-     {
-      "text": "damaged",
-      "note": "the letters of rice are knocked out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rodent",
-      "gives": "RAT",
-      "note": "a rat is a rodent"
-     },
-     {
-      "clueFragment": "rice",
-      "gives": "RICE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ER",
-      "RAT",
-      "IC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RICE",
-       "gives": "ERIC"
+       "text": "found in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "note": "the letters of rice are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rice",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "rodent",
+       "gives": "RAT",
+       "note": "a rat is a rodent"
       }
      ]
     },
@@ -1478,31 +1351,29 @@
    },
    "solution": "LAZE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LAZE",
     "definitions": [
      {
       "text": "chill out",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Read aloud",
-      "for": "homophone",
-      "note": "say the word and listen to its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "places",
-      "gives": "LAZE",
-      "soundsLike": "LAYS",
-      "note": "places here is a verb: to place something is to lay it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LAZE",
+     "indicators": [
+      {
+       "text": "Read aloud",
+       "note": "say the word and listen to its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "places",
+       "gives": "LAYS",
+       "note": "places here is a verb: to place something is to lay it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone reads out a list of spots where you can relax.",
      "walkthrough": "'Places' looks like a noun (spots to relax), but it is a verb: places = lays.",
@@ -1535,41 +1406,36 @@
    },
    "solution": "EVENSO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EVEN SO",
     "definitions": [
      {
       "text": "Still",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "the insides are removed, leaving the outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flat",
-      "gives": "EVEN",
-      "note": "a flat surface is even"
-     },
-     {
-      "clueFragment": "soprano's gutted",
-      "gives": "SO",
-      "select": "outer",
-      "note": "SopranO emptied of its middle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVEN",
-      "SO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "flat",
+       "gives": "EVEN",
+       "note": "a flat surface is even"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "the insides are removed, leaving the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soprano's gutted",
+         "gives": "SOPRANO",
+         "note": "SopranO emptied of its middle"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1599,45 +1465,43 @@
    },
    "solution": "LOTUS",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "LOTUS",
     "definitions": [
      {
       "text": "sacred flower",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "most of the word, losing its last letter"
-     },
-     {
-      "text": "eating",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Insect mostly",
-      "gives": "LOUS",
-      "note": "LOUSe without its last letter"
-     },
-     {
-      "clueFragment": "Thailand",
-      "gives": "T",
-      "note": "T is the international vehicle registration code for Thailand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "T",
-      "US"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOTUS",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most of the word, losing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Insect mostly",
+         "gives": "LOUS",
+         "note": "LOUSe without its last letter"
+        },
+        {
+         "words": "Thailand",
+         "gives": "T",
+         "note": "T is the international vehicle registration code for Thailand"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1672,48 +1536,34 @@
    },
    "solution": "ERRORFREE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ERROR-FREE",
     "definitions": [
      {
       "text": "All right",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "negotiating",
-      "for": "anagram",
-      "note": "a boat negotiating a reef twists round it, so the letters twist"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slip",
-      "gives": "ERROR",
-      "note": "a slip is an error"
-     },
-     {
-      "clueFragment": "reef",
-      "gives": "REEF",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERROR",
-      "FREE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "REEF",
-       "gives": "FREE"
+       "words": "slip",
+       "gives": "ERROR",
+       "note": "a slip is an error"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "negotiating",
+         "note": "a boat negotiating a reef twists round it, so the letters twist"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reef",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1743,47 +1593,34 @@
    },
    "solution": "RECAP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RECAP",
     "definitions": [
      {
       "text": "go over again",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "mounting",
-      "for": "reversal"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Run",
-      "gives": "R",
-      "note": "R is the abbreviation for run, as on a cricket scorecard"
-     },
-     {
-      "clueFragment": "speed",
-      "gives": "PACE",
-      "note": "pace is speed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ECAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PACE",
-       "to": "ECAP"
+       "words": "Run",
+       "gives": "R",
+       "note": "R is the abbreviation for run, as on a cricket scorecard"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "mounting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speed",
+         "gives": "PACE",
+         "note": "pace is speed"
+        }
+       ]
       }
      ]
     },
@@ -1813,64 +1650,59 @@
    },
    "solution": "AMERICA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "AMERICA",
     "definitions": [
      {
       "text": "the US",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in"
-     },
-     {
-      "text": "travel",
-      "note": "the letters travel to new places"
-     },
-     {
-      "text": "including"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first-class",
-      "gives": "A",
-      "note": "A is first class, as in A-list"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "AIR",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Cuba",
-      "gives": "C",
-      "note": "C is the international vehicle code for Cuba"
-     },
-     {
-      "clueFragment": "Setter",
-      "gives": "ME",
-      "note": "the setter refers to themselves as me"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "ME",
-      "RICA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AAIRC",
-       "gives": "ARICA"
+       "text": "invested in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travel",
+         "note": "the letters travel to new places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "including"
+          }
+         ],
+         "parts": [
+          {
+           "words": "first-class",
+           "gives": "A",
+           "note": "A is first class, as in A-list"
+          },
+          {
+           "words": "air",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "Cuba",
+           "gives": "C",
+           "note": "C is the international vehicle code for Cuba"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Setter",
+       "gives": "ME",
+       "note": "the setter refers to themselves as me"
       }
      ]
     },
@@ -1900,58 +1732,46 @@
    },
    "solution": "TYCOONS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "TYCOONS",
     "definitions": [
      {
       "text": "rich men",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "switch",
-      "for": "substitution",
-      "note": "one chunk is switched for another"
-     },
-     {
-      "text": "to",
-      "for": "substitution"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Autocrats",
-      "gives": "TYRANTS",
-      "note": "tyrants are autocrats"
-     },
-     {
-      "clueFragment": "rhetoric",
-      "gives": "RANT",
-      "note": "a rant is a burst of rhetoric; it is taken out"
-     },
-     {
-      "clueFragment": "business",
-      "gives": "CO",
-      "note": "Co. = company, a business"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TY",
-      "CO",
-      "ON",
-      "S"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "TYCOONS",
+     "indicators": [
+      {
+       "text": "switch",
+       "note": "one chunk is switched for another"
+      },
+      {
+       "text": "to"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Autocrats",
+       "gives": "TYRANTS",
+       "note": "tyrants are autocrats"
+      },
+      {
+       "words": "rhetoric",
+       "gives": "RANT",
+       "note": "a rant is a burst of rhetoric; it is taken out"
+      },
+      {
+       "words": "business",
+       "gives": "CO",
+       "note": "Co. = company, a business"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -1990,58 +1810,48 @@
    },
    "solution": "NONSTICKPAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NON-STICK PAN",
     "definitions": [
      {
       "text": "cooking vessel",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "rudely",
-      "for": "anagram",
-      "note": "roughly, in a rough and ready order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "stock",
-      "gives": "STOCK",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "find fault with",
-      "gives": "PAN",
-      "note": "critics pan a film they dislike"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NONSTICK",
-      "PAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NINSTOCK",
-       "gives": "NONSTICK"
+       "words": "New",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rudely",
+         "note": "roughly, in a rough and ready order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "in",
+           "note": "used as printed"
+          },
+          {
+           "words": "stock",
+           "note": "used as printed"
+          },
+          {
+           "words": "find fault with",
+           "gives": "PAN",
+           "note": "critics pan a film they dislike"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-25101",
  "number": 25101,
- "series": "cryptic",
- "name": "Prize crossword No 25,101",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2010-08-28",
  "preamble": "In memory of AP, 1935-2010",
@@ -39,32 +38,25 @@
    },
    "solution": "REBUFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REBUFF",
     "definitions": [
      {
       "text": "Snub",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re means about or concerning, as in a letter heading"
-     },
-     {
-      "clueFragment": "polish",
-      "gives": "BUFF",
-      "note": "to buff something is to polish it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BUFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerning",
+       "gives": "RE",
+       "note": "re means about or concerning, as in a letter heading"
+      },
+      {
+       "words": "polish",
+       "gives": "BUFF",
+       "note": "to buff something is to polish it"
+      }
      ]
     },
     "explanation": {
@@ -97,11 +89,6 @@
     "52-down"
    ],
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "COALHOUSE DOOR",
     "definitions": [
      {
       "text": "10's musical to 23",
@@ -109,38 +96,41 @@
       "note": "the musical is Close the Coalhouse Door; this answer follows 23's CLOSE"
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "without an end means the final letter is cut off"
-     },
-     {
-      "text": "breaking",
-      "for": "anagram",
-      "note": "breaking something smashes it to pieces, so the letters are reassembled in a new order"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Carousel",
-      "gives": "CAROUSEL",
-      "note": "taken as written; Carousel is also a famous musical"
-     },
-     {
-      "clueFragment": "hoodoo",
-      "gives": "HOODO",
-      "note": "a hoodoo is a jinx; its last letter goes"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "COALHOUSEDOOR",
+     "indicators": [
       {
-       "fodder": "CAROUSELHOODO",
-       "gives": "COALHOUSEDOOR"
+       "text": "endless",
+       "note": "without an end means the final letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking",
+         "note": "breaking something smashes it to pieces, so the letters are reassembled in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Carousel",
+           "note": "taken as written; Carousel is also a famous musical"
+          },
+          {
+           "words": "hoodoo",
+           "gives": "HOODO",
+           "note": "a hoodoo is a jinx; its last letter goes"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -188,72 +178,59 @@
     "9-down"
    ],
    "annotation": {
-    "type": [
-     "cycling",
-     "charade",
-     "deletion"
-    ],
-    "answer": "A VERY BRITISH COUP",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start to finish",
-      "for": "cycling",
-      "note": "the opening of the word is carried round to its end"
-     },
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "said briefly means shortened, so only the start of each word is used"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "courage",
-      "gives": "BRAVERY",
-      "note": "bravery is courage; its first two letters move to the end"
-     },
-     {
-      "clueFragment": "it is",
-      "gives": "ITIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the last words of 11",
-      "gives": "H",
-      "note": "11 parses as REVOLVERS plus HOT, so its last word, shortened, gives this letter"
-     },
-     {
-      "clueFragment": "14",
-      "gives": "CO",
-      "note": "14 ends in COMPANY, whose standard short form is this"
-     },
-     {
-      "clueFragment": "exalted",
-      "gives": "UP",
-      "note": "something exalted is raised up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVERYBR",
-      "ITIS",
-      "H",
-      "CO",
-      "UP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "AVERYBRITISHCOUP",
+     "indicators": [
       {
-       "fodder": "BRAVERY",
-       "gives": "AVERYBR"
+       "text": "start to finish",
+       "note": "the opening of the word is carried round to its end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "AVERYBRITISHCOUP",
+       "indicators": [
+        {
+         "text": "briefly",
+         "note": "said briefly means shortened, so only the start of each word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "courage",
+         "gives": "BRAVERY",
+         "note": "bravery is courage; its first two letters move to the end"
+        },
+        {
+         "words": "it is",
+         "note": "taken as written"
+        },
+        {
+         "words": "the last words of 11",
+         "gives": "H",
+         "note": "11 parses as REVOLVERS plus HOT, so its last word, shortened, gives this letter"
+        },
+        {
+         "words": "14",
+         "gives": "CO",
+         "note": "14 ends in COMPANY, whose standard short form is this"
+        },
+        {
+         "words": "exalted",
+         "gives": "UP",
+         "note": "something exalted is raised up"
+        }
+       ]
       }
      ]
     },
@@ -296,41 +273,30 @@
    },
    "solution": "UTTER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UTTER",
     "definitions": [
      {
       "text": "Complete",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "remove",
-      "for": "deletion",
-      "note": "to remove something is to take it away, so letters drop out of a longer word"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "10's work",
-      "gives": "THENUTTER",
-      "note": "The Nutter is a television play by Alan Plater, who is 10"
-     },
-     {
-      "clueFragment": "then",
-      "gives": "THEN",
-      "note": "taken as written; these are the letters taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UTTER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "remove",
+       "note": "to remove something is to take it away, so letters drop out of a longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "10's work",
+       "gives": "THENUTTER",
+       "note": "The Nutter is a television play by Alan Plater, who is 10"
+      },
+      {
+       "words": "then",
+       "note": "taken as written; these are the letters taken out"
+      }
      ]
     },
     "explanation": {
@@ -359,28 +325,16 @@
    },
    "solution": "TWIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TWIT",
     "definitions": [
      {
       "text": "Tease",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to taunt or mock someone gently"
      },
      {
       "text": "a donkey",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tease",
-      "note": "first meaning: to taunt or mock someone gently"
-     },
-     {
-      "clueFragment": "a donkey",
-      "note": "second meaning: a fool, a silly person, as donkey is used of someone dim"
+      "at": 6,
+      "meaning": "second meaning: a fool, a silly person, as donkey is used of someone dim"
      }
     ],
     "explanation": {
@@ -415,28 +369,16 @@
    },
    "solution": "DOGEND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOG-END",
     "definitions": [
      {
       "text": "One of 10's reject's",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a cigarette stub, something the playwright, a smoker, threw away"
      },
      {
       "text": "maybe at the 18",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One of 10's reject's",
-      "note": "first meaning: a cigarette stub, something the playwright, a smoker, threw away"
-     },
-     {
-      "clueFragment": "maybe at the 18",
-      "note": "second meaning: at a stall selling sausages in rolls, the tail piece of a sausage"
+      "at": 22,
+      "meaning": "second meaning: at a stall selling sausages in rolls, the tail piece of a sausage"
      }
     ],
     "explanation": {
@@ -466,32 +408,24 @@
    },
    "solution": "BELONGINGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BELONGINGS",
     "definitions": [
      {
       "text": "the goods",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "10's recent drama",
-      "gives": "BELONGING",
-      "note": "Belonging was one of Plater's last television plays, from 2004"
-     },
-     {
-      "clueFragment": "s",
-      "gives": "S",
-      "note": "the possessive ending after drama is taken as a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BELONGING",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "10's recent drama",
+       "gives": "BELONGING",
+       "note": "Belonging was one of Plater's last television plays, from 2004"
+      },
+      {
+       "words": "s",
+       "note": "the possessive ending after drama is taken as a letter"
+      }
      ]
     },
     "explanation": {
@@ -539,54 +473,43 @@
    },
    "solution": "ALANPLATER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ALAN PLATER",
     "definitions": [
      {
       "text": "playwright",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "change of",
-      "for": "anagram",
-      "note": "a change of something alters its form, so these letters come out rearranged"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "plan",
-      "gives": "PLAN",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "change",
-      "gives": "ALTER",
-      "note": "to change is to alter; these letters join the mix"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LANPLATER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PLANALTER",
-       "gives": "LANPLATER"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change of",
+         "note": "a change of something alters its form, so these letters come out rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "plan",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "change",
+           "gives": "ALTER",
+           "note": "to change is to alter; these letters join the mix"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -622,11 +545,6 @@
    },
    "solution": "REVOLVERSHOT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "REVOLVER SHOT",
     "definitions": [
      {
       "text": "crack",
@@ -634,40 +552,39 @@
       "note": "a noun for the sound; the answer is the gun and its report"
      }
     ],
-    "indicators": [
-     {
-      "text": "leave",
-      "for": "deletion",
-      "note": "when something leaves it is no longer there, so one letter departs"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Being a parson",
-      "gives": "REV",
-      "note": "Rev is short for Reverend, a parson's title"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written; this is the letter that goes"
-     },
-     {
-      "clueFragment": "10's travels",
-      "gives": "OLIVERS",
-      "note": "Oliver's Travels is a 1995 Plater television serial"
-     },
-     {
-      "clueFragment": "dangerous",
-      "gives": "HOT",
-      "note": "hot can mean dangerous, as of a risky situation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REV",
-      "OLVERS",
-      "HOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Being a parson",
+       "gives": "REV",
+       "note": "Rev is short for Reverend, a parson's title"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leave",
+         "note": "when something leaves it is no longer there, so one letter departs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "10's travels",
+         "gives": "OLIVERS",
+         "note": "Oliver's Travels is a 1995 Plater television serial"
+        },
+        {
+         "words": "I",
+         "note": "taken as written; this is the letter that goes"
+        }
+       ]
+      },
+      {
+       "words": "dangerous",
+       "gives": "HOT",
+       "note": "hot can mean dangerous, as of a risky situation"
+      }
      ]
     },
     "explanation": {
@@ -696,44 +613,37 @@
    },
    "solution": "RECTORY",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "RECTORY",
     "definitions": [
      {
       "text": "place of parson",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "proclaimed",
-      "for": "homophone",
-      "note": "something proclaimed is announced out loud, so what counts is how the word is spoken"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disaster",
-      "gives": "REC",
-      "soundsLike": "WRECK",
-      "note": "a disaster is a wreck, said rather than spelt"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "TORY",
-      "note": "a Tory is a member of the UK Conservative Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REC",
-      "TORY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "REC",
+       "indicators": [
+        {
+         "text": "proclaimed",
+         "note": "something proclaimed is announced out loud, so what counts is how the word is spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Disaster",
+         "gives": "WRECK",
+         "note": "a disaster is a wreck, said rather than spelt"
+        }
+       ]
+      },
+      {
+       "words": "Conservative",
+       "gives": "TORY",
+       "note": "a Tory is a member of the UK Conservative Party"
+      }
      ]
     },
     "explanation": {
@@ -768,57 +678,51 @@
    },
    "solution": "WHOLEWORLD",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "WHOLE WORLD",
     "definitions": [
      {
       "text": "the lot",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in something means enclosed within it"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "24",
-      "gives": "WHORL",
-      "note": "the answer to 24, split open to take the insert"
-     },
-     {
-      "clueFragment": "Grade",
-      "gives": "LEW",
-      "note": "Lew Grade was the British television impresario Lord Grade"
-     },
-     {
-      "clueFragment": "0",
-      "gives": "O",
-      "note": "the figure zero read as a letter"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "D is 500 in Roman numerals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHO",
-      "LEW",
-      "O",
-      "RL",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "placed in something means enclosed within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "24",
+         "gives": "WHORL",
+         "note": "the answer to 24, split open to take the insert"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Grade",
+           "gives": "LEW",
+           "note": "Lew Grade was the British television impresario Lord Grade"
+          },
+          {
+           "words": "0",
+           "gives": "O",
+           "note": "the figure zero read as a letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "500",
+       "gives": "D",
+       "note": "D is 500 in Roman numerals"
+      }
      ]
     },
     "explanation": {
@@ -861,67 +765,53 @@
    },
    "solution": "HULLTRUCKTHEATRECOMPANY",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HULL TRUCK THEATRE COMPANY",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something made new is remade in a different form, so these letters change order"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "naval body",
-      "gives": "HULL",
-      "note": "the hull is the body of a ship"
-     },
-     {
-      "clueFragment": "traffic",
-      "gives": "TRUCK",
-      "note": "to have truck with is to have dealings, an old sense of traffic"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rate",
-      "gives": "RATE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "2",
-      "gives": "COMPANY",
-      "note": "from the saying two's company, three's a crowd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HULL",
-      "TRUCK",
-      "THE",
-      "ATRE",
-      "COMPANY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RATE",
-       "gives": "ATRE"
+       "words": "naval body",
+       "gives": "HULL",
+       "note": "the hull is the body of a ship"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "note": "something made new is remade in a different form, so these letters change order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "traffic",
+           "gives": "TRUCK",
+           "note": "to have truck with is to have dealings, an old sense of traffic"
+          },
+          {
+           "words": "the",
+           "note": "taken as written"
+          },
+          {
+           "words": "rate",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "2",
+           "gives": "COMPANY",
+           "note": "from the saying two's company, three's a crowd"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -998,58 +888,50 @@
    },
    "solution": "DEWDROP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "DEWDROP",
     "definitions": [
      {
       "text": "A little water",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of the word is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another ends up enclosed by it"
-     },
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "mixed things are jumbled together, so these letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deposited",
-      "gives": "D",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "powder",
-      "gives": "POWDER",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEW",
-      "D",
-      "ROP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "POWDER",
-       "gives": "DEWROP"
+       "text": "in",
+       "note": "one thing placed in another ends up enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "note": "mixed things are jumbled together, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "powder",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deposited",
+         "note": "the first letter of the word"
+        }
+       ]
       }
      ]
     },
@@ -1089,38 +971,30 @@
    },
    "solution": "HOTDOGSTALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOT DOG STALL",
     "definitions": [
      {
       "text": "food can be bought here",
       "at": 35
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Dangerous",
-      "gives": "HOT",
-      "note": "hot can mean dangerous, as with stolen goods or a risky situation"
-     },
-     {
-      "clueFragment": "beasts",
-      "gives": "DOGS",
-      "note": "dogs are beasts"
-     },
-     {
-      "clueFragment": "hard to believe",
-      "gives": "TALL",
-      "note": "a tall story is one hard to believe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT",
-      "DOGS",
-      "TALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dangerous",
+       "gives": "HOT",
+       "note": "hot can mean dangerous, as with stolen goods or a risky situation"
+      },
+      {
+       "words": "beasts",
+       "gives": "DOGS",
+       "note": "dogs are beasts"
+      },
+      {
+       "words": "hard to believe",
+       "gives": "TALL",
+       "note": "a tall story is one hard to believe"
+      }
      ]
     },
     "explanation": {
@@ -1149,35 +1023,25 @@
    },
    "solution": "OFLAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OFLAG",
     "definitions": [
      {
       "text": "POW camp",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O is zero, nothing"
-     },
-     {
-      "clueFragment": "what could be expected in 30",
-      "gives": "FLAG",
-      "note": "30 is KEEP THE ASPIDISTRA FLYING, a twist on keep the flag flying"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "FLAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O is zero, nothing"
+      },
+      {
+       "words": "what could be expected in 30",
+       "gives": "FLAG",
+       "note": "30 is KEEP THE ASPIDISTRA FLYING, a twist on keep the flag flying"
+      }
      ]
     },
     "explanation": {
@@ -1206,10 +1070,6 @@
    },
    "solution": "TRINITY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRINITY",
     "definitions": [
      {
       "text": "10's tales",
@@ -1217,34 +1077,24 @@
       "note": "the answer is the first word of the title Trinity Tales"
      }
     ],
-    "indicators": [
-     {
-      "text": "get round",
-      "for": "container",
-      "note": "to get round something is to surround it, so one piece encloses another"
-     }
-    ],
-    "linkWords": [
-     "are",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attempt",
-      "gives": "TRY",
-      "note": "a try is an attempt"
-     },
-     {
-      "clueFragment": "in it",
-      "gives": "INIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "INIT",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "get round",
+       "note": "to get round something is to surround it, so one piece encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attempt",
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
+       "words": "in it",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1279,47 +1129,41 @@
    },
    "solution": "JOEMADDISON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "JOE MADDISON",
     "definitions": [
      {
       "text": "10's man of war",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter alone"
-     },
-     {
-      "text": "captured by",
-      "for": "container",
-      "note": "a captive is held inside, so one piece is enclosed by another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "essayist familiarly",
-      "gives": "JOEADDISON",
-      "note": "Joseph Addison was an 18th-century essayist; familiarly, Joe"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "M",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOE",
-      "M",
-      "ADDISON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "note": "a captive is held inside, so one piece is enclosed by another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "essayist familiarly",
+       "gives": "JOEADDISON",
+       "note": "Joseph Addison was an 18th-century essayist; familiarly, Joe"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "the first of a word is its opening letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1348,44 +1192,37 @@
    },
    "solution": "SCRUTINY",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "SCRUTINY",
     "definitions": [
      {
       "text": "vetting",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "'say' asks for the word as spoken, not as spelt"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What James turned",
-      "gives": "SCRU",
-      "soundsLike": "SCREW",
-      "note": "Henry James wrote the ghost story The Turn of the Screw"
-     },
-     {
-      "clueFragment": "very little",
-      "gives": "TINY",
-      "note": "tiny means very little"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCRU",
-      "TINY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SCRU",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "'say' asks for the word as spoken, not as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What James turned",
+         "gives": "SCREW",
+         "note": "Henry James wrote the ghost story The Turn of the Screw"
+        }
+       ]
+      },
+      {
+       "words": "very little",
+       "gives": "TINY",
+       "note": "tiny means very little"
+      }
      ]
     },
     "explanation": {
@@ -1414,44 +1251,35 @@
    },
    "solution": "CLOSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CLOSE",
     "definitions": [
      {
       "text": "Not far off",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first points at the opening letter, the only one kept"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Capello's",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of the name"
-     },
-     {
-      "clueFragment": "be defeated",
-      "gives": "LOSE",
-      "note": "to lose is to be defeated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first points at the opening letter, the only one kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Capello's",
+         "note": "the opening letter of the name"
+        }
+       ]
+      },
+      {
+       "words": "be defeated",
+       "gives": "LOSE",
+       "note": "to lose is to be defeated"
+      }
      ]
     },
     "explanation": {
@@ -1480,35 +1308,25 @@
    },
    "solution": "WHORL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHORL",
     "definitions": [
      {
       "text": "fingerprint pattern",
       "at": 21
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "WHO",
-      "note": "Doctor Who, the BBC science-fiction hero"
-     },
-     {
-      "clueFragment": "both sides",
-      "gives": "RL",
-      "note": "R and L, right and left, the two sides"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHO",
-      "RL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "gives": "WHO",
+       "note": "Doctor Who, the BBC science-fiction hero"
+      },
+      {
+       "words": "both sides",
+       "gives": "RL",
+       "note": "R and L, right and left, the two sides"
+      }
      ]
     },
     "explanation": {
@@ -1537,30 +1355,28 @@
    },
    "solution": "TANAISTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TANAISTE",
     "definitions": [
      {
       "text": "subordinate to the taoiseach",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "a part of something is a piece of it, so the letters sit inside the wording"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sultana is temporarily",
-      "gives": "TANAISTE",
-      "note": "the letters run across the word breaks"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "a part of something is a piece of it, so the letters sit inside the wording"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sultana is temporarily",
+       "gives": "TANAISTE",
+       "note": "the letters run across the word breaks"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sultana's role is to stand in temporarily for the Irish prime minister.",
      "walkthrough": "The taoiseach is the Irish prime minister; the Tanaiste is the deputy.",
@@ -1594,45 +1410,41 @@
    },
    "solution": "TEATREE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TEA TREE",
     "definitions": [
      {
       "text": "leaves for the pot from here",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "when someone leaves they go away, so a letter departs from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Horse",
-      "gives": "H",
-      "note": "horse is slang for heroin, abbreviated H; this letter goes"
-     },
-     {
-      "clueFragment": "play scene",
-      "gives": "THEATRE",
-      "note": "a theatre is where plays are staged"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEATRE",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "when someone leaves they go away, so a letter departs from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "play scene",
+         "gives": "THEATRE",
+         "note": "a theatre is where plays are staged"
+        },
+        {
+         "words": "Horse",
+         "gives": "H",
+         "note": "horse is slang for heroin, abbreviated H; this letter goes"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "the usual abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1666,41 +1478,30 @@
     "4-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOMEWHAT",
     "definitions": [
      {
       "text": "A bit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like this",
-      "gives": "SO",
-      "note": "so means in this way"
-     },
-     {
-      "clueFragment": "catcall",
-      "gives": "MEW",
-      "note": "taken literally, the call of a cat"
-     },
-     {
-      "clueFragment": "tile",
-      "gives": "HAT",
-      "note": "tile is old slang for a hat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "MEW",
-      "HAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like this",
+       "gives": "SO",
+       "note": "so means in this way"
+      },
+      {
+       "words": "catcall",
+       "gives": "MEW",
+       "note": "taken literally, the call of a cat"
+      },
+      {
+       "words": "tile",
+       "gives": "HAT",
+       "note": "tile is old slang for a hat"
+      }
      ]
     },
     "explanation": {
@@ -1730,36 +1531,34 @@
    },
    "solution": "INTERIM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INTERIM",
     "definitions": [
      {
       "text": "for the moment",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Put",
-      "gives": "INTER",
-      "note": "to inter is to put in the ground, with the next words completing that sense"
-     },
-     {
-      "clueFragment": "'im",
-      "gives": "IM",
-      "note": "a dropped-h form of him"
-     },
-     {
-      "clueFragment": "underground",
-      "note": "no letters; it turns 'Put' into burial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTER",
-      "IM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Put",
+         "gives": "INTER",
+         "note": "to inter is to put in the ground, with the next words completing that sense"
+        },
+        {
+         "words": "'im",
+         "note": "a dropped-h form of him"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "underground",
+       "note": "no letters; it turns 'Put' into burial"
+      }
      ]
     },
     "explanation": {
@@ -1789,28 +1588,16 @@
    },
    "solution": "TRAILER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRAILER",
     "definitions": [
      {
       "text": "What goes before",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a preview of a film shown before it is released"
      },
      {
       "text": "comes after",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What goes before",
-      "note": "first meaning: a preview of a film shown before it is released"
-     },
-     {
-      "clueFragment": "comes after",
-      "note": "second meaning: a wagon towed behind a vehicle, or anything that trails"
+      "at": 17,
+      "meaning": "second meaning: a wagon towed behind a vehicle, or anything that trails"
      }
     ],
     "explanation": {
@@ -1845,55 +1632,44 @@
    },
    "solution": "GLASSFIBRE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "GLASS FIBRE",
     "definitions": [
      {
       "text": "light material",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "something being worked is shaped and reshaped, so these letters move"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "the usual abbreviation"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "LASS",
-      "note": "a lass is a girl"
-     },
-     {
-      "clueFragment": "brief",
-      "gives": "BRIEF",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LASS",
-      "FIBRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BRIEF",
-       "gives": "FIBRE"
+       "words": "Good",
+       "gives": "G",
+       "note": "the usual abbreviation"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "note": "something being worked is shaped and reshaped, so these letters move"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "girl",
+           "gives": "LASS",
+           "note": "a lass is a girl"
+          },
+          {
+           "words": "brief",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1937,91 +1713,86 @@
    },
    "solution": "KEEPTHEASPIDISTRAFLYING",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "KEEP THE ASPIDISTRA FLYING",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means running the other way, right to left"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something gone off is spoiled and out of shape, so the letters are jumbled"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "what is eaten goes inside, so one piece swallows the other"
-     },
-     {
-      "text": "wildly",
-      "for": "anagram",
-      "note": "acting wildly is out of control, so these letters scatter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "look",
-      "gives": "PEEK",
-      "note": "a peek is a quick look"
-     },
-     {
-      "clueFragment": "heat's",
-      "gives": "HEATS",
-      "note": "taken as written with its s"
-     },
-     {
-      "clueFragment": "Edith",
-      "gives": "PIAF",
-      "note": "Edith Piaf, the French singer"
-     },
-     {
-      "clueFragment": "dirt's",
-      "gives": "DIRTS",
-      "note": "taken as written with its s"
-     },
-     {
-      "clueFragment": "untrue",
-      "gives": "LYING",
-      "note": "a lying account is untrue"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEEP",
-      "THEAS",
-      "PI",
-      "DISTR",
-      "AF",
-      "LYING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HEATS",
-       "gives": "THEAS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means running the other way, right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "eating",
+           "note": "what is eaten goes inside, so one piece swallows the other"
+          }
+         ],
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "off",
+             "note": "something gone off is spoiled and out of shape, so the letters are jumbled"
+            }
+           ],
+           "parts": [
+            {
+             "op": "charade",
+             "parts": [
+              {
+               "words": "look",
+               "gives": "PEEK",
+               "note": "a peek is a quick look"
+              },
+              {
+               "words": "heat's",
+               "note": "taken as written with its s"
+              },
+              {
+               "words": "Edith",
+               "gives": "PIAF",
+               "note": "Edith Piaf, the French singer"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "wildly",
+             "note": "acting wildly is out of control, so these letters scatter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "dirt's",
+             "note": "taken as written with its s"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       },
       {
-       "fodder": "DIRTS",
-       "gives": "DISTR"
-      }
-     ],
-     "reversals": [
-      {
-       "from": "PEEK",
-       "to": "KEEP"
+       "words": "untrue",
+       "gives": "LYING",
+       "note": "a lying account is untrue"
       }
      ]
     },
@@ -2051,11 +1822,6 @@
    },
    "solution": "PEBBLED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PEBBLED",
     "definitions": [
      {
       "text": "Shakespeare's shore was",
@@ -2063,33 +1829,34 @@
       "note": "the clue gives a description; the answer is the adjective Shakespeare used"
      }
     ],
-    "indicators": [
-     {
-      "text": "at the heart of",
-      "for": "letter_selection",
-      "note": "the heart is the centre, so only the middle letters are kept"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cape Bon",
-      "gives": "PEB",
-      "select": "middle",
-      "note": "the middle three of seven letters"
-     },
-     {
-      "clueFragment": "somewhere in Slovenia",
-      "gives": "BLED",
-      "note": "Bled is a lakeside resort town in Slovenia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEB",
-      "BLED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "PEB",
+       "indicators": [
+        {
+         "text": "at the heart of",
+         "note": "the heart is the centre, so only the middle letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Cape Bon",
+         "gives": "PEB",
+         "select": "middle",
+         "note": "the middle three of seven letters"
+        }
+       ]
+      },
+      {
+       "words": "somewhere in Slovenia",
+       "gives": "BLED",
+       "note": "Bled is a lakeside resort town in Slovenia"
+      }
      ]
     },
     "explanation": {
@@ -2118,41 +1885,37 @@
    },
    "solution": "SHIRLEY",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "SHIRLEY",
     "definitions": [
      {
       "text": "Novel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "'say' asks for the word as it is spoken, not as spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "request for silence",
-      "gives": "SH",
-      "note": "sh is the hushing sound"
-     },
-     {
-      "clueFragment": "before breakfast",
-      "gives": "IRLEY",
-      "soundsLike": "EARLY",
-      "note": "breakfast-time and before is early"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "IRLEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "request for silence",
+       "gives": "SH",
+       "note": "sh is the hushing sound"
+      },
+      {
+       "op": "homophone",
+       "spelt": "IRLEY",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "'say' asks for the word as it is spoken, not as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "before breakfast",
+         "gives": "EARLY",
+         "note": "breakfast-time and before is early"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2187,10 +1950,6 @@
    },
    "solution": "FLETCHERSFLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLETCHERS FLY",
     "definitions": [
      {
       "text": "What you never see in 10's concept is the 44",
@@ -2198,22 +1957,19 @@
       "note": "a description of a non-event; the answer is a phrase, not a noun"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "people who make arrows",
-      "gives": "FLETCHERS",
-      "note": "a fletcher is an arrow-maker"
-     },
-     {
-      "clueFragment": "move through the air",
-      "gives": "FLY",
-      "note": "to fly is to move through the air"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLETCHERS",
-      "FLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "people who make arrows",
+       "gives": "FLETCHERS",
+       "note": "a fletcher is an arrow-maker"
+      },
+      {
+       "words": "move through the air",
+       "gives": "FLY",
+       "note": "to fly is to move through the air"
+      }
      ]
     },
     "explanation": {
@@ -2243,37 +1999,25 @@
    },
    "solution": "NUGAE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "NUGAE",
     "definitions": [
      {
       "text": "trifles",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Even letters of",
-      "for": "letter_selection",
-      "note": "the even-numbered positions, second, fourth and so on, are the ones kept"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "undue grace",
-      "gives": "NUGAE",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUGAE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Even letters of",
+       "note": "the even-numbered positions, second, fourth and so on, are the ones kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "undue grace",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -2315,10 +2059,6 @@
    },
    "solution": "ORCHESTRIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ORCHESTRIC",
     "definitions": [
      {
       "text": "refers to music or dance",
@@ -2326,23 +2066,22 @@
       "note": "a verb phrase; the answer is an adjective meaning relating to these"
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost all of",
-      "for": "deletion",
-      "note": "almost all means everything but a little, so letters at the edges are lost"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the trick of the lights",
-      "gives": "TORCHESTRICK",
-      "note": "read as torches' trick; the first and last letters go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORCHESTRIC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ORCHESTRIC",
+     "indicators": [
+      {
+       "text": "Almost all of",
+       "note": "almost all means everything but a little, so letters at the edges are lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the trick of the lights",
+       "gives": "TORCHESTRICK",
+       "note": "read as torches' trick; the first and last letters go"
+      }
      ]
     },
     "explanation": {
@@ -2377,32 +2116,25 @@
    },
    "solution": "HIGHREGARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HIGH REGARD",
     "definitions": [
      {
       "text": "what such as 10 are held in",
       "at": 8
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "HIGH",
-      "note": "up means high"
-     },
-     {
-      "clueFragment": "Look",
-      "gives": "REGARD",
-      "note": "to regard is to look at"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIGH",
-      "REGARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "up",
+       "gives": "HIGH",
+       "note": "up means high"
+      },
+      {
+       "words": "Look",
+       "gives": "REGARD",
+       "note": "to regard is to look at"
+      }
      ]
     },
     "explanation": {
@@ -2431,31 +2163,16 @@
    },
    "solution": "SPARK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPARK",
     "definitions": [
      {
       "text": "Muriel",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the surname of Muriel, the Scottish novelist who wrote The Prime of Miss Jean Brodie"
      },
      {
       "text": "ignition",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muriel",
-      "note": "first meaning: the surname of Muriel, the Scottish novelist who wrote The Prime of Miss Jean Brodie"
-     },
-     {
-      "clueFragment": "ignition",
-      "note": "second meaning: a small flash that starts a fire or engine"
+      "at": 9,
+      "meaning": "second meaning: a small flash that starts a fire or engine"
      }
     ],
     "explanation": {
@@ -2483,43 +2200,29 @@
    },
    "solution": "IRIDEAE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IRIDEAE",
     "definitions": [
      {
       "text": "flags",
       "at": 31
      }
     ],
-    "linkWords": [
-     "at",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm on a horse",
-      "gives": "IRIDE",
-      "note": "someone on horseback can say I ride"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "E",
-      "note": "east, a point of the compass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RIDE",
-      "A",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'm on a horse",
+       "gives": "IRIDE",
+       "note": "someone on horseback can say I ride"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "point",
+       "gives": "E",
+       "note": "east, a point of the compass"
+      }
      ]
     },
     "explanation": {
@@ -2548,10 +2251,6 @@
    },
    "solution": "SAGA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SAGA",
     "definitions": [
      {
       "text": "10's Fosdyke",
@@ -2559,25 +2258,19 @@
       "note": "the answer completes the title The Fosdyke Saga"
      }
     ],
-    "linkWords": [
-     "has to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "droop",
-      "gives": "SAG",
-      "note": "to sag is to droop"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "A",
-      "note": "A is the first letter and stands for first class"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAG",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "droop",
+       "gives": "SAG",
+       "note": "to sag is to droop"
+      },
+      {
+       "words": "first",
+       "gives": "A",
+       "note": "A is the first letter and stands for first class"
+      }
      ]
     },
     "explanation": {
@@ -2619,43 +2312,33 @@
    },
    "solution": "SCALIGER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCALIGER",
     "definitions": [
      {
       "text": "Veronese family",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Sad",
-      "for": "anagram",
-      "note": "something sad is in a sorry state, so these letters are knocked out of order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "case",
-      "gives": "CASE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "GIRL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CASEGIRL",
-       "gives": "SCALIGER"
+       "text": "Sad",
+       "note": "something sad is in a sorry state, so these letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "case",
+         "note": "taken as written"
+        },
+        {
+         "words": "girl",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -2685,35 +2368,24 @@
    },
    "solution": "ATOLL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATOLL",
     "definitions": [
      {
       "text": "bikini",
       "at": 9
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tax",
-      "gives": "TOLL",
-      "note": "a charge or levy, such as one paid to use a road or bridge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TOLL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "tax",
+       "gives": "TOLL",
+       "note": "a charge or levy, such as one paid to use a road or bridge"
+      }
      ]
     },
     "explanation": {
@@ -2743,41 +2415,29 @@
    },
    "solution": "COCOONED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COCOONED",
     "definitions": [
      {
       "text": "protected",
       "at": 24
      }
     ],
-    "linkWords": [
-     "had"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chanel",
-      "gives": "COCO",
-      "note": "Coco Chanel, the French fashion designer"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCO",
-      "ONE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chanel",
+       "gives": "COCO",
+       "note": "Coco Chanel, the French fashion designer"
+      },
+      {
+       "words": "one",
+       "note": "taken as written"
+      },
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -2806,36 +2466,25 @@
    },
    "solution": "CHEERIO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHEERIO",
     "definitions": [
      {
       "text": "Farewell",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "applause",
-      "gives": "CHEER",
-      "note": "a cheer is a shout of applause"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "IO",
-      "note": "the digits 1 and 0 look like the letters I and O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHEER",
-      "IO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "applause",
+       "gives": "CHEER",
+       "note": "a cheer is a shout of applause"
+      },
+      {
+       "words": "10",
+       "gives": "IO",
+       "note": "the digits 1 and 0 look like the letters I and O"
+      }
      ]
     },
     "explanation": {
@@ -2864,51 +2513,40 @@
    },
    "solution": "BEIDERBECKE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BEIDERBECKE",
     "definitions": [
      {
       "text": "10's musician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "keeping something means holding it, so one piece goes round the rest"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "be",
-      "gives": "BE",
-      "note": "taken as written; it is split round the rest"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "EIDER",
-      "note": "the eider is a sea duck"
-     },
-     {
-      "clueFragment": "stream",
-      "gives": "BECK",
-      "note": "beck is a northern English word for a stream"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EIDER",
-      "BECK",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "keeping something means holding it, so one piece goes round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "be",
+       "note": "taken as written; it is split round the rest"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "duck",
+         "gives": "EIDER",
+         "note": "the eider is a sea duck"
+        },
+        {
+         "words": "stream",
+         "gives": "BECK",
+         "note": "beck is a northern English word for a stream"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2943,26 +2581,25 @@
    },
    "solution": "EATDOG",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EAT DOG",
     "definitions": [
      {
       "text": "Object here won't be subject, as the saying goes — except at 18?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Object here won't be subject, as the saying goes",
-      "note": "surface reading: a grammar puzzle about a proverb in which the subject and the object are the same word"
-     },
-     {
-      "clueFragment": "except at 18?",
-      "note": "setter's reading: at a stall selling sausages in rolls, customers do just that"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Object here won't be subject, as the saying goes",
+       "note": "surface reading: a grammar puzzle about a proverb in which the subject and the object are the same word"
+      },
+      {
+       "words": "except at 18?",
+       "note": "setter's reading: at a stall selling sausages in rolls, customers do just that"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A grammar lesson on a proverb, with an exception at a snack stand.",
      "walkthrough": "The saying is 'dog does not eat dog': the dog that is the object never becomes the subject. 18 is HOT DOG STALL, where people really do.",
@@ -2990,35 +2627,25 @@
    },
    "solution": "TYPESETTERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TYPESETTERS",
     "definitions": [
      {
       "text": "print people",
       "at": 28
      }
     ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sort",
-      "gives": "TYPE",
-      "note": "a sort is a type or kind"
-     },
-     {
-      "clueFragment": "beasts of 18 etc",
-      "gives": "SETTERS",
-      "note": "setters are dogs, like those sold at 18, the HOT DOG STALL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TYPE",
-      "SETTERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sort",
+       "gives": "TYPE",
+       "note": "a sort is a type or kind"
+      },
+      {
+       "words": "beasts of 18 etc",
+       "gives": "SETTERS",
+       "note": "setters are dogs, like those sold at 18, the HOT DOG STALL"
+      }
      ]
     },
     "explanation": {
@@ -3057,61 +2684,51 @@
     "40-down"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "RONNIE SCOTT",
     "definitions": [
      {
       "text": "10's second home maker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "making something new reworks it, so these letters take another order"
-     },
-     {
-      "text": "amid",
-      "for": "container",
-      "note": "amid means in the middle of, so these pieces sit inside another"
-     }
-    ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rubbish",
-      "gives": "ROT",
-      "note": "rot is nonsense, rubbish; it goes round the rest"
-     },
-     {
-      "clueFragment": "9's",
-      "gives": "NINES",
-      "note": "the number spelt out with its s"
-     },
-     {
-      "clueFragment": "bed",
-      "gives": "COT",
-      "note": "a cot is a small bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "NNIES",
-      "COT",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NINES",
-       "gives": "NNIES"
+       "text": "amid",
+       "note": "amid means in the middle of, so these pieces sit inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rubbish",
+       "gives": "ROT",
+       "note": "rot is nonsense, rubbish; it goes round the rest"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "making something new reworks it, so these letters take another order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "9's",
+           "gives": "NINES",
+           "note": "the number spelt out with its s"
+          }
+         ]
+        },
+        {
+         "words": "bed",
+         "gives": "COT",
+         "note": "a cot is a small bed"
+        }
+       ]
       }
      ]
     },
@@ -3141,40 +2758,31 @@
    },
    "solution": "MAGIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAGIC",
     "definitions": [
      {
       "text": "spelling",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "something worn is put on around the body, so one piece encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Burberry",
-      "gives": "MAC",
-      "note": "Burberry is a famous brand of raincoat, a mac"
-     },
-     {
-      "clueFragment": "Soldier",
-      "gives": "GI",
-      "note": "GI is an American soldier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "GI",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "something worn is put on around the body, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Burberry",
+       "gives": "MAC",
+       "note": "Burberry is a famous brand of raincoat, a mac"
+      },
+      {
+       "words": "Soldier",
+       "gives": "GI",
+       "note": "GI is an American soldier"
+      }
      ]
     },
     "explanation": {
@@ -3226,92 +2834,75 @@
    },
    "solution": "ITHOUGHTIHEARDARUSTLING",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "anagram",
-     "container"
-    ],
-    "answer": "I THOUGHT I HEARD A RUSTLING",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means running the other way, right to left"
-     },
-     {
-      "text": "unbridled",
-      "for": "anagram",
-      "note": "unbridled means uncontrolled, so these letters run loose"
-     },
-     {
-      "text": "suppressing",
-      "for": "container",
-      "note": "to suppress is to hold down and keep in, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "at",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first",
-      "gives": "I",
-      "note": "I is the Roman numeral one, so first"
-     },
-     {
-      "clueFragment": "nevertheless",
-      "gives": "THOUGH",
-      "note": "though can mean nevertheless, at the end of a sentence"
-     },
-     {
-      "clueFragment": "hit",
-      "gives": "HIT",
-      "note": "taken as written, then turned round"
-     },
-     {
-      "clueFragment": "listener",
-      "gives": "EAR",
-      "note": "the ear is what listens"
-     },
-     {
-      "clueFragment": "audacity",
-      "gives": "DARING",
-      "note": "daring is boldness, audacity; it is split round the next piece"
-     },
-     {
-      "clueFragment": "lust",
-      "gives": "LUST",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "THOUGH",
-      "TIH",
-      "EAR",
-      "DAR",
-      "USTL",
-      "ING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LUST",
-       "gives": "USTL"
-      }
-     ],
-     "reversals": [
+       "words": "first",
+       "gives": "I",
+       "note": "I is the Roman numeral one, so first"
+      },
       {
-       "from": "HIT",
-       "to": "TIH"
+       "words": "nevertheless",
+       "gives": "THOUGH",
+       "note": "though can mean nevertheless, at the end of a sentence"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means running the other way, right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hit",
+         "note": "taken as written, then turned round"
+        }
+       ]
+      },
+      {
+       "words": "listener",
+       "gives": "EAR",
+       "note": "the ear is what listens"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "suppressing",
+         "note": "to suppress is to hold down and keep in, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "audacity",
+         "gives": "DARING",
+         "note": "daring is boldness, audacity; it is split round the next piece"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "unbridled",
+           "note": "unbridled means uncontrolled, so these letters run loose"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lust",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -3341,30 +2932,28 @@
    },
    "solution": "OATH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OATH",
     "definitions": [
      {
       "text": "Language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "of",
-      "for": "hidden_word",
-      "note": "the letters come out of the next word, sitting inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "goatherds",
-      "gives": "OATH",
-      "note": "letters two to five of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "note": "the letters come out of the next word, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "goatherds",
+       "gives": "OATH",
+       "note": "letters two to five of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joke question about how goat-keepers talk.",
      "walkthrough": "'Language' in the sense of bad language: swearing, as in 'mind your language'.",
@@ -3392,41 +2981,25 @@
    },
    "solution": "HOOP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "HOOP",
     "definitions": [
      {
       "text": "roller",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading from the bottom, so the order flips"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bear",
-      "gives": "POOH",
-      "note": "Winnie-the-Pooh, A. A. Milne's bear"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "POOH",
-       "to": "HOOP"
+       "text": "up",
+       "note": "in a down entry, going up means reading from the bottom, so the order flips"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bear",
+       "gives": "POOH",
+       "note": "Winnie-the-Pooh, A. A. Milne's bear"
       }
      ]
     },
@@ -3480,34 +3053,25 @@
     "35-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAST OF THE BLONDE BOMBSHELLS",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "model foot",
-      "gives": "LAST",
-      "note": "a shoemaker's model of a foot"
-     },
-     {
-      "clueFragment": "fair shockers'",
-      "gives": "OFTHEBLONDEBOMBSHELLS",
-      "note": "fair hair gives the pale-haired colour word, shockers are sensational surprises (literally explosive shells), and the apostrophe reads as of the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAST",
-      "OFTHE",
-      "BLONDE",
-      "BOMBSHELLS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "model foot",
+       "gives": "LAST",
+       "note": "a shoemaker's model of a foot"
+      },
+      {
+       "words": "fair shockers'",
+       "gives": "OFTHEBLONDEBOMBSHELLS",
+       "note": "fair hair gives the pale-haired colour word, shockers are sensational surprises (literally explosive shells), and the apostrophe reads as of the"
+      }
      ]
     },
     "explanation": {
@@ -3536,36 +3100,25 @@
    },
    "solution": "MISTERIOSO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MISTERIOSO",
     "definitions": [
      {
       "text": "10's",
       "at": 0
      }
     ],
-    "linkWords": [
-     "takes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellow",
-      "gives": "MISTER",
-      "note": "a mister is a man, a fellow"
-     },
-     {
-      "clueFragment": "10's round",
-      "gives": "IOSO",
-      "note": "10 read as the letters I and O with its s, then O for something round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MISTER",
-      "IOS",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fellow",
+       "gives": "MISTER",
+       "note": "a mister is a man, a fellow"
+      },
+      {
+       "words": "10's round",
+       "gives": "IOSO",
+       "note": "10 read as the letters I and O with its s, then O for something round"
+      }
      ]
     },
     "explanation": {
@@ -3594,53 +3147,44 @@
    },
    "solution": "ICONOCLASTIC",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ICONOCLASTIC",
     "definitions": [
      {
       "text": "Irreverent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needed",
-      "for": "anagram",
-      "note": "read as kneaded, worked like dough, so the letters are pummelled into a new order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "occasion",
-      "gives": "OCCASION",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "tender loving care",
-      "gives": "TLC",
-      "note": "the common abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "CONOCLASTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OCCASIONTLC",
-       "gives": "CONOCLASTIC"
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "needed",
+         "note": "read as kneaded, worked like dough, so the letters are pummelled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "occasion",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "tender loving care",
+           "gives": "TLC",
+           "note": "the common abbreviation"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

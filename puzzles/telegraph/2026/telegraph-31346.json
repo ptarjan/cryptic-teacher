@@ -1,8 +1,6 @@
 {
  "id": "telegraph-31346",
  "number": 31346,
- "series": "telegraph",
- "name": "Telegraph cryptic crossword No 31,346",
  "date": "2026-09-16",
  "dimensions": {
   "cols": 15,
@@ -37,44 +35,40 @@
    },
    "solution": "AYRSHIRE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AYRSHIRE",
     "definitions": [
      {
       "text": "here in Scotland",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "tucked into",
-      "note": "one thing tucked into another sits inside it"
-     },
-     {
-      "text": "tipsily",
-      "note": "a tipsy sherry staggers its letters about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a sherry",
-      "gives": "ASHERRY",
-      "note": "anagram fodder, jumbled to AYRSHRE"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, the Roman numeral, tucked in after AYRSH"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ASHERRY I",
-       "gives": "AYRSHIRE"
+       "text": "tucked into",
+       "note": "one thing tucked into another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tipsily",
+         "note": "a tipsy sherry staggers its letters about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a sherry",
+         "note": "anagram fodder, jumbled to AYRSHRE"
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I = one, the Roman numeral, tucked in after AYRSH"
       }
      ]
     },
@@ -104,41 +98,36 @@
    },
    "solution": "STANDING",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "STANDING",
     "definitions": [
      {
       "text": "reputation",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of 'garner' is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Substitute",
-      "gives": "STANDIN",
-      "note": "a stand-in is a substitute"
-     },
-     {
-      "clueFragment": "beginning to garner",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of garner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STANDIN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Substitute",
+       "gives": "STANDIN",
+       "note": "a stand-in is a substitute"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of 'garner' is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning to garner",
+         "gives": "GARNER",
+         "note": "first letter of garner"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -167,35 +156,24 @@
    },
    "solution": "STEWPAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STEWPAN",
     "definitions": [
      {
       "text": "Flat-bottomed vessel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "injured",
-      "for": "anagram",
-      "note": "the pet swan's letters are knocked out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pet swan",
-      "gives": "PETSWAN",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PETSWAN",
-       "gives": "STEWPAN"
+       "text": "injured",
+       "note": "the pet swan's letters are knocked out of shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pet swan",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -225,43 +203,45 @@
    },
    "solution": "DEARTH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DEARTH",
     "definitions": [
      {
       "text": "Lack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "the ultimate letter of 'food' is its last"
-     },
-     {
-      "text": "on"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of food, ultimately",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of food"
-     },
-     {
-      "clueFragment": "the planet",
-      "gives": "EARTH",
-      "note": "our planet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "EARTH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "the ultimate letter of 'food' is its last"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "D",
+       "indicators": [
+        {
+         "text": "on"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "of food, ultimately",
+         "gives": "D",
+         "select": "last",
+         "note": "last letter of food"
+        }
+       ]
+      },
+      {
+       "words": "the planet",
+       "gives": "EARTH",
+       "note": "our planet"
+      }
      ]
     },
     "explanation": {
@@ -290,39 +270,36 @@
    },
    "solution": "CITRON",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "CITRON",
     "definitions": [
      {
       "text": "fruit tree",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "home to",
-      "note": "the phrase houses the answer inside it"
-     },
-     {
-      "text": "climbing",
-      "note": "in a down clue, climbing means reading upwards, so backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bern or Ticino",
-      "gives": "NORTIC",
-      "note": "berN OR TICino holds NORTIC"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NORTIC",
-       "to": "CITRON"
+       "text": "home to",
+       "note": "the phrase houses the answer inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "in a down clue, climbing means reading upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bern or Ticino",
+         "gives": "NORTIC",
+         "note": "berN OR TICino holds NORTIC"
+        }
+       ]
       }
      ]
     },
@@ -366,44 +343,42 @@
    },
    "solution": "KEYSTOTHECITY",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "KEYS TO THE CITY",
     "definitions": [
      {
       "text": "a privilege",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "for Spooner",
-      "for": "spoonerism",
-      "note": "Spooner famously swapped the opening sounds of words"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Takes care of",
-      "gives": "KEYSTO",
-      "soundsLike": "SEES TO",
-      "note": "sees to = takes care of; it takes the K sound from kitty"
-     },
-     {
-      "clueFragment": "moggy",
-      "gives": "THECITY",
-      "soundsLike": "THE KITTY",
-      "note": "kitty = moggy; it takes the S sound from sees"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEYSTO",
-      "THECITY"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "KEYSTOTHECITY",
+     "indicators": [
+      {
+       "text": "for Spooner",
+       "note": "Spooner famously swapped the opening sounds of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Takes care of",
+         "gives": "KEYSTO",
+         "soundsLike": "SEES TO",
+         "note": "sees to = takes care of; it takes the K sound from kitty"
+        },
+        {
+         "unchecked": true,
+         "words": "moggy",
+         "gives": "THECITY",
+         "soundsLike": "THE KITTY",
+         "note": "kitty = moggy; it takes the S sound from sees"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -439,30 +414,16 @@
    },
    "solution": "KANGAROOCOURT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KANGAROO COURT",
     "definitions": [
      {
       "text": "Rigged tribunal",
-      "at": 0
+      "at": 0,
+      "meaning": "a sham court with a foregone verdict"
      },
      {
       "text": "where Joey might get confined?",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rigged tribunal",
-      "gives": "KANGAROOCOURT",
-      "note": "a sham court with a foregone verdict"
-     },
-     {
-      "clueFragment": "where Joey might get confined?",
-      "gives": "KANGAROOCOURT",
-      "note": "a joey is a baby kangaroo; a court is an enclosed yard"
+      "at": 16,
+      "meaning": "a joey is a baby kangaroo; a court is an enclosed yard"
      }
     ],
     "explanation": {
@@ -502,62 +463,61 @@
    },
    "solution": "YABBADABBADOO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "YABBA DABBA DOO",
     "definitions": [
      {
       "text": "Cry from Fred",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "note": "A BOY is knocked over into a new order"
-     },
-     {
-      "text": "about",
-      "note": "the jumbled letters wrap around what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a boy",
-      "gives": "YABO",
-      "note": "anagram of A BOY, split YAB…O around the rest"
-     },
-     {
-      "clueFragment": "rubbish",
-      "gives": "BAD",
-      "note": "rubbish = bad"
-     },
-     {
-      "clueFragment": "pop group",
-      "gives": "ABBA",
-      "note": "the Swedish pop group"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YAB",
-      "BAD",
-      "ABBA",
-      "DO",
-      "O"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ABOY",
-       "gives": "YABO"
+       "text": "upset",
+       "note": "A BOY is knocked over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the jumbled letters wrap around what follows"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a boy",
+           "gives": "YABO",
+           "note": "anagram of A BOY, split YAB…O around the rest"
+          },
+          {
+           "words": "rubbish",
+           "gives": "BAD",
+           "note": "rubbish = bad"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pop group",
+         "gives": "ABBA",
+         "note": "the Swedish pop group"
+        },
+        {
+         "words": "party",
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
       }
      ]
     },
@@ -587,35 +547,25 @@
    },
    "solution": "UNISON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNISON",
     "definitions": [
      {
       "text": "complete agreement",
       "at": 35
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Academic establishments",
-      "gives": "UNIS",
-      "note": "unis = universities"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNIS",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Academic establishments",
+       "gives": "UNIS",
+       "note": "unis = universities"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -644,45 +594,37 @@
    },
    "solution": "WARDROBE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "WARDROBE",
     "definitions": [
      {
       "text": "Where to keep suits",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pants",
-      "for": "anagram",
-      "note": "pants as a British adjective means rubbish, so BROADER is made a mess of"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "w = with, the standard abbreviation"
-     },
-     {
-      "clueFragment": "broader",
-      "gives": "ARDROBE",
-      "note": "anagram of BROADER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ARDROBE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WARDROBE",
+     "indicators": [
       {
-       "fodder": "BROADER",
-       "gives": "ARDROBE"
+       "text": "pants",
+       "note": "pants as a British adjective means rubbish, so BROADER is made a mess of"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "w = with, the standard abbreviation"
+        },
+        {
+         "words": "broader",
+         "gives": "ARDROBE",
+         "note": "anagram of BROADER"
+        }
+       ]
       }
      ]
     },
@@ -713,36 +655,25 @@
    },
    "solution": "DIP",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DIP",
     "definitions": [
      {
       "text": "salsa?",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Starts to",
-      "for": "letter_selection",
-      "note": "the starts of the next three words are their first letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dance intensely passionate",
-      "gives": "DIP",
-      "select": "first",
-      "note": "first letters of Dance Intensely Passionate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "I",
-      "P"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Starts to",
+       "note": "the starts of the next three words are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dance intensely passionate",
+       "note": "first letters of Dance Intensely Passionate"
+      }
      ]
     },
     "explanation": {
@@ -772,40 +703,31 @@
    },
    "solution": "TAHITI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TAHITI",
     "definitions": [
      {
       "text": "Island",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed by",
-      "for": "container",
-      "note": "the greeting is taken in by Jacques's surname"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jacques",
-      "gives": "TATI",
-      "note": "Jacques Tati, the French film director"
-     },
-     {
-      "clueFragment": "greeting",
-      "gives": "HI",
-      "note": "hi = hello, placed inside TA…TI"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "HI",
-      "TI"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "note": "the greeting is taken in by Jacques's surname"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jacques",
+       "gives": "TATI",
+       "note": "Jacques Tati, the French film director"
+      },
+      {
+       "words": "greeting",
+       "gives": "HI",
+       "note": "hi = hello, placed inside TA…TI"
+      }
      ]
     },
     "explanation": {
@@ -834,45 +756,40 @@
    },
    "solution": "ATHENIAN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ATHENIAN",
     "definitions": [
      {
       "text": "Greek",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Three articles",
-      "gives": "ATHEAN",
-      "note": "A, THE and AN are three articles; NI goes between THE and AN"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "n = northern"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "i = island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATHE",
-      "NI",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Three articles",
+       "gives": "ATHEAN",
+       "note": "A, THE and AN are three articles; NI goes between THE and AN"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "gives": "N",
+         "note": "n = northern"
+        },
+        {
+         "words": "island",
+         "gives": "I",
+         "note": "i = island"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -901,32 +818,25 @@
    },
    "solution": "EBB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EBB",
     "definitions": [
      {
       "text": "retreat",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "e = English"
-     },
-     {
-      "clueFragment": "bishops",
-      "gives": "BB",
-      "note": "b = bishop in chess notation, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "BB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "e = English"
+      },
+      {
+       "words": "bishops",
+       "gives": "BB",
+       "note": "b = bishop in chess notation, doubled for the plural"
+      }
      ]
     },
     "explanation": {
@@ -955,45 +865,37 @@
    },
    "solution": "FOREIGN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FOREIGN",
     "definitions": [
      {
       "text": "from abroad",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "mixing",
-      "for": "anagram",
-      "note": "the letters of GIN are mixed like a drink"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Warning to golfers",
-      "gives": "FORE",
-      "note": "golfers shout 'Fore!' to warn of a flying ball"
-     },
-     {
-      "clueFragment": "gin",
-      "gives": "IGN",
-      "note": "anagram of GIN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FORE",
-      "IGN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FOREIGN",
+     "indicators": [
       {
-       "fodder": "GIN",
-       "gives": "IGN"
+       "text": "mixing",
+       "note": "the letters of GIN are mixed like a drink"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Warning to golfers",
+         "gives": "FORE",
+         "note": "golfers shout 'Fore!' to warn of a flying ball"
+        },
+        {
+         "words": "gin",
+         "gives": "IGN",
+         "note": "anagram of GIN"
+        }
+       ]
       }
      ]
     },
@@ -1023,35 +925,25 @@
    },
    "solution": "IMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMP",
     "definitions": [
      {
       "text": "a mischievous character",
       "at": 26
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Independent",
-      "gives": "I",
-      "note": "i = independent"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP = Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Independent",
+       "gives": "I",
+       "note": "i = independent"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP = Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -1079,30 +971,28 @@
    },
    "solution": "HABITAT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HABITAT",
     "definitions": [
      {
       "text": "usual home",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "hidden_word",
-      "note": "the words hold the answer in their arms"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Both a bit attached",
-      "gives": "HABITAT",
-      "note": "botH A BIT ATtached"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "embracing",
+       "note": "the words hold the answer in their arms"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Both a bit attached",
+       "gives": "HABITAT",
+       "note": "botH A BIT ATtached"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Two things that are each slightly fond of one another hug.",
      "walkthrough": "The comma splits the clue so 'embracing' seems to describe two attached people; it is the signal to look inside the first four words.",
@@ -1129,47 +1019,40 @@
    },
    "solution": "ARBOREAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ARBOREAL",
     "definitions": [
      {
       "text": "Tree-dwelling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swimming",
-      "note": "the letters of RARE BOA move about like a swimming snake"
-     },
-     {
-      "text": "over"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rare boa",
-      "gives": "ARBOREA",
-      "note": "anagram of RARE BOA"
-     },
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "l = lake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARBOREA",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARBOREAL",
+     "parts": [
       {
-       "fodder": "RAREBOA",
-       "gives": "ARBOREA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "swimming",
+         "note": "the letters of RARE BOA move about like a swimming snake"
+        },
+        {
+         "text": "over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rare boa",
+         "gives": "ARBOREA",
+         "note": "anagram of RARE BOA"
+        },
+        {
+         "words": "lake",
+         "gives": "L",
+         "note": "l = lake"
+        }
+       ]
       }
      ]
     },
@@ -1199,32 +1082,24 @@
    },
    "solution": "IDOLATER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDOLATER",
     "definitions": [
      {
       "text": "Besotted admirer",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "I stays as it is"
-     },
-     {
-      "clueFragment": "put off",
-      "gives": "DOLATER",
-      "note": "to put off a task is to do it later"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DOLATER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "note": "I stays as it is"
+      },
+      {
+       "words": "put off",
+       "gives": "DOLATER",
+       "note": "to put off a task is to do it later"
+      }
      ]
     },
     "explanation": {
@@ -1254,40 +1129,31 @@
    },
    "solution": "ANARCHY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ANARCHY",
     "definitions": [
      {
       "text": "state of chaos",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' says the first word sits inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "whichever",
-      "gives": "ANY",
-      "note": "any = whichever, split AN…Y"
-     },
-     {
-      "clueFragment": "Mischievous",
-      "gives": "ARCH",
-      "note": "arch = mischievous, as in an arch look"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "ARCH",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' says the first word sits inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whichever",
+       "gives": "ANY",
+       "note": "any = whichever, split AN…Y"
+      },
+      {
+       "words": "Mischievous",
+       "gives": "ARCH",
+       "note": "arch = mischievous, as in an arch look"
+      }
      ]
     },
     "explanation": {
@@ -1316,46 +1182,40 @@
    },
    "solution": "SCORPION",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SCORPION",
     "definitions": [
      {
       "text": "dangerous pet",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "probing",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy's",
-      "gives": "SON",
-      "note": "a boy = a son, split S…ON"
-     },
-     {
-      "clueFragment": "Blimey!",
-      "gives": "COR",
-      "note": "cor! = blimey!, a British exclamation of surprise"
-     },
-     {
-      "clueFragment": "Detective",
-      "gives": "PI",
-      "note": "PI = private investigator"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "COR",
-      "PI",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy's",
+       "gives": "SON",
+       "note": "a boy = a son, split S…ON"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Blimey!",
+         "gives": "COR",
+         "note": "cor! = blimey!, a British exclamation of surprise"
+        },
+        {
+         "words": "Detective",
+         "gives": "PI",
+         "note": "PI = private investigator"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1384,39 +1244,30 @@
    },
    "solution": "RUINED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RUINED",
     "definitions": [
      {
       "text": "Bankrupt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "acquiring",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "regretted",
-      "gives": "RUED",
-      "note": "rued = regretted, split RU…ED"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "IN",
-      "note": "at home = in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "IN",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "acquiring"
+      }
+     ],
+     "parts": [
+      {
+       "words": "regretted",
+       "gives": "RUED",
+       "note": "rued = regretted, split RU…ED"
+      },
+      {
+       "words": "home",
+       "gives": "IN",
+       "note": "at home = in"
+      }
      ]
     },
     "explanation": {
@@ -1445,46 +1296,40 @@
    },
    "solution": "IDEALS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IDEALS",
     "definitions": [
      {
       "text": "Highest standards",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "March 15?",
-      "gives": "IDES",
-      "note": "the Ides of March is 15 March, split IDE…S"
-     },
-     {
-      "clueFragment": "ace",
-      "gives": "A",
-      "note": "a = ace, as on playing cards"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L = learner, as on a British learner driver's L-plate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDE",
-      "A",
-      "L",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "March 15?",
+       "gives": "IDES",
+       "note": "the Ides of March is 15 March, split IDE…S"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ace",
+         "gives": "A",
+         "note": "a = ace, as on playing cards"
+        },
+        {
+         "words": "student",
+         "gives": "L",
+         "note": "L = learner, as on a British learner driver's L-plate"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1513,39 +1358,30 @@
    },
    "solution": "BLOBBY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLOBBY",
     "definitions": [
      {
       "text": "Round-looking",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copper",
-      "gives": "BOBBY",
-      "note": "a bobby is a British police officer, split B…OBBY"
-     },
-     {
-      "clueFragment": "50",
-      "gives": "L",
-      "note": "L = 50, the Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "OBBY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "copper",
+       "gives": "BOBBY",
+       "note": "a bobby is a British police officer, split B…OBBY"
+      },
+      {
+       "words": "50",
+       "gives": "L",
+       "note": "L = 50, the Roman numeral"
+      }
      ]
     },
     "explanation": {
@@ -1574,36 +1410,25 @@
    },
    "solution": "ADO",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ADO",
     "definitions": [
      {
       "text": "Difficulty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly cleaning out",
-      "for": "letter_selection",
-      "note": "every other letter is cleared out, leaving the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tandoor",
-      "gives": "ADO",
-      "select": "alternate",
-      "note": "tAnDoOr, keeping the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "D",
-      "O"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly cleaning out",
+       "note": "every other letter is cleared out, leaving the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tandoor",
+       "note": "tAnDoOr, keeping the second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -1632,45 +1457,37 @@
    },
    "solution": "MUTINEER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MUTINEER",
     "definitions": [
      {
       "text": "Christian?",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "making changes to",
-      "for": "anagram",
-      "note": "the letters of REUNITE are changed around"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mass",
-      "gives": "M",
-      "note": "m = mass, as in physics"
-     },
-     {
-      "clueFragment": "reunite",
-      "gives": "UTINEER",
-      "note": "anagram of REUNITE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "UTINEER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MUTINEER",
+     "indicators": [
       {
-       "fodder": "REUNITE",
-       "gives": "UTINEER"
+       "text": "making changes to",
+       "note": "the letters of REUNITE are changed around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mass",
+         "gives": "M",
+         "note": "m = mass, as in physics"
+        },
+        {
+         "words": "reunite",
+         "gives": "UTINEER",
+         "note": "anagram of REUNITE"
+        }
+       ]
       }
      ]
     },
@@ -1701,39 +1518,30 @@
    },
    "solution": "RWANDA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RWANDA",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "visiting",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "St Andrews club",
-      "gives": "RANDA",
-      "note": "the R and A, the Royal and Ancient Golf Club of St Andrews, split R…ANDA"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "w = wife"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "W",
-      "ANDA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "visiting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "St Andrews club",
+       "gives": "RANDA",
+       "note": "the R and A, the Royal and Ancient Golf Club of St Andrews, split R…ANDA"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "w = wife"
+      }
      ]
     },
     "explanation": {
@@ -1776,38 +1584,24 @@
    },
    "solution": "THEOLDHEAVEHO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE OLD HEAVE-HO",
     "definitions": [
      {
       "text": "the elbow",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "dislocating",
-      "for": "anagram",
-      "note": "the letters are knocked out of place, as a joint is"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He loathed Hove",
-      "gives": "HELOATHEDHOVE",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HELOATHEDHOVE",
-       "gives": "THEOLDHEAVEHO"
+       "text": "dislocating",
+       "note": "the letters are knocked out of place, as a joint is"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He loathed Hove",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },

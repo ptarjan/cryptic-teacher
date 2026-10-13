@@ -1,8 +1,6 @@
 {
  "id": "times-29336",
  "number": 29336,
- "series": "times",
- "name": "Times cryptic crossword No 29,336",
  "date": "2025-09-16",
  "dimensions": {
   "cols": 15,
@@ -41,30 +39,16 @@
    },
    "solution": "JUST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "JUST",
     "definitions": [
      {
       "text": "Only",
-      "at": 0
+      "at": 0,
+      "meaning": "the adverb, as in 'only a minute'"
      },
      {
       "text": "fair",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only",
-      "gives": "JUST",
-      "note": "the adverb, as in 'only a minute'"
-     },
-     {
-      "clueFragment": "fair",
-      "gives": "JUST",
-      "note": "the adjective, as in a fair ruling"
+      "at": 5,
+      "meaning": "the adjective, as in a fair ruling"
      }
     ],
     "explanation": {
@@ -91,45 +75,53 @@
    },
    "solution": "JACKASS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "JACKASS",
     "definitions": [
      {
       "text": "Charlie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing his last",
-      "note": "the killer loses his final letter"
-     },
-     {
-      "text": "exhausted",
-      "note": "SHOTS emptied of its middle leaves only its outside letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a contract killer missing his last",
-      "gives": "JACKA",
-      "note": "JACKAL, the assassin of The Day of the Jackal, without his last letter L"
-     },
-     {
-      "clueFragment": "shots, exhausted",
-      "gives": "SS",
-      "select": "outer",
-      "note": "SHOTS with its contents gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACKA",
-      "SS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "JACKASS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "missing his last",
+         "note": "the killer loses his final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a contract killer missing his last",
+         "gives": "JACKA",
+         "note": "JACKAL, the assassin of The Day of the Jackal, without his last letter L"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "SS",
+         "indicators": [
+          {
+           "text": "exhausted",
+           "note": "SHOTS emptied of its middle leaves only its outside letters"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "shots, exhausted",
+           "gives": "SS",
+           "select": "outer",
+           "note": "SHOTS with its contents gone"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -172,30 +164,16 @@
    },
    "solution": "SONOFAGUN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SON OF A GUN",
     "definitions": [
      {
       "text": "Next generation Colt",
-      "at": 0
+      "at": 0,
+      "meaning": "the next generation is a SON, and a Colt is a make OF A GUN"
      },
      {
       "text": "a bit of a rascal",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Next generation Colt",
-      "gives": "SONOFAGUN",
-      "note": "the next generation is a SON, and a Colt is a make OF A GUN"
-     },
-     {
-      "clueFragment": "a bit of a rascal",
-      "gives": "SONOFAGUN",
-      "note": "a mild name for a rogue"
+      "at": 21,
+      "meaning": "a mild name for a rogue"
      }
     ],
     "explanation": {
@@ -231,51 +209,42 @@
    },
    "solution": "STEAKKNIFE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "STEAK KNIFE",
     "definitions": [
      {
       "text": "Special tool for cutting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bothered",
-      "for": "anagram",
-      "note": "letters that are bothered are stirred up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S = small, as on clothing labels"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "TEAK",
-      "note": "a hardwood tree"
-     },
-     {
-      "clueFragment": "if Ken",
-      "gives": "KNIFE",
-      "note": "IF KEN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEAK",
-      "KNIFE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STEAKKNIFE",
+     "indicators": [
       {
-       "fodder": "IFKEN",
-       "gives": "KNIFE"
+       "text": "bothered",
+       "note": "letters that are bothered are stirred up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "gives": "S",
+         "note": "S = small, as on clothing labels"
+        },
+        {
+         "words": "tree",
+         "gives": "TEAK",
+         "note": "a hardwood tree"
+        },
+        {
+         "words": "if Ken",
+         "gives": "KNIFE",
+         "note": "IF KEN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -305,45 +274,43 @@
    },
    "solution": "TEETHE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "TEETHE",
     "definitions": [
      {
       "text": "work to cut ivory",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "the laugh stops one letter short"
-     },
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Laugh almost",
-      "gives": "TEEHE",
-      "note": "TEEHEE without its last E"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T = tense, in grammar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEE",
-      "T",
-      "HE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TEETHE",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "the laugh stops one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Laugh almost",
+         "gives": "TEEHE",
+         "note": "TEEHEE without its last E"
+        },
+        {
+         "words": "tense",
+         "gives": "T",
+         "note": "T = tense, in grammar"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -373,32 +340,25 @@
    },
    "solution": "ADOPTION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADOPTION",
     "definitions": [
      {
       "text": "Taking on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "commercial",
-      "gives": "AD",
-      "note": "a TV commercial is an ad"
-     },
-     {
-      "clueFragment": "financial derivative",
-      "gives": "OPTION",
-      "note": "an option is a derivative contract"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "OPTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "commercial",
+       "gives": "AD",
+       "note": "a TV commercial is an ad"
+      },
+      {
+       "words": "financial derivative",
+       "gives": "OPTION",
+       "note": "an option is a derivative contract"
+      }
      ]
     },
     "explanation": {
@@ -433,35 +393,24 @@
    },
    "solution": "KNIGHTSTEMPLAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "KNIGHTS TEMPLAR",
     "definitions": [
      {
       "text": "Order",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "order",
-      "for": "anagram",
-      "note": "to order letters is to arrange them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at length irks PM",
-      "gives": "ATLENGTHIRKSPM",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ATLENGTHIRKSPM",
-       "gives": "KNIGHTSTEMPLAR"
+       "text": "order",
+       "note": "to order letters is to arrange them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at length irks PM",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -492,49 +441,41 @@
    },
    "solution": "IDAHO",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "IDAHO",
     "definitions": [
      {
       "text": "state",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "landing",
-      "note": "the other letters land inside the moon"
-     },
-     {
-      "text": "upset",
-      "note": "in a down clue, upset turns the word upside down"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Moon",
-      "gives": "IO",
-      "note": "Io is a moon of Jupiter"
-     },
-     {
-      "clueFragment": "had upset",
-      "gives": "DAH",
-      "note": "HAD reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DAH",
-      "O"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "IDAHO",
+     "parts": [
       {
-       "from": "HAD",
-       "to": "DAH"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "landing",
+         "note": "the other letters land inside the moon"
+        },
+        {
+         "text": "upset",
+         "note": "in a down clue, upset turns the word upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Moon",
+         "gives": "IO",
+         "note": "Io is a moon of Jupiter"
+        },
+        {
+         "words": "had upset",
+         "gives": "DAH",
+         "note": "HAD reversed"
+        }
+       ]
       }
      ]
     },
@@ -570,26 +511,25 @@
    },
    "solution": "ETICKET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "E-TICKET",
     "definitions": [
      {
       "text": "Alternative to paper for those trying to make plane?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Alternative to paper",
-      "note": "the surface pushes a material other than paper for folding"
-     },
-     {
-      "clueFragment": "for those trying to make plane?",
-      "note": "meant: travellers trying to catch a flight, who need a paperless ticket"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Alternative to paper",
+       "note": "the surface pushes a material other than paper for folding"
+      },
+      {
+       "words": "for those trying to make plane?",
+       "note": "meant: travellers trying to catch a flight, who need a paperless ticket"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone building a paper plane looks for a different material.",
      "walkthrough": "The surface suggests making a model aircraft out of something other than paper; 'make' means catch, as in making a flight.",
@@ -627,35 +567,24 @@
    },
    "solution": "HYDEPARKCORNER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HYDE PARK CORNER",
     "definitions": [
      {
       "text": "somewhere on the Tube",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "letters that are lost have wandered out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Phone card Kerry",
-      "gives": "PHONECARDKERRY",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PHONECARDKERRY",
-       "gives": "HYDEPARKCORNER"
+       "text": "lost",
+       "note": "letters that are lost have wandered out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Phone card Kerry",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -685,49 +614,50 @@
    },
    "solution": "CONDYLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CONDYLE",
     "definitions": [
      {
       "text": "ball",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "the name goes without the listed letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sir Arthur",
-      "gives": "CONANDOYLE",
-      "note": "Sir Arthur Conan Doyle, creator of Sherlock Holmes"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "removed"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new; removed"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "DYLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "note": "the name goes without the listed letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Sir Arthur",
+         "gives": "CONANDOYLE",
+         "note": "Sir Arthur Conan Doyle, creator of Sherlock Holmes"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "removed"
+          },
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "N = new; removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O = old; removed"
+      }
      ]
     },
     "explanation": {
@@ -756,30 +686,28 @@
    },
    "solution": "ORIGAMI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORIGAMI",
     "definitions": [
      {
       "text": "Work with paper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tokyo, Riga, Miami",
-      "gives": "ORIGAMI",
-      "note": "tokyO RIGA MIami"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tokyo, Riga, Miami",
+       "gives": "ORIGAMI",
+       "note": "tokyO RIGA MIami"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A paper-related job is available in three world cities.",
      "walkthrough": "Tokyo is a nod to Japan, the home of origami.",
@@ -812,47 +740,45 @@
    },
    "solution": "ALFREDHITCHCOCK",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ALFRED HITCHCOCK",
     "definitions": [
      {
       "text": "auteur",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Animated",
-      "for": "anagram",
-      "note": "animated letters are brought to life and moved"
-     },
-     {
-      "text": "ultimate",
-      "for": "letter_selection",
-      "note": "ultimate means last, so UK's ultimate is its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Child Catcher of",
-      "gives": "CHILDCATCHEROF",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "UK's ultimate",
-      "gives": "K",
-      "select": "last",
-      "note": "last letter of UK"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHILDCATCHEROFK",
-       "gives": "ALFREDHITCHCOCK"
+       "text": "Animated",
+       "note": "animated letters are brought to life and moved"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Child Catcher of",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimate",
+           "note": "ultimate means last, so UK's ultimate is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "UK's ultimate",
+           "gives": "UK",
+           "note": "last letter of UK"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -882,30 +808,16 @@
    },
    "solution": "SIGNAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIGNAL",
     "definitions": [
      {
       "text": "Remarkable",
-      "at": 0
+      "at": 0,
+      "meaning": "the adjective, as in a notable achievement"
      },
      {
       "text": "message",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Remarkable",
-      "gives": "SIGNAL",
-      "note": "the adjective, as in a notable achievement"
-     },
-     {
-      "clueFragment": "message",
-      "gives": "SIGNAL",
-      "note": "the noun, something sent to convey information"
+      "at": 11,
+      "meaning": "the noun, something sent to convey information"
      }
     ],
     "explanation": {
@@ -934,49 +846,41 @@
    },
    "solution": "BOWSPRIT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BOWSPRIT",
     "definitions": [
      {
       "text": "Spar",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "receiving",
-      "for": "container",
-      "note": "receiving means taking in, so the spitting word takes the king inside it"
-     }
-    ],
-    "linkWords": [
-     "then",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Show respect",
-      "gives": "BOW",
-      "note": "bow as a mark of respect"
-     },
-     {
-      "clueFragment": "show disrespect",
-      "gives": "SPIT",
-      "note": "spitting shows contempt"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R = rex, king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOW",
-      "SPRIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Show respect",
+       "gives": "BOW",
+       "note": "bow as a mark of respect"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "receiving",
+         "note": "receiving means taking in, so the spitting word takes the king inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show disrespect",
+         "gives": "SPIT",
+         "note": "spitting shows contempt"
+        },
+        {
+         "words": "king",
+         "gives": "R",
+         "note": "R = rex, king"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1011,41 +915,37 @@
    },
    "solution": "RABBITPIE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "RABBIT PIE",
     "definitions": [
      {
       "text": "Fed up with this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for those attending",
-      "for": "homophone",
-      "note": "as heard by an audience, so a sound-alike"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chatter",
-      "gives": "RABBIT",
-      "note": "British slang: to rabbit on is to chatter"
-     },
-     {
-      "clueFragment": "a constant for those attending",
-      "gives": "PIE",
-      "soundsLike": "PI",
-      "note": "the constant pi, heard as pie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RABBIT",
-      "PIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chatter",
+       "gives": "RABBIT",
+       "note": "British slang: to rabbit on is to chatter"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PIE",
+       "indicators": [
+        {
+         "text": "for those attending",
+         "note": "as heard by an audience, so a sound-alike"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a constant for those attending",
+         "gives": "PI",
+         "note": "the constant pi, heard as pie"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1081,41 +981,42 @@
    },
    "solution": "CARFERRY",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "CAR-FERRY",
     "definitions": [
      {
       "text": "With which to reach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "swap the opening sounds of the two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "distant",
-      "gives": "CAR",
-      "soundsLike": "FAR",
-      "note": "far = distant; its F sound is swapped for the county's K sound"
-     },
-     {
-      "clueFragment": "county",
-      "gives": "FERRY",
-      "soundsLike": "KERRY",
-      "note": "Kerry is a county in the south-west of Ireland; its K sound is swapped for F"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "FERRY"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "CARFERRY",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "swap the opening sounds of the two words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "distant",
+         "gives": "CAR",
+         "soundsLike": "FAR",
+         "note": "far = distant; its F sound is swapped for the county's K sound"
+        },
+        {
+         "unchecked": true,
+         "words": "county",
+         "gives": "FERRY",
+         "soundsLike": "KERRY",
+         "note": "Kerry is a county in the south-west of Ireland; its K sound is swapped for F"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1144,46 +1045,43 @@
    },
    "solution": "HANUKKAH",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HANUKKAH",
     "definitions": [
      {
       "text": "celebration",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "quietly is P, and leaving means that P walks out of the word for excellent"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Solo",
-      "gives": "HAN",
-      "note": "Han Solo of Star Wars"
-     },
-     {
-      "clueFragment": "quietly leaving excellent",
-      "gives": "UKKA",
-      "note": "PUKKA without P (piano, quietly)"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H = hotel in the phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAN",
-      "UKKA",
-      "H"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HANUKKAH",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "quietly is P, and leaving means that P walks out of the word for excellent"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Solo",
+         "gives": "HAN",
+         "note": "Han Solo of Star Wars"
+        },
+        {
+         "words": "quietly leaving excellent",
+         "gives": "UKKA",
+         "note": "PUKKA without P (piano, quietly)"
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "H = hotel in the phonetic alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1212,32 +1110,25 @@
    },
    "solution": "HACKSAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HACKSAW",
     "definitions": [
      {
       "text": "item smuggled into gaol?",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Journalist",
-      "gives": "HACK",
-      "note": "a hack is a journalist"
-     },
-     {
-      "clueFragment": "witnessed",
-      "gives": "SAW",
-      "note": "saw = witnessed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HACK",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Journalist",
+       "gives": "HACK",
+       "note": "a hack is a journalist"
+      },
+      {
+       "words": "witnessed",
+       "gives": "SAW",
+       "note": "saw = witnessed"
+      }
      ]
     },
     "explanation": {
@@ -1265,44 +1156,41 @@
    },
    "solution": "PEBBLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PEBBLE",
     "definitions": [
      {
       "text": "a stone",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "After"
-     },
-     {
-      "text": "regularly lost",
-      "for": "letter_selection",
-      "note": "every other letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exercise",
-      "gives": "PE",
-      "note": "PE = physical education"
-     },
-     {
-      "clueFragment": "bubblier, regularly lost",
-      "gives": "BBLE",
-      "select": "alternate",
-      "note": "BuBbLiEr, keeping the odd letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "BBLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "gives": "PE",
+       "note": "PE = physical education"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly lost",
+         "note": "every other letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bubblier, regularly lost",
+         "gives": "BUBBLIER",
+         "note": "BuBbLiEr, keeping the odd letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1332,43 +1220,42 @@
    },
    "solution": "ESTONIA",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ESTONIA",
     "definitions": [
      {
       "text": "Land",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "note": "as spoken, so a sound-alike"
-     },
-     {
-      "text": "beneath"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earth",
-      "gives": "E",
-      "note": "E = earth, in electrical wiring"
-     },
-     {
-      "clueFragment": "reportedly more rocky",
-      "gives": "STONIA",
-      "soundsLike": "STONIER",
-      "note": "stonier said aloud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "STONIA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "as spoken, so a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earth",
+       "gives": "E",
+       "note": "E = earth, in electrical wiring"
+      },
+      {
+       "op": "homophone",
+       "spelt": "STONIA",
+       "indicators": [
+        {
+         "text": "beneath"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reportedly more rocky",
+         "gives": "STONIER",
+         "note": "stonier said aloud"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1397,40 +1284,38 @@
    },
    "solution": "MOBCAP",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MOBCAP",
     "definitions": [
      {
       "text": "hat",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "killing",
-      "for": "deletion",
-      "note": "to kill is to remove, so killing over takes the O (over, in cricket) out of the boss"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mafia family",
-      "gives": "MOB",
-      "note": "the Mob = the Mafia"
-     },
-     {
-      "clueFragment": "boss killing over",
-      "gives": "CAP",
-      "note": "CAPO, a Mafia boss, without O (over, in cricket)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOB",
-      "CAP"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MOBCAP",
+     "indicators": [
+      {
+       "text": "killing",
+       "note": "to kill is to remove, so killing over takes the O (over, in cricket) out of the boss"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mafia family",
+         "gives": "MOB",
+         "note": "the Mob = the Mafia"
+        },
+        {
+         "words": "boss killing over",
+         "gives": "CAP",
+         "note": "CAPO, a Mafia boss, without O (over, in cricket)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1465,38 +1350,30 @@
    },
    "solution": "CARBONFOOTPRINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CARBON FOOTPRINT",
     "definitions": [
      {
       "text": "extent of emissions",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Copy",
-      "gives": "CARBON",
-      "note": "a carbon copy"
-     },
-     {
-      "clueFragment": "FT",
-      "gives": "FOOT",
-      "note": "ft is the abbreviation for foot"
-     },
-     {
-      "clueFragment": "publish",
-      "gives": "PRINT",
-      "note": "to print = to publish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARBON",
-      "FOOT",
-      "PRINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Copy",
+       "gives": "CARBON",
+       "note": "a carbon copy"
+      },
+      {
+       "words": "FT",
+       "gives": "FOOT",
+       "note": "ft is the abbreviation for foot"
+      },
+      {
+       "words": "publish",
+       "gives": "PRINT",
+       "note": "to print = to publish"
+      }
      ]
     },
     "explanation": {
@@ -1525,37 +1402,28 @@
    },
    "solution": "REMIT",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "REMIT",
     "definitions": [
      {
       "text": "Relax",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "the last letters move round to the front"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "joint",
-      "gives": "MITRE",
-      "note": "a mitre joint, as in a picture frame"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MIT"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "REMIT",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "the last letters move round to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "joint",
+       "gives": "MITRE",
+       "note": "a mitre joint, as in a picture frame"
+      }
      ]
     },
     "explanation": {
@@ -1584,39 +1452,36 @@
    },
    "solution": "SEMINAR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SEMINAR",
     "definitions": [
      {
       "text": "group meeting",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "note": "read the hidden letters backwards"
-     },
-     {
-      "text": "in",
-      "note": "the letters sit in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tehran, I'm escaping",
-      "gives": "RANIMES",
-      "note": "tehRAN I'M EScaping"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RANIMES",
-       "to": "SEMINAR"
+       "text": "Back",
+       "note": "read the hidden letters backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters sit in the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tehran, I'm escaping",
+         "gives": "RANIMES",
+         "note": "tehRAN I'M EScaping"
+        }
+       ]
       }
      ]
     },
@@ -1646,47 +1511,41 @@
    },
    "solution": "CRAMPON",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CRAMPON",
     "definitions": [
      {
       "text": "Boots might have this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of ointment is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pain",
-      "gives": "CRAMP",
-      "note": "a cramp is a muscular pain"
-     },
-     {
-      "clueFragment": "ointment initially",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of ointment"
-     },
-     {
-      "clueFragment": "November",
-      "gives": "N",
-      "note": "N = November in the phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRAMP",
-      "O",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pain",
+       "gives": "CRAMP",
+       "note": "a cramp is a muscular pain"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letter of ointment is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ointment initially",
+         "gives": "OINTMENT",
+         "note": "first letter of ointment"
+        }
+       ]
+      },
+      {
+       "words": "November",
+       "gives": "N",
+       "note": "N = November in the phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1722,57 +1581,52 @@
    },
    "solution": "WATERNYMPH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "WATER NYMPH",
     "definitions": [
      {
       "text": "Daphne?",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "drunken",
-      "for": "anagram",
-      "note": "drunken letters are jumbled"
-     },
-     {
-      "text": "crashed by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Women's",
-      "gives": "W",
-      "note": "W = women, as in WI (Women's Institute)"
-     },
-     {
-      "clueFragment": "drunken hen party",
-      "gives": "ATERNYPH",
-      "note": "HEN PARTY rearranged"
-     },
-     {
-      "clueFragment": "maiden",
-      "gives": "M",
-      "note": "M = maiden, a cricket over with no runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ATERNY",
-      "M",
-      "PH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WATERNYMPH",
+     "indicators": [
       {
-       "fodder": "HENPARTY",
-       "gives": "ATERNYPH"
+       "text": "drunken",
+       "note": "drunken letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Women's",
+         "gives": "W",
+         "note": "W = women, as in WI (Women's Institute)"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "crashed by"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drunken hen party",
+           "gives": "ATERNYPH",
+           "note": "HEN PARTY rearranged"
+          },
+          {
+           "words": "maiden",
+           "gives": "M",
+           "note": "M = maiden, a cricket over with no runs"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1802,38 +1656,31 @@
    },
    "solution": "VEGA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "VEGA",
     "definitions": [
      {
       "text": "Star",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last to depart",
-      "for": "deletion",
-      "note": "depart means leave, so the last letter departs from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sin City",
-      "gives": "VEGAS",
-      "note": "nickname of the Nevada gambling city; its second word is needed"
-     },
-     {
-      "clueFragment": "last to depart",
-      "gives": "S",
-      "note": "removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VEGA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "last to depart",
+       "note": "depart means leave, so the last letter departs from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sin City",
+       "gives": "VEGAS",
+       "note": "nickname of the Nevada gambling city; its second word is needed"
+      },
+      {
+       "words": "last to depart",
+       "gives": "S",
+       "note": "removed"
+      }
      ]
     },
     "explanation": {

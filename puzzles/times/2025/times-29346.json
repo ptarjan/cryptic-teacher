@@ -1,8 +1,6 @@
 {
  "id": "times-29346",
  "number": 29346,
- "series": "times",
- "name": "Times cryptic crossword No 29,346",
  "date": "2025-09-27",
  "dimensions": {
   "cols": 15,
@@ -41,38 +39,24 @@
    },
    "solution": "SCHEMATIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCHEMATIC",
     "definitions": [
      {
       "text": "Symbolic figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unorthodox view of",
-      "for": "anagram",
-      "note": "an unorthodox view takes the word out of its usual order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "catechism",
-      "gives": "CATECHISM",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CATECHISM",
-       "gives": "SCHEMATIC"
+       "text": "unorthodox view of",
+       "note": "an unorthodox view takes the word out of its usual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "catechism",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -102,55 +86,46 @@
    },
    "solution": "SCRAMBLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCRAMBLE",
     "definitions": [
      {
       "text": "Jumble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "the sale takes the other letters inside it"
-     },
-     {
-      "text": "divorced",
-      "for": "container",
-      "note": "the king and the doctor are separated, going into the sale at two different points"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sale",
-      "gives": "SALE",
-      "note": "the outer word, split as S…A…LE"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "CR",
-      "note": "CR = Carolus Rex, King Charles"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MB",
-      "note": "MB = Bachelor of Medicine, a doctor's degree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CR",
-      "A",
-      "MB",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "the sale takes the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "divorced",
+         "note": "the king and the doctor are separated, going into the sale at two different points"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sale",
+         "note": "the outer word, split as S…A…LE"
+        },
+        {
+         "words": "king",
+         "gives": "CR",
+         "note": "CR = Carolus Rex, King Charles"
+        }
+       ]
+      },
+      {
+       "words": "doctor",
+       "gives": "MB",
+       "note": "MB = Bachelor of Medicine, a doctor's degree"
+      }
      ]
     },
     "explanation": {
@@ -180,59 +155,64 @@
    },
    "solution": "HAVOC",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "container"
-    ],
-    "answer": "HAVOC",
     "definitions": [
      {
       "text": "destruction",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "killing"
-     },
-     {
-      "text": "amid"
-     },
-     {
-      "text": "appalling",
-      "note": "chaos is made appalling, i.e. rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chaos",
-      "gives": "CHAOS",
-      "note": "anagram fodder before the S goes"
-     },
-     {
-      "clueFragment": "spree's beginning",
-      "gives": "S",
-      "note": "first letter of spree, the letter removed"
-     },
-     {
-      "clueFragment": "Victor",
-      "gives": "V",
-      "note": "V = Victor in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "HAVOC",
+     "parts": [
       {
-       "fodder": "CHAO V",
-       "gives": "HAVOC"
-      },
-      {
-       "fodder": "CHAO",
-       "gives": "HAOC"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "killing"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "amid"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "appalling",
+             "note": "chaos is made appalling, i.e. rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "chaos",
+             "note": "anagram fodder before the S goes"
+            },
+            {
+             "words": "spree's beginning",
+             "gives": "S",
+             "note": "first letter of spree, the letter removed"
+            },
+            {
+             "words": "Victor",
+             "gives": "V",
+             "note": "V = Victor in the NATO alphabet"
+            }
+           ]
+          },
+          {
+           "gives": "SS"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -262,47 +242,40 @@
    },
    "solution": "MARSEILLE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MARSEILLE",
     "definitions": [
      {
       "text": "city",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "curbing",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Harm",
-      "gives": "MAR",
-      "note": "to mar = to harm"
-     },
-     {
-      "clueFragment": "witness",
-      "gives": "SEE",
-      "note": "to see = to witness"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "ILL",
-      "note": "an ill = a trouble or misfortune"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "SEILLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Harm",
+       "gives": "MAR",
+       "note": "to mar = to harm"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "curbing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "witness",
+         "gives": "SEE",
+         "note": "to see = to witness"
+        },
+        {
+         "words": "trouble",
+         "gives": "ILL",
+         "note": "an ill = a trouble or misfortune"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -331,43 +304,31 @@
    },
    "solution": "THOREAU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THOREAU",
     "definitions": [
      {
       "text": "US writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing up",
-      "for": "charade",
-      "note": "in a down answer, the god is brought up to the top of the column"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "god",
-      "gives": "THOR",
-      "note": "Thor, Norse god of thunder, lifted out of AUTHOR"
-     },
-     {
-      "clueFragment": "English writer",
-      "gives": "EAU",
-      "note": "E (English) + AUTHOR (writer), with THOR taken from its end and brought up to the top"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THOR",
-      "E",
-      "AU"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "bringing up",
+       "note": "in a down answer, the god is brought up to the top of the column"
+      }
+     ],
+     "parts": [
+      {
+       "words": "god",
+       "gives": "THOR",
+       "note": "Thor, Norse god of thunder, lifted out of AUTHOR"
+      },
+      {
+       "words": "English writer",
+       "gives": "EAU",
+       "note": "E (English) + AUTHOR (writer), with THOR taken from its end and brought up to the top"
+      }
      ]
     },
     "explanation": {
@@ -396,32 +357,25 @@
    },
    "solution": "CHERISH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHERISH",
     "definitions": [
      {
       "text": "Nurse",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "pop star",
-      "gives": "CHER",
-      "note": "Cher, the American pop star"
-     },
-     {
-      "clueFragment": "resembling",
-      "gives": "ISH",
-      "note": "-ish = resembling, as in childish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHER",
-      "ISH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pop star",
+       "gives": "CHER",
+       "note": "Cher, the American pop star"
+      },
+      {
+       "words": "resembling",
+       "gives": "ISH",
+       "note": "-ish = resembling, as in childish"
+      }
      ]
     },
     "explanation": {
@@ -451,34 +405,29 @@
    },
    "solution": "CACHE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CACHE",
     "definitions": [
      {
       "text": "Place to store valuables",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for those attending",
-      "for": "homophone",
-      "note": "those attending are an audience, who hear the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money",
-      "gives": "CACHE",
-      "soundsLike": "CASH",
-      "note": "cash = money, and the answer is spelt differently but said identically"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CACHE",
+     "indicators": [
+      {
+       "text": "for those attending",
+       "note": "those attending are an audience, who hear the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "money",
+       "gives": "CASH",
+       "note": "cash = money, and the answer is spelt differently but said identically"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A safe for valuables and money, provided for the guests at some event.",
      "walkthrough": "'Those attending' means listeners: an audience attends to what it hears.",
@@ -505,48 +454,40 @@
    },
    "solution": "CRISP",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "CRISP",
     "definitions": [
      {
       "text": "firm",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Stuck-up",
-      "note": "in a down answer, stuck up means read from bottom to top"
-     },
-     {
-      "text": "adopted by"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "politically correct",
-      "gives": "PC",
-      "note": "PC = politically correct"
-     },
-     {
-      "clueFragment": "title",
-      "gives": "SIR",
-      "note": "Sir, a knight's title"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RIS",
-      "P"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PSIRC",
-       "to": "CRISP"
+       "text": "Stuck-up",
+       "note": "in a down answer, stuck up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adopted by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politically correct",
+         "gives": "PC",
+         "note": "PC = politically correct"
+        },
+        {
+         "words": "title",
+         "gives": "SIR",
+         "note": "Sir, a knight's title"
+        }
+       ]
       }
      ]
     },
@@ -577,46 +518,41 @@
    },
    "solution": "CONSORTIA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CONSORTIA",
     "definitions": [
      {
       "text": "Business partnerships",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hosted by",
-      "for": "container",
-      "note": "the agency is the host, holding the other letters inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in contact with",
-      "gives": "ON",
-      "note": "on = touching, in contact with"
-     },
-     {
-      "clueFragment": "group",
-      "gives": "SORT",
-      "note": "a sort = a kind or group"
-     },
-     {
-      "clueFragment": "government agency",
-      "gives": "CIA",
-      "note": "the US Central Intelligence Agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ONSORT",
-      "IA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "note": "the agency is the host, holding the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "government agency",
+       "gives": "CIA",
+       "note": "the US Central Intelligence Agency"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in contact with",
+         "gives": "ON",
+         "note": "on = touching, in contact with"
+        },
+        {
+         "words": "group",
+         "gives": "SORT",
+         "note": "a sort = a kind or group"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -644,26 +580,25 @@
    },
    "solution": "ELEVEN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ELEVEN",
     "definitions": [
      {
       "text": "One by one represents this team",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One by one",
-      "note": "the surface means one after another; the setter means the digit 1 written beside another 1"
-     },
-     {
-      "clueFragment": "represents this team",
-      "note": "the number so written is also the name for a side of that many players"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One by one",
+       "note": "the surface means one after another; the setter means the digit 1 written beside another 1"
+      },
+      {
+       "words": "represents this team",
+       "note": "the number so written is also the name for a side of that many players"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A team that is represented member by member.",
      "walkthrough": "'One by one' suggests individually, but it means a 1 next to a 1: 11. A cricket or football side is called an eleven.",
@@ -691,26 +626,25 @@
    },
    "solution": "RIVER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RIVER",
     "definitions": [
      {
       "text": "Part of country's liquid assets entirely controlled by banks?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Part of country's liquid assets",
-      "note": "the surface means a nation's cash; the setter means water running through its land"
-     },
-     {
-      "clueFragment": "entirely controlled by banks?",
-      "note": "the surface means financial banks; the setter means the grassy edges that hold the water in"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Part of country's liquid assets",
+       "note": "the surface means a nation's cash; the setter means water running through its land"
+      },
+      {
+       "words": "entirely controlled by banks?",
+       "note": "the surface means financial banks; the setter means the grassy edges that hold the water in"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A nation's cash reserves are wholly in the hands of the banks.",
      "walkthrough": "The surface is finance: liquid assets and banks. Read literally, the liquid is water and the banks are riverbanks.",
@@ -738,45 +672,39 @@
    },
    "solution": "OBEDIENCE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OBEDIENCE",
     "definitions": [
      {
       "text": "following rules",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "nurses",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "whenever",
-      "gives": "ONCE",
-      "note": "once = as soon as, whenever"
-     },
-     {
-      "clueFragment": "Live",
-      "gives": "BE",
-      "note": "to be = to live, exist"
-     },
-     {
-      "clueFragment": "die",
-      "gives": "DIE",
-      "note": "given as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BEDIE",
-      "NCE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nurses"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whenever",
+       "gives": "ONCE",
+       "note": "once = as soon as, whenever"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Live",
+         "gives": "BE",
+         "note": "to be = to live, exist"
+        },
+        {
+         "words": "die",
+         "note": "given as it stands"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -805,40 +733,31 @@
    },
    "solution": "MACHETE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MACHETE",
     "definitions": [
      {
       "text": "cutter",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "commandeers",
-      "for": "container",
-      "note": "the mate seizes the revolutionary, taking him inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ship's officer",
-      "gives": "MATE",
-      "note": "a mate is a ship's officer"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "CHE",
-      "note": "Che Guevara, the revolutionary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "CHE",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "commandeers",
+       "note": "the mate seizes the revolutionary, taking him inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ship's officer",
+       "gives": "MATE",
+       "note": "a mate is a ship's officer"
+      },
+      {
+       "words": "revolutionary",
+       "gives": "CHE",
+       "note": "Che Guevara, the revolutionary"
+      }
      ]
     },
     "explanation": {
@@ -868,35 +787,25 @@
    },
    "solution": "IMPLORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPLORE",
     "definitions": [
      {
       "text": "beg",
       "at": 19
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Urchin",
-      "gives": "IMP",
-      "note": "an imp = a mischievous child, an urchin"
-     },
-     {
-      "clueFragment": "learning",
-      "gives": "LORE",
-      "note": "lore = learning, knowledge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP",
-      "LORE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Urchin",
+       "gives": "IMP",
+       "note": "an imp = a mischievous child, an urchin"
+      },
+      {
+       "words": "learning",
+       "gives": "LORE",
+       "note": "lore = learning, knowledge"
+      }
      ]
     },
     "explanation": {
@@ -930,35 +839,25 @@
    },
    "solution": "LOCALAUTHORITY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOCAL AUTHORITY",
     "definitions": [
      {
       "text": "Governing body",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pub",
-      "gives": "LOCAL",
-      "note": "your local is your nearest pub"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "AUTHORITY",
-      "note": "an authority is an expert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOCAL",
-      "AUTHORITY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pub",
+       "gives": "LOCAL",
+       "note": "your local is your nearest pub"
+      },
+      {
+       "words": "expert",
+       "gives": "AUTHORITY",
+       "note": "an authority is an expert"
+      }
      ]
     },
     "explanation": {
@@ -987,47 +886,35 @@
    },
    "solution": "CHARLATAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHARLATAN",
     "definitions": [
      {
       "text": "fraud",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "bearing",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "daily",
-      "gives": "CHAR",
-      "note": "a daily or char is a British cleaning lady who comes in each day"
-     },
-     {
-      "clueFragment": "City",
-      "gives": "LA",
-      "note": "LA = Los Angeles"
-     },
-     {
-      "clueFragment": "effect of The Sun",
-      "gives": "TAN",
-      "note": "a suntan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAR",
-      "LA",
-      "TAN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "bearing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "daily",
+       "gives": "CHAR",
+       "note": "a daily or char is a British cleaning lady who comes in each day"
+      },
+      {
+       "words": "City",
+       "gives": "LA",
+       "note": "LA = Los Angeles"
+      },
+      {
+       "words": "effect of The Sun",
+       "gives": "TAN",
+       "note": "a suntan"
+      }
      ]
     },
     "explanation": {
@@ -1057,47 +944,45 @@
    },
    "solution": "REHEARSAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "REHEARSAL",
     "definitions": [
      {
       "text": "Company's practice",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "case",
-      "for": "letter_selection",
-      "note": "the case of a word is its outside, the first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "again",
-      "gives": "RE",
-      "note": "re- = again"
-     },
-     {
-      "clueFragment": "tries",
-      "gives": "HEARS",
-      "note": "a court hears, or tries, a case"
-     },
-     {
-      "clueFragment": "case on approval",
-      "gives": "AL",
-      "select": "outer",
-      "note": "the outer letters of approval"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HEARS",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "again",
+       "gives": "RE",
+       "note": "re- = again"
+      },
+      {
+       "words": "tries",
+       "gives": "HEARS",
+       "note": "a court hears, or tries, a case"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "AL",
+       "indicators": [
+        {
+         "text": "case",
+         "note": "the case of a word is its outside, the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "case on approval",
+         "gives": "AL",
+         "select": "outer",
+         "note": "the outer letters of approval"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1137,51 +1022,40 @@
    },
    "solution": "ASONEMAN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AS ONE MAN",
     "definitions": [
      {
       "text": "in concert",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "making a comeback",
-      "for": "reversal",
-      "note": "the celebrity comes back, i.e. is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "child",
-      "gives": "SON",
-      "note": "a son is a child"
-     },
-     {
-      "clueFragment": "celebrity",
-      "gives": "NAME",
-      "note": "a big name is a celebrity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SON",
-      "EMAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NAME",
-       "to": "EMAN"
+       "words": "American",
+       "gives": "A",
+       "note": "A = American"
+      },
+      {
+       "words": "child",
+       "gives": "SON",
+       "note": "a son is a child"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "making a comeback",
+         "note": "the celebrity comes back, i.e. is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "celebrity",
+         "gives": "NAME",
+         "note": "a big name is a celebrity"
+        }
+       ]
       }
      ]
     },
@@ -1226,30 +1100,16 @@
    },
    "solution": "HAVEITBOTHWAYS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HAVE IT BOTH WAYS",
     "definitions": [
      {
       "text": "Exploit quite different things",
-      "at": 0
+      "at": 0,
+      "meaning": "the idiom for exploiting two contrary positions at once"
      },
      {
       "text": "as side-splitting witticisms do?",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exploit quite different things",
-      "gives": "HAVEITBOTHWAYS",
-      "note": "the idiom for exploiting two contrary positions at once"
-     },
-     {
-      "clueFragment": "as side-splitting witticisms do?",
-      "gives": "HAVEITBOTHWAYS",
-      "note": "splitting and witticisms each contain IT forwards and TI backwards"
+      "at": 32,
+      "meaning": "splitting and witticisms each contain IT forwards and TI backwards"
      }
     ],
     "explanation": {
@@ -1279,35 +1139,24 @@
    },
    "solution": "TEDIOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEDIOUS",
     "definitions": [
      {
       "text": "short of electricity?",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "broadcast means scattered, so the letters are strewn about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Outside",
-      "gives": "OUTSIDE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OUTSIDE",
-       "gives": "TEDIOUS"
+       "text": "broadcast",
+       "note": "broadcast means scattered, so the letters are strewn about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Outside",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1338,32 +1187,25 @@
    },
    "solution": "ORGANON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORGANON",
     "definitions": [
      {
       "text": "system of logical rules",
       "at": 34
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Means of communicating",
-      "gives": "ORGAN",
-      "note": "an organ = a newspaper or journal, a medium of communication"
-     },
-     {
-      "clueFragment": "acceptable",
-      "gives": "ON",
-      "note": "'not on' = unacceptable, so on = acceptable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORGAN",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Means of communicating",
+       "gives": "ORGAN",
+       "note": "an organ = a newspaper or journal, a medium of communication"
+      },
+      {
+       "words": "acceptable",
+       "gives": "ON",
+       "note": "'not on' = unacceptable, so on = acceptable"
+      }
      ]
     },
     "explanation": {
@@ -1391,47 +1233,40 @@
    },
    "solution": "ASLANT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ASLANT",
     "definitions": [
      {
       "text": "listing",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "version of",
-      "note": "a new version of the word is its letters rewritten"
-     },
-     {
-      "text": "contains"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "atlas",
-      "gives": "ASLAT",
-      "note": "anagram of atlas"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N = new"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ASLANT",
+     "parts": [
       {
-       "fodder": "ATLAS N",
-       "gives": "ASLANT"
-      },
-      {
-       "fodder": "ATLAS",
-       "gives": "ASLAT"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "version of",
+         "note": "a new version of the word is its letters rewritten"
+        },
+        {
+         "text": "contains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "atlas",
+         "gives": "ASLAT",
+         "note": "anagram of atlas"
+        },
+        {
+         "words": "New",
+         "gives": "N",
+         "note": "N = new"
+        }
+       ]
       }
      ]
     },
@@ -1462,44 +1297,42 @@
    },
    "solution": "SPLICED",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "SPLICED",
     "definitions": [
      {
       "text": "Married",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "note": "not one: the I is taken away"
-     },
-     {
-      "text": "to stray",
-      "note": "the remaining letters wander out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "disciple",
-      "gives": "DISCIPLE",
-      "note": "anagram fodder before deletion"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the letter removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SPLICED",
+     "parts": [
       {
-       "fodder": "DSCIPLE",
-       "gives": "SPLICED"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SPLICED",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "not one: the I is taken away"
+        },
+        {
+         "text": "to stray",
+         "note": "the remaining letters wander out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disciple",
+         "note": "anagram fodder before deletion"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the letter removed"
+        }
+       ]
       }
      ]
     },
@@ -1529,11 +1362,6 @@
    },
    "solution": "CARER",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "CARER",
     "definitions": [
      {
       "text": "Who minds",
@@ -1541,33 +1369,41 @@
       "note": "'Who minds' stands for 'one who minds', a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "relinquishing",
-      "note": "the word gives up a letter"
-     },
-     {
-      "text": "fourth place",
-      "note": "the letter in fourth position"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "race",
-      "gives": "CAREER",
-      "note": "to career = to race along"
-     },
-     {
-      "clueFragment": "fourth place",
-      "gives": "E",
-      "select": 4,
-      "note": "fourth letter of CAREER, dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "relinquishing",
+       "note": "the word gives up a letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "race",
+       "gives": "CAREER",
+       "note": "to career = to race along"
+      },
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "E",
+       "n": 4,
+       "indicators": [
+        {
+         "text": "fourth place",
+         "note": "the letter in fourth position"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "fourth place",
+         "gives": "E",
+         "select": 4,
+         "note": "fourth letter of CAREER, dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1597,46 +1433,43 @@
    },
    "solution": "GLADDEN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "GLADDEN",
     "definitions": [
      {
       "text": "Cheer up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cut short: the last letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G = good"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "LAD",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "depression",
-      "gives": "DEN",
-      "note": "DENT, a depression, cut short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LAD",
-      "DEN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GLADDEN",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "cut short: the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "G = good"
+        },
+        {
+         "words": "boy",
+         "gives": "LAD",
+         "note": "a lad is a boy"
+        },
+        {
+         "words": "depression",
+         "gives": "DEN",
+         "note": "DENT, a depression, cut short"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1666,40 +1499,31 @@
    },
    "solution": "DRAFT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DRAFT",
     "definitions": [
      {
       "text": "personnel in the military",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the exclamation wraps itself round the female"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm annoyed",
-      "gives": "DRAT",
-      "note": "Drat! = an exclamation of annoyance"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F = female"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRA",
-      "F",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the exclamation wraps itself round the female"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm annoyed",
+       "gives": "DRAT",
+       "note": "Drat! = an exclamation of annoyance"
+      },
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "F = female"
+      }
      ]
     },
     "explanation": {
@@ -1727,40 +1551,38 @@
    },
    "solution": "AFTERNOON",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AFTERNOON",
     "definitions": [
      {
       "text": "PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "the word is not quite complete: the last letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "next in importance to",
-      "gives": "AFTER",
-      "note": "after = second to, as in 'after him, she is most important'"
-     },
-     {
-      "clueFragment": "nobody",
-      "gives": "NOON",
-      "note": "NO ONE without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFTER",
-      "NOON"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AFTERNOON",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "the word is not quite complete: the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "next in importance to",
+         "gives": "AFTER",
+         "note": "after = second to, as in 'after him, she is most important'"
+        },
+        {
+         "words": "nobody",
+         "gives": "NOON",
+         "note": "NO ONE without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1790,40 +1612,31 @@
    },
    "solution": "SWARM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWARM",
     "definitions": [
      {
       "text": "migrants from colony",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "charged with",
-      "for": "container",
-      "note": "the officer is loaded with fighting, which fills him"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Non-commissioned officer",
-      "gives": "SM",
-      "note": "SM = sergeant major"
-     },
-     {
-      "clueFragment": "fighting",
-      "gives": "WAR",
-      "note": "war = fighting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WAR",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "charged with",
+       "note": "the officer is loaded with fighting, which fills him"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Non-commissioned officer",
+       "gives": "SM",
+       "note": "SM = sergeant major"
+      },
+      {
+       "words": "fighting",
+       "gives": "WAR",
+       "note": "war = fighting"
+      }
      ]
     },
     "explanation": {
@@ -1853,39 +1666,36 @@
    },
    "solution": "TENOR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TENOR",
     "definitions": [
      {
       "text": "Singer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the answer lies inside the next words"
-     },
-     {
-      "text": "about",
-      "note": "the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blur one talked",
-      "gives": "RONET",
-      "note": "bluR ONE Talked"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RONET",
-       "to": "TENOR"
+       "text": "in",
+       "note": "the answer lies inside the next words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Blur one talked",
+         "gives": "RONET",
+         "note": "bluR ONE Talked"
+        }
+       ]
       }
      ]
     },
@@ -1915,32 +1725,25 @@
    },
    "solution": "SINGLETON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SINGLETON",
     "definitions": [
      {
       "text": "bachelor?",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Underwear",
-      "gives": "SINGLET",
-      "note": "a singlet is a sleeveless vest"
-     },
-     {
-      "clueFragment": "worn",
-      "gives": "ON",
-      "note": "clothes worn are on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SINGLET",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Underwear",
+       "gives": "SINGLET",
+       "note": "a singlet is a sleeveless vest"
+      },
+      {
+       "words": "worn",
+       "gives": "ON",
+       "note": "clothes worn are on"
+      }
      ]
     },
     "explanation": {

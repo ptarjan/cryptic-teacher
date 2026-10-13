@@ -1,8 +1,6 @@
 {
  "id": "quiptic-877",
  "number": 877,
- "series": "quiptic",
- "name": "Quiptic crossword No 877",
  "setter": "Orlando",
  "date": "2016-09-05",
  "dimensions": {
@@ -38,46 +36,40 @@
    },
    "solution": "CRATERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CRATERS",
     "definitions": [
      {
       "text": "Features of the moon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "Only what comes first in rock is wanted, its opening letter."
-     },
-     {
-      "text": "put in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boxes",
-      "gives": "CRATES",
-      "note": "Crates are wooden boxes."
-     },
-     {
-      "clueFragment": "rock",
-      "gives": "R",
-      "select": "first",
-      "note": "The first letter of rock."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRATE",
-      "R",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boxes",
+       "gives": "CRATES",
+       "note": "Crates are wooden boxes."
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "Only what comes first in rock is wanted, its opening letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "rock",
+         "note": "The first letter of rock."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -106,53 +98,40 @@
    },
    "solution": "CLEARED",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "CLEARED",
     "definitions": [
      {
       "text": "shown to be innocent",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "revolution",
-      "for": "reversal"
-     },
-     {
-      "text": "captured in",
-      "for": "container",
-      "note": "The king is held inside the turned-round December."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "December",
-      "gives": "DEC",
-      "note": "DEC is the calendar abbreviation."
-     },
-     {
-      "clueFragment": "King",
-      "gives": "LEAR",
-      "note": "King Lear, Shakespeare's king."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LEAR",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DEC",
-       "to": "CED"
+       "text": "captured in",
+       "note": "The king is held inside the turned-round December."
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolution"
+        }
+       ],
+       "parts": [
+        {
+         "words": "December",
+         "gives": "DEC",
+         "note": "DEC is the calendar abbreviation."
+        }
+       ]
+      },
+      {
+       "words": "King",
+       "gives": "LEAR",
+       "note": "King Lear, Shakespeare's king."
       }
      ]
     },
@@ -182,31 +161,29 @@
    },
    "solution": "ARRAYED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ARRAYED",
     "definitions": [
      {
       "text": "Dressed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "What we hear is the spoken phrase, which is then spelt as a single word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for a military operation",
-      "gives": "ARRAYED",
-      "soundsLike": "A RAID",
-      "note": "A raid is a military operation; said out loud it matches the answer."
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARRAYED",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "What we hear is the spoken phrase, which is then spelt as a single word."
+      }
+     ],
+     "parts": [
+      {
+       "words": "for a military operation",
+       "gives": "ARAID",
+       "note": "A raid is a military operation; said out loud it matches the answer."
+      }
+     ]
+    },
     "explanation": {
      "surface": "Soldiers kitted out for an attack.",
      "walkthrough": "\"For\" just links the definition to the phrase whose sound gives the answer.",
@@ -233,30 +210,28 @@
    },
    "solution": "EQUAL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EQUAL",
     "definitions": [
      {
       "text": "Peer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "Only some of the letters of the phrase are taken, a run spanning two words."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "noble qualities",
-      "gives": "EQUAL",
-      "note": "nobLE QUALities."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "Only some of the letters of the phrase are taken, a run spanning two words."
+      }
+     ],
+     "parts": [
+      {
+       "words": "noble qualities",
+       "gives": "EQUAL",
+       "note": "nobLE QUALities."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A lord ought to show some nobility of character.",
      "walkthrough": "\"Peer\" and \"noble\" both point to the House of Lords, but the peer here is an equal.",
@@ -294,38 +269,24 @@
    },
    "solution": "SMELLARAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SMELL A RAT",
     "definitions": [
      {
       "text": "Suspect trickery",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blended",
-      "for": "anagram",
-      "note": "Blended malt whisky mixes its ingredients, so the letters get mixed."
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "real malt's",
-      "gives": "REALMALTS",
-      "note": "The letters used as they stand."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REALMALTS",
-       "gives": "SMELLARAT"
+       "text": "blended",
+       "note": "Blended malt whisky mixes its ingredients, so the letters get mixed."
+      }
+     ],
+     "parts": [
+      {
+       "words": "real malt's",
+       "note": "The letters used as they stand."
       }
      ]
     },
@@ -355,38 +316,24 @@
    },
    "solution": "LEAVERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LEAVERS",
     "definitions": [
      {
       "text": "those who are departing",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "changes",
-      "for": "anagram",
-      "note": "The word Several changes its letters into a new order."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Several",
-      "gives": "SEVERAL",
-      "note": "Used as it stands."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEVERAL",
-       "gives": "LEAVERS"
+       "text": "changes",
+       "note": "The word Several changes its letters into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Several",
+       "note": "Used as it stands."
       }
      ]
     },
@@ -416,39 +363,37 @@
    },
    "solution": "LOOSE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LOOSE",
     "definitions": [
      {
       "text": "Wobbly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with half missing",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toilet",
-      "gives": "LOO",
-      "note": "Loo is British slang for a toilet."
-     },
-     {
-      "clueFragment": "seat",
-      "gives": "SE",
-      "note": "SEAT losing its second half, AT."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOO",
-      "SE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOOSE",
+     "indicators": [
+      {
+       "text": "with half missing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "toilet",
+         "gives": "LOO",
+         "note": "Loo is British slang for a toilet."
+        },
+        {
+         "words": "seat",
+         "gives": "SE",
+         "note": "SEAT losing its second half, AT."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -478,35 +423,25 @@
    },
    "solution": "APPRAISED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APPRAISED",
     "definitions": [
      {
       "text": "sized up",
       "at": 25
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Phone feature",
-      "gives": "APP",
-      "note": "An app is a phone application."
-     },
-     {
-      "clueFragment": "put up",
-      "gives": "RAISED",
-      "note": "To put up is to raise."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APP",
-      "RAISED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Phone feature",
+       "gives": "APP",
+       "note": "An app is a phone application."
+      },
+      {
+       "words": "put up",
+       "gives": "RAISED",
+       "note": "To put up is to raise."
+      }
      ]
     },
     "explanation": {
@@ -534,32 +469,25 @@
    },
    "solution": "EXPLAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXPLAIN",
     "definitions": [
      {
       "text": "Say why",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "former partner's",
-      "gives": "EX",
-      "note": "An ex is a former partner; the 's reads as 'is'."
-     },
-     {
-      "clueFragment": "not attractive",
-      "gives": "PLAIN",
-      "note": "Plain means not good-looking."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "PLAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former partner's",
+       "gives": "EX",
+       "note": "An ex is a former partner; the 's reads as 'is'."
+      },
+      {
+       "words": "not attractive",
+       "gives": "PLAIN",
+       "note": "Plain means not good-looking."
+      }
      ]
     },
     "explanation": {
@@ -588,35 +516,25 @@
    },
    "solution": "STRANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STRANGE",
     "definitions": [
      {
       "text": "Odd",
       "at": 0
      }
     ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "saint",
-      "gives": "ST",
-      "note": "ST is the abbreviation for saint."
-     },
-     {
-      "clueFragment": "scope",
-      "gives": "RANGE",
-      "note": "Scope and range both mean extent."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "saint",
+       "gives": "ST",
+       "note": "ST is the abbreviation for saint."
+      },
+      {
+       "words": "scope",
+       "gives": "RANGE",
+       "note": "Scope and range both mean extent."
+      }
      ]
     },
     "explanation": {
@@ -651,26 +569,25 @@
    },
    "solution": "ENROUTE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EN ROUTE",
     "definitions": [
      {
       "text": "On the way from France?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "On the way",
-      "note": "the plain meaning of the answer"
-     },
-     {
-      "clueFragment": "from France?",
-      "note": "reads as travelling out of France, but means the words come from French"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "On the way",
+       "note": "the plain meaning of the answer"
+      },
+      {
+       "words": "from France?",
+       "note": "reads as travelling out of France, but means the words come from French"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A traveller heading over from France.",
      "walkthrough": "\"From France\" reads as a journey's starting point; it really says the phrase is borrowed from French.",
@@ -704,35 +621,24 @@
    },
    "solution": "ONPAPER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ON PAPER",
     "definitions": [
      {
       "text": "In theory",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "explodes",
-      "for": "anagram",
-      "note": "An explosion scatters the letters of PROPANE."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "propane",
-      "gives": "PROPANE",
-      "note": "Used as it stands."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PROPANE",
-       "gives": "ONPAPER"
+       "text": "explodes",
+       "note": "An explosion scatters the letters of PROPANE."
+      }
+     ],
+     "parts": [
+      {
+       "words": "propane",
+       "note": "Used as it stands."
       }
      ]
     },
@@ -768,26 +674,25 @@
    },
    "solution": "ROYALBLUE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROYAL BLUE",
     "definitions": [
      {
       "text": "The colour of princely blood?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The colour of",
-      "note": "asks for a colour name"
-     },
-     {
-      "clueFragment": "princely blood?",
-      "note": "nobles are said to be blue-blooded, and a prince is royal"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The colour of",
+       "note": "asks for a colour name"
+      },
+      {
+       "words": "princely blood?",
+       "note": "nobles are said to be blue-blooded, and a prince is royal"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wondering what colour a prince's blood really is.",
      "walkthrough": "Aristocrats are said to have blue blood, so a prince's blood would be royal blue.",
@@ -815,35 +720,24 @@
    },
    "solution": "AGAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGAIN",
     "definitions": [
      {
       "text": "Once more",
       "at": 0
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "Used as it stands."
-     },
-     {
-      "clueFragment": "profit",
-      "gives": "GAIN",
-      "note": "What a trader makes when selling above cost."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "Used as it stands."
+      },
+      {
+       "words": "profit",
+       "gives": "GAIN",
+       "note": "What a trader makes when selling above cost."
+      }
      ]
     },
     "explanation": {
@@ -872,31 +766,16 @@
    },
    "solution": "DODGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DODGE",
     "definitions": [
      {
       "text": "Avoid",
-      "at": 0
+      "at": 0,
+      "meaning": "a verb: to sidestep something"
      },
      {
       "text": "Kansas city",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Avoid",
-      "note": "a verb: to sidestep something"
-     },
-     {
-      "clueFragment": "Kansas city",
-      "note": "a Wild West cattle town in Kansas"
+      "at": 11,
+      "meaning": "a Wild West cattle town in Kansas"
      }
     ],
     "explanation": {
@@ -925,39 +804,30 @@
    },
    "solution": "ESTONIANS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ESTONIANS",
     "definitions": [
      {
       "text": "Europeans",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pupils at a public school",
-      "gives": "ETONIANS",
-      "note": "Etonians attend Eton, the famous English boarding school; in Britain a 'public school' is an elite private one."
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "S",
-      "TONIANS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pupils at a public school",
+       "gives": "ETONIANS",
+       "note": "Etonians attend Eton, the famous English boarding school; in Britain a 'public school' is an elite private one."
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small."
+      }
      ]
     },
     "explanation": {
@@ -992,10 +862,6 @@
    },
    "solution": "ROADSENSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROAD SENSE",
     "definitions": [
      {
       "text": "required by motorist?",
@@ -1003,25 +869,18 @@
       "note": "describes the answer rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "Funny",
-      "for": "anagram",
-      "note": "Something funny is peculiar, so the letters come out peculiarly arranged."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "red nose, as",
-      "gives": "REDNOSEAS",
-      "note": "The letters used as they stand."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REDNOSEAS",
-       "gives": "ROADSENSE"
+       "text": "Funny",
+       "note": "Something funny is peculiar, so the letters come out peculiarly arranged."
+      }
+     ],
+     "parts": [
+      {
+       "words": "red nose, as",
+       "note": "The letters used as they stand."
       }
      ]
     },
@@ -1052,28 +911,16 @@
    },
    "solution": "ARRESTING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ARRESTING",
     "definitions": [
      {
       "text": "Remarkable",
-      "at": 0
+      "at": 0,
+      "meaning": "an adjective: striking, catching the eye"
      },
      {
       "text": "policeman's activity?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Remarkable",
-      "note": "an adjective: striking, catching the eye"
-     },
-     {
-      "clueFragment": "policeman's activity?",
-      "note": "police officers arrest people"
+      "at": 11,
+      "meaning": "police officers arrest people"
      }
     ],
     "explanation": {
@@ -1101,35 +948,24 @@
    },
    "solution": "SPECTATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPECTATOR",
     "definitions": [
      {
       "text": "One who watches",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "Letters that are out of place are rearranged."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actor step",
-      "gives": "ACTORSTEP",
-      "note": "The letters used as they stand."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACTORSTEP",
-       "gives": "SPECTATOR"
+       "text": "out",
+       "note": "Letters that are out of place are rearranged."
+      }
+     ],
+     "parts": [
+      {
+       "words": "actor step",
+       "note": "The letters used as they stand."
       }
      ]
     },
@@ -1159,40 +995,33 @@
    },
    "solution": "SANCTUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SANCTUM",
     "definitions": [
      {
       "text": "A holy place",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reform",
-      "for": "anagram",
-      "note": "To reform is to form anew, so CAN and MUST are formed into a new word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can",
-      "gives": "CAN",
-      "note": "Used as it stands."
-     },
-     {
-      "clueFragment": "must",
-      "gives": "MUST",
-      "note": "Used as it stands."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CANMUST",
-       "gives": "SANCTUM"
+       "text": "reform",
+       "note": "To reform is to form anew, so CAN and MUST are formed into a new word."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "can",
+         "note": "Used as it stands."
+        },
+        {
+         "words": "must",
+         "note": "Used as it stands."
+        }
+       ]
       }
      ]
     },
@@ -1222,41 +1051,30 @@
    },
    "solution": "ENTREAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENTREAT",
     "definitions": [
      {
       "text": "Plead with",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English."
-     },
-     {
-      "clueFragment": "knight",
-      "gives": "N",
-      "note": "N is the knight in chess notation."
-     },
-     {
-      "clueFragment": "something nice",
-      "gives": "TREAT",
-      "note": "A treat is something pleasant."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "N",
-      "TREAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English."
+      },
+      {
+       "words": "knight",
+       "gives": "N",
+       "note": "N is the knight in chess notation."
+      },
+      {
+       "words": "something nice",
+       "gives": "TREAT",
+       "note": "A treat is something pleasant."
+      }
      ]
     },
     "explanation": {
@@ -1284,30 +1102,28 @@
    },
    "solution": "DIANA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DIANA",
     "definitions": [
      {
       "text": "Princess",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sheltered by",
-      "for": "hidden_word",
-      "note": "The princess is sheltered inside the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guardian angel",
-      "gives": "DIANA",
-      "note": "guarDIAN Angel."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "sheltered by",
+       "note": "The princess is sheltered inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "guardian angel",
+       "gives": "DIANA",
+       "note": "guarDIAN Angel."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A princess watched over by a guardian angel.",
      "walkthrough": "The answer runs across the gap between the two words.",
@@ -1333,44 +1149,37 @@
    },
    "solution": "ALGIERS",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ALGIERS",
     "definitions": [
      {
       "text": "African port",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "What we hear is the sound of JEERS, which is then spelt differently."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Capone",
-      "gives": "AL",
-      "note": "Al Capone, the Chicago gangster."
-     },
-     {
-      "clueFragment": "is scornful",
-      "gives": "GIERS",
-      "soundsLike": "JEERS",
-      "note": "Someone who jeers is scornful."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "GIERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Capone",
+       "gives": "AL",
+       "note": "Al Capone, the Chicago gangster."
+      },
+      {
+       "op": "homophone",
+       "spelt": "GIERS",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "What we hear is the sound of JEERS, which is then spelt differently."
+        }
+       ],
+       "parts": [
+        {
+         "words": "is scornful",
+         "gives": "JEERS",
+         "note": "Someone who jeers is scornful."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1399,38 +1208,24 @@
    },
    "solution": "ARTISTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARTISTS",
     "definitions": [
      {
       "text": "Painters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dire",
-      "for": "anagram",
-      "note": "Straits in a dire state are wrecked, so their letters are jumbled."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "straits",
-      "gives": "STRAITS",
-      "note": "Used as it stands."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STRAITS",
-       "gives": "ARTISTS"
+       "text": "dire",
+       "note": "Straits in a dire state are wrecked, so their letters are jumbled."
+      }
+     ],
+     "parts": [
+      {
+       "words": "straits",
+       "note": "Used as it stands."
       }
      ]
     },
@@ -1466,10 +1261,6 @@
    },
    "solution": "NOTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOT ON",
     "definitions": [
      {
       "text": "is unacceptable",
@@ -1477,22 +1268,18 @@
       "note": "a verb phrase; the answer is used as 'it's not on'"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "No",
-      "gives": "NO",
-      "note": "Used as it stands."
-     },
-     {
-      "clueFragment": "weight",
-      "gives": "TON",
-      "note": "A ton is a large weight."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "TON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No",
+       "note": "Used as it stands."
+      },
+      {
+       "words": "weight",
+       "gives": "TON",
+       "note": "A ton is a large weight."
+      }
      ]
     },
     "explanation": {
@@ -1527,32 +1314,25 @@
    },
    "solution": "JUSTRIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JUST RIGHT",
     "definitions": [
      {
       "text": "Exactly!",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Lawful",
-      "gives": "JUST",
-      "note": "Just means fair and lawful."
-     },
-     {
-      "clueFragment": "entitlement",
-      "gives": "RIGHT",
-      "note": "A right is an entitlement."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JUST",
-      "RIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lawful",
+       "gives": "JUST",
+       "note": "Just means fair and lawful."
+      },
+      {
+       "words": "entitlement",
+       "gives": "RIGHT",
+       "note": "A right is an entitlement."
+      }
      ]
     },
     "explanation": {
@@ -1580,50 +1360,40 @@
    },
    "solution": "JOYCE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "JOYCE",
     "definitions": [
      {
       "text": "Irish author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "Initially takes just the first letter of education."
-     }
-    ],
-    "linkWords": [
-     "finding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "happiness",
-      "gives": "JOY",
-      "note": "Joy is happiness."
-     },
-     {
-      "clueFragment": "Catholic",
-      "gives": "C",
-      "note": "C is the abbreviation for Catholic."
-     },
-     {
-      "clueFragment": "education",
-      "gives": "E",
-      "select": "first",
-      "note": "The first letter of education."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOY",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "happiness",
+       "gives": "JOY",
+       "note": "Joy is happiness."
+      },
+      {
+       "words": "Catholic",
+       "gives": "C",
+       "note": "C is the abbreviation for Catholic."
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "Initially takes just the first letter of education."
+        }
+       ],
+       "parts": [
+        {
+         "words": "education",
+         "note": "The first letter of education."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1651,32 +1421,25 @@
    },
    "solution": "RIPON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RIPON",
     "definitions": [
      {
       "text": "Yorkshire city",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Grave letters",
-      "gives": "RIP",
-      "note": "RIP, rest in peace, is carved on gravestones."
-     },
-     {
-      "clueFragment": "about",
-      "gives": "ON",
-      "note": "On and about both mean concerning."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIP",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grave letters",
+       "gives": "RIP",
+       "note": "RIP, rest in peace, is carved on gravestones."
+      },
+      {
+       "words": "about",
+       "gives": "ON",
+       "note": "On and about both mean concerning."
+      }
      ]
     },
     "explanation": {
@@ -1706,40 +1469,30 @@
    },
    "solution": "THERAPY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THERAPY",
     "definitions": [
      {
       "text": "treatment",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "must accept",
-      "for": "container",
-      "note": "What THEY accept goes inside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "They",
-      "gives": "THEY",
-      "note": "Used as it stands."
-     },
-     {
-      "clueFragment": "hip hop",
-      "gives": "RAP",
-      "note": "Rap is a hip hop style."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "RAP",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must accept",
+       "note": "What THEY accept goes inside them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "They",
+       "note": "Used as it stands."
+      },
+      {
+       "words": "hip hop",
+       "gives": "RAP",
+       "note": "Rap is a hip hop style."
+      }
      ]
     },
     "explanation": {
@@ -1769,38 +1522,30 @@
    },
    "solution": "IMPRESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPRESS",
     "definitions": [
      {
       "text": "cause admiration",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one."
-     },
-     {
-      "clueFragment": "million",
-      "gives": "M",
-      "note": "M is the abbreviation for million."
-     },
-     {
-      "clueFragment": "papers",
-      "gives": "PRESS",
-      "note": "The press is the newspapers."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "PRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one."
+      },
+      {
+       "words": "million",
+       "gives": "M",
+       "note": "M is the abbreviation for million."
+      },
+      {
+       "words": "papers",
+       "gives": "PRESS",
+       "note": "The press is the newspapers."
+      }
      ]
     },
     "explanation": {
@@ -1829,38 +1574,24 @@
    },
    "solution": "MATISSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MATISSE",
     "definitions": [
      {
       "text": "French painter",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Swirling",
-      "for": "anagram",
-      "note": "Swirling stirs the letters of SEA MIST around."
-     }
-    ],
-    "linkWords": [
-     "depicted by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sea mist",
-      "gives": "SEAMIST",
-      "note": "The letters used as they stand."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEAMIST",
-       "gives": "MATISSE"
+       "text": "Swirling",
+       "note": "Swirling stirs the letters of SEA MIST around."
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea mist",
+       "note": "The letters used as they stand."
       }
      ]
     },
@@ -1890,31 +1621,16 @@
    },
    "solution": "GENESIS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GENESIS",
     "definitions": [
      {
       "text": "First book",
-      "at": 0
+      "at": 0,
+      "meaning": "the opening book of the Bible"
      },
      {
       "text": "rock band",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First book",
-      "note": "the opening book of the Bible"
-     },
-     {
-      "clueFragment": "rock band",
-      "note": "the British band of Peter Gabriel and Phil Collins"
+      "at": 15,
+      "meaning": "the British band of Peter Gabriel and Phil Collins"
      }
     ],
     "explanation": {

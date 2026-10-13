@@ -1,8 +1,6 @@
 {
  "id": "quiptic-533",
  "number": 533,
- "series": "quiptic",
- "name": "Quiptic crossword No 533",
  "setter": "Quantum",
  "date": "2010-02-01",
  "dimensions": {
@@ -38,34 +36,38 @@
    },
    "solution": "COHORT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "COHORT",
     "definitions": [
      {
       "text": "Set",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "something found in a place is sitting inside it, so look inside the run of words that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "San Francisco, Horta",
-      "gives": "COHORT",
-      "note": "the letters run across the end of one place name and the start of the next"
-     },
-     {
-      "clueFragment": "and elsewhere",
-      "note": "surface padding that rounds off the list of places"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "found in",
+         "note": "something found in a place is sitting inside it, so look inside the run of words that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "San Francisco, Horta",
+         "gives": "COHORT",
+         "note": "the letters run across the end of one place name and the start of the next"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "and elsewhere",
+       "note": "surface padding that rounds off the list of places"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A group of people turning up in San Francisco, in Horta in the Azores, and in other places.",
      "walkthrough": "The answer runs from the tail of Francisco into Horta; 'and elsewhere' only finishes the travelogue.",
@@ -92,26 +94,25 @@
    },
    "solution": "CERAMICS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CERAMICS",
     "definitions": [
      {
       "text": "Potter about to make them?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Potter about",
-      "note": "surface reading: to potter about is to pass the time idly doing small jobs"
-     },
-     {
-      "clueFragment": "Potter about to make them",
-      "note": "setter's reading: a potter, the craftsman, is about to make some pots and dishes"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Potter about",
+       "note": "surface reading: to potter about is to pass the time idly doing small jobs"
+      },
+      {
+       "words": "Potter about to make them",
+       "note": "setter's reading: a potter, the craftsman, is about to make some pots and dishes"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The verb 'potter about' hides the noun potter, someone who makes fired clay ware, followed by 'about to', meaning on the point of.",
      "definitionFit": "Ceramics are the fired clay pots and dishes that a potter produces at the wheel and kiln."
@@ -138,35 +139,24 @@
    },
    "solution": "HONOLULU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HONOLULU",
     "definitions": [
      {
       "text": "somewhere in the Pacific",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "on the rampage",
-      "for": "anagram",
-      "note": "something on the rampage runs wild, so these letters are thrown out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oh, no! Lulu",
-      "gives": "OHNOLULU",
-      "note": "the exclamation and the singer's name, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OHNOLULU",
-       "gives": "HONOLULU"
+       "text": "on the rampage",
+       "note": "something on the rampage runs wild, so these letters are thrown out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oh, no! Lulu",
+       "note": "the exclamation and the singer's name, taken letter for letter"
       }
      ]
     },
@@ -196,55 +186,53 @@
    },
    "solution": "RAPID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RAPID",
     "definitions": [
      {
       "text": "fast",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word just before it"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first piece inside the word that follows it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the attack",
-      "gives": "RA",
-      "note": "the first half of a raid, an attack"
-     },
-     {
-      "clueFragment": "Player",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of player"
-     },
-     {
-      "clueFragment": "the attack",
-      "gives": "ID",
-      "note": "the rest of the raid, closing round the inserted letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "P",
-      "ID"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "RAPID",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first piece inside the word that follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the attack",
+         "gives": "RA",
+         "note": "the first half of a raid, an attack"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening letter of the word just before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Player",
+           "note": "first letter of player"
+          }
+         ]
+        },
+        {
+         "words": "the attack",
+         "gives": "ID",
+         "note": "the rest of the raid, closing round the inserted letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -273,28 +261,16 @@
    },
    "solution": "WHISTLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WHISTLER",
     "definitions": [
      {
       "text": "Bird",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a family of songbirds of Australasia"
      },
      {
       "text": "painter",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bird",
-      "note": "first meaning: a family of songbirds of Australasia"
-     },
-     {
-      "clueFragment": "painter",
-      "note": "second meaning: James McNeill ..., the American artist famed for the portrait of his mother"
+      "at": 5,
+      "meaning": "second meaning: James McNeill ..., the American artist famed for the portrait of his mother"
      }
     ],
     "explanation": {
@@ -336,26 +312,25 @@
    },
    "solution": "HITSABADPATCH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HITS A BAD PATCH",
     "definitions": [
      {
       "text": "When he does, a spinner can be difficult to play, paradoxically",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "When he does, a spinner can be difficult to play",
-      "note": "setter's reading: a spin bowler's ball landing on a rough spot of the pitch turns unpredictably and is hard for the batsman"
-     },
-     {
-      "clueFragment": "paradoxically",
-      "note": "surface reading: the phrase usually means going through a spell of poor form, the opposite of a bowler doing well"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "When he does, a spinner can be difficult to play",
+       "note": "setter's reading: a spin bowler's ball landing on a rough spot of the pitch turns unpredictably and is hard for the batsman"
+      },
+      {
+       "words": "paradoxically",
+       "note": "surface reading: the phrase usually means going through a spell of poor form, the opposite of a bowler doing well"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "In cricket a spinner is a slow bowler who makes the ball turn off the pitch; worn patches make it turn sharply. The idiom normally means a run of bad luck, hence 'paradoxically'.",
      "definitionFit": "Taken literally, the idiom for suffering a poor spell describes a bowler's ball striking a worn part of the pitch."
@@ -382,43 +357,33 @@
    },
    "solution": "STRANRAER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STRANRAER",
     "definitions": [
      {
       "text": "somewhere else in Scotland",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Have a break from",
-      "for": "anagram",
-      "note": "to break something is to smash it apart, so the words from it are broken and rebuilt"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arran",
-      "gives": "ARRAN",
-      "note": "the Scottish island, taken as written"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "REST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARRANREST",
-       "gives": "STRANRAER"
+       "text": "Have a break from",
+       "note": "to break something is to smash it apart, so the words from it are broken and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Arran",
+         "note": "the Scottish island, taken as written"
+        },
+        {
+         "words": "rest",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -448,45 +413,43 @@
    },
    "solution": "LOLLOP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOLLOP",
     "definitions": [
      {
       "text": "proceed in an ungainly way",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "in the",
-      "for": "container",
-      "note": "in the means set inside what follows, so the first piece sits within the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ring",
-      "gives": "LO",
-      "note": "the opening of a loop, a ring"
-     },
-     {
-      "clueFragment": "Learners",
-      "gives": "LL",
-      "note": "L is the learner-driver plate, doubled for the plural"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "OP",
-      "note": "the rest of the loop"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "LL",
-      "OP"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LOLLOP",
+     "indicators": [
+      {
+       "text": "in the",
+       "note": "in the means set inside what follows, so the first piece sits within the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ring",
+         "gives": "LO",
+         "note": "the opening of a loop, a ring"
+        },
+        {
+         "words": "Learners",
+         "gives": "LL",
+         "note": "L is the learner-driver plate, doubled for the plural"
+        },
+        {
+         "words": "ring",
+         "gives": "OP",
+         "note": "the rest of the loop"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -515,56 +478,55 @@
    },
    "solution": "RHYMER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RHYMER",
     "definitions": [
      {
       "text": "Versifier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "plays with",
-      "for": "anagram",
-      "note": "someone who plays with something fiddles it around, so these letters get moved about"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the rearranged letters surround the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "myrrh",
-      "gives": "RHYM",
-      "note": "the first four letters once the gift of the Magi is jumbled"
-     },
-     {
-      "clueFragment": "the orient",
-      "gives": "E",
-      "note": "the orient is the east, abbreviated E"
-     },
-     {
-      "clueFragment": "myrrh",
-      "gives": "R",
-      "note": "the remaining letter of the jumble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RHYM",
-      "E",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "RHYMER",
+     "indicators": [
       {
-       "fodder": "MYRRH",
-       "gives": "RHYMR"
+       "text": "around",
+       "note": "around says the rearranged letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "RHYMER",
+       "indicators": [
+        {
+         "text": "plays with",
+         "note": "someone who plays with something fiddles it around, so these letters get moved about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "myrrh",
+           "gives": "RHYM",
+           "note": "the first four letters once the gift of the Magi is jumbled"
+          },
+          {
+           "words": "the orient",
+           "gives": "E",
+           "note": "the orient is the east, abbreviated E"
+          },
+          {
+           "words": "myrrh",
+           "gives": "R",
+           "note": "the remaining letter of the jumble"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -599,28 +561,16 @@
    },
    "solution": "RUNUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RUN UP",
     "definitions": [
      {
       "text": "Hastily make",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to ... a dress or curtains is to sew them quickly"
      },
      {
       "text": "cry of encouragement to batsman",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hastily make",
-      "note": "first meaning: to ... a dress or curtains is to sew them quickly"
-     },
-     {
-      "clueFragment": "cry of encouragement to batsman",
-      "note": "second meaning: urging a cricket batsman forward to score runs"
+      "at": 13,
+      "meaning": "second meaning: urging a cricket batsman forward to score runs"
      }
     ],
     "explanation": {
@@ -648,56 +598,51 @@
    },
    "solution": "LITERALLY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LITERALLY",
     "definitions": [
      {
       "text": "Exactly",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "mutated",
-      "for": "anagram",
-      "note": "something mutated has changed its form, so these letters change their order"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into puts the changed letters inside the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a flower",
-      "gives": "LI",
-      "note": "the first half of lily, a flower"
-     },
-     {
-      "clueFragment": "Later",
-      "gives": "TERAL",
-      "note": "the word later with its letters rearranged"
-     },
-     {
-      "clueFragment": "a flower",
-      "gives": "LY",
-      "note": "the end of the lily"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ITERALL",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LATER",
-       "gives": "TERAL"
+       "text": "into",
+       "note": "into puts the changed letters inside the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a flower",
+       "gives": "LY",
+       "note": "the end of the lily"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mutated",
+         "note": "something mutated has changed its form, so these letters change their order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a flower",
+           "gives": "LI",
+           "note": "the first half of lily, a flower"
+          },
+          {
+           "words": "Later",
+           "gives": "TERAL",
+           "note": "the word later with its letters rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -741,10 +686,6 @@
    },
    "solution": "LEAPINTHEDARK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEAP IN THE DARK",
     "definitions": [
      {
       "text": "The consequences of it are unknown",
@@ -752,22 +693,19 @@
       "note": "a description of the answer rather than a synonym"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Spring",
-      "gives": "LEAP",
-      "note": "a spring is a jump"
-     },
-     {
-      "clueFragment": "at night",
-      "gives": "INTHEDARK",
-      "note": "at night one is in darkness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAP",
-      "INTHEDARK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spring",
+       "gives": "LEAP",
+       "note": "a spring is a jump"
+      },
+      {
+       "words": "at night",
+       "gives": "INTHEDARK",
+       "note": "at night one is in darkness"
+      }
      ]
     },
     "explanation": {
@@ -796,46 +734,43 @@
    },
    "solution": "MELODRAMA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MELODRAMA",
     "definitions": [
      {
       "text": "sensational performance",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "mainly",
-      "for": "deletion",
-      "note": "mainly means most but not all, so the last letter of the word before is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tune",
-      "gives": "MELODY",
-      "note": "a tune is a melody"
-     },
-     {
-      "clueFragment": "hit",
-      "gives": "RAM",
-      "note": "to ram is to hit"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MELOD",
-      "RAM",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mainly",
+       "note": "mainly means most but not all, so the last letter of the word before is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tune",
+         "gives": "MELODY",
+         "note": "a tune is a melody"
+        },
+        {
+         "words": "hit",
+         "gives": "RAM",
+         "note": "to ram is to hit"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -863,10 +798,6 @@
    },
    "solution": "NOOSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NOOSE",
     "definitions": [
      {
       "text": "keep your head out of it",
@@ -874,33 +805,27 @@
       "note": "a jokey description of the answer rather than a synonym"
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is knocked over, so these letters land in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "So",
-      "gives": "SO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOONE",
-       "gives": "NOOSE"
+       "text": "upset",
+       "note": "something upset is knocked over, so these letters land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "So",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -945,45 +870,35 @@
    },
    "solution": "CALLEDITADAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CALLED IT A DAY",
     "definitions": [
      {
       "text": "Stopped the action",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the piece before it is placed following the two pieces that come next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "named",
-      "gives": "CALLED",
-      "note": "named means called"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "24 hours",
-      "gives": "ADAY",
-      "note": "twenty-four hours is a day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CALLED",
-      "IT",
-      "ADAY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the piece before it is placed following the two pieces that come next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "named",
+       "gives": "CALLED",
+       "note": "named means called"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      },
+      {
+       "words": "24 hours",
+       "gives": "ADAY",
+       "note": "twenty-four hours is a day"
+      }
      ]
     },
     "explanation": {
@@ -1011,43 +926,33 @@
    },
    "solution": "ENUMERATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENUMERATE",
     "definitions": [
      {
       "text": "Detail",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "ordered means put into a new sequence, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "menu",
-      "gives": "MENU",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "eater",
-      "gives": "EATER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENUEATER",
-       "gives": "ENUMERATE"
+       "text": "ordered",
+       "note": "ordered means put into a new sequence, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "menu",
+         "note": "taken as written"
+        },
+        {
+         "words": "eater",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1077,39 +982,31 @@
    },
    "solution": "DOWNPOUR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOWNPOUR",
     "definitions": [
      {
       "text": "heavy rain",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the piece just before it comes second, behind the first word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "County",
-      "gives": "DOWN",
-      "note": "County Down is in Northern Ireland"
-     },
-     {
-      "clueFragment": "run out",
-      "gives": "POUR",
-      "note": "to pour is to run out, as liquid from a jug"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOWN",
-      "POUR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the piece just before it comes second, behind the first word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "County",
+       "gives": "DOWN",
+       "note": "County Down is in Northern Ireland"
+      },
+      {
+       "words": "run out",
+       "gives": "POUR",
+       "note": "to pour is to run out, as liquid from a jug"
+      }
      ]
     },
     "explanation": {
@@ -1138,40 +1035,38 @@
    },
    "solution": "TENDERLY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TENDERLY",
     "definitions": [
      {
       "text": "in a caring manner",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "half means only two of the four letters of the following word survive"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Offer",
-      "gives": "TENDER",
-      "note": "to tender is to offer"
-     },
-     {
-      "clueFragment": "duly",
-      "gives": "DULY",
-      "note": "taken as written, before half is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TENDER",
-      "LY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half",
+       "note": "half means only two of the four letters of the following word survive"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Offer",
+         "gives": "TENDER",
+         "note": "to tender is to offer"
+        },
+        {
+         "words": "duly",
+         "note": "taken as written, before half is removed"
+        }
+       ]
+      },
+      {
+       "gives": "DU"
+      }
      ]
     },
     "explanation": {
@@ -1199,26 +1094,25 @@
    },
    "solution": "MULTIPURPOSE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MULTIPURPOSE",
     "definitions": [
      {
       "text": "Appropriate word produced for several functions?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Appropriate word produced",
-      "note": "surface reading: someone has come up with just the right term for something"
-     },
-     {
-      "clueFragment": "for several functions",
-      "note": "setter's reading: the right term for an item that has many uses"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Appropriate word produced",
+       "note": "surface reading: someone has come up with just the right term for something"
+      },
+      {
+       "words": "for several functions",
+       "note": "setter's reading: the right term for an item that has many uses"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "It reads like praise for apt vocabulary; it is a description of the adjective you would apply to a many-use gadget.",
      "definitionFit": "Something with several uses or functions is described with this adjective, built from 'many' and 'aims'."
@@ -1244,36 +1138,25 @@
    },
    "solution": "POSHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POSHER",
     "definitions": [
      {
       "text": "more upmarket",
       "at": 27
      }
     ],
-    "linkWords": [
-     "for",
-     "No"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mrs Beckham",
-      "gives": "POSH",
-      "note": "Victoria Beckham was Posh Spice in the Spice Girls"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POSH",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mrs Beckham",
+       "gives": "POSH",
+       "note": "Victoria Beckham was Posh Spice in the Spice Girls"
+      },
+      {
+       "words": "Queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
      ]
     },
     "explanation": {
@@ -1303,11 +1186,6 @@
    },
    "solution": "PELVIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PELVIC",
     "definitions": [
      {
       "text": "description of part of trunk",
@@ -1315,45 +1193,49 @@
       "note": "an adjective phrase: the answer describes a part of the torso"
      }
     ],
-    "indicators": [
-     {
-      "text": "exchange",
-      "for": "anagram",
-      "note": "an exchange swaps things around, so these letters change places"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in puts the rearranged letters inside the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "policeman''s",
-      "gives": "P",
-      "note": "PC, police constable, is a policeman; this is its first letter"
-     },
-     {
-      "clueFragment": "Live",
-      "gives": "ELVI",
-      "note": "the word live rearranged"
-     },
-     {
-      "clueFragment": "policeman''s",
-      "gives": "C",
-      "note": "the rest of PC"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ELVI",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PELVIC",
+     "indicators": [
       {
-       "fodder": "LIVE",
-       "gives": "ELVI"
+       "text": "in",
+       "note": "in puts the rearranged letters inside the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "PELVIC",
+       "indicators": [
+        {
+         "text": "exchange",
+         "note": "an exchange swaps things around, so these letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "policeman''s",
+           "gives": "P",
+           "note": "PC, police constable, is a policeman; this is its first letter"
+          },
+          {
+           "words": "Live",
+           "gives": "ELVI",
+           "note": "the word live rearranged"
+          },
+          {
+           "words": "policeman''s",
+           "gives": "C",
+           "note": "the rest of PC"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1383,32 +1265,25 @@
    },
    "solution": "OBESE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBESE",
     "definitions": [
      {
       "text": "stout",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Orders",
-      "gives": "OBES",
-      "note": "an OBE is an Order of the British Empire honour; plural here"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OBES",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Orders",
+       "gives": "OBES",
+       "note": "an OBE is an Order of the British Empire honour; plural here"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1437,26 +1312,25 @@
    },
    "solution": "ENTHRONED",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ENTHRONED",
     "definitions": [
      {
       "text": "Instated in state?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Instated",
-      "note": "surface reading: placed in an office or position"
-     },
-     {
-      "clueFragment": "in state",
-      "note": "setter's reading: placed with full ceremony and grandeur on a throne"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Instated",
+       "note": "surface reading: placed in an office or position"
+      },
+      {
+       "words": "in state",
+       "note": "setter's reading: placed with full ceremony and grandeur on a throne"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'In state' means with official pomp, and also echoes the word instated itself.",
      "definitionFit": "A monarch is ceremonially installed on the throne at a coronation, which is being instated with pomp."
@@ -1483,26 +1357,25 @@
    },
    "solution": "ROSIE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROSIE",
     "definitions": [
      {
       "text": "Girl who first had cider?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Girl who first had cider",
-      "note": "surface reading: a young woman tasting cider for the first time"
-     },
-     {
-      "clueFragment": "first had cider",
-      "note": "setter's reading: in the title of Laurie Lee's memoir the drink comes first, then with this girl"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Girl who first had cider",
+       "note": "surface reading: a young woman tasting cider for the first time"
+      },
+      {
+       "words": "first had cider",
+       "note": "setter's reading: in the title of Laurie Lee's memoir the drink comes first, then with this girl"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Laurie Lee's 1959 memoir of a Cotswold childhood is 'Cider with ___', in which the narrator first drinks cider with this girl.",
      "definitionFit": "The girl's name follows cider in the famous book title and she shares the narrator's first taste of it."
@@ -1538,31 +1411,16 @@
    },
    "solution": "HAVEABASH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HAVE A BASH",
     "definitions": [
      {
       "text": "Just try",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to have a go at something"
      },
      {
       "text": "host a party",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Just try",
-      "note": "first meaning: to have a go at something"
-     },
-     {
-      "clueFragment": "host a party",
-      "note": "second meaning: a bash is a party, so to have one is to throw a party"
+      "at": 12,
+      "meaning": "second meaning: a bash is a party, so to have one is to throw a party"
      }
     ],
     "explanation": {
@@ -1590,33 +1448,28 @@
    },
    "solution": "STOUR",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "STOUR",
     "definitions": [
      {
       "text": "River",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ending at the beginning",
-      "for": "cycling",
-      "note": "the last letter is lifted round to the front of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trips",
-      "gives": "TOURS",
-      "note": "tours are trips"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOUR"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "STOUR",
+     "indicators": [
+      {
+       "text": "ending at the beginning",
+       "note": "the last letter is lifted round to the front of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trips",
+       "gives": "TOURS",
+       "note": "tours are trips"
+      }
      ]
     },
     "explanation": {
@@ -1645,32 +1498,25 @@
    },
    "solution": "RECHECKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RECHECKS",
     "definitions": [
      {
       "text": "Repeatedly verifies",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "with reference to",
-      "gives": "RE",
-      "note": "re means concerning or with reference to"
-     },
-     {
-      "clueFragment": "money orders, say",
-      "gives": "CHECKS",
-      "note": "the US spelling of cheques, written orders to pay money; 'say' marks an example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "CHECKS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with reference to",
+       "gives": "RE",
+       "note": "re means concerning or with reference to"
+      },
+      {
+       "words": "money orders, say",
+       "gives": "CHECKS",
+       "note": "the US spelling of cheques, written orders to pay money; 'say' marks an example"
+      }
      ]
     },
     "explanation": {
@@ -1699,32 +1545,25 @@
    },
    "solution": "NEARLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEARLY",
     "definitions": [
      {
       "text": "almost",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "Before time",
-      "gives": "EARLY",
-      "note": "early means before the expected time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EARLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "Before time",
+       "gives": "EARLY",
+       "note": "early means before the expected time"
+      }
      ]
     },
     "explanation": {

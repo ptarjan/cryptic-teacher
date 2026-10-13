@@ -1,8 +1,7 @@
 {
  "id": "canberra-920419",
  "number": 920419,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Sunday 19 April 1992 (English cryptic)",
+ "label": "English cryptic",
  "date": "1992-04-19",
  "dimensions": {
   "cols": 15,
@@ -40,51 +39,45 @@
    },
    "solution": "LEARNED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LEARNED",
     "definitions": [
      {
       "text": "Having many attainments",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "letter_selection",
-      "note": "half of a four-letter word keeps only two of its letters, here the front pair"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "LE",
-      "select": "first",
-      "note": "the first half of the word left"
-     },
-     {
-      "clueFragment": "composer",
-      "gives": "ARNE",
-      "note": "Thomas Arne, the English composer of Rule, Britannia"
-     },
-     {
-      "clueFragment": "died",
-      "gives": "D",
-      "note": "D is the standard abbreviation for died"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "ARNE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "LE",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "half of a four-letter word keeps only two of its letters, here the front pair"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "left",
+         "gives": "LE",
+         "select": "first",
+         "note": "the first half of the word left"
+        }
+       ]
+      },
+      {
+       "words": "composer",
+       "gives": "ARNE",
+       "note": "Thomas Arne, the English composer of Rule, Britannia"
+      },
+      {
+       "words": "died",
+       "gives": "D",
+       "note": "D is the standard abbreviation for died"
+      }
      ]
     },
     "explanation": {
@@ -113,26 +106,25 @@
    },
    "solution": "EARACHE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EARACHE",
     "definitions": [
      {
       "text": "Listener's complaint",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Listener's complaint",
-      "note": "surface reading: a grumble from a radio listener"
-     },
-     {
-      "clueFragment": "Listener's complaint",
-      "note": "setter's reading: an ailment of the organ one listens with"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Listener's complaint",
+       "note": "surface reading: a grumble from a radio listener"
+      },
+      {
+       "words": "Listener's complaint",
+       "note": "setter's reading: an ailment of the organ one listens with"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A listener here is not a member of the radio audience but an ear, and the complaint is a medical one.",
      "definitionFit": "An earache is a pain in the ear, a complaint in the medical sense of an ailment."
@@ -159,28 +151,16 @@
    },
    "solution": "RANGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RANGE",
     "definitions": [
      {
       "text": "Scope",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: extent or reach"
      },
      {
       "text": "for target practice?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scope",
-      "note": "first meaning: extent or reach"
-     },
-     {
-      "clueFragment": "for target practice?",
-      "note": "second meaning: a place laid out for shooting at targets"
+      "at": 6,
+      "meaning": "second meaning: a place laid out for shooting at targets"
      }
     ],
     "explanation": {
@@ -209,49 +189,45 @@
    },
    "solution": "EXHUMED",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EXHUMED",
     "definitions": [
      {
       "text": "dug out",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the match's tip is placed in the coloured word, sitting inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old flame",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "coloured",
-      "gives": "HUED",
-      "note": "hued means coloured"
-     },
-     {
-      "clueFragment": "matchhead",
-      "gives": "M",
-      "select": "first",
-      "note": "the head, or first letter, of match"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "HU",
-      "M",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old flame",
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the match's tip is placed in the coloured word, sitting inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coloured",
+         "gives": "HUED",
+         "note": "hued means coloured"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "matchhead",
+           "note": "the head, or first letter, of match"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -280,40 +256,31 @@
    },
    "solution": "DERIDED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DERIDED",
     "definitions": [
      {
       "text": "Hooted at",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after free admission",
-      "for": "container",
-      "note": "a performance that has admitted something now holds it inside, so the word for free goes within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "performance",
-      "gives": "DEED",
-      "note": "a deed is an act or performance"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "to rid is to free of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "RID",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after free admission",
+       "note": "a performance that has admitted something now holds it inside, so the word for free goes within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "performance",
+       "gives": "DEED",
+       "note": "a deed is an act or performance"
+      },
+      {
+       "words": "free",
+       "gives": "RID",
+       "note": "to rid is to free of something"
+      }
      ]
     },
     "explanation": {
@@ -342,40 +309,31 @@
    },
    "solution": "EROTIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EROTIC",
     "definitions": [
      {
       "text": "Amorous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bearing",
-      "for": "container",
-      "note": "a schoolboy bearing something carries it, holding it within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "schoolboy",
-      "gives": "ERIC",
-      "note": "Eric, hero of the Victorian school story Eric, or Little by Little"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "OT",
-      "note": "OT, the Old Testament, a book of the Bible"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ER",
-      "OT",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bearing",
+       "note": "a schoolboy bearing something carries it, holding it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "schoolboy",
+       "gives": "ERIC",
+       "note": "Eric, hero of the Victorian school story Eric, or Little by Little"
+      },
+      {
+       "words": "book",
+       "gives": "OT",
+       "note": "OT, the Old Testament, a book of the Bible"
+      }
      ]
     },
     "explanation": {
@@ -410,39 +368,28 @@
    },
    "solution": "INFETTERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "IN FETTERS",
     "definitions": [
      {
       "text": "'tisn't free",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "In other words",
-      "for": "anagram",
-      "note": "put into other words, the phrase is recast with its letters in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'tisn't free",
-      "gives": "TISNTFREE",
-      "note": "the letters of tisn't free"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TISNTFREE",
-       "gives": "INFETTERS"
+       "text": "In other words",
+       "note": "put into other words, the phrase is recast with its letters in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'tisn't free",
+       "note": "the letters of tisn't free"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Put plainly, it is not free of charge.",
      "walkthrough": "The surface suggests a price; the letters of tisn't free, put into other words, give IN FETTERS, which itself means not free.",
@@ -470,63 +417,65 @@
    },
    "solution": "ESCHEAT",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESCHEAT",
     "definitions": [
      {
       "text": "forfeiture",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "the animal leaves the word, so its letters are taken out"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the letter is put in the headgear, sitting inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Escape",
-      "gives": "ESCAPE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Monkey",
-      "gives": "APE",
-      "note": "an ape is a monkey in loose usage"
-     },
-     {
-      "clueFragment": "headgear",
-      "gives": "HAT",
-      "note": "a hat is headgear"
-     },
-     {
-      "clueFragment": "starting east",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESC",
-      "H",
-      "E",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "the animal leaves the word, so its letters are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Escape",
+         "note": "taken as written"
+        },
+        {
+         "words": "Monkey",
+         "gives": "APE",
+         "note": "an ape is a monkey in loose usage"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letter is put in the headgear, sitting inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "headgear",
+         "gives": "HAT",
+         "note": "a hat is headgear"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "E",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "starting east",
+           "gives": "E",
+           "select": "first",
+           "note": "the first letter of east"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -562,38 +511,24 @@
    },
    "solution": "FAIRTREATMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FAIR TREATMENT",
     "definitions": [
      {
       "text": "The sort of justice",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "makes",
-      "for": "anagram",
-      "note": "the name and the adjective are made into something new, their letters reworked"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Martine fatter",
-      "gives": "MARTINEFATTER",
-      "note": "the letters of the two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MARTINEFATTER",
-       "gives": "FAIRTREATMENT"
+       "text": "makes",
+       "note": "the name and the adjective are made into something new, their letters reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Martine fatter",
+       "note": "the letters of the two words"
       }
      ]
     },
@@ -623,43 +558,25 @@
    },
    "solution": "BRAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BRAN",
     "definitions": [
      {
       "text": "husks",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "modified",
-      "for": "anagram",
-      "note": "something modified has been altered, so the inner letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Interior of farm building",
-      "gives": "BARN",
-      "note": "a barn is a farm building; only its interior, the middle pair, is changed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RA",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AR",
-       "gives": "RA"
+       "text": "modified",
+       "note": "something modified has been altered, so the inner letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Interior of farm building",
+       "gives": "BARN",
+       "note": "a barn is a farm building; only its interior, the middle pair, is changed"
       }
      ]
     },
@@ -695,35 +612,25 @@
    },
    "solution": "HEADOFFICE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEAD OFFICE",
     "definitions": [
      {
       "text": "Main administrative centre",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deflect",
-      "gives": "HEAD OFF",
-      "note": "to head off is to divert or turn aside"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "ICE",
-      "note": "ice is slang for diamonds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEADOFF",
-      "ICE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deflect",
+       "gives": "HEADOFF",
+       "note": "to head off is to divert or turn aside"
+      },
+      {
+       "words": "diamonds",
+       "gives": "ICE",
+       "note": "ice is slang for diamonds"
+      }
      ]
     },
     "explanation": {
@@ -751,50 +658,41 @@
    },
    "solution": "SCREAM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCREAM",
     "definitions": [
      {
       "text": "Outcry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centre of",
-      "for": "letter_selection",
-      "note": "the centre of a five-letter word is its third letter alone"
-     },
-     {
-      "text": "crossing",
-      "for": "container",
-      "note": "a runner crossing something straddles it, so that letter sits within"
-     }
-    ],
-    "linkWords": [
-     "caused by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "well known runner",
-      "gives": "SCRAM",
-      "note": "scram! is the familiar order to run off, the setter's runner"
-     },
-     {
-      "clueFragment": "arena",
-      "gives": "E",
-      "select": "middle",
-      "note": "the middle letter of arena"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCR",
-      "E",
-      "AM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "note": "a runner crossing something straddles it, so that letter sits within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "well known runner",
+       "gives": "SCRAM",
+       "note": "scram! is the familiar order to run off, the setter's runner"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "note": "the centre of a five-letter word is its third letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arena",
+         "note": "the middle letter of arena"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -829,36 +727,25 @@
    },
    "solution": "RAINTREE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAIN-TREE",
     "definitions": [
      {
       "text": "Member of mimosa family",
       "at": 0
      }
     ],
-    "linkWords": [
-     "puts",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     },
-     {
-      "clueFragment": "course",
-      "gives": "AINTREE",
-      "note": "Aintree is the racecourse near Liverpool where the Grand National is run"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AINTREE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      },
+      {
+       "words": "course",
+       "gives": "AINTREE",
+       "note": "Aintree is the racecourse near Liverpool where the Grand National is run"
+      }
      ]
     },
     "explanation": {
@@ -886,67 +773,62 @@
    },
    "solution": "LEGENDARY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "LEGENDARY",
     "definitions": [
      {
       "text": "it's fabulous",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "extremely points to the extremes of a word, its outermost letters"
-     },
-     {
-      "text": "wild",
-      "for": "anagram",
-      "note": "a wild garden is untamed and disordered, so its letters run riot"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter"
-     }
-    ],
-    "linkWords": [
-     "seen at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "likeable",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the first and last letters of likeable"
-     },
-     {
-      "clueFragment": "garden",
-      "gives": "GENDAR",
-      "note": "garden rearranged"
-     },
-     {
-      "clueFragment": "May",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of May"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "GENDAR",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LEGENDARY",
+     "indicators": [
       {
-       "fodder": "GARDEN",
-       "gives": "GENDAR"
+       "text": "wild",
+       "note": "a wild garden is untamed and disordered, so its letters run riot"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "Extremely",
+           "note": "extremely points to the extremes of a word, its outermost letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "likeable",
+           "note": "the first and last letters of likeable"
+          }
+         ]
+        },
+        {
+         "words": "garden",
+         "gives": "GENDAR",
+         "note": "garden rearranged"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "the end of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "May",
+           "note": "the last letter of May"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -975,47 +857,41 @@
    },
    "solution": "EMBODYING",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EMBODYING",
     "definitions": [
      {
       "text": "Incorporating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "one thing put into another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "oriental",
-      "gives": "E",
-      "note": "E for eastern"
-     },
-     {
-      "clueFragment": "pottery",
-      "gives": "MING",
-      "note": "Ming porcelain, from China's Ming dynasty"
-     },
-     {
-      "clueFragment": "substance",
-      "gives": "BODY",
-      "note": "body is substance, as in a wine with body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "M",
-      "BODY",
-      "ING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "oriental",
+       "gives": "E",
+       "note": "E for eastern"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "note": "one thing put into another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pottery",
+         "gives": "MING",
+         "note": "Ming porcelain, from China's Ming dynasty"
+        },
+        {
+         "words": "substance",
+         "gives": "BODY",
+         "note": "body is substance, as in a wine with body"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1044,44 +920,35 @@
    },
    "solution": "PETTY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PETTY",
     "definitions": [
      {
       "text": "Trifling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initiated",
-      "for": "letter_selection",
-      "note": "something initiated has only just begun, so only the word's opening letter counts"
-     }
-    ],
-    "linkWords": [
-     "against"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "protest",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of protest"
-     },
-     {
-      "clueFragment": "British painter",
-      "gives": "ETTY",
-      "note": "William Etty, the Victorian painter of nudes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ETTY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initiated",
+         "note": "something initiated has only just begun, so only the word's opening letter counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "protest",
+         "note": "the first letter of protest"
+        }
+       ]
+      },
+      {
+       "words": "British painter",
+       "gives": "ETTY",
+       "note": "William Etty, the Victorian painter of nudes"
+      }
      ]
     },
     "explanation": {
@@ -1109,43 +976,31 @@
    },
    "solution": "ADOBE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ADOBE",
     "definitions": [
      {
       "text": "House builder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "a party held in a person sits inside that name"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lincoln",
-      "gives": "ABE",
-      "note": "Abe, the familiar name of Abraham Lincoln"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DO",
-      "BE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "a party held in a person sits inside that name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lincoln",
+       "gives": "ABE",
+       "note": "Abe, the familiar name of Abraham Lincoln"
+      },
+      {
+       "words": "party",
+       "gives": "DO",
+       "note": "a do is a party"
+      }
      ]
     },
     "explanation": {
@@ -1180,47 +1035,41 @@
    },
    "solution": "DEEPEND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DEEP END",
     "definitions": [
      {
       "text": "part of the pool",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "a word's start is its first letter only"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to hang about something is to surround it, so that letter goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to hang",
-      "gives": "DEPEND",
-      "note": "to depend is, in an old sense, to hang down from"
-     },
-     {
-      "clueFragment": "Everybody",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of everybody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "E",
-      "PEND"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to hang about something is to surround it, so that letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to hang",
+       "gives": "DEPEND",
+       "note": "to depend is, in an old sense, to hang down from"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "note": "a word's start is its first letter only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everybody",
+         "note": "the first letter of everybody"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1249,52 +1098,51 @@
    },
    "solution": "BALLISTIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BALLISTIC",
     "definitions": [
      {
       "text": "Kind missile may be",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "letters placed in a sea sit inside that sea's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sea",
-      "gives": "BALTIC",
-      "note": "the Baltic Sea of northern Europe"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L for left"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S for second"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAL",
-      "L",
-      "I",
-      "S",
-      "TIC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "letters placed in a sea sit inside that sea's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "sea",
+           "gives": "BALTIC",
+           "note": "the Baltic Sea of northern Europe"
+          },
+          {
+           "words": "left",
+           "gives": "L",
+           "note": "L for left"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S for second"
+      }
      ]
     },
     "explanation": {
@@ -1323,48 +1171,35 @@
    },
    "solution": "LEMURIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LEMURIA",
     "definitions": [
      {
       "text": "hypothetical land",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "redrafted",
-      "for": "anagram",
-      "note": "a redrafted text is rewritten, so the name's letters take a new order"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muriel's",
-      "gives": "MURIEL",
-      "note": "the name, with 's meaning is"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a, the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEMURI",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MURIEL",
-       "gives": "LEMURI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "redrafted",
+         "note": "a redrafted text is rewritten, so the name's letters take a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Muriel's",
+         "gives": "MURIEL",
+         "note": "the name, with 's meaning is"
+        }
+       ]
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "a, the indefinite article"
       }
      ]
     },
@@ -1399,55 +1234,50 @@
    },
    "solution": "INSHAPE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IN SHAPE",
     "definitions": [
      {
       "text": "Fit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "installing",
-      "for": "container",
-      "note": "the female installing something houses it within"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a fashionable",
-      "gives": "IN",
-      "note": "in means fashionable"
-     },
-     {
-      "clueFragment": "fe male",
-      "gives": "SHE",
-      "note": "she, a female"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p, the musical mark for soft (piano)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SH",
-      "AP",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "installing",
+       "note": "the female installing something houses it within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a fashionable",
+         "gives": "IN",
+         "note": "in means fashionable"
+        },
+        {
+         "words": "fe male",
+         "gives": "SHE",
+         "note": "she, a female"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "piano",
+         "gives": "P",
+         "note": "p, the musical mark for soft (piano)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1476,58 +1306,49 @@
    },
    "solution": "ALBINO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ALBINO",
     "definitions": [
      {
       "text": "being short of pigment",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning",
-      "for": "letter_selection",
-      "note": "a beginning is a word's first letter, used for both words that follow"
-     }
-    ],
-    "linkWords": [
-     "to",
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artist",
-      "gives": "A",
-      "select": "first",
-      "note": "the first letter of artist"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "L",
-      "select": "first",
-      "note": "the first letter of look"
-     },
-     {
-      "clueFragment": "container",
-      "gives": "BIN",
-      "note": "a bin is a container"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is round in shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "BIN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "note": "a beginning is a word's first letter, used for both words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Artist",
+         "note": "the first letter of artist"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "look",
+         "note": "the first letter of look"
+        }
+       ]
+      },
+      {
+       "words": "container",
+       "gives": "BIN",
+       "note": "a bin is a container"
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is round in shape"
+      }
      ]
     },
     "explanation": {
@@ -1555,38 +1376,24 @@
    },
    "solution": "PENDULUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PENDULUM",
     "definitions": [
      {
       "text": "that goes from side to side",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "variety",
-      "for": "anagram",
-      "note": "a variety is a different form, so the letters take on another arrangement"
-     }
-    ],
-    "linkWords": [
-     "The"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unplumed",
-      "gives": "UNPLUMED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UNPLUMED",
-       "gives": "PENDULUM"
+       "text": "variety",
+       "note": "a variety is a different form, so the letters take on another arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unplumed",
+       "note": "taken as written"
       }
      ]
     },
@@ -1616,35 +1423,25 @@
    },
    "solution": "MODEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MODEST",
     "definitions": [
      {
       "text": "Simple",
       "at": 0
      }
     ],
-    "linkWords": [
-     "associated with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "style",
-      "gives": "MODE",
-      "note": "a mode is a style or fashion"
-     },
-     {
-      "clueFragment": "holy man",
-      "gives": "ST",
-      "note": "ST, abbreviation for saint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MODE",
-      "ST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "style",
+       "gives": "MODE",
+       "note": "a mode is a style or fashion"
+      },
+      {
+       "words": "holy man",
+       "gives": "ST",
+       "note": "ST, abbreviation for saint"
+      }
      ]
     },
     "explanation": {
@@ -1671,32 +1468,25 @@
    },
    "solution": "DROPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DROPS",
     "definitions": [
      {
       "text": "Possible treatment for eye",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "doctor",
-      "gives": "DR",
-      "note": "DR, abbreviation for doctor"
-     },
-     {
-      "clueFragment": "works",
-      "gives": "OPS",
-      "note": "ops, plural of op, short for opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "OPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "gives": "DR",
+       "note": "DR, abbreviation for doctor"
+      },
+      {
+       "words": "works",
+       "gives": "OPS",
+       "note": "ops, plural of op, short for opus, a work"
+      }
      ]
     },
     "explanation": {
@@ -1725,41 +1515,30 @@
    },
    "solution": "PETITIONER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PETITIONER",
     "definitions": [
      {
       "text": "One requesting",
       "at": 0
      }
     ],
-    "linkWords": [
-     "goes before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "PETIT",
-      "note": "petit is French for small"
-     },
-     {
-      "clueFragment": "charge",
-      "gives": "ION",
-      "note": "an ion is an electrically charged particle"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "ER, for Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PETIT",
-      "ION",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "PETIT",
+       "note": "petit is French for small"
+      },
+      {
+       "words": "charge",
+       "gives": "ION",
+       "note": "an ion is an electrically charged particle"
+      },
+      {
+       "words": "Queen",
+       "gives": "ER",
+       "note": "ER, for Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -1787,35 +1566,25 @@
    },
    "solution": "OPAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPAL",
     "definitions": [
      {
       "text": "Stone",
       "at": 0
      }
     ],
-    "linkWords": [
-     "finished off with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is the abbreviation for opus, a work"
-     },
-     {
-      "clueFragment": "aluminium",
-      "gives": "AL",
-      "note": "Al is the chemical symbol for aluminium"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op. is the abbreviation for opus, a work"
+      },
+      {
+       "words": "aluminium",
+       "gives": "AL",
+       "note": "Al is the chemical symbol for aluminium"
+      }
      ]
     },
     "explanation": {
@@ -1844,59 +1613,50 @@
    },
    "solution": "ADAGIOS",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADAGIOS",
     "definitions": [
      {
       "text": "slow movements",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "entry in",
-      "for": "container",
-      "note": "an entry into something goes inside it"
-     },
-     {
-      "text": "production",
-      "for": "anagram",
-      "note": "a new production of an opera restages it, so its letters are put in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grand",
-      "gives": "G",
-      "note": "G is the abbreviation for grand, a thousand"
-     },
-     {
-      "clueFragment": "Aida",
-      "gives": "AIDA",
-      "note": "Verdi's opera"
-     },
-     {
-      "clueFragment": "big",
-      "gives": "OS",
-      "note": "OS for outsize"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADAGI",
-      "OS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AIDAG",
-       "gives": "ADAGI"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entry in",
+         "note": "an entry into something goes inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "production",
+           "note": "a new production of an opera restages it, so its letters are put in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Aida",
+           "note": "Verdi's opera"
+          }
+         ]
+        },
+        {
+         "words": "Grand",
+         "gives": "G",
+         "note": "G is the abbreviation for grand, a thousand"
+        }
+       ]
+      },
+      {
+       "words": "big",
+       "gives": "OS",
+       "note": "OS for outsize"
       }
      ]
     },
@@ -1925,43 +1685,31 @@
    },
    "solution": "BANSHEE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BANSHEE",
     "definitions": [
      {
       "text": "Ghost",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in grip of",
-      "for": "container",
-      "note": "whatever is held in something's grip is enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poison",
-      "gives": "BANE",
-      "note": "bane is an old word for poison, as in henbane"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "SHE",
-      "note": "she, the female pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "SHE",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in grip of",
+       "note": "whatever is held in something's grip is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poison",
+       "gives": "BANE",
+       "note": "bane is an old word for poison, as in henbane"
+      },
+      {
+       "words": "female",
+       "gives": "SHE",
+       "note": "she, the female pronoun"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "times-29225",
  "number": 29225,
- "series": "times",
- "name": "Times cryptic crossword No 29,225",
  "date": "2025-05-09",
  "dimensions": {
   "cols": 15,
@@ -47,26 +45,25 @@
    },
    "solution": "SPEEDCHESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPEED CHESS",
     "definitions": [
      {
       "text": "In which rook may fly to mate?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "rook may fly",
-      "note": "the surface pictures a black bird in flight; the setter means the castle piece moved swiftly across the board"
-     },
-     {
-      "clueFragment": "to mate",
-      "note": "the surface suggests a bird seeking a partner; the setter means delivering checkmate"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "rook may fly",
+       "note": "the surface pictures a black bird in flight; the setter means the castle piece moved swiftly across the board"
+      },
+      {
+       "words": "to mate",
+       "note": "the surface suggests a bird seeking a partner; the setter means delivering checkmate"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A rook, the bird, flies off to find a partner.",
      "walkthrough": "Rook and mate read as birdlife and courtship; both are chess terms, and 'fly' describes how quickly the pieces move in a game against the clock.",
@@ -94,52 +91,56 @@
    },
    "solution": "PENSIONS",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PENSIONS",
     "definitions": [
      {
       "text": "Boarding houses",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "note": "to keep something is to hold it"
-     },
-     {
-      "text": "essentially",
-      "note": "the essence, the middle, of quiet"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "confine",
-      "gives": "PEN",
-      "note": "to pen is to confine"
-     },
-     {
-      "clueFragment": "children",
-      "gives": "SONS",
-      "note": "sons are children"
-     },
-     {
-      "clueFragment": "quiet essentially",
-      "gives": "I",
-      "select": "middle",
-      "note": "middle letter of quiet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "S",
-      "I",
-      "ONS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to keep",
+       "note": "to keep something is to hold it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "confine",
+       "gives": "PEN",
+       "note": "to pen is to confine"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "the essence, the middle, of quiet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "children",
+         "gives": "SONS",
+         "note": "sons are children"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "I",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "quiet essentially",
+           "gives": "I",
+           "select": "middle",
+           "note": "middle letter of quiet"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -168,37 +169,30 @@
    },
    "solution": "EWE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EWE",
     "definitions": [
      {
       "text": "sheep",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Stopping for",
-      "for": "letter_selection",
-      "note": "the stopping, the filling, of the word"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stopping for a smaller number",
-      "gives": "EWE",
-      "select": "middle",
-      "note": "the middle of FEWER, a smaller number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EWE"
+    "wordplay": {
+     "op": "middle",
+     "unchecked": true,
+     "gives": "EWE",
+     "indicators": [
+      {
+       "text": "Stopping for",
+       "note": "the stopping, the filling, of the word"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Stopping for a smaller number",
+       "gives": "EWE",
+       "select": "middle",
+       "note": "the middle of FEWER, a smaller number"
+      }
      ]
     },
     "explanation": {
@@ -227,44 +221,36 @@
    },
    "solution": "CACHE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CACHE",
     "definitions": [
      {
       "text": "store",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "First hint of",
-      "for": "letter_selection",
-      "note": "take the first letter of chest"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First hint of chest",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of chest"
-     },
-     {
-      "clueFragment": "pain",
-      "gives": "ACHE",
-      "note": "an ache is a pain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ACHE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First hint of",
+         "note": "take the first letter of chest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "First hint of chest",
+         "gives": "CHEST",
+         "note": "first letter of chest"
+        }
+       ]
+      },
+      {
+       "words": "pain",
+       "gives": "ACHE",
+       "note": "an ache is a pain"
+      }
      ]
     },
     "explanation": {
@@ -299,60 +285,60 @@
    },
    "solution": "ENMASSE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "EN MASSE",
     "definitions": [
      {
       "text": "in a group",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Turned out",
-      "for": "letter_selection",
-      "note": "only the outside of 'active' is used, its inside is thrown out"
-     },
-     {
-      "text": "working",
-      "note": "the letters are set to work in a new order"
-     },
-     {
-      "text": "round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turned out active",
-      "gives": "AE",
-      "select": "outer",
-      "note": "outer letters of active"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "MEN",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS = steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENMA",
-      "SS",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AEMEN",
-       "gives": "ENMAE"
+       "text": "working",
+       "note": "the letters are set to work in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "round"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "Turned out",
+             "note": "only the outside of 'active' is used, its inside is thrown out"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Turned out active",
+             "gives": "ACTIVE",
+             "note": "outer letters of active"
+            }
+           ]
+          },
+          {
+           "words": "men",
+           "note": "taken as it stands"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS = steamship"
       }
      ]
     },
@@ -382,53 +368,45 @@
    },
    "solution": "SPEARMINT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SPEARMINT",
     "definitions": [
      {
       "text": "Herb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "saving",
-      "for": "container",
-      "note": "to save something is to keep it safe"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "succeeded",
-      "gives": "S",
-      "note": "s = succeeded, in family trees"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "PER",
-      "note": "per = by, as in per post"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "great deal of money",
-      "gives": "MINT",
-      "note": "a mint is a vast sum"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PE",
-      "A",
-      "R",
-      "MINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "succeeded",
+       "gives": "S",
+       "note": "s = succeeded, in family trees"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "saving",
+         "note": "to save something is to keep it safe"
+        }
+       ],
+       "parts": [
+        {
+         "words": "by",
+         "gives": "PER",
+         "note": "per = by, as in per post"
+        },
+        {
+         "words": "a",
+         "note": "taken as it stands"
+        }
+       ]
+      },
+      {
+       "words": "great deal of money",
+       "gives": "MINT",
+       "note": "a mint is a vast sum"
+      }
      ]
     },
     "explanation": {
@@ -457,33 +435,28 @@
    },
    "solution": "UNIT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UNIT",
     "definitions": [
      {
       "text": "One",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half of",
-      "for": "deletion",
-      "note": "keep only the second half of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "half of crime mystery",
-      "gives": "UNIT",
-      "note": "the back half of WHODUNIT, a crime mystery"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNIT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNIT",
+     "indicators": [
+      {
+       "text": "half of",
+       "note": "keep only the second half of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "half of crime mystery",
+       "gives": "UNIT",
+       "note": "the back half of WHODUNIT, a crime mystery"
+      }
      ]
     },
     "explanation": {
@@ -518,53 +491,52 @@
    },
    "solution": "UNCALLEDFOR",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "UNCALLED-FOR",
     "definitions": [
      {
       "text": "Undesirable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "amended",
-      "note": "the letters are corrected into a new order"
-     },
-     {
-      "text": "checks"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "under FO",
-      "gives": "UN",
-      "note": "start of UNDERFO rearranged"
-     },
-     {
-      "clueFragment": "decision",
-      "gives": "CALL",
-      "note": "a referee's call is a decision"
-     },
-     {
-      "clueFragment": "under FO",
-      "gives": "EDFOR",
-      "note": "rest of UNDERFO rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "CALL",
-      "EDFOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNCALLEDFOR",
+     "parts": [
       {
-       "fodder": "UNDERFO",
-       "gives": "UNEDFOR"
+       "op": "container",
+       "unchecked": true,
+       "gives": "UNCALLEDFOR",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "amended",
+           "note": "the letters are corrected into a new order"
+          },
+          {
+           "text": "checks"
+          }
+         ],
+         "parts": [
+          {
+           "words": "under FO",
+           "gives": "UN",
+           "note": "start of UNDERFO rearranged"
+          },
+          {
+           "words": "decision",
+           "gives": "CALL",
+           "note": "a referee's call is a decision"
+          },
+          {
+           "words": "under FO",
+           "gives": "EDFOR",
+           "note": "rest of UNDERFO rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -594,32 +566,25 @@
    },
    "solution": "INSECT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSECT",
     "definitions": [
      {
       "text": "Wretched person",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "belonging to",
-      "gives": "IN",
-      "note": "in a club = belonging to it"
-     },
-     {
-      "clueFragment": "religious faction",
-      "gives": "SECT",
-      "note": "a sect is a religious faction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SECT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "belonging to",
+       "gives": "IN",
+       "note": "in a club = belonging to it"
+      },
+      {
+       "words": "religious faction",
+       "gives": "SECT",
+       "note": "a sect is a religious faction"
+      }
      ]
     },
     "explanation": {
@@ -647,53 +612,55 @@
    },
    "solution": "INTERCOM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "INTERCOM",
     "definitions": [
      {
       "text": "Communication device",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "note": "take the first letter of 'malfunction'"
-     },
-     {
-      "text": "on"
-     },
-     {
-      "text": "clapped-out",
-      "note": "a clapped-out car is worn out and falling apart, so its letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clapped-out Citroën",
-      "gives": "INTERCO",
-      "note": "CITROEN rearranged"
-     },
-     {
-      "clueFragment": "beginning to malfunction",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of malfunction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTERCO",
-      "M"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INTERCOM",
+     "parts": [
       {
-       "fodder": "CITROEN",
-       "gives": "INTERCO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "take the first letter of 'malfunction'"
+        },
+        {
+         "text": "clapped-out",
+         "note": "a clapped-out car is worn out and falling apart, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clapped-out Citroën",
+         "gives": "INTERCO",
+         "note": "CITROEN rearranged"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "M",
+         "indicators": [
+          {
+           "text": "on"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beginning to malfunction",
+           "gives": "M",
+           "select": "first",
+           "note": "first letter of malfunction"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -723,58 +690,61 @@
    },
    "solution": "ENCASH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ENCASH",
     "definitions": [
      {
       "text": "Exchange for notes and coins",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "banks in",
-      "note": "the banks of Elgin are its edges, E and N"
-     },
-     {
-      "text": "early as possible?",
-      "for": "letter_selection",
-      "note": "the earliest letter of 'close'"
-     },
-     {
-      "text": "after"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "banks in Elgin",
-      "gives": "EN",
-      "select": "outer",
-      "note": "outer letters of Elgin"
-     },
-     {
-      "clueFragment": "close as early as possible?",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of close"
-     },
-     {
-      "clueFragment": "remains",
-      "gives": "ASH",
-      "note": "ash is what remains after burning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "C",
-      "ASH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "banks in",
+       "note": "the banks of Elgin are its edges, E and N"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "EN",
+       "indicators": [
+        {
+         "text": "early as possible?",
+         "note": "the earliest letter of 'close'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "banks in Elgin",
+         "gives": "EN",
+         "select": "outer",
+         "note": "outer letters of Elgin"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close as early as possible?",
+         "gives": "CLOSEAS",
+         "note": "first letter of close"
+        }
+       ]
+      },
+      {
+       "words": "remains",
+       "gives": "ASH",
+       "note": "ash is what remains after burning"
+      }
      ]
     },
     "explanation": {
@@ -804,43 +774,42 @@
    },
    "solution": "DIMPLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DIMPLE",
     "definitions": [
      {
       "text": "dent",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in which",
-      "note": "points to the rod as the word the O is taken from"
-     },
-     {
-      "text": "leaves",
-      "note": "the O goes away from POLE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thick",
-      "gives": "DIM",
-      "note": "thick = dim, stupid"
-     },
-     {
-      "clueFragment": "rod in which nothing leaves",
-      "gives": "PLE",
-      "note": "POLE without O, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIM",
-      "PLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DIMPLE",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in which",
+         "note": "points to the rod as the word the O is taken from"
+        },
+        {
+         "text": "leaves",
+         "note": "the O goes away from POLE"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Thick",
+         "gives": "DIM",
+         "note": "thick = dim, stupid"
+        },
+        {
+         "words": "rod in which nothing leaves",
+         "gives": "PLE",
+         "note": "POLE without O, nothing"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -875,67 +844,66 @@
    },
    "solution": "POOHPOOHING",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "POOH-POOHING",
     "definitions": [
      {
       "text": "Ridiculing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "note": "in a down clue the word runs upwards"
-     },
-     {
-      "text": "repeatedly",
-      "note": "the reversed band appears twice"
-     },
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle letter of night"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "band turning up",
-      "gives": "POOH",
-      "note": "HOOP, a band, upside down"
-     },
-     {
-      "clueFragment": "repeatedly",
-      "gives": "POOH",
-      "note": "the same again"
-     },
-     {
-      "clueFragment": "during",
-      "gives": "IN",
-      "note": "in = during, as in 'in the night'"
-     },
-     {
-      "clueFragment": "middle of night",
-      "gives": "G",
-      "select": "middle",
-      "note": "middle letter of night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POOH",
-      "POOH",
-      "IN",
-      "G"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "POOHPOOHING",
+     "parts": [
       {
-       "from": "HOOP",
-       "to": "POOH"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue the word runs upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "band turning up",
+         "gives": "POOH",
+         "note": "HOOP, a band, upside down"
+        },
+        {
+         "words": "repeatedly",
+         "gives": "POOH",
+         "note": "the same again"
+        },
+        {
+         "words": "during",
+         "gives": "IN",
+         "note": "in = during, as in 'in the night'"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "G",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "note": "the reversed band appears twice"
+          },
+          {
+           "text": "middle of",
+           "note": "the middle letter of night"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "middle of night",
+           "gives": "G",
+           "select": "middle",
+           "note": "middle letter of night"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -965,43 +933,38 @@
    },
    "solution": "SURPLICE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SURPLICE",
     "definitions": [
      {
       "text": "vestment",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Repeatedly cut",
-      "for": "deletion",
-      "note": "the last letter is cut off twice"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Repeatedly cut extra",
-      "gives": "SURPL",
-      "note": "SURPLUS, extra, loses its last two letters"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "ICE",
-      "note": "ice is slang for diamonds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURPL",
-      "ICE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SURPLICE",
+     "indicators": [
+      {
+       "text": "Repeatedly cut",
+       "note": "the last letter is cut off twice"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Repeatedly cut extra",
+         "gives": "SURPL",
+         "note": "SURPLUS, extra, loses its last two letters"
+        },
+        {
+         "words": "diamonds",
+         "gives": "ICE",
+         "note": "ice is slang for diamonds"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1044,38 +1007,27 @@
    },
    "solution": "ENDOFTHELINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "END OF THE LINE",
     "definitions": [
      {
       "text": "where going on would be futile",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Somehow",
-      "for": "anagram",
-      "note": "the letters come together some other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "he felt done in",
-      "gives": "ENDOFTHELINE",
-      "note": "HEFELTDONEIN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENDOFTHELINE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENDOFTHELINE",
+     "indicators": [
       {
-       "fodder": "HEFELTDONEIN",
-       "gives": "ENDOFTHELINE"
+       "text": "Somehow",
+       "note": "the letters come together some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he felt done in",
+       "gives": "ENDOFTHELINE",
+       "note": "HEFELTDONEIN rearranged"
       }
      ]
     },
@@ -1105,50 +1057,45 @@
    },
    "solution": "TRAITRESS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TRAITRESS",
     "definitions": [
      {
       "text": "Betrayer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heads of",
-      "for": "letter_selection",
-      "note": "the first letters of Security and Service"
-     }
-    ],
-    "linkWords": [
-     "s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "characteristic",
-      "gives": "TRAIT",
-      "note": "a trait is a characteristic"
-     },
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re = concerning"
-     },
-     {
-      "clueFragment": "heads of Security Service",
-      "gives": "SS",
-      "select": "first",
-      "note": "first letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAIT",
-      "RE",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "characteristic",
+       "gives": "TRAIT",
+       "note": "a trait is a characteristic"
+      },
+      {
+       "words": "concerning",
+       "gives": "RE",
+       "note": "re = concerning"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "SS",
+       "indicators": [
+        {
+         "text": "heads of",
+         "note": "the first letters of Security and Service"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "heads of Security Service",
+         "gives": "SS",
+         "select": "first",
+         "note": "first letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1177,50 +1124,42 @@
    },
    "solution": "FREETOWN",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "FREETOWN",
     "definitions": [
      {
       "text": "capital",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     },
-     {
-      "text": "withdrawn",
-      "for": "reversal",
-      "note": "TEE is drawn back, reading upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look of disapproval",
-      "gives": "FROWN",
-      "note": "a frown is a look of disapproval"
-     },
-     {
-      "clueFragment": "withdrawn support",
-      "gives": "EET",
-      "note": "TEE, a golf ball's support, reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "EET",
-      "OWN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "FREETOWN",
+     "indicators": [
       {
-       "from": "TEE",
-       "to": "EET"
+       "text": "withdrawn",
+       "note": "TEE is drawn back, reading upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Look of disapproval",
+         "gives": "FROWN",
+         "note": "a frown is a look of disapproval"
+        },
+        {
+         "words": "withdrawn support",
+         "gives": "EET",
+         "note": "TEE, a golf ball's support, reversed"
+        }
+       ]
       }
      ]
     },
@@ -1260,37 +1199,18 @@
    },
    "solution": "PLAYWITHFIRE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLAY WITH FIRE",
     "definitions": [
      {
       "text": "Stage production of Dante's Inferno maybe",
-      "at": 0
+      "at": 0,
+      "meaning": "a drama whose setting is Hell, a place full of flames"
      },
      {
       "text": "put oneself at risk",
-      "at": 42
+      "at": 42,
+      "meaning": "an idiom for courting danger"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Stage production of Dante's Inferno maybe",
-      "gives": "PLAYWITHFIRE",
-      "note": "a drama whose setting is Hell, a place full of flames"
-     },
-     {
-      "clueFragment": "put oneself at risk",
-      "gives": "PLAYWITHFIRE",
-      "note": "an idiom for courting danger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLAYWITHFIRE"
-     ]
-    },
     "explanation": {
      "surface": "A theatre company staging Dante's vision of Hell is taking a gamble.",
      "walkthrough": "The first half is cryptic: the Inferno is the first part of Dante's Divine Comedy, set in a burning Hell.",
@@ -1323,44 +1243,37 @@
    },
    "solution": "WIDEBOY",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "WIDE BOY",
     "definitions": [
      {
       "text": "Dodgy dealer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "homophone",
-      "note": "heard, as a radio picks up a signal"
-     }
-    ],
-    "linkWords": [
-     "s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra",
-      "gives": "WIDE",
-      "note": "a wide is an extra in cricket, a run for a ball bowled out of reach"
-     },
-     {
-      "clueFragment": "float picked up",
-      "gives": "BOY",
-      "soundsLike": "BUOY",
-      "note": "a buoy is a float"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIDE",
-      "BOY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "extra",
+       "gives": "WIDE",
+       "note": "a wide is an extra in cricket, a run for a ball bowled out of reach"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BOY",
+       "indicators": [
+        {
+         "text": "picked up",
+         "note": "heard, as a radio picks up a signal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "float picked up",
+         "gives": "BUOY",
+         "note": "a buoy is a float"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1389,44 +1302,44 @@
    },
    "solution": "ASSISI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ASSISI",
     "definitions": [
      {
       "text": "Umbrian town",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "mainly",
-      "for": "deletion",
-      "note": "most of the word, the last letter dropped"
-     },
-     {
-      "text": "supported by",
-      "note": "in a down clue the I sits beneath"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Help mainly",
-      "gives": "ASSIS",
-      "note": "ASSIST, help, less its last letter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASSIS",
-      "I"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ASSISI",
+     "indicators": [
+      {
+       "text": "mainly",
+       "note": "most of the word, the last letter dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "supported by",
+         "note": "in a down clue the I sits beneath"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Help mainly",
+         "gives": "ASSIS",
+         "note": "ASSIST, help, less its last letter"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1455,53 +1368,53 @@
    },
    "solution": "ASSORTED",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "ASSORTED",
     "definitions": [
      {
       "text": "Classified",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "AD goes over, outside, the other letters"
-     },
-     {
-      "text": "that avoids",
-      "for": "deletion",
-      "note": "the I is left out of SORTIE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "s = second"
-     },
-     {
-      "clueFragment": "excursion that avoids island",
-      "gives": "SORTE",
-      "note": "SORTIE, an excursion, without I for island"
-     },
-     {
-      "clueFragment": "ad",
-      "gives": "AD",
-      "note": "taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "SORTE",
-      "D"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ASSORTED",
+     "indicators": [
+      {
+       "text": "that avoids",
+       "note": "the I is left out of SORTIE"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "note": "AD goes over, outside, the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ad",
+         "note": "taken as it stands"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "second",
+           "gives": "S",
+           "note": "s = second"
+          },
+          {
+           "words": "excursion that avoids island",
+           "gives": "SORTE",
+           "note": "SORTIE, an excursion, without I for island"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1530,39 +1443,31 @@
    },
    "solution": "SURGED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURGED",
     "definitions": [
      {
       "text": "welled up",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "'after' means following in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sons",
-      "gives": "S",
-      "note": "s = sons, as in genealogies"
-     },
-     {
-      "clueFragment": "Moved to act",
-      "gives": "URGED",
-      "note": "urged = moved someone to act"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "URGED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "'after' means following in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sons",
+       "gives": "S",
+       "note": "s = sons, as in genealogies"
+      },
+      {
+       "words": "Moved to act",
+       "gives": "URGED",
+       "note": "urged = moved someone to act"
+      }
      ]
     },
     "explanation": {
@@ -1591,49 +1496,40 @@
    },
    "solution": "SALVO",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SALVO",
     "definitions": [
      {
       "text": "outburst",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "getting tummy upset",
-      "for": "anagram",
-      "note": "the tummy, the middle of SLAV, is turned over"
-     },
-     {
-      "text": "over",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eastern European getting tummy upset",
-      "gives": "SALV",
-      "note": "SLAV with its middle letters L and A swapped"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "o = over, cricket abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SALV",
-      "O"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SALVO",
+     "indicators": [
       {
-       "fodder": "LA",
-       "gives": "AL"
+       "text": "getting tummy upset",
+       "note": "the tummy, the middle of SLAV, is turned over"
+      },
+      {
+       "text": "over"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Eastern European getting tummy upset",
+         "gives": "SALV",
+         "note": "SLAV with its middle letters L and A swapped"
+        },
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "o = over, cricket abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1663,46 +1559,44 @@
    },
    "solution": "RIBIBE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "RIBIBE",
     "definitions": [
      {
       "text": "Old instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "'mostly' means not quite all, so the word is used minus its final letter"
-     },
-     {
-      "text": "seen outside",
-      "for": "container",
-      "note": "to be seen outside something is to be around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with ridges mostly",
-      "gives": "RIBBE",
-      "note": "RIBBED, with ridges, less its last letter"
-     },
-     {
-      "clueFragment": "India",
-      "gives": "I",
-      "note": "I is India in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIB",
-      "I",
-      "BE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RIBIBE",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "'mostly' means not quite all, so the word is used minus its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "seen outside",
+         "note": "to be seen outside something is to be around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with ridges mostly",
+         "gives": "RIBBE",
+         "note": "RIBBED, with ridges, less its last letter"
+        },
+        {
+         "words": "India",
+         "gives": "I",
+         "note": "I is India in the NATO alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1731,56 +1625,52 @@
    },
    "solution": "BULLFROG",
    "annotation": {
-    "type": [
-     "container",
-     "cycling"
-    ],
-    "answer": "BULLFROG",
     "definitions": [
      {
       "text": "creature",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Cycling",
-      "for": "cycling",
-      "note": "the first letter of FULL is moved round to the end"
-     },
-     {
-      "text": "into",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cycling laden",
-      "gives": "ULLF",
-      "note": "FULL, laden, with F moved to the end"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "r = runs, cricket scoring"
-     },
-     {
-      "clueFragment": "marsh",
-      "gives": "BOG",
-      "note": "a bog is a marsh"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ULLF",
-      "R",
-      "OG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "BULLFROG",
+     "indicators": [
       {
-       "fodder": "FULL",
-       "gives": "ULLF"
+       "text": "Cycling",
+       "note": "the first letter of FULL is moved round to the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "marsh",
+           "gives": "BOG",
+           "note": "a bog is a marsh"
+          },
+          {
+           "words": "runs",
+           "gives": "R",
+           "note": "r = runs, cricket scoring"
+          }
+         ]
+        },
+        {
+         "words": "Cycling laden",
+         "gives": "ULLF",
+         "note": "FULL, laden, with F moved to the end"
+        }
+       ]
       }
      ]
     },
@@ -1810,32 +1700,25 @@
    },
    "solution": "FAH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FAH",
     "definitions": [
      {
       "text": "Note",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "f = female"
-     },
-     {
-      "clueFragment": "that amazes me",
-      "gives": "AH",
-      "note": "ah is what you say in wonder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "AH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "f = female"
+      },
+      {
+       "words": "that amazes me",
+       "gives": "AH",
+       "note": "ah is what you say in wonder"
+      }
      ]
     },
     "explanation": {
@@ -1863,36 +1746,26 @@
    },
    "solution": "MING",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MING",
     "definitions": [
      {
       "text": "certain pottery",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "the answer is a piece of the words that follow"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spectrum in glaze",
-      "gives": "MING",
-      "note": "spectruM IN Glaze"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MING"
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "the answer is a piece of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spectrum in glaze",
+       "gives": "MING",
+       "note": "spectruM IN Glaze"
+      }
      ]
     },
     "explanation": {
@@ -1921,56 +1794,52 @@
    },
    "solution": "STYLOPHONE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "STYLOPHONE",
     "definitions": [
      {
       "text": "way to get a buzz?",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "unexpectedly",
-      "note": "the letters fall into an unexpected order"
-     },
-     {
-      "text": "secures"
-     }
-    ],
-    "linkWords": [
-     "one"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on the sly",
-      "gives": "STYL",
-      "note": "the start of ONTHESLY rearranged"
-     },
-     {
-      "clueFragment": "Work",
-      "gives": "OP",
-      "note": "op = opus, a work"
-     },
-     {
-      "clueFragment": "on the sly",
-      "gives": "HONE",
-      "note": "the rest of ONTHESLY rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STYL",
-      "OP",
-      "HONE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STYLOPHONE",
+     "parts": [
       {
-       "fodder": "ONTHESLY",
-       "gives": "STYLHONE"
+       "op": "container",
+       "unchecked": true,
+       "gives": "STYLOPHONE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "unexpectedly",
+           "note": "the letters fall into an unexpected order"
+          },
+          {
+           "text": "secures"
+          }
+         ],
+         "parts": [
+          {
+           "words": "on the sly",
+           "gives": "STYL",
+           "note": "the start of ONTHESLY rearranged"
+          },
+          {
+           "words": "Work",
+           "gives": "OP",
+           "note": "op = opus, a work"
+          },
+          {
+           "words": "on the sly",
+           "gives": "HONE",
+           "note": "the rest of ONTHESLY rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

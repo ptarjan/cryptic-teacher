@@ -1,8 +1,6 @@
 {
  "id": "times-29240",
  "number": 29240,
- "series": "times",
- "name": "Times cryptic crossword No 29,240",
  "date": "2025-05-27",
  "dimensions": {
   "cols": 15,
@@ -41,48 +39,57 @@
    },
    "solution": "ACCLAIM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone"
-    ],
-    "answer": "ACCLAIM",
     "definitions": [
      {
       "text": "Praise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "Obama's final letter is his last one, A"
-     },
-     {
-      "text": "in speech",
-      "for": "homophone",
-      "note": "spoken out, 'a claim' is heard as one word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Obama's final",
-      "gives": "A",
-      "select": "last",
-      "note": "the last letter of ObamA"
-     },
-     {
-      "clueFragment": "assertion",
-      "gives": "CLAIM",
-      "note": "a claim is an assertion"
-     },
-     {
-      "clueFragment": "in speech",
-      "gives": "ACCLAIM",
-      "soundsLike": "A CLAIM",
-      "note": "the two words spoken together run into a single word of the same sound"
-     }
-    ],
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "ACCLAIM",
+     "indicators": [
+      {
+       "text": "final",
+       "note": "Obama's final letter is his last one, A"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "Obama's final",
+         "gives": "OBAMA",
+         "note": "the last letter of ObamA"
+        }
+       ]
+      },
+      {
+       "words": "assertion",
+       "gives": "CLAIM",
+       "note": "a claim is an assertion"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ACCLAIM",
+       "indicators": [
+        {
+         "text": "in speech",
+         "note": "spoken out, 'a claim' is heard as one word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in speech",
+         "gives": "ACLAIM",
+         "note": "the two words spoken together run into a single word of the same sound"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tribute to a president's last pronouncement in an address.",
      "walkthrough": "'Obama's final assertion' reads as his last statement in office; it is really his last letter followed by a claim, run together as one sound.",
@@ -109,48 +116,37 @@
    },
    "solution": "AJAR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AJAR",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "something that revolves turns round, so the word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "revolutionary period of British rule",
-      "gives": "JAR",
-      "note": "the RAJ, British rule in India, turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "JAR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "AJAR",
+     "indicators": [
       {
-       "from": "RAJ",
-       "to": "JAR"
+       "text": "revolutionary",
+       "note": "something that revolves turns round, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "gives": "A",
+         "note": "the indefinite article"
+        },
+        {
+         "words": "revolutionary period of British rule",
+         "gives": "JAR",
+         "note": "the RAJ, British rule in India, turned round"
+        }
+       ]
       }
      ]
     },
@@ -181,35 +177,25 @@
    },
    "solution": "CHAPMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHAPMAN",
     "definitions": [
      {
       "text": "pedlar of old",
       "at": 19
      }
     ],
-    "linkWords": [
-     "meeting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two blokes",
-      "gives": "CHAP",
-      "note": "one bloke is a chap"
-     },
-     {
-      "clueFragment": "Two blokes",
-      "gives": "MAN",
-      "note": "the second bloke is a man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAP",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two blokes",
+       "gives": "CHAP",
+       "note": "one bloke is a chap"
+      },
+      {
+       "words": "Two blokes",
+       "gives": "MAN",
+       "note": "the second bloke is a man"
+      }
      ]
     },
     "explanation": {
@@ -237,31 +223,29 @@
    },
    "solution": "ALOUD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ALOUD",
     "definitions": [
      {
       "text": "Clearly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the Speaker's",
-      "for": "homophone",
-      "note": "the word as a speaker pronounces it, not as it is written"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "given permission",
-      "gives": "ALOUD",
-      "soundsLike": "ALLOWED",
-      "note": "allowed = given permission; say it and hear a different spelling"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ALOUD",
+     "indicators": [
+      {
+       "text": "the Speaker's",
+       "note": "the word as a speaker pronounces it, not as it is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "given permission",
+       "gives": "ALLOWED",
+       "note": "allowed = given permission; say it and hear a different spelling"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The Commons Speaker has plainly granted leave.",
      "walkthrough": "'The Speaker' looks like the Speaker of the House of Commons, who does grant permission to speak; here it just marks a word that is heard, not read.",
@@ -289,43 +273,38 @@
    },
    "solution": "MOLESKIN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MOLESKIN",
     "definitions": [
      {
       "text": "Hide",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cut short, so the last letter goes"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agent's",
-      "gives": "MOLES",
-      "note": "a mole is a spy planted inside an organisation, with the 's"
-     },
-     {
-      "clueFragment": "ruler briefly",
-      "gives": "KIN",
-      "note": "KING without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOLES",
-      "KIN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MOLESKIN",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "cut short, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "agent's",
+         "gives": "MOLES",
+         "note": "a mole is a spy planted inside an organisation, with the 's"
+        },
+        {
+         "words": "ruler briefly",
+         "gives": "KIN",
+         "note": "KING without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -354,47 +333,41 @@
    },
    "solution": "SANDPIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SANDPIT",
     "definitions": [
      {
       "text": "Recreation area",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "take the final letter of grounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grounds at last",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of groundS"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and = with"
-     },
-     {
-      "clueFragment": "space for people playing",
-      "gives": "PIT",
-      "note": "the orchestra pit, where musicians play"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AND",
-      "PIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "take the final letter of grounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grounds at last",
+         "gives": "GROUNDS",
+         "note": "the last letter of groundS"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "and = with"
+      },
+      {
+       "words": "space for people playing",
+       "gives": "PIT",
+       "note": "the orchestra pit, where musicians play"
+      }
      ]
     },
     "explanation": {
@@ -424,49 +397,46 @@
    },
    "solution": "SPHINX",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SPHINX",
     "definitions": [
      {
       "text": "one not easily understood",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "outside"
-     },
-     {
-      "text": "by",
-      "note": "'by' is the multiplication sign"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Misdemeanour",
-      "gives": "SIN",
-      "note": "a sin is a wrongdoing"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH, public house, as on maps"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "X",
-      "note": "X, the times sign"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PH",
-      "IN",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "outside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "'by' is the multiplication sign"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Misdemeanour",
+         "gives": "SIN",
+         "note": "a sin is a wrongdoing"
+        },
+        {
+         "words": "pub",
+         "gives": "PH",
+         "note": "PH, public house, as on maps"
+        }
+       ]
+      },
+      {
+       "words": "by",
+       "gives": "X",
+       "note": "X, the times sign"
+      }
      ]
     },
     "explanation": {
@@ -495,44 +465,42 @@
    },
    "solution": "NASHVILLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NASHVILLE",
     "definitions": [
      {
       "text": "capital of country",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N = northern"
-     },
-     {
-      "clueFragment": "Remains",
-      "gives": "ASH",
-      "note": "ash is what remains after burning"
-     },
-     {
-      "clueFragment": "French city",
-      "gives": "VILLE",
-      "note": "ville is French for town or city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ASH",
-      "VILLE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NASHVILLE",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "gives": "N",
+         "note": "N = northern"
+        },
+        {
+         "words": "Remains",
+         "gives": "ASH",
+         "note": "ash is what remains after burning"
+        },
+        {
+         "words": "French city",
+         "gives": "VILLE",
+         "note": "ville is French for town or city"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -562,55 +530,40 @@
    },
    "solution": "PILSNER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PILSNER",
     "definitions": [
      {
       "text": "something to drink",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Turning up",
-      "for": "reversal",
-      "note": "in a down clue, turning up means reading from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re = about, concerning"
-     },
-     {
-      "clueFragment": "noon",
-      "gives": "N",
-      "note": "N = noon"
-     },
-     {
-      "clueFragment": "sneak",
-      "gives": "SLIP",
-      "note": "to slip in or out is to sneak"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PILS",
-      "N",
-      "ER"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Turning up",
+       "note": "in a down clue, turning up means reading from bottom to top"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "SLIP",
-       "to": "PILS"
-      },
-      {
-       "from": "RE",
-       "to": "ER"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re = about, concerning"
+        },
+        {
+         "words": "noon",
+         "gives": "N",
+         "note": "N = noon"
+        },
+        {
+         "words": "sneak",
+         "gives": "SLIP",
+         "note": "to slip in or out is to sneak"
+        }
+       ]
       }
      ]
     },
@@ -640,35 +593,24 @@
    },
    "solution": "THREESCORE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THREESCORE",
     "definitions": [
      {
       "text": "Sixty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "resettled",
-      "for": "anagram",
-      "note": "the letters are moved to a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "other Crees",
-      "gives": "OTHERCREES",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OTHER CREES",
-       "gives": "THREESCORE"
+       "text": "resettled",
+       "note": "the letters are moved to a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "other Crees",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -698,50 +640,40 @@
    },
    "solution": "AYATOLLAH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AYATOLLAH",
     "definitions": [
      {
       "text": "religious leader",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "introducing",
-      "for": "container",
-      "note": "the toff takes the island into himself"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "toff",
-      "gives": "YAH",
-      "note": "a yah is a posh British person, from their 'yah' for 'yes'"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "ATOLL",
-      "note": "an atoll is a ring-shaped coral island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "Y",
-      "ATOLL",
-      "AH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as printed"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "introducing",
+         "note": "the toff takes the island into himself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "toff",
+         "gives": "YAH",
+         "note": "a yah is a posh British person, from their 'yah' for 'yes'"
+        },
+        {
+         "words": "island",
+         "gives": "ATOLL",
+         "note": "an atoll is a ring-shaped coral island"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -770,33 +702,25 @@
    },
    "solution": "SOLAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOLAR",
     "definitions": [
      {
       "text": "from the Sun",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Notes",
-      "gives": "SOLA",
-      "note": "so and la, two notes of the sol-fa scale"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R, the physics symbol for resistance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "LA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Notes",
+       "gives": "SOLA",
+       "note": "so and la, two notes of the sol-fa scale"
+      },
+      {
+       "words": "resistance",
+       "gives": "R",
+       "note": "R, the physics symbol for resistance"
+      }
      ]
     },
     "explanation": {
@@ -831,26 +755,25 @@
    },
    "solution": "MADISONAVENUE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MADISON AVENUE",
     "definitions": [
      {
       "text": "Way in which one might get promotion?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Way",
-      "note": "the surface wants a method; the setter means a road, a street name"
-     },
-     {
-      "clueFragment": "in which one might get promotion?",
-      "note": "the surface wants a step up at work; the setter means promotion of products, advertising"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Way",
+       "note": "the surface wants a method; the setter means a road, a street name"
+      },
+      {
+       "words": "in which one might get promotion?",
+       "note": "the surface wants a step up at work; the setter means promotion of products, advertising"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A career question: what is the route to getting promoted?",
      "walkthrough": "'Way' reads as a method and 'promotion' as a step up at work; the way is a street and the promotion is advertising.",
@@ -878,35 +801,24 @@
    },
    "solution": "PERSISTENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PERSISTENT",
     "definitions": [
      {
       "text": "Dogged",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "engineer",
-      "for": "anagram",
-      "note": "to engineer is to rearrange or contrive, here the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enters pits",
-      "gives": "ENTERSPITS",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENTERS PITS",
-       "gives": "PERSISTENT"
+       "text": "engineer",
+       "note": "to engineer is to rearrange or contrive, here the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enters pits",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -936,43 +848,31 @@
    },
    "solution": "EINSTEIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EINSTEIN",
     "definitions": [
      {
       "text": "scientist",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "the two articles hold the weight between them"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Articles in Die Zeit",
-      "gives": "EINEIN",
-      "note": "ein is the German indefinite article, twice"
-     },
-     {
-      "clueFragment": "little weight",
-      "gives": "ST",
-      "note": "ST, the abbreviation for stone, a British weight of 14 lb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EIN",
-      "ST",
-      "EIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "the two articles hold the weight between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Articles in Die Zeit",
+       "gives": "EINEIN",
+       "note": "ein is the German indefinite article, twice"
+      },
+      {
+       "words": "little weight",
+       "gives": "ST",
+       "note": "ST, the abbreviation for stone, a British weight of 14 lb"
+      }
      ]
     },
     "explanation": {
@@ -1008,51 +908,54 @@
    },
    "solution": "TINOPENER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "TIN OPENER",
     "definitions": [
      {
       "text": "Kitchen assistant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absurd",
-      "note": "absurd letters are nonsense until rearranged"
-     },
-     {
-      "text": "alienating",
-      "note": "alienating means pushing away, so the letter is removed"
-     },
-     {
-      "text": "at first",
-      "note": "only the first letter of staff is taken"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretension",
-      "gives": "PRETENSION",
-      "note": "the fodder before trimming"
-     },
-     {
-      "clueFragment": "alienating staff at first",
-      "gives": "PRETENION",
-      "note": "lose S, the first letter of staff"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRETENION",
-       "gives": "TINOPENER"
+       "text": "absurd",
+       "note": "absurd letters are nonsense until rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "alienating",
+         "note": "alienating means pushing away, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "at first",
+           "note": "only the first letter of staff is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pretension",
+           "note": "the fodder before trimming"
+          },
+          {
+           "words": "alienating staff at first",
+           "gives": "PRETENION",
+           "note": "lose S, the first letter of staff"
+          }
+         ]
+        },
+        {
+         "gives": "PRETENSION"
+        }
+       ]
       }
      ]
     },
@@ -1083,30 +986,28 @@
    },
    "solution": "CLERIC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CLERIC",
     "definitions": [
      {
       "text": "Cardinal possibly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "hidden_word",
-      "note": "the answer is wrapped up inside the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "debacle? Richelieu",
-      "gives": "CLERIC",
-      "note": "debaCLE RIChelieu"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "the answer is wrapped up inside the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "debacle? Richelieu",
+       "gives": "CLERIC",
+       "note": "debaCLE RIChelieu"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking whether a cardinal had a hand in a fiasco, and naming Richelieu.",
      "walkthrough": "Richelieu was a real cardinal, so he looks like the answer to the question; he only lends the last three letters.",
@@ -1133,32 +1034,24 @@
    },
    "solution": "HERCULES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HERCULES",
     "definitions": [
      {
       "text": "a hero",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Poirot",
-      "gives": "HERCULE",
-      "note": "Agatha Christie's detective is Hercule Poirot"
-     },
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "the possessive S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HERCULE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Poirot",
+       "gives": "HERCULE",
+       "note": "Agatha Christie's detective is Hercule Poirot"
+      },
+      {
+       "words": "'s",
+       "note": "the possessive S"
+      }
      ]
     },
     "explanation": {
@@ -1188,44 +1081,42 @@
    },
    "solution": "SKINNY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SKINNY",
     "definitions": [
      {
       "text": "Undernourished",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South",
-      "gives": "S",
-      "note": "S = south"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "KIN",
-      "note": "one's kin are one's people, family"
-     },
-     {
-      "clueFragment": "American city",
-      "gives": "NY",
-      "note": "New York"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KIN",
-      "NY"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SKINNY",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "South",
+         "gives": "S",
+         "note": "S = south"
+        },
+        {
+         "words": "people",
+         "gives": "KIN",
+         "note": "one's kin are one's people, family"
+        },
+        {
+         "words": "American city",
+         "gives": "NY",
+         "note": "New York"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1254,46 +1145,40 @@
    },
    "solution": "IMAGINE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IMAGINE",
     "definitions": [
      {
       "text": "can you believe that!",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "nicking",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral"
-     },
-     {
-      "clueFragment": "crossword setter",
-      "gives": "ME",
-      "note": "the setter refers to themselves as me"
-     },
-     {
-      "clueFragment": "a drink",
-      "gives": "AGIN",
-      "note": "a gin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "AGIN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "nicking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crossword setter",
+         "gives": "ME",
+         "note": "the setter refers to themselves as me"
+        },
+        {
+         "words": "a drink",
+         "gives": "AGIN",
+         "note": "a gin"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1323,40 +1208,31 @@
    },
    "solution": "BEGETTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEGETTER",
     "definitions": [
      {
       "text": "Father",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "enthralled by",
-      "for": "container",
-      "note": "held captive inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump",
-      "gives": "BETTER",
-      "note": "to trump is to better, to outdo"
-     },
-     {
-      "clueFragment": "for one's",
-      "gives": "EG",
-      "note": "e.g. = for example, for one; the 's is 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EG",
-      "ETTER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthralled by",
+       "note": "held captive inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trump",
+       "gives": "BETTER",
+       "note": "to trump is to better, to outdo"
+      },
+      {
+       "words": "for one's",
+       "gives": "EG",
+       "note": "e.g. = for example, for one; the 's is 'is'"
+      }
      ]
     },
     "explanation": {
@@ -1391,35 +1267,24 @@
    },
    "solution": "THEOAKS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE OAKS",
     "definitions": [
      {
       "text": "You can bet on it",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "the saké is ordered in a bar, but ordered also means arranged, so the letters are sorted into a new sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hot saké",
-      "gives": "HOTSAKE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOT SAKE",
-       "gives": "THEOAKS"
+       "text": "ordered",
+       "note": "the saké is ordered in a bar, but ordered also means arranged, so the letters are sorted into a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hot saké",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1455,45 +1320,37 @@
    },
    "solution": "PROTEM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PRO TEM",
     "definitions": [
      {
       "text": "for now",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "withdrawal",
-      "for": "reversal",
-      "note": "a withdrawal is a pulling back, so the word goes back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Backing",
-      "gives": "PRO",
-      "note": "pro = in favour of, backing"
-     },
-     {
-      "clueFragment": "withdrawal of police",
-      "gives": "TEM",
-      "note": "the Met, London's Metropolitan Police, turned back"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "TEM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "PROTEM",
+     "indicators": [
       {
-       "from": "MET",
-       "to": "TEM"
+       "text": "withdrawal",
+       "note": "a withdrawal is a pulling back, so the word goes back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Backing",
+         "gives": "PRO",
+         "note": "pro = in favour of, backing"
+        },
+        {
+         "words": "withdrawal of police",
+         "gives": "TEM",
+         "note": "the Met, London's Metropolitan Police, turned back"
+        }
+       ]
       }
      ]
     },
@@ -1529,41 +1386,30 @@
    },
    "solution": "SHARPPRACTICE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHARP PRACTICE",
     "definitions": [
      {
       "text": "Dubious goings-on",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S = second"
-     },
-     {
-      "clueFragment": "instrumental",
-      "gives": "HARP",
-      "note": "the harp, an instrument"
-     },
-     {
-      "clueFragment": "run-through",
-      "gives": "PRACTICE",
-      "note": "a practice is a run-through"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HARP",
-      "PRACTICE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S = second"
+      },
+      {
+       "words": "instrumental",
+       "gives": "HARP",
+       "note": "the harp, an instrument"
+      },
+      {
+       "words": "run-through",
+       "gives": "PRACTICE",
+       "note": "a practice is a run-through"
+      }
      ]
     },
     "explanation": {
@@ -1592,38 +1438,39 @@
    },
    "solution": "INGLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INGLE",
     "definitions": [
      {
       "text": "Fire",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that's lost",
-      "for": "deletion",
-      "note": "a word that has lost something no longer has it, so the M comes out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "associate",
-      "gives": "MINGLE",
-      "note": "to mingle is to associate with others"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "INGLE",
-      "note": "M = millions, taken away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INGLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "that's lost",
+       "note": "a word that has lost something no longer has it, so the M comes out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "associate",
+         "gives": "MINGLE",
+         "note": "to mingle is to associate with others"
+        },
+        {
+         "words": "millions",
+         "gives": "INGLE",
+         "note": "M = millions, taken away"
+        }
+       ]
+      },
+      {
+       "gives": "MINGLE"
+      }
      ]
     },
     "explanation": {
@@ -1653,41 +1500,31 @@
    },
    "solution": "CHIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CHIN",
     "definitions": [
      {
       "text": "Feature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not half",
-      "for": "deletion",
-      "note": "only half the phrase is kept"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good health",
-      "gives": "CHINCHIN",
-      "note": "an old-fashioned British drinking toast, a doubled word meaning 'good health!'"
-     },
-     {
-      "clueFragment": "Not half",
-      "gives": "CHIN",
-      "note": "one half of CHINCHIN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not half",
+       "note": "only half the phrase is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "good health",
+       "gives": "CHINCHIN",
+       "note": "an old-fashioned British drinking toast, a doubled word meaning 'good health!'"
+      },
+      {
+       "words": "Not half",
+       "gives": "CHIN",
+       "note": "one half of CHINCHIN"
+      }
      ]
     },
     "explanation": {
@@ -1717,38 +1554,25 @@
    },
    "solution": "EVIAN",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "EVIAN",
     "definitions": [
      {
       "text": "spa town",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "backward-looking",
-      "for": "reversal",
-      "note": "looking backwards means reading the word from its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unsophisticated",
-      "gives": "NAIVE",
-      "note": "naive = unsophisticated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVIAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NAIVE",
-       "to": "EVIAN"
+       "text": "backward-looking",
+       "note": "looking backwards means reading the word from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unsophisticated",
+       "gives": "NAIVE",
+       "note": "naive = unsophisticated"
       }
      ]
     },
@@ -1778,35 +1602,24 @@
    },
    "solution": "TELEGRAPH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TELEGRAPH",
     "definitions": [
      {
       "text": "Daily",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "for": "anagram",
-      "note": "the letters could become the answer if rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "great help",
-      "gives": "GREATHELP",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GREAT HELP",
-       "gives": "TELEGRAPH"
+       "text": "could be",
+       "note": "the letters could become the answer if rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "great help",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1837,45 +1650,40 @@
    },
    "solution": "THEOREM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THEOREM",
     "definitions": [
      {
       "text": "Proposition",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to infiltrate",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enemy",
-      "gives": "THEM",
-      "note": "them, the other side"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "troops",
-      "gives": "OR",
-      "note": "OR, other ranks, soldiers who are not officers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "E",
-      "OR",
-      "EM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to infiltrate"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "enemy",
+         "gives": "THEM",
+         "note": "them, the other side"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        }
+       ]
+      },
+      {
+       "words": "troops",
+       "gives": "OR",
+       "note": "OR, other ranks, soldiers who are not officers"
+      }
      ]
     },
     "explanation": {
@@ -1904,30 +1712,16 @@
    },
    "solution": "STEPSON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STEPSON",
     "definitions": [
      {
       "text": "Tramples over",
-      "at": 0
+      "at": 0,
+      "meaning": "a two-word phrase for walking over something, with the space closed up"
      },
      {
       "text": "partner's earlier issue",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tramples over",
-      "gives": "STEPSON",
-      "note": "a two-word phrase for walking over something, with the space closed up"
-     },
-     {
-      "clueFragment": "partner's earlier issue",
-      "gives": "STEPSON",
-      "note": "a spouse's son from a previous relationship"
+      "at": 14,
+      "meaning": "a spouse's son from a previous relationship"
      }
     ],
     "explanation": {

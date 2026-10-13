@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22183",
  "number": 22183,
- "series": "cryptic",
- "name": "Prize crossword No 22,183",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2001-04-14",
  "preamble": "This Easter special is a double grid. Araucaria's special instructions are as follows: The assemblages of some birds and beasts have special names, such as a murder of crows or a fesnyng of ferrets. There are many such names in puzzle A and many birds and beasts (that may be so assembled) in puzzle B. All (unlike my ferrets) are given in Chambers. Numbers used in cross-references always apply to the OTHER puzzle.",
@@ -39,10 +38,6 @@
    },
    "solution": "CETE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "CETE",
     "definitions": [
      {
       "text": "23s",
@@ -50,24 +45,24 @@
       "note": "23 in the other puzzle names an animal (badgers) whose assemblage is the answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "at heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only the inner letters of the expanded abbreviation are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "etc",
-      "gives": "CETE",
-      "select": "middle",
-      "note": "etc is short for et cetera, written out as one word of eight letters; its central four are kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CETE"
+    "wordplay": {
+     "op": "middle",
+     "unchecked": true,
+     "gives": "CETE",
+     "indicators": [
+      {
+       "text": "at heart",
+       "note": "the heart of a word is its centre, so only the inner letters of the expanded abbreviation are kept"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "etc",
+       "gives": "CETE",
+       "select": "middle",
+       "note": "etc is short for et cetera, written out as one word of eight letters; its central four are kept"
+      }
      ]
     },
     "explanation": {
@@ -96,31 +91,16 @@
    },
    "solution": "SPRING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPRING",
     "definitions": [
      {
       "text": "There's tension here",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a coiled metal device that stores tension"
      },
      {
       "text": "it's early days",
-      "at": 26
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "There's tension here",
-      "note": "first meaning: a coiled metal device that stores tension"
-     },
-     {
-      "clueFragment": "it's early days",
-      "note": "second meaning: the season when the year is young"
+      "at": 26,
+      "meaning": "second meaning: the season when the year is young"
      }
     ],
     "explanation": {
@@ -150,40 +130,31 @@
    },
    "solution": "PROGRAMMED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PROGRAMMED",
     "definitions": [
      {
       "text": "Preset",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holds",
-      "for": "container",
-      "note": "one thing that holds another keeps it inside, so the first word wraps around the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reminder",
-      "gives": "PROD",
-      "note": "a prod is a nudge or reminder"
-     },
-     {
-      "clueFragment": "little weight",
-      "gives": "GRAMME",
-      "note": "a gramme is a tiny unit of weight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "GRAMME",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "note": "one thing that holds another keeps it inside, so the first word wraps around the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reminder",
+       "gives": "PROD",
+       "note": "a prod is a nudge or reminder"
+      },
+      {
+       "words": "little weight",
+       "gives": "GRAMME",
+       "note": "a gramme is a tiny unit of weight"
+      }
      ]
     },
     "explanation": {
@@ -212,11 +183,6 @@
    },
    "solution": "GAGGLE",
    "annotation": {
-    "type": [
-     "homophone",
-     "container"
-    ],
-    "answer": "GAGGLE",
     "definitions": [
      {
       "text": "It could be people",
@@ -224,34 +190,39 @@
       "note": "the answer is a group noun, and a crowd of humans can be called by it"
      }
     ],
-    "indicators": [
-     {
-      "text": "hear",
-      "for": "homophone",
-      "note": "hearing points to what is said aloud, so the horse word is taken by its sound"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a horse",
-      "gives": "GG",
-      "soundsLike": "GEE-GEE",
-      "note": "gee-gee is a childish word for a horse, which sounds like two letter Gs"
-     },
-     {
-      "clueFragment": "a storm",
-      "gives": "GALE",
-      "note": "a gale is a strong storm wind"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a storm",
+       "gives": "GALE",
+       "note": "a gale is a strong storm wind"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GG",
+       "indicators": [
+        {
+         "text": "hear",
+         "note": "hearing points to what is said aloud, so the horse word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a horse",
+         "gives": "GEEGEE",
+         "note": "gee-gee is a childish word for a horse, which sounds like two letter Gs"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Bystanders who hear a horse neighing in the middle of a storm.",
      "walkthrough": "Gee-gee is nursery talk for a horse. The answer is normally a flock of geese, but is also used of a noisy group of people.",
@@ -284,26 +255,25 @@
    },
    "solution": "REDNOSED",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RED-NOSED",
     "definitions": [
      {
       "text": "Rudolf as comic relief?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Rudolf",
-      "note": "surface reading: the reindeer with the shining nose from the Christmas song"
-     },
-     {
-      "clueFragment": "comic relief",
-      "note": "setter's reading: Comic Relief is the British charity whose fundraising day has people wearing a plastic clown nose of that colour"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Rudolf",
+       "note": "surface reading: the reindeer with the shining nose from the Christmas song"
+      },
+      {
+       "words": "comic relief",
+       "note": "setter's reading: Comic Relief is the British charity whose fundraising day has people wearing a plastic clown nose of that colour"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Comic Relief is a UK charity telethon whose emblem is a clown nose. Rudolph the reindeer and charity supporters alike are described by the answer.",
      "definitionFit": "Rudolph's famous glowing nose is that colour, and Comic Relief's charity day has donors wearing a matching clown nose."
@@ -330,10 +300,6 @@
    },
    "solution": "NIDE",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "NIDE",
     "definitions": [
      {
       "text": "2s",
@@ -341,28 +307,19 @@
       "note": "2 in the other puzzle names a bird (pheasants) whose brood is the answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down entry something upset is turned upside down, so the word reads from the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish burgh",
-      "gives": "EDIN",
-      "note": "short for Edinburgh, the Scottish capital, a burgh itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIDE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EDIN",
-       "to": "NIDE"
+       "text": "upset",
+       "note": "in a down entry something upset is turned upside down, so the word reads from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish burgh",
+       "gives": "EDIN",
+       "note": "short for Edinburgh, the Scottish capital, a burgh itself"
       }
      ]
     },
@@ -392,29 +349,17 @@
    },
    "solution": "BUILDING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUILDING",
     "definitions": [
      {
       "text": "Structure",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a constructed edifice"
      },
      {
       "text": "for rooks",
       "at": 10,
-      "note": "the assemblage word used for a group of rooks"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Structure",
-      "note": "first meaning: a constructed edifice"
-     },
-     {
-      "clueFragment": "for rooks",
-      "note": "second meaning: the collective term for a gathering of rooks"
+      "note": "the assemblage word used for a group of rooks",
+      "meaning": "second meaning: the collective term for a gathering of rooks"
      }
     ],
     "explanation": {
@@ -443,11 +388,6 @@
    },
    "solution": "BEVY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BEVY",
     "definitions": [
      {
       "text": "12s or 26 downs",
@@ -455,37 +395,34 @@
       "note": "12 and 26 down in the other puzzle are birds (quails and larks) that gather in the answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "'I'm out' says the single letter I leaves the phrase that follows"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm",
-      "gives": "I",
-      "note": "the letter I, which is out, removed from the rest"
-     },
-     {
-      "clueFragment": "be",
-      "gives": "BE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a clinger",
-      "gives": "IVY",
-      "note": "ivy is a plant that clings to walls"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "VY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "note": "'I'm out' says the single letter I leaves the phrase that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "be",
+         "note": "taken as written"
+        },
+        {
+         "words": "a clinger",
+         "gives": "IVY",
+         "note": "ivy is a plant that clings to walls"
+        }
+       ]
+      },
+      {
+       "words": "I'm",
+       "gives": "I",
+       "note": "the letter I, which is out, removed from the rest"
+      }
      ]
     },
     "explanation": {
@@ -514,64 +451,61 @@
    },
    "solution": "EXPURGATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "EXPURGATE",
     "definitions": [
      {
       "text": "What Bowdler did",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means reading the foreign street word from its end"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the reversed street goes round the money"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "abroad — back street",
-      "gives": "RUE",
-      "note": "rue is French for street, so a street abroad"
-     },
-     {
-      "clueFragment": "ten",
-      "gives": "X",
-      "note": "X is the Roman numeral ten"
-     },
-     {
-      "clueFragment": "pence",
-      "gives": "P",
-      "note": "p is the abbreviation for pence"
-     },
-     {
-      "clueFragment": "entrance",
-      "gives": "GATE",
-      "note": "a gate is an entrance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "X",
-      "P",
-      "UR",
-      "GATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RUE",
-       "to": "EUR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so the reversed street goes round the money"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "going back means reading the foreign street word from its end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "abroad — back street",
+           "gives": "RUE",
+           "note": "rue is French for street, so a street abroad"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ten",
+           "gives": "X",
+           "note": "X is the Roman numeral ten"
+          },
+          {
+           "words": "pence",
+           "gives": "P",
+           "note": "p is the abbreviation for pence"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "entrance",
+       "gives": "GATE",
+       "note": "a gate is an entrance"
       }
      ]
     },
@@ -607,30 +541,28 @@
    },
    "solution": "INUSE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "IN USE",
     "definitions": [
      {
       "text": "Employed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in treating",
-      "for": "hidden_word",
-      "note": "the answer is found within the word being treated, sitting inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sinuses",
-      "gives": "INUSE",
-      "note": "the letters run inside this word, without its outer s's"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in treating",
+       "note": "the answer is found within the word being treated, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sinuses",
+       "gives": "INUSE",
+       "note": "the letters run inside this word, without its outer s's"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doctor's instrument used while treating a patient's blocked sinuses.",
      "definitionFit": "Something employed is currently being used, so the phrase describes an object put to work at present."
@@ -656,10 +588,6 @@
    },
    "solution": "EWING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EWING",
     "definitions": [
      {
       "text": "in Dallas",
@@ -667,22 +595,19 @@
       "note": "the family surname of the main characters in the TV soap Dallas"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "plovers",
-      "gives": "WING",
-      "note": "Chambers gives wing as the assemblage name for plovers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "WING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "plovers",
+       "gives": "WING",
+       "note": "Chambers gives wing as the assemblage name for plovers"
+      }
      ]
     },
     "explanation": {
@@ -711,51 +636,41 @@
    },
    "solution": "GENTEELLY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GENTEELLY",
     "definitions": [
      {
       "text": "in a refined manner",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container",
-      "note": "a word including another holds it within its letters"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "presented"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "News",
-      "gives": "GEN",
-      "note": "gen is British slang for information"
-     },
-     {
-      "clueFragment": "TV",
-      "gives": "TELLY",
-      "note": "telly is British slang for television"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "E",
-      "note": "E for east, a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEN",
-      "T",
-      "E",
-      "ELLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "News",
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "note": "a word including another holds it within its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "TV",
+         "gives": "TELLY",
+         "note": "telly is British slang for television"
+        },
+        {
+         "words": "point",
+         "gives": "E",
+         "note": "E for east, a compass point"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -784,43 +699,31 @@
    },
    "solution": "LUGGAGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LUGGAGE",
     "definitions": [
      {
       "text": "Cases",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "witticism",
-      "gives": "GAG",
-      "note": "a gag is a joke"
-     },
-     {
-      "clueFragment": "a sledge",
-      "gives": "LUGE",
-      "note": "a luge is a small racing toboggan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUG",
-      "GAG",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sledge",
+       "gives": "LUGE",
+       "note": "a luge is a small racing toboggan"
+      },
+      {
+       "words": "witticism",
+       "gives": "GAG",
+       "note": "a gag is a joke"
+      }
      ]
     },
     "explanation": {
@@ -849,48 +752,41 @@
    },
    "solution": "LOCUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "LOCUS",
     "definitions": [
      {
       "text": "Range",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to drop",
-      "for": "deletion",
-      "note": "dropping something lets it go, so a letter is taken away"
-     },
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first points to the opening letter only of the following word"
-     }
-    ],
-    "linkWords": [
-     "needed for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "destroyer",
-      "gives": "LOCUST",
-      "note": "locusts are insects that destroy crops"
-     },
-     {
-      "clueFragment": "torpedo",
-      "gives": "T",
-      "select": "first",
-      "note": "its opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOCUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to drop",
+       "note": "dropping something lets it go, so a letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "destroyer",
+       "gives": "LOCUST",
+       "note": "locusts are insects that destroy crops"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first points to the opening letter only of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "torpedo",
+         "note": "its opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -919,40 +815,31 @@
    },
    "solution": "SPECIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPECIES",
     "definitions": [
      {
       "text": "Man, maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something in another is held within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that's",
-      "gives": "IE",
-      "note": "i.e. stands for 'that is'"
-     },
-     {
-      "clueFragment": "glasses",
-      "gives": "SPECS",
-      "note": "specs is short for spectacles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPEC",
-      "IE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something in another is held within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "glasses",
+       "gives": "SPECS",
+       "note": "specs is short for spectacles"
+      },
+      {
+       "words": "that's",
+       "gives": "IE",
+       "note": "i.e. stands for 'that is'"
+      }
      ]
     },
     "explanation": {
@@ -981,10 +868,6 @@
    },
    "solution": "EXALTATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EXALTATION",
     "definitions": [
      {
       "text": "26 downs",
@@ -992,28 +875,18 @@
       "note": "26 down in the other puzzle is larks; the answer is the name for a flock of them"
      }
     ],
-    "indicators": [
-     {
-      "text": "may be",
-      "for": "anagram",
-      "note": "the letters may become something else, signalling that they are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tax on ale, it",
-      "gives": "TAXONALEIT",
-      "note": "the letters are used as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TAXONALEIT",
-       "gives": "EXALTATION"
+       "text": "may be",
+       "note": "the letters may become something else, signalling that they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tax on ale, it",
+       "note": "the letters are used as written"
       }
      ]
     },
@@ -1043,32 +916,17 @@
    },
    "solution": "SIEGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIEGE",
     "definitions": [
      {
       "text": "Investment",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the military blockade of a town, an old sense of investment"
      },
      {
       "text": "herons",
       "at": 14,
-      "note": "the answer is the name for a group of these birds"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Investment",
-      "note": "first meaning: the military blockade of a town, an old sense of investment"
-     },
-     {
-      "clueFragment": "herons",
-      "note": "second meaning: the assemblage name for herons"
+      "note": "the answer is the name for a group of these birds",
+      "meaning": "second meaning: the assemblage name for herons"
      }
     ],
     "explanation": {
@@ -1098,30 +956,18 @@
    },
    "solution": "CHARM",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHARM",
     "definitions": [
      {
       "text": "27s",
       "at": 0,
-      "note": "27 in the other puzzle is goldfinches; the answer names a flock of them"
+      "note": "27 in the other puzzle is goldfinches; the answer names a flock of them",
+      "meaning": "first meaning: the collective term for a flock of finches"
      },
      {
       "text": "work like one?",
       "at": 4,
-      "note": "the idiom 'work like a ___', with 'one' standing for the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "27s",
-      "note": "first meaning: the collective term for a flock of finches"
-     },
-     {
-      "clueFragment": "work like one?",
-      "note": "second meaning: the idiom for something working perfectly"
+      "note": "the idiom 'work like a ___', with 'one' standing for the answer",
+      "meaning": "second meaning: the idiom for something working perfectly"
      }
     ],
     "explanation": {
@@ -1150,43 +996,31 @@
    },
    "solution": "ADULATED",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ADULATED",
     "definitions": [
      {
       "text": "Flattered",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "removal of",
-      "for": "deletion",
-      "note": "removing something takes it out, so the prefix is cut away"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prefix three times",
-      "gives": "TER",
-      "note": "ter- is the Latin prefix meaning thrice"
-     },
-     {
-      "clueFragment": "the impure",
-      "gives": "ADULTERATED",
-      "note": "adulterated food or drink is made impure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADUL",
-      "ATED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removal of",
+       "note": "removing something takes it out, so the prefix is cut away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the impure",
+       "gives": "ADULTERATED",
+       "note": "adulterated food or drink is made impure"
+      },
+      {
+       "words": "prefix three times",
+       "gives": "TER",
+       "note": "ter- is the Latin prefix meaning thrice"
+      }
      ]
     },
     "explanation": {
@@ -1215,33 +1049,18 @@
    },
    "solution": "POD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POD",
     "definitions": [
      {
       "text": "3s",
       "at": 0,
-      "note": "3 in the other puzzle is whales; the answer names a school of them"
+      "note": "3 in the other puzzle is whales; the answer names a school of them",
+      "meaning": "first meaning: the collective term for whales or seals"
      },
      {
       "text": "the first part of 13 across",
       "at": 7,
-      "note": "the opening letters of the other puzzle's 13 across"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "3s",
-      "note": "first meaning: the collective term for whales or seals"
-     },
-     {
-      "clueFragment": "the first part of 13 across",
-      "note": "second meaning: the opening chunk of the other grid's 13 across"
+      "note": "the opening letters of the other puzzle's 13 across",
+      "meaning": "second meaning: the opening chunk of the other grid's 13 across"
      }
     ],
     "explanation": {
@@ -1268,54 +1087,39 @@
    },
    "solution": "PURSUITS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PURSUITS",
     "definitions": [
      {
       "text": "Hobbies, etc",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning a word round makes it read in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "mean"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "clothes",
-      "gives": "SUITS",
-      "note": "suits are sets of clothes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "R",
-      "SUITS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "UP",
-       "to": "PU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "turning a word round makes it read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "the right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "clothes",
+       "gives": "SUITS",
+       "note": "suits are sets of clothes"
       }
      ]
     },
@@ -1343,52 +1147,7 @@
     "text": "28, the English point of view",
     "enumeration": "5"
    },
-   "solution": "ANGLE",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ANGLE",
-    "definitions": [
-     {
-      "text": "28",
-      "at": 0,
-      "note": "28 in the other puzzle is evidently fish, used here as a verb"
-     },
-     {
-      "text": "the English",
-      "at": 4,
-      "note": "an Angle is one of the people who gave England its name"
-     },
-     {
-      "text": "point of view",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "28",
-      "note": "first meaning: to fish with a rod and line"
-     },
-     {
-      "clueFragment": "the English",
-      "note": "second meaning: one of the Germanic settlers who gave England its name"
-     },
-     {
-      "clueFragment": "point of view",
-      "note": "third meaning: a way of looking at things"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "Three meanings: to fish with rod and line, one of the Angles who settled England, and a perspective.",
-     "definitionFit": "To angle is to fish, the Angles were early settlers whose name became England, and an angle is a slant or perspective."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "English"
-    }
-   }
+   "solution": "ANGLE"
   },
   {
    "number": 21,
@@ -1404,32 +1163,25 @@
    },
    "solution": "SOUNDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOUNDER",
     "definitions": [
      {
       "text": "More reliable",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "hence",
-      "gives": "SO",
-      "note": "so, like hence, means therefore"
-     },
-     {
-      "clueFragment": "supporting",
-      "gives": "UNDER",
-      "note": "what supports something is under it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "UNDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hence",
+       "gives": "SO",
+       "note": "so, like hence, means therefore"
+      },
+      {
+       "words": "supporting",
+       "gives": "UNDER",
+       "note": "what supports something is under it"
+      }
      ]
     },
     "explanation": {
@@ -1458,36 +1210,25 @@
    },
    "solution": "METHANE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "METHANE",
     "definitions": [
      {
       "text": "a gas",
       "at": 34
      }
     ],
-    "linkWords": [
-     "surprised about",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Macbeth",
-      "gives": "ME",
-      "note": "what Macbeth calls himself"
-     },
-     {
-      "clueFragment": "Cawdor",
-      "gives": "THANE",
-      "note": "Macbeth is hailed as Thane of Cawdor by the witches"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "THANE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Macbeth",
+       "gives": "ME",
+       "note": "what Macbeth calls himself"
+      },
+      {
+       "words": "Cawdor",
+       "gives": "THANE",
+       "note": "Macbeth is hailed as Thane of Cawdor by the witches"
+      }
      ]
     },
     "explanation": {
@@ -1517,10 +1258,6 @@
    },
    "solution": "MUSTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MUSTER",
     "definitions": [
      {
       "text": "pass it",
@@ -1528,25 +1265,19 @@
       "note": "in the idiom 'pass ___', with 'it' standing for the answer"
      }
     ],
-    "linkWords": [
-     "Does"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "have to",
-      "gives": "MUST",
-      "note": "must means have to"
-     },
-     {
-      "clueFragment": "the Queen",
-      "gives": "ER",
-      "note": "ER stands for Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUST",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "have to",
+       "gives": "MUST",
+       "note": "must means have to"
+      },
+      {
+       "words": "the Queen",
+       "gives": "ER",
+       "note": "ER stands for Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -1576,49 +1307,35 @@
    },
    "solution": "ADONIS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ADONIS",
     "definitions": [
      {
       "text": "He",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "aroused",
-      "for": "reversal",
-      "note": "roused up suggests rising, and in a down entry a word read upwards is turned round"
-     }
-    ],
-    "linkWords": [
-     "had",
-     "by Venus?"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an affair",
-      "gives": "ADO",
-      "note": "an ado is a fuss or business, an affair"
-     },
-     {
-      "clueFragment": "naughtiness",
-      "gives": "SIN",
-      "note": "sin is wrongdoing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADO",
-      "NIS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SIN",
-       "to": "NIS"
+       "words": "an affair",
+       "gives": "ADO",
+       "note": "an ado is a fuss or business, an affair"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "aroused",
+         "note": "roused up suggests rising, and in a down entry a word read upwards is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "naughtiness",
+         "gives": "SIN",
+         "note": "sin is wrongdoing"
+        }
+       ]
       }
      ]
     },
@@ -1648,31 +1365,29 @@
    },
    "solution": "CLANGOURS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CLANGOURS",
     "definitions": [
      {
       "text": "The noises",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "you can hear",
-      "for": "homophone",
-      "note": "what you can hear is spoken aloud, so the answer sounds like the phrase that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are being dropped",
-      "gives": "CLANGOURS",
-      "soundsLike": "CLANGERS",
-      "note": "dropping a clanger is British slang for making a blunder, so clangers are things dropped"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CLANGOURS",
+     "indicators": [
+      {
+       "text": "you can hear",
+       "note": "what you can hear is spoken aloud, so the answer sounds like the phrase that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "are being dropped",
+       "gives": "CLANGERS",
+       "note": "dropping a clanger is British slang for making a blunder, so clangers are things dropped"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Audible din from things falling to the floor.",
      "walkthrough": "To drop a clanger is British slang for making an embarrassing mistake, so clangers are what get dropped.",
@@ -1700,30 +1415,18 @@
    },
    "solution": "CAST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAST",
     "definitions": [
      {
       "text": "Those 22s",
       "at": 0,
-      "note": "22 in the other puzzle is hawks; the answer names a pair or flight of them"
+      "note": "22 in the other puzzle is hawks; the answer names a pair or flight of them",
+      "meaning": "first meaning: the collective for hawks released together"
      },
      {
       "text": "throw to 28",
       "at": 10,
-      "note": "28 in the other puzzle is evidently fish: to throw a line to fish"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Those 22s",
-      "note": "first meaning: the collective for hawks released together"
-     },
-     {
-      "clueFragment": "throw to 28",
-      "note": "second meaning: to throw a fishing line out"
+      "note": "28 in the other puzzle is evidently fish: to throw a line to fish",
+      "meaning": "second meaning: to throw a fishing line out"
      }
     ],
     "explanation": {
@@ -1750,31 +1453,16 @@
    },
    "solution": "GANG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GANG",
     "definitions": [
      {
       "text": "Go",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Scots and dialect verb meaning to walk or go"
      },
      {
       "text": "the crowd",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go",
-      "note": "first meaning: Scots and dialect verb meaning to walk or go"
-     },
-     {
-      "clueFragment": "the crowd",
-      "note": "second meaning: a group or band of people"
+      "at": 8,
+      "meaning": "second meaning: a group or band of people"
      }
     ],
     "explanation": {
@@ -1803,45 +1491,35 @@
    },
    "solution": "TROOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TROOP",
     "definitions": [
      {
       "text": "Monkeys",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "quite the reverse",
-      "for": "reversal",
-      "note": "the reverse of something is its backward form, so the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "don't have a good",
-      "gives": "POOR",
-      "note": "not having a good one means having a poor one"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ROOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "POORT",
-       "to": "TROOP"
+       "text": "quite the reverse",
+       "note": "the reverse of something is its backward form, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "don't have a good",
+         "gives": "POOR",
+         "note": "not having a good one means having a poor one"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
       }
      ]
     },
@@ -1872,29 +1550,17 @@
    },
    "solution": "PACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PACK",
     "definitions": [
      {
       "text": "1s",
       "at": 0,
-      "note": "1 in the other puzzle is a beast that runs in groups, hounds or wolves"
+      "note": "1 in the other puzzle is a beast that runs in groups, hounds or wolves",
+      "meaning": "first meaning: the collective term for hounds or wolves"
      },
      {
       "text": "prepare to travel",
-      "at": 3
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1s",
-      "note": "first meaning: the collective term for hounds or wolves"
-     },
-     {
-      "clueFragment": "prepare to travel",
-      "note": "second meaning: to put belongings into bags"
+      "at": 3,
+      "meaning": "second meaning: to put belongings into bags"
      }
     ],
     "explanation": {
@@ -1921,47 +1587,41 @@
    },
    "solution": "SKEIN",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SKEIN",
     "definitions": [
      {
       "text": "yarn",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "concealing something hides it within, so one piece goes inside the other"
-     },
-     {
-      "text": "the end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hide",
-      "gives": "SKIN",
-      "note": "an animal's hide is its skin"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "its final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SK",
-      "E",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "concealing something hides it within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hide",
+       "gives": "SKIN",
+       "note": "an animal's hide is its skin"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the end of",
+         "note": "the end of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "its final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1996,60 +1656,58 @@
    },
    "solution": "THEZODIAC",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "THE ZODIAC",
     "definitions": [
      {
       "text": "Signs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "loveless",
-      "for": "deletion",
-      "note": "love is zero in tennis, a round letter, and being without it means that letter goes"
-     },
-     {
-      "text": "freaks",
-      "for": "anagram",
-      "note": "something that freaks out goes wild, so these letters are thrown into disorder"
-     }
-    ],
-    "linkWords": [
-     "show"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all those",
-      "gives": "THE",
-      "note": "the definite article, pointing at every one of a set"
-     },
-     {
-      "clueFragment": "creatures",
-      "gives": "ZOO",
-      "note": "a zoo is a collection of creatures"
-     },
-     {
-      "clueFragment": "acid",
-      "gives": "ACID",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "ZO",
-      "DIAC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ACID",
-       "gives": "DIAC"
+       "words": "all those",
+       "gives": "THE",
+       "note": "the definite article, pointing at every one of a set"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "freaks",
+         "note": "something that freaks out goes wild, so these letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "loveless",
+           "note": "love is zero in tennis, a round letter, and being without it means that letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "creatures",
+             "gives": "ZOO",
+             "note": "a zoo is a collection of creatures"
+            },
+            {
+             "words": "acid",
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

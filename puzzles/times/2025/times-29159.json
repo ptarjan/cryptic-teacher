@@ -1,8 +1,6 @@
 {
  "id": "times-29159",
  "number": 29159,
- "series": "times",
- "name": "Times cryptic crossword No 29,159",
  "date": "2025-02-21",
  "dimensions": {
   "cols": 15,
@@ -47,41 +45,42 @@
    },
    "solution": "BEERMUG",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "BEER MUG",
     "definitions": [
      {
       "text": "What may contain mild",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for Spooner",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner swapped the opening sounds of words, so this asks for that swap"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nothing more",
-      "gives": "BEER",
-      "soundsLike": "MERE",
-      "note": "mere = nothing more; it takes the B from the other word"
-     },
-     {
-      "clueFragment": "defect",
-      "gives": "MUG",
-      "soundsLike": "BUG",
-      "note": "a bug is a defect; it takes the M from the other word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEER",
-      "MUG"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "BEERMUG",
+     "indicators": [
+      {
+       "text": "for Spooner",
+       "note": "the Reverend Spooner swapped the opening sounds of words, so this asks for that swap"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "nothing more",
+         "gives": "BEER",
+         "soundsLike": "MERE",
+         "note": "mere = nothing more; it takes the B from the other word"
+        },
+        {
+         "unchecked": true,
+         "words": "defect",
+         "gives": "MUG",
+         "soundsLike": "BUG",
+         "note": "a bug is a defect; it takes the M from the other word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,40 +109,31 @@
    },
    "solution": "BEHEST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEHEST",
     "definitions": [
      {
       "text": "order",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "received by",
-      "for": "container",
-      "note": "one thing received by another is taken inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "supreme",
-      "gives": "BEST",
-      "note": "the best is supreme"
-     },
-     {
-      "clueFragment": "Pardon",
-      "gives": "EH",
-      "note": "\"Eh?\" is what you say for \"Pardon?\""
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EH",
-      "EST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "received by",
+       "note": "one thing received by another is taken inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "supreme",
+       "gives": "BEST",
+       "note": "the best is supreme"
+      },
+      {
+       "words": "Pardon",
+       "gives": "EH",
+       "note": "\"Eh?\" is what you say for \"Pardon?\""
+      }
      ]
     },
     "explanation": {
@@ -172,50 +162,55 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "stop trade",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "will shackle"
-     },
-     {
-      "text": "introduction of",
-      "note": "the introduction of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "EGO",
-      "note": "the ego is the I, the self"
-     },
-     {
-      "clueFragment": "introduction of merchandise",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of merchandise"
-     },
-     {
-      "clueFragment": "but not",
-      "gives": "BAR",
-      "note": "bar = except, but not"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "M",
-      "BAR",
-      "GO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will shackle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "note": "the introduction of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "gives": "EGO",
+         "note": "the ego is the I, the self"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "M",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "introduction of merchandise",
+           "gives": "M",
+           "select": "first",
+           "note": "first letter of merchandise"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "but not",
+       "gives": "BAR",
+       "note": "bar = except, but not"
+      }
      ]
     },
     "explanation": {
@@ -244,30 +239,16 @@
    },
    "solution": "MATCHLESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MATCHLESS",
     "definitions": [
      {
       "text": "Possibly unable to start a fire",
-      "at": 0
+      "at": 0,
+      "meaning": "a fire-lighter who has run out of the little sticks you strike"
      },
      {
       "text": "without peer",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Possibly unable to start a fire",
-      "gives": "MATCHLESS",
-      "note": "a fire-lighter who has run out of the little sticks you strike"
-     },
-     {
-      "clueFragment": "without peer",
-      "gives": "MATCHLESS",
-      "note": "unequalled, having no rival"
+      "at": 32,
+      "meaning": "unequalled, having no rival"
      }
     ],
     "explanation": {
@@ -303,63 +284,50 @@
    },
    "solution": "GOBALLISTIC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GO BALLISTIC",
     "definitions": [
      {
       "text": "See red",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "note": "in a down clue, upset turns the word upside down, reading it bottom to top"
-     },
-     {
-      "text": "after",
-      "note": "the reversed ledge comes after A"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mug",
-      "gives": "GOB",
-      "note": "gob and mug are both slang for the mouth or face"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as is"
-     },
-     {
-      "clueFragment": "ledge",
-      "gives": "SILL",
-      "note": "a window ledge is a sill"
-     },
-     {
-      "clueFragment": "jerk",
-      "gives": "TIC",
-      "note": "a tic is an involuntary jerk"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOB",
-      "A",
-      "LLIS",
-      "TIC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "SILL",
-       "to": "LLIS"
+       "text": "upset",
+       "note": "in a down clue, upset turns the word upside down, reading it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mug",
+       "gives": "GOB",
+       "note": "gob and mug are both slang for the mouth or face"
+      },
+      {
+       "words": "a",
+       "note": "used as is"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "the reversed ledge comes after A"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ledge",
+         "gives": "SILL",
+         "note": "a window ledge is a sill"
+        }
+       ]
+      },
+      {
+       "words": "jerk",
+       "gives": "TIC",
+       "note": "a tic is an involuntary jerk"
       }
      ]
     },
@@ -399,45 +367,37 @@
    },
    "solution": "NOENDOF",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "NO END OF",
     "definitions": [
      {
       "text": "very much",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "bananas",
-      "for": "anagram",
-      "note": "bananas means crazy, so the letters go mad"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not",
-      "gives": "NO",
-      "note": "no = not, as in \"no better\""
-     },
-     {
-      "clueFragment": "fed on",
-      "gives": "ENDOF",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "ENDOF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NOENDOF",
+     "indicators": [
       {
-       "fodder": "FEDON",
-       "gives": "ENDOF"
+       "text": "bananas",
+       "note": "bananas means crazy, so the letters go mad"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Not",
+         "gives": "NO",
+         "note": "no = not, as in \"no better\""
+        },
+        {
+         "words": "fed on",
+         "gives": "ENDOF",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -467,11 +427,6 @@
    },
    "solution": "NEE",
    "annotation": {
-    "type": [
-     "double_definition",
-     "homophone"
-    ],
-    "answer": "NEE",
     "definitions": [
      {
       "text": "Once called for a woman",
@@ -482,26 +437,35 @@
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "for somebody who listens",
-      "for": "homophone",
-      "note": "the second meaning only works for a listener, since the word is said like NAY"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Once called for a woman",
-      "gives": "NEE",
-      "note": "the French word for born, placed before a married woman's former name"
-     },
-     {
-      "clueFragment": "or rather",
-      "gives": "NEE",
-      "soundsLike": "NAY",
-      "note": "nay = or rather, as in \"good, nay, excellent\""
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "NEE",
+     "indicators": [
+      {
+       "text": "for somebody who listens",
+       "note": "the second meaning only works for a listener, since the word is said like NAY"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Once called for a woman",
+       "gives": "NEE",
+       "note": "the French word for born, placed before a married woman's former name"
+      },
+      {
+       "op": "homophone",
+       "spelt": "NEE",
+       "parts": [
+        {
+         "words": "or rather",
+         "gives": "NAY",
+         "note": "nay = or rather, as in \"good, nay, excellent\""
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Once a word used of a woman, now one for a listener.",
      "walkthrough": "Née is French for born and precedes a woman's maiden name; it is pronounced like nay.",
@@ -528,38 +492,39 @@
    },
    "solution": "EMBER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EMBER",
     "definitions": [
      {
       "text": "remains after incineration",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Lopped",
-      "for": "deletion",
-      "note": "lopping cuts off the top, here the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "branch",
-      "gives": "MEMBER",
-      "note": "a branch of an organisation is a member; a limb is also a member"
-     },
-     {
-      "clueFragment": "Lopped",
-      "gives": "EMBER",
-      "note": "MEMBER loses its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMBER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lopped",
+       "note": "lopping cuts off the top, here the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "branch",
+         "gives": "MEMBER",
+         "note": "a branch of an organisation is a member; a limb is also a member"
+        },
+        {
+         "words": "Lopped",
+         "gives": "EMBER",
+         "note": "MEMBER loses its first letter"
+        }
+       ]
+      },
+      {
+       "gives": "MEMBER"
+      }
      ]
     },
     "explanation": {
@@ -588,30 +553,16 @@
    },
    "solution": "DOUBLET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOUBLET",
     "definitions": [
      {
       "text": "Feature of knitted — but not crocheted —",
-      "at": 0
+      "at": 0,
+      "meaning": "look at the spelling: kniTTed has two of one letter, croche-Ted only one"
      },
      {
       "text": "garment",
-      "at": 41
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Feature of knitted — but not crocheted —",
-      "gives": "DOUBLET",
-      "note": "look at the spelling: kniTTed has two of one letter, croche-Ted only one"
-     },
-     {
-      "clueFragment": "garment",
-      "gives": "DOUBLET",
-      "note": "a close-fitting Renaissance jacket"
+      "at": 41,
+      "meaning": "a close-fitting Renaissance jacket"
      }
     ],
     "explanation": {
@@ -641,38 +592,30 @@
    },
    "solution": "FARMYARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FARMYARD",
     "definitions": [
      {
       "text": "Clarkson's land?",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "F",
-      "note": "abbreviation"
-     },
-     {
-      "clueFragment": "soldiers",
-      "gives": "ARMY",
-      "note": "a body of soldiers"
-     },
-     {
-      "clueFragment": "plough",
-      "gives": "ARD",
-      "note": "an ard is a primitive plough"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ARMY",
-      "ARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "gives": "F",
+       "note": "abbreviation"
+      },
+      {
+       "words": "soldiers",
+       "gives": "ARMY",
+       "note": "a body of soldiers"
+      },
+      {
+       "words": "plough",
+       "gives": "ARD",
+       "note": "an ard is a primitive plough"
+      }
      ]
     },
     "explanation": {
@@ -701,45 +644,36 @@
    },
    "solution": "HABITABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HABITABLE",
     "definitions": [
      {
       "text": "OK to occupy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when sharing a cell",
-      "for": "charade",
-      "note": "the two pieces overlap in one grid square, sharing the T"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H is Hotel in the phonetic alphabet"
-     },
-     {
-      "clueFragment": "not much",
-      "gives": "ABIT",
-      "note": "a bit = not much"
-     },
-     {
-      "clueFragment": "food",
-      "gives": "ABLE",
-      "note": "TABLE (food, as in \"keeps a good table\") with its T shared with A BIT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ABIT",
-      "ABLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "when sharing a cell",
+       "note": "the two pieces overlap in one grid square, sharing the T"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel",
+       "gives": "H",
+       "note": "H is Hotel in the phonetic alphabet"
+      },
+      {
+       "words": "not much",
+       "gives": "ABIT",
+       "note": "a bit = not much"
+      },
+      {
+       "words": "food",
+       "gives": "ABLE",
+       "note": "TABLE (food, as in \"keeps a good table\") with its T shared with A BIT"
+      }
      ]
     },
     "explanation": {
@@ -769,30 +703,16 @@
    },
    "solution": "BLUER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLUER",
     "definitions": [
      {
       "text": "Further to the right",
-      "at": 0
+      "at": 0,
+      "meaning": "blue is the colour of the UK Conservative party"
      },
      {
       "text": "further down",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Further to the right",
-      "gives": "BLUER",
-      "note": "blue is the colour of the UK Conservative party"
-     },
-     {
-      "clueFragment": "further down",
-      "gives": "BLUER",
-      "note": "blue = sad, down"
+      "at": 22,
+      "meaning": "blue = sad, down"
      }
     ],
     "explanation": {
@@ -820,60 +740,61 @@
    },
    "solution": "SARAH",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion"
-    ],
-    "answer": "SARAH",
     "definitions": [
      {
       "text": "woman",
       "at": 59
      }
     ],
-    "indicators": [
-     {
-      "text": "laid back",
-      "note": "laid back = turned backwards"
-     },
-     {
-      "text": "taking diamonds off"
-     },
-     {
-      "text": "retired",
-      "note": "retired = gone back, so reversed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's",
-      "gives": "AS",
-      "note": "as = what, as in \"do as I say\""
-     },
-     {
-      "clueFragment": "unfeeling",
-      "gives": "HARD",
-      "note": "hard = unfeeling"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "card-suit abbreviation, removed from HARD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "RAH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AS",
-       "to": "SA"
+       "text": "laid back",
+       "note": "laid back = turned backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "taking diamonds off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What's",
+         "gives": "AS",
+         "note": "as = what, as in \"do as I say\""
+        }
+       ]
       },
       {
-       "from": "HAR",
-       "to": "RAH"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retired",
+         "note": "retired = gone back, so reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "unfeeling",
+           "gives": "HARD",
+           "note": "hard = unfeeling"
+          },
+          {
+           "words": "diamonds",
+           "gives": "D",
+           "note": "card-suit abbreviation, removed from HARD"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -903,32 +824,25 @@
    },
    "solution": "LATERALLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LATERALLY",
     "definitions": [
      {
       "text": "from one's side",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Injury-time",
-      "gives": "LATE",
-      "note": "injury time is added at the end of a match"
-     },
-     {
-      "clueFragment": "recovery",
-      "gives": "RALLY",
-      "note": "a rally is a comeback"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATE",
-      "RALLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Injury-time",
+       "gives": "LATE",
+       "note": "injury time is added at the end of a match"
+      },
+      {
+       "words": "recovery",
+       "gives": "RALLY",
+       "note": "a rally is a comeback"
+      }
      ]
     },
     "explanation": {
@@ -964,35 +878,24 @@
    },
    "solution": "TAGQUESTION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TAG QUESTION",
     "definitions": [
      {
       "text": "didn't they?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "smashed",
-      "for": "anagram",
-      "note": "smashed pieces are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Antiques got",
-      "gives": "ANTIQUESGOT",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANTIQUES GOT",
-       "gives": "TAGQUESTION"
+       "text": "smashed",
+       "note": "smashed pieces are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Antiques got",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -1028,40 +931,31 @@
    },
    "solution": "COVERINGLETTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COVERING LETTER",
     "definitions": [
      {
       "text": "enclosure",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "one word keeps the other inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One badly wants",
-      "gives": "COVETER",
-      "note": "one who covets"
-     },
-     {
-      "clueFragment": "butterfly",
-      "gives": "RINGLET",
-      "note": "the ringlet is a brown butterfly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COVE",
-      "RINGLET",
-      "TER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "note": "one word keeps the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One badly wants",
+       "gives": "COVETER",
+       "note": "one who covets"
+      },
+      {
+       "words": "butterfly",
+       "gives": "RINGLET",
+       "note": "the ringlet is a brown butterfly"
+      }
      ]
     },
     "explanation": {
@@ -1090,45 +984,46 @@
    },
    "solution": "EXAMINING",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "EXAMINING",
     "definitions": [
      {
       "text": "Testing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start for",
-      "note": "the start of a word is its first letter"
-     },
-     {
-      "text": "opening",
-      "note": "A opens up EX-MINING, splitting it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out of the pits",
-      "gives": "EXMINING",
-      "note": "ex = out of; pits are mines, so mining"
-     },
-     {
-      "clueFragment": "start for Antonelli",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of Antonelli"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "A",
-      "MINING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "start for",
+       "note": "the start of a word is its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out of the pits",
+       "gives": "EXMINING",
+       "note": "ex = out of; pits are mines, so mining"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "A",
+       "indicators": [
+        {
+         "text": "opening",
+         "note": "A opens up EX-MINING, splitting it"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "start for Antonelli",
+         "gives": "A",
+         "select": "first",
+         "note": "first letter of Antonelli"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1157,46 +1052,50 @@
    },
    "solution": "ADELAIDE",
    "annotation": {
-    "type": [
-     "deletion",
-     "homophone"
-    ],
-    "answer": "ADELAIDE",
     "definitions": [
      {
       "text": "City",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Waiving",
-      "for": "deletion",
-      "note": "waiving the F means doing without it"
-     },
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "a report is something said and heard, so the word is taken by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine, FA",
-      "gives": "A",
-      "note": "FA without F (fine)"
-     },
-     {
-      "clueFragment": "suspended",
-      "gives": "DELAIDE",
-      "soundsLike": "DELAYED",
-      "note": "suspended = delayed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DELAIDE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ADELAIDE",
+     "indicators": [
+      {
+       "text": "Waiving",
+       "note": "waiving the F means doing without it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine, FA",
+         "gives": "A",
+         "note": "FA without F (fine)"
+        },
+        {
+         "op": "homophone",
+         "spelt": "DELAIDE",
+         "indicators": [
+          {
+           "text": "reportedly",
+           "note": "a report is something said and heard, so the word is taken by its sound"
+          }
+         ],
+         "parts": [
+          {
+           "words": "suspended",
+           "gives": "DELAYED",
+           "note": "suspended = delayed"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1235,26 +1134,25 @@
    },
    "solution": "DECUSETTUTAMEN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DECUS ET TUTAMEN",
     "definitions": [
      {
       "text": "Edge of pound coin assigned this, originally Latin as agreed?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Edge of pound coin assigned this",
-      "note": "the surface pushes a design detail; the setter means the words inscribed around the rim of the British pound"
-     },
-     {
-      "clueFragment": "originally Latin as agreed?",
-      "note": "reads as a committee's decision; it hints that the phrase is Latin and sounds like a formal phrase meaning as agreed"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Edge of pound coin assigned this",
+       "note": "the surface pushes a design detail; the setter means the words inscribed around the rim of the British pound"
+      },
+      {
+       "words": "originally Latin as agreed?",
+       "note": "reads as a committee's decision; it hints that the phrase is Latin and sounds like a formal phrase meaning as agreed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A committee agreed a Latin inscription for the rim of the pound coin.",
      "walkthrough": "The motto, meaning \"an ornament and a safeguard\", was put on coin edges to deter clipping; \"as agreed\" plays on it sounding like official Latin.",
@@ -1280,40 +1178,31 @@
    },
    "solution": "CAVIARE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CAVIARE",
     "definitions": [
      {
       "text": "A delicacy one's served",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being in",
-      "for": "container",
-      "note": "the piece before it is placed in, inside, the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charge",
-      "gives": "CARE",
-      "note": "in someone's charge = in their care"
-     },
-     {
-      "clueFragment": "as a result of",
-      "gives": "VIA",
-      "note": "via = by means of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "VIA",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being in",
+       "note": "the piece before it is placed in, inside, the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "charge",
+       "gives": "CARE",
+       "note": "in someone's charge = in their care"
+      },
+      {
+       "words": "as a result of",
+       "gives": "VIA",
+       "note": "via = by means of"
+      }
      ]
     },
     "explanation": {
@@ -1342,44 +1231,46 @@
    },
    "solution": "ERODENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ERODENT",
     "definitions": [
      {
       "text": "Wearing down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "note": "the final letter of tortoise"
-     },
-     {
-      "text": "leads",
-      "note": "to lead is to go in front, so the letter comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tortoise finally",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of tortoise"
-     },
-     {
-      "clueFragment": "hare, say",
-      "gives": "RODENT",
-      "note": "\"say\" admits the hare is only loosely a rodent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "RODENT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "finally",
+       "note": "the final letter of tortoise"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "E",
+       "indicators": [
+        {
+         "text": "leads",
+         "note": "to lead is to go in front, so the letter comes first"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "tortoise finally",
+         "gives": "E",
+         "select": "last",
+         "note": "last letter of tortoise"
+        }
+       ]
+      },
+      {
+       "words": "hare, say",
+       "gives": "RODENT",
+       "note": "\"say\" admits the hare is only loosely a rodent"
+      }
      ]
     },
     "explanation": {
@@ -1408,39 +1299,31 @@
    },
    "solution": "EFFETE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EFFETE",
     "definitions": [
      {
       "text": "Spent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down clue, the supporting word sits underneath"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blind partner",
-      "gives": "EFF",
-      "note": "\"effing and blinding\" pairs the two ways of swearing"
-     },
-     {
-      "clueFragment": "summer in St Tropez",
-      "gives": "ETE",
-      "note": "été is French for summer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EFF",
-      "ETE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down clue, the supporting word sits underneath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blind partner",
+       "gives": "EFF",
+       "note": "\"effing and blinding\" pairs the two ways of swearing"
+      },
+      {
+       "words": "summer in St Tropez",
+       "gives": "ETE",
+       "note": "été is French for summer"
+      }
      ]
     },
     "explanation": {
@@ -1469,60 +1352,52 @@
    },
    "solution": "LEVITICUS",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "reversal"
-    ],
-    "answer": "LEVITICUS",
     "definitions": [
      {
       "text": "Numbers following it",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "odd",
-      "note": "odd means strange, so the letters are rearranged"
-     },
-     {
-      "text": "minding",
-      "note": "CULT IS minds, keeps, the other piece inside"
-     },
-     {
-      "text": "back",
-      "note": "the piece is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cult is",
-      "gives": "LTICUS",
-      "note": "anagram fodder, split around the next piece"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IVE",
-      "note": "one's = I've, I have"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EVI",
-      "TICUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "CULTIS",
-       "gives": "LTICUS"
+       "text": "odd",
+       "note": "odd means strange, so the letters are rearranged"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "IVE",
-       "to": "EVI"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "minding",
+         "note": "CULT IS minds, keeps, the other piece inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "the piece is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cult is",
+           "gives": "LTICUS",
+           "note": "anagram fodder, split around the next piece"
+          }
+         ]
+        },
+        {
+         "words": "one's",
+         "gives": "IVE",
+         "note": "one's = I've, I have"
+        }
+       ]
       }
      ]
     },
@@ -1552,33 +1427,16 @@
    },
    "solution": "THEFT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THEFT",
     "definitions": [
      {
       "text": "criminal taking",
-      "at": 5
+      "at": 5,
+      "meaning": "stealing"
      },
      {
       "text": "a newspaper",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "criminal taking",
-      "gives": "THEFT",
-      "note": "stealing"
-     },
-     {
-      "clueFragment": "a newspaper",
-      "gives": "THEFT",
-      "note": "the pink British business daily, known by its initials with the article in front"
+      "at": 21,
+      "meaning": "the pink British business daily, known by its initials with the article in front"
      }
     ],
     "explanation": {
@@ -1613,32 +1471,25 @@
    },
    "solution": "INOFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IN-OFF",
     "definitions": [
      {
       "text": "Foul",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "now",
-      "gives": "IN",
-      "note": "in = fashionable, of the now"
-     },
-     {
-      "clueFragment": "unfit for consumption",
-      "gives": "OFF",
-      "note": "food that has gone off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "OFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "now",
+       "gives": "IN",
+       "note": "in = fashionable, of the now"
+      },
+      {
+       "words": "unfit for consumption",
+       "gives": "OFF",
+       "note": "food that has gone off"
+      }
      ]
     },
     "explanation": {
@@ -1667,45 +1518,45 @@
    },
    "solution": "INANE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "INANE",
     "definitions": [
      {
       "text": "empty",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "How",
-      "gives": "INAN",
-      "note": "answer the question how they end: in a certain letter, preceded by the article"
-     },
-     {
-      "clueFragment": "house and home",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of both words"
-     },
-     {
-      "clueFragment": "up",
-      "note": "surface padding: end up = finish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INAN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "How",
+         "gives": "INAN",
+         "note": "answer the question how they end: in a certain letter, preceded by the article"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end",
+           "note": "the end of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "house and home",
+           "note": "the last letter of both words"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "up",
+       "note": "surface padding: end up = finish"
+      }
      ]
     },
     "explanation": {
@@ -1735,46 +1586,40 @@
    },
    "solution": "PRIVILEGE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PRIVILEGE",
     "definitions": [
      {
       "text": "A right",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disturbed by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "puritan",
-      "gives": "PRIG",
-      "note": "a prig is a self-righteous prude"
-     },
-     {
-      "clueFragment": "very bad",
-      "gives": "VILE",
-      "note": "vile = very bad"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRI",
-      "VILE",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "disturbed by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puritan",
+         "gives": "PRIG",
+         "note": "a prig is a self-righteous prude"
+        },
+        {
+         "words": "very bad",
+         "gives": "VILE",
+         "note": "vile = very bad"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1803,40 +1648,40 @@
    },
    "solution": "PEA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEA",
     "definitions": [
      {
       "text": "Vegetable, like any other",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "for a song",
-      "gives": "P",
-      "note": "p = penny, a price as cheap as a song"
-     },
-     {
-      "clueFragment": "individually",
-      "gives": "EA",
-      "note": "ea = each"
-     },
-     {
-      "clueFragment": "going",
-      "note": "surface padding: going = on sale"
-     },
-     {
-      "clueFragment": "it seems",
-      "note": "surface padding: admits the price is only a pretence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "for a song",
+         "gives": "P",
+         "note": "p = penny, a price as cheap as a song"
+        },
+        {
+         "words": "individually",
+         "gives": "EA",
+         "note": "ea = each"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "going",
+       "note": "surface padding: going = on sale"
+      },
+      {
+       "unchecked": true,
+       "words": "it seems",
+       "note": "surface padding: admits the price is only a pretence"
+      }
      ]
     },
     "explanation": {
@@ -1866,41 +1711,30 @@
    },
    "solution": "ELECTRA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELECTRA",
     "definitions": [
      {
       "text": "Complex figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beside",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "to take position"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "destined",
-      "gives": "ELECT",
-      "note": "as in president-elect, destined for office"
-     },
-     {
-      "clueFragment": "God",
-      "gives": "RA",
-      "note": "the Egyptian sun god"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELECT",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "destined",
+       "gives": "ELECT",
+       "note": "as in president-elect, destined for office"
+      },
+      {
+       "words": "God",
+       "gives": "RA",
+       "note": "the Egyptian sun god"
+      }
      ]
     },
     "explanation": {
@@ -1929,41 +1763,32 @@
    },
    "solution": "NIGHTIE",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "NIGHTIE",
     "definitions": [
      {
       "text": "late shift",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Change of ends for",
-      "for": "substitution",
-      "note": "the first and last letters trade places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rowing crew",
-      "gives": "EIGHT",
-      "note": "an eight is a rowing crew"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used as is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "IGHTI",
-      "E"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "NIGHTIE",
+     "indicators": [
+      {
+       "text": "Change of ends for",
+       "note": "the first and last letters trade places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rowing crew",
+       "gives": "EIGHT",
+       "note": "an eight is a rowing crew"
+      },
+      {
+       "words": "in",
+       "note": "used as is"
+      }
      ]
     },
     "explanation": {

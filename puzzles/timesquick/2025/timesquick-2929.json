@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2929",
  "number": 2929,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,929",
  "setter": "Pedro",
  "date": "2025-03-06",
  "dimensions": {
@@ -48,26 +46,25 @@
    },
    "solution": "HOWSTRICKS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HOWS TRICKS",
     "definitions": [
      {
       "text": "The standard greeting in the Magic Circle?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The standard greeting",
-      "note": "surface reading: an everyday friendly hello asking how someone is getting on"
-     },
-     {
-      "clueFragment": "in the Magic Circle?",
-      "note": "setter's reading: among conjurors, the casual phrase literally asks after their illusions"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The standard greeting",
+       "note": "surface reading: an everyday friendly hello asking how someone is getting on"
+      },
+      {
+       "words": "in the Magic Circle?",
+       "note": "setter's reading: among conjurors, the casual phrase literally asks after their illusions"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The Magic Circle is the famous British society of stage magicians. The colloquial British greeting asks how things are going, but magicians perform tricks, so it reads literally for them.",
      "definitionFit": "The phrase is a breezy informal British way of asking someone how life is treating them, a standard greeting."
@@ -94,41 +91,28 @@
    },
    "solution": "HAIKU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "HAIKU",
     "definitions": [
      {
       "text": "Sources of High Art In Kyoto University?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Sources of",
-      "for": "letter_selection",
-      "note": "a source is where something begins, so each word gives its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "High Art In Kyoto University",
-      "gives": "HAIKU",
-      "select": "first",
-      "note": "the initial letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "A",
-      "I",
-      "K",
-      "U"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Sources of",
+       "note": "a source is where something begins, so each word gives its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "High Art In Kyoto University",
+       "note": "the initial letters of the five words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone wonders what lofty culture a Japanese university might produce.",
      "walkthrough": "The whole clue does double duty: the initials spell the answer, and the clue as a whole describes it as refined Japanese art.",
@@ -155,49 +139,47 @@
    },
    "solution": "WOLVERINE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "WOLVERINE",
     "definitions": [
      {
       "text": "superhero in film",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Most of",
-      "for": "deletion",
-      "note": "most but not all means the final letter is dropped"
-     },
-     {
-      "text": "panned",
-      "for": "anagram",
-      "note": "something panned is knocked about by critics, so the letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "long",
-      "gives": "LON",
-      "note": "the word without its last letter"
-     },
-     {
-      "clueFragment": "review",
-      "gives": "REVIEW",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOLVERINE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "WOLVERINE",
+     "indicators": [
       {
-       "fodder": "LONREVIEW",
-       "gives": "WOLVERINE"
+       "text": "Most of",
+       "note": "most but not all means the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "panned",
+         "note": "something panned is knocked about by critics, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "long",
+           "gives": "LON",
+           "note": "the word without its last letter"
+          },
+          {
+           "words": "review",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -228,48 +210,35 @@
    },
    "solution": "TAPER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TAPER",
     "definitions": [
      {
       "text": "make a point",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down clue, turning upward makes the letters read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thanks",
-      "gives": "TA",
-      "note": "ta is informal British for thank you"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "REP",
-      "note": "Rep is a short form of Republican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "PER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "REP",
-       "to": "PER"
+       "words": "Thanks",
+       "gives": "TA",
+       "note": "ta is informal British for thank you"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue, turning upward makes the letters read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican",
+         "gives": "REP",
+         "note": "Rep is a short form of Republican"
+        }
+       ]
       }
      ]
     },
@@ -300,39 +269,31 @@
    },
    "solution": "INN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INN",
     "definitions": [
      {
       "text": "bar",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "admitted to",
-      "for": "container",
-      "note": "being admitted means being let inside, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fashionable",
-      "gives": "IN",
-      "note": "in means in fashion"
-     },
-     {
-      "clueFragment": "Unspecified number",
-      "gives": "N",
-      "note": "n stands for an unspecified number in maths"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitted to",
+       "note": "being admitted means being let inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fashionable",
+       "gives": "IN",
+       "note": "in means in fashion"
+      },
+      {
+       "words": "Unspecified number",
+       "gives": "N",
+       "note": "n stands for an unspecified number in maths"
+      }
      ]
     },
     "explanation": {
@@ -361,47 +322,41 @@
    },
    "solution": "KLINGON",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "KLINGON",
     "definitions": [
      {
       "text": "alien species",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "housing",
-      "for": "container",
-      "note": "to house something is to give it a home inside, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leader",
-      "gives": "KING",
-      "note": "a king is a leader"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the clothing-size abbreviation for large"
-     },
-     {
-      "clueFragment": "against",
-      "gives": "ON",
-      "note": "on can mean against, as in leaning on a wall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "L",
-      "ING",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "housing",
+         "note": "to house something is to give it a home inside, so one piece sits within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leader",
+         "gives": "KING",
+         "note": "a king is a leader"
+        },
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L is the clothing-size abbreviation for large"
+        }
+       ]
+      },
+      {
+       "words": "against",
+       "gives": "ON",
+       "note": "on can mean against, as in leaning on a wall"
+      }
      ]
     },
     "explanation": {
@@ -430,45 +385,34 @@
    },
    "solution": "COMMERCIAL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "COMMERCIAL",
     "definitions": [
      {
       "text": "regarding business",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "changes",
-      "for": "anagram",
-      "note": "when something changes it takes a different form, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "claim: more",
-      "gives": "CLAIMMORE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OMMERCIAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CLAIMMORE",
-       "gives": "OMMERCIAL"
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "note": "when something changes it takes a different form, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "claim: more",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -498,47 +442,41 @@
    },
    "solution": "ORIEL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ORIEL",
     "definitions": [
      {
       "text": "Oxford college",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounded by",
-      "for": "container",
-      "note": "being surrounded means having something on every side, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the Latin abbreviation for that is"
-     },
-     {
-      "clueFragment": "hands",
-      "gives": "RL",
-      "note": "the right and left hands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "IE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "surrounded by",
+         "note": "being surrounded means having something on every side, so one piece sits inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hands",
+         "gives": "RL",
+         "note": "the right and left hands"
+        },
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. is the Latin abbreviation for that is"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -568,32 +506,25 @@
    },
    "solution": "PENDING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PENDING",
     "definitions": [
      {
       "text": "still to occur",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Quiet",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quiet"
-     },
-     {
-      "clueFragment": "conclusion",
-      "gives": "ENDING",
-      "note": "an ending is a conclusion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ENDING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quiet",
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quiet"
+      },
+      {
+       "words": "conclusion",
+       "gives": "ENDING",
+       "note": "an ending is a conclusion"
+      }
      ]
     },
     "explanation": {
@@ -622,32 +553,25 @@
    },
    "solution": "GRAVESTONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRAVESTONE",
     "definitions": [
      {
       "text": "Memorial",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "most sombre",
-      "gives": "GRAVEST",
-      "note": "the superlative of grave, meaning serious or solemn"
-     },
-     {
-      "clueFragment": "example",
-      "gives": "ONE",
-      "note": "one is an instance or example, as in 'that's a good one'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAVEST",
-      "ONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "most sombre",
+       "gives": "GRAVEST",
+       "note": "the superlative of grave, meaning serious or solemn"
+      },
+      {
+       "words": "example",
+       "gives": "ONE",
+       "note": "one is an instance or example, as in 'that's a good one'"
+      }
      ]
     },
     "explanation": {
@@ -677,39 +601,28 @@
    },
    "solution": "MOUSETRAP",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "MOUSETRAP",
     "definitions": [
      {
       "text": "What could replace a super tom at work?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at work",
-      "for": "anagram",
-      "note": "letters at work are busy being moved about, so they are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a super tom",
-      "gives": "ASUPERTOM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASUPERTOM",
-       "gives": "MOUSETRAP"
+       "text": "at work",
+       "note": "letters at work are busy being moved about, so they are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a super tom",
+       "note": "taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone wonders what device could take over from a champion cat on mouse duty.",
      "walkthrough": "A tom is a male cat; the whole clue both mixes up the letters and describes the answer.",
@@ -737,45 +650,34 @@
    },
    "solution": "POTPOURRI",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "POTPOURRI",
     "definitions": [
      {
       "text": "a mixture of things",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "ruined",
-      "for": "anagram",
-      "note": "something ruined is wrecked and broken up, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Post Office",
-      "gives": "PO",
-      "note": "PO is the abbreviation for Post Office"
-     },
-     {
-      "clueFragment": "our trip",
-      "gives": "OURTRIP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "TPOURRI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OURTRIP",
-       "gives": "TPOURRI"
+       "words": "Post Office",
+       "gives": "PO",
+       "note": "PO is the abbreviation for Post Office"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "note": "something ruined is wrecked and broken up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our trip",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -805,32 +707,24 @@
    },
    "solution": "GOA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOA",
     "definitions": [
      {
       "text": "region of India",
       "at": 8
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "gives": "GO",
-      "note": "to go is to leave"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leave",
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -859,61 +753,50 @@
    },
    "solution": "RAFFIA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "RAFFIA",
     "definitions": [
      {
       "text": "weaving material",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "source of",
-      "for": "letter_selection",
-      "note": "a source is where something starts, so only the opening letter is taken"
-     },
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "to recall is to call back, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Excellent",
-      "gives": "AI",
-      "note": "A1 means excellent, written with I standing for 1"
-     },
-     {
-      "clueFragment": "fibre",
-      "gives": "F",
-      "select": "first",
-      "note": "first letter of the word"
-     },
-     {
-      "clueFragment": "very much",
-      "gives": "FAR",
-      "note": "far means very much, as in far better"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAF",
-      "F",
-      "IA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AIFFAR",
-       "to": "RAFFIA"
+       "text": "recalled",
+       "note": "to recall is to call back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Excellent",
+         "gives": "AI",
+         "note": "A1 means excellent, written with I standing for 1"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "source of",
+           "note": "a source is where something starts, so only the opening letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fibre",
+           "note": "first letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "very much",
+         "gives": "FAR",
+         "note": "far means very much, as in far better"
+        }
+       ]
       }
      ]
     },
@@ -943,43 +826,38 @@
    },
    "solution": "FINESSE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "FINESSE",
     "definitions": [
      {
       "text": "subtlety and tact",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced by 50 per cent",
-      "for": "deletion",
-      "note": "cutting something by half means discarding half its letters"
-     }
-    ],
-    "linkWords": [
-     "This shows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Penalties",
-      "gives": "FINES",
-      "note": "fines are monetary penalties"
-     },
-     {
-      "clueFragment": "seem",
-      "gives": "SE",
-      "note": "deleting the last half of its four letters leaves the first two"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FINES",
-      "SE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FINESSE",
+     "indicators": [
+      {
+       "text": "reduced by 50 per cent",
+       "note": "cutting something by half means discarding half its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Penalties",
+         "gives": "FINES",
+         "note": "fines are monetary penalties"
+        },
+        {
+         "words": "seem",
+         "gives": "SE",
+         "note": "deleting the last half of its four letters leaves the first two"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1008,47 +886,41 @@
    },
    "solution": "STANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "STANCE",
     "definitions": [
      {
       "text": "position",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "adopting",
-      "for": "container",
-      "note": "to adopt is to take in and give a home, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stone",
-      "gives": "ST",
-      "note": "st is the abbreviation for stone, a British unit of weight"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ACE",
-      "note": "an ace is an expert"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "A",
-      "N",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stone",
+       "gives": "ST",
+       "note": "st is the abbreviation for stone, a British unit of weight"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adopting",
+         "note": "to adopt is to take in and give a home, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expert",
+         "gives": "ACE",
+         "note": "an ace is an expert"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1077,32 +949,25 @@
    },
    "solution": "ION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ION",
     "definitions": [
      {
       "text": "Source of charge?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Electric current",
-      "gives": "I",
-      "note": "I is the physics symbol for electric current"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Electric current",
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -1131,38 +996,24 @@
    },
    "solution": "ECOLOGIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ECOLOGIST",
     "definitions": [
      {
       "text": "Environmentalist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new arrangement of",
-      "for": "anagram",
-      "note": "a fresh arrangement puts the letters in a different order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "igloos etc",
-      "gives": "IGLOOSETC",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IGLOOSETC",
-       "gives": "ECOLOGIST"
+       "text": "new arrangement of",
+       "note": "a fresh arrangement puts the letters in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "igloos etc",
+       "note": "taken as written"
       }
      ]
     },
@@ -1192,30 +1043,28 @@
    },
    "solution": "ORGAN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORGAN",
     "definitions": [
      {
       "text": "Newspaper possibly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "hidden_word",
-      "note": "to be involved in something is to be part of it, so the letters sit within a longer word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reorganisation",
-      "gives": "ORGAN",
-      "note": "letters two to six"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "to be involved in something is to be part of it, so the letters sit within a longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reorganisation",
+       "gives": "ORGAN",
+       "note": "letters two to six"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A newspaper may be caught up in a corporate restructure.",
      "walkthrough": "'Possibly' flags that a newspaper is only one example of the answer.",
@@ -1242,36 +1091,28 @@
    },
    "solution": "ISSUE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ISSUE",
     "definitions": [
      {
       "text": "topical matter",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "No opening for",
-      "for": "deletion",
-      "note": "with no opening, the start is missing, so the first letter goes"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paper",
-      "gives": "ISSUE",
-      "note": "tissue is a kind of paper, minus its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ISSUE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ISSUE",
+     "indicators": [
+      {
+       "text": "No opening for",
+       "note": "with no opening, the start is missing, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paper",
+       "gives": "ISSUE",
+       "note": "tissue is a kind of paper, minus its first letter"
+      }
      ]
     },
     "explanation": {
@@ -1300,47 +1141,39 @@
    },
    "solution": "LASTING",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LASTING",
     "definitions": [
      {
       "text": "Permanent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "capital of",
-      "for": "letter_selection",
-      "note": "a capital letter heads a word, so only the first letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "support for shoemaker",
-      "gives": "LAST",
-      "note": "a last is the foot-shaped block a cobbler shapes a shoe on"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Greece",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAST",
-      "IN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "support for shoemaker",
+       "gives": "LAST",
+       "note": "a last is the foot-shaped block a cobbler shapes a shoe on"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital of",
+         "note": "a capital letter heads a word, so only the first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greece",
+         "note": "first letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1370,47 +1203,34 @@
    },
    "solution": "IMP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "IMP",
     "definitions": [
      {
       "text": "a rascal",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "upheld",
-      "for": "reversal",
-      "note": "held up in a down clue means read from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leading politician",
-      "gives": "PM",
-      "note": "PM is the Prime Minister"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PMI",
-       "to": "IMP"
+       "text": "upheld",
+       "note": "held up in a down clue means read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Leading politician",
+         "gives": "PM",
+         "note": "PM is the Prime Minister"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1440,43 +1260,31 @@
    },
    "solution": "RESIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RESIN",
     "definitions": [
      {
       "text": "other material for plastics",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "importing",
-      "for": "container",
-      "note": "to import is to bring in, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Control",
-      "gives": "REIN",
-      "note": "to rein is to control"
-     },
-     {
-      "clueFragment": "sulphur",
-      "gives": "S",
-      "note": "S is the chemical symbol for sulphur"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "S",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "importing",
+       "note": "to import is to bring in, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Control",
+       "gives": "REIN",
+       "note": "to rein is to control"
+      },
+      {
+       "words": "sulphur",
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      }
      ]
     },
     "explanation": {
@@ -1505,35 +1313,25 @@
    },
    "solution": "SERPENTINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SERPENTINE",
     "definitions": [
      {
       "text": "Running in all directions",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "something playing moves about freely, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tennis with peer",
-      "gives": "TENNISPEER",
-      "note": "taken as written, the link word aside"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TENNISPEER",
-       "gives": "SERPENTINE"
+       "text": "playing",
+       "note": "something playing moves about freely, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tennis with peer",
+       "gives": "TENNISPEER",
+       "note": "taken as written, the link word aside"
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "times-20819",
  "number": 20819,
- "series": "times",
- "name": "Times cryptic crossword No 20,819",
  "date": "1998-06-16",
  "dimensions": {
   "cols": 15,
@@ -40,61 +38,58 @@
    },
    "solution": "CINEMATHEQUE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "CINEMATHEQUE",
     "definitions": [
      {
       "text": "In which, admitted by payment, you can see most of matinee, possibly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most of a word means all but its final letter is kept"
-     },
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly hints that the letters could be arranged some other way"
-     },
-     {
-      "text": "admitted by",
-      "for": "container",
-      "note": "something admitted by another is let inside it, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "payment",
-      "gives": "CHEQUE",
-      "note": "a cheque is a form of payment"
-     },
-     {
-      "clueFragment": "matinee",
-      "gives": "MATINE",
-      "note": "the afternoon performance word without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "INEMAT",
-      "HEQUE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CINEMATHEQUE",
+     "indicators": [
       {
-       "fodder": "MATINE",
-       "gives": "INEMAT"
+       "text": "most of",
+       "note": "most of a word means all but its final letter is kept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admitted by",
+         "note": "something admitted by another is let inside it, so one piece sits within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "payment",
+         "gives": "CHEQUE",
+         "note": "a cheque is a form of payment"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "possibly",
+           "note": "possibly hints that the letters could be arranged some other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "matinee",
+           "gives": "MATINE",
+           "note": "the afternoon performance word without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A film club where you pay at the door and can catch most of an afternoon screening.",
      "walkthrough": "The whole clue is both definition and wordplay: CHEQUE takes in INEMAT to give CINEMATHEQUE, a place you pay to enter and watch films such as matinees.",
@@ -121,40 +116,31 @@
    },
    "solution": "CUFFING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CUFFING",
     "definitions": [
      {
       "text": "Beating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "transmitting a signal",
-      "gives": "CUING",
-      "note": "cueing or cuing is giving a performer a signal"
-     },
-     {
-      "clueFragment": "very loudly",
-      "gives": "FF",
-      "note": "ff, fortissimo, is the musical marking for very loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "FF",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transmitting a signal",
+       "gives": "CUING",
+       "note": "cueing or cuing is giving a performer a signal"
+      },
+      {
+       "words": "very loudly",
+       "gives": "FF",
+       "note": "ff, fortissimo, is the musical marking for very loud"
+      }
      ]
     },
     "explanation": {
@@ -189,41 +175,42 @@
    },
    "solution": "NORWEST",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "NOR-WEST",
     "definitions": [
      {
       "text": "Direction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "Dr Spooner swapped the opening sounds of words, so the starts of the two words change places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "conflict",
-      "gives": "NOR",
-      "soundsLike": "WAR",
-      "note": "a war is an armed conflict"
-     },
-     {
-      "clueFragment": "retreat",
-      "gives": "WEST",
-      "soundsLike": "NEST",
-      "note": "a nest is a snug retreat or hideaway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOR",
-      "WEST"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "NORWEST",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "Dr Spooner swapped the opening sounds of words, so the starts of the two words change places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "conflict",
+         "gives": "NOR",
+         "soundsLike": "WAR",
+         "note": "a war is an armed conflict"
+        },
+        {
+         "unchecked": true,
+         "words": "retreat",
+         "gives": "WEST",
+         "soundsLike": "NEST",
+         "note": "a nest is a snug retreat or hideaway"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -253,38 +240,24 @@
    },
    "solution": "MISRECKON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MISRECKON",
     "definitions": [
      {
       "text": "Make a computer error",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "spelt wrong, the letters are put down in a faulty order"
-     }
-    ],
-    "linkWords": [
-     "spelling"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "monickers",
-      "gives": "MONICKERS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MONICKERS",
-       "gives": "MISRECKON"
+       "text": "wrong",
+       "note": "spelt wrong, the letters are put down in a faulty order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "monickers",
+       "note": "taken as written"
       }
      ]
     },
@@ -315,40 +288,39 @@
    },
    "solution": "TWERP",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TWERP",
     "definitions": [
      {
       "text": "idiot",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Nonetheless",
-      "for": "deletion",
-      "note": "read as none the less, it asks for a word with its nought, the letter like zero, taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keep",
-      "gives": "TOWER",
-      "note": "a castle's keep is its main tower"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p, piano, is the musical marking for quietly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWER",
-      "P"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Nonetheless",
+       "note": "read as none the less, it asks for a word with its nought, the letter like zero, taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "keep",
+         "gives": "TOWER",
+         "note": "a castle's keep is its main tower"
+        },
+        {
+         "words": "quiet",
+         "gives": "P",
+         "note": "p, piano, is the musical marking for quietly"
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -377,43 +349,31 @@
    },
    "solution": "EXPERTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EXPERTS",
     "definitions": [
      {
       "text": "masters",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "to include",
-      "for": "container",
-      "note": "to include something is to take it in, so one piece goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Applies",
-      "gives": "EXERTS",
-      "note": "to exert force is to apply it"
-     },
-     {
-      "clueFragment": "a little money",
-      "gives": "P",
-      "note": "p, a penny, is a small sum of British money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "P",
-      "ERTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "note": "to include something is to take it in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Applies",
+       "gives": "EXERTS",
+       "note": "to exert force is to apply it"
+      },
+      {
+       "words": "a little money",
+       "gives": "P",
+       "note": "p, a penny, is a small sum of British money"
+      }
      ]
     },
     "explanation": {
@@ -441,43 +401,39 @@
    },
    "solution": "UNSWEPT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UNSWEPT",
     "definitions": [
      {
       "text": "Like a grotty floor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "without a top, a word loses its first letter in a down entry"
-     }
-    ],
-    "linkWords": [
-     "show"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sisters",
-      "gives": "NUNS",
-      "note": "nuns are religious sisters"
-     },
-     {
-      "clueFragment": "lamented",
-      "gives": "WEPT",
-      "note": "to weep is to lament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNS",
-      "WEPT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topless",
+       "note": "without a top, a word loses its first letter in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sisters",
+         "gives": "NUNS",
+         "note": "nuns are religious sisters"
+        },
+        {
+         "words": "lamented",
+         "gives": "WEPT",
+         "note": "to weep is to lament"
+        }
+       ]
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -513,26 +469,26 @@
    },
    "solution": "BUYERSMARKET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BUYER'S MARKET",
     "definitions": [
      {
       "text": "Conditions for dropping charges",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Conditions for dropping charges",
-      "note": "surface reading: circumstances in which accusations are withdrawn in court"
-     },
-     {
-      "clueFragment": "Conditions for dropping charges",
-      "note": "setter's reading: economic conditions in which prices fall because supply exceeds demand"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Conditions for dropping charges",
+       "note": "surface reading: circumstances in which accusations are withdrawn in court"
+      },
+      {
+       "words": "Conditions for dropping charges",
+       "note": "setter's reading: economic conditions in which prices fall because supply exceeds demand"
+      }
+     ]
+    },
+    "spelling": "BUYER'S MARKET",
     "explanation": {
      "walkthrough": "Charges sounds legal, but here they are prices, and dropping means falling.",
      "definitionFit": "When goods are plentiful and purchasers few, sellers must cut prices, which favours purchasers."
@@ -559,56 +515,50 @@
    },
    "solution": "UNFURLS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "UNFURLS",
     "definitions": [
      {
       "text": "Spreads out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stupidly",
-      "for": "anagram",
-      "note": "doing something stupidly means doing it in a muddled way, so the letters come out jumbled"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coat",
-      "gives": "FUR",
-      "note": "an animal's coat is its fur"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the usual abbreviation for left"
-     },
-     {
-      "clueFragment": "sun",
-      "gives": "SUN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "FURL",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SUN",
-       "gives": "UNS"
+       "text": "in",
+       "note": "one thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stupidly",
+         "note": "doing something stupidly means doing it in a muddled way, so the letters come out jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "gives": "L",
+           "note": "L is the usual abbreviation for left"
+          },
+          {
+           "words": "sun",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "coat",
+       "gives": "FUR",
+       "note": "an animal's coat is its fur"
       }
      ]
     },
@@ -638,40 +588,39 @@
    },
    "solution": "EXPOSES",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "EXPOSES",
     "definitions": [
      {
       "text": "Reveals",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "right away",
-      "for": "deletion",
-      "note": "sending the right away means the letter standing for right is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "EX",
-      "note": "ex- means former, as in ex-wife"
-     },
-     {
-      "clueFragment": "puzzles",
-      "gives": "POSERS",
-      "note": "posers are puzzling questions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "POSES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "right away",
+       "note": "sending the right away means the letter standing for right is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "EX",
+         "note": "ex- means former, as in ex-wife"
+        },
+        {
+         "words": "puzzles",
+         "gives": "POSERS",
+         "note": "posers are puzzling questions"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -706,43 +655,33 @@
    },
    "solution": "SQUEAKYCLEAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SQUEAKY-CLEAN",
     "definitions": [
      {
       "text": "Impeccable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put out of joint",
-      "for": "anagram",
-      "note": "a dislocated limb is put out of joint, so these letters are knocked out of place"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "equal, say",
-      "gives": "EQUALSAY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "neck",
-      "gives": "NECK",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EQUALSAYNECK",
-       "gives": "SQUEAKYCLEAN"
+       "text": "put out of joint",
+       "note": "a dislocated limb is put out of joint, so these letters are knocked out of place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "equal, say",
+         "note": "taken as written"
+        },
+        {
+         "words": "neck",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -777,49 +716,34 @@
    },
    "solution": "EVILEYE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "EVIL EYE",
     "definitions": [
      {
       "text": "source of harm",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "broadcast seed is scattered about, so these letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "seen by",
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Live",
-      "gives": "LIVE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "viewer",
-      "gives": "EYE",
-      "note": "the eye is the organ that views"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVIL",
-      "EYE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LIVE",
-       "gives": "EVIL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "note": "broadcast seed is scattered about, so these letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Live",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "viewer",
+       "gives": "EYE",
+       "note": "the eye is the organ that views"
       }
      ]
     },
@@ -849,40 +773,39 @@
    },
    "solution": "PARVENU",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PARVENU",
     "definitions": [
      {
       "text": "social climber",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "something cut has been trimmed, so the last letter is lopped off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "As usual",
-      "gives": "PAR",
-      "note": "par is the normal or usual level, as in 'up to par'"
-     },
-     {
-      "clueFragment": "beautiful woman",
-      "gives": "VENUS",
-      "note": "Venus, goddess of love, stands for any great beauty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "VENU"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "something cut has been trimmed, so the last letter is lopped off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "As usual",
+         "gives": "PAR",
+         "note": "par is the normal or usual level, as in 'up to par'"
+        },
+        {
+         "words": "beautiful woman",
+         "gives": "VENUS",
+         "note": "Venus, goddess of love, stands for any great beauty"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -912,31 +835,29 @@
    },
    "solution": "SIGHT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SIGHT",
     "definitions": [
      {
       "text": "spy",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Verbally",
-      "for": "homophone",
-      "note": "verbally means spoken out, so the word is judged by its sound rather than spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "summon",
-      "gives": "SIGHT",
-      "soundsLike": "CITE",
-      "note": "to cite someone is to summon them to appear in court"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SIGHT",
+     "indicators": [
+      {
+       "text": "Verbally",
+       "note": "verbally means spoken out, so the word is judged by its sound rather than spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "summon",
+       "gives": "CITE",
+       "note": "to cite someone is to summon them to appear in court"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An instruction to call up a secret agent by word of mouth.",
      "definitionFit": "To sight something is to catch a glimpse of it, just as to spy a ship is to see it in the distance."
@@ -968,26 +889,25 @@
    },
    "solution": "KAMASUTRA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "KAMA SUTRA",
     "definitions": [
      {
       "text": "Bedtime reading?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bedtime reading?",
-      "note": "surface reading: a book read before going to sleep"
-     },
-     {
-      "clueFragment": "Bedtime reading?",
-      "note": "setter's reading: a book about what goes on in bed, the ancient Indian manual of lovemaking"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bedtime reading?",
+       "note": "surface reading: a book read before going to sleep"
+      },
+      {
+       "words": "Bedtime reading?",
+       "note": "setter's reading: a book about what goes on in bed, the ancient Indian manual of lovemaking"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Bedtime suggests a story before sleep; the question mark signals the cheekier sense of activity in bed.",
      "definitionFit": "The ancient Sanskrit text is famous as a guide to sexual technique, so it concerns what happens between the sheets."
@@ -1014,35 +934,24 @@
    },
    "solution": "MNEMONIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MNEMONIST",
     "definitions": [
      {
       "text": "an elephant?",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "treated",
-      "for": "anagram",
-      "note": "something treated has been processed and changed, so the letters are altered in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In moments",
-      "gives": "INMOMENTS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INMOMENTS",
-       "gives": "MNEMONIST"
+       "text": "treated",
+       "note": "something treated has been processed and changed, so the letters are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In moments",
+       "note": "taken as written"
       }
      ]
     },
@@ -1079,35 +988,24 @@
    },
    "solution": "ASHBLONDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ASH BLONDE",
     "definitions": [
      {
       "text": "Fair maiden",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ruined",
-      "for": "anagram",
-      "note": "a ruined thing has been wrecked out of its proper form, so the letters are rebuilt differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nobles had",
-      "gives": "NOBLESHAD",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOBLESHAD",
-       "gives": "ASHBLONDE"
+       "text": "ruined",
+       "note": "a ruined thing has been wrecked out of its proper form, so the letters are rebuilt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nobles had",
+       "note": "taken as written"
       }
      ]
     },
@@ -1137,62 +1035,54 @@
    },
    "solution": "HIRABLE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "HIRABLE",
     "definitions": [
      {
       "text": "Like cab finally secured by frantic hailer?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end of the word, keeping its last letter only"
-     },
-     {
-      "text": "frantic",
-      "for": "anagram",
-      "note": "something frantic is wildly agitated, so these letters are thrown about"
-     },
-     {
-      "text": "secured by",
-      "for": "container",
-      "note": "something secured by another is held fast inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hailer",
-      "gives": "HAILER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cab",
-      "gives": "B",
-      "select": "last",
-      "note": "the final letter of cab"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIRA",
-      "B",
-      "LE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HAILER",
-       "gives": "HIRALE"
+       "text": "secured by",
+       "note": "something secured by another is held fast inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "frantic",
+         "note": "something frantic is wildly agitated, so these letters are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hailer",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end of the word, keeping its last letter only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cab",
+         "note": "the final letter of cab"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A taxi that a desperate person waving on the kerb at last managed to grab.",
      "walkthrough": "The whole clue defines too: a cab a frantic hailer can secure must be free to hire.",
@@ -1219,35 +1109,25 @@
    },
    "solution": "LOCKJAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOCKJAW",
     "definitions": [
      {
       "text": "Disease's",
       "at": 0
      }
     ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hold",
-      "gives": "LOCK",
-      "note": "a lock is a wrestling hold"
-     },
-     {
-      "clueFragment": "rabbit",
-      "gives": "JAW",
-      "note": "rabbit and jaw are both British slang for chatter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOCK",
-      "JAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hold",
+       "gives": "LOCK",
+       "note": "a lock is a wrestling hold"
+      },
+      {
+       "words": "rabbit",
+       "gives": "JAW",
+       "note": "rabbit and jaw are both British slang for chatter"
+      }
      ]
     },
     "explanation": {
@@ -1276,40 +1156,31 @@
    },
    "solution": "JAZZY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "JAZZY",
     "definitions": [
      {
       "text": "Gaudy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going round",
-      "for": "container",
-      "note": "something going round another encircles it, holding it within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird",
-      "gives": "JAY",
-      "note": "the jay is a crow-family bird"
-     },
-     {
-      "clueFragment": "sharp bends",
-      "gives": "ZZ",
-      "note": "a road sign for sharp bends is zigzag-shaped, so two letters Z"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JA",
-      "ZZ",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "note": "something going round another encircles it, holding it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "gives": "JAY",
+       "note": "the jay is a crow-family bird"
+      },
+      {
+       "words": "sharp bends",
+       "gives": "ZZ",
+       "note": "a road sign for sharp bends is zigzag-shaped, so two letters Z"
+      }
      ]
     },
     "explanation": {
@@ -1338,46 +1209,45 @@
    },
    "solution": "JUDAISM",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "JUDAISM",
     "definitions": [
      {
       "text": "Religious way of life",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the last letter is dropped"
-     },
-     {
-      "text": "to take over",
-      "for": "container",
-      "note": "to take something over is to take it in, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bound",
-      "gives": "JUMP",
-      "note": "to bound is to leap or jump"
-     },
-     {
-      "clueFragment": "platform",
-      "gives": "DAIS",
-      "note": "a dais is a raised platform"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JU",
-      "DAIS",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take over",
+       "note": "to take something over is to take it in, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "almost means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bound",
+         "gives": "JUMP",
+         "note": "to bound is to leap or jump"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "platform",
+       "gives": "DAIS",
+       "note": "a dais is a raised platform"
+      }
      ]
     },
     "explanation": {
@@ -1406,50 +1276,41 @@
    },
    "solution": "ZEALOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ZEALOUS",
     "definitions": [
      {
       "text": "Impassioned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into means placed inside, so these pieces go within the other"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ancient deity",
-      "gives": "ZEUS",
-      "note": "Zeus was king of the Greek gods"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a is the indefinite article"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "LO",
-      "note": "lo is an old word for look!"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZE",
-      "A",
-      "LO",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "into means placed inside, so these pieces go within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancient deity",
+       "gives": "ZEUS",
+       "note": "Zeus was king of the Greek gods"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "gives": "A",
+         "note": "a is the indefinite article"
+        },
+        {
+         "words": "look",
+         "gives": "LO",
+         "note": "lo is an old word for look!"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1478,30 +1339,28 @@
    },
    "solution": "KARACHI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "KARACHI",
     "definitions": [
      {
       "text": "Port",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "used by",
-      "for": "hidden_word",
-      "note": "the answer is made from letters the following words use, sitting inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ankara, chiefly",
-      "gives": "KARACHI",
-      "note": "found running across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "used by",
+       "note": "the answer is made from letters the following words use, sitting inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ankara, chiefly",
+       "gives": "KARACHI",
+       "note": "found running across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A harbour that the Turkish capital mostly depends on, though Ankara is far inland.",
      "definitionFit": "Karachi is Pakistan's largest city and chief seaport on the Arabian Sea."
@@ -1527,33 +1386,29 @@
    },
    "solution": "INGLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INGLE",
     "definitions": [
      {
       "text": "a fire",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "doesn't start",
-      "for": "deletion",
-      "note": "a word that doesn't start lacks its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "SINGLE",
-      "note": "single means one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INGLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doesn't start",
+       "note": "a word that doesn't start lacks its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "gives": "SINGLE",
+       "note": "single means one"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1582,28 +1437,16 @@
    },
    "solution": "ODDBALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ODDBALL",
     "definitions": [
      {
       "text": "Highly unusual",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: very strange or eccentric"
      },
      {
       "text": "black or blue on green surface?",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Highly unusual",
-      "note": "first meaning: very strange or eccentric"
-     },
-     {
-      "clueFragment": "black or blue on green surface?",
-      "note": "second meaning: in snooker the black is worth seven and the blue five, both odd numbers"
+      "at": 15,
+      "meaning": "second meaning: in snooker the black is worth seven and the blue five, both odd numbers"
      }
     ],
     "explanation": {
@@ -1638,35 +1481,25 @@
    },
    "solution": "TOBYJUG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOBY JUG",
     "definitions": [
      {
       "text": "vessel",
       "at": 23
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Punch friend",
-      "gives": "TOBY",
-      "note": "Toby is the dog in Punch and Judy puppet shows"
-     },
-     {
-      "clueFragment": "prison",
-      "gives": "JUG",
-      "note": "jug is slang for jail"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOBY",
-      "JUG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Punch friend",
+       "gives": "TOBY",
+       "note": "Toby is the dog in Punch and Judy puppet shows"
+      },
+      {
+       "words": "prison",
+       "gives": "JUG",
+       "note": "jug is slang for jail"
+      }
      ]
     },
     "explanation": {
@@ -1696,51 +1529,39 @@
    },
    "solution": "ISIDORA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ISIDORA",
     "definitions": [
      {
       "text": "Girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so these words are read in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "a staff",
-      "gives": "AROD",
-      "note": "a rod is a staff or stick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "I",
-      "DORA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AROD",
-       "to": "DORA"
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "something rejected is sent back, so these words are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a staff",
+         "gives": "AROD",
+         "note": "a rod is a staff or stick"
+        }
+       ]
       }
      ]
     },
@@ -1776,47 +1597,35 @@
    },
    "solution": "BETWEENTIMES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BETWEEN TIMES",
     "definitions": [
      {
       "text": "occasionally",
       "at": 33
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Risk",
-      "gives": "BET",
-      "note": "to bet is to stake or risk money"
-     },
-     {
-      "clueFragment": "very little",
-      "gives": "WEE",
-      "note": "wee is Scottish for small"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is a standard abbreviation for new"
-     },
-     {
-      "clueFragment": "paper",
-      "gives": "TIMES",
-      "note": "The Times is a newspaper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BET",
-      "WEE",
-      "N",
-      "TIMES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Risk",
+       "gives": "BET",
+       "note": "to bet is to stake or risk money"
+      },
+      {
+       "words": "very little",
+       "gives": "WEE",
+       "note": "wee is Scottish for small"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is a standard abbreviation for new"
+      },
+      {
+       "words": "paper",
+       "gives": "TIMES",
+       "note": "The Times is a newspaper"
+      }
      ]
     },
     "explanation": {

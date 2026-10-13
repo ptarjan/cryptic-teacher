@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-15610",
  "number": 15610,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 15,610",
  "setter": "Neo",
  "date": "2017-07-25",
  "dimensions": {
@@ -42,35 +40,24 @@
    },
    "solution": "STUBBORN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STUBBORN",
     "definitions": [
      {
       "text": "Stiff-necked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awkwardly",
-      "for": "anagram",
-      "note": "the letters are set down clumsily, out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bob turns",
-      "gives": "BOBTURNS",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BOB TURNS",
-       "gives": "STUBBORN"
+       "text": "awkwardly",
+       "note": "the letters are set down clumsily, out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bob turns",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -100,30 +87,16 @@
    },
    "solution": "TOTAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOTAL",
     "definitions": [
      {
       "text": "Ruin",
-      "at": 0
+      "at": 0,
+      "meaning": "to wreck completely, as an insurer writes off a crashed car (informal, mainly American)"
      },
      {
       "text": "everything",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ruin",
-      "gives": "TOTAL",
-      "note": "to wreck completely, as an insurer writes off a crashed car (informal, mainly American)"
-     },
-     {
-      "clueFragment": "everything",
-      "gives": "TOTAL",
-      "note": "the whole lot, the sum of all the parts"
+      "at": 5,
+      "meaning": "the whole lot, the sum of all the parts"
      }
     ],
     "explanation": {
@@ -152,26 +125,25 @@
    },
    "solution": "BACKSTREETS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BACKSTREETS",
     "definitions": [
      {
       "text": "Sdaor?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sdaor",
-      "note": "the surface offers a nonsense word, or a typo"
-     },
-     {
-      "clueFragment": "?",
-      "note": "the question mark asks you to read the word the other way: it is ROADS reversed, so roads going back"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sdaor",
+       "note": "the surface offers a nonsense word, or a typo"
+      },
+      {
+       "words": "?",
+       "note": "the question mark asks you to read the word the other way: it is ROADS reversed, so roads going back"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The whole clue is ROADS printed in reverse, so it is streets read back to front, and the answer is that picture said as a phrase. The question mark flags the joke.",
      "definitionFit": "Back streets are minor roads, and this is a picture of roads written backwards."
@@ -207,51 +179,56 @@
    },
    "solution": "OSOLEMIO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "O SOLE MIO",
     "definitions": [
      {
       "text": "Song",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts in",
-      "note": "we take the first letter of each following word"
-     },
-     {
-      "text": "comprising",
-      "note": "comprising means the song's frame takes the other words in, one inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "starts in Oval Office",
-      "gives": "OO",
-      "select": "first",
-      "note": "the first letters of Oval and Office"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "SOLE",
-      "note": "sole = one and only"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "MI",
-      "note": "mi, the third note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "SOLE",
-      "MI",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "starts in",
+       "note": "we take the first letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "comprising",
+         "note": "comprising means the song's frame takes the other words in, one inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "OO",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "starts in Oval Office",
+           "gives": "OO",
+           "select": "first",
+           "note": "the first letters of Oval and Office"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "SOLE",
+         "note": "sole = one and only"
+        }
+       ]
+      },
+      {
+       "words": "note",
+       "gives": "MI",
+       "note": "mi, the third note of the sol-fa scale"
+      }
      ]
     },
     "explanation": {
@@ -286,35 +263,24 @@
    },
    "solution": "NORTHANGERABBEY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NORTHANGER ABBEY",
     "definitions": [
      {
       "text": "Maybe book residence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "anagram",
-      "note": "the letters turn over into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "near Bangor by the",
-      "gives": "NEARBANGORBYTHE",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NEAR BANGOR BY THE",
-       "gives": "NORTHANGERABBEY"
+       "text": "turning",
+       "note": "the letters turn over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "near Bangor by the",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -344,40 +310,30 @@
    },
    "solution": "CHANCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHANCE",
     "definitions": [
      {
       "text": "opportunity",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "seizing",
-      "for": "container",
-      "note": "the churches grab AN and hold it between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Different churches",
-      "gives": "CHCE",
-      "note": "two different abbreviations for church: CH and CE (Church of England)"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "AN",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seizing",
+       "note": "the churches grab AN and hold it between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Different churches",
+       "gives": "CHCE",
+       "note": "two different abbreviations for church: CH and CE (Church of England)"
+      },
+      {
+       "words": "an",
+       "note": "used as printed"
+      }
      ]
     },
     "explanation": {
@@ -406,48 +362,39 @@
    },
    "solution": "CASINO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CASINO",
     "definitions": [
      {
       "text": "Better place",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that involves",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "CO is the abbreviation for company"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "function",
-      "gives": "SIN",
-      "note": "sin, short for sine, the trigonometric function"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "SIN",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that involves"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "company",
+         "gives": "CO",
+         "note": "CO is the abbreviation for company"
+        },
+        {
+         "words": "a",
+         "note": "used as printed"
+        }
+       ]
+      },
+      {
+       "words": "function",
+       "gives": "SIN",
+       "note": "sin, short for sine, the trigonometric function"
+      }
      ]
     },
     "explanation": {
@@ -477,39 +424,36 @@
    },
    "solution": "ASH",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ASH",
     "definitions": [
      {
       "text": "Timber",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the answer sits inside the words that follow"
-     },
-     {
-      "text": "lifted",
-      "note": "in a down answer, lifted means read upwards, reversed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Noah's Ark",
-      "gives": "HSA",
-      "note": "noaHS Ark contains HSA"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HSA",
-       "to": "ASH"
+       "text": "in",
+       "note": "the answer sits inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "lifted",
+         "note": "in a down answer, lifted means read upwards, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Noah's Ark",
+         "gives": "HSA",
+         "note": "noaHS Ark contains HSA"
+        }
+       ]
       }
      ]
     },
@@ -545,33 +489,16 @@
    },
    "solution": "COMEROUND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COME ROUND",
     "definitions": [
      {
       "text": "Be persuaded",
-      "at": 0
+      "at": 0,
+      "meaning": "to be won over to a view after resisting it"
      },
      {
       "text": "visit",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be persuaded",
-      "gives": "COMEROUND",
-      "note": "to be won over to a view after resisting it"
-     },
-     {
-      "clueFragment": "visit",
-      "gives": "COMEROUND",
-      "note": "to call at someone's house, drop in"
+      "at": 16,
+      "meaning": "to call at someone's house, drop in"
      }
     ],
     "explanation": {
@@ -599,47 +526,34 @@
    },
    "solution": "STUCCO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STUCCO",
     "definitions": [
      {
       "text": "fine plaster",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "turned round",
-      "for": "reversal"
-     }
-    ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Economies",
-      "gives": "CUTS",
-      "note": "cuts = economies, savings"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "CO",
-      "note": "CO, company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUC",
-      "CO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CUTS",
-       "to": "STUC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Economies",
+         "gives": "CUTS",
+         "note": "cuts = economies, savings"
+        }
+       ]
+      },
+      {
+       "words": "firm",
+       "gives": "CO",
+       "note": "CO, company"
       }
      ]
     },
@@ -675,49 +589,40 @@
    },
    "solution": "RESTHOME",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REST HOME",
     "definitions": [
      {
       "text": "Old institution",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places one thing inside another."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rome",
-      "gives": "ROME",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "established",
-      "gives": "EST",
-      "note": "est., as on a shop sign: established 1850"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H for hospital, as on road signs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EST",
-      "H",
-      "OME"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places one thing inside another."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Rome",
+         "note": "used as printed"
+        },
+        {
+         "words": "established",
+         "gives": "EST",
+         "note": "est., as on a shop sign: established 1850"
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "gives": "H",
+       "note": "H for hospital, as on road signs"
+      }
      ]
     },
     "explanation": {
@@ -747,30 +652,16 @@
    },
    "solution": "PLUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLUS",
     "definitions": [
      {
       "text": "Bonus",
-      "at": 0
+      "at": 0,
+      "meaning": "an extra advantage, a perk"
      },
      {
       "text": "added",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bonus",
-      "gives": "PLUS",
-      "note": "an extra advantage, a perk"
-     },
-     {
-      "clueFragment": "added",
-      "gives": "PLUS",
-      "note": "the preposition in two and two: with something added on"
+      "at": 6,
+      "meaning": "the preposition in two and two: with something added on"
      }
     ],
     "explanation": {
@@ -798,48 +689,39 @@
    },
    "solution": "ECHINODERM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ECHINODERM",
     "definitions": [
      {
       "text": "spineless animal",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "among"
-     },
-     {
-      "text": "tortured",
-      "note": "the letters are twisted out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heroic men",
-      "gives": "HEROICMEN",
-      "note": "anagram fodder, 9 letters"
-     },
-     {
-      "clueFragment": "Duke",
-      "gives": "D",
-      "note": "D, duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECHINO",
-      "D",
-      "ERM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HEROICMEN",
-       "gives": "ECHINOERM"
+       "text": "among"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tortured",
+         "note": "the letters are twisted out of shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heroic men",
+         "note": "anagram fodder, 9 letters"
+        }
+       ]
+      },
+      {
+       "words": "Duke",
+       "gives": "D",
+       "note": "D, duke"
       }
      ]
     },
@@ -876,38 +758,24 @@
    },
    "solution": "DUTCHGUIANA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DUTCH GUIANA",
     "definitions": [
      {
       "text": "Former colony",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "the letters are put out of their order"
-     }
-    ],
-    "linkWords": [
-     "needing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aid caught UN",
-      "gives": "AIDCAUGHTUN",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AID CAUGHT UN",
-       "gives": "DUTCHGUIANA"
+       "text": "out",
+       "note": "the letters are put out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aid caught UN",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -937,43 +805,31 @@
    },
    "solution": "SCORPION",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCORPION",
     "definitions": [
      {
       "text": "Armoured vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "'into' says movement to the inside, so the soldier is put inside the town's name."
-     }
-    ],
-    "linkWords": [
-     "brings"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Swiss town",
-      "gives": "SION",
-      "note": "Sion, a town in the Swiss Valais"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "CORP",
-      "note": "corp., short for corporal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CORP",
-      "ION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "'into' says movement to the inside, so the soldier is put inside the town's name."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Swiss town",
+       "gives": "SION",
+       "note": "Sion, a town in the Swiss Valais"
+      },
+      {
+       "words": "soldier",
+       "gives": "CORP",
+       "note": "corp., short for corporal"
+      }
      ]
     },
     "explanation": {
@@ -1001,45 +857,38 @@
    },
    "solution": "CONTAINED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONTAINED",
     "definitions": [
      {
       "text": "restricted",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in circulation",
-      "for": "anagram",
-      "note": "the letters are sent round and mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Coin",
-      "gives": "COIN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N, new"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "DATE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COIN N DATE",
-       "gives": "CONTAINED"
+       "text": "in circulation",
+       "note": "the letters are sent round and mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Coin",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N, new"
+        },
+        {
+         "words": "date",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1069,35 +918,25 @@
    },
    "solution": "TOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOUT",
     "definitions": [
      {
       "text": "advertise aggressively",
       "at": 18
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T, time"
-     },
-     {
-      "clueFragment": "available",
-      "gives": "OUT",
-      "note": "out = available, as a new book or record is out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Time",
+       "gives": "T",
+       "note": "T, time"
+      },
+      {
+       "words": "available",
+       "gives": "OUT",
+       "note": "out = available, as a new book or record is out"
+      }
      ]
     },
     "explanation": {
@@ -1126,31 +965,29 @@
    },
    "solution": "NEUTRINO",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NEUTRINO",
     "definitions": [
      {
       "text": "science gives it little weight",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "discussed",
-      "for": "homophone",
-      "note": "talked about, so we go by the sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New woody plant discussed? No",
-      "gives": "NEUTRINO",
-      "soundsLike": "NEW TREE NO",
-      "note": "new + tree (woody plant) + no, said out loud"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NEUTRINO",
+     "indicators": [
+      {
+       "text": "discussed",
+       "note": "talked about, so we go by the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New woody plant discussed? No",
+       "gives": "NEWTREENO",
+       "note": "new + tree (woody plant) + no, said out loud"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone asks whether a new shrub is being talked about, and is told science thinks little of it.",
      "walkthrough": "The 'No' looks like an answer to the question, but it is the last sound of the answer. The definition is cryptic: a neutrino has almost no mass.",
@@ -1178,30 +1015,16 @@
    },
    "solution": "ONCE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ONCE",
     "definitions": [
      {
       "text": "As soon as",
-      "at": 0
+      "at": 0,
+      "meaning": "a conjunction: the moment that something happens"
      },
      {
       "text": "yesterday",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "As soon as",
-      "gives": "ONCE",
-      "note": "a conjunction: the moment that something happens"
-     },
-     {
-      "clueFragment": "yesterday",
-      "gives": "ONCE",
-      "note": "stands for the past in general, formerly"
+      "at": 11,
+      "meaning": "stands for the past in general, formerly"
      }
     ],
     "explanation": {
@@ -1230,35 +1053,25 @@
    },
    "solution": "EYESHADE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EYESHADE",
     "definitions": [
      {
       "text": "protection from sun",
       "at": 15
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "EYE",
-      "note": "to eye is to see, look at"
-     },
-     {
-      "clueFragment": "ghost",
-      "gives": "SHADE",
-      "note": "a shade is a ghost, the spirit of the dead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EYE",
-      "SHADE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "See",
+       "gives": "EYE",
+       "note": "to eye is to see, look at"
+      },
+      {
+       "words": "ghost",
+       "gives": "SHADE",
+       "note": "a shade is a ghost, the spirit of the dead"
+      }
      ]
     },
     "explanation": {
@@ -1287,50 +1100,41 @@
    },
    "solution": "TROJAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TROJAN",
     "definitions": [
      {
       "text": "Paris for instance",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "vergers",
-      "for": "letter_selection",
-      "note": "a verge is an edge, so Tredegar's vergers are its edge letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tredegar's vergers",
-      "gives": "TR",
-      "select": "outer",
-      "note": "the edge letters of TredegaR"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = nil, O, in tennis"
-     },
-     {
-      "clueFragment": "month",
-      "gives": "JAN",
-      "note": "JAN, January"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "O",
-      "JAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vergers",
+         "note": "a verge is an edge, so Tredegar's vergers are its edge letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tredegar's vergers",
+         "gives": "TREDEGAR",
+         "note": "the edge letters of TredegaR"
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love = nil, O, in tennis"
+      },
+      {
+       "words": "month",
+       "gives": "JAN",
+       "note": "JAN, January"
+      }
      ]
     },
     "explanation": {
@@ -1360,49 +1164,46 @@
    },
    "solution": "MANSERVANT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MANSERVANT",
     "definitions": [
      {
       "text": "butler?",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "to hold",
-      "note": "to hold something is to keep it within your grasp."
-     },
-     {
-      "text": "from"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minister",
-      "gives": "MANSE",
-      "note": "a manse is a minister's house, especially in Scotland"
-     },
-     {
-      "clueFragment": "Tirade",
-      "gives": "RANT",
-      "note": "a rant is a tirade"
-     },
-     {
-      "clueFragment": "against",
-      "gives": "V",
-      "note": "v., versus = against"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MANSE",
-      "R",
-      "V",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to hold",
+       "note": "to hold something is to keep it within your grasp."
+      }
+     ],
+     "parts": [
+      {
+       "words": "minister",
+       "gives": "MANSE",
+       "note": "a manse is a minister's house, especially in Scotland"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "from"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tirade",
+         "gives": "RANT",
+         "note": "a rant is a tirade"
+        },
+        {
+         "words": "against",
+         "gives": "V",
+         "note": "v., versus = against"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1431,32 +1232,25 @@
    },
    "solution": "UNCO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNCO",
     "definitions": [
      {
       "text": "Very",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "posh",
-      "gives": "U",
-      "note": "U means upper-class, as in U and non-U"
-     },
-     {
-      "clueFragment": "officer without commission",
-      "gives": "NCO",
-      "note": "NCO, non-commissioned officer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NCO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "posh",
+       "gives": "U",
+       "note": "U means upper-class, as in U and non-U"
+      },
+      {
+       "words": "officer without commission",
+       "gives": "NCO",
+       "note": "NCO, non-commissioned officer"
+      }
      ]
     },
     "explanation": {
@@ -1485,49 +1279,44 @@
    },
    "solution": "CHAIR",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CHAIR",
     "definitions": [
      {
       "text": "furniture",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "unfinished",
-      "for": "deletion",
-      "note": "CAIRO loses its last letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' puts one thing inside another, so Hotel goes inside the shortened capital."
-     }
-    ],
-    "linkWords": [
-     "requires"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "African capital, unfinished",
-      "gives": "CAIR",
-      "note": "CAIRO, Egypt's capital, without its final O"
-     },
-     {
-      "clueFragment": "Hotel",
-      "gives": "H",
-      "note": "H is Hotel in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "H",
-      "AIR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHAIR",
+     "indicators": [
+      {
+       "text": "unfinished",
+       "note": "CAIRO loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' puts one thing inside another, so Hotel goes inside the shortened capital."
+        }
+       ],
+       "parts": [
+        {
+         "words": "African capital, unfinished",
+         "gives": "CAIR",
+         "note": "CAIRO, Egypt's capital, without its final O"
+        },
+        {
+         "words": "Hotel",
+         "gives": "H",
+         "note": "H is Hotel in the NATO alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1566,53 +1355,44 @@
    },
    "solution": "ONTHEJOB",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ON THE JOB",
     "definitions": [
      {
       "text": "Busy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doctor",
-      "for": "anagram",
-      "note": "to doctor is to tamper with, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not",
-      "gives": "NOT",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "HE",
-      "note": "he, a male"
-     },
-     {
-      "clueFragment": "one patient",
-      "gives": "JOB",
-      "note": "Job, the Bible's byword for patience"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONTHE",
-      "JOB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NOTHE",
-       "gives": "ONTHE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "note": "to doctor is to tamper with, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "not",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "male",
+           "gives": "HE",
+           "note": "he, a male"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one patient",
+       "gives": "JOB",
+       "note": "Job, the Bible's byword for patience"
       }
      ]
     },
@@ -1643,35 +1423,25 @@
    },
    "solution": "HAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HAS",
     "definitions": [
      {
       "text": "suffers",
       "at": 22
      }
     ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Husband",
-      "gives": "H",
-      "note": "H, husband"
-     },
-     {
-      "clueFragment": "arsenic",
-      "gives": "AS",
-      "note": "As is the chemical symbol for arsenic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Husband",
+       "gives": "H",
+       "note": "H, husband"
+      },
+      {
+       "words": "arsenic",
+       "gives": "AS",
+       "note": "As is the chemical symbol for arsenic"
+      }
      ]
     },
     "explanation": {
@@ -1710,40 +1480,38 @@
    },
    "solution": "INAWAY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "IN A WAY",
     "definitions": [
      {
       "text": "Kind of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "to leave is to go away, so the bishop departs from BIN and its other letters stay."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop to leave bin",
-      "gives": "IN",
-      "note": "BIN minus B (bishop, as in chess notation)"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "AWAY",
-      "note": "out = away, not at home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "AWAY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INAWAY",
+     "indicators": [
+      {
+       "text": "to leave",
+       "note": "to leave is to go away, so the bishop departs from BIN and its other letters stay."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bishop to leave bin",
+         "gives": "IN",
+         "note": "BIN minus B (bishop, as in chess notation)"
+        },
+        {
+         "words": "out",
+         "gives": "AWAY",
+         "note": "out = away, not at home"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1778,32 +1546,25 @@
    },
    "solution": "ODDSON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ODDS-ON",
     "definitions": [
      {
       "text": "most likely to win",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Strange",
-      "gives": "ODD",
-      "note": "odd = strange"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "SON",
-      "note": "a son is a boy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ODD",
-      "SON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Strange",
+       "gives": "ODD",
+       "note": "odd = strange"
+      },
+      {
+       "words": "boy",
+       "gives": "SON",
+       "note": "a son is a boy"
+      }
      ]
     },
     "explanation": {
@@ -1831,41 +1592,30 @@
    },
    "solution": "YEOMANRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "YEOMANRY",
     "definitions": [
      {
       "text": "Freeholders",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Old",
-      "gives": "YE",
-      "note": "ye, the old way of writing the, as in Ye Olde Tea Shoppe"
-     },
-     {
-      "clueFragment": "Country",
-      "gives": "OMAN",
-      "note": "Oman, the country in Arabia"
-     },
-     {
-      "clueFragment": "Railway",
-      "gives": "RY",
-      "note": "RY, railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YE",
-      "OMAN",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The Old",
+       "gives": "YE",
+       "note": "ye, the old way of writing the, as in Ye Olde Tea Shoppe"
+      },
+      {
+       "words": "Country",
+       "gives": "OMAN",
+       "note": "Oman, the country in Arabia"
+      },
+      {
+       "words": "Railway",
+       "gives": "RY",
+       "note": "RY, railway"
+      }
      ]
     },
     "explanation": {

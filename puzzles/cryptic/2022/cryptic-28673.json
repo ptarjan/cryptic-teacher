@@ -1,8 +1,7 @@
 {
  "id": "cryptic-28673",
  "number": 28673,
- "series": "cryptic",
- "name": "Prize crossword No 28,673",
+ "prize": true,
  "setter": "Boatman",
  "date": "2022-02-05",
  "preamble": "Several solutions (not further defined) are of a kind",
@@ -39,34 +38,25 @@
    },
    "solution": "PARODY",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "PARODY",
     "definitions": [
      {
       "text": "Imitative play",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "every other",
-      "for": "letter_selection",
-      "note": "taking every other one means keeping one, skipping one, and so on along the run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "playroom day",
-      "gives": "PARODY",
-      "select": "alternate",
-      "note": "the first, third, fifth letters and so on of these two words run together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARODY"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every other",
+       "note": "taking every other one means keeping one, skipping one, and so on along the run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "playroom day",
+       "note": "the first, third, fifth letters and so on of these two words run together"
+      }
      ]
     },
     "explanation": {
@@ -95,46 +85,41 @@
    },
    "solution": "SKETCHES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SKETCHES",
     "definitions": [
      {
       "text": "Turns",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overtaken by",
-      "for": "container",
-      "note": "something overtaken is caught and swallowed up, so it ends up inside the other part"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boat",
-      "gives": "KETCH",
-      "note": "a ketch is a two-masted sailing boat"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the compass abbreviation"
-     },
-     {
-      "clueFragment": "larger vessel",
-      "gives": "SS",
-      "note": "SS stands for steamship, bigger than a ketch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KETCH",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overtaken by",
+       "note": "something overtaken is caught and swallowed up, so it ends up inside the other part"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "larger vessel",
+         "gives": "SS",
+         "note": "SS stands for steamship, bigger than a ketch"
+        },
+        {
+         "words": "east",
+         "gives": "E",
+         "note": "E is the compass abbreviation"
+        }
+       ]
+      },
+      {
+       "words": "boat",
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      }
      ]
     },
     "explanation": {
@@ -164,52 +149,49 @@
    },
    "solution": "ORANGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "anagram"
-    ],
-    "answer": "ORANGE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Horrible",
-      "for": "anagram",
-      "note": "something horrible is ugly and misshapen, so these letters are twisted into a new order"
-     },
-     {
-      "text": "grabs",
-      "for": "container",
-      "note": "to grab is to seize and hold, so one part holds the other inside it"
-     },
-     {
-      "text": "unnamed",
-      "for": "deletion",
-      "note": "N is the abbreviation for name, so being without a name means losing that letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ogre",
-      "gives": "OGRE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "ANN",
-      "note": "Ann is a girl's name; dropping one N leaves AN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "AN",
-      "GE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OGRE",
-       "gives": "ORGE"
+       "text": "grabs",
+       "note": "to grab is to seize and hold, so one part holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Horrible",
+         "note": "something horrible is ugly and misshapen, so these letters are twisted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ogre",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unnamed",
+         "note": "N is the abbreviation for name, so being without a name means losing that letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "gives": "ANN",
+         "note": "Ann is a girl's name; dropping one N leaves AN"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
@@ -239,43 +221,34 @@
    },
    "solution": "FIXTURE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FIXTURE",
     "definitions": [
      {
       "text": "event",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "changed",
-      "for": "anagram",
-      "note": "what is changed is altered into a different form, so the letters take a new order"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fruit",
-      "gives": "FRUIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "exchanged",
-      "gives": "EX",
-      "note": "the word splits as 'ex' plus 'changed'; the front part, a former partner, is kept as letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FRUITEX",
-       "gives": "FIXTURE"
+       "text": "changed",
+       "note": "what is changed is altered into a different form, so the letters take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fruit",
+         "note": "taken as written"
+        },
+        {
+         "words": "exchanged",
+         "gives": "EX",
+         "note": "the word splits as 'ex' plus 'changed'; the front part, a former partner, is kept as letters"
+        }
+       ]
       }
      ]
     },
@@ -306,26 +279,24 @@
    },
    "solution": "MEDLAR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MEDLAR",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "noisily",
-      "for": "homophone",
-      "note": "something done noisily is heard rather than seen, so the sound counts, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One who puts an oar in",
-      "gives": "MEDLAR",
-      "soundsLike": "MEDDLER",
-      "note": "to put your oar in is to interfere, so this is a busybody"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MEDLAR",
+     "indicators": [
+      {
+       "text": "noisily",
+       "note": "something done noisily is heard rather than seen, so the sound counts, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One who puts an oar in",
+       "gives": "MEDDLER",
+       "note": "to put your oar in is to interfere, so this is a busybody"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A busybody who loudly sticks their oar into other people's business.",
      "walkthrough": "To 'put your oar in' is an idiom for interfering. The busybody's name is said the same as a fruit, which the preamble leaves undefined.",
@@ -353,45 +324,43 @@
    },
    "solution": "LOAVES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOAVES",
     "definitions": [
      {
       "text": "seen regularly after meat or sugar",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "consumed by",
-      "for": "container",
-      "note": "what is consumed is swallowed, so it ends up inside the other part"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "passions",
-      "gives": "LO",
-      "note": "loves are passions; this is the front of that word"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "passions",
-      "gives": "VES",
-      "note": "the rest of the same word, which wraps round the inserted letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "A",
-      "VES"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LOAVES",
+     "indicators": [
+      {
+       "text": "consumed by",
+       "note": "what is consumed is swallowed, so it ends up inside the other part"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "passions",
+         "gives": "LO",
+         "note": "loves are passions; this is the front of that word"
+        },
+        {
+         "words": "One",
+         "gives": "A",
+         "note": "a means one"
+        },
+        {
+         "words": "passions",
+         "gives": "VES",
+         "note": "the rest of the same word, which wraps round the inserted letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -420,27 +389,20 @@
    },
    "solution": "JACKFRUIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JACKFRUIT",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Boatman's",
-      "gives": "JACK",
-      "note": "a jack, or jack tar, is a sailor, someone who works on boats"
-     },
-     {
-      "clueFragment": "work may bear this",
-      "gives": "FRUIT",
-      "note": "hard work is said to bear fruit when it pays off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "FRUIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boatman's",
+       "gives": "JACK",
+       "note": "a jack, or jack tar, is a sailor, someone who works on boats"
+      },
+      {
+       "words": "work may bear this",
+       "gives": "FRUIT",
+       "note": "hard work is said to bear fruit when it pays off"
+      }
      ]
     },
     "explanation": {
@@ -470,35 +432,24 @@
    },
    "solution": "MELON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MELON",
     "definitions": [
      {
       "text": "sometimes topped with water",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "crush",
-      "for": "anagram",
-      "note": "something crushed is squashed out of shape, so its letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lemon",
-      "gives": "LEMON",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEMON",
-       "gives": "MELON"
+       "text": "crush",
+       "note": "something crushed is squashed out of shape, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lemon",
+       "note": "taken as written, then rearranged"
       }
      ]
     },
@@ -529,43 +480,31 @@
    },
    "solution": "FORTUNATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FORTUNATE",
     "definitions": [
      {
       "text": "having good luck",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "to catch is to trap and hold, so one part goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skill",
-      "gives": "FORTE",
-      "note": "a forte is someone's strong point"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "TUNA",
-      "note": "tuna is a large sea fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "TUNA",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "note": "to catch is to trap and hold, so one part goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Skill",
+       "gives": "FORTE",
+       "note": "a forte is someone's strong point"
+      },
+      {
+       "words": "fish",
+       "gives": "TUNA",
+       "note": "tuna is a large sea fish"
+      }
      ]
     },
     "explanation": {
@@ -594,40 +533,30 @@
    },
    "solution": "OLIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OLIVE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "to turn about is to face the other way, so the word runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nothing",
-      "gives": "O",
-      "note": "O looks like zero"
-     },
-     {
-      "clueFragment": "wrong",
-      "gives": "EVIL",
-      "note": "evil is wrongdoing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "LIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EVIL",
-       "to": "LIVE"
+       "words": "Nothing",
+       "gives": "O",
+       "note": "O looks like zero"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to turn about is to face the other way, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrong",
+         "gives": "EVIL",
+         "note": "evil is wrongdoing"
+        }
+       ]
       }
      ]
     },
@@ -657,34 +586,26 @@
    },
    "solution": "PEAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEAR",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "goes under",
-      "for": "charade",
-      "note": "in a down entry, going under means being placed lower, so this part follows the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p, piano, is the musical direction to play quietly"
-     },
-     {
-      "clueFragment": "The Listener",
-      "gives": "EAR",
-      "note": "the ear is the organ that listens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EAR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "goes under",
+       "note": "in a down entry, going under means being placed lower, so this part follows the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quietly",
+       "gives": "P",
+       "note": "p, piano, is the musical direction to play quietly"
+      },
+      {
+       "words": "The Listener",
+       "gives": "EAR",
+       "note": "the ear is the organ that listens"
+      }
      ]
     },
     "explanation": {
@@ -714,25 +635,23 @@
    },
    "solution": "LYCHEE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LYCHEE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "crossword setting",
-      "for": "hidden_word",
-      "note": "a setting is a mount that holds a stone, and the words across hold the answer within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thoroughly cheeky",
-      "gives": "LYCHEE",
-      "note": "the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "crossword setting",
+       "note": "a setting is a mount that holds a stone, and the words across hold the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thoroughly cheeky",
+       "gives": "LYCHEE",
+       "note": "the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Continuing the previous clue: a very cheeky bit of crossword setting.",
      "walkthrough": "'crossword setting' reads as composing puzzles, a nod to the setter, but 'setting' is the signal that the letters are held within.",
@@ -760,46 +679,44 @@
    },
    "solution": "RYEGRASS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RYEGRASS",
     "definitions": [
      {
       "text": "Seeds at Wimbledon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "volatile",
-      "for": "anagram",
-      "note": "volatile means unstable and liable to change, so the letters do not keep their order"
-     },
-     {
-      "text": "but not",
-      "for": "deletion",
-      "note": "taking something but not something else means subtracting the second from the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are embarrassingly",
-      "gives": "AREEMBARRASSINGLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lamebrain characters",
-      "gives": "LAMEBRAIN",
-      "note": "the letters of this word are struck out of the longer string"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RYEGRASS",
+     "indicators": [
       {
-       "fodder": "ARERSSGY",
-       "gives": "RYEGRASS"
+       "text": "volatile",
+       "note": "volatile means unstable and liable to change, so the letters do not keep their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RYEGRASS",
+       "indicators": [
+        {
+         "text": "but not",
+         "note": "taking something but not something else means subtracting the second from the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are embarrassingly",
+         "note": "taken as written"
+        },
+        {
+         "words": "lamebrain characters",
+         "gives": "LAMEBRAIN",
+         "note": "the letters of this word are struck out of the longer string"
+        }
+       ]
       }
      ]
     },
@@ -856,50 +773,44 @@
    },
    "solution": "DUBSTEP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DUBSTEP",
     "definitions": [
      {
       "text": "electronic dance music",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "split",
-      "for": "anagram",
-      "note": "something split is broken apart, so its letters can be reassembled differently"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end, so only the closing letter is kept"
-     }
-    ],
-    "linkWords": [
-     "to produce"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Busted",
-      "gives": "BUSTED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "up",
-      "gives": "P",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BUSTEDP",
-       "gives": "DUBSTEP"
+       "text": "split",
+       "note": "something split is broken apart, so its letters can be reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Busted",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very end, so only the closing letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "up",
+           "note": "the last letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -934,30 +845,19 @@
     "15-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DAMSON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Wandering",
-      "for": "anagram",
-      "note": "wandering things stray from their path, so the letters drift out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nomads",
-      "gives": "NOMADS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOMADS",
-       "gives": "DAMSON"
+       "text": "Wandering",
+       "note": "wandering things stray from their path, so the letters drift out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nomads",
+       "note": "taken as written, then rearranged"
       }
      ]
     },
@@ -991,27 +891,20 @@
     "14-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANANA",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Suppress",
-      "gives": "BAN",
-      "note": "to forbid or suppress"
-     },
-     {
-      "clueFragment": "literary gossip",
-      "gives": "ANA",
-      "note": "a collection of anecdotes or table talk about a writer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "ANA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Suppress",
+       "gives": "BAN",
+       "note": "to forbid or suppress"
+      },
+      {
+       "words": "literary gossip",
+       "gives": "ANA",
+       "note": "a collection of anecdotes or table talk about a writer"
+      }
      ]
     },
     "explanation": {
@@ -1040,46 +933,43 @@
    },
    "solution": "EWER",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "EWER",
     "definitions": [
      {
       "text": "vessel",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "what is reported is passed on by word of mouth, so its sound is what counts"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down entry, one thing on another sits above it, so this part comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Solver",
-      "gives": "EWE",
-      "soundsLike": "YOU",
-      "note": "the clue addresses the solver as you; the word for a female sheep is said the same"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R is the map abbreviation for river"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EWE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down entry, one thing on another sits above it, so this part comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EWE",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "what is reported is passed on by word of mouth, so its sound is what counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Solver",
+         "gives": "YOU",
+         "note": "the clue addresses the solver as you; the word for a female sheep is said the same"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      }
      ]
     },
     "explanation": {
@@ -1108,48 +998,39 @@
    },
    "solution": "BRITAIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BRITAIN",
     "definitions": [
      {
       "text": "Here",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "a piece placed in another goes inside its letters"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "b***",
-      "gives": "B",
-      "note": "the starred-out swear word is just its first letter"
-     },
-     {
-      "clueFragment": "downpour",
-      "gives": "RAIN",
-      "note": "rain is a downpour"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "IT",
-      "AIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "b***",
+       "note": "the starred-out swear word is just its first letter"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "a piece placed in another goes inside its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "downpour",
+         "gives": "RAIN",
+         "note": "rain is a downpour"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1179,42 +1060,34 @@
    },
    "solution": "TAMARIND",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TAMARIND",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "at its source",
-      "for": "letter_selection",
-      "note": "a source is where a stream starts, so only the opening letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "gives": "TAMAR",
-      "note": "the Tamar forms the border between Devon and Cornwall"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Devon",
-      "gives": "D",
-      "select": "first",
-      "note": "the first letter of the county"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAMAR",
-      "IN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "gives": "TAMAR",
+       "note": "the Tamar forms the border between Devon and Cornwall"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at its source",
+         "note": "a source is where a stream starts, so only the opening letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Devon",
+         "note": "the first letter of the county"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1243,44 +1116,34 @@
    },
    "solution": "OTHELLO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OTHELLO",
     "definitions": [
      {
       "text": "one of the Moors",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love is zero in tennis, which looks like O"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Lakes",
-      "gives": "LL",
-      "note": "L is lake, doubled for the plural"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "the same zero score again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "THE",
-      "LL",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like O"
+      },
+      {
+       "words": "the",
+       "note": "taken as written"
+      },
+      {
+       "words": "Lakes",
+       "gives": "LL",
+       "note": "L is lake, doubled for the plural"
+      },
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "the same zero score again"
+      }
      ]
     },
     "explanation": {
@@ -1310,48 +1173,36 @@
    },
    "solution": "MONUMENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MONUMENT",
     "definitions": [
      {
       "text": "It's intended to remind one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "coming before means being placed earlier in the line, so this part leads"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time shortly",
-      "gives": "MO",
-      "note": "mo is a short way of saying moment"
-     },
-     {
-      "clueFragment": "Spirit",
-      "gives": "NUMEN",
-      "note": "a numen is a presiding spirit or divinity"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "NUMEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "coming before means being placed earlier in the line, so this part leads"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time shortly",
+       "gives": "MO",
+       "note": "mo is a short way of saying moment"
+      },
+      {
+       "words": "Spirit",
+       "gives": "NUMEN",
+       "note": "a numen is a presiding spirit or divinity"
+      },
+      {
+       "words": "Time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1386,48 +1237,35 @@
    },
    "solution": "ONEWAY",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ONE WAY",
     "definitions": [
      {
       "text": "Not allowing U-turns",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when reversing",
-      "for": "reversal",
-      "note": "reversing means going backwards, so this part is read the other way"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "ONE",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "change in direction",
-      "gives": "YAW",
-      "note": "a yaw is a swing off course by a ship or aircraft"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONE",
-      "WAY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "YAW",
-       "to": "WAY"
+       "words": "a",
+       "gives": "ONE",
+       "note": "a means one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when reversing",
+         "note": "reversing means going backwards, so this part is read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "change in direction",
+         "gives": "YAW",
+         "note": "a yaw is a swing off course by a ship or aircraft"
+        }
+       ]
       }
      ]
     },
@@ -1457,52 +1295,48 @@
    },
    "solution": "UNCAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNCAGE",
     "definitions": [
      {
       "text": "free",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Naked",
-      "for": "letter_selection",
-      "note": "naked means stripped of clothes, so each word loses its outer letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guy",
-      "gives": "U",
-      "select": "middle",
-      "note": "the word without its outside letters"
-     },
-     {
-      "clueFragment": "once",
-      "gives": "NC",
-      "select": "middle",
-      "note": "the word without its outside letters"
-     },
-     {
-      "clueFragment": "eager",
-      "gives": "AGE",
-      "select": "middle",
-      "note": "the word without its outside letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NC",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Naked",
+         "note": "naked means stripped of clothes, so each word loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guy",
+         "note": "the word without its outside letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "once",
+         "note": "the word without its outside letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "eager",
+         "note": "the word without its outside letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1532,37 +1366,28 @@
    },
    "solution": "GAMETE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "GAMETE",
     "definitions": [
      {
       "text": "It originates in gonads and might engage the egg",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originates in",
-      "for": "letter_selection",
-      "note": "where something originates is its starting point, so the first letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gonads and might engage the egg",
-      "gives": "GAMETE",
-      "select": "first",
-      "note": "the opening letters of these six words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAMETE"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "originates in",
+       "note": "where something originates is its starting point, so the first letters are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gonads and might engage the egg",
+       "note": "the opening letters of these six words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A biology lesson on reproductive cells and fertilisation.",
      "walkthrough": "The whole clue is both definition and wordplay: the initials of the last six words spell the answer, and the sentence describes it.",
@@ -1589,40 +1414,33 @@
    },
    "solution": "GRAPES",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "GRAPES",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "replacing",
-      "for": "substitution",
-      "note": "replacing means swapping out one letter and putting a different one in its spot"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Complains",
-      "gives": "GRIPES",
-      "note": "to gripe is to grumble"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one, which is taken out"
-     },
-     {
-      "clueFragment": "another one",
-      "gives": "A",
-      "note": "a also means one, and it goes in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "A",
-      "PES"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "GRAPES",
+     "indicators": [
+      {
+       "text": "replacing",
+       "note": "replacing means swapping out one letter and putting a different one in its spot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Complains",
+       "gives": "GRIPES",
+       "note": "to gripe is to grumble"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one, which is taken out"
+      },
+      {
+       "words": "another one",
+       "gives": "A",
+       "note": "a also means one, and it goes in"
+      }
      ]
     },
     "explanation": {
@@ -1651,35 +1469,26 @@
    },
    "solution": "TOMATO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOMATO",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "something inside is enclosed by the other part"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as well",
-      "gives": "TOO",
-      "note": "too means as well"
-     },
-     {
-      "clueFragment": "Could be felt",
-      "gives": "MAT",
-      "note": "a mat might be made of felt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "MAT",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "something inside is enclosed by the other part"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as well",
+       "gives": "TOO",
+       "note": "too means as well"
+      },
+      {
+       "words": "Could be felt",
+       "gives": "MAT",
+       "note": "a mat might be made of felt"
+      }
      ]
     },
     "explanation": {
@@ -1709,27 +1518,20 @@
    },
    "solution": "PEACH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEACH",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Penny",
-      "gives": "P",
-      "note": "p is the abbreviation for a penny in British money"
-     },
-     {
-      "clueFragment": "apiece",
-      "gives": "EACH",
-      "note": "apiece means each"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EACH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Penny",
+       "gives": "P",
+       "note": "p is the abbreviation for a penny in British money"
+      },
+      {
+       "words": "apiece",
+       "gives": "EACH",
+       "note": "apiece means each"
+      }
      ]
     },
     "explanation": {
@@ -1757,51 +1559,41 @@
    },
    "solution": "HEXAGRAMS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HEXAGRAMS",
     "definitions": [
      {
       "text": "Stars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "naughtily",
-      "for": "anagram",
-      "note": "acting naughtily means misbehaving, so the letters do not stay in line"
-     },
-     {
-      "text": "snatch",
-      "for": "container",
-      "note": "to snatch is to grab and hold, so one part is gripped inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Meg and Sarah",
-      "gives": "MEGSARAH",
-      "note": "the two names, without the joining word"
-     },
-     {
-      "clueFragment": "a kiss",
-      "gives": "X",
-      "note": "X is the kiss at the end of a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "X",
-      "AGRAMS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MEGSARAH",
-       "gives": "HEAGRAMS"
+       "text": "snatch",
+       "note": "to snatch is to grab and hold, so one part is gripped inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "naughtily",
+         "note": "acting naughtily means misbehaving, so the letters do not stay in line"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Meg and Sarah",
+         "gives": "MEGSARAH",
+         "note": "the two names, without the joining word"
+        }
+       ]
+      },
+      {
+       "words": "a kiss",
+       "gives": "X",
+       "note": "X is the kiss at the end of a letter"
       }
      ]
     },
@@ -1831,45 +1623,45 @@
    },
    "solution": "MANGO",
    "annotation": {
-    "type": [
-     "deletion",
-     "cycling"
-    ],
-    "answer": "MANGO",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Cycling",
-      "for": "cycling",
-      "note": "cycling goes round and round, so letters move from one end of the word to the other"
-     },
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "what is missing is absent, so that letter is taken away"
-     },
-     {
-      "text": "start of",
-      "for": "deletion",
-      "note": "the start of a word is its opening letter, which is the one removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "comic Dave",
-      "gives": "GORMAN",
-      "note": "Dave Gorman is a British stand-up comedian and TV presenter"
-     },
-     {
-      "clueFragment": "ride",
-      "gives": "R",
-      "note": "the first letter, which is dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "GO"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "MANGO",
+     "indicators": [
+      {
+       "text": "Cycling",
+       "note": "cycling goes round and round, so letters move from one end of the word to the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "MANGO",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "what is missing is absent, so that letter is taken away"
+        },
+        {
+         "text": "start of",
+         "note": "the start of a word is its opening letter, which is the one removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comic Dave",
+         "gives": "GORMAN",
+         "note": "Dave Gorman is a British stand-up comedian and TV presenter"
+        },
+        {
+         "words": "ride",
+         "gives": "R",
+         "note": "the first letter, which is dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1898,52 +1690,46 @@
    },
    "solution": "ALTERNATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ALTERNATE",
     "definitions": [
      {
       "text": "interchange",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "follows",
-      "for": "charade",
-      "note": "following means coming after, so this part is placed second"
-     },
-     {
-      "text": "terminus",
-      "for": "letter_selection",
-      "note": "a terminus is the end of a line, so only the final letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Liverpool's",
-      "gives": "L",
-      "select": "last",
-      "note": "the final letter of the city's name"
-     },
-     {
-      "clueFragment": "three-way",
-      "gives": "TERNATE",
-      "note": "ternate means arranged in threes, a botanical word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "TERNATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "note": "following means coming after, so this part is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terminus",
+         "note": "a terminus is the end of a line, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liverpool's",
+         "gives": "LIVERPOOL",
+         "note": "the final letter of the city's name"
+        }
+       ]
+      },
+      {
+       "words": "three-way",
+       "gives": "TERNATE",
+       "note": "ternate means arranged in threes, a botanical word"
+      }
      ]
     },
     "explanation": {

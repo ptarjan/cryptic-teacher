@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1",
  "number": 1,
- "series": "quiptic",
- "name": "Quiptic crossword No 1",
  "setter": "Don Putnam",
  "date": "1999-11-23",
  "dimensions": {
@@ -38,43 +36,33 @@
    },
    "solution": "PHEASANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PHEASANT",
     "definitions": [
      {
       "text": "Bird for dinner?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Make",
-      "for": "anagram",
-      "note": "to make something of the letters is to build a new word out of them in a fresh order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "haste",
-      "gives": "HASTE",
-      "note": "taken as written, as fodder"
-     },
-     {
-      "clueFragment": "pan",
-      "gives": "PAN",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HASTE PAN",
-       "gives": "PHEASANT"
+       "text": "Make",
+       "note": "to make something of the letters is to build a new word out of them in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "haste",
+         "note": "taken as written, as fodder"
+        },
+        {
+         "words": "pan",
+         "note": "taken as written, as fodder"
+        }
+       ]
       }
      ]
     },
@@ -103,30 +91,28 @@
    },
    "solution": "TSAR",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TSAR",
     "definitions": [
      {
       "text": "Russian emperor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lies in",
-      "for": "hidden_word",
-      "note": "something that lies in a container is tucked inside it, so the letters sit within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "great sarcophagus",
-      "gives": "TSAR",
-      "note": "the end of great runs into the start of sarcophagus"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "lies in",
+       "note": "something that lies in a container is tucked inside it, so the letters sit within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "great sarcophagus",
+       "gives": "TSAR",
+       "note": "the end of great runs into the start of sarcophagus"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dead Russian ruler rests inside a huge stone coffin.",
      "definitionFit": "The title was used by the monarchs of Russia before the 1917 revolution, the Russian equivalent of an emperor."
@@ -152,35 +138,24 @@
    },
    "solution": "INGRID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INGRID",
     "definitions": [
      {
       "text": "Bergman",
       "at": 6
      }
     ],
-    "linkWords": [
-     "Write"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "diagram",
-      "gives": "GRID",
-      "note": "a grid is a diagram of squares, like a crossword's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "GRID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "diagram",
+       "gives": "GRID",
+       "note": "a grid is a diagram of squares, like a crossword's"
+      }
      ]
     },
     "explanation": {
@@ -209,60 +184,49 @@
    },
    "solution": "STAUNCH",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "STAUNCH",
     "definitions": [
      {
       "text": "Loyal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to get up",
-      "for": "reversal",
-      "note": "in a down clue, getting up means reading the word from bottom to top, backwards"
-     },
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "something carrying another thing holds it inside itself"
-     }
-    ],
-    "linkWords": [
-     "being",
-     "while"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nuts",
-      "gives": "NUTS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "child",
-      "gives": "CH",
-      "note": "CH is a standard abbreviation for child"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAUN",
-      "CH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NUTS",
-       "to": "STUN"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to get up",
+         "note": "in a down clue, getting up means reading the word from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "carrying",
+           "note": "something carrying another thing holds it inside itself"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nuts",
+           "note": "taken as written"
+          },
+          {
+           "words": "a",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "child",
+       "gives": "CH",
+       "note": "CH is a standard abbreviation for child"
       }
      ]
     },
@@ -292,35 +256,25 @@
    },
    "solution": "GOODWILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOODWILL",
     "definitions": [
      {
       "text": "Friendliness",
       "at": 0
      }
     ],
-    "linkWords": [
-     "shown with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "GOOD",
-      "note": "right and good both mean proper or correct"
-     },
-     {
-      "clueFragment": "hand down",
-      "gives": "WILL",
-      "note": "to will property is to hand it down to heirs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOOD",
-      "WILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "gives": "GOOD",
+       "note": "right and good both mean proper or correct"
+      },
+      {
+       "words": "hand down",
+       "gives": "WILL",
+       "note": "to will property is to hand it down to heirs"
+      }
      ]
     },
     "explanation": {
@@ -349,43 +303,33 @@
    },
    "solution": "ATMOSPHERE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ATMOSPHERE",
     "definitions": [
      {
       "text": "Prevailing mood",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "provides",
-      "for": "anagram",
-      "note": "the clue says the letters provide the answer, that is, are worked up into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "master",
-      "gives": "MASTER",
-      "note": "taken as written, as fodder"
-     },
-     {
-      "clueFragment": "hope",
-      "gives": "HOPE",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MASTER HOPE",
-       "gives": "ATMOSPHERE"
+       "text": "provides",
+       "note": "the clue says the letters provide the answer, that is, are worked up into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "master",
+         "note": "taken as written, as fodder"
+        },
+        {
+         "words": "hope",
+         "note": "taken as written, as fodder"
+        }
+       ]
       }
      ]
     },
@@ -414,54 +358,39 @@
    },
    "solution": "RATION",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RATION",
     "definitions": [
      {
       "text": "allowance",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down entry, turning up means the run of letters is read from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No.",
-      "gives": "NO",
-      "note": "the abbreviation for number, without its dot"
-     },
-     {
-      "clueFragment": "1",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "tar is an old slang word for a sailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAT",
-      "I",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NOITAR",
-       "to": "RATION"
+       "text": "turning up",
+       "note": "in a down entry, turning up means the run of letters is read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No.",
+         "note": "the abbreviation for number, without its dot"
+        },
+        {
+         "words": "1",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "sailor",
+         "gives": "TAR",
+         "note": "tar is an old slang word for a sailor"
+        }
+       ]
       }
      ]
     },
@@ -491,29 +420,17 @@
    },
    "solution": "CHESTNUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHESTNUT",
     "definitions": [
      {
       "text": "This tree",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a tree bearing glossy brown nuts"
      },
      {
       "text": "may still make you laugh",
       "at": 10,
-      "note": "the definition is a description of the noun: a joke so old it may still raise a laugh"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "This tree",
-      "note": "first meaning: a tree bearing glossy brown nuts"
-     },
-     {
-      "clueFragment": "may still make you laugh",
-      "note": "second meaning: a stale, overfamiliar joke"
+      "note": "the definition is a description of the noun: a joke so old it may still raise a laugh",
+      "meaning": "second meaning: a stale, overfamiliar joke"
      }
     ],
     "explanation": {
@@ -542,32 +459,25 @@
    },
    "solution": "OUTLAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTLAW",
     "definitions": [
      {
       "text": "Bandit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "not at home",
-      "gives": "OUT",
-      "note": "someone who is out is not at home"
-     },
-     {
-      "clueFragment": "principle",
-      "gives": "LAW",
-      "note": "a law is a rule or principle, as in a law of nature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "LAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not at home",
+       "gives": "OUT",
+       "note": "someone who is out is not at home"
+      },
+      {
+       "words": "principle",
+       "gives": "LAW",
+       "note": "a law is a rule or principle, as in a law of nature"
+      }
      ]
     },
     "explanation": {
@@ -595,28 +505,16 @@
    },
    "solution": "FAIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FAIR",
     "definitions": [
      {
       "text": "Just",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: even-handed and equitable"
      },
      {
       "text": "like a blonde",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Just",
-      "note": "first meaning: even-handed and equitable"
-     },
-     {
-      "clueFragment": "like a blonde",
-      "note": "second meaning: light-coloured, of hair or complexion"
+      "at": 5,
+      "meaning": "second meaning: light-coloured, of hair or complexion"
      }
     ],
     "explanation": {
@@ -651,35 +549,25 @@
    },
    "solution": "ROUNDROBIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROUND ROBIN",
     "definitions": [
      {
       "text": "Petition",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plump",
-      "gives": "ROUND",
-      "note": "round and plump both describe a well-filled figure"
-     },
-     {
-      "clueFragment": "bird",
-      "gives": "ROBIN",
-      "note": "the robin is a small garden bird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROUND",
-      "ROBIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "plump",
+       "gives": "ROUND",
+       "note": "round and plump both describe a well-filled figure"
+      },
+      {
+       "words": "bird",
+       "gives": "ROBIN",
+       "note": "the robin is a small garden bird"
+      }
      ]
     },
     "explanation": {
@@ -708,49 +596,34 @@
    },
    "solution": "HATRED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "HATRED",
     "definitions": [
      {
       "text": "enmity",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "something broken is shattered and reassembled in a different order"
-     }
-    ],
-    "linkWords": [
-     "Being",
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heart",
-      "gives": "HEART",
-      "note": "taken as written, as fodder"
-     },
-     {
-      "clueFragment": "died",
-      "gives": "D",
-      "note": "D is the standard abbreviation for died, as in genealogies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HATRE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HEART",
-       "gives": "HATRE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "note": "something broken is shattered and reassembled in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heart",
+         "note": "taken as written, as fodder"
+        }
+       ]
+      },
+      {
+       "words": "died",
+       "gives": "D",
+       "note": "D is the standard abbreviation for died, as in genealogies"
       }
      ]
     },
@@ -786,36 +659,25 @@
    },
    "solution": "REDHERRING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RED HERRING",
     "definitions": [
      {
       "text": "an irrelevant topic",
       "at": 19
      }
     ],
-    "linkWords": [
-     "and",
-     "make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wine",
-      "gives": "RED",
-      "note": "red is short for red wine"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "HERRING",
-      "note": "the herring is a common sea fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "HERRING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wine",
+       "gives": "RED",
+       "note": "red is short for red wine"
+      },
+      {
+       "words": "fish",
+       "gives": "HERRING",
+       "note": "the herring is a common sea fish"
+      }
      ]
     },
     "explanation": {
@@ -843,31 +705,16 @@
    },
    "solution": "CLIPPING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLIPPING",
     "definitions": [
      {
       "text": "Newspaper extract",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a piece cut out of a paper"
      },
      {
       "text": "activity of barber",
-      "at": 29
-     }
-    ],
-    "linkWords": [
-     "displaying"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Newspaper extract",
-      "note": "first meaning: a piece cut out of a paper"
-     },
-     {
-      "clueFragment": "activity of barber",
-      "note": "second meaning: cutting hair short"
+      "at": 29,
+      "meaning": "second meaning: cutting hair short"
      }
     ],
     "explanation": {
@@ -896,46 +743,44 @@
    },
    "solution": "STUDENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "STUDENT",
     "definitions": [
      {
       "text": "Undergraduate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "taking only half of a word means dropping its other half"
-     },
-     {
-      "text": "taking part in",
-      "for": "container",
-      "note": "something taking part in another is placed within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dead",
-      "gives": "DEAD",
-      "note": "taken as written, then halved"
-     },
-     {
-      "clueFragment": "exploit",
-      "gives": "STUNT",
-      "note": "a stunt is a daring exploit or feat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STU",
-      "DE",
-      "NT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking part in",
+       "note": "something taking part in another is placed within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exploit",
+       "gives": "STUNT",
+       "note": "a stunt is a daring exploit or feat"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "taking only half of a word means dropping its other half"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead",
+         "note": "taken as written, then halved"
+        },
+        {
+         "gives": "AD"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -970,38 +815,24 @@
    },
    "solution": "NORTHSEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NORTH SEA",
     "definitions": [
      {
       "text": "a lot of water",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "different",
-      "for": "anagram",
-      "note": "making the letters different means arranging them in another order"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Earth's no",
-      "gives": "EARTHSNO",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EARTHSNO",
-       "gives": "NORTHSEA"
+       "text": "different",
+       "note": "making the letters different means arranging them in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Earth's no",
+       "note": "taken as written, as fodder"
       }
      ]
     },
@@ -1030,31 +861,16 @@
    },
    "solution": "SLEEPER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SLEEPER",
     "definitions": [
      {
       "text": "Railway coach with beds",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a train carriage fitted with berths"
      },
      {
       "text": "fairy-tale beauty",
-      "at": 28
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Railway coach with beds",
-      "note": "first meaning: a train carriage fitted with berths"
-     },
-     {
-      "clueFragment": "fairy-tale beauty",
-      "note": "second meaning: Sleeping Beauty, someone who sleeps for a hundred years"
+      "at": 28,
+      "meaning": "second meaning: Sleeping Beauty, someone who sleeps for a hundred years"
      }
     ],
     "explanation": {
@@ -1083,54 +899,41 @@
    },
    "solution": "EVERYMAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "EVERYMAN",
     "definitions": [
      {
       "text": "Typical human being",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means the word is written from the bottom upwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "must be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jolly",
-      "gives": "VERY",
-      "note": "in British usage jolly means very, as in jolly good"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "NAME",
-      "note": "to call someone something is to name them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "VERY",
-      "MAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "NAME",
-       "to": "EMAN"
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, up means the word is written from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "call",
+         "gives": "NAME",
+         "note": "to call someone something is to name them"
+        }
+       ]
+      },
+      {
+       "words": "jolly",
+       "gives": "VERY",
+       "note": "in British usage jolly means very, as in jolly good"
       }
      ]
     },
@@ -1160,40 +963,30 @@
    },
    "solution": "FEATHER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FEATHER",
     "definitions": [
      {
       "text": "type of bed",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps round the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Show anxiety",
-      "gives": "FEAR",
-      "note": "to fear is to show anxiety"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEA",
-      "THE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece wraps round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Show anxiety",
+       "gives": "FEAR",
+       "note": "to fear is to show anxiety"
+      },
+      {
+       "words": "the",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1221,40 +1014,38 @@
    },
    "solution": "CAREFREE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CAREFREE",
     "definitions": [
      {
       "text": "Not worried",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "deletion",
-      "note": "without a heart, the word loses its central letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "CA",
-      "note": "ca is short for circa, Latin for about"
-     },
-     {
-      "clueFragment": "referee",
-      "gives": "REFEREE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "REFREE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heartless",
+       "note": "without a heart, the word loses its central letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "gives": "CA",
+         "note": "ca is short for circa, Latin for about"
+        },
+        {
+         "words": "referee",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1283,51 +1074,40 @@
    },
    "solution": "ADVERB",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ADVERB",
     "definitions": [
      {
       "text": "economically, for example",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy suggests something elaborately reworked, so the letters are rearranged"
-     },
-     {
-      "text": "cutting up",
-      "for": "container",
-      "note": "a knife cutting into a loaf goes inside it, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Five",
-      "gives": "V",
-      "note": "V is the Roman numeral for five"
-     },
-     {
-      "clueFragment": "bread",
-      "gives": "BREAD",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "V",
-      "ERB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BREAD",
-       "gives": "ADERB"
+       "text": "cutting up",
+       "note": "a knife cutting into a loaf goes inside it, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "note": "fancy suggests something elaborately reworked, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bread",
+         "note": "taken as written, as fodder"
+        }
+       ]
+      },
+      {
+       "words": "Five",
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
       }
      ]
     },
@@ -1358,35 +1138,25 @@
    },
    "solution": "OBEYED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBEYED",
     "definitions": [
      {
       "text": "complied",
       "at": 28
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old boy",
-      "gives": "OB",
-      "note": "OB is the standard abbreviation for old boy, a former pupil"
-     },
-     {
-      "clueFragment": "watched closely",
-      "gives": "EYED",
-      "note": "to eye something is to look at it carefully"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "EYED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old boy",
+       "gives": "OB",
+       "note": "OB is the standard abbreviation for old boy, a former pupil"
+      },
+      {
+       "words": "watched closely",
+       "gives": "EYED",
+       "note": "to eye something is to look at it carefully"
+      }
      ]
     },
     "explanation": {
@@ -1414,39 +1184,31 @@
    },
    "solution": "OPPOSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPPOSE",
     "definitions": [
      {
       "text": "Take issue with",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after tells us which piece comes later, so the second piece is written following the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op is short for opus, a work"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "POSE",
-      "note": "to model for an artist is to pose"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "POSE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after tells us which piece comes later, so the second piece is written following the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      },
+      {
+       "words": "model",
+       "gives": "POSE",
+       "note": "to model for an artist is to pose"
+      }
      ]
     },
     "explanation": {
@@ -1484,31 +1246,16 @@
    },
    "solution": "OVERTHETOP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OVER THE TOP",
     "definitions": [
      {
       "text": "Into battle in World War I",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: climbing out of the trenches to attack"
      },
      {
       "text": "outrageous",
-      "at": 37
-     }
-    ],
-    "linkWords": [
-     "which is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Into battle in World War I",
-      "note": "first meaning: climbing out of the trenches to attack"
-     },
-     {
-      "clueFragment": "outrageous",
-      "note": "second meaning: excessive or exaggerated"
+      "at": 37,
+      "meaning": "second meaning: excessive or exaggerated"
      }
     ],
     "explanation": {
@@ -1536,30 +1283,28 @@
    },
    "solution": "STYE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "STYE",
     "definitions": [
      {
       "text": "Inflamed swelling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "detected in",
-      "for": "hidden_word",
-      "note": "something detected in a phrase has been found concealed within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "test yesterday",
-      "gives": "STYE",
-      "note": "the end of test runs into the start of yesterday"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "detected in",
+       "note": "something detected in a phrase has been found concealed within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "test yesterday",
+       "gives": "STYE",
+       "note": "the end of test runs into the start of yesterday"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A medical test carried out yesterday found an inflamed lump.",
      "definitionFit": "A stye is an inflamed infected swelling on the edge of the eyelid."
@@ -1585,37 +1330,24 @@
    },
    "solution": "SAME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SAME",
     "definitions": [
      {
       "text": "uniform",
       "at": 34
      }
     ],
-    "linkWords": [
-     "See",
-     "join",
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Salvation Army",
-      "gives": "SA",
-      "note": "SA is the abbreviation for the Salvation Army"
-     },
-     {
-      "clueFragment": "me",
-      "gives": "ME",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Salvation Army",
+       "gives": "SA",
+       "note": "SA is the abbreviation for the Salvation Army"
+      },
+      {
+       "words": "me",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1645,35 +1377,24 @@
    },
    "solution": "FRINGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FRINGE",
     "definitions": [
      {
       "text": "hair on forehead",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "twisted",
-      "for": "anagram",
-      "note": "something twisted is bent out of its shape, so the letters are put in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finger",
-      "gives": "FINGER",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FINGER",
-       "gives": "FRINGE"
+       "text": "twisted",
+       "note": "something twisted is bent out of its shape, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Finger",
+       "note": "taken as written, as fodder"
       }
      ]
     },
@@ -1702,10 +1423,6 @@
    },
    "solution": "EASYMEAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EASYMEAT",
     "definitions": [
      {
       "text": "you should trounce him",
@@ -1713,28 +1430,18 @@
       "note": "a clause describing the noun phrase: someone who is easily beaten"
      }
     ],
-    "indicators": [
-     {
-      "text": "like this",
-      "for": "anagram",
-      "note": "like this asks you to rework the quoted words into another order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Say \"Eat me\"",
-      "gives": "SAYEATME",
-      "note": "taken as written, as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAYEATME",
-       "gives": "EASYMEAT"
+       "text": "like this",
+       "note": "like this asks you to rework the quoted words into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Say \"Eat me\"",
+       "note": "taken as written, as fodder"
       }
      ]
     },

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22065",
  "number": 22065,
- "series": "cryptic",
- "name": "Prize crossword No 22,065",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2000-11-25",
  "preamble": "Those with 2, 4, 5 down, 7, 16 down 26, and 22s are probably 1 down 19 and can be 6-d. Clues to these mostly lack definition.",
@@ -39,53 +38,43 @@
    },
    "solution": "PISCINA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PISCINA",
     "definitions": [
      {
       "text": "drain in church",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "inserted",
-      "for": "container",
-      "note": "what is inserted is pushed inside something else, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Copper",
-      "gives": "PC",
-      "note": "a copper is a policeman, a PC (police constable)"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "IS",
-      "C",
-      "IN",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inserted",
+         "note": "what is inserted is pushed inside something else, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Copper",
+         "gives": "PC",
+         "note": "a copper is a policeman, a PC (police constable)"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -124,48 +113,41 @@
     "19-down"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "POWER STEERED",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "kept in",
-      "for": "container",
-      "note": "something kept in a place is held inside it, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The captive",
-      "gives": "POW",
-      "note": "a captive is a prisoner of war, POW"
-     },
-     {
-      "clueFragment": "monarch",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the Queen"
-     },
-     {
-      "clueFragment": "she",
-      "gives": "ER",
-      "note": "'she' points back to the monarch, so ER again"
-     },
-     {
-      "clueFragment": "a mount",
-      "gives": "STEED",
-      "note": "a steed is a horse to ride"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POW",
-      "ER",
-      "STE",
-      "ER",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The captive",
+       "gives": "POW",
+       "note": "a captive is a prisoner of war, POW"
+      },
+      {
+       "words": "monarch",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the Queen"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kept in",
+         "note": "something kept in a place is held inside it, so one piece sits within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a mount",
+         "gives": "STEED",
+         "note": "a steed is a horse to ride"
+        },
+        {
+         "words": "she",
+         "gives": "ER",
+         "note": "'she' points back to the monarch, so ER again"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -194,40 +176,34 @@
    },
    "solution": "SUNROOF",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SUNROOF",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "out of order",
-      "for": "anagram",
-      "note": "things out of order are not in their proper sequence, so the letters must be rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Number",
-      "gives": "NO",
-      "note": "NO is the abbreviation for number"
-     },
-     {
-      "clueFragment": "4",
-      "gives": "FOUR",
-      "note": "the digit written as a word"
-     },
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "the S of the possessive"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOFOURS",
-       "gives": "SUNROOF"
+       "text": "out of order",
+       "note": "things out of order are not in their proper sequence, so the letters must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Number",
+         "gives": "NO",
+         "note": "NO is the abbreviation for number"
+        },
+        {
+         "words": "4",
+         "gives": "FOUR",
+         "note": "the digit written as a word"
+        },
+        {
+         "words": "'s",
+         "note": "the S of the possessive"
+        }
+       ]
       }
      ]
     },
@@ -257,37 +233,29 @@
    },
    "solution": "IFFY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IFFY",
     "definitions": [
      {
       "text": "Unreliable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaderless",
-      "for": "deletion",
-      "note": "without a leader means without the front, so the opening letter goes"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a brief moment",
-      "gives": "JIFFY",
-      "note": "a jiffy is a very short time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IFFY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaderless",
+       "note": "without a leader means without the front, so the opening letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a brief moment",
+       "gives": "JIFFY",
+       "note": "a jiffy is a very short time"
+      },
+      {
+       "gives": "J"
+      }
      ]
     },
     "explanation": {
@@ -322,35 +290,26 @@
    },
    "solution": "AIRCONDITIONING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AIR-CONDITIONING",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means lying inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "State",
-      "gives": "CONDITION",
-      "note": "one's state is one's condition"
-     },
-     {
-      "clueFragment": "exposure",
-      "gives": "AIRING",
-      "note": "an airing is an exposure to the open air or to public view"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "CONDITION",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means lying inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exposure",
+       "gives": "AIRING",
+       "note": "an airing is an exposure to the open air or to public view"
+      },
+      {
+       "words": "State",
+       "gives": "CONDITION",
+       "note": "one's state is one's condition"
+      }
      ]
     },
     "explanation": {
@@ -379,51 +338,40 @@
    },
    "solution": "EPITAPH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EPITAPH",
     "definitions": [
      {
       "text": "in the cemetery",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something means entering it, so one piece is placed inside another"
-     },
-     {
-      "text": "unusual",
-      "for": "anagram",
-      "note": "something unusual is not in its normal form, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heap",
-      "gives": "HEAP",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "Excavation",
-      "gives": "PIT",
-      "note": "a pit is a hole dug out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PIT",
-      "APH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HEAP",
-       "gives": "EAPH"
+       "text": "into",
+       "note": "going into something means entering it, so one piece is placed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "note": "something unusual is not in its normal form, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heap",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "Excavation",
+       "gives": "PIT",
+       "note": "a pit is a hole dug out"
       }
      ]
     },
@@ -459,54 +407,54 @@
    },
    "solution": "ELECTRICWINDOWS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "container"
-    ],
-    "answer": "ELECTRIC WINDOWS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "with no end means the final letter is dropped"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so one piece wraps around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Choose",
-      "gives": "ELECT",
-      "note": "to elect is to choose"
-     },
-     {
-      "clueFragment": "well-to-do",
-      "gives": "RIC",
-      "note": "rich, cut short"
-     },
-     {
-      "clueFragment": "former partners",
-      "gives": "WIDOWS",
-      "note": "widows have lost their husbands"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELECT",
-      "RIC",
-      "WI",
-      "N",
-      "DOWS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ELECTRICWINDOWS",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "with no end means the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without in its old sense of outside, so one piece wraps around another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Choose",
+           "gives": "ELECT",
+           "note": "to elect is to choose"
+          },
+          {
+           "words": "well-to-do",
+           "gives": "RIC",
+           "note": "rich, cut short"
+          },
+          {
+           "words": "former partners",
+           "gives": "WIDOWS",
+           "note": "widows have lost their husbands"
+          }
+         ]
+        },
+        {
+         "words": "name",
+         "gives": "N",
+         "note": "N is the abbreviation for name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -535,56 +483,50 @@
    },
    "solution": "IMMOBILISE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "IMMOBILISE",
     "definitions": [
      {
       "text": "Stop",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "roughly",
-      "for": "anagram",
-      "note": "roughly means not exactly, so these letters come in an inexact order"
-     },
-     {
-      "text": "within",
-      "for": "container",
-      "note": "within means inside, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two",
-      "gives": "II",
-      "note": "two in Roman numerals"
-     },
-     {
-      "clueFragment": "miles",
-      "gives": "MILES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the crowd",
-      "gives": "MOB",
-      "note": "a mob is a crowd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "MOB",
-      "ILISE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "IIMILES",
-       "gives": "IMILISE"
+       "text": "within",
+       "note": "within means inside, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly",
+         "note": "roughly means not exactly, so these letters come in an inexact order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "two",
+           "gives": "II",
+           "note": "two in Roman numerals"
+          },
+          {
+           "words": "miles",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "the crowd",
+       "gives": "MOB",
+       "note": "a mob is a crowd"
       }
      ]
     },
@@ -620,27 +562,20 @@
    },
    "solution": "AIRBAGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIRBAGS",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "The atmosphere",
-      "gives": "AIR",
-      "note": "the air is the atmosphere"
-     },
-     {
-      "clueFragment": "is captivating",
-      "gives": "BAGS",
-      "note": "to bag is to capture, so it bags"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "BAGS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The atmosphere",
+       "gives": "AIR",
+       "note": "the air is the atmosphere"
+      },
+      {
+       "words": "is captivating",
+       "gives": "BAGS",
+       "note": "to bag is to capture, so it bags"
+      }
      ]
     },
     "explanation": {
@@ -670,11 +605,6 @@
    },
    "solution": "HOLLAND",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "HOLLAND",
     "definitions": [
      {
       "text": "lies low",
@@ -682,32 +612,31 @@
       "note": "a verb phrase describing the country, which 'It' stands for"
      }
     ],
-    "indicators": [
-     {
-      "text": "two thirds",
-      "for": "deletion",
-      "note": "keeping two thirds means the last third is cut away"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty",
-      "gives": "HOLL",
-      "note": "hollow, of which only four of six letters are kept"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "AND",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOLL",
-      "AND"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOLLAND",
+     "indicators": [
+      {
+       "text": "two thirds",
+       "note": "keeping two thirds means the last third is cut away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "empty",
+         "gives": "HOLL",
+         "note": "hollow, of which only four of six letters are kept"
+        },
+        {
+         "words": "and",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -742,47 +671,41 @@
    },
    "solution": "WINDFORCE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "WIND FORCE",
     "definitions": [
      {
       "text": "measured by Beaufort",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Show pain",
-      "gives": "WINCE",
-      "note": "to wince is to flinch in pain"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "D",
-      "note": "D is 500 in Roman numerals"
-     },
-     {
-      "clueFragment": "in favour",
-      "gives": "FOR",
-      "note": "to be for something is to favour it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIN",
-      "D",
-      "FOR",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Show pain",
+       "gives": "WINCE",
+       "note": "to wince is to flinch in pain"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "number",
+         "gives": "D",
+         "note": "D is 500 in Roman numerals"
+        },
+        {
+         "words": "in favour",
+         "gives": "FOR",
+         "note": "to be for something is to favour it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -811,33 +734,25 @@
    },
    "solution": "MURAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MURAL",
     "definitions": [
      {
       "text": "painting",
       "at": 25
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Possible sequel",
-      "note": "what might come after"
-     },
-     {
-      "clueFragment": "extra",
-      "gives": "MURAL",
-      "note": "extramural, so this ending can follow extra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MURAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Possible sequel",
+       "note": "what might come after"
+      },
+      {
+       "words": "extra",
+       "gives": "MURAL",
+       "note": "extramural, so this ending can follow extra"
+      }
      ]
     },
     "explanation": {
@@ -866,43 +781,31 @@
    },
    "solution": "RIOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RIOT",
     "definitions": [
      {
       "text": "disturbance",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "has got into",
-      "for": "container",
-      "note": "getting into something means ending up inside it"
-     }
-    ],
-    "linkWords": [
-     "causes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "corruption",
-      "gives": "ROT",
-      "note": "rot is decay or corruption"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "I",
-      "OT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has got into",
+       "note": "getting into something means ending up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corruption",
+       "gives": "ROT",
+       "note": "rot is decay or corruption"
+      },
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -937,53 +840,38 @@
    },
    "solution": "COSTABRAVA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COSTA BRAVA",
     "definitions": [
      {
       "text": "holiday area",
       "at": 32
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charge",
-      "gives": "COST",
-      "note": "a charge is a cost"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "supporter",
-      "gives": "BRA",
-      "note": "a bra is a supporting garment"
-     },
-     {
-      "clueFragment": "opposed",
-      "gives": "V",
-      "note": "V for versus, against"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COST",
-      "A",
-      "BRA",
-      "V",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charge",
+       "gives": "COST",
+       "note": "a charge is a cost"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "supporter",
+       "gives": "BRA",
+       "note": "a bra is a supporting garment"
+      },
+      {
+       "words": "opposed",
+       "gives": "V",
+       "note": "V for versus, against"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1013,45 +901,38 @@
    },
    "solution": "PADEREWSKI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PADEREWSKI",
     "definitions": [
      {
       "text": "Premier musician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "diverted",
-      "for": "anagram",
-      "note": "something diverted is sent off its course, so these letters are rerouted into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keeps",
-      "gives": "KEEPS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "ward",
-      "gives": "WARD",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "KEEPSIWARD",
-       "gives": "PADEREWSKI"
+       "text": "diverted",
+       "note": "something diverted is sent off its course, so these letters are rerouted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "keeps",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        },
+        {
+         "words": "ward",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1082,11 +963,6 @@
    },
    "solution": "AFRAID",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "AFRAID",
     "definitions": [
      {
       "text": "I'm sorry to say",
@@ -1094,34 +970,28 @@
       "note": "the answer replaces 'sorry to say' in the phrase 'I'm afraid'"
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means not right, as food goes off, so these letters are spoiled into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Far",
-      "gives": "FAR",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "assistance",
-      "gives": "AID",
-      "note": "aid is help"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFR",
-      "AID"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "FAR",
-       "gives": "AFR"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "off means not right, as food goes off, so these letters are spoiled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Far",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "assistance",
+       "gives": "AID",
+       "note": "aid is help"
       }
      ]
     },
@@ -1157,36 +1027,25 @@
    },
    "solution": "ILLUSED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ILL-USED",
     "definitions": [
      {
       "text": "exploited",
       "at": 36
      }
     ],
-    "linkWords": [
-     "are",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Some pictures",
-      "gives": "ILLUS",
-      "note": "ILLUS is short for illustrations"
-     },
-     {
-      "clueFragment": "a journalist",
-      "gives": "ED",
-      "note": "ED, an editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILLUS",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some pictures",
+       "gives": "ILLUS",
+       "note": "ILLUS is short for illustrations"
+      },
+      {
+       "words": "a journalist",
+       "gives": "ED",
+       "note": "ED, an editor"
+      }
      ]
     },
     "explanation": {
@@ -1221,43 +1080,31 @@
    },
    "solution": "COAGENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CO-AGENT",
     "definitions": [
      {
       "text": "Fellow-worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so one piece wraps around another"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "compelling",
-      "gives": "COGENT",
-      "note": "a cogent argument is compelling"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a, meaning one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "A",
-      "GENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without in its old sense of outside, so one piece wraps around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "compelling",
+       "gives": "COGENT",
+       "note": "a cogent argument is compelling"
+      },
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "a, meaning one"
+      }
      ]
     },
     "explanation": {
@@ -1296,49 +1143,35 @@
     "26-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CENTRAL LOCKING",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "when backing",
-      "for": "reversal",
-      "note": "backing means moving in reverse, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Little money",
-      "gives": "CENT",
-      "note": "a cent is a small coin"
-     },
-     {
-      "clueFragment": "get hold of",
-      "gives": "COLLAR",
-      "note": "to collar someone is to seize them"
-     },
-     {
-      "clueFragment": "a sovereign",
-      "gives": "KING",
-      "note": "a king is a sovereign"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CENT",
-      "RALLOC",
-      "KING"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "COLLAR",
-       "to": "RALLOC"
+       "words": "Little money",
+       "gives": "CENT",
+       "note": "a cent is a small coin"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when backing",
+         "note": "backing means moving in reverse, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get hold of",
+         "gives": "COLLAR",
+         "note": "to collar someone is to seize them"
+        }
+       ]
+      },
+      {
+       "words": "a sovereign",
+       "gives": "KING",
+       "note": "a king is a sovereign"
       }
      ]
     },
@@ -1369,11 +1202,6 @@
    },
    "solution": "AEROBIC",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "AEROBIC",
     "definitions": [
      {
       "text": "a way of keeping fit",
@@ -1381,41 +1209,35 @@
       "note": "the answer is an adjective, as in aerobic exercise"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes around another"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "People of intelligence",
-      "gives": "CIA",
-      "note": "the Central Intelligence Agency, the US spy service"
-     },
-     {
-      "clueFragment": "to hole",
-      "gives": "BORE",
-      "note": "to bore is to drill a hole"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AEROBIC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CIBOREA",
-       "to": "AEROBIC"
+       "text": "up",
+       "note": "in a down clue, going up means reading from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece goes around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "People of intelligence",
+         "gives": "CIA",
+         "note": "the Central Intelligence Agency, the US spy service"
+        },
+        {
+         "words": "to hole",
+         "gives": "BORE",
+         "note": "to bore is to drill a hole"
+        }
+       ]
       }
      ]
     },
@@ -1445,40 +1267,30 @@
    },
    "solution": "WISEST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WISEST",
     "definitions": [
      {
       "text": "No.1 sage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means lying inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "WEST",
-      "note": "west is a point of the compass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "IS",
-      "EST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means lying inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "point",
+       "gives": "WEST",
+       "note": "west is a point of the compass"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1522,36 +1334,35 @@
    },
    "solution": "NURSEHOUND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NURSEHOUND",
     "definitions": [
      {
       "text": "Dogfish",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "look after",
-      "gives": "NURSE",
-      "note": "to nurse is to care for"
-     },
-     {
-      "clueFragment": "dog",
-      "gives": "HOUND",
-      "note": "a hound is a dog"
-     },
-     {
-      "clueFragment": "shunned our treatment",
-      "note": "a second route: the letters of the first two words rearranged also make the answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NURSE",
-      "HOUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "look after",
+         "gives": "NURSE",
+         "note": "to nurse is to care for"
+        },
+        {
+         "words": "dog",
+         "gives": "HOUND",
+         "note": "a hound is a dog"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "shunned our treatment",
+       "note": "a second route: the letters of the first two words rearranged also make the answer"
+      }
      ]
     },
     "explanation": {
@@ -1580,46 +1391,34 @@
    },
    "solution": "MEGA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MEGA",
     "definitions": [
      {
       "text": "Very considerable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going backwards, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "stone",
-      "gives": "GEM",
-      "note": "a gem is a precious stone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEGA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AGEM",
-       "to": "MEGA"
+       "text": "backing",
+       "note": "backing means going backwards, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "stone",
+         "gives": "GEM",
+         "note": "a gem is a precious stone"
+        }
+       ]
       }
      ]
     },
@@ -1649,10 +1448,6 @@
    },
    "solution": "ALLOY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALLOY",
     "definitions": [
      {
       "text": "isn't pure",
@@ -1660,30 +1455,25 @@
       "note": "a verb phrase; the answer is the thing that is not pure"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means lying inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love is zero in tennis, O"
-     },
-     {
-      "clueFragment": "a friend",
-      "gives": "ALLY",
-      "note": "an ally is a friend"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "O",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means lying inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a friend",
+       "gives": "ALLY",
+       "note": "an ally is a friend"
+      },
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      }
      ]
     },
     "explanation": {
@@ -1712,35 +1502,24 @@
    },
    "solution": "CHUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHUM",
     "definitions": [
      {
       "text": "A friend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wronged",
-      "for": "anagram",
-      "note": "something wronged is badly treated, so these letters are knocked out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "much",
-      "gives": "MUCH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MUCH",
-       "gives": "CHUM"
+       "text": "wronged",
+       "note": "something wronged is badly treated, so these letters are knocked out of shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "much",
+       "note": "taken as written"
       }
      ]
     },
@@ -1770,35 +1549,25 @@
    },
    "solution": "REBUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REBUS",
     "definitions": [
      {
       "text": "visual pun",
       "at": 30
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Confederate",
-      "gives": "REB",
-      "note": "a Reb was a Confederate soldier in the American Civil War"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US, the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REB",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Confederate",
+       "gives": "REB",
+       "note": "a Reb was a Confederate soldier in the American Civil War"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US, the United States"
+      }
      ]
     },
     "explanation": {
@@ -1827,10 +1596,6 @@
    },
    "solution": "ISOTHERAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ISOTHERAL",
     "definitions": [
      {
       "text": "where summers are similar",
@@ -1838,37 +1603,27 @@
       "note": "an adverbial clause; the answer is an adjective, said of such a line"
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "different",
-      "gives": "OTHER",
-      "note": "other means different"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L is the abbreviation for line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "OTHER",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Is",
+       "note": "taken as written"
+      },
+      {
+       "words": "different",
+       "gives": "OTHER",
+       "note": "other means different"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "line",
+       "gives": "L",
+       "note": "L is the abbreviation for line"
+      }
      ]
     },
     "explanation": {
@@ -1917,35 +1672,25 @@
    },
    "solution": "SOMEDAY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SOME DAY",
     "definitions": [
      {
       "text": "When my prince will come",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the form of",
-      "for": "anagram",
-      "note": "taking a form means being reshaped, so these letters are remade into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a samoyed",
-      "gives": "SAMOYED",
-      "note": "the dog breed, its letters to be rearranged; the 'a' only completes the phrase"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAMOYED",
-       "gives": "SOMEDAY"
+       "text": "in the form of",
+       "note": "taking a form means being reshaped, so these letters are remade into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a samoyed",
+       "gives": "SAMOYED",
+       "note": "the dog breed, its letters to be rearranged; the 'a' only completes the phrase"
       }
      ]
     },

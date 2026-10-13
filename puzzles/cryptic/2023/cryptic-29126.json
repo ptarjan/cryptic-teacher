@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29126",
  "number": 29126,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,126",
  "setter": "Vlad",
  "date": "2023-07-19",
  "dimensions": {
@@ -44,50 +42,40 @@
    },
    "solution": "DROPDEAD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DROP DEAD",
     "definitions": [
      {
       "text": "very unwelcome advice",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "kept",
-      "for": "container",
-      "note": "something kept is held inside, so the father figure holds the letter"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Don't play",
-      "gives": "DROP",
-      "note": "a player who is dropped is left out of the team"
-     },
-     {
-      "clueFragment": "the old man",
-      "gives": "DAD",
-      "note": "old man is slang for father"
-     },
-     {
-      "clueFragment": "'e",
-      "gives": "E",
-      "note": "the letter itself, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DROP",
-      "D",
-      "E",
-      "AD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Don't play",
+       "gives": "DROP",
+       "note": "a player who is dropped is left out of the team"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kept",
+         "note": "something kept is held inside, so the father figure holds the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the old man",
+         "gives": "DAD",
+         "note": "old man is slang for father"
+        },
+        {
+         "words": "'e",
+         "note": "the letter itself, apostrophe dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -117,47 +105,39 @@
    },
    "solution": "DRAT",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "DRAT",
     "definitions": [
      {
       "text": "Bother",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "nearly",
-      "for": "deletion",
-      "note": "nearly means not quite all, so the final letter is dropped"
-     },
-     {
-      "text": "lift",
-      "for": "reversal",
-      "note": "in a down clue, lifting something makes it read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "late",
-      "gives": "TARDY",
-      "note": "tardy means late"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TARD",
-       "to": "DRAT"
+       "text": "lift",
+       "note": "in a down clue, lifting something makes it read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "note": "nearly means not quite all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "gives": "TARDY",
+         "note": "tardy means late"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
@@ -187,66 +167,70 @@
    },
    "solution": "OARS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "OARS",
     "definitions": [
      {
       "text": "Blades",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "midway through",
-      "for": "letter_selection",
-      "note": "midway through points to the central letter of the word"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means the word for way is read in the opposite direction"
-     },
-     {
-      "text": "no",
-      "for": "deletion",
-      "note": "no means the reversed string is removed from the team name"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "score",
-      "gives": "O",
-      "select": "middle",
-      "note": "the middle of the five letters"
-     },
-     {
-      "clueFragment": "Arsenal",
-      "gives": "ARSENAL",
-      "note": "the football club, taken as written"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "LANE",
-      "note": "a lane is a way or road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ARS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "OARS",
+     "indicators": [
       {
-       "from": "LANE",
-       "to": "ENAL"
+       "text": "back",
+       "note": "back means the word for way is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "note": "no means the reversed string is removed from the team name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "middle",
+           "unchecked": true,
+           "gives": "O",
+           "indicators": [
+            {
+             "text": "midway through",
+             "note": "midway through points to the central letter of the word"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "score",
+             "gives": "O",
+             "select": "middle",
+             "note": "the middle of the five letters"
+            }
+           ]
+          },
+          {
+           "words": "Arsenal",
+           "note": "the football club, taken as written"
+          },
+          {
+           "words": "way",
+           "gives": "LANE",
+           "note": "a lane is a way or road"
+          }
+         ]
+        },
+        {
+         "gives": "ENALLANE"
+        }
+       ]
       }
      ]
     },
@@ -277,56 +261,51 @@
    },
    "solution": "DEPTHS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "reversal"
-    ],
-    "answer": "DEPTHS",
     "definitions": [
      {
       "text": "they may need plumbing",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly takes the first, third and further odd-numbered letters"
-     },
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "found in means sitting inside the outer word"
-     },
-     {
-      "text": "Picked up",
-      "for": "reversal",
-      "note": "in a down clue, picking something up turns it to read from the bottom upward"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outbuilding",
-      "gives": "SHED",
-      "note": "a shed is an outbuilding"
-     },
-     {
-      "clueFragment": "taps",
-      "gives": "TP",
-      "select": "alternate",
-      "note": "first and third letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEPTHS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SHTPED",
-       "to": "DEPTHS"
+       "text": "Picked up",
+       "note": "in a down clue, picking something up turns it to read from the bottom upward"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "note": "found in means sitting inside the outer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outbuilding",
+         "gives": "SHED",
+         "note": "a shed is an outbuilding"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "note": "oddly takes the first, third and further odd-numbered letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "taps",
+           "note": "first and third letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -363,38 +342,24 @@
    },
    "solution": "ADIPOSETISSUE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADIPOSE TISSUE",
     "definitions": [
      {
       "text": "fat",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests the letters are turned around and reset in a new order"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Piteous asides",
-      "gives": "PITEOUSASIDES",
-      "note": "the thirteen letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PITEOUSASIDES",
-       "gives": "ADIPOSETISSUE"
+       "text": "about",
+       "note": "about suggests the letters are turned around and reset in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piteous asides",
+       "note": "the thirteen letters to rearrange"
       }
      ]
     },
@@ -423,51 +388,41 @@
    },
    "solution": "AFFIRM",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "AFFIRM",
     "definitions": [
      {
       "text": "state — definitely",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over means turned over, so the word reads backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the turned word inside the abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "AM",
-      "note": "standard abbreviation for American"
-     },
-     {
-      "clueFragment": "Repeated phrase",
-      "gives": "RIFF",
-      "note": "a riff is a repeated musical phrase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "FFIR",
-      "M"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "RIFF",
-       "to": "FFIR"
+       "text": "in",
+       "note": "in places the turned word inside the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "gives": "AM",
+       "note": "standard abbreviation for American"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over means turned over, so the word reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Repeated phrase",
+         "gives": "RIFF",
+         "note": "a riff is a repeated musical phrase"
+        }
+       ]
       }
      ]
     },
@@ -497,46 +452,41 @@
    },
    "solution": "FACTOTUM",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FACTOTUM",
     "definitions": [
      {
       "text": "dogsbody",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "employs",
-      "for": "container",
-      "note": "to employ is to take on, so the combined words take in the letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It's true",
-      "gives": "FACT",
-      "note": "a fact is something true"
-     },
-     {
-      "clueFragment": "corporation",
-      "gives": "TUM",
-      "note": "corporation is old slang for a pot belly"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FACT",
-      "O",
-      "TUM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "employs",
+       "note": "to employ is to take on, so the combined words take in the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "It's true",
+         "gives": "FACT",
+         "note": "a fact is something true"
+        },
+        {
+         "words": "corporation",
+         "gives": "TUM",
+         "note": "corporation is old slang for a pot belly"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -566,38 +516,24 @@
    },
    "solution": "INTUBATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTUBATION",
     "definitions": [
      {
       "text": "medical procedure",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "developing",
-      "for": "anagram",
-      "note": "something developing is changing form, so the letters change their order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ban tuition",
-      "gives": "BANTUITION",
-      "note": "the ten letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BANTUITION",
-       "gives": "INTUBATION"
+       "text": "developing",
+       "note": "something developing is changing form, so the letters change their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ban tuition",
+       "note": "the ten letters to rearrange"
       }
      ]
     },
@@ -632,28 +568,16 @@
    },
    "solution": "MONEYORDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MONEY ORDER",
     "definitions": [
      {
       "text": "Could be my one",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, cryptic: a rearrangement of the letters of 'my one' is one ordering of the word for cash"
      },
      {
       "text": "guarantee of getting paid",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Could be my one",
-      "note": "first meaning, cryptic: a rearrangement of the letters of 'my one' is one ordering of the word for cash"
-     },
-     {
-      "clueFragment": "guarantee of getting paid",
-      "note": "second meaning: a prepaid payment slip bought from a post office"
+      "at": 16,
+      "meaning": "second meaning: a prepaid payment slip bought from a post office"
      }
     ],
     "explanation": {
@@ -683,57 +607,42 @@
    },
    "solution": "AGRIPPINA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AGRIPPINA",
     "definitions": [
      {
       "text": "Empress",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "deletion",
-      "note": "stripped means the outer layer is removed, so first and last letters go"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "on",
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hold",
-      "gives": "GRIP",
-      "note": "a grip is a hold"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the physics symbol for power"
-     },
-     {
-      "clueFragment": "last",
-      "gives": "FINAL",
-      "note": "final means last"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GRIP",
-      "P",
-      "INA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AGRIPPINA",
+     "indicators": [
+      {
+       "text": "stripped",
+       "note": "stripped means the outer layer is removed, so first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "hold",
+       "gives": "GRIP",
+       "note": "a grip is a hold"
+      },
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      },
+      {
+       "words": "last",
+       "gives": "FINAL",
+       "note": "final means last"
+      }
      ]
     },
     "explanation": {
@@ -776,35 +685,24 @@
    },
    "solution": "AWAYFROMITALL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AWAY FROM IT ALL",
     "definitions": [
      {
       "text": "in solitary?",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "release",
-      "for": "anagram",
-      "note": "released letters are set free to fall into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Formally await",
-      "gives": "FORMALLYAWAIT",
-      "note": "the thirteen letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FORMALLYAWAIT",
-       "gives": "AWAYFROMITALL"
+       "text": "release",
+       "note": "released letters are set free to fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Formally await",
+       "note": "the thirteen letters to rearrange"
       }
      ]
     },
@@ -841,40 +739,39 @@
    },
    "solution": "CUTIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CUT IN",
     "definitions": [
      {
       "text": "failed to observe queuing etiquette",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "losing head",
-      "for": "deletion",
-      "note": "losing its head means the first letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caught",
-      "gives": "C",
-      "note": "C is the cricket scorecard abbreviation for caught"
-     },
-     {
-      "clueFragment": "president",
-      "gives": "PUTIN",
-      "note": "Vladimir Putin, president of Russia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "UTIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "note": "losing its head means the first letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Caught",
+         "gives": "C",
+         "note": "C is the cricket scorecard abbreviation for caught"
+        },
+        {
+         "words": "president",
+         "gives": "PUTIN",
+         "note": "Vladimir Putin, president of Russia"
+        }
+       ]
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -913,61 +810,54 @@
    },
    "solution": "THROWAWOBBLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "THROW A WOBBLY",
     "definitions": [
      {
       "text": "get very angry",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first takes only the opening letter of the word before it"
-     },
-     {
-      "text": "blow",
-      "for": "anagram",
-      "note": "to blow something is to wreck it, so the letters before it are scattered"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cast",
-      "gives": "THROW",
-      "note": "to cast is to throw"
-     },
-     {
-      "clueFragment": "account",
-      "gives": "A",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "Blow-by",
-      "gives": "BLOWBY",
-      "note": "the six letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THROW",
-      "A",
-      "WOBBLY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BLOWBY",
-       "gives": "WOBBLY"
+       "words": "cast",
+       "gives": "THROW",
+       "note": "to cast is to throw"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "blow",
+         "note": "to blow something is to wreck it, so the letters before it are scattered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "at first",
+             "note": "at first takes only the opening letter of the word before it"
+            }
+           ],
+           "parts": [
+            {
+             "words": "account",
+             "note": "its first letter"
+            }
+           ]
+          },
+          {
+           "words": "Blow-by",
+           "note": "the six letters to rearrange"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1003,26 +893,25 @@
    },
    "solution": "HEDGEFUNDS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HEDGE FUNDS",
     "definitions": [
      {
       "text": "Green investments?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Green investments?",
-      "note": "surface reading: environmentally friendly places to put one's savings"
-     },
-     {
-      "clueFragment": "Green investments?",
-      "note": "setter's reading: money put towards planting leafy boundaries, which are literally green"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Green investments?",
+       "note": "surface reading: environmentally friendly places to put one's savings"
+      },
+      {
+       "words": "Green investments?",
+       "note": "setter's reading: money put towards planting leafy boundaries, which are literally green"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Green suggests eco-friendly finance; the answer is speculative funds, yet read literally it is money for planting a garden boundary.",
      "definitionFit": "Hedge funds are pooled investment vehicles; a hedge is also a green row of shrubs, hence the pun."
@@ -1059,35 +948,24 @@
    },
    "solution": "FARANDWIDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FAR AND WIDE",
     "definitions": [
      {
       "text": "everywhere",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "After storm",
-      "for": "anagram",
-      "note": "a storm throws things into disarray, so after it the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dawned fair",
-      "gives": "DAWNEDFAIR",
-      "note": "the ten letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DAWNEDFAIR",
-       "gives": "FARANDWIDE"
+       "text": "After storm",
+       "note": "a storm throws things into disarray, so after it the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dawned fair",
+       "note": "the ten letters to rearrange"
       }
      ]
     },
@@ -1116,44 +994,35 @@
    },
    "solution": "EBAY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EBAY",
     "definitions": [
      {
       "text": "Marketplace",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "side of",
-      "for": "letter_selection",
-      "note": "side of points to an edge letter, here the closing one"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "garage",
-      "gives": "E",
-      "select": "last",
-      "note": "its last letter"
-     },
-     {
-      "clueFragment": "park here",
-      "gives": "BAY",
-      "note": "a parking bay is where one parks"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "BAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "side of",
+         "note": "side of points to an edge letter, here the closing one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "garage",
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "words": "park here",
+       "gives": "BAY",
+       "note": "a parking bay is where one parks"
+      }
      ]
     },
     "explanation": {
@@ -1181,51 +1050,40 @@
    },
    "solution": "LEAFCUTTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LEAFCUTTER",
     "definitions": [
      {
       "text": "Ant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally takes only the closing letter of the name"
-     }
-    ],
-    "linkWords": [
-     "and",
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two pages",
-      "gives": "LEAF",
-      "note": "a leaf of a book has two pages, front and back"
-     },
-     {
-      "clueFragment": "Dec",
-      "gives": "C",
-      "select": "last",
-      "note": "its last letter"
-     },
-     {
-      "clueFragment": "speak",
-      "gives": "UTTER",
-      "note": "to utter is to speak"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAF",
-      "C",
-      "UTTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two pages",
+       "gives": "LEAF",
+       "note": "a leaf of a book has two pages, front and back"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally takes only the closing letter of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dec",
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "words": "speak",
+       "gives": "UTTER",
+       "note": "to utter is to speak"
+      }
      ]
     },
     "explanation": {
@@ -1255,47 +1113,41 @@
    },
    "solution": "PSALTERY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PSALTERY",
     "definitions": [
      {
       "text": "It used to be played",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "container",
-      "note": "being out of the season word means wrapping around its outside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for a",
-      "gives": "PER",
-      "note": "per means for each, as in per annum"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "season",
-      "gives": "SALT",
-      "note": "to season food is to salt it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "SALT",
-      "ER",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "being out of the season word means wrapping around its outside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "for a",
+         "gives": "PER",
+         "note": "per means for each, as in per annum"
+        },
+        {
+         "words": "year",
+         "gives": "Y",
+         "note": "standard abbreviation"
+        }
+       ]
+      },
+      {
+       "words": "season",
+       "gives": "SALT",
+       "note": "to season food is to salt it"
+      }
      ]
     },
     "explanation": {
@@ -1330,53 +1182,46 @@
    },
    "solution": "GRASSWIDOW",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "GRASS WIDOW",
     "definitions": [
      {
       "text": "her husband's often away",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "to visit",
-      "for": "container",
-      "note": "a visitor goes inside, so this word enters the exclamation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gross",
-      "gives": "GR",
-      "note": "GR is the abbreviation for gross, 144"
-     },
-     {
-      "clueFragment": "behind",
-      "gives": "ASS",
-      "note": "ass is US slang for the backside"
-     },
-     {
-      "clueFragment": "It's fantastic!",
-      "gives": "WOW",
-      "note": "an exclamation of delight"
-     },
-     {
-      "clueFragment": "Instinct",
-      "gives": "ID",
-      "note": "the id is the instinctive part of the psyche in Freud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "ASS",
-      "W",
-      "ID",
-      "OW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to visit",
+       "note": "a visitor goes inside, so this word enters the exclamation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gross",
+         "gives": "GR",
+         "note": "GR is the abbreviation for gross, 144"
+        },
+        {
+         "words": "behind",
+         "gives": "ASS",
+         "note": "ass is US slang for the backside"
+        },
+        {
+         "words": "It's fantastic!",
+         "gives": "WOW",
+         "note": "an exclamation of delight"
+        }
+       ]
+      },
+      {
+       "words": "Instinct",
+       "gives": "ID",
+       "note": "the id is the instinctive part of the psyche in Freud"
+      }
      ]
     },
     "explanation": {
@@ -1406,30 +1251,28 @@
    },
    "solution": "WOKE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "WOKE",
     "definitions": [
      {
       "text": "like Harry and Meghan?",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "to reveal",
-      "for": "hidden_word",
-      "note": "to reveal means the letters are uncovered inside the phrase in front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two keen",
-      "gives": "WOKE",
-      "note": "spanning the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to reveal",
+       "note": "to reveal means the letters are uncovered inside the phrase in front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Two keen",
+       "gives": "WOKE",
+       "note": "spanning the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pair eager to tell all about the royal couple who left Britain.",
      "walkthrough": "Prince Harry and Meghan Markle have been labelled woke by critics, hence the question mark.",
@@ -1456,54 +1299,51 @@
    },
    "solution": "SKIING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SKIING",
     "definitions": [
      {
       "text": "doing what he likes",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Initially",
-      "for": "letter_selection",
-      "note": "initially takes the opening letter of the exclaimed word"
-     },
-     {
-      "text": "stops",
-      "for": "container",
-      "note": "something that stops a gap plugs it, so it sits inside the royal title"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spoilsports",
-      "gives": "S",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "Charles",
-      "gives": "KING",
-      "note": "Charles III is King"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "K",
-      "I",
-      "ING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "note": "initially takes the opening letter of the exclaimed word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spoilsports",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stops",
+         "note": "something that stops a gap plugs it, so it sits inside the royal title"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Charles",
+         "gives": "KING",
+         "note": "Charles III is King"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1532,35 +1372,25 @@
    },
    "solution": "FIDDLESTICKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FIDDLESTICKS",
     "definitions": [
      {
       "text": "nonsense!",
       "at": 33
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cons",
-      "gives": "FIDDLES",
-      "note": "fiddles are swindles or cons"
-     },
-     {
-      "clueFragment": "signs of approval",
-      "gives": "TICKS",
-      "note": "a tick marks something as correct"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIDDLES",
-      "TICKS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cons",
+       "gives": "FIDDLES",
+       "note": "fiddles are swindles or cons"
+      },
+      {
+       "words": "signs of approval",
+       "gives": "TICKS",
+       "note": "a tick marks something as correct"
+      }
      ]
     },
     "explanation": {
@@ -1592,49 +1422,44 @@
     "23-down"
    ],
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "MASTHEAD",
     "definitions": [
      {
       "text": "it's on the front page",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "leaving means departing, so that letter goes out of the place name"
-     },
-     {
-      "text": "going west",
-      "for": "anagram",
-      "note": "going west means being ruined, so the letters left are broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "President",
-      "gives": "P",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "Hampstead",
-      "gives": "HAMPSTEAD",
-      "note": "the north London district, taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MASTHEAD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MASTHEAD",
+     "indicators": [
       {
-       "fodder": "HAMSTEAD",
-       "gives": "MASTHEAD"
+       "text": "going west",
+       "note": "going west means being ruined, so the letters left are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "MASTHEAD",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "leaving means departing, so that letter goes out of the place name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "President",
+         "gives": "P",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "Hampstead",
+         "note": "the north London district, taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1677,38 +1502,25 @@
    },
    "solution": "NAIVE",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "NAIVE",
     "definitions": [
      {
       "text": "Simple",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "receding",
-      "for": "reversal",
-      "note": "receding means moving back, so the brand reads from end to start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "water",
-      "gives": "EVIAN",
-      "note": "Evian is a brand of bottled mineral water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EVIAN",
-       "to": "NAIVE"
+       "text": "receding",
+       "note": "receding means moving back, so the brand reads from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "water",
+       "gives": "EVIAN",
+       "note": "Evian is a brand of bottled mineral water"
       }
      ]
     },
@@ -1737,43 +1549,39 @@
    },
    "solution": "ERADICATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ERADICATE",
     "definitions": [
      {
       "text": "destroy!",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "heartlessly",
-      "for": "deletion",
-      "note": "without a heart means the central letter is taken out"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "ERA",
-      "note": "an era is a period of time"
-     },
-     {
-      "clueFragment": "rule",
-      "gives": "DICTATE",
-      "note": "to dictate is to rule autocratically"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERA",
-      "DICATE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heartlessly",
+       "note": "without a heart means the central letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "gives": "ERA",
+         "note": "an era is a period of time"
+        },
+        {
+         "words": "rule",
+         "gives": "DICTATE",
+         "note": "to dictate is to rule autocratically"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1802,44 +1610,35 @@
    },
    "solution": "SHERYL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SHERYL",
     "definitions": [
      {
       "text": "Crow singing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ends",
-      "for": "letter_selection",
-      "note": "ends picks out the final letter of each of the words before it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "female",
-      "gives": "SHE",
-      "note": "she is the female pronoun"
-     },
-     {
-      "clueFragment": "rather softly — recital",
-      "gives": "RYL",
-      "select": "last",
-      "note": "the last letter of each word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "RYL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "gives": "SHE",
+       "note": "she is the female pronoun"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ends",
+         "note": "ends picks out the final letter of each of the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rather softly — recital",
+         "note": "the last letter of each word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1869,40 +1668,31 @@
    },
    "solution": "BLIGHTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLIGHTED",
     "definitions": [
      {
       "text": "Badly affected",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "'s",
-      "for": "container",
-      "note": "read as is, saying the fair-haired one has gone to rest, so is lying in what the next word suggests"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "retired",
-      "gives": "BED",
-      "note": "someone who has retired for the night has gone to bed"
-     },
-     {
-      "clueFragment": "blonde",
-      "gives": "LIGHT",
-      "note": "blonde hair is light in colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LIGHT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "'s",
+       "note": "read as is, saying the fair-haired one has gone to rest, so is lying in what the next word suggests"
+      }
+     ],
+     "parts": [
+      {
+       "words": "retired",
+       "gives": "BED",
+       "note": "someone who has retired for the night has gone to bed"
+      },
+      {
+       "words": "blonde",
+       "gives": "LIGHT",
+       "note": "blonde hair is light in colour"
+      }
      ]
     },
     "explanation": {

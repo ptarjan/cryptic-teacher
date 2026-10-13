@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-17924",
  "number": 17924,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 17,924",
  "setter": "Mudd",
  "date": "2024-12-18",
  "dimensions": {
@@ -48,26 +46,25 @@
    },
    "solution": "STOREDETECTIVE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "STORE DETECTIVE",
     "definitions": [
      {
       "text": "A shopper's shopper?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A shopper's shopper?",
-      "note": "surface reading: a personal shopper who buys things on a customer's behalf"
-     },
-     {
-      "clueFragment": "shopper's",
-      "note": "setter's reading: in British slang to shop someone is to inform on them, so this shopper catches people who steal from a shop"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A shopper's shopper?",
+       "note": "surface reading: a personal shopper who buys things on a customer's behalf"
+      },
+      {
+       "words": "shopper's",
+       "note": "setter's reading: in British slang to shop someone is to inform on them, so this shopper catches people who steal from a shop"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The question mark flags a second sense of shopper: British slang 'shop' means inform on to the police, and the shoplifter is the 'shopper' being caught.",
      "definitionFit": "A plain-clothes security officer in a department store watches customers and reports or detains thieves."
@@ -94,54 +91,49 @@
    },
    "solution": "TRATTORIA",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "TRATTORIA",
     "definitions": [
      {
       "text": "Restaurant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means the word is read from bottom to top"
-     },
-     {
-      "text": "what does Vic have for afters",
-      "for": "deletion",
-      "note": "asks what comes after the letters of the name Vic, so those leading letters are dropped from a longer name"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "served pastry",
-      "gives": "TART",
-      "note": "a tart is a pastry dish, here served"
-     },
-     {
-      "clueFragment": "Vic",
-      "gives": "VICTORIA",
-      "note": "Vic is a short form of Victoria"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAT",
-      "TORIA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TART",
-       "to": "TRAT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, going up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "served pastry",
+         "gives": "TART",
+         "note": "a tart is a pastry dish, here served"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "what does Vic have for afters",
+         "note": "asks what comes after the letters of the name Vic, so those leading letters are dropped from a longer name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vic",
+         "gives": "VICTORIA",
+         "note": "Vic is a short form of Victoria"
+        },
+        {
+         "gives": "VIC"
+        }
+       ]
       }
      ]
     },
@@ -172,40 +164,39 @@
    },
    "solution": "REHAB",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "REHAB",
     "definitions": [
      {
       "text": "Treatment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having lost head",
-      "for": "deletion",
-      "note": "losing its head means the first letter of the named person is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with respect to",
-      "gives": "RE",
-      "note": "re means concerning, with respect to"
-     },
-     {
-      "clueFragment": "whaler",
-      "gives": "AHAB",
-      "note": "Captain Ahab is the whaler in Moby-Dick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HAB"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having lost head",
+       "note": "losing its head means the first letter of the named person is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with respect to",
+         "gives": "RE",
+         "note": "re means concerning, with respect to"
+        },
+        {
+         "words": "whaler",
+         "gives": "AHAB",
+         "note": "Captain Ahab is the whaler in Moby-Dick"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -234,35 +225,24 @@
    },
    "solution": "DESPERADO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DESPERADO",
     "definitions": [
      {
       "text": "Criminal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carried out",
-      "for": "anagram",
-      "note": "something carried out is executed or performed, so the letters are worked into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deeds a pro",
-      "gives": "DEEDSAPRO",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DEEDSAPRO",
-       "gives": "DESPERADO"
+       "text": "carried out",
+       "note": "something carried out is executed or performed, so the letters are worked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deeds a pro",
+       "note": "letters to rearrange"
       }
      ]
     },
@@ -291,44 +271,38 @@
    },
    "solution": "TREAD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "TREAD",
     "definitions": [
      {
       "text": "Surface of tyre, look at — that?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Surface of",
-      "for": "letter_selection",
-      "note": "the surface of a word is its outermost, leading letter, so only the start is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tyre",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of tyre"
-     },
-     {
-      "clueFragment": "look at",
-      "gives": "READ",
-      "note": "to read something is to look at it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "READ"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Surface of",
+         "note": "the surface of a word is its outermost, leading letter, so only the start is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tyre",
+         "note": "first letter of tyre"
+        }
+       ]
+      },
+      {
+       "words": "look at",
+       "gives": "READ",
+       "note": "to read something is to look at it"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone invites you to inspect the surface of a tyre, pointing at the grooves.",
      "walkthrough": "A semi-&lit: 'Surface of tyre' is both the definition and the source of the first letter, and 'that?' invites you to look at the very thing defined.",
@@ -355,65 +329,60 @@
    },
    "solution": "CORKSCREW",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "CORKSCREW",
     "definitions": [
      {
       "text": "one's taken to the bottle",
       "at": 59
      }
     ],
-    "indicators": [
-     {
-      "text": "casual",
-      "for": "anagram",
-      "note": "casual suggests something loose and disorganised, so the letters are set out in a new order"
-     },
-     {
-      "text": "minimum of",
-      "for": "letter_selection",
-      "note": "the smallest part of a word taken here is its opening letter"
-     },
-     {
-      "text": "claiming",
-      "for": "container",
-      "note": "to claim something is to take hold of it, so one part goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     },
-     {
-      "clueFragment": "workers",
-      "gives": "WORKERS",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "compensation",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of compensation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ORKS",
-      "C",
-      "REW"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WORKERS",
-       "gives": "ORKSREW"
+       "words": "A hundred",
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "claiming",
+         "note": "to claim something is to take hold of it, so one part goes around another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "casual",
+           "note": "casual suggests something loose and disorganised, so the letters are set out in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "workers",
+           "note": "letters to rearrange"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "minimum of",
+           "note": "the smallest part of a word taken here is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "compensation",
+           "note": "first letter of compensation"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -444,34 +413,25 @@
    },
    "solution": "IDIOM",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IDIOM",
     "definitions": [
      {
       "text": "Expression",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points at the first letters of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is deep in one's memory",
-      "gives": "IDIOM",
-      "select": "first",
-      "note": "first letters of is, deep, in, one's, memory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDIOM"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially points at the first letters of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is deep in one's memory",
+       "note": "first letters of is, deep, in, one's, memory"
+      }
      ]
     },
     "explanation": {
@@ -499,65 +459,61 @@
    },
    "solution": "ESTONIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade",
-     "reversal"
-    ],
-    "answer": "ESTONIA",
     "definitions": [
      {
       "text": "country",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "capital in",
-      "for": "letter_selection",
-      "note": "the capital of a word is its first, upper-case letter"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means one part encircles another"
-     },
-     {
-      "text": "Erection of",
-      "for": "reversal",
-      "note": "erecting something stands it upright, so in a down entry the letters are read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "perfect",
-      "gives": "AI",
-      "note": "A1 means first-class or perfect, with the 1 read as I"
-     },
-     {
-      "clueFragment": "Roman feature",
-      "gives": "NOSE",
-      "note": "a Roman nose is a facial feature with a high bridge"
-     },
-     {
-      "clueFragment": "troubled",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of troubled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "T",
-      "ON",
-      "IA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AINOTSE",
-       "to": "ESTONIA"
+       "text": "Erection of",
+       "note": "erecting something stands it upright, so in a down entry the letters are read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "perfect",
+         "gives": "AI",
+         "note": "A1 means first-class or perfect, with the 1 read as I"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "around",
+           "note": "around means one part encircles another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Roman feature",
+           "gives": "NOSE",
+           "note": "a Roman nose is a facial feature with a high bridge"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "capital in",
+             "note": "the capital of a word is its first, upper-case letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "troubled",
+             "note": "first letter of troubled"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -587,28 +543,16 @@
    },
    "solution": "THANKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THANKS",
     "definitions": [
      {
       "text": "M. Ryan's co-star in Sleepless in Seattle",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Meg Ryan starred opposite Tom Hanks, written with his initial in the same style as M. Ryan"
      },
      {
       "text": "cheers",
-      "at": 42
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "M. Ryan's co-star in Sleepless in Seattle",
-      "note": "first meaning: Meg Ryan starred opposite Tom Hanks, written with his initial in the same style as M. Ryan"
-     },
-     {
-      "clueFragment": "cheers",
-      "note": "second meaning: an informal British word for gratitude"
+      "at": 42,
+      "meaning": "second meaning: an informal British word for gratitude"
      }
     ],
     "explanation": {
@@ -637,47 +581,41 @@
    },
    "solution": "HEATH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HEATH",
     "definitions": [
      {
       "text": "Old PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back in",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter"
-     },
-     {
-      "text": "jackets",
-      "for": "container",
-      "note": "to jacket something is to wrap it, so one part goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "had old",
-      "gives": "HATH",
-      "note": "hath is an archaic verb form, taken here as old for had"
-     },
-     {
-      "clueFragment": "suitcase",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of suitcase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "E",
-      "ATH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "jackets",
+       "note": "to jacket something is to wrap it, so one part goes around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "had old",
+       "gives": "HATH",
+       "note": "hath is an archaic verb form, taken here as old for had"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "note": "the back of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suitcase",
+         "note": "last letter of suitcase"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -706,43 +644,33 @@
    },
    "solution": "SPEARMINT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPEARMINT",
     "definitions": [
      {
       "text": "fresh flavour",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "bananas",
-      "for": "anagram",
-      "note": "bananas is slang for crazy, so the letters go wild into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Man",
-      "gives": "MAN",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "ripest",
-      "gives": "RIPEST",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MANRIPEST",
-       "gives": "SPEARMINT"
+       "text": "bananas",
+       "note": "bananas is slang for crazy, so the letters go wild into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Man",
+         "note": "letters to rearrange"
+        },
+        {
+         "words": "ripest",
+         "note": "letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -772,28 +700,16 @@
    },
    "solution": "NOTABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOTABLE",
     "definitions": [
      {
       "text": "Celebrity",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a famous or important person"
      },
      {
       "text": "hamstrung",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Celebrity",
-      "note": "first meaning: a famous or important person"
-     },
-     {
-      "clueFragment": "hamstrung",
-      "note": "second meaning, split as two words: incapable, unable to act"
+      "at": 10,
+      "meaning": "second meaning, split as two words: incapable, unable to act"
      }
     ],
     "explanation": {
@@ -822,61 +738,51 @@
    },
    "solution": "DUSTMAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "DUSTMAN",
     "definitions": [
      {
       "text": "Council worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the letters are read from right to left"
-     },
-     {
-      "text": "clothing",
-      "for": "container",
-      "note": "clothing something wraps it, so one part surrounds the rest"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brownish",
-      "gives": "DUN",
-      "note": "dun is a dull greyish-brown colour"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street"
-     },
-     {
-      "clueFragment": "in the morning",
-      "gives": "AM",
-      "note": "a.m. means in the morning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DU",
-      "ST",
-      "MA",
-      "N"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "AM",
-       "to": "MA"
+       "text": "clothing",
+       "note": "clothing something wraps it, so one part surrounds the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brownish",
+       "gives": "DUN",
+       "note": "dun is a dull greyish-brown colour"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "street",
+         "gives": "ST",
+         "note": "ST is the abbreviation for street"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "going back means the letters are read from right to left"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in the morning",
+           "gives": "AM",
+           "note": "a.m. means in the morning"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -906,38 +812,25 @@
    },
    "solution": "STRAP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "STRAP",
     "definitions": [
      {
       "text": "Belt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reversed",
-      "for": "reversal",
-      "note": "reversed means read the word from its last letter to its first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "components",
-      "gives": "PARTS",
-      "note": "components are parts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PARTS",
-       "to": "STRAP"
+       "text": "reversed",
+       "note": "reversed means read the word from its last letter to its first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "components",
+       "gives": "PARTS",
+       "note": "components are parts"
       }
      ]
     },
@@ -972,41 +865,30 @@
    },
    "solution": "POKERFACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POKER FACE",
     "definitions": [
      {
       "text": "player might wish to retain it!",
       "at": 27
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Index finger",
-      "gives": "POKER",
-      "note": "the index finger is the one you poke with"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F is the pencil-grade abbreviation for fine"
-     },
-     {
-      "clueFragment": "card",
-      "gives": "ACE",
-      "note": "an ace is a playing card"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POKER",
-      "F",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Index finger",
+       "gives": "POKER",
+       "note": "the index finger is the one you poke with"
+      },
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F is the pencil-grade abbreviation for fine"
+      },
+      {
+       "words": "card",
+       "gives": "ACE",
+       "note": "an ace is a playing card"
+      }
      ]
     },
     "explanation": {
@@ -1036,60 +918,55 @@
    },
    "solution": "AUSTRALIA",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AUSTRALIA",
     "definitions": [
      {
       "text": "large country",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means one part is placed inside another"
-     },
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally means take the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "star-spangled",
-      "gives": "ASTRAL",
-      "note": "astral means starry, of the stars"
-     },
-     {
-      "clueFragment": "United",
-      "gives": "U",
-      "note": "U is the abbreviation for United, as in football club names"
-     },
-     {
-      "clueFragment": "identity",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of identity"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "U",
-      "STRAL",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means one part is placed inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star-spangled",
+         "gives": "ASTRAL",
+         "note": "astral means starry, of the stars"
+        },
+        {
+         "words": "United",
+         "gives": "U",
+         "note": "U is the abbreviation for United, as in football club names"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "originally means take the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "identity",
+         "note": "first letter of identity"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1118,58 +995,50 @@
    },
    "solution": "SINGLETON",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SINGLETON",
     "definitions": [
      {
       "text": "lonely heart say?",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "rogue",
-      "for": "anagram",
-      "note": "a rogue behaves badly, so the letters go astray into a new order"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "first of means only the opening letter is kept"
-     },
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "entertaining a guest means holding them inside, so one part goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Insolent",
-      "gives": "INSOLENT",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "girls",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of girls"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIN",
-      "G",
-      "LETON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "INSOLENT",
-       "gives": "SINLETON"
+       "text": "entertaining",
+       "note": "entertaining a guest means holding them inside, so one part goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rogue",
+         "note": "a rogue behaves badly, so the letters go astray into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Insolent",
+         "note": "letters to rearrange"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "first of means only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girls",
+         "note": "first letter of girls"
+        }
+       ]
       }
      ]
     },
@@ -1199,58 +1068,50 @@
    },
    "solution": "LEICESTER",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LEICESTER",
     "definitions": [
      {
       "text": "English city",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "liberal",
-      "for": "anagram",
-      "note": "liberal means free and unconstrained, so the letters are freely rearranged"
-     },
-     {
-      "text": "leader of",
-      "for": "letter_selection",
-      "note": "the leader of a word is its first letter"
-     },
-     {
-      "text": "retaining",
-      "for": "container",
-      "note": "retaining means holding something within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "re-elects",
-      "gives": "REELECTS",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "integrity",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of integrity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "I",
-      "CESTER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "REELECTS",
-       "gives": "LECESTER"
+       "text": "retaining",
+       "note": "retaining means holding something within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "liberal",
+         "note": "liberal means free and unconstrained, so the letters are freely rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "re-elects",
+         "note": "letters to rearrange"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "integrity",
+         "note": "first letter of integrity"
+        }
+       ]
       }
      ]
     },
@@ -1280,35 +1141,25 @@
    },
    "solution": "CRACKDOWN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CRACKDOWN",
     "definitions": [
      {
       "text": "Restraint",
       "at": 0
      }
     ],
-    "linkWords": [
-     "shown when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "split",
-      "gives": "CRACK",
-      "note": "a crack is a split"
-     },
-     {
-      "clueFragment": "miserable",
-      "gives": "DOWN",
-      "note": "feeling down means feeling miserable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRACK",
-      "DOWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "split",
+       "gives": "CRACK",
+       "note": "a crack is a split"
+      },
+      {
+       "words": "miserable",
+       "gives": "DOWN",
+       "note": "feeling down means feeling miserable"
+      }
      ]
     },
     "explanation": {
@@ -1343,51 +1194,41 @@
    },
    "solution": "COPILOT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "CO-PILOT",
     "definitions": [
      {
       "text": "Assistant on plane",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to go up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading from the bottom upwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside another part"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flier",
-      "gives": "COOT",
-      "note": "a coot is a water bird, so a flier"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "LIP",
-      "note": "a lip is an edge or boundary, as of a cup or crater"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "PIL",
-      "OT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LIP",
-       "to": "PIL"
+       "text": "in",
+       "note": "in means placed inside another part"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flier",
+       "gives": "COOT",
+       "note": "a coot is a water bird, so a flier"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to go up",
+         "note": "in a down entry, going up means reading from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bound",
+         "gives": "LIP",
+         "note": "a lip is an edge or boundary, as of a cup or crater"
+        }
+       ]
       }
      ]
     },
@@ -1417,31 +1258,29 @@
    },
    "solution": "WEIGH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "WEIGH",
     "definitions": [
      {
       "text": "Measure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the listener",
-      "for": "homophone",
-      "note": "for the listener means the word is judged by its sound when spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "direction",
-      "gives": "WEIGH",
-      "soundsLike": "WAY",
-      "note": "a way is a direction, as in which way"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WEIGH",
+     "indicators": [
+      {
+       "text": "for the listener",
+       "note": "for the listener means the word is judged by its sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "direction",
+       "gives": "WAY",
+       "note": "a way is a direction, as in which way"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone gauges which instruction to give to a person who is listening.",
      "definitionFit": "To weigh something is to measure how heavy it is."
@@ -1467,48 +1306,35 @@
    },
    "solution": "HOSTEL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "HOSTEL",
     "definitions": [
      {
       "text": "youth's accommodation?",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means read from the bottom to the top"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leases",
-      "gives": "LETS",
-      "note": "to let is to lease"
-     },
-     {
-      "clueFragment": "I see",
-      "gives": "OH",
-      "note": "oh is said when one sees or understands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "STEL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LETSOH",
-       "to": "HOSTEL"
+       "text": "up",
+       "note": "in a down entry, up means read from the bottom to the top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Leases",
+         "gives": "LETS",
+         "note": "to let is to lease"
+        },
+        {
+         "words": "I see",
+         "gives": "OH",
+         "note": "oh is said when one sees or understands"
+        }
+       ]
       }
      ]
     },
@@ -1544,26 +1370,25 @@
    },
    "solution": "PITPROP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PIT PROP",
     "definitions": [
      {
       "text": "Supporter of mine?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Supporter of mine?",
-      "note": "surface reading: one of my fans or backers"
-     },
-     {
-      "clueFragment": "mine",
-      "note": "setter's reading: mine is a coal mine, and the supporter is a timber holding up its roof"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Supporter of mine?",
+       "note": "surface reading: one of my fans or backers"
+      },
+      {
+       "words": "mine",
+       "note": "setter's reading: mine is a coal mine, and the supporter is a timber holding up its roof"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Mine' reads as the possessive pronoun but is the noun for a colliery.",
      "definitionFit": "This is a wooden post used to hold up the roof of an underground working in a coal mine."
@@ -1590,54 +1415,40 @@
    },
    "solution": "TAKER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TAKER",
     "definitions": [
      {
       "text": "someone accepting offer",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Exchange",
-      "for": "anagram",
-      "note": "to exchange is to swap around, so the letters change places"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around something else"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rate",
-      "gives": "RATE",
-      "note": "letters to rearrange"
-     },
-     {
-      "clueFragment": "a thousand",
-      "gives": "K",
-      "note": "K stands for a thousand, from kilo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "K",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RATE",
-       "gives": "TAER"
+       "text": "about",
+       "note": "about means going around something else"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Exchange",
+         "note": "to exchange is to swap around, so the letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rate",
+         "note": "letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "a thousand",
+       "gives": "K",
+       "note": "K stands for a thousand, from kilo"
       }
      ]
     },
@@ -1667,35 +1478,24 @@
    },
    "solution": "PANTO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PANTO",
     "definitions": [
      {
       "text": "Christmas show",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "performed",
-      "for": "anagram",
-      "note": "performed suggests the letters are put through a routine and come out in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on tap",
-      "gives": "ONTAP",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONTAP",
-       "gives": "PANTO"
+       "text": "performed",
+       "note": "performed suggests the letters are put through a routine and come out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on tap",
+       "note": "letters to rearrange"
       }
      ]
     },
@@ -1725,43 +1525,38 @@
    },
    "solution": "LETTERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LETTERS",
     "definitions": [
      {
       "text": "Learning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all, so the final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Latvian",
-      "gives": "LETT",
-      "note": "a Lett is a Latvian"
-     },
-     {
-      "clueFragment": "Erse",
-      "gives": "ERSE",
-      "note": "Erse is the Gaelic language"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LETT",
-      "ERS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means most but not all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Latvian",
+         "gives": "LETT",
+         "note": "a Lett is a Latvian"
+        },
+        {
+         "words": "Erse",
+         "note": "Erse is the Gaelic language"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1790,34 +1585,25 @@
    },
    "solution": "TEMPT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TEMPT",
     "definitions": [
      {
       "text": "Egg on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for starters",
-      "for": "letter_selection",
-      "note": "starters are the opening items, so the first letter of each word is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toast every morning particularly tasty",
-      "gives": "TEMPT",
-      "select": "first",
-      "note": "first letters of toast, every, morning, particularly, tasty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEMPT"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "for starters",
+       "note": "starters are the opening items, so the first letter of each word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toast every morning particularly tasty",
+       "note": "first letters of toast, every, morning, particularly, tasty"
+      }
      ]
     },
     "explanation": {
@@ -1857,35 +1643,24 @@
    },
    "solution": "LIKEASNOT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LIKE AS NOT",
     "definitions": [
      {
       "text": "probably",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to be scattered",
-      "for": "anagram",
-      "note": "scattered letters are thrown about and land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soil taken",
-      "gives": "SOILTAKEN",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOILTAKEN",
-       "gives": "LIKEASNOT"
+       "text": "to be scattered",
+       "note": "scattered letters are thrown about and land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Soil taken",
+       "note": "letters to rearrange"
       }
      ]
     },
@@ -1914,43 +1689,31 @@
    },
    "solution": "METRE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "METRE",
     "definitions": [
      {
       "text": "Measure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "saving",
-      "for": "container",
-      "note": "saving means keeping something safely within"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple",
-      "gives": "MERE",
-      "note": "mere means simple, nothing more than"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "T",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "saving",
+       "note": "saving means keeping something safely within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "simple",
+       "gives": "MERE",
+       "note": "mere means simple, nothing more than"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1988,57 +1751,51 @@
    },
    "solution": "THREEPOINTTURN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "THREE-POINT TURN",
     "definitions": [
      {
       "text": "Test of driver's competence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ending in",
-      "for": "letter_selection",
-      "note": "the ending of a word is its final letter"
-     },
-     {
-      "text": "amid",
-      "for": "container",
-      "note": "amid means in the middle of something else"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "almost half a gallon of beer",
-      "gives": "THREEPINT",
-      "note": "half a gallon is four pints, so three pints is almost that"
-     },
-     {
-      "clueFragment": "fiasco",
-      "gives": "O",
-      "select": "last",
-      "note": "last letter of fiasco"
-     },
-     {
-      "clueFragment": "theatrical performance",
-      "gives": "TURN",
-      "note": "a turn is an act on a variety bill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THREEP",
-      "O",
-      "INT",
-      "TURN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amid",
+         "note": "amid means in the middle of something else"
+        }
+       ],
+       "parts": [
+        {
+         "words": "almost half a gallon of beer",
+         "gives": "THREEPINT",
+         "note": "half a gallon is four pints, so three pints is almost that"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending in",
+           "note": "the ending of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fiasco",
+           "note": "last letter of fiasco"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "theatrical performance",
+       "gives": "TURN",
+       "note": "a turn is an act on a variety bill"
+      }
      ]
     },
     "explanation": {

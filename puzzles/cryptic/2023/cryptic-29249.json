@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29249",
  "number": 29249,
- "series": "cryptic",
- "name": "Prize crossword No 29,249",
+ "prize": true,
  "setter": "Brockwell",
  "date": "2023-12-09",
  "dimensions": {
@@ -38,50 +37,41 @@
    },
    "solution": "REHUNG",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "REHUNG",
     "definitions": [
      {
       "text": "put up again",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "broken by",
-      "for": "container",
-      "note": "something broken by another thing is split open with that thing lodged in the gap"
-     },
-     {
-      "text": "headers from",
-      "for": "letter_selection",
-      "note": "headers are the tops of things, so only the opening letters of the two names are wanted"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crossbar",
-      "gives": "RUNG",
-      "note": "a rung is a crossbar on a ladder or chair"
-     },
-     {
-      "clueFragment": "Erling Haaland",
-      "gives": "EH",
-      "select": "first",
-      "note": "first letters of the footballer's two names"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EH",
-      "UNG"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "broken by",
+       "note": "something broken by another thing is split open with that thing lodged in the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crossbar",
+       "gives": "RUNG",
+       "note": "a rung is a crossbar on a ladder or chair"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "headers from",
+         "note": "headers are the tops of things, so only the opening letters of the two names are wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Erling Haaland",
+         "note": "first letters of the footballer's two names"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -111,44 +101,35 @@
    },
    "solution": "CHECHNYA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHECHNYA",
     "definitions": [
      {
       "text": "part of Russian Federation",
       "at": 40
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Revolutionary",
-      "gives": "CHE",
-      "note": "Che Guevara, the archetypal revolutionary"
-     },
-     {
-      "clueFragment": "Chinese",
-      "gives": "CH",
-      "note": "a standard abbreviation for Chinese"
-     },
-     {
-      "clueFragment": "New Year",
-      "gives": "NY",
-      "note": "N for new and Y for year"
-     },
-     {
-      "clueFragment": "for each",
-      "gives": "A",
-      "note": "as in 'ten pounds a head', a means for each"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHE",
-      "CH",
-      "NY",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Revolutionary",
+       "gives": "CHE",
+       "note": "Che Guevara, the archetypal revolutionary"
+      },
+      {
+       "words": "Chinese",
+       "gives": "CH",
+       "note": "a standard abbreviation for Chinese"
+      },
+      {
+       "words": "New Year",
+       "gives": "NY",
+       "note": "N for new and Y for year"
+      },
+      {
+       "words": "for each",
+       "gives": "A",
+       "note": "as in 'ten pounds a head', a means for each"
+      }
      ]
     },
     "explanation": {
@@ -176,46 +157,47 @@
    },
    "solution": "LOLITA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "LOLITA",
     "definitions": [
      {
       "text": "girl of 19",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "deletion",
-      "note": "stripped means peeled of its outer layer, so the word loses its first and last letters"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off here means gone wrong or out of order, so the remaining letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stallion",
-      "gives": "TALLIO",
-      "select": "middle",
-      "note": "the word with its outer letters removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOLITA",
+     "indicators": [
       {
-       "fodder": "TALLIO",
-       "gives": "LOLITA"
+       "text": "stripped",
+       "note": "stripped means peeled of its outer layer, so the word loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "off here means gone wrong or out of order, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "TALLIO",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Stallion",
+           "gives": "TALLIO",
+           "select": "middle",
+           "note": "the word with its outer letters removed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -245,35 +227,25 @@
    },
    "solution": "BEANBAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEANBAG",
     "definitions": [
      {
       "text": "seat",
       "at": 25
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Green is one",
-      "gives": "BEAN",
-      "note": "greens are green vegetables, and a bean is one of them"
-     },
-     {
-      "clueFragment": "secure",
-      "gives": "BAG",
-      "note": "to bag something is to secure or capture it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEAN",
-      "BAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Green is one",
+       "gives": "BEAN",
+       "note": "greens are green vegetables, and a bean is one of them"
+      },
+      {
+       "words": "secure",
+       "gives": "BAG",
+       "note": "to bag something is to secure or capture it"
+      }
      ]
     },
     "explanation": {
@@ -303,52 +275,46 @@
    },
    "solution": "BEAUTY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BEAUTY",
     "definitions": [
      {
       "text": "Grace",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter of the name is kept"
-     },
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down answer, a piece supporting another sits beneath it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lover",
-      "gives": "BEAU",
-      "note": "a beau is a boyfriend or admirer"
-     },
-     {
-      "clueFragment": "tango",
-      "gives": "T",
-      "note": "tango is T in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "Kelly",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEAU",
-      "T",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down answer, a piece supporting another sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lover",
+       "gives": "BEAU",
+       "note": "a beau is a boyfriend or admirer"
+      },
+      {
+       "words": "tango",
+       "gives": "T",
+       "note": "tango is T in the NATO phonetic alphabet"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter of the name is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kelly",
+         "note": "last letter of the name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -377,58 +343,58 @@
    },
    "solution": "COHESIVE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "COHESIVE",
     "definitions": [
      {
       "text": "United",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Worried",
-      "for": "anagram",
-      "note": "worried means agitated and disturbed, so the letters are shaken into a new order"
-     },
-     {
-      "text": "heart of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only its middle letters are taken"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the rearranged letters surround the middle piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "voices",
-      "gives": "COSIVE",
-      "note": "rearranged"
-     },
-     {
-      "clueFragment": "Manchester",
-      "gives": "HE",
-      "select": "middle",
-      "note": "the two central letters of the ten-letter city name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "HE",
-      "SIVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "COHESIVE",
+     "indicators": [
       {
-       "fodder": "VOICES",
-       "gives": "COSIVE"
+       "text": "Worried",
+       "note": "worried means agitated and disturbed, so the letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the rearranged letters surround the middle piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "voices",
+         "gives": "COSIVE",
+         "note": "rearranged"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "HE",
+         "indicators": [
+          {
+           "text": "heart of",
+           "note": "the heart of a word is its centre, so only its middle letters are taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Manchester",
+           "gives": "HE",
+           "select": "middle",
+           "note": "the two central letters of the ten-letter city name"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -459,38 +425,24 @@
    },
    "solution": "DETHRONES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DETHRONES",
     "definitions": [
      {
       "text": "Topples",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pants",
-      "for": "anagram",
-      "note": "pants is British slang for rubbish or badly done, so the word is mangled into new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shortened",
-      "gives": "SHORTENED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHORTENED",
-       "gives": "DETHRONES"
+       "text": "pants",
+       "note": "pants is British slang for rubbish or badly done, so the word is mangled into new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shortened",
+       "note": "taken as written"
       }
      ]
     },
@@ -521,32 +473,25 @@
    },
    "solution": "FELON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FELON",
     "definitions": [
      {
       "text": "Criminal",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "following",
-      "gives": "F",
-      "note": "f is the abbreviation for following, as in page references"
-     },
-     {
-      "clueFragment": "X-Man",
-      "gives": "ELON",
-      "note": "Elon Musk, owner of the social network X"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ELON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "following",
+       "gives": "F",
+       "note": "f is the abbreviation for following, as in page references"
+      },
+      {
+       "words": "X-Man",
+       "gives": "ELON",
+       "note": "Elon Musk, owner of the social network X"
+      }
      ]
     },
     "explanation": {
@@ -576,50 +521,41 @@
    },
    "solution": "FUNCTIONS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "FUNCTIONS",
     "definitions": [
      {
       "text": "Works",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "case of",
-      "for": "letter_selection",
-      "note": "the case of a word is its outside, so only its first and last letters are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the other"
-     }
-    ],
-    "linkWords": [
-     "to stop"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fleas",
-      "gives": "FS",
-      "select": "outer",
-      "note": "outer letters of the word"
-     },
-     {
-      "clueFragment": "ointment",
-      "gives": "UNCTION",
-      "note": "an unction is an ointment used for anointing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "UNCTION",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "note": "the case of a word is its outside, so only its first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fleas",
+         "note": "outer letters of the word"
+        }
+       ]
+      },
+      {
+       "words": "ointment",
+       "gives": "UNCTION",
+       "note": "an unction is an ointment used for anointing"
+      }
      ]
     },
     "explanation": {
@@ -648,46 +584,42 @@
    },
    "solution": "TUNER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TUNER",
     "definitions": [
      {
       "text": "Radio",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "the back of a word is its end, so only its final letter is wanted"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across answer one piece on another follows it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "air",
-      "gives": "TUNE",
-      "note": "an air is a tune or melody"
-     },
-     {
-      "clueFragment": "Four's",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of the number word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUNE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across answer one piece on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "air",
+       "gives": "TUNE",
+       "note": "an air is a tune or melody"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the back of a word is its end, so only its final letter is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Four's",
+         "gives": "FOUR",
+         "note": "last letter of the number word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -716,47 +648,41 @@
    },
    "solution": "NAIL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NAIL",
     "definitions": [
      {
       "text": "Nick",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "essentially means at its core, so the middle letter of the name is taken"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in puts one piece inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "NIL",
-      "note": "love is a zero score in tennis, as nil is in football"
-     },
-     {
-      "clueFragment": "Drake",
-      "gives": "A",
-      "select": "middle",
-      "note": "the central letter of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "A",
-      "IL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in puts one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love",
+       "gives": "NIL",
+       "note": "love is a zero score in tennis, as nil is in football"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "essentially means at its core, so the middle letter of the name is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drake",
+         "note": "the central letter of the name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -785,55 +711,51 @@
    },
    "solution": "MGANGA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MGANGA",
     "definitions": [
      {
       "text": "Witch doctor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly picks out the letters in odd-numbered positions"
-     },
-     {
-      "text": "exhausted",
-      "for": "letter_selection",
-      "note": "exhausted means emptied, so the word keeps only its outer letters"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after puts the second piece behind the first in the answer"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "migraine",
-      "gives": "MGAN",
-      "select": "alternate",
-      "note": "first, third, fifth and seventh letters"
-     },
-     {
-      "clueFragment": "Guinea",
-      "gives": "GA",
-      "select": "outer",
-      "note": "the word with its insides emptied out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MGAN",
-      "GA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after puts the second piece behind the first in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "note": "oddly picks out the letters in odd-numbered positions"
+        }
+       ],
+       "parts": [
+        {
+         "words": "migraine",
+         "note": "first, third, fifth and seventh letters"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "note": "exhausted means emptied, so the word keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Guinea",
+         "note": "the word with its insides emptied out"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -862,49 +784,41 @@
    },
    "solution": "ANALYSIS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANALYSIS",
     "definitions": [
      {
       "text": "therapy",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "welcoming",
-      "for": "container",
-      "note": "welcoming means taking in a guest, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Obsessive",
-      "gives": "ANAL",
-      "note": "anal in the Freudian sense means obsessively fussy"
-     },
-     {
-      "clueFragment": "sibling",
-      "gives": "SIS",
-      "note": "sis is short for sister"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y is the abbreviation for year"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANAL",
-      "Y",
-      "SIS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "note": "welcoming means taking in a guest, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Obsessive",
+         "gives": "ANAL",
+         "note": "anal in the Freudian sense means obsessively fussy"
+        },
+        {
+         "words": "sibling",
+         "gives": "SIS",
+         "note": "sis is short for sister"
+        }
+       ]
+      },
+      {
+       "words": "year",
+       "gives": "Y",
+       "note": "Y is the abbreviation for year"
+      }
      ]
     },
     "explanation": {
@@ -931,63 +845,60 @@
    },
    "solution": "APHASIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "APHASIC",
     "definitions": [
      {
       "text": "mute?",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the first letter of the surname is taken"
-     },
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "confused means muddled, so the letters are mixed up into new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the mixed letters go around the musical abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Isaac",
-      "gives": "ISAAC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Hayes",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of the surname"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p is the musical notation for piano, meaning soft"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "P",
-      "HASIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ISAACH",
-       "gives": "AHASIC"
+       "text": "about",
+       "note": "about means surrounding, so the mixed letters go around the musical abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confused",
+         "note": "confused means muddled, so the letters are mixed up into new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Isaac",
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially means at the start, so only the first letter of the surname is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Hayes",
+             "note": "first letter of the surname"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "piano",
+       "gives": "P",
+       "note": "p is the musical notation for piano, meaning soft"
       }
      ]
     },
@@ -1023,43 +934,31 @@
    },
    "solution": "PEAGREEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PEA-GREEN",
     "definitions": [
      {
       "text": "shade",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "covering means wrapped around, so the outer piece encloses the other"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "gives": "PEN",
-      "note": "a pen is a writing instrument"
-     },
-     {
-      "clueFragment": "match",
-      "gives": "AGREE",
-      "note": "two accounts that match agree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "AGREE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "covering means wrapped around, so the outer piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Writer",
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      },
+      {
+       "words": "match",
+       "gives": "AGREE",
+       "note": "two accounts that match agree"
+      }
      ]
     },
     "explanation": {
@@ -1088,30 +987,28 @@
    },
    "solution": "ISAS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ISAS",
     "definitions": [
      {
       "text": "Tax-free vehicles",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "concealed by",
-      "for": "hidden_word",
-      "note": "concealed by means tucked away inside the following words, so the letters run across them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lisa Stansfield",
-      "gives": "ISAS",
-      "note": "found running across the singer's two names"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "concealed by",
+       "note": "concealed by means tucked away inside the following words, so the letters run across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lisa Stansfield",
+       "gives": "ISAS",
+       "note": "found running across the singer's two names"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Pop singer Lisa Stansfield hiding her tax-free cars.",
      "walkthrough": "Lisa Stansfield is an English soul singer. An ISA, Individual Savings Account, is a UK tax-free savings scheme; 'vehicles' is used in its investment sense.",
@@ -1139,43 +1036,31 @@
    },
    "solution": "CLEAVER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CLEAVER",
     "definitions": [
      {
       "text": "chopper",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "touring means travelling around, so the outer piece goes round the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "CR",
-      "note": "CR is Carolus Rex, Latin for King Charles"
-     },
-     {
-      "clueFragment": "desert",
-      "gives": "LEAVE",
-      "note": "to desert someone is to leave them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LEAVE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "note": "touring means travelling around, so the outer piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "King",
+       "gives": "CR",
+       "note": "CR is Carolus Rex, Latin for King Charles"
+      },
+      {
+       "words": "desert",
+       "gives": "LEAVE",
+       "note": "to desert someone is to leave them"
+      }
      ]
     },
     "explanation": {
@@ -1205,47 +1090,44 @@
    },
    "solution": "ARGUMENT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ARGUMENT",
     "definitions": [
      {
       "text": "Barney",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "opening means the start, so only the first letter of the name is taken"
-     },
-     {
-      "text": "cryptic",
-      "for": "anagram",
-      "note": "cryptic means puzzling and obscure, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rubble's",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of the name"
-     },
-     {
-      "clueFragment": "a Nutmeg",
-      "gives": "ANUTMEG",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RANUTMEG",
-       "gives": "ARGUMENT"
+       "text": "cryptic",
+       "note": "cryptic means puzzling and obscure, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "note": "opening means the start, so only the first letter of the name is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rubble's",
+           "note": "first letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "a Nutmeg",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1276,51 +1158,40 @@
    },
    "solution": "NABOKOV",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NABOKOV",
     "definitions": [
      {
       "text": "Author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down answer, served up means sent upwards, so the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "v is the abbreviation for very"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "OK",
-      "note": "OK means fine or all right"
-     },
-     {
-      "clueFragment": "port",
-      "gives": "OBAN",
-      "note": "Oban is a ferry port on the west coast of Scotland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NABO",
-      "KO",
-      "V"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "VOKOBAN",
-       "to": "NABOKOV"
+       "text": "served up",
+       "note": "in a down answer, served up means sent upwards, so the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very",
+         "gives": "V",
+         "note": "v is the abbreviation for very"
+        },
+        {
+         "words": "fine",
+         "gives": "OK",
+         "note": "OK means fine or all right"
+        },
+        {
+         "words": "port",
+         "gives": "OBAN",
+         "note": "Oban is a ferry port on the west coast of Scotland"
+        }
+       ]
       }
      ]
     },
@@ -1351,41 +1222,35 @@
    },
    "solution": "CAPONATA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CAPONATA",
     "definitions": [
      {
       "text": "Relish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly picks letters at even intervals, here every second one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chicken",
-      "gives": "CAPON",
-      "note": "a capon is a castrated cockerel raised for eating"
-     },
-     {
-      "clueFragment": "pad thai",
-      "gives": "ATA",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAPON",
-      "ATA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chicken",
+       "gives": "CAPON",
+       "note": "a capon is a castrated cockerel raised for eating"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly picks letters at even intervals, here every second one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pad thai",
+         "note": "second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1414,38 +1279,24 @@
    },
    "solution": "OSCARS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OSCARS",
     "definitions": [
      {
       "text": "awards",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "24",
-      "for": "anagram",
-      "note": "the number stands for the answer at that light, crack, which means break up and so signals rearrangement"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "across",
-      "gives": "ACROSS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACROSS",
-       "gives": "OSCARS"
+       "text": "24",
+       "note": "the number stands for the answer at that light, crack, which means break up and so signals rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "across",
+       "note": "taken as written"
       }
      ]
     },
@@ -1476,43 +1327,31 @@
    },
    "solution": "TIGGER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TIGGER",
     "definitions": [
      {
       "text": "Bouncer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the first piece wraps the second"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "row",
-      "gives": "TIER",
-      "note": "a tier is a row of seats"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "GG",
-      "note": "gee-gee is a childish word for a horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "GG",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the first piece wraps the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "gives": "TIER",
+       "note": "a tier is a row of seats"
+      },
+      {
+       "words": "horse",
+       "gives": "GG",
+       "note": "gee-gee is a childish word for a horse"
+      }
      ]
     },
     "explanation": {
@@ -1542,31 +1381,29 @@
    },
    "solution": "TIDIED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TIDIED",
     "definitions": [
      {
       "text": "Ordered",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for auditor",
-      "for": "homophone",
-      "note": "an auditor is a listener, so the words are to be judged by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secure document",
-      "gives": "TIDIED",
-      "soundsLike": "TIED ID",
-      "note": "tied means secured, and an ID is an identity document"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TIDIED",
+     "indicators": [
+      {
+       "text": "for auditor",
+       "note": "an auditor is a listener, so the words are to be judged by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secure document",
+       "gives": "TIEDID",
+       "note": "tied means secured, and an ID is an identity document"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Instructions to lock up a document before the accountant's audit.",
      "walkthrough": "Auditor suggests an accountant checking the books; literally it means a hearer.",
@@ -1594,35 +1431,37 @@
    },
    "solution": "ELEVEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "ELEVEN",
     "definitions": [
      {
       "text": "team",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Heart of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only its two middle letters are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mexico's",
-      "gives": "XI",
-      "select": "middle",
-      "note": "the two central letters of the country's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELEVEN"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ELEVEN",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "XI",
+       "indicators": [
+        {
+         "text": "Heart of",
+         "note": "the heart of a word is its centre, so only its two middle letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Mexico's",
+         "gives": "XI",
+         "select": "middle",
+         "note": "the two central letters of the country's name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1651,36 +1490,21 @@
    },
    "solution": "CRACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CRACK",
     "definitions": [
      {
       "text": "Try",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an attempt, as in have a go"
      },
      {
       "text": "first-rate",
-      "at": 4
+      "at": 4,
+      "meaning": "second meaning: expert or elite, as in troops"
      },
      {
       "text": "drug",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "note": "first meaning: an attempt, as in have a go"
-     },
-     {
-      "clueFragment": "first-rate",
-      "note": "second meaning: expert or elite, as in troops"
-     },
-     {
-      "clueFragment": "drug",
-      "note": "third meaning: a crystalline form of cocaine"
+      "at": 15,
+      "meaning": "third meaning: a crystalline form of cocaine"
      }
     ],
     "explanation": {
@@ -1708,58 +1532,53 @@
    },
    "solution": "CONDEMNED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "CONDEMNED",
     "definitions": [
      {
       "text": "declared dangerous",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "anagram",
-      "note": "up here means in disarray, as in things being all up, so the letters are mixed"
-     },
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "admitting means letting in, so the mixed letters take in another piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory",
-      "gives": "CON",
-      "note": "Con is short for Conservative"
-     },
-     {
-      "clueFragment": "ended",
-      "gives": "DENED",
-      "note": "rearranged"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "M",
-      "note": "M as in M1, a British motorway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "DE",
-      "M",
-      "NED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CONDEMNED",
+     "indicators": [
       {
-       "fodder": "ENDED",
-       "gives": "DENED"
+       "text": "up",
+       "note": "up here means in disarray, as in things being all up, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tory",
+         "gives": "CON",
+         "note": "Con is short for Conservative"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "admitting",
+           "note": "admitting means letting in, so the mixed letters take in another piece"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ended",
+           "gives": "DENED",
+           "note": "rearranged"
+          },
+          {
+           "words": "motorway",
+           "gives": "M",
+           "note": "M as in M1, a British motorway"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1788,29 +1607,17 @@
    },
    "solution": "FERRY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FERRY",
     "definitions": [
      {
       "text": "Bryan Singer's",
       "at": 0,
-      "note": "a name: the surname of the singer Bryan"
+      "note": "a name: the surname of the singer Bryan",
+      "meaning": "first meaning: Bryan, the Roxy Music frontman, is a singer with this surname"
      },
      {
       "text": "boat",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bryan Singer's",
-      "note": "first meaning: Bryan, the Roxy Music frontman, is a singer with this surname"
-     },
-     {
-      "clueFragment": "boat",
-      "note": "second meaning: a vessel carrying passengers across water"
+      "at": 15,
+      "meaning": "second meaning: a vessel carrying passengers across water"
      }
     ],
     "explanation": {
@@ -1845,35 +1652,24 @@
    },
    "solution": "COMEUNDER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COME UNDER",
     "definitions": [
      {
       "text": "Be subjected to",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "terrible",
-      "for": "anagram",
-      "note": "terrible means awful or wrecked, so the letters are mangled into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mud encore",
-      "gives": "MUDENCORE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MUDENCORE",
-       "gives": "COMEUNDER"
+       "text": "terrible",
+       "note": "terrible means awful or wrecked, so the letters are mangled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mud encore",
+       "note": "taken as written"
       }
      ]
     },

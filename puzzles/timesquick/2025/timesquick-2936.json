@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2936",
  "number": 2936,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,936",
  "setter": "Breadman",
  "date": "2025-03-14",
  "dimensions": {
@@ -42,30 +40,28 @@
    },
    "solution": "ASCOT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ASCOT",
     "definitions": [
      {
       "text": "Racecourse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "what is in a phrase is contained within its run of letters, so the answer sits inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nova Scotia",
-      "gives": "ASCOT",
-      "note": "the letters run across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "what is in a phrase is contained within its run of letters, so the answer sits inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nova Scotia",
+       "gives": "ASCOT",
+       "note": "the letters run across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A racetrack located in the Canadian province of Nova Scotia.",
      "walkthrough": "The answer runs from novA SCOTia; the place name is pure camouflage.",
@@ -92,52 +88,45 @@
    },
    "solution": "AMASSES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AMASSES",
     "definitions": [
      {
       "text": "Gathers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside in",
-      "for": "letter_selection",
-      "note": "the outside of a word is its two end letters, so only the outer pair is kept"
-     },
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down clue a piece that supports another sits beneath it, so it comes after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "religious service",
-      "gives": "MASS",
-      "note": "Mass is the Catholic Eucharistic service"
-     },
-     {
-      "clueFragment": "elements",
-      "gives": "ES",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MASS",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down clue a piece that supports another sits beneath it, so it comes after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "religious service",
+       "gives": "MASS",
+       "note": "Mass is the Catholic Eucharistic service"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside in",
+         "note": "the outside of a word is its two end letters, so only the outer pair is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elements",
+         "note": "the first and last letters of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -172,28 +161,16 @@
    },
    "solution": "CURTAINRAISER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CURTAIN-RAISER",
     "definitions": [
      {
       "text": "Play",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a short piece performed before the main play in a theatre"
      },
      {
       "text": "Community Shield match?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Play",
-      "note": "first meaning: a short piece performed before the main play in a theatre"
-     },
-     {
-      "clueFragment": "Community Shield match?",
-      "note": "second meaning: a game that opens the new season"
+      "at": 5,
+      "meaning": "second meaning: a game that opens the new season"
      }
     ],
     "explanation": {
@@ -227,40 +204,33 @@
    },
    "solution": "THIRDGEAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THIRD GEAR",
     "definitions": [
      {
       "text": "Part of transmission",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "something involved is tangled and complicated, so the letters are twisted into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dare",
-      "gives": "DARE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "RIGHT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DARERIGHT",
-       "gives": "THIRDGEAR"
+       "text": "involved",
+       "note": "something involved is tangled and complicated, so the letters are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dare",
+         "note": "taken as written"
+        },
+        {
+         "words": "right",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -291,10 +261,6 @@
    },
    "solution": "CHICANE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHICANE",
     "definitions": [
      {
       "text": "bends on track",
@@ -302,25 +268,19 @@
       "note": "a chicane is a single feature made of several bends, so the plural describes one thing"
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "CHI",
-      "note": "chi is a letter of the Greek alphabet"
-     },
-     {
-      "clueFragment": "walking stick",
-      "gives": "CANE",
-      "note": "a cane is a stick used to help walking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHI",
-      "CANE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "gives": "CHI",
+       "note": "chi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "walking stick",
+       "gives": "CANE",
+       "note": "a cane is a stick used to help walking"
+      }
      ]
     },
     "explanation": {
@@ -349,48 +309,34 @@
    },
    "solution": "CASHEW",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CASHEW",
     "definitions": [
      {
       "text": "tree",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, raising something lifts it so its letters read from the bottom upward"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Money",
-      "gives": "CASH",
-      "note": "cash is money"
-     },
-     {
-      "clueFragment": "we",
-      "gives": "WE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CASH",
-      "EW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "WE",
-       "to": "EW"
+       "words": "Money",
+       "gives": "CASH",
+       "note": "cash is money"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down clue, raising something lifts it so its letters read from the bottom upward"
+        }
+       ],
+       "parts": [
+        {
+         "words": "we",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -420,40 +366,31 @@
    },
    "solution": "IRE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IRE",
     "definitions": [
      {
       "text": "Anger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the abbreviation of id est, 'that is'"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the abbreviation for Republican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "R",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, 'that is'"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R is the abbreviation for Republican"
+      }
      ]
     },
     "explanation": {
@@ -488,52 +425,44 @@
    },
    "solution": "ATACAMADESERT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ATACAMA DESERT",
     "definitions": [
      {
       "text": "arid expanse",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "At intervals",
-      "for": "letter_selection",
-      "note": "something done at intervals happens every so often, so only every other letter is kept"
-     },
-     {
-      "text": "roughly",
-      "for": "anagram",
-      "note": "done roughly means done carelessly and inexactly, so the letters come out jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Haitian",
-      "gives": "ATA",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     },
-     {
-      "clueFragment": "demarcates",
-      "gives": "DEMARCATES",
-      "note": "taken as written before being rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATA",
-      "CAMADESERT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEMARCATES",
-       "gives": "CAMADESERT"
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "At intervals",
+         "note": "something done at intervals happens every so often, so only every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Haitian",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly",
+         "note": "done roughly means done carelessly and inexactly, so the letters come out jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "demarcates",
+         "note": "taken as written before being rearranged"
+        }
+       ]
       }
      ]
     },
@@ -563,32 +492,25 @@
    },
    "solution": "EDEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDEN",
     "definitions": [
      {
       "text": "a heavenly place",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     },
-     {
-      "clueFragment": "place of refuge",
-      "gives": "DEN",
-      "note": "a den is a hideout or retreat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "DEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
+      },
+      {
+       "words": "place of refuge",
+       "gives": "DEN",
+       "note": "a den is a hideout or retreat"
+      }
      ]
     },
     "explanation": {
@@ -622,45 +544,34 @@
    },
    "solution": "AIRKISS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "AIR KISS",
     "definitions": [
      {
       "text": "affected greeting",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "awkwardly",
-      "for": "anagram",
-      "note": "something handled awkwardly is clumsily disordered, so the letters fall out of place"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bearing",
-      "gives": "AIR",
-      "note": "an air is a manner or bearing"
-     },
-     {
-      "clueFragment": "skis",
-      "gives": "SKIS",
-      "note": "taken as written before rearrangement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "KISS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SKIS",
-       "gives": "KISS"
+       "words": "Bearing",
+       "gives": "AIR",
+       "note": "an air is a manner or bearing"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awkwardly",
+         "note": "something handled awkwardly is clumsily disordered, so the letters fall out of place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skis",
+         "note": "taken as written before rearrangement"
+        }
+       ]
       }
      ]
     },
@@ -690,40 +601,31 @@
    },
    "solution": "EVADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EVADE",
     "definitions": [
      {
       "text": "Cunningly escape",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "evening",
-      "gives": "EVE",
-      "note": "eve is a poetic word for evening"
-     },
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an ad is an advertisement, a piece of publicity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EV",
-      "AD",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evening",
+       "gives": "EVE",
+       "note": "eve is a poetic word for evening"
+      },
+      {
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an ad is an advertisement, a piece of publicity"
+      }
      ]
     },
     "explanation": {
@@ -761,51 +663,44 @@
    },
    "solution": "STANDREWSDAY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ST ANDREWS DAY",
     "definitions": [
      {
       "text": "holiday in Edinburgh?",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "disrupted",
-      "for": "anagram",
-      "note": "something disrupted is thrown into disorder, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stanley",
-      "gives": "STAN",
-      "note": "Stan is the usual short form of the first name"
-     },
-     {
-      "clueFragment": "Edwards",
-      "gives": "EDWARDS",
-      "note": "taken as written before rearrangement"
-     },
-     {
-      "clueFragment": "Yankee",
-      "gives": "Y",
-      "note": "Yankee is Y in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAN",
-      "DREWSDA",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EDWARDS",
-       "gives": "DREWSDA"
+       "words": "Stanley",
+       "gives": "STAN",
+       "note": "Stan is the usual short form of the first name"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disrupted",
+         "note": "something disrupted is thrown into disorder, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Edwards",
+           "note": "taken as written before rearrangement"
+          },
+          {
+           "words": "Yankee",
+           "gives": "Y",
+           "note": "Yankee is Y in the NATO phonetic alphabet"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -835,57 +730,51 @@
    },
    "solution": "SAILCLOTH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SAILCLOTH",
     "definitions": [
      {
       "text": "material on board boat",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a word is its central letters, so only the centre pair is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Biscay",
-      "gives": "SC",
-      "select": "middle",
-      "note": "the central two letters of a six-letter word"
-     },
-     {
-      "clueFragment": "Feel ill",
-      "gives": "AIL",
-      "note": "to ail is to be unwell"
-     },
-     {
-      "clueFragment": "unwilling",
-      "gives": "LOTH",
-      "note": "loth is a variant spelling of loath, reluctant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AIL",
-      "C",
-      "LOTH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing placed in another is enclosed by it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "middle of",
+           "note": "the middle of a word is its central letters, so only the centre pair is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Biscay",
+           "note": "the central two letters of a six-letter word"
+          }
+         ]
+        },
+        {
+         "words": "Feel ill",
+         "gives": "AIL",
+         "note": "to ail is to be unwell"
+        }
+       ]
+      },
+      {
+       "words": "unwilling",
+       "gives": "LOTH",
+       "note": "loth is a variant spelling of loath, reluctant"
+      }
      ]
     },
     "explanation": {
@@ -914,41 +803,37 @@
    },
    "solution": "SUNDEW",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "SUNDEW",
     "definitions": [
      {
       "text": "insectivorous plant",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "a report is spoken, so the word is given as it is heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tabloid",
-      "gives": "SUN",
-      "note": "The Sun is a British tabloid newspaper"
-     },
-     {
-      "clueFragment": "outstanding",
-      "gives": "DEW",
-      "soundsLike": "DUE",
-      "note": "outstanding as in owed and unpaid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "DEW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tabloid",
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DEW",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "a report is spoken, so the word is given as it is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outstanding",
+         "gives": "DUE",
+         "note": "outstanding as in owed and unpaid"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -978,46 +863,41 @@
    },
    "solution": "WIZARD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WIZARD",
     "definitions": [
      {
       "text": "Expert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Z",
-      "note": "in algebra x, y and z stand for unknown quantities"
-     },
-     {
-      "clueFragment": "hospital section",
-      "gives": "WARD",
-      "note": "a ward is a room or division of a hospital"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "IZ",
-      "ARD"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital section",
+       "gives": "WARD",
+       "note": "a ward is a room or division of a hospital"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "unknown",
+         "gives": "Z",
+         "note": "in algebra x, y and z stand for unknown quantities"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1045,46 +925,40 @@
    },
    "solution": "DEMOTIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DEMOTIC",
     "definitions": [
      {
       "text": "Popular",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held in",
-      "for": "container",
-      "note": "something held in another is gripped inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "annual test",
-      "gives": "MOT",
-      "note": "the MOT is the yearly roadworthiness check for UK vehicles"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "final month",
-      "gives": "DEC",
-      "note": "Dec is the abbreviation for December"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "MOTI",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held in",
+       "note": "something held in another is gripped inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "final month",
+       "gives": "DEC",
+       "note": "Dec is the abbreviation for December"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "annual test",
+         "gives": "MOT",
+         "note": "the MOT is the yearly roadworthiness check for UK vehicles"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1113,49 +987,40 @@
    },
    "solution": "WEBCAM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "WEBCAM",
     "definitions": [
      {
       "text": "device to transmit images",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Set up",
-      "for": "reversal",
-      "note": "in a down clue, setting something up stands it on end so its letters read upward"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "computer",
-      "gives": "MAC",
-      "note": "a Mac is an Apple computer"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to exist or live"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WEBCAM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MACBEW",
-       "to": "WEBCAM"
+       "text": "Set up",
+       "note": "in a down clue, setting something up stands it on end so its letters read upward"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "computer",
+         "gives": "MAC",
+         "note": "a Mac is an Apple computer"
+        },
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be is to exist or live"
+        },
+        {
+         "words": "with",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        }
+       ]
       }
      ]
     },
@@ -1191,47 +1056,40 @@
    },
    "solution": "BARRIERCREAM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BARRIER CREAM",
     "definitions": [
      {
       "text": "protection for skin",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "first to",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish writer",
-      "gives": "BARRIE",
-      "note": "J. M. Barrie, author of Peter Pan, was a Scottish writer"
-     },
-     {
-      "clueFragment": "recommend",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "best",
-      "gives": "CREAM",
-      "note": "the cream is the best part"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARRIE",
-      "R",
-      "CREAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scottish writer",
+       "gives": "BARRIE",
+       "note": "J. M. Barrie, author of Peter Pan, was a Scottish writer"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "note": "the first of a word is its opening letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recommend",
+         "note": "the opening letter"
+        }
+       ]
+      },
+      {
+       "words": "best",
+       "gives": "CREAM",
+       "note": "the cream is the best part"
+      }
      ]
     },
     "explanation": {
@@ -1259,47 +1117,41 @@
    },
    "solution": "IONA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "IONA",
     "definitions": [
      {
       "text": "somewhere in Hebrides",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "heart of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only the central letters are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another is enclosed by it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "friary",
-      "gives": "IA",
-      "select": "middle",
-      "note": "the central two letters of a six-letter word"
-     },
-     {
-      "clueFragment": "Working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "ON",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart of",
+         "note": "the heart of a word is its centre, so only the central letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friary",
+         "note": "the central two letters of a six-letter word"
+        }
+       ]
+      },
+      {
+       "words": "Working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -1327,33 +1179,25 @@
    },
    "solution": "OASIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OASIS",
     "definitions": [
      {
       "text": "fertile area",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Round",
-      "gives": "O",
-      "note": "O is round in shape"
-     },
-     {
-      "clueFragment": "unaltered",
-      "gives": "ASIS",
-      "note": "as is means in its present state, unchanged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "AS",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Round",
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "words": "unaltered",
+       "gives": "ASIS",
+       "note": "as is means in its present state, unchanged"
+      }
      ]
     },
     "explanation": {
@@ -1382,32 +1226,25 @@
    },
    "solution": "SIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SIN",
     "definitions": [
      {
       "text": "Perhaps envy",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "someone at home is in"
+      }
      ]
     },
     "explanation": {
@@ -1436,32 +1273,25 @@
    },
    "solution": "CLOSEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLOSEST",
     "definitions": [
      {
       "text": "Most familiar",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "end",
-      "gives": "CLOSE",
-      "note": "a close is a conclusion or ending"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "St is the abbreviation for street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLOSE",
-      "ST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "end",
+       "gives": "CLOSE",
+       "note": "a close is a conclusion or ending"
+      },
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "St is the abbreviation for street"
+      }
      ]
     },
     "explanation": {
@@ -1490,40 +1320,31 @@
    },
    "solution": "ACRONYM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACRONYM",
     "definitions": [
      {
       "text": "PIN, for example",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "shields",
-      "for": "container",
-      "note": "to shield something is to cover it on all sides, so one piece wraps another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "AM",
-      "note": "Am is the abbreviation for American"
-     },
-     {
-      "clueFragment": "companion",
-      "gives": "CRONY",
-      "note": "a crony is a close friend"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CRONY",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "shields",
+       "note": "to shield something is to cover it on all sides, so one piece wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "gives": "AM",
+       "note": "Am is the abbreviation for American"
+      },
+      {
+       "words": "companion",
+       "gives": "CRONY",
+       "note": "a crony is a close friend"
+      }
      ]
     },
     "explanation": {
@@ -1558,35 +1379,25 @@
    },
    "solution": "HITEC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HI-TEC",
     "definitions": [
      {
       "text": "using modern electronic equipment",
       "at": 31
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Success",
-      "gives": "HIT",
-      "note": "a hit is a success"
-     },
-     {
-      "clueFragment": "European Commission",
-      "gives": "EC",
-      "note": "EC is the abbreviation for European Commission"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIT",
-      "EC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Success",
+       "gives": "HIT",
+       "note": "a hit is a success"
+      },
+      {
+       "words": "European Commission",
+       "gives": "EC",
+       "note": "EC is the abbreviation for European Commission"
+      }
      ]
     },
     "explanation": {

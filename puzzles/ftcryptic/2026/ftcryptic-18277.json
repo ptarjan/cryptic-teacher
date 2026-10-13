@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18277",
  "number": 18277,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,277",
  "setter": "Moo",
  "date": "2026-01-26",
  "dimensions": {
@@ -42,45 +40,35 @@
    },
    "solution": "INMATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "INMATE",
     "definitions": [
      {
       "text": "Prisoner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "something returned goes back the way it came, so the letters run in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Northern Ireland",
-      "gives": "NI",
-      "note": "NI is the standard abbreviation for Northern Ireland"
-     },
-     {
-      "clueFragment": "game over?",
-      "gives": "MATE",
-      "note": "checkmate ends a game of chess"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "MATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NI",
-       "to": "IN"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "note": "something returned goes back the way it came, so the letters run in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Northern Ireland",
+         "gives": "NI",
+         "note": "NI is the standard abbreviation for Northern Ireland"
+        }
+       ]
+      },
+      {
+       "words": "game over?",
+       "gives": "MATE",
+       "note": "checkmate ends a game of chess"
       }
      ]
     },
@@ -116,57 +104,54 @@
    },
    "solution": "ICECREAM",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "ICE CREAM",
     "definitions": [
      {
       "text": "Sweet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost completely",
-      "for": "deletion",
-      "note": "almost all of something means it stops just short, so the final letter is dropped"
-     },
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "a drunk staggers about out of order, so the letters are jumbled"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "to sit outside something is to wrap around it, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crimean",
-      "gives": "CRIMEA",
-      "note": "the word with its last letter removed"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "CE",
-      "CREAM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ICECREAM",
+     "indicators": [
       {
-       "fodder": "CRIMEA",
-       "gives": "ICREAM"
+       "text": "almost completely",
+       "note": "almost all of something means it stops just short, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "to sit outside something is to wrap around it, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "drunk",
+           "note": "a drunk staggers about out of order, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Crimean",
+           "gives": "CRIMEA",
+           "note": "the word with its last letter removed"
+          }
+         ]
+        },
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
       }
      ]
     },
@@ -196,43 +181,31 @@
    },
    "solution": "MELANESIA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MELANESIA",
     "definitions": [
      {
       "text": "Pacific region",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "smuggling",
-      "for": "container",
-      "note": "smuggling means carrying goods secretly inside something, so one piece is tucked within another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump's wife",
-      "gives": "MELANIA",
-      "note": "Melania is Donald Trump's wife"
-     },
-     {
-      "clueFragment": "drugs",
-      "gives": "ES",
-      "note": "E is ecstasy; two of them make ES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MELAN",
-      "ES",
-      "IA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "smuggling",
+       "note": "smuggling means carrying goods secretly inside something, so one piece is tucked within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trump's wife",
+       "gives": "MELANIA",
+       "note": "Melania is Donald Trump's wife"
+      },
+      {
+       "words": "drugs",
+       "gives": "ES",
+       "note": "E is ecstasy; two of them make ES"
+      }
      ]
     },
     "explanation": {
@@ -261,31 +234,16 @@
    },
    "solution": "TONY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TONY",
     "definitions": [
      {
       "text": "An award",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a prize for Broadway theatre"
      },
      {
       "text": "Blair",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "An award",
-      "note": "first meaning: a prize for Broadway theatre"
-     },
-     {
-      "clueFragment": "Blair",
-      "note": "second meaning: the first name of a former British prime minister"
+      "at": 13,
+      "meaning": "second meaning: the first name of a former British prime minister"
      }
     ],
     "explanation": {
@@ -315,48 +273,44 @@
    },
    "solution": "SCRAMBLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SCRAMBLE",
     "definitions": [
      {
       "text": "Race",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "taking half of a word means throwing the other half away"
-     },
-     {
-      "text": "to follow",
-      "for": "charade",
-      "note": "what follows comes after, fixing which piece is placed second"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on your bike",
-      "gives": "SCRAM",
-      "note": "both are rude ways of telling someone to go away"
-     },
-     {
-      "clueFragment": "unable",
-      "gives": "BLE",
-      "note": "the back three of its six letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCRAM",
-      "BLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SCRAMBLE",
+     "indicators": [
+      {
+       "text": "half",
+       "note": "taking half of a word means throwing the other half away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to follow",
+         "note": "what follows comes after, fixing which piece is placed second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on your bike",
+         "gives": "SCRAM",
+         "note": "both are rude ways of telling someone to go away"
+        },
+        {
+         "words": "unable",
+         "gives": "BLE",
+         "note": "the back three of its six letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -385,66 +339,62 @@
    },
    "solution": "CONVICT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "CONVICT",
     "definitions": [
      {
       "text": "Find guilty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end, so only the closing letter is kept"
-     },
-     {
-      "text": "having",
-      "for": "charade",
-      "note": "having another thing alongside joins the two together in sequence"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something lying in another is enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "satisfaction",
-      "gives": "N",
-      "select": "last",
-      "note": "the closing letter of the word"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "VI",
-      "note": "sex is Latin for six, which is VI in Roman numerals"
-     },
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "Charlie is C in the NATO alphabet"
-     },
-     {
-      "clueFragment": "bed",
-      "gives": "COT",
-      "note": "a cot is a small bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "NVIC",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something lying in another is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "having",
+         "note": "having another thing alongside joins the two together in sequence"
+        }
+       ],
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very end, so only the closing letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "satisfaction",
+           "note": "the closing letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "sex",
+         "gives": "VI",
+         "note": "sex is Latin for six, which is VI in Roman numerals"
+        },
+        {
+         "words": "Charlie",
+         "gives": "C",
+         "note": "Charlie is C in the NATO alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -474,47 +424,41 @@
    },
    "solution": "ABSTEMIOUS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ABSTEMIOUS",
     "definitions": [
      {
       "text": "Self-disciplined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "to conceal is to hide inside, so one piece is wrapped within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sailor",
-      "gives": "AB",
-      "note": "AB is an able seaman"
-     },
-     {
-      "clueFragment": "stops",
-      "gives": "STEMS",
-      "note": "to stem a flow is to stop it"
-     },
-     {
-      "clueFragment": "record of indebtedness",
-      "gives": "IOU",
-      "note": "an IOU is a written note acknowledging a debt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "STEM",
-      "IOU",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sailor",
+       "gives": "AB",
+       "note": "AB is an able seaman"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "concealing",
+         "note": "to conceal is to hide inside, so one piece is wrapped within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stops",
+         "gives": "STEMS",
+         "note": "to stem a flow is to stop it"
+        },
+        {
+         "words": "record of indebtedness",
+         "gives": "IOU",
+         "note": "an IOU is a written note acknowledging a debt"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -543,51 +487,41 @@
    },
    "solution": "BASRA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BASRA",
     "definitions": [
      {
       "text": "port",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "rearing",
-      "for": "reversal",
-      "note": "rearing means rising up on the hind legs, and in a down clue the letters go back up the column"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "to be outside something is to surround it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Horse",
-      "gives": "ARAB",
-      "note": "an Arab is a breed of horse"
-     },
-     {
-      "clueFragment": "southern",
-      "gives": "S",
-      "note": "S is the abbreviation for southern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "S",
-      "RA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ARAB",
-       "to": "BARA"
+       "text": "rearing",
+       "note": "rearing means rising up on the hind legs, and in a down clue the letters go back up the column"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "to be outside something is to surround it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Horse",
+         "gives": "ARAB",
+         "note": "an Arab is a breed of horse"
+        },
+        {
+         "words": "southern",
+         "gives": "S",
+         "note": "S is the abbreviation for southern"
+        }
+       ]
       }
      ]
     },
@@ -617,41 +551,31 @@
    },
    "solution": "EXITED",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EXITED",
     "definitions": [
      {
       "text": "Left",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "booted out",
-      "for": "deletion",
-      "note": "being booted out means being thrown out, so that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in high spirits",
-      "gives": "EXCITED",
-      "note": "excited means thrilled or elated"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative; this letter is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXITED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "booted out",
+       "note": "being booted out means being thrown out, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in high spirits",
+       "gives": "EXCITED",
+       "note": "excited means thrilled or elated"
+      },
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative; this letter is removed"
+      }
      ]
     },
     "explanation": {
@@ -680,29 +604,17 @@
    },
    "solution": "ATTEST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ATTEST",
     "definitions": [
      {
       "text": "Confirm",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to bear witness or certify something as true"
      },
      {
       "text": "one might find cricket lover here",
       "at": 8,
-      "note": "a cryptic description of a place, read as two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Confirm",
-      "note": "first meaning: to bear witness or certify something as true"
-     },
-     {
-      "clueFragment": "one might find cricket lover here",
-      "note": "second meaning, split in two: at a Test match, the top form of international cricket"
+      "note": "a cryptic description of a place, read as two words",
+      "meaning": "second meaning, split in two: at a Test match, the top form of international cricket"
      }
     ],
     "explanation": {
@@ -732,41 +644,31 @@
    },
    "solution": "ELLINGTON",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ELLINGTON",
     "definitions": [
      {
       "text": "Duke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "snubbing",
-      "for": "deletion",
-      "note": "to snub someone is to leave them out, so that letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM once",
-      "gives": "WELLINGTON",
-      "note": "the Duke of Wellington was a British prime minister in the 1820s"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife; this letter is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELLINGTON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "snubbing",
+       "note": "to snub someone is to leave them out, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "PM once",
+       "gives": "WELLINGTON",
+       "note": "the Duke of Wellington was a British prime minister in the 1820s"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W is the abbreviation for wife; this letter is removed"
+      }
      ]
     },
     "explanation": {
@@ -796,30 +698,28 @@
    },
    "solution": "SUSHI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SUSHI",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "consumed by",
-      "for": "hidden_word",
-      "note": "what is consumed goes inside, so the answer lies within the following letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ravenous US hikers",
-      "gives": "SUSHI",
-      "note": "spans the end of the first word, the second, and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "consumed by",
+       "note": "what is consumed goes inside, so the answer lies within the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ravenous US hikers",
+       "gives": "SUSHI",
+       "note": "spans the end of the first word, the second, and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Hungry American walkers wolf down a meal.",
      "walkthrough": "The answer runs across the word breaks of 'ravenous US hikers'.",
@@ -846,36 +746,29 @@
    },
    "solution": "RAND",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RAND",
     "definitions": [
      {
       "text": "Money",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not quite",
-      "for": "deletion",
-      "note": "not quite means falling just short, so the last letter is cut"
-     }
-    ],
-    "linkWords": [
-     "making you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "amorous",
-      "gives": "RANDY",
-      "note": "randy is British slang for feeling sexy; its final letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAND"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not quite",
+       "note": "not quite means falling just short, so the last letter is cut"
+      }
+     ],
+     "parts": [
+      {
+       "words": "amorous",
+       "gives": "RANDY",
+       "note": "randy is British slang for feeling sexy; its final letter goes"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -904,50 +797,48 @@
    },
    "solution": "DELIBERATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DELIBERATE",
     "definitions": [
      {
       "text": "Careful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "deletion",
-      "note": "initially points to the opening letter of a word, which is the bit taken away"
-     },
-     {
-      "text": "avoiding",
-      "for": "deletion",
-      "note": "to avoid something is to leave it out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Delhi",
-      "gives": "DELI",
-      "note": "the city name with its H removed"
-     },
-     {
-      "clueFragment": "Hindu",
-      "gives": "H",
-      "note": "the opening letter, removed from the city"
-     },
-     {
-      "clueFragment": "rebuke",
-      "gives": "BERATE",
-      "note": "to berate is to scold"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELI",
-      "BERATE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially points to the opening letter of a word, which is the bit taken away"
+      },
+      {
+       "text": "avoiding",
+       "note": "to avoid something is to leave it out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Delhi",
+         "gives": "DELI",
+         "note": "the city name with its H removed"
+        },
+        {
+         "words": "Hindu",
+         "gives": "H",
+         "note": "the opening letter, removed from the city"
+        },
+        {
+         "words": "rebuke",
+         "gives": "BERATE",
+         "note": "to berate is to scold"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -976,45 +867,37 @@
    },
    "solution": "AUTHORISED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AUTHORISED",
     "definitions": [
      {
       "text": "Permitted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after negotiation",
-      "for": "anagram",
-      "note": "negotiation reworks the terms into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "studio",
-      "gives": "STUDIO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HERASTUDIO",
-       "gives": "AUTHORISED"
+       "text": "after negotiation",
+       "note": "negotiation reworks the terms into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "her",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "studio",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1044,34 +927,29 @@
    },
    "solution": "ASSAULT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ASSAULT",
     "definitions": [
      {
       "text": "storm",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "caught",
-      "for": "homophone",
-      "note": "to catch words is to hear them, so the answer is what the ear picks up"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A sailor",
-      "gives": "ASSAULT",
-      "soundsLike": "A SALT",
-      "note": "an old salt is an experienced sailor"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ASSAULT",
+     "indicators": [
+      {
+       "text": "caught",
+       "note": "to catch words is to hear them, so the answer is what the ear picks up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A sailor",
+       "gives": "ASALT",
+       "note": "an old salt is an experienced sailor"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A seaman gets trapped in bad weather.",
      "walkthrough": "'Caught in storm' reads as weather, but 'caught' means heard and 'storm' is the definition. Salt is a crossword word for a sailor.",
@@ -1098,40 +976,31 @@
    },
    "solution": "TRIBAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRIBAL",
     "definitions": [
      {
       "text": "concerning family",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "intervening in",
-      "for": "container",
-      "note": "to intervene is to come between, so one piece goes into the middle of another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "case",
-      "gives": "TRIAL",
-      "note": "a court case is a trial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "B",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervening in",
+       "note": "to intervene is to come between, so one piece goes into the middle of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "case",
+       "gives": "TRIAL",
+       "note": "a court case is a trial"
+      },
+      {
+       "words": "Bishop",
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
      ]
     },
     "explanation": {
@@ -1160,43 +1029,39 @@
    },
    "solution": "ACCESSORY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ACCESSORY",
     "definitions": [
      {
       "text": "Criminal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not at first",
-      "for": "deletion",
-      "note": "lacking a start means the opening letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "admission",
-      "gives": "ACCESS",
-      "note": "admission to a place is access"
-     },
-     {
-      "clueFragment": "right-winger",
-      "gives": "TORY",
-      "note": "a Tory is a British Conservative; its opening letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACCESS",
-      "ORY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not at first",
+       "note": "lacking a start means the opening letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "admission",
+         "gives": "ACCESS",
+         "note": "admission to a place is access"
+        },
+        {
+         "words": "right-winger",
+         "gives": "TORY",
+         "note": "a Tory is a British Conservative; its opening letter goes"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1225,49 +1090,41 @@
    },
    "solution": "BRUSSELS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BRUSSELS",
     "definitions": [
      {
       "text": "capital",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "ignoring",
-      "for": "deletion",
-      "note": "to ignore something is to leave it out"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     },
-     {
-      "clueFragment": "philosopher's",
-      "gives": "RUSSELLS",
-      "note": "Bertrand Russell was a British philosopher"
-     },
-     {
-      "clueFragment": "learner",
-      "gives": "L",
-      "note": "L is a learner, from the L-plate on a learner driver's car; one L is dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RUSSE",
-      "LS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B is the abbreviation for British"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "note": "to ignore something is to leave it out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "philosopher's",
+         "gives": "RUSSELLS",
+         "note": "Bertrand Russell was a British philosopher"
+        },
+        {
+         "words": "learner",
+         "gives": "L",
+         "note": "L is a learner, from the L-plate on a learner driver's car; one L is dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1296,29 +1153,17 @@
    },
    "solution": "FATHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FATHER",
     "definitions": [
      {
       "text": "Priest",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the title given to a Catholic priest"
      },
      {
       "text": "who's obviously broken vow of celibacy",
       "at": 7,
-      "note": "a cryptic description of a man with children"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Priest",
-      "note": "first meaning: the title given to a Catholic priest"
-     },
-     {
-      "clueFragment": "who's obviously broken vow of celibacy",
-      "note": "second meaning: a man who has had a child, which shows he has not been celibate"
+      "note": "a cryptic description of a man with children",
+      "meaning": "second meaning: a man who has had a child, which shows he has not been celibate"
      }
     ],
     "explanation": {
@@ -1348,43 +1193,31 @@
    },
    "solution": "ROOSTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROOSTER",
     "definitions": [
      {
       "text": "other fowl",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "to include something is to take it inside"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "List",
-      "gives": "ROSTER",
-      "note": "a roster is a list of names or duties"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a duck is a score of nothing in cricket, the shape of O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "O",
-      "STER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "note": "to include something is to take it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "List",
+       "gives": "ROSTER",
+       "note": "a roster is a list of names or duties"
+      },
+      {
+       "words": "duck",
+       "gives": "O",
+       "note": "a duck is a score of nothing in cricket, the shape of O"
+      }
      ]
     },
     "explanation": {
@@ -1414,28 +1247,16 @@
    },
    "solution": "BOUNCER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOUNCER",
     "definitions": [
      {
       "text": "Perhaps one denying you access to club",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a doorman who turns people away from a nightclub"
      },
      {
       "text": "ball",
-      "at": 39
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps one denying you access to club",
-      "note": "first meaning: a doorman who turns people away from a nightclub"
-     },
-     {
-      "clueFragment": "ball",
-      "note": "second meaning: in cricket, a fast short-pitched delivery that rears up at the batsman"
+      "at": 39,
+      "meaning": "second meaning: in cricket, a fast short-pitched delivery that rears up at the batsman"
      }
     ],
     "explanation": {
@@ -1465,43 +1286,31 @@
    },
    "solution": "BISTRO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BISTRO",
     "definitions": [
      {
       "text": "place to eat",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "crossing",
-      "for": "container",
-      "note": "to cross something is to span it, so one piece is laid over and around another"
-     }
-    ],
-    "linkWords": [
-     "finding"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "gives": "BIRO",
-      "note": "a Biro is a ballpoint pen, the everyday British name"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "ST",
-      "RO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "note": "to cross something is to span it, so one piece is laid over and around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Writer",
+       "gives": "BIRO",
+       "note": "a Biro is a ballpoint pen, the everyday British name"
+      },
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street"
+      }
      ]
     },
     "explanation": {
@@ -1530,43 +1339,39 @@
    },
    "solution": "RUMPUS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RUMPUS",
     "definitions": [
      {
       "text": "a disturbance",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "scratching bottom",
-      "for": "deletion",
-      "note": "to scratch is to strike out, and the bottom of a down entry is its final letter"
-     }
-    ],
-    "linkWords": [
-     "creating"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strange",
-      "gives": "RUM",
-      "note": "rum is British slang for odd"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "PUSS",
-      "note": "puss is a familiar name for a cat; its last letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUM",
-      "PUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "scratching bottom",
+       "note": "to scratch is to strike out, and the bottom of a down entry is its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Strange",
+         "gives": "RUM",
+         "note": "rum is British slang for odd"
+        },
+        {
+         "words": "cat",
+         "gives": "PUSS",
+         "note": "puss is a familiar name for a cat; its last letter goes"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1602,43 +1407,33 @@
    },
    "solution": "UPPERHOUSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UPPER HOUSE",
     "definitions": [
      {
       "text": "the Lords",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Foolishly",
-      "for": "anagram",
-      "note": "acting foolishly means acting without order or sense, so the letters are muddled"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pursue",
-      "gives": "PURSUE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hope",
-      "gives": "HOPE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PURSUEHOPE",
-       "gives": "UPPERHOUSE"
+       "text": "Foolishly",
+       "note": "acting foolishly means acting without order or sense, so the letters are muddled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pursue",
+         "note": "taken as written"
+        },
+        {
+         "words": "hope",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1668,43 +1463,31 @@
    },
    "solution": "PARKA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PARKA",
     "definitions": [
      {
       "text": "coat",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "something worn is enclosed by the wearer's garment, so one piece is inside another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K is the abbreviation for king"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "PARA",
-      "note": "a para is a paratrooper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "K",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "something worn is enclosed by the wearer's garment, so one piece is inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldier",
+       "gives": "PARA",
+       "note": "a para is a paratrooper"
+      },
+      {
+       "words": "King",
+       "gives": "K",
+       "note": "K is the abbreviation for king"
+      }
      ]
     },
     "explanation": {
@@ -1739,39 +1522,31 @@
    },
    "solution": "ASIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AS IS",
     "definitions": [
      {
       "text": "in current circumstances",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "tailing",
-      "for": "charade",
-      "note": "to tail someone is to follow behind, so this piece comes second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the abbreviation for American"
-     },
-     {
-      "clueFragment": "MI6",
-      "gives": "SIS",
-      "note": "MI6 is formally the Secret Intelligence Service"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SIS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "tailing",
+       "note": "to tail someone is to follow behind, so this piece comes second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A is the abbreviation for American"
+      },
+      {
+       "words": "MI6",
+       "gives": "SIS",
+       "note": "MI6 is formally the Secret Intelligence Service"
+      }
      ]
     },
     "explanation": {
@@ -1800,41 +1575,25 @@
    },
    "solution": "REEL",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "REEL",
     "definitions": [
      {
       "text": "roll",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "turning around faces the other way, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look hungrily",
-      "gives": "LEER",
-      "note": "to leer is to look at someone with lust"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REEL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LEER",
-       "to": "REEL"
+       "text": "around",
+       "note": "turning around faces the other way, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Look hungrily",
+       "gives": "LEER",
+       "note": "to leer is to look at someone with lust"
       }
      ]
     },
@@ -1864,44 +1623,35 @@
    },
    "solution": "PARIS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "PARIS",
     "definitions": [
      {
       "text": "Hilton",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "moving right",
-      "for": "anagram",
-      "note": "the letter for right is told to shift its position, which rearranges the word"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Couple",
-      "gives": "PAIR",
-      "note": "a couple is a pair"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PAIRS",
-       "gives": "PARIS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving right",
+         "note": "the letter for right is told to shift its position, which rearranges the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Couple",
+         "gives": "PAIR",
+         "note": "a couple is a pair"
+        }
+       ]
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
       }
      ]
     },
@@ -1932,46 +1682,47 @@
    },
    "solution": "THREESOME",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "THREESOME",
     "definitions": [
      {
       "text": "group engaged in hanky-panky",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cutting something short means its final letter is lopped off"
-     },
-     {
-      "text": "unusual",
-      "for": "anagram",
-      "note": "unusual means out of the ordinary, so the letters are taken out of their usual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother",
-      "gives": "MOTHER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sees",
-      "gives": "SEE",
-      "note": "the word with its last letter cut"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "THREESOME",
+     "indicators": [
       {
-       "fodder": "MOTHERSEE",
-       "gives": "THREESOME"
+       "text": "briefly",
+       "note": "cutting something short means its final letter is lopped off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusual",
+         "note": "unusual means out of the ordinary, so the letters are taken out of their usual order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Mother",
+           "note": "taken as written"
+          },
+          {
+           "words": "sees",
+           "gives": "SEE",
+           "note": "the word with its last letter cut"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -2002,30 +1753,28 @@
    },
    "solution": "STANDARD",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "STANDARD",
     "definitions": [
      {
       "text": "Model",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits in the following words, contained by them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brest and Ardèche",
-      "gives": "STANDARD",
-      "note": "spans the end of the city, the whole conjunction, and the start of the region"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits in the following words, contained by them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brest and Ardèche",
+       "gives": "STANDARD",
+       "note": "spans the end of the city, the whole conjunction, and the start of the region"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fashion model works in two French places, Brest in Brittany and the Ardèche region.",
      "walkthrough": "The accent on Ardèche is ignored, as accents always are in the grid.",
@@ -2052,38 +1801,24 @@
    },
    "solution": "LLOYDS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LLOYDS",
     "definitions": [
      {
       "text": "Possible provider of cover",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bust",
-      "for": "anagram",
-      "note": "something bust is broken, so the letters are smashed and reassembled"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dolly's",
-      "gives": "DOLLYS",
-      "note": "the name with its possessive S"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOLLYS",
-       "gives": "LLOYDS"
+       "text": "bust",
+       "note": "something bust is broken, so the letters are smashed and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dolly's",
+       "note": "the name with its possessive S"
       }
      ]
     },

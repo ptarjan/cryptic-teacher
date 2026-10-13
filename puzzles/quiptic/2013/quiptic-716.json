@@ -1,8 +1,6 @@
 {
  "id": "quiptic-716",
  "number": 716,
- "series": "quiptic",
- "name": "Quiptic crossword No 716",
  "setter": "Hectence",
  "date": "2013-08-05",
  "dimensions": {
@@ -38,71 +36,78 @@
    },
    "solution": "PHLEGMATIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "PHLEGMATIC",
     "definitions": [
      {
       "text": "calm",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "gathering",
-      "for": "container",
-      "note": "to gather something is to take it in, so one piece is placed inside the other"
-     },
-     {
-      "text": "brief",
-      "for": "deletion",
-      "note": "something brief is cut short, so the phrase loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "has",
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cameron",
-      "gives": "PM",
-      "note": "David Cameron was Prime Minister, abbreviated PM"
-     },
-     {
-      "clueFragment": "backbench",
-      "gives": "H",
-      "select": "last",
-      "note": "the back of bench is its last letter"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "LEG",
-      "note": "a leg supports a table or chair"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "moment",
-      "gives": "TICK",
-      "note": "a tick is a moment, as in 'just a tick'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "H",
-      "LEG",
-      "M",
-      "A",
-      "TIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gathering",
+         "note": "to gather something is to take it in, so one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cameron",
+         "gives": "PM",
+         "note": "David Cameron was Prime Minister, abbreviated PM"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "parts": [
+            {
+             "words": "backbench",
+             "note": "the back of bench is its last letter"
+            }
+           ]
+          },
+          {
+           "words": "support",
+           "gives": "LEG",
+           "note": "a leg supports a table or chair"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "note": "something brief is cut short, so the phrase loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "moment",
+           "gives": "TICK",
+           "note": "a tick is a moment, as in 'just a tick'"
+          }
+         ]
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -131,61 +136,53 @@
    },
    "solution": "PANCETTA",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PANCETTA",
     "definitions": [
      {
       "text": "bacon",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Prepared",
-      "for": "anagram",
-      "note": "food that is prepared has been made up, so these letters are made into a new order"
-     },
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "a gutted fish has had its insides removed, leaving only the outer letters of the word"
-     },
-     {
-      "text": "wrapping",
-      "for": "container",
-      "note": "wrapping something means going around it, so one piece is placed inside the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "canapé",
-      "gives": "PANCEA",
-      "note": "the letters of canapé rearranged"
-     },
-     {
-      "clueFragment": "trout",
-      "gives": "TT",
-      "select": "outer",
-      "note": "the first and last letters of trout"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PANCE",
-      "TT",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PANCETTA",
+     "indicators": [
       {
-       "fodder": "CANAPE",
-       "gives": "PANCEA"
+       "text": "Prepared",
+       "note": "food that is prepared has been made up, so these letters are made into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wrapping",
+         "note": "wrapping something means going around it, so one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canapé",
+         "gives": "PANCEA",
+         "note": "the letters of canapé rearranged"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "gutted",
+           "note": "a gutted fish has had its insides removed, leaving only the outer letters of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trout",
+           "note": "the first and last letters of trout"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -215,31 +212,29 @@
    },
    "solution": "STAYED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "STAYED",
     "definitions": [
      {
       "text": "Remained",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in speech",
-      "for": "homophone",
-      "note": "in speech means as the word is spoken, so we want a word that sounds like this one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "decorous",
-      "gives": "STAYED",
-      "soundsLike": "STAID",
-      "note": "decorous means staid, sober and proper"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STAYED",
+     "indicators": [
+      {
+       "text": "in speech",
+       "note": "in speech means as the word is spoken, so we want a word that sounds like this one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decorous",
+       "gives": "STAID",
+       "note": "decorous means staid, sober and proper"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone kept polite in the way they talked.",
      "walkthrough": "Staid and the answer are pronounced the same.",
@@ -267,52 +262,41 @@
    },
    "solution": "YURT",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "YURT",
     "definitions": [
      {
       "text": "tent",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "no",
-      "for": "deletion",
-      "note": "'no' means without, so the following item is taken away"
-     },
-     {
-      "text": "put up",
-      "for": "reversal",
-      "note": "in a down clue, putting something up means reading it from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In fact",
-      "gives": "TRULY",
-      "note": "truly means in fact"
-     },
-     {
-      "clueFragment": "student's",
-      "gives": "L",
-      "note": "L is a learner driver, a student"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YURT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TRUY",
-       "to": "YURT"
+       "text": "put up",
+       "note": "in a down clue, putting something up means reading it from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "note": "'no' means without, so the following item is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In fact",
+         "gives": "TRULY",
+         "note": "truly means in fact"
+        },
+        {
+         "words": "student's",
+         "gives": "L",
+         "note": "L is a learner driver, a student"
+        }
+       ]
       }
      ]
     },
@@ -342,53 +326,42 @@
    },
    "solution": "INTERWOVEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTERWOVEN",
     "definitions": [
      {
       "text": "Twisted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rambling",
-      "for": "anagram",
-      "note": "something rambling wanders without order, so the letters are rearranged"
-     },
-     {
-      "text": "helter-skelter",
-      "for": "anagram",
-      "note": "helter-skelter means in disordered haste, another signal to rearrange letters"
-     }
-    ],
-    "linkWords": [
-     "round"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vine",
-      "gives": "VINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "tower",
-      "gives": "TOWER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VINENTOWER",
-       "gives": "INTERWOVEN"
+       "text": "rambling",
+       "note": "something rambling wanders without order, so the letters are rearranged"
+      },
+      {
+       "text": "helter-skelter",
+       "note": "helter-skelter means in disordered haste, another signal to rearrange letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "vine",
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        },
+        {
+         "words": "tower",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -418,66 +391,62 @@
    },
    "solution": "CAMPAIGN",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "anagram"
-    ],
-    "answer": "CAMPAIGN",
     "definitions": [
      {
       "text": "Lobby",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to capture",
-      "for": "container",
-      "note": "capturing means taking something inside, so one piece goes within the other"
-     },
-     {
-      "text": "potential",
-      "for": "anagram",
-      "note": "potential describes what something could become, so these letters may form something else"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "a Member of Parliament"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gain",
-      "gives": "AIGN",
-      "note": "the letters of gain rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "MP",
-      "AIGN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CAMPAIGN",
+     "indicators": [
       {
-       "fodder": "GAIN",
-       "gives": "AIGN"
+       "text": "to capture",
+       "note": "capturing means taking something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservative",
+         "gives": "C",
+         "note": "C is the abbreviation for Conservative"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "potential",
+           "note": "potential describes what something could become, so these letters may form something else"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "politician",
+             "gives": "MP",
+             "note": "a Member of Parliament"
+            },
+            {
+             "words": "a",
+             "note": "taken as written"
+            },
+            {
+             "words": "gain",
+             "gives": "AIGN",
+             "note": "the letters of gain rearranged"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -507,35 +476,25 @@
    },
    "solution": "BEMUSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEMUSE",
     "definitions": [
      {
       "text": "Bewilder",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live or exist"
-     },
-     {
-      "clueFragment": "rock band",
-      "gives": "MUSE",
-      "note": "Muse is an English rock band"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "MUSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to be is to live or exist"
+      },
+      {
+       "words": "rock band",
+       "gives": "MUSE",
+       "note": "Muse is an English rock band"
+      }
      ]
     },
     "explanation": {
@@ -565,50 +524,44 @@
    },
    "solution": "KNEE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "KNEE",
     "definitions": [
      {
       "text": "Joint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the last letter only of the word before it"
-     },
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooked means altered or doctored, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ken",
-      "gives": "KEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Barbie",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of Barbie"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "KENE",
-       "gives": "KNEE"
+       "text": "cooked",
+       "note": "cooked means altered or doctored, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ken",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the last letter only of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Barbie",
+           "note": "the last letter of Barbie"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -637,55 +590,42 @@
    },
    "solution": "HEARTBURN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HEARTBURN",
     "definitions": [
      {
       "text": "indigestion",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "vigorous",
-      "for": "anagram",
-      "note": "vigorous suggests lively shaking about, so the letters get mixed"
-     }
-    ],
-    "linkWords": [
-     "before",
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Listen",
-      "gives": "HEAR",
-      "note": "to hear is to listen"
-     },
-     {
-      "clueFragment": "Consumption",
-      "gives": "TB",
-      "note": "consumption is an old name for tuberculosis, TB"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "URN",
-      "note": "the letters of run rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAR",
-      "TB",
-      "URN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HEARTBURN",
+     "indicators": [
       {
-       "fodder": "RUN",
-       "gives": "URN"
+       "text": "vigorous",
+       "note": "vigorous suggests lively shaking about, so the letters get mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Listen",
+         "gives": "HEAR",
+         "note": "to hear is to listen"
+        },
+        {
+         "words": "Consumption",
+         "gives": "TB",
+         "note": "consumption is an old name for tuberculosis, TB"
+        },
+        {
+         "words": "run",
+         "gives": "URN",
+         "note": "the letters of run rearranged"
+        }
+       ]
       }
      ]
     },
@@ -721,47 +661,39 @@
    },
    "solution": "ATEIN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ATE IN",
     "definitions": [
      {
       "text": "dined at home",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "included",
-      "for": "container",
-      "note": "something included is placed within, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "TEN",
-      "note": "ten is a number"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TE",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included",
+         "note": "something included is placed within, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "number",
+         "gives": "TEN",
+         "note": "ten is a number"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -789,56 +721,51 @@
    },
    "solution": "ENCRYPT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ENCRYPT",
     "definitions": [
      {
       "text": "Scramble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "containing means holding inside, so the next pieces go within the first"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "EP",
-      "note": "an EP is an extended-play record"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "CRY",
-      "note": "a cry is a call"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "N",
-      "CRY",
-      "P",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "note": "containing means holding inside, so the next pieces go within the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "record",
+         "gives": "EP",
+         "note": "an EP is an extended-play record"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "name",
+           "gives": "N",
+           "note": "N is the abbreviation for name"
+          },
+          {
+           "words": "call",
+           "gives": "CRY",
+           "note": "a cry is a call"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -867,50 +794,40 @@
    },
    "solution": "ESPOUSE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESPOUSE",
     "definitions": [
      {
       "text": "Support",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "banks",
-      "for": "letter_selection",
-      "note": "the banks of a river are its two edges, so only the outside letters of the word are kept"
-     }
-    ],
-    "linkWords": [
-     "leading to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earth",
-      "gives": "E",
-      "note": "E is the abbreviation for earth in electrical wiring"
-     },
-     {
-      "clueFragment": "steep",
-      "gives": "SP",
-      "select": "outer",
-      "note": "the first and last letters of steep"
-     },
-     {
-      "clueFragment": "great river",
-      "gives": "OUSE",
-      "note": "the Great Ouse is a river in eastern England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "SP",
-      "OUSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "earth",
+       "gives": "E",
+       "note": "E is the abbreviation for earth in electrical wiring"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "banks",
+         "note": "the banks of a river are its two edges, so only the outside letters of the word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "steep",
+         "note": "the first and last letters of steep"
+        }
+       ]
+      },
+      {
+       "words": "great river",
+       "gives": "OUSE",
+       "note": "the Great Ouse is a river in eastern England"
+      }
      ]
     },
     "explanation": {
@@ -938,50 +855,40 @@
    },
    "solution": "MUTED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MUTED",
     "definitions": [
      {
       "text": "Toned down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letter",
-      "gives": "MU",
-      "note": "mu is a Greek letter"
-     },
-     {
-      "clueFragment": "Telegraph's",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of Telegraph"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "ED is the usual abbreviation for editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "T",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "letter",
+       "gives": "MU",
+       "note": "mu is a Greek letter"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Telegraph's",
+         "note": "the first letter of Telegraph"
+        }
+       ]
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "ED is the usual abbreviation for editor"
+      }
      ]
     },
     "explanation": {
@@ -1010,73 +917,62 @@
    },
    "solution": "BAWDINESS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "BAWDINESS",
     "definitions": [
      {
       "text": "ribaldry",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "returning means going back the way you came, so the word is read backwards"
-     },
-     {
-      "text": "involved in",
-      "for": "container",
-      "note": "involved in means caught up inside, so one piece sits within another"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after puts the ship at the end, following the day-and-alcohol piece"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sailor",
-      "gives": "AB",
-      "note": "AB is an able seaman, a sailor"
-     },
-     {
-      "clueFragment": "alcohol",
-      "gives": "WINE",
-      "note": "wine is alcohol"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "D",
-      "note": "D is the abbreviation for day"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS is the prefix for a steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "W",
-      "D",
-      "INE",
-      "SS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AB",
-       "to": "BA"
+       "text": "after",
+       "note": "after puts the ship at the end, following the day-and-alcohol piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "returning means going back the way you came, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sailor",
+         "gives": "AB",
+         "note": "AB is an able seaman, a sailor"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involved in",
+         "note": "involved in means caught up inside, so one piece sits within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alcohol",
+         "gives": "WINE",
+         "note": "wine is alcohol"
+        },
+        {
+         "words": "day",
+         "gives": "D",
+         "note": "D is the abbreviation for day"
+        }
+       ]
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS is the prefix for a steamship"
       }
      ]
     },
@@ -1112,28 +1008,16 @@
    },
    "solution": "BIGBROTHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BIG BROTHER",
     "definitions": [
      {
       "text": "Older sibling",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a male sibling born earlier"
      },
      {
       "text": "keeping an eye on us?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Older sibling",
-      "note": "first meaning: a male sibling born earlier"
-     },
-     {
-      "clueFragment": "keeping an eye on us?",
-      "note": "second meaning: the all-seeing ruler of Orwell's Nineteen Eighty-Four, a byword for state surveillance"
+      "at": 14,
+      "meaning": "second meaning: the all-seeing ruler of Orwell's Nineteen Eighty-Four, a byword for state surveillance"
      }
     ],
     "explanation": {
@@ -1162,49 +1046,40 @@
    },
    "solution": "SKYLARKING",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SKYLARKING",
     "definitions": [
      {
       "text": "messing around",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "has lines cut",
-      "for": "deletion",
-      "note": "cut means removed, so these letters are taken out of the name"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broadcaster",
-      "gives": "SKY",
-      "note": "Sky is a British broadcaster"
-     },
-     {
-      "clueFragment": "Larry King",
-      "gives": "LARRYKING",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lines",
-      "gives": "RY",
-      "note": "RY is the abbreviation for railway, lines"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKY",
-      "LAR",
-      "KING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Broadcaster",
+       "gives": "SKY",
+       "note": "Sky is a British broadcaster"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "has lines cut",
+         "note": "cut means removed, so these letters are taken out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Larry King",
+         "note": "taken as written"
+        },
+        {
+         "words": "lines",
+         "gives": "RY",
+         "note": "RY is the abbreviation for railway, lines"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1239,55 +1114,40 @@
    },
    "solution": "THANKSGIVINGDAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THANKSGIVING DAY",
     "definitions": [
      {
       "text": "celebration",
       "at": 59
      }
     ],
-    "linkWords": [
-     "to",
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shows gratitude",
-      "gives": "THANKS",
-      "note": "to thank is to show gratitude"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "GI",
-      "note": "a GI is an American soldier"
-     },
-     {
-      "clueFragment": "French wine",
-      "gives": "VIN",
-      "note": "vin is French for wine"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "DAY",
-      "note": "a day is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THANKS",
-      "GI",
-      "VIN",
-      "G",
-      "DAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shows gratitude",
+       "gives": "THANKS",
+       "note": "to thank is to show gratitude"
+      },
+      {
+       "words": "soldier",
+       "gives": "GI",
+       "note": "a GI is an American soldier"
+      },
+      {
+       "words": "French wine",
+       "gives": "VIN",
+       "note": "vin is French for wine"
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the abbreviation for good"
+      },
+      {
+       "words": "time",
+       "gives": "DAY",
+       "note": "a day is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -1315,65 +1175,62 @@
    },
    "solution": "KINSFOLK",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "KINSFOLK",
     "definitions": [
      {
       "text": "Family",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "chucked out",
-      "for": "deletion",
-      "note": "chucking something out removes it, so that letter is dropped"
-     },
-     {
-      "text": "rare",
-      "for": "anagram",
-      "note": "rare can mean undercooked or unusual, signalling a changed state of the letters"
-     },
-     {
-      "text": "including",
-      "for": "container",
-      "note": "including means holding inside, so the rearranged letters go within"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thousands",
-      "gives": "KK",
-      "note": "K is a thousand, and the plural gives two of them"
-     },
-     {
-      "clueFragment": "florins",
-      "gives": "FLORINS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R is the abbreviation for king, from the Latin rex"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "INSFOL",
-      "K"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "KINSFOLK",
+     "indicators": [
       {
-       "fodder": "FLOINS",
-       "gives": "INSFOL"
+       "text": "including",
+       "note": "including means holding inside, so the rearranged letters go within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "KINSFOLK",
+       "indicators": [
+        {
+         "text": "rare",
+         "note": "rare can mean undercooked or unusual, signalling a changed state of the letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "unchecked": true,
+         "gives": "KINSFOLK",
+         "indicators": [
+          {
+           "text": "chucked out",
+           "note": "chucking something out removes it, so that letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "thousands",
+           "gives": "KK",
+           "note": "K is a thousand, and the plural gives two of them"
+          },
+          {
+           "words": "florins",
+           "note": "taken as written"
+          },
+          {
+           "words": "King",
+           "gives": "R",
+           "note": "R is the abbreviation for king, from the Latin rex"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1403,44 +1260,39 @@
    },
    "solution": "DECREPIT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DECREPIT",
     "definitions": [
      {
       "text": "falling apart",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "contract",
-      "for": "deletion",
-      "note": "to contract is to shrink, so the word loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pronounce",
-      "gives": "DECREE",
-      "note": "to decree is to pronounce officially"
-     },
-     {
-      "clueFragment": "mine",
-      "gives": "PIT",
-      "note": "a pit is a coal mine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECRE",
-      "PIT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "contract",
+       "note": "to contract is to shrink, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Pronounce",
+         "gives": "DECREE",
+         "note": "to decree is to pronounce officially"
+        },
+        {
+         "words": "mine",
+         "gives": "PIT",
+         "note": "a pit is a coal mine"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1479,50 +1331,44 @@
    },
    "solution": "CUTANDRUN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CUT AND RUN",
     "definitions": [
      {
       "text": "Make a break for it",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "briefly means cut short, so the last letter of the word is dropped"
-     }
-    ],
-    "linkWords": [
-     "when",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "beat's",
-      "gives": "TAN",
-      "note": "to tan someone's hide is to beat them"
-     },
-     {
-      "clueFragment": "tipsy",
-      "gives": "DRUNK",
-      "note": "drunk means tipsy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "TAN",
-      "DRUN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "briefly means cut short, so the last letter of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        },
+        {
+         "words": "beat's",
+         "gives": "TAN",
+         "note": "to tan someone's hide is to beat them"
+        },
+        {
+         "words": "tipsy",
+         "gives": "DRUNK",
+         "note": "drunk means tipsy"
+        }
+       ]
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -1551,30 +1397,28 @@
    },
    "solution": "TAUNTS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TAUNTS",
     "definitions": [
      {
       "text": "Makes fun of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stuffing",
-      "for": "hidden_word",
-      "note": "stuffing is what lies inside, so the answer sits within the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great Aunt Sally's",
-      "gives": "TAUNTS",
-      "note": "found running through these words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "note": "stuffing is what lies inside, so the answer sits within the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Great Aunt Sally's",
+       "gives": "TAUNTS",
+       "note": "found running through these words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Mocking a great aunt's cooking of the stuffing.",
      "walkthrough": "Aunt Sally is also a British pub game of throwing sticks at a dummy, hence a target of ridicule.",
@@ -1601,45 +1445,36 @@
    },
    "solution": "COCOA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "COCOA",
     "definitions": [
      {
       "text": "Nightcap",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "second",
-      "for": "letter_selection",
-      "note": "second points to the letter in position two of the next word"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chanel",
-      "gives": "COCO",
-      "note": "Coco Chanel was the French fashion designer"
-     },
-     {
-      "clueFragment": "hand",
-      "gives": "A",
-      "select": 2,
-      "note": "the second letter of hand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCO",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chanel",
+       "gives": "COCO",
+       "note": "Coco Chanel was the French fashion designer"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "note": "second points to the letter in position two of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hand",
+         "note": "the second letter of hand"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1668,49 +1503,35 @@
    },
    "solution": "CARROT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CARROT",
     "definitions": [
      {
       "text": "Incentive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "get up",
-      "for": "reversal",
-      "note": "in a down clue, getting up means rising, so the word is written bottom to top"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vehicle",
-      "gives": "CAR",
-      "note": "a car is a vehicle"
-     },
-     {
-      "clueFragment": "hill",
-      "gives": "TOR",
-      "note": "a tor is a rocky hill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "ROT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TOR",
-       "to": "ROT"
+       "words": "vehicle",
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "get up",
+         "note": "in a down clue, getting up means rising, so the word is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hill",
+         "gives": "TOR",
+         "note": "a tor is a rocky hill"
+        }
+       ]
       }
      ]
     },
@@ -1745,59 +1566,46 @@
    },
    "solution": "SNUFFIT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SNUFF IT",
     "definitions": [
      {
       "text": "Die",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backfired",
-      "for": "reversal",
-      "note": "something that backfires comes back the other way, so the word is read backwards"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after sends the seizure to the end, following the son's joke"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son's",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "joke",
-      "gives": "FUN",
-      "note": "fun is a joke, as in 'in fun'"
-     },
-     {
-      "clueFragment": "seizure",
-      "gives": "FIT",
-      "note": "a fit is a seizure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "NUF",
-      "FIT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "FUN",
-       "to": "NUF"
+       "text": "after",
+       "note": "after sends the seizure to the end, following the son's joke"
+      }
+     ],
+     "parts": [
+      {
+       "words": "son's",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backfired",
+         "note": "something that backfires comes back the other way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joke",
+         "gives": "FUN",
+         "note": "fun is a joke, as in 'in fun'"
+        }
+       ]
+      },
+      {
+       "words": "seizure",
+       "gives": "FIT",
+       "note": "a fit is a seizure"
       }
      ]
     },
@@ -1827,35 +1635,25 @@
    },
    "solution": "SUMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUMP",
     "definitions": [
      {
       "text": "pool",
       "at": 31
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Add",
-      "gives": "SUM",
-      "note": "to sum is to add up"
-     },
-     {
-      "clueFragment": "a small amount of money",
-      "gives": "P",
-      "note": "P is a penny, a small coin in British money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUM",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Add",
+       "gives": "SUM",
+       "note": "to sum is to add up"
+      },
+      {
+       "words": "a small amount of money",
+       "gives": "P",
+       "note": "P is a penny, a small coin in British money"
+      }
      ]
     },
     "explanation": {
@@ -1884,51 +1682,41 @@
    },
    "solution": "BERSERK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BERSERK",
     "definitions": [
      {
       "text": "Mad",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imprisoned in",
-      "for": "container",
-      "note": "imprisoned means locked inside, so one piece goes within the other"
-     },
-     {
-      "text": "improperly",
-      "for": "anagram",
-      "note": "improperly means in the wrong order, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Berks",
-      "gives": "BERSK",
-      "note": "the letters of Berks rearranged"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "ER is Elizabeth Regina, the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BERS",
-      "ER",
-      "K"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BERKS",
-       "gives": "BERSK"
+       "text": "imprisoned in",
+       "note": "imprisoned means locked inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "improperly",
+         "note": "improperly means in the wrong order, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Berks",
+         "gives": "BERSK",
+         "note": "the letters of Berks rearranged"
+        }
+       ]
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
       }
      ]
     },
@@ -1958,44 +1746,35 @@
    },
    "solution": "BOPS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BOPS",
     "definitions": [
      {
       "text": "dances",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Take first",
-      "for": "letter_selection",
-      "note": "taking the first means keeping only the opening letter of the word"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boyfriend",
-      "gives": "B",
-      "select": "first",
-      "note": "the first letter of boyfriend"
-     },
-     {
-      "clueFragment": "works'",
-      "gives": "OPS",
-      "note": "ops is short for operations, works"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Take first",
+         "note": "taking the first means keeping only the opening letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boyfriend",
+         "note": "the first letter of boyfriend"
+        }
+       ]
+      },
+      {
+       "words": "works'",
+       "gives": "OPS",
+       "note": "ops is short for operations, works"
+      }
      ]
     },
     "explanation": {
@@ -2023,42 +1802,31 @@
    },
    "solution": "MOTEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOTEL",
     "definitions": [
      {
       "text": "roadside lodging",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "pursues",
-      "for": "charade",
-      "note": "to pursue is to follow behind, so the student comes second"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bit of stuff",
-      "gives": "MOTE",
-      "note": "a mote is a speck, a tiny bit of material"
-     },
-     {
-      "clueFragment": "Student",
-      "gives": "L",
-      "note": "L is a learner, a student"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOTE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursues",
+       "note": "to pursue is to follow behind, so the student comes second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bit of stuff",
+       "gives": "MOTE",
+       "note": "a mote is a speck, a tiny bit of material"
+      },
+      {
+       "words": "Student",
+       "gives": "L",
+       "note": "L is a learner, a student"
+      }
      ]
     },
     "explanation": {
@@ -2088,54 +1856,43 @@
    },
    "solution": "EXPLOSION",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EXPLOSION",
     "definitions": [
      {
       "text": "Sudden increase",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flourish",
-      "for": "anagram",
-      "note": "plants that flourish spread wildly, so the letters are scattered into a new order"
-     },
-     {
-      "text": "in which",
-      "for": "container",
-      "note": "in which says one thing lies inside another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "EON",
-      "note": "an eon is a vast period of time"
-     },
-     {
-      "clueFragment": "oxlips",
-      "gives": "XPLOSI",
-      "note": "the letters of oxlips rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "XPLOSI",
-      "ON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EXPLOSION",
+     "indicators": [
       {
-       "fodder": "OXLIPS",
-       "gives": "XPLOSI"
+       "text": "flourish",
+       "note": "plants that flourish spread wildly, so the letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which",
+         "note": "in which says one thing lies inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "gives": "EON",
+         "note": "an eon is a vast period of time"
+        },
+        {
+         "words": "oxlips",
+         "gives": "XPLOSI",
+         "note": "the letters of oxlips rearranged"
+        }
+       ]
       }
      ]
     },

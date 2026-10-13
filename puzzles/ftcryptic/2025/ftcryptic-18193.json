@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18193",
  "number": 18193,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,193",
  "setter": "Monk",
  "date": "2025-10-21",
  "dimensions": {
@@ -42,48 +40,41 @@
    },
    "solution": "WRIT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "WRIT",
     "definitions": [
      {
       "text": "legal document",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the word it follows"
-     },
-     {
-      "text": "stop",
-      "for": "container",
-      "note": "to stop something is to plug it, so one piece sits inside the other like a stopper"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Satirist",
-      "gives": "WIT",
-      "note": "a wit is a clever, mocking humorist"
-     },
-     {
-      "clueFragment": "commentator",
-      "gives": "R",
-      "select": "last",
-      "note": "its closing letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "R",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stop",
+       "note": "to stop something is to plug it, so one piece sits inside the other like a stopper"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Satirist",
+       "gives": "WIT",
+       "note": "a wit is a clever, mocking humorist"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the closing letter of the word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commentator",
+         "note": "its closing letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -112,56 +103,59 @@
    },
    "solution": "EFFUSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "container"
-    ],
-    "answer": "EFFUSE",
     "definitions": [
      {
       "text": "Shed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at the very least",
-      "for": "letter_selection",
-      "note": "the very least of a word is its smallest starting part, here the initial both words share"
-     },
-     {
-      "text": "unopened",
-      "for": "deletion",
-      "note": "something left unopened has lost its front, so the first letter goes"
-     },
-     {
-      "text": "bags",
-      "for": "container",
-      "note": "to bag something is to capture it, so one piece holds the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "four or five",
-      "gives": "F",
-      "select": "first",
-      "note": "both numbers begin with the same letter, so either way the first letter is the same"
-     },
-     {
-      "clueFragment": "rubbish",
-      "gives": "EFUSE",
-      "note": "rubbish is refuse; without its opening letter it loses the R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EF",
-      "F",
-      "USE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EFFUSE",
+     "indicators": [
+      {
+       "text": "unopened",
+       "note": "something left unopened has lost its front, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bags",
+         "note": "to bag something is to capture it, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rubbish",
+         "gives": "EFUSE",
+         "note": "rubbish is refuse; without its opening letter it loses the R"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "F",
+         "indicators": [
+          {
+           "text": "at the very least",
+           "note": "the very least of a word is its smallest starting part, here the initial both words share"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "four or five",
+           "gives": "F",
+           "select": "first",
+           "note": "both numbers begin with the same letter, so either way the first letter is the same"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -197,45 +191,34 @@
    },
    "solution": "HORIZONTALBARS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "HORIZONTAL BARS",
     "definitions": [
      {
       "text": "where swingers can hang out?",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "crashing",
-      "for": "anagram",
-      "note": "a lothario crashing about is in wild disorder, so his letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "NZ lothario",
-      "gives": "NZLOTHARIO",
-      "note": "anagram fodder, taken as written"
-     },
-     {
-      "clueFragment": "pubs",
-      "gives": "BARS",
-      "note": "bars are pubs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HORIZONTAL",
-      "BARS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NZLOTHARIO",
-       "gives": "HORIZONTAL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashing",
+         "note": "a lothario crashing about is in wild disorder, so his letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "NZ lothario",
+         "note": "anagram fodder, taken as written"
+        }
+       ]
+      },
+      {
+       "words": "pubs",
+       "gives": "BARS",
+       "note": "bars are pubs"
       }
      ]
     },
@@ -272,35 +255,24 @@
    },
    "solution": "SIGNATURETUNES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SIGNATURE TUNES",
     "definitions": [
      {
       "text": "Melodies that identify",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in performance",
-      "for": "anagram",
-      "note": "a piece in performance is being played out, freely interpreted, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "suite aren't sung",
-      "gives": "SUITEARENTSUNG",
-      "note": "anagram fodder, ignoring the apostrophe"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SUITEARENTSUNG",
-       "gives": "SIGNATURETUNES"
+       "text": "in performance",
+       "note": "a piece in performance is being played out, freely interpreted, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "suite aren't sung",
+       "note": "anagram fodder, ignoring the apostrophe"
       }
      ]
     },
@@ -329,34 +301,28 @@
    },
    "solution": "UNBLOCKS",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "UNBLOCKS",
     "definitions": [
      {
       "text": "Clears",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when cycling",
-      "for": "cycling",
-      "note": "cycling sends letters round in a loop, so the first letter moves to the back"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Factor 50, say",
-      "gives": "SUNBLOCK",
-      "note": "factor 50 is a strong sun cream, an example of sunblock"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNBLOCK",
-      "S"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "UNBLOCKS",
+     "indicators": [
+      {
+       "text": "when cycling",
+       "note": "cycling sends letters round in a loop, so the first letter moves to the back"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Factor 50, say",
+       "gives": "SUNBLOCK",
+       "note": "factor 50 is a strong sun cream, an example of sunblock"
+      }
      ]
     },
     "explanation": {
@@ -391,56 +357,67 @@
    },
    "solution": "WEMYSSWARE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone",
-     "charade"
-    ],
-    "answer": "WEMYSS WARE",
     "definitions": [
      {
       "text": "Kircaldy pottery",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "extremely here means at the extremes, taking the first and last letter of each of the next three words"
-     },
-     {
-      "text": "delivered",
-      "for": "homophone",
-      "note": "a speech is delivered out loud, so the word before is heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wide",
-      "gives": "WE",
-      "select": "outer",
-      "note": "its two end letters"
-     },
-     {
-      "clueFragment": "mahogany",
-      "gives": "MY",
-      "select": "outer",
-      "note": "its two end letters"
-     },
-     {
-      "clueFragment": "shelves",
-      "gives": "SS",
-      "select": "outer",
-      "note": "its two end letters"
-     },
-     {
-      "clueFragment": "carry",
-      "gives": "WARE",
-      "soundsLike": "WEAR",
-      "note": "to wear clothes is to carry them on the body; spoken, it matches a word for goods"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "note": "extremely here means at the extremes, taking the first and last letter of each of the next three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wide",
+         "note": "its two end letters"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "mahogany",
+         "note": "its two end letters"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "shelves",
+         "note": "its two end letters"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WARE",
+       "indicators": [
+        {
+         "text": "delivered",
+         "note": "a speech is delivered out loud, so the word before is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carry",
+         "gives": "WEAR",
+         "note": "to wear clothes is to carry them on the body; spoken, it matches a word for goods"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wide mahogany shelves hold pottery sent from the Scottish town of Kirkcaldy.",
      "walkthrough": "Wemyss Ware is decorated pottery made in Kirkcaldy, Fife, in Scotland; Wemyss is said 'weems'. The clue spells the town Kircaldy.",
@@ -467,49 +444,35 @@
    },
    "solution": "RUFUS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "RUFUS",
     "definitions": [
      {
       "text": "Wainwright for one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us the following word is read from its end to its start"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "down",
-      "gives": "FUR",
-      "note": "down is soft fine hair, fur"
-     },
-     {
-      "clueFragment": "you and me",
-      "gives": "US",
-      "note": "you and me together are us"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUF",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "FUR",
-       "to": "RUF"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back tells us the following word is read from its end to its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "down",
+         "gives": "FUR",
+         "note": "down is soft fine hair, fur"
+        }
+       ]
+      },
+      {
+       "words": "you and me",
+       "gives": "US",
+       "note": "you and me together are us"
       }
      ]
     },
@@ -545,53 +508,54 @@
    },
    "solution": "STAINLESSSTEEL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "homophone"
-    ],
-    "answer": "STAINLESS STEEL",
     "definitions": [
      {
       "text": "an ever-shining example?",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "working suggests something busy and being reshaped, so the words after it are reordered"
-     },
-     {
-      "text": "picked up",
-      "for": "homophone",
-      "note": "a word picked up is caught by ear, so we want what sounds like it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good man",
-      "gives": "ST",
-      "note": "ST is short for saint, the crossword's good man"
-     },
-     {
-      "clueFragment": "in sales",
-      "gives": "AINLESS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Rob",
-      "gives": "STEEL",
-      "soundsLike": "STEAL",
-      "note": "to rob is to steal"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STAINLESSSTEEL",
+     "indicators": [
       {
-       "fodder": "INSALES",
-       "gives": "AINLESS"
+       "text": "working",
+       "note": "working suggests something busy and being reshaped, so the words after it are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good man",
+         "gives": "ST",
+         "note": "ST is short for saint, the crossword's good man"
+        },
+        {
+         "words": "in sales",
+         "gives": "AINLESS",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "homophone",
+         "spelt": "STEEL",
+         "indicators": [
+          {
+           "text": "picked up",
+           "note": "a word picked up is caught by ear, so we want what sounds like it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rob",
+           "gives": "STEAL",
+           "note": "to rob is to steal"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -621,43 +585,38 @@
    },
    "solution": "OBEDIENCE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "OBEDIENCE",
     "definitions": [
      {
       "text": "Dutifulness",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "repeatedly denied opening",
-      "for": "deletion",
-      "note": "denied its opening twice over means the front letter is removed, then the new front letter too"
-     }
-    ],
-    "linkWords": [
-     "linked to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "honour",
-      "gives": "OBE",
-      "note": "the OBE is a British honour, the Order of the British Empire"
-     },
-     {
-      "clueFragment": "group of spectators",
-      "gives": "DIENCE",
-      "note": "an audience is a group of spectators; losing two front letters leaves the rest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OBE",
-      "DIENCE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OBEDIENCE",
+     "indicators": [
+      {
+       "text": "repeatedly denied opening",
+       "note": "denied its opening twice over means the front letter is removed, then the new front letter too"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "honour",
+         "gives": "OBE",
+         "note": "the OBE is a British honour, the Order of the British Empire"
+        },
+        {
+         "words": "group of spectators",
+         "gives": "DIENCE",
+         "note": "an audience is a group of spectators; losing two front letters leaves the rest"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -692,26 +651,25 @@
    },
    "solution": "EXTENDEDFAMILY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EXTENDED FAMILY",
     "definitions": [
      {
       "text": "Social unit that could be kind?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Social unit",
-      "note": "surface reading: a group of relatives beyond parents and children"
-     },
-     {
-      "clueFragment": "that could be kind?",
-      "note": "setter's reading: a word for relatives, given one more letter, becomes the word kind"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Social unit",
+       "note": "surface reading: a group of relatives beyond parents and children"
+      },
+      {
+       "words": "that could be kind?",
+       "note": "setter's reading: a word for relatives, given one more letter, becomes the word kind"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Kin means family; extend it by one letter and you have kind, which also means a family or sort.",
      "definitionFit": "Grandparents, aunts, uncles and cousins together form the wider household network sociologists call this social unit."
@@ -738,46 +696,43 @@
    },
    "solution": "TSUNAMI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TSUNAMI",
     "definitions": [
      {
       "text": "disaster",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "endless means the final letter of the phrase before it is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tense",
-      "gives": "T",
-      "note": "T is the grammar abbreviation for tense"
-     },
-     {
-      "clueFragment": "half of weekend",
-      "gives": "SUN",
-      "note": "the weekend is Saturday and Sunday; one half is the Sunday abbreviation"
-     },
-     {
-      "clueFragment": "in the thick of",
-      "gives": "AMI",
-      "note": "in the thick of means amid, here without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "SUN",
-      "AMI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TSUNAMI",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "endless means the final letter of the phrase before it is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tense",
+         "gives": "T",
+         "note": "T is the grammar abbreviation for tense"
+        },
+        {
+         "words": "half of weekend",
+         "gives": "SUN",
+         "note": "the weekend is Saturday and Sunday; one half is the Sunday abbreviation"
+        },
+        {
+         "words": "in the thick of",
+         "gives": "AMI",
+         "note": "in the thick of means amid, here without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -805,47 +760,39 @@
    },
    "solution": "TONALLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TONALLY",
     "definitions": [
      {
       "text": "with reference to sound character?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take",
-      "gives": "T",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "supporter",
-      "gives": "ALLY",
-      "note": "an ally is a supporter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ON",
-      "ALLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "note": "initially points to the opening letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "take",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "note": "taken as written"
+      },
+      {
+       "words": "supporter",
+       "gives": "ALLY",
+       "note": "an ally is a supporter"
+      }
      ]
     },
     "explanation": {
@@ -875,43 +822,38 @@
    },
    "solution": "GREENHORN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "GREENHORN",
     "definitions": [
      {
       "text": "novice",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "chiefly",
-      "for": "deletion",
-      "note": "chiefly means mostly, so the word after keeps all but its final letter"
-     }
-    ],
-    "linkWords": [
-     "'introduces'"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Olive perhaps",
-      "gives": "GREEN",
-      "note": "olive is one shade of green"
-     },
-     {
-      "clueFragment": "lustful",
-      "gives": "HORN",
-      "note": "lustful is horny, here with its final letter dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "HORN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GREENHORN",
+     "indicators": [
+      {
+       "text": "chiefly",
+       "note": "chiefly means mostly, so the word after keeps all but its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Olive perhaps",
+         "gives": "GREEN",
+         "note": "olive is one shade of green"
+        },
+        {
+         "words": "lustful",
+         "gives": "HORN",
+         "note": "lustful is horny, here with its final letter dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -940,53 +882,46 @@
    },
    "solution": "GUESTIMATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GUESTIMATE",
     "definitions": [
      {
       "text": "make uninformed assessment",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "in places the next item inside the word for outburst"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outburst",
-      "gives": "GUST",
-      "note": "a gust is a sudden outburst, of wind or feeling"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "India",
-      "gives": "I",
-      "note": "India is I in the radio alphabet"
-     },
-     {
-      "clueFragment": "China",
-      "gives": "MATE",
-      "note": "china means mate, from rhyming slang 'china plate'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GU",
-      "E",
-      "ST",
-      "I",
-      "MATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "in places the next item inside the word for outburst"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outburst",
+         "gives": "GUST",
+         "note": "a gust is a sudden outburst, of wind or feeling"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        }
+       ]
+      },
+      {
+       "words": "India",
+       "gives": "I",
+       "note": "India is I in the radio alphabet"
+      },
+      {
+       "words": "China",
+       "gives": "MATE",
+       "note": "china means mate, from rhyming slang 'china plate'"
+      }
      ]
     },
     "explanation": {
@@ -1015,28 +950,16 @@
    },
    "solution": "TICKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TICKS",
     "definitions": [
      {
       "text": "Beats",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the regular sounds of a clock, or moments"
      },
      {
       "text": "parasites",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beats",
-      "note": "first meaning: the regular sounds of a clock, or moments"
-     },
-     {
-      "clueFragment": "parasites",
-      "note": "second meaning: small blood-sucking arachnids"
+      "at": 6,
+      "meaning": "second meaning: small blood-sucking arachnids"
      }
     ],
     "explanation": {
@@ -1064,58 +987,54 @@
    },
    "solution": "EDGIEST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "EDGIEST",
     "definitions": [
      {
       "text": "Most anxious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last points to the final letter of the word that follows"
-     },
-     {
-      "text": "bombed",
-      "for": "anagram",
-      "note": "a bombed building is blown apart, so the letters are scattered and rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "ED is short for editor, the crossword's usual journalist"
-     },
-     {
-      "clueFragment": "accessing",
-      "gives": "G",
-      "select": "last",
-      "note": "its last letter"
-     },
-     {
-      "clueFragment": "site",
-      "gives": "SITE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ED",
-      "G",
-      "IEST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SITE",
-       "gives": "IEST"
+       "words": "journalist",
+       "gives": "ED",
+       "note": "ED is short for editor, the crossword's usual journalist"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bombed",
+         "note": "a bombed building is blown apart, so the letters are scattered and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "at last",
+             "note": "at last points to the final letter of the word that follows"
+            }
+           ],
+           "parts": [
+            {
+             "words": "accessing",
+             "note": "its last letter"
+            }
+           ]
+          },
+          {
+           "words": "site",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1150,51 +1069,48 @@
    },
    "solution": "GOLDLEAF",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GOLD LEAF",
     "definitions": [
      {
       "text": "that will always be beaten",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "new suggests a fresh version, so the letters of the next word are remade"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the reworked word inside the sport"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deal",
-      "gives": "DLEA",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "sport",
-      "gives": "GOLF",
-      "note": "golf is a sport"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOL",
-      "DLEA",
-      "F"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GOLDLEAF",
+     "indicators": [
       {
-       "fodder": "DEAL",
-       "gives": "DLEA"
+       "text": "in",
+       "note": "in places the reworked word inside the sport"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "note": "new suggests a fresh version, so the letters of the next word are remade"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "deal",
+           "gives": "DLEA",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "sport",
+           "gives": "GOLF",
+           "note": "golf is a sport"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1225,62 +1141,61 @@
    },
    "solution": "EURASIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "EURASIA",
     "definitions": [
      {
       "text": "Eg UK and Iran are in it somehow, as are their leaders",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow says the letters come together in some unstated arrangement"
-     },
-     {
-      "text": "their leaders",
-      "for": "letter_selection",
-      "note": "leaders are the front letters of the two countries just named"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are",
-      "gives": "ARE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "UK",
-      "gives": "U",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "Iran",
-      "gives": "I",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AREASUI",
-       "gives": "EURASIA"
+       "text": "somehow",
+       "note": "somehow says the letters come together in some unstated arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "are",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "as",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "their leaders",
+           "note": "leaders are the front letters of the two countries just named"
+          }
+         ],
+         "parts": [
+          {
+           "words": "UK",
+           "note": "its first letter"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Iran",
+           "note": "its first letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Britain and Iran both lie in some continent, and so do their heads of state.",
      "walkthrough": "The whole clue is both the definition and the wordplay: the fodder is are, as, and the leading letters of the two countries.",
@@ -1307,58 +1222,61 @@
    },
    "solution": "TALKS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TALKS",
     "definitions": [
      {
       "text": "Extended discussions",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "head of points to the opening letter of the next word"
-     },
-     {
-      "text": "on and off",
-      "for": "letter_selection",
-      "note": "on and off means taking one letter, skipping one, and so on"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the pieces before it inside the shortened word after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "KGB",
-      "gives": "K",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "tears",
-      "gives": "TAS",
-      "select": "alternate",
-      "note": "its first, third and fifth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "LK",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the pieces before it inside the shortened word after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "head of",
+           "note": "head of points to the opening letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tears",
+           "note": "its first, third and fifth letters"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "on and off",
+           "note": "on and off means taking one letter, skipping one, and so on"
+          }
+         ],
+         "parts": [
+          {
+           "words": "KGB",
+           "note": "its first letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -1392,47 +1310,41 @@
    },
    "solution": "LIFETABLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LIFE TABLE",
     "definitions": [
      {
       "text": "Actuarial data",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conclusions of",
-      "for": "letter_selection",
-      "note": "conclusions are the ends, so each following word gives its last letter"
-     },
-     {
-      "text": "to include",
-      "for": "container",
-      "note": "to include something is to take it inside, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "obliged by law",
-      "gives": "LIABLE",
-      "note": "liable means legally bound"
-     },
-     {
-      "clueFragment": "brief balance sheet",
-      "gives": "FET",
-      "select": "last",
-      "note": "the last letter of each of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "FET",
-      "ABLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "note": "to include something is to take it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "obliged by law",
+       "gives": "LIABLE",
+       "note": "liable means legally bound"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusions of",
+         "note": "conclusions are the ends, so each following word gives its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brief balance sheet",
+         "note": "the last letter of each of the three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1461,52 +1373,51 @@
    },
    "solution": "BRAISE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BRAISE",
     "definitions": [
      {
       "text": "Cook",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "checked by",
-      "for": "container",
-      "note": "something checked by another is held in or hemmed by it, so it goes inside"
-     },
-     {
-      "text": "on vacation",
-      "for": "letter_selection",
-      "note": "on vacation means emptied out, so only the outer letters remain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "BR",
-      "note": "BR is the abbreviation for British"
-     },
-     {
-      "clueFragment": "Islands",
-      "gives": "IS",
-      "note": "IS is the abbreviation for Islands"
-     },
-     {
-      "clueFragment": "attaché",
-      "gives": "AE",
-      "select": "outer",
-      "note": "its two outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRA",
-      "IS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "gives": "BR",
+       "note": "BR is the abbreviation for British"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "checked by",
+         "note": "something checked by another is held in or hemmed by it, so it goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "note": "on vacation means emptied out, so only the outer letters remain"
+          }
+         ],
+         "parts": [
+          {
+           "words": "attaché",
+           "note": "its two outer letters"
+          }
+         ]
+        },
+        {
+         "words": "Islands",
+         "gives": "IS",
+         "note": "IS is the abbreviation for Islands"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1535,53 +1446,44 @@
    },
    "solution": "MILITIA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MILITIA",
     "definitions": [
      {
       "text": "Terriers, maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spinning",
-      "for": "anagram",
-      "note": "spinning things whirl round and land in a different order, so these letters are mixed"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the abbreviation for male"
-     },
-     {
-      "clueFragment": "ones",
-      "gives": "II",
-      "note": "one is I in Roman numerals, so two of them"
-     },
-     {
-      "clueFragment": "tail",
-      "gives": "TAIL",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ILITIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "IITAIL",
-       "gives": "ILITIA"
+       "words": "male",
+       "gives": "M",
+       "note": "M is the abbreviation for male"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spinning",
+         "note": "spinning things whirl round and land in a different order, so these letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ones",
+           "gives": "II",
+           "note": "one is I in Roman numerals, so two of them"
+          },
+          {
+           "words": "tail",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1618,48 +1520,35 @@
    },
    "solution": "MANMADE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MAN-MADE",
     "definitions": [
      {
       "text": "Synthetic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rolls",
-      "for": "reversal",
-      "note": "a thing that rolls over is turned the other way, so the word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hand",
-      "gives": "MAN",
-      "note": "a hand is a worker, a man"
-     },
-     {
-      "clueFragment": "cheese",
-      "gives": "EDAM",
-      "note": "Edam is a Dutch cheese"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "MADE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EDAM",
-       "to": "MADE"
+       "words": "hand",
+       "gives": "MAN",
+       "note": "a hand is a worker, a man"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolls",
+         "note": "a thing that rolls over is turned the other way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "gives": "EDAM",
+         "note": "Edam is a Dutch cheese"
+        }
+       ]
       }
      ]
     },
@@ -1689,51 +1578,41 @@
    },
    "solution": "EXIT",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "EXIT",
     "definitions": [
      {
       "text": "death",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "welcoming",
-      "for": "container",
-      "note": "welcoming someone takes them in, so one piece holds the other"
-     },
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "in a down clue, over means turned upside down, so it reads from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bond",
-      "gives": "TIE",
-      "note": "a tie is a bond"
-     },
-     {
-      "clueFragment": "kiss",
-      "gives": "X",
-      "note": "X is the kiss at the end of a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "X",
-      "IT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TIXE",
-       "to": "EXIT"
+       "text": "over",
+       "note": "in a down clue, over means turned upside down, so it reads from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "welcoming",
+         "note": "welcoming someone takes them in, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bond",
+         "gives": "TIE",
+         "note": "a tie is a bond"
+        },
+        {
+         "words": "kiss",
+         "gives": "X",
+         "note": "X is the kiss at the end of a letter"
+        }
+       ]
       }
      ]
     },
@@ -1763,54 +1642,51 @@
    },
    "solution": "TRAVERSAL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRAVERSAL",
     "definitions": [
      {
       "text": "crossing",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "engulfing",
-      "for": "container",
-      "note": "engulfing means swallowing whole, so one piece wraps round the other"
-     },
-     {
-      "text": "either side of",
-      "for": "letter_selection",
-      "note": "either side means one of the outside letters of the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cheers",
-      "gives": "TA",
-      "note": "ta is British informal thanks, like cheers"
-     },
-     {
-      "clueFragment": "massed partygoers",
-      "gives": "RAVERS",
-      "note": "ravers are people at raves, big dance parties"
-     },
-     {
-      "clueFragment": "level",
-      "gives": "L",
-      "select": "first",
-      "note": "both its ends are the same letter, so either side gives it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAVERS",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engulfing",
+         "note": "engulfing means swallowing whole, so one piece wraps round the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cheers",
+         "gives": "TA",
+         "note": "ta is British informal thanks, like cheers"
+        },
+        {
+         "words": "massed partygoers",
+         "gives": "RAVERS",
+         "note": "ravers are people at raves, big dance parties"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "either side of",
+         "note": "either side means one of the outside letters of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "level",
+         "note": "both its ends are the same letter, so either side gives it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1839,49 +1715,44 @@
    },
    "solution": "SUSHI",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SUSHI",
     "definitions": [
      {
       "text": "Food",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "kept in",
-      "for": "container",
-      "note": "kept in means held inside, so one piece sits within the other"
-     },
-     {
-      "text": "that doesn't close",
-      "for": "deletion",
-      "note": "something that does not close lacks its ending, so the final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "SHI",
-      "note": "a ship is a vessel, here without its last letter"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "US is short for America"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "HI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SUSHI",
+     "indicators": [
+      {
+       "text": "that doesn't close",
+       "note": "something that does not close lacks its ending, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kept in",
+         "note": "kept in means held inside, so one piece sits within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "gives": "SHI",
+         "note": "a ship is a vessel, here without its last letter"
+        },
+        {
+         "words": "America",
+         "gives": "US",
+         "note": "US is short for America"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

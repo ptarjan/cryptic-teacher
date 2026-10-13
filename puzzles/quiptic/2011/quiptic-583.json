@@ -1,8 +1,6 @@
 {
  "id": "quiptic-583",
  "number": 583,
- "series": "quiptic",
- "name": "Quiptic crossword No 583",
  "setter": "Hectence",
  "date": "2011-01-17",
  "dimensions": {
@@ -38,57 +36,51 @@
    },
    "solution": "SCORSESE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SCORSESE",
     "definitions": [
      {
       "text": "director",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first asks for only the opening letter of the word that follows it"
-     },
-     {
-      "text": "In",
-      "for": "container",
-      "note": "In places the next letter inside the surrounding word"
-     }
-    ],
-    "linkWords": [
-     "have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In the '20s",
-      "gives": "SCORES",
-      "note": "a score is twenty, so the twenties are scores"
-     },
-     {
-      "clueFragment": "silents",
-      "gives": "S",
-      "select": "first",
-      "note": "opening letter of silents"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "standard abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCOR",
-      "S",
-      "ES",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "In places the next letter inside the surrounding word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In the '20s",
+         "gives": "SCORES",
+         "note": "a score is twenty, so the twenties are scores"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "first asks for only the opening letter of the word that follows it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "silents",
+           "note": "opening letter of silents"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "standard abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -117,41 +109,25 @@
    },
    "solution": "SLIP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SLIP",
     "definitions": [
      {
       "text": "lose one's balance",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Knock back",
-      "for": "reversal",
-      "note": "knocking something back drives it backwards, so the word is read from end to start"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lager",
-      "gives": "PILS",
-      "note": "Pils is a type of pale lager"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLIP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PILS",
-       "to": "SLIP"
+       "text": "Knock back",
+       "note": "knocking something back drives it backwards, so the word is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lager",
+       "gives": "PILS",
+       "note": "Pils is a type of pale lager"
       }
      ]
     },
@@ -182,61 +158,56 @@
    },
    "solution": "FLOPPY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FLOPPY",
     "definitions": [
      {
       "text": "Limp",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely points to the extremes, the outermost letters at each end of the word"
-     },
-     {
-      "text": "odd",
-      "for": "letter_selection",
-      "note": "odd asks for the letters in odd-numbered positions: first, third and so on"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following places the earlier-mentioned piece after the pieces that come later in the clue"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fall",
-      "gives": "FL",
-      "select": "alternate",
-      "note": "the first and third letters of fall"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is short for opus, a musical work"
-     },
-     {
-      "clueFragment": "painfully",
-      "gives": "PY",
-      "select": "outer",
-      "note": "first and last letters of painfully"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FL",
-      "OP",
-      "PY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following places the earlier-mentioned piece after the pieces that come later in the clue"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely points to the extremes, the outermost letters at each end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fall",
+         "note": "the first and third letters of fall"
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op. is short for opus, a musical work"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "odd",
+         "note": "odd asks for the letters in odd-numbered positions: first, third and so on"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painfully",
+         "note": "first and last letters of painfully"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -266,66 +237,57 @@
    },
    "solution": "CYNICAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "CYNICAL",
     "definitions": [
      {
       "text": "Disillusioned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "setback",
-      "for": "reversal",
-      "note": "something set back is turned round, so the letters run the other way"
-     },
-     {
-      "text": "to travel round",
-      "for": "container",
-      "note": "travelling round something encircles it, so these letters go around the next piece"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New York City",
-      "gives": "NYC",
-      "note": "common abbreviation"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "California",
-      "gives": "CA",
-      "note": "US state abbreviation"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CYN",
-      "I",
-      "CA",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CYNICAL",
+     "indicators": [
       {
-       "from": "NYC",
-       "to": "CYN"
+       "text": "to travel round",
+       "note": "travelling round something encircles it, so these letters go around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "setback",
+           "note": "something set back is turned round, so the letters run the other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "New York City",
+           "gives": "NYC",
+           "note": "common abbreviation"
+          }
+         ]
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "California",
+         "gives": "CA",
+         "note": "US state abbreviation"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "standard abbreviation for left"
+        }
+       ]
       }
      ]
     },
@@ -361,35 +323,25 @@
    },
    "solution": "BOOKCLUB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOOK CLUB",
     "definitions": [
      {
       "text": "reading group",
       "at": 19
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arrange",
-      "gives": "BOOK",
-      "note": "to book is to arrange or reserve"
-     },
-     {
-      "clueFragment": "driver",
-      "gives": "CLUB",
-      "note": "a driver is a golf club"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOOK",
-      "CLUB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Arrange",
+       "gives": "BOOK",
+       "note": "to book is to arrange or reserve"
+      },
+      {
+       "words": "driver",
+       "gives": "CLUB",
+       "note": "a driver is a golf club"
+      }
      ]
     },
     "explanation": {
@@ -419,52 +371,47 @@
    },
    "solution": "VILLAINOUS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "VILLAINOUS",
     "definitions": [
      {
       "text": "Wicked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without is used in its old sense of outside, so these letters sit around the next piece"
-     },
-     {
-      "text": "acquires",
-      "for": "charade",
-      "note": "acquiring something adds it on, so the following piece is attached after the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "holiday home",
-      "gives": "VILLA",
-      "note": "a villa is a rented holiday house"
-     },
-     {
-      "clueFragment": "debts",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to repay debts"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "N",
-      "note": "standard abbreviation for number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VILLA",
-      "I",
-      "N",
-      "OUS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "acquires",
+       "note": "acquiring something adds it on, so the following piece is attached after the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "holiday home",
+       "gives": "VILLA",
+       "note": "a villa is a rented holiday house"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without is used in its old sense of outside, so these letters sit around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "debts",
+         "gives": "IOUS",
+         "note": "IOUs are written promises to repay debts"
+        },
+        {
+         "words": "number",
+         "gives": "N",
+         "note": "standard abbreviation for number"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -499,43 +446,31 @@
    },
    "solution": "HITECH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HI-TECH",
     "definitions": [
      {
       "text": "electronically complex",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "something involving another thing wraps around it, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Problem",
-      "gives": "HITCH",
-      "note": "a hitch is a snag or problem"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the symbol for energy in physics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIT",
-      "E",
-      "CH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "something involving another thing wraps around it, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Problem",
+       "gives": "HITCH",
+       "note": "a hitch is a snag or problem"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the symbol for energy in physics"
+      }
      ]
     },
     "explanation": {
@@ -569,48 +504,36 @@
    },
    "solution": "ICELOLLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ICE LOLLY",
     "definitions": [
      {
       "text": "cool treat for kids",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "collects",
-      "for": "charade",
-      "note": "collecting something gathers it on, so another piece is added to the end"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE stands for Church of England"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "LOLLY",
-      "note": "lolly is British slang for money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "CE",
-      "LOLLY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "collects",
+       "note": "collecting something gathers it on, so another piece is added to the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE stands for Church of England"
+      },
+      {
+       "words": "money",
+       "gives": "LOLLY",
+       "note": "lolly is British slang for money"
+      }
      ]
     },
     "explanation": {
@@ -639,48 +562,35 @@
    },
    "solution": "OSIRIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSIRIS",
     "definitions": [
      {
       "text": "God",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "a supporting piece holds up another from below or behind, so it comes after it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like O"
-     },
-     {
-      "clueFragment": "knight",
-      "gives": "SIR",
-      "note": "a knight's title is Sir"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "SIR",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "a supporting piece holds up another from below or behind, so it comes after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like O"
+      },
+      {
+       "words": "knight",
+       "gives": "SIR",
+       "note": "a knight's title is Sir"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -708,55 +618,45 @@
    },
    "solution": "TRAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "TRAP",
     "definitions": [
      {
       "text": "Catch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last",
-      "for": "letter_selection",
-      "note": "last asks for only the final letter of the word after it"
-     },
-     {
-      "text": "raising",
-      "for": "reversal",
-      "note": "raising lifts the word up, turning it round so it reads in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "post",
-      "gives": "T",
-      "select": "last",
-      "note": "final letter of post"
-     },
-     {
-      "clueFragment": "standard",
-      "gives": "PAR",
-      "note": "par is the standard or norm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PAR",
-       "to": "RAP"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "note": "last asks for only the final letter of the word after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "note": "final letter of post"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raising",
+         "note": "raising lifts the word up, turning it round so it reads in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "standard",
+         "gives": "PAR",
+         "note": "par is the standard or norm"
+        }
+       ]
       }
      ]
     },
@@ -786,60 +686,51 @@
    },
    "solution": "PAINKILLER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PAINKILLER",
     "definitions": [
      {
       "text": "analgesic",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "drops off",
-      "for": "deletion",
-      "note": "dropping something off removes it, so those letters leave the word"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after places the earlier piece behind the following one in the answer"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dad",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "DRINK",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "DR",
-      "note": "standard abbreviation for doctor"
-     },
-     {
-      "clueFragment": "poorlier",
-      "gives": "ILLER",
-      "note": "poorly means ill, so poorlier is iller"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "INK",
-      "ILLER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after places the earlier piece behind the following one in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dad",
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drops off",
+         "note": "dropping something off removes it, so those letters leave the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "note": "taken as written"
+        },
+        {
+         "words": "doctor",
+         "gives": "DR",
+         "note": "standard abbreviation for doctor"
+        }
+       ]
+      },
+      {
+       "words": "poorlier",
+       "gives": "ILLER",
+       "note": "poorly means ill, so poorlier is iller"
+      }
      ]
     },
     "explanation": {
@@ -868,36 +759,29 @@
    },
    "solution": "VERITY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "VERITY",
     "definitions": [
      {
       "text": "truthfulness",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Two leaders abandon",
-      "for": "deletion",
-      "note": "the first two letters, the leaders, are abandoned and dropped from the word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rigour",
-      "gives": "SEVERITY",
-      "note": "severity is strictness or rigour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VERITY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Two leaders abandon",
+       "note": "the first two letters, the leaders, are abandoned and dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rigour",
+       "gives": "SEVERITY",
+       "note": "severity is strictness or rigour"
+      },
+      {
+       "gives": "SE"
+      }
      ]
     },
     "explanation": {
@@ -931,50 +815,39 @@
    },
    "solution": "IVORYTOWER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IVORY TOWER",
     "definitions": [
      {
       "text": "place for scholarly retreat",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Welshman",
-      "gives": "IVOR",
-      "note": "Ivor is a typically Welsh name"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "y is an algebraic unknown"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "WE",
-      "note": "we is the subject form of us"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IVOR",
-      "Y",
-      "TO",
-      "WE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Welshman",
+       "gives": "IVOR",
+       "note": "Ivor is a typically Welsh name"
+      },
+      {
+       "words": "unknown",
+       "gives": "Y",
+       "note": "y is an algebraic unknown"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "us",
+       "gives": "WE",
+       "note": "we is the subject form of us"
+      },
+      {
+       "words": "runs",
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
      ]
     },
     "explanation": {
@@ -1008,36 +881,25 @@
    },
    "solution": "ALLRIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALL RIGHT",
     "definitions": [
      {
       "text": "OK",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for",
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "all means everyone"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "RIGHT",
-      "note": "Tories belong to the political right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "RIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "everyone",
+       "gives": "ALL",
+       "note": "all means everyone"
+      },
+      {
+       "words": "Tory",
+       "gives": "RIGHT",
+       "note": "Tories belong to the political right"
+      }
      ]
     },
     "explanation": {
@@ -1067,48 +929,50 @@
    },
    "solution": "REJOICE",
    "annotation": {
-    "type": [
-     "reversal",
-     "homophone",
-     "charade"
-    ],
-    "answer": "REJOICE",
     "definitions": [
      {
       "text": "delight",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "coming over",
-      "for": "reversal",
-      "note": "coming over suggests turning over, so the word is flipped end to end"
-     },
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "something reported is passed on by word of mouth, so we want how the name sounds"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "to meet",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "ER is Elizabeth Regina"
-     },
-     {
-      "clueFragment": "Irish writer",
-      "gives": "JOICE",
-      "soundsLike": "JOYCE",
-      "note": "James Joyce, author of Ulysses"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming over",
+         "note": "coming over suggests turning over, so the word is flipped end to end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Queen",
+         "gives": "ER",
+         "note": "ER is Elizabeth Regina"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "JOICE",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "something reported is passed on by word of mouth, so we want how the name sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish writer",
+         "gives": "JOYCE",
+         "note": "James Joyce, author of Ulysses"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A queen travels to meet an Irish author and is said to be delighted.",
      "walkthrough": "The definition sits at the end with 'with' as a loose link: to rejoice is to delight.",
@@ -1135,47 +999,41 @@
    },
    "solution": "CHAMPION",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CHAMPION",
     "definitions": [
      {
       "text": "Prize-winning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exported",
-      "for": "deletion",
-      "note": "exported goods are sent out, so these letters are taken out of the word"
-     }
-    ],
-    "linkWords": [
-     "'s getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French mushroom",
-      "gives": "CHAMPIGNON",
-      "note": "champignon is French for mushroom"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "standard abbreviation for good"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "N",
-      "note": "standard abbreviation for number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAMPI",
-      "ON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "exported",
+       "note": "exported goods are sent out, so these letters are taken out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French mushroom",
+       "gives": "CHAMPIGNON",
+       "note": "champignon is French for mushroom"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "standard abbreviation for good"
+        },
+        {
+         "words": "number",
+         "gives": "N",
+         "note": "standard abbreviation for number"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1203,64 +1061,64 @@
    },
    "solution": "ABDOMEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ABDOMEN",
     "definitions": [
      {
       "text": "stomach",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is knocked into disorder, so these letters are jumbled"
-     },
-     {
-      "text": "taking leave of",
-      "for": "deletion",
-      "note": "taking leave of something means departing from it, so one letter goes"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after places the earlier piece behind the following one in the answer"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bad",
-      "gives": "BAD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Wife",
-      "gives": "W",
-      "note": "standard abbreviation for wife"
-     },
-     {
-      "clueFragment": "girls",
-      "gives": "WOMEN",
-      "note": "girls taken as women"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABD",
-      "OMEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "BAD",
-       "gives": "ABD"
+       "text": "after",
+       "note": "after places the earlier piece behind the following one in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "something upset is knocked into disorder, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bad",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking leave of",
+         "note": "taking leave of something means departing from it, so one letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Wife",
+           "gives": "W",
+           "note": "standard abbreviation for wife"
+          },
+          {
+           "words": "girls",
+           "gives": "WOMEN",
+           "note": "girls taken as women"
+          }
+         ]
+        },
+        {
+         "gives": "WW"
+        }
+       ]
       }
      ]
     },
@@ -1290,58 +1148,56 @@
    },
    "solution": "EVALUATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "homophone",
-     "charade"
-    ],
-    "answer": "EVALUATE",
     "definitions": [
      {
       "text": "Give opinion of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooked ingredients are transformed, so these letters are rearranged"
-     },
-     {
-      "text": "noisily",
-      "for": "homophone",
-      "note": "noisily means said out loud, so the word is taken for its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "veal",
-      "gives": "VEAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "soundsLike": "YOU",
-      "note": "the letter U sounds like the word"
-     },
-     {
-      "clueFragment": "devoured",
-      "gives": "ATE",
-      "note": "devoured means ate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVAL",
-      "U",
-      "ATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "VEAL",
-       "gives": "EVAL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "note": "cooked ingredients are transformed, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "veal",
+           "note": "taken as written"
+          },
+          {
+           "op": "homophone",
+           "spelt": "U",
+           "indicators": [
+            {
+             "text": "noisily",
+             "note": "noisily means said out loud, so the word is taken for its sound"
+            }
+           ],
+           "parts": [
+            {
+             "words": "you",
+             "gives": "YOU",
+             "note": "the letter U sounds like the word"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "devoured",
+       "gives": "ATE",
+       "note": "devoured means ate"
       }
      ]
     },
@@ -1370,43 +1226,39 @@
    },
    "solution": "CADENCE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CADENCE",
     "definitions": [
      {
       "text": "Beat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "with its heading taken off, the word loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scoundrel",
-      "gives": "CAD",
-      "note": "a cad is a dishonourable man"
-     },
-     {
-      "clueFragment": "guard",
-      "gives": "FENCE",
-      "note": "a fence guards a property"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAD",
-      "ENCE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "note": "with its heading taken off, the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "scoundrel",
+         "gives": "CAD",
+         "note": "a cad is a dishonourable man"
+        },
+        {
+         "words": "guard",
+         "gives": "FENCE",
+         "note": "a fence guards a property"
+        }
+       ]
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -1441,42 +1293,30 @@
    },
    "solution": "LADYGAGA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LADY GAGA",
     "definitions": [
      {
       "text": "Pop star",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy",
-      "gives": "LAD",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "young",
-      "gives": "Y",
-      "note": "standard abbreviation for young"
-     },
-     {
-      "clueFragment": "foolish",
-      "gives": "GAGA",
-      "note": "gaga means silly or infatuated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAD",
-      "Y",
-      "GAGA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boy",
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "words": "young",
+       "gives": "Y",
+       "note": "standard abbreviation for young"
+      },
+      {
+       "words": "foolish",
+       "gives": "GAGA",
+       "note": "gaga means silly or infatuated"
+      }
      ]
     },
     "explanation": {
@@ -1505,60 +1345,45 @@
    },
    "solution": "ANNUAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "charade"
-    ],
-    "answer": "ANNUAL",
     "definitions": [
      {
       "text": "Once a year",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "for": "anagram",
-      "note": "something that breaks falls apart, so these letters are reassembled differently"
-     },
-     {
-      "text": "retreat",
-      "for": "reversal",
-      "note": "retreating goes backwards, so the letters are read in reverse"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a nun",
-      "gives": "ANUN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Los Angeles",
-      "gives": "LA",
-      "note": "common abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANNU",
-      "AL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ANUN",
-       "gives": "ANNU"
-      }
-     ],
-     "reversals": [
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaks",
+         "note": "something that breaks falls apart, so these letters are reassembled differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a nun",
+         "note": "taken as written"
+        }
+       ]
+      },
       {
-       "from": "LA",
-       "to": "AL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retreat",
+         "note": "retreating goes backwards, so the letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Los Angeles",
+         "gives": "LA",
+         "note": "common abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1587,51 +1412,40 @@
    },
    "solution": "MISHAP",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MISHAP",
     "definitions": [
      {
       "text": "bad luck",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting entangled",
-      "for": "anagram",
-      "note": "entangled things get twisted into a muddle, so these letters are jumbled"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "his",
-      "gives": "HIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "plot",
-      "gives": "MAP",
-      "note": "to plot is to map out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ISH",
-      "AP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HIS",
-       "gives": "ISH"
+       "text": "in",
+       "note": "in places one piece inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plot",
+       "gives": "MAP",
+       "note": "to plot is to map out"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting entangled",
+         "note": "entangled things get twisted into a muddle, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1660,51 +1474,40 @@
    },
    "solution": "MUESLI",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MUESLI",
     "definitions": [
      {
       "text": "breakfast cereal",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests moving around, so these letters are scattered into a new order"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "eating takes something inside, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smile",
-      "gives": "SMILE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "posh",
-      "gives": "U",
-      "note": "U means upper-class"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "U",
-      "ESLI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SMILE",
-       "gives": "MESLI"
+       "text": "eating",
+       "note": "eating takes something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about suggests moving around, so these letters are scattered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Smile",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "posh",
+       "gives": "U",
+       "note": "U means upper-class"
       }
      ]
     },
@@ -1734,57 +1537,55 @@
    },
    "solution": "INCOMPLETE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "INCOMPLETE",
     "definitions": [
      {
       "text": "Short",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "cut means trimmed, so the word loses its final letter"
-     },
-     {
-      "text": "keeping hold of",
-      "for": "container",
-      "note": "keeping hold of something holds it inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "following",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wage",
-      "gives": "INCOME",
-      "note": "a wage is income"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "PETE",
-      "note": "Pete is a boy's name"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "L",
-      "note": "L is the pound sign, from Latin libra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCOM",
-      "P",
-      "L",
-      "ETE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping hold of",
+       "note": "keeping hold of something holds it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "note": "cut means trimmed, so the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "wage",
+           "gives": "INCOME",
+           "note": "a wage is income"
+          },
+          {
+           "words": "boy",
+           "gives": "PETE",
+           "note": "Pete is a boy's name"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "money",
+       "gives": "L",
+       "note": "L is the pound sign, from Latin libra"
+      }
      ]
     },
     "explanation": {
@@ -1812,31 +1613,16 @@
    },
    "solution": "BLUE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLUE",
     "definitions": [
      {
       "text": "Squander money",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to ... money is British slang for spending it recklessly"
      },
      {
       "text": "depressed",
-      "at": 20
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Squander money",
-      "note": "first meaning: to ... money is British slang for spending it recklessly"
-     },
-     {
-      "clueFragment": "depressed",
-      "note": "second meaning: feeling down or sad"
+      "at": 20,
+      "meaning": "second meaning: feeling down or sad"
      }
     ],
     "explanation": {
@@ -1865,31 +1651,16 @@
    },
    "solution": "BURY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BURY",
     "definitions": [
      {
       "text": "Lay to rest",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to inter a body"
      },
      {
       "text": "northern town",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lay to rest",
-      "note": "first meaning: to inter a body"
-     },
-     {
-      "clueFragment": "northern town",
-      "note": "second meaning: a town in Greater Manchester, England"
+      "at": 15,
+      "meaning": "second meaning: a town in Greater Manchester, England"
      }
     ],
     "explanation": {
@@ -1924,35 +1695,25 @@
    },
    "solution": "MAKEDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAKE DO",
     "definitions": [
      {
       "text": "Stretch resources",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prepare",
-      "gives": "MAKE",
-      "note": "to make a meal is to prepare it"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAKE",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "prepare",
+       "gives": "MAKE",
+       "note": "to make a meal is to prepare it"
+      },
+      {
+       "words": "party",
+       "gives": "DO",
+       "note": "a do is a party"
+      }
      ]
     },
     "explanation": {
@@ -1980,56 +1741,46 @@
    },
    "solution": "CULPRITS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CULPRITS",
     "definitions": [
      {
       "text": "Those responsible",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "include",
-      "for": "container",
-      "note": "to include is to take in, so the other pieces go inside"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spending reductions",
-      "gives": "CUTS",
-      "note": "cuts are reductions in spending"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "standard abbreviation for large"
-     },
-     {
-      "clueFragment": "public relations",
-      "gives": "PR",
-      "note": "common abbreviation"
-     },
-     {
-      "clueFragment": "unit",
-      "gives": "I",
-      "note": "Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "L",
-      "PR",
-      "I",
-      "TS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "include",
+       "note": "to include is to take in, so the other pieces go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spending reductions",
+       "gives": "CUTS",
+       "note": "cuts are reductions in spending"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "standard abbreviation for large"
+        },
+        {
+         "words": "public relations",
+         "gives": "PR",
+         "note": "common abbreviation"
+        },
+        {
+         "words": "unit",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

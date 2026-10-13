@@ -1,8 +1,6 @@
 {
  "id": "quiptic-350",
  "number": 350,
- "series": "quiptic",
- "name": "Quiptic crossword No 350",
  "setter": "Arachne",
  "date": "2006-07-31",
  "dimensions": {
@@ -38,36 +36,39 @@
    },
    "solution": "TSETSE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TSETSE",
     "definitions": [
      {
       "text": "Fly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the run of letters is read from right to left"
-     },
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "taken from inside the next words, so the letters sit across the word break"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deepest Estonia",
-      "gives": "ESTEST",
-      "note": "the tail of deepest runs straight into the start of Estonia"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "note": "going back means the run of letters is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "from",
+         "note": "taken from inside the next words, so the letters sit across the word break"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deepest Estonia",
+         "gives": "ESTEST",
+         "note": "the tail of deepest runs straight into the start of Estonia"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A traveller remarks on an insect met in the remotest corners of Estonia.",
      "walkthrough": "Read the end of 'deepest' and the start of 'Estonia' backwards to get TSETSE.",
@@ -94,41 +95,35 @@
    },
    "solution": "TRIPPER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRIPPER",
     "definitions": [
      {
       "text": "Tourist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "think",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of think"
-     },
-     {
-      "clueFragment": "it's great in Australia",
-      "gives": "RIPPER",
-      "note": "Australian slang for something excellent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RIPPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "think",
+         "note": "the opening letter of think"
+        }
+       ]
+      },
+      {
+       "words": "it's great in Australia",
+       "gives": "RIPPER",
+       "note": "Australian slang for something excellent"
+      }
      ]
     },
     "explanation": {
@@ -157,43 +152,39 @@
    },
    "solution": "ELDER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ELDER",
     "definitions": [
      {
       "text": "authority figure",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Cockney",
-      "for": "deletion",
-      "note": "a Cockney speaker famously drops the H at the start of words"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "believed",
-      "gives": "HELD",
-      "note": "held an opinion, believed it"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina, the usual crossword queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELD",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "note": "a Cockney speaker famously drops the H at the start of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "believed",
+         "gives": "HELD",
+         "note": "held an opinion, believed it"
+        },
+        {
+         "words": "Queen",
+         "gives": "ER",
+         "note": "Elizabeth Regina, the usual crossword queen"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -222,50 +213,46 @@
    },
    "solution": "SWEATER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SWEATER",
     "definitions": [
      {
       "text": "jumper",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "not hot",
-      "for": "deletion",
-      "note": "not means the letter standing for hot is taken away"
-     },
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "in a down entry, one piece is placed on top of the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "the standard abbreviation for a second"
-     },
-     {
-      "clueFragment": "Weather",
-      "gives": "WEATHER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H for hot, as on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEATER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "in a down entry, one piece is placed on top of the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "the standard abbreviation for a second"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not hot",
+         "note": "not means the letter standing for hot is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weather",
+         "note": "taken as written"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H for hot, as on a tap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -294,40 +281,30 @@
    },
    "solution": "SAINTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SAINTS",
     "definitions": [
      {
       "text": "Holy men",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "what is found in something sits inside it, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "SS",
-      "gives": "SS",
-      "note": "taken as written; it wraps round the other piece"
-     },
-     {
-      "clueFragment": "are not commonly",
-      "gives": "AINT",
-      "note": "the colloquial contraction ain't, said commonly for are not"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AINT",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "what is found in something sits inside it, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "SS",
+       "note": "taken as written; it wraps round the other piece"
+      },
+      {
+       "words": "are not commonly",
+       "gives": "AINT",
+       "note": "the colloquial contraction ain't, said commonly for are not"
+      }
      ]
     },
     "explanation": {
@@ -356,35 +333,24 @@
    },
    "solution": "ATHLETE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ATHLETE",
     "definitions": [
      {
       "text": "Jesse Owens, perhaps",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Letters from",
-      "for": "anagram",
-      "note": "the letters are taken from the words and rearranged to spell something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the late",
-      "gives": "THELATE",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THELATE",
-       "gives": "ATHLETE"
+       "text": "Letters from",
+       "note": "the letters are taken from the words and rearranged to spell something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the late",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -415,35 +381,25 @@
    },
    "solution": "NURSERIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NURSERIES",
     "definitions": [
      {
       "text": "schools for tots",
       "at": 23
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old trade union",
-      "gives": "NUR",
-      "note": "the National Union of Railwaymen, a former British union"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "SERIES",
-      "note": "a run of things, a series"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUR",
-      "SERIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old trade union",
+       "gives": "NUR",
+       "note": "the National Union of Railwaymen, a former British union"
+      },
+      {
+       "words": "run",
+       "gives": "SERIES",
+       "note": "a run of things, a series"
+      }
      ]
     },
     "explanation": {
@@ -472,60 +428,50 @@
    },
    "solution": "SEATTLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEATTLE",
     "definitions": [
      {
       "text": "US city",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, which alone is kept"
-     },
-     {
-      "text": "set out",
-      "for": "anagram",
-      "note": "things set out are laid out afresh, so these letters take a new order"
-     },
-     {
-      "text": "After",
-      "for": "charade",
-      "note": "one piece comes after the other in the answer"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recess",
-      "gives": "S",
-      "select": "last",
-      "note": "the closing letter of recess"
-     },
-     {
-      "clueFragment": "Attlee",
-      "gives": "ATTLEE",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "EATTLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "ATTLEE",
-       "gives": "EATTLE"
+       "text": "After",
+       "note": "one piece comes after the other in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recess",
+         "note": "the closing letter of recess"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "set out",
+         "note": "things set out are laid out afresh, so these letters take a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Attlee",
+         "note": "the anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -555,41 +501,35 @@
    },
    "solution": "AFTERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AFTERS",
     "definitions": [
      {
       "text": "pudding",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "first slice of",
-      "for": "letter_selection",
-      "note": "the first slice of a word is its opening letter alone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Looking for",
-      "gives": "AFTER",
-      "note": "as in 'what are you after?'"
-     },
-     {
-      "clueFragment": "summer",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of summer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFTER",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Looking for",
+       "gives": "AFTER",
+       "note": "as in 'what are you after?'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first slice of",
+         "note": "the first slice of a word is its opening letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "summer",
+         "note": "the opening letter of summer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -632,31 +572,16 @@
    },
    "solution": "MIDDLEOFTHEROAD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MIDDLE OF THE ROAD",
     "definitions": [
      {
       "text": "Central reservation",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: literally the centre strip of a dual carriageway"
      },
      {
       "text": "not very exciting",
-      "at": 23
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Central reservation",
-      "note": "first meaning: literally the centre strip of a dual carriageway"
-     },
-     {
-      "clueFragment": "not very exciting",
-      "note": "second meaning: moderate, unadventurous, appealing to the mainstream"
+      "at": 23,
+      "meaning": "second meaning: moderate, unadventurous, appealing to the mainstream"
      }
     ],
     "explanation": {
@@ -686,28 +611,16 @@
    },
    "solution": "SPIRIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPIRIT",
     "definitions": [
      {
       "text": "Whisky",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a distilled alcoholic drink"
      },
      {
       "text": "It's vital",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Whisky",
-      "note": "first meaning: a distilled alcoholic drink"
-     },
-     {
-      "clueFragment": "It's vital",
-      "note": "second meaning: the vital principle, the animating force of life"
+      "at": 8,
+      "meaning": "second meaning: the vital principle, the animating force of life"
      }
     ],
     "explanation": {
@@ -737,35 +650,24 @@
    },
    "solution": "ELEMENTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELEMENTS",
     "definitions": [
      {
       "text": "iron and carbon, perhaps",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "recast",
-      "for": "anagram",
-      "note": "metal recast is melted and shaped anew, so these letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steelmen",
-      "gives": "STEELMEN",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STEELMEN",
-       "gives": "ELEMENTS"
+       "text": "recast",
+       "note": "metal recast is melted and shaped anew, so these letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Steelmen",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -795,58 +697,57 @@
    },
    "solution": "PROVERBS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "PROVERBS",
     "definitions": [
      {
       "text": "Book of the Bible",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of a word is its very centre, so the middle letter is kept"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece goes round the others"
-     },
-     {
-      "text": "and",
-      "for": "charade",
-      "note": "joins two pieces side by side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "turns out to be",
-      "gives": "PROVES",
-      "note": "something that turns out to be so proves to be so"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     },
-     {
-      "clueFragment": "rabbi",
-      "gives": "B",
-      "select": "middle",
-      "note": "the centre letter of rabbi"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROVE",
-      "RB",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so one piece goes round the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "turns out to be",
+       "gives": "PROVES",
+       "note": "something that turns out to be so proves to be so"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "and",
+         "note": "joins two pieces side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "king",
+         "gives": "R",
+         "note": "R for rex, Latin for king"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "note": "the essence of a word is its very centre, so the middle letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rabbi",
+           "note": "the centre letter of rabbi"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -875,40 +776,31 @@
    },
    "solution": "VERBALISE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VERBALISE",
     "definitions": [
      {
       "text": "Articulate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means round, so one piece goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poetry",
-      "gives": "VERSE",
-      "note": "poetry in metrical lines"
-     },
-     {
-      "clueFragment": "exotic island",
-      "gives": "BALI",
-      "note": "the Indonesian island, exotic as a holiday spot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VER",
-      "BALI",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means round, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poetry",
+       "gives": "VERSE",
+       "note": "poetry in metrical lines"
+      },
+      {
+       "words": "exotic island",
+       "gives": "BALI",
+       "note": "the Indonesian island, exotic as a holiday spot"
+      }
      ]
     },
     "explanation": {
@@ -937,48 +829,34 @@
    },
    "solution": "EXILED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "EXILED",
     "definitions": [
      {
       "text": "sent away",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "turned about means moved around, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former partner",
-      "gives": "EX",
-      "note": "an ex is a former spouse or lover"
-     },
-     {
-      "clueFragment": "lied",
-      "gives": "LIED",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "ILED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LIED",
-       "gives": "ILED"
+       "words": "Former partner",
+       "gives": "EX",
+       "note": "an ex is a former spouse or lover"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about means moved around, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lied",
+         "note": "the anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1008,31 +886,29 @@
    },
    "solution": "BLARES",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BLARES",
     "definitions": [
      {
       "text": "noises",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "what is heard is judged by its sound, not its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tony's family",
-      "gives": "BLARES",
-      "soundsLike": "BLAIRS",
-      "note": "Tony Blair's family are the Blairs"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BLARES",
+     "indicators": [
+      {
+       "text": "heard",
+       "note": "what is heard is judged by its sound, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tony's family",
+       "gives": "BLAIRS",
+       "note": "Tony Blair's family are the Blairs"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Tony's relatives picked up some sounds.",
      "walkthrough": "Tony Blair was the British prime minister from 1997 to 2007. 'Noises' is a verb here, as in 'noises abroad'.",
@@ -1060,45 +936,34 @@
    },
    "solution": "LEECHES",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LEECHES",
     "definitions": [
      {
       "text": "Worms",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rotten",
-      "for": "anagram",
-      "note": "something rotten has decayed out of shape, so these letters are disordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "the usual abbreviation for left"
-     },
-     {
-      "clueFragment": "cheese",
-      "gives": "CHEESE",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EECHES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CHEESE",
-       "gives": "EECHES"
+       "words": "left",
+       "gives": "L",
+       "note": "the usual abbreviation for left"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rotten",
+         "note": "something rotten has decayed out of shape, so these letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "note": "the anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1128,50 +993,39 @@
    },
    "solution": "SPARTAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SPARTAN",
     "definitions": [
      {
       "text": "an austere type",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter, which alone is kept"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Argue",
-      "gives": "SPAR",
-      "note": "spar means to argue or box"
-     },
-     {
-      "clueFragment": "Theology",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of Theology"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPAR",
-      "T",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Argue",
+       "gives": "SPAR",
+       "note": "spar means to argue or box"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "the head of a word is its first letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Theology",
+         "note": "the first letter of Theology"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1200,38 +1054,24 @@
    },
    "solution": "REHASHED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REHASHED",
     "definitions": [
      {
       "text": "rewritten",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "for": "anagram",
-      "note": "novel means new, so these letters come out in a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "is to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He's heard",
-      "gives": "HESHEARD",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HESHEARD",
-       "gives": "REHASHED"
+       "text": "novel",
+       "note": "novel means new, so these letters come out in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He's heard",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -1262,38 +1102,24 @@
    },
    "solution": "RASCAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RASCAL",
     "definitions": [
      {
       "text": "rogue",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "at sea means confused and adrift, so these letters are muddled"
-     }
-    ],
-    "linkWords": [
-     "is a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lascar",
-      "gives": "LASCAR",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LASCAR",
-       "gives": "RASCAL"
+       "text": "at sea",
+       "note": "at sea means confused and adrift, so these letters are muddled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lascar",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -1323,28 +1149,16 @@
    },
    "solution": "HACKING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HACKING",
     "definitions": [
      {
       "text": "Rough",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: harsh and dry, as of a cough"
      },
      {
       "text": "sport",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rough",
-      "note": "first meaning: harsh and dry, as of a cough"
-     },
-     {
-      "clueFragment": "sport",
-      "note": "second meaning: riding a horse for pleasure"
+      "at": 6,
+      "meaning": "second meaning: riding a horse for pleasure"
      }
     ],
     "explanation": {
@@ -1373,64 +1187,64 @@
    },
    "solution": "EXTINCT",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "EXTINCT",
     "definitions": [
      {
       "text": "Dead",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end, so the final letter is dropped"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter alone"
-     },
-     {
-      "text": "excited",
-      "for": "anagram",
-      "note": "excited means stirred up, so these letters are agitated into a new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the shuffled letters go round the single one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "texting",
-      "gives": "TEXTIN",
-      "note": "texting with its tail removed"
-     },
-     {
-      "clueFragment": "concerts",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of concerts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXTIN",
-      "C",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EXTINCT",
+     "indicators": [
       {
-       "fodder": "TEXTIN",
-       "gives": "EXTINT"
+       "text": "endlessly",
+       "note": "without an end, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so the shuffled letters go round the single one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excited",
+           "note": "excited means stirred up, so these letters are agitated into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "texting",
+           "gives": "TEXTIN",
+           "note": "texting with its tail removed"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "note": "the first of a word is its opening letter alone"
+          }
+         ],
+         "parts": [
+          {
+           "words": "concerts",
+           "note": "the opening letter of concerts"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1461,56 +1275,44 @@
    },
    "solution": "GETAWAYS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GETAWAYS",
     "definitions": [
      {
       "text": "Starts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last points to a word's final letter, which alone is kept"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "understand",
-      "gives": "GET",
-      "note": "as in 'I get it'"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "path",
-      "gives": "WAY",
-      "note": "a way is a path or route"
-     },
-     {
-      "clueFragment": "awareness",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of awareness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GET",
-      "A",
-      "WAY",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "understand",
+       "gives": "GET",
+       "note": "as in 'I get it'"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "path",
+       "gives": "WAY",
+       "note": "a way is a path or route"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last points to a word's final letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "awareness",
+         "note": "the final letter of awareness"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1539,50 +1341,40 @@
    },
    "solution": "CADETS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CADETS",
     "definitions": [
      {
       "text": "Trainee soldiers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "set out means laid out in a new way, so these letters are rearranged"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "one piece follows the other in the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "villain",
-      "gives": "CAD",
-      "note": "a cad is a dishonourable man"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAD",
-      "ETS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "SET",
-       "gives": "ETS"
+       "text": "after",
+       "note": "one piece follows the other in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "villain",
+       "gives": "CAD",
+       "note": "a cad is a dishonourable man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "set out means laid out in a new way, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "note": "the anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1612,48 +1404,44 @@
    },
    "solution": "DELHI",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DELHI",
     "definitions": [
      {
       "text": "Indian city",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "deletion",
-      "note": "the leaders of a word are its front letters, so only those are kept"
-     },
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down entry, a piece supporting another sits below it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "delegate",
-      "gives": "DEL",
-      "note": "del. is a standard abbreviation for delegate"
-     },
-     {
-      "clueFragment": "Hindu",
-      "gives": "HINDU",
-      "note": "taken as written; only its first two letters survive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEL",
-      "HI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaders",
+       "note": "the leaders of a word are its front letters, so only those are kept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "supporting",
+         "note": "in a down entry, a piece supporting another sits below it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delegate",
+         "gives": "DEL",
+         "note": "del. is a standard abbreviation for delegate"
+        },
+        {
+         "words": "Hindu",
+         "note": "taken as written; only its first two letters survive"
+        }
+       ]
+      },
+      {
+       "gives": "NDU"
+      }
      ]
     },
     "explanation": {
@@ -1688,60 +1476,48 @@
    },
    "solution": "CHRISTMASISLAND",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CHRISTMAS ISLAND",
     "definitions": [
      {
       "text": "somewhere in the Indian Ocean",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "something broken is smashed apart, so these letters are put back in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "CHRIS",
-      "note": "a man's name, any fellow"
-     },
-     {
-      "clueFragment": "mast",
-      "gives": "MAST",
-      "note": "the anagram fodder"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to come ashore",
-      "gives": "LAND",
-      "note": "to land is to come ashore"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHRIS",
-      "TMAS",
-      "IS",
-      "LAND"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MAST",
-       "gives": "TMAS"
+       "words": "Fellow",
+       "gives": "CHRIS",
+       "note": "a man's name, any fellow"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "note": "something broken is smashed apart, so these letters are put back in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mast",
+           "note": "the anagram fodder"
+          },
+          {
+           "words": "is",
+           "note": "taken as written"
+          },
+          {
+           "words": "to come ashore",
+           "gives": "LAND",
+           "note": "to land is to come ashore"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1771,10 +1547,6 @@
    },
    "solution": "SIENNA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SIENNA",
     "definitions": [
      {
       "text": "Italian city",
@@ -1782,25 +1554,18 @@
       "note": "the city is now usually spelt Siena; sienna is the earth pigment named after it"
      }
     ],
-    "indicators": [
-     {
-      "text": "going round",
-      "for": "anagram",
-      "note": "letters going round are swirled about and land in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Anne is",
-      "gives": "ANNEIS",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANNEIS",
-       "gives": "SIENNA"
+       "text": "going round",
+       "note": "letters going round are swirled about and land in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anne is",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -1830,38 +1595,24 @@
    },
    "solution": "EGOIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EGOIST",
     "definitions": [
      {
       "text": "self-centred person",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "annoyed",
-      "for": "anagram",
-      "note": "an annoyed person is ruffled and disturbed, so these letters are stirred up"
-     }
-    ],
-    "linkWords": [
-     "seeing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I get so",
-      "gives": "IGETSO",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IGETSO",
-       "gives": "EGOIST"
+       "text": "annoyed",
+       "note": "an annoyed person is ruffled and disturbed, so these letters are stirred up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I get so",
+       "note": "the anagram fodder"
       }
      ]
     },

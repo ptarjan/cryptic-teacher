@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1106",
  "number": 1106,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,106",
  "setter": "Anto",
  "date": "2021-01-25",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "CHEESE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CHEESE",
     "definitions": [
      {
       "text": "It can raise a smile — even when blue?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It can raise a smile",
-      "note": "surface reading: a joke or a funny sight that makes someone grin, even a risqué blue one"
-     },
-     {
-      "clueFragment": "even when blue?",
-      "note": "setter's reading: the word photographers ask you to say, and also a food that can come in blue-veined varieties like Stilton"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It can raise a smile",
+       "note": "surface reading: a joke or a funny sight that makes someone grin, even a risqué blue one"
+      },
+      {
+       "words": "even when blue?",
+       "note": "setter's reading: the word photographers ask you to say, and also a food that can come in blue-veined varieties like Stilton"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A wry remark that a joke can still get a laugh even when it is smutty.",
      "walkthrough": "Blue here first suggests a rude joke, but the thing meant is also a dairy product with a famous blue-veined kind.",
@@ -85,41 +82,30 @@
    },
    "solution": "CHICAGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHICAGO",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "linkWords": [
-     "provides"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stylish",
-      "gives": "CHIC",
-      "note": "fashionable and elegant"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is the abbreviation for area"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "GO",
-      "note": "to go is to work or function, as a machine does"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIC",
-      "A",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stylish",
+       "gives": "CHIC",
+       "note": "fashionable and elegant"
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is the abbreviation for area"
+      },
+      {
+       "words": "work",
+       "gives": "GO",
+       "note": "to go is to work or function, as a machine does"
+      }
      ]
     },
     "explanation": {
@@ -153,37 +139,28 @@
    },
    "solution": "ECOLI",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "E COLI",
     "definitions": [
      {
       "text": "Foremost of experts consulted on lingering infection source",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Foremost of",
-      "for": "letter_selection",
-      "note": "foremost means at the very front, so the opening letter of each following word is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "experts consulted on lingering infection",
-      "gives": "ECOLI",
-      "select": "first",
-      "note": "the first letters of these five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECOLI"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Foremost of",
+       "note": "foremost means at the very front, so the opening letter of each following word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "experts consulted on lingering infection",
+       "note": "the first letters of these five words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Leading specialists are called in about where a persistent illness comes from.",
      "walkthrough": "The whole clue doubles as the definition: what experts would be asked about is the bacterium behind an infection.",
@@ -210,49 +187,41 @@
    },
    "solution": "STAGGER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "STAGGER",
     "definitions": [
      {
       "text": "shake",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "fed with",
-      "for": "container",
-      "note": "being fed with something means taking it inside, so one word goes into the other"
-     },
-     {
-      "text": "Climbing",
-      "for": "reversal",
-      "note": "in a down clue climbing means going upward, so the combined letters are read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rodents",
-      "gives": "RATS",
-      "note": "rats are rodents"
-     },
-     {
-      "clueFragment": "form of protein",
-      "gives": "EGG",
-      "note": "an egg is a common source of protein"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAGGER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REGGATS",
-       "to": "STAGGER"
+       "text": "Climbing",
+       "note": "in a down clue climbing means going upward, so the combined letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "fed with",
+         "note": "being fed with something means taking it inside, so one word goes into the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rodents",
+         "gives": "RATS",
+         "note": "rats are rodents"
+        },
+        {
+         "words": "form of protein",
+         "gives": "EGG",
+         "note": "an egg is a common source of protein"
+        }
+       ]
       }
      ]
     },
@@ -282,31 +251,29 @@
    },
    "solution": "CAESAR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CAESAR",
     "definitions": [
      {
       "text": "an emperor",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding like",
-      "for": "homophone",
-      "note": "the phrase asks us to say the words before it out loud and listen to what they resemble"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get that woman",
-      "gives": "CAESAR",
-      "soundsLike": "SEIZE HER",
-      "note": "to get is to seize, and that woman is her"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CAESAR",
+     "indicators": [
+      {
+       "text": "sounding like",
+       "note": "the phrase asks us to say the words before it out loud and listen to what they resemble"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get that woman",
+       "gives": "SEIZEHER",
+       "note": "to get is to seize, and that woman is her"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone urges catching a woman whose voice or manner is as grand as royalty.",
      "definitionFit": "Julius's family name became the title taken by Roman rulers, so it serves as a word for an imperial monarch."
@@ -333,48 +300,48 @@
    },
    "solution": "ACROSS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ACROSS",
     "definitions": [
      {
       "text": "from one side to the other",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Essential",
-      "for": "letter_selection",
-      "note": "the essence of something is its core, so the central letters of each word are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fact",
-      "gives": "AC",
-      "select": "middle",
-      "note": "the two central letters"
-     },
-     {
-      "clueFragment": "jurors",
-      "gives": "RO",
-      "select": "middle",
-      "note": "the two central letters"
-     },
-     {
-      "clueFragment": "missed",
-      "gives": "SS",
-      "select": "middle",
-      "note": "the two central letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "RO",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Essential",
+         "note": "the essence of something is its core, so the central letters of each word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fact",
+         "note": "the two central letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "jurors",
+         "note": "the two central letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "missed",
+         "note": "the two central letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -402,39 +369,28 @@
    },
    "solution": "SUPERNOVA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "SUPERNOVA",
     "definitions": [
      {
       "text": "Prove a sun exploded like this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exploded",
-      "for": "anagram",
-      "note": "an explosion scatters the pieces, so the preceding letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prove a sun",
-      "gives": "PROVEASUN",
-      "note": "the nine letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PROVEASUN",
-       "gives": "SUPERNOVA"
+       "text": "exploded",
+       "note": "an explosion scatters the pieces, so the preceding letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prove a sun",
+       "note": "the nine letters to be rearranged"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An astronomer's challenge to demonstrate that a star blew up in this way.",
      "walkthrough": "The whole clue is the definition too: a star's explosion is exactly what the answer names.",
@@ -461,51 +417,40 @@
    },
    "solution": "REALITY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "REALITY",
     "definitions": [
      {
       "text": "Truth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rough",
-      "for": "anagram",
-      "note": "rough means unpolished or approximate, so the next word's letters are jumbled"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "year",
-      "gives": "YEAR",
-      "note": "taken as written, before rearranging"
-     },
-     {
-      "clueFragment": "illuminated",
-      "gives": "LIT",
-      "note": "lit means lit up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REA",
-      "LIT",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "YEAR",
-       "gives": "REAY"
+       "text": "in",
+       "note": "in means placed inside, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rough",
+         "note": "rough means unpolished or approximate, so the next word's letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "year",
+         "note": "taken as written, before rearranging"
+        }
+       ]
+      },
+      {
+       "words": "illuminated",
+       "gives": "LIT",
+       "note": "lit means lit up"
       }
      ]
     },
@@ -544,28 +489,16 @@
    },
    "solution": "NOGREATSHAKES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NO GREAT SHAKES",
     "definitions": [
      {
       "text": "Unimpressive",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an idiom for mediocre or not very good"
      },
      {
       "text": "report of minor earthquake",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unimpressive",
-      "note": "first meaning: an idiom for mediocre or not very good"
-     },
-     {
-      "clueFragment": "report of minor earthquake",
-      "note": "second meaning taken literally: a seismic event without strong tremors"
+      "at": 13,
+      "meaning": "second meaning taken literally: a seismic event without strong tremors"
      }
     ],
     "explanation": {
@@ -594,43 +527,31 @@
    },
    "solution": "BIRO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BIRO",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece wraps around the other"
-     }
-    ],
-    "linkWords": [
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "life story",
-      "gives": "BIO",
-      "note": "short for biography"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "R",
-      "note": "R for Regina, Latin for queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "R",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so one piece wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "life story",
+       "gives": "BIO",
+       "note": "short for biography"
+      },
+      {
+       "words": "queen",
+       "gives": "R",
+       "note": "R for Regina, Latin for queen"
+      }
      ]
     },
     "explanation": {
@@ -659,38 +580,24 @@
    },
    "solution": "APOCRYPHAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APOCRYPHAL",
     "definitions": [
      {
       "text": "That may not be true",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "something damaged is knocked out of shape, so the letters before it get rearranged"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Happy coral",
-      "gives": "HAPPYCORAL",
-      "note": "the ten letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HAPPYCORAL",
-       "gives": "APOCRYPHAL"
+       "text": "damaged",
+       "note": "something damaged is knocked out of shape, so the letters before it get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Happy coral",
+       "note": "the ten letters to be rearranged"
       }
      ]
     },
@@ -719,42 +626,31 @@
    },
    "solution": "WANING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "WANING",
     "definitions": [
      {
       "text": "on the decline",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "out means removed, so that letter leaves the longer word"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In need of",
-      "gives": "WANTING",
-      "note": "lacking or needing something"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAN",
-      "ING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "note": "out means removed, so that letter leaves the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In need of",
+       "gives": "WANTING",
+       "note": "lacking or needing something"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the standard abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -783,32 +679,25 @@
    },
    "solution": "RESTRAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESTRAIN",
     "definitions": [
      {
       "text": "Check",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "again",
-      "gives": "RE",
-      "note": "the prefix meaning again"
-     },
-     {
-      "clueFragment": "pressure",
-      "gives": "STRAIN",
-      "note": "strain is stress or pressure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "STRAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "again",
+       "gives": "RE",
+       "note": "the prefix meaning again"
+      },
+      {
+       "words": "pressure",
+       "gives": "STRAIN",
+       "note": "strain is stress or pressure"
+      }
      ]
     },
     "explanation": {
@@ -843,38 +732,24 @@
    },
    "solution": "HOTSTREAK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HOT STREAK",
     "definitions": [
      {
       "text": "very successful run",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Fantastic",
-      "for": "anagram",
-      "note": "fantastic means wildly fanciful, so the following letters are rearranged into an unrecognisable form"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shot taker",
-      "gives": "SHOTTAKER",
-      "note": "the nine letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHOTTAKER",
-       "gives": "HOTSTREAK"
+       "text": "Fantastic",
+       "note": "fantastic means wildly fanciful, so the following letters are rearranged into an unrecognisable form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shot taker",
+       "note": "the nine letters to be rearranged"
       }
      ]
     },
@@ -910,32 +785,25 @@
    },
    "solution": "SHOWTRIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHOW TRIAL",
     "definitions": [
      {
       "text": "test that guarantees conviction",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Demonstrate",
-      "gives": "SHOW",
-      "note": "to show is to demonstrate"
-     },
-     {
-      "clueFragment": "test",
-      "gives": "TRIAL",
-      "note": "a trial is a test"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHOW",
-      "TRIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Demonstrate",
+       "gives": "SHOW",
+       "note": "to show is to demonstrate"
+      },
+      {
+       "words": "test",
+       "gives": "TRIAL",
+       "note": "a trial is a test"
+      }
      ]
     },
     "explanation": {
@@ -965,45 +833,34 @@
    },
    "solution": "FOXY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "FOXY",
     "definitions": [
      {
       "text": "Sly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "a return goes back the way it came, so the short word after it is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of",
-      "gives": "OF",
-      "note": "taken as written, then turned round"
-     },
-     {
-      "clueFragment": "axes",
-      "gives": "XY",
-      "note": "the x and y axes of a graph"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "XY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OF",
-       "to": "FO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "a return goes back the way it came, so the short word after it is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "note": "taken as written, then turned round"
+        }
+       ]
+      },
+      {
+       "words": "axes",
+       "gives": "XY",
+       "note": "the x and y axes of a graph"
       }
      ]
     },
@@ -1034,41 +891,31 @@
    },
    "solution": "GOOF",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GOOF",
     "definitions": [
      {
       "text": "a mistake",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "without full",
-      "for": "deletion",
-      "note": "without the full amount means something is dropped, so one letter of the doubled pair goes"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Explode",
-      "gives": "GOOFF",
-      "note": "to explode, as a bomb does"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "F",
-      "note": "F is the physics symbol for force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOOF"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without full",
+       "note": "without the full amount means something is dropped, so one letter of the doubled pair goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Explode",
+       "gives": "GOOFF",
+       "note": "to explode, as a bomb does"
+      },
+      {
+       "words": "force",
+       "gives": "F",
+       "note": "F is the physics symbol for force"
+      }
      ]
     },
     "explanation": {
@@ -1097,51 +944,40 @@
    },
    "solution": "GELDING",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GELDING",
     "definitions": [
      {
       "text": "horse, lacking cojones",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out means put out of place, so the letters of the word before it are rearranged"
-     },
-     {
-      "text": "to break",
-      "for": "container",
-      "note": "breaking into something means getting inside it, so one piece is placed within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lined",
-      "gives": "LINED",
-      "note": "taken as written, before rearranging"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "GG",
-      "note": "gee-gee is a childish word for a horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ELDIN",
-      "G"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LINED",
-       "gives": "ELDIN"
+       "text": "to break",
+       "note": "breaking into something means getting inside it, so one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "horse",
+       "gives": "GG",
+       "note": "gee-gee is a childish word for a horse"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out means put out of place, so the letters of the word before it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lined",
+         "note": "taken as written, before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1172,35 +1008,24 @@
    },
    "solution": "ESCALATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESCALATOR",
     "definitions": [
      {
       "text": "it gets things moving",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminal",
-      "for": "anagram",
-      "note": "criminal means wrong or crooked, so the letters that follow are bent out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stole a car",
-      "gives": "STOLEACAR",
-      "note": "the nine letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STOLEACAR",
-       "gives": "ESCALATOR"
+       "text": "Criminal",
+       "note": "criminal means wrong or crooked, so the letters that follow are bent out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stole a car",
+       "note": "the nine letters to be rearranged"
       }
      ]
     },
@@ -1231,38 +1056,29 @@
    },
    "solution": "ABANDON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABANDON",
     "definitions": [
      {
       "text": "Surrender",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "group",
-      "gives": "BAND",
-      "note": "a musical group"
-     },
-     {
-      "clueFragment": "performing",
-      "gives": "ON",
-      "note": "on stage, as performers are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BAND",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "group",
+       "gives": "BAND",
+       "note": "a musical group"
+      },
+      {
+       "words": "performing",
+       "gives": "ON",
+       "note": "on stage, as performers are"
+      }
      ]
     },
     "explanation": {
@@ -1291,48 +1107,34 @@
    },
    "solution": "ORDERED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ORDERED",
     "definitions": [
      {
       "text": "booked",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone wrong, so the letters of the word before it are disordered"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rode",
-      "gives": "RODE",
-      "note": "taken as written, before rearranging"
-     },
-     {
-      "clueFragment": "embarrassed",
-      "gives": "RED",
-      "note": "red-faced with embarrassment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORDE",
-      "RED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RODE",
-       "gives": "ORDE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "off means gone wrong, so the letters of the word before it are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rode",
+         "note": "taken as written, before rearranging"
+        }
+       ]
+      },
+      {
+       "words": "embarrassed",
+       "gives": "RED",
+       "note": "red-faced with embarrassment"
       }
      ]
     },
@@ -1362,26 +1164,25 @@
    },
    "solution": "LODGER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LODGER",
     "definitions": [
      {
       "text": "One can be taken in with room to spare",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One can be taken in with room to spare",
-      "note": "surface reading: something easily absorbed or fooled with plenty of margin left"
-     },
-     {
-      "clueFragment": "taken in",
-      "note": "setter's reading: a person given accommodation, who pays to occupy a householder's spare bedroom"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One can be taken in with room to spare",
+       "note": "surface reading: something easily absorbed or fooled with plenty of margin left"
+      },
+      {
+       "words": "taken in",
+       "note": "setter's reading: a person given accommodation, who pays to occupy a householder's spare bedroom"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is easily deceived, with capacity left over.",
      "walkthrough": "Taken in sounds like deceived and room to spare like a wide margin; both are literal here, a person housed in a spare room.",
@@ -1409,40 +1210,31 @@
    },
    "solution": "PLETHORA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLETHORA",
     "definitions": [
      {
       "text": "a lot",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "is into",
-      "for": "container",
-      "note": "one thing being into another means it sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prayer",
-      "gives": "PLEA",
-      "note": "an earnest request or appeal"
-     },
-     {
-      "clueFragment": "God",
-      "gives": "THOR",
-      "note": "the Norse god of thunder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLE",
-      "THOR",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is into",
+       "note": "one thing being into another means it sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prayer",
+       "gives": "PLEA",
+       "note": "an earnest request or appeal"
+      },
+      {
+       "words": "God",
+       "gives": "THOR",
+       "note": "the Norse god of thunder"
+      }
      ]
     },
     "explanation": {
@@ -1471,41 +1263,30 @@
    },
    "solution": "AGENDA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGENDA",
     "definitions": [
      {
       "text": "Schedule",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a period of time"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "father",
-      "gives": "DA",
-      "note": "an informal word for dad"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGE",
-      "N",
-      "DA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "time",
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "father",
+       "gives": "DA",
+       "note": "an informal word for dad"
+      }
      ]
     },
     "explanation": {
@@ -1533,10 +1314,6 @@
    },
    "solution": "ETHER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ETHER",
     "definitions": [
      {
       "text": "might knock you out",
@@ -1544,29 +1321,25 @@
       "note": "a noun defined by what it does"
      }
     ],
-    "indicators": [
-     {
-      "text": "Lacking",
-      "for": "deletion",
-      "note": "lacking means without, so the abbreviation that follows is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "information",
-      "gives": "I",
-      "note": "I is the abbreviation for information, as on tourist signs"
-     },
-     {
-      "clueFragment": "one or the other",
-      "gives": "EITHER",
-      "note": "either means one or the other of two"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "THER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lacking",
+       "note": "lacking means without, so the abbreviation that follows is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one or the other",
+       "gives": "EITHER",
+       "note": "either means one or the other of two"
+      },
+      {
+       "words": "information",
+       "gives": "I",
+       "note": "I is the abbreviation for information, as on tourist signs"
+      }
      ]
     },
     "explanation": {
@@ -1601,31 +1374,16 @@
    },
    "solution": "LIVINGDEAD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LIVING DEAD",
     "definitions": [
      {
       "text": "Schrödinger's cat, perhaps",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the thought-experiment cat that is both alive and deceased at once"
      },
      {
       "text": "a zombie",
-      "at": 39
-     }
-    ],
-    "linkWords": [
-     "reduced to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Schrödinger's cat, perhaps",
-      "note": "first meaning: the thought-experiment cat that is both alive and deceased at once"
-     },
-     {
-      "clueFragment": "a zombie",
-      "note": "second meaning: the undead of horror films"
+      "at": 39,
+      "meaning": "second meaning: the undead of horror films"
      }
     ],
     "explanation": {
@@ -1655,42 +1413,39 @@
    },
    "solution": "HERE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HERE",
     "definitions": [
      {
       "text": "in this place",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "decentralised",
-      "for": "letter_selection",
-      "note": "with the centres taken away, only the outside letters of each word remain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Home",
-      "gives": "HE",
-      "select": "outer",
-      "note": "first and last letters of the word"
-     },
-     {
-      "clueFragment": "rule",
-      "gives": "RE",
-      "select": "outer",
-      "note": "first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "decentralised",
+         "note": "with the centres taken away, only the outside letters of each word remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Home",
+         "note": "first and last letters of the word"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "rule",
+         "note": "first and last letters of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1719,11 +1474,6 @@
    },
    "solution": "GALORE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "GALORE",
     "definitions": [
      {
       "text": "plenty of it",
@@ -1731,38 +1481,29 @@
       "note": "the answer is an adjective placed after a noun, meaning in abundance"
      }
     ],
-    "indicators": [
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "something that returns goes back, so the word for convict is read backwards"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Convict",
-      "gives": "LAG",
-      "note": "an old lag is British slang for a long-serving prisoner"
-     },
-     {
-      "clueFragment": "mineral",
-      "gives": "ORE",
-      "note": "rock from which metal is extracted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAL",
-      "ORE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LAG",
-       "to": "GAL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "something that returns goes back, so the word for convict is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Convict",
+         "gives": "LAG",
+         "note": "an old lag is British slang for a long-serving prisoner"
+        }
+       ]
+      },
+      {
+       "words": "mineral",
+       "gives": "ORE",
+       "note": "rock from which metal is extracted"
       }
      ]
     },
@@ -1791,39 +1532,31 @@
    },
    "solution": "INURED",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INURED",
     "definitions": [
      {
       "text": "Seasoned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the judge leaving means that letter departs from the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "judge",
-      "gives": "J",
-      "note": "J is the abbreviation for judge"
-     },
-     {
-      "clueFragment": "hurt",
-      "gives": "INJURED",
-      "note": "wounded or harmed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INU",
-      "RED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the judge leaving means that letter departs from the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hurt",
+       "gives": "INJURED",
+       "note": "wounded or harmed"
+      },
+      {
+       "words": "judge",
+       "gives": "J",
+       "note": "J is the abbreviation for judge"
+      }
      ]
     },
     "explanation": {

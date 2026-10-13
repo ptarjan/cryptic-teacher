@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30113",
  "number": 30113,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,113",
  "setter": "Dice",
  "date": "2026-09-16",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "CAKE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CAKE",
     "definitions": [
      {
       "text": "It could be rock, marble or maybe even mud?!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It could be rock, marble",
-      "note": "the surface offers two things a quarry cuts, hard materials you might build or carve with"
-     },
-     {
-      "clueFragment": "or maybe even mud?!",
-      "note": "mud is the one nobody builds with, and the exclamation mark is the setter enjoying the moment the list stops being geology"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It could be rock, marble",
+       "note": "the surface offers two things a quarry cuts, hard materials you might build or carve with"
+      },
+      {
+       "words": "or maybe even mud?!",
+       "note": "mud is the one nobody builds with, and the exclamation mark is the setter enjoying the moment the list stops being geology"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone guessing what an unidentified lump of material might turn out to be made of.",
      "walkthrough": "Rock and marble keep company as things a quarry cuts, and mud is the one that will not sit with them, which is the tell. The tea-room shelf, not the stoneyard, is where all three turn up together.",
@@ -85,34 +82,39 @@
    },
    "solution": "DAFFODIL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "DAFFODIL",
     "definitions": [
      {
       "text": "flower",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Lifted",
-      "note": "In a down entry anything lifted travels up the column, so the run of letters is read from its foot back to its head."
-     },
-     {
-      "text": "part of",
-      "note": "Part of something is a stretch taken out of the middle of it, which is where these letters are sitting."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chrysalid off a dying",
-      "gives": "DAFFODIL",
-      "note": "the run chrysa-LID OFF A D-ying, eight consecutive letters read back up the column"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Lifted",
+       "note": "In a down entry anything lifted travels up the column, so the run of letters is read from its foot back to its head."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part of",
+         "note": "Part of something is a stretch taken out of the middle of it, which is where these letters are sitting."
+        }
+       ],
+       "parts": [
+        {
+         "words": "chrysalid off a dying",
+         "gives": "LIDOFFAD",
+         "note": "the run chrysa-LID OFF A D-ying, eight consecutive letters read back up the column"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Part of a chrysalis being lifted off a flower that is on its way out.",
      "walkthrough": "'A dying flower' reads as one sad phrase and is two jobs: 'dying' hands over the D the run ends on, and only the last word defines. A chrysalid is the pupa a caterpillar shuts itself into.",
@@ -139,57 +141,62 @@
    },
    "solution": "VALLEY",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "VALLEY",
     "definitions": [
      {
       "text": "Cwm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cleared out",
-      "note": "A room cleared out has had everything between its walls removed, so the word keeps only the letters at its two ends."
-     },
-     {
-      "text": "to welcome",
-      "note": "To welcome people is to take them in through your door, so they end up inside rather than alongside."
-     },
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "The back of a word is the end of it, and that final letter is all this asks for."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "venue cleared out",
-      "gives": "VE",
-      "select": "outer",
-      "note": "VENUE emptied of everything between its first and last letters"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "everyone there is all of them"
-     },
-     {
-      "clueFragment": "back from Hay",
-      "gives": "Y",
-      "note": "the back letter of Hay, the book-festival town on the Welsh border"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ALL",
-      "E",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "cleared out",
+       "note": "A room cleared out has had everything between its walls removed, so the word keeps only the letters at its two ends."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to welcome",
+         "note": "To welcome people is to take them in through your door, so they end up inside rather than alongside."
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "VE",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "The back of a word is the end of it, and that final letter is all this asks for."
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "venue cleared out",
+           "gives": "VE",
+           "select": "outer",
+           "note": "VENUE emptied of everything between its first and last letters"
+          }
+         ]
+        },
+        {
+         "words": "everyone",
+         "gives": "ALL",
+         "note": "everyone there is all of them"
+        }
+       ]
+      },
+      {
+       "words": "back from Hay",
+       "gives": "Y",
+       "note": "the back letter of Hay, the book-festival town on the Welsh border"
+      }
      ]
     },
     "explanation": {
@@ -218,49 +225,41 @@
    },
    "solution": "MALLARDS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "MALLARDS",
     "definitions": [
      {
       "text": "swimmers",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "After capsizing",
-      "note": "A capsized boat has gone completely over, and in a down entry letters turned that way are read up the column instead of down."
-     },
-     {
-      "text": "involving",
-      "note": "To involve someone is to draw them into the middle of the business, so these letters sit inside the others."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "criticise",
-      "gives": "MALS",
-      "note": "to criticise is to slam, and SLAM turned upside down reads this way"
-     },
-     {
-      "clueFragment": "fat",
-      "gives": "LARD",
-      "note": "lard is the fat rendered from a pig"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAL",
-      "LARD",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MALLARDS",
+     "parts": [
       {
-       "from": "SLAM",
-       "to": "MALS"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "After capsizing",
+         "note": "A capsized boat has gone completely over, and in a down entry letters turned that way are read up the column instead of down."
+        },
+        {
+         "text": "involving",
+         "note": "To involve someone is to draw them into the middle of the business, so these letters sit inside the others."
+        }
+       ],
+       "parts": [
+        {
+         "words": "criticise",
+         "gives": "MALS",
+         "note": "to criticise is to slam, and SLAM turned upside down reads this way"
+        },
+        {
+         "words": "fat",
+         "gives": "LARD",
+         "note": "lard is the fat rendered from a pig"
+        }
+       ]
       }
      ]
     },
@@ -290,45 +289,36 @@
    },
    "solution": "DRAGON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRAGON",
     "definitions": [
      {
       "text": "fire-breather",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "charade",
-      "note": "In a down entry the top is where the word starts, so only its first letter is taken."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "DR",
-      "note": "the two letters on any doctor's brass plate"
-     },
-     {
-      "clueFragment": "in the past",
-      "gives": "AGO",
-      "note": "something in the past happened a while ago"
-     },
-     {
-      "clueFragment": "Neath's",
-      "gives": "N",
-      "note": "the first letter of Neath, a town in south Wales"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "AGO",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "top",
+       "note": "In a down entry the top is where the word starts, so only its first letter is taken."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doctor",
+       "gives": "DR",
+       "note": "the two letters on any doctor's brass plate"
+      },
+      {
+       "words": "in the past",
+       "gives": "AGO",
+       "note": "something in the past happened a while ago"
+      },
+      {
+       "words": "Neath's",
+       "gives": "N",
+       "note": "the first letter of Neath, a town in south Wales"
+      }
      ]
     },
     "explanation": {
@@ -357,48 +347,35 @@
    },
    "solution": "PORT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PORT",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "masking",
-      "for": "container",
-      "note": "To mask a thing is to cover it over, so what is named next disappears inside the letters named before."
-     },
-     {
-      "text": "onset of",
-      "for": "container",
-      "note": "The onset of something is the moment it begins, and a word begins with its first letter."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drugs",
-      "gives": "POT",
-      "note": "pot is the oldest slang for cannabis, and the word opens after its second letter"
-     },
-     {
-      "clueFragment": "rheumatism",
-      "gives": "R",
-      "note": "the letter rheumatism starts with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "R",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "masking",
+       "note": "To mask a thing is to cover it over, so what is named next disappears inside the letters named before."
+      },
+      {
+       "text": "onset of",
+       "note": "The onset of something is the moment it begins, and a word begins with its first letter."
+      }
+     ],
+     "parts": [
+      {
+       "words": "drugs",
+       "gives": "POT",
+       "note": "pot is the oldest slang for cannabis, and the word opens after its second letter"
+      },
+      {
+       "words": "rheumatism",
+       "gives": "R",
+       "note": "the letter rheumatism starts with"
+      }
      ]
     },
     "explanation": {
@@ -427,26 +404,25 @@
    },
    "solution": "CARAVAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CARAVAN",
     "definitions": [
      {
       "text": "Rolling pad?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Rolling",
-      "note": "the surface suggests rolling country or a rolling gait; the setter means running along on its own wheels"
-     },
-     {
-      "clueFragment": "pad?",
-      "note": "pad is slang for the place you live, and the question mark admits it is a dwelling of a very particular sort"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Rolling",
+       "note": "the surface suggests rolling country or a rolling gait; the setter means running along on its own wheels"
+      },
+      {
+       "words": "pad?",
+       "note": "pad is slang for the place you live, and the question mark admits it is a dwelling of a very particular sort"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A pad is where you live, the slang of anyone who has had a flat, and the joke is that this one is towed. Two words and a question mark is the whole clue, so all of it has to be read twice.",
      "definitionFit": "A caravan is a home on wheels, so it is a pad in the slang sense and a rolling one in the literal sense at the same time."
@@ -473,43 +449,31 @@
    },
    "solution": "PATRIOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PATRIOT",
     "definitions": [
      {
       "text": "Country lover",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught by",
-      "for": "container",
-      "note": "Anything caught by someone is held fast in their grip, so it ends up enclosed by the letters named after it."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "postman",
-      "gives": "PAT",
-      "note": "Postman Pat, the children's television postman every British household knows, and the name opens after its second letter"
-     },
-     {
-      "clueFragment": "threesome",
-      "gives": "TRIO",
-      "note": "three musicians playing together are a trio"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "TRIO",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "note": "Anything caught by someone is held fast in their grip, so it ends up enclosed by the letters named after it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "postman",
+       "gives": "PAT",
+       "note": "Postman Pat, the children's television postman every British household knows, and the name opens after its second letter"
+      },
+      {
+       "words": "threesome",
+       "gives": "TRIO",
+       "note": "three musicians playing together are a trio"
+      }
      ]
     },
     "explanation": {
@@ -539,12 +503,6 @@
    },
    "solution": "SELF",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "SELF",
     "definitions": [
      {
       "text": "Will the author",
@@ -552,33 +510,42 @@
       "note": "The definition names a man instead of describing a thing: given his first name and his trade, the answer is the surname that completes him."
      }
     ],
-    "indicators": [
-     {
-      "text": "incomplete",
-      "note": "Something incomplete stops before it should, so the word is written out a letter short."
-     },
-     {
-      "text": "bit of",
-      "note": "A bit of a word is a fragment of it, and the fragment a clue takes without further explanation is the letter it starts with."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flog",
-      "gives": "SEL",
-      "note": "to flog something is to sell it, cut short of its last letter"
-     },
-     {
-      "clueFragment": "fiction",
-      "gives": "F",
-      "select": "first",
-      "note": "the letter fiction begins with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEL",
-      "F"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SELF",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "note": "Something incomplete stops before it should, so the word is written out a letter short."
+        }
+       ],
+       "parts": [
+        {
+         "words": "flog",
+         "gives": "SEL",
+         "note": "to flog something is to sell it, cut short of its last letter"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "note": "A bit of a word is a fragment of it, and the fragment a clue takes without further explanation is the letter it starts with."
+          }
+         ],
+         "parts": [
+          {
+           "words": "fiction",
+           "note": "the letter fiction begins with"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -608,47 +575,35 @@
    },
    "solution": "LAMPLIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAMPLIGHT",
     "definitions": [
      {
       "text": "Artificial glow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "naked",
-      "for": "charade",
-      "note": "Naked is stripped of everything worn on the outside, so the word loses the letters at either end and keeps its middle."
-     },
-     {
-      "text": "ahead",
-      "for": "charade",
-      "note": "Ahead is in front, so the piece just named is written before the other one."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flame",
-      "gives": "LAM",
-      "note": "FLAME with the letters at its two ends taken off"
-     },
-     {
-      "clueFragment": "hole",
-      "gives": "PLIGHT",
-      "note": "to be in a hole is to be in a plight, both of them awkward spots to be in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAM",
-      "PLIGHT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "naked",
+       "note": "Naked is stripped of everything worn on the outside, so the word loses the letters at either end and keeps its middle."
+      },
+      {
+       "text": "ahead",
+       "note": "Ahead is in front, so the piece just named is written before the other one."
+      }
+     ],
+     "parts": [
+      {
+       "words": "flame",
+       "gives": "LAM",
+       "note": "FLAME with the letters at its two ends taken off"
+      },
+      {
+       "words": "hole",
+       "gives": "PLIGHT",
+       "note": "to be in a hole is to be in a plight, both of them awkward spots to be in"
+      }
      ]
     },
     "explanation": {
@@ -677,43 +632,31 @@
    },
    "solution": "MUMBLINGS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MUMBLINGS",
     "definitions": [
      {
       "text": "Stifled complaints",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "confiscated by",
-      "for": "container",
-      "note": "What is confiscated is taken off you and shut away by somebody else, so these letters end up locked inside the others."
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parents",
-      "gives": "MUMS",
-      "note": "mums are parents, and the word opens after its third letter"
-     },
-     {
-      "clueFragment": "flashy jewellery",
-      "gives": "BLING",
-      "note": "bling is the slang for showy gold and diamonds worn to be noticed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUM",
-      "BLING",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "confiscated by",
+       "note": "What is confiscated is taken off you and shut away by somebody else, so these letters end up locked inside the others."
+      }
+     ],
+     "parts": [
+      {
+       "words": "parents",
+       "gives": "MUMS",
+       "note": "mums are parents, and the word opens after its third letter"
+      },
+      {
+       "words": "flashy jewellery",
+       "gives": "BLING",
+       "note": "bling is the slang for showy gold and diamonds worn to be noticed"
+      }
      ]
     },
     "explanation": {
@@ -742,11 +685,6 @@
    },
    "solution": "CADDY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CADDY",
     "definitions": [
      {
       "text": "leaves box",
@@ -754,33 +692,35 @@
       "note": "'Leaves box' is not a dictionary phrase but a description built on the spot, which is what the question mark owns; the leaves are tea."
      }
     ],
-    "indicators": [
-     {
-      "text": "Backs off",
-      "note": "The back of a word is its last letter, and taking the backs off two words leaves exactly those two letters."
-     },
-     {
-      "text": "after",
-      "note": "After places the piece just named behind the one described next, so it comes second in the finished answer."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scoundrel",
-      "gives": "CAD",
-      "note": "a cad is a scoundrel, the old word for a man who treats people badly"
-     },
-     {
-      "clueFragment": "homeward rapidly",
-      "gives": "DY",
-      "select": "last",
-      "note": "the last letter of each word, in the order the clue gives them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAD",
-      "DY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Backs off",
+       "note": "The back of a word is its last letter, and taking the backs off two words leaves exactly those two letters."
+      }
+     ],
+     "parts": [
+      {
+       "words": "scoundrel",
+       "gives": "CAD",
+       "note": "a cad is a scoundrel, the old word for a man who treats people badly"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "After places the piece just named behind the one described next, so it comes second in the finished answer."
+        }
+       ],
+       "parts": [
+        {
+         "words": "homeward rapidly",
+         "note": "the last letter of each word, in the order the clue gives them"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -809,43 +749,31 @@
    },
    "solution": "COAST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COAST",
     "definitions": [
      {
       "text": "progress without much effort",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "receiving",
-      "for": "container",
-      "note": "To receive something is to take it in, so the letter named next is admitted inside."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Players",
-      "gives": "CAST",
-      "note": "the players in a production are its cast, and the word opens after its first letter"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "nothing is the round O of a nought on a scoresheet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "O",
-      "AST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "note": "To receive something is to take it in, so the letter named next is admitted inside."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Players",
+       "gives": "CAST",
+       "note": "the players in a production are its cast, and the word opens after its first letter"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "nothing is the round O of a nought on a scoresheet"
+      }
      ]
     },
     "explanation": {
@@ -874,11 +802,6 @@
    },
    "solution": "MARINARA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "MARINARA",
     "definitions": [
      {
       "text": "saucy thing",
@@ -886,38 +809,35 @@
       "note": "Saucy normally means cheeky, and the setter is using it in the literal sense of 'being a sauce', which the exclamation mark owns."
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "note": "Turned over, a word lies the other way up, so the letters just named are written from last to first."
-     },
-     {
-      "text": "captivated by",
-      "note": "To captivate somebody is to hold them captive, and a captive is kept shut inside."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tony's forbidden sweetheart",
-      "gives": "MARIA",
-      "note": "in West Side Story Tony loves Maria, whose family runs the rival gang, so the two of them are forbidden each other"
-     },
-     {
-      "clueFragment": "Ran",
-      "gives": "NAR",
-      "note": "RAN written the other way round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARI",
-      "NAR",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MARINARA",
+     "parts": [
       {
-       "from": "RAN",
-       "to": "NAR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "Turned over, a word lies the other way up, so the letters just named are written from last to first."
+        },
+        {
+         "text": "captivated by",
+         "note": "To captivate somebody is to hold them captive, and a captive is kept shut inside."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tony's forbidden sweetheart",
+         "gives": "MARIA",
+         "note": "in West Side Story Tony loves Maria, whose family runs the rival gang, so the two of them are forbidden each other"
+        },
+        {
+         "words": "Ran",
+         "gives": "NAR",
+         "note": "RAN written the other way round"
+        }
+       ]
       }
      ]
     },
@@ -948,41 +868,35 @@
    },
    "solution": "RUGBY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RUGBY",
     "definitions": [
      {
       "text": "Sport",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covering for",
-      "for": "letter_selection",
-      "note": "A covering goes round the outside of a thing, so what is taken is the letters at the two ends and nothing in between."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wig",
-      "gives": "RUG",
-      "note": "a rug is a toupee, the wig worn over a bald patch"
-     },
-     {
-      "clueFragment": "baldy",
-      "gives": "BY",
-      "select": "outer",
-      "note": "the outside letters of the word, the ones covering it at each end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUG",
-      "BY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wig",
+       "gives": "RUG",
+       "note": "a rug is a toupee, the wig worn over a bald patch"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "covering for",
+         "note": "A covering goes round the outside of a thing, so what is taken is the letters at the two ends and nothing in between."
+        }
+       ],
+       "parts": [
+        {
+         "words": "baldy",
+         "note": "the outside letters of the word, the ones covering it at each end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1011,41 +925,33 @@
    },
    "solution": "HAUL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HAUL",
     "definitions": [
      {
       "text": "Draw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "deletion",
-      "note": "Perhaps offers the thing named as one example of something wider, so it is a hat in general whose capacity is being measured."
-     },
-     {
-      "text": "losing heart",
-      "for": "deletion",
-      "note": "The heart of a word is the letters at its dead centre, and losing them closes the two ends up together."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as much as bowler can take",
-      "gives": "HATFUL",
-      "note": "a bowler is a hat, and a hatful is as much as one will hold; the middle two letters then go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAUL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "perhaps",
+       "note": "Perhaps offers the thing named as one example of something wider, so it is a hat in general whose capacity is being measured."
+      },
+      {
+       "text": "losing heart",
+       "note": "The heart of a word is the letters at its dead centre, and losing them closes the two ends up together."
+      }
+     ],
+     "parts": [
+      {
+       "words": "as much as bowler can take",
+       "gives": "HATFUL",
+       "note": "a bowler is a hat, and a hatful is as much as one will hold; the middle two letters then go"
+      },
+      {
+       "gives": "TF"
+      }
      ]
     },
     "explanation": {
@@ -1081,45 +987,36 @@
    },
    "solution": "WALES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WALES",
     "definitions": [
      {
       "text": "Nation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "charade",
-      "note": "Ultimately means at the very end of things, so what is wanted is the last letter of the word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "w is the everyday short form of with, as in w/ on a scribbled note"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is beer"
-     },
-     {
-      "clueFragment": "Brains",
-      "gives": "S",
-      "note": "the last letter of Brains, the Cardiff brewery whose bitter the surface is ordering"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ALE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "Ultimately means at the very end of things, so what is wanted is the last letter of the word."
+      }
+     ],
+     "parts": [
+      {
+       "words": "with",
+       "gives": "W",
+       "note": "w is the everyday short form of with, as in w/ on a scribbled note"
+      },
+      {
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is beer"
+      },
+      {
+       "words": "Brains",
+       "gives": "S",
+       "note": "the last letter of Brains, the Cardiff brewery whose bitter the surface is ordering"
+      }
      ]
     },
     "explanation": {
@@ -1149,44 +1046,40 @@
    },
    "solution": "WOODLAND",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "WOODLAND",
     "definitions": [
      {
       "text": "group of trees",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "cultivated",
-      "note": "Cultivated ground has been dug over and worked, and letters worked over like that come out in a different order."
-     },
-     {
-      "text": "around",
-      "note": "What goes around a thing encircles it, so the letters already made open up and take the next one inside."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Odd lawn",
-      "gives": "ODDLAWN",
-      "note": "anagram fodder, seven letters"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "o is the standard abbreviation for old, dropped in among the rearranged letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ODD LAWN O",
-       "gives": "WOODLAND"
+       "text": "cultivated",
+       "note": "Cultivated ground has been dug over and worked, and letters worked over like that come out in a different order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "What goes around a thing encircles it, so the letters already made open up and take the next one inside."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Odd lawn",
+         "note": "anagram fodder, seven letters"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "o is the standard abbreviation for old, dropped in among the rearranged letters"
       }
      ]
     },
@@ -1216,38 +1109,33 @@
    },
    "solution": "CAGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CAGE",
     "definitions": [
      {
       "text": "Hutch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "Leaving is going away for good, so the letters named next walk out of the word and what remains closes up."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "partner to Lacey",
-      "gives": "CAGNEY",
-      "note": "Cagney and Lacey were the two New York detectives of the 1980s television series"
-     },
-     {
-      "clueFragment": "New York",
-      "gives": "NY",
-      "note": "NY is the state's postal abbreviation, and these are the two letters that go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CAGE",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "Leaving is going away for good, so the letters named next walk out of the word and what remains closes up."
+      }
+     ],
+     "parts": [
+      {
+       "words": "partner to Lacey",
+       "gives": "CAGNEY",
+       "note": "Cagney and Lacey were the two New York detectives of the 1980s television series"
+      },
+      {
+       "words": "New York",
+       "gives": "NY",
+       "note": "NY is the state's postal abbreviation, and these are the two letters that go"
+      }
      ]
     },
     "explanation": {
@@ -1277,35 +1165,25 @@
    },
    "solution": "CARDIGAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARDIGAN",
     "definitions": [
      {
       "text": "clothing",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Dressing up",
-      "for": "anagram",
-      "note": "To dress up is to put on a disguise, and letters in disguise are not left in the order they were handed over in."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cain with drag",
-      "gives": "CAINDRAG",
-      "note": "anagram fodder, eight letters, the little word in the middle joining the two halves"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAIN DRAG",
-       "gives": "CARDIGAN"
+       "text": "Dressing up",
+       "note": "To dress up is to put on a disguise, and letters in disguise are not left in the order they were handed over in."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cain with drag",
+       "gives": "CAINDRAG",
+       "note": "anagram fodder, eight letters, the little word in the middle joining the two halves"
       }
      ]
     },
@@ -1341,48 +1219,41 @@
    },
    "solution": "STEPDOWN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STEP DOWN",
     "definitions": [
      {
       "text": "Resign",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "After puts the piece just named behind the one described next, so it comes second in the finished phrase."
-     },
-     {
-      "text": "returning",
-      "note": "Something returning is on its way back the way it came, so those letters are read from the end to the start."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beloved animals",
-      "gives": "STEP",
-      "note": "beloved animals are pets, and PETS sent back the way it came reads this way"
-     },
-     {
-      "clueFragment": "depressed",
-      "gives": "DOWN",
-      "note": "somebody depressed is down"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEP",
-      "DOWN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "STEPDOWN",
+     "parts": [
       {
-       "from": "PETS",
-       "to": "STEP"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "After puts the piece just named behind the one described next, so it comes second in the finished phrase."
+        },
+        {
+         "text": "returning",
+         "note": "Something returning is on its way back the way it came, so those letters are read from the end to the start."
+        }
+       ],
+       "parts": [
+        {
+         "words": "beloved animals",
+         "gives": "STEP",
+         "note": "beloved animals are pets, and PETS sent back the way it came reads this way"
+        },
+        {
+         "words": "depressed",
+         "gives": "DOWN",
+         "note": "somebody depressed is down"
+        }
+       ]
       }
      ]
     },
@@ -1412,40 +1283,31 @@
    },
    "solution": "PIRACY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PIRACY",
     "definitions": [
      {
       "text": "Crime",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "To take somebody in is to admit them indoors, so the letters named next go inside the word before."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quick",
-      "gives": "PACY",
-      "note": "something quick is pacy, and the word opens after its first letter"
-     },
-     {
-      "clueFragment": "Inland Revenue",
-      "gives": "IR",
-      "note": "IR was the Inland Revenue, the British tax collector now folded into HMRC"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "IR",
-      "ACY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "note": "To take somebody in is to admit them indoors, so the letters named next go inside the word before."
+      }
+     ],
+     "parts": [
+      {
+       "words": "quick",
+       "gives": "PACY",
+       "note": "something quick is pacy, and the word opens after its first letter"
+      },
+      {
+       "words": "Inland Revenue",
+       "gives": "IR",
+       "note": "IR was the Inland Revenue, the British tax collector now folded into HMRC"
+      }
      ]
     },
     "explanation": {
@@ -1474,45 +1336,35 @@
    },
    "solution": "CORNY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CORNY",
     "definitions": [
      {
       "text": "Clichéd",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "straddling",
-      "for": "container",
-      "note": "To straddle a thing is to stand over it with a leg each side, which puts it squarely in the middle."
-     },
-     {
-      "text": "rear",
-      "for": "container",
-      "note": "The rear of a word is its back end, so the final letter is all that is taken."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rabbit",
-      "gives": "CONY",
-      "note": "a cony is a rabbit, the old name that survives in the fur trade, and the word opens after its second letter"
-     },
-     {
-      "clueFragment": "lover's",
-      "gives": "R",
-      "note": "the rear letter of lover"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "R",
-      "NY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "straddling",
+       "note": "To straddle a thing is to stand over it with a leg each side, which puts it squarely in the middle."
+      },
+      {
+       "text": "rear",
+       "note": "The rear of a word is its back end, so the final letter is all that is taken."
+      }
+     ],
+     "parts": [
+      {
+       "words": "rabbit",
+       "gives": "CONY",
+       "note": "a cony is a rabbit, the old name that survives in the fur trade, and the word opens after its second letter"
+      },
+      {
+       "words": "lover's",
+       "gives": "R",
+       "note": "the rear letter of lover"
+      }
      ]
     },
     "explanation": {
@@ -1542,41 +1394,35 @@
    },
    "solution": "CASTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CASTLE",
     "definitions": [
      {
       "text": "rook",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "exhausted",
-      "for": "letter_selection",
-      "note": "Something exhausted has had everything taken out of it and is left as a shell, which for a word is its first and last letters."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shy",
-      "gives": "CAST",
-      "note": "to shy a stone at something is to cast it"
-     },
-     {
-      "clueFragment": "little",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the word emptied out, keeping only the letters at its two ends"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAST",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shy",
+       "gives": "CAST",
+       "note": "to shy a stone at something is to cast it"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "note": "Something exhausted has had everything taken out of it and is left as a shell, which for a word is its first and last letters."
+        }
+       ],
+       "parts": [
+        {
+         "words": "little",
+         "note": "the word emptied out, keeping only the letters at its two ends"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1605,44 +1451,42 @@
    },
    "solution": "RURALISTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "RURALISTS",
     "definitions": [
      {
       "text": "Those out-of-town",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rambling",
-      "note": "A rambling walk wanders about with no fixed route, and letters that ramble do not stay in the order they were given."
-     },
-     {
-      "text": "but not",
-      "note": "But not marks something the sentence has to do without, so that letter is taken out before the rest is worked on."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rush trails",
-      "gives": "RUSHTRAILS",
-      "note": "anagram fodder, ten letters, one of which is about to go"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the hard of a pencil grade, and it is the letter dropped from the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RURALISTS",
+     "parts": [
       {
-       "fodder": "RUS TRAILS",
-       "gives": "RURALISTS"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RURALISTS",
+       "indicators": [
+        {
+         "text": "rambling",
+         "note": "A rambling walk wanders about with no fixed route, and letters that ramble do not stay in the order they were given."
+        },
+        {
+         "text": "but not",
+         "note": "But not marks something the sentence has to do without, so that letter is taken out before the rest is worked on."
+        }
+       ],
+       "parts": [
+        {
+         "words": "rush trails",
+         "note": "anagram fodder, ten letters, one of which is about to go"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the hard of a pencil grade, and it is the letter dropped from the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1672,39 +1516,31 @@
    },
    "solution": "RHEA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RHEA",
     "definitions": [
      {
       "text": "Big Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-cut",
-      "for": "charade",
-      "note": "Half-cut is half of it cut away, so only the front half of the word's letters is left standing."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "r is runs on a cricket scorecard"
-     },
-     {
-      "clueFragment": "hearty",
-      "gives": "HEA",
-      "note": "the first half of the six letters, the back half cut off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "HEA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "half-cut",
+       "note": "Half-cut is half of it cut away, so only the front half of the word's letters is left standing."
+      }
+     ],
+     "parts": [
+      {
+       "words": "runs",
+       "gives": "R",
+       "note": "r is runs on a cricket scorecard"
+      },
+      {
+       "words": "hearty",
+       "gives": "HEA",
+       "note": "the first half of the six letters, the back half cut off"
+      }
      ]
     },
     "explanation": {
@@ -1734,35 +1570,24 @@
    },
    "solution": "ISLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ISLE",
     "definitions": [
      {
       "text": "Maybe Skye",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "elaborately",
-      "for": "anagram",
-      "note": "To do a thing elaborately is to work it up into something more complicated, and letters worked over that way come out in a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lies",
-      "gives": "LIES",
-      "note": "anagram fodder, four letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LIES",
-       "gives": "ISLE"
+       "text": "elaborately",
+       "note": "To do a thing elaborately is to work it up into something more complicated, and letters worked over that way come out in a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "lies",
+       "note": "anagram fodder, four letters"
       }
      ]
     },
@@ -1792,40 +1617,38 @@
    },
    "solution": "LEEK",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LEEK",
     "definitions": [
      {
       "text": "National emblem",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Disheartened",
-      "for": "deletion",
-      "note": "Disheartened is heartless, so the letter sitting at the very centre of the word has gone."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in France, the",
-      "gives": "LE",
-      "note": "le is the French for 'the'"
-     },
-     {
-      "clueFragment": "Deer",
-      "gives": "EK",
-      "note": "an elk is a deer, and ELK loses the letter at its heart"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "EK"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEEK",
+     "indicators": [
+      {
+       "text": "Disheartened",
+       "note": "Disheartened is heartless, so the letter sitting at the very centre of the word has gone."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in France, the",
+         "gives": "LE",
+         "note": "le is the French for 'the'"
+        },
+        {
+         "words": "Deer",
+         "gives": "EK",
+         "note": "an elk is a deer, and ELK loses the letter at its heart"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1855,43 +1678,38 @@
    },
    "solution": "BEACONS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BEACONS",
     "definitions": [
      {
       "text": "Warnings of danger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "Almost stops just short of the whole, so the word is written out with its last letter missing."
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "defeated",
-      "gives": "BEA",
-      "note": "defeated is beaten, stopped a letter short of the end"
-     },
-     {
-      "clueFragment": "Tories",
-      "gives": "CONS",
-      "note": "Cons is the newspapers' short form for Conservatives on any election night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEA",
-      "CONS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BEACONS",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "Almost stops just short of the whole, so the word is written out with its last letter missing."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "defeated",
+         "gives": "BEA",
+         "note": "defeated is beaten, stopped a letter short of the end"
+        },
+        {
+         "words": "Tories",
+         "gives": "CONS",
+         "note": "Cons is the newspapers' short form for Conservatives on any election night"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1920,30 +1738,28 @@
    },
    "solution": "BLEATED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "BLEATED",
     "definitions": [
      {
       "text": "Sounded like a sheep",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trapped inside somewhere",
-      "for": "hidden_word",
-      "note": "Something trapped inside somewhere is shut in and out of view, and these letters are shut inside the words standing next to them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "audible at Edgbaston",
-      "gives": "BLEATED",
-      "note": "the run starts partway through the first word, crosses the second whole and takes the first letter of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "trapped inside somewhere",
+       "note": "Something trapped inside somewhere is shut in and out of view, and these letters are shut inside the words standing next to them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "audible at Edgbaston",
+       "gives": "BLEATED",
+       "note": "the run starts partway through the first word, crosses the second whole and takes the first letter of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sheep shut in somewhere near the ground, loud enough to be heard by the crowd at Edgbaston.",
      "walkthrough": "'Audible' is the word every solver reads as an instruction to listen for a sound-alike, and it is fodder. Edgbaston is the Birmingham cricket ground, which is why a sheep there is worth remarking on.",

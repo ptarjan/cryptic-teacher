@@ -1,8 +1,6 @@
 {
  "id": "everyman-3470",
  "number": 3470,
- "series": "everyman",
- "name": "Everyman crossword No 3,470",
  "setter": "Everyman",
  "date": "2013-04-07",
  "dimensions": {
@@ -38,28 +36,16 @@
    },
    "solution": "MISS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MISS",
     "definitions": [
      {
       "text": "Fail to avoid",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to fail to hit or to escape something, as in ... the target, or to steer clear of it"
      },
      {
       "text": "young lady",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fail to avoid",
-      "note": "first meaning: to fail to hit or to escape something, as in ... the target, or to steer clear of it"
-     },
-     {
-      "clueFragment": "young lady",
-      "note": "second meaning: the title for an unmarried young woman"
+      "at": 14,
+      "meaning": "second meaning: the title for an unmarried young woman"
      }
     ],
     "explanation": {
@@ -87,64 +73,64 @@
    },
    "solution": "MUNTJAC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "MUNTJAC",
     "definitions": [
      {
       "text": "animal",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Leader of",
-      "for": "letter_selection",
-      "note": "the leader of a word is the letter at its front"
-     },
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "something shot is wrecked or ruined, so the letters are knocked out of order"
-     },
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "military",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of military"
-     },
-     {
-      "clueFragment": "junta",
-      "gives": "JUNTA",
-      "note": "taken as written, ready to be rearranged"
-     },
-     {
-      "clueFragment": "charging",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of charging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "UNTJA",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "JUNTA",
-       "gives": "UNTJA"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "note": "the leader of a word is the letter at its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "military",
+         "note": "the first letter of military"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "note": "something shot is wrecked or ruined, so the letters are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "junta",
+           "note": "taken as written, ready to be rearranged"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "head of",
+             "note": "the head of a word is its opening letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "charging",
+             "note": "the first letter of charging"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -180,58 +166,50 @@
    },
    "solution": "SNOWCHAINS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SNOW CHAINS",
     "definitions": [
      {
       "text": "They provide traction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "seed that is broadcast is scattered about, so the letters are thrown into a new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so the rearranged letters surround the next piece"
-     },
-     {
-      "text": "foremost of",
-      "for": "letter_selection",
-      "note": "the foremost part of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as shown in",
-      "gives": "ASSHOWNIN",
-      "note": "taken as written, ready to be rearranged"
-     },
-     {
-      "clueFragment": "cars",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of cars"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNOW",
-      "C",
-      "HAINS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ASSHOWNIN",
-       "gives": "SNOWHAINS"
+       "text": "about",
+       "note": "about means going around, so the rearranged letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "note": "seed that is broadcast is scattered about, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as shown in",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost of",
+         "note": "the foremost part of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cars",
+         "note": "the first letter of cars"
+        }
+       ]
       }
      ]
     },
@@ -271,57 +249,49 @@
    },
    "solution": "NOTMUCHCOP",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NOT MUCH COP",
     "definitions": [
      {
       "text": "of little value",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "unlikely",
-      "for": "anagram",
-      "note": "an unlikely version of a word is an improbable, distorted one, so its letters are reshuffled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mount",
-      "gives": "MOUNT",
-      "note": "taken as written, ready to be rearranged"
-     },
-     {
-      "clueFragment": "check",
-      "gives": "CH",
-      "note": "ch. is the chess notation for check"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c. is short for circa, Latin for about"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is short for opus, a musical work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOTMU",
-      "CH",
-      "C",
-      "OP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MOUNT",
-       "gives": "NOTMU"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unlikely",
+         "note": "an unlikely version of a word is an improbable, distorted one, so its letters are reshuffled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Mount",
+           "note": "taken as written, ready to be rearranged"
+          },
+          {
+           "words": "check",
+           "gives": "CH",
+           "note": "ch. is the chess notation for check"
+          },
+          {
+           "words": "about",
+           "gives": "C",
+           "note": "c. is short for circa, Latin for about"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op. is short for opus, a musical work"
       }
      ]
     },
@@ -351,41 +321,35 @@
    },
    "solution": "OVERT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OVERT",
     "definitions": [
      {
       "text": "Clear",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of a down word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "above",
-      "gives": "OVER",
-      "note": "over is a synonym for above"
-     },
-     {
-      "clueFragment": "tower",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of tower"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "above",
+       "gives": "OVER",
+       "note": "over is a synonym for above"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "the top of a down word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tower",
+         "note": "the first letter of tower"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -419,36 +383,25 @@
    },
    "solution": "MARKERPEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARKER PEN",
     "definitions": [
      {
       "text": "a felt-tip",
       "at": 36
      }
     ],
-    "linkWords": [
-     "by",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One keeping score",
-      "gives": "MARKER",
-      "note": "a marker records points in a game"
-     },
-     {
-      "clueFragment": "enclosure",
-      "gives": "PEN",
-      "note": "a pen is an enclosure for animals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARKER",
-      "PEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One keeping score",
+       "gives": "MARKER",
+       "note": "a marker records points in a game"
+      },
+      {
+       "words": "enclosure",
+       "gives": "PEN",
+       "note": "a pen is an enclosure for animals"
+      }
      ]
     },
     "explanation": {
@@ -476,49 +429,34 @@
    },
    "solution": "COMMONWEALTH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "COMMONWEALTH",
     "definitions": [
      {
       "text": "protectorate",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "changing",
-      "for": "anagram",
-      "note": "changing a word alters it, so its letters are set in a different order"
-     }
-    ],
-    "linkWords": [
-     "needs",
-     "in a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Accepted",
-      "gives": "COMMON",
-      "note": "common, as in common knowledge, means generally accepted"
-     },
-     {
-      "clueFragment": "the law",
-      "gives": "THELAW",
-      "note": "taken as written, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMMON",
-      "WEALTH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THELAW",
-       "gives": "WEALTH"
+       "words": "Accepted",
+       "gives": "COMMON",
+       "note": "common, as in common knowledge, means generally accepted"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changing",
+         "note": "changing a word alters it, so its letters are set in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the law",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -548,31 +486,16 @@
    },
    "solution": "CAST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAST",
     "definitions": [
      {
       "text": "Mould",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a shaped form for molten metal or plaster"
      },
      {
       "text": "shed",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mould",
-      "note": "first meaning: a shaped form for molten metal or plaster"
-     },
-     {
-      "clueFragment": "shed",
-      "note": "second meaning: to throw off, as a snake does its skin"
+      "at": 9,
+      "meaning": "second meaning: to throw off, as a snake does its skin"
      }
     ],
     "explanation": {
@@ -601,41 +524,36 @@
    },
    "solution": "PINE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "PINE",
     "definitions": [
      {
       "text": "Evergreen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "in a down clue, over means turned upside down, so the letters run back the other way"
-     },
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in says the letters sit inside the following words, spanning their boundary"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "glen, I pollarded",
-      "gives": "ENIP",
-      "note": "the letters running across the end of glen, the I and the start of pollarded"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ENIP",
-       "to": "PINE"
+       "text": "over",
+       "note": "in a down clue, over means turned upside down, so the letters run back the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in says the letters sit inside the following words, spanning their boundary"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glen, I pollarded",
+         "gives": "ENIP",
+         "note": "the letters running across the end of glen, the I and the start of pollarded"
+        }
+       ]
       }
      ]
     },
@@ -665,45 +583,34 @@
    },
    "solution": "NEON",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "NEON",
     "definitions": [
      {
       "text": "gas",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "volatile",
-      "for": "anagram",
-      "note": "volatile means unstable and liable to change, so the letters do not stay put"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Name",
-      "gives": "N",
-      "note": "N is the standard abbreviation for name"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "taken as written, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ONE",
-       "gives": "EON"
+       "words": "Name",
+       "gives": "N",
+       "note": "N is the standard abbreviation for name"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "volatile",
+         "note": "volatile means unstable and liable to change, so the letters do not stay put"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -739,51 +646,40 @@
    },
    "solution": "PERRYMASON",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PERRY MASON",
     "definitions": [
      {
       "text": "TV lawyer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "defending",
-      "for": "container",
-      "note": "to defend something is to shield it, so one piece wraps protectively around another"
-     },
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "a suspect version is dubious and not to be trusted as written, so its letters get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "character",
-      "gives": "PERSON",
-      "note": "a character in a story is a person"
-     },
-     {
-      "clueFragment": "army",
-      "gives": "ARMY",
-      "note": "taken as written, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "RYMA",
-      "SON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ARMY",
-       "gives": "RYMA"
+       "text": "defending",
+       "note": "to defend something is to shield it, so one piece wraps protectively around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "character",
+       "gives": "PERSON",
+       "note": "a character in a story is a person"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suspect",
+         "note": "a suspect version is dubious and not to be trusted as written, so its letters get rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "army",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -823,38 +719,30 @@
    },
    "solution": "TIMEWILLTELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TIME WILL TELL",
     "definitions": [
      {
       "text": "Wait and see",
       "at": 37
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The enemy",
-      "gives": "TIME",
-      "note": "from the saying that time is the enemy"
-     },
-     {
-      "clueFragment": "is bound to",
-      "gives": "WILL",
-      "note": "will expresses certainty about the future"
-     },
-     {
-      "clueFragment": "take its toll",
-      "gives": "TELL",
-      "note": "to tell on someone is to have a marked, wearing effect"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIME",
-      "WILL",
-      "TELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The enemy",
+       "gives": "TIME",
+       "note": "from the saying that time is the enemy"
+      },
+      {
+       "words": "is bound to",
+       "gives": "WILL",
+       "note": "will expresses certainty about the future"
+      },
+      {
+       "words": "take its toll",
+       "gives": "TELL",
+       "note": "to tell on someone is to have a marked, wearing effect"
+      }
      ]
     },
     "explanation": {
@@ -897,35 +785,25 @@
    },
    "solution": "JACKINTHEBOX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JACK-IN-THE-BOX",
     "definitions": [
      {
       "text": "Provider of childish amusement",
       "at": 0
      }
     ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "card",
-      "gives": "JACK",
-      "note": "the jack is a court card in a pack"
-     },
-     {
-      "clueFragment": "giving evidence",
-      "gives": "INTHEBOX",
-      "note": "a witness gives evidence from the witness box"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "INTHEBOX"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "card",
+       "gives": "JACK",
+       "note": "the jack is a court card in a pack"
+      },
+      {
+       "words": "giving evidence",
+       "gives": "INTHEBOX",
+       "note": "a witness gives evidence from the witness box"
+      }
      ]
     },
     "explanation": {
@@ -961,32 +839,25 @@
    },
    "solution": "BLEAKHOUSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLEAK HOUSE",
     "definitions": [
      {
       "text": "Book",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "desolate",
-      "gives": "BLEAK",
-      "note": "bleak means bare and desolate"
-     },
-     {
-      "clueFragment": "inn",
-      "gives": "HOUSE",
-      "note": "a public house is an inn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLEAK",
-      "HOUSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "desolate",
+       "gives": "BLEAK",
+       "note": "bleak means bare and desolate"
+      },
+      {
+       "words": "inn",
+       "gives": "HOUSE",
+       "note": "a public house is an inn"
+      }
      ]
     },
     "explanation": {
@@ -1022,55 +893,46 @@
    },
    "solution": "CLARETCUP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CLARET CUP",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the piece named before it is placed second, following the college and its letter"
-     },
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last points to the final letter of the word just before it"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cambridge college",
-      "gives": "CLARE",
-      "note": "Clare is a college of Cambridge University"
-     },
-     {
-      "clueFragment": "lost",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of lost"
-     },
-     {
-      "clueFragment": "trophy",
-      "gives": "CUP",
-      "note": "a cup is a trophy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLARE",
-      "T",
-      "CUP"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the piece named before it is placed second, following the college and its letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cambridge college",
+       "gives": "CLARE",
+       "note": "Clare is a college of Cambridge University"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last points to the final letter of the word just before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lost",
+         "note": "the last letter of lost"
+        }
+       ]
+      },
+      {
+       "words": "trophy",
+       "gives": "CUP",
+       "note": "a cup is a trophy"
+      }
      ]
     },
     "explanation": {
@@ -1105,35 +967,25 @@
    },
    "solution": "COMECLEAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COME CLEAN",
     "definitions": [
      {
       "text": "Tell all",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "move nearer",
-      "gives": "COME",
-      "note": "to come is to approach"
-     },
-     {
-      "clueFragment": "fair",
-      "gives": "CLEAN",
-      "note": "a clean fight is a fair one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COME",
-      "CLEAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "move nearer",
+       "gives": "COME",
+       "note": "to come is to approach"
+      },
+      {
+       "words": "fair",
+       "gives": "CLEAN",
+       "note": "a clean fight is a fair one"
+      }
      ]
     },
     "explanation": {
@@ -1161,28 +1013,16 @@
    },
    "solution": "WELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WELL",
     "definitions": [
      {
       "text": "Fortunate",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: as in 'it is just as ...', meaning lucky or fitting"
      },
      {
       "text": "Very possibly",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fortunate",
-      "note": "first meaning: as in 'it is just as ...', meaning lucky or fitting"
-     },
-     {
-      "clueFragment": "Very possibly",
-      "note": "second meaning: as in 'it may ... rain', meaning quite likely"
+      "at": 11,
+      "meaning": "second meaning: as in 'it may ... rain', meaning quite likely"
      }
     ],
     "explanation": {
@@ -1209,30 +1049,28 @@
    },
    "solution": "ANTI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ANTI",
     "definitions": [
      {
       "text": "Opposed to",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some in",
-      "for": "hidden_word",
-      "note": "some of a word is only a part of it, so the letters lie inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Constantinople",
-      "gives": "ANTI",
-      "note": "the letters in the middle of the old name of Istanbul"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some in",
+       "note": "some of a word is only a part of it, so the letters lie inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Constantinople",
+       "gives": "ANTI",
+       "note": "the letters in the middle of the old name of Istanbul"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some citizens of the old Byzantine capital opposed something.",
      "definitionFit": "Anti as a preposition means against, so it substitutes for opposed to."
@@ -1264,40 +1102,31 @@
    },
    "solution": "MANTARAYS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MANTA RAYS",
     "definitions": [
      {
       "text": "fish",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "to feed",
-      "for": "container",
-      "note": "to feed something is to put food into it, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US artist's",
-      "gives": "MANRAYS",
-      "note": "Man Ray was an American surrealist artist and photographer"
-     },
-     {
-      "clueFragment": "Volunteers",
-      "gives": "TA",
-      "note": "TA is the Territorial Army, Britain's volunteer reserve force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "TA",
-      "RAYS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to feed",
+       "note": "to feed something is to put food into it, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US artist's",
+       "gives": "MANRAYS",
+       "note": "Man Ray was an American surrealist artist and photographer"
+      },
+      {
+       "words": "Volunteers",
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve force"
+      }
      ]
     },
     "explanation": {
@@ -1326,43 +1155,31 @@
    },
    "solution": "SORCERY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SORCERY",
     "definitions": [
      {
       "text": "witchcraft",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "involving means taking in, so one piece is enclosed by another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Contemptible",
-      "gives": "SORRY",
-      "note": "a sorry state is a pitiful, contemptible one"
-     },
-     {
-      "clueFragment": "Church of England",
-      "gives": "CE",
-      "note": "CE is the abbreviation for Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOR",
-      "CE",
-      "RY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "involving means taking in, so one piece is enclosed by another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Contemptible",
+       "gives": "SORRY",
+       "note": "a sorry state is a pitiful, contemptible one"
+      },
+      {
+       "words": "Church of England",
+       "gives": "CE",
+       "note": "CE is the abbreviation for Church of England"
+      }
      ]
     },
     "explanation": {
@@ -1396,47 +1213,41 @@
    },
    "solution": "CLOCKWATCHER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CLOCK-WATCHER",
     "definitions": [
      {
       "text": "One eager to leave bang on time",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking into",
-      "for": "container",
-      "note": "something breaking into a place forces its way inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c is the cricket scorecard abbreviation for caught"
-     },
-     {
-      "clueFragment": "cupboard",
-      "gives": "LOCKER",
-      "note": "a locker is a small lockable cupboard"
-     },
-     {
-      "clueFragment": "guard",
-      "gives": "WATCH",
-      "note": "to watch is to keep guard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOCK",
-      "WATCH",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "c is the cricket scorecard abbreviation for caught"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "breaking into",
+         "note": "something breaking into a place forces its way inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cupboard",
+         "gives": "LOCKER",
+         "note": "a locker is a small lockable cupboard"
+        },
+        {
+         "words": "guard",
+         "gives": "WATCH",
+         "note": "to watch is to keep guard"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1465,31 +1276,29 @@
    },
    "solution": "WILDE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "WILDE",
     "definitions": [
      {
       "text": "playwright",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Reportedly",
-      "for": "homophone",
-      "note": "reportedly means as said by others, so it is the spoken sound that counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "distraught",
-      "gives": "WILDE",
-      "soundsLike": "WILD",
-      "note": "wild means frantic or distraught"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WILDE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "note": "reportedly means as said by others, so it is the spoken sound that counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "distraught",
+       "gives": "WILD",
+       "note": "wild means frantic or distraught"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dramatist is said to be beside himself with worry.",
      "definitionFit": "Oscar Wilde wrote The Importance of Being Earnest, so he is an example of a playwright."
@@ -1515,47 +1324,41 @@
    },
    "solution": "SCOW",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCOW",
     "definitions": [
      {
       "text": "lighter",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece is placed around another"
-     },
-     {
-      "text": "introduction of",
-      "for": "letter_selection",
-      "note": "the introduction of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broadcast",
-      "gives": "SOW",
-      "note": "to broadcast seed is to sow it by scattering"
-     },
-     {
-      "clueFragment": "cigarette",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of cigarette"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "OW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so one piece is placed around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Broadcast",
+       "gives": "SOW",
+       "note": "to broadcast seed is to sow it by scattering"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "note": "the introduction of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cigarette",
+         "note": "the first letter of cigarette"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1585,34 +1388,29 @@
    },
    "solution": "UNIT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UNIT",
     "definitions": [
      {
       "text": "A single person",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing heart",
-      "for": "deletion",
-      "note": "losing its heart means a word drops its central letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out of condition",
-      "gives": "UNFIT",
-      "note": "unfit means out of condition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "IT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing heart",
+       "note": "losing its heart means a word drops its central letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out of condition",
+       "gives": "UNFIT",
+       "note": "unfit means out of condition"
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -1640,51 +1438,40 @@
    },
    "solution": "CINDERELLA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CINDERELLA",
     "definitions": [
      {
       "text": "Drudge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being beaten",
-      "for": "anagram",
-      "note": "something beaten is battered out of shape, so its letters are scrambled"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the scrambled letters encircle the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recalled",
-      "gives": "RECALLED",
-      "note": "taken as written, ready to be rearranged"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "IN",
-      "DERELLA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RECALLED",
-       "gives": "CDERELLA"
+       "text": "about",
+       "note": "about means around, so the scrambled letters encircle the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "being beaten",
+         "note": "something beaten is battered out of shape, so its letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recalled",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "someone at home is in"
       }
      ]
     },
@@ -1714,41 +1501,35 @@
    },
    "solution": "RUNE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RUNE",
     "definitions": [
      {
       "text": "character",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "First to",
-      "for": "letter_selection",
-      "note": "first means take the opening letter of the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recognise",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of recognise"
-     },
-     {
-      "clueFragment": "a French",
-      "gives": "UNE",
-      "note": "une is French for a, the feminine indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "UNE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First to",
+         "note": "first means take the opening letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recognise",
+         "note": "the first letter of recognise"
+        }
+       ]
+      },
+      {
+       "words": "a French",
+       "gives": "UNE",
+       "note": "une is French for a, the feminine indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -1782,32 +1563,25 @@
    },
    "solution": "WETBLANKET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WET BLANKET",
     "definitions": [
      {
       "text": "killjoy",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Weak type",
-      "gives": "WET",
-      "note": "a wet is British slang for a feeble, ineffectual person"
-     },
-     {
-      "clueFragment": "complete",
-      "gives": "BLANKET",
-      "note": "blanket means total, as in blanket coverage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WET",
-      "BLANKET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Weak type",
+       "gives": "WET",
+       "note": "a wet is British slang for a feeble, ineffectual person"
+      },
+      {
+       "words": "complete",
+       "gives": "BLANKET",
+       "note": "blanket means total, as in blanket coverage"
+      }
      ]
     },
     "explanation": {
@@ -1834,30 +1608,28 @@
    },
    "solution": "VERY",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "VERY",
     "definitions": [
      {
       "text": "Extremely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to some extent",
-      "for": "hidden_word",
-      "note": "to some extent means partly, so only part of the words is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clever? Yes",
-      "gives": "VERY",
-      "note": "the letters spanning the end of clever and the start of yes"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "note": "to some extent means partly, so only part of the words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clever? Yes",
+       "gives": "VERY",
+       "note": "the letters spanning the end of clever and the start of yes"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone asks if a person is exceptionally clever and gets a partial yes.",
      "definitionFit": "Very is an intensifier meaning to a high degree, a synonym of extremely."

@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5170",
  "number": 5170,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,170",
  "setter": "Robert Price",
  "date": "2025-06-29",
  "dimensions": {
@@ -42,44 +40,42 @@
    },
    "solution": "PADDLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PADDLE",
     "definitions": [
      {
       "text": "row",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "note": "takes the first letter of 'puzzle'"
-     },
-     {
-      "text": "by",
-      "note": "places the two pieces side by side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "puzzle's first",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of 'puzzle'"
-     },
-     {
-      "clueFragment": "Become confused",
-      "gives": "ADDLE",
-      "note": "to addle is to become muddled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ADDLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "note": "takes the first letter of 'puzzle'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "places the two pieces side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puzzle's first",
+         "gives": "PUZZLEFIRST",
+         "note": "the first letter of 'puzzle'"
+        }
+       ]
+      },
+      {
+       "words": "Become confused",
+       "gives": "ADDLE",
+       "note": "to addle is to become muddled"
+      }
      ]
     },
     "explanation": {
@@ -119,35 +115,25 @@
    },
    "solution": "PUTUPJOB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PUT-UP JOB",
     "definitions": [
      {
       "text": "deception",
       "at": 26
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taken in",
-      "gives": "PUTUP",
-      "note": "a guest who is put up is taken in for the night"
-     },
-     {
-      "clueFragment": "one patient",
-      "gives": "JOB",
-      "note": "Job of the Bible, proverbial for his patience"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUTUP",
-      "JOB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Taken in",
+       "gives": "PUTUP",
+       "note": "a guest who is put up is taken in for the night"
+      },
+      {
+       "words": "one patient",
+       "gives": "JOB",
+       "note": "Job of the Bible, proverbial for his patience"
+      }
      ]
     },
     "explanation": {
@@ -176,75 +162,75 @@
    },
    "solution": "DOLMADES",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "DOLMADES",
     "definitions": [
      {
       "text": "Food evenly rolled, cooked in hollow leaves",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "evenly",
-      "for": "letter_selection",
-      "note": "keeps the even-numbered letters of 'Food'"
-     },
-     {
-      "text": "rolled",
-      "note": "turns those letters round"
-     },
-     {
-      "text": "in"
-     },
-     {
-      "text": "hollow",
-      "note": "empties 'leaves' to its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Food evenly",
-      "gives": "OD",
-      "select": "alternate",
-      "note": "the 2nd and 4th letters of FOOD"
-     },
-     {
-      "clueFragment": "rolled",
-      "gives": "DO",
-      "note": "OD turned round"
-     },
-     {
-      "clueFragment": "hollow leaves",
-      "gives": "LS",
-      "note": "LEAVES with its middle removed"
-     },
-     {
-      "clueFragment": "cooked",
-      "gives": "MADE",
-      "note": "cooked = made, as a meal is made; it sits inside L…S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "L",
-      "MADE",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "DOLMADES",
+     "parts": [
       {
-       "from": "OD",
-       "to": "DO"
+       "op": "container",
+       "unchecked": true,
+       "gives": "DOLMADES",
+       "indicators": [
+        {
+         "text": "rolled",
+         "note": "turns those letters round"
+        },
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "OD",
+         "indicators": [
+          {
+           "text": "evenly",
+           "note": "keeps the even-numbered letters of 'Food'"
+          },
+          {
+           "text": "hollow",
+           "note": "empties 'leaves' to its outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Food evenly",
+           "gives": "OD",
+           "select": "alternate",
+           "note": "the 2nd and 4th letters of FOOD"
+          }
+         ]
+        },
+        {
+         "words": "rolled",
+         "gives": "DO",
+         "note": "OD turned round"
+        },
+        {
+         "words": "hollow leaves",
+         "gives": "LS",
+         "note": "LEAVES with its middle removed"
+        },
+        {
+         "words": "cooked",
+         "gives": "MADE",
+         "note": "cooked = made, as a meal is made; it sits inside L…S"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A recipe: something rolled up and cooked inside leaves.",
      "walkthrough": "The whole clue is both the wordplay and a description of the dish, since dolmades are fillings rolled and cooked in vine leaves.",
@@ -271,35 +257,25 @@
    },
    "solution": "LENIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LENIN",
     "definitions": [
      {
       "text": "Revolutionary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly reordered",
-      "for": "anagram",
-      "note": "rearranges the letters of 'material'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "material",
-      "gives": "LINEN",
-      "note": "linen is a fabric"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LINEN",
-       "gives": "LENIN"
+       "text": "regularly reordered",
+       "note": "rearranges the letters of 'material'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "material",
+       "gives": "LINEN",
+       "note": "linen is a fabric"
       }
      ]
     },
@@ -329,49 +305,43 @@
    },
    "solution": "BOARDING",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "BOARDING",
     "definitions": [
      {
       "text": "Getting in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "'ordered' means put in a set order, so GIN's letters are arranged afresh"
-     },
-     {
-      "text": "by",
-      "note": "sets the pieces next to each other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "directors",
-      "gives": "BOARD",
-      "note": "a company's directors form its board"
-     },
-     {
-      "clueFragment": "gin ordered",
-      "gives": "ING",
-      "note": "GIN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOARD",
-      "ING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BOARDING",
+     "indicators": [
       {
-       "fodder": "GIN",
-       "gives": "ING"
+       "text": "ordered",
+       "note": "'ordered' means put in a set order, so GIN's letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "sets the pieces next to each other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "directors",
+         "gives": "BOARD",
+         "note": "a company's directors form its board"
+        },
+        {
+         "words": "gin ordered",
+         "gives": "ING",
+         "note": "GIN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -411,30 +381,16 @@
    },
    "solution": "OUTOFSPIRITS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OUT OF SPIRITS",
     "definitions": [
      {
       "text": "Ill-equipped to make cocktails",
-      "at": 0
+      "at": 0,
+      "meaning": "a bar with no spirits left can't mix drinks"
      },
      {
       "text": "blue",
-      "at": 31
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ill-equipped to make cocktails",
-      "gives": "OUTOFSPIRITS",
-      "note": "a bar with no spirits left can't mix drinks"
-     },
-     {
-      "clueFragment": "blue",
-      "gives": "OUTOFSPIRITS",
-      "note": "low-spirited, sad"
+      "at": 31,
+      "meaning": "low-spirited, sad"
      }
     ],
     "explanation": {
@@ -464,56 +420,46 @@
    },
    "solution": "REMBRANDT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "REMBRANDT",
     "definitions": [
      {
       "text": "an artist",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "takes the last letter of 'film'"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "On",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     },
-     {
-      "clueFragment": "end of film",
-      "gives": "M",
-      "select": "last",
-      "note": "the last letter of FILM"
-     },
-     {
-      "clueFragment": "make",
-      "gives": "BRAND",
-      "note": "a make of car is a brand"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "M",
-      "BRAND",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On",
+       "gives": "RE",
+       "note": "re = on, concerning"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "takes the last letter of 'film'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end of film",
+         "gives": "FILM",
+         "note": "the last letter of FILM"
+        }
+       ]
+      },
+      {
+       "words": "make",
+       "gives": "BRAND",
+       "note": "a make of car is a brand"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time"
+      }
      ]
     },
     "explanation": {
@@ -542,31 +488,29 @@
    },
    "solution": "INCITE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "INCITE",
     "definitions": [
      {
       "text": "Prompt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when overheard",
-      "for": "homophone",
-      "note": "says the answer sounds like a phrase for 'noticeable'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "noticeable",
-      "gives": "INCITE",
-      "soundsLike": "IN SIGHT",
-      "note": "what is in sight can be noticed"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "INCITE",
+     "indicators": [
+      {
+       "text": "when overheard",
+       "note": "says the answer sounds like a phrase for 'noticeable'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "noticeable",
+       "gives": "INSIGHT",
+       "note": "what is in sight can be noticed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cue from the prompter that the audience can hear.",
      "walkthrough": "'Prompt' suggests a theatre prompter being overheard; it is the verb, to urge on.",
@@ -593,32 +537,25 @@
    },
    "solution": "GISMOS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GISMOS",
     "definitions": [
      {
       "text": "gadgets",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Soldiers'",
-      "gives": "GIS",
-      "note": "GIs are American soldiers"
-     },
-     {
-      "clueFragment": "ways of operating",
-      "gives": "MOS",
-      "note": "MO = modus operandi, a way of operating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GIS",
-      "MOS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldiers'",
+       "gives": "GIS",
+       "note": "GIs are American soldiers"
+      },
+      {
+       "words": "ways of operating",
+       "gives": "MOS",
+       "note": "MO = modus operandi, a way of operating"
+      }
      ]
     },
     "explanation": {
@@ -647,39 +584,31 @@
    },
    "solution": "TALENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TALENT",
     "definitions": [
      {
       "text": "expertise",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "puts the books after the fabrication"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fabrication",
-      "gives": "TALE",
-      "note": "a tale is a made-up story"
-     },
-     {
-      "clueFragment": "Books",
-      "gives": "NT",
-      "note": "NT = New Testament, a set of books"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TALE",
-      "NT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "puts the books after the fabrication"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fabrication",
+       "gives": "TALE",
+       "note": "a tale is a made-up story"
+      },
+      {
+       "words": "Books",
+       "gives": "NT",
+       "note": "NT = New Testament, a set of books"
+      }
      ]
     },
     "explanation": {
@@ -708,33 +637,16 @@
    },
    "solution": "STOMACHS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STOMACHS",
     "definitions": [
      {
       "text": "Stands",
-      "at": 0
+      "at": 0,
+      "meaning": "puts up with"
      },
      {
       "text": "food processors",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stands",
-      "gives": "STOMACHS",
-      "note": "puts up with"
-     },
-     {
-      "clueFragment": "food processors",
-      "gives": "STOMACHS",
-      "note": "the organs that digest what we eat, not kitchen gadgets"
+      "at": 11,
+      "meaning": "the organs that digest what we eat, not kitchen gadgets"
      }
     ],
     "explanation": {
@@ -764,35 +676,24 @@
    },
    "solution": "DISCONSOLATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISCONSOLATE",
     "definitions": [
      {
       "text": "Sad",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "'fancy' as an adjective means elaborate or ornamented, so the letters are dressed up into a new pattern"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scot no ladies",
-      "gives": "SCOTNOLADIES",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SCOTNOLADIES",
-       "gives": "DISCONSOLATE"
+       "text": "fancy",
+       "note": "'fancy' as an adjective means elaborate or ornamented, so the letters are dressed up into a new pattern"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scot no ladies",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -822,32 +723,25 @@
    },
    "solution": "PLAINTIFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLAINTIFF",
     "definitions": [
      {
       "text": "one challenges in court",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Patent",
-      "gives": "PLAIN",
-      "note": "patent = obvious, plain"
-     },
-     {
-      "clueFragment": "dispute",
-      "gives": "TIFF",
-      "note": "a tiff is a small quarrel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLAIN",
-      "TIFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Patent",
+       "gives": "PLAIN",
+       "note": "patent = obvious, plain"
+      },
+      {
+       "words": "dispute",
+       "gives": "TIFF",
+       "note": "a tiff is a small quarrel"
+      }
      ]
     },
     "explanation": {
@@ -876,40 +770,30 @@
    },
    "solution": "RATIO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RATIO",
     "definitions": [
      {
       "text": "five to six?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "drinking",
-      "for": "container",
-      "note": "the port takes AT inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Port",
-      "gives": "RIO",
-      "note": "Rio de Janeiro, a Brazilian port"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "kept as written, inside RI…O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AT",
-      "IO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "note": "the port takes AT inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Port",
+       "gives": "RIO",
+       "note": "Rio de Janeiro, a Brazilian port"
+      },
+      {
+       "words": "at",
+       "note": "kept as written, inside RI…O"
+      }
      ]
     },
     "explanation": {
@@ -949,38 +833,30 @@
    },
    "solution": "ONETRICKPONY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONE-TRICK PONY",
     "definitions": [
      {
       "text": "Being of limited skill",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "ONE",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "take in",
-      "gives": "TRICK",
-      "note": "to take someone in is to trick them"
-     },
-     {
-      "clueFragment": "£25",
-      "gives": "PONY",
-      "note": "a pony is British slang for £25"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONE",
-      "TRICK",
-      "PONY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "gives": "ONE",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "words": "take in",
+       "gives": "TRICK",
+       "note": "to take someone in is to trick them"
+      },
+      {
+       "words": "£25",
+       "gives": "PONY",
+       "note": "a pony is British slang for £25"
+      }
      ]
     },
     "explanation": {
@@ -1009,44 +885,36 @@
    },
    "solution": "RHODESIAN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "RHODESIAN",
     "definitions": [
      {
       "text": "Former African",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "island",
-      "gives": "RHODES",
-      "note": "the Greek island of Rhodes"
-     },
-     {
-      "clueFragment": "in a novel",
-      "gives": "IAN",
-      "note": "IN A rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RHODES",
-      "IAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RHODESIAN",
+     "indicators": [
       {
-       "fodder": "INA",
-       "gives": "IAN"
+       "text": "novel"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "gives": "RHODES",
+         "note": "the Greek island of Rhodes"
+        },
+        {
+         "words": "in a novel",
+         "gives": "IAN",
+         "note": "IN A rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1076,35 +944,25 @@
    },
    "solution": "INSTANCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSTANCE",
     "definitions": [
      {
       "text": "example",
       "at": 18
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cool",
-      "gives": "IN",
-      "note": "in = fashionable, cool"
-     },
-     {
-      "clueFragment": "attitude",
-      "gives": "STANCE",
-      "note": "a stance is a position or attitude"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "STANCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cool",
+       "gives": "IN",
+       "note": "in = fashionable, cool"
+      },
+      {
+       "words": "attitude",
+       "gives": "STANCE",
+       "note": "a stance is a position or attitude"
+      }
      ]
     },
     "explanation": {
@@ -1133,35 +991,24 @@
    },
    "solution": "TSARINAS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TSARINAS",
     "definitions": [
      {
       "text": "rulers",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "plastic",
-      "for": "anagram",
-      "note": "mouldable, so the letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artisan's",
-      "gives": "ARTISANS",
-      "note": "anagram fodder, 8 letters, the 's supplying the S"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARTISANS",
-       "gives": "TSARINAS"
+       "text": "plastic",
+       "note": "mouldable, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artisan's",
+       "note": "anagram fodder, 8 letters, the 's supplying the S"
       }
      ]
     },
@@ -1192,52 +1039,56 @@
    },
    "solution": "CORNERSTONES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CORNERSTONES",
     "definitions": [
      {
       "text": "bases",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "gutless",
-      "note": "removes the insides of 'spies'"
-     },
-     {
-      "text": "outside",
-      "note": "puts S…S around the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trap",
-      "gives": "CORNER",
-      "note": "to corner someone is to trap them"
-     },
-     {
-      "clueFragment": "gutless spies",
-      "gives": "SS",
-      "select": "outer",
-      "note": "SPIES with its middle removed"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "TONE",
-      "note": "an air or manner is a tone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CORNER",
-      "S",
-      "TONE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "gutless",
+       "note": "removes the insides of 'spies'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trap",
+       "gives": "CORNER",
+       "note": "to corner someone is to trap them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "puts S…S around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "SS",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "gutless spies",
+           "gives": "SS",
+           "select": "outer",
+           "note": "SPIES with its middle removed"
+          }
+         ]
+        },
+        {
+         "words": "air",
+         "gives": "TONE",
+         "note": "an air or manner is a tone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1272,35 +1123,25 @@
    },
    "solution": "FOXCUB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FOX CUB",
     "definitions": [
      {
       "text": "kit",
       "at": 17
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Puzzle",
-      "gives": "FOX",
-      "note": "to fox is to baffle"
-     },
-     {
-      "clueFragment": "trainee",
-      "gives": "CUB",
-      "note": "a cub reporter is a trainee"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOX",
-      "CUB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Puzzle",
+       "gives": "FOX",
+       "note": "to fox is to baffle"
+      },
+      {
+       "words": "trainee",
+       "gives": "CUB",
+       "note": "a cub reporter is a trainee"
+      }
      ]
     },
     "explanation": {
@@ -1330,43 +1171,43 @@
    },
    "solution": "AILING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AILING",
     "definitions": [
      {
       "text": "unwell",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Start off",
-      "for": "deletion",
-      "note": "the start is taken off, so the word loses its first letter"
-     },
-     {
-      "text": "perhaps",
-      "for": "deletion",
-      "note": "being at sea is one example of sailing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at sea, perhaps",
-      "gives": "SAILING",
-      "note": "sailing is one way of being at sea"
-     },
-     {
-      "clueFragment": "Start off",
-      "gives": "AILING",
-      "note": "SAILING loses its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AILING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Start off",
+       "note": "the start is taken off, so the word loses its first letter"
+      },
+      {
+       "text": "perhaps",
+       "note": "being at sea is one example of sailing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at sea, perhaps",
+         "gives": "SAILING",
+         "note": "sailing is one way of being at sea"
+        },
+        {
+         "words": "Start off",
+         "gives": "AILING",
+         "note": "SAILING loses its first letter"
+        }
+       ]
+      },
+      {
+       "gives": "SAILING"
+      }
      ]
     },
     "explanation": {
@@ -1395,41 +1236,35 @@
    },
    "solution": "OPINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OPINE",
     "definitions": [
      {
       "text": "Volunteer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leads to",
-      "for": "letter_selection",
-      "note": "takes the first letters of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op = opus, a work"
-     },
-     {
-      "clueFragment": "it never ending",
-      "gives": "INE",
-      "select": "first",
-      "note": "the first letters of IT, NEVER, ENDING"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "INE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op = opus, a work"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "note": "takes the first letters of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it never ending",
+         "note": "the first letters of IT, NEVER, ENDING"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1458,32 +1293,25 @@
    },
    "solution": "OUTFITTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTFITTER",
     "definitions": [
      {
       "text": "Who makes dresses",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "abroad",
-      "gives": "OUT",
-      "note": "out of the country"
-     },
-     {
-      "clueFragment": "more attractive",
-      "gives": "FITTER",
-      "note": "fit is British slang for attractive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "FITTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "abroad",
+       "gives": "OUT",
+       "note": "out of the country"
+      },
+      {
+       "words": "more attractive",
+       "gives": "FITTER",
+       "note": "fit is British slang for attractive"
+      }
      ]
     },
     "explanation": {
@@ -1512,32 +1340,25 @@
    },
    "solution": "INUIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INUIT",
     "definitions": [
      {
       "text": "Race",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "part of the 24 hours at Le Mans",
-      "gives": "NUIT",
-      "note": "nuit is French for night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NUIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "words": "part of the 24 hours at Le Mans",
+       "gives": "NUIT",
+       "note": "nuit is French for night"
+      }
      ]
     },
     "explanation": {
@@ -1567,30 +1388,16 @@
    },
    "solution": "CRITICAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CRITICAL",
     "definitions": [
      {
       "text": "Urgent",
-      "at": 0
+      "at": 0,
+      "meaning": "pressing, at a crisis point"
      },
      {
       "text": "knocking",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Urgent",
-      "gives": "CRITICAL",
-      "note": "pressing, at a crisis point"
-     },
-     {
-      "clueFragment": "knocking",
-      "gives": "CRITICAL",
-      "note": "to knock is to criticise"
+      "at": 7,
+      "meaning": "to knock is to criticise"
      }
     ],
     "explanation": {
@@ -1625,42 +1432,30 @@
    },
    "solution": "TURNIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TURN IN",
     "definitions": [
      {
       "text": "Retire",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an Italian city",
-      "gives": "TURIN",
-      "note": "Turin, in northern Italy"
-     },
-     {
-      "clueFragment": "November",
-      "gives": "N",
-      "note": "N is November in the radio alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUR",
-      "N",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an Italian city",
+       "gives": "TURIN",
+       "note": "Turin, in northern Italy"
+      },
+      {
+       "words": "November",
+       "gives": "N",
+       "note": "N is November in the radio alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1689,46 +1484,40 @@
    },
    "solution": "BEGINNER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BEGINNER",
     "definitions": [
      {
       "text": "novice",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "embraced by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ale",
-      "gives": "BEER",
-      "note": "ale is a beer"
-     },
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "g = good"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "G",
-      "INN",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ale",
+       "gives": "BEER",
+       "note": "ale is a beer"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "gives": "G",
+         "note": "g = good"
+        },
+        {
+         "words": "pub",
+         "gives": "INN",
+         "note": "an inn is a pub"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1757,30 +1546,16 @@
    },
    "solution": "STEERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STEERS",
     "definitions": [
      {
       "text": "Cattle",
-      "at": 0
+      "at": 0,
+      "meaning": "castrated young bulls raised for beef"
      },
      {
       "text": "drives",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cattle",
-      "gives": "STEERS",
-      "note": "castrated young bulls raised for beef"
-     },
-     {
-      "clueFragment": "drives",
-      "gives": "STEERS",
-      "note": "to steer a car is to drive it"
+      "at": 7,
+      "meaning": "to steer a car is to drive it"
      }
     ],
     "explanation": {

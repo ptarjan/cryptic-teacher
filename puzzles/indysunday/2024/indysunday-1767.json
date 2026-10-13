@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1767",
  "number": 1767,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,767",
  "setter": "Mog",
  "date": "2024-01-07",
  "dimensions": {
@@ -38,47 +36,41 @@
    },
    "solution": "WINDPIPE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "WINDPIPE",
     "definitions": [
      {
       "text": "one shouldn't go down here",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the drink goes around the other pieces, holding them inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "WINE",
-      "note": "wine, a drink; it wraps round the rest"
-     },
-     {
-      "clueFragment": "fourth-rate",
-      "gives": "D",
-      "note": "grades run A, B, C, D, so a fourth-rate mark is D"
-     },
-     {
-      "clueFragment": "spot",
-      "gives": "PIP",
-      "note": "a pip is a spot on a die or domino"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIN",
-      "D",
-      "PIP",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the drink goes around the other pieces, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drink",
+       "gives": "WINE",
+       "note": "wine, a drink; it wraps round the rest"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fourth-rate",
+         "gives": "D",
+         "note": "grades run A, B, C, D, so a fourth-rate mark is D"
+        },
+        {
+         "words": "spot",
+         "gives": "PIP",
+         "note": "a pip is a spot on a die or domino"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -108,54 +100,40 @@
    },
    "solution": "WAPITI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "WAPITI",
     "definitions": [
      {
       "text": "Animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, lifting the letters makes them read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "appeal",
-      "gives": "IT",
-      "note": "'it' is sex appeal, as in the 'It girl'"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "furry foot",
-      "gives": "PAW",
-      "note": "an animal's furry foot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAP",
-      "I",
-      "TI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ITIPAW",
-       "to": "WAPITI"
+       "text": "raised",
+       "note": "in a down clue, lifting the letters makes them read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "appeal",
+         "gives": "IT",
+         "note": "'it' is sex appeal, as in the 'It girl'"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "furry foot",
+         "gives": "PAW",
+         "note": "an animal's furry foot"
+        }
+       ]
       }
      ]
     },
@@ -185,51 +163,56 @@
    },
    "solution": "NINJA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NINJA",
     "definitions": [
      {
       "text": "Killer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skirts from",
-      "note": "a word's skirts are its edges, so take its first and last letters"
-     },
-     {
-      "text": "enthralling",
-      "note": "to enthral is to hold captive, so the outer letters hold the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skirts from Nagoya",
-      "gives": "NA",
-      "select": "outer",
-      "note": "the outside letters of NagoyA"
-     },
-     {
-      "clueFragment": "fashionable",
-      "gives": "IN",
-      "note": "in = fashionable"
-     },
-     {
-      "clueFragment": "Japan",
-      "gives": "J",
-      "note": "J is the international vehicle code for Japan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "IN",
-      "J",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "skirts from",
+       "note": "a word's skirts are its edges, so take its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enthralling",
+         "note": "to enthral is to hold captive, so the outer letters hold the rest"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "NA",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "skirts from Nagoya",
+           "gives": "NA",
+           "select": "outer",
+           "note": "the outside letters of NagoyA"
+          }
+         ]
+        },
+        {
+         "words": "fashionable",
+         "gives": "IN",
+         "note": "in = fashionable"
+        }
+       ]
+      },
+      {
+       "words": "Japan",
+       "gives": "J",
+       "note": "J is the international vehicle code for Japan"
+      }
      ]
     },
     "explanation": {
@@ -258,50 +241,41 @@
    },
    "solution": "PERSEVERE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PERSEVERE",
     "definitions": [
      {
       "text": "Endure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finale of",
-      "for": "letter_selection",
-      "note": "a finale is the ending, so the last letter"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "each",
-      "gives": "PER",
-      "note": "per = each, as in 'a pound per head'"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "SEVER",
-      "note": "to part is to sever, cut apart"
-     },
-     {
-      "clueFragment": "finale of \"Walküre\"",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of WalkürE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "SEVER",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "each",
+       "gives": "PER",
+       "note": "per = each, as in 'a pound per head'"
+      },
+      {
+       "words": "part",
+       "gives": "SEVER",
+       "note": "to part is to sever, cut apart"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finale of",
+         "note": "a finale is the ending, so the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finale of \"Walküre\"",
+         "gives": "WALKURE",
+         "note": "the last letter of WalkürE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -331,10 +305,6 @@
    },
    "solution": "PEGASUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEGASUS",
     "definitions": [
      {
       "text": "stars",
@@ -342,28 +312,24 @@
       "note": "Plural 'stars' names a constellation, which is a single thing made of many stars."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Secure",
-      "gives": "PEG",
-      "note": "to peg something is to fix it in place"
-     },
-     {
-      "clueFragment": "compared to",
-      "gives": "AS",
-      "note": "as, the word of comparison ('as tall as')"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEG",
-      "AS",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Secure",
+       "gives": "PEG",
+       "note": "to peg something is to fix it in place"
+      },
+      {
+       "words": "compared to",
+       "gives": "AS",
+       "note": "as, the word of comparison ('as tall as')"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -399,40 +365,39 @@
    },
    "solution": "CHACHA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CHA-CHA",
     "definitions": [
      {
       "text": "dance",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Shaking butts",
-      "for": "deletion",
-      "note": "to shake off something is to get rid of it; a butt is the end of a thing, so each word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "couple of fellows",
-      "gives": "CHAPCHAP",
-      "note": "a chap is a fellow; a couple of them is CHAP twice"
-     },
-     {
-      "clueFragment": "Shaking butts",
-      "gives": "CHACHA",
-      "note": "each CHAP drops its end letter P"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "CHA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Shaking butts",
+       "note": "to shake off something is to get rid of it; a butt is the end of a thing, so each word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "couple of fellows",
+         "gives": "CHAPCHAP",
+         "note": "a chap is a fellow; a couple of them is CHAP twice"
+        },
+        {
+         "words": "Shaking butts",
+         "gives": "CHACHA",
+         "note": "each CHAP drops its end letter P"
+        }
+       ]
+      },
+      {
+       "gives": "CHAPCHAP"
+      }
      ]
     },
     "explanation": {
@@ -462,30 +427,16 @@
    },
    "solution": "HOSTS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HOSTS",
     "definitions": [
      {
       "text": "Swarms",
-      "at": 0
+      "at": 0,
+      "meaning": "a host is a great crowd, as in 'a host of daffodils'"
      },
      {
       "text": "VIPs at the Oscars",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Swarms",
-      "gives": "HOSTS",
-      "note": "a host is a great crowd, as in 'a host of daffodils'"
-     },
-     {
-      "clueFragment": "VIPs at the Oscars",
-      "gives": "HOSTS",
-      "note": "the presenters who front the Oscars ceremony"
+      "at": 7,
+      "meaning": "the presenters who front the Oscars ceremony"
      }
     ],
     "explanation": {
@@ -514,40 +465,31 @@
    },
    "solution": "CAROUSELS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CAROUSELS",
     "definitions": [
      {
       "text": "They return bags",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "during",
-      "for": "container",
-      "note": "one thing happening during another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parties",
-      "gives": "CAROUSES",
-      "note": "carouses are drunken revels"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAROUSE",
-      "L",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "one thing happening during another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parties",
+       "gives": "CAROUSES",
+       "note": "carouses are drunken revels"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      }
      ]
     },
     "explanation": {
@@ -577,40 +519,31 @@
    },
    "solution": "APPETITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "APPETITE",
     "definitions": [
      {
       "text": "Craving",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "the quiet letter goes inside the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a little",
-      "gives": "APETITE",
-      "note": "a + petite, meaning little"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p = piano, quiet in music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "P",
-      "PETITE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "the quiet letter goes inside the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a little",
+       "gives": "APETITE",
+       "note": "a + petite, meaning little"
+      },
+      {
+       "words": "quiet",
+       "gives": "P",
+       "note": "p = piano, quiet in music"
+      }
      ]
     },
     "explanation": {
@@ -639,38 +572,30 @@
    },
    "solution": "PENDRAGON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PENDRAGON",
     "definitions": [
      {
       "text": "ancient royal",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Write",
-      "gives": "PEN",
-      "note": "to pen is to write"
-     },
-     {
-      "clueFragment": "something boring",
-      "gives": "DRAG",
-      "note": "a drag is a tedious thing"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "ON",
-      "note": "on = about, as in 'a talk on birds'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "DRAG",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Write",
+       "gives": "PEN",
+       "note": "to pen is to write"
+      },
+      {
+       "words": "something boring",
+       "gives": "DRAG",
+       "note": "a drag is a tedious thing"
+      },
+      {
+       "words": "about",
+       "gives": "ON",
+       "note": "on = about, as in 'a talk on birds'"
+      }
      ]
     },
     "explanation": {
@@ -699,11 +624,6 @@
    },
    "solution": "NADIR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NADIR",
     "definitions": [
      {
       "text": "Low",
@@ -711,34 +631,29 @@
       "note": "'Low' here is a noun, a low point, as in 'an all-time low'."
      }
     ],
-    "indicators": [
-     {
-      "text": "on the rise",
-      "for": "reversal",
-      "note": "in a down clue, rising letters read upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sodium",
-      "gives": "NA",
-      "note": "Na is the chemical symbol for sodium"
-     },
-     {
-      "clueFragment": "cleanse",
-      "gives": "RID",
-      "note": "to rid a place of something is to cleanse it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NA",
-      "DIR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RID",
-       "to": "DIR"
+       "words": "sodium",
+       "gives": "NA",
+       "note": "Na is the chemical symbol for sodium"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on the rise",
+         "note": "in a down clue, rising letters read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cleanse",
+         "gives": "RID",
+         "note": "to rid a place of something is to cleanse it"
+        }
+       ]
       }
      ]
     },
@@ -768,33 +683,16 @@
    },
    "solution": "SCRAP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SCRAP",
     "definitions": [
      {
       "text": "Bit",
-      "at": 0
+      "at": 0,
+      "meaning": "a small leftover piece, as of paper or food"
      },
      {
       "text": "fight",
-      "at": 7
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bit",
-      "gives": "SCRAP",
-      "note": "a small leftover piece, as of paper or food"
-     },
-     {
-      "clueFragment": "fight",
-      "gives": "SCRAP",
-      "note": "an informal word for a scuffle or brawl"
+      "at": 7,
+      "meaning": "an informal word for a scuffle or brawl"
      }
     ],
     "explanation": {
@@ -823,41 +721,36 @@
    },
    "solution": "TRAVELS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRAVELS",
     "definitions": [
      {
       "text": "passages",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Intro to",
-      "for": "letter_selection",
-      "note": "an intro is the opening, so the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Intro to tuneless",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of Tuneless"
-     },
-     {
-      "clueFragment": "composer's",
-      "gives": "RAVELS",
-      "note": "Ravel's, belonging to the French composer Maurice Ravel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAVELS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Intro to",
+         "note": "an intro is the opening, so the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Intro to tuneless",
+         "gives": "TUNELESS",
+         "note": "the first letter of Tuneless"
+        }
+       ]
+      },
+      {
+       "words": "composer's",
+       "gives": "RAVELS",
+       "note": "Ravel's, belonging to the French composer Maurice Ravel"
+      }
      ]
     },
     "explanation": {
@@ -887,35 +780,25 @@
    },
    "solution": "DISGUST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISGUST",
     "definitions": [
      {
       "text": "Offend",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "police inspectors",
-      "gives": "DIS",
-      "note": "DI = Detective Inspector, so DIs are police inspectors"
-     },
-     {
-      "clueFragment": "burst of wind",
-      "gives": "GUST",
-      "note": "a gust is a sudden rush of wind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "GUST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "police inspectors",
+       "gives": "DIS",
+       "note": "DI = Detective Inspector, so DIs are police inspectors"
+      },
+      {
+       "words": "burst of wind",
+       "gives": "GUST",
+       "note": "a gust is a sudden rush of wind"
+      }
      ]
     },
     "explanation": {
@@ -951,46 +834,41 @@
    },
    "solution": "TREASURECHEST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TREASURE CHEST",
     "definitions": [
      {
       "text": "case of loot",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "container",
-      "note": "the first pieces are held inside the word for 'deal with'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Certain",
-      "gives": "SURE",
-      "note": "sure = certain"
-     },
-     {
-      "clueFragment": "Marxist's",
-      "gives": "CHES",
-      "note": "Che's, belonging to Che Guevara, the Marxist revolutionary"
-     },
-     {
-      "clueFragment": "deal with",
-      "gives": "TREAT",
-      "note": "to treat a matter is to deal with it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREA",
-      "SURE",
-      "CHES",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "note": "the first pieces are held inside the word for 'deal with'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "deal with",
+         "gives": "TREAT",
+         "note": "to treat a matter is to deal with it"
+        },
+        {
+         "words": "Marxist's",
+         "gives": "CHES",
+         "note": "Che's, belonging to Che Guevara, the Marxist revolutionary"
+        }
+       ]
+      },
+      {
+       "words": "Certain",
+       "gives": "SURE",
+       "note": "sure = certain"
+      }
      ]
     },
     "explanation": {
@@ -1020,11 +898,6 @@
    },
    "solution": "TAIWANESE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TAIWANESE",
     "definitions": [
      {
       "text": "National",
@@ -1032,44 +905,45 @@
       "note": "'National' is a noun, a citizen of a country."
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "turned about, so the word reverses"
-     },
-     {
-      "text": "keeping",
-      "note": "the reversed word keeps the rest inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worry",
-      "gives": "EAT",
-      "note": "'what's eating you?' means what's worrying you"
-     },
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "subsides",
-      "gives": "WANES",
-      "note": "to wane is to diminish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "I",
-      "WANES",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EAT",
-       "to": "TAE"
+       "text": "about",
+       "note": "turned about, so the word reverses"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "the reversed word keeps the rest inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "worry",
+           "gives": "EAT",
+           "note": "'what's eating you?' means what's worrying you"
+          },
+          {
+           "words": "current",
+           "gives": "I",
+           "note": "I is the symbol for electric current"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "subsides",
+       "gives": "WANES",
+       "note": "to wane is to diminish"
       }
      ]
     },
@@ -1099,35 +973,24 @@
    },
    "solution": "CLOISONNE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLOISONNE",
     "definitions": [
      {
       "text": "Enamelwork",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for breaking",
-      "for": "anagram",
-      "note": "the letters are due to be broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loons, nice",
-      "gives": "LOONSNICE",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOONS NICE",
-       "gives": "CLOISONNE"
+       "text": "for breaking",
+       "note": "the letters are due to be broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "loons, nice",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1158,38 +1021,30 @@
    },
    "solution": "SURGEONS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURGEONS",
     "definitions": [
      {
       "text": "cutters",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Big wave",
-      "gives": "SURGE",
-      "note": "a surge is a great swell of water"
-     },
-     {
-      "clueFragment": "concerning",
-      "gives": "ON",
-      "note": "on = concerning, about"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S = small, as on clothing labels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURGE",
-      "ON",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Big wave",
+       "gives": "SURGE",
+       "note": "a surge is a great swell of water"
+      },
+      {
+       "words": "concerning",
+       "gives": "ON",
+       "note": "on = concerning, about"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S = small, as on clothing labels"
+      }
      ]
     },
     "explanation": {
@@ -1225,35 +1080,24 @@
    },
    "solution": "UNITEDNATIONS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNITED NATIONS",
     "definitions": [
      {
       "text": "powerful body",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Fixed",
-      "for": "anagram",
-      "note": "letters that are fixed have been rearranged or doctored"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on Titian nude's",
-      "gives": "ONTITIANNUDES",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ON TITIAN NUDES",
-       "gives": "UNITEDNATIONS"
+       "text": "Fixed",
+       "note": "letters that are fixed have been rearranged or doctored"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on Titian nude's",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -1284,11 +1128,6 @@
    },
    "solution": "NEXUS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NEXUS",
     "definitions": [
      {
       "text": "Joining",
@@ -1296,39 +1135,52 @@
       "note": "'Joining' is a noun here, a junction."
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "note": "the old mate goes among the other letters, inside them"
-     },
-     {
-      "text": "foremost of",
-      "note": "the foremost letter is the first one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "foremost of noisome",
-      "gives": "N",
-      "select": "first",
-      "note": "the first letter of Noisome"
-     },
-     {
-      "clueFragment": "old mate",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "crossworders?",
-      "gives": "US",
-      "note": "us, the setter and solvers of crosswords; the question mark flags the liberty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EX",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NEXUS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "among",
+         "note": "the old mate goes among the other letters, inside them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "N",
+         "indicators": [
+          {
+           "text": "foremost of",
+           "note": "the foremost letter is the first one"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "foremost of noisome",
+           "gives": "N",
+           "select": "first",
+           "note": "the first letter of Noisome"
+          }
+         ]
+        },
+        {
+         "words": "old mate",
+         "gives": "EX",
+         "note": "an ex is a former partner"
+        },
+        {
+         "words": "crossworders?",
+         "gives": "US",
+         "note": "us, the setter and solvers of crosswords; the question mark flags the liberty"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1358,47 +1210,41 @@
    },
    "solution": "TANDOOR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TANDOOR",
     "definitions": [
      {
       "text": "kebab place?",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "final discharge",
-      "for": "letter_selection",
-      "note": "the word lets go of its final letter, which is the one we keep"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "military unit",
-      "gives": "TA",
-      "note": "TA = Territorial Army, the British Army's volunteer reserve"
-     },
-     {
-      "clueFragment": "Given final discharge",
-      "gives": "N",
-      "select": "last",
-      "note": "the last letter of giveN"
-     },
-     {
-      "clueFragment": "opening",
-      "gives": "DOOR",
-      "note": "a door is an opening"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "N",
-      "DOOR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "military unit",
+       "gives": "TA",
+       "note": "TA = Territorial Army, the British Army's volunteer reserve"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final discharge",
+         "note": "the word lets go of its final letter, which is the one we keep"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Given final discharge",
+         "gives": "GIVEN",
+         "note": "the last letter of giveN"
+        }
+       ]
+      },
+      {
+       "words": "opening",
+       "gives": "DOOR",
+       "note": "a door is an opening"
+      }
      ]
     },
     "explanation": {
@@ -1428,43 +1274,38 @@
    },
    "solution": "ASYLUM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ASYLUM",
     "definitions": [
      {
       "text": "sanctuary",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to remove caps",
-      "for": "deletion",
-      "note": "a cap sits on top, which is the first letter in a down entry"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Painless",
-      "gives": "ASY",
-      "note": "EASY, painless, without its first letter"
-     },
-     {
-      "clueFragment": "choice",
-      "gives": "LUM",
-      "note": "PLUM, a choice thing, without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASY",
-      "LUM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ASYLUM",
+     "indicators": [
+      {
+       "text": "to remove caps",
+       "note": "a cap sits on top, which is the first letter in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Painless",
+         "gives": "ASY",
+         "note": "EASY, painless, without its first letter"
+        },
+        {
+         "words": "choice",
+         "gives": "LUM",
+         "note": "PLUM, a choice thing, without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1493,40 +1334,38 @@
    },
    "solution": "GRAVLAX",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GRAVLAX",
     "definitions": [
      {
       "text": "Salmon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with shortening",
-      "for": "deletion",
-      "note": "shortening cuts the word, losing its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sauce with shortening",
-      "gives": "GRAV",
-      "note": "GRAVY, a sauce, cut short"
-     },
-     {
-      "clueFragment": "lacking firmness",
-      "gives": "LAX",
-      "note": "lax = slack"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAV",
-      "LAX"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GRAVLAX",
+     "indicators": [
+      {
+       "text": "with shortening",
+       "note": "shortening cuts the word, losing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sauce with shortening",
+         "gives": "GRAV",
+         "note": "GRAVY, a sauce, cut short"
+        },
+        {
+         "words": "lacking firmness",
+         "gives": "LAX",
+         "note": "lax = slack"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1556,53 +1395,41 @@
    },
    "solution": "LEAPT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LEAPT",
     "definitions": [
      {
       "text": "Took off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "substitution",
-      "note": "the fit leaves the word, so its letters come out"
-     },
-     {
-      "text": "to get",
-      "for": "substitution",
-      "note": "the gap is filled with what comes next"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "league",
-      "gives": "LEAGUE",
-      "note": "the starting word"
-     },
-     {
-      "clueFragment": "fit",
-      "gives": "AGUE",
-      "note": "an ague is a shivering fit of fever; it leaves, leaving LE"
-     },
-     {
-      "clueFragment": "a pint",
-      "gives": "APT",
-      "note": "a + PT, the abbreviation for pint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "A",
-      "PT"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LEAPT",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the fit leaves the word, so its letters come out"
+      },
+      {
+       "text": "to get",
+       "note": "the gap is filled with what comes next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "league",
+       "note": "the starting word"
+      },
+      {
+       "words": "fit",
+       "gives": "AGUE",
+       "note": "an ague is a shivering fit of fever; it leaves, leaving LE"
+      },
+      {
+       "words": "a pint",
+       "gives": "APT",
+       "note": "a + PT, the abbreviation for pint"
+      }
      ]
     },
     "explanation": {
@@ -1631,30 +1458,16 @@
    },
    "solution": "NESTLES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NESTLES",
     "definitions": [
      {
       "text": "Sweet company's",
-      "at": 0
+      "at": 0,
+      "meaning": "Nestlé's, belonging to the confectionery maker"
      },
      {
       "text": "manoeuvres to get cuddly",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sweet company's",
-      "gives": "NESTLES",
-      "note": "Nestlé's, belonging to the confectionery maker"
-     },
-     {
-      "clueFragment": "manoeuvres to get cuddly",
-      "gives": "NESTLES",
-      "note": "to nestle is to snuggle in close"
+      "at": 16,
+      "meaning": "to nestle is to snuggle in close"
      }
     ],
     "explanation": {
@@ -1684,32 +1497,25 @@
    },
    "solution": "LARGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LARGO",
     "definitions": [
      {
       "text": "Slow",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "L = lake, on maps"
-     },
-     {
-      "clueFragment": "craft, once",
-      "gives": "ARGO",
-      "note": "the Argo, the ship of Jason and the Argonauts in Greek myth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ARGO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lake",
+       "gives": "L",
+       "note": "L = lake, on maps"
+      },
+      {
+       "words": "craft, once",
+       "gives": "ARGO",
+       "note": "the Argo, the ship of Jason and the Argonauts in Greek myth"
+      }
      ]
     },
     "explanation": {
@@ -1738,40 +1544,25 @@
    },
    "solution": "OMEGA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OMEGA",
     "definitions": [
      {
       "text": "Watch selection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the return",
-      "for": "reversal",
-      "note": "returning, the letters go back the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two times",
-      "gives": "AGEMO",
-      "note": "an age and a mo (moment), two stretches of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OM",
-      "EGA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AGEMO",
-       "to": "OMEGA"
+       "text": "on the return",
+       "note": "returning, the letters go back the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two times",
+       "gives": "AGEMO",
+       "note": "an age and a mo (moment), two stretches of time"
       }
      ]
     },
@@ -1802,49 +1593,41 @@
    },
    "solution": "SCOUNDREL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCOUNDREL",
     "definitions": [
      {
       "text": "Good-for-nothing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cryptic",
-      "for": "anagram",
-      "note": "cryptic letters are obscured, jumbled"
-     },
-     {
-      "text": "to break in",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clues",
-      "gives": "CLUES",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "NO",
-      "note": "the word itself, added to the fodder"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "RD",
-      "note": "RD = road, a way"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLUES NO RD",
-       "gives": "SCOUNDREL"
+       "text": "cryptic",
+       "note": "cryptic letters are obscured, jumbled"
+      },
+      {
+       "text": "to break in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "clues",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "no",
+         "note": "the word itself, added to the fodder"
+        },
+        {
+         "words": "way",
+         "gives": "RD",
+         "note": "RD = road, a way"
+        }
+       ]
       }
      ]
     },
@@ -1875,31 +1658,29 @@
    },
    "solution": "SCENTS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SCENTS",
     "definitions": [
      {
       "text": "Gets wind of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on radio",
-      "for": "homophone",
-      "note": "on the radio it is heard, not seen"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "change in New York",
-      "gives": "SCENTS",
-      "soundsLike": "CENTS",
-      "note": "cents are small American coins, loose change in New York"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SCENTS",
+     "indicators": [
+      {
+       "text": "on radio",
+       "note": "on the radio it is heard, not seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "change in New York",
+       "gives": "CENTS",
+       "note": "cents are small American coins, loose change in New York"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A New Yorker hears on the radio that things are about to change.",
      "walkthrough": "'Change' is small coins, and New York makes them US cents. 'Gets wind of' works both ways: smelling, and learning of something.",
@@ -1933,30 +1714,28 @@
    },
    "solution": "FREEFORM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FREE-FORM",
     "definitions": [
      {
       "text": "Unlimited",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "worms through",
-      "for": "hidden_word",
-      "note": "the answer wriggles its way through the words, strung across them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wharf, reef, or marina",
-      "gives": "FREEFORM",
-      "note": "wharF REEF OR Marina"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "worms through",
+       "note": "the answer wriggles its way through the words, strung across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wharf, reef, or marina",
+       "gives": "FREEFORM",
+       "note": "wharF REEF OR Marina"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Worms spreading unchecked through a harbour, a reef and a marina.",
      "walkthrough": "The answer runs across three words, ignoring the commas.",

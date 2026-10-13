@@ -1,8 +1,6 @@
 {
  "id": "toughie-3450",
  "number": 3450,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,450",
  "setter": "Hudson",
  "date": "2025-03-26",
  "dimensions": {
@@ -44,47 +42,44 @@
    },
    "solution": "FRENCHBEAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "FRENCH BEAN",
     "definitions": [
      {
       "text": "veg",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "cooking",
-      "for": "anagram",
-      "note": "cooking works ingredients into something new, so the letters are mixed into a fresh order"
-     },
-     {
-      "text": "peeled",
-      "for": "letter_selection",
-      "note": "peeling strips the outer skin, so the word loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bern chef",
-      "gives": "BERNCHEF",
-      "note": "taken as written, ready to be mixed"
-     },
-     {
-      "clueFragment": "hand",
-      "gives": "AN",
-      "select": "middle",
-      "note": "hand with its outer letters stripped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BERNCHEFAN",
-       "gives": "FRENCHBEAN"
+       "text": "cooking",
+       "note": "cooking works ingredients into something new, so the letters are mixed into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bern chef",
+         "note": "taken as written, ready to be mixed"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "peeled",
+           "note": "peeling strips the outer skin, so the word loses its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hand",
+           "note": "hand with its outer letters stripped"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -113,50 +108,49 @@
    },
    "solution": "FAKE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "FAKE",
     "definitions": [
      {
       "text": "Cod",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its opening letter"
-     },
-     {
-      "text": "headless",
-      "for": "deletion",
-      "note": "without a head, the next word loses its opening letter"
-     }
-    ],
-    "linkWords": [
-     "put on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish's",
-      "gives": "F",
-      "select": "first",
-      "note": "opening letter"
-     },
-     {
-      "clueFragment": "fish a bit like cod",
-      "gives": "HAKE",
-      "note": "hake is a food fish of the cod family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "AKE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "headless",
+       "note": "without a head, the next word loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "note": "the head of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fish's",
+           "note": "opening letter"
+          }
+         ]
+        },
+        {
+         "words": "fish a bit like cod",
+         "gives": "HAKE",
+         "note": "hake is a food fish of the cod family"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -186,40 +180,31 @@
    },
    "solution": "EMBASSY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMBASSY",
     "definitions": [
      {
       "text": "Mission",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sinking",
-      "for": "container",
-      "note": "something sinking goes down into another thing, ending up inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "force into cove",
-      "gives": "EMBAY",
-      "note": "to embay is to drive a ship into a bay"
-     },
-     {
-      "clueFragment": "steamship",
-      "gives": "SS",
-      "note": "SS is the prefix for steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMBA",
-      "SS",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sinking",
+       "note": "something sinking goes down into another thing, ending up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "force into cove",
+       "gives": "EMBAY",
+       "note": "to embay is to drive a ship into a bay"
+      },
+      {
+       "words": "steamship",
+       "gives": "SS",
+       "note": "SS is the prefix for steamship"
+      }
      ]
     },
     "explanation": {
@@ -253,57 +238,54 @@
    },
    "solution": "CABERNETFRANC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "CABERNET FRANC",
     "definitions": [
      {
       "text": "A red wine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back here means read backwards"
-     },
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one tossed",
-      "gives": "CABER",
-      "note": "a caber is the pole tossed at Highland games"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "TEN",
-      "note": "the number spelt out"
-     },
-     {
-      "clueFragment": "F",
-      "gives": "FRANCS",
-      "note": "F is the abbreviation for francs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CABER",
-      "NET",
-      "FRANC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TEN",
-       "to": "NET"
+       "words": "one tossed",
+       "gives": "CABER",
+       "note": "a caber is the pole tossed at Highland games"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back here means read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "10",
+         "gives": "TEN",
+         "note": "the number spelt out"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "almost means not quite all, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "F",
+         "gives": "FRANCS",
+         "note": "F is the abbreviation for francs"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
@@ -333,47 +315,41 @@
    },
    "solution": "BAEDEKER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BAEDEKER",
     "definitions": [
      {
       "text": "travel guide",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "occasionally means every so often, so only alternate letters are kept"
-     },
-     {
-      "text": "taking on",
-      "for": "container",
-      "note": "taking on means admitting something within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rolls manufacturer",
-      "gives": "BAKER",
-      "note": "a baker makes bread rolls"
-     },
-     {
-      "clueFragment": "nerdier",
-      "gives": "EDE",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "EDE",
-      "KER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking on",
+       "note": "taking on means admitting something within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rolls manufacturer",
+       "gives": "BAKER",
+       "note": "a baker makes bread rolls"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "note": "occasionally means every so often, so only alternate letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nerdier",
+         "note": "second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -403,43 +379,39 @@
    },
    "solution": "ASPEN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ASPEN",
     "definitions": [
      {
       "text": "here in the Rockies",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "taking time off",
-      "for": "deletion",
-      "note": "taking something off removes it, here the abbreviation for time"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the abbreviation for American"
-     },
-     {
-      "clueFragment": "exhausted",
-      "gives": "SPENT",
-      "note": "spent means worn out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SPEN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking time off",
+       "note": "taking something off removes it, here the abbreviation for time"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A is the abbreviation for American"
+        },
+        {
+         "words": "exhausted",
+         "gives": "SPENT",
+         "note": "spent means worn out"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -467,44 +439,39 @@
    },
    "solution": "GLIB",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "GLIB",
     "definitions": [
      {
       "text": "Facile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end, the word drops its final letter"
-     },
-     {
-      "text": "circulating",
-      "for": "reversal",
-      "note": "going round in a circle brings the letters back the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drivel",
-      "gives": "BILGE",
-      "note": "bilge is nonsense or rubbish talk"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLIB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BILG",
-       "to": "GLIB"
+       "text": "circulating",
+       "note": "going round in a circle brings the letters back the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "without an end, the word drops its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drivel",
+         "gives": "BILGE",
+         "note": "bilge is nonsense or rubbish talk"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
@@ -533,51 +500,41 @@
    },
    "solution": "LOCKJAW",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LOCKJAW",
     "definitions": [
      {
       "text": "reason to visit doctor",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "poor suggests something in bad shape, so the letters are knocked out of order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, placed on either side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mean",
-      "gives": "LOW",
-      "note": "low means base or mean"
-     },
-     {
-      "clueFragment": "Jack's",
-      "gives": "JACK",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "CKJA",
-      "W"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "JACK",
-       "gives": "CKJA"
+       "text": "about",
+       "note": "about means surrounding, placed on either side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mean",
+       "gives": "LOW",
+       "note": "low means base or mean"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "note": "poor suggests something in bad shape, so the letters are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jack's",
+         "gives": "JACK",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -607,26 +564,25 @@
    },
    "solution": "BELLRINGER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BELLRINGER",
     "definitions": [
      {
       "text": "One who might pull a bob or two at work?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "pull a bob or two",
-      "note": "surface reading: someone pulling in a few shillings, a bob being an old British coin"
-     },
-     {
-      "clueFragment": "bob",
-      "note": "setter's reading: a bob is a change-ringing method, worked by pulling ropes in a church tower"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "pull a bob or two",
+       "note": "surface reading: someone pulling in a few shillings, a bob being an old British coin"
+      },
+      {
+       "words": "bob",
+       "note": "setter's reading: a bob is a change-ringing method, worked by pulling ropes in a church tower"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A bob was slang for a shilling, so the surface is about earning money; in change ringing a bob is a call that alters the sequence.",
      "definitionFit": "Church tower ringers pull ropes to ring methods such as Plain Bob."
@@ -653,45 +609,35 @@
    },
    "solution": "KEBAB",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "KEBAB",
     "definitions": [
      {
       "text": "put on skewer",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K is the chess and card abbreviation for king"
-     },
-     {
-      "clueFragment": "young pig",
-      "gives": "BABE",
-      "note": "Babe is the piglet hero of the film, and a babe is a young one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "EBAB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BABE",
-       "to": "EBAB"
+       "words": "King",
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "something rejected is sent back, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "young pig",
+         "gives": "BABE",
+         "note": "Babe is the piglet hero of the film, and a babe is a young one"
+        }
+       ]
       }
      ]
     },
@@ -720,40 +666,33 @@
    },
    "solution": "EMPIRICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EMPIRICAL",
     "definitions": [
      {
       "text": "using knowledge gained by experience",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Repaired",
-      "for": "anagram",
-      "note": "something repaired has been taken apart and put back together, so the letters are reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "replica",
-      "gives": "REPLICA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REPLICAIM",
-       "gives": "EMPIRICAL"
+       "text": "Repaired",
+       "note": "something repaired has been taken apart and put back together, so the letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "replica",
+         "note": "taken as written"
+        },
+        {
+         "words": "I'm",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -782,61 +721,50 @@
    },
    "solution": "REMORSELESSLY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "REMORSELESSLY",
     "definitions": [
      {
       "text": "in a cruel way",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing about with something rearranges it freely"
-     },
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "to entertain is to host someone, taking them in"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sellers",
-      "gives": "SELLERS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "detective",
-      "gives": "MORSE",
-      "note": "Inspector Morse, the Oxford TV detective"
-     },
-     {
-      "clueFragment": "Yard",
-      "gives": "Y",
-      "note": "Y is the abbreviation for yard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MORSE",
-      "LESSL",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SELLERS",
-       "gives": "RELESSL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertaining",
+         "note": "to entertain is to host someone, taking them in"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "playing",
+           "note": "playing about with something rearranges it freely"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sellers",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "detective",
+         "gives": "MORSE",
+         "note": "Inspector Morse, the Oxford TV detective"
+        }
+       ]
+      },
+      {
+       "words": "Yard",
+       "gives": "Y",
+       "note": "Y is the abbreviation for yard"
       }
      ]
     },
@@ -872,38 +800,24 @@
    },
    "solution": "SERGEANTMAJOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SERGEANT MAJOR",
     "definitions": [
      {
       "text": "Soldier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "given a new order",
-      "for": "anagram",
-      "note": "putting things in a new order rearranges them, so the letters are shuffled"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to James Garner",
-      "gives": "TOJAMESGARNER",
-      "note": "taken as written, all thirteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOJAMESGARNER",
-       "gives": "SERGEANTMAJOR"
+       "text": "given a new order",
+       "note": "putting things in a new order rearranges them, so the letters are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to James Garner",
+       "note": "taken as written, all thirteen letters"
       }
      ]
     },
@@ -939,50 +853,44 @@
    },
    "solution": "WHISTDRIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "WHIST DRIVE",
     "definitions": [
      {
       "text": "Where finesse might come into play",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "winding",
-      "for": "anagram",
-      "note": "winding means twisting about, so the letters are turned into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "this",
-      "gives": "THIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "road",
-      "gives": "DRIVE",
-      "note": "a drive is a road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHIST",
-      "DRIVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WTHIS",
-       "gives": "WHIST"
+       "words": "with",
+       "gives": "W",
+       "note": "W is the abbreviation for with"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "winding",
+         "note": "winding means twisting about, so the letters are turned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "this",
+           "note": "taken as written"
+          },
+          {
+           "words": "road",
+           "gives": "DRIVE",
+           "note": "a drive is a road"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1018,28 +926,16 @@
    },
    "solution": "HAYFEVER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HAY FEVER",
     "definitions": [
      {
       "text": "Coward wrote this",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a 1925 comedy by the playwright Noel Coward"
      },
      {
       "text": "irritating complaint",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Coward wrote this",
-      "note": "first meaning: a 1925 comedy by the playwright Noel Coward"
-     },
-     {
-      "clueFragment": "irritating complaint",
-      "note": "second meaning: a pollen allergy that inflames eyes and nose"
+      "at": 18,
+      "meaning": "second meaning: a pollen allergy that inflames eyes and nose"
      }
     ],
     "explanation": {
@@ -1075,41 +971,39 @@
    },
    "solution": "DRAWIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "DRAW IN",
     "definitions": [
      {
       "text": "contract",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "delaying",
-      "for": "container",
-      "note": "delaying pushes something later, so that letter is taken out and put back further along"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australian city",
-      "gives": "DARWIN",
-      "note": "Darwin is the capital of Australia's Northern Territory"
-     },
-     {
-      "clueFragment": "atomic",
-      "gives": "A",
-      "note": "A is the abbreviation for atomic, as in A-bomb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "A",
-      "WIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "delaying",
+       "note": "delaying pushes something later, so that letter is taken out and put back further along"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Australian city",
+         "gives": "DARWIN",
+         "note": "Darwin is the capital of Australia's Northern Territory"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "atomic",
+       "gives": "A",
+       "note": "A is the abbreviation for atomic, as in A-bomb"
+      }
      ]
     },
     "explanation": {
@@ -1144,50 +1038,41 @@
    },
    "solution": "FOURTEEN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FOURTEEN",
     "definitions": [
      {
       "text": "number",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "for": "container",
-      "note": "covering something means wrapping around it"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "newspaper",
-      "gives": "FT",
-      "note": "FT is the Financial Times"
-     },
-     {
-      "clueFragment": "Telegraph's",
-      "gives": "OUR",
-      "note": "this puzzle appears in the Telegraph, which would say our"
-     },
-     {
-      "clueFragment": "even",
-      "gives": "EEN",
-      "note": "e'en is the poetic contraction of even"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "OUR",
-      "T",
-      "EEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covers",
+         "note": "covering something means wrapping around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "newspaper",
+         "gives": "FT",
+         "note": "FT is the Financial Times"
+        },
+        {
+         "words": "Telegraph's",
+         "gives": "OUR",
+         "note": "this puzzle appears in the Telegraph, which would say our"
+        }
+       ]
+      },
+      {
+       "words": "even",
+       "gives": "EEN",
+       "note": "e'en is the poetic contraction of even"
+      }
      ]
     },
     "explanation": {
@@ -1222,28 +1107,16 @@
    },
    "solution": "SETOFF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SET OFF",
     "definitions": [
      {
       "text": "Leave",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: depart on a journey"
      },
      {
       "text": "telly on stand-by",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "note": "first meaning: depart on a journey"
-     },
-     {
-      "clueFragment": "telly on stand-by",
-      "note": "second meaning, read cryptically: a television set that is switched off"
+      "at": 6,
+      "meaning": "second meaning, read cryptically: a television set that is switched off"
      }
     ],
     "explanation": {
@@ -1278,41 +1151,36 @@
    },
    "solution": "TYNWALD",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TYNWALD",
     "definitions": [
      {
       "text": "Parliament",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "features",
-      "for": "hidden_word",
-      "note": "something featured is included within, so the letters sit inside the words"
-     },
-     {
-      "text": "upcoming",
-      "for": "reversal",
-      "note": "in a down entry, coming up means read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Upheld Law\" — NY Times",
-      "gives": "DLAWNYT",
-      "note": "letters spanning the words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DLAWNYT",
-       "to": "TYNWALD"
+       "text": "upcoming",
+       "note": "in a down entry, coming up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "features",
+         "note": "something featured is included within, so the letters sit inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Upheld Law\" — NY Times",
+         "gives": "DLAWNYT",
+         "note": "letters spanning the words"
+        }
+       ]
       }
      ]
     },
@@ -1347,65 +1215,60 @@
    },
    "solution": "BONEIDLE",
    "annotation": {
-    "type": [
-     "cycling",
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BONE-IDLE",
     "definitions": [
      {
       "text": "Pitifully lazy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycles",
-      "for": "cycling",
-      "note": "cycling moves the front letters round to the back while keeping their order"
-     },
-     {
-      "text": "around collecting",
-      "for": "container",
-      "note": "going around and collecting means holding other letters inside"
-     },
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "only the opening letter of the next word is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yasmin",
-      "gives": "LEBON",
-      "note": "the model Yasmin Le Bon, wife of Duran Duran's singer"
-     },
-     {
-      "clueFragment": "evening",
-      "gives": "E",
-      "select": "first",
-      "note": "opening letter"
-     },
-     {
-      "clueFragment": "papers",
-      "gives": "ID",
-      "note": "ID papers prove who you are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BON",
-      "E",
-      "ID",
-      "LE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BONEIDLE",
+     "indicators": [
       {
-       "fodder": "LEBON",
-       "gives": "BONLE"
+       "text": "around collecting",
+       "note": "going around and collecting means holding other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "BONEIDLE",
+       "indicators": [
+        {
+         "text": "cycles",
+         "note": "cycling moves the front letters round to the back while keeping their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yasmin",
+         "gives": "LEBON",
+         "note": "the model Yasmin Le Bon, wife of Duran Duran's singer"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "note": "only the opening letter of the next word is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "evening",
+           "note": "opening letter"
+          }
+         ]
+        },
+        {
+         "words": "papers",
+         "gives": "ID",
+         "note": "ID papers prove who you are"
+        }
+       ]
       }
      ]
     },
@@ -1435,53 +1298,58 @@
    },
    "solution": "DUNGEON",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "DUNGEON",
     "definitions": [
      {
       "text": "cell",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "contracted",
-      "for": "deletion",
-      "note": "a contracted word is shortened"
-     },
-     {
-      "text": "first in",
-      "for": "letter_selection",
-      "note": "only the opening letter of the next word is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plague",
-      "gives": "DUN",
-      "note": "to dun is to pester for payment"
-     },
-     {
-      "clueFragment": "George",
-      "gives": "GEORGE",
-      "note": "taken as written, then cut short"
-     },
-     {
-      "clueFragment": "Newgate",
-      "gives": "N",
-      "select": "first",
-      "note": "opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUN",
-      "GEO",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contracted",
+         "note": "a contracted word is shortened"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Plague",
+           "gives": "DUN",
+           "note": "to dun is to pester for payment"
+          },
+          {
+           "words": "George",
+           "note": "taken as written, then cut short"
+          }
+         ]
+        },
+        {
+         "gives": "RGE"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "note": "only the opening letter of the next word is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Newgate",
+         "note": "opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1516,26 +1384,25 @@
    },
    "solution": "DENTALSURGEON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DENTAL SURGEON",
     "definitions": [
      {
       "text": "Worker who fills in?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Worker who fills in?",
-      "note": "surface reading: a temp or stand-in who covers for absent staff"
-     },
-     {
-      "clueFragment": "fills in",
-      "note": "setter's reading: someone who puts fillings into teeth"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Worker who fills in?",
+       "note": "surface reading: a temp or stand-in who covers for absent staff"
+      },
+      {
+       "words": "fills in",
+       "note": "setter's reading: someone who puts fillings into teeth"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Filling in suggests deputising; the trade is actually plugging cavities in teeth.",
      "definitionFit": "A specialist in mouth operations who also does fillings is a professional working on teeth."
@@ -1562,34 +1429,29 @@
    },
    "solution": "SOBER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SOBER",
     "definitions": [
      {
       "text": "Restrained",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-heartedly",
-      "for": "deletion",
-      "note": "losing half the heart means dropping one of the two middle letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one crying",
-      "gives": "SOBBER",
-      "note": "someone who sobs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "BER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half-heartedly",
+       "note": "losing half the heart means dropping one of the two middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one crying",
+       "gives": "SOBBER",
+       "note": "someone who sobs"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -1617,28 +1479,16 @@
    },
    "solution": "GRIP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GRIP",
     "definitions": [
      {
       "text": "Clutch",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: hold tight"
      },
      {
       "text": "bag",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clutch",
-      "note": "first meaning: hold tight"
-     },
-     {
-      "clueFragment": "bag",
-      "note": "second meaning: a travelling bag, an older word for a holdall"
+      "at": 7,
+      "meaning": "second meaning: a travelling bag, an older word for a holdall"
      }
     ],
     "explanation": {
@@ -1667,54 +1517,50 @@
    },
    "solution": "IRASCIBLE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "IRASCIBLE",
     "definitions": [
      {
       "text": "Grumpy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stuck in",
-      "for": "container",
-      "note": "things stuck in something are placed inside it"
-     },
-     {
-      "text": "shivering",
-      "for": "anagram",
-      "note": "shivering shakes something about, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold on taps"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "Siberia",
-      "gives": "SIBERIA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SIBERIACL",
-       "gives": "IRASCIBLE"
+       "text": "stuck in",
+       "note": "things stuck in something are placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shivering",
+         "note": "shivering shakes something about, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "gives": "L",
+           "note": "L is the abbreviation for left"
+          },
+          {
+           "words": "Siberia",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold on taps"
       }
      ]
     },
@@ -1743,43 +1589,41 @@
    },
    "solution": "SHEAR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SHEAR",
     "definitions": [
      {
       "text": "clip",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "setting out",
-      "for": "deletion",
-      "note": "setting things out means putting them aside, so those letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Famous champion horse",
-      "gives": "SHERGAR",
-      "note": "Shergar won the 1981 Derby and was later kidnapped"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHEAR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "setting out",
+       "note": "setting things out means putting them aside, so those letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Famous champion horse",
+       "gives": "SHERGAR",
+       "note": "Shergar won the 1981 Derby and was later kidnapped"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "runs",
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        },
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "G is the abbreviation for good"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1808,37 +1652,42 @@
    },
    "solution": "EDDA",
    "annotation": {
-    "type": [
-     "deletion",
-     "homophone"
-    ],
-    "answer": "EDDA",
     "definitions": [
      {
       "text": "Nordic works",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "commonly",
-      "for": "deletion",
-      "note": "common speech drops the h at the start of words"
-     },
-     {
-      "text": "narrated",
-      "for": "homophone",
-      "note": "narrated means spoken, so the answer is judged by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One of Haaland's strengths",
-      "gives": "EDDA",
-      "soundsLike": "EADER",
-      "note": "a header, said without its h; Erling Haaland is a Norwegian footballer"
-     }
-    ],
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EDDA",
+     "indicators": [
+      {
+       "text": "commonly",
+       "note": "common speech drops the h at the start of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EDDA",
+       "indicators": [
+        {
+         "text": "narrated",
+         "note": "narrated means spoken, so the answer is judged by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One of Haaland's strengths",
+         "gives": "EADER",
+         "note": "a header, said without its h; Erling Haaland is a Norwegian footballer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A list of a striker's strengths is read out in a Scandinavian accent.",
      "walkthrough": "Haaland, the Manchester City striker, scores with his head; a header said in Cockney style is 'eader.",
@@ -1872,45 +1721,35 @@
    },
    "solution": "BRANDYSNAP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BRANDY SNAP",
     "definitions": [
      {
       "text": "Biscuit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the wrong way round",
-      "for": "reversal",
-      "note": "facing the wrong way round means the letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "label",
-      "gives": "BRAND",
-      "note": "a brand is a trade label"
-     },
-     {
-      "clueFragment": "bluish-purple",
-      "gives": "PANSY",
-      "note": "pansy is a bluish-purple colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAND",
-      "YSNAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PANSY",
-       "to": "YSNAP"
+       "words": "label",
+       "gives": "BRAND",
+       "note": "a brand is a trade label"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "the wrong way round",
+         "note": "facing the wrong way round means the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bluish-purple",
+         "gives": "PANSY",
+         "note": "pansy is a bluish-purple colour"
+        }
+       ]
       }
      ]
     },

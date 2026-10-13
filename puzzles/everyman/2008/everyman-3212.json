@@ -1,8 +1,6 @@
 {
  "id": "everyman-3212",
  "number": 3212,
- "series": "everyman",
- "name": "Everyman crossword No 3,212",
  "setter": "Everyman",
  "date": "2008-04-20",
  "dimensions": {
@@ -38,35 +36,25 @@
    },
    "solution": "BUSHBABY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUSHBABY",
     "definitions": [
      {
       "text": "primate",
       "at": 38
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US president",
-      "gives": "BUSH",
-      "note": "either of the two American presidents named Bush"
-     },
-     {
-      "clueFragment": "comparatively small",
-      "gives": "BABY",
-      "note": "baby as an adjective means smaller than the usual size, as in baby carrots"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUSH",
-      "BABY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US president",
+       "gives": "BUSH",
+       "note": "either of the two American presidents named Bush"
+      },
+      {
+       "words": "comparatively small",
+       "gives": "BABY",
+       "note": "baby as an adjective means smaller than the usual size, as in baby carrots"
+      }
      ]
     },
     "explanation": {
@@ -94,33 +82,29 @@
    },
    "solution": "BLOC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BLOC",
     "definitions": [
      {
       "text": "coalition",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the final letter of the word is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "obstruct",
-      "gives": "BLOCK",
-      "note": "to block is to obstruct"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLOC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Mostly",
+       "note": "mostly means not quite all, so the final letter of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "obstruct",
+       "gives": "BLOCK",
+       "note": "to block is to obstruct"
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -148,35 +132,25 @@
    },
    "solution": "SICKO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SICKO",
     "definitions": [
      {
       "text": "pervert",
       "at": 17
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disgusted",
-      "gives": "SICK",
-      "note": "sick in the sense of fed up and revolted"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the standard abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SICK",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Disgusted",
+       "gives": "SICK",
+       "note": "sick in the sense of fed up and revolted"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the standard abbreviation for old"
+      }
      ]
     },
     "explanation": {
@@ -204,61 +178,57 @@
    },
    "solution": "BLETHER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "BLETHER",
     "definitions": [
      {
       "text": "Idle talk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first points to the opening letter of the word that follows it"
-     },
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "a drunk staggers about, so these letters lose their order"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess notation for bishop"
-     },
-     {
-      "clueFragment": "to leave",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter of leave"
-     },
-     {
-      "clueFragment": "there",
-      "gives": "ETHER",
-      "note": "the five letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "ETHER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BLETHER",
+     "indicators": [
       {
-       "fodder": "THERE",
-       "gives": "ETHER"
+       "text": "drunk",
+       "note": "a drunk staggers about, so these letters lose their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bishop",
+         "gives": "B",
+         "note": "B is the chess notation for bishop"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "L",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "first points to the opening letter of the word that follows it"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "to leave",
+           "gives": "L",
+           "select": "first",
+           "note": "the opening letter of leave"
+          }
+         ]
+        },
+        {
+         "words": "there",
+         "gives": "ETHER",
+         "note": "the five letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -297,38 +267,30 @@
    },
    "solution": "BUTTONSONESLIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUTTONS ONES LIP",
     "definitions": [
      {
       "text": "Keeps quiet",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Pantomime character's",
-      "gives": "BUTTONS",
-      "note": "Buttons is the page boy in the pantomime Cinderella; the apostrophe-s is part of the possessive reading"
-     },
-     {
-      "clueFragment": "single",
-      "gives": "ONE",
-      "note": "one is a single unit"
-     },
-     {
-      "clueFragment": "error",
-      "gives": "SLIP",
-      "note": "a slip is a small mistake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUTTONS",
-      "ONE",
-      "SLIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pantomime character's",
+       "gives": "BUTTONS",
+       "note": "Buttons is the page boy in the pantomime Cinderella; the apostrophe-s is part of the possessive reading"
+      },
+      {
+       "words": "single",
+       "gives": "ONE",
+       "note": "one is a single unit"
+      },
+      {
+       "words": "error",
+       "gives": "SLIP",
+       "note": "a slip is a small mistake"
+      }
      ]
     },
     "explanation": {
@@ -358,47 +320,39 @@
    },
    "solution": "LEGATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LEGATE",
     "definitions": [
      {
       "text": "Ambassador",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "LEG",
-      "note": "in cricket the on side is also called the leg side"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "embassy",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of embassy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEG",
-      "AT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "gives": "LEG",
+       "note": "in cricket the on side is also called the leg side"
+      },
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "embassy",
+         "note": "the first letter of embassy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -426,35 +380,25 @@
    },
    "solution": "EXTRACT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXTRACT",
     "definitions": [
      {
       "text": "Withdraw",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "other",
-      "gives": "EXTRA",
-      "note": "extra means additional or other"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is a standard abbreviation for court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXTRA",
-      "CT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "other",
+       "gives": "EXTRA",
+       "note": "extra means additional or other"
+      },
+      {
+       "words": "court",
+       "gives": "CT",
+       "note": "CT is a standard abbreviation for court"
+      }
      ]
     },
     "explanation": {
@@ -482,35 +426,27 @@
    },
    "solution": "ALLIGATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALLIGATOR",
     "definitions": [
      {
       "text": "Reptile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "snapped",
-      "for": "anagram",
-      "note": "something snapped is broken into pieces, so the letters are reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at gorilla",
-      "gives": "ALLIGATOR",
-      "note": "these nine letters reassembled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALLIGATOR",
+     "indicators": [
       {
-       "fodder": "ATGORILLA",
-       "gives": "ALLIGATOR"
+       "text": "snapped",
+       "note": "something snapped is broken into pieces, so the letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at gorilla",
+       "gives": "ALLIGATOR",
+       "note": "these nine letters reassembled"
       }
      ]
     },
@@ -546,38 +482,27 @@
    },
    "solution": "EASYSTREET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EASY STREET",
     "definitions": [
      {
       "text": "Financial security",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "anagram",
-      "note": "oddly means in a strange fashion, so the letters come out in an unusual order"
-     }
-    ],
-    "linkWords": [
-     "obtained by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a setter? Yes",
-      "gives": "EASYSTREET",
-      "note": "all ten letters reassembled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EASYSTREET",
+     "indicators": [
       {
-       "fodder": "ASETTERYES",
-       "gives": "EASYSTREET"
+       "text": "oddly",
+       "note": "oddly means in a strange fashion, so the letters come out in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a setter? Yes",
+       "gives": "EASYSTREET",
+       "note": "all ten letters reassembled"
       }
      ]
     },
@@ -614,41 +539,30 @@
    },
    "solution": "CATHERINEWHEEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CATHERINE WHEEL",
     "definitions": [
      {
       "text": "firework",
       "at": 26
      }
     ],
-    "linkWords": [
-     "producing a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl",
-      "gives": "CATHERINE",
-      "note": "a girl's name"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is an abbreviation for with"
-     },
-     {
-      "clueFragment": "rat",
-      "gives": "HEEL",
-      "note": "a rat and a heel are both a contemptible man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CATHERINE",
-      "W",
-      "HEEL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "gives": "CATHERINE",
+       "note": "a girl's name"
+      },
+      {
+       "words": "with",
+       "gives": "W",
+       "note": "W is an abbreviation for with"
+      },
+      {
+       "words": "rat",
+       "gives": "HEEL",
+       "note": "a rat and a heel are both a contemptible man"
+      }
      ]
     },
     "explanation": {
@@ -682,38 +596,27 @@
    },
    "solution": "ORCHESTRASTALLS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORCHESTRA STALLS",
     "definitions": [
      {
       "text": "part of theatre",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "cast",
-      "for": "anagram",
-      "note": "to cast is to throw or mould afresh, so the letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Star and co-stars he'll",
-      "gives": "ORCHESTRASTALLS",
-      "note": "the fifteen letters, ignoring 'and', reassembled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ORCHESTRASTALLS",
+     "indicators": [
       {
-       "fodder": "STARCOSTARSHELL",
-       "gives": "ORCHESTRASTALLS"
+       "text": "cast",
+       "note": "to cast is to throw or mould afresh, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Star and co-stars he'll",
+       "gives": "ORCHESTRASTALLS",
+       "note": "the fifteen letters, ignoring 'and', reassembled"
       }
      ]
     },
@@ -749,41 +652,25 @@
    },
    "solution": "POOHPOOH",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "POOH-POOH",
     "definitions": [
      {
       "text": "express disdain",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the word from its end to its start"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rings",
-      "gives": "HOOPHOOP",
-      "note": "two rings, each a hoop"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POOHPOOH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HOOPHOOP",
-       "to": "POOHPOOH"
+       "text": "back",
+       "note": "back tells us to read the word from its end to its start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rings",
+       "gives": "HOOPHOOP",
+       "note": "two rings, each a hoop"
       }
      ]
     },
@@ -812,28 +699,16 @@
    },
    "solution": "ARGUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ARGUS",
     "definitions": [
      {
       "text": "Giant",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the hundred-eyed giant of Greek myth"
      },
      {
       "text": "pheasant",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Giant",
-      "note": "first meaning: the hundred-eyed giant of Greek myth"
-     },
-     {
-      "clueFragment": "pheasant",
-      "note": "second meaning: a large Asian pheasant with eyespots on its tail"
+      "at": 6,
+      "meaning": "second meaning: a large Asian pheasant with eyespots on its tail"
      }
     ],
     "explanation": {
@@ -861,26 +736,25 @@
    },
    "solution": "APOSTROPHE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "APOSTROPHE",
     "definitions": [
      {
       "text": "What's always held by Sotheby's?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What's always held by Sotheby's?",
-      "note": "surface reading: something an auction house keeps in stock, like a regular sale"
-     },
-     {
-      "clueFragment": "held by Sotheby's",
-      "note": "setter's reading: the name is written with a punctuation mark before the final s, and it never goes away"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What's always held by Sotheby's?",
+       "note": "surface reading: something an auction house keeps in stock, like a regular sale"
+      },
+      {
+       "words": "held by Sotheby's",
+       "note": "setter's reading: the name is written with a punctuation mark before the final s, and it never goes away"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The clue seems to ask about lots in an auction house; it actually points at the punctuation inside the printed name, which the question mark flags as a trick.",
      "definitionFit": "The possessive name is written with that punctuation mark, so the name itself always contains one."
@@ -907,48 +781,37 @@
    },
    "solution": "POLARIS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "POLARIS",
     "definitions": [
      {
       "text": "Missile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "staggered",
-      "for": "anagram",
-      "note": "to stagger is to lurch unsteadily, so these letters are knocked out of order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the physics symbol for power"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "OLARIS",
-      "note": "the six letters reassembled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "OLARIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "POLARIS",
+     "indicators": [
       {
-       "fodder": "SAILOR",
-       "gives": "OLARIS"
+       "text": "staggered",
+       "note": "to stagger is to lurch unsteadily, so these letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "power",
+         "gives": "P",
+         "note": "P is the physics symbol for power"
+        },
+        {
+         "words": "sailor",
+         "gives": "OLARIS",
+         "note": "the six letters reassembled"
+        }
+       ]
       }
      ]
     },
@@ -983,38 +846,27 @@
    },
    "solution": "LASTSTRAW",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LAST STRAW",
     "definitions": [
      {
       "text": "the end",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "to be broken",
-      "for": "anagram",
-      "note": "something broken is smashed apart, so these letters are reassembled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Laws start",
-      "gives": "LASTSTRAW",
-      "note": "these nine letters reassembled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LASTSTRAW",
+     "indicators": [
       {
-       "fodder": "LAWSSTART",
-       "gives": "LASTSTRAW"
+       "text": "to be broken",
+       "note": "something broken is smashed apart, so these letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Laws start",
+       "gives": "LASTSTRAW",
+       "note": "these nine letters reassembled"
       }
      ]
     },
@@ -1043,36 +895,19 @@
    },
    "solution": "ROTATOR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROTATOR",
     "definitions": [
      {
       "text": "Device that spins",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a machine part that turns round"
      },
      {
       "text": "back and forth",
       "at": 18,
-      "note": "describes the word rather than standing in for it"
+      "note": "describes the word rather than standing in for it",
+      "meaning": "second reading: a word that reads the same in both directions"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Device that spins",
-      "note": "first meaning: a machine part that turns round"
-     },
-     {
-      "clueFragment": "back and forth",
-      "note": "second reading: a word that reads the same in both directions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROTATOR"
-     ]
-    },
     "explanation": {
      "surface": "A gadget that turns round, back and forth.",
      "walkthrough": "'Back and forth' seems to describe the motion of the device, but it says the word reads identically from either end.",
@@ -1099,55 +934,47 @@
    },
    "solution": "SESSION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SESSION",
     "definitions": [
      {
       "text": "sitting",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Strange",
-      "for": "anagram",
-      "note": "strange means odd and unfamiliar, so these letters are rearranged"
-     },
-     {
-      "text": "opening of",
-      "for": "letter_selection",
-      "note": "the opening of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "linked to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "special",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of special"
-     },
-     {
-      "clueFragment": "noises",
-      "gives": "ESSION",
-      "note": "the six letters reassembled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ESSION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SESSION",
+     "indicators": [
       {
-       "fodder": "NOISES",
-       "gives": "ESSION"
+       "text": "Strange",
+       "note": "strange means odd and unfamiliar, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening of",
+           "note": "the opening of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "special",
+           "note": "the first letter of special"
+          }
+         ]
+        },
+        {
+         "words": "noises",
+         "gives": "ESSION",
+         "note": "the six letters reassembled"
+        }
+       ]
       }
      ]
     },
@@ -1176,40 +1003,31 @@
    },
    "solution": "INTEGER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INTEGER",
     "definitions": [
      {
       "text": "A whole number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "located in",
-      "for": "container",
-      "note": "located in places one item inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bury",
-      "gives": "INTER",
-      "note": "to inter is to bury"
-     },
-     {
-      "clueFragment": "for example",
-      "gives": "EG",
-      "note": "EG is the abbreviation for for example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "EG",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "located in",
+       "note": "located in places one item inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bury",
+       "gives": "INTER",
+       "note": "to inter is to bury"
+      },
+      {
+       "words": "for example",
+       "gives": "EG",
+       "note": "EG is the abbreviation for for example"
+      }
      ]
     },
     "explanation": {
@@ -1244,35 +1062,25 @@
    },
    "solution": "NUTTREE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NUT-TREE",
     "definitions": [
      {
       "text": "Hazel, perhaps",
       "at": 40
      }
     ],
-    "linkWords": [
-     "meeting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Obsessive enthusiast",
-      "gives": "NUT",
-      "note": "a nut is a fanatic, as in a fitness nut"
-     },
-     {
-      "clueFragment": "old actor",
-      "gives": "TREE",
-      "note": "Sir Herbert Beerbohm Tree was a famous Victorian actor-manager"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUT",
-      "TREE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Obsessive enthusiast",
+       "gives": "NUT",
+       "note": "a nut is a fanatic, as in a fitness nut"
+      },
+      {
+       "words": "old actor",
+       "gives": "TREE",
+       "note": "Sir Herbert Beerbohm Tree was a famous Victorian actor-manager"
+      }
      ]
     },
     "explanation": {
@@ -1301,50 +1109,44 @@
    },
    "solution": "TROJANS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TROJANS",
     "definitions": [
      {
       "text": "Hard-working types",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at each end",
-      "for": "letter_selection",
-      "note": "each end of a word means its first and last letters"
-     },
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "being at sea means confused and lost, so the letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twenty-four",
-      "gives": "TR",
-      "select": "outer",
-      "note": "the first and last letters of twenty-four"
-     },
-     {
-      "clueFragment": "Jason",
-      "gives": "JASON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRJASON",
-       "gives": "TROJANS"
+       "text": "at sea",
+       "note": "being at sea means confused and lost, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "at each end",
+           "note": "each end of a word means its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "twenty-four",
+           "note": "the first and last letters of twenty-four"
+          }
+         ]
+        },
+        {
+         "words": "Jason",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1374,40 +1176,31 @@
    },
    "solution": "RESIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RESIT",
     "definitions": [
      {
       "text": "Do exam again",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container",
-      "note": "among places one thing in the midst of another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the others",
-      "gives": "REST",
-      "note": "the rest means the remaining ones"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "I",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "note": "among places one thing in the midst of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the others",
+       "gives": "REST",
+       "note": "the rest means the remaining ones"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1435,48 +1228,34 @@
    },
    "solution": "SAWHORSE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SAWHORSE",
     "definitions": [
      {
       "text": "Rack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "knocked over",
-      "for": "reversal",
-      "note": "something knocked over is turned the other way round"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "was",
-      "gives": "WAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "animal",
-      "gives": "HORSE",
-      "note": "a horse is an animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAW",
-      "HORSE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "WAS",
-       "to": "SAW"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked over",
+         "note": "something knocked over is turned the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "animal",
+       "gives": "HORSE",
+       "note": "a horse is an animal"
       }
      ]
     },
@@ -1506,40 +1285,31 @@
    },
    "solution": "SOCLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SOCLE",
     "definitions": [
      {
       "text": "Plinth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be taken in by",
-      "for": "container",
-      "note": "taken in by means held inside something else"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "individual",
-      "gives": "SOLE",
-      "note": "sole means single or individual"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "C stands for circa, Latin for about"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "C",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be taken in by",
+       "note": "taken in by means held inside something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "individual",
+       "gives": "SOLE",
+       "note": "sole means single or individual"
+      },
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "C stands for circa, Latin for about"
+      }
      ]
     },
     "explanation": {
@@ -1567,31 +1337,16 @@
    },
    "solution": "KNOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNOT",
     "definitions": [
      {
       "text": "Shore bird",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a sandpiper found on coasts"
      },
      {
       "text": "difficulty",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shore bird",
-      "note": "first meaning: a sandpiper found on coasts"
-     },
-     {
-      "clueFragment": "difficulty",
-      "note": "second meaning: a tangled problem"
+      "at": 14,
+      "meaning": "second meaning: a tangled problem"
      }
     ],
     "explanation": {
@@ -1625,50 +1380,44 @@
    },
    "solution": "PEREGRINEFALCON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "PEREGRINE FALCON",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "shot means ruined and broken, so the letters are rearranged"
-     },
-     {
-      "text": "foremost of",
-      "for": "letter_selection",
-      "note": "the foremost part of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rifle range once",
-      "gives": "RIFLERANGEONCE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pistoleers",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of pistoleers"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RIFLERANGEONCEP",
-       "gives": "PEREGRINEFALCON"
+       "text": "shot",
+       "note": "shot means ruined and broken, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rifle range once",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "foremost of",
+           "note": "the foremost part of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pistoleers",
+           "note": "the first letter of pistoleers"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1698,61 +1447,53 @@
    },
    "solution": "EDWARD",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "EDWARD",
     "definitions": [
      {
       "text": "King",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "terrible",
-      "for": "anagram",
-      "note": "terrible means dreadfully bad, so the letters are thrown into disorder"
-     },
-     {
-      "text": "onset of",
-      "for": "letter_selection",
-      "note": "the onset of a word is its first letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece goes round the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dread",
-      "gives": "EDARD",
-      "note": "the five letters reassembled"
-     },
-     {
-      "clueFragment": "war",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of war"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ED",
-      "W",
-      "ARD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EDWARD",
+     "indicators": [
       {
-       "fodder": "DREAD",
-       "gives": "EDARD"
+       "text": "terrible",
+       "note": "terrible means dreadfully bad, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so one piece goes round the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dread",
+         "gives": "EDARD",
+         "note": "the five letters reassembled"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "onset of",
+           "note": "the onset of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "war",
+           "note": "the first letter of war"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1787,35 +1528,27 @@
    },
    "solution": "OLDSWEAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OLD SWEAT",
     "definitions": [
      {
       "text": "Veteran soldier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "remarkably",
-      "for": "anagram",
-      "note": "remarkably suggests something unusual, so the letters fall into an unusual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "TA, slowed",
-      "gives": "OLDSWEAT",
-      "note": "these eight letters reassembled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OLDSWEAT",
+     "indicators": [
       {
-       "fodder": "TASLOWED",
-       "gives": "OLDSWEAT"
+       "text": "remarkably",
+       "note": "remarkably suggests something unusual, so the letters fall into an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "TA, slowed",
+       "gives": "OLDSWEAT",
+       "note": "these eight letters reassembled"
       }
      ]
     },

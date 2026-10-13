@@ -1,8 +1,7 @@
 {
  "id": "cryptic-26657",
  "number": 26657,
- "series": "cryptic",
- "name": "Prize crossword No 26,657",
+ "prize": true,
  "setter": "Otterden",
  "date": "2015-08-22",
  "preamble": "Eight solutions (one of them fictional) have something in common, not further defined.",
@@ -39,41 +38,40 @@
    },
    "solution": "CURB",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CURB",
     "definitions": [
      {
       "text": "Restrain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starting",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mongrel",
-      "gives": "CUR",
-      "note": "a cur is a mongrel dog"
-     },
-     {
-      "clueFragment": "to bark",
-      "gives": "B",
-      "select": "first",
-      "note": "opening letter of the word bark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUR",
-      "B"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mongrel",
+       "gives": "CUR",
+       "note": "a cur is a mongrel dog"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "B",
+       "indicators": [
+        {
+         "text": "starting",
+         "note": "the start of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "to bark",
+         "gives": "B",
+         "select": "first",
+         "note": "opening letter of the word bark"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -102,43 +100,30 @@
    },
    "solution": "EDISON",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EDISON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "is up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Team",
-      "gives": "SIDE",
-      "note": "a side is a team"
-     },
-     {
-      "clueFragment": "making two appearances in London",
-      "gives": "ON",
-      "note": "the letter pair that occurs twice in the word London"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDIS",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SIDE",
-       "to": "EDIS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is up",
+         "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Team",
+         "gives": "SIDE",
+         "note": "a side is a team"
+        }
+       ]
+      },
+      {
+       "words": "making two appearances in London",
+       "gives": "ON",
+       "note": "the letter pair that occurs twice in the word London"
       }
      ]
     },
@@ -168,59 +153,50 @@
    },
    "solution": "CRITICISER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CRITICISER",
     "definitions": [
      {
       "text": "Fault finder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unruly",
-      "for": "anagram",
-      "note": "unruly things refuse to stay in order, so these letters are rearranged"
-     },
-     {
-      "text": "gathering",
-      "for": "container",
-      "note": "to gather something is to take it in, so one piece is put inside another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cites",
-      "gives": "CITES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Right Reverend",
-      "gives": "RR",
-      "note": "standard abbreviation for the title of a bishop"
-     },
-     {
-      "clueFragment": "here in Paris",
-      "gives": "ICI",
-      "note": "ici is French for here"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRIT",
-      "ICI",
-      "SER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CITESRR",
-       "gives": "CRITSER"
+       "text": "gathering",
+       "note": "to gather something is to take it in, so one piece is put inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unruly",
+         "note": "unruly things refuse to stay in order, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cites",
+           "note": "taken as written"
+          },
+          {
+           "words": "Right Reverend",
+           "gives": "RR",
+           "note": "standard abbreviation for the title of a bishop"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "here in Paris",
+       "gives": "ICI",
+       "note": "ici is French for here"
       }
      ]
     },
@@ -250,36 +226,33 @@
    },
    "solution": "WOLSEY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "WOLSEY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "after losing centre",
-      "for": "deletion",
-      "note": "losing the centre means dropping the middle letter of the word"
-     },
-     {
-      "text": "all at sea",
-      "for": "anagram",
-      "note": "something all at sea is confused and disordered, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yellows",
-      "gives": "YELLOWS",
-      "note": "taken as written; its middle letter, the fourth of seven, is L"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YELOWS",
-       "gives": "WOLSEY"
+       "text": "all at sea",
+       "note": "something all at sea is confused and disordered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing centre",
+         "note": "losing the centre means dropping the middle letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yellows",
+         "note": "taken as written; its middle letter, the fourth of seven, is L"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
@@ -309,28 +282,16 @@
    },
    "solution": "STANDARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STANDARD",
     "definitions": [
      {
       "text": "Old car",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a car made by the defunct British ... Motor Company"
      },
      {
       "text": "rallying point",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old car",
-      "note": "first meaning: a car made by the defunct British ... Motor Company"
-     },
-     {
-      "clueFragment": "rallying point",
-      "note": "second meaning: a flag around which troops gather in battle"
+      "at": 8,
+      "meaning": "second meaning: a flag around which troops gather in battle"
      }
     ],
     "explanation": {
@@ -359,34 +320,29 @@
    },
    "solution": "PERI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PERI",
     "definitions": [
      {
       "text": "Spirit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "something said is spoken, so the word is judged by its sound rather than spelling"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "made from pears",
-      "gives": "PERI",
-      "soundsLike": "PERRY",
-      "note": "perry is an alcoholic drink fermented from pears, like cider from apples"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PERI",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "something said is spoken, so the word is judged by its sound rather than spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "made from pears",
+       "gives": "PERRY",
+       "note": "perry is an alcoholic drink fermented from pears, like cider from apples"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone claims a particular liquor is distilled from pears.",
      "walkthrough": "'Spirit' looks like a drink, which fits the pears; it is in fact a supernatural being. Perry is a British pear cider.",
@@ -414,45 +370,37 @@
    },
    "solution": "PARANOID",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "PARANOID",
     "definitions": [
      {
       "text": "oversuspicious",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "a report is something spoken, so the word is wanted for its sound"
-     }
-    ],
-    "linkWords": [
-     "to be",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like 5",
-      "gives": "PAR",
-      "note": "5 down is STANDARD, and par is the standard level"
-     },
-     {
-      "clueFragment": "angry",
-      "gives": "ANOID",
-      "soundsLike": "ANNOYED",
-      "note": "annoyed means angry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "ANOID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like 5",
+       "gives": "PAR",
+       "note": "5 down is STANDARD, and par is the standard level"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ANOID",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "a report is something spoken, so the word is wanted for its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "angry",
+         "gives": "ANNOYED",
+         "note": "annoyed means angry"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -481,33 +429,26 @@
    },
    "solution": "MORE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MORE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "to lose something is to be left without it, so those letters drop out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mount where 24 across is one of 4",
-      "gives": "RUSHMORE",
-      "note": "Mount Rushmore carves four presidents, Jefferson among them"
-     },
-     {
-      "clueFragment": "speed",
-      "gives": "RUSH",
-      "note": "to rush is to speed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MORE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing",
+       "note": "to lose something is to be left without it, so those letters drop out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mount where 24 across is one of 4",
+       "gives": "RUSHMORE",
+       "note": "Mount Rushmore carves four presidents, Jefferson among them"
+      },
+      {
+       "words": "speed",
+       "gives": "RUSH",
+       "note": "to rush is to speed"
+      }
      ]
     },
     "explanation": {
@@ -536,10 +477,6 @@
    },
    "solution": "UNDERCOAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNDERCOAT",
     "definitions": [
      {
       "text": "put on first of all",
@@ -547,25 +484,18 @@
       "note": "describes the layer of paint applied first, so stands for the noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "abroad",
-      "for": "anagram",
-      "note": "abroad can mean astray or widely scattered, so the letters are moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dance tour",
-      "gives": "DANCETOUR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DANCETOUR",
-       "gives": "UNDERCOAT"
+       "text": "abroad",
+       "note": "abroad can mean astray or widely scattered, so the letters are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dance tour",
+       "note": "taken as written"
       }
      ]
     },
@@ -595,10 +525,6 @@
    },
    "solution": "ERATO",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ERATO",
     "definitions": [
      {
       "text": "seen amongst the Gods",
@@ -606,27 +532,19 @@
       "note": "a descriptive phrase for a figure of Greek myth"
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means taking every other letter"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Retroaction",
-      "gives": "ERATO",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERATO"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "at regular intervals means taking every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Retroaction",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -655,43 +573,31 @@
    },
    "solution": "BESOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BESOT",
     "definitions": [
      {
       "text": "Stupefy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken over",
-      "for": "container",
-      "note": "something taken over is covered from above, so one piece goes round another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gamble",
-      "gives": "BET",
-      "note": "a bet is a gamble"
-     },
-     {
-      "clueFragment": "shipping order",
-      "gives": "SO",
-      "note": "SO is the abbreviation for a shipping order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "SO",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken over",
+       "note": "something taken over is covered from above, so one piece goes round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gamble",
+       "gives": "BET",
+       "note": "a bet is a gamble"
+      },
+      {
+       "words": "shipping order",
+       "gives": "SO",
+       "note": "SO is the abbreviation for a shipping order"
+      }
      ]
     },
     "explanation": {
@@ -720,49 +626,43 @@
    },
    "solution": "SYNDICATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SYNDICATE",
     "definitions": [
      {
       "text": "consortium",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "chucking up",
-      "for": "deletion",
-      "note": "to chuck up something is to give it up or abandon it, so those letters are removed"
-     },
-     {
-      "text": "Acting",
-      "for": "anagram",
-      "note": "acting means performing a part, so the letters play new roles in a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "considerately",
-      "gives": "CONSIDERATELY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "role",
-      "gives": "ROLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SYNDICATE",
+     "indicators": [
       {
-       "fodder": "CNSIDATEY",
-       "gives": "SYNDICATE"
+       "text": "Acting",
+       "note": "acting means performing a part, so the letters play new roles in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SYNDICATE",
+       "indicators": [
+        {
+         "text": "chucking up",
+         "note": "to chuck up something is to give it up or abandon it, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "considerately",
+         "note": "taken as written"
+        },
+        {
+         "words": "role",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -792,43 +692,31 @@
    },
    "solution": "PANICKY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PANICKY",
     "definitions": [
      {
       "text": "Frightened",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing being inside another means it is enclosed"
-     }
-    ],
-    "linkWords": [
-     "as the result of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earnings",
-      "gives": "PAY",
-      "note": "pay is what one earns"
-     },
-     {
-      "clueFragment": "a slight cut",
-      "gives": "NICK",
-      "note": "a nick is a small cut"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "NICK",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing being inside another means it is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "earnings",
+       "gives": "PAY",
+       "note": "pay is what one earns"
+      },
+      {
+       "words": "a slight cut",
+       "gives": "NICK",
+       "note": "a nick is a small cut"
+      }
      ]
     },
     "explanation": {
@@ -858,45 +746,36 @@
    },
    "solution": "PAINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PAINE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its central letter"
-     }
-    ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old man",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "to be in is to be at home"
-     },
-     {
-      "clueFragment": "sweetheart",
-      "gives": "E",
-      "select": "middle",
-      "note": "the central letter of the five-letter word sweet, read off its heart"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old man",
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "to be in is to be at home"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart of a word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sweetheart",
+         "gives": "SWEET",
+         "note": "the central letter of the five-letter word sweet, read off its heart"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -925,10 +804,6 @@
    },
    "solution": "ANTIOCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTIOCH",
     "definitions": [
      {
       "text": "once found in Turkey",
@@ -936,28 +811,24 @@
       "note": "a descriptive phrase for a place"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Against",
-      "gives": "ANTI",
-      "note": "anti means opposed to"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "order",
-      "gives": "CH",
-      "note": "CH is the Companion of Honour, a British order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANTI",
-      "O",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Against",
+       "gives": "ANTI",
+       "note": "anti means opposed to"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "order",
+       "gives": "CH",
+       "note": "CH is the Companion of Honour, a British order"
+      }
      ]
     },
     "explanation": {
@@ -992,52 +863,40 @@
    },
    "solution": "TANKENGINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TANK ENGINE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "finisher",
-      "for": "letter_selection",
-      "note": "a finisher is what comes at the end, so only the final letter is kept"
-     }
-    ],
-    "linkWords": [
-     "and",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beat",
-      "gives": "TAN",
-      "note": "to tan someone is to beat them"
-     },
-     {
-      "clueFragment": "knowledge",
-      "gives": "KEN",
-      "note": "ken means range of knowledge"
-     },
-     {
-      "clueFragment": "spirit",
-      "gives": "GIN",
-      "note": "gin is a spirit"
-     },
-     {
-      "clueFragment": "late",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of the word late"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAN",
-      "KEN",
-      "GIN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beat",
+       "gives": "TAN",
+       "note": "to tan someone is to beat them"
+      },
+      {
+       "words": "knowledge",
+       "gives": "KEN",
+       "note": "ken means range of knowledge"
+      },
+      {
+       "words": "spirit",
+       "gives": "GIN",
+       "note": "gin is a spirit"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finisher",
+         "note": "a finisher is what comes at the end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "note": "the closing letter of the word late"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1066,44 +925,36 @@
    },
    "solution": "HARDY",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "HARDY",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "failing to secure",
-      "for": "deletion",
-      "note": "failing to hold on to something means it is lost, so that letter drops out"
-     },
-     {
-      "text": "leadership",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only just",
-      "gives": "HARDLY",
-      "note": "hardly means barely, only just"
-     },
-     {
-      "clueFragment": "Labour",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter of Labour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing to secure",
+       "note": "failing to hold on to something means it is lost, so that letter drops out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Only just",
+       "gives": "HARDLY",
+       "note": "hardly means barely, only just"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leadership",
+         "note": "the leader of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Labour",
+         "note": "the opening letter of Labour"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1132,10 +983,6 @@
    },
    "solution": "INDUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INDUS",
     "definitions": [
      {
       "text": "which originates in Tibet",
@@ -1143,28 +990,24 @@
       "note": "a descriptive phrase for a river"
      }
     ],
-    "indicators": [
-     {
-      "text": "to get out of",
-      "for": "deletion",
-      "note": "getting out of something means leaving it, so those letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "manufacturing",
-      "gives": "INDUSTRY",
-      "note": "industry is the business of manufacturing"
-     },
-     {
-      "clueFragment": "Try",
-      "gives": "TRY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INDUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to get out of",
+       "note": "getting out of something means leaving it, so those letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "manufacturing",
+       "gives": "INDUSTRY",
+       "note": "industry is the business of manufacturing"
+      },
+      {
+       "words": "Try",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1199,35 +1042,25 @@
    },
    "solution": "DRIPFEED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRIP FEED",
     "definitions": [
      {
       "text": "slow administration",
       "at": 27
      }
     ],
-    "linkWords": [
-     "can act as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dope",
-      "gives": "DRIP",
-      "note": "a drip is a feeble, dull person, a dope"
-     },
-     {
-      "clueFragment": "stooge",
-      "gives": "FEED",
-      "note": "a feed is a comedian's straight man who sets up the jokes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRIP",
-      "FEED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dope",
+       "gives": "DRIP",
+       "note": "a drip is a feeble, dull person, a dope"
+      },
+      {
+       "words": "stooge",
+       "gives": "FEED",
+       "note": "a feed is a comedian's straight man who sets up the jokes"
+      }
      ]
     },
     "explanation": {
@@ -1257,37 +1090,25 @@
    },
    "solution": "ROD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ROD",
     "definitions": [
      {
       "text": "Bar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "starts are the opening letters of each word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roll of drums",
-      "gives": "ROD",
-      "select": "first",
-      "note": "opening letters of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROD"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts",
+       "note": "starts are the opening letters of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "roll of drums",
+       "note": "opening letters of the three words"
+      }
      ]
     },
     "explanation": {
@@ -1316,46 +1137,44 @@
    },
    "solution": "REASSESS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "REASSESS",
     "definitions": [
      {
       "text": "Consider once more",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "limited",
-      "for": "deletion",
-      "note": "something limited is cut short, so the word is truncated"
-     },
-     {
-      "text": "having a role in",
-      "for": "container",
-      "note": "playing a part inside something places one piece within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "research",
-      "gives": "RES",
-      "note": "the word cut down to its first three letters, a common abbreviation"
-     },
-     {
-      "clueFragment": "dimwits",
-      "gives": "ASSES",
-      "note": "asses are fools"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "ASSES",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "REASSESS",
+     "indicators": [
+      {
+       "text": "limited",
+       "note": "something limited is cut short, so the word is truncated"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having a role in",
+         "note": "playing a part inside something places one piece within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "research",
+         "gives": "RES",
+         "note": "the word cut down to its first three letters, a common abbreviation"
+        },
+        {
+         "words": "dimwits",
+         "gives": "ASSES",
+         "note": "asses are fools"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1384,38 +1203,24 @@
    },
    "solution": "NADIR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NADIR",
     "definitions": [
      {
       "text": "lowest point",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "away",
-      "for": "anagram",
-      "note": "away suggests letters gone astray from their places, so they are rearranged"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drain",
-      "gives": "DRAIN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRAIN",
-       "gives": "NADIR"
+       "text": "away",
+       "note": "away suggests letters gone astray from their places, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drain",
+       "note": "taken as written"
       }
      ]
     },
@@ -1445,49 +1250,43 @@
    },
    "solution": "ERITREA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ERITREA",
     "definitions": [
      {
       "text": "country",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "taken out means removed, so those letters go"
-     },
-     {
-      "text": "Corrupt",
-      "for": "anagram",
-      "note": "to corrupt something is to spoil its proper form, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secretariat",
-      "gives": "SECRETARIAT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cast",
-      "gives": "CAST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ERITREA",
+     "indicators": [
       {
-       "fodder": "ERERIAT",
-       "gives": "ERITREA"
+       "text": "Corrupt",
+       "note": "to corrupt something is to spoil its proper form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ERITREA",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "taken out means removed, so those letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secretariat",
+         "note": "taken as written"
+        },
+        {
+         "words": "cast",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1517,28 +1316,16 @@
    },
    "solution": "FRESHLY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FRESHLY",
     "definitions": [
      {
       "text": "Quite recently",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: newly, just now"
      },
      {
       "text": "acting in an amorous manner",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quite recently",
-      "note": "first meaning: newly, just now"
-     },
-     {
-      "clueFragment": "acting in an amorous manner",
-      "note": "second meaning: in a forward, overfamiliar way, as when someone gets fresh"
+      "at": 15,
+      "meaning": "second meaning: in a forward, overfamiliar way, as when someone gets fresh"
      }
     ],
     "explanation": {
@@ -1567,41 +1354,31 @@
    },
    "solution": "FINERY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FINERY",
     "definitions": [
      {
       "text": "The very best clothes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "leaving means departing, so those letters go"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "processing plant",
-      "gives": "REFINERY",
-      "note": "a refinery processes raw materials such as oil or sugar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FINERY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave",
+       "note": "leaving means departing, so those letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "processing plant",
+       "gives": "REFINERY",
+       "note": "a refinery processes raw materials such as oil or sugar"
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
      ]
     },
     "explanation": {
@@ -1630,34 +1407,26 @@
    },
    "solution": "HOBBES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HOBBES",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "having no use of",
-      "for": "deletion",
-      "note": "being without the use of something means it is missing, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Limps along",
-      "gives": "HOBBLES",
-      "note": "to hobble is to walk awkwardly, to limp"
-     },
-     {
-      "clueFragment": "left leg",
-      "gives": "L",
-      "note": "L for left; the leg only completes the limping picture"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOBB",
-      "ES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having no use of",
+       "note": "being without the use of something means it is missing, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Limps along",
+       "gives": "HOBBLES",
+       "note": "to hobble is to walk awkwardly, to limp"
+      },
+      {
+       "words": "left leg",
+       "gives": "L",
+       "note": "L for left; the leg only completes the limping picture"
+      }
      ]
     },
     "explanation": {
@@ -1686,42 +1455,36 @@
    },
    "solution": "JEFFERSON",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "JEFFERSON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "interjecting",
-      "for": "container",
-      "note": "to interject is to put something in between, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scoffs",
-      "gives": "JEERS",
-      "note": "to jeer is to scoff"
-     },
-     {
-      "clueFragment": "very loudly",
-      "gives": "FF",
-      "note": "fortissimo, the musical direction for very loud"
-     },
-     {
-      "clueFragment": "four times in constitutional convention",
-      "gives": "ON",
-      "note": "the letter pair that occurs four times in those two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JE",
-      "FF",
-      "ERS",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interjecting",
+         "note": "to interject is to put something in between, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scoffs",
+         "gives": "JEERS",
+         "note": "to jeer is to scoff"
+        },
+        {
+         "words": "very loudly",
+         "gives": "FF",
+         "note": "fortissimo, the musical direction for very loud"
+        }
+       ]
+      },
+      {
+       "words": "four times in constitutional convention",
+       "gives": "ON",
+       "note": "the letter pair that occurs four times in those two words"
+      }
      ]
     },
     "explanation": {
@@ -1750,11 +1513,6 @@
    },
    "solution": "JOKE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "JOKE",
     "definitions": [
      {
       "text": "just kidding",
@@ -1762,36 +1520,35 @@
       "note": "a phrase signalling something not meant seriously; the answer is the noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "receives",
-      "for": "container",
-      "note": "to receive something is to take it in, so one piece is put inside another"
-     },
-     {
-      "text": "cap",
-      "for": "letter_selection",
-      "note": "a cap sits on top, so only the opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Root",
-      "gives": "JOE",
-      "note": "Joe Root is an England cricket captain and batsman"
-     },
-     {
-      "clueFragment": "Kent",
-      "gives": "K",
-      "select": "first",
-      "note": "the opening letter of Kent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JO",
-      "K",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receives",
+       "note": "to receive something is to take it in, so one piece is put inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Root",
+       "gives": "JOE",
+       "note": "Joe Root is an England cricket captain and batsman"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "cap",
+         "note": "a cap sits on top, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kent",
+         "note": "the opening letter of Kent"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1821,28 +1578,16 @@
    },
    "solution": "EDDY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EDDY",
     "definitions": [
      {
       "text": "She led church",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Mary Baker ..., founder of the Christian Science church"
      },
      {
       "text": "movement in a circle",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "She led church",
-      "note": "first meaning: Mary Baker ..., founder of the Christian Science church"
-     },
-     {
-      "clueFragment": "movement in a circle",
-      "note": "second meaning: a swirl of water or air turning round"
+      "at": 15,
+      "meaning": "second meaning: a swirl of water or air turning round"
      }
     ],
     "explanation": {
@@ -1871,10 +1616,6 @@
    },
    "solution": "GABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GABLE",
     "definitions": [
      {
       "text": "called the King",
@@ -1882,26 +1623,19 @@
       "note": "describes a person by nickname, standing for a name"
      }
     ],
-    "linkWords": [
-     "is",
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "George",
-      "gives": "G",
-      "note": "G stands for George, as in the old phonetic alphabet and GR for George Rex"
-     },
-     {
-      "clueFragment": "fit",
-      "gives": "ABLE",
-      "note": "able means fit or capable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "George",
+       "gives": "G",
+       "note": "G stands for George, as in the old phonetic alphabet and GR for George Rex"
+      },
+      {
+       "words": "fit",
+       "gives": "ABLE",
+       "note": "able means fit or capable"
+      }
      ]
     },
     "explanation": {
@@ -1931,35 +1665,24 @@
    },
    "solution": "EATS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EATS",
     "definitions": [
      {
       "text": "Consumes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a variety of",
-      "for": "anagram",
-      "note": "a variety offers a different form, so the letters take a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "teas",
-      "gives": "TEAS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEAS",
-       "gives": "EATS"
+       "text": "a variety of",
+       "note": "a variety offers a different form, so the letters take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teas",
+       "note": "taken as written"
       }
      ]
     },
@@ -1989,34 +1712,29 @@
    },
    "solution": "KNEAD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KNEAD",
     "definitions": [
      {
       "text": "work making bread",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Articulated",
-      "for": "homophone",
-      "note": "articulated means spoken clearly, so the word is judged by its sound"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "demand",
-      "gives": "KNEAD",
-      "soundsLike": "NEED",
-      "note": "a need is a demand or requirement"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNEAD",
+     "indicators": [
+      {
+       "text": "Articulated",
+       "note": "articulated means spoken clearly, so the word is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "demand",
+       "gives": "NEED",
+       "note": "a need is a demand or requirement"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A clearly stated demand to get on with baking.",
      "walkthrough": "'Articulated' suggests a lorry or joints, but here it means spoken; the silent K turns the sound into the baker's word.",
@@ -2043,41 +1761,30 @@
    },
    "solution": "STRINGENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STRINGENT",
     "definitions": [
      {
       "text": "Strict",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "way",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street, a way"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "RING",
-      "note": "to ring is to telephone, to call"
-     },
-     {
-      "clueFragment": "hospital department",
-      "gives": "ENT",
-      "note": "ear, nose and throat, a hospital department"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "RING",
-      "ENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a way"
+      },
+      {
+       "words": "call",
+       "gives": "RING",
+       "note": "to ring is to telephone, to call"
+      },
+      {
+       "words": "hospital department",
+       "gives": "ENT",
+       "note": "ear, nose and throat, a hospital department"
+      }
      ]
     },
     "explanation": {

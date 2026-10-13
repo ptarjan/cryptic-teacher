@@ -1,8 +1,6 @@
 {
  "id": "toughie-3743",
  "number": 3743,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,743",
  "setter": "Dharma",
  "date": "2026-08-20",
  "dimensions": {
@@ -44,51 +42,58 @@
    },
    "solution": "SUCCESSSTORY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "SUCCESS STORY",
     "definitions": [
      {
       "text": "uplifting narrative",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "a lot of",
-      "note": "most of STORM, not all of it, so the last letter goes"
-     },
-     {
-      "text": "tip for",
-      "note": "the tip of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hit",
-      "gives": "SUCCESS",
-      "note": "a hit = a success"
-     },
-     {
-      "clueFragment": "a lot of commotion",
-      "gives": "STOR",
-      "note": "STORM (commotion) without its last letter"
-     },
-     {
-      "clueFragment": "tip for your",
-      "gives": "Y",
-      "select": "first",
-      "note": "first letter of Your"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUCCESS",
-      "STOR",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SUCCESSSTORY",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "note": "most of STORM, not all of it, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hit",
+         "gives": "SUCCESS",
+         "note": "a hit = a success"
+        },
+        {
+         "words": "a lot of commotion",
+         "gives": "STOR",
+         "note": "STORM (commotion) without its last letter"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "Y",
+         "indicators": [
+          {
+           "text": "tip for",
+           "note": "the tip of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "tip for your",
+           "gives": "Y",
+           "select": "first",
+           "note": "first letter of Your"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -117,40 +122,31 @@
    },
    "solution": "SUSPECT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUSPECT",
     "definitions": [
      {
       "text": "Questionable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skirting",
-      "for": "container",
-      "note": "to skirt something is to go round its edge"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "party",
-      "gives": "SECT",
-      "note": "a sect = a faction or party"
-     },
-     {
-      "clueFragment": "distinctive feature",
-      "gives": "USP",
-      "note": "USP = unique selling point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "USP",
-      "ECT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "skirting",
+       "note": "to skirt something is to go round its edge"
+      }
+     ],
+     "parts": [
+      {
+       "words": "party",
+       "gives": "SECT",
+       "note": "a sect = a faction or party"
+      },
+      {
+       "words": "distinctive feature",
+       "gives": "USP",
+       "note": "USP = unique selling point"
+      }
      ]
     },
     "explanation": {
@@ -179,39 +175,30 @@
    },
    "solution": "CLAM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CLAM",
     "definitions": [
      {
       "text": "Shellfish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river attracting punters",
-      "gives": "CAM",
-      "note": "the Cam, the Cambridge river famous for punting"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "L",
-      "AM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river attracting punters",
+       "gives": "CAM",
+       "note": "the Cam, the Cambridge river famous for punting"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      }
      ]
     },
     "explanation": {
@@ -241,30 +228,28 @@
    },
    "solution": "ENTENTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENTENTE",
     "definitions": [
      {
       "text": "agreement",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "housing",
-      "for": "hidden_word",
-      "note": "the phrase houses the answer within its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Government entering",
-      "gives": "ENTENTE",
-      "note": "governmENT ENTEring"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "housing",
+       "note": "the phrase houses the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Government entering",
+       "gives": "ENTENTE",
+       "note": "governmENT ENTEring"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The state moves into the business of providing homes, by agreement.",
      "walkthrough": "'Government' and 'entering' look like a container instruction, but they are merely the two words the answer straddles.",
@@ -291,58 +276,57 @@
    },
    "solution": "SUCCUMB",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SUCCUMB",
     "definitions": [
      {
       "text": "Cave in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, raising a word writes it bottom to top"
-     },
-     {
-      "text": "internally",
-      "for": "letter_selection",
-      "note": "only the inside of JUMBO is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America's raised",
-      "gives": "SU",
-      "note": "US reversed"
-     },
-     {
-      "clueFragment": "volume",
-      "gives": "CC",
-      "note": "cc = cubic centimetres, a measure of volume"
-     },
-     {
-      "clueFragment": "huge internally",
-      "gives": "UMB",
-      "select": "middle",
-      "note": "the middle of jUMBo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "CC",
-      "UMB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SUCCUMB",
+     "indicators": [
       {
-       "from": "US",
-       "to": "SU"
+       "text": "raised",
+       "note": "in a down clue, raising a word writes it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "America's raised",
+         "gives": "SU",
+         "note": "US reversed"
+        },
+        {
+         "words": "volume",
+         "gives": "CC",
+         "note": "cc = cubic centimetres, a measure of volume"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "UMB",
+         "indicators": [
+          {
+           "text": "internally",
+           "note": "only the inside of JUMBO is used"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "huge internally",
+           "gives": "UMB",
+           "select": "middle",
+           "note": "the middle of jUMBo"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -372,42 +356,31 @@
    },
    "solution": "TURN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TURN",
     "definitions": [
      {
       "text": "Wind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absent from",
-      "for": "deletion",
-      "note": "I is missing from the city's name"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one of its cities",
-      "gives": "TURIN",
-      "note": "Turin, a city in Italy"
-     },
-     {
-      "clueFragment": "Italy",
-      "gives": "I",
-      "note": "I = Italy, its international vehicle code; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUR",
-      "N"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "absent from",
+       "note": "I is missing from the city's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one of its cities",
+       "gives": "TURIN",
+       "note": "Turin, a city in Italy"
+      },
+      {
+       "words": "Italy",
+       "gives": "I",
+       "note": "I = Italy, its international vehicle code; removed"
+      }
      ]
     },
     "explanation": {
@@ -436,44 +409,36 @@
    },
    "solution": "REBOUND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REBOUND",
     "definitions": [
      {
       "text": "backfire",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Discharged",
-      "for": "letter_selection",
-      "note": "a word discharged of its contents keeps only its outer letters"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Discharged rifle",
-      "gives": "RE",
-      "select": "outer",
-      "note": "RiflE emptied"
-     },
-     {
-      "clueFragment": "certain",
-      "gives": "BOUND",
-      "note": "bound = certain, as in 'bound to happen'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BOUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Discharged",
+         "note": "a word discharged of its contents keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Discharged rifle",
+         "gives": "RIFLE",
+         "note": "RiflE emptied"
+        }
+       ]
+      },
+      {
+       "words": "certain",
+       "gives": "BOUND",
+       "note": "bound = certain, as in 'bound to happen'"
+      }
      ]
     },
     "explanation": {
@@ -509,45 +474,37 @@
    },
    "solution": "LUNATICFRINGE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LUNATIC FRINGE",
     "definitions": [
      {
       "text": "Fanatical members",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sporting",
-      "for": "anagram",
-      "note": "sporting suggests the letters playing about, mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in a cult",
-      "gives": "LUNATIC",
-      "note": "anagram of IN A CULT"
-     },
-     {
-      "clueFragment": "hair on face",
-      "gives": "FRINGE",
-      "note": "a fringe is hair hanging over the forehead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUNATIC",
-      "FRINGE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LUNATICFRINGE",
+     "indicators": [
       {
-       "fodder": "INACULT",
-       "gives": "LUNATIC"
+       "text": "sporting",
+       "note": "sporting suggests the letters playing about, mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in a cult",
+         "gives": "LUNATIC",
+         "note": "anagram of IN A CULT"
+        },
+        {
+         "words": "hair on face",
+         "gives": "FRINGE",
+         "note": "a fringe is hair hanging over the forehead"
+        }
+       ]
       }
      ]
     },
@@ -587,51 +544,40 @@
    },
    "solution": "TURNTHECORNER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TURN THE CORNER",
     "definitions": [
      {
       "text": "Pass a critical point",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "note": "novel means new, so the letters are made new"
-     },
-     {
-      "text": "about"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recent Roth",
-      "gives": "TTHECORNER",
-      "note": "anagram of RECENT ROTH"
-     },
-     {
-      "clueFragment": "pot",
-      "gives": "URN",
-      "note": "an urn is a pot; placed after the first T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "URN",
-      "THECORNER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TURNTHECORNER",
+     "parts": [
       {
-       "fodder": "RECENTROTH",
-       "gives": "TTHECORNER"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "novel",
+         "note": "novel means new, so the letters are made new"
+        },
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recent Roth",
+         "gives": "TTHECORNER",
+         "note": "anagram of RECENT ROTH"
+        },
+        {
+         "words": "pot",
+         "gives": "URN",
+         "note": "an urn is a pot; placed after the first T"
+        }
+       ]
       }
      ]
     },
@@ -662,36 +608,25 @@
    },
    "solution": "UPSTART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPSTART",
     "definitions": [
      {
       "text": "Social climber",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "finished",
-      "gives": "UP",
-      "note": "as in 'time's up'"
-     },
-     {
-      "clueFragment": "graffiti?",
-      "gives": "START",
-      "note": "graffiti is street art: ST (street) + ART"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "ST",
-      "ART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "finished",
+       "gives": "UP",
+       "note": "as in 'time's up'"
+      },
+      {
+       "words": "graffiti?",
+       "gives": "START",
+       "note": "graffiti is street art: ST (street) + ART"
+      }
      ]
     },
     "explanation": {
@@ -721,37 +656,45 @@
    },
    "solution": "CARIBOU",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CARIBOU",
     "definitions": [
      {
       "text": "big beast",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "Heard",
-      "for": "homophone",
-      "note": "the answer is what you hear when the two pieces are said"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wife of former prime minister",
-      "gives": "CARI",
-      "soundsLike": "CARRIE",
-      "note": "Carrie Johnson, wife of Boris Johnson"
-     },
-     {
-      "clueFragment": "expression of disgust",
-      "gives": "BOU",
-      "soundsLike": "BOO",
-      "note": "boo, a jeer"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CARI",
+       "indicators": [
+        {
+         "text": "Heard",
+         "note": "the answer is what you hear when the two pieces are said"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wife of former prime minister",
+         "gives": "CARRIE",
+         "note": "Carrie Johnson, wife of Boris Johnson"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BOU",
+       "parts": [
+        {
+         "words": "expression of disgust",
+         "gives": "BOO",
+         "note": "boo, a jeer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A former PM's wife is heard jeering a hulking creature.",
      "walkthrough": "Carrie Johnson is the wife of Boris Johnson, UK prime minister 2019-22. Only the sound matters: CARRIE BOO spoken is CARIBOU.",
@@ -778,37 +721,30 @@
    },
    "solution": "AGES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AGES",
     "definitions": [
      {
       "text": "Gets older",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reward",
-      "gives": "WAGES",
-      "note": "wages = reward for work"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W = wife; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reward",
+       "gives": "WAGES",
+       "note": "wages = reward for work"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W = wife; removed"
+      }
      ]
     },
     "explanation": {
@@ -837,47 +773,46 @@
    },
    "solution": "ANNUL",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "ANNUL",
     "definitions": [
      {
       "text": "Scrap",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bar",
-      "note": "bar = except, so A is left out"
-     },
-     {
-      "text": "essentially",
-      "note": "the essence of a word is its middle"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "yearly",
-      "gives": "ANNUAL",
-      "note": "annual = yearly"
-     },
-     {
-      "clueFragment": "brawl essentially",
-      "gives": "A",
-      "select": "middle",
-      "note": "middle letter of brAwl; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANNU",
-      "L"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bar",
+       "note": "bar = except, so A is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yearly",
+       "gives": "ANNUAL",
+       "note": "annual = yearly"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "A",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "the essence of a word is its middle"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "brawl essentially",
+         "gives": "A",
+         "select": "middle",
+         "note": "middle letter of brAwl; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -906,38 +841,30 @@
    },
    "solution": "RUIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUIN",
     "definitions": [
      {
       "text": "Break",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at end of",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "RU",
-      "note": "RU = rugby union"
-     },
-     {
-      "clueFragment": "hip",
-      "gives": "IN",
-      "note": "in = fashionable, hip"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at end of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "gives": "RU",
+       "note": "RU = rugby union"
+      },
+      {
+       "words": "hip",
+       "gives": "IN",
+       "note": "in = fashionable, hip"
+      }
      ]
     },
     "explanation": {
@@ -966,43 +893,45 @@
    },
    "solution": "CURRY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CURRY",
     "definitions": [
      {
       "text": "food",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Case for",
-      "note": "the case of a word is its outside letters"
-     },
-     {
-      "text": "bolstering"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "CUR",
-      "note": "a cur is a mongrel dog"
-     },
-     {
-      "clueFragment": "Case for routinely",
-      "gives": "RY",
-      "select": "outer",
-      "note": "outer letters of RoutinelY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUR",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Case for",
+       "note": "the case of a word is its outside letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dog",
+       "gives": "CUR",
+       "note": "a cur is a mongrel dog"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "RY",
+       "indicators": [
+        {
+         "text": "bolstering"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Case for routinely",
+         "gives": "RY",
+         "select": "outer",
+         "note": "outer letters of RoutinelY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1031,35 +960,25 @@
    },
    "solution": "WEDGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WEDGE",
     "definitions": [
      {
       "text": "club",
       "at": 33
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wicket",
-      "gives": "W",
-      "note": "W = wicket in cricket scoring"
-     },
-     {
-      "clueFragment": "dodgy shot at cricket",
-      "gives": "EDGE",
-      "note": "an edge is a shot off the side of the bat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "EDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wicket",
+       "gives": "W",
+       "note": "W = wicket in cricket scoring"
+      },
+      {
+       "words": "dodgy shot at cricket",
+       "gives": "EDGE",
+       "note": "an edge is a shot off the side of the bat"
+      }
      ]
     },
     "explanation": {
@@ -1088,57 +1007,55 @@
    },
    "solution": "INTRUDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "INTRUDE",
     "definitions": [
      {
       "text": "Interfere",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "focus of",
-      "note": "the focus is the centre, the middle letter"
-     },
-     {
-      "text": "to stop"
-     },
-     {
-      "text": "playing",
-      "note": "UNITED is playing about, rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United playing",
-      "gives": "INTUDE",
-      "note": "anagram of UNITED"
-     },
-     {
-      "clueFragment": "focus of Liverpool",
-      "gives": "R",
-      "select": "middle",
-      "note": "middle letter of LiveRpool, placed after INT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "R",
-      "UDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INTRUDE",
+     "parts": [
       {
-       "fodder": "UNITED",
-       "gives": "INTUDE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "focus of",
+         "note": "the focus is the centre, the middle letter"
+        },
+        {
+         "text": "playing",
+         "note": "UNITED is playing about, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "United playing",
+         "gives": "INTUDE",
+         "note": "anagram of UNITED"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "R",
+         "indicators": [
+          {
+           "text": "to stop"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "focus of Liverpool",
+           "gives": "R",
+           "select": "middle",
+           "note": "middle letter of LiveRpool, placed after INT"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1168,46 +1085,41 @@
    },
    "solution": "BREADTH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BREADTH",
     "definitions": [
      {
       "text": "Measure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle letter"
-     },
-     {
-      "text": "to check",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "murmur",
-      "gives": "BREATH",
-      "note": "a breath = a whisper, a murmur"
-     },
-     {
-      "clueFragment": "elder's heart",
-      "gives": "D",
-      "select": "middle",
-      "note": "middle letter of elDer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BREA",
-      "D",
-      "TH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to check"
+      }
+     ],
+     "parts": [
+      {
+       "words": "murmur",
+       "gives": "BREATH",
+       "note": "a breath = a whisper, a murmur"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elder's heart",
+         "gives": "ELDER",
+         "note": "middle letter of elDer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1236,11 +1148,6 @@
    },
    "solution": "FEDERAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "FEDERAL",
     "definitions": [
      {
       "text": "system of government",
@@ -1248,38 +1155,55 @@
       "note": "FEDERAL is an adjective; the definition names the system it describes"
      }
     ],
-    "indicators": [
-     {
-      "text": "to banish leading character",
-      "for": "deletion"
-     },
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wild",
-      "gives": "FERAL",
-      "note": "feral = wild"
-     },
-     {
-      "clueFragment": "Plot",
-      "gives": "BED",
-      "note": "a bed is a garden plot"
-     },
-     {
-      "clueFragment": "to banish leading character",
-      "gives": "ED",
-      "note": "BED without B; placed after the F of FERAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ED",
-      "ERAL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "wild",
+         "gives": "FERAL",
+         "note": "feral = wild"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to banish leading character"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Plot",
+           "gives": "BED",
+           "note": "a bed is a garden plot"
+          },
+          {
+           "gives": "BE"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "to banish leading character",
+         "gives": "ED",
+         "note": "BED without B; placed after the F of FERAL"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1308,46 +1232,42 @@
    },
    "solution": "DECAGON",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "DECAGON",
     "definitions": [
      {
       "text": "shape",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "wasting"
-     },
-     {
-      "text": "fabulously",
-      "note": "treated fabulously, as in a fable, the letters are made up anew"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gent with a doc",
-      "gives": "GENTADOC",
-      "note": "anagram fodder before the loss"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time; removed from GENT"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DECAGON",
+     "parts": [
       {
-       "fodder": "GEN A DOC",
-       "gives": "DECAGON"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "DECAGON",
+       "indicators": [
+        {
+         "text": "wasting"
+        },
+        {
+         "text": "fabulously",
+         "note": "treated fabulously, as in a fable, the letters are made up anew"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gent with a doc",
+         "gives": "GENTADOC",
+         "note": "anagram fodder before the loss"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T = time; removed from GENT"
+        }
+       ]
       }
      ]
     },
@@ -1377,55 +1297,54 @@
    },
    "solution": "LEARNED",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "LEARNED",
     "definitions": [
      {
       "text": "Well-read",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "buried in",
-      "for": "container"
-     },
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "in a down clue, turning a word up writes it bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L = large"
-     },
-     {
-      "clueFragment": "Listener",
-      "gives": "EAR",
-      "note": "the ear listens"
-     },
-     {
-      "clueFragment": "study turned up",
-      "gives": "NED",
-      "note": "DEN (a study) reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EAR",
-      "NED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "LEARNED",
+     "indicators": [
       {
-       "from": "DEN",
-       "to": "NED"
+       "text": "turned up",
+       "note": "in a down clue, turning a word up writes it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "LEARNED",
+       "indicators": [
+        {
+         "text": "buried in"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "large",
+           "gives": "L",
+           "note": "L = large"
+          },
+          {
+           "words": "Listener",
+           "gives": "EAR",
+           "note": "the ear listens"
+          },
+          {
+           "words": "study turned up",
+           "gives": "NED",
+           "note": "DEN (a study) reversed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1455,46 +1374,40 @@
    },
    "solution": "ORGANIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ORGANIC",
     "definitions": [
      {
       "text": "Natural",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "letter_selection",
-      "note": "skin is an example of an organ"
-     },
-     {
-      "text": "unclothed",
-      "for": "letter_selection",
-      "note": "a word unclothed loses its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skin, say",
-      "gives": "ORGAN",
-      "note": "the skin is the body's largest organ"
-     },
-     {
-      "clueFragment": "nice unclothed",
-      "gives": "IC",
-      "select": "middle",
-      "note": "nICe without its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORGAN",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "skin, say",
+       "gives": "ORGAN",
+       "note": "the skin is the body's largest organ"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "skin is an example of an organ"
+        },
+        {
+         "text": "unclothed",
+         "note": "a word unclothed loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice unclothed",
+         "gives": "NICE",
+         "note": "nICe without its outer letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1523,50 +1436,41 @@
    },
    "solution": "OPPRESS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OPPRESS",
     "definitions": [
      {
       "text": "Put down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "number one",
-      "for": "letter_selection",
-      "note": "the first letter of the name"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hole",
-      "gives": "O",
-      "note": "O looks like a hole"
-     },
-     {
-      "clueFragment": "Poulter's number one",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of Poulter"
-     },
-     {
-      "clueFragment": "iron",
-      "gives": "PRESS",
-      "note": "to iron clothes is to press them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "P",
-      "PRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hole",
+       "gives": "O",
+       "note": "O looks like a hole"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "number one",
+         "note": "the first letter of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Poulter's number one",
+         "gives": "POULTERS",
+         "note": "first letter of Poulter"
+        }
+       ]
+      },
+      {
+       "words": "iron",
+       "gives": "PRESS",
+       "note": "to iron clothes is to press them"
+      }
      ]
     },
     "explanation": {
@@ -1596,40 +1500,38 @@
    },
    "solution": "NASCENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NASCENT",
     "definitions": [
      {
       "text": "Developing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "down by half",
-      "for": "deletion",
-      "note": "only half of NASDAQ remains"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US stock exchange down by half",
-      "gives": "NAS",
-      "note": "the first half of NASDAQ"
-     },
-     {
-      "clueFragment": "little money there",
-      "gives": "CENT",
-      "note": "a cent is a small coin in the US, 'there'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAS",
-      "CENT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NASCENT",
+     "indicators": [
+      {
+       "text": "down by half",
+       "note": "only half of NASDAQ remains"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "US stock exchange down by half",
+         "gives": "NAS",
+         "note": "the first half of NASDAQ"
+        },
+        {
+         "words": "little money there",
+         "gives": "CENT",
+         "note": "a cent is a small coin in the US, 'there'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1658,40 +1560,30 @@
    },
    "solution": "INCH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INCH",
     "definitions": [
      {
       "text": "Creep",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "knocking off",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Squeeze",
-      "gives": "PINCH",
-      "note": "pinch = squeeze"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p = piano, quietly in music; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "knocking off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Squeeze",
+       "gives": "PINCH",
+       "note": "pinch = squeeze"
+      },
+      {
+       "words": "piano",
+       "gives": "P",
+       "note": "p = piano, quietly in music; removed"
+      }
      ]
     },
     "explanation": {
@@ -1720,45 +1612,36 @@
    },
    "solution": "WARPS",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "WARPS",
     "definitions": [
      {
       "text": "Twists",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abruptly",
-      "note": "cut short, so the last letter goes"
-     },
-     {
-      "text": "turning",
-      "note": "turning round faces the word the other way, so it reads backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lounge abruptly",
-      "gives": "SPRAW",
-      "note": "SPRAWL (lounge) without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WARPS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "WARPS",
+     "parts": [
       {
-       "from": "SPRAW",
-       "to": "WARPS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "abruptly",
+         "note": "cut short, so the last letter goes"
+        },
+        {
+         "text": "turning",
+         "note": "turning round faces the word the other way, so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lounge abruptly",
+         "gives": "SPRAW",
+         "note": "SPRAWL (lounge) without its last letter"
+        }
+       ]
       }
      ]
     },
@@ -1788,42 +1671,38 @@
    },
    "solution": "USER",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "USER",
     "definitions": [
      {
       "text": "Customer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first to finish",
-      "for": "cycling",
-      "note": "the first letter moves to the finish"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cunning manoeuvre",
-      "gives": "USE",
-      "note": "RUSE (a crafty trick), left behind when its first letter moves on"
-     },
-     {
-      "clueFragment": "first to finish",
-      "gives": "R",
-      "note": "the R from the front of RUSE, now at the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USE",
-      "R"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "USER",
+     "indicators": [
+      {
+       "text": "first to finish",
+       "note": "the first letter moves to the finish"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cunning manoeuvre",
+         "gives": "USE",
+         "note": "RUSE (a crafty trick), left behind when its first letter moves on"
+        },
+        {
+         "words": "first to finish",
+         "gives": "R",
+         "note": "the R from the front of RUSE, now at the end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1852,44 +1731,37 @@
    },
    "solution": "AREA",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "AREA",
     "definitions": [
      {
       "text": "Section",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to knock out",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song",
-      "gives": "ARIA",
-      "note": "an aria is an operatic song"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy; replaces I"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral; knocked out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "E",
-      "A"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "AREA",
+     "indicators": [
+      {
+       "text": "to knock out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "song",
+       "gives": "ARIA",
+       "note": "an aria is an operatic song"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E = energy; replaces I"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral; knocked out"
+      }
      ]
     },
     "explanation": {
@@ -1918,31 +1790,29 @@
    },
    "solution": "STYE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "STYE",
     "definitions": [
      {
       "text": "problem with lid",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Picked up",
-      "for": "homophone",
-      "note": "picked up by the ear, heard"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pen",
-      "gives": "STYE",
-      "soundsLike": "STY",
-      "note": "a sty is a pigpen"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STYE",
+     "indicators": [
+      {
+       "text": "Picked up",
+       "note": "picked up by the ear, heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pen",
+       "gives": "STY",
+       "note": "a sty is a pigpen"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone grabs a pen, then struggles to get the cap off.",
      "walkthrough": "The lid is an eyelid, not a pen top, and the pen is a pig's enclosure, not for writing.",
@@ -1970,41 +1840,30 @@
    },
    "solution": "GAGARIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GAGARIN",
     "definitions": [
      {
       "text": "Rocket Man",
       "at": 39
      }
     ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lady who sings",
-      "gives": "GAGA",
-      "note": "Lady Gaga, the pop singer"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "in = at home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAGA",
-      "R",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lady who sings",
+       "gives": "GAGA",
+       "note": "Lady Gaga, the pop singer"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R = right"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "in = at home"
+      }
      ]
     },
     "explanation": {
@@ -2034,54 +1893,58 @@
    },
    "solution": "EXTREME",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "EXTREME",
     "definitions": [
      {
       "text": "Ultimate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uncovered",
-      "note": "a word uncovered loses its outer letters"
-     },
-     {
-      "text": "short",
-      "note": "MEN falls short of its last letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "messages uncovered",
-      "gives": "EXT",
-      "select": "middle",
-      "note": "tEXTs, text messages, without the outer letters"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re = about, concerning"
-     },
-     {
-      "clueFragment": "short guys",
-      "gives": "ME",
-      "note": "MEN without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXT",
-      "RE",
-      "ME"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EXTREME",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "note": "a word uncovered loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "EXT",
+         "indicators": [
+          {
+           "text": "short",
+           "note": "MEN falls short of its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "messages uncovered",
+           "gives": "EXT",
+           "select": "middle",
+           "note": "tEXTs, text messages, without the outer letters"
+          }
+         ]
+        },
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re = about, concerning"
+        },
+        {
+         "words": "short guys",
+         "gives": "ME",
+         "note": "MEN without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2110,50 +1973,44 @@
    },
    "solution": "INCANDESCENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "INCANDESCENT",
     "definitions": [
      {
       "text": "Red-hot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "visiting",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used as written"
-     },
-     {
-      "clueFragment": "May",
-      "gives": "CAN",
-      "note": "may = can, be permitted to"
-     },
-     {
-      "clueFragment": "fair",
-      "gives": "DECENT",
-      "note": "decent = fair, reasonable"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S = son; goes inside DECENT after DE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "CAN",
-      "DESCENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "visiting"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "note": "used as written"
+        },
+        {
+         "words": "May",
+         "gives": "CAN",
+         "note": "may = can, be permitted to"
+        },
+        {
+         "words": "fair",
+         "gives": "DECENT",
+         "note": "decent = fair, reasonable"
+        }
+       ]
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S = son; goes inside DECENT after DE"
+      }
      ]
     },
     "explanation": {

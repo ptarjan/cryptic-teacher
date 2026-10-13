@@ -1,8 +1,6 @@
 {
  "id": "mephisto-3108",
  "number": 3108,
- "series": "mephisto",
- "name": "Sunday Times mephisto crossword No 3,108",
  "date": "2020-03-22",
  "dimensions": {
   "cols": 12,
@@ -55,47 +53,41 @@
    },
    "solution": "CORPS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CORPS",
     "definitions": [
      {
       "text": "tactical unit",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Term for",
-      "for": "letter_selection",
-      "note": "a term is an end, so this asks for the final letter of the next word"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece is placed inside the word for the police that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "police",
-      "gives": "COPS",
-      "note": "cops are police officers"
-     },
-     {
-      "clueFragment": "driver",
-      "gives": "R",
-      "select": "last",
-      "note": "the end letter of driver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "R",
-      "PS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece is placed inside the word for the police that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "police",
+       "gives": "COPS",
+       "note": "cops are police officers"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Term for",
+         "note": "a term is an end, so this asks for the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "driver",
+         "note": "the end letter of driver"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -124,32 +116,25 @@
    },
    "solution": "CARCASE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CARCASE",
     "definitions": [
      {
       "text": "remains",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Possibly saloon",
-      "gives": "CAR",
-      "note": "a saloon is one kind of car"
-     },
-     {
-      "clueFragment": "lawsuit",
-      "gives": "CASE",
-      "note": "a case is a lawsuit brought in court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "CASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Possibly saloon",
+       "gives": "CAR",
+       "note": "a saloon is one kind of car"
+      },
+      {
+       "words": "lawsuit",
+       "gives": "CASE",
+       "note": "a case is a lawsuit brought in court"
+      }
      ]
     },
     "explanation": {
@@ -178,67 +163,56 @@
    },
    "solution": "ROTULA",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ROTULA",
     "definitions": [
      {
       "text": "bone",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "cracking",
-      "for": "anagram",
-      "note": "something cracking is breaking up, so the word before it is broken and reset"
-     },
-     {
-      "text": "bit of",
-      "for": "letter_selection",
-      "note": "a bit of a word here is just its opening letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take",
-      "gives": "R",
-      "note": "R stands for recipe, Latin for 'take', on prescriptions"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OTU",
-      "note": "the letters of out, cracked open"
-     },
-     {
-      "clueFragment": "lamb",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of lamb"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "OTU",
-      "L",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ROTULA",
+     "indicators": [
       {
-       "fodder": "OUT",
-       "gives": "OTU"
+       "text": "cracking",
+       "note": "something cracking is breaking up, so the word before it is broken and reset"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Take",
+         "gives": "R",
+         "note": "R stands for recipe, Latin for 'take', on prescriptions"
+        },
+        {
+         "words": "out",
+         "gives": "OTU",
+         "note": "the letters of out, cracked open"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "note": "a bit of a word here is just its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lamb",
+           "note": "first letter of lamb"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -268,48 +242,35 @@
    },
    "solution": "PURE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PURE",
     "definitions": [
      {
       "text": "Utter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about means turned round, so the word for excited is read from its end"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "excitedly",
-      "gives": "UP",
-      "note": "to be up is to be excited, as in worked up"
-     },
-     {
-      "clueFragment": "Royal Engineers",
-      "gives": "RE",
-      "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "RE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "UP",
-       "to": "PU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means turned round, so the word for excited is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excitedly",
+         "gives": "UP",
+         "note": "to be up is to be excited, as in worked up"
+        }
+       ]
+      },
+      {
+       "words": "Royal Engineers",
+       "gives": "RE",
+       "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
       }
      ]
     },
@@ -339,49 +300,45 @@
    },
    "solution": "STOIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "STOIC",
     "definitions": [
      {
       "text": "A stiff-upper-lip sort",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "without an end, so the word for criticism loses its last letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the shortened word wraps the nothing"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "criticism",
-      "gives": "STICK",
-      "note": "to give someone stick is to criticise them"
-     },
-     {
-      "clueFragment": "nowt",
-      "gives": "O",
-      "note": "nowt is northern English for nothing, which is O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "O",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the shortened word wraps the nothing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "note": "without an end, so the word for criticism loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "criticism",
+         "gives": "STICK",
+         "note": "to give someone stick is to criticise them"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "nowt",
+       "gives": "O",
+       "note": "nowt is northern English for nothing, which is O"
+      }
      ]
     },
     "explanation": {
@@ -409,47 +366,41 @@
    },
    "solution": "TUPPING",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TUPPING",
     "definitions": [
      {
       "text": "the Act of Union?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means keeping something inside, so the word for yank grips the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yank",
-      "gives": "TUG",
-      "note": "to yank is to tug"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the symbol for power"
-     },
-     {
-      "clueFragment": "secure",
-      "gives": "PIN",
-      "note": "to pin is to fasten securely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TU",
-      "P",
-      "PIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "holding means keeping something inside, so the word for yank grips the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Yank",
+       "gives": "TUG",
+       "note": "to yank is to tug"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "power",
+         "gives": "P",
+         "note": "P is the symbol for power"
+        },
+        {
+         "words": "secure",
+         "gives": "PIN",
+         "note": "to pin is to fasten securely"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -485,51 +436,62 @@
    },
    "solution": "URBANMYTH",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "URBAN MYTH",
     "definitions": [
      {
       "text": "Unlikely tale",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lifting the lid on",
-      "for": "deletion",
-      "note": "removing the lid takes off the top, the first letter of the headdress word"
-     },
-     {
-      "text": "is pulled off",
-      "for": "deletion",
-      "note": "pulled off means removed, so those two letters come out of the word this"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "headdress",
-      "gives": "TURBAN",
-      "note": "a turban is a wrapped headdress"
-     },
-     {
-      "clueFragment": "wow!",
-      "gives": "MY",
-      "note": "my! is an exclamation of surprise"
-     },
-     {
-      "clueFragment": "This",
-      "gives": "THIS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URBAN",
-      "MY",
-      "TH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lifting the lid on",
+         "note": "removing the lid takes off the top, the first letter of the headdress word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "headdress",
+         "gives": "TURBAN",
+         "note": "a turban is a wrapped headdress"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is pulled off",
+         "note": "pulled off means removed, so those two letters come out of the word this"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "wow!",
+           "gives": "MY",
+           "note": "my! is an exclamation of surprise"
+          },
+          {
+           "words": "This",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "IS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -558,35 +520,25 @@
    },
    "solution": "PERICON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PERICON",
     "definitions": [
      {
       "text": "dance",
       "at": 33
      }
     ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Malevolent Persian",
-      "gives": "PERI",
-      "note": "a peri in Persian myth was at first an evil spirit, later a fairy"
-     },
-     {
-      "clueFragment": "against",
-      "gives": "CON",
-      "note": "con means against, as in pros and cons"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERI",
-      "CON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Malevolent Persian",
+       "gives": "PERI",
+       "note": "a peri in Persian myth was at first an evil spirit, later a fairy"
+      },
+      {
+       "words": "against",
+       "gives": "CON",
+       "note": "con means against, as in pros and cons"
+      }
      ]
     },
     "explanation": {
@@ -615,38 +567,30 @@
    },
    "solution": "INGRAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INGRAM",
     "definitions": [
      {
       "text": "Thick, as it was",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "At home",
-      "gives": "IN",
-      "note": "in means at home"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is short for good"
-     },
-     {
-      "clueFragment": "butter",
-      "gives": "RAM",
-      "note": "a ram butts with its head, so it is a butter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "G",
-      "RAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "At home",
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is short for good"
+      },
+      {
+       "words": "butter",
+       "gives": "RAM",
+       "note": "a ram butts with its head, so it is a butter"
+      }
      ]
     },
     "explanation": {
@@ -676,38 +620,24 @@
    },
    "solution": "NEARWHITE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEARWHITE",
     "definitions": [
      {
       "text": "virtually colourless",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Fancy",
-      "for": "anagram",
-      "note": "fancy means elaborate or decorated, so the letters are reworked"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the new air",
-      "gives": "THENEWAIR",
-      "note": "the nine letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THENEWAIR",
-       "gives": "NEARWHITE"
+       "text": "Fancy",
+       "note": "fancy means elaborate or decorated, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the new air",
+       "note": "the nine letters to rearrange"
       }
      ]
     },
@@ -736,48 +666,35 @@
    },
    "solution": "GENAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "GENAL",
     "definitions": [
      {
       "text": "of cheek",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "preposterous",
-      "for": "reversal",
-      "note": "preposterous literally means having the before after, back to front"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G is the abbreviation for German"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "LANE",
-      "note": "a lane is a way or road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ENAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LANE",
-       "to": "ENAL"
+       "words": "German",
+       "gives": "G",
+       "note": "G is the abbreviation for German"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "preposterous",
+         "note": "preposterous literally means having the before after, back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "way",
+         "gives": "LANE",
+         "note": "a lane is a way or road"
+        }
+       ]
       }
      ]
     },
@@ -807,56 +724,50 @@
    },
    "solution": "AVOUTERER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AVOUTERER",
     "definitions": [
      {
       "text": "____ played away",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "randy",
-      "for": "anagram",
-      "note": "randy means wild with lust, so the word after it is in disorder"
-     },
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "being taken in means being placed inside another word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "raver",
-      "gives": "RAVER",
-      "note": "the letters to rearrange around the rest"
-     },
-     {
-      "clueFragment": "from home",
-      "gives": "OUT",
-      "note": "out means away from home"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AV",
-      "OUTE",
-      "RER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RAVER",
-       "gives": "AVRER"
+       "text": "taken in by",
+       "note": "being taken in means being placed inside another word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "randy",
+         "note": "randy means wild with lust, so the word after it is in disorder"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "raver",
+           "note": "the letters to rearrange around the rest"
+          },
+          {
+           "words": "from home",
+           "gives": "OUT",
+           "note": "out means away from home"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
       }
      ]
     },
@@ -886,38 +797,25 @@
    },
    "solution": "RETROS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "RETROS",
     "definitions": [
      {
       "text": "rockets",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "westbound",
-      "for": "reversal",
-      "note": "in an across entry going west means running right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Who arranges",
-      "gives": "SORTER",
-      "note": "one who arranges things in order sorts them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETROS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SORTER",
-       "to": "RETROS"
+       "text": "westbound",
+       "note": "in an across entry going west means running right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Who arranges",
+       "gives": "SORTER",
+       "note": "one who arranges things in order sorts them"
       }
      ]
     },
@@ -946,32 +844,24 @@
    },
    "solution": "BROGAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BROGAN",
     "definitions": [
      {
       "text": "item of footwear",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Scots jag",
-      "gives": "BROG",
-      "note": "brog is Scots for a prod or jab, which is what a jag is"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROG",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scots jag",
+       "gives": "BROG",
+       "note": "brog is Scots for a prod or jab, which is what a jag is"
+      },
+      {
+       "words": "an",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1000,50 +890,41 @@
    },
    "solution": "ELEVATION",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ELEVATION",
     "definitions": [
      {
       "text": "Height",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the word for delight wraps the other two letters"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "delight",
-      "gives": "ELATION",
-      "note": "elation is great delight"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "verse",
-      "gives": "V",
-      "note": "V is the abbreviation for verse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "E",
-      "V",
-      "ATION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the word for delight wraps the other two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "delight",
+       "gives": "ELATION",
+       "note": "elation is great delight"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        },
+        {
+         "words": "verse",
+         "gives": "V",
+         "note": "V is the abbreviation for verse"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1078,35 +959,24 @@
    },
    "solution": "WILDOLIVE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WILD OLIVE",
     "definitions": [
      {
       "text": "A long-standing producer of oil",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flaring",
-      "for": "anagram",
-      "note": "flaring means bursting into wild flames, so the letters scatter and regroup"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "will video",
-      "gives": "WILLVIDEO",
-      "note": "the nine letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WILLVIDEO",
-       "gives": "WILDOLIVE"
+       "text": "flaring",
+       "note": "flaring means bursting into wild flames, so the letters scatter and regroup"
+      }
+     ],
+     "parts": [
+      {
+       "words": "will video",
+       "note": "the nine letters to rearrange"
       }
      ]
     },
@@ -1136,30 +1006,28 @@
    },
    "solution": "ORRA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORRA",
     "definitions": [
      {
       "text": "left over in Lossiemouth",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Insides of",
-      "for": "hidden_word",
-      "note": "the insides of a phrase are letters sitting within it, across the word break"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "transistor radios",
-      "gives": "ORRA",
-      "note": "the letters straddle the gap between the two words, the tail of one and the head of the next"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Insides of",
+       "note": "the insides of a phrase are letters sitting within it, across the word break"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transistor radios",
+       "gives": "ORRA",
+       "note": "the letters straddle the gap between the two words, the tail of one and the head of the next"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The innards of old transistor radios lie about unused in a Scottish town.",
      "walkthrough": "Lossiemouth is a town in north-east Scotland, so the definition asks for a Scots word.",
@@ -1186,50 +1054,41 @@
    },
    "solution": "ALLICIN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ALLICIN",
     "definitions": [
      {
       "text": "antibiotic",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "'ll stuff",
-      "for": "container",
-      "note": "to stuff something is to fill its inside, so these letters go into the next word"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "comprehensive",
-      "gives": "ALLIN",
-      "note": "all-in means comprehensive, including everything"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALLI",
-      "C",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "'ll stuff",
+       "note": "to stuff something is to fill its inside, so these letters go into the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "comprehensive",
+       "gives": "ALLIN",
+       "note": "all-in means comprehensive, including everything"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Cold",
+         "gives": "C",
+         "note": "C is the abbreviation for cold"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1258,26 +1117,25 @@
    },
    "solution": "CRAWL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CRAWL",
     "definitions": [
      {
       "text": "Such as keeps lobster fresh in Sri Lanka",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Such as keeps lobster fresh",
-      "note": "surface reading: some kind of chilling or storage method for seafood"
-     },
-     {
-      "clueFragment": "in Sri Lanka",
-      "note": "setter's reading: a pen in water where live shellfish are held, and also the enclosure, a kraal, used to trap elephants in Sri Lanka"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Such as keeps lobster fresh",
+       "note": "surface reading: some kind of chilling or storage method for seafood"
+      },
+      {
+       "words": "in Sri Lanka",
+       "note": "setter's reading: a pen in water where live shellfish are held, and also the enclosure, a kraal, used to trap elephants in Sri Lanka"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The word is the old Dutch-derived noun for an enclosure, not the verb of slow movement or the swimming stroke.",
      "definitionFit": "A crawl is an enclosure in shallow water for keeping fish, turtles or lobsters alive, related to kraal."
@@ -1309,47 +1167,51 @@
    },
    "solution": "SEASALMON",
    "annotation": {
-    "type": [
-     "homophone",
-     "deletion",
-     "charade"
-    ],
-    "answer": "SEA SALMON",
     "definitions": [
      {
       "text": "Certain swimmer inaptly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is a word's sound, so the spelling may differ"
-     },
-     {
-      "text": "for the biggest part",
-      "for": "deletion",
-      "note": "only most of the word is kept, so its final letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grasps",
-      "gives": "SEAS",
-      "soundsLike": "SEIZE",
-      "note": "to grasp is to seize"
-     },
-     {
-      "clueFragment": "nut",
-      "gives": "ALMOND",
-      "note": "an almond is a nut"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEAS",
-      "ALMON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "for the biggest part",
+       "note": "only most of the word is kept, so its final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "SEAS",
+         "indicators": [
+          {
+           "text": "we hear",
+           "note": "what we hear is a word's sound, so the spelling may differ"
+          }
+         ],
+         "parts": [
+          {
+           "words": "grasps",
+           "gives": "SEIZE",
+           "note": "to grasp is to seize"
+          }
+         ]
+        },
+        {
+         "words": "nut",
+         "gives": "ALMOND",
+         "note": "an almond is a nut"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -1378,35 +1240,25 @@
    },
    "solution": "AIRPORT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIRPORT",
     "definitions": [
      {
       "text": "Charles de Gaulle, eg",
       "at": 0
      }
     ],
-    "linkWords": [
-     "pressed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "publicity",
-      "gives": "AIR",
-      "note": "to give something air is to publicise it"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "PORT",
-      "note": "port is the left side of a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "PORT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "publicity",
+       "gives": "AIR",
+       "note": "to give something air is to publicise it"
+      },
+      {
+       "words": "left",
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      }
      ]
     },
     "explanation": {
@@ -1435,43 +1287,31 @@
    },
    "solution": "MAHATMA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAHATMA",
     "definitions": [
      {
       "text": "guru",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "stuck into",
-      "for": "container",
-      "note": "stuck into means pushed inside, so the hat sits in the middle"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mature woman",
-      "gives": "MAMA",
-      "note": "mama is a mother, a mature woman"
-     },
-     {
-      "clueFragment": "Balmoral or other",
-      "gives": "HAT",
-      "note": "a balmoral is a Scottish bonnet, one hat among others"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "HAT",
-      "MA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck into",
+       "note": "stuck into means pushed inside, so the hat sits in the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mature woman",
+       "gives": "MAMA",
+       "note": "mama is a mother, a mature woman"
+      },
+      {
+       "words": "Balmoral or other",
+       "gives": "HAT",
+       "note": "a balmoral is a Scottish bonnet, one hat among others"
+      }
      ]
     },
     "explanation": {
@@ -1500,44 +1340,38 @@
    },
    "solution": "TSOTSI",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "TSOTSI",
     "definitions": [
      {
       "text": "Young thug",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "will make a break for it",
-      "for": "deletion",
-      "note": "making a break for it means escaping, so the word and leaves"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry up means read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is to stand",
-      "gives": "ISTOSTAND",
-      "note": "the words taken as written; the letters left once one word escapes run backwards in the clue only by coincidence, so this is not a hidden word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TSOTSI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ISTOST",
-       "to": "TSOTSI"
+       "text": "up",
+       "note": "in a down entry up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "will make a break for it",
+         "note": "making a break for it means escaping, so the word and leaves"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is to stand",
+         "note": "the words taken as written; the letters left once one word escapes run backwards in the clue only by coincidence, so this is not a hidden word"
+        },
+        {
+         "gives": "AND"
+        }
+       ]
       }
      ]
     },
@@ -1567,51 +1401,40 @@
    },
    "solution": "DIDYNAMIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DIDYNAMIA",
     "definitions": [
      {
       "text": "Class of plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from the east",
-      "for": "reversal",
-      "note": "reading from the east in an across entry means from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first-rate",
-      "gives": "AI",
-      "note": "A1 means first-rate, with 1 read as I"
-     },
-     {
-      "clueFragment": "umpteen",
-      "gives": "MANY",
-      "note": "umpteen means a great many"
-     },
-     {
-      "clueFragment": "carried out",
-      "gives": "DID",
-      "note": "to carry out a task is to do it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DID",
-      "YNAM",
-      "IA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AIMANYDID",
-       "to": "DIDYNAMIA"
+       "text": "from the east",
+       "note": "reading from the east in an across entry means from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "first-rate",
+         "gives": "AI",
+         "note": "A1 means first-rate, with 1 read as I"
+        },
+        {
+         "words": "umpteen",
+         "gives": "MANY",
+         "note": "umpteen means a great many"
+        },
+        {
+         "words": "carried out",
+         "gives": "DID",
+         "note": "to carry out a task is to do it"
+        }
+       ]
       }
      ]
     },
@@ -1641,28 +1464,16 @@
    },
    "solution": "MINNIE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MINNIE",
     "definitions": [
      {
       "text": "Cartoon girlfriend",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the mouse who is Mickey's girlfriend in Disney cartoons"
      },
      {
       "text": "that delivers eggs",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cartoon girlfriend",
-      "note": "first meaning: the mouse who is Mickey's girlfriend in Disney cartoons"
-     },
-     {
-      "clueFragment": "that delivers eggs",
-      "note": "second meaning: soldiers' slang for a German trench mortar, whose bombs were called eggs"
+      "at": 19,
+      "meaning": "second meaning: soldiers' slang for a German trench mortar, whose bombs were called eggs"
      }
     ],
     "explanation": {
@@ -1691,38 +1502,25 @@
    },
    "solution": "TASER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TASER",
     "definitions": [
      {
       "text": "This stunner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken aback",
-      "for": "reversal",
-      "note": "aback means backwards, so the word is read from its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "posed again",
-      "gives": "RESAT",
-      "note": "to sit again for a portrait is to resit, past tense resat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TASER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RESAT",
-       "to": "TASER"
+       "text": "taken aback",
+       "note": "aback means backwards, so the word is read from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posed again",
+       "gives": "RESAT",
+       "note": "to sit again for a portrait is to resit, past tense resat"
       }
      ]
     },
@@ -1753,38 +1551,29 @@
    },
    "solution": "TAPAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAPAS",
     "definitions": [
      {
       "text": "snack",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Get money from",
-      "gives": "TAP",
-      "note": "to tap someone is to ask them for money"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAP",
-      "A",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Get money from",
+       "gives": "TAP",
+       "note": "to tap someone is to ask them for money"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      }
      ]
     },
     "explanation": {
@@ -1811,41 +1600,35 @@
    },
    "solution": "OTOLITH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OTOLITH",
     "definitions": [
      {
       "text": "It helps to stay steady",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "What's in",
-      "for": "letter_selection",
-      "note": "what is in a word is its interior, everything but the outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "motor",
-      "gives": "OTO",
-      "select": "middle",
-      "note": "the inner letters of motor"
-     },
-     {
-      "clueFragment": "Scotsman's joint",
-      "gives": "LITH",
-      "note": "lith is Scots for a joint or segment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTO",
-      "LITH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "What's in",
+         "note": "what is in a word is its interior, everything but the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motor",
+         "note": "the inner letters of motor"
+        }
+       ]
+      },
+      {
+       "words": "Scotsman's joint",
+       "gives": "LITH",
+       "note": "lith is Scots for a joint or segment"
+      }
      ]
     },
     "explanation": {
@@ -1875,35 +1658,25 @@
    },
    "solution": "OUENS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUENS",
     "definitions": [
      {
       "text": "chaps from Jo'burg",
       "at": 26
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Open University",
-      "gives": "OU",
-      "note": "OU is the Open University, Britain's distance-learning university"
-     },
-     {
-      "clueFragment": "being",
-      "gives": "ENS",
-      "note": "ens is a philosophical term for being or entity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OU",
-      "ENS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Open University",
+       "gives": "OU",
+       "note": "OU is the Open University, Britain's distance-learning university"
+      },
+      {
+       "words": "being",
+       "gives": "ENS",
+       "note": "ens is a philosophical term for being or entity"
+      }
      ]
     },
     "explanation": {
@@ -1931,32 +1704,24 @@
    },
    "solution": "ATOM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATOM",
     "definitions": [
      {
       "text": "A tiny bit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hustler",
-      "gives": "TOM",
-      "note": "tom is slang for a prostitute, a hustler"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "hustler",
+       "gives": "TOM",
+       "note": "tom is slang for a prostitute, a hustler"
+      }
      ]
     },
     "explanation": {
@@ -1985,28 +1750,16 @@
    },
    "solution": "HIGH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HIGH",
     "definitions": [
      {
       "text": "Dear",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: expensive"
      },
      {
       "text": "mortal",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dear",
-      "note": "first meaning: expensive"
-     },
-     {
-      "clueFragment": "mortal",
-      "note": "second meaning: very drunk, as mortal is used in slang"
+      "at": 5,
+      "meaning": "second meaning: very drunk, as mortal is used in slang"
      }
     ],
     "explanation": {
@@ -2035,38 +1788,30 @@
    },
    "solution": "PITHOI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PITHOI",
     "definitions": [
      {
       "text": "jugs",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Weight",
-      "gives": "PITH",
-      "note": "pith means substance or weight, as of an argument"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "O",
-      "note": "o' is a shortened of, as in o'clock"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PITH",
-      "O",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Weight",
+       "gives": "PITH",
+       "note": "pith means substance or weight, as of an argument"
+      },
+      {
+       "words": "of",
+       "gives": "O",
+       "note": "o' is a shortened of, as in o'clock"
+      },
+      {
+       "words": "one's",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -2105,35 +1850,24 @@
    },
    "solution": "BEINIT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BE IN IT",
     "definitions": [
      {
       "text": "Muck in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tightly",
-      "for": "anagram",
-      "note": "tight means drunk, so the letters reel about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bin, tie",
-      "gives": "BINTIE",
-      "note": "the six letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BINTIE",
-       "gives": "BEINIT"
+       "text": "tightly",
+       "note": "tight means drunk, so the letters reel about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bin, tie",
+       "note": "the six letters to rearrange"
       }
      ]
     },
@@ -2163,47 +1897,44 @@
    },
    "solution": "IRVINGISM",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "IRVINGISM",
     "definitions": [
      {
       "text": "doctrine",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Blessed",
-      "for": "anagram",
-      "note": "blessed is a mild curse, so the words are knocked about"
-     },
-     {
-      "text": "foremost in",
-      "for": "letter_selection",
-      "note": "the foremost letter is the very first one of a word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Virgin is",
-      "gives": "VIRGINIS",
-      "note": "the letters to rearrange"
-     },
-     {
-      "clueFragment": "maternal",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of maternal"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VIRGINISM",
-       "gives": "IRVINGISM"
+       "text": "Blessed",
+       "note": "blessed is a mild curse, so the words are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Virgin is",
+         "note": "the letters to rearrange"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "foremost in",
+           "note": "the foremost letter is the very first one of a word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "maternal",
+           "note": "first letter of maternal"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -2233,48 +1964,35 @@
    },
    "solution": "SNIFTER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SNIFTER",
     "definitions": [
      {
       "text": "strong breeze",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "being back",
-      "for": "reversal",
-      "note": "back means returning, so the string is read from right to left"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spoil",
-      "gives": "RET",
-      "note": "to ret is to rot or spoil, as with flax soaked too long"
-     },
-     {
-      "clueFragment": "mitts",
-      "gives": "FINS",
-      "note": "fins and mitts are both slang for hands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNIF",
-      "TER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RETFINS",
-       "to": "SNIFTER"
+       "text": "being back",
+       "note": "back means returning, so the string is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Spoil",
+         "gives": "RET",
+         "note": "to ret is to rot or spoil, as with flax soaked too long"
+        },
+        {
+         "words": "mitts",
+         "gives": "FINS",
+         "note": "fins and mitts are both slang for hands"
+        }
+       ]
       }
      ]
     },
@@ -2304,33 +2022,29 @@
    },
    "solution": "SHEBA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SHEBA",
     "definitions": [
      {
       "text": "old Yemen",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "taking time off",
-      "for": "deletion",
-      "note": "taking off means removing, so the letter for time leaves the month"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Month for Jews",
-      "gives": "SHEBAT",
-      "note": "Shebat is a month in the Jewish calendar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHEBA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking time off",
+       "note": "taking off means removing, so the letter for time leaves the month"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Month for Jews",
+       "gives": "SHEBAT",
+       "note": "Shebat is a month in the Jewish calendar"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {

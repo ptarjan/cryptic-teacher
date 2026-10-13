@@ -1,8 +1,6 @@
 {
  "id": "quiptic-346",
  "number": 346,
- "series": "quiptic",
- "name": "Quiptic crossword No 346",
  "setter": "Hectence",
  "date": "2006-07-03",
  "dimensions": {
@@ -38,35 +36,24 @@
    },
    "solution": "RENOVATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RENOVATE",
     "definitions": [
      {
       "text": "repair",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "At fault",
-      "for": "anagram",
-      "note": "something at fault has gone wrong, so the letters that follow are out of their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over a net",
-      "gives": "OVERANET",
-      "note": "the three words supply the eight letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OVERANET",
-       "gives": "RENOVATE"
+       "text": "At fault",
+       "note": "something at fault has gone wrong, so the letters that follow are out of their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "over a net",
+       "note": "the three words supply the eight letters to be rearranged"
       }
      ]
     },
@@ -95,32 +82,25 @@
    },
    "solution": "PLEADS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLEADS",
     "definitions": [
      {
       "text": "appeals",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Quietly",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quietly"
-     },
-     {
-      "clueFragment": "conducts",
-      "gives": "LEADS",
-      "note": "to conduct a group is to lead it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LEADS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quietly"
+      },
+      {
+       "words": "conducts",
+       "gives": "LEADS",
+       "note": "to conduct a group is to lead it"
+      }
      ]
     },
     "explanation": {
@@ -149,45 +129,38 @@
    },
    "solution": "CONFETTI",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "CONFETTI",
     "definitions": [
      {
       "text": "Note: often it may be seen at a wedding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "may be",
-      "for": "anagram",
-      "note": "may be suggests the letters could become something else when arranged differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "C",
-      "note": "C is one of the musical notes"
-     },
-     {
-      "clueFragment": "often it",
-      "gives": "OFTENIT",
-      "note": "taken as written, as letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "COFTENIT",
-       "gives": "CONFETTI"
+       "words": "Note",
+       "gives": "C",
+       "note": "C is one of the musical notes"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "may be",
+         "note": "may be suggests the letters could become something else when arranged differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "often it",
+         "note": "taken as written, as letters to rearrange"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A remark that something is commonly spotted at weddings.",
      "walkthrough": "The whole clue is both the wordplay and the description: the note plus 'often it', rearranged, gives the paper scattered over newly-weds.",
@@ -214,57 +187,51 @@
    },
    "solution": "ORACLE",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ORACLE",
     "definitions": [
      {
       "text": "Prophet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the spoken word goes round the next piece, sitting about it"
-     },
-     {
-      "text": "key to",
-      "for": "letter_selection",
-      "note": "the key to a word is its opening letter, which unlocks it"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spoken",
-      "gives": "ORAL",
-      "note": "oral means spoken rather than written"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c (circa) means about, as in a date"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORA",
-      "C",
-      "L",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the spoken word goes round the next piece, sitting about it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spoken",
+         "gives": "ORAL",
+         "note": "oral means spoken rather than written"
+        },
+        {
+         "words": "about",
+         "gives": "C",
+         "note": "c (circa) means about, as in a date"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "key to",
+         "note": "the key to a word is its opening letter, which unlocks it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy",
+         "note": "the first letter of ecstasy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -293,35 +260,25 @@
    },
    "solution": "BEETLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEETLE",
     "definitions": [
      {
       "text": "Insect",
       "at": 0
      }
     ],
-    "linkWords": [
-     "found on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vegetable",
-      "gives": "BEET",
-      "note": "beet is a root vegetable"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEET",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vegetable",
+       "gives": "BEET",
+       "note": "beet is a root vegetable"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for the"
+      }
      ]
     },
     "explanation": {
@@ -349,35 +306,25 @@
    },
    "solution": "BREWER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BREWER",
     "definitions": [
      {
       "text": "Beer-maker",
       "at": 0
      }
     ],
-    "linkWords": [
-     "uses"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brown",
-      "gives": "BR",
-      "note": "br is a standard abbreviation for brown"
-     },
-     {
-      "clueFragment": "jug",
-      "gives": "EWER",
-      "note": "a ewer is a large jug"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "EWER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "brown",
+       "gives": "BR",
+       "note": "br is a standard abbreviation for brown"
+      },
+      {
+       "words": "jug",
+       "gives": "EWER",
+       "note": "a ewer is a large jug"
+      }
      ]
     },
     "explanation": {
@@ -404,54 +351,41 @@
    },
    "solution": "HORRID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HORRID",
     "definitions": [
      {
       "text": "dreadful",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "previously",
-      "for": "charade",
-      "note": "previously says the last-named piece comes earlier, so it is placed at the front"
-     }
-    ],
-    "linkWords": [
-     "used to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hospital",
-      "gives": "H",
-      "note": "H is the abbreviation for hospital"
-     },
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "Royal",
-      "gives": "R",
-      "note": "R is the abbreviation for royal, as in RN"
-     },
-     {
-      "clueFragment": "Free",
-      "gives": "RID",
-      "note": "to free someone of something is to rid them of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "O",
-      "R",
-      "RID"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "previously",
+       "note": "previously says the last-named piece comes earlier, so it is placed at the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hospital",
+       "gives": "H",
+       "note": "H is the abbreviation for hospital"
+      },
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "Royal",
+       "gives": "R",
+       "note": "R is the abbreviation for royal, as in RN"
+      },
+      {
+       "words": "Free",
+       "gives": "RID",
+       "note": "to free someone of something is to rid them of it"
+      }
      ]
     },
     "explanation": {
@@ -480,46 +414,35 @@
    },
    "solution": "DREARY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DREARY",
     "definitions": [
      {
       "text": "Gloomy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "something found in a place is enclosed by it, so one piece sits inside the other"
-     },
-     {
-      "text": "surroundings",
-      "for": "container",
-      "note": "surroundings are what lie all round, so the word before it wraps the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dull",
-      "gives": "DRY",
-      "note": "dry can mean dull and uninteresting"
-     },
-     {
-      "clueFragment": "auditor",
-      "gives": "EAR",
-      "note": "an auditor is a listener, and the ear is what listens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "EAR",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "something found in a place is enclosed by it, so one piece sits inside the other"
+      },
+      {
+       "text": "surroundings",
+       "note": "surroundings are what lie all round, so the word before it wraps the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dull",
+       "gives": "DRY",
+       "note": "dry can mean dull and uninteresting"
+      },
+      {
+       "words": "auditor",
+       "gives": "EAR",
+       "note": "an auditor is a listener, and the ear is what listens"
+      }
      ]
     },
     "explanation": {
@@ -549,39 +472,24 @@
    },
    "solution": "GATECRASHER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GATECRASHER",
     "definitions": [
      {
       "text": "uninvited guest",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "character reshuffle",
-      "for": "anagram",
-      "note": "a reshuffle of characters means the letters themselves are moved into a new order"
-     }
-    ],
-    "linkWords": [
-     "when",
-     "makes an appearance"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Archers get a",
-      "gives": "ARCHERSGETA",
-      "note": "the three words supply the eleven letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARCHERSGETA",
-       "gives": "GATECRASHER"
+       "text": "character reshuffle",
+       "note": "a reshuffle of characters means the letters themselves are moved into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Archers get a",
+       "note": "the three words supply the eleven letters to be rearranged"
       }
      ]
     },
@@ -612,54 +520,39 @@
    },
    "solution": "FEDORA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "FEDORA",
     "definitions": [
      {
       "text": "hat",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over suggests turning something round, so the word reads backwards"
-     }
-    ],
-    "linkWords": [
-     "with a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "F",
-      "note": "F is the abbreviation for fellow"
-     },
-     {
-      "clueFragment": "trotted",
-      "gives": "RODE",
-      "note": "a horse that trotted was ridden; to trot is to ride at that pace"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "EDOR",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RODE",
-       "to": "EDOR"
+       "words": "Fellow",
+       "gives": "F",
+       "note": "F is the abbreviation for fellow"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over suggests turning something round, so the word reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trotted",
+         "gives": "RODE",
+         "note": "a horse that trotted was ridden; to trot is to ride at that pace"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
       }
      ]
     },
@@ -688,44 +581,35 @@
    },
    "solution": "AFFECTED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AFFECTED",
     "definitions": [
      {
       "text": "emotional",
       "at": 59
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of each of the preceding words"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A Freddie Flintoff England century",
-      "gives": "AFFEC",
-      "select": "first",
-      "note": "the first letters of these five words"
-     },
-     {
-      "clueFragment": "Mr Dexter",
-      "gives": "TED",
-      "note": "Ted Dexter was a former England cricket captain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFFEC",
-      "TED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of each of the preceding words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A Freddie Flintoff England century",
+         "note": "the first letters of these five words"
+        }
+       ]
+      },
+      {
+       "words": "Mr Dexter",
+       "gives": "TED",
+       "note": "Ted Dexter was a former England cricket captain"
+      }
      ]
     },
     "explanation": {
@@ -753,35 +637,24 @@
    },
    "solution": "VERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VERA",
     "definitions": [
      {
       "text": "girl",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests moving things around, so the letters are put in a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rave",
-      "gives": "RAVE",
-      "note": "the four letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAVE",
-       "gives": "VERA"
+       "text": "about",
+       "note": "about suggests moving things around, so the letters are put in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rave",
+       "note": "the four letters to be rearranged"
       }
      ]
     },
@@ -810,38 +683,24 @@
    },
    "solution": "SWEETHEART",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SWEETHEART",
     "definitions": [
      {
       "text": "lover",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooking transforms ingredients, so the letters are mixed into a new form"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reheat stew",
-      "gives": "REHEATSTEW",
-      "note": "the ten letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REHEATSTEW",
-       "gives": "SWEETHEART"
+       "text": "cooked",
+       "note": "cooking transforms ingredients, so the letters are mixed into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reheat stew",
+       "note": "the ten letters to be rearranged"
       }
      ]
     },
@@ -876,43 +735,31 @@
    },
    "solution": "TEASTRAINER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TEA STRAINER",
     "definitions": [
      {
       "text": "Leaf catcher",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the puzzle word wraps about the next piece, enclosing it"
-     }
-    ],
-    "linkWords": [
-     "solves"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "problem",
-      "gives": "TEASER",
-      "note": "a teaser is a tricky problem or puzzle"
-     },
-     {
-      "clueFragment": "locomotive",
-      "gives": "TRAIN",
-      "note": "a locomotive pulls a train, standing for it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEAS",
-      "TRAIN",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the puzzle word wraps about the next piece, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "problem",
+       "gives": "TEASER",
+       "note": "a teaser is a tricky problem or puzzle"
+      },
+      {
+       "words": "locomotive",
+       "gives": "TRAIN",
+       "note": "a locomotive pulls a train, standing for it"
+      }
      ]
     },
     "explanation": {
@@ -942,26 +789,25 @@
    },
    "solution": "SCHNAPPS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SCHNAPPS",
     "definitions": [
      {
       "text": "strong drink",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Photos taken under the influence",
-      "note": "surface reading: pictures snapped by someone drunk"
-     },
-     {
-      "clueFragment": "Photos taken under the influence",
-      "note": "setter's reading: a slurring drinker says the word for photos with a sh sound, giving a German spirit"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Photos taken under the influence",
+       "note": "surface reading: pictures snapped by someone drunk"
+      },
+      {
+       "words": "Photos taken under the influence",
+       "note": "setter's reading: a slurring drinker says the word for photos with a sh sound, giving a German spirit"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Pictures shot by a photographer who has had too much.",
      "walkthrough": "Say the casual word for photos the way a drunk might slur it, and you get the name of a strong spirit.",
@@ -989,60 +835,45 @@
    },
    "solution": "ELEVATOR",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "charade"
-    ],
-    "answer": "ELEVATOR",
     "definitions": [
      {
       "text": "lift",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests something put out of place, so the letters are disordered"
-     },
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down answer climbing means read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "Take the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "gives": "LEAVE",
-      "note": "the five letters to be rearranged"
-     },
-     {
-      "clueFragment": "nonsense",
-      "gives": "ROT",
-      "note": "rot is nonsense, rubbish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELEVA",
-      "TOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LEAVE",
-       "gives": "ELEVA"
-      }
-     ],
-     "reversals": [
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out suggests something put out of place, so the letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leave",
+         "note": "the five letters to be rearranged"
+        }
+       ]
+      },
       {
-       "from": "ROT",
-       "to": "TOR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "in a down answer climbing means read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nonsense",
+         "gives": "ROT",
+         "note": "rot is nonsense, rubbish"
+        }
+       ]
       }
      ]
     },
@@ -1071,31 +902,16 @@
    },
    "solution": "MARBLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MARBLE",
     "definitions": [
      {
       "text": "Child's toy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a small glass ball used in children's games"
      },
      {
       "text": "kind of rock",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "can"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Child's toy",
-      "note": "first meaning: a small glass ball used in children's games"
-     },
-     {
-      "clueFragment": "kind of rock",
-      "note": "second meaning: a crystalline limestone used in sculpture"
+      "at": 16,
+      "meaning": "second meaning: a crystalline limestone used in sculpture"
      }
     ],
     "explanation": {
@@ -1129,35 +945,25 @@
    },
    "solution": "BIGCAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BIG CAT",
     "definitions": [
      {
       "text": "Jaguar, for example",
       "at": 0
      }
     ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large",
-      "gives": "BIG",
-      "note": "big means large"
-     },
-     {
-      "clueFragment": "catalytic converter",
-      "gives": "CAT",
-      "note": "cat is the everyday short name for a catalytic converter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIG",
-      "CAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "large",
+       "gives": "BIG",
+       "note": "big means large"
+      },
+      {
+       "words": "catalytic converter",
+       "gives": "CAT",
+       "note": "cat is the everyday short name for a catalytic converter"
+      }
      ]
     },
     "explanation": {
@@ -1193,38 +999,24 @@
    },
    "solution": "MALTWHISKY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MALT WHISKY",
     "definitions": [
      {
       "text": "pure spirit",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "washed out, the letters lose their order and come back rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wash my kilt",
-      "gives": "WASHMYKILT",
-      "note": "the ten letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WASHMYKILT",
-       "gives": "MALTWHISKY"
+       "text": "out",
+       "note": "washed out, the letters lose their order and come back rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wash my kilt",
+       "note": "the ten letters to be rearranged"
       }
      ]
     },
@@ -1254,41 +1046,39 @@
    },
    "solution": "TWITCH",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "TWITCH",
     "definitions": [
      {
       "text": "convulsion",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "allegedly",
-      "for": "homophone",
-      "note": "allegedly means as it is said, pointing to how the word is spoken"
-     }
-    ],
-    "linkWords": [
-     "at",
-     "occurs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Temperature",
-      "gives": "T",
-      "note": "T is the abbreviation for temperature"
-     },
-     {
-      "clueFragment": "which",
-      "gives": "WITCH",
-      "soundsLike": "WHICH",
-      "note": "which and witch are pronounced the same"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Temperature",
+       "gives": "T",
+       "note": "T is the abbreviation for temperature"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WITCH",
+       "indicators": [
+        {
+         "text": "allegedly",
+         "note": "allegedly means as it is said, pointing to how the word is spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "which",
+         "gives": "WHICH",
+         "note": "which and witch are pronounced the same"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A medical note about the temperature at which a fit happens.",
      "definitionFit": "A twitch is a sudden involuntary jerk of a muscle, a small spasm."
@@ -1320,35 +1110,24 @@
    },
    "solution": "YESMAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "YES MAN",
     "definitions": [
      {
       "text": "He agrees with everything",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when drunk",
-      "for": "anagram",
-      "note": "a drunk staggers about, so the letters reel into a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men say",
-      "gives": "MENSAY",
-      "note": "the six letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENSAY",
-       "gives": "YESMAN"
+       "text": "when drunk",
+       "note": "a drunk staggers about, so the letters reel into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men say",
+       "note": "the six letters to be rearranged"
       }
      ]
     },
@@ -1377,33 +1156,28 @@
    },
    "solution": "EPIC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EPIC",
     "definitions": [
      {
       "text": "Long poem",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with some",
-      "for": "hidden_word",
-      "note": "with some means only part of the following words is used, the letters lying inside them"
-     }
-    ],
-    "linkWords": [
-     "is illustrated"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exquisite pictures",
-      "gives": "EPIC",
-      "note": "the letters run across the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "with some",
+       "note": "with some means only part of the following words is used, the letters lying inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exquisite pictures",
+       "gives": "EPIC",
+       "note": "the letters run across the end of the first word and start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A lengthy poem decorated with fine artwork.",
      "definitionFit": "An epic is a long narrative poem about heroic deeds, such as the Iliad."
@@ -1428,51 +1202,41 @@
    },
    "solution": "ABDICATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ABDICATE",
     "definitions": [
      {
       "text": "Resign",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over suggests turning something round, so the word is read backwards"
-     },
-     {
-      "text": "being in",
-      "for": "container",
-      "note": "being in means placed inside, so one piece is put within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "decline",
-      "gives": "ABATE",
-      "note": "to abate is to decline or lessen"
-     },
-     {
-      "clueFragment": "police",
-      "gives": "CID",
-      "note": "CID is the Criminal Investigation Department, the UK plain-clothes police"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "DIC",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "CID",
-       "to": "DIC"
+       "text": "being in",
+       "note": "being in means placed inside, so one piece is put within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decline",
+       "gives": "ABATE",
+       "note": "to abate is to decline or lessen"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over suggests turning something round, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police",
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the UK plain-clothes police"
+        }
+       ]
       }
      ]
     },
@@ -1501,35 +1265,25 @@
    },
    "solution": "SCARCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCARCE",
     "definitions": [
      {
       "text": "Few",
       "at": 0
      }
     ],
-    "linkWords": [
-     "would"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deface",
-      "gives": "SCAR",
-      "note": "to scar something is to mark or deface it"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCAR",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deface",
+       "gives": "SCAR",
+       "note": "to scar something is to mark or deface it"
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -1557,55 +1311,47 @@
    },
    "solution": "ESCAPE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ESCAPE",
     "definitions": [
      {
       "text": "avoid capture",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "first off",
-      "for": "deletion",
-      "note": "first off means the opening letter is removed"
-     },
-     {
-      "text": "cracking",
-      "for": "anagram",
-      "note": "something cracking breaks apart, so the letters are scattered and re-formed"
-     }
-    ],
-    "linkWords": [
-     "at",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He's",
-      "gives": "HES",
-      "note": "taken as written, before its first letter goes"
-     },
-     {
-      "clueFragment": "pace",
-      "gives": "PACE",
-      "note": "the four letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "CAPE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PACE",
-       "gives": "CAPE"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first off",
+         "note": "first off means the opening letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He's",
+         "note": "taken as written, before its first letter goes"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cracking",
+         "note": "something cracking breaks apart, so the letters are scattered and re-formed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pace",
+         "note": "the four letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1641,28 +1387,16 @@
    },
    "solution": "WAYOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WAY OUT",
     "definitions": [
      {
       "text": "Unusual",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an informal adjective for strange or unconventional"
      },
      {
       "text": "exit",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unusual",
-      "note": "first meaning: an informal adjective for strange or unconventional"
-     },
-     {
-      "clueFragment": "exit",
-      "note": "second meaning: the way to leave a place"
+      "at": 8,
+      "meaning": "second meaning: the way to leave a place"
      }
     ],
     "explanation": {

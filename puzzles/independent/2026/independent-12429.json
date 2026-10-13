@@ -1,8 +1,6 @@
 {
  "id": "independent-12429",
  "number": 12429,
- "series": "independent",
- "name": "Independent cryptic crossword No 12,429",
  "setter": "Knut",
  "date": "2026-08-08",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "ARMAGNAC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARMAGNAC",
     "definitions": [
      {
       "text": "Spirit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "embodied by",
-      "for": "hidden_word",
-      "note": "to be embodied by something is to be given a body that wraps right round you, so the letters sit inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secular Magna Carta",
-      "gives": "ARMAGNAC",
-      "note": "the tail of seculAR runs straight into MAGNA and picks up the C of Carta"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "embodied by",
+       "note": "to be embodied by something is to be given a body that wraps right round you, so the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secular Magna Carta",
+       "gives": "ARMAGNAC",
+       "note": "the tail of seculAR runs straight into MAGNA and picks up the C of Carta"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The join between two words is where a hidden run is easiest to spot, and this one crosses three, which is why the constitutional surface holds together so well.",
      "definitionFit": "Spirit -> ARMAGNAC: definition by example, since Armagnac is one particular Gascon brandy rather than a synonym for spirits."
@@ -82,45 +78,50 @@
    },
    "solution": "ARCH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ARCH",
     "definitions": [
      {
       "text": "Roguish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "undressed",
-      "note": "a word with its clothes off has lost the letters at each end, the ones that were covering the rest"
-     },
-     {
-      "text": "finally",
-      "note": "what happens finally happens at the end, so only the closing letter of the name is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Austen hero",
-      "gives": "ARC",
-      "select": "middle",
-      "note": "the Austen hero is Darcy, and undressed he keeps only his middle"
-     },
-     {
-      "clueFragment": "Elizabeth",
-      "gives": "H",
-      "select": "last",
-      "note": "Darcy's match ends in H, and that is all she contributes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARC",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "undressed",
+       "note": "a word with its clothes off has lost the letters at each end, the ones that were covering the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "ARC",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "what happens finally happens at the end, so only the closing letter of the name is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Austen hero",
+         "gives": "ARC",
+         "select": "middle",
+         "note": "the Austen hero is Darcy, and undressed he keeps only his middle"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "Elizabeth",
+         "note": "Darcy's match ends in H, and that is all she contributes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -149,50 +150,49 @@
    },
    "solution": "MARIEANTOINETTE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "MARIE ANTOINETTE",
     "definitions": [
      {
       "text": "princess",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Trashing",
-      "note": "trash a room and nothing is left where it stood, which is what happens to letters told to move"
-     },
-     {
-      "text": "contents of",
-      "note": "the contents are what you find once the container is off, so the outside letters at each end are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Petit Trianon",
-      "gives": "ETITTRIANO",
-      "select": "middle",
-      "note": "the queen's own little chateau at Versailles, giving up its outer P and N"
-     },
-     {
-      "clueFragment": "mean",
-      "gives": "MEAN",
-      "note": "four more letters, taken as they stand"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the standard abbreviation for European"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETITTRIANOMEANE",
-       "gives": "MARIEANTOINETTE"
+       "text": "Trashing",
+       "note": "trash a room and nothing is left where it stood, which is what happens to letters told to move"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "contents of",
+         "note": "the contents are what you find once the container is off, so the outside letters at each end are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "parts": [
+          {
+           "words": "Petit Trianon",
+           "note": "the queen's own little chateau at Versailles, giving up its outer P and N"
+          }
+         ]
+        },
+        {
+         "words": "mean",
+         "note": "four more letters, taken as they stand"
+        },
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "E is the standard abbreviation for European"
+        }
+       ]
       }
      ]
     },
@@ -216,35 +216,24 @@
    },
    "solution": "GOSSAMER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GOSSAMER",
     "definitions": [
      {
       "text": "light",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "When spread",
-      "for": "anagram",
-      "note": "marge is a spread, and spreading a thing pushes it out of the shape it arrived in - the letters go the same way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "marge's so",
-      "gives": "MARGESSO",
-      "note": "eight letters including the possessive S, and nothing is added or thrown away"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MARGESSO",
-       "gives": "GOSSAMER"
+       "text": "When spread",
+       "note": "marge is a spread, and spreading a thing pushes it out of the shape it arrived in - the letters go the same way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "marge's so",
+       "note": "eight letters including the possessive S, and nothing is added or thrown away"
       }
      ]
     },
@@ -268,44 +257,41 @@
    },
    "solution": "AORTA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AORTA",
     "definitions": [
      {
       "text": "arterial route",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "cleared",
-      "note": "a cleared building keeps its walls and loses everything inside, and a cleared word keeps its first and last letters"
-     },
-     {
-      "text": "south of",
-      "note": "south is downwards on a map and downwards in a down entry, so this piece is written underneath the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aleppo",
-      "gives": "AO",
-      "select": "outer",
-      "note": "clear the inside out of Aleppo and the two letters at the ends survive"
-     },
-     {
-      "clueFragment": "Car crash",
-      "gives": "RTA",
-      "note": "RTA is a road traffic accident, the police shorthand for a car crash"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AO",
-      "RTA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "cleared",
+       "note": "a cleared building keeps its walls and loses everything inside, and a cleared word keeps its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "south of",
+         "note": "south is downwards on a map and downwards in a down entry, so this piece is written underneath the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aleppo",
+         "note": "clear the inside out of Aleppo and the two letters at the ends survive"
+        }
+       ]
+      },
+      {
+       "words": "Car crash",
+       "gives": "RTA",
+       "note": "RTA is a road traffic accident, the police shorthand for a car crash"
+      }
      ]
     },
     "explanation": {
@@ -328,41 +314,40 @@
    },
    "solution": "ANUBIS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ANUBIS",
     "definitions": [
      {
       "text": "figure revered along the Nile",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Uncover",
-      "for": "letter_selection",
-      "note": "taking the cover off a word means stripping the letters at each end, the ones wrapped round the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blue River",
-      "gives": "ANUB",
-      "note": "the Blue River is the Danube of the waltz, and uncovered it loses its D and its E"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "IS",
-      "select": "middle",
-      "note": "Is. is the map-maker's abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANUB",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Blue River",
+       "gives": "ANUB",
+       "note": "the Blue River is the Danube of the waltz, and uncovered it loses its D and its E"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "IS",
+       "indicators": [
+        {
+         "text": "Uncover",
+         "note": "taking the cover off a word means stripping the letters at each end, the ones wrapped round the rest"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "island",
+         "gives": "IS",
+         "select": "middle",
+         "note": "Is. is the map-maker's abbreviation for island"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -385,45 +370,35 @@
    },
    "solution": "NIMROD",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NIMROD",
     "definitions": [
      {
       "text": "Hunter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "set up",
-      "for": "reversal",
-      "note": "this is a down entry, so a piece stood on end climbs the grid and arrives with its letters in the opposite order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sleeping accommodation",
-      "gives": "DORM",
-      "note": "a dorm is a room full of beds, sleeping accommodation in one word"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in, the crossword's hardest-working two letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "MROD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DORMIN",
-       "to": "NIMROD"
+       "text": "set up",
+       "note": "this is a down entry, so a piece stood on end climbs the grid and arrives with its letters in the opposite order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sleeping accommodation",
+         "gives": "DORM",
+         "note": "a dorm is a room full of beds, sleeping accommodation in one word"
+        },
+        {
+         "words": "at home",
+         "gives": "IN",
+         "note": "someone at home is in, the crossword's hardest-working two letters"
+        }
+       ]
       }
      ]
     },
@@ -453,10 +428,6 @@
    },
    "solution": "BODLEIANLIBRARY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BODLEIAN LIBRARY",
     "definitions": [
      {
       "text": "books here",
@@ -464,30 +435,27 @@
       "note": "'books here' points at the answer as a place rather than offering a noun you could swap in: the setter defines it by what it holds and where, which is fair for a building."
      }
     ],
-    "indicators": [
-     {
-      "text": "worked",
-      "for": "anagram",
-      "note": "dough is worked until nothing of its old shape is left, and the same is being asked of these letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Robin Day",
-      "gives": "ROBINDAY",
-      "note": "Sir Robin Day, the BBC's great interrogator, hands over the eight letters of his name"
-     },
-     {
-      "clueFragment": "braille",
-      "gives": "BRAILLE",
-      "note": "the raised-dot reading system joins the pile whole, seven letters more"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROBINDAYBRAILLE",
-       "gives": "BODLEIANLIBRARY"
+       "text": "worked",
+       "note": "dough is worked until nothing of its old shape is left, and the same is being asked of these letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Robin Day",
+         "note": "Sir Robin Day, the BBC's great interrogator, hands over the eight letters of his name"
+        },
+        {
+         "words": "braille",
+         "note": "the raised-dot reading system joins the pile whole, seven letters more"
+        }
+       ]
       }
      ]
     },
@@ -511,53 +479,51 @@
    },
    "solution": "SACRAMENTO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SACRAMENTO",
     "definitions": [
      {
       "text": "US city",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "whatever is eaten ends up inside the eater, so these letters are swallowed by the word beside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seated",
-      "gives": "SAT",
-      "note": "seated is sat, and it opens up to take the meal"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the letter on the cold tap"
-     },
-     {
-      "clueFragment": "Japanese noodles",
-      "gives": "RAMEN",
-      "note": "ramen are the Japanese noodles"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O is the cricket scorer's abbreviation for an over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "C",
-      "RAMEN",
-      "T",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "note": "whatever is eaten ends up inside the eater, so these letters are swallowed by the word beside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Seated",
+         "gives": "SAT",
+         "note": "seated is sat, and it opens up to take the meal"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cold",
+           "gives": "C",
+           "note": "C is the letter on the cold tap"
+          },
+          {
+           "words": "Japanese noodles",
+           "gives": "RAMEN",
+           "note": "ramen are the Japanese noodles"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "gives": "O",
+       "note": "O is the cricket scorer's abbreviation for an over"
+      }
      ]
     },
     "explanation": {
@@ -580,32 +546,25 @@
    },
    "solution": "SWADDLED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWADDLED",
     "definitions": [
      {
       "text": "Well wrapped up",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the family-tree abbreviation for son"
-     },
-     {
-      "clueFragment": "walked with clumsy gait",
-      "gives": "WADDLED",
-      "note": "to waddle is to walk with the rolling, ungainly gait of a duck"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WADDLED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the family-tree abbreviation for son"
+      },
+      {
+       "words": "walked with clumsy gait",
+       "gives": "WADDLED",
+       "note": "to waddle is to walk with the rolling, ungainly gait of a duck"
+      }
      ]
     },
     "explanation": {
@@ -628,10 +587,6 @@
    },
    "solution": "CORKSCREW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CORKSCREW",
     "definitions": [
      {
       "text": "that gets stuck into the vino",
@@ -639,22 +594,19 @@
       "note": "The answer is defined by what it does rather than by a noun you could swap in, and the joke is that what it really gets stuck into is the cork rather than the wine."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Irish city's",
-      "gives": "CORKS",
-      "note": "Cork is the city on the Lee, and the possessive S it owns comes along as a letter"
-     },
-     {
-      "clueFragment": "ship's company",
-      "gives": "CREW",
-      "note": "a ship's company is its crew"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CORKS",
-      "CREW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish city's",
+       "gives": "CORKS",
+       "note": "Cork is the city on the Lee, and the possessive S it owns comes along as a letter"
+      },
+      {
+       "words": "ship's company",
+       "gives": "CREW",
+       "note": "a ship's company is its crew"
+      }
      ]
     },
     "explanation": {
@@ -677,38 +629,30 @@
    },
    "solution": "MEDOC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MEDOC",
     "definitions": [
      {
       "text": "Peninsula",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "sea",
-      "gives": "MED",
-      "note": "the Med is the sea, shortened the way everyone shortens it"
-     },
-     {
-      "clueFragment": "freezing",
-      "gives": "O",
-      "note": "water freezes at nought degrees, and nought is written as the letter O"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold, and for Celsius on the same thermometer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MED",
-      "O",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sea",
+       "gives": "MED",
+       "note": "the Med is the sea, shortened the way everyone shortens it"
+      },
+      {
+       "words": "freezing",
+       "gives": "O",
+       "note": "water freezes at nought degrees, and nought is written as the letter O"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold, and for Celsius on the same thermometer"
+      }
      ]
     },
     "explanation": {
@@ -731,32 +675,25 @@
    },
    "solution": "FETA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FETA",
     "definitions": [
      {
       "text": "Source of protein",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "iron",
-      "gives": "FE",
-      "note": "Fe is iron's symbol on the periodic table"
-     },
-     {
-      "clueFragment": "Thanks",
-      "gives": "TA",
-      "note": "ta is the everyday British thanks"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FE",
-      "TA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "iron",
+       "gives": "FE",
+       "note": "Fe is iron's symbol on the periodic table"
+      },
+      {
+       "words": "Thanks",
+       "gives": "TA",
+       "note": "ta is the everyday British thanks"
+      }
      ]
     },
     "explanation": {
@@ -779,52 +716,51 @@
    },
    "solution": "ANDROMEDA",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ANDROMEDA",
     "definitions": [
      {
       "text": "Group of stars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "open",
-      "note": "a landau with its top open is a carriage you can see straight into, and a word opened this way gives up what is inside it"
-     },
-     {
-      "text": "in",
-      "note": "the plainest instruction there is for putting one thing within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "landau",
-      "gives": "ANDA",
-      "select": "middle",
-      "note": "opened up, LANDAU parts with the L and U at its ends"
-     },
-     {
-      "clueFragment": "departs",
-      "gives": "D",
-      "note": "D is the timetable's abbreviation for departs"
-     },
-     {
-      "clueFragment": "capital",
-      "gives": "ROME",
-      "note": "the capital wanted is Italy's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "D",
-      "ROME",
-      "DA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "open",
+       "note": "a landau with its top open is a carriage you can see straight into, and a word opened this way gives up what is inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the plainest instruction there is for putting one thing within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "landau",
+         "note": "opened up, LANDAU parts with the L and U at its ends"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "departs",
+         "gives": "D",
+         "note": "D is the timetable's abbreviation for departs"
+        },
+        {
+         "words": "capital",
+         "gives": "ROME",
+         "note": "the capital wanted is Italy's"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -847,52 +783,48 @@
    },
    "solution": "ACCRINGTON",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ACCRINGTON",
     "definitions": [
      {
       "text": "Where to see Stanley",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "something endless has had its end removed, so the final letter of the name goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "AC",
-      "note": "a bill is an account, written a/c"
-     },
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "Charlie is C in the radio alphabet"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "RING",
-      "note": "to call someone is to ring them"
-     },
-     {
-      "clueFragment": "Tony",
-      "gives": "TON",
-      "note": "Tony without his last letter stops at TON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "C",
-      "RING",
-      "TON"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ACCRINGTON",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "something endless has had its end removed, so the final letter of the name goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bill",
+         "gives": "AC",
+         "note": "a bill is an account, written a/c"
+        },
+        {
+         "words": "Charlie",
+         "gives": "C",
+         "note": "Charlie is C in the radio alphabet"
+        },
+        {
+         "words": "call",
+         "gives": "RING",
+         "note": "to call someone is to ring them"
+        },
+        {
+         "words": "Tony",
+         "gives": "TON",
+         "note": "Tony without his last letter stops at TON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -915,26 +847,25 @@
    },
    "solution": "CINDERELLA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CINDERELLA",
     "definitions": [
      {
       "text": "Sweeper coached away from the ball?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sweeper",
-      "note": "not the defender playing behind the back four, which is how the football surface reads it: this sweeper works a broom round a hearth full of ashes"
-     },
-     {
-      "clueFragment": "coached away from the ball",
-      "note": "'coached' is transport rather than training - a pumpkin turned into a carriage - and 'the ball' is the palace dance that has to be left by midnight"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sweeper",
+       "note": "not the defender playing behind the back four, which is how the football surface reads it: this sweeper works a broom round a hearth full of ashes"
+      },
+      {
+       "words": "coached away from the ball",
+       "note": "'coached' is transport rather than training - a pumpkin turned into a carriage - and 'the ball' is the palace dance that has to be left by midnight"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Every word carries a football reading and a pantomime one at the same time, and the question mark is the setter admitting the whole sentence is the definition.",
      "definitionFit": "Sweeper coached away from the ball? -> the fairy-tale girl who sweeps the cinders, rides to the dance by coach and must leave it at midnight."
@@ -961,53 +892,46 @@
    },
    "solution": "EASTSIDE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EAST SIDE",
     "definitions": [
      {
       "text": "part of Manhattan",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "for": "container",
-      "note": "to cover a thing is to lie over it on both sides, so the letter covered ends up in the middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Each",
-      "gives": "EA",
-      "note": "ea. is the price-list shorthand for each"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the clock's abbreviation for a second"
-     },
-     {
-      "clueFragment": "flood",
-      "gives": "TIDE",
-      "note": "the flood tide is the incoming one, so flood alone gives TIDE"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the size on a small label"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EA",
-      "S",
-      "T",
-      "S",
-      "IDE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "note": "to cover a thing is to lie over it on both sides, so the letter covered ends up in the middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Each",
+         "gives": "EA",
+         "note": "ea. is the price-list shorthand for each"
+        },
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "S is the clock's abbreviation for a second"
+        },
+        {
+         "words": "flood",
+         "gives": "TIDE",
+         "note": "the flood tide is the incoming one, so flood alone gives TIDE"
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the size on a small label"
+      }
      ]
     },
     "explanation": {
@@ -1030,37 +954,39 @@
    },
    "solution": "FAVE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FAVE",
     "definitions": [
      {
       "text": "Best-loved",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bulldozing",
-      "for": "deletion",
-      "note": "a bulldozer flattens what stands there and clears it off the site, so the letters it names are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shanty town",
-      "gives": "FAVELA",
-      "note": "a favela is a Brazilian shanty town"
-     },
-     {
-      "clueFragment": "large area",
-      "note": "L for large and A for area, the two letters flattened out of the favela"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bulldozing",
+         "note": "a bulldozer flattens what stands there and clears it off the site, so the letters it names are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shanty town",
+         "gives": "FAVELA",
+         "note": "a favela is a Brazilian shanty town"
+        },
+        {
+         "gives": "LA"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "large area",
+       "note": "L for large and A for area, the two letters flattened out of the favela"
+      }
      ]
     },
     "explanation": {
@@ -1083,47 +1009,50 @@
    },
    "solution": "SAMIZDAT",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone",
-     "deletion"
-    ],
-    "answer": "SAMIZDAT",
     "definitions": [
      {
       "text": "dissident literature",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "We're told",
-      "for": "homophone",
-      "note": "being told a thing means meeting it by ear, so what matters is the sound and not the spelling"
-     },
-     {
-      "text": "abridged",
-      "for": "deletion",
-      "note": "an abridged book has had its ending cut, and so has this word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Samuel's",
-      "gives": "SAMIZ",
-      "soundsLike": "SAM'S",
-      "note": "Samuel shortens to Sam, and Sam's spoken aloud ends on a Z sound, written out as you hear it"
-     },
-     {
-      "clueFragment": "girlfriend",
-      "gives": "DAT",
-      "note": "a girlfriend is a date, and abridged she is DAT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAMIZ",
-      "DAT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SAMIZDAT",
+     "indicators": [
+      {
+       "text": "abridged",
+       "note": "an abridged book has had its ending cut, and so has this word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "SAMIZ",
+         "indicators": [
+          {
+           "text": "We're told",
+           "note": "being told a thing means meeting it by ear, so what matters is the sound and not the spelling"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Samuel's",
+           "gives": "SAMS",
+           "note": "Samuel shortens to Sam, and Sam's spoken aloud ends on a Z sound, written out as you hear it"
+          }
+         ]
+        },
+        {
+         "words": "girlfriend",
+         "gives": "DAT",
+         "note": "a girlfriend is a date, and abridged she is DAT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1146,34 +1075,29 @@
    },
    "solution": "ROOD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ROOD",
     "definitions": [
      {
       "text": "Cross",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the phone",
-      "for": "homophone",
-      "note": "a voice down a line is all you get, so the word arrives as a sound with its spelling still to be guessed"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "abusive",
-      "gives": "ROOD",
-      "soundsLike": "RUDE",
-      "note": "abusive means rude, and that word said aloud sounds identical to the differently-spelled word this clue wants"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROOD",
+     "indicators": [
+      {
+       "text": "on the phone",
+       "note": "a voice down a line is all you get, so the word arrives as a sound with its spelling still to be guessed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "abusive",
+       "gives": "RUDE",
+       "note": "abusive means rude, and that word said aloud sounds identical to the differently-spelled word this clue wants"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A rood is the great crucifix mounted above the chancel screen of an old church, so the definition is architectural rather than bad-tempered.",
      "definitionFit": "Cross -> ROOD: the church word for the crucifix over the screen, which is why parish churches have a rood loft and a rood screen."
@@ -1204,26 +1128,25 @@
    },
    "solution": "USEDCARLOT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "USED-CAR LOT",
     "definitions": [
      {
       "text": "Where one might find old Reg Ford?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old Reg Ford",
-      "note": "reads as a bloke with a first name and a surname, which is the whole disguise: a reg is a registration plate and a Ford is the make wearing it"
-     },
-     {
-      "clueFragment": "Where one might find",
-      "note": "the question mark warns that a place is being described rather than named, and 'old' is what the motor trade politely prints as second-hand"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "old Reg Ford",
+       "note": "reads as a bloke with a first name and a surname, which is the whole disguise: a reg is a registration plate and a Ford is the make wearing it"
+      },
+      {
+       "words": "Where one might find",
+       "note": "the question mark warns that a place is being described rather than named, and 'old' is what the motor trade politely prints as second-hand"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Two ordinary trade words are wearing capital letters: Reg for the plate on the windscreen, Ford for the badge on the bonnet.",
      "definitionFit": "Where one might find old Reg Ford? -> the dealer's forecourt of second-hand motors, exactly where an ageing Ford still carrying its plate ends up."
@@ -1244,44 +1167,41 @@
    },
    "solution": "SEWELL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SEWELL",
     "definitions": [
      {
       "text": "Novelist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drained",
-      "note": "a drained tank has had everything inside emptied out and only its walls left standing"
-     },
-     {
-      "text": "after",
-      "note": "in a down entry after means further down the column, so this piece follows the one already made"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spine",
-      "gives": "SE",
-      "select": "outer",
-      "note": "drain the middle out of SPINE and the two end letters are left"
-     },
-     {
-      "clueFragment": "comfortable",
-      "gives": "WELL",
-      "note": "someone comfortable in themselves is well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "drained",
+       "note": "a drained tank has had everything inside emptied out and only its walls left standing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "in a down entry after means further down the column, so this piece follows the one already made"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spine",
+         "note": "drain the middle out of SPINE and the two end letters are left"
+        }
+       ]
+      },
+      {
+       "words": "comfortable",
+       "gives": "WELL",
+       "note": "someone comfortable in themselves is well"
+      }
      ]
     },
     "explanation": {
@@ -1310,45 +1230,38 @@
    },
    "solution": "NONPERSON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NON-PERSON",
     "definitions": [
      {
       "text": "being ostracised",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Breaking",
-      "for": "anagram",
-      "note": "a story that breaks arrives without warning and pushes whatever was scheduled out of its place, which is what these letters are told to do"
-     },
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "someone in a poor way is not holding together, and letters in that state will not keep the order they came in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "news",
-      "gives": "NN",
-      "note": "N is the abbreviation for new, and crossword shorthand doubles a letter to make it plural, so news is two of them"
-     },
-     {
-      "clueFragment": "Spooner",
-      "gives": "SPOONER",
-      "note": "the reverend hands over the seven letters of his surname, and they go straight into the pile"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NNSPOONER",
-       "gives": "NONPERSON"
+       "text": "Breaking",
+       "note": "a story that breaks arrives without warning and pushes whatever was scheduled out of its place, which is what these letters are told to do"
+      },
+      {
+       "text": "poor",
+       "note": "someone in a poor way is not holding together, and letters in that state will not keep the order they came in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "news",
+         "gives": "NN",
+         "note": "N is the abbreviation for new, and crossword shorthand doubles a letter to make it plural, so news is two of them"
+        },
+        {
+         "words": "Spooner",
+         "note": "the reverend hands over the seven letters of his surname, and they go straight into the pile"
+        }
+       ]
       }
      ]
     },
@@ -1372,51 +1285,51 @@
    },
    "solution": "NAHUM",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "NAHUM",
     "definitions": [
      {
       "text": "prophet",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounding",
-      "note": "what surrounds a thing closes on it from both sides, so the letters part company and the piece named goes between them"
-     },
-     {
-      "text": "top",
-      "note": "the top of a name is where it starts, so only its opening letter is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "N",
-      "select": "first",
-      "note": "N is a note in music, one of the seven from A to G"
-     },
-     {
-      "clueFragment": "buzz",
-      "gives": "HUM",
-      "note": "a buzz is a hum"
-     },
-     {
-      "clueFragment": "Alqosh's",
-      "gives": "A",
-      "note": "the opening letter of the Iraqi town's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "A",
-      "HUM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "note": "what surrounds a thing closes on it from both sides, so the letters part company and the piece named goes between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "the top of a name is where it starts, so only its opening letter is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Note",
+           "note": "N is a note in music, one of the seven from A to G"
+          }
+         ]
+        },
+        {
+         "words": "buzz",
+         "gives": "HUM",
+         "note": "a buzz is a hum"
+        }
+       ]
+      },
+      {
+       "words": "Alqosh's",
+       "gives": "A",
+       "note": "the opening letter of the Iraqi town's name"
+      }
      ]
     },
     "explanation": {
@@ -1439,45 +1352,41 @@
    },
    "solution": "IGBO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "IGBO",
     "definitions": [
      {
       "text": "Foreign language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "note": "the start of a word is the letter it begins with, and two words are being asked for theirs"
-     },
-     {
-      "text": "around",
-      "note": "a piece placed around another closes over it, so the letters part company to let it in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "influence opinion",
-      "gives": "IO",
-      "select": "first",
-      "note": "the opening letters of influence and of opinion"
-     },
-     {
-      "clueFragment": "part of UK",
-      "gives": "GB",
-      "note": "GB is Great Britain, the part of the UK that leaves Northern Ireland out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "GB",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "starts to",
+       "note": "the start of a word is the letter it begins with, and two words are being asked for theirs"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "a piece placed around another closes over it, so the letters part company to let it in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "influence opinion",
+         "note": "the opening letters of influence and of opinion"
+        }
+       ]
+      },
+      {
+       "words": "part of UK",
+       "gives": "GB",
+       "note": "GB is Great Britain, the part of the UK that leaves Northern Ireland out"
+      }
      ]
     },
     "explanation": {
@@ -1500,31 +1409,29 @@
    },
    "solution": "KENT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KENT",
     "definitions": [
      {
       "text": "County",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gossiped",
-      "for": "homophone",
-      "note": "gossip travels by mouth and never in writing, so the word beside it reaches you as a sound with its spelling still to be settled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clerk",
-      "gives": "KENT",
-      "soundsLike": "CLARK",
-      "note": "a clerk is said 'clark' on this side of the Atlantic, and Clark is the mild-mannered reporter of the Daily Planet whose surname goes in the grid"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KENT",
+     "indicators": [
+      {
+       "text": "gossiped",
+       "note": "gossip travels by mouth and never in writing, so the word beside it reaches you as a sound with its spelling still to be settled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clerk",
+       "gives": "CLARK",
+       "note": "a clerk is said 'clark' on this side of the Atlantic, and Clark is the mild-mannered reporter of the Daily Planet whose surname goes in the grid"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Half a famous name is a standing invitation to supply the other half: a setter can write Sherlock for Holmes, or a spoken Clark for this one, with no further signal.",
      "definitionFit": "County -> KENT: an English county rather than a synonym, the south-eastern one known as the Garden of England."
@@ -1545,45 +1452,35 @@
    },
    "solution": "TITHE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TITHE",
     "definitions": [
      {
       "text": "cash meant for the church",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is thrown back at you, and letters thrown back are read from the far end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What",
-      "gives": "EH",
-      "note": "eh? is what you say when you did not catch it - 'what' out loud"
-     },
-     {
-      "clueFragment": "idiot",
-      "gives": "TIT",
-      "note": "a tit is a mild British word for an idiot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIT",
-      "HE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EHTIT",
-       "to": "TITHE"
+       "text": "rejected",
+       "note": "something rejected is thrown back at you, and letters thrown back are read from the far end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "What",
+         "gives": "EH",
+         "note": "eh? is what you say when you did not catch it - 'what' out loud"
+        },
+        {
+         "words": "idiot",
+         "gives": "TIT",
+         "note": "a tit is a mild British word for an idiot"
+        }
+       ]
       }
      ]
     },
@@ -1607,51 +1504,40 @@
    },
    "solution": "DEHYDRATE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DEHYDRATE",
     "definitions": [
      {
       "text": "dry out",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Heading back",
-      "for": "reversal",
-      "note": "heading back is retracing the way you came, and this is an across entry, so the letters are read right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the compass abbreviation for east"
-     },
-     {
-      "clueFragment": "late",
-      "gives": "TARDY",
-      "note": "late is tardy"
-     },
-     {
-      "clueFragment": "he would",
-      "gives": "HED",
-      "note": "he would contracts to he'd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEH",
-      "YDRAT",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ETARDYHED",
-       "to": "DEHYDRATE"
+       "text": "Heading back",
+       "note": "heading back is retracing the way you came, and this is an across entry, so the letters are read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "east",
+         "gives": "E",
+         "note": "E is the compass abbreviation for east"
+        },
+        {
+         "words": "late",
+         "gives": "TARDY",
+         "note": "late is tardy"
+        },
+        {
+         "words": "he would",
+         "gives": "HED",
+         "note": "he would contracts to he'd"
+        }
+       ]
       }
      ]
     },
@@ -1675,30 +1561,16 @@
    },
    "solution": "NEEDLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NEEDLE",
     "definitions": [
      {
       "text": "Make cross",
-      "at": 0
+      "at": 0,
+      "meaning": "this half asks for a verb meaning to keep picking at someone until they are cross"
      },
      {
       "text": "stitch using this?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Make cross",
-      "gives": "NEEDLE",
-      "note": "this half asks for a verb meaning to keep picking at someone until they are cross"
-     },
-     {
-      "clueFragment": "stitch using this",
-      "gives": "NEEDLE",
-      "note": "the implement the stitching is actually done with"
+      "at": 11,
+      "meaning": "the implement the stitching is actually done with"
      }
     ],
     "explanation": {
@@ -1721,43 +1593,48 @@
    },
    "solution": "AMETHYST",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "AMETHYST",
     "definitions": [
      {
       "text": "violet",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "note": "what a thing lacks it does not have, so the letter named next never joins the pile"
-     },
-     {
-      "text": "turning",
-      "note": "milk turns and comes back as something else, and letters told to turn come back in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hot, steamy",
-      "gives": "HOTSTEAMY",
-      "note": "nine letters of sauna to work from"
-     },
-     {
-      "clueFragment": "oxygen",
-      "note": "oxygen is O on the periodic table, and that O is the letter dropped before the shuffle"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "HTSTEAMY",
-       "gives": "AMETHYST"
+       "text": "lacking",
+       "note": "what a thing lacks it does not have, so the letter named next never joins the pile"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "milk turns and comes back as something else, and letters told to turn come back in another order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Hot, steamy",
+           "note": "nine letters of sauna to work from"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "oxygen",
+       "note": "oxygen is O on the periodic table, and that O is the letter dropped before the shuffle"
       }
      ]
     },

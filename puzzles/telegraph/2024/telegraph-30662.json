@@ -1,8 +1,6 @@
 {
  "id": "telegraph-30662",
  "number": 30662,
- "series": "telegraph",
- "name": "Telegraph cryptic crossword No 30,662",
  "date": "2024-07-10",
  "dimensions": {
   "cols": 15,
@@ -37,44 +35,46 @@
    },
    "solution": "STROLL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STROLL",
     "definitions": [
      {
       "text": "promenade",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "note": "in an across clue, one thing on another is placed after it"
-     },
-     {
-      "text": "empty",
-      "note": "an emptied word has lost its insides, leaving only its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty Southport",
-      "gives": "ST",
-      "select": "outer",
-      "note": "SOUTHPORT with its middle removed"
-     },
-     {
-      "clueFragment": "Piece of bread",
-      "gives": "ROLL",
-      "note": "a bread roll"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "ROLL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, one thing on another is placed after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ST",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "an emptied word has lost its insides, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "empty Southport",
+         "gives": "ST",
+         "select": "outer",
+         "note": "SOUTHPORT with its middle removed"
+        }
+       ]
+      },
+      {
+       "words": "Piece of bread",
+       "gives": "ROLL",
+       "note": "a bread roll"
+      }
      ]
     },
     "explanation": {
@@ -103,39 +103,31 @@
    },
    "solution": "SEDATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEDATE",
     "definitions": [
      {
       "text": "Calm down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "in a down clue, the first piece comes before (above) the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opponents",
-      "gives": "SE",
-      "note": "South and East, opposing players at the bridge table"
-     },
-     {
-      "clueFragment": "meeting",
-      "gives": "DATE",
-      "note": "a date is an arranged meeting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "DATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "note": "in a down clue, the first piece comes before (above) the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opponents",
+       "gives": "SE",
+       "note": "South and East, opposing players at the bridge table"
+      },
+      {
+       "words": "meeting",
+       "gives": "DATE",
+       "note": "a date is an arranged meeting"
+      }
      ]
     },
     "explanation": {
@@ -170,61 +162,60 @@
    },
    "solution": "ROCKOPERA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "ROCK OPERA",
     "definitions": [
      {
       "text": "Perhaps Tommy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "daftly",
-      "note": "done daftly, the letters of COOPER are jumbled"
-     },
-     {
-      "text": "entertaining"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cooper",
-      "gives": "ROCOPE",
-      "note": "COOPER rearranged"
-     },
-     {
-      "clueFragment": "a thousand",
-      "gives": "K",
-      "note": "K = thousand, as in £10K"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R = right"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A = answer, as in Q and A"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROC",
-      "K",
-      "OPE",
-      "R",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "COOPER",
-       "gives": "ROCOPE"
+       "text": "daftly",
+       "note": "done daftly, the letters of COOPER are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "entertaining"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R = right"
+        },
+        {
+         "words": "answer",
+         "gives": "A",
+         "note": "A = answer, as in Q and A"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Cooper",
+           "gives": "ROCOPE",
+           "note": "COOPER rearranged"
+          },
+          {
+           "words": "a thousand",
+           "gives": "K",
+           "note": "K = thousand, as in £10K"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -255,47 +246,39 @@
    },
    "solution": "LIONISE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LIONISE",
     "definitions": [
      {
       "text": "Hero-worship",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "big cat",
-      "gives": "LION",
-      "note": "the lion is a big cat"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "insane",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of INSANE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LION",
-      "IS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "big cat",
+       "gives": "LION",
+       "note": "the lion is a big cat"
+      },
+      {
+       "words": "is",
+       "note": "used as it stands"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insane",
+         "note": "last letter of INSANE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -324,41 +307,30 @@
    },
    "solution": "BARRACKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BARRACKS",
     "definitions": [
      {
       "text": "jeers",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "behind",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "counter",
-      "gives": "BAR",
-      "note": "a bar is a counter where drinks are served"
-     },
-     {
-      "clueFragment": "Stands",
-      "gives": "RACKS",
-      "note": "racks are stands for holding things"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "RACKS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "counter",
+       "gives": "BAR",
+       "note": "a bar is a counter where drinks are served"
+      },
+      {
+       "words": "Stands",
+       "gives": "RACKS",
+       "note": "racks are stands for holding things"
+      }
      ]
     },
     "explanation": {
@@ -387,46 +359,41 @@
    },
    "solution": "AVON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AVON",
     "definitions": [
      {
       "text": "banker in Bristol",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "entertains",
-      "for": "container",
-      "note": "a host entertains guests in the house, so the article takes the other letters inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "Very",
-      "gives": "V",
-      "note": "V = very, as in v. good"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "V",
-      "O",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertains",
+       "note": "a host entertains guests in the house, so the article takes the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "article",
+         "gives": "AN",
+         "note": "the indefinite article"
+        },
+        {
+         "words": "Very",
+         "gives": "V",
+         "note": "V = very, as in v. good"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O = old"
+      }
      ]
     },
     "explanation": {
@@ -456,50 +423,40 @@
    },
    "solution": "REARING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REARING",
     "definitions": [
      {
       "text": "getting up",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "take only the first letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Back",
-      "gives": "REAR",
-      "note": "the rear is the back"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     },
-     {
-      "clueFragment": "grandchildren",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of GRANDCHILDREN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAR",
-      "IN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Back",
+       "gives": "REAR",
+       "note": "the rear is the back"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "someone at home is in"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "take only the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grandchildren",
+         "note": "first letter of GRANDCHILDREN"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -528,45 +485,36 @@
    },
    "solution": "CROWN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CROWN",
     "definitions": [
      {
       "text": "trophy",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down clue, the first pieces sit over the last"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clubs",
-      "gives": "C",
-      "note": "C = clubs, the card suit"
-     },
-     {
-      "clueFragment": "argue",
-      "gives": "ROW",
-      "note": "to row (rhymes with cow) is to argue"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ROW",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "in a down clue, the first pieces sit over the last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Clubs",
+       "gives": "C",
+       "note": "C = clubs, the card suit"
+      },
+      {
+       "words": "argue",
+       "gives": "ROW",
+       "note": "to row (rhymes with cow) is to argue"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N = new"
+      }
      ]
     },
     "explanation": {
@@ -601,26 +549,25 @@
    },
    "solution": "SOAPDISH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SOAP DISH",
     "definitions": [
      {
       "text": "Cake plate?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cake",
-      "note": "read as a sponge for tea, meant as a bar of the stuff you lather your hands with"
-     },
-     {
-      "clueFragment": "plate?",
-      "note": "read as crockery for serving, meant as the small tray the bar rests on by the basin"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cake",
+       "note": "read as a sponge for tea, meant as a bar of the stuff you lather your hands with"
+      },
+      {
+       "words": "plate?",
+       "note": "read as crockery for serving, meant as the small tray the bar rests on by the basin"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A plate for serving cake.",
      "walkthrough": "The question mark warns of a trick: the cake is a cake of soap, and the plate it sits on is a soap dish.",
@@ -648,48 +595,40 @@
    },
    "solution": "DOCTOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DOCTOR",
     "definitions": [
      {
       "text": "Medic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after checking",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entry",
-      "gives": "DOOR",
-      "note": "a door is an entry"
-     },
-     {
-      "clueFragment": "constant",
-      "gives": "C",
-      "note": "c is the symbol for a constant in physics, as in the speed of light"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "T = temperature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "C",
-      "T",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "after checking"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "entry",
+         "gives": "DOOR",
+         "note": "a door is an entry"
+        },
+        {
+         "words": "constant",
+         "gives": "C",
+         "note": "c is the symbol for a constant in physics, as in the speed of light"
+        }
+       ]
+      },
+      {
+       "words": "temperature",
+       "gives": "T",
+       "note": "T = temperature"
+      }
      ]
     },
     "explanation": {
@@ -724,56 +663,44 @@
    },
    "solution": "COCACOLA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COCA-COLA",
     "definitions": [
      {
       "text": "drink",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "take letters at regular intervals, every second one"
-     }
-    ],
-    "linkWords": [
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Firm",
-      "gives": "CO",
-      "note": "Co. = company, a firm"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c. = circa, about"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "school bag",
-      "gives": "COLA",
-      "select": "alternate",
-      "note": "sChOoLbAg: the 2nd, 4th, 6th and 8th letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "C",
-      "A",
-      "COLA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Firm",
+       "gives": "CO",
+       "note": "Co. = company, a firm"
+      },
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "c. = circa, about"
+      },
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "take letters at regular intervals, every second one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school bag",
+         "note": "sChOoLbAg: the 2nd, 4th, 6th and 8th letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -802,40 +729,31 @@
    },
    "solution": "MACHETE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MACHETE",
     "definitions": [
      {
       "text": "weapon",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to have it in your grasp, so the pal's letters close around the revolutionary's"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pal",
-      "gives": "MATE",
-      "note": "a mate is a pal"
-     },
-     {
-      "clueFragment": "Guevara",
-      "gives": "CHE",
-      "note": "Che Guevara, the revolutionary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "CHE",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "to hold something is to have it in your grasp, so the pal's letters close around the revolutionary's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pal",
+       "gives": "MATE",
+       "note": "a mate is a pal"
+      },
+      {
+       "words": "Guevara",
+       "gives": "CHE",
+       "note": "Che Guevara, the revolutionary"
+      }
      ]
     },
     "explanation": {
@@ -864,39 +782,30 @@
    },
    "solution": "TROPICAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TROPICAL",
     "definitions": [
      {
       "text": "Sultry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bathed in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "TOPICAL",
-      "note": "current news is topical"
-     },
-     {
-      "clueFragment": "Romeo",
-      "gives": "R",
-      "note": "Romeo is R in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "OPICAL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bathed in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "current",
+       "gives": "TOPICAL",
+       "note": "current news is topical"
+      },
+      {
+       "words": "Romeo",
+       "gives": "R",
+       "note": "Romeo is R in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -925,53 +834,50 @@
    },
    "solution": "BINNED",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BINNED",
     "definitions": [
      {
       "text": "thrown out",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Having besieged",
-      "for": "container"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "the final letter of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "INN",
-      "note": "an inn is a hotel"
-     },
-     {
-      "clueFragment": "band",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of BAND"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "INN",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Having besieged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be is to live"
+        },
+        {
+         "words": "hotel",
+         "gives": "INN",
+         "note": "an inn is a hotel"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "band",
+         "note": "last letter of BAND"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1000,47 +906,40 @@
    },
    "solution": "INFERNO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "INFERNO",
     "definitions": [
      {
       "text": "Dante work",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "the origin of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Deduce",
-      "gives": "INFER",
-      "note": "to infer is to deduce"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N = name"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of OF"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INFER",
-      "N",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deduce",
+       "gives": "INFER",
+       "note": "to infer is to deduce"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N = name"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "the origin of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "note": "first letter of OF"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1075,39 +974,31 @@
    },
    "solution": "ELEPHANTGRASS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELEPHANT GRASS",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in front of",
-      "for": "charade",
-      "note": "the first piece goes in front of the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trumpeter",
-      "gives": "ELEPHANT",
-      "note": "an elephant trumpets"
-     },
-     {
-      "clueFragment": "whistle-blower",
-      "gives": "GRASS",
-      "note": "a grass is British slang for an informer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELEPHANT",
-      "GRASS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "note": "the first piece goes in front of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trumpeter",
+       "gives": "ELEPHANT",
+       "note": "an elephant trumpets"
+      },
+      {
+       "words": "whistle-blower",
+       "gives": "GRASS",
+       "note": "a grass is British slang for an informer"
+      }
      ]
     },
     "explanation": {
@@ -1137,35 +1028,24 @@
    },
    "solution": "ALBATROSS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALBATROSS",
     "definitions": [
      {
       "text": "am I flapping over it?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "at sea means confused, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A bra's lost",
-      "gives": "ABRASLOST",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "A BRAS LOST",
-       "gives": "ALBATROSS"
+       "text": "at sea",
+       "note": "at sea means confused, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A bra's lost",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1196,44 +1076,35 @@
    },
    "solution": "SCRABBLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SCRABBLE",
     "definitions": [
      {
       "text": "game",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Starts to",
-      "for": "letter_selection",
-      "note": "take the starting letters of the next words"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sense City's",
-      "gives": "SC",
-      "select": "first",
-      "note": "first letters of SENSE and CITY"
-     },
-     {
-      "clueFragment": "unruly crowd",
-      "gives": "RABBLE",
-      "note": "a rabble is a disorderly crowd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "RABBLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Starts to",
+         "note": "take the starting letters of the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sense City's",
+         "note": "first letters of SENSE and CITY"
+        }
+       ]
+      },
+      {
+       "words": "unruly crowd",
+       "gives": "RABBLE",
+       "note": "a rabble is a disorderly crowd"
+      }
      ]
     },
     "explanation": {
@@ -1268,38 +1139,28 @@
    },
    "solution": "CHARLOTTESWEB",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHARLOTTE'S WEB",
     "definitions": [
      {
       "text": "book for children",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "weaving",
-      "for": "anagram",
-      "note": "weaving interlaces the letters into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Scarlet Bow",
-      "gives": "THESCARLETBOW",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THE SCARLET BOW",
-       "gives": "CHARLOTTESWEB"
+       "text": "weaving",
+       "note": "weaving interlaces the letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The Scarlet Bow",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
+    "spelling": "CHARLOTTE'S WEB",
     "explanation": {
      "surface": "Someone weaving a red bow, which sounds like a title for a children's book.",
      "walkthrough": "'Weaving' is apt: Charlotte is the spider who weaves her web in E. B. White's novel.",
@@ -1326,33 +1187,28 @@
    },
    "solution": "LEXICON",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEXICON",
     "definitions": [
      {
       "text": "dictionary",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the letters of the phrase are used"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "circumflex I consider",
-      "gives": "LEXICON",
-      "note": "circumfLEX I CONsider"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the letters of the phrase are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "circumflex I consider",
+       "gives": "LEXICON",
+       "note": "circumfLEX I CONsider"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Weighing up whether a circumflex accent belongs in the dictionary.",
      "walkthrough": "The answer runs across three words, starting at the end of 'circumflex'.",
@@ -1378,26 +1234,25 @@
    },
    "solution": "WHEELIE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WHEELIE",
     "definitions": [
      {
       "text": "Sewiously risky bike trick?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sewiously risky",
-      "note": "read as a misprint, meant as a speaker who turns every R into a W, so that 'really' comes out with a W at the front"
-     },
-     {
-      "clueFragment": "bike trick?",
-      "note": "a stunt riding along on the back tyre alone"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sewiously risky",
+       "note": "read as a misprint, meant as a speaker who turns every R into a W, so that 'really' comes out with a W at the front"
+      },
+      {
+       "words": "bike trick?",
+       "note": "a stunt riding along on the back tyre alone"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A lisping warning that a bike stunt is seriously dangerous.",
      "walkthrough": "'Sewiously' shows a speaker who turns R into W. Said their way, 'really risky' becomes 'wheelie risky': the trick is riding on the back wheel.",
@@ -1425,38 +1280,30 @@
    },
    "solution": "GREENS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GREENS",
     "definitions": [
      {
       "text": "political party members",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "joins",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Immature",
-      "gives": "GREEN",
-      "note": "green means inexperienced, immature"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S = son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joins"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Immature",
+       "gives": "GREEN",
+       "note": "green means inexperienced, immature"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S = son"
+      }
      ]
     },
     "explanation": {
@@ -1484,38 +1331,30 @@
    },
    "solution": "ANNEXE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANNEXE",
     "definitions": [
      {
       "text": "Wing",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Queen",
-      "gives": "ANNE",
-      "note": "Queen Anne of Britain"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "X",
-      "note": "x = by, as in 3 by 4 = 3 × 4"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "E = East"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANNE",
-      "X",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Queen",
+       "gives": "ANNE",
+       "note": "Queen Anne of Britain"
+      },
+      {
+       "words": "by",
+       "gives": "X",
+       "note": "x = by, as in 3 by 4 = 3 × 4"
+      },
+      {
+       "words": "East",
+       "gives": "E",
+       "note": "E = East"
+      }
      ]
     },
     "explanation": {
@@ -1550,39 +1389,31 @@
    },
    "solution": "NOONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NO ONE",
     "definitions": [
      {
       "text": "Not a single individual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found after",
-      "for": "charade",
-      "note": "something found after another thing sits later in the line, so the letter follows the time of day"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "midday",
-      "gives": "NOON",
-      "note": "noon is midday"
-     },
-     {
-      "clueFragment": "Echo",
-      "gives": "E",
-      "note": "Echo is E in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOON",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found after",
+       "note": "something found after another thing sits later in the line, so the letter follows the time of day"
+      }
+     ],
+     "parts": [
+      {
+       "words": "midday",
+       "gives": "NOON",
+       "note": "noon is midday"
+      },
+      {
+       "words": "Echo",
+       "gives": "E",
+       "note": "Echo is E in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1611,26 +1442,25 @@
    },
    "solution": "ANTEATER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ANTEATER",
     "definitions": [
      {
       "text": "Nosy type unsettling social workers?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Nosy type",
-      "note": "read as a busybody, meant as an animal with a very long snout"
-     },
-     {
-      "clueFragment": "unsettling social workers?",
-      "note": "read as upsetting care staff, meant as raiding colonies of social insects that do the work of the nest"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Nosy type",
+       "note": "read as a busybody, meant as an animal with a very long snout"
+      },
+      {
+       "words": "unsettling social workers?",
+       "note": "read as upsetting care staff, meant as raiding colonies of social insects that do the work of the nest"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A busybody who disturbs social services staff.",
      "walkthrough": "The 'nosy type' has a long snout, and the 'social workers' are ants, social insects that it raids.",
@@ -1658,45 +1488,45 @@
    },
    "solution": "BURT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BURT",
     "definitions": [
      {
       "text": "Maybe Lancaster",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "nose",
-      "note": "the nose is the front, the first letter"
-     },
-     {
-      "text": "occasionally failing",
-      "note": "every other letter fails to appear"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bomber's",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of BOMBER"
-     },
-     {
-      "clueFragment": "turret",
-      "gives": "URT",
-      "select": "alternate",
-      "note": "tUrReT: the even letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "URT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "nose",
+       "note": "the nose is the front, the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "occasionally failing",
+         "note": "every other letter fails to appear"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bomber's",
+         "note": "first letter of BOMBER"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "parts": [
+        {
+         "words": "turret",
+         "note": "tUrReT: the even letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1732,40 +1562,35 @@
    },
    "solution": "BOOKCLUB",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "BOOK CLUB",
     "definitions": [
      {
       "text": "Reading party",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "to swap starters",
-      "for": "spoonerism",
-      "note": "exchange the first letters of the two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chef keen",
-      "gives": "COOK BLUB",
-      "note": "a chef is a cook, and to keen is to wail, to blub"
-     },
-     {
-      "clueFragment": "to swap starters",
-      "gives": "BOOK CLUB",
-      "soundsLike": "COOK BLUB",
-      "note": "trade the first letters of the two words, C for B"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOOK",
-      "CLUB"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "BOOKCLUB",
+     "indicators": [
+      {
+       "text": "to swap starters",
+       "note": "exchange the first letters of the two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chef keen",
+       "gives": "COOKBLUB",
+       "note": "a chef is a cook, and to keen is to wail, to blub"
+      },
+      {
+       "unchecked": true,
+       "words": "to swap starters",
+       "gives": "BOOKCLUB",
+       "soundsLike": "COOK BLUB",
+       "note": "trade the first letters of the two words, C for B"
+      }
      ]
     },
     "explanation": {
@@ -1795,46 +1620,41 @@
    },
    "solution": "ALCOVE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ALCOVE",
     "definitions": [
      {
       "text": "recess",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodating",
-      "for": "container",
-      "note": "to accommodate a guest is to give them room inside, so the student is taken in between the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "chappie",
-      "gives": "COVE",
-      "note": "cove is old British slang for a chap"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L = learner, a student driver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "COVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "note": "to accommodate a guest is to give them room inside, so the student is taken in between the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A = American"
+        },
+        {
+         "words": "chappie",
+         "gives": "COVE",
+         "note": "cove is old British slang for a chap"
+        }
+       ]
+      },
+      {
+       "words": "student",
+       "gives": "L",
+       "note": "L = learner, a student driver"
+      }
      ]
     },
     "explanation": {
@@ -1863,38 +1683,24 @@
    },
    "solution": "ETERNITY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ETERNITY",
     "definitions": [
      {
       "text": "a long time",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "growing wild",
-      "for": "anagram",
-      "note": "the letters run wild into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tiny tree",
-      "gives": "TINYTREE",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TINY TREE",
-       "gives": "ETERNITY"
+       "text": "growing wild",
+       "note": "the letters run wild into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tiny tree",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1924,38 +1730,30 @@
    },
    "solution": "CEASES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CEASES",
     "definitions": [
      {
       "text": "Stops",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lines",
-      "gives": "CREASES",
-      "note": "creases are lines, as on a face"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R = Republican, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "EASES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lines",
+       "gives": "CREASES",
+       "note": "creases are lines, as on a face"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R = Republican, removed"
+      }
      ]
     },
     "explanation": {

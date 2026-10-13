@@ -1,8 +1,7 @@
 {
  "id": "cryptic-21885",
  "number": 21885,
- "series": "cryptic",
- "name": "Prize crossword No 21,885",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2000-04-29",
  "dimensions": {
@@ -38,50 +37,41 @@
    },
    "solution": "BEAUTIFY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BEAUTIFY",
     "definitions": [
      {
       "text": "deck",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader goes in front, so only the opening letter of the word union is wanted"
-     },
-     {
-      "text": "comes in",
-      "for": "container",
-      "note": "to come in is to enter, so this letter goes inside the word for bless"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bless",
-      "gives": "BEATIFY",
-      "note": "to beatify is to bless, the step before sainthood"
-     },
-     {
-      "clueFragment": "Union",
-      "gives": "U",
-      "select": "first",
-      "note": "first letter of Union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEA",
-      "U",
-      "TIFY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "comes in",
+       "note": "to come in is to enter, so this letter goes inside the word for bless"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bless",
+       "gives": "BEATIFY",
+       "note": "to beatify is to bless, the step before sainthood"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader goes in front, so only the opening letter of the word union is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Union",
+         "note": "first letter of Union"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,34 +100,29 @@
    },
    "solution": "BOGY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BOGY",
     "definitions": [
      {
       "text": "A terror on the golf course",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "so I've heard",
-      "for": "homophone",
-      "note": "something only heard rather than seen is a matter of sound, not spelling"
-     }
-    ],
-    "linkWords": [
-     "was"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Humphrey",
-      "gives": "BOGY",
-      "soundsLike": "BOGIE",
-      "note": "Bogie was the nickname of the film star Humphrey Bogart"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BOGY",
+     "indicators": [
+      {
+       "text": "so I've heard",
+       "note": "something only heard rather than seen is a matter of sound, not spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Humphrey",
+       "gives": "BOGIE",
+       "note": "Bogie was the nickname of the film star Humphrey Bogart"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Humphrey Bogart is pictured as a menace on the golf links.",
      "walkthrough": "BOGY is both a bugbear or goblin (a terror) and a spelling of bogey, the golfer's score of one over par.",
@@ -165,10 +150,6 @@
    },
    "solution": "ARTY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ARTY",
     "definitions": [
      {
       "text": "to be a culture vulture",
@@ -176,21 +157,23 @@
       "note": "a phrase describing someone, matching the adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "something said is spoken aloud, so we want a word sounding like the name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shaw",
-      "gives": "ARTY",
-      "soundsLike": "ARTIE",
-      "note": "Artie Shaw was an American swing bandleader and clarinettist"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARTY",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "something said is spoken aloud, so we want a word sounding like the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shaw",
+       "gives": "ARTIE",
+       "note": "Artie Shaw was an American swing bandleader and clarinettist"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Is Bernard Shaw rumoured to be a snob about the arts?",
      "walkthrough": "Shaw suggests George Bernard Shaw, but the Shaw needed is the bandleader Artie Shaw.",
@@ -228,26 +211,25 @@
     "11-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THOMAS HARDY",
     "definitions": [
      {
       "text": "He wrote, after his time, about some hot potato",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "He wrote, after his time, about some hot potato",
-      "note": "surface reading: a journalist writing late about a touchy issue"
-     },
-     {
-      "clueFragment": "about some hot potato",
-      "note": "setter's reading: a Victorian novelist whose later books were scandalous and controversial"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He wrote, after his time, about some hot potato",
+       "note": "surface reading: a journalist writing late about a touchy issue"
+      },
+      {
+       "words": "about some hot potato",
+       "note": "setter's reading: a Victorian novelist whose later books were scandalous and controversial"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A writer covered a controversial issue only after it had passed.",
      "walkthrough": "The novelist of Tess and Jude the Obscure, a book so controversial it was burnt; he went on writing poetry well into the twentieth century. No tighter wordplay for the letters has been found.",
@@ -274,41 +256,30 @@
    },
    "solution": "FUNCTIONALIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FUNCTIONALIST",
     "definitions": [
      {
       "text": "Designer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "use at work",
-      "gives": "FUNCTION",
-      "note": "a function is the use something serves when working"
-     },
-     {
-      "clueFragment": "at a",
-      "gives": "A",
-      "note": "the article, with at joining"
-     },
-     {
-      "clueFragment": "table",
-      "gives": "LIST",
-      "note": "a table of items is a list"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FUNCTION",
-      "A",
-      "LIST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "use at work",
+       "gives": "FUNCTION",
+       "note": "a function is the use something serves when working"
+      },
+      {
+       "words": "at a",
+       "gives": "A",
+       "note": "the article, with at joining"
+      },
+      {
+       "words": "table",
+       "gives": "LIST",
+       "note": "a table of items is a list"
+      }
      ]
     },
     "explanation": {
@@ -336,31 +307,23 @@
    },
    "solution": "SESTET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SESTET",
     "definitions": [
      {
       "text": "Group",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Group to be followed by UEU",
-      "note": "surface reading: a band billed ahead of an act named UEU"
-     },
-     {
-      "clueFragment": "Group",
-      "note": "setter's reading: a group of six, such as the closing lines of a sonnet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "EST",
-      "ET"
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Group to be followed by UEU",
+       "note": "surface reading: a band billed ahead of an act named UEU"
+      },
+      {
+       "words": "Group",
+       "note": "setter's reading: a group of six, such as the closing lines of a sonnet"
+      }
      ]
     },
     "explanation": {
@@ -388,50 +351,41 @@
    },
    "solution": "ETHEREAL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ETHEREAL",
     "definitions": [
      {
       "text": "Celestial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swallows",
-      "for": "container",
-      "note": "what swallows something takes it inside, so the bird's name encloses the other word"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quarter",
-      "gives": "E",
-      "note": "east, one of the four compass quarters"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "TEAL",
-      "note": "the teal is a small duck"
-     },
-     {
-      "clueFragment": "lady",
-      "gives": "HER",
-      "note": "a lady is a her"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "T",
-      "HER",
-      "EAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quarter",
+       "gives": "E",
+       "note": "east, one of the four compass quarters"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swallows",
+         "note": "what swallows something takes it inside, so the bird's name encloses the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duck",
+         "gives": "TEAL",
+         "note": "the teal is a small duck"
+        },
+        {
+         "words": "lady",
+         "gives": "HER",
+         "note": "a lady is a her"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -461,41 +415,30 @@
    },
    "solution": "TARADIDDLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TARADIDDLE",
     "definitions": [
      {
       "text": "lie",
       "at": 25
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sailor",
-      "gives": "TAR",
-      "note": "a tar is a sailor"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "one as the article a"
-     },
-     {
-      "clueFragment": "to cheat",
-      "gives": "DIDDLE",
-      "note": "to diddle someone is to swindle them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAR",
-      "A",
-      "DIDDLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "gives": "TAR",
+       "note": "a tar is a sailor"
+      },
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "one as the article a"
+      },
+      {
+       "words": "to cheat",
+       "gives": "DIDDLE",
+       "note": "to diddle someone is to swindle them"
+      }
      ]
     },
     "explanation": {
@@ -522,54 +465,48 @@
    },
    "solution": "TAYBERRIES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TAYBERRIES",
     "definitions": [
      {
       "text": "soft fruit",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Playing",
-      "for": "anagram",
-      "note": "playing by ear is improvising, so the letters are freely rearranged"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "what happens during something sits within it, so these letters go inside"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "by ear",
-      "gives": "AYBER",
-      "note": "the letters of by ear rearranged"
-     },
-     {
-      "clueFragment": "attempts",
-      "gives": "TRIES",
-      "note": "attempts are tries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AYBER",
-      "RIES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "TAYBERRIES",
+     "indicators": [
       {
-       "fodder": "BYEAR",
-       "gives": "AYBER"
+       "text": "during",
+       "note": "what happens during something sits within it, so these letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Playing",
+         "note": "playing by ear is improvising, so the letters are freely rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "by ear",
+           "gives": "AYBER",
+           "note": "the letters of by ear rearranged"
+          },
+          {
+           "words": "attempts",
+           "gives": "TRIES",
+           "note": "attempts are tries"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -609,51 +546,46 @@
    },
    "solution": "GETTOKNOW",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GET TO KNOW",
     "definitions": [
      {
       "text": "Become familiar with",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so a letter is dropped from the area"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "single race area",
-      "gives": "GHETTO",
-      "note": "a ghetto is a district occupied by one ethnic group"
-     },
-     {
-      "clueFragment": "high",
-      "gives": "H",
-      "note": "H is the abbreviation for high"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "K",
-      "note": "K for king, as in chess"
-     },
-     {
-      "clueFragment": "at present",
-      "gives": "NOW",
-      "note": "at present means now"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GETTO",
-      "K",
-      "NOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so a letter is dropped from the area"
+        }
+       ],
+       "parts": [
+        {
+         "words": "single race area",
+         "gives": "GHETTO",
+         "note": "a ghetto is a district occupied by one ethnic group"
+        },
+        {
+         "words": "high",
+         "gives": "H",
+         "note": "H is the abbreviation for high"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "gives": "K",
+       "note": "K for king, as in chess"
+      },
+      {
+       "words": "at present",
+       "gives": "NOW",
+       "note": "at present means now"
+      }
      ]
     },
     "explanation": {
@@ -688,43 +620,33 @@
    },
    "solution": "WORLDPREMIERE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WORLD PREMIERE",
     "definitions": [
      {
       "text": "The very first performance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "version",
-      "for": "anagram",
-      "note": "a new version is a reworking, so the letters are given a fresh order"
-     }
-    ],
-    "linkWords": [
-     "of the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Emperor",
-      "gives": "EMPEROR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Wilder",
-      "gives": "WILDER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EMPEROR WILDER",
-       "gives": "WORLDPREMIERE"
+       "text": "version",
+       "note": "a new version is a reworking, so the letters are given a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Emperor",
+         "note": "taken as written"
+        },
+        {
+         "words": "Wilder",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -767,36 +689,25 @@
    },
    "solution": "CASTERBRIDGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CASTERBRIDGE",
     "definitions": [
      {
       "text": "3 11's place",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sugar",
-      "gives": "CASTER",
-      "note": "caster sugar is a fine-grained white sugar"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "BRIDGE",
-      "note": "bridge is a card game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CASTER",
-      "BRIDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sugar",
+       "gives": "CASTER",
+       "note": "caster sugar is a fine-grained white sugar"
+      },
+      {
+       "words": "game",
+       "gives": "BRIDGE",
+       "note": "bridge is a card game"
+      }
      ]
     },
     "explanation": {
@@ -825,58 +736,45 @@
    },
    "solution": "BANISHMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BANISHMENT",
     "definitions": [
      {
       "text": "exile",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "intervening",
-      "for": "container",
-      "note": "to intervene is to come between, so the royal letters go inside the next word"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "with",
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Veto",
-      "gives": "BAN",
-      "note": "a veto is a ban"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "one as the Roman numeral I"
-     },
-     {
-      "clueFragment": "sent",
-      "gives": "SENT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the monarch",
-      "gives": "HM",
-      "note": "HM stands for His or Her Majesty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "I",
-      "S",
-      "HM",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervening",
+       "note": "to intervene is to come between, so the royal letters go inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Veto",
+         "gives": "BAN",
+         "note": "a veto is a ban"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "one as the Roman numeral I"
+        },
+        {
+         "words": "sent",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "the monarch",
+       "gives": "HM",
+       "note": "HM stands for His or Her Majesty"
+      }
      ]
     },
     "explanation": {
@@ -905,48 +803,38 @@
    },
    "solution": "DISTORTION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISTORTION",
     "definitions": [
      {
       "text": "Biased account",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supplied",
-      "for": "anagram",
-      "note": "read as supple-y, bent into a new shape, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "idiots",
-      "gives": "IDIOTS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Royal Navy",
-      "gives": "RN",
-      "note": "RN is the abbreviation for the Royal Navy"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IDIOTS TO RN",
-       "gives": "DISTORTION"
+       "text": "supplied",
+       "note": "read as supple-y, bent into a new shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "idiots",
+         "note": "taken as written"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        },
+        {
+         "words": "Royal Navy",
+         "gives": "RN",
+         "note": "RN is the abbreviation for the Royal Navy"
+        }
+       ]
       }
      ]
     },
@@ -976,10 +864,6 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "drugs",
@@ -987,25 +871,18 @@
       "note": "plural, while the answer names one drug"
      }
     ],
-    "linkWords": [
-     "take"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lot of policemen",
-      "gives": "CID",
-      "note": "the Criminal Investigation Department, the detective branch of British police"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "lot of policemen",
+       "gives": "CID",
+       "note": "the Criminal Investigation Department, the detective branch of British police"
+      }
      ]
     },
     "explanation": {
@@ -1034,57 +911,53 @@
    },
    "solution": "WOODLANDER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "WOODLANDER",
     "definitions": [
      {
       "text": "One of 3 11's people",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "something funny is peculiar or out of order, so the word old is jumbled"
-     },
-     {
-      "text": "seen in",
-      "for": "container",
-      "note": "seen in means appearing inside, so these letters are placed within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "ODL",
-      "note": "the letters of old mixed up"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "amazement",
-      "gives": "WONDER",
-      "note": "wonder is amazement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WO",
-      "ODL",
-      "ANDER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WOODLANDER",
+     "indicators": [
       {
-       "fodder": "A WONDER",
-       "gives": "WOANDER"
+       "text": "funny",
+       "note": "something funny is peculiar or out of order, so the word old is jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "seen in",
+         "note": "seen in means appearing inside, so these letters are placed within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amazement",
+         "gives": "WONDER",
+         "note": "wonder is amazement"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "gives": "ODL",
+           "note": "the letters of old mixed up"
+          },
+          {
+           "words": "article",
+           "gives": "A",
+           "note": "the indefinite article"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1114,67 +987,59 @@
    },
    "solution": "ARGONAUT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "ARGONAUT",
     "definitions": [
      {
       "text": "Old sailor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "upset means turned over, which in a down clue flips the letters"
-     },
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "inside places the drink within the groove"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "groove",
-      "gives": "RUT",
-      "note": "a rut is a groove"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "NOG",
-      "note": "nog is a strong ale or eggnog"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "GONA",
-      "UT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ANOG",
-       "to": "GONA"
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "inside places the drink within the groove"
+        }
+       ],
+       "parts": [
+        {
+         "words": "groove",
+         "gives": "RUT",
+         "note": "a rut is a groove"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "upset",
+           "note": "upset means turned over, which in a down clue flips the letters"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "a",
+             "note": "taken as written"
+            },
+            {
+             "words": "drink",
+             "gives": "NOG",
+             "note": "nog is a strong ale or eggnog"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1204,45 +1069,37 @@
    },
    "solution": "INTERMARRY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTERMARRY",
     "definitions": [
      {
       "text": "Cross-fertilise, perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "?",
-      "for": "anagram",
-      "note": "the query mark asks the solver to try another order of the closing words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "try",
-      "gives": "TRY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "near",
-      "gives": "NEAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rim",
-      "gives": "RIM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRY NEAR RIM",
-       "gives": "INTERMARRY"
+       "text": "?",
+       "note": "the query mark asks the solver to try another order of the closing words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "try",
+         "note": "taken as written"
+        },
+        {
+         "words": "near",
+         "note": "taken as written"
+        },
+        {
+         "words": "rim",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1272,31 +1129,29 @@
    },
    "solution": "FLUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FLUE",
     "definitions": [
      {
       "text": "I must let some air in",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "a report is spoken, so the word sounds like the illness"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Illness",
-      "gives": "FLUE",
-      "soundsLike": "FLU",
-      "note": "flu, short for influenza"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FLUE",
+     "indicators": [
+      {
+       "text": "reported",
+       "note": "a report is spoken, so the word sounds like the illness"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Illness",
+       "gives": "FLU",
+       "note": "flu, short for influenza"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sick person reports feeling ill and wants a window opened.",
      "definitionFit": "A flue is a chimney duct, which must draw in air for the fire to burn: the definition is the flue speaking."
@@ -1323,47 +1178,35 @@
    },
    "solution": "XANADU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "XANADU",
     "definitions": [
      {
       "text": "Dome scene",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "10",
-      "gives": "X",
-      "note": "X is ten in Roman numerals"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "AN",
-      "note": "the article in its other form"
-     },
-     {
-      "clueFragment": "commercial",
-      "gives": "AD",
-      "note": "an ad is a commercial"
-     },
-     {
-      "clueFragment": "turn",
-      "gives": "U",
-      "note": "a U-turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "X",
-      "AN",
-      "AD",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "10",
+       "gives": "X",
+       "note": "X is ten in Roman numerals"
+      },
+      {
+       "words": "a",
+       "gives": "AN",
+       "note": "the article in its other form"
+      },
+      {
+       "words": "commercial",
+       "gives": "AD",
+       "note": "an ad is a commercial"
+      },
+      {
+       "words": "turn",
+       "gives": "U",
+       "note": "a U-turn"
+      }
      ]
     },
     "explanation": {
@@ -1398,55 +1241,42 @@
    },
    "solution": "HARMONICMEAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "HARMONIC MEAN",
     "definitions": [
      {
       "text": "an arithmetical concept",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "that's damaged",
-      "for": "anagram",
-      "note": "something damaged is knocked out of shape, so the coin's letters are muddled"
-     }
-    ],
-    "linkWords": [
-     "at",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Damage",
-      "gives": "HARM",
-      "note": "to damage is to harm"
-     },
-     {
-      "clueFragment": "coin",
-      "gives": "ONIC",
-      "note": "the letters of coin rearranged"
-     },
-     {
-      "clueFragment": "base",
-      "gives": "MEAN",
-      "note": "base and mean both mean low or ignoble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARM",
-      "ONIC",
-      "MEAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HARMONICMEAN",
+     "indicators": [
       {
-       "fodder": "COIN",
-       "gives": "ONIC"
+       "text": "that's damaged",
+       "note": "something damaged is knocked out of shape, so the coin's letters are muddled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Damage",
+         "gives": "HARM",
+         "note": "to damage is to harm"
+        },
+        {
+         "words": "coin",
+         "gives": "ONIC",
+         "note": "the letters of coin rearranged"
+        },
+        {
+         "words": "base",
+         "gives": "MEAN",
+         "note": "base and mean both mean low or ignoble"
+        }
+       ]
       }
      ]
     },
@@ -1475,31 +1305,16 @@
    },
    "solution": "LION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LION",
     "definitions": [
      {
       "text": "One with pride",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a big cat living in a pride"
      },
      {
       "text": "a celebrity",
-      "at": 24
-     }
-    ],
-    "linkWords": [
-     "at being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One with pride",
-      "note": "first meaning: a big cat living in a pride"
-     },
-     {
-      "clueFragment": "a celebrity",
-      "note": "second meaning: a famous person sought after socially"
+      "at": 24,
+      "meaning": "second meaning: a famous person sought after socially"
      }
     ],
     "explanation": {
@@ -1529,28 +1344,16 @@
    },
    "solution": "BEEF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BEEF",
     "definitions": [
      {
       "text": "Joint",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a joint of meat from cattle"
      },
      {
       "text": "complaint",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joint",
-      "note": "first meaning: a joint of meat from cattle"
-     },
-     {
-      "clueFragment": "complaint",
-      "note": "second meaning: a grievance, slang"
+      "at": 6,
+      "meaning": "second meaning: a grievance, slang"
      }
     ],
     "explanation": {
@@ -1579,44 +1382,38 @@
    },
    "solution": "EVITA",
    "annotation": {
-    "type": [
-     "reversal",
-     "hidden_word"
-    ],
-    "answer": "EVITA",
     "definitions": [
      {
       "text": "Musical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "27",
-      "for": "reversal",
-      "note": "the entry at 27 reads return of, and returning a word means reading it backwards"
-     },
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "from means taken out of, so the answer is lifted from the longer string"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "25",
-      "gives": "ATIVE",
-      "note": "the closing letters of the entry at 25, the native"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVITA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "EVITA",
+     "indicators": [
       {
-       "from": "ATIVE",
-       "to": "EVITA"
+       "text": "from",
+       "note": "from means taken out of, so the answer is lifted from the longer string"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "27",
+         "note": "the entry at 27 reads return of, and returning a word means reading it backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "25",
+         "gives": "ATIVE",
+         "note": "the closing letters of the entry at 25, the native"
+        }
+       ]
       }
      ]
     },
@@ -1666,47 +1463,40 @@
    },
    "solution": "TENETS",
    "annotation": {
-    "type": [
-     "substitution",
-     "anagram"
-    ],
-    "answer": "TENETS",
     "definitions": [
      {
       "text": "They are held",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with one change in polarity",
-      "for": "substitution",
-      "note": "changing polarity swaps south for north, so one compass letter is replaced"
-     },
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "change also tells us to alter the order of the letters"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "5",
-      "gives": "SESTET",
-      "note": "the answer at 5"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TENETS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TENETS",
+     "indicators": [
       {
-       "fodder": "NESTET",
-       "gives": "TENETS"
+       "text": "change",
+       "note": "change also tells us to alter the order of the letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "TENETS",
+       "indicators": [
+        {
+         "text": "with one change in polarity",
+         "note": "changing polarity swaps south for north, so one compass letter is replaced"
+        }
+       ],
+       "parts": [
+        {
+         "words": "5",
+         "gives": "SESTET",
+         "note": "the answer at 5"
+        }
+       ]
       }
      ]
     },
@@ -1750,59 +1540,44 @@
     "25-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RETURN OF THE NATIVE",
     "definitions": [
      {
       "text": "3 11's",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "made a profit",
-      "gives": "RETURN",
-      "note": "a return is a profit made on an investment"
-     },
-     {
-      "clueFragment": "frequently",
-      "gives": "OFT",
-      "note": "oft is an old word for often"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "HEN",
-      "note": "a hen is a female bird"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "T",
-      "note": "the Model T Ford"
-     },
-     {
-      "clueFragment": "I have cut",
-      "gives": "IVE",
-      "note": "I have shortened to the contraction I've"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETURN",
-      "OFT",
-      "HEN",
-      "A",
-      "T",
-      "IVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "made a profit",
+       "gives": "RETURN",
+       "note": "a return is a profit made on an investment"
+      },
+      {
+       "words": "frequently",
+       "gives": "OFT",
+       "note": "oft is an old word for often"
+      },
+      {
+       "words": "female",
+       "gives": "HEN",
+       "note": "a hen is a female bird"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "model",
+       "gives": "T",
+       "note": "the Model T Ford"
+      },
+      {
+       "words": "I have cut",
+       "gives": "IVE",
+       "note": "I have shortened to the contraction I've"
+      }
      ]
     },
     "explanation": {

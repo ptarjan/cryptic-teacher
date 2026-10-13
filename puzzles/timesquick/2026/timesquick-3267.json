@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3267",
  "number": 3267,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,267",
  "setter": "Jalna",
  "date": "2026-04-04",
  "dimensions": {
@@ -45,28 +43,16 @@
    },
    "solution": "FIRM",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FIRM",
     "definitions": [
      {
       "text": "Resolute",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: steadfast, not yielding"
      },
      {
       "text": "company",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Resolute",
-      "note": "first meaning: steadfast, not yielding"
-     },
-     {
-      "clueFragment": "company",
-      "note": "second meaning: a business"
+      "at": 9,
+      "meaning": "second meaning: a business"
      }
     ],
     "explanation": {
@@ -94,28 +80,16 @@
    },
    "solution": "FLIPPING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FLIPPING",
     "definitions": [
      {
       "text": "Blooming",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a mild British intensifier, as in 'blooming cheek'"
      },
      {
       "text": "common thing to be doing on Shrove Tuesday",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blooming",
-      "note": "first meaning: a mild British intensifier, as in 'blooming cheek'"
-     },
-     {
-      "clueFragment": "common thing to be doing on Shrove Tuesday",
-      "note": "second meaning: tossing pancakes, the custom of Pancake Day"
+      "at": 9,
+      "meaning": "second meaning: tossing pancakes, the custom of Pancake Day"
      }
     ],
     "explanation": {
@@ -144,41 +118,36 @@
    },
    "solution": "REPEL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "REPEL",
     "definitions": [
      {
       "text": "Fend off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "for": "hidden_word",
-      "note": "only part of the phrase is used, so the letters sit inside consecutive words"
-     },
-     {
-      "text": "on the rise",
-      "for": "reversal",
-      "note": "in a down clue, rising means reading from the bottom upward, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "horrible person",
-      "gives": "LEPER",
-      "note": "the letters straddle the end of the first word and the start of the second"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LEPER",
-       "to": "REPEL"
+       "text": "on the rise",
+       "note": "in a down clue, rising means reading from the bottom upward, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "partly",
+         "note": "only part of the phrase is used, so the letters sit inside consecutive words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horrible person",
+         "gives": "LEPER",
+         "note": "the letters straddle the end of the first word and the start of the second"
+        }
+       ]
       }
      ]
     },
@@ -208,56 +177,50 @@
    },
    "solution": "CREVASSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CREVASSE",
     "definitions": [
      {
       "text": "crack in a glacier",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "moved",
-      "for": "anagram",
-      "note": "things that are moved change place, so the letters are rearranged"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "going around something encloses it, so one part wraps another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cavers",
-      "gives": "CAVERS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the compass abbreviation for east"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the standard abbreviation for small, as on clothing sizes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREVA",
-      "S",
-      "SE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CAVERSE",
-       "gives": "CREVASE"
+       "text": "around",
+       "note": "going around something encloses it, so one part wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moved",
+         "note": "things that are moved change place, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Cavers",
+           "note": "taken as written"
+          },
+          {
+           "words": "east",
+           "gives": "E",
+           "note": "E is the compass abbreviation for east"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing sizes"
       }
      ]
     },
@@ -287,44 +250,35 @@
    },
    "solution": "RADIAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RADIAL",
     "definitions": [
      {
       "text": "Spoke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "what comes first is the opening letter, so each of these words gives its initial"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "really aggressively",
-      "gives": "RA",
-      "select": "first",
-      "note": "the opening letters of the two words"
-     },
-     {
-      "clueFragment": "phone",
-      "gives": "DIAL",
-      "note": "to dial is to phone someone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "DIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "what comes first is the opening letter, so each of these words gives its initial"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really aggressively",
+         "note": "the opening letters of the two words"
+        }
+       ]
+      },
+      {
+       "words": "phone",
+       "gives": "DIAL",
+       "note": "to dial is to phone someone"
+      }
      ]
     },
     "explanation": {
@@ -354,38 +308,24 @@
    },
    "solution": "VINAIGRETTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VINAIGRETTE",
     "definitions": [
      {
       "text": "dressing",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "distributed",
-      "for": "anagram",
-      "note": "something distributed is spread out and dealt around, so the letters are scattered into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Given attire",
-      "gives": "GIVENATTIRE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIVENATTIRE",
-       "gives": "VINAIGRETTE"
+       "text": "distributed",
+       "note": "something distributed is spread out and dealt around, so the letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Given attire",
+       "note": "taken as written"
       }
      ]
     },
@@ -416,26 +356,25 @@
    },
    "solution": "SYNONYM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SYNONYM",
     "definitions": [
      {
       "text": "Illustration, for example?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Illustration, for example?",
-      "note": "surface reading: a picture offered as an instance of something"
-     },
-     {
-      "clueFragment": "Illustration, for example?",
-      "note": "setter's reading: the word 'illustration' stands for the word 'example', since the two mean the same"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Illustration, for example?",
+       "note": "surface reading: a picture offered as an instance of something"
+      },
+      {
+       "words": "Illustration, for example?",
+       "note": "setter's reading: the word 'illustration' stands for the word 'example', since the two mean the same"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The clue looks like it asks for a kind of picture; instead it treats the two words as words, one of which can stand in for the other.",
      "definitionFit": "Words with the same meaning, like illustration and example, are each a word of equivalent sense for the other."
@@ -462,40 +401,38 @@
    },
    "solution": "ECHO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "ECHO",
     "definitions": [
      {
       "text": "Imitate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its top, its opening letter"
-     },
-     {
-      "text": "on radio broadcast",
-      "for": "substitution",
-      "note": "radio operators replace each letter with a code word, so a letter is swapped for its spoken name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entertainment",
-      "gives": "E",
-      "select": "first",
-      "note": "the opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECHO"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ECHO",
+     "indicators": [
+      {
+       "text": "on radio broadcast",
+       "note": "radio operators replace each letter with a code word, so a letter is swapped for its spoken name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head of a word is its top, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entertainment",
+         "note": "the opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -524,54 +461,41 @@
    },
    "solution": "IMPEDED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPEDED",
     "definitions": [
      {
       "text": "Blocked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "more than once",
-      "for": "charade",
-      "note": "this phrase says the preceding element appears twice in succession"
-     }
-    ],
-    "linkWords": [
-     "meeting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "Member of Parliament"
-     },
-     {
-      "clueFragment": "senior journalist",
-      "gives": "ED",
-      "note": "short for editor"
-     },
-     {
-      "clueFragment": "senior journalist",
-      "gives": "ED",
-      "note": "the same piece again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP",
-      "ED",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "more than once",
+       "note": "this phrase says the preceding element appears twice in succession"
+      }
+     ],
+     "parts": [
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "Member of Parliament"
+      },
+      {
+       "words": "senior journalist",
+       "gives": "ED",
+       "note": "short for editor"
+      },
+      {
+       "words": "senior journalist",
+       "gives": "ED",
+       "note": "the same piece again"
+      }
      ]
     },
     "explanation": {
@@ -606,38 +530,24 @@
    },
    "solution": "DRIVINGSEAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DRIVING SEAT",
     "definitions": [
      {
       "text": "Place of control",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "'possibly' offers one possible version of the letters, so they can be reordered"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "advertising",
-      "gives": "ADVERTISING",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ADVERTISING",
-       "gives": "DRIVINGSEAT"
+       "text": "possibly",
+       "note": "'possibly' offers one possible version of the letters, so they can be reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advertising",
+       "note": "taken as written"
       }
      ]
     },
@@ -667,30 +577,28 @@
    },
    "solution": "NINTH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NINTH",
     "definitions": [
      {
       "text": "last inning of baseball game",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the letters are used, a run inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tension in the",
-      "gives": "NINTH",
-      "note": "the letters run from the end of the first word through the middle word into the last"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the letters are used, a run inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tension in the",
+       "gives": "NINTH",
+       "note": "the letters run from the end of the first word through the middle word into the last"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Nerves fray at the climax of a ball game.",
      "walkthrough": "The answer sits in 'tensioN IN THe'; 'the' does double duty in the surface.",
@@ -716,41 +624,30 @@
    },
    "solution": "POLLINATION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POLLINATION",
     "definitions": [
      {
       "text": "Task of certain workers",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "survey",
-      "gives": "POLL",
-      "note": "an opinion poll is a survey"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "group of people",
-      "gives": "NATION",
-      "note": "a people forming one country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POLL",
-      "I",
-      "NATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "survey",
+       "gives": "POLL",
+       "note": "an opinion poll is a survey"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "group of people",
+       "gives": "NATION",
+       "note": "a people forming one country"
+      }
      ]
     },
     "explanation": {
@@ -780,48 +677,35 @@
    },
    "solution": "MANDARIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANDARIN",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Massachusetts",
-      "gives": "MA",
-      "note": "postal code for Massachusetts"
-     },
-     {
-      "clueFragment": "North Dakota",
-      "gives": "ND",
-      "note": "postal code for North Dakota"
-     },
-     {
-      "clueFragment": "Arkansas",
-      "gives": "AR",
-      "note": "postal code for Arkansas"
-     },
-     {
-      "clueFragment": "Indiana",
-      "gives": "IN",
-      "note": "postal code for Indiana"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "ND",
-      "AR",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Massachusetts",
+       "gives": "MA",
+       "note": "postal code for Massachusetts"
+      },
+      {
+       "words": "North Dakota",
+       "gives": "ND",
+       "note": "postal code for North Dakota"
+      },
+      {
+       "words": "Arkansas",
+       "gives": "AR",
+       "note": "postal code for Arkansas"
+      },
+      {
+       "words": "Indiana",
+       "gives": "IN",
+       "note": "postal code for Indiana"
+      }
      ]
     },
     "explanation": {
@@ -849,45 +733,34 @@
    },
    "solution": "NITWIT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NITWIT",
     "definitions": [
      {
       "text": "Foolish individual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "for": "reversal",
-      "note": "something turned round faces the other way, so its letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "another foolish individual",
-      "gives": "TWIT",
-      "note": "a twit is a silly person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "TWIT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IN",
-       "to": "NI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "note": "something turned round faces the other way, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "another foolish individual",
+       "gives": "TWIT",
+       "note": "a twit is a silly person"
       }
      ]
     },
@@ -923,55 +796,44 @@
    },
    "solution": "TSHIRTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "T-SHIRTS",
     "definitions": [
      {
       "text": "Clothing items",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "a new version is a remade one, so the letters take a fresh order"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "what comes ultimately comes last, so each word gives its final letter"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this",
-      "gives": "THIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "designer didn't impress",
-      "gives": "RTS",
-      "select": "last",
-      "note": "the final letters of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TSHI",
-      "RTS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THIS",
-       "gives": "TSHI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "note": "a new version is a remade one, so the letters take a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "what comes ultimately comes last, so each word gives its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "designer didn't impress",
+         "note": "the final letters of the three words"
+        }
+       ]
       }
      ]
     },
@@ -1001,39 +863,30 @@
    },
    "solution": "CRIMEA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CRIMEA",
     "definitions": [
      {
       "text": "peninsula",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "alongside",
-      "for": "charade",
-      "note": "placing one thing alongside another sets them side by side in sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Piracy perhaps",
-      "gives": "CRIME",
-      "note": "piracy is one example of a crime"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRIME",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "alongside",
+       "note": "placing one thing alongside another sets them side by side in sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piracy perhaps",
+       "gives": "CRIME",
+       "note": "piracy is one example of a crime"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1061,40 +914,31 @@
    },
    "solution": "OPORTO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OPORTO",
     "definitions": [
      {
       "text": "somewhere in Iberia",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "going round something encircles it, so the outer pieces enclose the inner one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Circles",
-      "gives": "OO",
-      "note": "each circle is the round letter O"
-     },
-     {
-      "clueFragment": "harbour",
-      "gives": "PORT",
-      "note": "a port is a harbour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "PORT",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "going round something encircles it, so the outer pieces enclose the inner one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Circles",
+       "gives": "OO",
+       "note": "each circle is the round letter O"
+      },
+      {
+       "words": "harbour",
+       "gives": "PORT",
+       "note": "a port is a harbour"
+      }
      ]
     },
     "explanation": {
@@ -1129,31 +973,29 @@
    },
    "solution": "HIGHPITCHED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HIGH-PITCHED",
     "definitions": [
      {
       "text": "Shrill",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we're told",
-      "for": "homophone",
-      "note": "being told something means hearing it spoken, so the sound matters, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "publicity stunt was irritating",
-      "gives": "HIGHPITCHED",
-      "soundsLike": "HYPE ITCHED",
-      "note": "hype is showy publicity, and something that itched was irritating"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HIGHPITCHED",
+     "indicators": [
+      {
+       "text": "we're told",
+       "note": "being told something means hearing it spoken, so the sound matters, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "publicity stunt was irritating",
+       "gives": "HYPEITCHED",
+       "note": "hype is showy publicity, and something that itched was irritating"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A noisy marketing gimmick got on people's nerves.",
      "walkthrough": "Said aloud, HYPE ITCHED runs together into HIGH-PITCHED.",
@@ -1181,39 +1023,31 @@
    },
    "solution": "HITCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HITCH",
     "definitions": [
      {
       "text": "Temporary setback",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, one thing on another sits above it, so it comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "had an effect",
-      "gives": "HIT",
-      "note": "something that hit had an impact"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the standard abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIT",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue, one thing on another sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "had an effect",
+       "gives": "HIT",
+       "note": "something that hit had an impact"
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "CH is the standard abbreviation for church"
+      }
      ]
     },
     "explanation": {
@@ -1241,38 +1075,25 @@
    },
    "solution": "SNIP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SNIP",
     "definitions": [
      {
       "text": "Cut",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when climbing",
-      "for": "reversal",
-      "note": "climbing goes upward, and in a down clue that reads the letters from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "legs",
-      "gives": "PINS",
-      "note": "pins is informal British slang for legs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNIP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PINS",
-       "to": "SNIP"
+       "text": "when climbing",
+       "note": "climbing goes upward, and in a down clue that reads the letters from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "legs",
+       "gives": "PINS",
+       "note": "pins is informal British slang for legs"
       }
      ]
     },
@@ -1302,34 +1123,25 @@
    },
    "solution": "NURSE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "NURSE",
     "definitions": [
      {
       "text": "Caregiver",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "something done periodically happens at regular intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on our roster",
-      "gives": "NURSE",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NURSE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "periodically",
+       "note": "something done periodically happens at regular intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on our roster",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -1364,47 +1176,41 @@
    },
    "solution": "REENTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RE-ENTER",
     "definitions": [
      {
       "text": "come back inside",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "at the end",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter"
-     },
-     {
-      "text": "takes",
-      "for": "container",
-      "note": "to take something in is to hold it, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tenant",
-      "gives": "RENTER",
-      "note": "a tenant rents a home"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "E",
-      "ENTER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes",
+       "note": "to take something in is to hold it, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tenant",
+       "gives": "RENTER",
+       "note": "a tenant rents a home"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the end",
+         "note": "the end of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "note": "the final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1433,28 +1239,16 @@
    },
    "solution": "POSITION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POSITION",
     "definitions": [
      {
       "text": "Job",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a post of employment"
      },
      {
       "text": "arrangement",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Job",
-      "note": "first meaning: a post of employment"
-     },
-     {
-      "clueFragment": "arrangement",
-      "note": "second meaning: the way things are placed or set out"
+      "at": 4,
+      "meaning": "second meaning: the way things are placed or set out"
      }
     ],
     "explanation": {
@@ -1482,33 +1276,29 @@
    },
    "solution": "THIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "THIN",
     "definitions": [
      {
       "text": "lacking in solidity",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "almost entirely",
-      "for": "deletion",
-      "note": "almost all of something stops just short, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Object",
-      "gives": "THING",
-      "note": "an object is a thing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost entirely",
+       "note": "almost all of something stops just short, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Object",
+       "gives": "THING",
+       "note": "an object is a thing"
+      },
+      {
+       "gives": "G"
+      }
      ]
     },
     "explanation": {

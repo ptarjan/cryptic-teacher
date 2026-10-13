@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29859",
  "number": 29859,
- "series": "cryptic",
- "name": "Prize crossword No 29,859",
+ "prize": true,
  "setter": "Paul",
  "date": "2025-11-22",
  "dimensions": {
@@ -38,52 +37,47 @@
    },
    "solution": "ABBACY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "ABBACY",
     "definitions": [
      {
       "text": "Brotherhood of Man's authority",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "voided",
-      "for": "letter_selection",
-      "note": "a voided word has its contents emptied out, so only the outside letters of 'country' survive"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going backwards, so the Swedish 'group' is read from its end, which here changes nothing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "group",
-      "gives": "ABBA",
-      "note": "the Swedish pop group who won Eurovision in 1974"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "CY",
-      "select": "outer",
-      "note": "first and last letters of country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABBA",
-      "CY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ABBACY",
+     "indicators": [
       {
-       "from": "ABBA",
-       "to": "ABBA"
+       "text": "backing",
+       "note": "backing means going backwards, so the Swedish 'group' is read from its end, which here changes nothing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "group",
+         "gives": "ABBA",
+         "note": "the Swedish pop group who won Eurovision in 1974"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "voided",
+           "note": "a voided word has its contents emptied out, so only the outside letters of 'country' survive"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "note": "first and last letters of country"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -114,30 +108,16 @@
    },
    "solution": "AMOROSO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AMOROSO",
     "definitions": [
      {
       "text": "Loving",
-      "at": 0
+      "at": 0,
+      "meaning": "an Italian musical direction: play tenderly, lovingly"
      },
      {
       "text": "sherry",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loving",
-      "gives": "AMOROSO",
-      "note": "an Italian musical direction: play tenderly, lovingly"
-     },
-     {
-      "clueFragment": "sherry",
-      "gives": "AMOROSO",
-      "note": "a sweetened dark style of oloroso sherry"
+      "at": 7,
+      "meaning": "a sweetened dark style of oloroso sherry"
      }
     ],
     "explanation": {
@@ -164,42 +144,31 @@
    },
    "solution": "BUGLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BUGLE",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pulled out",
-      "for": "deletion",
-      "note": "something pulled out is removed, so the 'unspecified quantity' letter is taken from 'fluff'"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fluff",
-      "gives": "BUNGLE",
-      "note": "to fluff something is to make a mess of it"
-     },
-     {
-      "clueFragment": "unspecified quantity",
-      "gives": "N",
-      "note": "n is the mathematician's unspecified number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "GLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "pulled out",
+       "note": "something pulled out is removed, so the 'unspecified quantity' letter is taken from 'fluff'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fluff",
+       "gives": "BUNGLE",
+       "note": "to fluff something is to make a mess of it"
+      },
+      {
+       "words": "unspecified quantity",
+       "gives": "N",
+       "note": "n is the mathematician's unspecified number"
+      }
      ]
     },
     "explanation": {
@@ -228,32 +197,25 @@
    },
    "solution": "CONFORM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONFORM",
     "definitions": [
      {
       "text": "follow",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "Charlie is C in the NATO alphabet"
-     },
-     {
-      "clueFragment": "doing well",
-      "gives": "ON FORM",
-      "note": "on form = performing well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ONFORM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charlie",
+       "gives": "C",
+       "note": "Charlie is C in the NATO alphabet"
+      },
+      {
+       "words": "doing well",
+       "gives": "ONFORM",
+       "note": "on form = performing well"
+      }
      ]
     },
     "explanation": {
@@ -287,39 +249,31 @@
    },
    "solution": "BOOBOO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOO-BOO",
     "definitions": [
      {
       "text": "Error",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being repeated",
-      "for": "charade",
-      "note": "being repeated means saying the jeer twice, so two copies are joined end to end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I hate that",
-      "gives": "BOO",
-      "note": "the jeer a crowd makes at something it dislikes"
-     },
-     {
-      "clueFragment": "I hate that",
-      "gives": "BOO",
-      "note": "the same jeer a second time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOO",
-      "BOO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "being repeated",
+       "note": "being repeated means saying the jeer twice, so two copies are joined end to end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I hate that",
+       "gives": "BOO",
+       "note": "the jeer a crowd makes at something it dislikes"
+      },
+      {
+       "words": "I hate that",
+       "gives": "BOO",
+       "note": "the same jeer a second time"
+      }
      ]
     },
     "explanation": {
@@ -347,47 +301,44 @@
    },
    "solution": "OREGON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "OREGON",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally means at the origin, so each of 'of repair' gives its opening letter"
-     },
-     {
-      "text": "awry",
-      "for": "anagram",
-      "note": "awry means askew, out of proper order, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of repair",
-      "gives": "OR",
-      "select": "first",
-      "note": "first letters of 'of' and 'repair'"
-     },
-     {
-      "clueFragment": "gone",
-      "gives": "GONE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORGONE",
-       "gives": "OREGON"
+       "text": "awry",
+       "note": "awry means askew, out of proper order, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "note": "originally means at the origin, so each of 'of repair' gives its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "of repair",
+           "note": "first letters of 'of' and 'repair'"
+          }
+         ]
+        },
+        {
+         "words": "gone",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -423,47 +374,41 @@
    },
    "solution": "BRASSBAND",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BRASS BAND",
     "definitions": [
      {
       "text": "Northern English outfit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "girdles",
-      "for": "container",
-      "note": "a girdle goes around the waist, so 'smooth' goes around 'black'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "underwear's",
-      "gives": "BRAS",
-      "note": "bra's, underwear's"
-     },
-     {
-      "clueFragment": "smooth",
-      "gives": "SAND",
-      "note": "to sand is to smooth"
-     },
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "B for black, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAS",
-      "S",
-      "B",
-      "AND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "underwear's",
+       "gives": "BRAS",
+       "note": "bra's, underwear's"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "girdles",
+         "note": "a girdle goes around the waist, so 'smooth' goes around 'black'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smooth",
+         "gives": "SAND",
+         "note": "to sand is to smooth"
+        },
+        {
+         "words": "black",
+         "gives": "B",
+         "note": "B for black, as on pencils"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -493,54 +438,42 @@
    },
    "solution": "OCEANIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "OCEANIA",
     "definitions": [
      {
       "text": "watery region",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "anagram",
-      "note": "to turn round is to shift position, so the letters of 'a nice' are rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Circle",
-      "gives": "O",
-      "note": "a circle is the shape of the letter O"
-     },
-     {
-      "clueFragment": "a nice",
-      "gives": "CEANI",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "a = area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "CEANI",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OCEANIA",
+     "indicators": [
       {
-       "fodder": "ANICE",
-       "gives": "CEANI"
+       "text": "round",
+       "note": "to turn round is to shift position, so the letters of 'a nice' are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Circle",
+         "gives": "O",
+         "note": "a circle is the shape of the letter O"
+        },
+        {
+         "words": "a nice",
+         "gives": "CEANI",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "a = area"
+        }
+       ]
       }
      ]
     },
@@ -570,40 +503,31 @@
    },
    "solution": "LIECHTENSTEIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIECHTENSTEIN",
     "definitions": [
      {
       "text": "country",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "impressed by",
-      "for": "container",
-      "note": "to be impressed is to be pressed into something, so 'European' is pushed into the artist's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artist",
-      "gives": "LICHTENSTEIN",
-      "note": "Roy Lichtenstein, the American pop artist"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E = European"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "E",
-      "CHTENSTEIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "impressed by",
+       "note": "to be impressed is to be pressed into something, so 'European' is pushed into the artist's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artist",
+       "gives": "LICHTENSTEIN",
+       "note": "Roy Lichtenstein, the American pop artist"
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E = European"
+      }
      ]
     },
     "explanation": {
@@ -652,35 +576,24 @@
    },
    "solution": "NOISEMAKER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NOISEMAKER",
     "definitions": [
      {
       "text": "siren or horn, say",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Blurry",
-      "for": "anagram",
-      "note": "something blurry has lost its sharp outline, so the letters lose their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mark I see on",
-      "gives": "MARKISEEON",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MARKISEEON",
-       "gives": "NOISEMAKER"
+       "text": "Blurry",
+       "note": "something blurry has lost its sharp outline, so the letters lose their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mark I see on",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -710,32 +623,25 @@
    },
    "solution": "FOREGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FOREGO",
     "definitions": [
      {
       "text": "sacrifice",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In favour of",
-      "gives": "FOR",
-      "note": "for = in favour of"
-     },
-     {
-      "clueFragment": "self",
-      "gives": "EGO",
-      "note": "the ego is the self"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "EGO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In favour of",
+       "gives": "FOR",
+       "note": "for = in favour of"
+      },
+      {
+       "words": "self",
+       "gives": "EGO",
+       "note": "the ego is the self"
+      }
      ]
     },
     "explanation": {
@@ -771,43 +677,38 @@
    },
    "solution": "CHOOSING",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CHOOSING",
     "definitions": [
      {
       "text": "Making Your Mind Up",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Half-cut",
-      "for": "deletion",
-      "note": "half is cut away, so only one half of the word for 'train' survives"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "train",
-      "gives": "CHOO",
-      "note": "a choo-choo is a child's word for a train"
-     },
-     {
-      "clueFragment": "perform",
-      "gives": "SING",
-      "note": "to sing is to perform"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHOO",
-      "SING"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHOOSING",
+     "indicators": [
+      {
+       "text": "Half-cut",
+       "note": "half is cut away, so only one half of the word for 'train' survives"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "train",
+         "gives": "CHOO",
+         "note": "a choo-choo is a child's word for a train"
+        },
+        {
+         "words": "perform",
+         "gives": "SING",
+         "note": "to sing is to perform"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -837,47 +738,41 @@
    },
    "solution": "WORDSMITH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "WORDSMITH",
     "definitions": [
      {
       "text": "One who's articulate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bags",
-      "for": "container",
-      "note": "to bag is to put in a bag, so 'and' encloses 'gold' and 'medal'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and",
-      "gives": "WITH",
-      "note": "with = and, as in 'fish with chips'"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "medal",
-      "gives": "DSM",
-      "note": "DSM is the Distinguished Service Medal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OR",
-      "DSM",
-      "ITH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bags",
+       "note": "to bag is to put in a bag, so 'and' encloses 'gold' and 'medal'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "and",
+       "gives": "WITH",
+       "note": "with = and, as in 'fish with chips'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "words": "medal",
+         "gives": "DSM",
+         "note": "DSM is the Distinguished Service Medal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -916,40 +811,30 @@
    },
    "solution": "DINGADONG",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DING-A-DONG",
     "definitions": [
      {
       "text": "a 24 9",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "inspires",
-      "for": "container",
-      "note": "to inspire is literally to breathe in, so 'battle' takes 'a' inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Battle",
-      "gives": "DINGDONG",
-      "note": "a ding-dong is a heated fight or argument"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DING",
-      "A",
-      "DONG"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspires",
+       "note": "to inspire is literally to breathe in, so 'battle' takes 'a' inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Battle",
+       "gives": "DINGDONG",
+       "note": "a ding-dong is a heated fight or argument"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -992,40 +877,38 @@
     "16-across"
    ],
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LA LA LAND",
     "definitions": [
      {
       "text": "Film",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not beginning",
-      "for": "deletion",
-      "note": "without its beginning, 'end' loses its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "24 9",
-      "gives": "LALALA",
-      "note": "24 9 is EUROVISION SONG"
-     },
-     {
-      "clueFragment": "end",
-      "gives": "ND",
-      "note": "end minus its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LALALA",
-      "ND"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LALALAND",
+     "indicators": [
+      {
+       "text": "not beginning",
+       "note": "without its beginning, 'end' loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "24 9",
+         "gives": "LALALA",
+         "note": "24 9 is EUROVISION SONG"
+        },
+        {
+         "words": "end",
+         "gives": "ND",
+         "note": "end minus its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1066,47 +949,41 @@
    },
    "solution": "LETTUCE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LETTUCE",
     "definitions": [
      {
       "text": "leaves",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'Conservative' sits in 'day', placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "period of occupancy",
-      "gives": "LET",
-      "note": "a let is a period of renting a property"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "TUE",
-      "note": "short for Tuesday"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C = Conservative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LET",
-      "TU",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "period of occupancy",
+       "gives": "LET",
+       "note": "a let is a period of renting a property"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'Conservative' sits in 'day', placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "gives": "TUE",
+         "note": "short for Tuesday"
+        },
+        {
+         "words": "Conservative",
+         "gives": "C",
+         "note": "C = Conservative"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1136,58 +1013,51 @@
    },
    "solution": "INTRODUCE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "INTRODUCE",
     "definitions": [
      {
       "text": "Present",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from the right",
-      "for": "reversal",
-      "note": "read from the right means read backwards, so 'party' is written in reverse"
-     },
-     {
-      "text": "broken by",
-      "for": "container",
-      "note": "a ceasefire broken by something has that thing pushed into its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "in = popular, fashionable"
-     },
-     {
-      "clueFragment": "ceasefire",
-      "gives": "TRUCE",
-      "note": "a truce is a ceasefire"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "TR",
-      "OD",
-      "UCE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DO",
-       "to": "OD"
+       "words": "popular",
+       "gives": "IN",
+       "note": "in = popular, fashionable"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "broken by",
+         "note": "a ceasefire broken by something has that thing pushed into its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ceasefire",
+         "gives": "TRUCE",
+         "note": "a truce is a ceasefire"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "from the right",
+           "note": "read from the right means read backwards, so 'party' is written in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "party",
+           "gives": "DO",
+           "note": "a do is a party"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1217,35 +1087,25 @@
    },
    "solution": "RAVENNA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAVENNA",
     "definitions": [
      {
       "text": "Italian city",
       "at": 19
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bird",
-      "gives": "RAVEN",
-      "note": "a large black crow"
-     },
-     {
-      "clueFragment": "irrelevant",
-      "gives": "NA",
-      "note": "n/a = not applicable, as on forms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAVEN",
-      "NA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "gives": "RAVEN",
+       "note": "a large black crow"
+      },
+      {
+       "words": "irrelevant",
+       "gives": "NA",
+       "note": "n/a = not applicable, as on forms"
+      }
      ]
     },
     "explanation": {
@@ -1286,47 +1146,41 @@
    },
    "solution": "IGNITE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IGNITE",
     "definitions": [
      {
       "text": "light",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "for": "container",
-      "note": "breaking into something means getting inside it, so 'good egg' gets inside 'that is'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "g = good"
-     },
-     {
-      "clueFragment": "egg",
-      "gives": "NIT",
-      "note": "a nit is a louse egg"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. = id est, that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "G",
-      "NIT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaks",
+       "note": "breaking into something means getting inside it, so 'good egg' gets inside 'that is'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. = id est, that is"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "gives": "G",
+         "note": "g = good"
+        },
+        {
+         "words": "egg",
+         "gives": "NIT",
+         "note": "a nit is a louse egg"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1356,47 +1210,40 @@
    },
    "solution": "STRAIGHT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "STRAIGHT",
     "definitions": [
      {
       "text": "hand",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "the word for 'just' holds 'a' inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Holy person",
-      "gives": "ST",
-      "note": "St = saint"
-     },
-     {
-      "clueFragment": "just",
-      "gives": "RIGHT",
-      "note": "right = just, fair"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "R",
-      "A",
-      "IGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Holy person",
+       "gives": "ST",
+       "note": "St = saint"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "the word for 'just' holds 'a' inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "just",
+         "gives": "RIGHT",
+         "note": "right = just, fair"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1426,39 +1273,31 @@
    },
    "solution": "VIKING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VIKING",
     "definitions": [
      {
       "text": "Raider",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "one thing after another means placed behind it, so 'leader' follows 'Roman figure'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roman figure in muscly pack",
-      "gives": "VI",
-      "note": "VI is six in Roman numerals, the number in a six-pack of stomach muscles"
-     },
-     {
-      "clueFragment": "leader",
-      "gives": "KING",
-      "note": "a king leads a country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VI",
-      "KING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "one thing after another means placed behind it, so 'leader' follows 'Roman figure'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roman figure in muscly pack",
+       "gives": "VI",
+       "note": "VI is six in Roman numerals, the number in a six-pack of stomach muscles"
+      },
+      {
+       "words": "leader",
+       "gives": "KING",
+       "note": "a king leads a country"
+      }
      ]
     },
     "explanation": {
@@ -1488,40 +1327,31 @@
    },
    "solution": "KENDO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "KENDO",
     "definitions": [
      {
       "text": "Martial art",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'culmination' is placed in the 'killer blow'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "killer blow",
-      "gives": "KO",
-      "note": "KO = knockout"
-     },
-     {
-      "clueFragment": "culmination",
-      "gives": "END",
-      "note": "the end is the culmination"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "END",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'culmination' is placed in the 'killer blow'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "killer blow",
+       "gives": "KO",
+       "note": "KO = knockout"
+      },
+      {
+       "words": "culmination",
+       "gives": "END",
+       "note": "the end is the culmination"
+      }
      ]
     },
     "explanation": {
@@ -1561,50 +1391,40 @@
     "19-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EUROVISION, SONG CONTEST",
     "definitions": [
      {
       "text": "annual headache for the auditor?",
       "at": 32
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Money",
-      "gives": "EURO",
-      "note": "the currency"
-     },
-     {
-      "clueFragment": "seeing",
-      "gives": "VISION",
-      "note": "vision = sight, seeing"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "SONG",
-      "note": "a number is a piece sung in a show or concert"
-     },
-     {
-      "clueFragment": "dodge",
-      "gives": "CON",
-      "note": "a con is a trick or dodge"
-     },
-     {
-      "clueFragment": "tax",
-      "gives": "TEST",
-      "note": "to tax is to strain or test"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EURO",
-      "VISION",
-      "SONG",
-      "CON",
-      "TEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Money",
+       "gives": "EURO",
+       "note": "the currency"
+      },
+      {
+       "words": "seeing",
+       "gives": "VISION",
+       "note": "vision = sight, seeing"
+      },
+      {
+       "words": "number",
+       "gives": "SONG",
+       "note": "a number is a piece sung in a show or concert"
+      },
+      {
+       "words": "dodge",
+       "gives": "CON",
+       "note": "a con is a trick or dodge"
+      },
+      {
+       "words": "tax",
+       "gives": "TEST",
+       "note": "to tax is to strain or test"
+      }
      ]
     },
     "explanation": {
@@ -1634,30 +1454,28 @@
    },
    "solution": "NEEP",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NEEP",
     "definitions": [
      {
       "text": "Swede in Scotland",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Resident in",
-      "for": "hidden_word",
-      "note": "a resident lives inside, so the answer lives inside the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irvine, eponymous",
-      "gives": "NEEP",
-      "note": "spans the end of the town and start of the adjective"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Resident in",
+       "note": "a resident lives inside, so the answer lives inside the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Irvine, eponymous",
+       "gives": "NEEP",
+       "note": "spans the end of the town and start of the adjective"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A Swedish person who lives in Irvine and gave it his name.",
      "walkthrough": "'Swede' looks like a person from Sweden, a nod to ABBA, but it is the root vegetable; Irvine is a town in Ayrshire.",
@@ -1685,54 +1503,51 @@
    },
    "solution": "EAGLET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "EAGLET",
     "definitions": [
      {
       "text": "Small raptor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so only the last letter of 'animal' is used"
-     },
-     {
-      "text": "within",
-      "for": "container",
-      "note": "within means inside, so that letter goes inside the word for 'grasp'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "each",
-      "gives": "EA",
-      "note": "ea. = each"
-     },
-     {
-      "clueFragment": "grasp",
-      "gives": "GET",
-      "note": "to get is to grasp, understand"
-     },
-     {
-      "clueFragment": "animal",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EA",
-      "G",
-      "L",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "each",
+       "gives": "EA",
+       "note": "ea. = each"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "within",
+         "note": "within means inside, so that letter goes inside the word for 'grasp'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grasp",
+         "gives": "GET",
+         "note": "to get is to grasp, understand"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally means at the end, so only the last letter of 'animal' is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "animal",
+           "note": "last letter of animal"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1761,53 +1576,50 @@
    },
    "solution": "RAGOUT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RAGOUT",
     "definitions": [
      {
       "text": "various things going to pot?",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "leader in",
-      "for": "letter_selection",
-      "note": "the leader is the one at the front, so 'general' gives its first letter"
-     },
-     {
-      "text": "defined by",
-      "for": "container",
-      "note": "a shape defined by a line is bounded by it, so the defeat encloses the other pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Waterloo",
-      "gives": "ROUT",
-      "note": "Waterloo means a crushing defeat, a rout"
-     },
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "general",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of general"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "A",
-      "G",
-      "OUT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "defined by",
+       "note": "a shape defined by a line is bounded by it, so the defeat encloses the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Waterloo",
+         "gives": "ROUT",
+         "note": "Waterloo means a crushing defeat, a rout"
+        },
+        {
+         "words": "A",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "note": "the leader is the one at the front, so 'general' gives its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "general",
+         "note": "first letter of general"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "genius-250",
  "number": 250,
- "series": "genius",
- "name": "Guardian genius crossword No 250",
  "setter": "Soup",
  "date": "2024-04-01",
  "preamble": "Normal (presented in alphabetical order of corresponding entries) Twelve clues are normal; their solutions should each have a pair of letters inserted before entry into the grid wherever they will fit. (There are four pairs of letters, each inserted into three answers, always resulting in real words.) In the remaining sixteen clues, the wordplay omits one letter from the solution. When these sixteen omissions are added, the logic behind the pairs of inserted letters will become apparent.",
@@ -52,10 +50,6 @@
     ]
    },
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HANDLE",
     "definitions": [
      {
       "text": "or of body",
@@ -63,21 +57,23 @@
       "note": "read as 'sound of body', with the opening word doing double duty"
      }
     ],
-    "indicators": [
-     {
-      "text": "Sound of",
-      "for": "homophone",
-      "note": "the sound of a word is how it is spoken, so a word pronounced the same is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shower",
-      "gives": "HALE",
-      "soundsLike": "HAIL",
-      "note": "a shower of hail pellets; the weather word is said, then respelt"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HALE",
+     "indicators": [
+      {
+       "text": "Sound of",
+       "note": "the sound of a word is how it is spoken, so a word pronounced the same is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shower",
+       "gives": "HAIL",
+       "note": "a shower of hail pellets; the weather word is said, then respelt"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cry of delight at the noise of a shower, or of one's own body.",
      "walkthrough": "'Sound' works twice: it signals the sound-alike and also means healthy, so 'sound of body' defines it. The pair ND is then inserted, as the preamble requires, giving HANDLE in the grid.",
@@ -105,39 +101,33 @@
    },
    "solution": "STEALTHY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STEALTHY",
     "definitions": [
      {
       "text": "avoiding detection",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "things moved about are scattered round, so the letters before it are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "They sat",
-      "gives": "THEYSAT",
-      "note": "the seven letters to be rearranged"
-     },
-     {
-      "gives": "L",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THEYSATL",
-       "gives": "STEALTHY"
+       "text": "about",
+       "note": "things moved about are scattered round, so the letters before it are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "They sat",
+         "note": "the seven letters to be rearranged"
+        },
+        {
+         "gives": "L",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
       }
      ]
     },
@@ -167,11 +157,6 @@
    },
    "solution": "ESSEX",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ESSEX",
     "definitions": [
      {
       "text": "…",
@@ -179,37 +164,36 @@
       "note": "the next item in the list: another county of England's South East"
      }
     ],
-    "indicators": [
-     {
-      "text": "Travelling up and down",
-      "for": "reversal",
-      "note": "in a down answer, going up reads the letters backwards before going down reads them forwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East Sussex",
-      "gives": "ES",
-      "note": "East Sussex lies in England's South East, SE, here read going up"
-     },
-     {
-      "clueFragment": "Kent",
-      "gives": "SE",
-      "note": "Kent is also in the South East, SE, here read coming down"
-     },
-     {
-      "gives": "X",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "SE",
-      "X"
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ESSEX",
+     "indicators": [
+      {
+       "text": "Travelling up and down",
+       "note": "in a down answer, going up reads the letters backwards before going down reads them forwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East Sussex",
+         "gives": "ES",
+         "note": "East Sussex lies in England's South East, SE, here read going up"
+        },
+        {
+         "words": "Kent",
+         "gives": "SE",
+         "note": "Kent is also in the South East, SE, here read coming down"
+        },
+        {
+         "gives": "X",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -244,53 +228,48 @@
    },
    "solution": "OFFSPIN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OFF-SPIN",
     "definitions": [
      {
       "text": "Style of delivery",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letter of each of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not working",
-      "gives": "OFF",
-      "note": "a machine that is off is not working"
-     },
-     {
-      "clueFragment": "so PowerPoint's",
-      "gives": "SP",
-      "select": "first",
-      "note": "the opening letters of these two words"
-     },
-     {
-      "gives": "I",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "needed",
-      "gives": "N",
-      "select": "first",
-      "note": "the opening letter of needed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "SP",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not working",
+       "gives": "OFF",
+       "note": "a machine that is off is not working"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first points to the opening letter of each of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "so PowerPoint's",
+         "note": "the opening letters of these two words"
+        }
+       ]
+      },
+      {
+       "gives": "I",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "needed",
+         "note": "the opening letter of needed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -328,47 +307,38 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CAUSATION",
     "definitions": [
      {
       "text": "warning",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Heading away from",
-      "for": "deletion",
-      "note": "the heading of a word is its opening letter, and that goes away"
-     },
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "something criminal is crooked, so the remaining letters are bent into a new order"
-     }
-    ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quantico",
-      "gives": "QUANTICO",
-      "note": "Quantico in Virginia is home to the FBI Academy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAUTION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UANTICO",
-       "gives": "CAUTION"
+       "text": "criminal",
+       "note": "something criminal is crooked, so the remaining letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heading away from",
+         "note": "the heading of a word is its opening letter, and that goes away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Quantico",
+         "note": "Quantico in Virginia is home to the FBI Academy"
+        },
+        {
+         "gives": "Q"
+        }
+       ]
       }
      ]
     },
@@ -406,42 +376,30 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FOULED",
     "definitions": [
      {
       "text": "Split",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "retired",
-      "for": "deletion",
-      "note": "something retired has withdrawn and left, so it is taken out"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smoothed over",
-      "gives": "FILED",
-      "note": "a rough surface filed over has been smoothed"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "LED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "retired",
+       "note": "something retired has withdrawn and left, so it is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smoothed over",
+       "gives": "FILED",
+       "note": "a rough surface filed over has been smoothed"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -470,59 +428,50 @@
    },
    "solution": "GRATINEE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "GRATINEE",
     "definitions": [
      {
       "text": "with a topping of melted cheese?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, going up reads a word from bottom to top, so backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "Used"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jar",
-      "gives": "GRATE",
-      "note": "to grate is to jar, as a noise grates on the ears"
-     },
-     {
-      "clueFragment": "space",
-      "gives": "EN",
-      "note": "an en is a printer's space, half an em wide"
-     },
-     {
-      "gives": "I",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAT",
-      "I",
-      "NE",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EN",
-       "to": "NE"
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "jar",
+         "gives": "GRATE",
+         "note": "to grate is to jar, as a noise grates on the ears"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "note": "in a down answer, going up reads a word from bottom to top, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "space",
+           "gives": "EN",
+           "note": "an en is a printer's space, half an em wide"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "I",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
       }
      ]
     },
@@ -560,41 +509,39 @@
     ]
    },
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EARTHS",
     "definitions": [
      {
       "text": "Lugs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "letter_selection",
-      "note": "what lies around a word is its outside, so each word keeps only its ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra",
-      "gives": "EA",
-      "select": "outer",
-      "note": "the outside letters of extra"
-     },
-     {
-      "clueFragment": "resources",
-      "gives": "RS",
-      "select": "outer",
-      "note": "the outside letters of resources"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EA",
-      "RS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "what lies around a word is its outside, so each word keeps only its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra",
+         "note": "the outside letters of extra"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "resources",
+         "note": "the outside letters of resources"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -623,56 +570,56 @@
    },
    "solution": "FLAVOURS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FLAVOURS",
     "definitions": [
      {
       "text": "Gives hints to",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "÷",
-      "for": "container",
-      "note": "a division sign means one thing is split by another, so the second goes inside the first"
-     },
-     {
-      "text": "cracking",
-      "for": "container",
-      "note": "something cracking another breaks into it and sits inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "44",
-      "gives": "FOURS",
-      "note": "44 is read as two fours"
-     },
-     {
-      "clueFragment": "50",
-      "gives": "L",
-      "note": "L is the Roman numeral for 50"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A is the abbreviation for answer"
-     },
-     {
-      "gives": "V",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "L",
-      "A",
-      "V",
-      "OURS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "÷",
+       "note": "a division sign means one thing is split by another, so the second goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cracking",
+         "note": "something cracking another breaks into it and sits inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "44",
+           "gives": "FOURS",
+           "note": "44 is read as two fours"
+          },
+          {
+           "words": "50",
+           "gives": "L",
+           "note": "L is the Roman numeral for 50"
+          }
+         ]
+        },
+        {
+         "words": "answer",
+         "gives": "A",
+         "note": "A is the abbreviation for answer"
+        }
+       ]
+      },
+      {
+       "gives": "V",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      }
      ]
     },
     "explanation": {
@@ -701,10 +648,6 @@
    },
    "solution": "IDEALESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IDEALESS",
     "definitions": [
      {
       "text": "a lack of planning",
@@ -712,32 +655,27 @@
       "note": "a noun phrase for an adjective: read 'showing a lack of planning'"
      }
     ],
-    "indicators": [
-     {
-      "text": "trips",
-      "for": "anagram",
-      "note": "a word that trips stumbles and falls in a muddle, so its letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seaside",
-      "gives": "SEASIDE",
-      "note": "the seven letters to be rearranged"
-     },
-     {
-      "gives": "L",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEASIDEL",
-       "gives": "IDEALESS"
+       "text": "trips",
+       "note": "a word that trips stumbles and falls in a muddle, so its letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Seaside",
+         "note": "the seven letters to be rearranged"
+        },
+        {
+         "gives": "L",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
       }
      ]
     },
@@ -775,31 +713,29 @@
     ]
    },
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SALUTE",
     "definitions": [
      {
       "text": "that could sound music to my ears",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "call",
-      "for": "homophone",
-      "note": "a call is something spoken out, so the word is wanted by its pronunciation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Booty",
-      "gives": "LUTE",
-      "soundsLike": "LOOT",
-      "note": "loot is plunder or booty; the word is spoken, then respelt"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LUTE",
+     "indicators": [
+      {
+       "text": "call",
+       "note": "a call is something spoken out, so the word is wanted by its pronunciation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Booty",
+       "gives": "LOOT",
+       "note": "loot is plunder or booty; the word is spoken, then respelt"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A late-night proposition that might be welcome news to the listener.",
      "walkthrough": "'Booty call' reads as a slang phrase, but booty is plunder and call signals the sound-alike. The pair SA is then inserted, giving SALUTE in the grid.",
@@ -835,33 +771,27 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TEETH",
     "definitions": [
      {
       "text": "peg",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "Sanded",
-      "for": "deletion",
-      "note": "sanding wears away the edges, so the word loses its outside letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "steel",
-      "gives": "STEEL",
-      "note": "taken as written before its ends are worn off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TEE",
+     "indicators": [
+      {
+       "text": "Sanded",
+       "note": "sanding wears away the edges, so the word loses its outside letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "steel",
+       "note": "taken as written before its ends are worn off"
+      }
      ]
     },
     "explanation": {
@@ -890,55 +820,44 @@
    },
    "solution": "HISTIDINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HISTIDINE",
     "definitions": [
      {
       "text": "essential supplement",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "first to",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter, so only that is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The boy's",
-      "gives": "HIS",
-      "note": "the possessive of he"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of try"
-     },
-     {
-      "gives": "I",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "eat",
-      "gives": "DINE",
-      "note": "to dine is to eat a meal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIS",
-      "T",
-      "I",
-      "DINE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The boy's",
+       "gives": "HIS",
+       "note": "the possessive of he"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "note": "the first of a word is its opening letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "try",
+         "note": "the opening letter of try"
+        }
+       ]
+      },
+      {
+       "gives": "I",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      },
+      {
+       "words": "eat",
+       "gives": "DINE",
+       "note": "to dine is to eat a meal"
+      }
      ]
     },
     "explanation": {
@@ -967,53 +886,47 @@
    },
    "solution": "HARBINGER",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "HARBINGER",
     "definitions": [
      {
       "text": "warning",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "ignoring",
-      "for": "deletion",
-      "note": "to ignore something is to leave it out"
-     },
-     {
-      "text": "grimly",
-      "for": "anagram",
-      "note": "grimly suggests a mangled, distorted form, so the letters are reshaped"
-     }
-    ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bushranger",
-      "gives": "BUSHRANGER",
-      "note": "an Australian outlaw of the bush"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written, to be removed"
-     },
-     {
-      "gives": "I",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HARBINGER",
+     "indicators": [
       {
-       "fodder": "BHRANGERI",
-       "gives": "HARBINGER"
+       "text": "grimly",
+       "note": "grimly suggests a mangled, distorted form, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HARBINGER",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "note": "to ignore something is to leave it out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bushranger",
+         "note": "an Australian outlaw of the bush"
+        },
+        {
+         "words": "us",
+         "note": "taken as written, to be removed"
+        },
+        {
+         "gives": "I",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
       }
      ]
     },
@@ -1049,60 +962,55 @@
    },
    "solution": "LADYDAY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LADY DAY",
     "definitions": [
      {
       "text": "25 March",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something in another sits between its letters"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "gives": "L",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "Notice",
-      "gives": "AD",
-      "note": "an ad is a notice in a paper"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D is the abbreviation for Democrat"
-     },
-     {
-      "clueFragment": "advanced",
-      "gives": "A",
-      "note": "A is the abbreviation for advanced"
-     },
-     {
-      "clueFragment": "years",
-      "gives": "YY",
-      "note": "Y is the abbreviation for year, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AD",
-      "Y",
-      "DA",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "L",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      },
+      {
+       "words": "Notice",
+       "gives": "AD",
+       "note": "an ad is a notice in a paper"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "something in another sits between its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "years",
+         "gives": "YY",
+         "note": "Y is the abbreviation for year, doubled for the plural"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Democrat",
+           "gives": "D",
+           "note": "D is the abbreviation for Democrat"
+          },
+          {
+           "words": "advanced",
+           "gives": "A",
+           "note": "A is the abbreviation for advanced"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1131,42 +1039,32 @@
    },
    "solution": "ATHLETIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ATHLETIC",
     "definitions": [
      {
       "text": "strong",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Start off",
-      "for": "deletion",
-      "note": "the start of a word is its opening letter, and off means it is removed"
-     }
-    ],
-    "linkWords": [
-     "becoming"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pitiable",
-      "gives": "PATHETIC",
-      "note": "pathetic means arousing pity"
-     },
-     {
-      "gives": "L",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATH",
-      "L",
-      "ETIC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ATHLETIC",
+     "indicators": [
+      {
+       "text": "Start off",
+       "note": "the start of a word is its opening letter, and off means it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pitiable",
+       "gives": "PATHETIC",
+       "note": "pathetic means arousing pity"
+      },
+      {
+       "gives": "L",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      }
      ]
     },
     "explanation": {
@@ -1203,46 +1101,41 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "COURIER",
     "definitions": [
      {
       "text": "One announces",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "adopted",
-      "for": "container",
-      "note": "something adopted is taken in, so it goes inside the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "credit",
-      "gives": "CR",
-      "note": "CR is the accounting abbreviation for credit"
-     },
-     {
-      "clueFragment": "rule",
-      "gives": "R",
-      "note": "R is the abbreviation for rule"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. abbreviates id est, Latin for that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CR",
-      "IE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted",
+       "note": "something adopted is taken in, so it goes inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "credit",
+       "gives": "CR",
+       "note": "CR is the accounting abbreviation for credit"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rule",
+         "gives": "R",
+         "note": "R is the abbreviation for rule"
+        },
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. abbreviates id est, Latin for that is"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1271,56 +1164,48 @@
    },
    "solution": "REVERTED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "REVERTED",
     "definitions": [
      {
       "text": "Went back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being hacked",
-      "for": "anagram",
-      "note": "something hacked about is chopped and broken up, so its letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on or concerning"
-     },
-     {
-      "gives": "V",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "TREE",
-      "note": "the letters to be rearranged"
-     },
-     {
-      "clueFragment": "down",
-      "gives": "D",
-      "note": "D is the abbreviation for down"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "V",
-      "ERTE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TREE",
-       "gives": "ERTE"
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "being hacked",
+         "note": "something hacked about is chopped and broken up, so its letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "gives": "V",
+           "note": "the letter the wordplay leaves out, supplied as the preamble says"
+          },
+          {
+           "words": "tree",
+           "note": "the letters to be rearranged"
+          },
+          {
+           "words": "down",
+           "gives": "D",
+           "note": "D is the abbreviation for down"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1350,42 +1235,33 @@
    },
    "solution": "INTRUDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTRUDE",
     "definitions": [
      {
       "text": "be unwelcome",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "turned out suggests letters thrown into disorder, so the word is rearranged"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turned",
-      "gives": "TURNED",
-      "note": "the six letters to be rearranged"
-     },
-     {
-      "gives": "I",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TURNEDI",
-       "gives": "INTRUDE"
+       "text": "out",
+       "note": "turned out suggests letters thrown into disorder, so the word is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Turned",
+         "note": "the six letters to be rearranged"
+        },
+        {
+         "gives": "I",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
       }
      ]
     },
@@ -1423,40 +1299,31 @@
     ]
    },
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THROBBING",
     "definitions": [
      {
       "text": "Sacking",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbed in",
-      "for": "container",
-      "note": "something absorbed in another is taken inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "putting cassock on",
-      "gives": "ROBING",
-      "note": "a cassock is a robe, and putting a robe on is robing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROB",
-      "B",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbed in",
+       "note": "something absorbed in another is taken inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "putting cassock on",
+       "gives": "ROBING",
+       "note": "a cassock is a robe, and putting a robe on is robing"
+      },
+      {
+       "words": "bishop",
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
      ]
     },
     "explanation": {
@@ -1494,28 +1361,16 @@
     ]
    },
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OUTWIT",
     "definitions": [
      {
       "text": "Taunt",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to tease or mock"
      },
      {
       "text": "fool",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taunt",
-      "note": "first meaning: to tease or mock"
-     },
-     {
-      "clueFragment": "fool",
-      "note": "second meaning: a silly person"
+      "at": 6,
+      "meaning": "second meaning: a silly person"
      }
     ],
     "explanation": {
@@ -1544,49 +1399,38 @@
    },
    "solution": "AVAST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AVAST",
     "definitions": [
      {
       "text": "Stop",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the first of the two copies of a"
-     },
-     {
-      "gives": "V",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "twice",
-      "gives": "A",
-      "note": "twice calls for the letter a a second time"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "V",
-      "A",
-      "S",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "the first of the two copies of a"
+      },
+      {
+       "gives": "V",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      },
+      {
+       "words": "twice",
+       "gives": "A",
+       "note": "twice calls for the letter a a second time"
+      },
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1623,48 +1467,34 @@
     ]
    },
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SANEST",
     "definitions": [
      {
       "text": "Set",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "design of",
-      "for": "anagram",
-      "note": "a new design reshapes something, so the letters are laid out in another order"
-     }
-    ],
-    "linkWords": [
-     "within"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SET",
-       "gives": "EST"
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "design of",
+         "note": "a new design reshapes something, so the letters are laid out in another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1694,48 +1524,38 @@
    },
    "solution": "AVIAN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AVIAN",
     "definitions": [
      {
       "text": "of birds",
       "at": 20
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sloth",
-      "gives": "AI",
-      "note": "the ai is the three-toed sloth"
-     },
-     {
-      "gives": "V",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "number",
-      "gives": "N",
-      "note": "N is the abbreviation for number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "V",
-      "I",
-      "A",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Sloth",
+         "gives": "AI",
+         "note": "the ai is the three-toed sloth"
+        },
+        {
+         "gives": "V",
+         "note": "the letter the wordplay leaves out, supplied as the preamble says"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "number",
+       "gives": "N",
+       "note": "N is the abbreviation for number"
+      }
      ]
     },
     "explanation": {
@@ -1764,32 +1584,24 @@
    },
    "solution": "SEXTON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEXTON",
     "definitions": [
      {
       "text": "church official",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Attack",
-      "gives": "SETON",
-      "note": "to set on someone is to attack them"
-     },
-     {
-      "gives": "X",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "X",
-      "TON"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "words": "Attack",
+       "gives": "SETON",
+       "note": "to set on someone is to attack them"
+      },
+      {
+       "gives": "X",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      }
      ]
     },
     "explanation": {
@@ -1826,33 +1638,28 @@
     ]
    },
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "REVEREND",
     "definitions": [
      {
       "text": "praise",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "receives",
-      "for": "deletion",
-      "note": "the phrase only receives the wanted word, holding it inside, so its outer letters are discarded"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "For ever and ever",
-      "gives": "FOREVEREVER",
-      "note": "read as 'for ever' joined to 'ever', with and as the join"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REVERE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "REVERE",
+     "indicators": [
+      {
+       "text": "receives",
+       "note": "the phrase only receives the wanted word, holding it inside, so its outer letters are discarded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "For ever and ever",
+       "gives": "FOREVEREVER",
+       "note": "read as 'for ever' joined to 'ever', with and as the join"
+      }
      ]
     },
     "explanation": {
@@ -1889,40 +1696,30 @@
     ]
    },
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIVIDEND",
     "definitions": [
      {
       "text": "Branch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "container",
-      "note": "one thing over another covers it, so it wraps around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretend to trip",
-      "gives": "DIVE",
-      "note": "in football a dive is a faked fall"
-     },
-     {
-      "clueFragment": "I'd",
-      "gives": "ID",
-      "note": "the contraction without its apostrophe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIV",
-      "ID",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "one thing over another covers it, so it wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pretend to trip",
+       "gives": "DIVE",
+       "note": "in football a dive is a faked fall"
+      },
+      {
+       "words": "I'd",
+       "note": "the contraction without its apostrophe"
+      }
      ]
     },
     "explanation": {
@@ -1951,40 +1748,41 @@
    },
    "solution": "AVERSE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "AVERSE",
     "definitions": [
      {
       "text": "Reluctant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from time to time",
-      "for": "letter_selection",
-      "note": "something done from time to time happens at intervals, so only every other letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "make crosses",
-      "gives": "AERSE",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     },
-     {
-      "gives": "V",
-      "note": "the letter the wordplay leaves out, supplied as the preamble says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "V",
-      "ERSE"
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "AVERSE",
+     "indicators": [
+      {
+       "text": "from time to time",
+       "note": "something done from time to time happens at intervals, so only every other letter is kept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "AERSE",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "make crosses",
+         "gives": "AERSE",
+         "select": "alternate",
+         "note": "the second, fourth, sixth, eighth and tenth letters"
+        }
+       ]
+      },
+      {
+       "gives": "V",
+       "note": "the letter the wordplay leaves out, supplied as the preamble says"
+      }
      ]
     },
     "explanation": {

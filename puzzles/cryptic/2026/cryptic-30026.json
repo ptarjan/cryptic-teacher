@@ -1,8 +1,7 @@
 {
  "id": "cryptic-30026",
  "number": 30026,
- "series": "cryptic",
- "name": "Prize crossword No 30,026",
+ "prize": true,
  "setter": "Vlad",
  "date": "2026-06-06",
  "dimensions": {
@@ -48,53 +47,38 @@
    },
    "solution": "OUTOFSIGHT",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade",
-     "anagram"
-    ],
-    "answer": "OUT OF SIGHT",
     "definitions": [
      {
       "text": "Revealed by this fog breaking up? Hardly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking up",
-      "for": "anagram",
-      "note": "Fog breaking up is fog coming apart into scattered patches, and letters told to come apart land in a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Revealed",
-      "gives": "OUT",
-      "note": "a secret that has been revealed is out"
-     },
-     {
-      "clueFragment": "this fog",
-      "gives": "THISFOG",
-      "note": "seven letters of fodder, taken as they stand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "OFSIGHT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OUT THIS FOG",
-       "gives": "OUTOFSIGHT"
+       "words": "Revealed",
+       "gives": "OUT",
+       "note": "a secret that has been revealed is out"
       },
       {
-       "fodder": "THIS FOG",
-       "gives": "OFSIGHT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking up",
+         "note": "Fog breaking up is fog coming apart into scattered patches, and letters told to come apart land in a new order."
+        }
+       ],
+       "parts": [
+        {
+         "words": "this fog",
+         "note": "seven letters of fodder, taken as they stand"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Fog thinning over a landscape, and the question of whether it has shown you anything yet.",
      "walkthrough": "Every word works twice: the sentence asks whether the lifting fog has revealed anything and answers its own question, while the same words hand over OUT and seven letters to reorder.",
@@ -116,55 +100,53 @@
    },
    "solution": "KASPAROV",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "KASPAROV",
     "definitions": [
      {
       "text": "Master on board",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "note": "Something climbing a down entry is written from the bottom upwards, so the wood named here goes into the grid back to front."
-     },
-     {
-      "text": "stops",
-      "note": "To stop a hole is to plug it, so the piece named next is driven into the middle of what is already there."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wooden",
-      "gives": "KAO",
-      "note": "oak is the wood, and it climbs the entry rather than descending it"
-     },
-     {
-      "clueFragment": "mast",
-      "gives": "SPAR",
-      "note": "a spar is the pole a sail is set on"
-     },
-     {
-      "clueFragment": "playing",
-      "gives": "V",
-      "note": "v for versus, the way a fixture list writes two sides playing each other"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KA",
-      "SPAR",
-      "O",
-      "V"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "KASPAROV",
+     "parts": [
       {
-       "from": "OAK",
-       "to": "KAO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "Something climbing a down entry is written from the bottom upwards, so the wood named here goes into the grid back to front."
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "stops",
+           "note": "To stop a hole is to plug it, so the piece named next is driven into the middle of what is already there."
+          }
+         ],
+         "parts": [
+          {
+           "words": "wooden",
+           "gives": "KAO",
+           "note": "oak is the wood, and it climbs the entry rather than descending it"
+          },
+          {
+           "words": "mast",
+           "gives": "SPAR",
+           "note": "a spar is the pole a sail is set on"
+          }
+         ]
+        },
+        {
+         "words": "playing",
+         "gives": "V",
+         "note": "v for versus, the way a fixture list writes two sides playing each other"
+        }
+       ]
       }
      ]
     },
@@ -189,44 +171,35 @@
    },
    "solution": "ADOPTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ADOPTS",
     "definitions": [
      {
       "text": "Assumes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "Anything done regularly happens at a fixed interval, so letters are taken at every second position instead of all of them."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trouble",
-      "gives": "ADO",
-      "note": "much ado about nothing: ado is fuss and trouble"
-     },
-     {
-      "clueFragment": "Potus",
-      "gives": "PTS",
-      "select": "alternate",
-      "note": "the first, third and fifth letters, counted off in twos"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADO",
-      "PTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trouble",
+       "gives": "ADO",
+       "note": "much ado about nothing: ado is fuss and trouble"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "Anything done regularly happens at a fixed interval, so letters are taken at every second position instead of all of them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Potus",
+         "note": "the first, third and fifth letters, counted off in twos"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -250,32 +223,25 @@
    },
    "solution": "BOOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOOR",
     "definitions": [
      {
       "text": "lout",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I don't like that",
-      "gives": "BOO",
-      "note": "the noise a crowd makes when it does not like what it is watching"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the standard abbreviation for a Republican in American politics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I don't like that",
+       "gives": "BOO",
+       "note": "the noise a crowd makes when it does not like what it is watching"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R is the standard abbreviation for a Republican in American politics"
+      }
      ]
     },
     "explanation": {
@@ -305,49 +271,43 @@
    },
    "solution": "INEXTREMIS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "IN EXTREMIS",
     "definitions": [
      {
       "text": "dying",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "A word given almost in full stops one letter short, so the word just before it arrives without its last letter."
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "following",
-      "gives": "NEXT",
-      "note": "the following item is the next one"
-     },
-     {
-      "clueFragment": "careless",
-      "gives": "REMIS",
-      "note": "careless work is remiss, here one letter short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NEXT",
-      "REMIS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INEXTREMIS",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "A word given almost in full stops one letter short, so the word just before it arrives without its last letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "following",
+         "gives": "NEXT",
+         "note": "the following item is the next one"
+        },
+        {
+         "words": "careless",
+         "gives": "REMIS",
+         "note": "careless work is remiss, here one letter short"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -377,48 +337,50 @@
    },
    "solution": "BRANDNEW",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BRAND-NEW",
     "definitions": [
      {
       "text": "Mint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "added",
-      "for": "letter_selection",
-      "note": "What is added to a brew goes down into it, so these letters are dropped inside the word rather than tacked on the end."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tea",
-      "gives": "BREW",
-      "note": "a brew is a pot of tea, and it opens up to take the rest"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and does the same joining job as with"
-     },
-     {
-      "clueFragment": "a touch of nutmeg",
-      "gives": "N",
-      "select": "first",
-      "note": "a touch of a word is the first letter of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "AND",
-      "N",
-      "EW"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "tea",
+         "gives": "BREW",
+         "note": "a brew is a pot of tea, and it opens up to take the rest"
+        },
+        {
+         "words": "with",
+         "gives": "AND",
+         "note": "and does the same joining job as with"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "N",
+       "indicators": [
+        {
+         "text": "added",
+         "note": "What is added to a brew goes down into it, so these letters are dropped inside the word rather than tacked on the end."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "a touch of nutmeg",
+         "gives": "N",
+         "select": "first",
+         "note": "a touch of a word is the first letter of it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -442,47 +404,40 @@
    },
    "solution": "HIPPOS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HIPPOS",
     "definitions": [
      {
       "text": "'Animals'",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "A word only beginning is a word not finished, so nothing but its opening letter is taken."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "HIP",
-      "note": "what is in is what is hip — fashionable"
-     },
-     {
-      "clueFragment": "Post Office",
-      "gives": "PO",
-      "select": "first",
-      "note": "PO is the abbreviation on every British high street"
-     },
-     {
-      "clueFragment": "sweat",
-      "gives": "S",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIP",
-      "PO",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "gives": "HIP",
+       "note": "what is in is what is hip — fashionable"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "A word only beginning is a word not finished, so nothing but its opening letter is taken."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Post Office",
+         "note": "PO is the abbreviation on every British high street"
+        }
+       ]
+      },
+      {
+       "words": "sweat",
+       "gives": "S",
+       "note": "the opening letter of the word"
+      }
      ]
     },
     "explanation": {
@@ -506,36 +461,29 @@
    },
    "solution": "NOUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NOUS",
     "definitions": [
      {
       "text": "Sense",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "largely",
-      "for": "deletion",
-      "note": "Largely means for the most part and not the whole of it, so the phrase gives up its final letter."
-     }
-    ],
-    "linkWords": [
-     "it could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pointless",
-      "gives": "NOUSE",
-      "note": "something pointless is no use, written as two words run together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "largely",
+       "note": "Largely means for the most part and not the whole of it, so the phrase gives up its final letter."
+      }
+     ],
+     "parts": [
+      {
+       "words": "pointless",
+       "gives": "NOUSE",
+       "note": "something pointless is no use, written as two words run together"
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -569,43 +517,34 @@
    },
    "solution": "UPANDDOWN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UP-AND-DOWN",
     "definitions": [
      {
       "text": "Not on the level?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tricked",
-      "for": "anagram",
-      "note": "Someone tricked has been turned about by another hand, and these letters likewise end up in an arrangement nobody put them in."
-     }
-    ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dunno, Paw",
-      "gives": "DUNNOPAW",
-      "note": "eight letters of fodder, taken as they stand"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "the Roman numeral for five hundred, joined to the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DUNNO PAW D",
-       "gives": "UPANDDOWN"
+       "text": "tricked",
+       "note": "Someone tricked has been turned about by another hand, and these letters likewise end up in an arrangement nobody put them in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dunno, Paw",
+         "note": "eight letters of fodder, taken as they stand"
+        },
+        {
+         "words": "500",
+         "gives": "D",
+         "note": "the Roman numeral for five hundred, joined to the fodder"
+        }
+       ]
       }
      ]
     },
@@ -630,47 +569,35 @@
    },
    "solution": "RHINO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RHINO",
     "definitions": [
      {
       "text": "Neighbour of 7",
       "at": 0
      }
     ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is right, as on a map or in a stage direction"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "H",
-      "note": "H marks the home team in a printed fixture list"
-     },
-     {
-      "clueFragment": "wearing",
-      "gives": "IN",
-      "note": "whatever everyone is wearing this season is what is in"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "the letter shaped like a zero stands for nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "H",
-      "IN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is right, as on a map or in a stage direction"
+      },
+      {
+       "words": "home",
+       "gives": "H",
+       "note": "H marks the home team in a printed fixture list"
+      },
+      {
+       "words": "wearing",
+       "gives": "IN",
+       "note": "whatever everyone is wearing this season is what is in"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "the letter shaped like a zero stands for nothing"
+      }
      ]
     },
     "explanation": {
@@ -700,30 +627,16 @@
    },
    "solution": "ONPAPER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON PAPER",
     "definitions": [
      {
       "text": "How many like to solve crosswords",
-      "at": 0
+      "at": 0,
+      "meaning": "with a pen and the printed grid, rather than on a screen"
      },
      {
       "text": "in theory",
-      "at": 34
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "How many like to solve crosswords",
-      "gives": "ONPAPER",
-      "note": "with a pen and the printed grid, rather than on a screen"
-     },
-     {
-      "clueFragment": "in theory",
-      "gives": "ONPAPER",
-      "note": "how a plan looks before anybody tries to carry it out"
+      "at": 34,
+      "meaning": "how a plan looks before anybody tries to carry it out"
      }
     ],
     "explanation": {
@@ -747,54 +660,53 @@
    },
    "solution": "XENOPUS",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "XENOPUS",
     "definitions": [
      {
       "text": "frog genus",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "When reviewing",
-      "note": "Reviewing is looking back over something, so the piece it introduces is read from its end to its start."
-     },
-     {
-      "text": "about",
-      "note": "About means round, so the letter it governs is wrapped by the pieces either side of it instead of being parked at one end."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I used to love her",
-      "gives": "XE",
-      "note": "the woman you used to love is your ex, taken backwards"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the standard abbreviation for new"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OPUS",
-      "note": "an opus is a composer's or a writer's work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "XE",
-      "N",
-      "OPUS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "XENOPUS",
+     "parts": [
       {
-       "from": "EX",
-       "to": "XE"
+       "op": "container",
+       "unchecked": true,
+       "gives": "XENOPUS",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "When reviewing",
+           "note": "Reviewing is looking back over something, so the piece it introduces is read from its end to its start."
+          },
+          {
+           "text": "about",
+           "note": "About means round, so the letter it governs is wrapped by the pieces either side of it instead of being parked at one end."
+          }
+         ],
+         "parts": [
+          {
+           "words": "I used to love her",
+           "gives": "XE",
+           "note": "the woman you used to love is your ex, taken backwards"
+          },
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "N is the standard abbreviation for new"
+          },
+          {
+           "words": "work",
+           "gives": "OPUS",
+           "note": "an opus is a composer's or a writer's work"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -819,26 +731,25 @@
    },
    "solution": "SERFS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SERFS",
     "definitions": [
      {
       "text": "They're not free to work",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They're not free",
-      "note": "The surface pushes 'free' towards costing nothing: labour somebody would have to be paid for, rather than labour anyone is at liberty to withhold."
-     },
-     {
-      "clueFragment": "to work",
-      "note": "The setter's sense. These are people with no say over whether they work, for whom, or on whose land — the freedom in question is legal, not financial."
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They're not free",
+       "note": "The surface pushes 'free' towards costing nothing: labour somebody would have to be paid for, rather than labour anyone is at liberty to withhold."
+      },
+      {
+       "words": "to work",
+       "note": "The setter's sense. These are people with no say over whether they work, for whom, or on whose land — the freedom in question is legal, not financial."
+      }
+     ]
+    },
     "explanation": {
      "surface": "Workers who will not do the job for nothing.",
      "walkthrough": "There is no wordplay to unpick: the whole clue is one description, and the solve is spotting that 'free' means at liberty rather than unpaid, so the sentence is describing a legal status.",
@@ -866,35 +777,24 @@
    },
    "solution": "BERINGSEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BERING SEA",
     "definitions": [
      {
       "text": "N Pacific location",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Breeding",
-      "for": "anagram",
-      "note": "Breeding throws two sets of characteristics together into a new one, so what comes out of it is made of the same material in a different combination."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grebes in a",
-      "gives": "GREBESINA",
-      "note": "nine letters of fodder, taken as they stand"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GREBES IN A",
-       "gives": "BERINGSEA"
+       "text": "Breeding",
+       "note": "Breeding throws two sets of characteristics together into a new one, so what comes out of it is made of the same material in a different combination."
+      }
+     ],
+     "parts": [
+      {
+       "words": "grebes in a",
+       "note": "nine letters of fodder, taken as they stand"
       }
      ]
     },
@@ -925,53 +825,46 @@
    },
    "solution": "BASKETCASE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BASKET CASE",
     "definitions": [
      {
       "text": "not a reliable type",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "In is the plainest container instruction there is: everything named before it goes inside the word that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed",
-      "gives": "BASE",
-      "note": "a bed is the base a thing rests on — a bed of concrete, a bed of gravel"
-     },
-     {
-      "clueFragment": "Like",
-      "gives": "AS",
-      "note": "as does the same job as like in a comparison"
-     },
-     {
-      "clueFragment": "Kelvin",
-      "gives": "K",
-      "note": "K is the kelvin, the SI unit of temperature"
-     },
-     {
-      "clueFragment": "and the others",
-      "gives": "ETC",
-      "note": "etc is short for et cetera, Latin for and the rest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "AS",
-      "K",
-      "ETC",
-      "ASE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "In is the plainest container instruction there is: everything named before it goes inside the word that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "gives": "BASE",
+       "note": "a bed is the base a thing rests on — a bed of concrete, a bed of gravel"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Like",
+         "gives": "AS",
+         "note": "as does the same job as like in a comparison"
+        },
+        {
+         "words": "Kelvin",
+         "gives": "K",
+         "note": "K is the kelvin, the SI unit of temperature"
+        },
+        {
+         "words": "and the others",
+         "gives": "ETC",
+         "note": "etc is short for et cetera, Latin for and the rest"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1005,30 +898,16 @@
    },
    "solution": "ANYOLDIRON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ANY OLD IRON",
     "definitions": [
      {
       "text": "Scrap",
-      "at": 0
+      "at": 0,
+      "meaning": "the rag-and-bone trade's name for whatever waste metal is worth collecting"
      },
      {
       "text": "music hall staple",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrap",
-      "gives": "ANYOLDIRON",
-      "note": "the rag-and-bone trade's name for whatever waste metal is worth collecting"
-     },
-     {
-      "clueFragment": "music hall staple",
-      "gives": "ANYOLDIRON",
-      "note": "a song from 1911 that every hall in the country could get an audience singing"
+      "at": 6,
+      "meaning": "a song from 1911 that every hall in the country could get an audience singing"
      }
     ],
     "explanation": {
@@ -1066,39 +945,24 @@
    },
    "solution": "GIVEITSOMEWELLY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GIVE IT SOME WELLY",
     "definitions": [
      {
       "text": "put the boot in",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Reform",
-      "for": "anagram",
-      "note": "To reform a thing is to shape it again, and letters reformed are the same letters given a new shape."
-     }
-    ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yes, I will get move",
-      "gives": "YESIWILLGETMOVE",
-      "note": "fifteen letters of fodder, taken as they stand"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YES I WILL GET MOVE",
-       "gives": "GIVEITSOMEWELLY"
+       "text": "Reform",
+       "note": "To reform a thing is to shape it again, and letters reformed are the same letters given a new shape."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Yes, I will get move",
+       "note": "fifteen letters of fodder, taken as they stand"
       }
      ]
     },
@@ -1123,40 +987,38 @@
    },
    "solution": "INHERENT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "INHERENT",
     "definitions": [
      {
       "text": "natural",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "contracted",
-      "for": "deletion",
-      "note": "A contracted word is written short with an apostrophe standing in for what has gone, which costs this one its middle letter."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where you may find me",
-      "gives": "INHERE",
-      "note": "the speaker is in here, wherever here happens to be"
-     },
-     {
-      "clueFragment": "not",
-      "gives": "NT",
-      "note": "contracted to n't, the way it is in can't and won't"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INHERE",
-      "NT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INHERENT",
+     "indicators": [
+      {
+       "text": "contracted",
+       "note": "A contracted word is written short with an apostrophe standing in for what has gone, which costs this one its middle letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Where you may find me",
+         "gives": "INHERE",
+         "note": "the speaker is in here, wherever here happens to be"
+        },
+        {
+         "words": "not",
+         "gives": "NT",
+         "note": "contracted to n't, the way it is in can't and won't"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1179,45 +1041,41 @@
    },
    "solution": "LATRINES",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "LATRINES",
     "definitions": [
      {
       "text": "Where do soldiers go?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at the front",
-      "note": "The front of a word is its opening letter, and the front is also where soldiers serve, which is what makes this instruction so easy to walk past."
-     },
-     {
-      "text": "during",
-      "note": "Whatever happens during something happens inside it, so these letters are set within the word that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "occupations",
-      "gives": "LINES",
-      "note": "a line of work is an occupation — and an army holds lines too"
-     },
-     {
-      "clueFragment": "Are they required",
-      "gives": "ATR",
-      "select": "first",
-      "note": "the opening letters of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ATR",
-      "INES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "at the front",
+       "note": "The front of a word is its opening letter, and the front is also where soldiers serve, which is what makes this instruction so easy to walk past."
+      }
+     ],
+     "parts": [
+      {
+       "words": "occupations",
+       "gives": "LINES",
+       "note": "a line of work is an occupation — and an army holds lines too"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "during",
+         "note": "Whatever happens during something happens inside it, so these letters are set within the word that follows."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Are they required",
+         "note": "the opening letters of the three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1241,56 +1099,51 @@
    },
    "solution": "TOOTHLESS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TOOTHLESS",
     "definitions": [
      {
       "text": "ineffective",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "letter_selection",
-      "note": "Going round a thing is going about it on every side, so the word before closes over the letter that comes next."
-     },
-     {
-      "text": "initially",
-      "for": "container",
-      "note": "Initially means at the start, so only the opening letter of the word in front of it is taken."
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Moves casually",
-      "gives": "TOOTLES",
-      "note": "to tootle is to travel in an unhurried way, as in tootling down the lane"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "select": "first",
-      "note": "H is hotel in the NATO alphabet"
-     },
-     {
-      "clueFragment": "speed",
-      "gives": "S",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOOT",
-      "H",
-      "LES",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "Initially means at the start, so only the opening letter of the word in front of it is taken."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Moves casually",
+         "gives": "TOOTLES",
+         "note": "to tootle is to travel in an unhurried way, as in tootling down the lane"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "round",
+           "note": "Going round a thing is going about it on every side, so the word before closes over the letter that comes next."
+          }
+         ],
+         "parts": [
+          {
+           "words": "hotel",
+           "note": "H is hotel in the NATO alphabet"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "speed",
+       "gives": "S",
+       "note": "the opening letter of the word"
+      }
      ]
     },
     "explanation": {
@@ -1314,40 +1167,31 @@
    },
    "solution": "OWNERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OWNERS",
     "definitions": [
      {
       "text": "They have",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "To admit somebody is to let them in, so the word before opens up and takes the other letter inside it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "debtors",
-      "gives": "OWERS",
-      "note": "people who owe are owers, the noun the crossword builds straight off the verb"
-     },
-     {
-      "clueFragment": "a point",
-      "gives": "N",
-      "note": "N for north, one of the four points of the compass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OW",
-      "N",
-      "ERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "note": "To admit somebody is to let them in, so the word before opens up and takes the other letter inside it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "debtors",
+       "gives": "OWERS",
+       "note": "people who owe are owers, the noun the crossword builds straight off the verb"
+      },
+      {
+       "words": "a point",
+       "gives": "N",
+       "note": "N for north, one of the four points of the compass"
+      }
      ]
     },
     "explanation": {
@@ -1371,52 +1215,65 @@
    },
    "solution": "MOTEL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "MOTEL",
     "definitions": [
      {
       "text": "accommodation",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "note": "What goes into a thing ends up inside it, so the pieces named before land within the letters that follow."
-     },
-     {
-      "text": "empty",
-      "note": "An empty word keeps only its walls, the first letter and the last, with everything between them gone."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty Montreal",
-      "gives": "ML",
-      "select": "outer",
-      "note": "the city's name with its insides removed, leaving the outer pair"
-     },
-     {
-      "clueFragment": "Books",
-      "gives": "OT",
-      "note": "the Old Testament, the books of the Bible in crossword shorthand"
-     },
-     {
-      "clueFragment": "sweetheart",
-      "gives": "E",
-      "select": "middle",
-      "note": "the heart of the word sweet is its middle letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "OT",
-      "E",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "What goes into a thing ends up inside it, so the pieces named before land within the letters that follow."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "An empty word keeps only its walls, the first letter and the last, with everything between them gone."
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "ML",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "empty Montreal",
+           "gives": "ML",
+           "select": "outer",
+           "note": "the city's name with its insides removed, leaving the outer pair"
+          }
+         ]
+        },
+        {
+         "words": "Books",
+         "gives": "OT",
+         "note": "the Old Testament, the books of the Bible in crossword shorthand"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "E",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "sweetheart",
+         "gives": "E",
+         "select": "middle",
+         "note": "the heart of the word sweet is its middle letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1440,50 +1297,46 @@
    },
    "solution": "MANTIS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MANTIS",
     "definitions": [
      {
       "text": "Insect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trapped under",
-      "note": "Trapped under something is held below it, and below in a down entry means later in the answer."
-     },
-     {
-      "text": "foot",
-      "note": "The foot of a word is its bottom end, which in a down entry is its final letter."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tom's",
-      "gives": "M",
-      "select": "last",
-      "note": "the last letter of the name, standing at its foot"
-     },
-     {
-      "clueFragment": "a different one",
-      "gives": "ANT",
-      "note": "a different insect from the one being defined"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "the word itself, lifted straight into the answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ANT",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "trapped under",
+       "note": "Trapped under something is held below it, and below in a down entry means later in the answer."
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "foot",
+         "note": "The foot of a word is its bottom end, which in a down entry is its final letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tom's",
+         "gives": "TOM",
+         "note": "the last letter of the name, standing at its foot"
+        }
+       ]
+      },
+      {
+       "words": "a different one",
+       "gives": "ANT",
+       "note": "a different insect from the one being defined"
+      },
+      {
+       "words": "is",
+       "note": "the word itself, lifted straight into the answer"
+      }
      ]
     },
     "explanation": {
@@ -1507,11 +1360,6 @@
    },
    "solution": "TANTRIC",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TANTRIC",
     "definitions": [
      {
       "text": "Type of sex",
@@ -1519,39 +1367,35 @@
       "note": "The answer is an adjective and the definition a noun phrase: the setter names the kind of sex and leaves you to supply the noun the adjective belongs in front of."
      }
     ],
-    "indicators": [
-     {
-      "text": "to join in",
-      "for": "container",
-      "note": "Joining in means going in among the others, so the letter it introduces is dropped inside the word already assembled."
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thailand",
-      "gives": "T",
-      "note": "T is Thailand's international vehicle code"
-     },
-     {
-      "clueFragment": "grotesque",
-      "gives": "ANTIC",
-      "note": "an antic is a grotesque gesture or caper"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is runs on a cricket scorecard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ANT",
-      "R",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Thailand",
+       "gives": "T",
+       "note": "T is Thailand's international vehicle code"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to join in",
+         "note": "Joining in means going in among the others, so the letter it introduces is dropped inside the word already assembled."
+        }
+       ],
+       "parts": [
+        {
+         "words": "grotesque",
+         "gives": "ANTIC",
+         "note": "an antic is a grotesque gesture or caper"
+        },
+        {
+         "words": "runs",
+         "gives": "R",
+         "note": "R is runs on a cricket scorecard"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1575,51 +1419,45 @@
    },
    "solution": "TOSH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "TOSH",
     "definitions": [
      {
       "text": "rubbish",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Both gutted",
-      "for": "letter_selection",
-      "note": "Gutted means the insides have been taken out, and 'both' says to do it to each of the two words that follow, leaving their outsides."
-     },
-     {
-      "text": "Flipping",
-      "for": "reversal",
-      "note": "Flipping a thing turns it over, so what has been gathered is read the other way round — and it doubles as the mild swearword the surface wants."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "he's",
-      "gives": "HS",
-      "select": "outer",
-      "note": "the outer letters, with the middle one taken out"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OT",
-      "note": "the outer letters again, the same operation on the next word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "SH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HSOT",
-       "to": "TOSH"
+       "text": "Flipping",
+       "note": "Flipping a thing turns it over, so what has been gathered is read the other way round — and it doubles as the mild swearword the surface wants."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "Both gutted",
+           "note": "Gutted means the insides have been taken out, and 'both' says to do it to each of the two words that follow, leaving their outsides."
+          }
+         ],
+         "parts": [
+          {
+           "words": "he's",
+           "note": "the outer letters, with the middle one taken out"
+          }
+         ]
+        },
+        {
+         "words": "out",
+         "gives": "OT",
+         "note": "the outer letters again, the same operation on the next word"
+        }
+       ]
       }
      ]
     },
@@ -1644,52 +1482,47 @@
    },
    "solution": "MANKINI",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "MANKINI",
     "definitions": [
      {
       "text": "beachwear",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "note": "A garment covering something has that thing underneath it, so these letters wrap round the piece that follows."
-     },
-     {
-      "text": "rejected",
-      "note": "What is rejected is thrown out, so the three letters named just before it are removed from the word they sit in."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skirt",
-      "gives": "MINI",
-      "note": "a mini is the short skirt of the sixties"
-     },
-     {
-      "clueFragment": "nether regions",
-      "gives": "ANKLES",
-      "note": "the ankles are the lowest region of the body"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LES",
-      "note": "les is one of the French words for the, and it is taken away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ANK",
-      "INI"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "A garment covering something has that thing underneath it, so these letters wrap round the piece that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Skirt",
+       "gives": "MINI",
+       "note": "a mini is the short skirt of the sixties"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "What is rejected is thrown out, so the three letters named just before it are removed from the word they sit in."
+        }
+       ],
+       "parts": [
+        {
+         "words": "nether regions",
+         "gives": "ANKLES",
+         "note": "the ankles are the lowest region of the body"
+        },
+        {
+         "words": "the French",
+         "gives": "LES",
+         "note": "les is one of the French words for the, and it is taken away"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1713,36 +1546,25 @@
    },
    "solution": "MUTT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MUTT",
     "definitions": [
      {
       "text": "My best friend",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letter",
-      "gives": "MU",
-      "note": "mu is the twelfth letter of the Greek alphabet"
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "TT",
-      "note": "t is time, and a pair of them is times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "TT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "letter",
+       "gives": "MU",
+       "note": "mu is the twelfth letter of the Greek alphabet"
+      },
+      {
+       "words": "Times",
+       "gives": "TT",
+       "note": "t is time, and a pair of them is times"
+      }
      ]
     },
     "explanation": {
@@ -1766,40 +1588,31 @@
    },
    "solution": "SIREN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SIREN",
     "definitions": [
      {
       "text": "warning",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "hidden",
-      "for": "container",
-      "note": "Something hidden is tucked away inside something else, so these two letters sit within the word beside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wrong",
-      "gives": "SIN",
-      "note": "a wrong is a sin"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about, as at the head of a memo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SI",
-      "RE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hidden",
+       "note": "Something hidden is tucked away inside something else, so these two letters sit within the word beside them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wrong",
+       "gives": "SIN",
+       "note": "a wrong is a sin"
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about, as at the head of a memo"
+      }
      ]
     },
     "explanation": {
@@ -1833,49 +1646,41 @@
    },
    "solution": "SETFIRETO",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "SET FIRE TO",
     "definitions": [
      {
       "text": "light",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "sealing",
-      "note": "To seal something is to close it up around whatever is inside, so the phrase before shuts over the letters that follow."
-     },
-     {
-      "text": "over",
-      "note": "Turned over is upside down, so the word this follows goes in the other way round."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do something about",
-      "gives": "SEETO",
-      "note": "to see to a thing is to deal with it"
-     },
-     {
-      "clueFragment": "gap",
-      "gives": "TFIR",
-      "note": "a rift is a gap, written the other way round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "TFIR",
-      "ETO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SETFIRETO",
+     "parts": [
       {
-       "from": "RIFT",
-       "to": "TFIR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "sealing",
+         "note": "To seal something is to close it up around whatever is inside, so the phrase before shuts over the letters that follow."
+        },
+        {
+         "text": "over",
+         "note": "Turned over is upside down, so the word this follows goes in the other way round."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Do something about",
+         "gives": "SEETO",
+         "note": "to see to a thing is to deal with it"
+        },
+        {
+         "words": "gap",
+         "gives": "TFIR",
+         "note": "a rift is a gap, written the other way round"
+        }
+       ]
       }
      ]
     },

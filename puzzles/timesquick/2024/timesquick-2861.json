@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2861",
  "number": 2861,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,861",
  "setter": "Mara",
  "date": "2024-12-17",
  "dimensions": {
@@ -42,31 +40,29 @@
    },
    "solution": "GOBLIN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GOBLIN",
     "definitions": [
      {
       "text": "Mischievous thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by the sound of it",
-      "for": "homophone",
-      "note": "this phrase asks the solver to judge the word by how it is pronounced rather than how it is written"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eatin'",
-      "gives": "GOBLIN",
-      "soundsLike": "GOBBLIN'",
-      "note": "eating greedily is gobbling, and the dropped g of the clue matches the casual pronunciation"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GOBLIN",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "note": "this phrase asks the solver to judge the word by how it is pronounced rather than how it is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eatin'",
+       "gives": "GOBBLIN",
+       "note": "eating greedily is gobbling, and the dropped g of the clue matches the casual pronunciation"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone wonders whether a naughty creature is munching away.",
      "walkthrough": "The apostrophe in eatin' is the hint: say gobblin' with a dropped g and you hear the sprite.",
@@ -94,47 +90,41 @@
    },
    "solution": "GOVERN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GOVERN",
     "definitions": [
      {
       "text": "Run",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outskirts of",
-      "for": "letter_selection",
-      "note": "the outskirts of a place are its edges, so only the first and last letters are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece goes inside the other, which ends up wrapped around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gijon",
-      "gives": "GN",
-      "select": "outer",
-      "note": "the edge letters of the Spanish city's name"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "OVER",
-      "note": "something finished is over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "OVER",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece goes inside the other, which ends up wrapped around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "note": "the outskirts of a place are its edges, so only the first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gijon",
+         "note": "the edge letters of the Spanish city's name"
+        }
+       ]
+      },
+      {
+       "words": "finished",
+       "gives": "OVER",
+       "note": "something finished is over"
+      }
      ]
     },
     "explanation": {
@@ -163,32 +153,25 @@
    },
    "solution": "BUSKING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUSKING",
     "definitions": [
      {
       "text": "playing for cash",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Transport",
-      "gives": "BUS",
-      "note": "a bus is a form of public transport"
-     },
-     {
-      "clueFragment": "leader",
-      "gives": "KING",
-      "note": "a king is a ruler or leader"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUS",
-      "KING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Transport",
+       "gives": "BUS",
+       "note": "a bus is a form of public transport"
+      },
+      {
+       "words": "leader",
+       "gives": "KING",
+       "note": "a king is a ruler or leader"
+      }
      ]
     },
     "explanation": {
@@ -217,37 +200,25 @@
    },
    "solution": "IOTA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IOTA",
     "definitions": [
      {
       "text": "Greek letter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so each word contributes only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is omitted, taken away",
-      "gives": "IOTA",
-      "select": "first",
-      "note": "the first letters of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "O",
-      "T",
-      "A"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially means at the start, so each word contributes only its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is omitted, taken away",
+       "note": "the first letters of these four words"
+      }
      ]
     },
     "explanation": {
@@ -276,28 +247,16 @@
    },
    "solution": "SPIRIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPIRIT",
     "definitions": [
      {
       "text": "Energy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: liveliness or vigour"
      },
      {
       "text": "drink",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Energy",
-      "note": "first meaning: liveliness or vigour"
-     },
-     {
-      "clueFragment": "drink",
-      "note": "second meaning: a strong distilled alcohol such as gin or whisky"
+      "at": 7,
+      "meaning": "second meaning: a strong distilled alcohol such as gin or whisky"
      }
     ],
     "explanation": {
@@ -326,32 +285,25 @@
    },
    "solution": "PARSNIPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARSNIPS",
     "definitions": [
      {
       "text": "Root vegetables",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "standard",
-      "gives": "PAR",
-      "note": "par is the normal or standard level"
-     },
-     {
-      "clueFragment": "crops",
-      "gives": "SNIPS",
-      "note": "to crop is to cut short, as scissors snip"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "SNIPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "standard",
+       "gives": "PAR",
+       "note": "par is the normal or standard level"
+      },
+      {
+       "words": "crops",
+       "gives": "SNIPS",
+       "note": "to crop is to cut short, as scissors snip"
+      }
      ]
     },
     "explanation": {
@@ -380,28 +332,16 @@
    },
    "solution": "RIFLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RIFLE",
     "definitions": [
      {
       "text": "Steal and carry off",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to ransack and plunder"
      },
      {
       "text": "weapon",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steal and carry off",
-      "note": "first meaning: to ransack and plunder"
-     },
-     {
-      "clueFragment": "weapon",
-      "note": "second meaning: a long-barrelled gun"
+      "at": 20,
+      "meaning": "second meaning: a long-barrelled gun"
      }
     ],
     "explanation": {
@@ -429,46 +369,41 @@
    },
    "solution": "THRUSH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "THRUSH",
     "definitions": [
      {
       "text": "Winger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on both wings",
-      "for": "letter_selection",
-      "note": "the wings of a word are its two ends, so only the first and last letters are taken"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "says which piece comes later when the parts are joined in sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "touch",
-      "gives": "TH",
-      "select": "outer",
-      "note": "the two edge letters of this word"
-     },
-     {
-      "clueFragment": "hurry",
-      "gives": "RUSH",
-      "note": "to hurry is to rush"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "RUSH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "says which piece comes later when the parts are joined in sequence"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on both wings",
+         "note": "the wings of a word are its two ends, so only the first and last letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "touch",
+         "note": "the two edge letters of this word"
+        }
+       ]
+      },
+      {
+       "words": "hurry",
+       "gives": "RUSH",
+       "note": "to hurry is to rush"
+      }
      ]
     },
     "explanation": {
@@ -498,46 +433,44 @@
    },
    "solution": "VISITOR",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "VISITOR",
     "definitions": [
      {
       "text": "sightseer",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "cutting something shortens it, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Travel document",
-      "gives": "VISA",
-      "note": "a visa is a permit stamped in a passport"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "high point",
-      "gives": "TOR",
-      "note": "a tor is a rocky hilltop, as on Dartmoor in England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIS",
-      "I",
-      "TOR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "cutting something shortens it, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Travel document",
+         "gives": "VISA",
+         "note": "a visa is a permit stamped in a passport"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "high point",
+         "gives": "TOR",
+         "note": "a tor is a rocky hilltop, as on Dartmoor in England"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -566,35 +499,24 @@
    },
    "solution": "RHODESIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RHODESIAN",
     "definitions": [
      {
       "text": "Old African",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tailors",
-      "for": "anagram",
-      "note": "a tailor cuts and refashions material, so the letters are refashioned into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and hosier",
-      "gives": "ANDHOSIER",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANDHOSIER",
-       "gives": "RHODESIAN"
+       "text": "tailors",
+       "note": "a tailor cuts and refashions material, so the letters are refashioned into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "and hosier",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -624,39 +546,31 @@
    },
    "solution": "REFER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REFER",
     "definitions": [
      {
       "text": "direct",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "confronting",
-      "for": "charade",
-      "note": "to confront is to stand face to face, so the pieces sit side by side in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Judge",
-      "gives": "REF",
-      "note": "a referee judges a game; ref is the short form"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina, the royal cipher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REF",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "confronting",
+       "note": "to confront is to stand face to face, so the pieces sit side by side in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Judge",
+       "gives": "REF",
+       "note": "a referee judges a game; ref is the short form"
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "Elizabeth Regina, the royal cipher"
+      }
      ]
     },
     "explanation": {
@@ -685,30 +599,28 @@
    },
    "solution": "RAIL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RAIL",
     "definitions": [
      {
       "text": "Bar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "situated in",
-      "for": "hidden_word",
-      "note": "the answer is located within the run of letters that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Madeira I like",
-      "gives": "RAIL",
-      "note": "spans the end of the island name, the pronoun and the start of the verb"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "situated in",
+       "note": "the answer is located within the run of letters that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Madeira I like",
+       "gives": "RAIL",
+       "note": "spans the end of the island name, the pronoun and the start of the verb"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone recommends a bar on the island of Madeira.",
      "walkthrough": "Bar suggests a pub to match the holiday island, but it means a rod.",
@@ -735,35 +647,24 @@
    },
    "solution": "MOONLESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MOONLESS",
     "definitions": [
      {
       "text": "Dark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shocking",
-      "for": "anagram",
-      "note": "a shock jolts things out of place, so the letters are disordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "omen, loss",
-      "gives": "OMENLOSS",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OMENLOSS",
-       "gives": "MOONLESS"
+       "text": "shocking",
+       "note": "a shock jolts things out of place, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "omen, loss",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -793,55 +694,50 @@
    },
    "solution": "MIDNIGHT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MIDNIGHT",
     "definitions": [
      {
       "text": "twelve",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "adjusted",
-      "for": "anagram",
-      "note": "adjusting something moves its parts, so these letters are reordered"
-     },
-     {
-      "text": "below",
-      "for": "charade",
-      "note": "in a down entry, putting one part below another sets them in reading order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a thousand",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand"
-     },
-     {
-      "clueFragment": "I had",
-      "gives": "ID",
-      "note": "I had contracts to I'd"
-     },
-     {
-      "clueFragment": "thing",
-      "gives": "THING",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IDNIGHT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "IDTHING",
-       "gives": "IDNIGHT"
+       "text": "below",
+       "note": "in a down entry, putting one part below another sets them in reading order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a thousand",
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adjusted",
+         "note": "adjusting something moves its parts, so these letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I had",
+           "gives": "ID",
+           "note": "I had contracts to I'd"
+          },
+          {
+           "words": "thing",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -877,42 +773,31 @@
    },
    "solution": "GUINEAPIG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GUINEA PIG",
     "definitions": [
      {
       "text": "Rodent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means next to, so the two parts are placed side by side"
-     }
-    ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "African country",
-      "gives": "GUINEA",
-      "note": "Guinea is a West African nation"
-     },
-     {
-      "clueFragment": "gannet",
-      "gives": "PIG",
-      "note": "a gannet is British slang for a greedy eater, as is a pig"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUINEA",
-      "PIG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "note": "by means next to, so the two parts are placed side by side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "African country",
+       "gives": "GUINEA",
+       "note": "Guinea is a West African nation"
+      },
+      {
+       "words": "gannet",
+       "gives": "PIG",
+       "note": "a gannet is British slang for a greedy eater, as is a pig"
+      }
      ]
     },
     "explanation": {
@@ -941,43 +826,31 @@
    },
    "solution": "GARMENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GARMENT",
     "definitions": [
      {
       "text": "Item of clothing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has pinned",
-      "for": "container",
-      "note": "to pin is to hold fast, so one piece is held within another"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "man",
-      "gives": "GENT",
-      "note": "gent is short for gentleman"
-     },
-     {
-      "clueFragment": "something inside sleeve",
-      "gives": "ARM",
-      "note": "a sleeve covers a limb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ARM",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has pinned",
+       "note": "to pin is to hold fast, so one piece is held within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man",
+       "gives": "GENT",
+       "note": "gent is short for gentleman"
+      },
+      {
+       "words": "something inside sleeve",
+       "gives": "ARM",
+       "note": "a sleeve covers a limb"
+      }
      ]
     },
     "explanation": {
@@ -1006,28 +879,16 @@
    },
    "solution": "TRIFLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRIFLE",
     "definitions": [
      {
       "text": "Sweet",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a layered pudding"
      },
      {
       "text": "thing of little consequence",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sweet",
-      "note": "first meaning: a layered pudding"
-     },
-     {
-      "clueFragment": "thing of little consequence",
-      "note": "second meaning: something trivial"
+      "at": 6,
+      "meaning": "second meaning: something trivial"
      }
     ],
     "explanation": {
@@ -1056,51 +917,40 @@
    },
    "solution": "OYSTER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "OYSTER",
     "definitions": [
      {
       "text": "seafood",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "something new has been remade, so the letters come out in a fresh order"
-     },
-     {
-      "text": "stocks",
-      "for": "container",
-      "note": "a shop that stocks goods holds them within, so one piece goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "store",
-      "gives": "STORE",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "variable",
-      "gives": "Y",
-      "note": "y is a standard algebraic unknown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "Y",
-      "STER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "STORE",
-       "gives": "OSTER"
+       "text": "stocks",
+       "note": "a shop that stocks goods holds them within, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "note": "something new has been remade, so the letters come out in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "store",
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
+      {
+       "words": "variable",
+       "gives": "Y",
+       "note": "y is a standard algebraic unknown"
       }
      ]
     },
@@ -1130,58 +980,50 @@
    },
    "solution": "ROMANTIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "ROMANTIC",
     "definitions": [
      {
       "text": "Amorous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the opening letter is taken"
-     },
-     {
-      "text": "plays",
-      "for": "anagram",
-      "note": "to play with something is to move it around, so these letters are reordered"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actor in",
-      "gives": "ACTORIN",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "marriage",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of this word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "M",
-      "ANTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ACTORIN",
-       "gives": "ROANTIC"
+       "text": "about",
+       "note": "about means around, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "plays",
+         "note": "to play with something is to move it around, so these letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actor in",
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all, so only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "marriage",
+         "note": "the first letter of this word"
+        }
+       ]
       }
      ]
     },
@@ -1211,47 +1053,41 @@
    },
    "solution": "MOIST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MOIST",
     "definitions": [
      {
       "text": "Damp",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "enveloping",
-      "for": "container",
-      "note": "an envelope wraps around its contents, so one piece wraps the other"
-     },
-     {
-      "text": "capital in",
-      "for": "letter_selection",
-      "note": "a capital is a top letter, so only the first letter of the following word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "haze",
-      "gives": "MIST",
-      "note": "mist is a light haze"
-     },
-     {
-      "clueFragment": "Oman",
-      "gives": "O",
-      "select": "first",
-      "note": "the first letter of the country's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "O",
-      "IST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enveloping",
+       "note": "an envelope wraps around its contents, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "haze",
+       "gives": "MIST",
+       "note": "mist is a light haze"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital in",
+         "note": "a capital is a top letter, so only the first letter of the following word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oman",
+         "note": "the first letter of the country's name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1280,36 +1116,29 @@
    },
    "solution": "ARMY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARMY",
     "definitions": [
      {
       "text": "Military force",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader lost",
-      "for": "deletion",
-      "note": "losing the leader means losing the front, so the first letter is removed"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cracked",
-      "gives": "BARMY",
-      "note": "barmy is British slang for crazy, as is cracked"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARMY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leader lost",
+       "note": "losing the leader means losing the front, so the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cracked",
+       "gives": "BARMY",
+       "note": "barmy is British slang for crazy, as is cracked"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -1338,30 +1167,28 @@
    },
    "solution": "ASIA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ASIA",
     "definitions": [
      {
       "text": "Continent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits within the following run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Americas I assume",
-      "gives": "ASIA",
-      "note": "spans the end of the first word, the pronoun and the start of the verb"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits within the following run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Americas I assume",
+       "gives": "ASIA",
+       "note": "spans the end of the first word, the pronoun and the start of the verb"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone guesses which continent lies within the Americas.",
      "walkthrough": "The Americas tempts you towards a New World answer; the continent hides across the word breaks.",
@@ -1388,30 +1215,28 @@
    },
    "solution": "FLING",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FLING",
     "definitions": [
      {
       "text": "Launch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "some means a portion, so the answer is a part of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "motif, linguistically",
-      "gives": "FLING",
-      "note": "spans the last letter of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "some means a portion, so the answer is a part of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "motif, linguistically",
+       "gives": "FLING",
+       "note": "spans the last letter of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Introducing a theme, in terms of language.",
      "walkthrough": "Launch suggests starting a project, but here it means throw.",
@@ -1444,28 +1269,16 @@
    },
    "solution": "NOSWEAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NO SWEAT",
     "definitions": [
      {
       "text": "Hands down",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: easily, without effort"
      },
      {
       "text": "armpits dry?",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hands down",
-      "note": "first meaning: easily, without effort"
-     },
-     {
-      "clueFragment": "armpits dry?",
-      "note": "second meaning, read literally: an absence of perspiration"
+      "at": 12,
+      "meaning": "second meaning, read literally: an absence of perspiration"
      }
     ],
     "explanation": {
@@ -1495,38 +1308,24 @@
    },
    "solution": "ENTITY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENTITY",
     "definitions": [
      {
       "text": "Object",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rotten",
-      "for": "anagram",
-      "note": "something rotten has decayed and broken down, so the letters fall into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tin, yet",
-      "gives": "TINYET",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TINYET",
-       "gives": "ENTITY"
+       "text": "rotten",
+       "note": "something rotten has decayed and broken down, so the letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tin, yet",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -1556,28 +1355,16 @@
    },
    "solution": "MATTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MATTER",
     "definitions": [
      {
       "text": "Physical things",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: physical substance"
      },
      {
       "text": "are important",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Physical things",
-      "note": "first meaning: physical substance"
-     },
-     {
-      "clueFragment": "are important",
-      "note": "second meaning: to be significant"
+      "at": 16,
+      "meaning": "second meaning: to be significant"
      }
     ],
     "explanation": {

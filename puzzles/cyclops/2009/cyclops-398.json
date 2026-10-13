@@ -1,8 +1,6 @@
 {
  "id": "cyclops-398",
  "number": 398,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 398",
  "setter": "Cyclops",
  "date": "2009-08-21",
  "dimensions": {
@@ -42,29 +40,17 @@
    },
    "solution": "DISTASTE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DISTASTE",
     "definitions": [
      {
       "text": "Loathing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: strong dislike"
      },
      {
       "text": "in men, Dodi Fayed, for one",
       "at": 11,
-      "note": "a phrase completed by the answer read as DI'S TASTE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loathing",
-      "note": "first meaning: strong dislike"
-     },
-     {
-      "clueFragment": "in men, Dodi Fayed, for one",
-      "note": "second meaning, read as two words: Princess Diana's preference in men, of which Dodi Fayed was an example"
+      "note": "a phrase completed by the answer read as DI'S TASTE",
+      "meaning": "second meaning, read as two words: Princess Diana's preference in men, of which Dodi Fayed was an example"
      }
     ],
     "explanation": {
@@ -93,56 +79,57 @@
    },
    "solution": "CHILLI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CHILLI",
     "definitions": [
      {
       "text": "Hot thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bottoms",
-      "for": "letter_selection",
-      "note": "the bottom of a down word is its final letter, so the last letter of each word is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another means it sits inside those letters"
-     }
-    ],
-    "linkWords": [
-     "revealing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chic",
-      "gives": "C",
-      "select": "last",
-      "note": "the bottom letter of chic"
-     },
-     {
-      "clueFragment": "mound",
-      "gives": "HILL",
-      "note": "a mound is a small hill"
-     },
-     {
-      "clueFragment": "Armani",
-      "gives": "I",
-      "select": "last",
-      "note": "the bottom letter of Armani"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HILL",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CHILLI",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed in another means it sits inside those letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "bottoms",
+           "note": "the bottom of a down word is its final letter, so the last letter of each word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chic",
+           "note": "the bottom letter of chic"
+          }
+         ]
+        },
+        {
+         "words": "mound",
+         "gives": "HILL",
+         "note": "a mound is a small hill"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "Armani",
+           "note": "the bottom letter of Armani"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -170,68 +157,53 @@
    },
    "solution": "BELLYFUL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BELLYFUL",
     "definitions": [
      {
       "text": "more than enough",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "undone",
-      "for": "anagram",
-      "note": "something undone has come apart, so these letters are loosened and rearranged"
-     },
-     {
-      "text": "covered in",
-      "for": "container",
-      "note": "something covered in another thing has that thing wrapped around it"
-     },
-     {
-      "text": "messy",
-      "for": "anagram",
-      "note": "a messy thing is in disorder, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "fly",
-      "gives": "FLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lube",
-      "gives": "LUBE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "LLYF",
-      "UL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LFLY",
-       "gives": "LLYF"
+       "text": "covered in",
+       "note": "something covered in another thing has that thing wrapped around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "undone",
+         "note": "something undone has come apart, so these letters are loosened and rearranged"
+        },
+        {
+         "text": "messy",
+         "note": "a messy thing is in disorder, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "fly",
+           "note": "taken as written"
+          },
+          {
+           "words": "lube",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       },
       {
-       "fodder": "LUBE",
-       "gives": "BEUL"
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
       }
      ]
     },
@@ -261,31 +233,16 @@
    },
    "solution": "SHOWER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHOWER",
     "definitions": [
      {
       "text": "Exhibitionist",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: one who shows things off"
      },
      {
       "text": "turned-on bathroom feature",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exhibitionist",
-      "note": "first meaning: one who shows things off"
-     },
-     {
-      "clueFragment": "turned-on bathroom feature",
-      "note": "second meaning: the fitting you switch on to wash under"
+      "at": 16,
+      "meaning": "second meaning: the fitting you switch on to wash under"
      }
     ],
     "explanation": {
@@ -321,41 +278,30 @@
    },
    "solution": "CLOSERUN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLOSE-RUN",
     "definitions": [
      {
       "text": "Nothing in it",
       "at": 46
      }
     ],
-    "linkWords": [
-     ":"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "no-hoper",
-      "gives": "LOSER",
-      "note": "a no-hoper is a loser"
-     },
-     {
-      "clueFragment": "on international body",
-      "gives": "UN",
-      "note": "the United Nations is an international body; 'on' just places it after"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOSER",
-      "UN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative"
+      },
+      {
+       "words": "no-hoper",
+       "gives": "LOSER",
+       "note": "a no-hoper is a loser"
+      },
+      {
+       "words": "on international body",
+       "gives": "UN",
+       "note": "the United Nations is an international body; 'on' just places it after"
+      }
      ]
     },
     "explanation": {
@@ -389,35 +335,24 @@
    },
    "solution": "TAICHI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TAI CHI",
     "definitions": [
      {
       "text": "Exercises",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abroad",
-      "for": "anagram",
-      "note": "abroad suggests being scattered far and wide, so the letters are spread into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hit CIA",
-      "gives": "HITCIA",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HITCIA",
-       "gives": "TAICHI"
+       "text": "abroad",
+       "note": "abroad suggests being scattered far and wide, so the letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hit CIA",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -446,59 +381,50 @@
    },
    "solution": "BLOODSHED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BLOODSHED",
     "definitions": [
      {
       "text": "Violence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "relaxed",
-      "for": "anagram",
-      "note": "something relaxed has been loosened, so these letters fall into a different order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside its letters"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is nil in tennis, the letter O"
-     },
-     {
-      "clueFragment": "holds",
-      "gives": "HOLDS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the sack",
-      "gives": "BED",
-      "note": "the sack is slang for bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LOODSH",
-      "ED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OHOLDS",
-       "gives": "LOODSH"
+       "text": "in",
+       "note": "one thing in another sits inside its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "relaxed",
+         "note": "something relaxed has been loosened, so these letters fall into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "holds",
+           "note": "taken as written"
+          },
+          {
+           "words": "the sack",
+           "gives": "BED",
+           "note": "the sack is slang for bed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is nil in tennis, the letter O"
       }
      ]
     },
@@ -527,35 +453,24 @@
    },
    "solution": "PRITHEE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PRITHEE",
     "definitions": [
      {
       "text": "Please!",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "outed",
-      "for": "anagram",
-      "note": "being outed means being exposed and turned out, so these letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hi, Peter",
-      "gives": "HIPETER",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HIPETER",
-       "gives": "PRITHEE"
+       "text": "outed",
+       "note": "being outed means being exposed and turned out, so these letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hi, Peter",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -584,31 +499,16 @@
    },
    "solution": "PUFF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PUFF",
     "definitions": [
      {
       "text": "Non-PC gay",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an offensive slang word for a gay man, a variant of poof"
      },
      {
       "text": "calculated praise",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Non-PC gay",
-      "note": "first meaning: an offensive slang word for a gay man, a variant of poof"
-     },
-     {
-      "clueFragment": "calculated praise",
-      "note": "second meaning: exaggerated commendation written to promote something"
+      "at": 13,
+      "meaning": "second meaning: exaggerated commendation written to promote something"
      }
     ],
     "explanation": {
@@ -637,40 +537,30 @@
    },
    "solution": "HOLDALL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HOLDALL",
     "definitions": [
      {
       "text": "bag",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "grabbing",
-      "for": "container",
-      "note": "one thing grabbing another holds it, so those letters go inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old NT director",
-      "gives": "HALL",
-      "note": "Sir Peter Hall was the National Theatre's director from 1973 to 1988"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "OLD",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OLD",
-      "ALL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbing",
+       "note": "one thing grabbing another holds it, so those letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old NT director",
+       "gives": "HALL",
+       "note": "Sir Peter Hall was the National Theatre's director from 1973 to 1988"
+      },
+      {
+       "words": "old",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -705,35 +595,25 @@
    },
    "solution": "FATALBLOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FATAL BLOW",
     "definitions": [
      {
       "text": "a bang to finish you off",
       "at": 30
      }
     ],
-    "linkWords": [
-     "— and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "To-die-for",
-      "gives": "FATAL",
-      "note": "read literally, something you die for is deadly"
-     },
-     {
-      "clueFragment": "oral sex act",
-      "gives": "BLOW",
-      "note": "as in a blow job"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FATAL",
-      "BLOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "To-die-for",
+       "gives": "FATAL",
+       "note": "read literally, something you die for is deadly"
+      },
+      {
+       "words": "oral sex act",
+       "gives": "BLOW",
+       "note": "as in a blow job"
+      }
      ]
     },
     "explanation": {
@@ -763,55 +643,50 @@
    },
    "solution": "SICKO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "SICKO",
     "definitions": [
      {
       "text": "nutter",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "ditched",
-      "for": "deletion",
-      "note": "something ditched is thrown away, so that letter is dropped"
-     },
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "flipping something turns it over, so the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "All right",
-      "gives": "OK",
-      "note": "OK means all right"
-     },
-     {
-      "clueFragment": "the intelligence service's",
-      "gives": "CIAS",
-      "note": "the CIA is the US intelligence service, with its possessive S"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter to be dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SICKO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OKCIS",
-       "to": "SICKO"
+       "text": "flipping",
+       "note": "flipping something turns it over, so the letters run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "All right",
+         "gives": "OK",
+         "note": "OK means all right"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ditched",
+           "note": "something ditched is thrown away, so that letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the intelligence service's",
+           "gives": "CIAS",
+           "note": "the CIA is the US intelligence service, with its possessive S"
+          },
+          {
+           "words": "a",
+           "note": "the letter to be dropped"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -851,29 +726,17 @@
    },
    "solution": "SHITFORBRAINS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHIT FOR BRAINS",
     "definitions": [
      {
       "text": "Stupid",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an insulting term for someone dim"
      },
      {
       "text": "verbal diarrhoea a result of having this?",
       "at": 7,
-      "note": "a cryptic description of the noun phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stupid",
-      "note": "first meaning: an insulting term for someone dim"
-     },
-     {
-      "clueFragment": "verbal diarrhoea a result of having this?",
-      "note": "second meaning, taken literally: if your head were full of excrement, talking rubbish would follow"
+      "note": "a cryptic description of the noun phrase",
+      "meaning": "second meaning, taken literally: if your head were full of excrement, talking rubbish would follow"
      }
     ],
     "explanation": {
@@ -908,49 +771,44 @@
    },
    "solution": "BALDPATCH",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BALD PATCH",
     "definitions": [
      {
       "text": "William Hague certainly has one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "something short is lacking a bit at the end, so the final letter is cut off"
-     }
-    ],
-    "linkWords": [
-     "needing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "testicle",
-      "gives": "BALL",
-      "note": "a testicle is a ball in slang"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D is the abbreviation for date"
-     },
-     {
-      "clueFragment": "to repair",
-      "gives": "PATCH",
-      "note": "to patch something is to repair it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAL",
-      "D",
-      "PATCH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "something short is lacking a bit at the end, so the final letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "testicle",
+         "gives": "BALL",
+         "note": "a testicle is a ball in slang"
+        },
+        {
+         "words": "date",
+         "gives": "D",
+         "note": "D is the abbreviation for date"
+        },
+        {
+         "words": "to repair",
+         "gives": "PATCH",
+         "note": "to patch something is to repair it"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -980,43 +838,33 @@
    },
    "solution": "ASEXUAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ASEXUAL",
     "definitions": [
      {
       "text": "Passionless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fumbled",
-      "for": "anagram",
-      "note": "fumbled things are handled clumsily and end up out of place, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saul",
-      "gives": "SAUL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "axe",
-      "gives": "AXE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAULAXE",
-       "gives": "ASEXUAL"
+       "text": "fumbled",
+       "note": "fumbled things are handled clumsily and end up out of place, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Saul",
+         "note": "taken as written"
+        },
+        {
+         "words": "axe",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1045,48 +893,34 @@
    },
    "solution": "URINATED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "URINATED",
     "definitions": [
      {
       "text": "Pissed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pissed",
-      "for": "anagram",
-      "note": "a drunk person staggers about, so the letters reel into a new order"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kinky spoon merchant",
-      "gives": "URI",
-      "note": "Uri Geller made his name bending spoons, so his trade is kinking them"
-     },
-     {
-      "clueFragment": "Dante",
-      "gives": "DANTE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URI",
-      "NATED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DANTE",
-       "gives": "NATED"
+       "words": "kinky spoon merchant",
+       "gives": "URI",
+       "note": "Uri Geller made his name bending spoons, so his trade is kinking them"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pissed",
+         "note": "a drunk person staggers about, so the letters reel into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dante",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1117,32 +951,25 @@
    },
    "solution": "CONDONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONDONE",
     "definitions": [
      {
       "text": "pardon",
       "at": 32
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What Archer was",
-      "gives": "CON",
-      "note": "Jeffrey Archer, the novelist and Tory peer, was jailed for perjury, so he was a convict"
-     },
-     {
-      "clueFragment": "accomplished",
-      "gives": "DONE",
-      "note": "something accomplished is done"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "DONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What Archer was",
+       "gives": "CON",
+       "note": "Jeffrey Archer, the novelist and Tory peer, was jailed for perjury, so he was a convict"
+      },
+      {
+       "words": "accomplished",
+       "gives": "DONE",
+       "note": "something accomplished is done"
+      }
      ]
     },
     "explanation": {
@@ -1181,41 +1008,30 @@
    },
    "solution": "CUTITOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUT IT OUT",
     "definitions": [
      {
       "text": "Stop",
       "at": 0
      }
     ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nick",
-      "gives": "CUT",
-      "note": "to nick is to make a small cut"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "it is a coy word for sex"
-     },
-     {
-      "clueFragment": "abroad",
-      "gives": "OUT",
-      "note": "abroad means out of the country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUT",
-      "IT",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nick",
+       "gives": "CUT",
+       "note": "to nick is to make a small cut"
+      },
+      {
+       "words": "sex",
+       "gives": "IT",
+       "note": "it is a coy word for sex"
+      },
+      {
+       "words": "abroad",
+       "gives": "OUT",
+       "note": "abroad means out of the country"
+      }
      ]
     },
     "explanation": {
@@ -1244,51 +1060,46 @@
    },
    "solution": "OUTDATED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "OUTDATED",
     "definitions": [
      {
       "text": "Old-fashioned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not means without, so the letter for the following word is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "published",
-      "gives": "OUT",
-      "note": "a book that is out has been published"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D is the abbreviation for Democrat"
-     },
-     {
-      "clueFragment": "had a shag",
-      "gives": "MATED",
-      "note": "to mate is to have sex"
-     },
-     {
-      "clueFragment": "married",
-      "gives": "M",
-      "note": "M is the abbreviation for married, and it is the letter dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "D",
-      "ATED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "not means without, so the letter for the following word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "published",
+         "gives": "OUT",
+         "note": "a book that is out has been published"
+        },
+        {
+         "words": "Democrat",
+         "gives": "D",
+         "note": "D is the abbreviation for Democrat"
+        },
+        {
+         "words": "had a shag",
+         "gives": "MATED",
+         "note": "to mate is to have sex"
+        }
+       ]
+      },
+      {
+       "words": "married",
+       "gives": "M",
+       "note": "M is the abbreviation for married, and it is the letter dropped"
+      }
      ]
     },
     "explanation": {
@@ -1323,11 +1134,6 @@
    },
    "solution": "DOWNINGSTREET",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DOWNING STREET",
     "definitions": [
      {
       "text": "Brown's time here running out",
@@ -1335,41 +1141,47 @@
       "note": "describes the place, a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "entering",
-      "for": "container",
-      "note": "a word entering others goes inside them"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "'end of' keeps only the last letter of 'Third'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Third",
-      "gives": "D",
-      "select": "last",
-      "note": "the final letter of Third"
-     },
-     {
-      "clueFragment": "admitting",
-      "gives": "OWNING",
-      "note": "owning up is admitting"
-     },
-     {
-      "clueFragment": "Way",
-      "gives": "STREET",
-      "note": "a street is a way or road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "OWNING",
-      "STREET"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DOWNINGSTREET",
+     "indicators": [
+      {
+       "text": "entering",
+       "note": "a word entering others goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "'end of' keeps only the last letter of 'Third'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Third",
+           "note": "the final letter of Third"
+          }
+         ]
+        },
+        {
+         "words": "admitting",
+         "gives": "OWNING",
+         "note": "owning up is admitting"
+        },
+        {
+         "words": "Way",
+         "gives": "STREET",
+         "note": "a street is a way or road"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1398,56 +1210,52 @@
    },
    "solution": "WISDOM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "WISDOM",
     "definitions": [
      {
       "text": "ageing comedian",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "screwed around",
-      "for": "anagram",
-      "note": "screwed around suggests twisting and messing about, so the letters are turned into a new order"
-     },
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "inside means placed within the surrounding letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "So Di",
-      "gives": "SODI",
-      "note": "the letters to rearrange"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the abbreviation for male"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ISDO",
-      "M"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "WISDOM",
+     "indicators": [
       {
-       "fodder": "SODI",
-       "gives": "ISDO"
+       "text": "inside",
+       "note": "inside means placed within the surrounding letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "screwed around",
+         "note": "screwed around suggests twisting and messing about, so the letters are turned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "with",
+           "gives": "W",
+           "note": "W is the abbreviation for with"
+          },
+          {
+           "words": "So Di",
+           "note": "the letters to rearrange"
+          },
+          {
+           "words": "male",
+           "gives": "M",
+           "note": "M is the abbreviation for male"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1477,49 +1285,45 @@
    },
    "solution": "GRUMPY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "GRUMPY",
     "definitions": [
      {
       "text": "Dwarf",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grabbed by",
-      "for": "container",
-      "note": "something grabbed by another is held inside it"
-     },
-     {
-      "text": "heartless",
-      "for": "deletion",
-      "note": "without a heart means the middle letter is taken out"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arse",
-      "gives": "RUMP",
-      "note": "the rump is the backside"
-     },
-     {
-      "clueFragment": "bloke",
-      "gives": "GUY",
-      "note": "a guy is a bloke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RUMP",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabbed by",
+       "note": "something grabbed by another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "note": "without a heart means the middle letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bloke",
+         "gives": "GUY",
+         "note": "a guy is a bloke"
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "arse",
+       "gives": "RUMP",
+       "note": "the rump is the backside"
+      }
      ]
     },
     "explanation": {
@@ -1548,55 +1352,44 @@
    },
    "solution": "EXEMPT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "EXEMPT",
     "definitions": [
      {
       "text": "absolved",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "something bad has gone wrong, so the letters are put out of order"
-     }
-    ],
-    "linkWords": [
-     "gets",
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Partner once",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "energy reduced",
-      "gives": "E",
-      "note": "energy cut down to its abbreviation E"
-     },
-     {
-      "clueFragment": "PMT",
-      "gives": "PMT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "E",
-      "MPT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PMT",
-       "gives": "MPT"
+       "words": "Partner once",
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "note": "something bad has gone wrong, so the letters are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "energy reduced",
+           "gives": "E",
+           "note": "energy cut down to its abbreviation E"
+          },
+          {
+           "words": "PMT",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1625,47 +1418,41 @@
    },
    "solution": "FLAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "FLAN",
     "definitions": [
      {
       "text": "Tart",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "embeds",
-      "for": "container",
-      "note": "a thing that embeds another sets it firmly inside itself"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, the one kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nut",
-      "gives": "FAN",
-      "note": "a nut is an enthusiast, a fan"
-     },
-     {
-      "clueFragment": "nail",
-      "gives": "L",
-      "select": "last",
-      "note": "the final letter of nail"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "L",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embeds",
+       "note": "a thing that embeds another sets it firmly inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nut",
+       "gives": "FAN",
+       "note": "a nut is an enthusiast, a fan"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, the one kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nail",
+         "note": "the final letter of nail"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1700,47 +1487,45 @@
    },
    "solution": "ATSEA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "AT SEA",
     "definitions": [
      {
       "text": "lost",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Muddled",
-      "for": "anagram",
-      "note": "muddled things are mixed up, so the letters are rearranged"
-     },
-     {
-      "text": "second",
-      "for": "letter_selection",
-      "note": "the second letter of the word is the one kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Labour's",
-      "gives": "A",
-      "select": 2,
-      "note": "the second letter of Labour"
-     },
-     {
-      "clueFragment": "seat",
-      "gives": "SEAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASEAT",
-       "gives": "ATSEA"
+       "text": "Muddled",
+       "note": "muddled things are mixed up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "nth",
+         "n": 2,
+         "indicators": [
+          {
+           "text": "second",
+           "note": "the second letter of the word is the one kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Labour's",
+           "note": "the second letter of Labour"
+          }
+         ]
+        },
+        {
+         "words": "seat",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1780,28 +1565,16 @@
    },
    "solution": "UPTHEWALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UP THE WALL",
     "definitions": [
      {
       "text": "Mad",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: furious or crazy"
      },
      {
       "text": "Ivy's course fixating on erection?",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mad",
-      "note": "first meaning: furious or crazy"
-     },
-     {
-      "clueFragment": "Ivy's course fixating on erection?",
-      "note": "second meaning: climbing ivy grows along a built structure, an erection in its building sense"
+      "at": 4,
+      "meaning": "second meaning: climbing ivy grows along a built structure, an erection in its building sense"
      }
     ],
     "explanation": {
@@ -1836,40 +1609,31 @@
    },
    "solution": "CLOSEUP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CLOSE-UP",
     "definitions": [
      {
       "text": "paparazzo's dream shot?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "popping into",
-      "for": "container",
-      "note": "popping into somewhere means going inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Miss",
-      "gives": "LOSE",
-      "note": "to miss something is to lose it"
-     },
-     {
-      "clueFragment": "bra feature",
-      "gives": "CUP",
-      "note": "a bra is made of two cups"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOSE",
-      "UP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "popping into",
+       "note": "popping into somewhere means going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bra feature",
+       "gives": "CUP",
+       "note": "a bra is made of two cups"
+      },
+      {
+       "words": "Miss",
+       "gives": "LOSE",
+       "note": "to miss something is to lose it"
+      }
      ]
     },
     "explanation": {
@@ -1899,43 +1663,39 @@
    },
    "solution": "UMPTEEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UMPTEEN",
     "definitions": [
      {
       "text": "a lot",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "not hard",
-      "for": "deletion",
-      "note": "not hard means without the pencil-grade letter for hard, so that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "though"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Have sex with",
-      "gives": "HUMP",
-      "note": "hump is slang for having sex with"
-     },
-     {
-      "clueFragment": "juvenile",
-      "gives": "TEEN",
-      "note": "a teen is a juvenile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UMP",
-      "TEEN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not hard",
+       "note": "not hard means without the pencil-grade letter for hard, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Have sex with",
+         "gives": "HUMP",
+         "note": "hump is slang for having sex with"
+        },
+        {
+         "words": "juvenile",
+         "gives": "TEEN",
+         "note": "a teen is a juvenile"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {

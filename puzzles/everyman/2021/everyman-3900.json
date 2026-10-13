@@ -1,8 +1,6 @@
 {
  "id": "everyman-3900",
  "number": 3900,
- "series": "everyman",
- "name": "Everyman crossword No 3,900",
  "setter": "Everyman",
  "date": "2021-07-11",
  "dimensions": {
@@ -38,40 +36,33 @@
    },
    "solution": "PETUNIAS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PETUNIAS",
     "definitions": [
      {
       "text": "Blooms",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "jumble",
-      "for": "anagram",
-      "note": "a jumble is a disordered heap, so the preceding letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set up",
-      "gives": "SETUP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in a",
-      "gives": "INA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SETUPINA",
-       "gives": "PETUNIAS"
+       "text": "jumble",
+       "note": "a jumble is a disordered heap, so the preceding letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "set up",
+         "note": "taken as written"
+        },
+        {
+         "words": "in a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -101,28 +92,16 @@
    },
    "solution": "PLEASE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLEASE",
     "definitions": [
      {
       "text": "Give satisfaction",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a verb, to delight or content someone"
      },
      {
       "text": "if you'd be so kind",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give satisfaction",
-      "note": "first meaning: a verb, to delight or content someone"
-     },
-     {
-      "clueFragment": "if you'd be so kind",
-      "note": "second meaning: the polite word attached to a request"
+      "at": 19,
+      "meaning": "second meaning: the polite word attached to a request"
      }
     ],
     "explanation": {
@@ -149,41 +128,35 @@
    },
    "solution": "TRIVIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRIVIA",
     "definitions": [
      {
       "text": "minutiae",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "something done regularly happens at even intervals, so every other letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory, in vain",
-      "gives": "TRIVI",
-      "select": "alternate",
-      "note": "the first, third, fifth, seventh and ninth letters of these words"
-     },
-     {
-      "clueFragment": "advanced",
-      "gives": "A",
-      "note": "A is the abbreviation for advanced, as in A level"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRIVI",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "something done regularly happens at even intervals, so every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory, in vain",
+         "note": "the first, third, fifth, seventh and ninth letters of these words"
+        }
+       ]
+      },
+      {
+       "words": "advanced",
+       "gives": "A",
+       "note": "A is the abbreviation for advanced, as in A level"
+      }
      ]
     },
     "explanation": {
@@ -212,46 +185,44 @@
    },
    "solution": "NOISELESS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "NOISELESS",
     "definitions": [
      {
       "text": "quiet",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "Losing",
-      "for": "deletion",
-      "note": "losing something means it is taken away, so letters are removed"
-     },
-     {
-      "text": "unusually",
-      "for": "anagram",
-      "note": "unusually means not in the normal way, so the remaining letters take an unusual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Simon Russell Beale",
-      "gives": "SIMONRUSSELLBEALE",
-      "note": "the actor's full name taken as written"
-     },
-     {
-      "clueFragment": "unfurled umbrella",
-      "gives": "UMBRELLA",
-      "note": "the letters to take away; unfurled means they are removed wherever they sit, not as a block"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NOISELESS",
+     "indicators": [
       {
-       "fodder": "SIONSSELE",
-       "gives": "NOISELESS"
+       "text": "unusually",
+       "note": "unusually means not in the normal way, so the remaining letters take an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "NOISELESS",
+       "indicators": [
+        {
+         "text": "Losing",
+         "note": "losing something means it is taken away, so letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Simon Russell Beale",
+         "note": "the actor's full name taken as written"
+        },
+        {
+         "words": "unfurled umbrella",
+         "gives": "UMBRELLA",
+         "note": "the letters to take away; unfurled means they are removed wherever they sit, not as a block"
+        }
+       ]
       }
      ]
     },
@@ -300,35 +271,24 @@
    },
    "solution": "ASMADASAHATTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AS MAD AS A HATTER",
     "definitions": [
      {
       "text": "going round the bend",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "tours",
-      "for": "anagram",
-      "note": "touring means wandering around rather than going straight, so the letters wander into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seas that Armada",
-      "gives": "SEASTHATARMADA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEASTHATARMADA",
-       "gives": "ASMADASAHATTER"
+       "text": "tours",
+       "note": "touring means wandering around rather than going straight, so the letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Seas that Armada",
+       "note": "taken as written"
       }
      ]
     },
@@ -359,47 +319,35 @@
    },
    "solution": "LAPTOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LAPTOP",
     "definitions": [
      {
       "text": "Computer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "to flip something is to turn it over, so the letters are turned back to front"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pocket",
-      "gives": "POT",
-      "note": "to pocket a ball in snooker is to pot it"
-     },
-     {
-      "clueFragment": "mate",
-      "gives": "PAL",
-      "note": "a pal is a friend or mate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAPTOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "POTPAL",
-       "to": "LAPTOP"
+       "text": "flipping",
+       "note": "to flip something is to turn it over, so the letters are turned back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pocket",
+         "gives": "POT",
+         "note": "to pocket a ball in snooker is to pot it"
+        },
+        {
+         "words": "mate",
+         "gives": "PAL",
+         "note": "a pal is a friend or mate"
+        }
+       ]
       }
      ]
     },
@@ -430,30 +378,28 @@
    },
    "solution": "AESOP",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AESOP",
     "definitions": [
      {
       "text": "storyteller",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Extract from",
-      "for": "hidden_word",
-      "note": "an extract is a piece taken out of something longer, so the letters sit inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reggae's oppressed",
-      "gives": "AESOP",
-      "note": "the letters run across the apostrophe and into the next word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Extract from",
+       "note": "an extract is a piece taken out of something longer, so the letters sit inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reggae's oppressed",
+       "gives": "AESOP",
+       "note": "the letters run across the apostrophe and into the next word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A quoted passage from a reggae song about an oppressed narrator.",
      "walkthrough": "Reggae lyrics often tell of oppression, which makes the surface convincing; the apostrophe is ignored when reading the letters through.",
@@ -480,33 +426,28 @@
    },
    "solution": "THEREMIN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "THEREMIN",
     "definitions": [
      {
       "text": "eerie instrument",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "begins",
-      "for": "hidden_word",
-      "note": "the title's opening run of letters is what is wanted, so the answer sits at its start"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The REM Introduction",
-      "gives": "THEREMIN",
-      "note": "the first eight letters of this made-up title, read straight through"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "begins",
+       "note": "the title's opening run of letters is what is wanted, so the answer sits at its start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The REM Introduction",
+       "gives": "THEREMIN",
+       "note": "the first eight letters of this made-up title, read straight through"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An album or documentary about the band R.E.M. opens with a spooky musical sound.",
      "walkthrough": "The capitalised title suggests the rock band, but read the letters without spaces and the instrument appears at the front.",
@@ -533,32 +474,25 @@
    },
    "solution": "POSITING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POSITING",
     "definitions": [
      {
       "text": "Assuming",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Post Office",
-      "gives": "PO",
-      "note": "PO is the standard abbreviation"
-     },
-     {
-      "clueFragment": "finding location",
-      "gives": "SITING",
-      "note": "siting is choosing the place where something will go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "SITING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Post Office",
+       "gives": "PO",
+       "note": "PO is the standard abbreviation"
+      },
+      {
+       "words": "finding location",
+       "gives": "SITING",
+       "note": "siting is choosing the place where something will go"
+      }
      ]
     },
     "explanation": {
@@ -597,38 +531,24 @@
    },
    "solution": "NOJOKINGMATTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NO JOKING MATTER",
     "definitions": [
      {
       "text": "a serious business",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Toppling",
-      "for": "anagram",
-      "note": "something toppling falls over and lands in disarray, so the letters land in a new order"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trojan King: to me",
-      "gives": "TROJANKINGTOME",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TROJANKINGTOME",
-       "gives": "NOJOKINGMATTER"
+       "text": "Toppling",
+       "note": "something toppling falls over and lands in disarray, so the letters land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trojan King: to me",
+       "note": "taken as written"
       }
      ]
     },
@@ -658,33 +578,28 @@
    },
    "solution": "ELITISM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELITISM",
     "definitions": [
      {
       "text": "snobbery",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Partially",
-      "for": "hidden_word",
-      "note": "partially means only in part, so only a part of the following words is used"
-     }
-    ],
-    "linkWords": [
-     "displaying"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "candlelit? Is mum",
-      "gives": "ELITISM",
-      "note": "the letters run across the three words, ignoring the punctuation"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Partially",
+       "note": "partially means only in part, so only a part of the following words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "candlelit? Is mum",
+       "gives": "ELITISM",
+       "note": "the letters run across the three words, ignoring the punctuation"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Mother insists on candlelight at dinner, and someone wonders whether she is being a snob.",
      "walkthrough": "The question mark breaks the run of letters on the surface, but the answer reads straight through it.",
@@ -711,40 +626,33 @@
    },
    "solution": "OYSTERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OYSTERS",
     "definitions": [
      {
       "text": "seafood",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "sort out",
-      "for": "anagram",
-      "note": "sorting something out means rearranging it into order, so the letters are reorganised"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yes",
-      "gives": "YES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sort",
-      "gives": "SORT",
-      "note": "taken as written, doubling as part of the indicator"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YESSORT",
-       "gives": "OYSTERS"
+       "text": "sort out",
+       "note": "sorting something out means rearranging it into order, so the letters are reorganised"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Yes",
+         "note": "taken as written"
+        },
+        {
+         "words": "sort",
+         "note": "taken as written, doubling as part of the indicator"
+        }
+       ]
       }
      ]
     },
@@ -774,31 +682,29 @@
    },
    "solution": "SEIZE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SEIZE",
     "definitions": [
      {
       "text": "Take possession of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by sound of it",
-      "for": "homophone",
-      "note": "judging by how it sounds means we hear a word rather than read it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "oceans",
-      "gives": "SEIZE",
-      "soundsLike": "SEAS",
-      "note": "oceans are seas, and the plural is said the same as the verb"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEIZE",
+     "indicators": [
+      {
+       "text": "by sound of it",
+       "note": "judging by how it sounds means we hear a word rather than read it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "oceans",
+       "gives": "SEAS",
+       "note": "oceans are seas, and the plural is said the same as the verb"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone claims ownership of the oceans, a grand naval ambition.",
      "walkthrough": "The surface suggests seizing the seas themselves; only the sound of the plural noun matters.",
@@ -826,47 +732,40 @@
    },
    "solution": "DROOPIEST",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DROOPIEST",
     "definitions": [
      {
       "text": "most feeble",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "to include is to take inside, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dutch",
-      "gives": "D",
-      "note": "D is the abbreviation for Dutch"
-     },
-     {
-      "clueFragment": "grub",
-      "gives": "ROOT",
-      "note": "to grub about is to root around, digging for something"
-     },
-     {
-      "clueFragment": "pies",
-      "gives": "PIES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ROO",
-      "PIES",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dutch",
+       "gives": "D",
+       "note": "D is the abbreviation for Dutch"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "note": "to include is to take inside, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grub",
+         "gives": "ROOT",
+         "note": "to grub about is to root around, digging for something"
+        },
+        {
+         "words": "pies",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -896,63 +795,54 @@
    },
    "solution": "PERSPIRATION",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "reversal"
-    ],
-    "answer": "PERSPIRATION",
     "definitions": [
      {
       "text": "sweat",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "bubbly",
-      "for": "anagram",
-      "note": "something bubbly is fizzing and agitated, so the letters are stirred up"
-     },
-     {
-      "text": "knocked back",
-      "for": "reversal",
-      "note": "knocking something back sends it backwards, so the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "For each",
-      "gives": "PER",
-      "note": "per means for each, as in per person"
-     },
-     {
-      "clueFragment": "spirit, a",
-      "gives": "SPIRITA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "NO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "SPIRATI",
-      "ON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SPIRITA",
-       "gives": "SPIRATI"
-      }
-     ],
-     "reversals": [
+       "words": "For each",
+       "gives": "PER",
+       "note": "per means for each, as in per person"
+      },
       {
-       "from": "NO",
-       "to": "ON"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked back",
+         "note": "knocking something back sends it backwards, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "bubbly",
+           "note": "something bubbly is fizzing and agitated, so the letters are stirred up"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "spirit, a",
+             "note": "taken as written"
+            },
+            {
+             "words": "no",
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -983,39 +873,31 @@
    },
    "solution": "AFFECTION",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AFFECTION",
     "definitions": [
      {
       "text": "Love",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "No",
-      "for": "deletion",
-      "note": "saying no to something means doing without it, so letters are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretentiousness",
-      "gives": "AFFECTATION",
-      "note": "affectation is putting on airs, behaviour meant to impress"
-     },
-     {
-      "clueFragment": "thanks",
-      "gives": "TA",
-      "note": "ta is informal British for thank you"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFFEC",
-      "TION"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No",
+       "note": "saying no to something means doing without it, so letters are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pretentiousness",
+       "gives": "AFFECTATION",
+       "note": "affectation is putting on airs, behaviour meant to impress"
+      },
+      {
+       "words": "thanks",
+       "gives": "TA",
+       "note": "ta is informal British for thank you"
+      }
      ]
     },
     "explanation": {
@@ -1044,58 +926,61 @@
    },
    "solution": "ABSCONDS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ABSCONDS",
     "definitions": [
      {
       "text": "escapes",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word is emptied of its inside and only its ends stay"
-     },
-     {
-      "text": "held",
-      "for": "container",
-      "note": "to be held is to be gripped from both sides, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muscle",
-      "gives": "AB",
-      "note": "an ab is an abdominal muscle"
-     },
-     {
-      "clueFragment": "dangerous",
-      "gives": "DS",
-      "select": "outer",
-      "note": "the first and last letters only"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "prisoner",
-      "gives": "CON",
-      "note": "a con is a convict"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "S",
-      "CON",
-      "DS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held",
+       "note": "to be held is to be gripped from both sides, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Muscle",
+         "gives": "AB",
+         "note": "an ab is an abdominal muscle"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "vacuous",
+           "note": "vacuous means empty, so the word is emptied of its inside and only its ends stay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dangerous",
+           "note": "the first and last letters only"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "S is the abbreviation for second"
+        },
+        {
+         "words": "prisoner",
+         "gives": "CON",
+         "note": "a con is a convict"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1134,48 +1019,34 @@
    },
    "solution": "SOHELPME",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SO HELP ME",
     "definitions": [
      {
       "text": "Exasperated utterance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolting",
-      "for": "anagram",
-      "note": "revolting means rising up and overturning, so the letters are overturned into a new order"
-     }
-    ],
-    "linkWords": [
-     "put before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slop he",
-      "gives": "SLOPHE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "setter",
-      "gives": "ME",
-      "note": "the setter refers to themself as me"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOHELP",
-      "ME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SLOPHE",
-       "gives": "SOHELP"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolting",
+         "note": "revolting means rising up and overturning, so the letters are overturned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slop he",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "setter",
+       "gives": "ME",
+       "note": "the setter refers to themself as me"
       }
      ]
     },
@@ -1216,35 +1087,24 @@
    },
    "solution": "BLOWSTHEGAFF",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLOWS THE GAFF",
     "definitions": [
      {
       "text": "Discloses secret",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "distressed",
-      "for": "anagram",
-      "note": "distressed means battered or agitated, so the letters are knocked about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staff beg, howl",
-      "gives": "STAFFBEGHOWL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAFFBEGHOWL",
-       "gives": "BLOWSTHEGAFF"
+       "text": "distressed",
+       "note": "distressed means battered or agitated, so the letters are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staff beg, howl",
+       "note": "taken as written"
       }
      ]
     },
@@ -1274,41 +1134,30 @@
    },
    "solution": "DIESEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIESEL",
     "definitions": [
      {
       "text": "fuel",
       "at": 48
      }
     ],
-    "linkWords": [
-     "wanting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conks out",
-      "gives": "DIES",
-      "note": "an engine that conks out dies"
-     },
-     {
-      "clueFragment": "'empty' sign",
-      "gives": "E",
-      "note": "E marks empty on a fuel gauge"
-     },
-     {
-      "clueFragment": "learner driver",
-      "gives": "L",
-      "note": "L is the learner plate on a car in Britain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIES",
-      "E",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conks out",
+       "gives": "DIES",
+       "note": "an engine that conks out dies"
+      },
+      {
+       "words": "'empty' sign",
+       "gives": "E",
+       "note": "E marks empty on a fuel gauge"
+      },
+      {
+       "words": "learner driver",
+       "gives": "L",
+       "note": "L is the learner plate on a car in Britain"
+      }
      ]
     },
     "explanation": {
@@ -1337,40 +1186,31 @@
    },
    "solution": "DEMEAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DEMEAN",
     "definitions": [
      {
       "text": "lower in reputation",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "something being worn is wrapped around by the wearer, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "University official",
-      "gives": "DEAN",
-      "note": "a dean heads a faculty or college"
-     },
-     {
-      "clueFragment": "Everyman's",
-      "gives": "ME",
-      "note": "Everyman is the setter, who refers to themself as me; the 's means 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "ME",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "something being worn is wrapped around by the wearer, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "University official",
+       "gives": "DEAN",
+       "note": "a dean heads a faculty or college"
+      },
+      {
+       "words": "Everyman's",
+       "gives": "ME",
+       "note": "Everyman is the setter, who refers to themself as me; the 's means 'is'"
+      }
      ]
     },
     "explanation": {
@@ -1399,48 +1239,38 @@
    },
    "solution": "CLEOPATRA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLEOPATRA",
     "definitions": [
      {
       "text": "Queen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "to broadcast is to scatter widely, so the letters are scattered into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R is short for rex, Latin for king"
-     },
-     {
-      "clueFragment": "palace",
-      "gives": "PALACE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RPALACETO",
-       "gives": "CLEOPATRA"
+       "text": "broadcast",
+       "note": "to broadcast is to scatter widely, so the letters are scattered into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "King",
+         "gives": "R",
+         "note": "R is short for rex, Latin for king"
+        },
+        {
+         "words": "palace",
+         "note": "taken as written"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1470,28 +1300,16 @@
    },
    "solution": "PLUMP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLUMP",
     "definitions": [
      {
       "text": "Flop down",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a verb, to drop heavily into a seat"
      },
      {
       "text": "Chubby",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flop down",
-      "note": "first meaning: a verb, to drop heavily into a seat"
-     },
-     {
-      "clueFragment": "Chubby",
-      "note": "second meaning: an adjective, pleasantly rounded"
+      "at": 11,
+      "meaning": "second meaning: an adjective, pleasantly rounded"
      }
     ],
     "explanation": {
@@ -1520,31 +1338,29 @@
    },
    "solution": "CHILE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHILE",
     "definitions": [
      {
       "text": "country",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Report of",
-      "for": "homophone",
-      "note": "a report is a sound, as of a gun, so we listen for a word rather than read it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "distant",
-      "gives": "CHILE",
-      "soundsLike": "CHILLY",
-      "note": "distant in manner is cool or unfriendly"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHILE",
+     "indicators": [
+      {
+       "text": "Report of",
+       "note": "a report is a sound, as of a gun, so we listen for a word rather than read it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "distant",
+       "gives": "CHILLY",
+       "note": "distant in manner is cool or unfriendly"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A news report from some far-off land.",
      "walkthrough": "'Distant country' reads as one phrase; 'distant' is in fact the wordplay, meaning aloof, and 'country' alone is the definition.",
@@ -1572,45 +1388,35 @@
    },
    "solution": "NEPTUNE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NEPTUNE",
     "definitions": [
      {
       "text": "God",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "to turn about is to face the other way, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "write",
-      "gives": "PEN",
-      "note": "to pen is to write"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "TUNE",
-      "note": "an air is a melody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEP",
-      "TUNE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PEN",
-       "to": "NEP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to turn about is to face the other way, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "write",
+         "gives": "PEN",
+         "note": "to pen is to write"
+        }
+       ]
+      },
+      {
+       "words": "air",
+       "gives": "TUNE",
+       "note": "an air is a melody"
       }
      ]
     },
@@ -1641,40 +1447,31 @@
    },
    "solution": "TRIESTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRIESTE",
     "definitions": [
      {
       "text": "seaside city",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "staying in",
-      "for": "container",
-      "note": "something staying in a place lodges inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sad in France",
-      "gives": "TRISTE",
-      "note": "triste is the French word for sad"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "E",
-      "STE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "staying in",
+       "note": "something staying in a place lodges inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sad in France",
+       "gives": "TRISTE",
+       "note": "triste is the French word for sad"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1703,47 +1500,35 @@
    },
    "solution": "SLEEPS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SLEEPS",
     "definitions": [
      {
       "text": "rests",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "lies back",
-      "for": "reversal",
-      "note": "lying back means reclining backwards, so the letters face the other way"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "spa treatments",
-      "gives": "PEELS",
-      "note": "a peel is a skin treatment at a spa"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLEEPS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SPEELS",
-       "to": "SLEEPS"
+       "text": "lies back",
+       "note": "lying back means reclining backwards, so the letters face the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Son",
+         "gives": "S",
+         "note": "S is the abbreviation for son"
+        },
+        {
+         "words": "spa treatments",
+         "gives": "PEELS",
+         "note": "a peel is a skin treatment at a spa"
+        }
+       ]
       }
      ]
     },
@@ -1773,28 +1558,16 @@
    },
    "solution": "FRANKLIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FRANKLIN",
     "definitions": [
      {
       "text": "A founding father",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Benjamin, a signatory of the American Declaration of Independence"
      },
      {
       "text": "who demanded respect",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A founding father",
-      "note": "first meaning: Benjamin, a signatory of the American Declaration of Independence"
-     },
-     {
-      "clueFragment": "who demanded respect",
-      "note": "second meaning: Aretha, the soul singer whose hit song spelt out the word R-E-S-P-E-C-T"
+      "at": 18,
+      "meaning": "second meaning: Aretha, the soul singer whose hit song spelt out the word R-E-S-P-E-C-T"
      }
     ],
     "explanation": {

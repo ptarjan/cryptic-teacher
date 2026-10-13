@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30004",
  "number": 30004,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,004",
  "setter": "Philistine",
  "date": "2026-05-12",
  "dimensions": {
@@ -38,49 +36,41 @@
    },
    "solution": "TITFER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "TITFER",
     "definitions": [
      {
       "text": "Panama",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "Something placed about a thing is wrapped round it, so the row closes over the letters that follow."
-     },
-     {
-      "text": "backing",
-      "note": "A newspaper's backing is its support in the surface; as an instruction it asks for those two letters read from the back."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Row",
-      "gives": "TIER",
-      "note": "a row of seats in a stand is a tier"
-     },
-     {
-      "clueFragment": "newspaper",
-      "gives": "FT",
-      "note": "the Financial Times, Britain's pink business paper, signs itself FT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "TF",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "FT",
-       "to": "TF"
+       "text": "about",
+       "note": "Something placed about a thing is wrapped round it, so the row closes over the letters that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Row",
+       "gives": "TIER",
+       "note": "a row of seats in a stand is a tier"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "A newspaper's backing is its support in the surface; as an instruction it asks for those two letters read from the back."
+        }
+       ],
+       "parts": [
+        {
+         "words": "newspaper",
+         "gives": "FT",
+         "note": "the Financial Times, Britain's pink business paper, signs itself FT"
+        }
+       ]
       }
      ]
     },
@@ -105,30 +95,28 @@
    },
    "solution": "THEATRE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "THEATRE",
     "definitions": [
      {
       "text": "play enacted here",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "From",
-      "for": "hidden_word",
-      "note": "Saying the answer comes from these words points at the words themselves, and the letters are already sitting in them in order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Goethe, a tremendous",
-      "gives": "THEATRE",
-      "note": "the letters run on unbroken across the comma and the two spaces"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "From",
+       "note": "Saying the answer comes from these words points at the words themselves, and the letters are already sitting in them in order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Goethe, a tremendous",
+       "gives": "THEATRE",
+       "note": "the letters run on unbroken across the comma and the two spaces"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A grand production of Goethe, played with enormous energy.",
      "walkthrough": "German drama in the surface and an English word underneath it: the run starts in the middle of Goethe's name, which is where nobody looks first.",
@@ -164,45 +152,49 @@
     "5-down"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "TO TIE THE KNOT",
     "definitions": [
      {
       "text": "to get hitched",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "odds",
-      "note": "Odds are the odd-numbered ones, so the first, third and fifth letters of the word beside it are taken and the rest dropped."
-     },
-     {
-      "text": "in order",
-      "note": "Putting something in order means arranging it, and letters arranged afresh come out in a sequence they were not handed to you in."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I then took",
-      "gives": "ITHENTOOK",
-      "note": "nine of the twelve letters, taken exactly as they stand"
-     },
-     {
-      "clueFragment": "odds on twenty",
-      "gives": "TET",
-      "select": "alternate",
-      "note": "the first, third and fifth letters of t-w-e-n-t-y"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ITHENTOOK TET",
-       "gives": "TOTIETHEKNOT"
+       "text": "odds",
+       "note": "Odds are the odd-numbered ones, so the first, third and fifth letters of the word beside it are taken and the rest dropped."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in order",
+         "note": "Putting something in order means arranging it, and letters arranged afresh come out in a sequence they were not handed to you in."
+        }
+       ],
+       "parts": [
+        {
+         "words": "I then took",
+         "note": "nine of the twelve letters, taken exactly as they stand"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "TET",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "odds on twenty",
+           "gives": "TET",
+           "select": "alternate",
+           "note": "the first, third and fifth letters of t-w-e-n-t-y"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -227,11 +219,6 @@
    },
    "solution": "ELECTOR",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ELECTOR",
     "definitions": [
      {
       "text": "One chooses",
@@ -239,38 +226,34 @@
       "note": "The definition is a clause where the answer is a noun: read it as 'one who chooses', a shorthand setters allow themselves because the surface needs a sentence."
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "Treatment given in something happens inside it, so these letters land within the word beside them rather than next to it."
-     },
-     {
-      "text": "reversal",
-      "note": "A reversal turns a thing back to front, and what gets read from its last letter to its first here is the role."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "role",
-      "gives": "ROLE",
-      "note": "the word as it stands, waiting to be turned round"
-     },
-     {
-      "clueFragment": "shock treatment",
-      "gives": "ECT",
-      "note": "electroconvulsive therapy, the psychiatric treatment that passes a current through the brain, is written ECT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "ECT",
-      "OR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ROLE",
-       "to": "ELOR"
+       "text": "in",
+       "note": "Treatment given in something happens inside it, so these letters land within the word beside them rather than next to it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversal",
+         "note": "A reversal turns a thing back to front, and what gets read from its last letter to its first here is the role."
+        }
+       ],
+       "parts": [
+        {
+         "words": "role",
+         "note": "the word as it stands, waiting to be turned round"
+        }
+       ]
+      },
+      {
+       "words": "shock treatment",
+       "gives": "ECT",
+       "note": "electroconvulsive therapy, the psychiatric treatment that passes a current through the brain, is written ECT"
       }
      ]
     },
@@ -295,45 +278,35 @@
    },
    "solution": "STUPID",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STUPID",
     "definitions": [
      {
       "text": "Silly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "must be rejected",
-      "for": "reversal",
-      "note": "Something rejected is thrown back, and a word thrown back is read from its last letter to its first."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "positions",
-      "gives": "PUTS",
-      "note": "to position something is to put it somewhere, so the verb matches in the third person"
-     },
-     {
-      "clueFragment": "I would",
-      "gives": "ID",
-      "note": "I would shortens to I'd in speech, and the apostrophe goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUP",
-      "ID"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PUTS",
-       "to": "STUP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "must be rejected",
+         "note": "Something rejected is thrown back, and a word thrown back is read from its last letter to its first."
+        }
+       ],
+       "parts": [
+        {
+         "words": "positions",
+         "gives": "PUTS",
+         "note": "to position something is to put it somewhere, so the verb matches in the third person"
+        }
+       ]
+      },
+      {
+       "words": "I would",
+       "gives": "ID",
+       "note": "I would shortens to I'd in speech, and the apostrophe goes"
       }
      ]
     },
@@ -377,35 +350,24 @@
    },
    "solution": "PENALTIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PENALTIES",
     "definitions": [
      {
       "text": "sanctions",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "suffering",
-      "for": "anagram",
-      "note": "A country suffering is in a bad way, and letters in a bad way have come out of the arrangement they were given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Palestine",
-      "gives": "PALESTINE",
-      "note": "all nine letters of the name, rebuilt into a different word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PALESTINE",
-       "gives": "PENALTIES"
+       "text": "suffering",
+       "note": "A country suffering is in a bad way, and letters in a bad way have come out of the arrangement they were given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Palestine",
+       "note": "all nine letters of the name, rebuilt into a different word"
       }
      ]
     },
@@ -430,44 +392,35 @@
    },
    "solution": "DESIREE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DESIREE",
     "definitions": [
      {
       "text": "potato",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "start",
-      "for": "letter_selection",
-      "note": "The start of a word is the letter it opens with, and only that one letter joins what has gone before."
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Want",
-      "gives": "DESIRE",
-      "note": "to want something is to desire it"
-     },
-     {
-      "clueFragment": "eating",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of the word, taken off the front and nothing else with it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DESIRE",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Want",
+       "gives": "DESIRE",
+       "note": "to want something is to desire it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start",
+         "note": "The start of a word is the letter it opens with, and only that one letter joins what has gone before."
+        }
+       ],
+       "parts": [
+        {
+         "words": "eating",
+         "note": "the first letter of the word, taken off the front and nothing else with it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -491,50 +444,41 @@
    },
    "solution": "MOTLEY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MOTLEY",
     "definitions": [
      {
       "text": "Disparate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with a twist in the tail",
-      "note": "A twist in the tail turns the end round, so the last two letters of the word before swap places."
-     },
-     {
-      "text": "End of",
-      "note": "The end of a word is the letter it finishes on, which is all that is taken from the word that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "motel",
-      "gives": "MOTEL",
-      "note": "the word as it stands, before its last two letters are turned"
-     },
-     {
-      "clueFragment": "story",
-      "gives": "Y",
-      "select": "last",
-      "note": "the letter this word finishes on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOTLE",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MOTLEY",
+     "indicators": [
       {
-       "from": "EL",
-       "to": "LE"
+       "text": "with a twist in the tail",
+       "note": "A twist in the tail turns the end round, so the last two letters of the word before swap places."
+      }
+     ],
+     "parts": [
+      {
+       "words": "motel",
+       "note": "the word as it stands, before its last two letters are turned"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "End of",
+         "note": "The end of a word is the letter it finishes on, which is all that is taken from the word that follows."
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "note": "the letter this word finishes on"
+        }
+       ]
       }
      ]
     },
@@ -569,57 +513,46 @@
    },
    "solution": "FEATHERONESNEST",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FEATHER ONE'S NEST",
     "definitions": [
      {
       "text": "to get personal benefit",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "imperfect",
-      "for": "anagram",
-      "note": "Something imperfect is not as it should be, and letters not as they should be are out of their proper order."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exploit",
-      "gives": "FEAT",
-      "note": "an exploit is a feat"
-     },
-     {
-      "clueFragment": "flyer",
-      "gives": "HERON",
-      "note": "a long-legged river bird, and a flyer like any other"
-     },
-     {
-      "clueFragment": "tenses",
-      "gives": "ESNEST",
-      "note": "the six letters of TENSES rebuilt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEAT",
-      "HERON",
-      "ESNEST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FEATHERONESNEST",
+     "indicators": [
       {
-       "fodder": "TENSES",
-       "gives": "ESNEST"
+       "text": "imperfect",
+       "note": "Something imperfect is not as it should be, and letters not as they should be are out of their proper order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Exploit",
+         "gives": "FEAT",
+         "note": "an exploit is a feat"
+        },
+        {
+         "words": "flyer",
+         "gives": "HERON",
+         "note": "a long-legged river bird, and a flyer like any other"
+        },
+        {
+         "words": "tenses",
+         "gives": "ESNEST",
+         "note": "the six letters of TENSES rebuilt"
+        }
+       ]
       }
      ]
     },
+    "spelling": "FEATHER ONE'S NEST",
     "explanation": {
      "surface": "Taking advantage of a leaflet whose grammar has all the tenses wrong.",
      "walkthrough": "The imperfect is itself a tense, which is what makes 'imperfect tenses' read as grammar rather than as an instruction, and 'exploit' looks like the verb the sentence needs.",
@@ -641,32 +574,25 @@
    },
    "solution": "ATTEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATTEST",
     "definitions": [
      {
       "text": "to give evidence",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "may be here",
-      "gives": "AT",
-      "note": "the small word that says where somebody is"
-     },
-     {
-      "clueFragment": "Bowler",
-      "gives": "TEST",
-      "note": "a Test is an international cricket match played over five days, the level a top bowler works at"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AT",
-      "TEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "may be here",
+       "gives": "AT",
+       "note": "the small word that says where somebody is"
+      },
+      {
+       "words": "Bowler",
+       "gives": "TEST",
+       "note": "a Test is an international cricket match played over five days, the level a top bowler works at"
+      }
      ]
     },
     "explanation": {
@@ -690,52 +616,41 @@
    },
    "solution": "LANDLORD",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "LANDLORD",
     "definitions": [
      {
       "text": "Proprietor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "A joiner slotted in goes inside, so the word beside it opens up and takes those letters within it."
-     },
-     {
-      "text": "comeback",
-      "note": "A comeback is a return along the way you came, so those letters are read from their far end back to their start."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "funny",
-      "gives": "DROLL",
-      "note": "droll is funny in the dry, understated way"
-     },
-     {
-      "clueFragment": "joiner",
-      "gives": "AND",
-      "note": "the conjunction that joins two clauses together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AND",
-      "LORD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DROLL",
-       "to": "LLORD"
+       "text": "in",
+       "note": "A joiner slotted in goes inside, so the word beside it opens up and takes those letters within it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comeback",
+         "note": "A comeback is a return along the way you came, so those letters are read from their far end back to their start."
+        }
+       ],
+       "parts": [
+        {
+         "words": "funny",
+         "gives": "DROLL",
+         "note": "droll is funny in the dry, understated way"
+        }
+       ]
+      },
+      {
+       "words": "joiner",
+       "gives": "AND",
+       "note": "the conjunction that joins two clauses together"
       }
      ]
     },
@@ -766,45 +681,41 @@
    },
    "solution": "HENPARTY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HEN PARTY",
     "definitions": [
      {
       "text": "preparatory celebration",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "on vacation",
-      "note": "A word on vacation has been emptied out, so only the letters at its two ends are left standing."
-     },
-     {
-      "text": "during",
-      "note": "Something that happens during an event happens inside it, so these letters sit within the word beside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jovial",
-      "gives": "HEARTY",
-      "note": "a hearty welcome is a jovial one"
-     },
-     {
-      "clueFragment": "Nightcap",
-      "gives": "NP",
-      "select": "outer",
-      "note": "the two ends of the word, with everything between them gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "NP",
-      "ARTY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on vacation",
+       "note": "A word on vacation has been emptied out, so only the letters at its two ends are left standing."
+      }
+     ],
+     "parts": [
+      {
+       "words": "jovial",
+       "gives": "HEARTY",
+       "note": "a hearty welcome is a jovial one"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "during",
+         "note": "Something that happens during an event happens inside it, so these letters sit within the word beside them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nightcap",
+         "note": "the two ends of the word, with everything between them gone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -828,38 +739,24 @@
    },
    "solution": "PLENTIFUL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PLENTIFUL",
     "definitions": [
      {
       "text": "more than enough",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "forms",
-      "for": "anagram",
-      "note": "Forms is the verb here: the letters beside it are made to form something, which they can only do by moving."
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fill up ten",
-      "gives": "FILLUPTEN",
-      "note": "nine letters, the little words counted in"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FILLUPTEN",
-       "gives": "PLENTIFUL"
+       "text": "forms",
+       "note": "Forms is the verb here: the letters beside it are made to form something, which they can only do by moving."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fill up ten",
+       "note": "nine letters, the little words counted in"
       }
      ]
     },
@@ -884,43 +781,31 @@
    },
    "solution": "TOILET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOILET",
     "definitions": [
      {
       "text": "John",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outwardly",
-      "for": "container",
-      "note": "What is outward is on the outside, so the phrase this points at wraps round the letter named before it."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for hire",
-      "gives": "TOLET",
-      "note": "TO LET is what the sign says on a British property offered for hire"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "I",
-      "LET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outwardly",
+       "note": "What is outward is on the outside, so the phrase this points at wraps round the letter named before it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "for hire",
+       "gives": "TOLET",
+       "note": "TO LET is what the sign says on a British property offered for hire"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -944,35 +829,25 @@
    },
    "solution": "ABSENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABSENT",
     "definitions": [
      {
       "text": "not here",
       "at": 39
      }
     ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First couple of letters",
-      "gives": "AB",
-      "note": "the opening pair taken from the alphabet itself, in the order they come"
-     },
-     {
-      "clueFragment": "dispatched",
-      "gives": "SENT",
-      "note": "a parcel dispatched has been sent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "SENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "First couple of letters",
+       "gives": "AB",
+       "note": "the opening pair taken from the alphabet itself, in the order they come"
+      },
+      {
+       "words": "dispatched",
+       "gives": "SENT",
+       "note": "a parcel dispatched has been sent"
+      }
      ]
     },
     "explanation": {
@@ -996,32 +871,25 @@
    },
    "solution": "BROTHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BROTHER",
     "definitions": [
      {
       "text": "Relative",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "souper",
-      "gives": "BROTH",
-      "note": "the soup itself, of the thin clear kind"
-     },
-     {
-      "clueFragment": "souper",
-      "gives": "ER",
-      "note": "the ending that turns a thing into the person who deals in it, as a bake becomes a baker"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROTH",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "souper",
+       "gives": "BROTH",
+       "note": "the soup itself, of the thin clear kind"
+      },
+      {
+       "words": "souper",
+       "gives": "ER",
+       "note": "the ending that turns a thing into the person who deals in it, as a bake becomes a baker"
+      }
      ]
     },
     "explanation": {
@@ -1045,38 +913,24 @@
    },
    "solution": "TRESTLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRESTLE",
     "definitions": [
      {
       "text": "support",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Prepared",
-      "for": "anagram",
-      "note": "Preparing something means working it into a new state, and letters worked over like that do not come out as they went in."
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letters",
-      "gives": "LETTERS",
-      "note": "the seven letters of the word itself, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LETTERS",
-       "gives": "TRESTLE"
+       "text": "Prepared",
+       "note": "Preparing something means working it into a new state, and letters worked over like that do not come out as they went in."
+      }
+     ],
+     "parts": [
+      {
+       "words": "letters",
+       "note": "the seven letters of the word itself, ready to be rearranged"
       }
      ]
     },
@@ -1101,36 +955,33 @@
    },
    "solution": "SPARSITY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SPARSITY",
     "definitions": [
      {
       "text": "being in short supply",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Sounds like",
-      "for": "homophone",
-      "note": "This asks for the noise the words make rather than their spelling, so what gets written down is not what was handed over."
-     },
-     {
-      "text": "perhaps",
-      "for": "homophone",
-      "note": "Perhaps flags an example rather than a synonym: the place named is one of the kind wanted, not the kind itself."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bath perhaps",
-      "gives": "SPARSITY",
-      "soundsLike": "SPA CITY",
-      "note": "Bath, in south-west England, is built on hot springs and gave its name to bathing, so it is one city among the spa towns"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SPARSITY",
+     "indicators": [
+      {
+       "text": "Sounds like",
+       "note": "This asks for the noise the words make rather than their spelling, so what gets written down is not what was handed over."
+      },
+      {
+       "text": "perhaps",
+       "note": "Perhaps flags an example rather than a synonym: the place named is one of the kind wanted, not the kind itself."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bath perhaps",
+       "gives": "SPACITY",
+       "note": "Bath, in south-west England, is built on hot springs and gave its name to bathing, so it is one city among the spa towns"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that Bath, of all places, is running short of something.",
      "walkthrough": "In a British accent the R at the join is not sounded, so two words run together into one, and a city on the map turns into a shortage.",
@@ -1152,45 +1003,44 @@
    },
    "solution": "STRIFE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "STRIFE",
     "definitions": [
      {
       "text": "conflict",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "last",
-      "note": "The last of a word is the letter it ends on, and only that one is taken from what follows."
-     },
-     {
-      "text": "can generate",
-      "note": "What a thing can generate is something new made out of it, and a new word is made out of old letters by moving them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First",
-      "gives": "FIRST",
-      "note": "the whole word, all five letters, not the initial of anything"
-     },
-     {
-      "clueFragment": "to arrive",
-      "gives": "E",
-      "select": "last",
-      "note": "the letter this word ends on"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FIRST E",
-       "gives": "STRIFE"
+       "text": "last",
+       "note": "The last of a word is the letter it ends on, and only that one is taken from what follows."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "can generate",
+         "note": "What a thing can generate is something new made out of it, and a new word is made out of old letters by moving them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "First",
+         "note": "the whole word, all five letters, not the initial of anything"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "to arrive",
+           "note": "the letter this word ends on"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1215,43 +1065,31 @@
    },
    "solution": "ABASHED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ABASHED",
     "definitions": [
      {
       "text": "Embarrassed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "A degree hung in a place sits inside it, so these two letters go within the words beside them."
-     }
-    ],
-    "linkWords": [
-     "to display"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an outhouse",
-      "gives": "ASHED",
-      "note": "an outhouse is a shed, and the article in front supplies the A"
-     },
-     {
-      "clueFragment": "university degree",
-      "gives": "BA",
-      "note": "a Bachelor of Arts is a BA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BA",
-      "SHED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "A degree hung in a place sits inside it, so these two letters go within the words beside them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "an outhouse",
+       "gives": "ASHED",
+       "note": "an outhouse is a shed, and the article in front supplies the A"
+      },
+      {
+       "words": "university degree",
+       "gives": "BA",
+       "note": "a Bachelor of Arts is a BA"
+      }
      ]
     },
     "explanation": {
@@ -1275,41 +1113,30 @@
    },
    "solution": "TWEENIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWEENIE",
     "definitions": [
      {
       "text": "a youngster",
       "at": 22
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cute",
-      "gives": "TWEE",
-      "note": "twee is cute to the point of being sickly"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the standard abbreviation for name"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the Latin id est, meaning that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE",
-      "N",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cute",
+       "gives": "TWEE",
+       "note": "twee is cute to the point of being sickly"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N is the standard abbreviation for name"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. is the Latin id est, meaning that is"
+      }
      ]
     },
     "explanation": {
@@ -1333,11 +1160,6 @@
    },
    "solution": "FOOTWEAR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "FOOTWEAR",
     "definitions": [
      {
       "text": "Oxford or Derby",
@@ -1345,33 +1167,31 @@
       "note": "An Oxford and a Derby are each one style of shoe while the answer is a collective noun covering the lot, so the setter is defining by example without the usual question mark."
      }
     ],
-    "indicators": [
-     {
-      "text": "stated",
-      "for": "homophone",
-      "note": "Stated means said out loud, so the word before it is written down as it sounds rather than as the clue spells it."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Settle",
-      "gives": "FOOT",
-      "note": "to foot the bill is to settle it"
-     },
-     {
-      "clueFragment": "where",
-      "gives": "WEAR",
-      "soundsLike": "WHERE",
-      "note": "said aloud the two are one noise, and only the spelling changes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOOT",
-      "WEAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Settle",
+       "gives": "FOOT",
+       "note": "to foot the bill is to settle it"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WEAR",
+       "indicators": [
+        {
+         "text": "stated",
+         "note": "Stated means said out loud, so the word before it is written down as it sounds rather than as the clue spells it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "where",
+         "gives": "WHERE",
+         "note": "said aloud the two are one noise, and only the spelling changes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1395,35 +1215,24 @@
    },
    "solution": "ANTLER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANTLER",
     "definitions": [
      {
       "text": "horn",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "to play",
-      "for": "anagram",
-      "note": "To play with a thing is to knock it about, and letters knocked about will not stay in the order they were given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Learnt",
-      "gives": "LEARNT",
-      "note": "six letters, exactly the six the answer needs"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEARNT",
-       "gives": "ANTLER"
+       "text": "to play",
+       "note": "To play with a thing is to knock it about, and letters knocked about will not stay in the order they were given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Learnt",
+       "note": "six letters, exactly the six the answer needs"
       }
      ]
     },
@@ -1448,11 +1257,6 @@
    },
    "solution": "TILDE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "TILDE",
     "definitions": [
      {
       "text": "mañana, got that, but not tomorrow",
@@ -1460,43 +1264,41 @@
       "note": "This is not a synonym but an instruction to look at the Spanish word rather than read it: what you get from mañana is the mark on the page, not the meaning tomorrow."
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "anagram",
-      "note": "Finally means at the end, so what is taken from the word after it is the letter it finishes with."
-     },
-     {
-      "text": "in",
-      "note": "This puts the single letter inside the group beside it instead of alongside them."
-     },
-     {
-      "text": "crash",
-      "note": "A crash leaves the pieces of a thing lying where they fell, so these letters are rebuilt in a different arrangement."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diet",
-      "gives": "TIDE",
-      "note": "the four letters of DIET rearranged"
-     },
-     {
-      "clueFragment": "Finally enrol",
-      "gives": "L",
-      "note": "the letter enrol ends on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "L",
-      "DE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TILDE",
+     "indicators": [
       {
-       "fodder": "DIET",
-       "gives": "TIDE"
+       "text": "Finally",
+       "note": "Finally means at the end, so what is taken from the word after it is the letter it finishes with."
+      },
+      {
+       "text": "crash",
+       "note": "A crash leaves the pieces of a thing lying where they fell, so these letters are rebuilt in a different arrangement."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "This puts the single letter inside the group beside it instead of alongside them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "diet",
+         "gives": "TIDE",
+         "note": "the four letters of DIET rearranged"
+        },
+        {
+         "words": "Finally enrol",
+         "gives": "L",
+         "note": "the letter enrol ends on"
+        }
+       ]
       }
      ]
     },
@@ -1539,33 +1341,16 @@
    },
    "solution": "THEFATOFTHELAND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THE FAT OF THE LAND",
     "definitions": [
      {
       "text": "Best in everything",
-      "at": 0
+      "at": 0,
+      "meaning": "the idiom for the choicest of what a country has to offer — you live off it"
      },
      {
       "text": "big Brits",
-      "at": 23
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Best in everything",
-      "gives": "THEFATOFTHELAND",
-      "note": "the idiom for the choicest of what a country has to offer — you live off it"
-     },
-     {
-      "clueFragment": "big Brits",
-      "gives": "THEFATOFTHELAND",
-      "note": "read literally instead of as an idiom: heavy people, and the country they live in"
+      "at": 23,
+      "meaning": "read literally instead of as an idiom: heavy people, and the country they live in"
      }
     ],
     "explanation": {
@@ -1589,43 +1374,31 @@
    },
    "solution": "RELIEF",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RELIEF",
     "definitions": [
      {
       "text": "Ease",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "A judge who accepts something takes it in, so the word before opens up and the next one goes inside it."
-     }
-    ],
-    "linkWords": [
-     "with which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "judge",
-      "gives": "REF",
-      "note": "a referee judges a match, and shortens to REF"
-     },
-     {
-      "clueFragment": "falsehood",
-      "gives": "LIE",
-      "note": "a falsehood told on purpose is a lie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIE",
-      "F"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepts",
+       "note": "A judge who accepts something takes it in, so the word before opens up and the next one goes inside it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "judge",
+       "gives": "REF",
+       "note": "a referee judges a match, and shortens to REF"
+      },
+      {
+       "words": "falsehood",
+       "gives": "LIE",
+       "note": "a falsehood told on purpose is a lie"
+      }
      ]
     },
     "explanation": {
@@ -1649,32 +1422,25 @@
    },
    "solution": "ADHERE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADHERE",
     "definitions": [
      {
       "text": "Stick",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "poster",
-      "gives": "AD",
-      "note": "a poster is an advertisement, AD for short"
-     },
-     {
-      "clueFragment": "but not over there",
-      "gives": "HERE",
-      "note": "the opposite of over there is right here"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "HERE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "poster",
+       "gives": "AD",
+       "note": "a poster is an advertisement, AD for short"
+      },
+      {
+       "words": "but not over there",
+       "gives": "HERE",
+       "note": "the opposite of over there is right here"
+      }
      ]
     },
     "explanation": {

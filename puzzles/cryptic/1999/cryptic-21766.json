@@ -1,8 +1,7 @@
 {
  "id": "cryptic-21766",
  "number": 21766,
- "series": "cryptic",
- "name": "Prize crossword No 21,766",
+ "prize": true,
  "setter": "Araucaria",
  "date": "1999-12-11",
  "preamble": "H was the big suspender",
@@ -39,48 +38,34 @@
    },
    "solution": "PSYCHOACTIVE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PSYCHOACTIVE",
     "definitions": [
      {
       "text": "affecting the brain",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "removal",
-      "for": "anagram",
-      "note": "a removal shifts things from where they were, so the letters before it are moved into a new order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "H's work",
-      "gives": "PSYCHO",
-      "note": "H is Hitchcock, the preamble's master of suspense, and Psycho is his 1960 film"
-     },
-     {
-      "clueFragment": "at vice",
-      "gives": "ATVICE",
-      "note": "taken as written, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PSYCHO",
-      "ACTIVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ATVICE",
-       "gives": "ACTIVE"
+       "words": "H's work",
+       "gives": "PSYCHO",
+       "note": "H is Hitchcock, the preamble's master of suspense, and Psycho is his 1960 film"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "removal",
+         "note": "a removal shifts things from where they were, so the letters before it are moved into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at vice",
+         "note": "taken as written, ready to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -110,43 +95,31 @@
    },
    "solution": "POLYMER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "POLYMER",
     "definitions": [
      {
       "text": "compound",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "container",
-      "note": "to sit between two things is to have one on each side, so the rivers flank the resort"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rivers",
-      "gives": "POR",
-      "note": "two rivers: the Po in Italy and R, the standard abbreviation for river"
-     },
-     {
-      "clueFragment": "Royal resort",
-      "gives": "LYME",
-      "note": "Lyme Regis is a Dorset seaside town; Regis is Latin for of the king, hence royal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "LYME",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "to sit between two things is to have one on each side, so the rivers flank the resort"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rivers",
+       "gives": "POR",
+       "note": "two rivers: the Po in Italy and R, the standard abbreviation for river"
+      },
+      {
+       "words": "Royal resort",
+       "gives": "LYME",
+       "note": "Lyme Regis is a Dorset seaside town; Regis is Latin for of the king, hence royal"
+      }
      ]
     },
     "explanation": {
@@ -175,62 +148,58 @@
    },
    "solution": "YUPPIFY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "YUPPIFY",
     "definitions": [
      {
       "text": "Make over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "deletion",
-      "note": "a thing without its heart has lost its central part, so the middle letter of solvers' word goes"
-     },
-     {
-      "text": "begin",
-      "for": "letter_selection",
-      "note": "where a word begins is its opening letter, so only that one is wanted"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "solvers",
-      "gives": "YOU",
-      "note": "the setter addresses the solvers as you"
-     },
-     {
-      "clueFragment": "very quietly",
-      "gives": "PP",
-      "note": "pianissimo, the musical marking for very quiet"
-     },
-     {
-      "clueFragment": "if",
-      "gives": "IF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "Y",
-      "select": "first",
-      "note": "the opening letter of you"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YU",
-      "PP",
-      "IF",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heartless",
+       "note": "a thing without its heart has lost its central part, so the middle letter of solvers' word goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "solvers",
+         "gives": "YOU",
+         "note": "the setter addresses the solvers as you"
+        },
+        {
+         "words": "very quietly",
+         "gives": "PP",
+         "note": "pianissimo, the musical marking for very quiet"
+        },
+        {
+         "words": "if",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "begin",
+           "note": "where a word begins is its opening letter, so only that one is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "note": "the opening letter of you"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -264,50 +233,41 @@
    },
    "solution": "HOTBOTTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HOT BOTTLE",
     "definitions": [
      {
       "text": "Comforter in bed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in a space is to be enclosed by it, so the first two pieces sit inside it"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "consumption",
-      "gives": "TB",
-      "note": "consumption is the old name for tuberculosis, abbreviated TB"
-     },
-     {
-      "clueFragment": "much exaggerated",
-      "gives": "OTT",
-      "note": "over the top, abbreviated OTT"
-     },
-     {
-      "clueFragment": "space",
-      "gives": "HOLE",
-      "note": "a hole is an empty space"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "TB",
-      "OTT",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "to be in a space is to be enclosed by it, so the first two pieces sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "space",
+       "gives": "HOLE",
+       "note": "a hole is an empty space"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "consumption",
+         "gives": "TB",
+         "note": "consumption is the old name for tuberculosis, abbreviated TB"
+        },
+        {
+         "words": "much exaggerated",
+         "gives": "OTT",
+         "note": "over the top, abbreviated OTT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -337,49 +297,35 @@
    },
    "solution": "AESIR",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "AESIR",
     "definitions": [
      {
       "text": "Norse gods",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "going back means reading from the end towards the start"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Backwater",
-      "gives": "SEA",
-      "note": "the water part is the sea, a body of water, and the word's opening tells you to read it backwards"
-     },
-     {
-      "clueFragment": "Irish",
-      "gives": "IR",
-      "note": "IR is the abbreviation for Irish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AES",
-      "IR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SEA",
-       "to": "AES"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "note": "going back means reading from the end towards the start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Backwater",
+         "gives": "SEA",
+         "note": "the water part is the sea, a body of water, and the word's opening tells you to read it backwards"
+        }
+       ]
+      },
+      {
+       "words": "Irish",
+       "gives": "IR",
+       "note": "IR is the abbreviation for Irish"
       }
      ]
     },
@@ -416,29 +362,17 @@
    },
    "solution": "THEBIRD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THE BIRD",
     "definitions": [
      {
       "text": "Singular work of H",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Hitchcock's film ... made singular"
      },
      {
       "text": "getting hissed off stage",
       "at": 19,
-      "note": "the answer is what a performer gets: to get the bird is to be hissed off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Singular work of H",
-      "note": "first meaning: Hitchcock's film ... made singular"
-     },
-     {
-      "clueFragment": "getting hissed off stage",
-      "note": "second meaning: theatre slang for being hissed or booed by the audience"
+      "note": "the answer is what a performer gets: to get the bird is to be hissed off",
+      "meaning": "second meaning: theatre slang for being hissed or booed by the audience"
      }
     ],
     "explanation": {
@@ -468,29 +402,17 @@
    },
    "solution": "VERTIGO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VERTIGO",
     "definitions": [
      {
       "text": "H's work",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Hitchcock's 1958 film"
      },
      {
       "text": "naturally makes me turn green",
       "at": 9,
-      "note": "describes what the answer does rather than naming it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "H's work",
-      "note": "first meaning: Hitchcock's 1958 film"
-     },
-     {
-      "clueFragment": "naturally makes me turn green",
-      "note": "second meaning: the giddy spinning that leaves a sufferer nauseous; vert is also heraldic green"
+      "note": "describes what the answer does rather than naming it",
+      "meaning": "second meaning: the giddy spinning that leaves a sufferer nauseous; vert is also heraldic green"
      }
     ],
     "explanation": {
@@ -530,44 +452,35 @@
    },
    "solution": "STITCHINTIME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STITCH IN TIME",
     "definitions": [
      {
       "text": "doesn't lose 9, they say",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "'Oly",
-      "gives": "ST",
-      "note": "holy with its aitch dropped; a holy person is a saint, ST"
-     },
-     {
-      "clueFragment": "H",
-      "gives": "ITCH",
-      "note": "H is Hitch, Hitchcock's nickname, said the same aitch-dropping way"
-     },
-     {
-      "clueFragment": "fashion",
-      "gives": "IN",
-      "note": "in means fashionable"
-     },
-     {
-      "clueFragment": "enemy",
-      "gives": "TIME",
-      "note": "time is the old enemy, as in the phrase time, the enemy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "ITCH",
-      "IN",
-      "TIME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'Oly",
+       "gives": "ST",
+       "note": "holy with its aitch dropped; a holy person is a saint, ST"
+      },
+      {
+       "words": "H",
+       "gives": "ITCH",
+       "note": "H is Hitch, Hitchcock's nickname, said the same aitch-dropping way"
+      },
+      {
+       "words": "fashion",
+       "gives": "IN",
+       "note": "in means fashionable"
+      },
+      {
+       "words": "enemy",
+       "gives": "TIME",
+       "note": "time is the old enemy, as in the phrase time, the enemy"
+      }
      ]
     },
     "explanation": {
@@ -597,50 +510,40 @@
    },
    "solution": "TALIPOT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TALIPOT",
     "definitions": [
      {
       "text": "palm",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "something holding another clasps it inside, so the child surrounds what follows"
-     }
-    ],
-    "linkWords": [
-     "wins the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small child",
-      "gives": "TOT",
-      "note": "a tot is a small child"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "speaker",
-      "gives": "LIP",
-      "note": "the lip, an organ of speech; lip is also cheeky talk"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "A",
-      "LIP",
-      "OT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "something holding another clasps it inside, so the child surrounds what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Small child",
+       "gives": "TOT",
+       "note": "a tot is a small child"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "speaker",
+         "gives": "LIP",
+         "note": "the lip, an organ of speech; lip is also cheeky talk"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -670,10 +573,6 @@
    },
    "solution": "STEARNS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STEARNS",
     "definitions": [
      {
       "text": "to precede Eliot, the poet",
@@ -681,22 +580,19 @@
       "note": "names the poet's middle name: the word that comes just before Eliot"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Holy person",
-      "gives": "ST",
-      "note": "a saint, abbreviated ST"
-     },
-     {
-      "clueFragment": "deserves",
-      "gives": "EARNS",
-      "note": "to earn something is to deserve it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "EARNS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Holy person",
+       "gives": "ST",
+       "note": "a saint, abbreviated ST"
+      },
+      {
+       "words": "deserves",
+       "gives": "EARNS",
+       "note": "to earn something is to deserve it"
+      }
      ]
     },
     "explanation": {
@@ -743,38 +639,24 @@
     "22-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STRANGERS ON A TRAIN",
     "definitions": [
      {
       "text": "H's work",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "composed",
-      "for": "anagram",
-      "note": "a composed piece is put together from parts, so these letters are arranged afresh"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrogant interns, as",
-      "gives": "ARROGANTINTERNSAS",
-      "note": "all seventeen letters of these three words are the material"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARROGANTINTERNSAS",
-       "gives": "STRANGERSONATRAIN"
+       "text": "composed",
+       "note": "a composed piece is put together from parts, so these letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arrogant interns, as",
+       "note": "all seventeen letters of these three words are the material"
       }
      ]
     },
@@ -803,50 +685,41 @@
    },
    "solution": "TAMPICO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TAMPICO",
     "definitions": [
      {
       "text": "Mexican port",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "going",
-      "for": "container",
-      "note": "going into something means entering it and ending up enclosed"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Morning",
-      "gives": "AM",
-      "note": "a.m., before noon"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "PIC",
-      "note": "a pic is a film or picture"
-     },
-     {
-      "clueFragment": "into",
-      "gives": "TO",
-      "note": "into supplies its shorter form to, meaning towards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AM",
-      "PIC",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going",
+       "note": "going into something means entering it and ending up enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into",
+       "gives": "TO",
+       "note": "into supplies its shorter form to, meaning towards"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Morning",
+         "gives": "AM",
+         "note": "a.m., before noon"
+        },
+        {
+         "words": "film",
+         "gives": "PIC",
+         "note": "a pic is a film or picture"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -874,29 +747,17 @@
    },
    "solution": "RAINIER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAINIER",
     "definitions": [
      {
       "text": "Grace in films became",
       "at": 0,
-      "note": "names the prince whose wife Grace became, not a verb"
+      "note": "names the prince whose wife Grace became, not a verb",
+      "meaning": "first meaning: Grace Kelly, star of three Hitchcock films"
      },
      {
       "text": "increasingly wet",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grace in films became",
-      "note": "first meaning: Grace Kelly, star of three Hitchcock films"
-     },
-     {
-      "clueFragment": "increasingly wet",
-      "note": "second meaning: comparative of rainy"
+      "at": 22,
+      "meaning": "second meaning: comparative of rainy"
      }
     ],
     "explanation": {
@@ -926,31 +787,16 @@
    },
    "solution": "HARRY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HARRY",
     "definitions": [
      {
       "text": "Pester",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to harass or worry persistently"
      },
      {
       "text": "prince",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pester",
-      "note": "first meaning: to harass or worry persistently"
-     },
-     {
-      "clueFragment": "prince",
-      "note": "second meaning: Prince ..., younger son of King Charles"
+      "at": 11,
+      "meaning": "second meaning: Prince ..., younger son of King Charles"
      }
     ],
     "explanation": {
@@ -984,66 +830,51 @@
    },
    "solution": "TONEDDOWN",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "TONED DOWN",
     "definitions": [
      {
       "text": "Moderated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "changing",
-      "for": "anagram",
-      "note": "things changing take a new form, so the letters of the words before it are reordered"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means read from right to left"
-     },
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold it inside, so the reworked letters enclose the next piece"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "went on",
-      "gives": "WENTON",
-      "note": "taken as written, ready to be rearranged"
-     },
-     {
-      "clueFragment": "eccentric",
-      "gives": "ODD",
-      "note": "odd means eccentric"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TONE",
-      "DDO",
-      "WN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "WENTON",
-       "gives": "TONEWN"
+       "text": "back",
+       "note": "back means read from right to left"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "ODD",
-       "to": "DDO"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "to keep something is to hold it inside, so the reworked letters enclose the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "changing",
+           "note": "things changing take a new form, so the letters of the words before it are reordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "went on",
+           "note": "taken as written, ready to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "eccentric",
+         "gives": "ODD",
+         "note": "odd means eccentric"
+        }
+       ]
       }
      ]
     },
@@ -1072,49 +903,42 @@
    },
    "solution": "NOTORIOUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NOTORIOUS",
     "definitions": [
      {
       "text": "H's work",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "deletion",
-      "note": "only some of the word is used, so its final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "note",
-      "gives": "NOTE",
-      "note": "taken as written before trimming"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "notes",
-      "gives": "IOUS",
-      "note": "IOUs are notes promising repayment of a debt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOT",
-      "OR",
-      "IOUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the word is used, so its final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "note",
+         "note": "taken as written before trimming"
+        },
+        {
+         "words": "or",
+         "note": "taken as written"
+        },
+        {
+         "words": "notes",
+         "gives": "IOUS",
+         "note": "IOUs are notes promising repayment of a debt"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1149,36 +973,29 @@
    },
    "solution": "NORTHWEST",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NORTH-WEST",
     "definitions": [
      {
       "text": "direction",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "first part having got by",
-      "for": "deletion",
-      "note": "the opening part has gone past and is no longer there, with by itself part of what goes"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "H's",
-      "gives": "NORTHBYNORTHWEST",
-      "note": "Hitchcock's 1959 film North by Northwest, his direction in both senses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NORTHWEST"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "first part having got by",
+       "note": "the opening part has gone past and is no longer there, with by itself part of what goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "H's",
+       "gives": "NORTHBYNORTHWEST",
+       "note": "Hitchcock's 1959 film North by Northwest, his direction in both senses"
+      },
+      {
+       "gives": "NORTHBY"
+      }
      ]
     },
     "explanation": {
@@ -1208,29 +1025,17 @@
    },
    "solution": "REBECCA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "REBECCA",
     "definitions": [
      {
       "text": "H's",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Hitchcock's 1940 film, his first in Hollywood"
      },
      {
       "text": "23 girl",
       "at": 4,
-      "note": "23 across is a cross-reference, so this reads as the riotous girl"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "H's",
-      "note": "first meaning: Hitchcock's 1940 film, his first in Hollywood"
-     },
-     {
-      "clueFragment": "23 girl",
-      "note": "second meaning: the girl of the ... Riots, Welsh rural protests of 1839-43"
+      "note": "23 across is a cross-reference, so this reads as the riotous girl",
+      "meaning": "second meaning: the girl of the ... Riots, Welsh rural protests of 1839-43"
      }
     ],
     "explanation": {
@@ -1263,44 +1068,31 @@
    },
    "solution": "HAIREEL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HAIR-EEL",
     "definitions": [
      {
       "text": "Parasitic worm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding something keeps it inside, so the cad's word wraps round the breath"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caddish type",
-      "gives": "HEEL",
-      "note": "a heel is a cad, a dishonourable man"
-     },
-     {
-      "clueFragment": "its breath",
-      "gives": "AIR",
-      "note": "breath is air drawn into the lungs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AIR",
-      "EEL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "holding something keeps it inside, so the cad's word wraps round the breath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "caddish type",
+       "gives": "HEEL",
+       "note": "a heel is a cad, a dishonourable man"
+      },
+      {
+       "words": "its breath",
+       "gives": "AIR",
+       "note": "breath is air drawn into the lungs"
+      }
      ]
     },
     "explanation": {
@@ -1330,32 +1122,17 @@
    },
    "solution": "TRADE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRADE",
     "definitions": [
      {
       "text": "Do business",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to buy and sell"
      },
      {
       "text": "the wind",
       "at": 17,
-      "note": "a noun naming the trade wind"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do business",
-      "note": "first meaning: to buy and sell"
-     },
-     {
-      "clueFragment": "the wind",
-      "note": "second meaning: the ..., short for the ... winds that blow steadily towards the equator"
+      "note": "a noun naming the trade wind",
+      "meaning": "second meaning: the ..., short for the ... winds that blow steadily towards the equator"
      }
     ],
     "explanation": {
@@ -1383,10 +1160,6 @@
    },
    "solution": "TROUBLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TROUBLE",
     "definitions": [
      {
       "text": "with 13 is H's work",
@@ -1394,25 +1167,19 @@
       "note": "the answer plus with 13 down's Harry makes the film title"
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "ROUBLE",
-      "note": "the rouble is the Russian currency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ROUBLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "money",
+       "gives": "ROUBLE",
+       "note": "the rouble is the Russian currency"
+      }
      ]
     },
     "explanation": {
@@ -1441,38 +1208,24 @@
    },
    "solution": "AROUSED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AROUSED",
     "definitions": [
      {
       "text": "Enraged maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "diabolical",
-      "for": "anagram",
-      "note": "something diabolical is dreadfully messed up, so the following letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "road use",
-      "gives": "ROADUSE",
-      "note": "taken as written, ready to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROADUSE",
-       "gives": "AROUSED"
+       "text": "diabolical",
+       "note": "something diabolical is dreadfully messed up, so the following letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "road use",
+       "note": "taken as written, ready to be rearranged"
       }
      ]
     },
@@ -1507,48 +1260,39 @@
    },
    "solution": "INBUILT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN-BUILT",
     "definitions": [
      {
       "text": "integral to the structure",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "may be",
-      "for": "anagram",
-      "note": "what the letters may be is one possible arrangement of them, so they are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "LB",
-      "note": "lb is the abbreviation for a pound weight"
-     },
-     {
-      "clueFragment": "unit",
-      "gives": "UNIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INBUILT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ILBUNIT",
-       "gives": "INBUILT"
+       "text": "may be",
+       "note": "what the letters may be is one possible arrangement of them, so they are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "pound",
+         "gives": "LB",
+         "note": "lb is the abbreviation for a pound weight"
+        },
+        {
+         "words": "unit",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1591,41 +1335,29 @@
    },
    "solution": "RIOTOUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RIOTOUS",
     "definitions": [
      {
       "text": "Unquiet",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the city, South American",
-      "gives": "RIO",
-      "note": "Rio de Janeiro, the Brazilian city"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "North American",
-      "gives": "US",
-      "note": "the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIO",
-      "TO",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the city, South American",
+       "gives": "RIO",
+       "note": "Rio de Janeiro, the Brazilian city"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "North American",
+       "gives": "US",
+       "note": "the United States"
+      }
      ]
     },
     "explanation": {
@@ -1653,46 +1385,34 @@
    },
    "solution": "EXCRETA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EXCRETA",
     "definitions": [
      {
       "text": "Droppings",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "problem",
-      "for": "anagram",
-      "note": "a problem is a muddle to be worked out, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an unknown",
-      "gives": "X",
-      "note": "in algebra x is the classic unknown"
-     },
-     {
-      "clueFragment": "create",
-      "gives": "CREATE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXCRETA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "XCREATE",
-       "gives": "EXCRETA"
+       "text": "problem",
+       "note": "a problem is a muddle to be worked out, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an unknown",
+         "gives": "X",
+         "note": "in algebra x is the classic unknown"
+        },
+        {
+         "words": "create",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1721,35 +1441,25 @@
    },
    "solution": "ORBISON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORBISON",
     "definitions": [
      {
       "text": "Roy",
       "at": 0
      }
     ],
-    "linkWords": [
-     ", the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "golden",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "beast of the prairie",
-      "gives": "BISON",
-      "note": "the American bison roams the prairies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "BISON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "golden",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "beast of the prairie",
+       "gives": "BISON",
+       "note": "the American bison roams the prairies"
+      }
      ]
     },
     "explanation": {
@@ -1783,29 +1493,17 @@
    },
    "solution": "FALLINGSPEED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FALLING SPEED",
     "definitions": [
      {
       "text": "Deceleration",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: speed that is falling, slowing down"
      },
      {
       "text": "depends on gravity and air resistance",
       "at": 13,
-      "note": "describes the answer rather than naming it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Deceleration",
-      "note": "first meaning: speed that is falling, slowing down"
-     },
-     {
-      "clueFragment": "depends on gravity and air resistance",
-      "note": "second meaning: the velocity of a dropping body, set by pull and drag"
+      "note": "describes the answer rather than naming it",
+      "meaning": "second meaning: the velocity of a dropping body, set by pull and drag"
      }
     ],
     "explanation": {

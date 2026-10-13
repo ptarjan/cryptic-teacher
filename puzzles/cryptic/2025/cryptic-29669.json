@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29669",
  "number": 29669,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,669",
  "setter": "Ludwig",
  "date": "2025-04-15",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "SISAL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SISAL",
     "definitions": [
      {
       "text": "Fibre",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "'in' says the letters sit inside the run of words that follows, spanning their gaps"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hummus is a legume",
-      "gives": "SISAL",
-      "note": "the letters run across the end of hummus, all of is and a, and the start of legume"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' says the letters sit inside the run of words that follows, spanning their gaps"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hummus is a legume",
+       "gives": "SISAL",
+       "note": "the letters run across the end of hummus, all of is and a, and the start of legume"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A health note: chickpea paste counts as a pulse and gives you roughage.",
      "walkthrough": "'Fibre' reads as dietary fibre in hummus; here it means a plant fibre, the one used for rope and matting.",
@@ -89,64 +85,54 @@
    },
    "solution": "SUDOKUS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "SUDOKUS",
     "definitions": [
      {
       "text": "puzzles",
       "at": 74
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "'ultimately' points to the very end of the next word, so only its final letter is kept"
-     },
-     {
-      "text": "On reflection",
-      "for": "reversal",
-      "note": "a reflection shows things back to front, so the whole string built here is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "calamitous",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of calamitous"
-     },
-     {
-      "clueFragment": "U.K.",
-      "gives": "UK",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to consume excessively",
-      "gives": "OD",
-      "note": "to OD is to overdose, taking too much"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is the standard abbreviation for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "DO",
-      "KU",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SUKODUS",
-       "to": "SUDOKUS"
+       "text": "On reflection",
+       "note": "a reflection shows things back to front, so the whole string built here is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "'ultimately' points to the very end of the next word, so only its final letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "calamitous",
+           "note": "the last letter of calamitous"
+          }
+         ]
+        },
+        {
+         "words": "U.K.",
+         "note": "taken as written"
+        },
+        {
+         "words": "to consume excessively",
+         "gives": "OD",
+         "note": "to OD is to overdose, taking too much"
+        },
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US is the standard abbreviation for American"
+        }
+       ]
       }
      ]
     },
@@ -176,43 +162,31 @@
    },
    "solution": "SIMPLER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SIMPLER",
     "definitions": [
      {
       "text": "Less complicated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "'around' means the first piece is wrapped about the second, enclosing it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "act coy",
-      "gives": "SIMPER",
-      "note": "to simper is to smile in a coy, affected way"
-     },
-     {
-      "clueFragment": "50",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIMP",
-      "L",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "'around' means the first piece is wrapped about the second, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "act coy",
+       "gives": "SIMPER",
+       "note": "to simper is to smile in a coy, affected way"
+      },
+      {
+       "words": "50",
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
      ]
     },
     "explanation": {
@@ -240,28 +214,16 @@
    },
    "solution": "LEG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LEG",
     "definitions": [
      {
       "text": "Pin",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: pins is informal slang for ..."
      },
      {
       "text": "on",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pin",
-      "note": "first meaning: pins is informal slang for ..."
-     },
-     {
-      "clueFragment": "on",
-      "note": "second meaning: in cricket the on side is also called the ... side"
+      "at": 4,
+      "meaning": "second meaning: in cricket the on side is also called the ... side"
      }
     ],
     "explanation": {
@@ -290,26 +252,25 @@
    },
    "solution": "RAINCLOUD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RAINCLOUD",
     "definitions": [
      {
       "text": "I'm high and far from dry",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I'm high and far from dry",
-      "note": "surface reading: a drunk or drugged person confessing to being intoxicated and still drinking"
-     },
-     {
-      "clueFragment": "I'm high and far from dry",
-      "note": "setter's reading: something up in the sky that is full of water"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I'm high and far from dry",
+       "note": "surface reading: a drunk or drugged person confessing to being intoxicated and still drinking"
+      },
+      {
+       "words": "I'm high and far from dry",
+       "note": "setter's reading: something up in the sky that is full of water"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tipsy partygoer admits being stoned and nowhere near sober.",
      "walkthrough": "'High' and 'dry' suggest drugs and drink (dry meaning teetotal); literally they mean aloft and wet.",
@@ -337,32 +298,25 @@
    },
    "solution": "REGENTS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REGENTS",
     "definitions": [
      {
       "text": "Temporary authorities",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on the subject of",
-      "gives": "RE",
-      "note": "re means concerning, about"
-     },
-     {
-      "clueFragment": "convenience",
-      "gives": "GENTS",
-      "note": "a public convenience is a toilet, and the gents is a men's toilet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "GENTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on the subject of",
+       "gives": "RE",
+       "note": "re means concerning, about"
+      },
+      {
+       "words": "convenience",
+       "gives": "GENTS",
+       "note": "a public convenience is a toilet, and the gents is a men's toilet"
+      }
      ]
     },
     "explanation": {
@@ -392,26 +346,25 @@
    },
    "solution": "IRELAND",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "IRELAND",
     "definitions": [
      {
       "text": "Country where you might find High Dudgeon and Greater Wrath?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "High Dudgeon and Greater Wrath",
-      "note": "surface reading: capitalised like place names on a map, such as a village and a cape"
-     },
-     {
-      "clueFragment": "Country where you might find",
-      "note": "setter's reading: dudgeon and wrath are both kinds of anger, so the country is a land of anger"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "High Dudgeon and Greater Wrath",
+       "note": "surface reading: capitalised like place names on a map, such as a village and a cape"
+      },
+      {
+       "words": "Country where you might find",
+       "note": "setter's reading: dudgeon and wrath are both kinds of anger, so the country is a land of anger"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A geography question asking which nation contains towns called High Dudgeon and Greater Wrath.",
      "walkthrough": "Split the answer in two: IRE is anger, which is what dudgeon and wrath are, plus LAND. Cape Wrath is real but in Scotland, a decoy.",
@@ -451,26 +404,25 @@
    },
    "solution": "COMMONSENSE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "COMMON SENSE",
     "definitions": [
      {
       "text": "e.g. making good use of the things that you find?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "making good use of the things that you find",
-      "note": "surface reading: practical resourcefulness, using whatever turns up"
-     },
-     {
-      "clueFragment": "the things that you find",
-      "note": "setter's reading: things found everywhere are common, and using them well is sensible"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "making good use of the things that you find",
+       "note": "surface reading: practical resourcefulness, using whatever turns up"
+      },
+      {
+       "words": "the things that you find",
+       "note": "setter's reading: things found everywhere are common, and using them well is sensible"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An example of thrift: putting your finds to good use.",
      "walkthrough": "The question mark flags the pun: sound practical judgement, read as the sense to use common things.",
@@ -498,51 +450,40 @@
    },
    "solution": "ORPHEUS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ORPHEUS",
     "definitions": [
      {
       "text": "Classical musician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back the way you came, so the string is read from the end to the start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entreat",
-      "gives": "SUE",
-      "note": "to sue for something is to plead or petition for it"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H is the map and sign abbreviation for hospital"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro means in favour of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORP",
-      "H",
-      "EUS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SUEHPRO",
-       "to": "ORPHEUS"
+       "text": "returning",
+       "note": "returning means going back the way you came, so the string is read from the end to the start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "entreat",
+         "gives": "SUE",
+         "note": "to sue for something is to plead or petition for it"
+        },
+        {
+         "words": "hospital",
+         "gives": "H",
+         "note": "H is the map and sign abbreviation for hospital"
+        },
+        {
+         "words": "for",
+         "gives": "PRO",
+         "note": "pro means in favour of"
+        }
+       ]
       }
      ]
     },
@@ -573,40 +514,39 @@
    },
    "solution": "DUELLED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DUELLED",
     "definitions": [
      {
       "text": "fought",
       "at": 2
      }
     ],
-    "indicators": [
-     {
-      "text": "toppling leader",
-      "for": "deletion",
-      "note": "toppling a leader removes the one at the head, so the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "director",
-      "gives": "D",
-      "note": "D is a standard abbreviation for director"
-     },
-     {
-      "clueFragment": "conquered",
-      "gives": "QUELLED",
-      "note": "to quell is to subdue or crush"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "UELLED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "toppling leader",
+       "note": "toppling a leader removes the one at the head, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "director",
+         "gives": "D",
+         "note": "D is a standard abbreviation for director"
+        },
+        {
+         "words": "conquered",
+         "gives": "QUELLED",
+         "note": "to quell is to subdue or crush"
+        }
+       ]
+      },
+      {
+       "gives": "Q"
+      }
      ]
     },
     "explanation": {
@@ -634,31 +574,29 @@
    },
    "solution": "DEMAGOGUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "DEMAGOGUE",
     "definitions": [
      {
       "text": "Agitator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "what did you say?",
-      "for": "homophone",
-      "note": "asking what someone said makes us attend to how the words sound when spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rep. apathetic",
-      "gives": "DEMAGOGUE",
-      "soundsLike": "DEM AGOG",
-      "note": "'but' asks for the opposite of each: not Rep(ublican) but Dem(ocrat), not apathetic but agog, meaning eager"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DEMAGOGUE",
+     "indicators": [
+      {
+       "text": "what did you say?",
+       "note": "asking what someone said makes us attend to how the words sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rep. apathetic",
+       "gives": "DEMAGOG",
+       "note": "'but' asks for the opposite of each: not Rep(ublican) but Dem(ocrat), not apathetic but agog, meaning eager"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A political tirade: the Republican was indifferent, and then came a question from the floor.",
      "walkthrough": "'But' turns each word into its opposite: Rep. becomes Dem, apathetic becomes agog. Said together they sound like the answer.",
@@ -685,49 +623,43 @@
    },
    "solution": "MAPLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "MAPLE",
     "definitions": [
      {
       "text": "sap you'll find here",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "absent",
-      "for": "deletion",
-      "note": "absent means not present, so those letters are taken away from the phrase"
-     },
-     {
-      "text": "daft",
-      "for": "anagram",
-      "note": "daft means silly or crazy, so what remains is jumbled into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Toni's",
-      "gives": "TONIS",
-      "note": "taken as written, these are the letters to remove"
-     },
-     {
-      "clueFragment": "a simpleton",
-      "gives": "ASIMPLETON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAPLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MAPLE",
+     "indicators": [
       {
-       "fodder": "AMPLE",
-       "gives": "MAPLE"
+       "text": "daft",
+       "note": "daft means silly or crazy, so what remains is jumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "MAPLE",
+       "indicators": [
+        {
+         "text": "absent",
+         "note": "absent means not present, so those letters are taken away from the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Toni's",
+         "note": "taken as written, these are the letters to remove"
+        },
+        {
+         "words": "a simpleton",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -758,51 +690,46 @@
    },
    "solution": "KILIMANJARO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "KILIMANJARO",
     "definitions": [
      {
       "text": "that keeps going up in Africa",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "admitted to",
-      "for": "container",
-      "note": "being admitted to a place means going inside it, so these pieces sit within the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "MAN",
-      "note": "a fellow is a man"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "JAR",
-      "note": "a jar is British slang for a glass of beer"
-     },
-     {
-      "clueFragment": "weight",
-      "gives": "KILO",
-      "note": "a kilo is a kilogram, a unit of weight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIL",
-      "IMANJAR",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitted to",
+       "note": "being admitted to a place means going inside it, so these pieces sit within the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weight",
+       "gives": "KILO",
+       "note": "a kilo is a kilogram, a unit of weight"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "fellow",
+         "gives": "MAN",
+         "note": "a fellow is a man"
+        },
+        {
+         "words": "beer",
+         "gives": "JAR",
+         "note": "a jar is British slang for a glass of beer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -832,56 +759,57 @@
    },
    "solution": "MACHIAVELLI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "MACHIAVELLI",
     "definitions": [
      {
       "text": "manipulator",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "curt",
-      "for": "deletion",
-      "note": "curt means short, so the word before it loses its tail"
-     },
-     {
-      "text": "twisted",
-      "for": "anagram",
-      "note": "something twisted is bent out of shape, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Physicist",
-      "gives": "MACH",
-      "note": "Ernst Mach, the physicist after whom Mach numbers are named"
-     },
-     {
-      "clueFragment": "evil",
-      "gives": "EVIL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "liar",
-      "gives": "LIAR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MACH",
-      "IAVELLI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EVILLIA",
-       "gives": "IAVELLI"
+       "words": "Physicist",
+       "gives": "MACH",
+       "note": "Ernst Mach, the physicist after whom Mach numbers are named"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "twisted",
+         "note": "something twisted is bent out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "curt",
+           "note": "curt means short, so the word before it loses its tail"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "evil",
+             "note": "taken as written"
+            },
+            {
+             "words": "liar",
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -910,34 +838,25 @@
    },
    "solution": "EEL",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EEL",
     "definitions": [
      {
       "text": "fish",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "'Finally' asks for the ending of each of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "see the squirrel",
-      "gives": "EEL",
-      "select": "last",
-      "note": "the final letters of see, the and squirrel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EEL"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Finally",
+       "note": "'Finally' asks for the ending of each of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "see the squirrel",
+       "note": "the final letters of see, the and squirrel"
+      }
      ]
     },
     "explanation": {
@@ -965,32 +884,25 @@
    },
    "solution": "SPRUCES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPRUCES",
     "definitions": [
      {
       "text": "trees",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Trim",
-      "gives": "SPRUCE",
-      "note": "spruce means neat and smart"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPRUCE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Trim",
+       "gives": "SPRUCE",
+       "note": "spruce means neat and smart"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      }
      ]
     },
     "explanation": {
@@ -1019,30 +931,28 @@
    },
    "solution": "DISUSED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DISUSED",
     "definitions": [
      {
       "text": "Abandoned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "'somewhat' means only part of something, so just a stretch of the next words is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "absurd — is U.S. education",
-      "gives": "DISUSED",
-      "note": "the letters run from the end of absurd through is and U.S. into education"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "somewhat",
+       "note": "'somewhat' means only part of something, so just a stretch of the next words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "absurd — is U.S. education",
+       "gives": "DISUSED",
+       "note": "the letters run from the end of absurd through is and U.S. into education"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A complaint that American schooling has been given up on and is a bit ridiculous.",
      "definitionFit": "Something no longer used has been left aside, like an old railway line no one runs on."
@@ -1068,28 +978,16 @@
    },
    "solution": "HAWKISH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HAWKISH",
     "definitions": [
      {
       "text": "Like one favouring Harriers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: warlike, keen on military jets such as the Harrier"
      },
      {
       "text": "their namesake",
-      "at": 31
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like one favouring Harriers",
-      "note": "first meaning: warlike, keen on military jets such as the Harrier"
-     },
-     {
-      "clueFragment": "their namesake",
-      "note": "second meaning: like the bird of prey the jet was named after, as harriers are birds of that kind"
+      "at": 31,
+      "meaning": "second meaning: like the bird of prey the jet was named after, as harriers are birds of that kind"
      }
     ],
     "explanation": {
@@ -1119,32 +1017,25 @@
    },
    "solution": "HAMMOCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HAMMOCK",
     "definitions": [
      {
       "text": "I'm lying here",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Hardly professional",
-      "gives": "HAM",
-      "note": "ham describes amateurish, overdone acting or a radio amateur"
-     },
-     {
-      "clueFragment": "exam",
-      "gives": "MOCK",
-      "note": "a mock is a British practice exam sat before the real one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAM",
-      "MOCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hardly professional",
+       "gives": "HAM",
+       "note": "ham describes amateurish, overdone acting or a radio amateur"
+      },
+      {
+       "words": "exam",
+       "gives": "MOCK",
+       "note": "a mock is a British practice exam sat before the real one"
+      }
      ]
     },
     "explanation": {
@@ -1197,45 +1088,35 @@
    },
    "solution": "HAMBURG",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "HAMBURG",
     "definitions": [
      {
       "text": "European city",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so the word that follows is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gammon",
-      "gives": "HAM",
-      "note": "gammon is cured ham"
-     },
-     {
-      "clueFragment": "food",
-      "gives": "GRUB",
-      "note": "grub is slang for food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAM",
-      "BURG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GRUB",
-       "to": "BURG"
+       "words": "Gammon",
+       "gives": "HAM",
+       "note": "gammon is cured ham"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "something rejected is sent back, so the word that follows is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food",
+         "gives": "GRUB",
+         "note": "grub is slang for food"
+        }
+       ]
       }
      ]
     },
@@ -1283,53 +1164,43 @@
    },
    "solution": "JOINSUP",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "JOINS UP",
     "definitions": [
      {
       "text": "Volunteers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "ground means crushed and broken up, so these letters are mixed into another order"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Japanese",
-      "gives": "J",
-      "note": "J is the abbreviation for Japanese"
-     },
-     {
-      "clueFragment": "soup",
-      "gives": "SOUP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "OINSUP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SOUPIN",
-       "gives": "OINSUP"
+       "words": "Japanese",
+       "gives": "J",
+       "note": "J is the abbreviation for Japanese"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "note": "ground means crushed and broken up, so these letters are mixed into another order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "soup",
+           "note": "taken as written"
+          },
+          {
+           "words": "in",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1358,32 +1229,25 @@
    },
    "solution": "SMARTIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SMARTIE",
     "definitions": [
      {
       "text": "Clever-clogs",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sting",
-      "gives": "SMART",
-      "note": "to smart is to sting with pain"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the abbreviation of id est, Latin for that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SMART",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sting",
+       "gives": "SMART",
+       "note": "to smart is to sting with pain"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, Latin for that is"
+      }
      ]
     },
     "explanation": {
@@ -1413,28 +1277,16 @@
    },
    "solution": "SUSPECT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SUSPECT",
     "definitions": [
      {
       "text": "Fancy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to fancy something is to believe or imagine it is so"
      },
      {
       "text": "fishy",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fancy",
-      "note": "first meaning: to fancy something is to believe or imagine it is so"
-     },
-     {
-      "clueFragment": "fishy",
-      "note": "second meaning: dubious or questionable"
+      "at": 11,
+      "meaning": "second meaning: dubious or questionable"
      }
     ],
     "explanation": {
@@ -1461,31 +1313,16 @@
    },
    "solution": "MOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MOT",
     "definitions": [
      {
       "text": "French word",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the French noun for a word"
      },
      {
       "text": "test",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French word",
-      "note": "first meaning: the French noun for a word"
-     },
-     {
-      "clueFragment": "test",
-      "note": "second meaning: the annual roadworthiness check on British vehicles"
+      "at": 17,
+      "meaning": "second meaning: the annual roadworthiness check on British vehicles"
      }
     ],
     "explanation": {
@@ -1520,26 +1357,25 @@
    },
    "solution": "VAMPIREBATS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "VAMPIRE BATS",
     "definitions": [
      {
       "text": "Bleeding menaces causing a flap",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bleeding menaces causing a flap",
-      "note": "surface reading: bloody nuisances that cause panic, bleeding being a British mild swearword"
-     },
-     {
-      "clueFragment": "Bleeding menaces causing a flap",
-      "note": "setter's reading: creatures that draw blood and fly by flapping"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bleeding menaces causing a flap",
+       "note": "surface reading: bloody nuisances that cause panic, bleeding being a British mild swearword"
+      },
+      {
+       "words": "Bleeding menaces causing a flap",
+       "note": "setter's reading: creatures that draw blood and fly by flapping"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone grumbles about wretched pests stirring up a fuss.",
      "walkthrough": "'Bleeding' is British slang for damned, and a flap is a panic; literally they are blood-drinking winged animals.",
@@ -1567,34 +1403,25 @@
    },
    "solution": "OCTAL",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "OCTAL",
     "definitions": [
      {
       "text": "Concerning number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "identified at intervals",
-      "for": "letter_selection",
-      "note": "picking things out at intervals means taking every other one, skipping in between"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roach trails",
-      "gives": "OCTAL",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OCTAL"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "identified at intervals",
+       "note": "picking things out at intervals means taking every other one, skipping in between"
+      }
+     ],
+     "parts": [
+      {
+       "words": "roach trails",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -1622,40 +1449,46 @@
    },
    "solution": "UNSHEATHE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "UNSHEATHE",
     "definitions": [
      {
       "text": "Draw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some of",
-      "for": "deletion",
-      "note": "'some of' means only a part of what follows is used, so letters at the edges are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sun's heat",
-      "gives": "SUNSHEAT",
-      "note": "taken as written, with the first letter then dropped"
-     },
-     {
-      "clueFragment": "twice",
-      "gives": "HEAT",
-      "note": "the word heat written a second time, of which only its opening pair is kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNSHEAT",
-      "HE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "some of",
+         "note": "'some of' means only a part of what follows is used, so letters at the edges are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sun's heat",
+         "note": "taken as written, with the first letter then dropped"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "twice",
+         "gives": "HEAT",
+         "note": "the word heat written a second time, of which only its opening pair is kept"
+        },
+        {
+         "gives": "AT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1684,37 +1517,28 @@
    },
    "solution": "EGG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "EGG",
     "definitions": [
      {
       "text": "poacher needing this?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "'Regularly' means at steady intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "engage",
-      "gives": "EGG",
-      "select": "alternate",
-      "note": "the first, third and fifth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EGG"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regularly",
+       "note": "'Regularly' means at steady intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "engage",
+       "note": "the first, third and fifth letters"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Should we hire someone who hunts game illegally if they need something?",
      "walkthrough": "A poacher sounds like an illicit hunter, but it is also a pan for cooking eggs.",
@@ -1757,26 +1581,25 @@
     "19-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "KEEPING UP WITH THE JONESES",
     "definitions": [
      {
       "text": "Aspiring to level of Tom, Jade and Quincy?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Aspiring to level of",
-      "note": "surface reading: trying to match the achievement of some famous people"
-     },
-     {
-      "clueFragment": "Tom, Jade and Quincy",
-      "note": "setter's reading: Tom Jones the singer, Jade Jones the taekwondo champion and Quincy Jones the producer all share one surname"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Aspiring to level of",
+       "note": "surface reading: trying to match the achievement of some famous people"
+      },
+      {
+       "words": "Tom, Jade and Quincy",
+       "note": "setter's reading: Tom Jones the singer, Jade Jones the taekwondo champion and Quincy Jones the producer all share one surname"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone ambitious hopes to match the success of three celebrities.",
      "walkthrough": "The idiom means trying to match the neighbours' lifestyle; the clue makes the neighbours literal famous people with that shared surname.",
@@ -1804,34 +1627,29 @@
    },
    "solution": "GREAT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GREAT",
     "definitions": [
      {
       "text": "massive",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "that's loud",
-      "for": "homophone",
-      "note": "'loud' means heard out loud, so what matters is the spoken sound of the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wear",
-      "gives": "GREAT",
-      "soundsLike": "GRATE",
-      "note": "to grate is to wear down by rubbing"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GREAT",
+     "indicators": [
+      {
+       "text": "that's loud",
+       "note": "'loud' means heard out loud, so what matters is the spoken sound of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wear",
+       "gives": "GRATE",
+       "note": "to grate is to wear down by rubbing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Describing clothing that is garish and oversized.",
      "definitionFit": "Great can mean very large in size, as in a great ocean."

@@ -1,8 +1,6 @@
 {
  "id": "mephisto-3109",
  "number": 3109,
- "series": "mephisto",
- "name": "Sunday Times mephisto crossword No 3,109",
  "setter": "Don Manley",
  "date": "2020-03-29",
  "dimensions": {
@@ -56,57 +54,54 @@
    },
    "solution": "PHAROS",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "PHAROS",
     "definitions": [
      {
       "text": "What may be expected by seaman around entrance to harbour?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "one piece sits around another, so the outer letters wrap the inner one"
-     },
-     {
-      "text": "entrance to",
-      "for": "letter_selection",
-      "note": "an entrance is where something begins, so only the opening letter of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What may be expected",
-      "gives": "PAR",
-      "note": "par is the expected standard, as in golf"
-     },
-     {
-      "clueFragment": "harbour",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of harbour"
-     },
-     {
-      "clueFragment": "seaman",
-      "gives": "OS",
-      "note": "OS is an ordinary seaman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "H",
-      "AR",
-      "OS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "one piece sits around another, so the outer letters wrap the inner one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What may be expected",
+         "gives": "PAR",
+         "note": "par is the expected standard, as in golf"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "entrance to",
+           "note": "an entrance is where something begins, so only the opening letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "harbour",
+           "note": "first letter of harbour"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "seaman",
+       "gives": "OS",
+       "note": "OS is an ordinary seaman"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A riddle about what a sailor hopes to see as he nears the mouth of a port.",
      "walkthrough": "Par is golf's expected score. Read whole, the clue also describes a lighthouse, the thing a sailor looks for at a harbour mouth.",
@@ -133,35 +128,24 @@
    },
    "solution": "PLEONASTICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PLEONASTICAL",
     "definitions": [
      {
       "text": "Using too many words",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "as a verb, to fancy is to imagine freely, so the letters before it are reimagined in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as poet can, I'll",
-      "gives": "ASPOETCANILL",
-      "note": "every letter used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASPOETCANILL",
-       "gives": "PLEONASTICAL"
+       "text": "fancy",
+       "note": "as a verb, to fancy is to imagine freely, so the letters before it are reimagined in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as poet can, I'll",
+       "note": "every letter used"
       }
      ]
     },
@@ -190,42 +174,44 @@
    },
    "solution": "HORROR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "HORROR",
     "definitions": [
      {
       "text": "a fear",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "expressing",
-      "for": "homophone",
-      "note": "to express a word is to say it out loud, so the last piece counts by its sound, not its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "H is the pencil-lead abbreviation for hard"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "OR is other ranks, soldiers who are not officers"
-     },
-     {
-      "clueFragment": "yell",
-      "gives": "ROR",
-      "soundsLike": "ROAR",
-      "note": "a yell is a roar, which in a non-rhotic accent sounds like the unstressed ending -ror"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "gives": "H",
+       "note": "H is the pencil-lead abbreviation for hard"
+      },
+      {
+       "words": "men",
+       "gives": "OR",
+       "note": "OR is other ranks, soldiers who are not officers"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ROR",
+       "indicators": [
+        {
+         "text": "expressing",
+         "note": "to express a word is to say it out loud, so the last piece counts by its sound, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yell",
+         "gives": "ROAR",
+         "note": "a yell is a roar, which in a non-rhotic accent sounds like the unstressed ending -ror"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Tough guys shouting because something has frightened them.",
      "walkthrough": "In a non-rhotic British accent roar has no final R sound, so its unstressed form matches the second syllable.",
@@ -252,35 +238,25 @@
    },
    "solution": "ABRAID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABRAID",
     "definitions": [
      {
       "text": "start as before",
       "at": 20
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sailor",
-      "gives": "AB",
-      "note": "AB is an able-bodied seaman"
-     },
-     {
-      "clueFragment": "attack",
-      "gives": "RAID",
-      "note": "a raid is a sudden attack"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "RAID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "gives": "AB",
+       "note": "AB is an able-bodied seaman"
+      },
+      {
+       "words": "attack",
+       "gives": "RAID",
+       "note": "a raid is a sudden attack"
+      }
      ]
     },
     "explanation": {
@@ -309,33 +285,29 @@
    },
    "solution": "OTARY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OTARY",
     "definitions": [
      {
       "text": "Seal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ducking head",
-      "for": "deletion",
-      "note": "ducking the head lowers it out of sight, so the first letter of the word disappears"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "turning around",
-      "gives": "ROTARY",
-      "note": "rotary means turning around an axis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTARY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ducking head",
+       "note": "ducking the head lowers it out of sight, so the first letter of the word disappears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "turning around",
+       "gives": "ROTARY",
+       "note": "rotary means turning around an axis"
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -364,35 +336,25 @@
    },
    "solution": "SINEW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SINEW",
     "definitions": [
      {
       "text": "source of strength",
       "at": 16
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Without",
-      "gives": "SINE",
-      "note": "sine is Latin for without, as in sine die"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the standard abbreviation for wife"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SINE",
-      "W"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Without",
+       "gives": "SINE",
+       "note": "sine is Latin for without, as in sine die"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W is the standard abbreviation for wife"
+      }
      ]
     },
     "explanation": {
@@ -420,35 +382,25 @@
    },
    "solution": "NEBELS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEBELS",
     "definitions": [
      {
       "text": "music-makers",
       "at": 24
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "NEB",
-      "note": "a neb is a beak or bill"
-     },
-     {
-      "clueFragment": "Ernie maybe",
-      "gives": "ELS",
-      "note": "Ernie Els is a South African golfer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEB",
-      "ELS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bill",
+       "gives": "NEB",
+       "note": "a neb is a beak or bill"
+      },
+      {
+       "words": "Ernie maybe",
+       "gives": "ELS",
+       "note": "Ernie Els is a South African golfer"
+      }
      ]
     },
     "explanation": {
@@ -478,10 +430,6 @@
    },
    "solution": "NOUSELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOUSELL",
     "definitions": [
      {
       "text": "get brought up",
@@ -489,22 +437,19 @@
       "note": "causative: to have a child brought up, matching the verb"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Absence of employment",
-      "gives": "NOUSE",
-      "note": "no use: something of no use is without employment"
-     },
-     {
-      "clueFragment": "will shortly",
-      "gives": "LL",
-      "note": "'ll is the contraction of will"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOUSE",
-      "LL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Absence of employment",
+       "gives": "NOUSE",
+       "note": "no use: something of no use is without employment"
+      },
+      {
+       "words": "will shortly",
+       "gives": "LL",
+       "note": "'ll is the contraction of will"
+      }
      ]
     },
     "explanation": {
@@ -533,43 +478,33 @@
    },
    "solution": "BIRTHDOM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BIRTHDOM",
     "definitions": [
      {
       "text": "Right from the beginning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is rolling around",
-      "for": "anagram",
-      "note": "something rolling around tumbles over and over, so its letters land in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bod",
-      "gives": "BOD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mirth",
-      "gives": "MIRTH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BODMIRTH",
-       "gives": "BIRTHDOM"
+       "text": "is rolling around",
+       "note": "something rolling around tumbles over and over, so its letters land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bod",
+         "note": "taken as written"
+        },
+        {
+         "words": "mirth",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -599,40 +534,31 @@
    },
    "solution": "EMOTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMOTED",
     "definitions": [
      {
       "text": "expressed feeling",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "admitting someone means letting them in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Journalist",
-      "gives": "ED",
-      "note": "ED is short for editor"
-     },
-     {
-      "clueFragment": "blemish",
-      "gives": "MOTE",
-      "note": "a mote is a speck or tiny flaw"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MOTE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "note": "admitting someone means letting them in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Journalist",
+       "gives": "ED",
+       "note": "ED is short for editor"
+      },
+      {
+       "words": "blemish",
+       "gives": "MOTE",
+       "note": "a mote is a speck or tiny flaw"
+      }
      ]
     },
     "explanation": {
@@ -660,10 +586,6 @@
    },
    "solution": "LYSINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LYSINE",
     "definitions": [
      {
       "text": "that fulfils vital biochemical role",
@@ -671,30 +593,25 @@
       "note": "a relative clause standing for 'something that fulfils'"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing being in another puts it inside, so these letters sit within the second piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something wrong",
-      "gives": "SIN",
-      "note": "a sin is a wrong act"
-     },
-     {
-      "clueFragment": "liquid",
-      "gives": "LYE",
-      "note": "lye is an alkaline liquid used in soap-making"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LY",
-      "SIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing being in another puts it inside, so these letters sit within the second piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "liquid",
+       "gives": "LYE",
+       "note": "lye is an alkaline liquid used in soap-making"
+      },
+      {
+       "words": "Something wrong",
+       "gives": "SIN",
+       "note": "a sin is a wrong act"
+      }
      ]
     },
     "explanation": {
@@ -722,43 +639,33 @@
    },
    "solution": "SPECTROMETRY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPECTROMETRY",
     "definitions": [
      {
       "text": "Scientific technique",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "could make",
-      "for": "anagram",
-      "note": "the letters that follow could be made into something else, so they are rebuilt in a fresh order"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "me cry",
-      "gives": "MECRY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "protest",
-      "gives": "PROTEST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MECRYPROTEST",
-       "gives": "SPECTROMETRY"
+       "text": "could make",
+       "note": "the letters that follow could be made into something else, so they are rebuilt in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "me cry",
+         "note": "taken as written"
+        },
+        {
+         "words": "protest",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -788,45 +695,38 @@
    },
    "solution": "LOBATION",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LOBATION",
     "definitions": [
      {
       "text": "Sort of division",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to make room for",
-      "for": "substitution",
-      "note": "making room for a newcomer means someone steps out, so one letter leaves and another takes its place"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "place",
-      "gives": "LOCATION",
-      "note": "a location is a place"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "C is circa, about"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "B",
-      "ATION"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LOBATION",
+     "indicators": [
+      {
+       "text": "to make room for",
+       "note": "making room for a newcomer means someone steps out, so one letter leaves and another takes its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place",
+       "gives": "LOCATION",
+       "note": "a location is a place"
+      },
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "C is circa, about"
+      },
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B is the abbreviation for British"
+      }
      ]
     },
     "explanation": {
@@ -854,46 +754,49 @@
    },
    "solution": "REAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "REAN",
     "definitions": [
      {
       "text": "Ditch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a hint of",
-      "for": "letter_selection",
-      "note": "a hint is only the faintest trace, so just the opening letter of the next word counts"
-     },
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not having something means it is taken away, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US President",
-      "gives": "REAGAN",
-      "note": "Ronald Reagan, 40th US President"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REA",
-      "N"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "not having something means it is taken away, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "US President",
+         "gives": "REAGAN",
+         "note": "Ronald Reagan, 40th US President"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a hint of",
+         "note": "a hint is only the faintest trace, so just the opening letter of the next word counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good",
+         "note": "first letter of good"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -922,32 +825,25 @@
    },
    "solution": "UPROSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPROSE",
     "definitions": [
      {
       "text": "Developed",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "superior",
-      "gives": "U",
-      "note": "U means upper-class, socially superior"
-     },
-     {
-      "clueFragment": "style of writing",
-      "gives": "PROSE",
-      "note": "prose is ordinary written language, not verse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "PROSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "superior",
+       "gives": "U",
+       "note": "U means upper-class, socially superior"
+      },
+      {
+       "words": "style of writing",
+       "gives": "PROSE",
+       "note": "prose is ordinary written language, not verse"
+      }
      ]
     },
     "explanation": {
@@ -976,46 +872,40 @@
    },
    "solution": "ORATRESS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ORATRESS",
     "definitions": [
      {
       "text": "powerful female speaker?",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "to conceal something is to hide it inside, so a piece sits within the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Golden",
-      "gives": "OR",
-      "note": "or is heraldic gold"
-     },
-     {
-      "clueFragment": "hair",
-      "gives": "TRESS",
-      "note": "a tress is a lock of hair"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "A",
-      "TRESS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "to conceal something is to hide it inside, so a piece sits within the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Golden",
+         "gives": "OR",
+         "note": "or is heraldic gold"
+        },
+        {
+         "words": "hair",
+         "gives": "TRESS",
+         "note": "a tress is a lock of hair"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1044,41 +934,30 @@
    },
    "solution": "BRATTIER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRATTIER",
     "definitions": [
      {
       "text": "behaving more like a naughty child",
       "at": 32
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "vile type",
-      "gives": "RAT",
-      "note": "a rat is a contemptible person"
-     },
-     {
-      "clueFragment": "Row",
-      "gives": "TIER",
-      "note": "a tier is a row, as of seats"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RAT",
-      "TIER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bishop",
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "vile type",
+       "gives": "RAT",
+       "note": "a rat is a contemptible person"
+      },
+      {
+       "words": "Row",
+       "gives": "TIER",
+       "note": "a tier is a row, as of seats"
+      }
      ]
     },
     "explanation": {
@@ -1107,40 +986,31 @@
    },
    "solution": "GHENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GHENT",
     "definitions": [
      {
       "text": "foreign city",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "gets",
-      "for": "container",
-      "note": "getting something means taking it in, so one letter is received inside the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "GENT",
-      "note": "a gent is a man or fellow"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H for hot, as on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "H",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets",
+       "note": "getting something means taking it in, so one letter is received inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "GENT",
+       "note": "a gent is a man or fellow"
+      },
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H for hot, as on a tap"
+      }
      ]
     },
     "explanation": {
@@ -1168,30 +1038,28 @@
    },
    "solution": "ARDRI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARDRI",
     "definitions": [
      {
       "text": "King",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits in the words that follow, running across their join"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spectacular drive",
-      "gives": "ARDRI",
-      "note": "letters running across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits in the words that follow, running across their join"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spectacular drive",
+       "gives": "ARDRI",
+       "note": "letters running across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A monarch taking a dazzling ride or making a stunning car journey.",
      "definitionFit": "Ard-ri is Irish for high king, the title of the chief king of ancient Ireland."
@@ -1217,40 +1085,31 @@
    },
    "solution": "GLIDDER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GLIDDER",
     "definitions": [
      {
       "text": "Slippery",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boarded by",
-      "for": "container",
-      "note": "a craft boarded by someone has them inside it, so that letter goes within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aircraft",
-      "gives": "GLIDER",
-      "note": "a glider is an engineless aircraft"
-     },
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "D is the abbreviation for duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLID",
-      "D",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boarded by",
+       "note": "a craft boarded by someone has them inside it, so that letter goes within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aircraft",
+       "gives": "GLIDER",
+       "note": "a glider is an engineless aircraft"
+      },
+      {
+       "words": "duke",
+       "gives": "D",
+       "note": "D is the abbreviation for duke"
+      }
      ]
     },
     "explanation": {
@@ -1279,32 +1138,25 @@
    },
    "solution": "GABELLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GABELLE",
     "definitions": [
      {
       "text": "collected money for French government once",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Georgia",
-      "gives": "GA",
-      "note": "GA is the US postal abbreviation for Georgia"
-     },
-     {
-      "clueFragment": "beautiful lady",
-      "gives": "BELLE",
-      "note": "a belle is a beautiful woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "BELLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Georgia",
+       "gives": "GA",
+       "note": "GA is the US postal abbreviation for Georgia"
+      },
+      {
+       "words": "beautiful lady",
+       "gives": "BELLE",
+       "note": "a belle is a beautiful woman"
+      }
      ]
     },
     "explanation": {
@@ -1333,45 +1185,35 @@
    },
    "solution": "STRATAL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "STRATAL",
     "definitions": [
      {
       "text": "in layers",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "put back",
-      "for": "reversal",
-      "note": "putting something back sends it the other way, so the letters are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The French",
-      "gives": "LA",
-      "note": "la is French for the (feminine)"
-     },
-     {
-      "clueFragment": "dishes",
-      "gives": "TARTS",
-      "note": "tarts are pastry dishes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAT",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LATARTS",
-       "to": "STRATAL"
+       "text": "put back",
+       "note": "putting something back sends it the other way, so the letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The French",
+         "gives": "LA",
+         "note": "la is French for the (feminine)"
+        },
+        {
+         "words": "dishes",
+         "gives": "TARTS",
+         "note": "tarts are pastry dishes"
+        }
+       ]
       }
      ]
     },
@@ -1400,47 +1242,49 @@
    },
    "solution": "TORULI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TORULI",
     "definitions": [
      {
       "text": "Insect parts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "letter_selection",
-      "note": "half of a four-letter word keeps two letters, here the front pair"
-     },
-     {
-      "text": "apart",
-      "for": "anagram",
-      "note": "things taken apart are broken up and reassembled differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lout",
-      "gives": "LOUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rips",
-      "gives": "RI",
-      "select": "first",
-      "note": "the first half of rips"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOUTRI",
-       "gives": "TORULI"
+       "text": "apart",
+       "note": "things taken apart are broken up and reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lout",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "RI",
+         "indicators": [
+          {
+           "text": "half",
+           "note": "half of a four-letter word keeps two letters, here the front pair"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "rips",
+           "gives": "RI",
+           "select": "first",
+           "note": "the first half of rips"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1470,56 +1314,51 @@
    },
    "solution": "ROARIE",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ROARIE",
     "definitions": [
      {
       "text": "Noisy Scottish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down clue turning up flips the letters so they read upwards"
-     },
-     {
-      "text": "not having",
-      "for": "deletion",
-      "note": "not having something means going without it, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "OR is other ranks, ordinary soldiers"
-     },
-     {
-      "clueFragment": "come into view",
-      "gives": "ARISE",
-      "note": "to arise is to appear"
-     },
-     {
-      "clueFragment": "succeeded",
-      "gives": "S",
-      "note": "S is the family-tree abbreviation for succeeded"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "ARIE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OR",
-       "to": "RO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue turning up flips the letters so they read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "gives": "OR",
+         "note": "OR is other ranks, ordinary soldiers"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not having",
+         "note": "not having something means going without it, so that letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "come into view",
+         "gives": "ARISE",
+         "note": "to arise is to appear"
+        },
+        {
+         "words": "succeeded",
+         "gives": "S",
+         "note": "S is the family-tree abbreviation for succeeded"
+        }
+       ]
       }
      ]
     },
@@ -1548,32 +1387,25 @@
    },
    "solution": "CORSO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CORSO",
     "definitions": [
      {
       "text": "procession",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "My",
-      "gives": "COR",
-      "note": "cor is an exclamation of surprise, like my!"
-     },
-     {
-      "clueFragment": "very good",
-      "gives": "SO",
-      "note": "so is used as an interjection of approval, roughly very good or very well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "SO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "My",
+       "gives": "COR",
+       "note": "cor is an exclamation of surprise, like my!"
+      },
+      {
+       "words": "very good",
+       "gives": "SO",
+       "note": "so is used as an interjection of approval, roughly very good or very well"
+      }
      ]
     },
     "explanation": {
@@ -1602,35 +1434,24 @@
    },
    "solution": "RESEAU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESEAU",
     "definitions": [
      {
       "text": "network",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "repaired",
-      "for": "anagram",
-      "note": "something repaired has been put back together, here in a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reuse a",
-      "gives": "REUSEA",
-      "note": "every letter used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REUSEA",
-       "gives": "RESEAU"
+       "text": "repaired",
+       "note": "something repaired has been put back together, here in a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reuse a",
+       "note": "every letter used"
       }
      ]
     },
@@ -1665,48 +1486,35 @@
    },
    "solution": "SEEFIT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SEE FIT",
     "definitions": [
      {
       "text": "Think it appropriate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raise",
-      "for": "reversal",
-      "note": "in a down clue raising a word lifts it so its letters read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "ahead of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charges",
-      "gives": "FEES",
-      "note": "fees are charges"
-     },
-     {
-      "clueFragment": "modern technology",
-      "gives": "IT",
-      "note": "IT is information technology"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEEF",
-      "IT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "FEES",
-       "to": "SEEF"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raise",
+         "note": "in a down clue raising a word lifts it so its letters read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charges",
+         "gives": "FEES",
+         "note": "fees are charges"
+        }
+       ]
+      },
+      {
+       "words": "modern technology",
+       "gives": "IT",
+       "note": "IT is information technology"
       }
      ]
     },
@@ -1736,40 +1544,31 @@
    },
    "solution": "TOOTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOOTS",
     "definitions": [
      {
       "text": "Sharp sounds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needing",
-      "for": "container",
-      "note": "the children need something taken in, so those letters go inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small children",
-      "gives": "TOTS",
-      "note": "tots are toddlers"
-     },
-     {
-      "clueFragment": "double love",
-      "gives": "O",
-      "note": "love is zero, written O; adding one beside the O already in tots doubles it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "O",
-      "TS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "needing",
+       "note": "the children need something taken in, so those letters go inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small children",
+       "gives": "TOTS",
+       "note": "tots are toddlers"
+      },
+      {
+       "words": "double love",
+       "gives": "O",
+       "note": "love is zero, written O; adding one beside the O already in tots doubles it"
+      }
      ]
     },
     "explanation": {
@@ -1798,44 +1597,39 @@
    },
    "solution": "ALDEA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ALDEA",
     "definitions": [
      {
       "text": "village",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "chopped",
-      "for": "deletion",
-      "note": "a chopped tree is cut short, so its last letter goes"
-     }
-    ],
-    "linkWords": [
-     "landing on",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tree",
-      "gives": "ALDER",
-      "note": "the alder is a tree of damp ground"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is the abbreviation for area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALDE",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "chopped",
+       "note": "a chopped tree is cut short, so its last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tree",
+         "gives": "ALDER",
+         "note": "the alder is a tree of damp ground"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "A is the abbreviation for area"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -1864,49 +1658,44 @@
    },
    "solution": "DERIG",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "DERIG",
     "definitions": [
      {
       "text": "Take down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking something means being without it, so that letter is removed"
-     },
-     {
-      "text": "unstable",
-      "for": "anagram",
-      "note": "an unstable structure shifts and collapses, so its letters fall into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bridge",
-      "gives": "BRIDGE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "breadth",
-      "gives": "B",
-      "note": "B is the abbreviation for breadth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DERIG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DERIG",
+     "indicators": [
       {
-       "fodder": "RIDGE",
-       "gives": "DERIG"
+       "text": "unstable",
+       "note": "an unstable structure shifts and collapses, so its letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "DERIG",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking something means being without it, so that letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bridge",
+         "note": "taken as written"
+        },
+        {
+         "words": "breadth",
+         "gives": "B",
+         "note": "B is the abbreviation for breadth"
+        }
+       ]
       }
      ]
     },
@@ -1935,56 +1724,55 @@
    },
    "solution": "RELEASEE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "RELEASEE",
     "definitions": [
      {
       "text": "One getting estate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "with no end the word loses its final letter"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "one piece goes around the others, enclosing them"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grass",
-      "gives": "REED",
-      "note": "a reed is a tall grass"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E for English"
-     },
-     {
-      "clueFragment": "meadows",
-      "gives": "LEAS",
-      "note": "leas are meadows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "E",
-      "LEAS",
-      "EE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "one piece goes around the others, enclosing them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "note": "with no end the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "grass",
+           "gives": "REED",
+           "note": "a reed is a tall grass"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E for English"
+          }
+         ]
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "meadows",
+       "gives": "LEAS",
+       "note": "leas are meadows"
+      }
      ]
     },
     "explanation": {
@@ -2012,33 +1800,29 @@
    },
    "solution": "CURIAL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CURIAL",
     "definitions": [
      {
       "text": "Papal court's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with leading trio dismissed",
-      "for": "deletion",
-      "note": "the leading three are sent away, so the first three letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "subject to mood swings",
-      "gives": "MERCURIAL",
-      "note": "mercurial means volatile and changeable in mood"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CURIAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with leading trio dismissed",
+       "note": "the leading three are sent away, so the first three letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "subject to mood swings",
+       "gives": "MERCURIAL",
+       "note": "mercurial means volatile and changeable in mood"
+      },
+      {
+       "gives": "MER"
+      }
      ]
     },
     "explanation": {
@@ -2066,40 +1850,31 @@
    },
    "solution": "DREE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DREE",
     "definitions": [
      {
       "text": "Bear up north",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "running into something means getting inside it, so the letter enters the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "DEE",
-      "note": "the Dee is a river in Scotland and in Wales"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "EE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "running into something means getting inside it, so the letter enters the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "DEE",
+       "note": "the Dee is a river in Scotland and in Wales"
+      },
+      {
+       "words": "runs",
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
      ]
     },
     "explanation": {
@@ -2129,50 +1904,41 @@
    },
    "solution": "PLEINAIR",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PLEINAIR",
     "definitions": [
      {
       "text": "Like some art",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "one piece wraps around the others, holding them inside"
-     }
-    ],
-    "linkWords": [
-     "displayed"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "couple",
-      "gives": "PAIR",
-      "note": "a pair is a couple"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "IN",
-      "note": "in means at home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LE",
-      "IN",
-      "AIR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "one piece wraps around the others, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "couple",
+       "gives": "PAIR",
+       "note": "a pair is a couple"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the French",
+         "gives": "LE",
+         "note": "le is French for the"
+        },
+        {
+         "words": "home",
+         "gives": "IN",
+         "note": "in means at home"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2200,50 +1966,40 @@
    },
    "solution": "LIERNE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LIERNE",
     "definitions": [
      {
       "text": "architectural feature",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that letter counts"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hall",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of hall"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "bird",
-      "gives": "ERNE",
-      "note": "the erne is the sea eagle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "ERNE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only that letter counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hall",
+         "note": "last letter of hall"
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "bird",
+       "gives": "ERNE",
+       "note": "the erne is the sea eagle"
+      }
      ]
     },
     "explanation": {
@@ -2272,32 +2028,25 @@
    },
    "solution": "AGOUTY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGOUTY",
     "definitions": [
      {
       "text": "Rodent",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "suffering with swelling",
-      "gives": "GOUTY",
-      "note": "gouty means afflicted with gout, a painful swelling of the joints"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GOUTY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "words": "suffering with swelling",
+       "gives": "GOUTY",
+       "note": "gouty means afflicted with gout, a painful swelling of the joints"
+      }
      ]
     },
     "explanation": {

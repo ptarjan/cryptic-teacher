@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5150",
  "number": 5150,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,150",
  "setter": "David Mclean",
  "date": "2025-02-09",
  "dimensions": {
@@ -42,10 +40,6 @@
    },
    "solution": "DAYDREAMER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DAYDREAMER",
     "definitions": [
      {
       "text": "I fantasise about everything under the sun",
@@ -53,16 +47,19 @@
       "note": "The clue speaks as the answer: 'I' am the daydreamer."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I fantasise about everything",
-      "note": "reads as someone whose fantasies cover every subject there is"
-     },
-     {
-      "clueFragment": "under the sun",
-      "note": "the setter means literally beneath the sun, in daylight: this dreamer does it by day"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I fantasise about everything",
+       "note": "reads as someone whose fantasies cover every subject there is"
+      },
+      {
+       "words": "under the sun",
+       "note": "the setter means literally beneath the sun, in daylight: this dreamer does it by day"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A confession from someone whose imagination roams over absolutely everything.",
      "walkthrough": "'Everything under the sun' reads as 'all topics'; cryptically, 'under the sun' means in daylight, so this fantasist dreams by day.",
@@ -90,52 +87,48 @@
    },
    "solution": "DIGS",
    "annotation": {
-    "type": [
-     "substitution",
-     "letter_selection"
-    ],
-    "answer": "DIGS",
     "definitions": [
      {
       "text": "insults",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "making",
-      "for": "substitution",
-      "note": "the troubles word is made into something else by the swap"
-     },
-     {
-      "text": "lead to",
-      "for": "letter_selection",
-      "note": "the lead of 'icy' is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Troubles",
-      "gives": "DOGS",
-      "note": "to dog = to trouble or plague"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = O, the zero score in tennis; this is the letter swapped out"
-     },
-     {
-      "clueFragment": "icy",
-      "gives": "I",
-      "select": "first",
-      "note": "the lead (first letter) of icy, swapped in for the O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "I",
-      "GS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "DIGS",
+     "indicators": [
+      {
+       "text": "making",
+       "note": "the troubles word is made into something else by the swap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Troubles",
+       "gives": "DOGS",
+       "note": "to dog = to trouble or plague"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love = O, the zero score in tennis; this is the letter swapped out"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead to",
+         "note": "the lead of 'icy' is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "icy",
+         "note": "the lead (first letter) of icy, swapped in for the O"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -164,41 +157,40 @@
    },
    "solution": "YELLOWS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "YELLOWS",
     "definitions": [
      {
       "text": "turns golden",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "in a down clue the top of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chicken",
-      "gives": "YELLOW",
-      "note": "chicken = yellow, cowardly"
-     },
-     {
-      "clueFragment": "on top of stove",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of stove, placed below in this down answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YELLOW",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chicken",
+       "gives": "YELLOW",
+       "note": "chicken = yellow, cowardly"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "S",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "in a down clue the top of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "on top of stove",
+         "gives": "S",
+         "select": "first",
+         "note": "first letter of stove, placed below in this down answer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -233,26 +225,25 @@
    },
    "solution": "ROMANNUMERALS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROMAN NUMERALS",
     "definitions": [
      {
       "text": "I will show you the first of these things",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I will show you",
-      "note": "reads as a speaker offering a demonstration"
-     },
-     {
-      "clueFragment": "the first of these things",
-      "note": "the setter means the clue's opening letter itself: read as a number, that single stroke is 1, the first of a set of symbols"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I will show you",
+       "note": "reads as a speaker offering a demonstration"
+      },
+      {
+       "words": "the first of these things",
+       "note": "the setter means the clue's opening letter itself: read as a number, that single stroke is 1, the first of a set of symbols"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone offering to demonstrate the first item in a series.",
      "walkthrough": "'I' looks like the speaker, but it is the letter I, which is 1, the first Roman numeral.",
@@ -280,10 +271,6 @@
    },
    "solution": "AUTUMNAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AUTUMNAL",
     "definitions": [
      {
       "text": "During fall",
@@ -291,43 +278,37 @@
       "note": "An adjective; 'during fall' works as in 'autumnal (during-fall) weather'."
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "a shot item is ruined and ready to be rearranged"
-     },
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "the rearranged ALTMAN goes around the two Us"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Altman",
-      "gives": "ALTMAN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "one uni",
-      "gives": "U",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "another",
-      "gives": "U",
-      "note": "a second U"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALTMANUU",
-       "gives": "AUTUMNAL"
+       "text": "shot",
+       "note": "a shot item is ruined and ready to be rearranged"
+      },
+      {
+       "text": "around",
+       "note": "the rearranged ALTMAN goes around the two Us"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Altman",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "one uni",
+         "gives": "U",
+         "note": "U = university"
+        },
+        {
+         "words": "another",
+         "gives": "U",
+         "note": "a second U"
+        }
+       ]
       }
      ]
     },
@@ -357,10 +338,6 @@
    },
    "solution": "EATEN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EATEN",
     "definitions": [
      {
       "text": "put away food",
@@ -368,30 +345,24 @@
       "note": "EATEN is the participle: food 'put away' has been eaten."
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tidy up",
-      "gives": "NEATEN",
-      "note": "to neaten is to tidy up"
-     },
-     {
-      "clueFragment": "knight",
-      "gives": "N",
-      "note": "N = knight in chess notation; removed from NEATEN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EATEN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tidy up",
+       "gives": "NEATEN",
+       "note": "to neaten is to tidy up"
+      },
+      {
+       "words": "knight",
+       "gives": "N",
+       "note": "N = knight in chess notation; removed from NEATEN"
+      }
      ]
     },
     "explanation": {
@@ -420,45 +391,35 @@
    },
    "solution": "CROC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CROC",
     "definitions": [
      {
       "text": "Toothy type",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backed",
-      "for": "reversal",
-      "note": "backed = turned back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "conservative",
-      "gives": "C",
-      "note": "C = Conservative"
-     },
-     {
-      "clueFragment": "Gordon Bennett",
-      "gives": "COR",
-      "note": "both are exclamations of surprise; turned back it gives ROC"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ROC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "COR",
-       "to": "ROC"
+       "words": "conservative",
+       "gives": "C",
+       "note": "C = Conservative"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "note": "backed = turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gordon Bennett",
+         "gives": "COR",
+         "note": "both are exclamations of surprise; turned back it gives ROC"
+        }
+       ]
       }
      ]
     },
@@ -488,46 +449,33 @@
    },
    "solution": "READIED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "READIED",
     "definitions": [
      {
       "text": "fitted out",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "interior of",
-      "for": "container"
-     },
-     {
-      "text": "gets",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "if"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "study",
-      "gives": "READ",
-      "note": "to read a subject is to study it; opened up as REA...D"
-     },
-     {
-      "clueFragment": "Buy the farm",
-      "gives": "DIE",
-      "note": "'buy the farm' is American slang for dying"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REA",
-      "DIE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interior of"
+      },
+      {
+       "text": "gets"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "gives": "READ",
+       "note": "to read a subject is to study it; opened up as REA...D"
+      },
+      {
+       "words": "Buy the farm",
+       "gives": "DIE",
+       "note": "'buy the farm' is American slang for dying"
+      }
      ]
     },
     "explanation": {
@@ -562,38 +510,24 @@
    },
    "solution": "CLEANSWEEP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLEAN SWEEP",
     "definitions": [
      {
       "text": "landslide",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "after seismic event",
-      "for": "anagram",
-      "note": "after an earthquake everything is shaken up, so the letters are too"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Can we sleep",
-      "gives": "CANWESLEEP",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CANWESLEEP",
-       "gives": "CLEANSWEEP"
+       "text": "after seismic event",
+       "note": "after an earthquake everything is shaken up, so the letters are too"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Can we sleep",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -623,49 +557,35 @@
    },
    "solution": "GOLEM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GOLEM",
     "definitions": [
      {
       "text": "one with feet of clay",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "rebuffed",
-      "for": "reversal",
-      "note": "re-buffed, pushed back, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maine",
-      "gives": "ME",
-      "note": "ME = Maine, US state abbreviation"
-     },
-     {
-      "clueFragment": "journal",
-      "gives": "LOG",
-      "note": "a log is a journal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOL",
-      "EM"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rebuffed",
+       "note": "re-buffed, pushed back, so the letters run backwards"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "LOG",
-       "to": "GOL"
-      },
-      {
-       "from": "ME",
-       "to": "EM"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Maine",
+         "gives": "ME",
+         "note": "ME = Maine, US state abbreviation"
+        },
+        {
+         "words": "journal",
+         "gives": "LOG",
+         "note": "a log is a journal"
+        }
+       ]
       }
      ]
     },
@@ -696,45 +616,34 @@
    },
    "solution": "TITILLATE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TITILLATE",
     "definitions": [
      {
       "text": "Tickle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relations",
-      "gives": "IT",
-      "note": "IT = sex, as 'relations' does too"
-     },
-     {
-      "clueFragment": "into the small hours",
-      "gives": "TILLATE",
-      "note": "til late = until late at night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "TIL",
-      "LATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IT",
-       "to": "TI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relations",
+         "gives": "IT",
+         "note": "IT = sex, as 'relations' does too"
+        }
+       ]
+      },
+      {
+       "words": "into the small hours",
+       "gives": "TILLATE",
+       "note": "til late = until late at night"
       }
      ]
     },
@@ -771,35 +680,24 @@
    },
    "solution": "LEADINGLIGHTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LEADING LIGHTS",
     "definitions": [
      {
       "text": "authorities",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "messing around",
-      "for": "anagram",
-      "note": "the letters are messed about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lag delights in",
-      "gives": "LAGDELIGHTSIN",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LAGDELIGHTSIN",
-       "gives": "LEADINGLIGHTS"
+       "text": "messing around",
+       "note": "the letters are messed about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lag delights in",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -829,35 +727,24 @@
    },
    "solution": "ORNAMENTATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORNAMENTATION",
     "definitions": [
      {
       "text": "Garnish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wants spicing up",
-      "for": "anagram",
-      "note": "the letters need livening up, mixing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on a rotten main",
-      "gives": "ONAROTTENMAIN",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONAROTTENMAIN",
-       "gives": "ORNAMENTATION"
+       "text": "wants spicing up",
+       "note": "the letters need livening up, mixing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on a rotten main",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -887,35 +774,24 @@
    },
    "solution": "AFFILIATED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AFFILIATED",
     "definitions": [
      {
       "text": "In league",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Batty",
-      "for": "anagram",
-      "note": "batty = crazy, so the letters go mad"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A, field a fit",
-      "gives": "AFIELDAFIT",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AFIELDAFIT",
-       "gives": "AFFILIATED"
+       "text": "Batty",
+       "note": "batty = crazy, so the letters go mad"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A, field a fit",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -945,53 +821,39 @@
    },
    "solution": "FISTULAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FISTULAR",
     "definitions": [
      {
       "text": "of reeds, perhaps",
       "at": 25
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Duke",
-      "gives": "FIST",
-      "note": "dukes = fists, old slang"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "text-speak you"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R = river"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIST",
-      "U",
-      "L",
-      "A",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duke",
+       "gives": "FIST",
+       "note": "dukes = fists, old slang"
+      },
+      {
+       "words": "you",
+       "gives": "U",
+       "note": "text-speak you"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      },
+      {
+       "words": "a",
+       "note": "as printed"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R = river"
+      }
      ]
     },
     "explanation": {
@@ -1020,47 +882,41 @@
    },
    "solution": "WINDOW",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WINDOW",
     "definitions": [
      {
       "text": "Light",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eastern side of",
-      "for": "letter_selection",
-      "note": "in an across entry the eastern (right-hand) side is the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "breeze",
-      "gives": "WIND",
-      "note": "a breeze is a light wind"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O = over, cricket scoring"
-     },
-     {
-      "clueFragment": "eastern side of Barrow",
-      "gives": "W",
-      "select": "last",
-      "note": "last letter of Barrow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIND",
-      "O",
-      "W"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "breeze",
+       "gives": "WIND",
+       "note": "a breeze is a light wind"
+      },
+      {
+       "words": "over",
+       "gives": "O",
+       "note": "O = over, cricket scoring"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "eastern side of",
+         "note": "in an across entry the eastern (right-hand) side is the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eastern side of Barrow",
+         "gives": "BARROW",
+         "note": "last letter of Barrow"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1095,47 +951,45 @@
    },
    "solution": "COMINGUP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "COMING UP",
     "definitions": [
      {
       "text": "next",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "first parts of",
-      "for": "letter_selection",
-      "note": "take the first letters of the next two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first parts of Cops on",
-      "gives": "CO",
-      "select": "first",
-      "note": "first letters of Cops and on"
-     },
-     {
-      "clueFragment": "Dynasty",
-      "gives": "MING",
-      "note": "the Ming dynasty of China"
-     },
-     {
-      "clueFragment": "over at last",
-      "gives": "UP",
-      "note": "over at last, as in 'time's up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "MING",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CO",
+       "indicators": [
+        {
+         "text": "first parts of",
+         "note": "take the first letters of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "first parts of Cops on",
+         "gives": "CO",
+         "select": "first",
+         "note": "first letters of Cops and on"
+        }
+       ]
+      },
+      {
+       "words": "Dynasty",
+       "gives": "MING",
+       "note": "the Ming dynasty of China"
+      },
+      {
+       "words": "over at last",
+       "gives": "UP",
+       "note": "over at last, as in 'time's up'"
+      }
      ]
     },
     "explanation": {
@@ -1164,50 +1018,41 @@
    },
    "solution": "IBEXES",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IBEXES",
     "definitions": [
      {
       "text": "beastly types",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "nursing",
-      "for": "container",
-      "note": "to nurse is to hold close"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, Roman numeral"
-     },
-     {
-      "clueFragment": "busy people",
-      "gives": "BEES",
-      "note": "busy as a bee; opened up as BE...ES"
-     },
-     {
-      "clueFragment": "ten",
-      "gives": "X",
-      "note": "X = ten, Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "BE",
-      "X",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I = one, Roman numeral"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "nursing",
+         "note": "to nurse is to hold close"
+        }
+       ],
+       "parts": [
+        {
+         "words": "busy people",
+         "gives": "BEES",
+         "note": "busy as a bee; opened up as BE...ES"
+        },
+        {
+         "words": "ten",
+         "gives": "X",
+         "note": "X = ten, Roman numeral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1236,57 +1081,41 @@
    },
    "solution": "EMPEROR",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "EMPEROR",
     "definitions": [
      {
       "text": "Sovereign",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contrary",
-      "note": "contrary = the other way round, so the result is turned back"
-     },
-     {
-      "text": "hid in",
-      "note": "to hide in something is to be concealed within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "foreign capital",
-      "gives": "ROME",
-      "note": "the Italian capital, foreign to a British solver; opened up as RO...ME"
-     },
-     {
-      "clueFragment": "agent",
-      "gives": "REP",
-      "note": "a rep = a representative, an agent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "PER",
-      "OR"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "contrary",
+       "note": "contrary = the other way round, so the result is turned back"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "ME",
-       "to": "EM"
-      },
-      {
-       "from": "REP",
-       "to": "PER"
-      },
-      {
-       "from": "RO",
-       "to": "OR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hid in",
+         "note": "to hide in something is to be concealed within it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foreign capital",
+         "gives": "ROME",
+         "note": "the Italian capital, foreign to a British solver; opened up as RO...ME"
+        },
+        {
+         "words": "agent",
+         "gives": "REP",
+         "note": "a rep = a representative, an agent"
+        }
+       ]
       }
      ]
     },
@@ -1322,28 +1151,16 @@
    },
    "solution": "LOWGRADE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LOW-GRADE",
     "definitions": [
      {
       "text": "Inferior",
-      "at": 0
+      "at": 0,
+      "meaning": "an adjective: poor in quality, second-rate"
      },
      {
       "text": "E, perhaps",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Inferior",
-      "note": "an adjective: poor in quality, second-rate"
-     },
-     {
-      "clueFragment": "E, perhaps",
-      "note": "an E is a mark near the bottom of an exam scale, given by example"
+      "at": 9,
+      "meaning": "an E is a mark near the bottom of an exam scale, given by example"
      }
     ],
     "explanation": {
@@ -1370,40 +1187,38 @@
    },
    "solution": "ANYTIME",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ANYTIME",
     "definitions": [
      {
       "text": "When you want",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unopened",
-      "for": "deletion",
-      "note": "MANY without its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a lot of unopened",
-      "gives": "ANY",
-      "note": "a lot of = MANY, which unopened drops its M"
-     },
-     {
-      "clueFragment": "porridge",
-      "gives": "TIME",
-      "note": "porridge is British slang for a prison sentence, time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANY",
-      "TIME"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANYTIME",
+     "indicators": [
+      {
+       "text": "unopened",
+       "note": "MANY without its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a lot of unopened",
+         "gives": "ANY",
+         "note": "a lot of = MANY, which unopened drops its M"
+        },
+        {
+         "words": "porridge",
+         "gives": "TIME",
+         "note": "porridge is British slang for a prison sentence, time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1432,60 +1247,52 @@
    },
    "solution": "IMPLACABILITY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "IMPLACABILITY",
     "definitions": [
      {
       "text": "relentlessness",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Wild",
-      "for": "anagram",
-      "note": "wild = uncontrolled, so CLAIM's letters are scrambled"
-     },
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wild claim",
-      "gives": "IMLAC",
-      "note": "CLAIM rearranged, opened up as IM...LAC"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P = power"
-     },
-     {
-      "clueFragment": "skill",
-      "gives": "ABILITY",
-      "note": "skill = ability"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "P",
-      "LAC",
-      "ABILITY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IMPLACABILITY",
+     "indicators": [
       {
-       "fodder": "CLAIM",
-       "gives": "IMLAC"
+       "text": "Wild",
+       "note": "wild = uncontrolled, so CLAIM's letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Wild claim",
+           "gives": "IMLAC",
+           "note": "CLAIM rearranged, opened up as IM...LAC"
+          },
+          {
+           "words": "power",
+           "gives": "P",
+           "note": "P = power"
+          }
+         ]
+        },
+        {
+         "words": "skill",
+         "gives": "ABILITY",
+         "note": "skill = ability"
+        }
+       ]
       }
      ]
     },
@@ -1515,52 +1322,52 @@
    },
    "solution": "AMIGO",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AMIGO",
     "definitions": [
      {
       "text": "mate in Spain",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "secures",
-      "note": "to secure is to hold fast"
-     },
-     {
-      "text": "first",
-      "note": "Magnus's first means the first letter of that name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Excellent",
-      "gives": "AI",
-      "note": "A1 = excellent, the 1 written as I; opened up as A...I"
-     },
-     {
-      "clueFragment": "Magnus's first",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of Magnus"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "GO",
-      "note": "to go = to work, function"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "M",
-      "I",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "secures",
+       "note": "to secure is to hold fast"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "Magnus's first means the first letter of that name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Excellent",
+         "gives": "AI",
+         "note": "A1 = excellent, the 1 written as I; opened up as A...I"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Magnus's first",
+           "gives": "MAGNUSFIRST",
+           "note": "first letter of Magnus"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "gives": "GO",
+       "note": "to go = to work, function"
+      }
      ]
     },
     "explanation": {
@@ -1590,44 +1397,40 @@
    },
    "solution": "USES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "USES",
     "definitions": [
      {
       "text": "Does dope",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "the final letters of the next two words"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "US = America"
-     },
-     {
-      "clueFragment": "finally graduate classes",
-      "gives": "ES",
-      "select": "last",
-      "note": "last letters of graduate and classes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "America",
+       "gives": "US",
+       "note": "US = America"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "ES",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "the final letters of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "finally graduate classes",
+         "gives": "ES",
+         "select": "last",
+         "note": "last letters of graduate and classes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1656,39 +1459,30 @@
    },
    "solution": "THRASHING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THRASHING",
     "definitions": [
      {
       "text": "punishment",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "having to take",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Object",
-      "gives": "THING",
-      "note": "an object is a thing; opened up as TH...ING"
-     },
-     {
-      "clueFragment": "ill-considered",
-      "gives": "RASH",
-      "note": "rash = ill-considered, hasty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "RASH",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having to take"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Object",
+       "gives": "THING",
+       "note": "an object is a thing; opened up as TH...ING"
+      },
+      {
+       "words": "ill-considered",
+       "gives": "RASH",
+       "note": "rash = ill-considered, hasty"
+      }
      ]
     },
     "explanation": {
@@ -1717,34 +1511,29 @@
    },
    "solution": "HEIRS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HEIRS",
     "definitions": [
      {
       "text": "Those first in lines",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "heard over the airwaves, so what counts is the sound"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "songs",
-      "gives": "HEIRS",
-      "soundsLike": "AIRS",
-      "note": "airs = songs, tunes"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEIRS",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "heard over the airwaves, so what counts is the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "songs",
+       "gives": "AIRS",
+       "note": "airs = songs, tunes"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Opening lines of songs being played on the radio.",
      "walkthrough": "'Lines' reads as lyrics; it means lines of succession, which heirs are first in.",
@@ -1772,32 +1561,25 @@
    },
    "solution": "DART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DART",
     "definitions": [
      {
       "text": "One heading to bed on board",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "delta",
-      "gives": "D",
-      "note": "Delta = D in the NATO alphabet"
-     },
-     {
-      "clueFragment": "craft",
-      "gives": "ART",
-      "note": "a craft is an art or skill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "delta",
+       "gives": "D",
+       "note": "Delta = D in the NATO alphabet"
+      },
+      {
+       "words": "craft",
+       "gives": "ART",
+       "note": "a craft is an art or skill"
+      }
      ]
     },
     "explanation": {
@@ -1827,39 +1609,30 @@
    },
    "solution": "COMPOSTERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COMPOSTERS",
     "definitions": [
      {
       "text": "Rotters!",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "kidnapped by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brahms and Liszt?",
-      "gives": "COMPOSERS",
-      "note": "both are composers; opened up as COMPOS...ERS"
-     },
-     {
-      "clueFragment": "Tenor",
-      "gives": "T",
-      "note": "T = tenor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMPOS",
-      "T",
-      "ERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kidnapped by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brahms and Liszt?",
+       "gives": "COMPOSERS",
+       "note": "both are composers; opened up as COMPOS...ERS"
+      },
+      {
+       "words": "Tenor",
+       "gives": "T",
+       "note": "T = tenor"
+      }
      ]
     },
     "explanation": {

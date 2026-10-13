@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1733",
  "number": 1733,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,733",
  "setter": "Brunel",
  "date": "2023-05-14",
  "dimensions": {
@@ -44,34 +42,30 @@
    },
    "solution": "TOASTRACK",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "TOAST RACK",
     "definitions": [
      {
       "text": "that's on the breakfast table",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "Reverend Spooner swapped the opening sounds of words, so his version of a phrase trades its initial consonants"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cooked food",
-      "gives": "TOASTRACK",
-      "soundsLike": "ROAST TACK",
-      "note": "roast means cooked and tack is food, as in the sailor's hardtack; swap the R and T sounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOASTRACK"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "TOASTRACK",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "Reverend Spooner swapped the opening sounds of words, so his version of a phrase trades its initial consonants"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "cooked food",
+       "gives": "TOASTRACK",
+       "soundsLike": "ROAST TACK",
+       "note": "roast means cooked and tack is food, as in the sailor's hardtack; swap the R and T sounds"
+      }
      ]
     },
     "explanation": {
@@ -100,31 +94,29 @@
    },
    "solution": "THEIR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "THEIR",
     "definitions": [
      {
       "text": "Now, this sometimes supersedes his",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spoken",
-      "for": "homophone",
-      "note": "what is spoken is heard rather than read, so the answer only has to share a sound with the clued term"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "word of reassurance",
-      "gives": "THEIR",
-      "soundsLike": "THERE",
-      "note": "'there, there' is what you say to comfort someone"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "THEIR",
+     "indicators": [
+      {
+       "text": "spoken",
+       "note": "what is spoken is heard rather than read, so the answer only has to share a sound with the clued term"
+      }
+     ],
+     "parts": [
+      {
+       "words": "word of reassurance",
+       "gives": "THERE",
+       "note": "'there, there' is what you say to comfort someone"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A comment on modern usage, where a once-standard pronoun is giving way to another in speech.",
      "walkthrough": "The definition is a cryptic description: in gender-neutral writing today, THEIR often replaces 'his' (\"everyone took their seat\").",
@@ -151,33 +143,28 @@
    },
    "solution": "AMERICA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AMERICA",
     "definitions": [
      {
       "text": "New World",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "taking passage",
-      "for": "hidden_word",
-      "note": "a passage is a stretch of text, so we take a run of consecutive letters straight out of the words"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steamer I caught",
-      "gives": "AMERICA",
-      "note": "the letters run across the three words, ignoring the gaps"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taking passage",
+       "note": "a passage is a stretch of text, so we take a run of consecutive letters straight out of the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Steamer I caught",
+       "gives": "AMERICA",
+       "note": "the letters run across the three words, ignoring the gaps"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An emigrant boards a steamship to cross the Atlantic for a new life.",
      "walkthrough": "'Taking passage' reads as booking a berth on a ship; here it means taking a passage of text.",
@@ -205,47 +192,35 @@
    },
    "solution": "TIMES",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TIMES",
     "definitions": [
      {
       "text": "by",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Turn up",
-      "for": "reversal",
-      "note": "in a down entry, turning something up flips it so it reads from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "house",
-      "gives": "SEMI",
-      "note": "a semi is a semi-detached house"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "T is the standard abbreviation for temperature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIMES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SEMIT",
-       "to": "TIMES"
+       "text": "Turn up",
+       "note": "in a down entry, turning something up flips it so it reads from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "house",
+         "gives": "SEMI",
+         "note": "a semi is a semi-detached house"
+        },
+        {
+         "words": "temperature",
+         "gives": "T",
+         "note": "T is the standard abbreviation for temperature"
+        }
+       ]
       }
      ]
     },
@@ -275,11 +250,6 @@
    },
    "solution": "AEROBIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AEROBIC",
     "definitions": [
      {
       "text": "form of exercise",
@@ -287,48 +257,44 @@
       "note": "the answer is an adjective; 'aerobic' is also used as shorthand for aerobic exercise"
      }
     ],
-    "indicators": [
-     {
-      "text": "tossed",
-      "for": "anagram",
-      "note": "something tossed is thrown about, so its letters land in a fresh order"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one thing placed outside another wraps around it"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caber",
-      "gives": "CABER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "circle",
-      "gives": "O",
-      "note": "a circle is shaped like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AER",
-      "O",
-      "BIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CABERI",
-       "gives": "AERBIC"
+       "text": "outside",
+       "note": "one thing placed outside another wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tossed",
+         "note": "something tossed is thrown about, so its letters land in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Caber",
+           "note": "taken as written"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "circle",
+       "gives": "O",
+       "note": "a circle is shaped like the letter O"
       }
      ]
     },
@@ -364,60 +330,54 @@
    },
    "solution": "KNIVESOUT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "KNIVES OUT",
     "definitions": [
      {
       "text": "Film",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "treatment for",
-      "for": "anagram",
-      "note": "to give something treatment is to work on it, so these letters are processed into a new order"
-     },
-     {
-      "text": "beginning",
-      "for": "letter_selection",
-      "note": "a beginning is the opening, so only the first letter is used"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kevin",
-      "gives": "KEVIN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Spacey's",
-      "gives": "S",
-      "select": "first",
-      "note": "the initial of the actor's surname"
-     },
-     {
-      "clueFragment": "released",
-      "gives": "OUT",
-      "note": "released means let out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KNIVES",
-      "OUT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "KEVINS",
-       "gives": "KNIVES"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "treatment for",
+         "note": "to give something treatment is to work on it, so these letters are processed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Kevin",
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "beginning",
+             "note": "a beginning is the opening, so only the first letter is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Spacey's",
+             "note": "the initial of the actor's surname"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "released",
+       "gives": "OUT",
+       "note": "released means let out"
       }
      ]
     },
@@ -453,28 +413,16 @@
    },
    "solution": "WOKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WOKE",
     "definitions": [
      {
       "text": "Came to",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: regained consciousness, past tense of wake"
      },
      {
       "text": "like The Guardian",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Came to",
-      "note": "first meaning: regained consciousness, past tense of wake"
-     },
-     {
-      "clueFragment": "like The Guardian",
-      "note": "second meaning: alert to social injustice, a label often pinned on that left-leaning paper"
+      "at": 8,
+      "meaning": "second meaning: alert to social injustice, a label often pinned on that left-leaning paper"
      }
     ],
     "explanation": {
@@ -503,33 +451,28 @@
    },
    "solution": "WENCHES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "WENCHES",
     "definitions": [
      {
       "text": "girls",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "bared",
-      "for": "hidden_word",
-      "note": "stripping the outer covering exposes what lies inside, so only the inner letters of the words remain"
-     }
-    ],
-    "linkWords": [
-     "should get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Owen, chest",
-      "gives": "WENCHES",
-      "note": "drop the first and last letters of the pair of words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bared",
+       "note": "stripping the outer covering exposes what lies inside, so only the inner letters of the words remain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Owen, chest",
+       "gives": "WENCHES",
+       "note": "drop the first and last letters of the pair of words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man named Owen is told that baring his chest will attract women.",
      "walkthrough": "Strip the outer letters from 'Owen, chest' and the inside reads WENCHES.",
@@ -556,44 +499,37 @@
    },
    "solution": "KITTIWAKE",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "KITTIWAKE",
     "definitions": [
      {
       "text": "bird",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "something reported is passed on by word of mouth, so we want a sound rather than a spelling"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cat",
-      "gives": "KITTI",
-      "soundsLike": "KITTY",
-      "note": "kitty is a pet name for a cat"
-     },
-     {
-      "clueFragment": "track",
-      "gives": "WAKE",
-      "note": "a wake is the track left behind a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KITTI",
-      "WAKE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "KITTI",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "something reported is passed on by word of mouth, so we want a sound rather than a spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cat",
+         "gives": "KITTY",
+         "note": "kitty is a pet name for a cat"
+        }
+       ]
+      },
+      {
+       "words": "track",
+       "gives": "WAKE",
+       "note": "a wake is the track left behind a ship"
+      }
      ]
     },
     "explanation": {
@@ -622,38 +558,30 @@
    },
    "solution": "REDEEMER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REDEEMER",
     "definitions": [
      {
       "text": "a saviour",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Soldiers",
-      "gives": "RE",
-      "note": "the Royal Engineers, a British army corps"
-     },
-     {
-      "clueFragment": "consider",
-      "gives": "DEEM",
-      "note": "to deem is to consider or judge"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "DEEM",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldiers",
+       "gives": "RE",
+       "note": "the Royal Engineers, a British army corps"
+      },
+      {
+       "words": "consider",
+       "gives": "DEEM",
+       "note": "to deem is to consider or judge"
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -688,57 +616,44 @@
    },
    "solution": "INNATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "INNATE",
     "definitions": [
      {
       "text": "essential",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "viewing only middle bit",
-      "for": "letter_selection",
-      "note": "watching just the middle portion means keeping only the central letter of a word"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brunel",
-      "gives": "I",
-      "note": "Brunel is the setter, who refers to themself as I"
-     },
-     {
-      "clueFragment": "News",
-      "gives": "NN",
-      "note": "N is short for new, so news is read as more than one N"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Ten",
-      "gives": "E",
-      "select": "middle",
-      "note": "the centre of the three-letter word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NN",
-      "AT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brunel",
+       "gives": "I",
+       "note": "Brunel is the setter, who refers to themself as I"
+      },
+      {
+       "words": "News",
+       "gives": "NN",
+       "note": "N is short for new, so news is read as more than one N"
+      },
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "viewing only middle bit",
+         "note": "watching just the middle portion means keeping only the central letter of a word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ten",
+         "note": "the centre of the three-letter word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -767,32 +682,25 @@
    },
    "solution": "ORBITS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORBITS",
     "definitions": [
      {
       "text": "They're typically round",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "coins",
-      "gives": "BITS",
-      "note": "bits are small coins, as in a threepenny bit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "BITS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "coins",
+       "gives": "BITS",
+       "note": "bits are small coins, as in a threepenny bit"
+      }
      ]
     },
     "explanation": {
@@ -821,50 +729,43 @@
    },
    "solution": "BLENHEIM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BLENHEIM",
     "definitions": [
      {
       "text": "Palace",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "doing something briefly cuts it short, so the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "in front of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mingle",
-      "gives": "BLEN",
-      "note": "blend, meaning mingle, without its last letter"
-     },
-     {
-      "clueFragment": "ambassador",
-      "gives": "HE",
-      "note": "His Excellency, an ambassador's title"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IM",
-      "note": "one is I, and 'one's' is read as I'M"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLEN",
-      "HE",
-      "IM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BLENHEIM",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "doing something briefly cuts it short, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mingle",
+         "gives": "BLEN",
+         "note": "blend, meaning mingle, without its last letter"
+        },
+        {
+         "words": "ambassador",
+         "gives": "HE",
+         "note": "His Excellency, an ambassador's title"
+        },
+        {
+         "words": "one's",
+         "gives": "IM",
+         "note": "one is I, and 'one's' is read as I'M"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -893,30 +794,28 @@
    },
    "solution": "SHEATH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SHEATH",
     "definitions": [
      {
       "text": "Protective cover",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centrally",
-      "for": "hidden_word",
-      "note": "what sits centrally lies in the middle, so the letters are found inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "helps heat house",
-      "gives": "SHEATH",
-      "note": "the run starts at the end of the first word and ends at the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "centrally",
+       "note": "what sits centrally lies in the middle, so the letters are found inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "helps heat house",
+       "gives": "SHEATH",
+       "note": "the run starts at the end of the first word and ends at the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Insulation that helps keep the warmth in the middle of a home.",
      "walkthrough": "The run spans the end of 'helps', all of 'heat' and the start of 'house'.",
@@ -943,26 +842,25 @@
    },
    "solution": "HARPOONER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HARPOONER",
     "definitions": [
      {
       "text": "One making pointed attack on individuals in school?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One making pointed attack on individuals in school?",
-      "note": "surface reading: a bully making barbed remarks at particular pupils"
-     },
-     {
-      "clueFragment": "pointed attack on individuals in school",
-      "note": "setter's reading: a whaler spearing members of a school of whales"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One making pointed attack on individuals in school?",
+       "note": "surface reading: a bully making barbed remarks at particular pupils"
+      },
+      {
+       "words": "pointed attack on individuals in school",
+       "note": "setter's reading: a whaler spearing members of a school of whales"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A school is also a group of whales or fish, and the pointed attack is a spear thrown from a whaling boat.",
      "definitionFit": "A harpooner throws or fires the barbed spear used in whaling, striking particular animals within a group at sea."
@@ -989,51 +887,45 @@
    },
    "solution": "HEADACHES",
    "annotation": {
-    "type": [
-     "cycling",
-     "deletion",
-     "charade"
-    ],
-    "answer": "HEADACHES",
     "definitions": [
      {
       "text": "pains",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "Cycling",
-      "for": "cycling",
-      "note": "cycling sends something round in a loop, so the front letter moves to the back"
-     },
-     {
-      "text": "ultimately dissipated",
-      "for": "deletion",
-      "note": "the final part has evaporated, so the word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "onwards",
-      "gives": "AHEAD",
-      "note": "going onwards is going ahead"
-     },
-     {
-      "clueFragment": "upper body",
-      "gives": "CHES",
-      "note": "the chest, minus its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEADA",
-      "CHES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "HEADACHES",
+     "indicators": [
       {
-       "fodder": "AHEAD",
-       "gives": "HEADA"
+       "text": "Cycling",
+       "note": "cycling sends something round in a loop, so the front letter moves to the back"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HEADACHES",
+       "indicators": [
+        {
+         "text": "ultimately dissipated",
+         "note": "the final part has evaporated, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "onwards",
+         "gives": "AHEAD",
+         "note": "going onwards is going ahead"
+        },
+        {
+         "words": "upper body",
+         "gives": "CHES",
+         "note": "the chest, minus its last letter"
+        }
+       ]
       }
      ]
     },
@@ -1063,35 +955,28 @@
    },
    "solution": "CROSSBAR",
    "annotation": {
-    "type": [
-     "charade",
-     "and_lit"
-    ],
-    "answer": "CROSSBAR",
     "definitions": [
      {
       "text": "Centred ball leads to save — bringing this into play?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Centred ball",
-      "gives": "CROSS",
-      "note": "a cross is a ball centred from the wing in football"
-     },
-     {
-      "clueFragment": "save",
-      "gives": "BAR",
-      "note": "save and bar both mean except"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CROSS",
-      "BAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Centred ball",
+       "gives": "CROSS",
+       "note": "a cross is a ball centred from the wing in football"
+      },
+      {
+       "words": "save",
+       "gives": "BAR",
+       "note": "save and bar both mean except"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A football commentary: a cross comes in, the keeper tips it away, and the woodwork comes into play.",
      "walkthrough": "'Save' looks like a goalkeeper's stop, but it means except, as does BAR. The whole clue also describes the answer.",
@@ -1118,54 +1003,47 @@
    },
    "solution": "ARGONAUT",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ARGONAUT",
     "definitions": [
      {
       "text": "octopus",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Unopened",
-      "for": "deletion",
-      "note": "if something is not opened, its front stays shut away, so the first letter goes"
-     },
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "mixing stirs things up, so the letters come out in a new order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "load",
-      "gives": "ARGO",
-      "note": "cargo, a load, without its first letter"
-     },
-     {
-      "clueFragment": "tuna",
-      "gives": "TUNA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARGO",
-      "NAUT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ARGONAUT",
+     "indicators": [
       {
-       "fodder": "TUNA",
-       "gives": "NAUT"
+       "text": "Unopened",
+       "note": "if something is not opened, its front stays shut away, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "load",
+         "gives": "ARGO",
+         "note": "cargo, a load, without its first letter"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "mixed",
+           "note": "mixing stirs things up, so the letters come out in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tuna",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1195,50 +1073,44 @@
    },
    "solution": "OYSTERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "OYSTERS",
     "definitions": [
      {
       "text": "residents in Beds",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "doing something occasionally means now and then, so every other letter is kept"
-     },
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "upsetting things knocks them over and out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory",
-      "gives": "TORY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "steps",
-      "gives": "SES",
-      "select": "alternate",
-      "note": "the first, third and fifth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OYSTERS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TORYSES",
-       "gives": "OYSTERS"
+       "text": "upset",
+       "note": "upsetting things knocks them over and out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tory",
+         "note": "taken as written"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "note": "doing something occasionally means now and then, so every other letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "steps",
+           "note": "the first, third and fifth letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1269,44 +1141,34 @@
    },
    "solution": "TRANSIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TRANSIT",
     "definitions": [
      {
       "text": "Crossing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Cook",
-      "for": "anagram",
-      "note": "to cook something is to work it into a new form, as in cooking the books"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strait",
-      "gives": "STRAIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "north",
-      "gives": "N",
-      "note": "N is the abbreviation for north"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRANSIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STRAITN",
-       "gives": "TRANSIT"
+       "text": "Cook",
+       "note": "to cook something is to work it into a new form, as in cooking the books"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Strait",
+         "note": "taken as written"
+        },
+        {
+         "words": "north",
+         "gives": "N",
+         "note": "N is the abbreviation for north"
+        }
+       ]
       }
      ]
     },
@@ -1336,48 +1198,35 @@
    },
    "solution": "TOPPER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TOPPER",
     "definitions": [
      {
       "text": "old-fashioned lid",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Retro",
-      "for": "reversal",
-      "note": "retro means looking backwards, so the letters are read back to front"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "container",
-      "gives": "POT",
-      "note": "a pot is a container"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "PER",
-      "note": "'two pounds an hour' means two pounds per hour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "PER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "POT",
-       "to": "TOP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retro",
+         "note": "retro means looking backwards, so the letters are read back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "container",
+         "gives": "POT",
+         "note": "a pot is a container"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "gives": "PER",
+       "note": "'two pounds an hour' means two pounds per hour"
       }
      ]
     },
@@ -1408,51 +1257,38 @@
    },
    "solution": "POMPEII",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POMPEII",
     "definitions": [
      {
       "text": "where many lie entrapped",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "assembling",
-      "for": "anagram",
-      "note": "assembling means putting parts together, so the letters are built into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "to reach"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oxygen",
-      "gives": "O",
-      "note": "O is the chemical symbol for oxygen"
-     },
-     {
-      "clueFragment": "pipe",
-      "gives": "PIPE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POMPEII"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OPIPEIM",
-       "gives": "POMPEII"
+       "text": "assembling",
+       "note": "assembling means putting parts together, so the letters are built into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Oxygen",
+         "gives": "O",
+         "note": "O is the chemical symbol for oxygen"
+        },
+        {
+         "words": "pipe",
+         "note": "taken as written"
+        },
+        {
+         "words": "I'm",
+         "note": "taken as written, apostrophe dropped"
+        }
+       ]
       }
      ]
     },
@@ -1482,53 +1318,45 @@
    },
    "solution": "BOTSWANA",
    "annotation": {
-    "type": [
-     "deletion",
-     "cycling"
-    ],
-    "answer": "BOTSWANA",
     "definitions": [
      {
       "text": "country",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "whatever is leaving goes away, so those letters are taken out"
-     },
-     {
-      "text": "first a transfer to Far East",
-      "for": "cycling",
-      "note": "in an across entry the east is the right-hand end, so the earliest A in the word moves to the far end"
-     }
-    ],
-    "linkWords": [
-     "and having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seaman",
-      "gives": "BOATSWAIN",
-      "note": "a boatswain is a ship's officer in charge of equipment"
-     },
-     {
-      "clueFragment": "India",
-      "gives": "I",
-      "note": "India is I in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOTSWAN",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "BOTSWANA",
+     "indicators": [
       {
-       "fodder": "BOATSWAN",
-       "gives": "BOTSWANA"
+       "text": "first a transfer to Far East",
+       "note": "in an across entry the east is the right-hand end, so the earliest A in the word moves to the far end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "BOTSWANA",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "whatever is leaving goes away, so those letters are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Seaman",
+         "gives": "BOATSWAIN",
+         "note": "a boatswain is a ship's officer in charge of equipment"
+        },
+        {
+         "words": "India",
+         "gives": "I",
+         "note": "India is I in the NATO alphabet"
+        }
+       ]
       }
      ]
     },
@@ -1558,44 +1386,35 @@
    },
    "solution": "TAMILS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TAMILS",
     "definitions": [
      {
       "text": "Asians",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "westbound",
-      "for": "reversal",
-      "note": "in an across entry, heading west means running right to left, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lean",
-      "gives": "SLIM",
-      "note": "lean and slim both mean thin"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "AT",
-      "note": "on and at both locate, as in 'at the table'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAMILS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SLIMAT",
-       "to": "TAMILS"
+       "text": "westbound",
+       "note": "in an across entry, heading west means running right to left, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lean",
+         "gives": "SLIM",
+         "note": "lean and slim both mean thin"
+        },
+        {
+         "words": "on",
+         "gives": "AT",
+         "note": "on and at both locate, as in 'at the table'"
+        }
+       ]
       }
      ]
     },
@@ -1625,26 +1444,25 @@
    },
    "solution": "TWAIN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TWAIN",
     "definitions": [
      {
       "text": "Mark II?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Mark II?",
-      "note": "surface reading: the second version of a car or machine"
-     },
-     {
-      "clueFragment": "II",
-      "note": "setter's reading: the Roman two is an old word for two, the surname of the American author named Mark"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mark II?",
+       "note": "surface reading: the second version of a car or machine"
+      },
+      {
+       "words": "II",
+       "note": "setter's reading: the Roman two is an old word for two, the surname of the American author named Mark"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Mark II looks like a model number, but II is two, and the archaic word for two is the pen name of the author of Tom Sawyer.",
      "definitionFit": "Samuel Clemens wrote as Mark Twain, and twain is an old poetic word for two, the value of the Roman numeral."
@@ -1671,43 +1489,38 @@
    },
    "solution": "LOUSE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LOUSE",
     "definitions": [
      {
       "text": "rat",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "decapitated",
-      "for": "deletion",
-      "note": "losing the head means losing the first letter"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large"
-     },
-     {
-      "clueFragment": "Small animal",
-      "gives": "OUSE",
-      "note": "a mouse without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OUSE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOUSE",
+     "indicators": [
+      {
+       "text": "decapitated",
+       "note": "losing the head means losing the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L is the abbreviation for large"
+        },
+        {
+         "words": "Small animal",
+         "gives": "OUSE",
+         "note": "a mouse without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1736,11 +1549,6 @@
    },
    "solution": "ENMESH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENMESH",
     "definitions": [
      {
       "text": "Get stuck in",
@@ -1748,40 +1556,34 @@
       "note": "the answer is transitive: to make something get stuck in a net"
      }
     ],
-    "indicators": [
-     {
-      "text": "pants",
-      "for": "anagram",
-      "note": "pants is British slang for rubbish, so the letters are a mess to be reordered"
-     },
-     {
-      "text": "about that",
-      "for": "container",
-      "note": "one thing going about another wraps round it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "what",
-      "gives": "EH",
-      "note": "'eh?' is a way of saying 'what?'"
-     },
-     {
-      "clueFragment": "men's",
-      "gives": "MENS",
-      "note": "taken as written, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "NMES",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MENS",
-       "gives": "NMES"
+       "text": "about that",
+       "note": "one thing going about another wraps round it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what",
+       "gives": "EH",
+       "note": "'eh?' is a way of saying 'what?'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pants",
+         "note": "pants is British slang for rubbish, so the letters are a mess to be reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men's",
+         "note": "taken as written, apostrophe dropped"
+        }
+       ]
       }
      ]
     },
@@ -1818,54 +1620,41 @@
    },
    "solution": "SHAKENUP",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SHAKEN UP",
     "definitions": [
      {
       "text": "Shocked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turning about means facing the other way, so the letters run backwards"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "whatever eats something takes it inside itself"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jokes",
-      "gives": "PUNS",
-      "note": "puns are jokes on words"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "HAKE",
-      "note": "a hake is a sea fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HAKE",
-      "NUP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "PUNS",
-       "to": "SNUP"
+       "text": "eating",
+       "note": "whatever eats something takes it inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turning about means facing the other way, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jokes",
+         "gives": "PUNS",
+         "note": "puns are jokes on words"
+        }
+       ]
+      },
+      {
+       "words": "fish",
+       "gives": "HAKE",
+       "note": "a hake is a sea fish"
       }
      ]
     },
@@ -1895,57 +1684,55 @@
    },
    "solution": "ARES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "ARES",
     "definitions": [
      {
       "text": "God",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Recall",
-      "for": "reversal",
-      "note": "to recall is to call back, so the letters come back the other way"
-     },
-     {
-      "text": "principal",
-      "for": "letter_selection",
-      "note": "the principal part is the chief or first, so only the initial letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Egypt's",
-      "gives": "E",
-      "select": "first",
-      "note": "the initial letter of the country"
-     },
-     {
-      "clueFragment": "deity",
-      "gives": "RA",
-      "note": "Ra was the chief Egyptian god"
-     },
-     {
-      "clueFragment": "Sun",
-      "gives": "S",
-      "note": "S is the abbreviation for sun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARE",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ERA",
-       "to": "ARE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Recall",
+         "note": "to recall is to call back, so the letters come back the other way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "principal",
+             "note": "the principal part is the chief or first, so only the initial letter is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Egypt's",
+             "note": "the initial letter of the country"
+            }
+           ]
+          },
+          {
+           "words": "deity",
+           "gives": "RA",
+           "note": "Ra was the chief Egyptian god"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Sun",
+       "gives": "S",
+       "note": "S is the abbreviation for sun"
       }
      ]
     },
@@ -1985,57 +1772,51 @@
    },
    "solution": "SETONFIRE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SET ON FIRE",
     "definitions": [
      {
       "text": "light",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "finally going",
-      "for": "deletion",
-      "note": "when the end goes, the word loses its final letter"
-     },
-     {
-      "text": "travelling",
-      "for": "anagram",
-      "note": "things travelling move about, so the letters end up rearranged"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It's",
-      "gives": "ITS",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ON",
-      "note": "the word without its last letter"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "FREE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SETONFIRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SETONFIRE",
+     "indicators": [
       {
-       "fodder": "ITSONFREE",
-       "gives": "SETONFIRE"
+       "text": "finally going",
+       "note": "when the end goes, the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "note": "things travelling move about, so the letters end up rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "It's",
+           "note": "taken as written, apostrophe dropped"
+          },
+          {
+           "words": "one",
+           "gives": "ON",
+           "note": "the word without its last letter"
+          },
+          {
+           "words": "free",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

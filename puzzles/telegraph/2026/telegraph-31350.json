@@ -1,8 +1,6 @@
 {
  "id": "telegraph-31350",
  "number": 31350,
- "series": "telegraph",
- "name": "Telegraph cryptic crossword No 31,350",
  "date": "2026-09-21",
  "dimensions": {
   "cols": 15,
@@ -37,30 +35,28 @@
    },
    "solution": "PERFORM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "PERFORM",
     "definitions": [
      {
       "text": "do",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "A little",
-      "for": "hidden_word",
-      "note": "A little of a phrase is only part of it, so only a run of its letters is wanted."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "helper for mum's",
-      "gives": "PERFORM",
-      "note": "the letters run on unbroken across the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A little",
+       "note": "A little of a phrase is only part of it, so only a run of its letters is wanted."
+      }
+     ],
+     "parts": [
+      {
+       "words": "helper for mum's",
+       "gives": "PERFORM",
+       "note": "the letters run on unbroken across the words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is looking for a little help to get mum's party ready.",
      "walkthrough": "The surface nods to the Rolling Stones song 'Mother's Little Helper', and 'do' is the definition as a verb.",
@@ -87,44 +83,42 @@
    },
    "solution": "POPULATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "POPULATE",
     "definitions": [
      {
       "text": "Live in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ramshackle",
-      "note": "a ramshackle hut is falling apart, so its letters are rearranged"
-     },
-     {
-      "text": "not",
-      "note": "'not hotel' means without the hotel, so the letter for hotel is excluded from the fodder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aleppo hut",
-      "gives": "ALEPPOHUT",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "Hotel is H in the NATO alphabet; take it out, leaving ALEPPOUT"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "POPULATE",
+     "parts": [
       {
-       "fodder": "ALEPPOUT",
-       "gives": "POPULATE"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "POPULATE",
+       "indicators": [
+        {
+         "text": "ramshackle",
+         "note": "a ramshackle hut is falling apart, so its letters are rearranged"
+        },
+        {
+         "text": "not",
+         "note": "'not hotel' means without the hotel, so the letter for hotel is excluded from the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aleppo hut",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "Hotel is H in the NATO alphabet; take it out, leaving ALEPPOUT"
+        }
+       ]
       }
      ]
     },
@@ -160,26 +154,25 @@
    },
    "solution": "ROYALMINT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROYAL MINT",
     "definitions": [
      {
       "text": "Organisation that exists to make money?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Organisation that exists",
-      "note": "the surface suggests any business; the setter means one particular institution"
-     },
-     {
-      "clueFragment": "to make money?",
-      "note": "the surface means earn a profit; the setter means physically manufacture coins, and the question mark flags the twist"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Organisation that exists",
+       "note": "the surface suggests any business; the setter means one particular institution"
+      },
+      {
+       "words": "to make money?",
+       "note": "the surface means earn a profit; the setter means physically manufacture coins, and the question mark flags the twist"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cynical remark about a company that is only in it for the profit.",
      "walkthrough": "'Make money' usually means turn a profit; the Royal Mint, which produces British coins, makes it literally.",
@@ -207,44 +200,35 @@
    },
    "solution": "ODIN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ODIN",
     "definitions": [
      {
       "text": "God",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leads to",
-      "for": "letter_selection",
-      "note": "the leads of the following words are their first letters"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = O, a zero score in tennis"
-     },
-     {
-      "clueFragment": "divine inspiration normally",
-      "gives": "DIN",
-      "select": "first",
-      "note": "first letters of Divine Inspiration Normally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "DIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love = O, a zero score in tennis"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "note": "the leads of the following words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "divine inspiration normally",
+         "note": "first letters of Divine Inspiration Normally"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -273,44 +257,40 @@
    },
    "solution": "MAINTAINS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MAINTAINS",
     "definitions": [
      {
       "text": "Keeps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "away from",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "principal",
-      "gives": "MAIN",
-      "note": "principal = main"
-     },
-     {
-      "clueFragment": "tutors",
-      "gives": "TRAINS",
-      "note": "to tutor someone is to train them"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R = Republican; removed from TRAINS to leave TAINS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAIN",
-      "TAINS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "principal",
+       "gives": "MAIN",
+       "note": "principal = main"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away from"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tutors",
+         "gives": "TRAINS",
+         "note": "to tutor someone is to train them"
+        },
+        {
+         "words": "Republican",
+         "gives": "R",
+         "note": "R = Republican; removed from TRAINS to leave TAINS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -339,35 +319,24 @@
    },
    "solution": "LUDDISM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LUDDISM",
     "definitions": [
      {
       "text": "Opposition to change",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "something done badly is botched, so the letters come out jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slum did",
-      "gives": "SLUMDID",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SLUMDID",
-       "gives": "LUDDISM"
+       "text": "badly",
+       "note": "something done badly is botched, so the letters come out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slum did",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -397,40 +366,38 @@
    },
    "solution": "LENIN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LENIN",
     "definitions": [
      {
       "text": "Russian leader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having ousted leader",
-      "for": "deletion",
-      "note": "the first letter of Benin is thrown out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     },
-     {
-      "clueFragment": "Benin",
-      "gives": "ENIN",
-      "note": "Benin without its first letter B"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ENIN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LENIN",
+     "indicators": [
+      {
+       "text": "having ousted leader",
+       "note": "the first letter of Benin is thrown out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L = left"
+        },
+        {
+         "words": "Benin",
+         "gives": "ENIN",
+         "note": "Benin without its first letter B"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -459,39 +426,31 @@
    },
    "solution": "DOUGHTIER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOUGHTIER",
     "definitions": [
      {
       "text": "More resolute",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "propping up",
-      "for": "charade",
-      "note": "in a down clue, a piece propping up another sits below it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cash",
-      "gives": "DOUGH",
-      "note": "dough = slang for cash"
-     },
-     {
-      "clueFragment": "bank",
-      "gives": "TIER",
-      "note": "a bank of seats is a tier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOUGH",
-      "TIER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "propping up",
+       "note": "in a down clue, a piece propping up another sits below it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cash",
+       "gives": "DOUGH",
+       "note": "dough = slang for cash"
+      },
+      {
+       "words": "bank",
+       "gives": "TIER",
+       "note": "a bank of seats is a tier"
+      }
      ]
     },
     "explanation": {
@@ -520,33 +479,29 @@
    },
    "solution": "INCAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INCAN",
     "definitions": [
      {
       "text": "Ancient civilisation's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing lid",
-      "for": "deletion",
-      "note": "in a down clue the lid is the top, so the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food container",
-      "gives": "TINCAN",
-      "note": "a tin can holds food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing lid",
+       "note": "in a down clue the lid is the top, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "food container",
+       "gives": "TINCAN",
+       "note": "a tin can holds food"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -575,41 +530,30 @@
    },
    "solution": "MOTHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOTHER",
     "definitions": [
      {
       "text": "Mum",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding up",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flying insect",
-      "gives": "MOTH",
-      "note": "a moth is a flying insect"
-     },
-     {
-      "clueFragment": "hesitant expression",
-      "gives": "ER",
-      "note": "'er' is the sound of hesitation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOTH",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "holding up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flying insect",
+       "gives": "MOTH",
+       "note": "a moth is a flying insect"
+      },
+      {
+       "words": "hesitant expression",
+       "gives": "ER",
+       "note": "'er' is the sound of hesitation"
+      }
      ]
     },
     "explanation": {
@@ -638,35 +582,24 @@
    },
    "solution": "PHYSICIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PHYSICIAN",
     "definitions": [
      {
       "text": "doctor",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Upset",
-      "for": "anagram",
-      "note": "upset things are knocked over and mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I panic shy",
-      "gives": "IPANICSHY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IPANICSHY",
-       "gives": "PHYSICIAN"
+       "text": "Upset",
+       "note": "upset things are knocked over and mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I panic shy",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -696,43 +629,38 @@
    },
    "solution": "UNCUT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UNCUT",
     "definitions": [
      {
       "text": "whole",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "shelled",
-      "for": "deletion",
-      "note": "shelling removes the outer layer, so each word loses its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Munch",
-      "gives": "UNC",
-      "note": "MUNCH without its outer letters M and H"
-     },
-     {
-      "clueFragment": "nuts",
-      "gives": "UT",
-      "note": "NUTS without its outer letters N and S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNC",
-      "UT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNCUT",
+     "indicators": [
+      {
+       "text": "shelled",
+       "note": "shelling removes the outer layer, so each word loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Munch",
+         "gives": "UNC",
+         "note": "MUNCH without its outer letters M and H"
+        },
+        {
+         "words": "nuts",
+         "gives": "UT",
+         "note": "NUTS without its outer letters N and S"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -761,46 +689,39 @@
    },
    "solution": "LULU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LULU",
     "definitions": [
      {
       "text": "Scottish singer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "take every other letter of LOUT"
-     },
-     {
-      "text": "put on repeat",
-      "for": "letter_selection",
-      "note": "the pair of letters is used twice"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lout",
-      "gives": "LU",
-      "select": "alternate",
-      "note": "L and U, the first and third letters of LOUT"
-     },
-     {
-      "clueFragment": "put on repeat",
-      "gives": "LU",
-      "note": "the same LU again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LU",
-      "LU"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "take every other letter of LOUT"
+        },
+        {
+         "text": "put on repeat",
+         "note": "the pair of letters is used twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lout",
+         "note": "L and U, the first and third letters of LOUT"
+        }
+       ]
+      },
+      {
+       "words": "put on repeat",
+       "gives": "LU",
+       "note": "the same LU again"
+      }
      ]
     },
     "explanation": {
@@ -829,40 +750,34 @@
    },
    "solution": "STONEHENGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STONEHENGE",
     "definitions": [
      {
       "text": "monument",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Wild",
-      "for": "anagram",
-      "note": "wild letters run out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hen gets on",
-      "gives": "HENGETSON",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English, joins the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HENGETSONE",
-       "gives": "STONEHENGE"
+       "text": "Wild",
+       "note": "wild letters run out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hen gets on",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English, joins the fodder"
+        }
+       ]
       }
      ]
     },
@@ -892,40 +807,31 @@
    },
    "solution": "TRICKLING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRICKLING",
     "definitions": [
      {
       "text": "dribbling",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "guards",
-      "for": "container",
-      "note": "a guard stands round what it protects, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Amusing",
-      "gives": "TICKLING",
-      "note": "tickling = amusing, as in 'it tickled me'"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "R = run, a cricket abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "ICKLING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guards",
+       "note": "a guard stands round what it protects, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Amusing",
+       "gives": "TICKLING",
+       "note": "tickling = amusing, as in 'it tickled me'"
+      },
+      {
+       "words": "run",
+       "gives": "R",
+       "note": "R = run, a cricket abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -954,35 +860,25 @@
    },
    "solution": "KIDNAPPED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KIDNAPPED",
     "definitions": [
      {
       "text": "Held to ransom",
       "at": 0
      }
     ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fool",
-      "gives": "KID",
-      "note": "to kid is to fool"
-     },
-     {
-      "clueFragment": "slept",
-      "gives": "NAPPED",
-      "note": "napped = slept briefly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KID",
-      "NAPPED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fool",
+       "gives": "KID",
+       "note": "to kid is to fool"
+      },
+      {
+       "words": "slept",
+       "gives": "NAPPED",
+       "note": "napped = slept briefly"
+      }
      ]
     },
     "explanation": {
@@ -1011,35 +907,25 @@
    },
    "solution": "GRUELLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRUELLING",
     "definitions": [
      {
       "text": "Demanding",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thin porridge",
-      "gives": "GRUEL",
-      "note": "gruel is thin porridge"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "LING",
-      "note": "the ling is a fish of the cod family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRUEL",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "thin porridge",
+       "gives": "GRUEL",
+       "note": "gruel is thin porridge"
+      },
+      {
+       "words": "fish",
+       "gives": "LING",
+       "note": "the ling is a fish of the cod family"
+      }
      ]
     },
     "explanation": {
@@ -1068,10 +954,6 @@
    },
    "solution": "IMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMP",
     "definitions": [
      {
       "text": "a troublemaker",
@@ -1079,25 +961,19 @@
       "note": "'a troublemaker' carries an article; IMP is the noun itself"
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Independent",
-      "gives": "I",
-      "note": "I = Independent"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP = Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Independent",
+       "gives": "I",
+       "note": "I = Independent"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP = Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -1126,54 +1002,65 @@
    },
    "solution": "PROTECTED",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "PROTECTED",
     "definitions": [
      {
       "text": "Defended",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'court in tweed' puts one piece physically inside the other, like a figure inside a coat"
-     },
-     {
-      "text": "having ditched",
-      "note": "to ditch something is to throw it away, so the wife's letter is dropped from the cloth"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "professional",
-      "gives": "PRO",
-      "note": "pro = professional"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT = court, the address abbreviation"
-     },
-     {
-      "clueFragment": "tweed",
-      "gives": "TEED",
-      "note": "TWEED without W"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W = wife, the letter ditched"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "TECTED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'court in tweed' puts one piece physically inside the other, like a figure inside a coat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "professional",
+       "gives": "PRO",
+       "note": "pro = professional"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having ditched",
+         "note": "to ditch something is to throw it away, so the wife's letter is dropped from the cloth"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "tweed",
+             "gives": "TEED",
+             "note": "TWEED without W"
+            },
+            {
+             "words": "wife",
+             "gives": "W",
+             "note": "W = wife, the letter ditched"
+            }
+           ]
+          },
+          {
+           "gives": "W"
+          }
+         ]
+        },
+        {
+         "words": "court",
+         "gives": "CT",
+         "note": "CT = court, the address abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1208,42 +1095,31 @@
    },
    "solution": "OFCOURSE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OF COURSE",
     "definitions": [
      {
       "text": "Certainly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with only one",
-      "for": "deletion",
-      "note": "'with only one fine' means the phrase keeps a single copy of the letter for fine where it had two"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "astray",
-      "gives": "OFFCOURSE",
-      "note": "off course = astray"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F = fine (on pencil grades); one of the two is lost"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OF",
-      "COURSE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with only one",
+       "note": "'with only one fine' means the phrase keeps a single copy of the letter for fine where it had two"
+      }
+     ],
+     "parts": [
+      {
+       "words": "astray",
+       "gives": "OFFCOURSE",
+       "note": "off course = astray"
+      },
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F = fine (on pencil grades); one of the two is lost"
+      }
      ]
     },
     "explanation": {
@@ -1272,36 +1148,25 @@
    },
    "solution": "TED",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TED",
     "definitions": [
      {
       "text": "1950s youth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "take the final letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut the mustard",
-      "gives": "TED",
-      "select": "last",
-      "note": "last letters of cuT thE mustarD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "finally",
+       "note": "take the final letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cut the mustard",
+       "note": "last letters of cuT thE mustarD"
+      }
      ]
     },
     "explanation": {
@@ -1336,38 +1201,30 @@
    },
    "solution": "SQUAREOFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SQUARE OFF",
     "definitions": [
      {
       "text": "Prepare to fight",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "SQUARE",
-      "note": "a square is a conventional, conservative person"
-     },
-     {
-      "clueFragment": "from",
-      "gives": "OF",
-      "note": "of = from, as in 'a man of Kent'"
-     },
-     {
-      "clueFragment": "France",
-      "gives": "F",
-      "note": "F = France, the international vehicle code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SQUARE",
-      "OF",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "gives": "SQUARE",
+       "note": "a square is a conventional, conservative person"
+      },
+      {
+       "words": "from",
+       "gives": "OF",
+       "note": "of = from, as in 'a man of Kent'"
+      },
+      {
+       "words": "France",
+       "gives": "F",
+       "note": "F = France, the international vehicle code"
+      }
      ]
     },
     "explanation": {
@@ -1396,35 +1253,25 @@
    },
    "solution": "PUPPET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PUPPET",
     "definitions": [
      {
       "text": "Model",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "young dog",
-      "gives": "PUP",
-      "note": "a pup is a young dog"
-     },
-     {
-      "clueFragment": "cat?",
-      "gives": "PET",
-      "note": "a cat is an example of a pet, hence the question mark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUP",
-      "PET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "young dog",
+       "gives": "PUP",
+       "note": "a pup is a young dog"
+      },
+      {
+       "words": "cat?",
+       "gives": "PET",
+       "note": "a cat is an example of a pet, hence the question mark"
+      }
      ]
     },
     "explanation": {
@@ -1453,35 +1300,24 @@
    },
    "solution": "UNSHAKABLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNSHAKABLE",
     "definitions": [
      {
       "text": "firm",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "moving",
-      "for": "anagram",
-      "note": "things that are moving shift position, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shun a bleak",
-      "gives": "SHUNABLEAK",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHUNABLEAK",
-       "gives": "UNSHAKABLE"
+       "text": "moving",
+       "note": "things that are moving shift position, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shun a bleak",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1512,34 +1348,29 @@
    },
    "solution": "SAUCE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SAUCE",
     "definitions": [
      {
       "text": "Impudent behaviour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "according to reports",
-      "for": "homophone",
-      "note": "what is reported is heard, so the word is taken by sound"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning",
-      "gives": "SAUCE",
-      "soundsLike": "SOURCE",
-      "note": "the source of a river is where it begins; say that word and listen"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SAUCE",
+     "indicators": [
+      {
+       "text": "according to reports",
+       "note": "what is reported is heard, so the word is taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beginning",
+       "gives": "SOURCE",
+       "note": "the source of a river is where it begins; say that word and listen"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Reports claim that cheekiness is just starting.",
      "walkthrough": "In non-rhotic British accents SOURCE and SAUCE are said the same way.",
@@ -1566,43 +1397,31 @@
    },
    "solution": "ARCED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARCED",
     "definitions": [
      {
       "text": "Bowed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "welcoming",
-      "for": "container",
-      "note": "a host welcoming a guest takes them inside, so one piece admits the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "served brilliantly",
-      "gives": "ACED",
-      "note": "to ace is to serve an unreturnable ball in tennis"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R = rex, king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "CED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "note": "a host welcoming a guest takes them inside, so one piece admits the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "served brilliantly",
+       "gives": "ACED",
+       "note": "to ace is to serve an unreturnable ball in tennis"
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R = rex, king"
+      }
      ]
     },
     "explanation": {
@@ -1631,42 +1450,36 @@
    },
    "solution": "DEMO",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "DEMO",
     "definitions": [
      {
       "text": "Protest",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from the right",
-      "note": "reading from the right means starting at the end, so the letters run backwards"
-     },
-     {
-      "text": "lacks boundaries",
-      "note": "a word's boundaries are its edges, so the first and last letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "comedy",
-      "gives": "OMED",
-      "note": "COMEDY without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEMO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DEMO",
+     "parts": [
       {
-       "from": "OMED",
-       "to": "DEMO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the right",
+         "note": "reading from the right means starting at the end, so the letters run backwards"
+        },
+        {
+         "text": "lacks boundaries",
+         "note": "a word's boundaries are its edges, so the first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "comedy",
+         "gives": "OMED",
+         "note": "COMEDY without its first and last letters"
+        }
+       ]
       }
      ]
     },
@@ -1696,37 +1509,25 @@
    },
    "solution": "OKRA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "OKRA",
     "definitions": [
      {
       "text": "edible plant",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every second letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cook great",
-      "gives": "OKRA",
-      "select": "alternate",
-      "note": "even letters of cOoKgReAt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "K",
-      "R",
-      "A"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regularly",
+       "note": "at regular intervals, so every second letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cook great",
+       "note": "even letters of cOoKgReAt"
+      }
      ]
     },
     "explanation": {
@@ -1755,41 +1556,35 @@
    },
    "solution": "PLUMP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PLUMP",
     "definitions": [
      {
       "text": "Fleshy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "take the first letter of 'picked'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fruit",
-      "gives": "PLUM",
-      "note": "a plum is a fruit"
-     },
-     {
-      "clueFragment": "picked",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of PICKED"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLUM",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "PLUM",
+       "note": "a plum is a fruit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "take the first letter of 'picked'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "picked",
+         "note": "first letter of PICKED"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1818,45 +1613,41 @@
    },
    "solution": "CRICKETER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CRICKETER",
     "definitions": [
      {
       "text": "Perhaps batsman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after losing",
-      "for": "deletion",
-      "note": "a word that has lost something is missing it, so the international's letter comes out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c = caught, from cricket scorecards"
-     },
-     {
-      "clueFragment": "less stable",
-      "gives": "RICKETIER",
-      "note": "rickety = unstable, so ricketier = less stable"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I = international; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RICKETER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "c = caught, from cricket scorecards"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing",
+         "note": "a word that has lost something is missing it, so the international's letter comes out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "less stable",
+         "gives": "RICKETIER",
+         "note": "rickety = unstable, so ricketier = less stable"
+        },
+        {
+         "words": "international",
+         "gives": "I",
+         "note": "I = international; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1885,44 +1676,35 @@
    },
    "solution": "TRENDED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRENDED",
     "definitions": [
      {
       "text": "went viral on social media",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Vacuous",
-      "for": "letter_selection",
-      "note": "an empty thinker has lost its middle, leaving T and R"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thinker",
-      "gives": "TR",
-      "select": "outer",
-      "note": "outer letters of THINKER"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "ENDED",
-      "note": "ended = finished"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "ENDED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Vacuous",
+         "note": "an empty thinker has lost its middle, leaving T and R"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thinker",
+         "note": "outer letters of THINKER"
+        }
+       ]
+      },
+      {
+       "words": "finished",
+       "gives": "ENDED",
+       "note": "ended = finished"
+      }
      ]
     },
     "explanation": {
@@ -1951,43 +1733,31 @@
    },
    "solution": "GRANDEE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GRANDEE",
     "definitions": [
      {
       "text": "big cheese",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "punched by",
-      "for": "container",
-      "note": "a fist that punches into something ends up inside it, so one piece goes into the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gosh",
-      "gives": "GEE",
-      "note": "gee = gosh, an exclamation"
-     },
-     {
-      "clueFragment": "South African capital",
-      "gives": "RAND",
-      "note": "the rand is South Africa's currency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RAND",
-      "EE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "punched by",
+       "note": "a fist that punches into something ends up inside it, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gosh",
+       "gives": "GEE",
+       "note": "gee = gosh, an exclamation"
+      },
+      {
+       "words": "South African capital",
+       "gives": "RAND",
+       "note": "the rand is South Africa's currency"
+      }
      ]
     },
     "explanation": {

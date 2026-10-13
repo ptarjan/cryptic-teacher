@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30067",
  "number": 30067,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,067",
  "setter": "Imogen",
  "date": "2026-07-24",
  "dimensions": {
@@ -38,40 +36,35 @@
    },
    "solution": "GARBAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GARBAGE",
     "definitions": [
      {
       "text": "Rubbish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with holes at intervals",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clothes",
-      "gives": "GARB",
-      "note": "garb = clothes"
-     },
-     {
-      "clueFragment": "baggier with holes at intervals",
-      "gives": "AGE",
-      "select": "alternate",
-      "note": "alternate letters of bAgGiEr"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GARB",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "clothes",
+       "gives": "GARB",
+       "note": "garb = clothes"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "with holes at intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "baggier with holes at intervals",
+         "gives": "BAGGIER",
+         "note": "alternate letters of bAgGiEr"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -93,29 +86,27 @@
    },
    "solution": "ADAMANT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ADAMANT",
     "definitions": [
      {
       "text": "Unyielding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "arrests",
-      "for": "hidden_word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "squad a man triumphantly",
-      "gives": "ADAMANT",
-      "note": "hidden: squAD A MAN Triumphantly"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "arrests"
+      }
+     ],
+     "parts": [
+      {
+       "words": "squad a man triumphantly",
+       "gives": "ADAMANT",
+       "note": "hidden: squAD A MAN Triumphantly"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Arrests' is both the hiding instruction and part of the police story on the surface. Hidden words are easy to miss precisely because everything you need is already in plain sight."
     }
@@ -135,47 +126,39 @@
    },
    "solution": "BOGUS",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "BOGUS",
     "definitions": [
      {
       "text": "Fraudulent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to climb"
-     },
-     {
-      "text": "into"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attempt",
-      "gives": "GO",
-      "note": "an attempt = a go; 'to climb' reverses it (down clue) to OG"
-     },
-     {
-      "clueFragment": "conveyance",
-      "gives": "BUS",
-      "note": "a bus"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OG",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "GO",
-       "to": "OG"
+       "text": "to climb"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conveyance",
+       "gives": "BUS",
+       "note": "a bus"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "into"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attempt",
+         "gives": "GO",
+         "note": "an attempt = a go; 'to climb' reverses it (down clue) to OG"
+        }
+       ]
       }
      ]
     },
@@ -198,32 +181,25 @@
    },
    "solution": "GLOVERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GLOVERS",
     "definitions": [
      {
       "text": "Creators of digital protection",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "g = good"
-     },
-     {
-      "clueFragment": "not just good friends?",
-      "gives": "LOVERS",
-      "note": "more than 'just good friends' = lovers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LOVERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "g = good"
+      },
+      {
+       "words": "not just good friends?",
+       "gives": "LOVERS",
+       "note": "more than 'just good friends' = lovers"
+      }
      ]
     },
     "explanation": {
@@ -245,34 +221,23 @@
    },
    "solution": "SHAPELY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SHAPELY",
     "definitions": [
      {
       "text": "in trim",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Wasted",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "help, say",
-      "gives": "HELPSAY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HELP SAY",
-       "gives": "SHAPELY"
+       "text": "Wasted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "help, say",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -301,39 +266,30 @@
    },
    "solution": "HOTTUB",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HOT TUB",
     "definitions": [
      {
       "text": "to luxuriate in this?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "base",
-      "gives": "HUB",
-      "note": "a hub is a base (of operations)"
-     },
-     {
-      "clueFragment": "extravagant",
-      "gives": "OTT",
-      "note": "OTT = over the top"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OTT",
-      "UB"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In"
+      }
+     ],
+     "parts": [
+      {
+       "words": "base",
+       "gives": "HUB",
+       "note": "a hub is a base (of operations)"
+      },
+      {
+       "words": "extravagant",
+       "gives": "OTT",
+       "note": "OTT = over the top"
+      }
      ]
     },
     "explanation": {
@@ -361,39 +317,33 @@
    },
    "solution": "PETRIDISH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PETRI DISH",
     "definitions": [
      {
       "text": "a place of culture",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "transforming",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spirited",
-      "gives": "SPIRITED",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "hotel = H in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SPIRITED H",
-       "gives": "PETRIDISH"
+       "text": "transforming"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Spirited",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "hotel = H in the NATO alphabet"
+        }
+       ]
       }
      ]
     },
@@ -416,46 +366,40 @@
    },
    "solution": "LAMBAST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LAMBAST",
     "definitions": [
      {
       "text": "Roast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meat",
-      "gives": "LAMB",
-      "note": "lamb, the meat"
-     },
-     {
-      "clueFragment": "like",
-      "gives": "AS",
-      "note": "as = like"
-     },
-     {
-      "clueFragment": "a bit of turkey",
-      "gives": "T",
-      "select": "first",
-      "note": "the first bit of Turkey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAMB",
-      "AS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "meat",
+       "gives": "LAMB",
+       "note": "lamb, the meat"
+      },
+      {
+       "words": "like",
+       "gives": "AS",
+       "note": "as = like"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a bit of turkey",
+         "gives": "TURKEY",
+         "note": "the first bit of Turkey"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -477,46 +421,39 @@
    },
    "solution": "REINCARNATION",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "REINCARNATION",
     "definitions": [
      {
       "text": "Being born again",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outwardly",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "robe outwardly",
-      "gives": "RE",
-      "select": "outer",
-      "note": "the outer letters of RobE"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used literally"
-     },
-     {
-      "clueFragment": "pink",
-      "gives": "CARNATION",
-      "note": "carnations are 'pinks', the flower"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "IN",
-      "CARNATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outwardly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "robe outwardly",
+         "gives": "ROBE",
+         "note": "the outer letters of RobE"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "note": "used literally"
+      },
+      {
+       "words": "pink",
+       "gives": "CARNATION",
+       "note": "carnations are 'pinks', the flower"
+      }
      ]
     },
     "explanation": {
@@ -538,40 +475,35 @@
    },
    "solution": "PANG",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PANG",
     "definitions": [
      {
       "text": "Hungry feeling?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frier",
-      "gives": "PAN",
-      "note": "a frier (frying pan)"
-     },
-     {
-      "clueFragment": "finally working",
-      "gives": "G",
-      "select": "last",
-      "note": "last letter of workinG"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Frier",
+       "gives": "PAN",
+       "note": "a frier (frying pan)"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finally working",
+         "gives": "WORKING",
+         "note": "last letter of workinG"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -607,44 +539,45 @@
    },
    "solution": "ONEATATIME",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "ONE AT A TIME",
     "definitions": [
      {
       "text": "in sequence",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Exercising",
-      "for": "anagram"
-     },
-     {
-      "text": "almost",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "animate",
-      "gives": "ANIMATE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "toes almost",
-      "gives": "TOE",
-      "note": "TOES 'almost' — drop the last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ONEATATIME",
+     "indicators": [
       {
-       "fodder": "ANIMATE TOE",
-       "gives": "ONEATATIME"
+       "text": "almost"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Exercising"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "animate",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "toes almost",
+           "gives": "TOE",
+           "note": "TOES 'almost' — drop the last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -667,30 +600,16 @@
    },
    "solution": "TASSIE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TASSIE",
     "definitions": [
      {
       "text": "Cup from Scotland",
-      "at": 0
+      "at": 0,
+      "meaning": "a Scots dialect word for a small drinking cup, familiar from Burns's verse"
      },
      {
       "text": "one from Hobart?",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cup from Scotland",
-      "gives": "TASSIE",
-      "note": "a Scots dialect word for a small drinking cup, familiar from Burns's verse"
-     },
-     {
-      "clueFragment": "one from Hobart?",
-      "gives": "TASSIE",
-      "note": "informal for a Tasmanian — Hobart is Tasmania's capital"
+      "at": 22,
+      "meaning": "informal for a Tasmanian — Hobart is Tasmania's capital"
      }
     ],
     "explanation": {
@@ -712,41 +631,45 @@
    },
    "solution": "NAUTICAL",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "NAUTICAL",
     "definitions": [
      {
       "text": "of the crew",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Called out",
-      "for": "homophone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "indecent",
-      "gives": "NAUGHTY",
-      "note": "indecent = naughty"
-     },
-     {
-      "clueFragment": "state",
-      "gives": "CAL",
-      "note": "California, the US state, abbreviated CAL"
-     },
-     {
-      "clueFragment": "Called out",
-      "gives": "NAUTICAL",
-      "soundsLike": "NAUGHTY CAL",
-      "note": "run the two together and say them: the indecent state of the crew becomes the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "NAUTICAL",
+     "indicators": [
+      {
+       "text": "Called out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "indecent",
+       "gives": "NAUGHTY",
+       "note": "indecent = naughty"
+      },
+      {
+       "words": "state",
+       "gives": "CAL",
+       "note": "California, the US state, abbreviated CAL"
+      },
+      {
+       "op": "homophone",
+       "spelt": "NAUTICAL",
+       "parts": [
+        {
+         "words": "Called out",
+         "gives": "NAUGHTYCAL",
+         "note": "run the two together and say them: the indecent state of the crew becomes the answer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Say the pieces aloud and 'naughty-cal' falls out — the homophone is the whole clue. 'State' for CAL is the kind of abbreviation to expect once a charade needs three letters from nowhere."
     }
@@ -766,32 +689,25 @@
    },
    "solution": "STATESMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STATESMAN",
     "definitions": [
      {
       "text": "New magazine",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "from US",
-      "gives": "STATES",
-      "note": "the States = the US"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "MAN",
-      "note": "the Isle of Man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STATES",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "from US",
+       "gives": "STATES",
+       "note": "the States = the US"
+      },
+      {
+       "words": "island",
+       "gives": "MAN",
+       "note": "the Isle of Man"
+      }
      ]
     },
     "explanation": {
@@ -813,34 +729,23 @@
    },
    "solution": "TRIBESMAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRIBESMAN",
     "definitions": [
      {
       "text": "Fellow in community",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "injured",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brainstem",
-      "gives": "BRAINSTEM",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BRAINSTEM",
-       "gives": "TRIBESMAN"
+       "text": "injured"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brainstem",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -863,42 +768,34 @@
    },
    "solution": "GIRTH",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GIRTH",
     "definitions": [
      {
       "text": "circumference",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "Looking west",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "height",
-      "gives": "H",
-      "note": "h = height"
-     },
-     {
-      "clueFragment": "elevated point used to measure",
-      "gives": "TRIG",
-      "note": "a trig point, the hilltop survey pillar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GIRTH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "H TRIG",
-       "to": "GIRTH"
+       "text": "Looking west"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "height",
+         "gives": "H",
+         "note": "h = height"
+        },
+        {
+         "words": "elevated point used to measure",
+         "gives": "TRIG",
+         "note": "a trig point, the hilltop survey pillar"
+        }
+       ]
       }
      ]
     },
@@ -921,30 +818,16 @@
    },
    "solution": "SPLIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPLIT",
     "definitions": [
      {
       "text": "Peach",
-      "at": 0
+      "at": 0,
+      "meaning": "both are slang for 'inform on someone'"
      },
      {
       "text": "burst open",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peach",
-      "gives": "SPLIT",
-      "note": "both are slang for 'inform on someone'"
-     },
-     {
-      "clueFragment": "burst open",
-      "gives": "SPLIT",
-      "note": "the everyday sense"
+      "at": 6,
+      "meaning": "the everyday sense"
      }
     ],
     "explanation": {
@@ -966,40 +849,35 @@
    },
    "solution": "PRECEDE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PRECEDE",
     "definitions": [
      {
       "text": "Arrive before",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opening of",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opening of park",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of Park"
-     },
-     {
-      "clueFragment": "go back",
-      "gives": "RECEDE",
-      "note": "to recede = to go back"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RECEDE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opening of park",
+         "gives": "PARK",
+         "note": "first letter of Park"
+        }
+       ]
+      },
+      {
+       "words": "go back",
+       "gives": "RECEDE",
+       "note": "to recede = to go back"
+      }
      ]
     },
     "explanation": {
@@ -1027,35 +905,24 @@
    },
    "solution": "SNOWWHITE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SNOW WHITE",
     "definitions": [
      {
       "text": "Beautiful girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perished",
-      "for": "anagram",
-      "note": "anagram indicator — perished like old rubber"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "whose twin",
-      "gives": "WHOSETWIN",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WHOSE TWIN",
-       "gives": "SNOWWHITE"
+       "text": "perished",
+       "note": "anagram indicator — perished like old rubber"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whose twin",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1078,38 +945,33 @@
    },
    "solution": "WOOSTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WOOSTER",
     "definitions": [
      {
       "text": "Bertie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "develops",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "from bad",
-      "note": "surface only — the familiar phrase 'from bad to worse' is split, and only the second half is fodder"
-     },
-     {
-      "clueFragment": "to worse",
-      "gives": "TOWORSE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TO WORSE",
-       "gives": "WOOSTER"
+       "unchecked": true,
+       "words": "from bad",
+       "note": "surface only — the familiar phrase 'from bad to worse' is split, and only the second half is fodder"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "develops"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to worse",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
       }
      ]
     },
@@ -1132,30 +994,16 @@
    },
    "solution": "TICKING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TICKING",
     "definitions": [
      {
       "text": "About to go off perhaps",
-      "at": 0
+      "at": 0,
+      "meaning": "a bomb counting down toward detonation is in this state"
      },
      {
       "text": "indicating right",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About to go off perhaps",
-      "gives": "TICKING",
-      "note": "a bomb counting down toward detonation is in this state"
-     },
-     {
-      "clueFragment": "indicating right",
-      "gives": "TICKING",
-      "note": "marking with a tick = marking as correct"
+      "at": 25,
+      "meaning": "marking with a tick = marking as correct"
      }
     ],
     "explanation": {
@@ -1177,45 +1025,40 @@
    },
    "solution": "MISFIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MISFIT",
     "definitions": [
      {
       "text": "Weirdo",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "following",
-      "gives": "F",
-      "note": "f = following (as in 'p. 12f')"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "poor visibility",
-      "gives": "MIST",
-      "note": "mist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIS",
-      "F",
-      "I",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "poor visibility",
+         "gives": "MIST",
+         "note": "mist"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one"
+        }
+       ]
+      },
+      {
+       "words": "following",
+       "gives": "F",
+       "note": "f = following (as in 'p. 12f')"
+      }
      ]
     },
     "explanation": {
@@ -1237,39 +1080,37 @@
    },
    "solution": "BENEDICT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BENEDICT",
     "definitions": [
      {
       "text": "Pope",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "half genial",
-      "gives": "BEN",
-      "note": "genial = BENIGN; half of it is BEN"
-     },
-     {
-      "clueFragment": "proclamation",
-      "gives": "EDICT",
-      "note": "an edict is a proclamation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEN",
-      "EDICT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BENEDICT",
+     "indicators": [
+      {
+       "text": "half"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "half genial",
+         "gives": "BEN",
+         "note": "genial = BENIGN; half of it is BEN"
+        },
+        {
+         "words": "proclamation",
+         "gives": "EDICT",
+         "note": "an edict is a proclamation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1291,47 +1132,38 @@
    },
    "solution": "OCLOCK",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "O'CLOCK",
     "definitions": [
      {
       "text": "The precise hour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is over",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "business",
-      "gives": "CO",
-      "note": "Co. = company, business; 'is over' reverses it to OC"
-     },
-     {
-      "clueFragment": "close up",
-      "gives": "LOCK",
-      "note": "to lock = to close up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OC",
-      "LOCK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CO",
-       "to": "OC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "is over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "business",
+         "gives": "CO",
+         "note": "Co. = company, business; 'is over' reverses it to OC"
+        }
+       ]
+      },
+      {
+       "words": "close up",
+       "gives": "LOCK",
+       "note": "to lock = to close up"
       }
      ]
     },
+    "spelling": "O'CLOCK",
     "explanation": {
      "walkthrough": "The surface is a shop shutting for the night, and 'is over' does double duty: closing time above, and turn the letters round underneath."
     }
@@ -1351,37 +1183,34 @@
    },
    "solution": "LABEL",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "LABEL",
     "definitions": [
      {
       "text": "Brief description",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "timeless"
-     },
-     {
-      "text": "dancing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "timeless ballet",
-      "gives": "BALLE",
-      "note": "BALLET minus T ('time')"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LABEL",
+     "parts": [
       {
-       "fodder": "BALLE",
-       "gives": "LABEL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "timeless"
+        },
+        {
+         "text": "dancing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "timeless ballet",
+         "gives": "BALLE",
+         "note": "BALLET minus T ('time')"
+        }
+       ]
       }
      ]
     },
@@ -1404,41 +1233,35 @@
    },
    "solution": "PERMAFROST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PERMAFROST",
     "definitions": [
      {
       "text": "feature of the Arctic",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A couple of hairstyles",
-      "gives": "PERM AFRO",
-      "note": "two hairdos"
-     },
-     {
-      "clueFragment": "extremely smart",
-      "gives": "ST",
-      "select": "outer",
-      "note": "the extremes (outer letters) of SmarT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERM",
-      "AFRO",
-      "ST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A couple of hairstyles",
+       "gives": "PERMAFRO",
+       "note": "two hairdos"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely smart",
+         "gives": "SMART",
+         "note": "the extremes (outer letters) of SmarT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1460,32 +1283,25 @@
    },
    "solution": "BOIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOIL",
     "definitions": [
      {
       "text": "In rage",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "b = black (pencil grades, chess)"
-     },
-     {
-      "clueFragment": "a source of energy",
-      "gives": "OIL",
-      "note": "oil, the fossil fuel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "black",
+       "gives": "B",
+       "note": "b = black (pencil grades, chess)"
+      },
+      {
+       "words": "a source of energy",
+       "gives": "OIL",
+       "note": "oil, the fossil fuel"
+      }
      ]
     },
     "explanation": {
@@ -1507,31 +1323,17 @@
    },
    "solution": "PEANUTS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PEANUTS",
     "definitions": [
      {
       "text": "Lousy payment",
       "at": 0,
-      "note": "PEANUTS is plural but 'payment' is singular, because peanuts here is an idiom that behaves like a mass noun: 'the payment was peanuts', never 'a peanut'."
+      "note": "PEANUTS is plural but 'payment' is singular, because peanuts here is an idiom that behaves like a mass noun: 'the payment was peanuts', never 'a peanut'.",
+      "meaning": "an idiom for a wage so small it insults the person paid"
      },
      {
       "text": "cartoon",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lousy payment",
-      "gives": "PEANUTS",
-      "note": "an idiom for a wage so small it insults the person paid"
-     },
-     {
-      "clueFragment": "cartoon",
-      "gives": "PEANUTS",
-      "note": "Charles Schulz's comic strip, home of Snoopy"
+      "at": 18,
+      "meaning": "Charles Schulz's comic strip, home of Snoopy"
      }
     ],
     "explanation": {
@@ -1553,45 +1355,40 @@
    },
    "solution": "TRILOGY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRILOGY",
     "definitions": [
      {
       "text": "a set of three",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hear",
-      "gives": "TRY",
-      "note": "a court hears, or tries, a case"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "record",
-      "gives": "LOG",
-      "note": "a log is a record"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "I",
-      "LOG",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Hear",
+         "gives": "TRY",
+         "note": "a court hears, or tries, a case"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one"
+        }
+       ]
+      },
+      {
+       "words": "record",
+       "gives": "LOG",
+       "note": "a log is a record"
+      }
      ]
     },
     "explanation": {

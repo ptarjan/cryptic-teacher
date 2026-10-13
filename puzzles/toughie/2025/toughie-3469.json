@@ -1,8 +1,6 @@
 {
  "id": "toughie-3469",
  "number": 3469,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,469",
  "setter": "Dada",
  "date": "2025-04-29",
  "dimensions": {
@@ -38,35 +36,25 @@
    },
    "solution": "SWALLOWTAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWALLOWTAIL",
     "definitions": [
      {
       "text": "delicate creature",
       "at": 18
      }
     ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Believe",
-      "gives": "SWALLOW",
-      "note": "to swallow a story is to believe it"
-     },
-     {
-      "clueFragment": "dog",
-      "gives": "TAIL",
-      "note": "to dog or tail someone is to follow them closely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWALLOW",
-      "TAIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Believe",
+       "gives": "SWALLOW",
+       "note": "to swallow a story is to believe it"
+      },
+      {
+       "words": "dog",
+       "gives": "TAIL",
+       "note": "to dog or tail someone is to follow them closely"
+      }
      ]
     },
     "explanation": {
@@ -101,26 +89,25 @@
    },
    "solution": "WHITECHRISTMAS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WHITE CHRISTMAS",
     "definitions": [
      {
       "text": "Old dreamer's single winter blanket?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Old dreamer's single",
-      "note": "surface: an old man dreaming under a single winter bedcover; setter's reading: the old hit song (a 'single') about dreaming, sung by Bing Crosby"
-     },
-     {
-      "clueFragment": "winter blanket?",
-      "note": "surface: a bedcover for cold nights; setter's reading: a blanket of snow lying over the festive day"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Old dreamer's single",
+       "note": "surface: an old man dreaming under a single winter bedcover; setter's reading: the old hit song (a 'single') about dreaming, sung by Bing Crosby"
+      },
+      {
+       "words": "winter blanket?",
+       "note": "surface: a bedcover for cold nights; setter's reading: a blanket of snow lying over the festive day"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An elderly sleeper makes do with just one blanket in winter.",
      "walkthrough": "The dreamer is the singer of 'I'm dreaming of a ...', the famous 1942 record, and the blanket is snow; 'single' is the record, not the bed.",
@@ -148,33 +135,29 @@
    },
    "solution": "LAKE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LAKE",
     "definitions": [
      {
       "text": "Large pond",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skimmed off",
-      "for": "deletion",
-      "note": "skimming takes off the very top layer, so the first letter of the word is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bit of snow",
-      "gives": "FLAKE",
-      "note": "a snowflake is a small piece of snow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAKE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "skimmed off",
+       "note": "skimming takes off the very top layer, so the first letter of the word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bit of snow",
+       "gives": "FLAKE",
+       "note": "a snowflake is a small piece of snow"
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -202,59 +185,65 @@
    },
    "solution": "OXYMORON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "container"
-    ],
-    "answer": "OXYMORON",
     "definitions": [
      {
       "text": "Absurd disagreement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning in",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that letter is used"
-     },
-     {
-      "text": "interminable",
-      "for": "deletion",
-      "note": "without a termination, so the word loses its final letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the letters so far are placed inside the county's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yorkshire",
-      "gives": "Y",
-      "select": "first",
-      "note": "first letter of Yorkshire"
-     },
-     {
-      "clueFragment": "increasingly",
-      "gives": "MORE",
-      "note": "more and more, increasingly"
-     },
-     {
-      "clueFragment": "English county",
-      "gives": "OXON",
-      "note": "Oxon is the standard abbreviation for Oxfordshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OX",
-      "Y",
-      "MOR",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the letters so far are placed inside the county's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "English county",
+         "gives": "OXON",
+         "note": "Oxon is the standard abbreviation for Oxfordshire"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "interminable",
+           "note": "without a termination, so the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "increasingly",
+           "gives": "MORE",
+           "note": "more and more, increasingly"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning in",
+         "note": "the beginning of a word is its opening letter, so only that letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yorkshire",
+         "note": "first letter of Yorkshire"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -289,48 +278,35 @@
    },
    "solution": "TOPDOG",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TOP DOG",
     "definitions": [
      {
       "text": "big daddy",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "lifted up",
-      "for": "reversal",
-      "note": "in a down entry, lifting the letters up means reading them from the bottom, so they run backwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "GOD",
-      "note": "God the Father"
-     },
-     {
-      "clueFragment": "prize",
-      "gives": "POT",
-      "note": "a pot is a trophy, a prize cup"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "DOG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GODPOT",
-       "to": "TOPDOG"
+       "text": "lifted up",
+       "note": "in a down entry, lifting the letters up means reading them from the bottom, so they run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "gives": "GOD",
+         "note": "God the Father"
+        },
+        {
+         "words": "prize",
+         "gives": "POT",
+         "note": "a pot is a trophy, a prize cup"
+        }
+       ]
       }
      ]
     },
@@ -359,37 +335,25 @@
    },
    "solution": "IDLE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IDLE",
     "definitions": [
      {
       "text": "not doing a lot",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter of the words is taken"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "find clue",
-      "gives": "IDLE",
-      "select": "alternate",
-      "note": "the second, fourth, sixth and eighth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDLE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regularly",
+       "note": "regularly means at even intervals, so every other letter of the words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "find clue",
+       "note": "the second, fourth, sixth and eighth letters"
+      }
      ]
     },
     "explanation": {
@@ -423,53 +387,45 @@
    },
    "solution": "CARDINALWOLSEY",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CARDINAL WOLSEY",
     "definitions": [
      {
       "text": "Royal advisor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backfiring",
-      "for": "reversal",
-      "note": "something backfiring goes the wrong way, so these two words are read in reverse"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "red",
-      "gives": "CARDINAL",
-      "note": "cardinal is a deep scarlet colour"
-     },
-     {
-      "clueFragment": "certainly",
-      "gives": "YES",
-      "note": "yes, certainly"
-     },
-     {
-      "clueFragment": "blue",
-      "gives": "LOW",
-      "note": "feeling blue is feeling low"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARDINAL",
-      "WOLSEY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "YESLOW",
-       "to": "WOLSEY"
+       "words": "red",
+       "gives": "CARDINAL",
+       "note": "cardinal is a deep scarlet colour"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backfiring",
+         "note": "something backfiring goes the wrong way, so these two words are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "certainly",
+           "gives": "YES",
+           "note": "yes, certainly"
+          },
+          {
+           "words": "blue",
+           "gives": "LOW",
+           "note": "feeling blue is feeling low"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -505,40 +461,33 @@
    },
    "solution": "DESSERTWINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DESSERT WINE",
     "definitions": [
      {
       "text": "drink",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Drunk",
-      "for": "anagram",
-      "note": "a drunk person's words come out jumbled, so these letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "resisted",
-      "gives": "RESISTED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "NEW",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RESISTEDNEW",
-       "gives": "DESSERTWINE"
+       "text": "Drunk",
+       "note": "a drunk person's words come out jumbled, so these letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "resisted",
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -574,58 +523,50 @@
    },
    "solution": "MICKEYSPILLANE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "MICKEY SPILLANE",
     "definitions": [
      {
       "text": "crime writer",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the first two words go inside the scrambled cinema"
-     },
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "upset means knocked over and disordered, so these letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Critical",
-      "gives": "KEY",
-      "note": "something critical is key, essential"
-     },
-     {
-      "clueFragment": "accident",
-      "gives": "SPILL",
-      "note": "a spill is a small accident or tumble"
-     },
-     {
-      "clueFragment": "cinema",
-      "gives": "CINEMA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIC",
-      "KEY",
-      "SPILL",
-      "ANE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CINEMA",
-       "gives": "MICANE"
+       "text": "in",
+       "note": "the first two words go inside the scrambled cinema"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "upset means knocked over and disordered, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cinema",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Critical",
+         "gives": "KEY",
+         "note": "something critical is key, essential"
+        },
+        {
+         "words": "accident",
+         "gives": "SPILL",
+         "note": "a spill is a small accident or tumble"
+        }
+       ]
       }
      ]
     },
@@ -660,32 +601,25 @@
    },
    "solution": "PENALTYKICK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PENALTY KICK",
     "definitions": [
      {
       "text": "attempt on goal",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fine",
-      "gives": "PENALTY",
-      "note": "a fine is a penalty"
-     },
-     {
-      "clueFragment": "give up",
-      "gives": "KICK",
-      "note": "to kick a habit is to give it up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PENALTY",
-      "KICK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fine",
+       "gives": "PENALTY",
+       "note": "a fine is a penalty"
+      },
+      {
+       "words": "give up",
+       "gives": "KICK",
+       "note": "to kick a habit is to give it up"
+      }
      ]
     },
     "explanation": {
@@ -713,41 +647,35 @@
    },
    "solution": "EDEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EDEN",
     "definitions": [
      {
       "text": "Old PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back in",
-      "for": "letter_selection",
-      "note": "the back of a word is its end, so only its last letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of the"
-     },
-     {
-      "clueFragment": "office",
-      "gives": "DEN",
-      "note": "a den is a private room used as a study or office"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "DEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "note": "the back of a word is its end, so only its last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "last letter of the"
+        }
+       ]
+      },
+      {
+       "words": "office",
+       "gives": "DEN",
+       "note": "a den is a private room used as a study or office"
+      }
      ]
     },
     "explanation": {
@@ -776,47 +704,41 @@
    },
    "solution": "BORON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BORON",
     "definitions": [
      {
       "text": "Element",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally points to the origin of the word, its opening letter"
-     },
-     {
-      "text": "introduced to",
-      "for": "container",
-      "note": "the single letter is put inside the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reverend",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of reverend"
-     },
-     {
-      "clueFragment": "blessing",
-      "gives": "BOON",
-      "note": "a boon is a blessing or benefit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "R",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduced to",
+       "note": "the single letter is put inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blessing",
+       "gives": "BOON",
+       "note": "a boon is a blessing or benefit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "originally points to the origin of the word, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reverend",
+         "note": "first letter of reverend"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -844,10 +766,6 @@
    },
    "solution": "ODES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ODES",
     "definitions": [
      {
       "text": "poetry",
@@ -855,28 +773,18 @@
       "note": "a mass noun standing for a plural: odes are pieces of poetry"
      }
     ],
-    "indicators": [
-     {
-      "text": "Novel",
-      "for": "anagram",
-      "note": "novel means new, so the word is made anew in a fresh order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "does",
-      "gives": "DOES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOES",
-       "gives": "ODES"
+       "text": "Novel",
+       "note": "novel means new, so the word is made anew in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "does",
+       "note": "taken as written"
       }
      ]
     },
@@ -906,32 +814,25 @@
    },
    "solution": "ASSET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASSET",
     "definitions": [
      {
       "text": "Property",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "equally",
-      "gives": "AS",
-      "note": "as in 'as good', meaning equally"
-     },
-     {
-      "clueFragment": "prepared",
-      "gives": "SET",
-      "note": "set, as in ready"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "SET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "equally",
+       "gives": "AS",
+       "note": "as in 'as good', meaning equally"
+      },
+      {
+       "words": "prepared",
+       "gives": "SET",
+       "note": "set, as in ready"
+      }
      ]
     },
     "explanation": {
@@ -959,28 +860,16 @@
    },
    "solution": "BUGGY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUGGY",
     "definitions": [
      {
       "text": "Cart",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a light vehicle or pushchair"
      },
      {
       "text": "full of insects?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cart",
-      "note": "first meaning: a light vehicle or pushchair"
-     },
-     {
-      "clueFragment": "full of insects?",
-      "note": "second meaning, a playful one: infested with bugs"
+      "at": 5,
+      "meaning": "second meaning, a playful one: infested with bugs"
      }
     ],
     "explanation": {
@@ -1008,64 +897,61 @@
    },
    "solution": "ADHESION",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "ADHESION",
     "definitions": [
      {
       "text": "Bond",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means turned round, so the little word goes the other way"
-     },
-     {
-      "text": "outwardly",
-      "for": "container",
-      "note": "outwardly says the next words sit on the outside, surrounding the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gentleman",
-      "gives": "DON",
-      "note": "a Spanish gentleman, as in Don Quixote"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "SI",
-      "note": "is, turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "D",
-      "HE",
-      "SI",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ADHESION",
+     "indicators": [
       {
-       "from": "IS",
-       "to": "SI"
+       "text": "back",
+       "note": "back means turned round, so the little word goes the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outwardly",
+         "note": "outwardly says the next words sit on the outside, surrounding the rest"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "gentleman",
+           "gives": "DON",
+           "note": "a Spanish gentleman, as in Don Quixote"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "he",
+           "note": "taken as written"
+          },
+          {
+           "words": "is",
+           "gives": "SI",
+           "note": "is, turned round"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1095,31 +981,16 @@
    },
    "solution": "RUNNER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RUNNER",
     "definitions": [
      {
       "text": "Groove",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a groove or rail along which something slides"
      },
      {
       "text": "tap?",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Groove",
-      "note": "first meaning: a groove or rail along which something slides"
-     },
-     {
-      "clueFragment": "tap?",
-      "note": "second meaning, a whimsical one: a tap is something that runs"
+      "at": 12,
+      "meaning": "second meaning, a whimsical one: a tap is something that runs"
      }
     ],
     "explanation": {
@@ -1148,43 +1019,33 @@
    },
    "solution": "OUTFIELD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OUTFIELD",
     "definitions": [
      {
       "text": "baseball area",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Game",
-      "for": "anagram",
-      "note": "game here means up for anything, willing to be rearranged into another order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tied",
-      "gives": "TIED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "foul",
-      "gives": "FOUL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TIEDFOUL",
-       "gives": "OUTFIELD"
+       "text": "Game",
+       "note": "game here means up for anything, willing to be rearranged into another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "tied",
+         "note": "taken as written"
+        },
+        {
+         "words": "foul",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1214,41 +1075,35 @@
    },
    "solution": "TOILED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TOILED",
     "definitions": [
      {
       "text": "worked",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of the word, its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joint",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of joint"
-     },
-     {
-      "clueFragment": "loosened up",
-      "gives": "OILED",
-      "note": "oiled to free it up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "OILED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the very end of the word, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Joint",
+         "note": "last letter of joint"
+        }
+       ]
+      },
+      {
+       "words": "loosened up",
+       "gives": "OILED",
+       "note": "oiled to free it up"
+      }
      ]
     },
     "explanation": {
@@ -1276,49 +1131,40 @@
    },
    "solution": "BUNGALOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BUNGALOW",
     "definitions": [
      {
       "text": "home",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the preceding letters wrap about the single letter that follows"
-     }
-    ],
-    "linkWords": [
-     "Sense of",
-     "might one say,"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cake's",
-      "gives": "BUN",
-      "note": "a bun is a small cake"
-     },
-     {
-      "clueFragment": "lightness",
-      "gives": "GLOW",
-      "note": "a glow is a gentle light"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUNG",
-      "A",
-      "LOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cake's",
+       "gives": "BUN",
+       "note": "a bun is a small cake"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around says the preceding letters wrap about the single letter that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lightness",
+         "gives": "GLOW",
+         "note": "a glow is a gentle light"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1348,28 +1194,16 @@
    },
    "solution": "SINGER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SINGER",
     "definitions": [
      {
       "text": "Treble, say",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a treble is an example of a vocalist, the boy soprano"
      },
      {
       "text": "scorcher?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Treble, say",
-      "note": "first meaning: a treble is an example of a vocalist, the boy soprano"
-     },
-     {
-      "clueFragment": "scorcher?",
-      "note": "second meaning, a whimsical one: something that singes"
+      "at": 14,
+      "meaning": "second meaning, a whimsical one: something that singes"
      }
     ],
     "explanation": {
@@ -1398,41 +1232,35 @@
    },
    "solution": "KITE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "KITE",
     "definitions": [
      {
       "text": "bird",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "body of",
-      "for": "letter_selection",
-      "note": "the body of a word is its middle, between head and tail, so only the central letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stuff",
-      "gives": "KIT",
-      "note": "kit is gear, stuff"
-     },
-     {
-      "clueFragment": "sea",
-      "gives": "E",
-      "select": "middle",
-      "note": "middle letter of sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stuff",
+       "gives": "KIT",
+       "note": "kit is gear, stuff"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "body of",
+         "note": "the body of a word is its middle, between head and tail, so only the central letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sea",
+         "note": "middle letter of sea"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1461,32 +1289,25 @@
    },
    "solution": "JIFFY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JIFFY",
     "definitions": [
      {
       "text": "Second",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "jack",
-      "gives": "J",
-      "note": "J is the abbreviation for jack in cards"
-     },
-     {
-      "clueFragment": "questionable",
-      "gives": "IFFY",
-      "note": "iffy means doubtful, questionable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "IFFY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "jack",
+       "gives": "J",
+       "note": "J is the abbreviation for jack in cards"
+      },
+      {
+       "words": "questionable",
+       "gives": "IFFY",
+       "note": "iffy means doubtful, questionable"
+      }
      ]
     },
     "explanation": {
@@ -1514,40 +1335,31 @@
    },
    "solution": "CORN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CORN",
     "definitions": [
      {
       "text": "ear",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "wrapped around",
-      "for": "container",
-      "note": "one word is wrapped about the other, so it surrounds it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fleece",
-      "gives": "CON",
-      "note": "to fleece someone is to con them"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "R",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wrapped around",
+       "note": "one word is wrapped about the other, so it surrounds it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fleece",
+       "gives": "CON",
+       "note": "to fleece someone is to con them"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1576,28 +1388,16 @@
    },
    "solution": "SPAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPAT",
     "definitions": [
      {
       "text": "Scrap",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a petty quarrel"
      },
      {
       "text": "material covering shoe, once",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrap",
-      "note": "first meaning: a petty quarrel"
-     },
-     {
-      "clueFragment": "material covering shoe, once",
-      "note": "second meaning: a short cloth gaiter worn over the shoe and ankle, now old-fashioned"
+      "at": 6,
+      "meaning": "second meaning: a short cloth gaiter worn over the shoe and ankle, now old-fashioned"
      }
     ],
     "explanation": {
@@ -1625,55 +1425,57 @@
    },
    "solution": "BLOC",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "BLOC",
     "definitions": [
      {
       "text": "Coalition",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of all",
-      "for": "letter_selection",
-      "note": "the first of all the words means taking the opening letter of each one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "basically",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "liberal",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "conservative",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "O",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of all",
+         "note": "the first of all the words means taking the opening letter of each one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "basically",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "liberal",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "or",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "conservative",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1707,50 +1509,43 @@
    },
    "solution": "CHAMPAGNEGLASS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CHAMPAGNE GLASS",
     "definitions": [
      {
       "text": "flute",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "played",
-      "for": "anagram",
-      "note": "the words are played around with, rearranged like notes in a tune"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Victor",
-      "gives": "CHAMP",
-      "note": "the victor is the champ"
-     },
-     {
-      "clueFragment": "sang",
-      "gives": "SANG",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Gaels",
-      "gives": "GAELS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAMP",
-      "AGNEGLASS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SANGGAELS",
-       "gives": "AGNEGLASS"
+       "words": "Victor",
+       "gives": "CHAMP",
+       "note": "the victor is the champ"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "note": "the words are played around with, rearranged like notes in a tune"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "sang",
+           "note": "taken as written"
+          },
+          {
+           "words": "Gaels",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1780,58 +1575,46 @@
    },
    "solution": "PTERODACTYL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PTERODACTYL",
     "definitions": [
      {
       "text": "reptile",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Experimenting",
-      "for": "anagram",
-      "note": "experimenting means trying things out in different ways, so the letters are tried in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold, as on a tap"
-     },
-     {
-      "clueFragment": "pet",
-      "gives": "PET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "TRY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "OLD",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACPETTRYOLD",
-       "gives": "PTERODACTYL"
+       "text": "Experimenting",
+       "note": "experimenting means trying things out in different ways, so the letters are tried in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "cold",
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on a tap"
+        },
+        {
+         "words": "pet",
+         "note": "taken as written"
+        },
+        {
+         "words": "try",
+         "note": "taken as written"
+        },
+        {
+         "words": "old",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },

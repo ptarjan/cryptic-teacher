@@ -1,8 +1,7 @@
 {
  "id": "cryptic-23789",
  "number": 23789,
- "series": "cryptic",
- "name": "Prize crossword No 23,789",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2006-06-10",
  "preamble": "Method: solve the clues and fit them into the grid wherever they will go, jigsaw-wise.",
@@ -39,43 +38,38 @@
    },
    "solution": "HENHOUSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HEN HOUSE",
     "definitions": [
      {
       "text": "Flier's quarters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "have effect on",
-      "for": "anagram",
-      "note": "to have an effect on something is to work on it and change it, so these letters get worked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on us",
-      "gives": "ONUS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "he repeated",
-      "gives": "HEHE",
-      "note": "the pronoun written out twice"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONUSHEHE",
-       "gives": "HENHOUSE"
+       "text": "have effect on",
+       "note": "to have an effect on something is to work on it and change it, so these letters get worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on us",
+         "note": "taken as written"
+        },
+        {
+         "words": "he repeated",
+         "gives": "HEHE",
+         "note": "the pronoun written out twice"
+        }
+       ]
       }
      ]
     },
+    "spelling": "HEN HOUSE",
     "explanation": {
      "surface": "Someone keeps saying that a pilot's lodgings have an effect on the rest of us.",
      "walkthrough": "'Flier' throughout this puzzle is a bird; the 'repeated' tells you to write the two-letter pronoun twice before rearranging.",
@@ -102,34 +96,38 @@
    },
    "solution": "XEMA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "XEMA",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contributing to",
-      "for": "hidden_word",
-      "note": "something contributing to a whole is only a part of it, so the letters come from inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fax, email",
-      "gives": "XEMA",
-      "note": "runs across the end of the first word and the start of the second"
-     },
-     {
-      "clueFragment": "etc",
-      "note": "surface padding, rounding off the list"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "contributing to",
+         "note": "something contributing to a whole is only a part of it, so the letters come from inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fax, email",
+         "gives": "XEMA",
+         "note": "runs across the end of the first word and the start of the second"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "etc",
+       "note": "surface padding, rounding off the list"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A messenger who helps with office communications like faxes and emails.",
      "walkthrough": "The obscure word is fair because it sits in plain view across the two office words; 'etc' just rounds off the surface.",
@@ -156,32 +154,24 @@
    },
    "solution": "ZAMBIA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ZAMBIA",
     "definitions": [
      {
       "text": "a country in Africa",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Part of Mozambique",
-      "gives": "ZAMBI",
-      "note": "five consecutive letters from the middle of the name, stopping short of the Q"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZAMBI",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of Mozambique",
+       "gives": "ZAMBI",
+       "note": "five consecutive letters from the middle of the name, stopping short of the Q"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -210,51 +200,48 @@
    },
    "solution": "PETMICE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "PET MICE",
     "definitions": [
      {
       "text": "caged animals",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "said briefly means cut short, so the final letter is dropped"
-     },
-     {
-      "text": "catches",
-      "for": "container",
-      "note": "to catch is to hold, so one piece is held inside the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Little boy",
-      "gives": "PETE",
-      "note": "a short, familiar form of Peter"
-     },
-     {
-      "clueFragment": "another",
-      "gives": "MICK",
-      "note": "another boy's name, cut to MIC"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PET",
-      "MIC",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catches",
+       "note": "to catch is to hold, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Little boy",
+       "gives": "PETE",
+       "note": "a short, familiar form of Peter"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "note": "said briefly means cut short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "another",
+         "gives": "MICK",
+         "note": "another boy's name, cut to MIC"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "PET MICE",
     "explanation": {
      "surface": "A small boy grabs his friend, who is busy with the creatures in the cages.",
      "walkthrough": "'Another' means another boy, like the first; the second name loses its last letter before going inside the first.",
@@ -281,40 +268,33 @@
    },
    "solution": "INCAMERA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IN CAMERA",
     "definitions": [
      {
       "text": "without public accessibility",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "South American",
-      "gives": "INCA",
-      "note": "the Inca people of Peru"
-     },
-     {
-      "clueFragment": "setter",
-      "gives": "ME",
-      "note": "the crossword setter refers to himself"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "Royal Academician"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCA",
-      "ME",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South American",
+       "gives": "INCA",
+       "note": "the Inca people of Peru"
+      },
+      {
+       "words": "setter",
+       "gives": "ME",
+       "note": "the crossword setter refers to himself"
+      },
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "Royal Academician"
+      }
      ]
     },
+    "spelling": "IN CAMERA",
     "explanation": {
      "surface": "A South American painter who works behind closed doors.",
      "walkthrough": "'Setter' is the compiler himself, so ME; RA stands for Royal Academician, a member of Britain's Royal Academy of Arts.",
@@ -341,32 +321,25 @@
    },
    "solution": "WOODPECKER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WOODPECKER",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "mad",
-      "gives": "WOOD",
-      "note": "an archaic word meaning insane or furious"
-     },
-     {
-      "clueFragment": "old spirit to keep up",
-      "gives": "PECKER",
-      "note": "old slang for courage, as in 'keep your pecker up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOOD",
-      "PECKER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mad",
+       "gives": "WOOD",
+       "note": "an archaic word meaning insane or furious"
+      },
+      {
+       "words": "old spirit to keep up",
+       "gives": "PECKER",
+       "note": "old slang for courage, as in 'keep your pecker up'"
+      }
      ]
     },
     "explanation": {
@@ -395,41 +368,37 @@
    },
    "solution": "TOUCAN",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "TOUCAN",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "what people say is spoken and heard, so the spelling follows pronunciation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "more than one",
-      "gives": "TOU",
-      "soundsLike": "TWO",
-      "note": "the smallest number more than one"
-     },
-     {
-      "clueFragment": "has power",
-      "gives": "CAN",
-      "note": "to be able to do something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOU",
-      "CAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "TOU",
+       "indicators": [
+        {
+         "text": "they say",
+         "note": "what people say is spoken and heard, so the spelling follows pronunciation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more than one",
+         "gives": "TWO",
+         "note": "the smallest number more than one"
+        }
+       ]
+      },
+      {
+       "words": "has power",
+       "gives": "CAN",
+       "note": "to be able to do something"
+      }
      ]
     },
     "explanation": {
@@ -459,32 +428,25 @@
    },
    "solution": "DELEGATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DELEGATE",
     "definitions": [
      {
       "text": "Representative",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "of French",
-      "gives": "DE",
-      "note": "French for 'of'"
-     },
-     {
-      "clueFragment": "ambassador",
-      "gives": "LEGATE",
-      "note": "a papal envoy or diplomatic emissary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "LEGATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "of French",
+       "gives": "DE",
+       "note": "French for 'of'"
+      },
+      {
+       "words": "ambassador",
+       "gives": "LEGATE",
+       "note": "a papal envoy or diplomatic emissary"
+      }
      ]
     },
     "explanation": {
@@ -513,48 +475,41 @@
    },
    "solution": "NKOMO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NKOMO",
     "definitions": [
      {
       "text": "Joshua",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "'not' tells you to leave something out of the word before it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "dragon",
-      "gives": "KOMODO",
-      "note": "the Komodo dragon, a giant lizard"
-     },
-     {
-      "clueFragment": "the same",
-      "gives": "DO",
-      "note": "short for ditto, meaning the same again; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "KOMO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "'not' tells you to leave something out of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dragon",
+         "gives": "KOMODO",
+         "note": "the Komodo dragon, a giant lizard"
+        },
+        {
+         "words": "the same",
+         "gives": "DO",
+         "note": "short for ditto, meaning the same again; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -583,43 +538,31 @@
    },
    "solution": "RHEA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RHEA",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the sun",
-      "gives": "RA",
-      "note": "the Egyptian sun god"
-     },
-     {
-      "clueFragment": "explosive",
-      "gives": "HE",
-      "note": "high explosive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "HE",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the sun",
+       "gives": "RA",
+       "note": "the Egyptian sun god"
+      },
+      {
+       "words": "explosive",
+       "gives": "HE",
+       "note": "high explosive"
+      }
      ]
     },
     "explanation": {
@@ -648,40 +591,33 @@
    },
    "solution": "BOMBAYDUCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOMBAY DUCK",
     "definitions": [
      {
       "text": "Flier that isn't",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "explosive",
-      "gives": "BOMB",
-      "note": "an explosive device"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "AY",
-      "note": "an old or poetic word for ever"
-     },
-     {
-      "clueFragment": "avoid",
-      "gives": "DUCK",
-      "note": "to dodge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOMB",
-      "AY",
-      "DUCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "explosive",
+       "gives": "BOMB",
+       "note": "an explosive device"
+      },
+      {
+       "words": "always",
+       "gives": "AY",
+       "note": "an old or poetic word for ever"
+      },
+      {
+       "words": "avoid",
+       "gives": "DUCK",
+       "note": "to dodge"
+      }
      ]
     },
+    "spelling": "BOMBAY DUCK",
     "explanation": {
      "surface": "A pilot who's not dangerous: always keep clear of him.",
      "walkthrough": "'That isn't explosive' looks like one phrase, but 'that isn't' closes the definition and 'explosive' starts the wordplay; Bombay duck is a fish, not a bird, despite its name.",
@@ -709,34 +645,38 @@
    },
    "solution": "QUELEA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "QUELEA",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "something taken from words comes out of them, here a run of their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mozambique learning",
-      "gives": "QUELEA",
-      "note": "runs across the end of the country and the start of the next word"
-     },
-     {
-      "clueFragment": "to fly",
-      "note": "surface padding, rounding off the picture of a young bird"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "from",
+         "note": "something taken from words comes out of them, here a run of their letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mozambique learning",
+         "gives": "QUELEA",
+         "note": "runs across the end of the country and the start of the next word"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "to fly",
+       "note": "surface padding, rounding off the picture of a young bird"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A young bird from Mozambique is learning how to fly.",
      "walkthrough": "The country looks like part of the definition, telling you where the bird lives, but its last letters start the hidden run.",
@@ -763,47 +703,41 @@
    },
    "solution": "LANDLADIES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LANDLADIES",
     "definitions": [
      {
       "text": "we take boarders",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "holds",
-      "for": "container",
-      "note": "to hold something is to have it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boy",
-      "gives": "LAD",
-      "note": "a boy"
-     },
-     {
-      "clueFragment": "pole",
-      "gives": "N",
-      "note": "North pole"
-     },
-     {
-      "clueFragment": "boy that's got the other",
-      "gives": "LADIES",
-      "note": "a lad who has the other sex's ending, the women's room"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "N",
-      "D",
-      "LADIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holds",
+         "note": "to hold something is to have it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boy",
+         "gives": "LAD",
+         "note": "a boy"
+        },
+        {
+         "words": "pole",
+         "gives": "N",
+         "note": "North pole"
+        }
+       ]
+      },
+      {
+       "words": "boy that's got the other",
+       "gives": "LADIES",
+       "note": "a lad who has the other sex's ending, the women's room"
+      }
      ]
     },
     "explanation": {
@@ -833,46 +767,45 @@
    },
    "solution": "CHEYENNE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CHEYENNE",
     "definitions": [
      {
       "text": "Indian capital",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "docked",
-      "for": "deletion",
-      "note": "a docked tail is cut short, so the word loses its last letter"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "'without' in the old sense means outside, so one piece goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "VP",
-      "gives": "CHENEY",
-      "note": "Dick Cheney, US Vice President at the time"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "YEN",
-      "note": "Japanese currency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHE",
-      "YEN",
-      "NE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "'without' in the old sense means outside, so one piece goes around another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "note": "a docked tail is cut short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "VP",
+         "gives": "CHENEY",
+         "note": "Dick Cheney, US Vice President at the time"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "money",
+       "gives": "YEN",
+       "note": "Japanese currency"
+      }
      ]
     },
     "explanation": {
@@ -902,43 +835,31 @@
    },
    "solution": "VEINOUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VEINOUS",
     "definitions": [
      {
       "text": "full of bloody tubes",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "entertain",
-      "for": "container",
-      "note": "to entertain a guest is to host them inside your home"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In Paris you",
-      "gives": "VOUS",
-      "note": "French for 'you'"
-     },
-     {
-      "clueFragment": "a German",
-      "gives": "EIN",
-      "note": "German for 'a'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "EIN",
-      "OUS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertain",
+       "note": "to entertain a guest is to host them inside your home"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In Paris you",
+       "gives": "VOUS",
+       "note": "French for 'you'"
+      },
+      {
+       "words": "a German",
+       "gives": "EIN",
+       "note": "German for 'a'"
+      }
      ]
     },
     "explanation": {
@@ -968,41 +889,30 @@
    },
    "solution": "UNCURBED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNCURBED",
     "definitions": [
      {
       "text": "without restraint",
       "at": 20
      }
     ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Annan's",
-      "gives": "UN",
-      "note": "Kofi Annan was Secretary-General of the United Nations"
-     },
-     {
-      "clueFragment": "dog",
-      "gives": "CUR",
-      "note": "a mongrel"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "BED",
-      "note": "to bed someone is to have sex with them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "CUR",
-      "BED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Annan's",
+       "gives": "UN",
+       "note": "Kofi Annan was Secretary-General of the United Nations"
+      },
+      {
+       "words": "dog",
+       "gives": "CUR",
+       "note": "a mongrel"
+      },
+      {
+       "words": "sex",
+       "gives": "BED",
+       "note": "to bed someone is to have sex with them"
+      }
      ]
     },
     "explanation": {
@@ -1032,49 +942,35 @@
    },
    "solution": "JACKDAW",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "JACKDAW",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means running the other way, right to left"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flag",
-      "gives": "JACK",
-      "note": "a small flag flown at a ship's bow, as in Union Jack"
-     },
-     {
-      "clueFragment": "pile",
-      "gives": "WAD",
-      "note": "a pile of banknotes or paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "DAW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "WAD",
-       "to": "DAW"
+       "words": "flag",
+       "gives": "JACK",
+       "note": "a small flag flown at a ship's bow, as in Union Jack"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means running the other way, right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pile",
+         "gives": "WAD",
+         "note": "a pile of banknotes or paper"
+        }
+       ]
       }
      ]
     },
@@ -1104,42 +1000,29 @@
    },
    "solution": "AVIATRIX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AVIATRIX",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s here",
-     "chasing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "VIA",
-      "note": "by way of"
-     },
-     {
-      "clueFragment": "little girl",
-      "gives": "TRIX",
-      "note": "a pet form of Beatrix"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VIA",
-      "TRIX"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "by",
+       "gives": "VIA",
+       "note": "by way of"
+      },
+      {
+       "words": "little girl",
+       "gives": "TRIX",
+       "note": "a pet form of Beatrix"
+      }
      ]
     },
     "explanation": {
@@ -1168,50 +1051,41 @@
    },
    "solution": "YEZIDEE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "YEZIDEE",
     "definitions": [
      {
       "text": "Middle Eastern sectary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "'without' in the old sense means outside, so one piece goes around another"
-     }
-    ],
-    "linkWords": [
-     "take to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you",
-      "gives": "YE",
-      "note": "old form of you"
-     },
-     {
-      "clueFragment": "the water in Germany",
-      "gives": "ZEE",
-      "note": "the German 'See', lake or sea, spelt as it sounds"
-     },
-     {
-      "clueFragment": "saying who you are",
-      "gives": "ID",
-      "note": "identification"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YE",
-      "Z",
-      "ID",
-      "EE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "you",
+       "gives": "YE",
+       "note": "old form of you"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "'without' in the old sense means outside, so one piece goes around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the water in Germany",
+         "gives": "ZEE",
+         "note": "the German 'See', lake or sea, spelt as it sounds"
+        },
+        {
+         "words": "saying who you are",
+         "gives": "ID",
+         "note": "identification"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1240,12 +1114,6 @@
    },
    "solution": "FOLLICLE",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FOLLICLE",
     "definitions": [
      {
       "text": "Little hair",
@@ -1253,39 +1121,46 @@
       "note": "loose: the small sac a hair grows from"
      }
     ],
-    "indicators": [
-     {
-      "text": "sound",
-      "for": "homophone",
-      "note": "a sound is what is heard, so the word is spelt by its pronunciation"
-     },
-     {
-      "text": "half",
-      "for": "letter_selection",
-      "note": "half a word keeps just its opening portion"
-     }
-    ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stupidity",
-      "gives": "FOLLI",
-      "soundsLike": "FOLLY",
-      "note": "foolishness"
-     },
-     {
-      "clueFragment": "clever",
-      "gives": "CLE",
-      "select": "first",
-      "note": "the first half of the six-letter word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOLLI",
-      "CLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "FOLLI",
+       "indicators": [
+        {
+         "text": "sound",
+         "note": "a sound is what is heard, so the word is spelt by its pronunciation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stupidity",
+         "gives": "FOLLY",
+         "note": "foolishness"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CLE",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "half a word keeps just its opening portion"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "clever",
+         "gives": "CLE",
+         "select": "first",
+         "note": "the first half of the six-letter word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1314,32 +1189,25 @@
    },
    "solution": "ORANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORANGE",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "not going any",
-      "gives": "O",
-      "note": "nothing, zero"
-     },
-     {
-      "clueFragment": "distance",
-      "gives": "RANGE",
-      "note": "the distance something can travel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not going any",
+       "gives": "O",
+       "note": "nothing, zero"
+      },
+      {
+       "words": "distance",
+       "gives": "RANGE",
+       "note": "the distance something can travel"
+      }
      ]
     },
     "explanation": {
@@ -1369,31 +1237,16 @@
    },
    "solution": "MARTIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MARTIN",
     "definitions": [
      {
       "text": "Flier",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a bird of the swallow family"
      },
      {
       "text": "a boy",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flier",
-      "note": "first meaning: a bird of the swallow family"
-     },
-     {
-      "clueFragment": "a boy",
-      "note": "second meaning: a common male first name"
+      "at": 8,
+      "meaning": "second meaning: a common male first name"
      }
     ],
     "explanation": {
@@ -1420,28 +1273,16 @@
    },
    "solution": "MAGPIE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MAGPIE",
     "definitions": [
      {
       "text": "Flier",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a black-and-white crow"
      },
      {
       "text": "on target",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flier",
-      "note": "first meaning: a black-and-white crow"
-     },
-     {
-      "clueFragment": "on target",
-      "note": "second meaning: a shot hitting the outermost-but-one ring of a target"
+      "at": 6,
+      "meaning": "second meaning: a shot hitting the outermost-but-one ring of a target"
      }
     ],
     "explanation": {
@@ -1470,48 +1311,41 @@
    },
    "solution": "SANDERLING",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SANDERLING",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking something means going without it, so a letter is removed"
-     }
-    ],
-    "linkWords": [
-     "using"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smoother",
-      "gives": "SANDER",
-      "note": "a tool that smooths wood"
-     },
-     {
-      "clueFragment": "language",
-      "gives": "LINGO",
-      "note": "informal for a language"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "zero; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SANDER",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "smoother",
+       "gives": "SANDER",
+       "note": "a tool that smooths wood"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking something means going without it, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "language",
+         "gives": "LINGO",
+         "note": "informal for a language"
+        },
+        {
+         "words": "nothing",
+         "gives": "O",
+         "note": "zero; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1540,28 +1374,16 @@
    },
    "solution": "KITE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KITE",
     "definitions": [
      {
       "text": "Flier",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a bird of prey"
      },
      {
       "text": "flown",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flier",
-      "note": "first meaning: a bird of prey"
-     },
-     {
-      "clueFragment": "flown",
-      "note": "second meaning: a toy flown on a string"
+      "at": 6,
+      "meaning": "second meaning: a toy flown on a string"
      }
     ],
     "explanation": {
@@ -1588,28 +1410,16 @@
    },
    "solution": "KNOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNOT",
     "definitions": [
      {
       "text": "Flier",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a wading bird"
      },
      {
       "text": "tied",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flier",
-      "note": "first meaning: a wading bird"
-     },
-     {
-      "clueFragment": "tied",
-      "note": "second meaning: something tied in a rope"
+      "at": 6,
+      "meaning": "second meaning: something tied in a rope"
      }
     ],
     "explanation": {
@@ -1636,48 +1446,35 @@
    },
    "solution": "GREBE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "GREBE",
     "definitions": [
      {
       "text": "Flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "something turning faces the other way, so it is read right to left"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cold mass",
-      "gives": "BERG",
-      "note": "an iceberg"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "physics symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREB",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BERG",
-       "to": "GREB"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "something turning faces the other way, so it is read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cold mass",
+         "gives": "BERG",
+         "note": "an iceberg"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "physics symbol"
       }
      ]
     },
@@ -1707,51 +1504,47 @@
    },
    "solution": "EPISODIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "EPISODIC",
     "definitions": [
      {
       "text": "Staccato",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "going without something means leaving it out"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poem",
-      "gives": "EPIC",
-      "note": "a long heroic poem"
-     },
-     {
-      "clueFragment": "salt",
-      "gives": "SODIUM",
-      "note": "the metal in common salt"
-     },
-     {
-      "clueFragment": "doubt",
-      "gives": "UM",
-      "note": "a hesitant noise; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPI",
-      "SODI",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to surround it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poem",
+       "gives": "EPIC",
+       "note": "a long heroic poem"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "going without something means leaving it out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salt",
+         "gives": "SODIUM",
+         "note": "the metal in common salt"
+        },
+        {
+         "words": "doubt",
+         "gives": "UM",
+         "note": "a hesitant noise; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

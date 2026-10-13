@@ -1,8 +1,6 @@
 {
  "id": "timesquick-1164",
  "number": 1164,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 1,164",
  "setter": "Wurm",
  "date": "2018-08-24",
  "dimensions": {
@@ -48,39 +46,30 @@
    },
    "solution": "BLACKEYE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLACK EYE",
     "definitions": [
      {
       "text": "mouse",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "dissects",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be = to live, to exist"
-     },
-     {
-      "clueFragment": "Servant",
-      "gives": "LACKEY",
-      "note": "a lackey is a servant or footman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LACKEY",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dissects"
+      }
+     ],
+     "parts": [
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to be = to live, to exist"
+      },
+      {
+       "words": "Servant",
+       "gives": "LACKEY",
+       "note": "a lackey is a servant or footman"
+      }
      ]
     },
     "explanation": {
@@ -110,40 +99,31 @@
    },
    "solution": "BUSTARD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BUSTARD",
     "definitions": [
      {
       "text": "bird",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "involves",
-      "for": "container",
-      "note": "to involve is to wrap up or include"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shoot",
-      "gives": "BUD",
-      "note": "a bud is a young shoot on a plant"
-     },
-     {
-      "clueFragment": "celebrated",
-      "gives": "STAR",
-      "note": "star as an adjective: a star player is a celebrated one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "STAR",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "note": "to involve is to wrap up or include"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shoot",
+       "gives": "BUD",
+       "note": "a bud is a young shoot on a plant"
+      },
+      {
+       "words": "celebrated",
+       "gives": "STAR",
+       "note": "star as an adjective: a star player is a celebrated one"
+      }
      ]
     },
     "explanation": {
@@ -172,47 +152,44 @@
    },
    "solution": "ABERDEEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ABERDEEN",
     "definitions": [
      {
       "text": "Port",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rum",
-      "for": "anagram",
-      "note": "rum means odd or strange, so the letters go strange"
-     },
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "takes the final letter of the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer and",
-      "gives": "BEERAND",
-      "note": "anagram fodder, used as printed"
-     },
-     {
-      "clueFragment": "wine",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of wine"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEER AND E",
-       "gives": "ABERDEEN"
+       "text": "rum",
+       "note": "rum means odd or strange, so the letters go strange"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "beer and",
+         "note": "anagram fodder, used as printed"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "note": "takes the final letter of the word that follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wine",
+           "note": "last letter of wine"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -243,48 +220,40 @@
    },
    "solution": "EMMENTHAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EMMENTHAL",
     "definitions": [
      {
       "text": "Swiss cheese",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "prepared",
-      "note": "prepared means made ready, worked into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hamlet",
-      "gives": "EMTHAL",
-      "note": "HAMLET rearranged, split EM...THAL"
-     },
-     {
-      "clueFragment": "People",
-      "gives": "MEN",
-      "note": "men = people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "MEN",
-      "THAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EMMENTHAL",
+     "parts": [
       {
-       "fodder": "HAMLET",
-       "gives": "EMTHAL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in"
+        },
+        {
+         "text": "prepared",
+         "note": "prepared means made ready, worked into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hamlet",
+         "gives": "EMTHAL",
+         "note": "HAMLET rearranged, split EM...THAL"
+        },
+        {
+         "words": "People",
+         "gives": "MEN",
+         "note": "men = people"
+        }
+       ]
       }
      ]
     },
@@ -314,30 +283,28 @@
    },
    "solution": "END",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "END",
     "definitions": [
      {
       "text": "purpose",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Somewhat",
-      "for": "hidden_word",
-      "note": "only part of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fiendish",
-      "gives": "END",
-      "note": "the three letters after FI in fiendish"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Somewhat",
+       "note": "only part of the next word is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fiendish",
+       "gives": "END",
+       "note": "the three letters after FI in fiendish"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A plan with a slightly evil aim.",
      "walkthrough": "'Somewhat' reads as a softener for 'fiendish'; it marks that only part of that word is wanted.",
@@ -364,38 +331,30 @@
    },
    "solution": "SACK",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SACK",
     "definitions": [
      {
       "text": "fire",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "flees",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Husband",
-      "gives": "H",
-      "note": "h = husband, the abbreviation in family trees"
-     },
-     {
-      "clueFragment": "cabin",
-      "gives": "SHACK",
-      "note": "a shack is a rough cabin; its H is the one that flees"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ACK"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "flees"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cabin",
+       "gives": "SHACK",
+       "note": "a shack is a rough cabin; its H is the one that flees"
+      },
+      {
+       "words": "Husband",
+       "gives": "H",
+       "note": "h = husband, the abbreviation in family trees"
+      }
      ]
     },
     "explanation": {
@@ -425,41 +384,29 @@
    },
    "solution": "SHERMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHERMAN",
     "definitions": [
      {
       "text": "General",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "s = son"
-     },
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "MAN",
-      "note": "man = husband, as in 'man and wife'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HER",
-      "MAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "s = son"
+      },
+      {
+       "words": "her",
+       "note": "used as printed"
+      },
+      {
+       "words": "husband",
+       "gives": "MAN",
+       "note": "man = husband, as in 'man and wife'"
+      }
      ]
     },
     "explanation": {
@@ -487,41 +434,30 @@
    },
    "solution": "CHANCEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHANCEL",
     "definitions": [
      {
       "text": "Part of church",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found on",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "luck",
-      "gives": "CHANCE",
-      "note": "chance = luck"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "l = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHANCE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "luck",
+       "gives": "CHANCE",
+       "note": "chance = luck"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "l = left"
+      }
      ]
     },
     "explanation": {
@@ -550,40 +486,31 @@
    },
    "solution": "SUET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUET",
     "definitions": [
      {
       "text": "Fat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "a covering lies over and around what it hides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "solidified",
-      "gives": "SET",
-      "note": "set = solidified, as jelly sets"
-     },
-     {
-      "clueFragment": "uniform",
-      "gives": "U",
-      "note": "U is Uniform in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "U",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "a covering lies over and around what it hides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solidified",
+       "gives": "SET",
+       "note": "set = solidified, as jelly sets"
+      },
+      {
+       "words": "uniform",
+       "gives": "U",
+       "note": "U is Uniform in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -612,35 +539,24 @@
    },
    "solution": "MEDIEVAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEDIEVAL",
     "definitions": [
      {
       "text": "Obsolete",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to suffer",
-      "for": "anagram",
-      "note": "the letters are made to suffer, knocked out of shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Levi made",
-      "gives": "LEVIMADE",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEVI MADE",
-       "gives": "MEDIEVAL"
+       "text": "to suffer",
+       "note": "the letters are made to suffer, knocked out of shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Levi made",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -670,30 +586,16 @@
    },
    "solution": "AUDIENCE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AUDIENCE",
     "definitions": [
      {
       "text": "Interview",
-      "at": 0
+      "at": 0,
+      "meaning": "a formal meeting granted by someone important, like the Pope or a monarch"
      },
      {
       "text": "spectators",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Interview",
-      "gives": "AUDIENCE",
-      "note": "a formal meeting granted by someone important, like the Pope or a monarch"
-     },
-     {
-      "clueFragment": "spectators",
-      "gives": "AUDIENCE",
-      "note": "the people watching a show"
+      "at": 10,
+      "meaning": "the people watching a show"
      }
     ],
     "explanation": {
@@ -721,44 +623,34 @@
    },
    "solution": "ENAMOURED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENAMOURED",
     "definitions": [
      {
       "text": "Smitten",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "female",
-      "gives": "ENA",
-      "note": "Ena is a woman's name, a crossword stock female"
-     },
-     {
-      "clueFragment": "married",
-      "gives": "M",
-      "note": "m = married"
-     },
-     {
-      "clueFragment": "our",
-      "gives": "OUR",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "ed = editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENA",
-      "M",
-      "OUR",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "gives": "ENA",
+       "note": "Ena is a woman's name, a crossword stock female"
+      },
+      {
+       "words": "married",
+       "gives": "M",
+       "note": "m = married"
+      },
+      {
+       "words": "our",
+       "note": "used as printed"
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "ed = editor"
+      }
      ]
     },
     "explanation": {
@@ -787,41 +679,30 @@
    },
    "solution": "AGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AGE",
     "definitions": [
      {
       "text": "advancing years",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "remove BAD IN from the word"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Repartee",
-      "gives": "BADINAGE",
-      "note": "badinage is witty banter; drop BAD IN"
-     },
-     {
-      "clueFragment": "bad in",
-      "gives": "BADIN",
-      "note": "the letters taken away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "remove BAD IN from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Repartee",
+       "gives": "BADINAGE",
+       "note": "badinage is witty banter; drop BAD IN"
+      },
+      {
+       "words": "bad in",
+       "note": "the letters taken away"
+      }
      ]
     },
     "explanation": {
@@ -850,42 +731,30 @@
    },
    "solution": "GOURMAND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GOURMAND",
     "definitions": [
      {
       "text": "epicure",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "splitting",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fruit",
-      "gives": "GOURD",
-      "note": "a gourd is a hard-skinned fruit"
-     },
-     {
-      "clueFragment": "Staff",
-      "gives": "MAN",
-      "note": "to man is to staff, as in manning a desk"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOUR",
-      "MAN",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "splitting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "GOURD",
+       "note": "a gourd is a hard-skinned fruit"
+      },
+      {
+       "words": "Staff",
+       "gives": "MAN",
+       "note": "to man is to staff, as in manning a desk"
+      }
      ]
     },
     "explanation": {
@@ -914,46 +783,39 @@
    },
    "solution": "DRENCH",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DRENCH",
     "definitions": [
      {
       "text": "Soak",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returned"
-     },
-     {
-      "text": "after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "anorak",
-      "gives": "NERD",
-      "note": "an anorak is British slang for a geek or nerd"
-     },
-     {
-      "clueFragment": "companion",
-      "gives": "CH",
-      "note": "CH = Companion of Honour, a British order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DREN",
-      "CH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NERD",
-       "to": "DREN"
+       "text": "returned"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anorak",
+         "gives": "NERD",
+         "note": "an anorak is British slang for a geek or nerd"
+        }
+       ]
+      },
+      {
+       "words": "companion",
+       "gives": "CH",
+       "note": "CH = Companion of Honour, a British order"
       }
      ]
     },
@@ -984,50 +846,46 @@
    },
    "solution": "ROBBERY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ROBBERY",
     "definitions": [
      {
       "text": "crime",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'Bishop in gown' puts the bishop inside the robe, as a man is in his clothes"
-     },
-     {
-      "text": "has"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gown",
-      "gives": "ROBE",
-      "note": "a robe is a gown"
-     },
-     {
-      "clueFragment": "Bishop",
-      "gives": "B",
-      "note": "b = bishop, in chess notation"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "RY",
-      "note": "ry = railway, a railway line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROBBE",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'Bishop in gown' puts the bishop inside the robe, as a man is in his clothes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "has"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gown",
+         "gives": "ROBE",
+         "note": "a robe is a gown"
+        },
+        {
+         "words": "Bishop",
+         "gives": "B",
+         "note": "b = bishop, in chess notation"
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "gives": "RY",
+       "note": "ry = railway, a railway line"
+      }
      ]
     },
     "explanation": {
@@ -1056,48 +914,37 @@
    },
    "solution": "NEWBORN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "NEWBORN",
     "definitions": [
      {
       "text": "Just arrived",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken out",
-      "for": "anagram",
-      "note": "BROWN is taken out and knocked about, like a boxer"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "north-east",
-      "gives": "NE",
-      "note": "NE = north-east"
-     },
-     {
-      "clueFragment": "Brown",
-      "gives": "WBORN",
-      "note": "BROWN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NE",
-      "WBORN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NEWBORN",
+     "indicators": [
       {
-       "fodder": "BROWN",
-       "gives": "WBORN"
+       "text": "taken out",
+       "note": "BROWN is taken out and knocked about, like a boxer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "north-east",
+         "gives": "NE",
+         "note": "NE = north-east"
+        },
+        {
+         "words": "Brown",
+         "gives": "WBORN",
+         "note": "BROWN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1127,48 +974,39 @@
    },
    "solution": "ARNOLD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARNOLD",
     "definitions": [
      {
       "text": "poet",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "stop",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "used as printed; R goes after the A"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "r = right"
-     },
-     {
-      "clueFragment": "ancient",
-      "gives": "OLD",
-      "note": "old = ancient"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "N",
-      "OLD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "note": "used as printed; R goes after the A"
+        },
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "r = right"
+        }
+       ]
+      },
+      {
+       "words": "ancient",
+       "gives": "OLD",
+       "note": "old = ancient"
+      }
      ]
     },
     "explanation": {
@@ -1197,35 +1035,24 @@
    },
    "solution": "DOODLER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOODLER",
     "definitions": [
      {
       "text": "scribbler",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "disorientated",
-      "for": "anagram",
-      "note": "the letters lose their bearings"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Odd role",
-      "gives": "ODDROLE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ODD ROLE",
-       "gives": "DOODLER"
+       "text": "disorientated",
+       "note": "the letters lose their bearings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Odd role",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1255,38 +1082,30 @@
    },
    "solution": "ONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONE",
     "definitions": [
      {
       "text": "united",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "o = old"
-     },
-     {
-      "clueFragment": "Norse",
-      "gives": "N",
-      "note": "n = Norse"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "e = English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "N",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "o = old"
+      },
+      {
+       "words": "Norse",
+       "gives": "N",
+       "note": "n = Norse"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "e = English"
+      }
      ]
     },
     "explanation": {
@@ -1315,48 +1134,40 @@
    },
    "solution": "LEONARDO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LEONARDO",
     "definitions": [
      {
       "text": "artist",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "fuels"
-     },
-     {
-      "text": "mad",
-      "note": "the letters of ORLANDO go wild"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Orlando",
-      "gives": "LONARDO",
-      "note": "ORLANDO rearranged, split L...ONARDO"
-     },
-     {
-      "clueFragment": "Energy",
-      "gives": "E",
-      "note": "E = energy, as in E = mc²"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "E",
-      "ONARDO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LEONARDO",
+     "parts": [
       {
-       "fodder": "ORLANDO",
-       "gives": "LONARDO"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "fuels"
+        },
+        {
+         "text": "mad",
+         "note": "the letters of ORLANDO go wild"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Orlando",
+         "gives": "LONARDO",
+         "note": "ORLANDO rearranged, split L...ONARDO"
+        },
+        {
+         "words": "Energy",
+         "gives": "E",
+         "note": "E = energy, as in E = mc²"
+        }
+       ]
       }
      ]
     },
@@ -1386,32 +1197,25 @@
    },
    "solution": "REPORTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPORTER",
     "definitions": [
      {
       "text": "Hack",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     },
-     {
-      "clueFragment": "dark sweet ale",
-      "gives": "PORTER",
-      "note": "porter is a dark sweetish beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "PORTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re = on, concerning"
+      },
+      {
+       "words": "dark sweet ale",
+       "gives": "PORTER",
+       "note": "porter is a dark sweetish beer"
+      }
      ]
     },
     "explanation": {
@@ -1441,38 +1245,33 @@
    },
    "solution": "TAR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TAR",
     "definitions": [
      {
       "text": "Sailor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pinching",
-      "for": "deletion",
-      "note": "to pinch is to steal, so something is taken"
-     },
-     {
-      "text": "bottom",
-      "for": "deletion",
-      "note": "what is taken is the last letter, the bottom in a down entry"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prostitute's",
-      "gives": "TART",
-      "note": "tart is slang for a prostitute; lose the last T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "pinching",
+       "note": "to pinch is to steal, so something is taken"
+      },
+      {
+       "text": "bottom",
+       "note": "what is taken is the last letter, the bottom in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prostitute's",
+       "gives": "TART",
+       "note": "tart is slang for a prostitute; lose the last T"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1502,35 +1301,25 @@
    },
    "solution": "WALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WALL",
     "definitions": [
      {
       "text": "barrier",
       "at": 33
      }
     ],
-    "linkWords": [
-     "needed to create"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "With",
-      "gives": "W",
-      "note": "w = with"
-     },
-     {
-      "clueFragment": "everything",
-      "gives": "ALL",
-      "note": "all = everything"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "With",
+       "gives": "W",
+       "note": "w = with"
+      },
+      {
+       "words": "everything",
+       "gives": "ALL",
+       "note": "all = everything"
+      }
      ]
     },
     "explanation": {
@@ -1558,35 +1347,24 @@
    },
    "solution": "LYON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LYON",
     "definitions": [
      {
       "text": "French city",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling around",
-      "for": "anagram",
-      "note": "travelling around means roaming from place to place, so the letters wander out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only",
-      "gives": "ONLY",
-      "note": "anagram fodder, 4 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONLY",
-       "gives": "LYON"
+       "text": "travelling around",
+       "note": "travelling around means roaming from place to place, so the letters wander out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Only",
+       "note": "anagram fodder, 4 letters"
       }
      ]
     },
@@ -1621,38 +1399,24 @@
    },
    "solution": "REDCEDAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RED CEDAR",
     "definitions": [
      {
       "text": "wood",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "modelled",
-      "for": "anagram",
-      "note": "the letters are shaped into something new"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "CD reader",
-      "gives": "CDREADER",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CD READER",
-       "gives": "REDCEDAR"
+       "text": "modelled",
+       "note": "the letters are shaped into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "CD reader",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },

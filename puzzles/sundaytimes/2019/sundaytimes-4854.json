@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4854",
  "number": 4854,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,854",
  "setter": "Robert Price",
  "date": "2019-06-09",
  "dimensions": {
@@ -48,33 +46,29 @@
    },
    "solution": "REENGAGES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RE-ENGAGES",
     "definitions": [
      {
       "text": "Takes back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unopened",
-      "for": "deletion",
-      "note": "something unopened has lost its opening, so the word's front letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fruit",
-      "gives": "GREENGAGES",
-      "note": "greengages are small green plums"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REENGAGES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unopened",
+       "note": "something unopened has lost its opening, so the word's front letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "GREENGAGES",
+       "note": "greengages are small green plums"
+      },
+      {
+       "gives": "G"
+      }
      ]
     },
     "explanation": {
@@ -103,30 +97,28 @@
    },
    "solution": "RAVES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RAVES",
     "definitions": [
      {
       "text": "Fumes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "hidden_word",
-      "note": "the letters are carried aboard the following words, sitting inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "endanger a vessel",
-      "gives": "RAVES",
-      "note": "the last letter of the first word, the second word, and the start of the third run together"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "the letters are carried aboard the following words, sitting inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "endanger a vessel",
+       "gives": "RAVES",
+       "note": "the last letter of the first word, the second word, and the start of the third run together"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Toxic fumes aboard ship put the whole vessel at risk.",
      "definitionFit": "Someone who fumes is angry and rants, and rants furiously, which is a verb sense of raves."
@@ -159,26 +151,25 @@
    },
    "solution": "EXCHANGELETTERS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EXCHANGE LETTERS",
     "definitions": [
      {
       "text": "correspond",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "How to make Mo and Damon",
-      "note": "surface reading: a recipe for getting two people, Mo and Damon, together"
-     },
-     {
-      "clueFragment": "How to make Mo and Damon",
-      "note": "setter's reading: the letters of 'Mo and' rearranged spell the name Damon, so swapping letters turns one into the other"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How to make Mo and Damon",
+       "note": "surface reading: a recipe for getting two people, Mo and Damon, together"
+      },
+      {
+       "words": "How to make Mo and Damon",
+       "note": "setter's reading: the letters of 'Mo and' rearranged spell the name Damon, so swapping letters turns one into the other"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice on how to get two pen friends, Mo and Damon, writing to each other.",
      "walkthrough": "M-O-A-N-D and D-A-M-O-N use the same five letters, so the wordplay is literal letter-swapping.",
@@ -212,54 +203,42 @@
    },
    "solution": "GOODDEAL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "GOOD DEAL",
     "definitions": [
      {
       "text": "Large number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "things going unfortunately have gone wrong, so the letters before it are thrown out of order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "turn",
-      "gives": "GO",
-      "note": "your go is your turn in a game"
-     },
-     {
-      "clueFragment": "rum",
-      "gives": "ODD",
-      "note": "rum in the old British sense of strange or peculiar"
-     },
-     {
-      "clueFragment": "ale",
-      "gives": "EAL",
-      "note": "the three letters of the beer, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "ODD",
-      "EAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GOODDEAL",
+     "indicators": [
       {
-       "fodder": "ALE",
-       "gives": "EAL"
+       "text": "unfortunately",
+       "note": "things going unfortunately have gone wrong, so the letters before it are thrown out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "turn",
+         "gives": "GO",
+         "note": "your go is your turn in a game"
+        },
+        {
+         "words": "rum",
+         "gives": "ODD",
+         "note": "rum in the old British sense of strange or peculiar"
+        },
+        {
+         "words": "ale",
+         "gives": "EAL",
+         "note": "the three letters of the beer, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -290,31 +269,29 @@
    },
    "solution": "GAIT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GAIT",
     "definitions": [
      {
       "text": "Carriage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in conversation",
-      "for": "homophone",
-      "note": "in conversation means spoken, so we want a word that sounds like the clue's synonym"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crowd",
-      "gives": "GAIT",
-      "soundsLike": "GATE",
-      "note": "the gate is the number of spectators at a sports match"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GAIT",
+     "indicators": [
+      {
+       "text": "in conversation",
+       "note": "in conversation means spoken, so we want a word that sounds like the clue's synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crowd",
+       "gives": "GATE",
+       "note": "the gate is the number of spectators at a sports match"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A carriage of people chatting as they travel together.",
      "definitionFit": "Carriage can mean the way a person holds and moves the body, which is their manner of walking."
@@ -341,43 +318,39 @@
    },
    "solution": "SECRETAIRE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SECRETAIRE",
     "definitions": [
      {
       "text": "Cabinet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "cutting something short trims its tail, so the final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "covert",
-      "gives": "SECRET",
-      "note": "covert means hidden or secret"
-     },
-     {
-      "clueFragment": "broadcast",
-      "gives": "AIRED",
-      "note": "a programme that has been broadcast has been aired"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SECRET",
-      "AIRE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "cutting something short trims its tail, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "covert",
+         "gives": "SECRET",
+         "note": "covert means hidden or secret"
+        },
+        {
+         "words": "broadcast",
+         "gives": "AIRED",
+         "note": "a programme that has been broadcast has been aired"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -407,28 +380,16 @@
    },
    "solution": "STAYS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STAYS",
     "definitions": [
      {
       "text": "Remains",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: is left behind, does not leave"
      },
      {
       "text": "of old underwear",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Remains",
-      "note": "first meaning: is left behind, does not leave"
-     },
-     {
-      "clueFragment": "of old underwear",
-      "note": "second meaning: a historical corset stiffened with bone"
+      "at": 8,
+      "meaning": "second meaning: a historical corset stiffened with bone"
      }
     ],
     "explanation": {
@@ -458,52 +419,45 @@
    },
    "solution": "SPOOFS",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SPOOFS",
     "definitions": [
      {
       "text": "pranks",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about suggests turning round, so the apology is read backwards"
-     },
-     {
-      "text": "hollow",
-      "for": "letter_selection",
-      "note": "a hollow word has had its insides scooped out, leaving only the end letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm sorry",
-      "gives": "OOPS",
-      "note": "the exclamation of apology after a slip"
-     },
-     {
-      "clueFragment": "fatuous",
-      "gives": "FS",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPOO",
-      "FS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OOPS",
-       "to": "SPOO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about suggests turning round, so the apology is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm sorry",
+         "gives": "OOPS",
+         "note": "the exclamation of apology after a slip"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "hollow",
+         "note": "a hollow word has had its insides scooped out, leaving only the end letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fatuous",
+         "note": "the first and last letters of the word"
+        }
+       ]
       }
      ]
     },
@@ -538,32 +492,25 @@
    },
    "solution": "ABSTRACTPAINTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABSTRACT PAINTER",
     "definitions": [
      {
       "text": "Pollock, perhaps",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "digest",
-      "gives": "ABSTRACT",
-      "note": "a digest or summary of a paper is an abstract"
-     },
-     {
-      "clueFragment": "rope securing a boat",
-      "gives": "PAINTER",
-      "note": "a painter is the line at a small boat's bow used to tie it up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABSTRACT",
-      "PAINTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "digest",
+       "gives": "ABSTRACT",
+       "note": "a digest or summary of a paper is an abstract"
+      },
+      {
+       "words": "rope securing a boat",
+       "gives": "PAINTER",
+       "note": "a painter is the line at a small boat's bow used to tie it up"
+      }
      ]
     },
     "explanation": {
@@ -593,43 +540,31 @@
    },
    "solution": "SUSPENDER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUSPENDER",
     "definitions": [
      {
       "text": "Hose attachment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poster",
-      "gives": "SENDER",
-      "note": "one who posts a letter sends it"
-     },
-     {
-      "clueFragment": "main sales feature",
-      "gives": "USP",
-      "note": "USP is a unique selling point, the main thing a product is marketed on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "USP",
-      "ENDER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poster",
+       "gives": "SENDER",
+       "note": "one who posts a letter sends it"
+      },
+      {
+       "words": "main sales feature",
+       "gives": "USP",
+       "note": "USP is a unique selling point, the main thing a product is marketed on"
+      }
      ]
     },
     "explanation": {
@@ -665,40 +600,31 @@
    },
    "solution": "VICTORIACROSSES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VICTORIA CROSSES",
     "definitions": [
      {
       "text": "medals",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us to put one piece inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wins",
-      "gives": "VICTORIES",
-      "note": "wins are victories"
-     },
-     {
-      "clueFragment": "How you write this answer",
-      "gives": "ACROSS",
-      "note": "this is an across clue, so the answer is written left to right across the grid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VICTORI",
-      "ACROSS",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells us to put one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wins",
+       "gives": "VICTORIES",
+       "note": "wins are victories"
+      },
+      {
+       "words": "How you write this answer",
+       "gives": "ACROSS",
+       "note": "this is an across clue, so the answer is written left to right across the grid"
+      }
      ]
     },
     "explanation": {
@@ -727,35 +653,25 @@
    },
    "solution": "SHANDY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHANDY",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "local",
-      "gives": "HANDY",
-      "note": "handy means conveniently near by"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HANDY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "local",
+       "gives": "HANDY",
+       "note": "handy means conveniently near by"
+      }
      ]
     },
     "explanation": {
@@ -785,48 +701,41 @@
    },
    "solution": "PERFORCE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PERFORCE",
     "definitions": [
      {
       "text": "Inevitably",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so a letter is removed"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "do",
-      "gives": "PERFORM",
-      "note": "to do a task is to perform it"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "M",
-      "note": "M is the physics symbol for mass"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERFOR",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "do",
+         "gives": "PERFORM",
+         "note": "to do a task is to perform it"
+        },
+        {
+         "words": "mass",
+         "gives": "M",
+         "note": "M is the physics symbol for mass"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -856,35 +765,24 @@
    },
    "solution": "RECOGNISED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RECOGNISED",
     "definitions": [
      {
       "text": "appreciated",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "newly",
-      "for": "anagram",
-      "note": "newly suggests the letters are made over into a fresh form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disco genre",
-      "gives": "DISCOGENRE",
-      "note": "the ten letters of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DISCOGENRE",
-       "gives": "RECOGNISED"
+       "text": "newly",
+       "note": "newly suggests the letters are made over into a fresh form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Disco genre",
+       "note": "the ten letters of these two words"
       }
      ]
     },
@@ -919,60 +817,44 @@
    },
    "solution": "LUGGAGEVAN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LUGGAGE VAN",
     "definitions": [
      {
       "text": "unoccupied carriage",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back says read the star's name the other way round"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drag",
-      "gives": "LUG",
-      "note": "to lug is to haul something heavy"
-     },
-     {
-      "clueFragment": "grand",
-      "gives": "G",
-      "note": "G is short for grand, a thousand"
-     },
-     {
-      "clueFragment": "star",
-      "gives": "VEGA",
-      "note": "Vega is a bright star in the constellation Lyra"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUG",
-      "G",
-      "AGEV",
-      "AN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "VEGA",
-       "to": "AGEV"
+       "words": "Drag",
+       "gives": "LUG",
+       "note": "to lug is to haul something heavy"
+      },
+      {
+       "words": "grand",
+       "gives": "G",
+       "note": "G is short for grand, a thousand"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back says read the star's name the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star",
+         "gives": "VEGA",
+         "note": "Vega is a bright star in the constellation Lyra"
+        }
+       ]
+      },
+      {
+       "words": "an",
+       "note": "taken as written"
       }
      ]
     },
@@ -1008,47 +890,40 @@
    },
    "solution": "LAPDANCER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LAP DANCER",
     "definitions": [
      {
       "text": "one barely performs",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece goes round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Record",
-      "gives": "LP",
-      "note": "an LP is a long-playing record"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "reindeer",
-      "gives": "DANCER",
-      "note": "Dancer is one of Santa's reindeer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "A",
-      "P",
-      "DANCER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so one piece goes round another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Record",
+         "gives": "LP",
+         "note": "an LP is a long-playing record"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "reindeer",
+       "gives": "DANCER",
+       "note": "Dancer is one of Santa's reindeer"
+      }
      ]
     },
     "explanation": {
@@ -1078,39 +953,30 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "tart",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following means coming after, so the unit named before it is placed second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Police unit",
-      "gives": "CID",
-      "note": "CID is the Criminal Investigation Department of a British police force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CID"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following means coming after, so the unit named before it is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Police unit",
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department of a British police force"
+      }
      ]
     },
     "explanation": {
@@ -1140,40 +1006,31 @@
    },
    "solution": "FEVERISH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FEVERISH",
     "definitions": [
      {
       "text": "Frantic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lapping",
-      "for": "container",
-      "note": "lapping means wrapping round, so one piece encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "swimmers",
-      "gives": "FISH",
-      "note": "fish are creatures that swim"
-     },
-     {
-      "clueFragment": "incessantly",
-      "gives": "EVER",
-      "note": "ever means always, without stopping"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "EVER",
-      "ISH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "lapping",
+       "note": "lapping means wrapping round, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "swimmers",
+       "gives": "FISH",
+       "note": "fish are creatures that swim"
+      },
+      {
+       "words": "incessantly",
+       "gives": "EVER",
+       "note": "ever means always, without stopping"
+      }
      ]
     },
     "explanation": {
@@ -1203,43 +1060,32 @@
    },
    "solution": "PILS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "PILS",
     "definitions": [
      {
       "text": "beer",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "popped into",
-      "for": "substitution",
-      "note": "popped into suggests slipping in to take another letter's place"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "friend's",
-      "gives": "PALS",
-      "note": "a pal is a friend, with the 's as S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "I",
-      "LS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "PILS",
+     "indicators": [
+      {
+       "text": "popped into",
+       "note": "popped into suggests slipping in to take another letter's place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "friend's",
+       "gives": "PALS",
+       "note": "a pal is a friend, with the 's as S"
+      }
      ]
     },
     "explanation": {
@@ -1268,41 +1114,30 @@
    },
    "solution": "DOORKEEPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOORKEEPER",
     "definitions": [
      {
       "text": "He attends an opening",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ceremony",
-      "gives": "DO",
-      "note": "a do is a party or function"
-     },
-     {
-      "clueFragment": "the gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "one who retains",
-      "gives": "KEEPER",
-      "note": "one who keeps something is a keeper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "OR",
-      "KEEPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ceremony",
+       "gives": "DO",
+       "note": "a do is a party or function"
+      },
+      {
+       "words": "the gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "one who retains",
+       "gives": "KEEPER",
+       "note": "one who keeps something is a keeper"
+      }
      ]
     },
     "explanation": {
@@ -1332,31 +1167,16 @@
    },
    "solution": "AMENDS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AMENDS",
     "definitions": [
      {
       "text": "Makes changes",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: alters or corrects"
      },
      {
       "text": "what happens at noon",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Makes changes",
-      "note": "first meaning: alters or corrects"
-     },
-     {
-      "clueFragment": "what happens at noon",
-      "note": "second meaning, read cryptically: at midday the morning, a.m., comes to an end"
+      "at": 17,
+      "meaning": "second meaning, read cryptically: at midday the morning, a.m., comes to an end"
      }
     ],
     "explanation": {
@@ -1386,47 +1206,40 @@
    },
    "solution": "ANTIMONY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ANTIMONY",
     "definitions": [
      {
       "text": "element",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "concealing means hiding inside, so one piece holds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "US city",
-      "gives": "NY",
-      "note": "NY is New York"
-     },
-     {
-      "clueFragment": "an Athenian",
-      "gives": "TIMON",
-      "note": "Timon of Athens is Shakespeare's misanthrope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "TIMON",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "concealing",
+         "note": "concealing means hiding inside, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US city",
+         "gives": "NY",
+         "note": "NY is New York"
+        },
+        {
+         "words": "an Athenian",
+         "gives": "TIMON",
+         "note": "Timon of Athens is Shakespeare's misanthrope"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1454,40 +1267,31 @@
    },
    "solution": "LEVIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEVIES",
     "definitions": [
      {
       "text": "tariffs",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "to block",
-      "for": "container",
-      "note": "to block is to sit inside and stop the way, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the French",
-      "gives": "LES",
-      "note": "les is French for the, in the plural"
-     },
-     {
-      "clueFragment": "Fight",
-      "gives": "VIE",
-      "note": "to vie is to compete or contend"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "VIE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to block",
+       "note": "to block is to sit inside and stop the way, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the French",
+       "gives": "LES",
+       "note": "les is French for the, in the plural"
+      },
+      {
+       "words": "Fight",
+       "gives": "VIE",
+       "note": "to vie is to compete or contend"
+      }
      ]
     },
     "explanation": {
@@ -1515,31 +1319,29 @@
    },
    "solution": "SUEDE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SUEDE",
     "definitions": [
      {
       "text": "Hide from kids",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be outspoken",
-      "for": "homophone",
-      "note": "outspoken here means spoken out loud, so we want a sound-alike"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "influenced",
-      "gives": "SUEDE",
-      "soundsLike": "SWAYED",
-      "note": "someone influenced has been swayed"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SUEDE",
+     "indicators": [
+      {
+       "text": "to be outspoken",
+       "note": "outspoken here means spoken out loud, so we want a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "influenced",
+       "gives": "SWAYED",
+       "note": "someone influenced has been swayed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Children are persuaded to speak their minds frankly.",
      "walkthrough": "'Hide from kids' sounds like concealing things from children; it is leather from young goats.",
@@ -1567,33 +1369,29 @@
    },
    "solution": "OWLS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OWLS",
     "definitions": [
      {
       "text": "Members of Parliament",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "to axe top",
-      "for": "deletion",
-      "note": "axing the top cuts off the head, so the first letter goes in this down answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cries",
-      "gives": "HOWLS",
-      "note": "howls are loud cries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OWLS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to axe top",
+       "note": "axing the top cuts off the head, so the first letter goes in this down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cries",
+       "gives": "HOWLS",
+       "note": "howls are loud cries"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -1637,35 +1435,24 @@
    },
    "solution": "CLEANASAWHISTLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLEAN AS A WHISTLE",
     "definitions": [
      {
       "text": "Totally innocent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is broken",
-      "for": "anagram",
-      "note": "something broken is smashed apart, so its letters are put back in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "listen as each law",
-      "gives": "LISTENASEACHLAW",
-      "note": "the fifteen letters of these four words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LISTENASEACHLAW",
-       "gives": "CLEANASAWHISTLE"
+       "text": "is broken",
+       "note": "something broken is smashed apart, so its letters are put back in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "listen as each law",
+       "note": "the fifteen letters of these four words"
       }
      ]
     },
@@ -1694,35 +1481,25 @@
    },
    "solution": "RASPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RASPS",
     "definitions": [
      {
       "text": "files",
       "at": 31
      }
     ],
-    "linkWords": [
-     "added to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "artist's",
-      "gives": "RAS",
-      "note": "RA is a Royal Academician, with the 's as S"
-     },
-     {
-      "clueFragment": "Afterthought",
-      "gives": "PS",
-      "note": "PS is a postscript added to a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAS",
-      "PS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist's",
+       "gives": "RAS",
+       "note": "RA is a Royal Academician, with the 's as S"
+      },
+      {
+       "words": "Afterthought",
+       "gives": "PS",
+       "note": "PS is a postscript added to a letter"
+      }
      ]
     },
     "explanation": {
@@ -1752,35 +1529,25 @@
    },
    "solution": "DISCHARGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCHARGE",
     "definitions": [
      {
       "text": "acquit",
       "at": 21
      }
     ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Detectives",
-      "gives": "DIS",
-      "note": "DIs are detective inspectors"
-     },
-     {
-      "clueFragment": "indict",
-      "gives": "CHARGE",
-      "note": "to indict is to charge formally with a crime"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "CHARGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Detectives",
+       "gives": "DIS",
+       "note": "DIs are detective inspectors"
+      },
+      {
+       "words": "indict",
+       "gives": "CHARGE",
+       "note": "to indict is to charge formally with a crime"
+      }
      ]
     },
     "explanation": {

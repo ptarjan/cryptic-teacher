@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22576",
  "number": 22576,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,576",
  "setter": "Auster",
  "date": "2002-07-19",
  "dimensions": {
@@ -38,31 +36,29 @@
    },
    "solution": "ACCRUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ACCRUE",
     "definitions": [
      {
       "text": "Build up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sound",
-      "for": "homophone",
-      "note": "a sound of something is how it comes across when spoken, so the phrase that follows is heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a sound team of workers",
-      "gives": "ACCRUE",
-      "soundsLike": "A CREW",
-      "note": "a crew is a team of workers, as on a ship, with the article said along with it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ACCRUE",
+     "indicators": [
+      {
+       "text": "sound",
+       "note": "a sound of something is how it comes across when spoken, so the phrase that follows is heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sound team of workers",
+       "gives": "ACREW",
+       "note": "a crew is a team of workers, as on a ship, with the article said along with it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An employer is assembling a solid workforce.",
      "walkthrough": "'sound' sits in the middle of the wordplay and looks like an adjective meaning reliable; it is the signal that the team of workers is heard.",
@@ -89,52 +85,49 @@
    },
    "solution": "CURE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CURE",
     "definitions": [
      {
       "text": "successful treatment",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "something that leaves goes away, so the short word for a bill departs from the earlier answer"
-     },
-     {
-      "text": "uncertain",
-      "for": "anagram",
-      "note": "letters that are uncertain are unsettled, so what remains is put into a fresh order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "AC",
-      "note": "AC is short for account, a bill"
-     },
-     {
-      "clueFragment": "1",
-      "gives": "ACCRUE",
-      "note": "the answer to 1 across"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CURE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CRUE",
-       "gives": "CURE"
+       "text": "uncertain",
+       "note": "letters that are uncertain are unsettled, so what remains is put into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "something that leaves goes away, so the short word for a bill departs from the earlier answer"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bill",
+           "gives": "AC",
+           "note": "AC is short for account, a bill"
+          },
+          {
+           "words": "1",
+           "gives": "ACCRUE",
+           "note": "the answer to 1 across"
+          }
+         ]
+        },
+        {
+         "gives": "ACAC"
+        }
+       ]
       }
      ]
     },
@@ -164,54 +157,44 @@
    },
    "solution": "RECESSION",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RECESSION",
     "definitions": [
      {
       "text": "Slump",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down entry, rising means the words are read from the bottom upwards, so their order is turned round"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the intermission",
-      "gives": "RECESS",
-      "note": "a recess is a break or interval"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "NO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RECESS",
-      "ION"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NOI",
-       "to": "ION"
+       "words": "the intermission",
+       "gives": "RECESS",
+       "note": "a recess is a break or interval"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down entry, rising means the words are read from the bottom upwards, so their order is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "no",
+           "note": "taken as written"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral for one"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -241,31 +224,16 @@
    },
    "solution": "ENDURE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ENDURE",
     "definitions": [
      {
       "text": "Weather",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: as a verb, to come through a storm or hardship"
      },
      {
       "text": "continue",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weather",
-      "note": "first meaning: as a verb, to come through a storm or hardship"
-     },
-     {
-      "clueFragment": "continue",
-      "note": "second meaning: to last or go on existing"
+      "at": 11,
+      "meaning": "second meaning: to last or go on existing"
      }
     ],
     "explanation": {
@@ -295,28 +263,16 @@
    },
    "solution": "TALKBACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TALKBACK",
     "definitions": [
      {
       "text": "Bag",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, cryptically: the word bag is gab written backwards, and gab means talk"
      },
      {
       "text": "studio communication system",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bag",
-      "note": "first meaning, cryptically: the word bag is gab written backwards, and gab means talk"
-     },
-     {
-      "clueFragment": "studio communication system",
-      "note": "second meaning: the intercom linking a control room with presenters or performers"
+      "at": 4,
+      "meaning": "second meaning: the intercom linking a control room with presenters or performers"
      }
     ],
     "explanation": {
@@ -356,26 +312,25 @@
    },
    "solution": "THEWEDDINGMARCH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE WEDDING MARCH",
     "definitions": [
      {
       "text": "The strain of church union",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The strain of church union",
-      "note": "surface reading: the stress put on a church's members or a merger of denominations"
-     },
-     {
-      "clueFragment": "strain",
-      "note": "setter's reading: a strain is a tune, and a church union is a marriage, so this is the music played as a bride processes"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The strain of church union",
+       "note": "surface reading: the stress put on a church's members or a merger of denominations"
+      },
+      {
+       "words": "strain",
+       "note": "setter's reading: a strain is a tune, and a church union is a marriage, so this is the music played as a bride processes"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Strain' suggests tension; here it means a piece of music, and the union is a wedding held in church.",
      "definitionFit": "The famous Mendelssohn or Wagner piece played at weddings is the tune for a couple being joined in church."
@@ -402,51 +357,40 @@
    },
    "solution": "LABELLED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LABELLED",
     "definitions": [
      {
       "text": "tagged",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end of a word, so only its closing letter is kept"
-     }
-    ],
-    "linkWords": [
-     "has",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Research centre",
-      "gives": "LAB",
-      "note": "short for laboratory"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "ELLE",
-      "note": "Elle Macpherson, the famous model"
-     },
-     {
-      "clueFragment": "cloned",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAB",
-      "ELLE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Research centre",
+       "gives": "LAB",
+       "note": "short for laboratory"
+      },
+      {
+       "words": "model",
+       "gives": "ELLE",
+       "note": "Elle Macpherson, the famous model"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end of a word, so only its closing letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cloned",
+         "note": "last letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -475,38 +419,24 @@
    },
    "solution": "BEING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEING",
     "definitions": [
      {
       "text": "essence",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "differently",
-      "for": "anagram",
-      "note": "doing something differently means arranging it another way, so the letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Begin",
-      "gives": "BEGIN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEGIN",
-       "gives": "BEING"
+       "text": "differently",
+       "note": "doing something differently means arranging it another way, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Begin",
+       "note": "taken as written"
       }
      ]
     },
@@ -541,35 +471,25 @@
    },
    "solution": "COLDTURKEY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COLD TURKEY",
     "definitions": [
      {
       "text": "Sudden, painful withdrawal",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unfriendly",
-      "gives": "COLD",
-      "note": "a cold reception is unfriendly"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "TURKEY",
-      "note": "the nation spanning Europe and Asia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COLD",
-      "TURKEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unfriendly",
+       "gives": "COLD",
+       "note": "a cold reception is unfriendly"
+      },
+      {
+       "words": "country",
+       "gives": "TURKEY",
+       "note": "the nation spanning Europe and Asia"
+      }
      ]
     },
     "explanation": {
@@ -604,43 +524,39 @@
    },
    "solution": "ERICIDLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ERIC IDLE",
     "definitions": [
      {
       "text": "comic writer",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "a word that is cut is shortened, so it loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heath",
-      "gives": "ERICA",
-      "note": "erica is the botanical name for heath or heather"
-     },
-     {
-      "clueFragment": "unemployed",
-      "gives": "IDLE",
-      "note": "out of work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERIC",
-      "IDLE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "a word that is cut is shortened, so it loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Heath",
+         "gives": "ERICA",
+         "note": "erica is the botanical name for heath or heather"
+        },
+        {
+         "words": "unemployed",
+         "gives": "IDLE",
+         "note": "out of work"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -669,32 +585,25 @@
    },
    "solution": "BRIDLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRIDLE",
     "definitions": [
      {
       "text": "Restrain",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "brother",
-      "gives": "BR",
-      "note": "standard abbreviation for brother"
-     },
-     {
-      "clueFragment": "as above?",
-      "gives": "IDLE",
-      "note": "the second word of 9 across, the entry directly above, meaning unemployed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "IDLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "brother",
+       "gives": "BR",
+       "note": "standard abbreviation for brother"
+      },
+      {
+       "words": "as above?",
+       "gives": "IDLE",
+       "note": "the second word of 9 across, the entry directly above, meaning unemployed"
+      }
      ]
     },
     "explanation": {
@@ -729,70 +638,64 @@
    },
    "solution": "STREETLIGHTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STREET LIGHTS",
     "definitions": [
      {
       "text": "They show the way",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "changed",
-      "for": "anagram",
-      "note": "changed means altered in form, so those letters are rearranged"
-     },
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the beginning of a word, so only its opening letter is used"
-     },
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "a change applied to the word before it means its letters are reordered too"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trees",
-      "gives": "TREES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "though",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of the word"
-     },
-     {
-      "clueFragment": "slight",
-      "gives": "SLIGHT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STREE",
-      "T",
-      "LIGHTS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TREES",
-       "gives": "STREE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changed",
+         "note": "changed means altered in form, so those letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trees",
+         "note": "taken as written"
+        }
+       ]
       },
       {
-       "fodder": "SLIGHT",
-       "gives": "LIGHTS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "note": "a change applied to the word before it means its letters are reordered too"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "at first",
+             "note": "at first points to the beginning of a word, so only its opening letter is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "though",
+             "note": "first letter of the word"
+            }
+           ]
+          },
+          {
+           "words": "slight",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -832,41 +735,29 @@
    },
    "solution": "TOUCHANDGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOUCH-AND-GO",
     "definitions": [
      {
       "text": "Risky",
       "at": 0
      }
     ],
-    "linkWords": [
-     "like"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tip",
-      "gives": "TOUCH",
-      "note": "to tip something is to touch it lightly"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "AND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "GO",
-      "note": "to run is to go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOUCH",
-      "AND",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tip",
+       "gives": "TOUCH",
+       "note": "to tip something is to touch it lightly"
+      },
+      {
+       "words": "and",
+       "note": "taken as written"
+      },
+      {
+       "words": "run",
+       "gives": "GO",
+       "note": "to run is to go"
+      }
      ]
     },
     "explanation": {
@@ -895,32 +786,25 @@
    },
    "solution": "LOCI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOCI",
     "definitions": [
      {
       "text": "places",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Look",
-      "gives": "LO",
-      "note": "lo is an old word meaning look or behold"
-     },
-     {
-      "clueFragment": "more than a hundred",
-      "gives": "CI",
-      "note": "in Roman numerals CI is 101, one more than a hundred"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "CI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look",
+       "gives": "LO",
+       "note": "lo is an old word meaning look or behold"
+      },
+      {
+       "words": "more than a hundred",
+       "gives": "CI",
+       "note": "in Roman numerals CI is 101, one more than a hundred"
+      }
      ]
     },
     "explanation": {
@@ -949,59 +833,49 @@
    },
    "solution": "DREAMERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DREAMERS",
     "definitions": [
      {
       "text": "Idealists",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "something poor is in a bad state, so the word beside it is broken up and rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "getting something in means taking it inside, so those letters go into the rearranged word"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dears",
-      "gives": "DEARS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "me",
-      "gives": "ME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "standard abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DREA",
-      "MER",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DEARS",
-       "gives": "DREAS"
+       "text": "in",
+       "note": "getting something in means taking it inside, so those letters go into the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "note": "something poor is in a bad state, so the word beside it is broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dears",
+           "note": "taken as written"
+          },
+          {
+           "words": "me",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "standard abbreviation for right"
       }
      ]
     },
@@ -1031,29 +905,17 @@
    },
    "solution": "MOONSHINE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MOONSHINE",
     "definitions": [
      {
       "text": "Spirit",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: illicitly distilled liquor"
      },
      {
       "text": "abroad at night",
       "at": 7,
-      "note": "a cryptic description of the light of the moon, out and about after dark"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spirit",
-      "note": "first meaning: illicitly distilled liquor"
-     },
-     {
-      "clueFragment": "abroad at night?",
-      "note": "second meaning: the moon's light, which is out and about only after dark"
+      "note": "a cryptic description of the light of the moon, out and about after dark",
+      "meaning": "second meaning: the moon's light, which is out and about only after dark"
      }
     ],
     "explanation": {
@@ -1083,40 +945,31 @@
    },
    "solution": "PINNACLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PINNACLE",
     "definitions": [
      {
       "text": "Top",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is in",
-      "for": "container",
-      "note": "one thing that is in another sits inside it, so the letter goes within the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L for learner, as on British learner-driver plates"
-     },
-     {
-      "clueFragment": "a small boat",
-      "gives": "PINNACE",
-      "note": "a pinnace is a ship's small tender"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PINNAC",
-      "L",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "note": "one thing that is in another sits inside it, so the letter goes within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a small boat",
+       "gives": "PINNACE",
+       "note": "a pinnace is a ship's small tender"
+      },
+      {
+       "words": "student",
+       "gives": "L",
+       "note": "L for learner, as on British learner-driver plates"
+      }
      ]
     },
     "explanation": {
@@ -1145,43 +998,31 @@
    },
    "solution": "SCANSION",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCANSION",
     "definitions": [
      {
       "text": "Analysis of metrical patterns",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something found in a place lies within it, so the following word wraps those letters"
-     }
-    ],
-    "linkWords": [
-     "locates"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "containers",
-      "gives": "CANS",
-      "note": "cans are tins or containers"
-     },
-     {
-      "clueFragment": "Israel",
-      "gives": "SION",
-      "note": "Sion, or Zion, is a poetic name for Israel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CANS",
-      "ION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "something found in a place lies within it, so the following word wraps those letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Israel",
+       "gives": "SION",
+       "note": "Sion, or Zion, is a poetic name for Israel"
+      },
+      {
+       "words": "containers",
+       "gives": "CANS",
+       "note": "cans are tins or containers"
+      }
      ]
     },
     "explanation": {
@@ -1209,51 +1050,40 @@
    },
    "solution": "OXEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "OXEN",
     "definitions": [
      {
       "text": "beasts",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "mobile",
-      "for": "anagram",
-      "note": "mobile means able to move about, so the letters of the word before it shift into a new order"
-     },
-     {
-      "text": "holds",
-      "for": "container",
-      "note": "a word that holds something has it inside, so the numeral goes within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "ONE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ten",
-      "gives": "X",
-      "note": "Roman numeral for ten"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "X",
-      "EN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ONE",
-       "gives": "OEN"
+       "text": "holds",
+       "note": "a word that holds something has it inside, so the numeral goes within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mobile",
+         "note": "mobile means able to move about, so the letters of the word before it shift into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "ten",
+       "gives": "X",
+       "note": "Roman numeral for ten"
       }
      ]
     },
@@ -1283,34 +1113,29 @@
    },
    "solution": "BARQUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BARQUE",
     "definitions": [
      {
       "text": "sailing ship",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "heard means taken in by the ear, so the word for the noise is spelt differently but said the same"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Noise",
-      "gives": "BARQUE",
-      "soundsLike": "BARK",
-      "note": "a bark is a dog's noise"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BARQUE",
+     "indicators": [
+      {
+       "text": "heard",
+       "note": "heard means taken in by the ear, so the word for the noise is spelt differently but said the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Noise",
+       "gives": "BARK",
+       "note": "a bark is a dog's noise"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Sounds carry across the water from a passing vessel.",
      "definitionFit": "A barque is a three-masted vessel with sails, square-rigged on all but the aftermost mast."
@@ -1346,42 +1171,43 @@
    },
    "solution": "WAYSANDMEANS",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "WAYS AND MEANS",
     "definitions": [
      {
       "text": "resources",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "what they say is what people utter, so the preceding word is represented by its spoken form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Balances",
-      "gives": "WAYS",
-      "soundsLike": "WEIGHS",
-      "note": "balances in the sense of weighs up"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "AND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "averages",
-      "gives": "MEANS",
-      "note": "a mean is an average"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "WAYS",
+       "indicators": [
+        {
+         "text": "they say",
+         "note": "what they say is what people utter, so the preceding word is represented by its spoken form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Balances",
+         "gives": "WEIGHS",
+         "note": "balances in the sense of weighs up"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "note": "taken as written"
+      },
+      {
+       "words": "averages",
+       "gives": "MEANS",
+       "note": "a mean is an average"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An accountant's checklist: balances, averages and what funds there are.",
      "walkthrough": "'Balances' looks like a noun in a financial report; here it is the verb, weighs.",
@@ -1408,54 +1234,41 @@
    },
    "solution": "SYNOD",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SYNOD",
     "definitions": [
      {
       "text": "church council",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "coming up",
-      "for": "reversal",
-      "note": "in a down entry, coming up means travelling from bottom to top, so the word is read backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the year inside the other word"
-     }
-    ],
-    "linkWords": [
-     "for the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellows",
-      "gives": "DONS",
-      "note": "dons are university fellows"
-     },
-     {
-      "clueFragment": "a year",
-      "gives": "Y",
-      "note": "Y is the abbreviation for year"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "Y",
-      "NOD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DONS",
-       "to": "SNOD"
+       "text": "coming up",
+       "note": "in a down entry, coming up means travelling from bottom to top, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the year inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fellows",
+         "gives": "DONS",
+         "note": "dons are university fellows"
+        },
+        {
+         "words": "a year",
+         "gives": "Y",
+         "note": "Y is the abbreviation for year"
+        }
+       ]
       }
      ]
     },
@@ -1485,35 +1298,25 @@
    },
    "solution": "BANG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANG",
     "definitions": [
      {
       "text": "Report",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outlaw",
-      "gives": "BAN",
-      "note": "to outlaw something is to prohibit it"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "G",
-      "note": "g is the symbol for gravitational force, as in g-force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "outlaw",
+       "gives": "BAN",
+       "note": "to outlaw something is to prohibit it"
+      },
+      {
+       "words": "force",
+       "gives": "G",
+       "note": "g is the symbol for gravitational force, as in g-force"
+      }
      ]
     },
     "explanation": {
@@ -1542,36 +1345,25 @@
    },
    "solution": "EDENIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDENIC",
     "definitions": [
      {
       "text": "like paradise",
       "at": 30
      }
     ],
-    "linkWords": [
-     "Having",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former PM",
-      "gives": "EDEN",
-      "note": "Anthony Eden was British Prime Minister from 1955 to 1957"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "standard abbreviation for in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDEN",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former PM",
+       "gives": "EDEN",
+       "note": "Anthony Eden was British Prime Minister from 1955 to 1957"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "standard abbreviation for in charge"
+      }
      ]
     },
     "explanation": {
@@ -1600,40 +1392,30 @@
    },
    "solution": "REQUITAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REQUITAL",
     "definitions": [
      {
       "text": "satisfaction",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside means the outer word goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "gives": "QUIT",
-      "note": "to quit is to leave"
-     },
-     {
-      "clueFragment": "real",
-      "gives": "REAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "QUIT",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without in its old sense of outside means the outer word goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "real",
+       "note": "taken as written"
+      },
+      {
+       "words": "Leave",
+       "gives": "QUIT",
+       "note": "to quit is to leave"
+      }
      ]
     },
     "explanation": {
@@ -1668,38 +1450,24 @@
    },
    "solution": "GOLDMESH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GOLD MESH",
     "definitions": [
      {
       "text": "metallic fabric",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "ordered",
-      "for": "anagram",
-      "note": "ordered means put into an arrangement, so these letters are set out in a new sequence"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hold gems",
-      "gives": "HOLDGEMS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOLDGEMS",
-       "gives": "GOLDMESH"
+       "text": "ordered",
+       "note": "ordered means put into an arrangement, so these letters are set out in a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hold gems",
+       "note": "taken as written"
       }
      ]
     },
@@ -1728,46 +1496,43 @@
    },
    "solution": "ENERGY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ENERGY",
     "definitions": [
      {
       "text": "Force",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "letters that leave a word depart from it, so they are taken out"
-     },
-     {
-      "text": "in confusion",
-      "for": "anagram",
-      "note": "confusion means disorder, so the remaining letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Guernsey",
-      "gives": "GUERNSEY",
-      "note": "taken as written: Guernsey is one of the Channel Islands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENERGY",
+     "indicators": [
       {
-       "fodder": "GERNEY",
-       "gives": "ENERGY"
+       "text": "in confusion",
+       "note": "confusion means disorder, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ENERGY",
+       "indicators": [
+        {
+         "text": "to leave",
+         "note": "letters that leave a word depart from it, so they are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "us",
+         "note": "taken as written"
+        },
+        {
+         "words": "Guernsey",
+         "note": "taken as written: Guernsey is one of the Channel Islands"
+        }
+       ]
       }
      ]
     },

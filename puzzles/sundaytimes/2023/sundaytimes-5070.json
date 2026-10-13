@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5070",
  "number": 5070,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,070",
  "setter": "Dean Mayer",
  "date": "2023-07-30",
  "dimensions": {
@@ -42,29 +40,17 @@
    },
    "solution": "DOPE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOPE",
     "definitions": [
      {
       "text": "Donkey",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a donkey is a fool, a dimwit"
      },
      {
       "text": "train",
       "at": 10,
-      "note": "loose: drugging a racehorse is the crooked alternative to training it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Donkey",
-      "note": "first meaning: a donkey is a fool, a dimwit"
-     },
-     {
-      "clueFragment": "train",
-      "note": "second meaning: what a cheat does to a racehorse instead of preparing it honestly"
+      "note": "loose: drugging a racehorse is the crooked alternative to training it",
+      "meaning": "second meaning: what a cheat does to a racehorse instead of preparing it honestly"
      }
     ],
     "explanation": {
@@ -93,35 +79,25 @@
    },
    "solution": "DEUTSCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEUTSCH",
     "definitions": [
      {
       "text": "German",
       "at": 0
      }
     ],
-    "linkWords": [
-     "taken from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "book",
-      "gives": "DEUT",
-      "note": "the usual short form of Deuteronomy, a book of the Bible"
-     },
-     {
-      "clueFragment": "introductory school",
-      "gives": "SCH",
-      "note": "the opening of the word, also the standard abbreviation for school"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEUT",
-      "SCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "book",
+       "gives": "DEUT",
+       "note": "the usual short form of Deuteronomy, a book of the Bible"
+      },
+      {
+       "words": "introductory school",
+       "gives": "SCH",
+       "note": "the opening of the word, also the standard abbreviation for school"
+      }
      ]
     },
     "explanation": {
@@ -156,38 +132,24 @@
    },
    "solution": "PREMIUMBOND",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PREMIUM BOND",
     "definitions": [
      {
       "text": "Investment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "converting",
-      "for": "anagram",
-      "note": "converting something changes it into a different form, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "modern pub I'm",
-      "gives": "MODERNPUBIM",
-      "note": "the letters taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MODERNPUBIM",
-       "gives": "PREMIUMBOND"
+       "text": "converting",
+       "note": "converting something changes it into a different form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modern pub I'm",
+       "note": "the letters taken as written"
       }
      ]
     },
@@ -223,62 +185,52 @@
    },
    "solution": "ASPROMISED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "AS PROMISED",
     "definitions": [
      {
       "text": "like I said",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "for": "anagram",
-      "note": "something running is in motion and out of its fixed place, so the letters move around"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "placing one piece after another builds the answer left to right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small, as on clothing labels"
-     },
-     {
-      "clueFragment": "ball",
-      "gives": "PROM",
-      "note": "a prom is a formal dance, especially at the end of a school year"
-     },
-     {
-      "clueFragment": "Dies",
-      "gives": "ISED",
-      "note": "the four letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "PROM",
-      "ISED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ASPROMISED",
+     "indicators": [
       {
-       "fodder": "DIES",
-       "gives": "ISED"
+       "text": "running",
+       "note": "something running is in motion and out of its fixed place, so the letters move around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "placing one piece after another builds the answer left to right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "small",
+         "gives": "S",
+         "note": "S is the abbreviation for small, as on clothing labels"
+        },
+        {
+         "words": "ball",
+         "gives": "PROM",
+         "note": "a prom is a formal dance, especially at the end of a school year"
+        },
+        {
+         "words": "Dies",
+         "gives": "ISED",
+         "note": "the four letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -314,57 +266,51 @@
    },
    "solution": "SEXAPPEAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEX APPEAL",
     "definitions": [
      {
       "text": "It",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
-     },
-     {
-      "text": "rotten",
-      "for": "anagram",
-      "note": "something rotten has broken down and fallen apart, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cuts",
-      "gives": "AXES",
-      "note": "to axe is to cut, as with budgets"
-     },
-     {
-      "clueFragment": "apple",
-      "gives": "PPEAL",
-      "note": "the five letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEXA",
-      "PPEAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "APPLE",
-       "gives": "PPEAL"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cuts",
+         "gives": "AXES",
+         "note": "to axe is to cut, as with budgets"
+        }
+       ]
+      },
       {
-       "from": "AXES",
-       "to": "SEXA"
+       "op": "reversal",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "rotten",
+           "note": "something rotten has broken down and fallen apart, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "apple",
+           "gives": "PPEAL",
+           "note": "the five letters rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -394,11 +340,6 @@
    },
    "solution": "RURAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RURAL",
     "definitions": [
      {
       "text": "Countryside",
@@ -406,30 +347,29 @@
       "note": "a noun used attributively, as in countryside walks, matching the adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, so only the final letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "major",
-      "gives": "R",
-      "select": "last",
-      "note": "the last letter of the word"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "URAL",
-      "note": "the Ural is a long river in Russia and Kazakhstan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "URAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "major",
+         "note": "the last letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "gives": "URAL",
+       "note": "the Ural is a long river in Russia and Kazakhstan"
+      }
      ]
     },
     "explanation": {
@@ -458,38 +398,30 @@
    },
    "solution": "MINISTRATION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MINISTRATION",
     "definitions": [
      {
       "text": "care",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "MINI",
-      "note": "mini means small, as in minibus"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street, a way"
-     },
-     {
-      "clueFragment": "to allocate",
-      "gives": "RATION",
-      "note": "to ration is to share out in fixed amounts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINI",
-      "ST",
-      "RATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "MINI",
+       "note": "mini means small, as in minibus"
+      },
+      {
+       "words": "way",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a way"
+      },
+      {
+       "words": "to allocate",
+       "gives": "RATION",
+       "note": "to ration is to share out in fixed amounts"
+      }
      ]
     },
     "explanation": {
@@ -518,10 +450,6 @@
    },
    "solution": "SEO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SEO",
     "definitions": [
      {
       "text": "Metric",
@@ -529,20 +457,22 @@
       "note": "loose: search engine optimisation is a practice measured by rankings rather than a metric itself"
      }
     ],
-    "indicators": [
-     {
-      "text": "used by",
-      "for": "hidden_word",
-      "note": "letters used by a phrase are drawn from within it, so the answer sits inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "those online",
-      "gives": "SEO",
-      "note": "spans the end of one word and the start of the next"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "used by",
+       "note": "letters used by a phrase are drawn from within it, so the answer sits inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those online",
+       "gives": "SEO",
+       "note": "spans the end of one word and the start of the next"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A measurement that internet users rely on.",
      "walkthrough": "The answer straddles the gap between the two words. SEO stands for search engine optimisation.",
@@ -569,32 +499,25 @@
    },
    "solution": "DESPOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DESPOT",
     "definitions": [
      {
       "text": "oppressor",
       "at": 8
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Un",
-      "gives": "DE",
-      "note": "the prefix un- undoes things, as the prefix de- does"
-     },
-     {
-      "clueFragment": "see",
-      "gives": "SPOT",
-      "note": "to spot something is to see it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "SPOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Un",
+       "gives": "DE",
+       "note": "the prefix un- undoes things, as the prefix de- does"
+      },
+      {
+       "words": "see",
+       "gives": "SPOT",
+       "note": "to spot something is to see it"
+      }
      ]
     },
     "explanation": {
@@ -624,35 +547,25 @@
    },
    "solution": "USED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "USED",
     "definitions": [
      {
       "text": "Old",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setters",
-      "gives": "US",
-      "note": "the setters speaking of themselves: us"
-     },
-     {
-      "clueFragment": "our boss",
-      "gives": "ED",
-      "note": "the crossword editor, abbreviated ED"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setters",
+       "gives": "US",
+       "note": "the setters speaking of themselves: us"
+      },
+      {
+       "words": "our boss",
+       "gives": "ED",
+       "note": "the crossword editor, abbreviated ED"
+      }
      ]
     },
     "explanation": {
@@ -682,51 +595,43 @@
    },
    "solution": "EXTRANEOUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EXTRANEOUS",
     "definitions": [
      {
       "text": "outside",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "for": "anagram",
-      "note": "something that breaks falls into pieces that can be reassembled differently"
-     },
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "keeping something means holding it within, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ensure tax",
-      "gives": "EXTRANEUS",
-      "note": "the nine letters rearranged"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "nothing is zero, shaped like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXTRANE",
-      "O",
-      "US"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EXTRANEOUS",
+     "indicators": [
       {
-       "fodder": "ENSURETAX",
-       "gives": "EXTRANEUS"
+       "text": "breaks",
+       "note": "something that breaks falls into pieces that can be reassembled differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to keep",
+         "note": "keeping something means holding it within, so one piece sits inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ensure tax",
+         "gives": "EXTRANEUS",
+         "note": "the nine letters rearranged"
+        },
+        {
+         "words": "nothing",
+         "gives": "O",
+         "note": "nothing is zero, shaped like the letter O"
+        }
+       ]
       }
      ]
     },
@@ -762,56 +667,51 @@
    },
    "solution": "FRANKSINATRA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FRANK SINATRA",
     "definitions": [
      {
       "text": "singer",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "pens",
-      "for": "container",
-      "note": "to pen is to shut in an enclosure, so one piece surrounds others"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big",
-      "gives": "FAT",
-      "note": "fat means large"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA, Royal Academician, a member of the Royal Academy of Arts"
-     },
-     {
-      "clueFragment": "lines",
-      "gives": "RANKS",
-      "note": "ranks are rows, as of soldiers"
-     },
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "in means fashionable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RANKS",
-      "IN",
-      "AT",
-      "RA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pens",
+       "note": "to pen is to shut in an enclosure, so one piece surrounds others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Big",
+         "gives": "FAT",
+         "note": "fat means large"
+        },
+        {
+         "words": "artist",
+         "gives": "RA",
+         "note": "RA, Royal Academician, a member of the Royal Academy of Arts"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lines",
+         "gives": "RANKS",
+         "note": "ranks are rows, as of soldiers"
+        },
+        {
+         "words": "popular",
+         "gives": "IN",
+         "note": "in means fashionable"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -840,40 +740,31 @@
    },
    "solution": "STIRRUP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STIRRUP",
     "definitions": [
      {
       "text": "support",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "introduces",
-      "for": "container",
-      "note": "to introduce is literally to lead into, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kindle",
-      "gives": "STIRUP",
-      "note": "to kindle feeling is to stir it up"
-     },
-     {
-      "clueFragment": "reading",
-      "gives": "R",
-      "note": "reading is one of the three Rs of basic education"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STIR",
-      "R",
-      "UP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introduces",
+       "note": "to introduce is literally to lead into, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kindle",
+       "gives": "STIRUP",
+       "note": "to kindle feeling is to stir it up"
+      },
+      {
+       "words": "reading",
+       "gives": "R",
+       "note": "reading is one of the three Rs of basic education"
+      }
      ]
     },
     "explanation": {
@@ -903,46 +794,41 @@
    },
    "solution": "LESOTHO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LESOTHO",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opened by",
-      "for": "container",
-      "note": "something opened up has another thing pushed into its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "house",
-      "gives": "LEO",
-      "note": "Leo is one of the twelve houses or signs of the zodiac"
-     },
-     {
-      "clueFragment": "drunk",
-      "gives": "SOT",
-      "note": "a sot is a habitual drunkard"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "H is the standard abbreviation for husband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "SOT",
-      "H",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "opened by",
+       "note": "something opened up has another thing pushed into its middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "house",
+         "gives": "LEO",
+         "note": "Leo is one of the twelve houses or signs of the zodiac"
+        },
+        {
+         "words": "drunk",
+         "gives": "SOT",
+         "note": "a sot is a habitual drunkard"
+        }
+       ]
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "H is the standard abbreviation for husband"
+      }
      ]
     },
     "explanation": {
@@ -971,26 +857,25 @@
    },
    "solution": "TRENDSETTER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TRENDSETTER",
     "definitions": [
      {
       "text": "Person causing rage",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Person causing rage",
-      "note": "surface reading: someone who makes others furious"
-     },
-     {
-      "clueFragment": "rage",
-      "note": "setter's reading: a rage is a craze, something all the rage, so this person starts fashions"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Person causing rage",
+       "note": "surface reading: someone who makes others furious"
+      },
+      {
+       "words": "rage",
+       "note": "setter's reading: a rage is a craze, something all the rage, so this person starts fashions"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Rage here is the fashion sense, as in 'all the rage', not anger.",
      "definitionFit": "Someone who starts a fad that everybody follows creates a craze, the fashionable sense of rage."
@@ -1023,35 +908,24 @@
    },
    "solution": "HUMANRESOURCES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HUMAN RESOURCES",
     "definitions": [
      {
       "text": "Workers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after a break",
-      "for": "anagram",
-      "note": "once something has been broken, its parts are reassembled in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can resume hours",
-      "gives": "CANRESUMEHOURS",
-      "note": "the fourteen letters rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CANRESUMEHOURS",
-       "gives": "HUMANRESOURCES"
+       "text": "after a break",
+       "note": "once something has been broken, its parts are reassembled in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can resume hours",
+       "note": "the fourteen letters rearranged"
       }
      ]
     },
@@ -1081,39 +955,30 @@
    },
    "solution": "OPTOMETRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPTOMETRY",
     "definitions": [
      {
       "text": "Field of vision",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "surgery",
-      "gives": "OP",
-      "note": "an op is an operation"
-     },
-     {
-      "clueFragment": "as I see it",
-      "gives": "TOME",
-      "note": "to me, that is, in my opinion"
-     },
-     {
-      "clueFragment": "go",
-      "gives": "TRY",
-      "note": "to have a go is to have a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "TO",
-      "ME",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "surgery",
+       "gives": "OP",
+       "note": "an op is an operation"
+      },
+      {
+       "words": "as I see it",
+       "gives": "TOME",
+       "note": "to me, that is, in my opinion"
+      },
+      {
+       "words": "go",
+       "gives": "TRY",
+       "note": "to have a go is to have a try"
+      }
      ]
     },
     "explanation": {
@@ -1149,26 +1014,25 @@
    },
    "solution": "HORSELATITUDES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HORSE LATITUDES",
     "definitions": [
      {
       "text": "Where winds become draughts?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Where winds become draughts?",
-      "note": "surface reading: a place where strong winds die down to mere breezes"
-     },
-     {
-      "clueFragment": "draughts",
-      "note": "setter's reading: draughts are also draught animals, heavy horses that pull loads"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where winds become draughts?",
+       "note": "surface reading: a place where strong winds die down to mere breezes"
+      },
+      {
+       "words": "draughts",
+       "note": "setter's reading: draughts are also draught animals, heavy horses that pull loads"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "These ocean belts around 30 degrees north and south are known for calm, light winds; a draught of air and a draught horse share the word.",
      "definitionFit": "The calm subtropical belts carry an equine name, so weak winds there are both feeble breezes and, punningly, horses."
@@ -1195,40 +1059,31 @@
    },
    "solution": "SLEIGHT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SLEIGHT",
     "definitions": [
      {
       "text": "craft",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "container",
-      "note": "a passenger on board is inside the vessel, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drug",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "SLIGHT",
-      "note": "slight means small or slender"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SL",
-      "E",
-      "IGHT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "a passenger on board is inside the vessel, so one piece sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small",
+       "gives": "SLIGHT",
+       "note": "slight means small or slender"
+      },
+      {
+       "words": "Drug",
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
      ]
     },
     "explanation": {
@@ -1258,41 +1113,35 @@
    },
    "solution": "WALLAH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "WALLAH",
     "definitions": [
      {
       "text": "Bureaucrat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worship",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "god",
-      "gives": "ALLAH",
-      "note": "Allah is the Arabic name for God"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ALLAH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worship",
+         "note": "the first letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "god",
+       "gives": "ALLAH",
+       "note": "Allah is the Arabic name for God"
+      }
      ]
     },
     "explanation": {
@@ -1321,47 +1170,41 @@
    },
    "solution": "ADDENDA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ADDENDA",
     "definitions": [
      {
       "text": "Riders",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hidden",
-      "for": "container",
-      "note": "something hidden is tucked away inside, so one piece is enclosed by another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "notice",
-      "gives": "AD",
-      "note": "an ad is an advertisement, a public notice"
-     },
-     {
-      "clueFragment": "old man's",
-      "gives": "DA",
-      "note": "da is a familiar word for father"
-     },
-     {
-      "clueFragment": "objective",
-      "gives": "END",
-      "note": "an end is an aim or goal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "D",
-      "END",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notice",
+       "gives": "AD",
+       "note": "an ad is an advertisement, a public notice"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hidden",
+         "note": "something hidden is tucked away inside, so one piece is enclosed by another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old man's",
+         "gives": "DA",
+         "note": "da is a familiar word for father"
+        },
+        {
+         "words": "objective",
+         "gives": "END",
+         "note": "an end is an aim or goal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1390,32 +1233,25 @@
    },
    "solution": "AIMED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIMED",
     "definitions": [
      {
       "text": "Set sights on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "great",
-      "gives": "AI",
-      "note": "A1 means first-rate, with the digit 1 read as the letter I"
-     },
-     {
-      "clueFragment": "holiday destination",
-      "gives": "MED",
-      "note": "the Med, the Mediterranean, a favourite holiday spot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AI",
-      "MED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "great",
+       "gives": "AI",
+       "note": "A1 means first-rate, with the digit 1 read as the letter I"
+      },
+      {
+       "words": "holiday destination",
+       "gives": "MED",
+       "note": "the Med, the Mediterranean, a favourite holiday spot"
+      }
      ]
     },
     "explanation": {
@@ -1444,47 +1280,44 @@
    },
    "solution": "MIOCENE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "MIOCENE",
     "definitions": [
      {
       "text": "old age",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of a word, so only its last letter is kept"
-     },
-     {
-      "text": "Weirdly",
-      "for": "anagram",
-      "note": "done weirdly means done in an odd, disordered way, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no mice",
-      "gives": "NOMICE",
-      "note": "the letters taken as written"
-     },
-     {
-      "clueFragment": "die",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOMICEE",
-       "gives": "MIOCENE"
+       "text": "Weirdly",
+       "note": "done weirdly means done in an odd, disordered way, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no mice",
+         "note": "the letters taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very end of a word, so only its last letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "die",
+           "note": "the last letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1515,38 +1348,30 @@
    },
    "solution": "LEGITIMATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEGITIMATE",
     "definitions": [
      {
       "text": "Just",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "escape",
-      "gives": "LEGIT",
-      "note": "to leg it is slang for running away"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "couple",
-      "gives": "MATE",
-      "note": "to mate is to pair up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEGIT",
-      "I",
-      "MATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "escape",
+       "gives": "LEGIT",
+       "note": "to leg it is slang for running away"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "couple",
+       "gives": "MATE",
+       "note": "to mate is to pair up"
+      }
      ]
     },
     "explanation": {
@@ -1575,36 +1400,29 @@
    },
    "solution": "GOO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GOO",
     "definitions": [
      {
       "text": "Sentimentality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine",
-      "gives": "GOOD",
-      "note": "fine and good both mean satisfactory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means not quite all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fine",
+       "gives": "GOOD",
+       "note": "fine and good both mean satisfactory"
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -1633,28 +1451,16 @@
    },
    "solution": "STAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STAG",
     "definitions": [
      {
       "text": "Kind of party",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the all-male night out a groom has before his wedding"
      },
      {
       "text": "animal",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kind of party",
-      "note": "first meaning: the all-male night out a groom has before his wedding"
-     },
-     {
-      "clueFragment": "animal",
-      "note": "second meaning: a male deer"
+      "at": 14,
+      "meaning": "second meaning: a male deer"
      }
     ],
     "explanation": {
@@ -1693,38 +1499,30 @@
    },
    "solution": "HOOKANDEYE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOOK AND EYE",
     "definitions": [
      {
       "text": "Fixing things",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old pirate gained",
-      "gives": "HOOK",
-      "note": "the stereotypical pirate has a metal replacement for a lost hand"
-     },
-     {
-      "clueFragment": "/",
-      "gives": "AND",
-      "note": "the slash joins the two halves like a conjunction"
-     },
-     {
-      "clueFragment": "lost",
-      "gives": "EYE",
-      "note": "the same pirate wears a patch over the one he lost"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOK",
-      "AND",
-      "EYE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old pirate gained",
+       "gives": "HOOK",
+       "note": "the stereotypical pirate has a metal replacement for a lost hand"
+      },
+      {
+       "words": "/",
+       "gives": "AND",
+       "note": "the slash joins the two halves like a conjunction"
+      },
+      {
+       "words": "lost",
+       "gives": "EYE",
+       "note": "the same pirate wears a patch over the one he lost"
+      }
      ]
     },
     "explanation": {
@@ -1754,32 +1552,25 @@
    },
    "solution": "DRAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRAT",
     "definitions": [
      {
       "text": "knickers!",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "DR",
-      "note": "DR is the abbreviation for doctor"
-     },
-     {
-      "clueFragment": "going for",
-      "gives": "AT",
-      "note": "a dog going for someone is at them, attacking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
+      },
+      {
+       "words": "going for",
+       "gives": "AT",
+       "note": "a dog going for someone is at them, attacking"
+      }
      ]
     },
     "explanation": {

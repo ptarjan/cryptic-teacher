@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5146",
  "number": 5146,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,146",
  "setter": "Robert Price",
  "date": "2025-01-12",
  "dimensions": {
@@ -42,41 +40,36 @@
    },
    "solution": "TREASURER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TREASURER",
     "definitions": [
      {
       "text": "official",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "'finally' points at what comes at the very end, so only the closing letter of 'winner' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prize",
-      "gives": "TREASURE",
-      "note": "to prize something is to treasure it; as a noun, a prize is a treasure"
-     },
-     {
-      "clueFragment": "winner, finally",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of winneR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREASURE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prize",
+       "gives": "TREASURE",
+       "note": "to prize something is to treasure it; as a noun, a prize is a treasure"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "'finally' points at what comes at the very end, so only the closing letter of 'winner' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "winner, finally",
+         "gives": "WINNER",
+         "note": "last letter of winneR"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -105,44 +98,45 @@
    },
    "solution": "TABASCO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TABASCO",
     "definitions": [
      {
       "text": "sauce",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "stuffed with"
-     },
-     {
-      "text": "regularly lacking",
-      "note": "lacking letters at regular intervals: every second letter of 'beans' goes, keeping B, A, S"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tortilla",
-      "gives": "TACO",
-      "note": "a taco is a folded filled tortilla"
-     },
-     {
-      "clueFragment": "beans, regularly lacking",
-      "gives": "BAS",
-      "select": "alternate",
-      "note": "BeAnS with the even letters dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "BAS",
-      "CO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffed with"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tortilla",
+       "gives": "TACO",
+       "note": "a taco is a folded filled tortilla"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "BAS",
+       "indicators": [
+        {
+         "text": "regularly lacking",
+         "note": "lacking letters at regular intervals: every second letter of 'beans' goes, keeping B, A, S"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "beans, regularly lacking",
+         "gives": "BAS",
+         "select": "alternate",
+         "note": "BeAnS with the even letters dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -171,28 +165,16 @@
    },
    "solution": "EXTRA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EXTRA",
     "definitions": [
      {
       "text": "Wide",
-      "at": 0
+      "at": 0,
+      "meaning": "a cricket term: a ball bowled out of the batsman's reach, which gives away a run not scored off the bat"
      },
      {
       "text": "player of little consequence",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wide",
-      "note": "a cricket term: a ball bowled out of the batsman's reach, which gives away a run not scored off the bat"
-     },
-     {
-      "clueFragment": "player of little consequence",
-      "note": "a performer with no lines, a face in a film's crowd scene"
+      "at": 5,
+      "meaning": "a performer with no lines, a face in a film's crowd scene"
      }
     ],
     "explanation": {
@@ -228,35 +210,24 @@
    },
    "solution": "STANLAUREL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STAN LAUREL",
     "definitions": [
      {
       "text": "a comedian",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "to play with something is to move it around, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A sullen art",
-      "gives": "ASULLENART",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASULLENART",
-       "gives": "STANLAUREL"
+       "text": "playing",
+       "note": "to play with something is to move it around, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A sullen art",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -286,40 +257,31 @@
    },
    "solution": "RHEUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RHEUM",
     "definitions": [
      {
       "text": "Output of a cold",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbing",
-      "for": "container",
-      "note": "something absorbing soaks another thing up into itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "curious",
-      "gives": "RUM",
-      "note": "rum = odd, curious"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "HE",
-      "note": "he = a man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "HE",
-      "UM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbing",
+       "note": "something absorbing soaks another thing up into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "curious",
+       "gives": "RUM",
+       "note": "rum = odd, curious"
+      },
+      {
+       "words": "man",
+       "gives": "HE",
+       "note": "he = a man"
+      }
      ]
     },
     "explanation": {
@@ -354,35 +316,25 @@
    },
    "solution": "ROASTBEEF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROAST BEEF",
     "definitions": [
      {
       "text": "Meat cooked",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pan",
-      "gives": "ROAST",
-      "note": "to pan a show is to roast it, criticise it harshly"
-     },
-     {
-      "clueFragment": "grouse",
-      "gives": "BEEF",
-      "note": "grouse and beef both mean complain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROAST",
-      "BEEF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pan",
+       "gives": "ROAST",
+       "note": "to pan a show is to roast it, criticise it harshly"
+      },
+      {
+       "words": "grouse",
+       "gives": "BEEF",
+       "note": "grouse and beef both mean complain"
+      }
      ]
     },
     "explanation": {
@@ -410,48 +362,7 @@
     "text": "Hybrid Ford put out",
     "enumeration": "5"
    },
-   "solution": "CROSS",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CROSS",
-    "definitions": [
-     {
-      "text": "Hybrid",
-      "at": 0
-     },
-     {
-      "text": "put out",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hybrid",
-      "note": "a plant or animal bred from two varieties"
-     },
-     {
-      "clueFragment": "Ford",
-      "note": "the verb: to wade over a river at a shallow point"
-     },
-     {
-      "clueFragment": "put out",
-      "note": "annoyed, irritated"
-     }
-    ],
-    "explanation": {
-     "surface": "A hybrid car from Ford, taken off the market.",
-     "walkthrough": "A triple definition: 'Ford' looks like the carmaker but is the verb, to cross a river on foot.",
-     "definitionFit": "Three senses of one word: a hybrid breed, the act of fording, and the mood of someone put out."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Ford"
-    }
-   }
+   "solution": "CROSS"
   },
   {
    "number": 6,
@@ -467,31 +378,29 @@
    },
    "solution": "CEDE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CEDE",
     "definitions": [
      {
       "text": "surrender",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "When caught",
-      "for": "homophone",
-      "note": "to catch a remark is to hear it, so the word is taken by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "children",
-      "gives": "CEDE",
-      "soundsLike": "SEED",
-      "note": "seed = offspring, children"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CEDE",
+     "indicators": [
+      {
+       "text": "When caught",
+       "note": "to catch a remark is to hear it, so the word is taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "children",
+       "gives": "SEED",
+       "note": "seed = offspring, children"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Children who give themselves up once they are caught.",
      "walkthrough": "'Caught' here is heard, not captured, and SEED as children is biblical (Abraham's seed).",
@@ -518,51 +427,52 @@
    },
    "solution": "ORIGINATE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ORIGINATE",
     "definitions": [
      {
       "text": "found",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     },
-     {
-      "text": "peeled",
-      "for": "deletion",
-      "note": "a peeled fruit has lost its skin, so 'figs' loses its outside letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elaborate",
-      "gives": "ORNATE",
-      "note": "elaborate = ornate"
-     },
-     {
-      "clueFragment": "peeled figs",
-      "gives": "IG",
-      "note": "fIGs without its first and last letters"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "I as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "IG",
-      "I",
-      "NATE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ORIGINATE",
+     "indicators": [
+      {
+       "text": "peeled",
+       "note": "a peeled fruit has lost its skin, so 'figs' loses its outside letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Elaborate",
+           "gives": "ORNATE",
+           "note": "elaborate = ornate"
+          },
+          {
+           "words": "peeled figs",
+           "gives": "IG",
+           "note": "fIGs without its first and last letters"
+          }
+         ]
+        },
+        {
+         "words": "I",
+         "note": "I as printed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -591,34 +501,29 @@
    },
    "solution": "SHEIKHS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SHEIKHS",
     "definitions": [
      {
       "text": "leaders",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Being overheard",
-      "for": "homophone",
-      "note": "what is overheard reaches you by ear, so the words are taken by sound"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is unnerving",
-      "gives": "SHEIKHS",
-      "soundsLike": "SHAKES",
-      "note": "something unnerving shakes you"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHEIKHS",
+     "indicators": [
+      {
+       "text": "Being overheard",
+       "note": "what is overheard reaches you by ear, so the words are taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is unnerving",
+       "gives": "SHAKES",
+       "note": "something unnerving shakes you"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Being eavesdropped on is unsettling for people in charge.",
      "walkthrough": "SHEIKHS has two pronunciations; the one needed rhymes with 'makes'.",
@@ -645,38 +550,31 @@
    },
    "solution": "BUT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BUT",
     "definitions": [
      {
       "text": "Save",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "deletion",
-      "note": "saving someone from a place takes them out of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "massacre",
-      "gives": "BUTCHER",
-      "note": "to massacre is to butcher"
-     },
-     {
-      "clueFragment": "a singer",
-      "gives": "CHER",
-      "note": "Cher, the American singer; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "saving someone from a place takes them out of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "massacre",
+       "gives": "BUTCHER",
+       "note": "to massacre is to butcher"
+      },
+      {
+       "words": "a singer",
+       "gives": "CHER",
+       "note": "Cher, the American singer; removed"
+      }
      ]
     },
     "explanation": {
@@ -705,11 +603,6 @@
    },
    "solution": "ALEXANDRINE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ALEXANDRINE",
     "definitions": [
      {
       "text": "Poem",
@@ -717,56 +610,51 @@
       "note": "Strictly an alexandrine is a verse line rather than a whole poem."
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "someone drunk is all over the place, so the letters of 'diner' are jumbled"
-     },
-     {
-      "text": "on",
-      "note": "in an across answer, what is on the beer comes after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is beer"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "X",
-      "note": "by = times, the multiplication sign X, as in 3 by 4"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "A as printed"
-     },
-     {
-      "clueFragment": "Northern",
-      "gives": "N",
-      "note": "N = northern"
-     },
-     {
-      "clueFragment": "diner, drunk",
-      "gives": "DRINE",
-      "note": "anagram of DINER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALE",
-      "X",
-      "A",
-      "N",
-      "DRINE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALEXANDRINE",
+     "indicators": [
       {
-       "fodder": "DINER",
-       "gives": "DRINE"
+       "text": "drunk",
+       "note": "someone drunk is all over the place, so the letters of 'diner' are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in an across answer, what is on the beer comes after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "gives": "ALE",
+         "note": "ale is beer"
+        },
+        {
+         "words": "by",
+         "gives": "X",
+         "note": "by = times, the multiplication sign X, as in 3 by 4"
+        },
+        {
+         "words": "a",
+         "note": "A as printed"
+        },
+        {
+         "words": "Northern",
+         "gives": "N",
+         "note": "N = northern"
+        },
+        {
+         "words": "diner, drunk",
+         "gives": "DRINE",
+         "note": "anagram of DINER"
+        }
+       ]
       }
      ]
     },
@@ -797,40 +685,31 @@
    },
    "solution": "STABLEMATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STABLEMATE",
     "definitions": [
      {
       "text": "like us, with The Times",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "a word wearing another has it on, round itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tie",
-      "gives": "STALEMATE",
-      "note": "a chess stalemate is a tie, a draw"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B = British"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "B",
-      "LEMATE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "a word wearing another has it on, round itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tie",
+       "gives": "STALEMATE",
+       "note": "a chess stalemate is a tie, a draw"
+      },
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B = British"
+      }
      ]
     },
     "explanation": {
@@ -860,33 +739,28 @@
    },
    "solution": "SINK",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SINK",
     "definitions": [
      {
       "text": "Founder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a little",
-      "for": "hidden_word",
-      "note": "only a little of the phrase is used, a short stretch from inside it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "business in Kent",
-      "gives": "SINK",
-      "note": "busine(SS IN K)ent"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a little",
+       "note": "only a little of the phrase is used, a short stretch from inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business in Kent",
+       "gives": "SINK",
+       "note": "busine(SS IN K)ent"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The person who started a small firm in Kent.",
      "walkthrough": "'Founder' looks like a person who starts a business; it is the verb, as a ship founders. Kent is a county in south-east England.",
@@ -924,39 +798,34 @@
    },
    "solution": "BYANDLARGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BY AND LARGE",
     "definitions": [
      {
       "text": "on the whole",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "badly managed",
-      "for": "anagram",
-      "note": "something badly managed ends up in disorder, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Anger badly",
-      "gives": "ANGERBADLY",
-      "note": "anagram fodder, 10 letters"
-     },
-     {
-      "clueFragment": "managed",
-      "note": "with 'badly', the anagram indicator"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ANGERBADLY",
-       "gives": "BYANDLARGE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly managed",
+         "note": "something badly managed ends up in disorder, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Anger badly",
+         "note": "anagram fodder, 10 letters"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "managed",
+       "note": "with 'badly', the anagram indicator"
       }
      ]
     },
@@ -996,38 +865,24 @@
    },
    "solution": "ONEHUNDREDYEARS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ONE HUNDRED YEARS",
     "definitions": [
      {
       "text": "a century",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "casually",
-      "for": "anagram",
-      "note": "done casually is done without order or care, so the letters are thrown together"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surrey, one-handed",
-      "gives": "SURREYONEHANDED",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SURREYONEHANDED",
-       "gives": "ONEHUNDREDYEARS"
+       "text": "casually",
+       "note": "done casually is done without order or care, so the letters are thrown together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Surrey, one-handed",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -1064,48 +919,40 @@
    },
    "solution": "ESTATECAR",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ESTATE CAR",
     "definitions": [
      {
       "text": "Vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "from the South",
-      "note": "a down answer normally reads from the north; from the south it reads upwards, reversed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dash",
-      "gives": "RACE",
-      "note": "to dash is to race; reversed to ECAR"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "STATE",
-      "note": "to say is to state"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "STATE",
-      "CAR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "RACE",
-       "to": "ECAR"
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from the South",
+         "note": "a down answer normally reads from the north; from the south it reads upwards, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dash",
+         "gives": "RACE",
+         "note": "to dash is to race; reversed to ECAR"
+        }
+       ]
+      },
+      {
+       "words": "say",
+       "gives": "STATE",
+       "note": "to say is to state"
       }
      ]
     },
@@ -1135,45 +982,38 @@
    },
    "solution": "DYSPHORIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DYSPHORIC",
     "definitions": [
      {
       "text": "Feeling uneasy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "visits",
-      "for": "anagram",
-      "note": "a visitor goes into a place, so I joins the doctor's letters"
-     },
-     {
-      "text": "anyhow",
-      "for": "anagram",
-      "note": "done anyhow is done carelessly, in no order, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "Dr Psycho",
-      "gives": "DRPSYCHO",
-      "note": "anagram fodder with I, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IDRPSYCHO",
-       "gives": "DYSPHORIC"
+       "text": "visits",
+       "note": "a visitor goes into a place, so I joins the doctor's letters"
+      },
+      {
+       "text": "anyhow",
+       "note": "done anyhow is done carelessly, in no order, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one"
+        },
+        {
+         "words": "Dr Psycho",
+         "note": "anagram fodder with I, 9 letters"
+        }
+       ]
       }
      ]
     },
@@ -1214,28 +1054,16 @@
    },
    "solution": "LETTERSOFINTENT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LETTERS OF INTENT",
     "definitions": [
      {
       "text": "What could make nettin'",
-      "at": 0
+      "at": 0,
+      "meaning": "the six letters of a word meaning purpose rearrange to spell NETTIN"
      },
      {
       "text": "post to frame goals",
-      "at": 28
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What could make nettin'",
-      "note": "the six letters of a word meaning purpose rearrange to spell NETTIN"
-     },
-     {
-      "clueFragment": "post to frame goals",
-      "note": "post = mail, written to frame, set out, what you aim to do"
+      "at": 28,
+      "meaning": "post = mail, written to frame, set out, what you aim to do"
      }
     ],
     "explanation": {
@@ -1265,36 +1093,39 @@
    },
    "solution": "LOWBROW",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LOWBROW",
     "definitions": [
      {
       "text": "unrefined",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "what is heard is taken by sound, so the two words are said aloud together"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of the ear",
-      "gives": "LOWB",
-      "soundsLike": "LOBE",
-      "note": "the ear lobe"
-     },
-     {
-      "clueFragment": "noise",
-      "gives": "ROW",
-      "note": "a row is a din, rhyming with cow"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "LOWB",
+       "indicators": [
+        {
+         "text": "heard",
+         "note": "what is heard is taken by sound, so the two words are said aloud together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Part of the ear",
+         "gives": "LOBE",
+         "note": "the ear lobe"
+        }
+       ]
+      },
+      {
+       "words": "noise",
+       "gives": "ROW",
+       "note": "a row is a din, rhyming with cow"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some part of someone's ear picked up a crude noise.",
      "walkthrough": "Say LOBE ROW quickly and it is LOW BROW: the B slides from the first word to the second.",
@@ -1321,51 +1152,41 @@
    },
    "solution": "TOLSTOY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TOLSTOY",
     "definitions": [
      {
       "text": "author",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "note": "something rejected is sent back"
-     },
-     {
-      "text": "by",
-      "note": "by means next to, so the two pieces sit side by side"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Opening",
-      "gives": "SLOT",
-      "note": "a slot is an opening; reversed to TOLS"
-     },
-     {
-      "clueFragment": "play",
-      "gives": "TOY",
-      "note": "to play is to toy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOLS",
-      "TOY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "SLOT",
-       "to": "TOLS"
+       "text": "rejected",
+       "note": "something rejected is sent back"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "by means next to, so the two pieces sit side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Opening",
+         "gives": "SLOT",
+         "note": "a slot is an opening; reversed to TOLS"
+        }
+       ]
+      },
+      {
+       "words": "play",
+       "gives": "TOY",
+       "note": "to play is to toy"
       }
      ]
     },
@@ -1395,45 +1216,35 @@
    },
    "solution": "WETA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "WETA",
     "definitions": [
      {
       "text": "large insect",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "to turn about is to face the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wife",
-      "gives": "W",
-      "note": "W = wife"
-     },
-     {
-      "clueFragment": "worried",
-      "gives": "ATE",
-      "note": "as in 'what's eating you?': ate = worried; reversed to ETA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ETA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ATE",
-       "to": "ETA"
+       "words": "Wife",
+       "gives": "W",
+       "note": "W = wife"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to turn about is to face the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worried",
+         "gives": "ATE",
+         "note": "as in 'what's eating you?': ate = worried; reversed to ETA"
+        }
+       ]
       }
      ]
     },
@@ -1463,26 +1274,25 @@
    },
    "solution": "THIMBLEFUL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THIMBLEFUL",
     "definitions": [
      {
       "text": "Maximum measure of digital protection?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "digital protection",
-      "note": "the surface wants computer security; the setter means a guard for a digit, a finger, when sewing"
-     },
-     {
-      "clueFragment": "Maximum measure of",
-      "note": "as much as that guard can hold when filled to the brim"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "digital protection",
+       "note": "the surface wants computer security; the setter means a guard for a digit, a finger, when sewing"
+      },
+      {
+       "words": "Maximum measure of",
+       "note": "as much as that guard can hold when filled to the brim"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about the most security a computer system can have.",
      "walkthrough": "'Digital protection' sounds like cybersecurity; it is a thimble on a finger, and a THIMBLEFUL is a tiny amount.",
@@ -1510,35 +1320,25 @@
    },
    "solution": "MELON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MELON",
     "definitions": [
      {
       "text": "Something fruity",
       "at": 0
      }
     ],
-    "linkWords": [
-     "produced by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M = male"
-     },
-     {
-      "clueFragment": "Musk",
-      "gives": "ELON",
-      "note": "Elon Musk, the businessman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ELON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M = male"
+      },
+      {
+       "words": "Musk",
+       "gives": "ELON",
+       "note": "Elon Musk, the businessman"
+      }
      ]
     },
     "explanation": {
@@ -1568,48 +1368,35 @@
    },
    "solution": "FREYA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "FREYA",
     "definitions": [
      {
       "text": "a goddess",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "brought up",
-      "for": "reversal",
-      "note": "brought up means raised, so in a down answer the name is read upwards"
-     }
-    ],
-    "linkWords": [
-     "with which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frequency",
-      "gives": "F",
-      "note": "F = frequency"
-     },
-     {
-      "clueFragment": "a philosopher",
-      "gives": "AYER",
-      "note": "A. J. Ayer, the British philosopher; reversed to REYA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "REYA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AYER",
-       "to": "REYA"
+       "words": "Frequency",
+       "gives": "F",
+       "note": "F = frequency"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "note": "brought up means raised, so in a down answer the name is read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a philosopher",
+         "gives": "AYER",
+         "note": "A. J. Ayer, the British philosopher; reversed to REYA"
+        }
+       ]
       }
      ]
     },
@@ -1639,38 +1426,31 @@
    },
    "solution": "OWLS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OWLS",
     "definitions": [
      {
       "text": "hooters",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "blowing",
-      "for": "deletion",
-      "note": "to blow a chance or money is to lose it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vessels",
-      "gives": "BOWLS",
-      "note": "bowls are vessels"
-     },
-     {
-      "clueFragment": "bass",
-      "gives": "B",
-      "note": "B = bass in music; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OWLS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "blowing",
+       "note": "to blow a chance or money is to lose it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vessels",
+       "gives": "BOWLS",
+       "note": "bowls are vessels"
+      },
+      {
+       "words": "bass",
+       "gives": "B",
+       "note": "B = bass in music; removed"
+      }
      ]
     },
     "explanation": {
@@ -1700,53 +1480,42 @@
    },
    "solution": "ROCKWARBLER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ROCK WARBLER",
     "definitions": [
      {
       "text": "Aussie singer",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Silly",
-      "for": "anagram",
-      "note": "something silly is senseless and out of order, so the letters of 'brawl' are jumbled"
-     },
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old biker",
-      "gives": "ROCKER",
-      "note": "rockers were 1960s British bikers, rivals of the mods"
-     },
-     {
-      "clueFragment": "Silly brawl",
-      "gives": "WARBL",
-      "note": "anagram of BRAWL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROCK",
-      "WARBL",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ROCKWARBLER",
+     "indicators": [
       {
-       "fodder": "BRAWL",
-       "gives": "WARBL"
+       "text": "Silly",
+       "note": "something silly is senseless and out of order, so the letters of 'brawl' are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old biker",
+         "gives": "ROCKER",
+         "note": "rockers were 1960s British bikers, rivals of the mods"
+        },
+        {
+         "words": "Silly brawl",
+         "gives": "WARBL",
+         "note": "anagram of BRAWL"
+        }
+       ]
       }
      ]
     },
@@ -1777,46 +1546,51 @@
    },
    "solution": "EFT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EFT",
     "definitions": [
      {
       "text": "One's seen in ponds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of something is its end, so the last letter of 'the' is taken"
-     },
-     {
-      "text": "banks",
-      "for": "letter_selection",
-      "note": "a river's banks are its two edges, so only the outside letters of 'fact' are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close to the",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of thE"
-     },
-     {
-      "clueFragment": "banks in fact",
-      "gives": "FT",
-      "select": "outer",
-      "note": "outer letters of FacT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "FT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of something is its end, so the last letter of 'the' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to the",
+         "gives": "THE",
+         "note": "last letter of thE"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "FT",
+       "indicators": [
+        {
+         "text": "banks",
+         "note": "a river's banks are its two edges, so only the outside letters of 'fact' are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "banks in fact",
+         "gives": "FT",
+         "select": "outer",
+         "note": "outer letters of FacT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1845,37 +1619,28 @@
    },
    "solution": "WORDS",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "WORDS",
     "definitions": [
      {
       "text": "angry talk",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "initial thrust forward",
-      "for": "cycling",
-      "note": "a thrust pushes something ahead, so the first letter is shoved on to the far end"
-     }
-    ],
-    "linkWords": [
-     "produces"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weapon's",
-      "gives": "SWORD",
-      "note": "a sword is a weapon; its S moves to the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WORD",
-      "S"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "WORDS",
+     "indicators": [
+      {
+       "text": "initial thrust forward",
+       "note": "a thrust pushes something ahead, so the first letter is shoved on to the far end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Weapon's",
+       "gives": "SWORD",
+       "note": "a sword is a weapon; its S moves to the end"
+      }
      ]
     },
     "explanation": {
@@ -1904,48 +1669,49 @@
    },
    "solution": "CENTENARY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "CENTENARY",
     "definitions": [
      {
       "text": "anniversary",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "note": "take the extremes, the two ends, of 'noteworthy'"
-     },
-     {
-      "text": "cryptic",
-      "note": "something cryptic is puzzling and obscure, so the letters are disguised by rearranging"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremely noteworthy",
-      "gives": "NY",
-      "select": "outer",
-      "note": "outer letters of NoteworthY"
-     },
-     {
-      "clueFragment": "a recent",
-      "gives": "ARECENT",
-      "note": "anagram fodder with NY, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NYARECENT",
-       "gives": "CENTENARY"
+       "text": "Extremely",
+       "note": "take the extremes, the two ends, of 'noteworthy'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "note": "something cryptic is puzzling and obscure, so the letters are disguised by rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "NY",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Extremely noteworthy",
+           "gives": "NY",
+           "select": "outer",
+           "note": "outer letters of NoteworthY"
+          }
+         ]
+        },
+        {
+         "words": "a recent",
+         "note": "anagram fodder with NY, 9 letters"
+        }
+       ]
       }
      ]
     },

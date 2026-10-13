@@ -1,8 +1,6 @@
 {
  "id": "times-29436",
  "number": 29436,
- "series": "times",
- "name": "Times cryptic crossword No 29,436",
  "date": "2026-01-10",
  "dimensions": {
   "cols": 15,
@@ -41,12 +39,6 @@
    },
    "solution": "TAILBACK",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "TAILBACK",
     "definitions": [
      {
       "text": "traffic",
@@ -54,49 +46,46 @@
       "note": "'traffic' stands for the queue it forms, a tailback"
      }
     ],
-    "indicators": [
-     {
-      "text": "westbound",
-      "for": "reversal",
-      "note": "in an across clue, heading west means reading right to left"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "what comes finally in a word is its closing letter, so only that one is used"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Follow",
-      "gives": "TAIL",
-      "note": "to tail someone is to follow them"
-     },
-     {
-      "clueFragment": "westbound taxi",
-      "gives": "BAC",
-      "note": "CAB, a taxi, run backwards"
-     },
-     {
-      "clueFragment": "stuck",
-      "gives": "K",
-      "select": "last",
-      "note": "last letter of 'stuck'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAIL",
-      "BAC",
-      "K"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TAILBACK",
+     "indicators": [
       {
-       "from": "CAB",
-       "to": "BAC"
+       "text": "westbound",
+       "note": "in an across clue, heading west means reading right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Follow",
+         "gives": "TAIL",
+         "note": "to tail someone is to follow them"
+        },
+        {
+         "words": "westbound taxi",
+         "gives": "BAC",
+         "note": "CAB, a taxi, run backwards"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "what comes finally in a word is its closing letter, so only that one is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stuck",
+           "note": "last letter of 'stuck'"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -126,40 +115,31 @@
    },
    "solution": "TOBAGO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOBAGO",
     "definitions": [
      {
       "text": "Island",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possessing",
-      "for": "container",
-      "note": "the nation holds the airline inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nation",
-      "gives": "TOGO",
-      "note": "Togo, the West African country"
-     },
-     {
-      "clueFragment": "major airline",
-      "gives": "BA",
-      "note": "British Airways"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "BA",
-      "GO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "possessing",
+       "note": "the nation holds the airline inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nation",
+       "gives": "TOGO",
+       "note": "Togo, the West African country"
+      },
+      {
+       "words": "major airline",
+       "gives": "BA",
+       "note": "British Airways"
+      }
      ]
     },
     "explanation": {
@@ -188,47 +168,42 @@
    },
    "solution": "IMPREST",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "IMPREST",
     "definitions": [
      {
       "text": "government advance",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "as it is reported, i.e. spoken: go by the sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "million",
-      "gives": "M",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "importuned",
-      "gives": "PREST",
-      "soundsLike": "PRESSED",
-      "note": "to importune is to press someone; PREST is said like 'pressed'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "PREST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "million",
+       "gives": "M",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PREST",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "as it is reported, i.e. spoken: go by the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "importuned",
+         "gives": "PRESSED",
+         "note": "to importune is to press someone; PREST is said like 'pressed'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -263,26 +238,25 @@
    },
    "solution": "BBCENGLISH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BBC ENGLISH",
     "definitions": [
      {
       "text": "In which Auntie delivers the news?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In which Auntie",
-      "note": "reads as a relative; Auntie (Auntie Beeb) is the British nickname for the BBC"
-     },
-     {
-      "clueFragment": "delivers the news?",
-      "note": "reads as passing on gossip; the setter means the accent in which BBC newsreaders read the bulletins"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "In which Auntie",
+       "note": "reads as a relative; Auntie (Auntie Beeb) is the British nickname for the BBC"
+      },
+      {
+       "words": "delivers the news?",
+       "note": "reads as passing on gossip; the setter means the accent in which BBC newsreaders read the bulletins"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A family aunt passing on the gossip in her own way.",
      "walkthrough": "Auntie is the BBC, Britain's public broadcaster, and BBC English is the standard accent its newsreaders were once known for.",
@@ -316,26 +290,25 @@
    },
    "solution": "CARPETSWEEPER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CARPET-SWEEPER",
     "definitions": [
      {
       "text": "It'll make a tidy pile?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It'll make a tidy",
-      "note": "reads as a machine that stacks things neatly; the setter means one that cleans"
-     },
-     {
-      "clueFragment": "pile?",
-      "note": "reads as a heap; the setter means the soft raised nap of a carpet"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It'll make a tidy",
+       "note": "reads as a machine that stacks things neatly; the setter means one that cleans"
+      },
+      {
+       "words": "pile?",
+       "note": "reads as a heap; the setter means the soft raised nap of a carpet"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something that stacks things up neatly.",
      "walkthrough": "'A tidy pile' suggests a neat heap; the pile here is the soft nap of a carpet, which the sweeper leaves clean.",
@@ -363,48 +336,41 @@
    },
    "solution": "ESCHEW",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ESCHEW",
     "definitions": [
      {
       "text": "Shun",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "the artist drops a letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dutch artist",
-      "gives": "ESCHER",
-      "note": "M. C. Escher, the Dutch graphic artist"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R is the symbol for electrical resistance; it is removed"
-     },
-     {
-      "clueFragment": "whiskey",
-      "gives": "W",
-      "note": "W in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESCHE",
-      "W"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "note": "the artist drops a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dutch artist",
+         "gives": "ESCHER",
+         "note": "M. C. Escher, the Dutch graphic artist"
+        },
+        {
+         "words": "resistance",
+         "gives": "R",
+         "note": "R is the symbol for electrical resistance; it is removed"
+        }
+       ]
+      },
+      {
+       "words": "whiskey",
+       "gives": "W",
+       "note": "W in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -433,34 +399,29 @@
    },
    "solution": "SUNK",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SUNK",
     "definitions": [
      {
       "text": "lost",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "In a nutshell",
-      "for": "deletion",
-      "note": "put briefly, so the name is cut short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Louis XIV",
-      "gives": "SUNKING",
-      "note": "Louis XIV of France was known by his nickname as the monarch of the sun; the final three letters are cut"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "K"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "In a nutshell",
+       "note": "put briefly, so the name is cut short"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Louis XIV",
+       "gives": "SUNKING",
+       "note": "Louis XIV of France was known by his nickname as the monarch of the sun; the final three letters are cut"
+      },
+      {
+       "gives": "ING"
+      }
      ]
     },
     "explanation": {
@@ -489,50 +450,40 @@
    },
    "solution": "HEIRESS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HEIRESS",
     "definitions": [
      {
       "text": "She'll come into property",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "No 1",
-      "for": "letter_selection",
-      "note": "the number-one letter, the first"
-     }
-    ],
-    "linkWords": [
-     "via"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "select": "first",
-      "note": "H in the NATO alphabet"
-     },
-     {
-      "clueFragment": "Ireland's",
-      "gives": "EIRES",
-      "note": "Eire is Ireland; with the possessive, EIRE'S"
-     },
-     {
-      "clueFragment": "staycations",
-      "gives": "S",
-      "note": "first letter of 'staycations'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "EIRES",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "No 1",
+         "note": "the number-one letter, the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hotel",
+         "note": "H in the NATO alphabet"
+        }
+       ]
+      },
+      {
+       "words": "Ireland's",
+       "gives": "EIRES",
+       "note": "Eire is Ireland; with the possessive, EIRE'S"
+      },
+      {
+       "words": "staycations",
+       "gives": "S",
+       "note": "first letter of 'staycations'"
+      }
      ]
     },
     "explanation": {
@@ -561,53 +512,45 @@
    },
    "solution": "WOEFULLY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WOEFULLY",
     "definitions": [
      {
       "text": "Sadly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its closing letter, so only that letter of 'marriage' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O = over, in cricket scoring"
-     },
-     {
-      "clueFragment": "marriage",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of 'marriage'"
-     },
-     {
-      "clueFragment": "completely",
-      "gives": "FULLY",
-      "note": "fully = completely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "O",
-      "E",
-      "FULLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "over",
+       "gives": "O",
+       "note": "O = over, in cricket scoring"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its closing letter, so only that letter of 'marriage' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "marriage",
+         "note": "last letter of 'marriage'"
+        }
+       ]
+      },
+      {
+       "words": "completely",
+       "gives": "FULLY",
+       "note": "fully = completely"
+      }
      ]
     },
     "explanation": {
@@ -636,40 +579,31 @@
    },
    "solution": "BAP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BAP",
     "definitions": [
      {
       "text": "Roll",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "probing",
-      "for": "container",
-      "note": "the article goes into the oil company"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "oil giant",
-      "gives": "BP",
-      "note": "BP, the British oil company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "A",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probing",
+       "note": "the article goes into the oil company"
+      }
+     ],
+     "parts": [
+      {
+       "words": "oil giant",
+       "gives": "BP",
+       "note": "BP, the British oil company"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -704,35 +638,24 @@
    },
    "solution": "CARAVANSITE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARAVAN SITE",
     "definitions": [
      {
       "text": "trailer park",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Terrible",
-      "for": "anagram",
-      "note": "the letters are in a terrible state, so rearrange them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rains, vacate",
-      "gives": "RAINSVACATE",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAINS VACATE",
-       "gives": "CARAVANSITE"
+       "text": "Terrible",
+       "note": "the letters are in a terrible state, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rains, vacate",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -768,63 +691,63 @@
    },
    "solution": "VACUUMCLEANER",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "VACUUM CLEANER",
     "definitions": [
      {
       "text": "it sucks",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "the clue words are in poor order, so rearrange them"
-     },
-     {
-      "text": "about",
-      "note": "the rearranged letters go around the next piece"
-     },
-     {
-      "text": "depleted",
-      "note": "uranium is emptied, leaving its outside letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Very",
-      "gives": "V",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "arcane clue",
-      "gives": "ACUCLEANER",
-      "note": "anagram fodder, rearranged"
-     },
-     {
-      "clueFragment": "uranium",
-      "gives": "UM",
-      "select": "outer",
-      "note": "URANIUM depleted to its outer letters, placed inside"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ACU",
-      "UM",
-      "CLEANER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "VACUUMCLEANER",
+     "indicators": [
       {
-       "fodder": "ARCANECLUE",
-       "gives": "ACUCLEANER"
+       "text": "poor",
+       "note": "the clue words are in poor order, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the rearranged letters go around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Very",
+         "gives": "V",
+         "note": "standard abbreviation"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "depleted",
+           "note": "uranium is emptied, leaving its outside letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arcane clue",
+           "gives": "ACUCLEANER",
+           "note": "anagram fodder, rearranged"
+          },
+          {
+           "op": "outer",
+           "parts": [
+            {
+             "words": "uranium",
+             "note": "URANIUM depleted to its outer letters, placed inside"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -855,48 +778,36 @@
    },
    "solution": "GREENPEACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GREENPEACE",
     "definitions": [
      {
       "text": "pressure group",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "up front",
-      "for": "charade",
-      "note": "the first piece goes before the others"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One shelled out",
-      "gives": "GREENPEA",
-      "note": "a green pea is one taken out of its pod"
-     },
-     {
-      "clueFragment": "100",
-      "gives": "C",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "Euros",
-      "gives": "E",
-      "note": "E = euro(s)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREENPEA",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "up front",
+       "note": "the first piece goes before the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One shelled out",
+       "gives": "GREENPEA",
+       "note": "a green pea is one taken out of its pod"
+      },
+      {
+       "words": "100",
+       "gives": "C",
+       "note": "Roman numeral"
+      },
+      {
+       "words": "Euros",
+       "gives": "E",
+       "note": "E = euro(s)"
+      }
      ]
     },
     "explanation": {
@@ -926,32 +837,25 @@
    },
    "solution": "MENU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MENU",
     "definitions": [
      {
       "text": "list of options",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Staff",
-      "gives": "MEN",
-      "note": "staff = workers, men"
-     },
-     {
-      "clueFragment": "uniform",
-      "gives": "U",
-      "note": "U in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEN",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Staff",
+       "gives": "MEN",
+       "note": "staff = workers, men"
+      },
+      {
+       "words": "uniform",
+       "gives": "U",
+       "note": "U in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -980,60 +884,53 @@
    },
    "solution": "DEBAUCHERY",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "DEBAUCHERY",
     "definitions": [
      {
       "text": "lewd behaviour",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Rolling over",
-      "for": "reversal",
-      "note": "something rolling over turns upside down, so the letters of the phrase are read in reverse"
-     },
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "each word loses its top, i.e. first letter"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in the sack",
-      "gives": "ABED",
-      "note": "the sack = bed; abed = in bed"
-     },
-     {
-      "clueFragment": "such",
-      "gives": "UCH",
-      "note": "SUCH without its first letter"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "ERY",
-      "note": "VERY without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEBA",
-      "UCH",
-      "ERY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DEBAUCHERY",
+     "indicators": [
       {
-       "from": "ABED",
-       "to": "DEBA"
+       "text": "topless",
+       "note": "each word loses its top, i.e. first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "Rolling over",
+           "note": "something rolling over turns upside down, so the letters of the phrase are read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in the sack",
+           "gives": "ABED",
+           "note": "the sack = bed; abed = in bed"
+          }
+         ]
+        },
+        {
+         "words": "such",
+         "gives": "UCH",
+         "note": "SUCH without its first letter"
+        },
+        {
+         "words": "very",
+         "gives": "ERY",
+         "note": "VERY without its first letter"
+        }
+       ]
       }
      ]
     },
@@ -1063,26 +960,25 @@
    },
    "solution": "STYLUS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "STYLUS",
     "definitions": [
      {
       "text": "One enabling record broadcast?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One enabling",
-      "note": "reads as a person who makes something possible; the setter means a small part of a machine"
-     },
-     {
-      "clueFragment": "record broadcast?",
-      "note": "reads as putting a recording on air; the setter means a vinyl record sending out its sound as it plays"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One enabling",
+       "note": "reads as a person who makes something possible; the setter means a small part of a machine"
+      },
+      {
+       "words": "record broadcast?",
+       "note": "reads as putting a recording on air; the setter means a vinyl record sending out its sound as it plays"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone who makes it possible to put a recording on air.",
      "walkthrough": "The surface suggests radio; a stylus is the needle that lets a record be heard.",
@@ -1110,40 +1006,39 @@
    },
    "solution": "UTENSIL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "UTENSIL",
     "definitions": [
      {
       "text": "tool",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "a word without its end is missing its closing letter, so the final E goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Universal",
-      "gives": "U",
-      "note": "U = universal, the film certificate"
-     },
-     {
-      "clueFragment": "expandable",
-      "gives": "TENSILE",
-      "note": "tensile = capable of being stretched; the final E goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "TENSIL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "a word without its end is missing its closing letter, so the final E goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Universal",
+         "gives": "U",
+         "note": "U = universal, the film certificate"
+        },
+        {
+         "words": "expandable",
+         "gives": "TENSILE",
+         "note": "tensile = capable of being stretched; the final E goes"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1172,35 +1067,24 @@
    },
    "solution": "OBLIGATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OBLIGATE",
     "definitions": [
      {
       "text": "Bind by duty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "easily",
-      "for": "anagram",
-      "note": "the letters go easily, loosely, into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "albeit go",
-      "gives": "ALBEITGO",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALBEIT GO",
-       "gives": "OBLIGATE"
+       "text": "easily",
+       "note": "the letters go easily, loosely, into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "albeit go",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1230,44 +1114,41 @@
    },
    "solution": "BRASSIE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BRASSIE",
     "definitions": [
      {
       "text": "Golf club",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overlooking",
-      "for": "deletion",
-      "note": "ignoring, so leave the letters out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "restaurant",
-      "gives": "BRASSERIE",
-      "note": "an informal French-style restaurant"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "compass-point abbreviation; removed"
-     },
-     {
-      "clueFragment": "River",
-      "gives": "R",
-      "note": "standard map abbreviation; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRASS",
-      "IE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "overlooking",
+       "note": "ignoring, so leave the letters out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "restaurant",
+       "gives": "BRASSERIE",
+       "note": "an informal French-style restaurant"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East",
+         "gives": "E",
+         "note": "compass-point abbreviation; removed"
+        },
+        {
+         "words": "River",
+         "gives": "R",
+         "note": "standard map abbreviation; removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1296,30 +1177,28 @@
    },
    "solution": "AILMENT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AILMENT",
     "definitions": [
      {
       "text": "indisposition",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "hidden_word",
-      "note": "the words hold the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frail mentally",
-      "gives": "AILMENT",
-      "note": "frAIL MENTally"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "the words hold the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Frail mentally",
+       "gives": "AILMENT",
+       "note": "frAIL MENTally"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone mentally fragile who is hiding their illness.",
      "walkthrough": "The surface is medical, which fits the answer and makes the hidden word easy to overlook.",
@@ -1345,32 +1224,25 @@
    },
    "solution": "CHASTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHASTE",
     "definitions": [
      {
       "text": "Modest",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Charles",
-      "gives": "CHAS",
-      "note": "Chas is a short form of Charles"
-     },
-     {
-      "clueFragment": "Lawrence",
-      "gives": "TE",
-      "note": "T. E. Lawrence, Lawrence of Arabia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAS",
-      "TE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charles",
+       "gives": "CHAS",
+       "note": "Chas is a short form of Charles"
+      },
+      {
+       "words": "Lawrence",
+       "gives": "TE",
+       "note": "T. E. Lawrence, Lawrence of Arabia"
+      }
      ]
     },
     "explanation": {
@@ -1405,35 +1277,24 @@
    },
    "solution": "THEMAGI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE MAGI",
     "definitions": [
      {
       "text": "Gifted group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "produced",
-      "for": "anagram",
-      "note": "the letters are worked up into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "megahit",
-      "gives": "MEGAHIT",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MEGAHIT",
-       "gives": "THEMAGI"
+       "text": "produced",
+       "note": "the letters are worked up into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "megahit",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1464,36 +1325,33 @@
    },
    "solution": "ISAIAH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ISAIAH",
     "definitions": [
      {
       "text": "prophet",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "to Cockneys",
-      "for": "homophone",
-      "note": "Cockneys drop the H at the start of a word"
-     },
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "as spoken, go by the sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "\"Look up to Cockneys\"",
-      "gives": "ISAIAH",
-      "soundsLike": "I SAY 'IGH",
-      "note": "look = 'I say!'; up = HIGH, which a Cockney says as 'IGH"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ISAIAH",
+     "indicators": [
+      {
+       "text": "to Cockneys",
+       "note": "Cockneys drop the H at the start of a word"
+      },
+      {
+       "text": "said",
+       "note": "as spoken, go by the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "\"Look up to Cockneys\"",
+       "gives": "ISAYIGH",
+       "note": "look = 'I say!'; up = HIGH, which a Cockney says as 'IGH"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A prophet telling people to respect Londoners.",
      "walkthrough": "Cockneys are working-class East Londoners, famous for dropping the H. 'I say!' is an old British exclamation, like 'look!'.",
@@ -1521,34 +1379,37 @@
    },
    "solution": "IDLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "IDLE",
     "definitions": [
      {
       "text": "Python",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after shedding skin",
-      "note": "the word loses its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moved sideways",
-      "gives": "SIDLED",
-      "select": "outer",
-      "note": "sidled = moved sideways; S and D go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IDLE",
+     "indicators": [
+      {
+       "text": "after shedding skin",
+       "note": "the word loses its outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "SIDLED",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "moved sideways",
+         "gives": "SIDLED",
+         "select": "outer",
+         "note": "sidled = moved sideways; S and D go"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1583,26 +1444,25 @@
    },
    "solution": "SPEEDCHESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPEED CHESS",
     "definitions": [
      {
       "text": "In which there's a rush to mate?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "In which there's a rush",
-      "note": "reads as a scramble or hurry; the setter means a game played against a very short clock"
-     },
-     {
-      "clueFragment": "to mate?",
-      "note": "reads as finding a partner; the setter means delivering checkmate"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "In which there's a rush",
+       "note": "reads as a scramble or hurry; the setter means a game played against a very short clock"
+      },
+      {
+       "words": "to mate?",
+       "note": "reads as finding a partner; the setter means delivering checkmate"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A situation where people hurry to find a partner.",
      "walkthrough": "'Rush to mate' suggests romance; the mate is checkmate, delivered against the clock.",
@@ -1630,33 +1490,16 @@
    },
    "solution": "STIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STIR",
     "definitions": [
      {
       "text": "Cause disturbance",
-      "at": 0
+      "at": 0,
+      "meaning": "to agitate, as when causing trouble among people"
      },
      {
       "text": "prison",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cause disturbance",
-      "gives": "STIR",
-      "note": "to agitate, as when causing trouble among people"
-     },
-     {
-      "clueFragment": "prison",
-      "gives": "STIR",
-      "note": "old British slang for jail"
+      "at": 21,
+      "meaning": "old British slang for jail"
      }
     ],
     "explanation": {
@@ -1691,58 +1534,50 @@
    },
    "solution": "AGENTORANGE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "AGENT ORANGE",
     "definitions": [
      {
       "text": "defoliant",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "to spread",
-      "note": "the letters spread out into a new order"
-     },
-     {
-      "text": "following",
-      "note": "the rearranged letters come after the first piece"
-     },
-     {
-      "text": "introduction of",
-      "note": "the introduction of a word is its opening, so only its first letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "awful",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of 'awful'"
-     },
-     {
-      "clueFragment": "Gangrene to",
-      "gives": "GANGRENETO",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GENTORANGE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "A GANGRENE TO",
-       "gives": "AGENTORANGE"
+       "text": "to spread",
+       "note": "the letters spread out into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "the rearranged letters come after the first piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "awful",
+         "note": "first letter of 'awful'"
+        }
+       ]
       },
       {
-       "fodder": "GANGRENETO",
-       "gives": "GENTORANGE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "introduction of",
+         "note": "the introduction of a word is its opening, so only its first letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gangrene to",
+         "note": "anagram fodder, 10 letters"
+        }
+       ]
       }
      ]
     },
@@ -1772,36 +1607,25 @@
    },
    "solution": "ALI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ALI",
     "definitions": [
      {
       "text": "Heavyweight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly suffering losses",
-      "for": "letter_selection",
-      "note": "letters are lost at regular intervals, every other one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tabloid",
-      "gives": "ALI",
-      "select": "alternate",
-      "note": "tAbLoId: the even letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "I"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly suffering losses",
+       "note": "letters are lost at regular intervals, every other one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tabloid",
+       "note": "tAbLoId: the even letters"
+      }
      ]
     },
     "explanation": {
@@ -1830,45 +1654,41 @@
    },
    "solution": "EATERY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EATERY",
     "definitions": [
      {
       "text": "Restaurant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after cancelling",
-      "for": "deletion",
-      "note": "cancelling something removes it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tidier",
-      "gives": "NEATER",
-      "note": "neater = tidier"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "standard abbreviation; cancelled"
-     },
-     {
-      "clueFragment": "Year",
-      "gives": "Y",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EATER",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after cancelling",
+         "note": "cancelling something removes it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tidier",
+         "gives": "NEATER",
+         "note": "neater = tidier"
+        },
+        {
+         "words": "New",
+         "gives": "N",
+         "note": "standard abbreviation; cancelled"
+        }
+       ]
+      },
+      {
+       "words": "Year",
+       "gives": "Y",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1897,52 +1717,51 @@
    },
    "solution": "CRAYFISH",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CRAYFISH",
     "definitions": [
      {
       "text": "seafood",
       "at": 68
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "note": "the rash takes the letters inside it"
-     },
-     {
-      "text": "starters of",
-      "note": "a starter is what comes first, so each word gives its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caught",
-      "gives": "C",
-      "select": "first",
-      "note": "c = caught, in cricket scoring"
-     },
-     {
-      "clueFragment": "symptom of plague",
-      "gives": "RASH",
-      "note": "a rash is a symptom"
-     },
-     {
-      "clueFragment": "yesterday's frozen iffy",
-      "gives": "YFI",
-      "note": "first letters, placed inside RASH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RA",
-      "YFI",
-      "SH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "the rash takes the letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starters of",
+         "note": "a starter is what comes first, so each word gives its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caught",
+         "note": "c = caught, in cricket scoring"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "symptom of plague",
+         "gives": "RASH",
+         "note": "a rash is a symptom"
+        },
+        {
+         "words": "yesterday's frozen iffy",
+         "gives": "YFI",
+         "note": "first letters, placed inside RASH"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

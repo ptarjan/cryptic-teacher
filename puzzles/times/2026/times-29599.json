@@ -1,8 +1,6 @@
 {
  "id": "times-29599",
  "number": 29599,
- "series": "times",
- "name": "Times cryptic crossword No 29,599",
  "date": "2026-07-20",
  "dimensions": {
   "cols": 15,
@@ -41,50 +39,51 @@
    },
    "solution": "OCCIDENTAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "OCCIDENTAL",
     "definitions": [
      {
       "text": "western",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "note": "a shot thing is wrecked, so its letters are scrambled"
-     },
-     {
-      "text": "framing",
-      "note": "the scrambled letters surround the next piece like a frame"
-     },
-     {
-      "text": "first",
-      "note": "take only the opening letter of Coppola"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Action-led",
-      "gives": "ACTIONLED",
-      "note": "anagram fodder, 9 letters"
-     },
-     {
-      "clueFragment": "Coppola's first",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Coppola, set inside the scrambled letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ACTIONLED C",
-       "gives": "OCCIDENTAL"
+       "text": "shot",
+       "note": "a shot thing is wrecked, so its letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "framing",
+         "note": "the scrambled letters surround the next piece like a frame"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Action-led",
+         "note": "anagram fodder, 9 letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "take only the opening letter of Coppola"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Coppola's first",
+         "gives": "COPPOLAFIRST",
+         "note": "first letter of Coppola, set inside the scrambled letters"
+        }
+       ]
       }
      ]
     },
@@ -114,45 +113,41 @@
    },
    "solution": "OSAKA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OSAKA",
     "definitions": [
      {
       "text": "city",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "the letters for 'fine area' sit outside the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fine",
-      "gives": "OK",
-      "note": "OK = fine"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A = area"
-     },
-     {
-      "clueFragment": "South American",
-      "gives": "SA",
-      "note": "SA = South American, placed between the O and the KA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "SA",
-      "KA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "the letters for 'fine area' sit outside the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fine",
+         "gives": "OK",
+         "note": "OK = fine"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "A = area"
+        }
+       ]
+      },
+      {
+       "words": "South American",
+       "gives": "SA",
+       "note": "SA = South American, placed between the O and the KA"
+      }
      ]
     },
     "explanation": {
@@ -181,41 +176,37 @@
    },
    "solution": "CATERWAUL",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "CATERWAUL",
     "definitions": [
      {
       "text": "Beastly noise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for ears",
-      "for": "homophone",
-      "note": "what follows is meant for the ears, so take its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "provide",
-      "gives": "CATER",
-      "note": "to cater = to provide (food)"
-     },
-     {
-      "clueFragment": "barrier",
-      "gives": "WAUL",
-      "soundsLike": "WALL",
-      "note": "a wall is a barrier; WAUL is pronounced the same"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CATER",
-      "WAUL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "provide",
+       "gives": "CATER",
+       "note": "to cater = to provide (food)"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WAUL",
+       "indicators": [
+        {
+         "text": "for ears",
+         "note": "what follows is meant for the ears, so take its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "barrier",
+         "gives": "WALL",
+         "note": "a wall is a barrier; WAUL is pronounced the same"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -258,49 +249,41 @@
    },
    "solution": "DOGINTHEMANGER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DOG IN THE MANGER",
     "definitions": [
      {
       "text": "Selfish person",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cast",
-      "note": "letters that are cast are thrown into a new shape"
-     },
-     {
-      "text": "in",
-      "note": "the scrambled letters go inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jeopardy",
-      "gives": "DANGER",
-      "note": "jeopardy = danger; it is split D...ANGER around the anagram"
-     },
-     {
-      "clueFragment": "one might",
-      "gives": "OGINTHEM",
-      "note": "anagram of ONE MIGHT, 8 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "OGINTHEM",
-      "ANGER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DOGINTHEMANGER",
+     "parts": [
       {
-       "fodder": "ONEMIGHT",
-       "gives": "OGINTHEM"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cast",
+         "note": "letters that are cast are thrown into a new shape"
+        },
+        {
+         "text": "in",
+         "note": "the scrambled letters go inside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jeopardy",
+         "gives": "DANGER",
+         "note": "jeopardy = danger; it is split D...ANGER around the anagram"
+        },
+        {
+         "words": "one might",
+         "gives": "OGINTHEM",
+         "note": "anagram of ONE MIGHT, 8 letters"
+        }
+       ]
       }
      ]
     },
@@ -331,48 +314,35 @@
    },
    "solution": "NONSLIP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NONSLIP",
     "definitions": [
      {
       "text": "designed to prevent accidents",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "on return",
-      "for": "reversal",
-      "note": "the lager comes back, so its letters read backwards"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "De Gaulle's veto",
-      "gives": "NON",
-      "note": "de Gaulle famously said 'non' to Britain joining the Common Market"
-     },
-     {
-      "clueFragment": "lager",
-      "gives": "PILS",
-      "note": "Pils is a pilsner lager; reversed it gives SLIP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NON",
-      "SLIP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PILS",
-       "to": "SLIP"
+       "words": "De Gaulle's veto",
+       "gives": "NON",
+       "note": "de Gaulle famously said 'non' to Britain joining the Common Market"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on return",
+         "note": "the lager comes back, so its letters read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lager",
+         "gives": "PILS",
+         "note": "Pils is a pilsner lager; reversed it gives SLIP"
+        }
+       ]
       }
      ]
     },
@@ -403,50 +373,45 @@
    },
    "solution": "ALMONER",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ALMONER",
     "definitions": [
      {
       "text": "Charity officer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "abysmal",
-      "for": "anagram",
-      "note": "abysmal morale is in a terrible state, so its letters are rearranged"
-     },
-     {
-      "text": "ending in",
-      "for": "letter_selection",
-      "note": "take only the final letter of depression"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "morale",
-      "gives": "MORALE",
-      "note": "anagram fodder, 6 letters"
-     },
-     {
-      "clueFragment": "ending in depression",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of depressioN"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MORALE N",
-       "gives": "ALMONER"
+       "text": "abysmal",
+       "note": "abysmal morale is in a terrible state, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "morale",
+         "note": "anagram fodder, 6 letters"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending in",
+           "note": "take only the final letter of depression"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ending in depression",
+           "gives": "DEPRESSION",
+           "note": "last letter of depressioN"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -476,32 +441,25 @@
    },
    "solution": "HALS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HALS",
     "definitions": [
      {
       "text": "Painter",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Henry V as a young man",
-      "gives": "HAL",
-      "note": "Prince Hal is Shakespeare's young Henry V"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "S",
-      "note": "'of' read as the possessive ending 's attached to the prince"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAL",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Henry V as a young man",
+       "gives": "HAL",
+       "note": "Prince Hal is Shakespeare's young Henry V"
+      },
+      {
+       "words": "of",
+       "gives": "S",
+       "note": "'of' read as the possessive ending 's attached to the prince"
+      }
      ]
     },
     "explanation": {
@@ -530,40 +488,31 @@
    },
    "solution": "ALIEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALIEN",
     "definitions": [
      {
       "text": "from abroad",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the lie goes inside the article"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "AN is the indefinite article, split A...N"
-     },
-     {
-      "clueFragment": "Deliberate inaccuracy",
-      "gives": "LIE",
-      "note": "a lie is a deliberate inaccuracy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LIE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the lie goes inside the article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "AN is the indefinite article, split A...N"
+      },
+      {
+       "words": "Deliberate inaccuracy",
+       "gives": "LIE",
+       "note": "a lie is a deliberate inaccuracy"
+      }
      ]
     },
     "explanation": {
@@ -598,35 +547,25 @@
    },
    "solution": "SWISSROLL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWISS ROLL",
     "definitions": [
      {
       "text": "part of final course",
       "at": 22
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "National",
-      "gives": "SWISS",
-      "note": "Swiss = a national of Switzerland"
-     },
-     {
-      "clueFragment": "register",
-      "gives": "ROLL",
-      "note": "a roll is a register of names"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWISS",
-      "ROLL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "National",
+       "gives": "SWISS",
+       "note": "Swiss = a national of Switzerland"
+      },
+      {
+       "words": "register",
+       "gives": "ROLL",
+       "note": "a roll is a register of names"
+      }
      ]
     },
     "explanation": {
@@ -666,47 +605,42 @@
    },
    "solution": "BREAKFASTINBED",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "BREAKFAST IN BED",
     "definitions": [
      {
       "text": "luxury dining",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "cook",
-      "note": "to cook something is to work it into a new form, so rearrange the letters"
-     },
-     {
-      "text": "not",
-      "note": "the letter for 'second' is left out"
-     }
-    ],
-    "linkWords": [
-     "For"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "baked beans first",
-      "gives": "BAKEDBEANSFIRST",
-      "note": "anagram fodder, 15 letters before the deletion"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "s = second; remove one S, leaving 14 letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BREAKFASTINBED",
+     "parts": [
       {
-       "fodder": "BAKEDBEANFIRST",
-       "gives": "BREAKFASTINBED"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "BREAKFASTINBED",
+       "indicators": [
+        {
+         "text": "cook",
+         "note": "to cook something is to work it into a new form, so rearrange the letters"
+        },
+        {
+         "text": "not",
+         "note": "the letter for 'second' is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "baked beans first",
+         "note": "anagram fodder, 15 letters before the deletion"
+        },
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "s = second; remove one S, leaving 14 letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -736,54 +670,41 @@
    },
    "solution": "ANTIGEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTIGEN",
     "definitions": [
      {
       "text": "Invasive element",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across clue, 'on' puts the first pieces after the ones that follow"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "conservation society",
-      "gives": "NT",
-      "note": "NT = the National Trust, Britain's heritage and conservation charity"
-     },
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "GEN",
-      "note": "gen is British slang for information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NT",
-      "I",
-      "GEN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, 'on' puts the first pieces after the ones that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A = American"
+      },
+      {
+       "words": "conservation society",
+       "gives": "NT",
+       "note": "NT = the National Trust, Britain's heritage and conservation charity"
+      },
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "information",
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      }
      ]
     },
     "explanation": {
@@ -812,35 +733,32 @@
    },
    "solution": "MARTINI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MARTINI",
     "definitions": [
      {
       "text": "something intoxicating",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Piece of",
-      "for": "hidden_word",
-      "note": "the answer is only a piece of the words that follow"
-     },
-     {
-      "text": "displays",
-      "for": "hidden_word",
-      "note": "the words put the answer on show inside themselves"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "film art initially",
-      "gives": "MARTINI",
-      "note": "filM ART INItially"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Piece of",
+       "note": "the answer is only a piece of the words that follow"
+      },
+      {
+       "text": "displays",
+       "note": "the words put the answer on show inside themselves"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film art initially",
+       "gives": "MARTINI",
+       "note": "filM ART INItially"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A film critic notes that a piece of art first shows something heady.",
      "walkthrough": "'Initially' looks like a first-letter signal, but here it is just part of the text the answer sits in.",
@@ -867,59 +785,59 @@
    },
    "solution": "ADRENALIN",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ADRENALIN",
     "definitions": [
      {
       "text": "cause of power surge?",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "hosts"
-     },
-     {
-      "text": "revolutionary",
-      "note": "a revolutionary network is turned round, so its letters read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plug",
-      "gives": "AD",
-      "note": "to plug a product is to advertise it; an ad is a plug"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "connected to",
-      "gives": "RE",
-      "note": "re = regarding, connected to"
-     },
-     {
-      "clueFragment": "network",
-      "gives": "LAN",
-      "note": "LAN = local area network; reversed it gives NAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "RE",
-      "NAL",
-      "IN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LAN",
-       "to": "NAL"
+       "text": "hosts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "a revolutionary network is turned round, so its letters read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Plug",
+         "gives": "AD",
+         "note": "to plug a product is to advertise it; an ad is a plug"
+        },
+        {
+         "words": "in",
+         "note": "the word itself"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "connected to",
+         "gives": "RE",
+         "note": "re = regarding, connected to"
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "network",
+           "gives": "LAN",
+           "note": "LAN = local area network; reversed it gives NAL"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -950,43 +868,31 @@
    },
    "solution": "AGNES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AGNES",
     "definitions": [
      {
       "text": "Woman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the letter for name goes inside the word for historical times"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "historical times",
-      "gives": "AGES",
-      "note": "ages = long historical periods, split AG...ES"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "n = name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "N",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the letter for name goes inside the word for historical times"
+      }
+     ],
+     "parts": [
+      {
+       "words": "historical times",
+       "gives": "AGES",
+       "note": "ages = long historical periods, split AG...ES"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "n = name"
+      }
      ]
     },
     "explanation": {
@@ -1015,49 +921,42 @@
    },
    "solution": "ROACH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ROACH",
     "definitions": [
      {
       "text": "fish",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "exchanging",
-      "for": "substitution",
-      "note": "one letter is swapped out"
-     },
-     {
-      "text": "for",
-      "for": "substitution",
-      "note": "the penny is replaced by the river"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Catch without licence",
-      "gives": "POACH",
-      "note": "to poach is to catch game or fish illegally"
-     },
-     {
-      "clueFragment": "penny",
-      "gives": "P",
-      "note": "p = penny, the letter removed"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "r = river, the letter put in its place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "OACH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ROACH",
+     "indicators": [
+      {
+       "text": "exchanging",
+       "note": "one letter is swapped out"
+      },
+      {
+       "text": "for",
+       "note": "the penny is replaced by the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Catch without licence",
+       "gives": "POACH",
+       "note": "to poach is to catch game or fish illegally"
+      },
+      {
+       "words": "penny",
+       "gives": "P",
+       "note": "p = penny, the letter removed"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "r = river, the letter put in its place"
+      }
      ]
     },
     "explanation": {
@@ -1086,38 +985,29 @@
    },
    "solution": "REVISITED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REVISITED",
     "definitions": [
      {
       "text": "Went back to see",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "vicar",
-      "gives": "REV",
-      "note": "Rev = Reverend, a vicar's title"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "established in position",
-      "gives": "SITED",
-      "note": "sited = placed, established in position"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REV",
-      "I",
-      "SITED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vicar",
+       "gives": "REV",
+       "note": "Rev = Reverend, a vicar's title"
+      },
+      {
+       "words": "I",
+       "note": "the word itself"
+      },
+      {
+       "words": "established in position",
+       "gives": "SITED",
+       "note": "sited = placed, established in position"
+      }
      ]
     },
     "explanation": {
@@ -1145,34 +1035,39 @@
    },
    "solution": "PORTFOLIO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "PORTFOLIO",
     "definitions": [
      {
       "text": "Collection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extracted from",
-      "note": "the answer is taken out of the words that follow"
-     },
-     {
-      "text": "to the west",
-      "note": "in an across clue, going west means reading right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soil of tropics",
-      "gives": "PORTFOLIO",
-      "note": "soIL OF TROPics, read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "extracted from",
+       "note": "the answer is taken out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to the west",
+         "note": "in an across clue, going west means reading right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soil of tropics",
+         "gives": "OILOFTROP",
+         "note": "soIL OF TROPics, read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A set of samples taken from tropical soil to the west.",
      "walkthrough": "'To the west' sounds like geography, but in an across clue it tells you to read backwards.",
@@ -1199,58 +1094,56 @@
    },
    "solution": "LIBERATED",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LIBERATED",
     "definitions": [
      {
       "text": "Uninhibited",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "note": "the end of 'limit', its last letter"
-     },
-     {
-      "text": "in",
-      "note": "these letters go inside the song"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song",
-      "gives": "LIED",
-      "note": "a lied is a German art song, split LI...ED"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be = to live, exist"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA = Royal Academician, an artist"
-     },
-     {
-      "clueFragment": "close to limit",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of limiT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "BE",
-      "RA",
-      "T",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "close to",
+       "note": "the end of 'limit', its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "song",
+       "gives": "LIED",
+       "note": "a lied is a German art song, split LI...ED"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "these letters go inside the song"
+        }
+       ],
+       "parts": [
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be = to live, exist"
+        },
+        {
+         "words": "artist",
+         "gives": "RA",
+         "note": "RA = Royal Academician, an artist"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "close to limit",
+           "note": "last letter of limiT"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1279,26 +1172,25 @@
    },
    "solution": "VOLTMETER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "VOLTMETER",
     "definitions": [
      {
       "text": "Instrument used by Sparks?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Instrument",
-      "note": "the surface wants a musical instrument; the setter means a measuring device"
-     },
-     {
-      "clueFragment": "used by Sparks?",
-      "note": "the surface suggests the pop band Sparks; the setter means Sparks, the traditional nickname for an electrician"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Instrument",
+       "note": "the surface wants a musical instrument; the setter means a measuring device"
+      },
+      {
+       "words": "used by Sparks?",
+       "note": "the surface suggests the pop band Sparks; the setter means Sparks, the traditional nickname for an electrician"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about what instrument the band Sparks plays.",
      "walkthrough": "Sparks looks like the name of a pop band, so 'instrument' suggests music; Sparks is also the old nickname for an electrician, whose instrument measures voltage.",
@@ -1326,52 +1218,56 @@
    },
    "solution": "TABLEAU",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TABLEAU",
     "definitions": [
      {
       "text": "scene",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "introducing",
-      "note": "the boyfriend takes a letter into himself"
-     },
-     {
-      "text": "beginning of",
-      "note": "take the first letter of love"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thanks",
-      "gives": "TA",
-      "note": "ta is British informal for thanks"
-     },
-     {
-      "clueFragment": "boyfriend",
-      "gives": "BEAU",
-      "note": "a beau is a boyfriend, split B...EAU"
-     },
-     {
-      "clueFragment": "beginning of love",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of Love"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "B",
-      "L",
-      "EAU"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "introducing",
+       "note": "the boyfriend takes a letter into himself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Thanks",
+       "gives": "TA",
+       "note": "ta is British informal for thanks"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "beginning of",
+         "note": "take the first letter of love"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boyfriend",
+         "gives": "BEAU",
+         "note": "a beau is a boyfriend, split B...EAU"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "L",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beginning of love",
+           "gives": "L",
+           "select": "first",
+           "note": "first letter of Love"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1399,45 +1295,35 @@
    },
    "solution": "ROSELLA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ROSELLA",
     "definitions": [
      {
       "text": "Parrot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "got up",
-      "for": "reversal",
-      "note": "in a down clue, getting up means reading from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "got up",
-      "gives": "ROSE",
-      "note": "rose = got up"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "all = everyone, reversed to LLA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROSE",
-      "LLA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ALL",
-       "to": "LLA"
+       "words": "got up",
+       "gives": "ROSE",
+       "note": "rose = got up"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "got up",
+         "note": "in a down clue, getting up means reading from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everyone",
+         "gives": "ALL",
+         "note": "all = everyone, reversed to LLA"
+        }
+       ]
       }
      ]
     },
@@ -1467,51 +1353,47 @@
    },
    "solution": "SIBYL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SIBYL",
     "definitions": [
      {
       "text": "She predicts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crux of",
-      "for": "letter_selection",
-      "note": "the crux is the heart, so take the middle letters"
-     },
-     {
-      "text": "on",
-      "note": "in an across clue, the line comes after the times"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crux of inside",
-      "gives": "SI",
-      "select": "middle",
-      "note": "middle two letters of inSIde"
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "BY",
-      "note": "by = times, as in 3 by 4"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "l = line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SI",
-      "BY",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, the line comes after the times"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "crux of",
+         "note": "the crux is the heart, so take the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crux of inside",
+         "gives": "INSIDE",
+         "note": "middle two letters of inSIde"
+        }
+       ]
+      },
+      {
+       "words": "Times",
+       "gives": "BY",
+       "note": "by = times, as in 3 by 4"
+      },
+      {
+       "words": "line",
+       "gives": "L",
+       "note": "l = line"
+      }
      ]
     },
     "explanation": {
@@ -1540,49 +1422,46 @@
    },
    "solution": "SPAWN",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "SPAWN",
     "definitions": [
      {
       "text": "lot of eggs",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "note": "the bird holds the secretary inside"
-     },
-     {
-      "text": "losing",
-      "note": "to lose something is to be left without it, so the A is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird",
-      "gives": "SWAN",
-      "note": "a swan, split S...WAN"
-     },
-     {
-      "clueFragment": "Secretary",
-      "gives": "PA",
-      "note": "PA = personal assistant, a secretary"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "one A removed from SPAWAN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PA",
-      "WN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "the bird holds the secretary inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "losing",
+         "note": "to lose something is to be left without it, so the A is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "gives": "SWAN",
+         "note": "a swan, split S...WAN"
+        },
+        {
+         "words": "Secretary",
+         "gives": "PA",
+         "note": "PA = personal assistant, a secretary"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "one A removed from SPAWAN"
+      }
      ]
     },
     "explanation": {
@@ -1611,40 +1490,31 @@
    },
    "solution": "AMASS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AMASS",
     "definitions": [
      {
       "text": "Collect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken by",
-      "for": "container",
-      "note": "the degree is taken inside the dimwit"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dimwit",
-      "gives": "ASS",
-      "note": "an ass is a fool, split A...SS"
-     },
-     {
-      "clueFragment": "degree",
-      "gives": "MA",
-      "note": "MA = Master of Arts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MA",
-      "SS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken by",
+       "note": "the degree is taken inside the dimwit"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dimwit",
+       "gives": "ASS",
+       "note": "an ass is a fool, split A...SS"
+      },
+      {
+       "words": "degree",
+       "gives": "MA",
+       "note": "MA = Master of Arts"
+      }
      ]
     },
     "explanation": {
@@ -1673,56 +1543,57 @@
    },
    "solution": "BESTIRRED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BESTIRRED",
     "definitions": [
      {
       "text": "Roused",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "the Democrat comes after the rest"
-     },
-     {
-      "text": "embraces",
-      "note": "the closest associate holds the Rs inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "closest associate",
-      "gives": "BESTIE",
-      "note": "a bestie is a best friend, split BESTI...E"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R = Republican"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R = right"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D = Democrat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BESTI",
-      "R",
-      "R",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the Democrat comes after the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embraces",
+         "note": "the closest associate holds the Rs inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "closest associate",
+         "gives": "BESTIE",
+         "note": "a bestie is a best friend, split BESTI...E"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Republican",
+           "gives": "R",
+           "note": "R = Republican"
+          },
+          {
+           "words": "Right",
+           "gives": "R",
+           "note": "R = right"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Democrat",
+       "gives": "D",
+       "note": "D = Democrat"
+      }
      ]
     },
     "explanation": {
@@ -1751,48 +1622,46 @@
    },
    "solution": "DARCY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DARCY",
     "definitions": [
      {
       "text": "Romantic hero",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'in' places the bow within what follows, so its letters sit inside the emptied display"
-     },
-     {
-      "text": "hollow",
-      "note": "display with its middle scooped out leaves only its outer letters"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hollow display",
-      "gives": "DY",
-      "select": "outer",
-      "note": "DisplaY emptied, split D...Y"
-     },
-     {
-      "clueFragment": "bow",
-      "gives": "ARC",
-      "note": "a bow is an arc shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ARC",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places the bow within what follows, so its letters sit inside the emptied display"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "DY",
+       "indicators": [
+        {
+         "text": "hollow",
+         "note": "display with its middle scooped out leaves only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "hollow display",
+         "gives": "DY",
+         "select": "outer",
+         "note": "DisplaY emptied, split D...Y"
+        }
+       ]
+      },
+      {
+       "words": "bow",
+       "gives": "ARC",
+       "note": "a bow is an arc shape"
+      }
      ]
     },
     "explanation": {
@@ -1821,44 +1690,37 @@
    },
    "solution": "TRAPEZE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "TRAPEZE",
     "definitions": [
      {
       "text": "Swinger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "what is reported is spoken, so take the sound"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gin",
-      "gives": "TRAP",
-      "note": "a gin is a trap for catching animals"
-     },
-     {
-      "clueFragment": "ecstasy tablets",
-      "gives": "EZE",
-      "soundsLike": "E'S",
-      "note": "E = ecstasy; several E tablets are Es, said 'eez'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAP",
-      "EZE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gin",
+       "gives": "TRAP",
+       "note": "a gin is a trap for catching animals"
+      },
+      {
+       "op": "homophone",
+       "spelt": "EZE",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "what is reported is spoken, so take the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ecstasy tablets",
+         "gives": "ES",
+         "note": "E = ecstasy; several E tablets are Es, said 'eez'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1888,43 +1750,38 @@
    },
    "solution": "LOBSTER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LOBSTER",
     "definitions": [
      {
       "text": "Creature caught in coastal waters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with tail missing",
-      "for": "deletion",
-      "note": "the last letter of the back is cut off"
-     }
-    ],
-    "linkWords": [
-     "—"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "throw",
-      "gives": "LOB",
-      "note": "to lob is to throw"
-     },
-     {
-      "clueFragment": "back",
-      "gives": "STER",
-      "note": "the stern is the back of a boat; without its last letter N it is STER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOB",
-      "STER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LOBSTER",
+     "indicators": [
+      {
+       "text": "with tail missing",
+       "note": "the last letter of the back is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "throw",
+         "gives": "LOB",
+         "note": "to lob is to throw"
+        },
+        {
+         "words": "back",
+         "gives": "STER",
+         "note": "the stern is the back of a boat; without its last letter N it is STER"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1953,40 +1810,31 @@
    },
    "solution": "DISC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DISC",
     "definitions": [
      {
       "text": "Record",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the letters for lives go inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre of US politics",
-      "gives": "DC",
-      "note": "Washington DC is the seat of US government, split D...C"
-     },
-     {
-      "clueFragment": "lives",
-      "gives": "IS",
-      "note": "is = lives, exists"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the letters for lives go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "centre of US politics",
+       "gives": "DC",
+       "note": "Washington DC is the seat of US government, split D...C"
+      },
+      {
+       "words": "lives",
+       "gives": "IS",
+       "note": "is = lives, exists"
+      }
      ]
     },
     "explanation": {
@@ -2021,59 +1869,53 @@
    },
    "solution": "SUGARDADDY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "deletion"
-    ],
-    "answer": "SUGAR DADDY",
     "definitions": [
      {
       "text": "rich older guy",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "Irregular",
-      "for": "anagram",
-      "note": "irregular guards are out of order, so rearrange them"
-     },
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "the letter for clubs is left out"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guards",
-      "gives": "SUGARD",
-      "note": "anagram of GUARDS"
-     },
-     {
-      "clueFragment": "carry golf bags",
-      "gives": "CADDY",
-      "note": "to caddy is to carry a golfer's bags"
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C = clubs, the card suit; removed from CADDY to leave ADDY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUGAR",
-      "DADDY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SUGARDADDY",
+     "indicators": [
       {
-       "fodder": "GUARDS",
-       "gives": "SUGARD"
+       "text": "Irregular",
+       "note": "irregular guards are out of order, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "guards",
+         "gives": "SUGARD",
+         "note": "anagram of GUARDS"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "note": "the letter for clubs is left out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "carry golf bags",
+           "gives": "CADDY",
+           "note": "to caddy is to carry a golfer's bags"
+          },
+          {
+           "words": "clubs",
+           "gives": "C",
+           "note": "C = clubs, the card suit; removed from CADDY to leave ADDY"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

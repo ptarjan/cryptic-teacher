@@ -1,8 +1,6 @@
 {
  "id": "toughie-3747",
  "number": 3747,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,747",
  "setter": "Silvanus",
  "date": "2026-08-27",
  "dimensions": {
@@ -38,56 +36,55 @@
    },
    "solution": "WITTGENSTEIN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "WITTGENSTEIN",
     "definitions": [
      {
       "text": "philosopher",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Around",
-      "note": "letters sent around are jumbled"
-     },
-     {
-      "text": "by"
-     },
-     {
-      "text": "inspiring"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W = wife"
-     },
-     {
-      "clueFragment": "ten, sitting",
-      "gives": "ITTGNSTEIN",
-      "note": "the letters of TEN SITTING jumbled"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English, placed inside the jumble: ITTG(E)NSTEIN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ITTGENSTEIN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WITTGENSTEIN",
+     "parts": [
       {
-       "fodder": "W TEN SITTING E",
-       "gives": "WITTGENSTEIN"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Around",
+         "note": "letters sent around are jumbled"
+        },
+        {
+         "text": "inspiring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wife",
+         "gives": "W",
+         "note": "W = wife"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "by"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ten, sitting",
+           "gives": "ITTGNSTEIN",
+           "note": "the letters of TEN SITTING jumbled"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E = English, placed inside the jumble: ITTG(E)NSTEIN"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -117,51 +114,50 @@
    },
    "solution": "WRAPPED",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WRAPPED",
     "definitions": [
      {
       "text": "Muffled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "the origin of a word is its first letter"
-     },
-     {
-      "text": "during"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "midweek",
-      "gives": "W…ED",
-      "note": "WED, short for Wednesday, the middle of the week; it opens to hold the rest"
-     },
-     {
-      "clueFragment": "music",
-      "gives": "RAP",
-      "note": "rap is a genre of music"
-     },
-     {
-      "clueFragment": "played originally",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of 'played'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "RAP",
-      "P",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "originally",
+       "note": "the origin of a word is its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "midweek",
+       "gives": "WED",
+       "note": "WED, short for Wednesday, the middle of the week; it opens to hold the rest"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "during"
+        }
+       ],
+       "parts": [
+        {
+         "words": "music",
+         "gives": "RAP",
+         "note": "rap is a genre of music"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "played originally",
+           "note": "first letter of 'played'"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -196,50 +192,42 @@
    },
    "solution": "TWOTONE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TWO-TONE",
     "definitions": [
      {
       "text": "having a pair of shades",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means read bottom to top"
-     },
-     {
-      "text": "boring",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pull up",
-      "gives": "WOT",
-      "note": "TOW = pull, turned upwards"
-     },
-     {
-      "clueFragment": "character",
-      "gives": "T…ONE",
-      "note": "tone = character, as in the tone of a place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WOT",
-      "ONE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TWOTONE",
+     "indicators": [
       {
-       "from": "TOW",
-       "to": "WOT"
+       "text": "up",
+       "note": "in a down entry, up means read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "character",
+         "gives": "TONE",
+         "note": "tone = character, as in the tone of a place"
+        },
+        {
+         "words": "Pull up",
+         "gives": "WOT",
+         "note": "TOW = pull, turned upwards"
+        }
+       ]
       }
      ]
     },
@@ -270,50 +258,46 @@
    },
    "solution": "GESTATION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GESTATION",
     "definitions": [
      {
       "text": "development",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "only the extremes, first and last letters, of 'grandiose'"
-     },
-     {
-      "text": "North of",
-      "note": "in a down entry, north of means placed above"
-     },
-     {
-      "text": "maybe",
-      "for": "letter_selection",
-      "note": "Paddington is one example of a station"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extremely grandiose",
-      "gives": "GE",
-      "select": "outer",
-      "note": "first and last letters of 'grandiose'"
-     },
-     {
-      "clueFragment": "Paddington, maybe",
-      "gives": "STATION",
-      "note": "Paddington is a London railway station"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GE",
-      "STATION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "North of",
+       "note": "in a down entry, north of means placed above"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "only the extremes, first and last letters, of 'grandiose'"
+        },
+        {
+         "text": "maybe",
+         "note": "Paddington is one example of a station"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely grandiose",
+         "gives": "GRANDIOSE",
+         "note": "first and last letters of 'grandiose'"
+        }
+       ]
+      },
+      {
+       "words": "Paddington, maybe",
+       "gives": "STATION",
+       "note": "Paddington is a London railway station"
+      }
      ]
     },
     "explanation": {
@@ -343,46 +327,40 @@
    },
    "solution": "NUBIA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NUBIA",
     "definitions": [
      {
       "text": "ancient Nile region",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "NU",
-      "note": "nu, the Greek letter N"
-     },
-     {
-      "clueFragment": "graduate",
-      "gives": "B…A",
-      "note": "BA, Bachelor of Arts"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "B",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "gives": "NU",
+       "note": "nu, the Greek letter N"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "graduate",
+         "gives": "BA",
+         "note": "BA, Bachelor of Arts"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -411,49 +389,45 @@
    },
    "solution": "TENANCY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TENANCY",
     "definitions": [
      {
       "text": "Residence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "the last letter of 'built'"
-     },
-     {
-      "text": "above"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ultimately built",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of 'built'"
-     },
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "E = eastern"
-     },
-     {
-      "clueFragment": "French city",
-      "gives": "NANCY",
-      "note": "Nancy, a city in north-eastern France"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "E",
-      "NANCY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "the last letter of 'built'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "above"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ultimately built",
+         "note": "last letter of 'built'"
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "gives": "E",
+       "note": "E = eastern"
+      },
+      {
+       "words": "French city",
+       "gives": "NANCY",
+       "note": "Nancy, a city in north-eastern France"
+      }
      ]
     },
     "explanation": {
@@ -488,53 +462,55 @@
    },
    "solution": "INSTORE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "IN STORE",
     "definitions": [
      {
       "text": "Forthcoming",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "note": "regularly means at even intervals, so every second letter is taken"
-     },
-     {
-      "text": "mounted",
-      "note": "in a down entry, mounted means turned to read upwards"
-     },
-     {
-      "text": "supporting"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "contest Neil regularly mounted",
-      "gives": "INSTO",
-      "select": "alternate",
-      "note": "even letters of cOnTeSt NeIl give OTSNI, then turned upwards"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re = about, concerning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INSTO",
-      "RE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "INSTORE",
+     "parts": [
       {
-       "from": "OTSNI",
-       "to": "INSTO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every second letter is taken"
+        },
+        {
+         "text": "supporting"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "INSTO",
+         "indicators": [
+          {
+           "text": "mounted",
+           "note": "in a down entry, mounted means turned to read upwards"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "contest Neil regularly mounted",
+           "gives": "INSTO",
+           "select": "alternate",
+           "note": "even letters of cOnTeSt NeIl give OTSNI, then turned upwards"
+          }
+         ]
+        },
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re = about, concerning"
+        }
+       ]
       }
      ]
     },
@@ -570,32 +546,19 @@
    },
    "solution": "POTTERSWHEELS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POTTER'S WHEELS",
     "definitions": [
      {
       "text": "Studio's features",
-      "at": 0
+      "at": 0,
+      "meaning": "the studio is a pottery, and its features are the turning tables clay is thrown on"
      },
      {
       "text": "found in Daniel Radcliffe's car",
-      "at": 27
+      "at": 27,
+      "meaning": "Daniel Radcliffe played the boy wizard in the film series, and a car runs on wheels"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Studio's features",
-      "gives": "POTTERSWHEELS",
-      "note": "the studio is a pottery, and its features are the turning tables clay is thrown on"
-     },
-     {
-      "clueFragment": "possibly found in Daniel Radcliffe's car?",
-      "gives": "POTTERSWHEELS",
-      "note": "Daniel Radcliffe played the boy wizard in the film series, and a car runs on wheels"
-     }
-    ],
+    "spelling": "POTTER'S WHEELS",
     "explanation": {
      "surface": "A film star's car as a feature of a film studio.",
      "walkthrough": "'Studio' suggests the film world, where Radcliffe works; the studio is a pottery. The question mark flags the joke: Radcliffe played Harry Potter, so his car has Potter's wheels.",
@@ -633,30 +596,16 @@
    },
    "solution": "UNDERTHETABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNDER THE TABLE",
     "definitions": [
      {
       "text": "Secretly",
-      "at": 0
+      "at": 0,
+      "meaning": "as with a payment made out of sight, off the books"
      },
      {
       "text": "drunk",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Secretly",
-      "gives": "UNDERTHETABLE",
-      "note": "as with a payment made out of sight, off the books"
-     },
-     {
-      "clueFragment": "drunk",
-      "gives": "UNDERTHETABLE",
-      "note": "so drunk you have slid off your chair to the floor"
+      "at": 9,
+      "meaning": "so drunk you have slid off your chair to the floor"
      }
     ],
     "explanation": {
@@ -684,56 +633,49 @@
    },
    "solution": "ORATORS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "ORATORS",
     "definitions": [
      {
       "text": "public speakers",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "claims"
-     },
-     {
-      "text": "backing"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Huge",
-      "gives": "O…S",
-      "note": "OS = outsize, a clothing size"
-     },
-     {
-      "clueFragment": "course",
-      "gives": "ROTA",
-      "note": "a rota is a set course of turns"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "R = run, as in cricket scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RATOR",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ROTAR",
-       "to": "RATOR"
+       "text": "claims"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Huge",
+       "gives": "OS",
+       "note": "OS = outsize, a clothing size"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "course",
+           "gives": "ROTA",
+           "note": "a rota is a set course of turns"
+          },
+          {
+           "words": "run",
+           "gives": "R",
+           "note": "R = run, as in cricket scoring"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -763,44 +705,44 @@
    },
    "solution": "BENISON",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BENISON",
     "definitions": [
      {
       "text": "blessing",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "first cut",
-      "for": "deletion",
-      "note": "the first letter of the meat is cut away"
-     },
-     {
-      "text": "following",
-      "note": "following means coming after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B = bishop, as in chess notation"
-     },
-     {
-      "clueFragment": "Meat's first cut",
-      "gives": "ENISON",
-      "note": "VENISON losing its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ENISON"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BENISON",
+     "indicators": [
+      {
+       "text": "first cut",
+       "note": "the first letter of the meat is cut away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "following means coming after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bishop",
+         "gives": "B",
+         "note": "B = bishop, as in chess notation"
+        },
+        {
+         "words": "Meat's first cut",
+         "gives": "ENISON",
+         "note": "VENISON losing its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -829,57 +771,44 @@
    },
    "solution": "TAPIOCA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TAPIOCA",
     "definitions": [
      {
       "text": "Pudding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought over",
-      "for": "reversal",
-      "note": "turned over, so read backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as it stands"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "CO",
-      "note": "CO = company, a firm"
-     },
-     {
-      "clueFragment": "single",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "PAT",
-      "note": "a pat is a small mass, as of butter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAPIOCA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ACOIPAT",
-       "to": "TAPIOCA"
+       "text": "brought over",
+       "note": "turned over, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "as it stands"
+        },
+        {
+         "words": "firm",
+         "gives": "CO",
+         "note": "CO = company, a firm"
+        },
+        {
+         "words": "single",
+         "gives": "I",
+         "note": "I = one"
+        },
+        {
+         "words": "mass",
+         "gives": "PAT",
+         "note": "a pat is a small mass, as of butter"
+        }
+       ]
       }
      ]
     },
@@ -909,49 +838,51 @@
    },
    "solution": "AMNIOTE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "AMNIOTE",
     "definitions": [
      {
       "text": "Vertebrate creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "note": "all but the last letter of ONE"
-     },
-     {
-      "text": "trained",
-      "note": "training reshapes the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tame",
-      "gives": "TAME",
-      "note": "as it stands"
-     },
-     {
-      "clueFragment": "one mostly",
-      "gives": "ON",
-      "note": "ONE without its last letter"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "as it stands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AMNIOTE",
+     "parts": [
       {
-       "fodder": "TAME ON I",
-       "gives": "AMNIOTE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "all but the last letter of ONE"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "trained",
+           "note": "training reshapes the letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tame",
+           "note": "as it stands"
+          },
+          {
+           "words": "one mostly",
+           "gives": "ON",
+           "note": "ONE without its last letter"
+          },
+          {
+           "words": "I",
+           "note": "as it stands"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -981,40 +912,39 @@
    },
    "solution": "RIDGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RIDGE",
     "definitions": [
      {
       "text": "Crest",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "PART is missing from the bird"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird",
-      "gives": "PARTRIDGE",
-      "note": "the partridge is a game bird"
-     },
-     {
-      "clueFragment": "piece missing",
-      "note": "a piece is a PART, and these are the letters that go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIDGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "PART is missing from the bird"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "gives": "PARTRIDGE",
+         "note": "the partridge is a game bird"
+        },
+        {
+         "gives": "PART"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "piece missing",
+       "note": "a piece is a PART, and these are the letters that go"
+      }
      ]
     },
     "explanation": {
@@ -1050,33 +980,16 @@
    },
    "solution": "ITCHYFEET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ITCHY FEET",
     "definitions": [
      {
       "text": "Strong urge to travel",
-      "at": 0
+      "at": 0,
+      "meaning": "an idiom for restlessness to be off somewhere"
      },
      {
       "text": "podiatrist's case",
-      "at": 25
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strong urge to travel",
-      "gives": "ITCHYFEET",
-      "note": "an idiom for restlessness to be off somewhere"
-     },
-     {
-      "clueFragment": "podiatrist's case?",
-      "gives": "ITCHYFEET",
-      "note": "literally, an irritated pair a foot doctor might treat"
+      "at": 25,
+      "meaning": "literally, an irritated pair a foot doctor might treat"
      }
     ],
     "explanation": {
@@ -1105,68 +1018,67 @@
    },
    "solution": "CATERWAUL",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "CATERWAUL",
     "definitions": [
      {
       "text": "Cry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "note": "REACT done badly is jumbled"
-     },
-     {
-      "text": "over"
-     },
-     {
-      "text": "upsetting",
-      "note": "in a down entry, LAW is turned up, read bottom to top"
-     },
-     {
-      "text": "squeezing",
-      "note": "to squeeze something is to grip it tight on both sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "react badly",
-      "gives": "CATER",
-      "note": "REACT jumbled"
-     },
-     {
-      "clueFragment": "rule",
-      "gives": "WA…L",
-      "note": "LAW = rule, turned upwards"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U = university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CATER",
-      "WAUL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "REACT",
-       "gives": "CATER"
+       "text": "badly",
+       "note": "REACT done badly is jumbled"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "LAW",
-       "to": "WAL"
+       "words": "react badly",
+       "gives": "CATER",
+       "note": "REACT jumbled"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "upsetting",
+           "note": "in a down entry, LAW is turned up, read bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "squeezing",
+             "note": "to squeeze something is to grip it tight on both sides"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rule",
+             "gives": "WAL",
+             "note": "LAW = rule, turned upwards"
+            }
+           ]
+          },
+          {
+           "words": "university",
+           "gives": "U",
+           "note": "U = university"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1196,49 +1108,55 @@
    },
    "solution": "WHODUNNIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "WHODUNNIT",
     "definitions": [
      {
       "text": "mystery",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "note": "suspect letters are not to be trusted in their order"
-     },
-     {
-      "text": "possessing",
-      "note": "the jumble holds I among its letters"
-     },
-     {
-      "text": "lead to",
-      "note": "the leading letter of 'intriguing'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hunt down",
-      "gives": "HUNTDOWN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "lead to intriguing",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of 'intriguing'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HUNTDOWN I",
-       "gives": "WHODUNNIT"
+       "text": "suspect",
+       "note": "suspect letters are not to be trusted in their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "possessing",
+         "note": "the jumble holds I among its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hunt down",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "I",
+         "indicators": [
+          {
+           "text": "lead to",
+           "note": "the leading letter of 'intriguing'"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "lead to intriguing",
+           "gives": "I",
+           "select": "first",
+           "note": "first letter of 'intriguing'"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1268,35 +1186,24 @@
    },
    "solution": "OBTUSER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OBTUSER",
     "definitions": [
      {
       "text": "Comparatively dull-witted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rambling",
-      "for": "anagram",
-      "note": "letters that ramble wander out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Serb out",
-      "gives": "SERBOUT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SERB OUT",
-       "gives": "OBTUSER"
+       "text": "rambling",
+       "note": "letters that ramble wander out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Serb out",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1326,40 +1233,30 @@
    },
    "solution": "UNCTION",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UNCTION",
     "definitions": [
      {
       "text": "Fervent manner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "quitting",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "FUNCTION",
-      "note": "a thing's function is its work, what it does"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F = female, and this is the letter that goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNCTION"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "quitting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "gives": "FUNCTION",
+       "note": "a thing's function is its work, what it does"
+      },
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "F = female, and this is the letter that goes"
+      }
      ]
     },
     "explanation": {
@@ -1388,33 +1285,28 @@
    },
    "solution": "ANKLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ANKLE",
     "definitions": [
      {
       "text": "Joint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after covering's removed",
-      "for": "deletion",
-      "note": "the outside letters, R and D, are taken off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "festered",
-      "gives": "RANKLED",
-      "note": "a grievance that festers rankles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANKLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANKLE",
+     "indicators": [
+      {
+       "text": "after covering's removed",
+       "note": "the outside letters, R and D, are taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "festered",
+       "gives": "RANKLED",
+       "note": "a grievance that festers rankles"
+      }
      ]
     },
     "explanation": {
@@ -1443,42 +1335,45 @@
    },
    "solution": "ADVERSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "ADVERSE",
     "definitions": [
      {
       "text": "Hurtful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "note": "the odd letters of 'twin'"
-     },
-     {
-      "text": "put out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "broadcast",
-      "gives": "ADVERTISE",
-      "note": "to broadcast is to advertise, spread word of"
-     },
-     {
-      "clueFragment": "twin oddly",
-      "gives": "TI",
-      "select": "alternate",
-      "note": "odd letters of tWiN, and these are the letters that go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADVERSE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "oddly",
+       "note": "the odd letters of 'twin'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcast",
+       "gives": "ADVERTISE",
+       "note": "to broadcast is to advertise, spread word of"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "TI",
+       "indicators": [
+        {
+         "text": "put out"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "twin oddly",
+         "gives": "TI",
+         "select": "alternate",
+         "note": "odd letters of tWiN, and these are the letters that go"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1508,34 +1403,39 @@
    },
    "solution": "KNESSET",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "KNESSET",
     "definitions": [
      {
       "text": "Middle-Eastern diet",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Revolutionary",
-      "note": "revolved, so read backwards"
-     },
-     {
-      "text": "to accommodate",
-      "note": "the two words hold the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "delicatessen keen",
-      "gives": "KNESSET",
-      "note": "delicaTESSEN Keen, read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Revolutionary",
+       "note": "revolved, so read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to accommodate",
+         "note": "the two words hold the answer inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delicatessen keen",
+         "gives": "TESSENK",
+         "note": "delicaTESSEN Keen, read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A radical deli eager to cater for a Middle Eastern way of eating.",
      "walkthrough": "'Diet' is not food but a parliament, as in the Diet of Japan.",
@@ -1563,46 +1463,40 @@
    },
    "solution": "ENTICES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ENTICES",
     "definitions": [
      {
       "text": "Persuades",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to interrupt",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opponents",
-      "gives": "E…S",
-      "note": "East and South, opponents at the bridge table"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "Reform UK MP",
-      "gives": "TICE",
-      "note": "Richard Tice, a Reform UK MP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "N",
-      "TICE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to interrupt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opponents",
+       "gives": "ES",
+       "note": "East and South, opponents at the bridge table"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N = new"
+        },
+        {
+         "words": "Reform UK MP",
+         "gives": "TICE",
+         "note": "Richard Tice, a Reform UK MP"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1631,50 +1525,41 @@
    },
    "solution": "SEGUE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SEGUE",
     "definitions": [
      {
       "text": "Follow on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "discontented",
-      "for": "letter_selection",
-      "note": "the contents of 'umpire' are emptied"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nottinghamshire's No. 11",
-      "gives": "S",
-      "note": "the eleventh letter of NOTTINGHAMSHIRE"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. = for example, say"
-     },
-     {
-      "clueFragment": "discontented umpire",
-      "gives": "UE",
-      "select": "outer",
-      "note": "UMPIRE with its middle removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "EG",
-      "UE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nottinghamshire's No. 11",
+       "gives": "S",
+       "note": "the eleventh letter of NOTTINGHAMSHIRE"
+      },
+      {
+       "words": "say",
+       "gives": "EG",
+       "note": "e.g. = for example, say"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "discontented",
+         "note": "the contents of 'umpire' are emptied"
+        }
+       ],
+       "parts": [
+        {
+         "words": "discontented umpire",
+         "gives": "UMPIRE",
+         "note": "UMPIRE with its middle removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1704,53 +1589,46 @@
    },
    "solution": "RIVIERA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RIVIERA",
     "definitions": [
      {
       "text": "warm coastal area",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Essentially",
-      "for": "letter_selection",
-      "note": "the essence, the middle, of 'grim'"
-     },
-     {
-      "text": "facing"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Essentially grim",
-      "gives": "RI",
-      "select": "middle",
-      "note": "the middle two letters of gRIm"
-     },
-     {
-      "clueFragment": "struggle",
-      "gives": "VIE",
-      "note": "to vie is to struggle, compete"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA = Royal Academician"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "VIE",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "facing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Essentially",
+         "note": "the essence, the middle, of 'grim'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Essentially grim",
+         "gives": "GRIM",
+         "note": "the middle two letters of gRIm"
+        }
+       ]
+      },
+      {
+       "words": "struggle",
+       "gives": "VIE",
+       "note": "to vie is to struggle, compete"
+      },
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "RA = Royal Academician"
+      }
      ]
     },
     "explanation": {
@@ -1779,32 +1657,25 @@
    },
    "solution": "LASTING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LASTING",
     "definitions": [
      {
       "text": "Permanent",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Californian city",
-      "gives": "LA",
-      "note": "LA = Los Angeles"
-     },
-     {
-      "clueFragment": "police trap",
-      "gives": "STING",
-      "note": "a sting is a police set-up to catch criminals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "STING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Californian city",
+       "gives": "LA",
+       "note": "LA = Los Angeles"
+      },
+      {
+       "words": "police trap",
+       "gives": "STING",
+       "note": "a sting is a police set-up to catch criminals"
+      }
      ]
     },
     "explanation": {
@@ -1833,37 +1704,39 @@
    },
    "solution": "AEROSOL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "AEROSOL",
     "definitions": [
      {
       "text": "Can",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to purchase",
-      "note": "to purchase is to take hold of, and these words grip the answer"
-     },
-     {
-      "text": "in retirement",
-      "note": "retiring means drawing back, so read backwards"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Amarillo, so reasonable",
-      "gives": "AEROSOL",
-      "note": "amarilLO SO REAsonable, read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to purchase",
+       "note": "to purchase is to take hold of, and these words grip the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in retirement",
+         "note": "retiring means drawing back, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Amarillo, so reasonable",
+         "gives": "LOSOREA",
+         "note": "amarilLO SO REAsonable, read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pensioner in Amarillo, Texas finding something cheap to buy.",
      "walkthrough": "'Can' looks like a verb opening the sentence; it is the noun, a spray can.",
@@ -1896,48 +1769,37 @@
    },
    "solution": "PRINCEALBERT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PRINCE ALBERT",
     "definitions": [
      {
       "text": "Consort",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "letters treated criminally are mangled"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p = piano, quietly in music"
-     },
-     {
-      "clueFragment": "in bar, Lecter",
-      "gives": "RINCEALBERT",
-      "note": "the letters of IN BAR LECTER jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RINCEALBERT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PRINCEALBERT",
+     "indicators": [
       {
-       "fodder": "P IN BAR LECTER",
-       "gives": "PRINCEALBERT"
+       "text": "criminal",
+       "note": "letters treated criminally are mangled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quietly",
+         "gives": "P",
+         "note": "p = piano, quietly in music"
+        },
+        {
+         "words": "in bar, Lecter",
+         "gives": "RINCEALBERT",
+         "note": "the letters of IN BAR LECTER jumbled"
+        }
+       ]
       }
      ]
     },

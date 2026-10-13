@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29962",
  "number": 29962,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,962",
  "setter": "Anto",
  "date": "2026-03-24",
  "dimensions": {
@@ -38,56 +36,50 @@
    },
    "solution": "PAINTINGS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PAINTINGS",
     "definitions": [
      {
       "text": "artworks",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "made to have",
-      "for": "container",
-      "note": "Something made to have another thing is made to hold it, so the shorter run of letters goes inside the longer rather than beside it."
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "Initially points at a word as it starts out, so only the opening letter of the word it follows is taken."
-     }
-    ],
-    "linkWords": [
-     "added to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Efforts",
-      "gives": "PAINS",
-      "note": "efforts that cost you something are pains, as in taking pains over a job"
-     },
-     {
-      "clueFragment": "tin",
-      "gives": "TIN",
-      "note": "the metal stands as its own three letters"
-     },
-     {
-      "clueFragment": "glaze",
-      "gives": "G",
-      "select": "first",
-      "note": "the letter the word starts with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAIN",
-      "TIN",
-      "G",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "made to have",
+       "note": "Something made to have another thing is made to hold it, so the shorter run of letters goes inside the longer rather than beside it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Efforts",
+         "gives": "PAINS",
+         "note": "efforts that cost you something are pains, as in taking pains over a job"
+        },
+        {
+         "words": "tin",
+         "note": "the metal stands as its own three letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "Initially points at a word as it starts out, so only the opening letter of the word it follows is taken."
+        }
+       ],
+       "parts": [
+        {
+         "words": "glaze",
+         "note": "the letter the word starts with"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -122,10 +114,6 @@
    },
    "solution": "POPTART",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "POP TART",
     "definitions": [
      {
       "text": "toasted?",
@@ -133,24 +121,24 @@
       "note": "The answer is a thing and 'toasted' is what is done to it; the question mark flags that the setter is naming the pastry by its treatment rather than by a synonym."
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner might have",
-      "for": "spoonerism",
-      "note": "Spooner was the Oxford don remembered for swapping the opening sounds of two words, so a clue in his name asks you to make that swap yourself."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leading role",
-      "gives": "POPTART",
-      "soundsLike": "TOP PART",
-      "note": "the leading role in a play is the top part, and trading the opening sounds of those two words spells something else entirely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POP TART"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "POPTART",
+     "indicators": [
+      {
+       "text": "Spooner might have",
+       "note": "Spooner was the Oxford don remembered for swapping the opening sounds of two words, so a clue in his name asks you to make that swap yourself."
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Leading role",
+       "gives": "POPTART",
+       "soundsLike": "TOP PART",
+       "note": "the leading role in a play is the top part, and trading the opening sounds of those two words spells something else entirely"
+      }
      ]
     },
     "explanation": {
@@ -180,33 +168,28 @@
    },
    "solution": "IKEBANA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "IKEBANA",
     "definitions": [
      {
       "text": "Japanese art",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "elements of",
-      "for": "hidden_word",
-      "note": "Elements of a phrase are a part taken out of it, so the letters wanted are sitting unbroken inside the words that follow."
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "childlike banality",
-      "gives": "IKEBANA",
-      "note": "the seven letters run unbroken from four letters into the first word across the gap and into the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "elements of",
+       "note": "Elements of a phrase are a part taken out of it, so the letters wanted are sitting unbroken inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "childlike banality",
+       "gives": "IKEBANA",
+       "note": "the seven letters run unbroken from four letters into the first word across the gap and into the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A Japanese art form accused of drawing on a child's plainness of mind.",
      "walkthrough": "Hidden runs rarely sit this openly across a word break, and 'like' reads as ordinary English until you stop seeing the gap. Ikebana is the Japanese discipline of arranging cut flowers to strict rules.",
@@ -243,35 +226,24 @@
    },
    "solution": "THENAGSHEAD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE NAGS HEAD",
     "definitions": [
      {
       "text": "pub?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "swarming around",
-      "for": "anagram",
-      "note": "Things swarming around are not where they were put, and letters that will not stay put have to be written in some other order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He had agents",
-      "gives": "HEHADAGENTS",
-      "note": "anagram fodder, eleven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HE HAD AGENTS",
-       "gives": "THENAGSHEAD"
+       "text": "swarming around",
+       "note": "Things swarming around are not where they were put, and letters that will not stay put have to be written in some other order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "He had agents",
+       "note": "anagram fodder, eleven letters"
       }
      ]
     },
@@ -301,42 +273,31 @@
    },
    "solution": "NASCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NASCENT",
     "definitions": [
      {
       "text": "developing?",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Scotch producer reports",
-      "for": "charade",
-      "note": "A producer of Scotch is a Scot, and words reported from his mouth come out in Scots rather than in standard English."
-     }
-    ],
-    "linkWords": [
-     "there's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no",
-      "gives": "NA",
-      "note": "na is the Scots form of no, the way it is said and written north of the border"
-     },
-     {
-      "clueFragment": "bouquet",
-      "gives": "SCENT",
-      "note": "the bouquet of a wine or a whisky is its scent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NA",
-      "SCENT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Scotch producer reports",
+       "note": "A producer of Scotch is a Scot, and words reported from his mouth come out in Scots rather than in standard English."
+      }
+     ],
+     "parts": [
+      {
+       "words": "no",
+       "gives": "NA",
+       "note": "na is the Scots form of no, the way it is said and written north of the border"
+      },
+      {
+       "words": "bouquet",
+       "gives": "SCENT",
+       "note": "the bouquet of a wine or a whisky is its scent"
+      }
      ]
     },
     "explanation": {
@@ -365,43 +326,31 @@
    },
    "solution": "SPORTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPORTED",
     "definitions": [
      {
       "text": "played",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "What goes inside something sits within its letters rather than in front of or behind them."
-     }
-    ],
-    "linkWords": [
-     "to have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arranged",
-      "gives": "SORTED",
-      "note": "a matter that has been arranged has been sorted"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p is the mark written in a score for piano, the instruction to play softly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "ORTED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "What goes inside something sits within its letters rather than in front of or behind them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arranged",
+       "gives": "SORTED",
+       "note": "a matter that has been arranged has been sorted"
+      },
+      {
+       "words": "piano",
+       "gives": "P",
+       "note": "p is the mark written in a score for piano, the instruction to play softly"
+      }
      ]
     },
     "explanation": {
@@ -430,10 +379,6 @@
    },
    "solution": "OBAMA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBAMA",
     "definitions": [
      {
       "text": "Yes we can, he said",
@@ -441,25 +386,19 @@
       "note": "The definition is not a synonym but a quotation with its speaker attached: the answer is the man who said the words."
      }
     ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love is nothing on a tennis scoreboard, and nothing is written as the round letter"
-     },
-     {
-      "clueFragment": "two degrees",
-      "gives": "BAMA",
-      "note": "a BA and an MA, the bachelor's and the master's, run together in that order"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BAMA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "love is nothing on a tennis scoreboard, and nothing is written as the round letter"
+      },
+      {
+       "words": "two degrees",
+       "gives": "BAMA",
+       "note": "a BA and an MA, the bachelor's and the master's, run together in that order"
+      }
      ]
     },
     "explanation": {
@@ -488,31 +427,16 @@
    },
    "solution": "OFF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OFF",
     "definitions": [
      {
       "text": "Travelling",
-      "at": 0
+      "at": 0,
+      "meaning": "departed and on the way, the sense used of a runner the instant a race starts"
      },
      {
       "text": "ill",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "while"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Travelling",
-      "note": "departed and on the way, the sense used of a runner the instant a race starts"
-     },
-     {
-      "clueFragment": "ill",
-      "note": "under the weather, the sense in which a person is a bit out of sorts or milk has gone bad"
+      "at": 17,
+      "meaning": "under the weather, the sense in which a person is a bit out of sorts or milk has gone bad"
      }
     ],
     "explanation": {
@@ -540,10 +464,6 @@
    },
    "solution": "ABOUNDS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ABOUNDS",
     "definitions": [
      {
       "text": "there's plenty that does this",
@@ -551,30 +471,24 @@
       "note": "The definition describes the answer instead of matching it word for word: 'this' is the verb itself, and what plenty does is the thing being defined."
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "Something told to go in lands within the word that follows rather than in front of it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "the two letters of the little word itself, parting to take the jump"
-     },
-     {
-      "clueFragment": "Jump",
-      "gives": "BOUND",
-      "note": "a jump is a bound, the word for a single springing leap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BOUND",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "Something told to go in lands within the word that follows rather than in front of it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "as",
+       "note": "the two letters of the little word itself, parting to take the jump"
+      },
+      {
+       "words": "Jump",
+       "gives": "BOUND",
+       "note": "a jump is a bound, the word for a single springing leap"
+      }
      ]
     },
     "explanation": {
@@ -609,26 +523,25 @@
    },
    "solution": "ACTRESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ACTRESS",
     "definitions": [
      {
       "text": "She performs",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "She performs",
-      "note": "a woman who acts for a living, on a stage or in front of a camera"
-     },
-     {
-      "clueFragment": "in a style not approved by the Guardian?",
-      "note": "read as a manner of performing the paper dislikes, and meant as its style guide, which tells its journalists to call women actors like everyone else"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "She performs",
+       "note": "a woman who acts for a living, on a stage or in front of a camera"
+      },
+      {
+       "words": "in a style not approved by the Guardian?",
+       "note": "read as a manner of performing the paper dislikes, and meant as its style guide, which tells its journalists to call women actors like everyone else"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A performer whose manner on stage is not to the paper's taste.",
      "walkthrough": "The Guardian's style guide is the book its writers follow on spelling and usage, and it rules this particular word out of the paper. Nothing is shuffled or hidden — the joke is that the setter's own employer bans the answer.",
@@ -656,39 +569,31 @@
    },
    "solution": "PEEVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEEVE",
     "definitions": [
      {
       "text": "Bother",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "After is a statement of order, and what comes after a thing is written behind it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exercise",
-      "gives": "PE",
-      "note": "PE is physical education, the exercise lesson on a school timetable"
-     },
-     {
-      "clueFragment": "first lady",
-      "gives": "EVE",
-      "note": "Eve is the first woman in Genesis, the original first lady"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "EVE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "After is a statement of order, and what comes after a thing is written behind it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "gives": "PE",
+       "note": "PE is physical education, the exercise lesson on a school timetable"
+      },
+      {
+       "words": "first lady",
+       "gives": "EVE",
+       "note": "Eve is the first woman in Genesis, the original first lady"
+      }
      ]
     },
     "explanation": {
@@ -723,10 +628,6 @@
    },
    "solution": "SHOPFRONT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHOP FRONT",
     "definitions": [
      {
       "text": "seen on the street",
@@ -734,22 +635,19 @@
       "note": "The definition is a description of where the answer is found rather than a noun: what you see on the street is the thing itself."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Betray",
-      "gives": "SHOP",
-      "note": "to shop someone is British slang for informing on them to the police"
-     },
-     {
-      "clueFragment": "apparent leader",
-      "gives": "FRONT",
-      "note": "a front is the visible figure put up to head a business, the apparent leader rather than the real one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHOP",
-      "FRONT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Betray",
+       "gives": "SHOP",
+       "note": "to shop someone is British slang for informing on them to the police"
+      },
+      {
+       "words": "apparent leader",
+       "gives": "FRONT",
+       "note": "a front is the visible figure put up to head a business, the apparent leader rather than the real one"
+      }
      ]
     },
     "explanation": {
@@ -778,37 +676,25 @@
    },
    "solution": "AGA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "AGA",
     "definitions": [
      {
       "text": "range",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "will regularly display",
-      "for": "letter_selection",
-      "note": "What is shown regularly is shown at even intervals, so the letters come out at every second step instead of all together."
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pangram",
-      "gives": "AGA",
-      "select": "regular",
-      "note": "the second, fourth and sixth letters in turn: p-A-n-G-r-A-m"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGA"
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "will regularly display",
+       "note": "What is shown regularly is shown at even intervals, so the letters come out at every second step instead of all together."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pangram",
+       "note": "the second, fourth and sixth letters in turn: p-A-n-G-r-A-m"
+      }
      ]
     },
     "explanation": {
@@ -843,10 +729,6 @@
    },
    "solution": "AGENTORANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGENT ORANGE",
     "definitions": [
      {
       "text": "devastates the environment",
@@ -854,31 +736,23 @@
       "note": "The answer is a substance and the definition is what it does, a verb phrase hanging off 'A man' in the surface; the setter defines the chemical by its effect."
      }
     ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "the article taken as it stands"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "GENT",
-      "note": "a gent is a man, the everyday short form of gentleman"
-     },
-     {
-      "clueFragment": "like Trump",
-      "gives": "ORANGE",
-      "note": "the colour cartoonists give the US president, from his much-mocked tan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GENT",
-      "ORANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "the article taken as it stands"
+      },
+      {
+       "words": "man",
+       "gives": "GENT",
+       "note": "a gent is a man, the everyday short form of gentleman"
+      },
+      {
+       "words": "like Trump",
+       "gives": "ORANGE",
+       "note": "the colour cartoonists give the US president, from his much-mocked tan"
+      }
      ]
     },
     "explanation": {
@@ -918,38 +792,24 @@
    },
    "solution": "RESTINPEACE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REST IN PEACE",
     "definitions": [
      {
       "text": "rip expanded",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "worried",
-      "for": "anagram",
-      "note": "To worry a thing is to shake it about the way a dog worries a rag, and letters shaken about come out in a new order."
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tease prince",
-      "gives": "TEASEPRINCE",
-      "note": "anagram fodder, eleven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEASE PRINCE",
-       "gives": "RESTINPEACE"
+       "text": "worried",
+       "note": "To worry a thing is to shake it about the way a dog worries a rag, and letters shaken about come out in a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tease prince",
+       "note": "anagram fodder, eleven letters"
       }
      ]
     },
@@ -979,49 +839,36 @@
    },
    "solution": "TRANSIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TRANSIT",
     "definitions": [
      {
       "text": "crossing",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "After fixes the order of the pieces: whatever comes after the tension is written behind it."
-     }
-    ],
-    "linkWords": [
-     "to",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tension",
-      "gives": "T",
-      "note": "T is the physicist's symbol for tension, the letter labelling a rope in a force diagram"
-     },
-     {
-      "clueFragment": "Managed",
-      "gives": "RAN",
-      "note": "someone who managed a business ran it"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "SIT",
-      "note": "to rest your legs is to sit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAN",
-      "SIT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "After fixes the order of the pieces: whatever comes after the tension is written behind it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "tension",
+       "gives": "T",
+       "note": "T is the physicist's symbol for tension, the letter labelling a rope in a force diagram"
+      },
+      {
+       "words": "Managed",
+       "gives": "RAN",
+       "note": "someone who managed a business ran it"
+      },
+      {
+       "words": "rest",
+       "gives": "SIT",
+       "note": "to rest your legs is to sit"
+      }
      ]
     },
     "explanation": {
@@ -1050,40 +897,31 @@
    },
    "solution": "DESISTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DESISTS",
     "definitions": [
      {
       "text": "Stops",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "joining",
-      "for": "container",
-      "note": "Someone joining a group goes in among them, so the letter takes its place inside the word rather than in front of it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "uncaring god worshippers",
-      "gives": "DEISTS",
-      "note": "deists believe in a creator who made the world and has taken no interest in it since"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the standard short form of son, as written on a family tree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "S",
-      "ISTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "joining",
+       "note": "Someone joining a group goes in among them, so the letter takes its place inside the word rather than in front of it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "uncaring god worshippers",
+       "gives": "DEISTS",
+       "note": "deists believe in a creator who made the world and has taken no interest in it since"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the standard short form of son, as written on a family tree"
+      }
      ]
     },
     "explanation": {
@@ -1112,32 +950,17 @@
    },
    "solution": "COPPERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COPPERS",
     "definitions": [
      {
       "text": "Small change",
       "at": 0,
-      "note": "The second half describes the answer rather than translating it: the ones regularly spotted on the beat are police officers."
+      "note": "The second half describes the answer rather than translating it: the ones regularly spotted on the beat are police officers.",
+      "meaning": "the copper coins in your pocket, the pennies and twopences of loose change"
      },
      {
       "text": "regularly spotted on the beat",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small change",
-      "note": "the copper coins in your pocket, the pennies and twopences of loose change"
-     },
-     {
-      "clueFragment": "regularly spotted on the beat",
-      "note": "British slang for police officers, the beat being the fixed round a constable walks"
+      "at": 16,
+      "meaning": "British slang for police officers, the beat being the fixed round a constable walks"
      }
     ],
     "explanation": {
@@ -1167,31 +990,16 @@
    },
    "solution": "CHANNEL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHANNEL",
     "definitions": [
      {
       "text": "Direct passage",
-      "at": 0
+      "at": 0,
+      "meaning": "a way running straight through from one side to the other, whether for water, for shipping or for a broadcast"
      },
      {
       "text": "sound",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Direct passage",
-      "note": "a way running straight through from one side to the other, whether for water, for shipping or for a broadcast"
-     },
-     {
-      "clueFragment": "sound",
-      "note": "in geography a sound is a narrow stretch of water joining two larger ones, as in Plymouth Sound"
+      "at": 18,
+      "meaning": "in geography a sound is a narrow stretch of water joining two larger ones, as in Plymouth Sound"
      }
     ],
     "explanation": {
@@ -1226,32 +1034,25 @@
    },
    "solution": "PLAYOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLAY OUT",
     "definitions": [
      {
       "text": "Gradually develop",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "page",
-      "gives": "P",
-      "note": "p is the standard short form of page, as in 'see p 34'"
-     },
-     {
-      "clueFragment": "design",
-      "gives": "LAYOUT",
-      "note": "the layout of a page is its design, the placing of type and pictures on it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LAYOUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "page",
+       "gives": "P",
+       "note": "p is the standard short form of page, as in 'see p 34'"
+      },
+      {
+       "words": "design",
+       "gives": "LAYOUT",
+       "note": "the layout of a page is its design, the placing of type and pictures on it"
+      }
      ]
     },
     "explanation": {
@@ -1280,28 +1081,16 @@
    },
    "solution": "SANDBAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SANDBAG",
     "definitions": [
      {
       "text": "Knock out",
-      "at": 0
+      "at": 0,
+      "meaning": "to club a man senseless, originally with a sock or bag of sand, which leaves no mark on him"
      },
      {
       "text": "part of flood defence",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Knock out",
-      "note": "to club a man senseless, originally with a sock or bag of sand, which leaves no mark on him"
-     },
-     {
-      "clueFragment": "part of flood defence",
-      "note": "one of the filled sacks stacked in a wall across a doorway when the river comes up"
+      "at": 10,
+      "meaning": "one of the filled sacks stacked in a wall across a doorway when the river comes up"
      }
     ],
     "explanation": {
@@ -1336,48 +1125,35 @@
    },
    "solution": "MAITRED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAITRE D",
     "definitions": [
      {
       "text": "one overseeing service",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "retains",
-      "for": "container",
-      "note": "What a thing retains it keeps inside itself, so the shorter run of letters ends up within the longer word."
-     },
-     {
-      "text": "half of",
-      "for": "container",
-      "note": "Half of a six-letter word is three letters, and with nothing said about which half, it is the first three."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Servant",
-      "gives": "MAID",
-      "note": "a maid is a household servant"
-     },
-     {
-      "clueFragment": "treats",
-      "gives": "TRE",
-      "note": "the first half of that six-letter word, taken from its front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAI",
-      "TRE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retains",
+       "note": "What a thing retains it keeps inside itself, so the shorter run of letters ends up within the longer word."
+      },
+      {
+       "text": "half of",
+       "note": "Half of a six-letter word is three letters, and with nothing said about which half, it is the first three."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Servant",
+       "gives": "MAID",
+       "note": "a maid is a household servant"
+      },
+      {
+       "words": "treats",
+       "gives": "TRE",
+       "note": "the first half of that six-letter word, taken from its front"
+      }
      ]
     },
     "explanation": {
@@ -1406,40 +1182,31 @@
    },
    "solution": "MOHICAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MOHICAN",
     "definitions": [
      {
       "text": "hairstyle",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "To be about something is to be round it, so one word wraps itself around the other."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "complain",
-      "gives": "MOAN",
-      "note": "to complain is to moan"
-     },
-     {
-      "clueFragment": "Here in Rome",
-      "gives": "HIC",
-      "note": "hic is the Latin for here, and 'in Rome' is the setter asking for the Latin word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "HIC",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "To be about something is to be round it, so one word wraps itself around the other."
+      }
+     ],
+     "parts": [
+      {
+       "words": "complain",
+       "gives": "MOAN",
+       "note": "to complain is to moan"
+      },
+      {
+       "words": "Here in Rome",
+       "gives": "HIC",
+       "note": "hic is the Latin for here, and 'in Rome' is the setter asking for the Latin word"
+      }
      ]
     },
     "explanation": {
@@ -1468,40 +1235,31 @@
    },
    "solution": "RASPING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RASPING",
     "definitions": [
      {
       "text": "Harsh sounding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carried by",
-      "for": "container",
-      "note": "What is carried by something is held inside it, so those letters sit within the word that carries them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "newspaper",
-      "gives": "RAG",
-      "note": "a rag is a newspaper, usually one the speaker thinks little of"
-     },
-     {
-      "clueFragment": "political line",
-      "gives": "SPIN",
-      "note": "spin is the favourable line a party puts on the facts, the trade of the spin doctor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "SPIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carried by",
+       "note": "What is carried by something is held inside it, so those letters sit within the word that carries them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "newspaper",
+       "gives": "RAG",
+       "note": "a rag is a newspaper, usually one the speaker thinks little of"
+      },
+      {
+       "words": "political line",
+       "gives": "SPIN",
+       "note": "spin is the favourable line a party puts on the facts, the trade of the spin doctor"
+      }
      ]
     },
     "explanation": {
@@ -1536,48 +1294,37 @@
    },
    "solution": "DOINGUP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DOING UP",
     "definitions": [
      {
       "text": "redecorating",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "In a down clue something upset has been turned on its head, so its letters are read back up the grid."
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kill",
-      "gives": "DOIN",
-      "note": "to do someone in is to kill them, and the four letters run straight on"
-     },
-     {
-      "clueFragment": "little dog",
-      "gives": "GUP",
-      "note": "a pug is a small flat-faced dog, here written upwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOIN",
-      "GUP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "DOINGUP",
+     "indicators": [
       {
-       "from": "PUG",
-       "to": "GUP"
+       "text": "upset",
+       "note": "In a down clue something upset has been turned on its head, so its letters are read back up the grid."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Kill",
+         "gives": "DOIN",
+         "note": "to do someone in is to kill them, and the four letters run straight on"
+        },
+        {
+         "words": "little dog",
+         "gives": "GUP",
+         "note": "a pug is a small flat-faced dog, here written upwards"
+        }
+       ]
       }
      ]
     },
@@ -1613,10 +1360,6 @@
    },
    "solution": "ABANDONSHIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABANDON SHIP",
     "definitions": [
      {
       "text": "what they didn't do",
@@ -1624,20 +1367,10 @@
       "note": "The definition is a clause about the musicians rather than a synonym: the answer is the thing they never did."
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Titanic orchestra perhaps",
-      "gives": "ABANDONSHIP",
-      "note": "an orchestra at sea is a group of players aboard a vessel, and with the article in front those words respace, letter for letter, into something else"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABANDON SHIP"
-     ]
+    "wordplay": {
+     "words": "Titanic orchestra perhaps",
+     "gives": "ABANDONSHIP",
+     "note": "an orchestra at sea is a group of players aboard a vessel, and with the article in front those words respace, letter for letter, into something else"
     },
     "explanation": {
      "surface": "The Titanic's musicians, playing on as the water rose.",
@@ -1666,34 +1399,25 @@
    },
    "solution": "SKI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SKI",
     "definitions": [
      {
       "text": "Runner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from the start",
-      "for": "letter_selection",
-      "note": "Taking words from the start means taking them at their opening letters and going no further into them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "should keep improving",
-      "gives": "SKI",
-      "select": "first",
-      "note": "the first letter of each of the three words in turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKI"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "from the start",
+       "note": "Taking words from the start means taking them at their opening letters and going no further into them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "should keep improving",
+       "note": "the first letter of each of the three words in turn"
+      }
      ]
     },
     "explanation": {
@@ -1722,11 +1446,6 @@
    },
    "solution": "NEOPHOBIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NEOPHOBIC",
     "definitions": [
      {
       "text": "preferring old stuff?",
@@ -1734,41 +1453,31 @@
       "note": "The word is a fear of the new rather than a love of the old; the question mark admits the setter is defining it by the consequence."
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "anagram",
-      "note": "A revolutionary overturns the established order, and the order overturned here is the order of the letters."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No hope",
-      "gives": "NEOPHO",
-      "note": "six letters shuffled into a new order"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "BIC",
-      "note": "a Bic is the cheap ballpoint everybody loses, a writer in the pen sense rather than the author"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEOPHO",
-      "BIC"
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NEOPHOBIC",
+     "indicators": [
+      {
+       "text": "revolutionary",
+       "note": "A revolutionary overturns the established order, and the order overturned here is the order of the letters."
+      }
      ],
-     "anagrams": [
+     "parts": [
       {
-       "fodder": "NO HOPE BIC",
-       "gives": "NEOPHOBIC"
-      },
-      {
-       "fodder": "NOHOPE",
-       "gives": "NEOPHO"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No hope",
+         "gives": "NEOPHO",
+         "note": "six letters shuffled into a new order"
+        },
+        {
+         "words": "writer",
+         "gives": "BIC",
+         "note": "a Bic is the cheap ballpoint everybody loses, a writer in the pen sense rather than the author"
+        }
+       ]
       }
      ]
     },
@@ -1798,34 +1507,25 @@
    },
    "solution": "HOP",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "HOP",
     "definitions": [
      {
       "text": "Spring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finishes off",
-      "for": "letter_selection",
-      "note": "The finish of a word is the letter it ends on, and finishing off several words takes that last letter from each of them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with Tokyo trip",
-      "gives": "HOP",
-      "select": "last",
-      "note": "the final letter of each of the three words in turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOP"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "finishes off",
+       "note": "The finish of a word is the letter it ends on, and finishing off several words takes that last letter from each of them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "with Tokyo trip",
+       "note": "the final letter of each of the three words in turn"
+      }
      ]
     },
     "explanation": {
@@ -1854,41 +1554,30 @@
    },
    "solution": "ACING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ACING",
     "definitions": [
      {
       "text": "passing challenge with ease",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "exclude",
-      "for": "deletion",
-      "note": "To exclude something is to shut it out, so those letters are dropped from the word that held them."
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Threatening",
-      "gives": "MENACING",
-      "note": "something threatening is menacing"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "MEN",
-      "note": "the three letters shut out, taken from the front of that word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "exclude",
+       "note": "To exclude something is to shut it out, so those letters are dropped from the word that held them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Threatening",
+       "gives": "MENACING",
+       "note": "something threatening is menacing"
+      },
+      {
+       "words": "men",
+       "note": "the three letters shut out, taken from the front of that word"
+      }
      ]
     },
     "explanation": {
@@ -1923,35 +1612,25 @@
    },
    "solution": "LETUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LET-UP",
     "definitions": [
      {
       "text": "Moderation",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rent",
-      "gives": "LET",
-      "note": "to let a flat is to rent it out, the British landlord's word for it"
-     },
-     {
-      "clueFragment": "increase",
-      "gives": "UP",
-      "note": "to up a price is to increase it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LET",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rent",
+       "gives": "LET",
+       "note": "to let a flat is to rent it out, the British landlord's word for it"
+      },
+      {
+       "words": "increase",
+       "gives": "UP",
+       "note": "to up a price is to increase it"
+      }
      ]
     },
     "explanation": {
@@ -1986,38 +1665,24 @@
    },
    "solution": "GENDERGAP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GENDER GAP",
     "definitions": [
      {
       "text": "societal disparity",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Liberal",
-      "for": "anagram",
-      "note": "Liberal here means free and loose rather than strict, and letters handled loosely need not stay in the order they were given."
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agreed GNP",
-      "gives": "AGREEDGNP",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AGREED GNP",
-       "gives": "GENDERGAP"
+       "text": "Liberal",
+       "note": "Liberal here means free and loose rather than strict, and letters handled loosely need not stay in the order they were given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreed GNP",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },

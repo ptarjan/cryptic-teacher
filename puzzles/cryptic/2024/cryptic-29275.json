@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29275",
  "number": 29275,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,275",
  "setter": "Anto",
  "date": "2024-01-10",
  "dimensions": {
@@ -38,52 +36,58 @@
    },
    "solution": "BREEDS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BREEDS",
     "definitions": [
      {
       "text": "Cultivates",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letters of a phrase, read as its abbreviation"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the plant word inside the letters drawn from the manure word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "manure",
-      "gives": "B",
-      "select": "first",
-      "note": "manure is crudely 'bull shit', and its initial letters are B and S; this is the first"
-     },
-     {
-      "clueFragment": "grass",
-      "gives": "REED",
-      "note": "a reed is a tall grass"
-     },
-     {
-      "clueFragment": "manure",
-      "gives": "S",
-      "note": "the second initial of 'bull shit'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "REED",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BREEDS",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the plant word inside the letters drawn from the manure word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "B",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening letters of a phrase, read as its abbreviation"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "manure",
+           "gives": "B",
+           "select": "first",
+           "note": "manure is crudely 'bull shit', and its initial letters are B and S; this is the first"
+          }
+         ]
+        },
+        {
+         "words": "grass",
+         "gives": "REED",
+         "note": "a reed is a tall grass"
+        },
+        {
+         "words": "manure",
+         "gives": "S",
+         "note": "the second initial of 'bull shit'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -119,45 +123,34 @@
    },
    "solution": "BRADPITT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "BRAD PITT",
     "definitions": [
      {
       "text": "who's had many rôles",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Terribly",
-      "for": "anagram",
-      "note": "terribly suggests something done badly, so these letters are jumbled out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drab",
-      "gives": "DRAB",
-      "note": "the four letters to be rearranged"
-     },
-     {
-      "clueFragment": "old PM",
-      "gives": "PITT",
-      "note": "William Pitt, father and son, were eighteenth-century British prime ministers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAD",
-      "PITT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DRAB",
-       "gives": "BRAD"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Terribly",
+         "note": "terribly suggests something done badly, so these letters are jumbled out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drab",
+         "note": "the four letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "old PM",
+       "gives": "PITT",
+       "note": "William Pitt, father and son, were eighteenth-century British prime ministers"
       }
      ]
     },
@@ -187,28 +180,16 @@
    },
    "solution": "EIGHTIES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EIGHTIES",
     "definitions": [
      {
       "text": "Advanced years",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the ages from eighty to eighty-nine"
      },
      {
       "text": "when Thatcher was in her prime",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Advanced years",
-      "note": "first meaning: the ages from eighty to eighty-nine"
-     },
-     {
-      "clueFragment": "when Thatcher was in her prime",
-      "note": "second meaning: the decade from 1980, when Margaret Thatcher was at the height of her power"
+      "at": 16,
+      "meaning": "second meaning: the decade from 1980, when Margaret Thatcher was at the height of her power"
      }
     ],
     "explanation": {
@@ -237,37 +218,25 @@
    },
    "solution": "DELHI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DELHI",
     "definitions": [
      {
       "text": "city",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "Leading",
-      "for": "letter_selection",
-      "note": "leading points to the front letter of each of the following words"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doctors envisage large health investment",
-      "gives": "DELHI",
-      "select": "first",
-      "note": "the first letters of these five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELHI"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Leading",
+       "note": "leading points to the front letter of each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctors envisage large health investment",
+       "note": "the first letters of these five words"
+      }
      ]
     },
     "explanation": {
@@ -295,37 +264,28 @@
    },
    "solution": "CHESTNUT",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "CHESTNUT",
     "definitions": [
      {
       "text": "something of a cliché",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "swaps sides",
-      "for": "cycling",
-      "note": "swaps sides tells you to move the back half of the compound to the front, rotating the letters round"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Headcase",
-      "gives": "NUTCHEST",
-      "note": "split into head and case: nut is slang for the head, and a chest is a case or box"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHEST",
-      "NUT"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "CHESTNUT",
+     "indicators": [
+      {
+       "text": "swaps sides",
+       "note": "swaps sides tells you to move the back half of the compound to the front, rotating the letters round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Headcase",
+       "gives": "NUTCHEST",
+       "note": "split into head and case: nut is slang for the head, and a chest is a case or box"
+      }
      ]
     },
     "explanation": {
@@ -361,39 +321,28 @@
    },
    "solution": "HEATHROBINSON",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "HEATH ROBINSON",
     "definitions": [
      {
       "text": "No one has birth as complicated as he imagined!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "complicated",
-      "for": "anagram",
-      "note": "complicated means tangled up, so the letters are twisted into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No one has birth",
-      "gives": "NOONEHASBIRTH",
-      "note": "the thirteen letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOONEHASBIRTH",
-       "gives": "HEATHROBINSON"
+       "text": "complicated",
+       "note": "complicated means tangled up, so the letters are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No one has birth",
+       "note": "the thirteen letters to be rearranged"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Nobody's birth could be as convoluted as the one this man dreamt up.",
      "walkthrough": "W. Heath Robinson was a British cartoonist famed for drawing absurdly complicated contraptions; his name became a byword for them.",
@@ -421,40 +370,31 @@
    },
    "solution": "SPARKLING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPARKLING",
     "definitions": [
      {
       "text": "Fantastic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "includes means one thing holds another, so the support word wraps round the space word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "medical support",
-      "gives": "SLING",
-      "note": "a sling supports an injured arm"
-     },
-     {
-      "clueFragment": "recreational space",
-      "gives": "PARK",
-      "note": "a park is open ground for recreation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PARK",
-      "LING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "note": "includes means one thing holds another, so the support word wraps round the space word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "medical support",
+       "gives": "SLING",
+       "note": "a sling supports an injured arm"
+      },
+      {
+       "words": "recreational space",
+       "gives": "PARK",
+       "note": "a park is open ground for recreation"
+      }
      ]
     },
     "explanation": {
@@ -482,43 +422,39 @@
    },
    "solution": "NECTAR",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NECTAR",
     "definitions": [
      {
       "text": "that's so sweet",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "make out",
-      "gives": "NECK",
-      "note": "to neck is to kiss and cuddle, to make out"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "tar is an old word for a sailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEC",
-      "TAR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Almost",
+       "note": "almost means not quite all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "make out",
+         "gives": "NECK",
+         "note": "to neck is to kiss and cuddle, to make out"
+        },
+        {
+         "words": "sailor",
+         "gives": "TAR",
+         "note": "tar is an old word for a sailor"
+        }
+       ]
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -547,40 +483,30 @@
    },
    "solution": "THEISM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THEISM",
     "definitions": [
      {
       "text": "Belief",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "container",
-      "note": "part of puts the short word among the letters of the longer phrase's synonym"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "those who traditionally oppose us",
-      "gives": "THEM",
-      "note": "'us and them' is the traditional opposition of one side to the other"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "IS",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "part of",
+       "note": "part of puts the short word among the letters of the longer phrase's synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those who traditionally oppose us",
+       "gives": "THEM",
+       "note": "'us and them' is the traditional opposition of one side to the other"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -609,42 +535,31 @@
    },
    "solution": "ANGEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANGEL",
     "definitions": [
      {
       "text": "financial investor",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "on in an across clue places the first word's synonym after the second"
-     }
-    ],
-    "linkWords": [
-     "depicting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "an indefinite article"
-     },
-     {
-      "clueFragment": "Work together",
-      "gives": "GEL",
-      "note": "a team gels when it works together well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "GEL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "on in an across clue places the first word's synonym after the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "an indefinite article"
+      },
+      {
+       "words": "Work together",
+       "gives": "GEL",
+       "note": "a team gels when it works together well"
+      }
      ]
     },
     "explanation": {
@@ -672,57 +587,51 @@
    },
    "solution": "AVALANCHE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AVALANCHE",
     "definitions": [
      {
       "text": "deluge",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "disruption",
-      "for": "anagram",
-      "note": "disruption throws things into disorder, so these letters are rearranged"
-     },
-     {
-      "text": "getting stuck inside",
-      "for": "container",
-      "note": "getting stuck inside means lodged within, so the rearranged letters go inside the verb"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Suffer",
-      "gives": "A",
-      "note": "to ache is to suffer; its first letter comes before the insertion"
-     },
-     {
-      "clueFragment": "naval",
-      "gives": "VALAN",
-      "note": "the five letters of naval rearranged"
-     },
-     {
-      "clueFragment": "Suffer",
-      "gives": "CHE",
-      "note": "the rest of ache, after the insertion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AV",
-      "A",
-      "LAN",
-      "CHE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NAVAL",
-       "gives": "VALAN"
+       "text": "getting stuck inside",
+       "note": "getting stuck inside means lodged within, so the rearranged letters go inside the verb"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disruption",
+         "note": "disruption throws things into disorder, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "naval",
+           "gives": "VALAN",
+           "note": "the five letters of naval rearranged"
+          },
+          {
+           "words": "Suffer",
+           "gives": "CHE",
+           "note": "the rest of ache, after the insertion"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Suffer",
+       "gives": "A",
+       "note": "to ache is to suffer; its first letter comes before the insertion"
       }
      ]
     },
@@ -770,29 +679,17 @@
    },
    "solution": "ABITOFALOOKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "A BIT OF A LOOKER",
     "definitions": [
      {
       "text": "Handsome",
       "at": 0,
-      "note": "the answer is a noun phrase for a good-looking person, while handsome is an adjective"
+      "note": "the answer is a noun phrase for a good-looking person, while handsome is an adjective",
+      "meaning": "first meaning: a good-looking person"
      },
      {
       "text": "pupil perhaps",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Handsome",
-      "note": "first meaning: a good-looking person"
-     },
-     {
-      "clueFragment": "pupil perhaps",
-      "note": "second meaning, read literally: a pupil is a small part of an eye, an organ for looking"
+      "at": 9,
+      "meaning": "second meaning, read literally: a pupil is a small part of an eye, an organ for looking"
      }
     ],
     "explanation": {
@@ -827,26 +724,25 @@
    },
    "solution": "PETRIDISH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PETRI DISH",
     "definitions": [
      {
       "text": "Culture has potential for growth here?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Culture has potential for growth here?",
-      "note": "surface reading: a society or the arts with room to develop"
-     },
-     {
-      "clueFragment": "Culture",
-      "note": "setter's reading: a bacterial culture growing in the laboratory vessel used for it"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Culture has potential for growth here?",
+       "note": "surface reading: a society or the arts with room to develop"
+      },
+      {
+       "words": "Culture",
+       "note": "setter's reading: a bacterial culture growing in the laboratory vessel used for it"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Culture reads as arts or society, but it means microbes grown in a lab.",
      "definitionFit": "A shallow lidded glass plate is where scientists grow bacterial cultures."
@@ -873,32 +769,25 @@
    },
    "solution": "KEATS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KEATS",
     "definitions": [
      {
       "text": "poet",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "K",
-      "note": "K is the chess abbreviation for king"
-     },
-     {
-      "clueFragment": "takes in",
-      "gives": "EATS",
-      "note": "to take in food is to eat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "EATS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King",
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "takes in",
+       "gives": "EATS",
+       "note": "to take in food is to eat"
+      }
      ]
     },
     "explanation": {
@@ -932,46 +821,44 @@
    },
    "solution": "THEACROPOLIS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "THE ACROPOLIS",
     "definitions": [
      {
       "text": "somewhere in Greece",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "expelled from",
-      "for": "deletion",
-      "note": "expelled from means thrown out, so that letter is removed from the following words"
-     },
-     {
-      "text": "crumbling",
-      "for": "anagram",
-      "note": "crumbling means falling to pieces, so the remaining letters are rebuilt in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Victor",
-      "gives": "V",
-      "note": "V is Victor in the phonetic alphabet"
-     },
-     {
-      "clueFragment": "private school",
-      "gives": "PRIVATESCHOOL",
-      "note": "the letters to be reworked once the V goes"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "THEACROPOLIS",
+     "indicators": [
       {
-       "fodder": "PRIATESCHOOL",
-       "gives": "THEACROPOLIS"
+       "text": "crumbling",
+       "note": "crumbling means falling to pieces, so the remaining letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "THEACROPOLIS",
+       "indicators": [
+        {
+         "text": "expelled from",
+         "note": "expelled from means thrown out, so that letter is removed from the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Victor",
+         "gives": "V",
+         "note": "V is Victor in the phonetic alphabet"
+        },
+        {
+         "words": "private school",
+         "note": "the letters to be reworked once the V goes"
+        }
+       ]
       }
      ]
     },
@@ -1010,28 +897,16 @@
    },
    "solution": "CAPINHAND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAP IN HAND",
     "definitions": [
      {
       "text": "Being humble",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: approaching someone humbly, as when asking a favour"
      },
      {
       "text": "turned up to return lost headgear",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Being humble",
-      "note": "first meaning: approaching someone humbly, as when asking a favour"
-     },
-     {
-      "clueFragment": "turned up to return lost headgear",
-      "note": "second meaning, read literally: a hat held ready in the hand by someone who has come to give it back"
+      "at": 14,
+      "meaning": "second meaning, read literally: a hat held ready in the hand by someone who has come to give it back"
      }
     ],
     "explanation": {
@@ -1066,28 +941,16 @@
    },
    "solution": "BADBOOKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BAD BOOKS",
     "definitions": [
      {
       "text": "One has trouble getting into them",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: being in someone's ... means being in disfavour, in trouble"
      },
      {
       "text": "they're difficult to read",
-      "at": 36
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One has trouble getting into them",
-      "note": "first meaning: being in someone's ... means being in disfavour, in trouble"
-     },
-     {
-      "clueFragment": "they're difficult to read",
-      "note": "second meaning, read literally: poorly written volumes are hard going"
+      "at": 36,
+      "meaning": "second meaning, read literally: poorly written volumes are hard going"
      }
     ],
     "explanation": {
@@ -1116,32 +979,16 @@
    },
    "solution": "ETERNITY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ETERNITY",
     "definitions": [
      {
       "text": "Eight fallen over",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a figure 8 lying on its side is the infinity sign, the symbol of endless time"
      },
      {
       "text": "forever",
-      "at": 29
-     }
-    ],
-    "linkWords": [
-     "it takes",
-     "to understand its meaning"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eight fallen over",
-      "note": "first meaning: a figure 8 lying on its side is the infinity sign, the symbol of endless time"
-     },
-     {
-      "clueFragment": "forever",
-      "note": "second meaning: a plain synonym, the word needed to explain the answer's meaning"
+      "at": 29,
+      "meaning": "second meaning: a plain synonym, the word needed to explain the answer's meaning"
      }
     ],
     "explanation": {
@@ -1176,26 +1023,25 @@
    },
    "solution": "SPEAKINGPART",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPEAKING PART",
     "definitions": [
      {
       "text": "It lets you have a say on boards?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It lets you have a say on boards?",
-      "note": "surface reading: a seat on a company board giving a voice in decisions"
-     },
-     {
-      "clueFragment": "on boards",
-      "note": "setter's reading: the boards are the stage, and the role lets an actor deliver lines"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It lets you have a say on boards?",
+       "note": "surface reading: a seat on a company board giving a voice in decisions"
+      },
+      {
+       "words": "on boards",
+       "note": "setter's reading: the boards are the stage, and the role lets an actor deliver lines"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Boards suggests company directors, but 'the boards' is the theatre stage.",
      "definitionFit": "An actor given a role with lines, rather than a walk-on, gets to say something on stage."
@@ -1222,48 +1068,35 @@
    },
    "solution": "GOOGOL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GOOGOL",
     "definitions": [
      {
       "text": "Huge amount",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backed-up",
-      "for": "reversal",
-      "note": "backed-up in a down clue means read from the bottom up, so the word runs backwards"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slime",
-      "gives": "GOO",
-      "note": "goo is sticky slime"
-     },
-     {
-      "clueFragment": "register",
-      "gives": "LOG",
-      "note": "a log is a record or register"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOO",
-      "GOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LOG",
-       "to": "GOL"
+       "words": "slime",
+       "gives": "GOO",
+       "note": "goo is sticky slime"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed-up",
+         "note": "backed-up in a down clue means read from the bottom up, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "register",
+         "gives": "LOG",
+         "note": "a log is a record or register"
+        }
+       ]
       }
      ]
     },
@@ -1292,38 +1125,30 @@
    },
    "solution": "MILIEU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MILIEU",
     "definitions": [
      {
       "text": "scene",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "MI",
-      "note": "mi is the third note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "position",
-      "gives": "LIE",
-      "note": "the lie of the land is its position or layout"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MI",
-      "LIE",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "gives": "MI",
+       "note": "mi is the third note of the sol-fa scale"
+      },
+      {
+       "words": "position",
+       "gives": "LIE",
+       "note": "the lie of the land is its position or layout"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      }
      ]
     },
     "explanation": {
@@ -1351,43 +1176,31 @@
    },
    "solution": "ONION",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ONION",
     "definitions": [
      {
       "text": "some food",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means surrounding, so the doubled word goes either side of the island letter"
-     }
-    ],
-    "linkWords": [
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Working double",
-      "gives": "ONON",
-      "note": "working is ON, and double means take it twice"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I is the abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "I",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means surrounding, so the doubled word goes either side of the island letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Working double",
+       "gives": "ONON",
+       "note": "working is ON, and double means take it twice"
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "I is the abbreviation for island"
+      }
      ]
     },
     "explanation": {
@@ -1421,38 +1234,24 @@
    },
    "solution": "OYSTERBAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OYSTER BAR",
     "definitions": [
      {
       "text": "upmarket diner",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "rattling",
-      "for": "anagram",
-      "note": "rattling means shaking about, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory sabre",
-      "gives": "TORYSABRE",
-      "note": "the nine letters to be rearranged; a Tory is a British Conservative"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TORYSABRE",
-       "gives": "OYSTERBAR"
+       "text": "rattling",
+       "note": "rattling means shaking about, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tory sabre",
+       "note": "the nine letters to be rearranged; a Tory is a British Conservative"
       }
      ]
     },
@@ -1482,45 +1281,35 @@
    },
    "solution": "ENDUE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ENDUE",
     "definitions": [
      {
       "text": "Provide",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "promoted",
-      "for": "reversal",
-      "note": "promoted means moved up, and in a down clue that reads the letters bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "objective",
-      "gives": "END",
-      "note": "an end is an aim or objective"
-     },
-     {
-      "clueFragment": "Brussels",
-      "gives": "EU",
-      "note": "Brussels is the seat of the European Union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "END",
-      "UE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EU",
-       "to": "UE"
+       "words": "objective",
+       "gives": "END",
+       "note": "an end is an aim or objective"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "promoted",
+         "note": "promoted means moved up, and in a down clue that reads the letters bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brussels",
+         "gives": "EU",
+         "note": "Brussels is the seat of the European Union"
+        }
+       ]
       }
      ]
     },
@@ -1549,48 +1338,34 @@
    },
    "solution": "GRIMALKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIMALKIN",
     "definitions": [
      {
       "text": "Old cat",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is",
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tough",
-      "gives": "GRIM",
-      "note": "grim means hard or severe"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the clothing-size abbreviation for large"
-     },
-     {
-      "clueFragment": "family",
-      "gives": "KIN",
-      "note": "kin are one's relatives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRIM",
-      "A",
-      "L",
-      "KIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tough",
+       "gives": "GRIM",
+       "note": "grim means hard or severe"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "words": "family",
+       "gives": "KIN",
+       "note": "kin are one's relatives"
+      }
      ]
     },
     "explanation": {
@@ -1618,56 +1393,57 @@
    },
    "solution": "DHOTI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DHOTI",
     "definitions": [
      {
       "text": "Clothing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on vacation",
-      "for": "letter_selection",
-      "note": "on vacation means emptied out, so only the outside letters of the place name are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the fashion word inside the kept letters"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dubai",
-      "gives": "D",
-      "select": "first",
-      "note": "the first of the two outer letters"
-     },
-     {
-      "clueFragment": "trendy",
-      "gives": "HOT",
-      "note": "hot means fashionable"
-     },
-     {
-      "clueFragment": "Dubai",
-      "gives": "I",
-      "select": "last",
-      "note": "the last of the two outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "HOT",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DHOTI",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the fashion word inside the kept letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "on vacation",
+           "note": "on vacation means emptied out, so only the outside letters of the place name are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dubai",
+           "note": "the first of the two outer letters"
+          }
+         ]
+        },
+        {
+         "words": "trendy",
+         "gives": "HOT",
+         "note": "hot means fashionable"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "Dubai",
+           "note": "the last of the two outer letters"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1696,47 +1472,41 @@
    },
    "solution": "LAUNDERS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LAUNDERS",
     "definitions": [
      {
       "text": "Cleans up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "occasional",
-      "for": "letter_selection",
-      "note": "occasional means now and then, so only every other letter is kept"
-     },
-     {
-      "text": "spreading around",
-      "for": "container",
-      "note": "spreading around means wrapping about something, so the kept letters surround the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leaks",
-      "gives": "LAS",
-      "select": "alternate",
-      "note": "the first, third and fifth letters"
-     },
-     {
-      "clueFragment": "'below'",
-      "gives": "UNDER",
-      "note": "under is a synonym of below"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "UNDER",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "spreading around",
+       "note": "spreading around means wrapping about something, so the kept letters surround the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasional",
+         "note": "occasional means now and then, so only every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leaks",
+         "note": "the first, third and fifth letters"
+        }
+       ]
+      },
+      {
+       "words": "'below'",
+       "gives": "UNDER",
+       "note": "under is a synonym of below"
+      }
      ]
     },
     "explanation": {
@@ -1765,43 +1535,39 @@
    },
    "solution": "MEASLY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MEASLY",
     "definitions": [
      {
       "text": "too small",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Trimmed",
-      "for": "deletion",
-      "note": "trimmed means cut short, so the final letter is lopped off"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beef for example",
-      "gives": "MEAT",
-      "note": "beef is an example of meat"
-     },
-     {
-      "clueFragment": "knowing",
-      "gives": "SLY",
-      "note": "a knowing look is a sly one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEA",
-      "SLY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Trimmed",
+       "note": "trimmed means cut short, so the final letter is lopped off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "beef for example",
+         "gives": "MEAT",
+         "note": "beef is an example of meat"
+        },
+        {
+         "words": "knowing",
+         "gives": "SLY",
+         "note": "a knowing look is a sly one"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {

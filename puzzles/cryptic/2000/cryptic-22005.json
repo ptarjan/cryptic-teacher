@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22005",
  "number": 22005,
- "series": "cryptic",
- "name": "Prize crossword No 22,005",
+ "prize": true,
  "setter": "Shed",
  "date": "2000-09-16",
  "dimensions": {
@@ -38,47 +37,50 @@
    },
    "solution": "MEXICO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution",
-     "deletion"
-    ],
-    "answer": "MEXICO",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of the Scotsman's name is its opening initial, so only that letter is kept"
-     },
-     {
-      "text": "that produced",
-      "for": "substitution",
-      "note": "the dictionary word is made to produce a different opening letter, swapped in for its own initial"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Murray's",
-      "gives": "M",
-      "select": "first",
-      "note": "the initial letter of the name Murray"
-     },
-     {
-      "clueFragment": "dictionary",
-      "gives": "LEXICON",
-      "note": "a lexicon is a dictionary, especially of an ancient language"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "EXICO"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "MEXICO",
+     "indicators": [
+      {
+       "text": "that produced",
+       "note": "the dictionary word is made to produce a different opening letter, swapped in for its own initial"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "MEXICO",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "the first of the Scotsman's name is its opening initial, so only that letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Murray's",
+           "note": "the initial letter of the name Murray"
+          }
+         ]
+        },
+        {
+         "words": "dictionary",
+         "gives": "LEXICON",
+         "note": "a lexicon is a dictionary, especially of an ancient language"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -113,45 +115,40 @@
    },
    "solution": "TOOTINGBEC",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "TOOTING BEC",
     "definitions": [
      {
       "text": "part of south London",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner famously swapped the opening sounds of pairs of words, so the initial sounds here change places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kicking",
-      "gives": "BOOTING",
-      "note": "booting a ball is kicking it"
-     },
-     {
-      "clueFragment": "Dick",
-      "gives": "TEC",
-      "note": "dick and tec are both slang for a detective"
-     },
-     {
-      "clueFragment": "Spooner's kicking Dick",
-      "gives": "TOOTINGBEC",
-      "soundsLike": "BOOTING TEC",
-      "note": "say the phrase with its opening sounds swapped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOOTING",
-      "BEC"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "TOOTINGBEC",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "the Reverend Spooner famously swapped the opening sounds of pairs of words, so the initial sounds here change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kicking",
+       "gives": "BOOTING",
+       "note": "booting a ball is kicking it"
+      },
+      {
+       "words": "Dick",
+       "gives": "TEC",
+       "note": "dick and tec are both slang for a detective"
+      },
+      {
+       "unchecked": true,
+       "words": "Spooner's kicking Dick",
+       "gives": "TOOTINGBEC",
+       "soundsLike": "BOOTING TEC",
+       "note": "say the phrase with its opening sounds swapped"
+      }
      ]
     },
     "explanation": {
@@ -181,47 +178,41 @@
    },
    "solution": "PANCREAS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PANCREAS",
     "definitions": [
      {
       "text": "organ",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "grasping",
-      "for": "container",
-      "note": "to grasp something is to hold it in your hand, so the saint's name closes around the extra letter"
-     },
-     {
-      "text": "rudiment of",
-      "for": "letter_selection",
-      "note": "a rudiment is a first principle or beginning, so only the opening letter of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saint",
-      "gives": "PANCRAS",
-      "note": "St Pancras, the Roman martyr who gives his name to the London station"
-     },
-     {
-      "clueFragment": "electric",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of electric"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PANCR",
-      "E",
-      "AS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "note": "to grasp something is to hold it in your hand, so the saint's name closes around the extra letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Saint",
+       "gives": "PANCRAS",
+       "note": "St Pancras, the Roman martyr who gives his name to the London station"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "rudiment of",
+         "note": "a rudiment is a first principle or beginning, so only the opening letter of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "electric",
+         "note": "the first letter of electric"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -251,44 +242,36 @@
    },
    "solution": "WARDEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "WARDEN",
     "definitions": [
      {
       "text": "keeper",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter, so only the end of the city's name is used"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Glasgow's",
-      "gives": "W",
-      "select": "last",
-      "note": "the final letter of Glasgow"
-     },
-     {
-      "clueFragment": "Forest's",
-      "gives": "ARDEN",
-      "note": "the Forest of Arden, setting of As You Like It"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ARDEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the back of a word is its final letter, so only the end of the city's name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Glasgow's",
+         "gives": "GLASGOW",
+         "note": "the final letter of Glasgow"
+        }
+       ]
+      },
+      {
+       "words": "Forest's",
+       "gives": "ARDEN",
+       "note": "the Forest of Arden, setting of As You Like It"
+      }
      ]
     },
     "explanation": {
@@ -317,40 +300,33 @@
    },
    "solution": "WORMCAST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WORMCAST",
     "definitions": [
      {
       "text": "evidence of underground activity",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "revising",
-      "for": "anagram",
-      "note": "revising means altering and reworking, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Swot",
-      "gives": "SWOT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cram",
-      "gives": "CRAM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SWOTCRAM",
-       "gives": "WORMCAST"
+       "text": "revising",
+       "note": "revising means altering and reworking, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Swot",
+         "note": "taken as written"
+        },
+        {
+         "words": "cram",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -381,42 +357,30 @@
    },
    "solution": "REMINDER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "REMINDER",
     "definitions": [
      {
       "text": "hint",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "dropping",
-      "for": "deletion",
-      "note": "to drop something is to let it go, so the letter named next is taken out"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's left",
-      "gives": "REMAINDER",
-      "note": "what is left over is the remainder"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter that is dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REM",
-      "INDER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping",
+       "note": "to drop something is to let it go, so the letter named next is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What's left",
+       "gives": "REMAINDER",
+       "note": "what is left over is the remainder"
+      },
+      {
+       "words": "a",
+       "note": "the letter that is dropped"
+      }
      ]
     },
     "explanation": {
@@ -446,43 +410,31 @@
    },
    "solution": "POMANDER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "POMANDER",
     "definitions": [
      {
       "text": "perfume provision",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "to take something in is to receive it inside, so the verb holds the qualification"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Consider",
-      "gives": "PONDER",
-      "note": "to ponder is to consider"
-     },
-     {
-      "clueFragment": "degree",
-      "gives": "MA",
-      "note": "Master of Arts, a university degree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "MA",
-      "NDER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "to take something in is to receive it inside, so the verb holds the qualification"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Consider",
+       "gives": "PONDER",
+       "note": "to ponder is to consider"
+      },
+      {
+       "words": "degree",
+       "gives": "MA",
+       "note": "Master of Arts, a university degree"
+      }
      ]
     },
     "explanation": {
@@ -511,31 +463,16 @@
    },
    "solution": "DOTE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOTE",
     "definitions": [
      {
       "text": "Like too much",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to be excessively fond of someone"
      },
      {
       "text": "mark the wrong vowel",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like too much",
-      "note": "first meaning: to be excessively fond of someone"
-     },
-     {
-      "clueFragment": "mark the wrong vowel",
-      "note": "second meaning, read as two words: put a dot over E rather than I"
+      "at": 18,
+      "meaning": "second meaning, read as two words: put a dot over E rather than I"
      }
     ],
     "explanation": {
@@ -565,33 +502,29 @@
    },
    "solution": "RANK",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RANK",
     "definitions": [
      {
       "text": "Unsavoury",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going topless",
-      "for": "deletion",
-      "note": "losing the top of a word in a down entry means dropping its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "oddball",
-      "gives": "CRANK",
-      "note": "a crank is an eccentric person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RANK"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "going topless",
+       "note": "losing the top of a word in a down entry means dropping its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "oddball",
+       "gives": "CRANK",
+       "note": "a crank is an eccentric person"
+      },
+      {
+       "gives": "C"
+      }
      ]
     },
     "explanation": {
@@ -620,47 +553,38 @@
    },
    "solution": "REMAIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "REMAIN",
     "definitions": [
      {
       "text": "Continue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "more than half",
-      "for": "deletion",
-      "note": "only a portion above fifty per cent of the word is used, so its tail is cut"
-     },
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "confused letters are muddled up, so they are rearranged"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Amerindian",
-      "gives": "AMERINDIAN",
-      "note": "taken as written; six of its ten letters are kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REMAIN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AMERIN",
-       "gives": "REMAIN"
+       "text": "confused",
+       "note": "confused letters are muddled up, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "more than half",
+         "note": "only a portion above fifty per cent of the word is used, so its tail is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Amerindian",
+         "note": "taken as written; six of its ten letters are kept"
+        },
+        {
+         "gives": "NDIA"
+        }
+       ]
       }
      ]
     },
@@ -690,32 +614,25 @@
    },
    "solution": "STOCKTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STOCKTON",
     "definitions": [
      {
       "text": "railway's starting point",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Supplies",
-      "gives": "STOCK",
-      "note": "stock is goods held in supply"
-     },
-     {
-      "clueFragment": "at high speed",
-      "gives": "TON",
-      "note": "the ton is slang for a hundred miles an hour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOCK",
-      "TON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Supplies",
+       "gives": "STOCK",
+       "note": "stock is goods held in supply"
+      },
+      {
+       "words": "at high speed",
+       "gives": "TON",
+       "note": "the ton is slang for a hundred miles an hour"
+      }
      ]
     },
     "explanation": {
@@ -744,56 +661,51 @@
    },
    "solution": "CONCORDANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CONCORDANCE",
     "definitions": [
      {
       "text": "Aid to Biblical Studies",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container",
-      "note": "to include is to take in as a part, so the books sit inside the adverb"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chapter",
-      "gives": "C",
-      "note": "C is the abbreviation for chapter"
-     },
-     {
-      "clueFragment": "formerly",
-      "gives": "ONCE",
-      "note": "once means at a former time"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "COR",
-      "note": "Cor, short for Corinthians, a New Testament book"
-     },
-     {
-      "clueFragment": "Old Testament books",
-      "gives": "DAN",
-      "note": "Dan, short for Daniel, an Old Testament book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ON",
-      "COR",
-      "DAN",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "note": "to include is to take in as a part, so the books sit inside the adverb"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "chapter",
+         "gives": "C",
+         "note": "C is the abbreviation for chapter"
+        },
+        {
+         "words": "formerly",
+         "gives": "ONCE",
+         "note": "once means at a former time"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "gives": "COR",
+         "note": "Cor, short for Corinthians, a New Testament book"
+        },
+        {
+         "words": "Old Testament books",
+         "gives": "DAN",
+         "note": "Dan, short for Daniel, an Old Testament book"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -822,55 +734,49 @@
    },
    "solution": "DEFEASANCE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "deletion"
-    ],
-    "answer": "DEFEASANCE",
     "definitions": [
      {
       "text": "undoing",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "reversal",
-      "for": "reversal",
-      "note": "a reversal turns something back the other way, so the agency name is read right to left"
-     },
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "to involve is to wrap up or enclose, so the legal word goes round the other letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "space experts'",
-      "gives": "NASA",
-      "note": "the US National Aeronautics and Space Administration"
-     },
-     {
-      "clueFragment": "Legal case",
-      "gives": "DEFENCE",
-      "note": "the defence is the case put for the accused in a trial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEFE",
-      "ASAN",
-      "CE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "NASA",
-       "to": "ASAN"
+       "text": "involving",
+       "note": "to involve is to wrap up or enclose, so the legal word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Legal case",
+         "gives": "DEFENCE",
+         "note": "the defence is the case put for the accused in a trial"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversal",
+         "note": "a reversal turns something back the other way, so the agency name is read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "space experts'",
+         "gives": "NASA",
+         "note": "the US National Aeronautics and Space Administration"
+        }
+       ]
       }
      ]
     },
@@ -900,52 +806,46 @@
    },
    "solution": "SALTWORT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SALTWORT",
     "definitions": [
      {
       "text": "Seaside plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to keep it inside your grasp, so the verb goes round the rest"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the number inside the pair of hand letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "was MP",
-      "gives": "SAT",
-      "note": "a Member of Parliament sits in the House, so one who was an MP sat"
-     },
-     {
-      "clueFragment": "either hand",
-      "gives": "LR",
-      "note": "L and R, left and right, one for each hand"
-     },
-     {
-      "clueFragment": "two",
-      "gives": "TWO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "L",
-      "TWO",
-      "R",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "to hold something is to keep it inside your grasp, so the verb goes round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "was MP",
+       "gives": "SAT",
+       "note": "a Member of Parliament sits in the House, so one who was an MP sat"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the number inside the pair of hand letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "either hand",
+         "gives": "LR",
+         "note": "L and R, left and right, one for each hand"
+        },
+        {
+         "words": "two",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -975,55 +875,44 @@
    },
    "solution": "ADENAUER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADENAUER",
     "definitions": [
      {
       "text": "old chancellor",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Corrupt",
-      "for": "anagram",
-      "note": "something corrupt is spoiled and altered from its proper form, so the letters are reworked"
-     }
-    ],
-    "linkWords": [
-     "getting",
-     "from the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dean",
-      "gives": "DEAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "AU",
-      "note": "Au is the chemical symbol for gold"
-     },
-     {
-      "clueFragment": "sovereign",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the sovereign"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADEN",
-      "AU",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEAN",
-       "gives": "ADEN"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Corrupt",
+         "note": "something corrupt is spoiled and altered from its proper form, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dean",
+           "note": "taken as written"
+          },
+          {
+           "words": "gold",
+           "gives": "AU",
+           "note": "Au is the chemical symbol for gold"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "sovereign",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the sovereign"
       }
      ]
     },
@@ -1053,51 +942,41 @@
    },
    "solution": "SHEREEF",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SHEREEF",
     "definitions": [
      {
       "text": "prophet's descendant",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Reversed",
-      "for": "reversal",
-      "note": "something reversed faces the opposite way, so the word is read backwards"
-     },
-     {
-      "text": "ringing",
-      "for": "container",
-      "note": "to ring something is to encircle it, so the reversed word surrounds the pronoun"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charges",
-      "gives": "FEES",
-      "note": "fees are charges for a service"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "HER",
-      "note": "her is the female pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HER",
-      "EEF"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "FEES",
-       "to": "SEEF"
+       "text": "ringing",
+       "note": "to ring something is to encircle it, so the reversed word surrounds the pronoun"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Reversed",
+         "note": "something reversed faces the opposite way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charges",
+         "gives": "FEES",
+         "note": "fees are charges for a service"
+        }
+       ]
+      },
+      {
+       "words": "female",
+       "gives": "HER",
+       "note": "her is the female pronoun"
       }
      ]
     },
@@ -1128,40 +1007,31 @@
    },
    "solution": "EMIGRATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMIGRATE",
     "definitions": [
      {
       "text": "Find new home",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the abbreviation inside the territory word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "15's fiefdom",
-      "gives": "EMIRATE",
-      "note": "an emirate is the domain of an emir, a Muslim ruler like the 15 across title-holder"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMI",
-      "G",
-      "RATE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the abbreviation inside the territory word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15's fiefdom",
+       "gives": "EMIRATE",
+       "note": "an emirate is the domain of an emir, a Muslim ruler like the 15 across title-holder"
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the abbreviation for good"
+      }
      ]
     },
     "explanation": {
@@ -1191,51 +1061,41 @@
    },
    "solution": "BUSTARD",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BUSTARD",
     "definitions": [
      {
       "text": "High-flier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back turns the word round, so it reads right to left"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the reversed word goes round the famous person"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to call",
-      "gives": "DUB",
-      "note": "to dub someone is to call or name them"
-     },
-     {
-      "clueFragment": "celebrity",
-      "gives": "STAR",
-      "note": "a star is a celebrity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "STAR",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DUB",
-       "to": "BUD"
+       "text": "about",
+       "note": "about means around, so the reversed word goes round the famous person"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back turns the word round, so it reads right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to call",
+         "gives": "DUB",
+         "note": "to dub someone is to call or name them"
+        }
+       ]
+      },
+      {
+       "words": "celebrity",
+       "gives": "STAR",
+       "note": "a star is a celebrity"
       }
      ]
     },
@@ -1272,50 +1132,40 @@
    },
    "solution": "ISAACNEWTON",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ISAAC NEWTON",
     "definitions": [
      {
       "text": "a great mind",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the district surrounds the adjective"
-     }
-    ],
-    "linkWords": [
-     "to produce"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is a",
-      "gives": "ISA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "London district",
-      "gives": "ACTON",
-      "note": "Acton is an area of west London"
-     },
-     {
-      "clueFragment": "modern",
-      "gives": "NEW",
-      "note": "new means modern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ISA",
-      "AC",
-      "NEW",
-      "TON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Is a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the district surrounds the adjective"
+        }
+       ],
+       "parts": [
+        {
+         "words": "London district",
+         "gives": "ACTON",
+         "note": "Acton is an area of west London"
+        },
+        {
+         "words": "modern",
+         "gives": "NEW",
+         "note": "new means modern"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1343,35 +1193,25 @@
    },
    "solution": "EARWAX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EARWAX",
     "definitions": [
      {
       "text": "Yellowish stuff",
       "at": 0
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some corn",
-      "gives": "EAR",
-      "note": "an ear is the seed-bearing head of a cereal plant"
-     },
-     {
-      "clueFragment": "grow",
-      "gives": "WAX",
-      "note": "to wax is to grow, as the moon does"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EAR",
-      "WAX"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "some corn",
+       "gives": "EAR",
+       "note": "an ear is the seed-bearing head of a cereal plant"
+      },
+      {
+       "words": "grow",
+       "gives": "WAX",
+       "note": "to wax is to grow, as the moon does"
+      }
      ]
     },
     "explanation": {
@@ -1399,31 +1239,16 @@
    },
    "solution": "MINT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MINT",
     "definitions": [
      {
       "text": "Unused",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in perfect, as-new condition"
      },
      {
       "text": "flavouring",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "to the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unused",
-      "note": "first meaning: in perfect, as-new condition"
-     },
-     {
-      "clueFragment": "flavouring",
-      "note": "second meaning: an aromatic herb used to flavour food"
+      "at": 14,
+      "meaning": "second meaning: an aromatic herb used to flavour food"
      }
     ],
     "explanation": {
@@ -1453,36 +1278,29 @@
    },
    "solution": "SPEC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SPEC",
     "definitions": [
      {
       "text": "Gamble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "half means only part is kept, so the back portion of the word is cut"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the range",
-      "gives": "SPECTRUM",
-      "note": "a spectrum is a full range"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPEC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "half",
+       "note": "half means only part is kept, so the back portion of the word is cut"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the range",
+       "gives": "SPECTRUM",
+       "note": "a spectrum is a full range"
+      },
+      {
+       "gives": "TRUM"
+      }
      ]
     },
     "explanation": {
@@ -1510,40 +1328,30 @@
    },
    "solution": "IMPERIAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMPERIAL",
     "definitions": [
      {
       "text": "college",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "to incorporate",
-      "for": "container",
-      "note": "to incorporate is to take into a body, so the verb absorbs the single letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Threaten",
-      "gives": "IMPERIL",
-      "note": "to imperil is to threaten or endanger"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPERI",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to incorporate",
+       "note": "to incorporate is to take into a body, so the verb absorbs the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Threaten",
+       "gives": "IMPERIL",
+       "note": "to imperil is to threaten or endanger"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1572,41 +1380,36 @@
    },
    "solution": "ORMOLU",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ORMOLU",
     "definitions": [
      {
       "text": "Covering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the part of",
-      "for": "hidden_word",
-      "note": "a part of the phrase is a stretch of its letters, so the result lies inside these words"
-     },
-     {
-      "text": "makes a comeback",
-      "for": "reversal",
-      "note": "coming back means returning the way it came, so the letters run right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trinculo, Mr Outrageous",
-      "gives": "ULOMRO",
-      "note": "found running across the end of the first name and the start of the last word"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ULOMRO",
-       "to": "ORMOLU"
+       "text": "makes a comeback",
+       "note": "coming back means returning the way it came, so the letters run right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "the part of",
+         "note": "a part of the phrase is a stretch of its letters, so the result lies inside these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trinculo, Mr Outrageous",
+         "gives": "ULOMRO",
+         "note": "found running across the end of the first name and the start of the last word"
+        }
+       ]
       }
      ]
     },
@@ -1643,47 +1446,41 @@
    },
    "solution": "TICKTOCK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TICK-TOCK",
     "definitions": [
      {
       "text": "timepiece for baby",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "securing",
-      "for": "container",
-      "note": "to secure something is to hold it fast within, so the credit word goes around the titles"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Credit",
-      "gives": "TICK",
-      "note": "buying on tick is buying on credit"
-     },
-     {
-      "clueFragment": "Knight",
-      "gives": "KT",
-      "note": "Kt is the abbreviation for knight"
-     },
-     {
-      "clueFragment": "Commander's",
-      "gives": "OC",
-      "note": "OC, officer commanding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIC",
-      "KT",
-      "OC",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "note": "to secure something is to hold it fast within, so the credit word goes around the titles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Credit",
+       "gives": "TICK",
+       "note": "buying on tick is buying on credit"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Knight",
+         "gives": "KT",
+         "note": "Kt is the abbreviation for knight"
+        },
+        {
+         "words": "Commander's",
+         "gives": "OC",
+         "note": "OC, officer commanding"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1712,40 +1509,31 @@
    },
    "solution": "MASTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MASTER",
     "definitions": [
      {
       "text": "Expert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into the middle of something, so the player's letter goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "successful chess player?",
-      "gives": "MATER",
-      "note": "one who mates an opponent, whimsically, hence the question mark"
-     },
-     {
-      "clueFragment": "bridge player",
-      "gives": "S",
-      "note": "South, one of the four seats at the bridge table"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "S",
-      "TER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "to interrupt is to break into the middle of something, so the player's letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "successful chess player?",
+       "gives": "MATER",
+       "note": "one who mates an opponent, whimsically, hence the question mark"
+      },
+      {
+       "words": "bridge player",
+       "gives": "S",
+       "note": "South, one of the four seats at the bridge table"
+      }
      ]
     },
     "explanation": {

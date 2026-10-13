@@ -1,8 +1,7 @@
 {
  "id": "cryptic-30038",
  "number": 30038,
- "series": "cryptic",
- "name": "Prize crossword No 30,038",
+ "prize": true,
  "setter": "Brockwell",
  "date": "2026-06-20",
  "dimensions": {
@@ -38,28 +37,16 @@
    },
    "solution": "FLAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FLAT",
     "definitions": [
      {
       "text": "Monotonous",
-      "at": 0
+      "at": 0,
+      "meaning": "the sense of a voice or a tune with no rise or fall in it"
      },
      {
       "text": "place to live",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Monotonous",
-      "note": "the sense of a voice or a tune with no rise or fall in it"
-     },
-     {
-      "clueFragment": "place to live",
-      "note": "the British word for an apartment, one floor of a larger building"
+      "at": 11,
+      "meaning": "the British word for an apartment, one floor of a larger building"
      }
     ],
     "explanation": {
@@ -82,58 +69,55 @@
    },
    "solution": "ABSENTEE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ABSENTEE",
     "definitions": [
      {
       "text": "he's not here",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "A thing's origin is where it began, so only the opening letter of the word beside it is wanted."
-     },
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "To gut a fish is to take out everything inside it, leaving the two ends of the name standing."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "select": "first",
-      "note": "the clue's own first word, taken at face value"
-     },
-     {
-      "clueFragment": "bin",
-      "gives": "B",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "delivered",
-      "gives": "SENT",
-      "note": "a parcel delivered is a parcel sent"
-     },
-     {
-      "clueFragment": "Eddie",
-      "gives": "EE",
-      "select": "outer",
-      "note": "the name emptied out, its middle three letters gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "B",
-      "SENT",
-      "EE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "originally",
+       "note": "A thing's origin is where it began, so only the opening letter of the word beside it is wanted."
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "To gut a fish is to take out everything inside it, leaving the two ends of the name standing."
+        }
+       ],
+       "parts": [
+        {
+         "words": "A",
+         "note": "the clue's own first word, taken at face value"
+        }
+       ]
+      },
+      {
+       "words": "bin",
+       "gives": "B",
+       "note": "the opening letter of the word"
+      },
+      {
+       "words": "delivered",
+       "gives": "SENT",
+       "note": "a parcel delivered is a parcel sent"
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "Eddie",
+         "note": "the name emptied out, its middle three letters gone"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -156,40 +140,39 @@
    },
    "solution": "RANT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RANT",
     "definitions": [
      {
       "text": "diatribe",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "blowing his top",
-      "for": "deletion",
-      "note": "Blowing your top is losing your temper, and here the top of a down entry is literally its first letter, blown off."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "President",
-      "gives": "GRANT",
-      "note": "Ulysses S. Grant, the Union general who became the eighteenth US president"
-     },
-     {
-      "clueFragment": "Stormy",
-      "note": "surface only: the capital letter points at a recent White House scandal and hands over no letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "blowing his top",
+         "note": "Blowing your top is losing your temper, and here the top of a down entry is literally its first letter, blown off."
+        }
+       ],
+       "parts": [
+        {
+         "words": "President",
+         "gives": "GRANT",
+         "note": "Ulysses S. Grant, the Union general who became the eighteenth US president"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "Stormy",
+       "note": "surface only: the capital letter points at a recent White House scandal and hands over no letters"
+      }
      ]
     },
     "explanation": {
@@ -218,58 +201,51 @@
    },
    "solution": "EYETEETH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "EYE TEETH",
     "definitions": [
      {
       "text": "canines",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "stops",
-      "for": "container",
-      "note": "In British usage to stop somewhere is to stay there, so the alien lodges among the other letters instead of pausing."
-     },
-     {
-      "text": "angry",
-      "for": "anagram",
-      "note": "Anger throws things into disorder, and letters described as angry will not stay in the order they were handed over."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to watch",
-      "gives": "EYE",
-      "note": "to eye something is to watch it closely"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "TEH",
-      "note": "the clue's own three letters, shaken out of order"
-     },
-     {
-      "clueFragment": "Alien",
-      "gives": "ET",
-      "note": "ET is the crossword's standard alien, after the film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EYE",
-      "TE",
-      "ET",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "THE",
-       "gives": "TEH"
+       "text": "stops",
+       "note": "In British usage to stop somewhere is to stay there, so the alien lodges among the other letters instead of pausing."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to watch",
+         "gives": "EYE",
+         "note": "to eye something is to watch it closely"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "angry",
+           "note": "Anger throws things into disorder, and letters described as angry will not stay in the order they were handed over."
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "gives": "TEH",
+           "note": "the clue's own three letters, shaken out of order"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Alien",
+       "gives": "ET",
+       "note": "ET is the crossword's standard alien, after the film"
       }
      ]
     },
@@ -293,42 +269,31 @@
    },
    "solution": "WRENCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WRENCH",
     "definitions": [
      {
       "text": "tool",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "on top of",
-      "for": "charade",
-      "note": "A down entry is read from the top, so a piece placed on top of another is written first."
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Architect",
-      "gives": "WREN",
-      "note": "Sir Christopher Wren, who designed St Paul's Cathedral"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "ch. is the standard abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WREN",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on top of",
+       "note": "A down entry is read from the top, so a piece placed on top of another is written first."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Architect",
+       "gives": "WREN",
+       "note": "Sir Christopher Wren, who designed St Paul's Cathedral"
+      },
+      {
+       "words": "church",
+       "gives": "CH",
+       "note": "ch. is the standard abbreviation for church"
+      }
      ]
     },
     "explanation": {
@@ -351,55 +316,50 @@
    },
    "solution": "ESPADRILLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ESPADRILLE",
     "definitions": [
      {
       "text": "shoe",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Mongrel",
-      "note": "A mongrel is a dog of no fixed breed, a mixture of several — and letters described as mixed do not keep their order."
-     },
-     {
-      "text": "over",
-      "note": "Something laid over another thing covers it, so these letters wrap right round the pieces named next."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pees",
-      "gives": "ESPE",
-      "note": "these four letters resettled, then split to make the outside"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken straight from the clue"
-     },
-     {
-      "clueFragment": "training",
-      "gives": "DRILL",
-      "note": "drill = training, as in square-bashing or a fire drill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESP",
-      "A",
-      "DRILL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PEES",
-       "gives": "ESPE"
+       "text": "Mongrel",
+       "note": "A mongrel is a dog of no fixed breed, a mixture of several — and letters described as mixed do not keep their order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "Something laid over another thing covers it, so these letters wrap right round the pieces named next."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pees",
+           "gives": "ESPE",
+           "note": "these four letters resettled, then split to make the outside"
+          },
+          {
+           "words": "a",
+           "note": "taken straight from the clue"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "training",
+       "gives": "DRILL",
+       "note": "drill = training, as in square-bashing or a fire drill"
       }
      ]
     },
@@ -429,34 +389,29 @@
    },
    "solution": "LIELOW",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LIE LOW",
     "definitions": [
      {
       "text": "Keep doggo",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "did you say?",
-      "for": "homophone",
-      "note": "The question asks how a word sounds rather than how it is spelt, so what you want is heard and not read."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mattress",
-      "gives": "LIELOW",
-      "soundsLike": "LILO",
-      "note": "a Li-Lo is the British inflatable air mattress you take camping, and its two syllables are heard as two words"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LIELOW",
+     "indicators": [
+      {
+       "text": "did you say?",
+       "note": "The question asks how a word sounds rather than how it is spelt, so what you want is heard and not read."
+      }
+     ],
+     "parts": [
+      {
+       "words": "mattress",
+       "gives": "LILO",
+       "note": "a Li-Lo is the British inflatable air mattress you take camping, and its two syllables are heard as two words"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Say the mattress brand out loud and it falls apart into a phrase about hiding. 'Doggo' is old army slang, and in this grid it is also one more dog.",
      "definitionFit": "To keep doggo is British slang for staying hidden and perfectly still until trouble passes, which is what the phrase means."
@@ -477,28 +432,16 @@
    },
    "solution": "LEAD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LEAD",
     "definitions": [
      {
       "text": "Guide",
-      "at": 0
+      "at": 0,
+      "meaning": "the verb: to show someone the way by going in front of them"
      },
      {
       "text": "dog's accessory",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Guide",
-      "note": "the verb: to show someone the way by going in front of them"
-     },
-     {
-      "clueFragment": "dog's accessory",
-      "note": "the strap you clip to a collar for a walk; Americans call it a leash"
+      "at": 6,
+      "meaning": "the strap you clip to a collar for a walk; Americans call it a leash"
      }
     ],
     "explanation": {
@@ -521,46 +464,43 @@
    },
    "solution": "LIBRA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LIBRA",
     "definitions": [
      {
       "text": "house",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "lying around",
-      "for": "container",
-      "note": "Something lying around another thing encircles it, so the letter named next is dropped inside."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "underwear",
-      "gives": "BRA",
-      "note": "the everyday undergarment, three letters long"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "BRA"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LIBRA",
+     "indicators": [
+      {
+       "text": "lying around",
+       "note": "Something lying around another thing encircles it, so the letter named next is dropped inside."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Left",
+         "gives": "L",
+         "note": "L is the standard abbreviation for left"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "underwear",
+         "gives": "BRA",
+         "note": "the everyday undergarment, three letters long"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -583,45 +523,37 @@
    },
    "solution": "YORKSHIRE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "YORKSHIRE",
     "definitions": [
      {
       "text": "Pig",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "potty",
-      "for": "anagram",
-      "note": "Potty is British for mildly mad, and letters that have gone mad will not hold the order they were given in."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bowl",
-      "gives": "YORK",
-      "note": "in cricket, to york a batsman is to bowl the ball that pitches right under his bat"
-     },
-     {
-      "clueFragment": "is her",
-      "gives": "SHIRE",
-      "note": "these five letters, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YORK",
-      "SHIRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "YORKSHIRE",
+     "indicators": [
       {
-       "fodder": "ISHER",
-       "gives": "SHIRE"
+       "text": "potty",
+       "note": "Potty is British for mildly mad, and letters that have gone mad will not hold the order they were given in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bowl",
+         "gives": "YORK",
+         "note": "in cricket, to york a batsman is to bowl the ball that pitches right under his bat"
+        },
+        {
+         "words": "is her",
+         "gives": "SHIRE",
+         "note": "these five letters, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -651,35 +583,25 @@
    },
    "solution": "TWENTYTEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWENTY TEN",
     "definitions": [
      {
       "text": "y?",
       "at": 9
      }
     ],
-    "linkWords": [
-     "="
-    ],
-    "blocks": [
-     {
-      "clueFragment": "2x",
-      "gives": "TWENTY",
-      "note": "x is the Roman numeral ten, and two of them make this"
-     },
-     {
-      "clueFragment": "+ x",
-      "gives": "TEN",
-      "note": "the same numeral again, on its own"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWENTY",
-      "TEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "2x",
+       "gives": "TWENTY",
+       "note": "x is the Roman numeral ten, and two of them make this"
+      },
+      {
+       "words": "+ x",
+       "gives": "TEN",
+       "note": "the same numeral again, on its own"
+      }
      ]
     },
     "explanation": {
@@ -702,36 +624,29 @@
    },
    "solution": "AILED",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AILED",
     "definitions": [
      {
       "text": "was unwell",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Cockney",
-      "for": "deletion",
-      "note": "A Cockney speaker drops the aitch at the front of a word, so that letter is not written here either."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "showered",
-      "gives": "HAILED",
-      "note": "hail is what showers down, so to shower is to hail"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AILED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "note": "A Cockney speaker drops the aitch at the front of a word, so that letter is not written here either."
+      }
+     ],
+     "parts": [
+      {
+       "words": "showered",
+       "gives": "HAILED",
+       "note": "hail is what showers down, so to shower is to hail"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -760,47 +675,41 @@
    },
    "solution": "PETNAME",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PET NAME",
     "definitions": [
      {
       "text": "Maybe 25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "A tour goes right round its subject, so the short word here ends up enclosed by the letters on either side."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "go",
-      "gives": "PEE",
-      "note": "'go' is the nursery euphemism for what you do in the lavatory"
-     },
-     {
-      "clueFragment": "Thailand",
-      "gives": "T",
-      "note": "T is Thailand's international vehicle registration code"
-     },
-     {
-      "clueFragment": "Vietnam",
-      "gives": "NAM",
-      "note": "'Nam is the familiar short form, from the war and its films"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "T",
-      "NAM",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "note": "A tour goes right round its subject, so the short word here ends up enclosed by the letters on either side."
+      }
+     ],
+     "parts": [
+      {
+       "words": "go",
+       "gives": "PEE",
+       "note": "'go' is the nursery euphemism for what you do in the lavatory"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Thailand",
+         "gives": "T",
+         "note": "T is Thailand's international vehicle registration code"
+        },
+        {
+         "words": "Vietnam",
+         "gives": "NAM",
+         "note": "'Nam is the familiar short form, from the war and its films"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -823,51 +732,41 @@
    },
    "solution": "POSIT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "POSIT",
     "definitions": [
      {
       "text": "put forward",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Revolutionary",
-      "note": "A revolution turns a thing full circle, so the short word beside it is read the other way round."
-     },
-     {
-      "text": "on",
-      "note": "In a down entry the piece sitting on another is written above it, so it starts the answer."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "surgery",
-      "gives": "PO",
-      "note": "an op is surgery, turned about"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "SIT",
-      "note": "to model for a painter is to sit for them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "SIT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "POSIT",
+     "parts": [
       {
-       "from": "OP",
-       "to": "PO"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "note": "A revolution turns a thing full circle, so the short word beside it is read the other way round."
+        },
+        {
+         "text": "on",
+         "note": "In a down entry the piece sitting on another is written above it, so it starts the answer."
+        }
+       ],
+       "parts": [
+        {
+         "words": "surgery",
+         "gives": "PO",
+         "note": "an op is surgery, turned about"
+        },
+        {
+         "words": "model",
+         "gives": "SIT",
+         "note": "to model for a painter is to sit for them"
+        }
+       ]
       }
      ]
     },
@@ -897,55 +796,65 @@
    },
    "solution": "ACETICACID",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "container"
-    ],
-    "answer": "ACETIC ACID",
     "definitions": [
      {
       "text": "that's in a pickle",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "rejecting",
-      "note": "To reject something is to throw it out, so the letter named beside it is discarded from the word."
-     },
-     {
-      "text": "to collar",
-      "note": "To collar someone is to seize them round the neck, so these letters close around the one that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hermit",
-      "gives": "ASCETIC",
-      "note": "an ascetic lives alone and denies himself comfort, as a hermit does"
-     },
-     {
-      "clueFragment": "society",
-      "note": "S is the standard abbreviation for society, and that is the letter thrown out"
-     },
-     {
-      "clueFragment": "help",
-      "gives": "AID",
-      "note": "help = aid, as noun or verb"
-     },
-     {
-      "clueFragment": "canine",
-      "gives": "C",
-      "note": "the first letter of the word, which the setter takes without an explicit signal — dentists write C for a canine tooth too"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACETIC",
-      "A",
-      "C",
-      "ID"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "rejecting",
+       "note": "To reject something is to throw it out, so the letter named beside it is discarded from the word."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to collar",
+         "note": "To collar someone is to seize them round the neck, so these letters close around the one that follows."
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Hermit",
+             "gives": "ASCETIC",
+             "note": "an ascetic lives alone and denies himself comfort, as a hermit does"
+            },
+            {
+             "words": "help",
+             "gives": "AID",
+             "note": "help = aid, as noun or verb"
+            }
+           ]
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "canine",
+         "gives": "C",
+         "note": "the first letter of the word, which the setter takes without an explicit signal — dentists write C for a canine tooth too"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "society",
+       "note": "S is the standard abbreviation for society, and that is the letter thrown out"
+      }
      ]
     },
     "explanation": {
@@ -974,40 +883,31 @@
    },
    "solution": "HARDWON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HARD-WON",
     "definitions": [
      {
       "text": "requiring great effort",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk by",
-      "for": "container",
-      "note": "What is drunk goes inside the drinker, so the letter before it is swallowed by the phrase that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "upstanding member",
-      "gives": "HARDON",
-      "note": "'member' is the anatomical euphemism and 'upstanding' means erect; the vulgar phrase is in Chambers"
-     },
-     {
-      "clueFragment": "Whiskey",
-      "gives": "W",
-      "note": "W is Whiskey in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "W",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drunk by",
+       "note": "What is drunk goes inside the drinker, so the letter before it is swallowed by the phrase that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "upstanding member",
+       "gives": "HARDON",
+       "note": "'member' is the anatomical euphemism and 'upstanding' means erect; the vulgar phrase is in Chambers"
+      },
+      {
+       "words": "Whiskey",
+       "gives": "W",
+       "note": "W is Whiskey in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1030,57 +930,64 @@
    },
    "solution": "NURSE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "NURSE",
     "definitions": [
      {
       "text": "treat",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "Climbing",
-      "note": "Climbing goes up the page, and in a down entry that means the letters are collected from the bottom end first."
-     },
-     {
-      "text": "on",
-      "note": "In a down entry one piece sits on another, so this one is written above the next."
-     },
-     {
-      "text": "without",
-      "note": "Without means lacking, so whatever is named after it is taken out of the word in front."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ladder",
-      "gives": "NUR",
-      "note": "in Britain a ladder in a stocking is what Americans call a run, taken upwards here"
-     },
-     {
-      "clueFragment": "stopping",
-      "note": "a stopping is a filling — a dentist's, or the plug in a bottle — and it is the LID in the middle"
-     },
-     {
-      "clueFragment": "slide",
-      "gives": "SE",
-      "note": "SLIDE keeps only its two ends"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUR",
-      "SE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NURSE",
+     "parts": [
       {
-       "from": "RUN",
-       "to": "NUR"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "NURSE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "Climbing",
+           "note": "Climbing goes up the page, and in a down entry that means the letters are collected from the bottom end first."
+          },
+          {
+           "text": "without",
+           "note": "Without means lacking, so whatever is named after it is taken out of the word in front."
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "on",
+             "note": "In a down entry one piece sits on another, so this one is written above the next."
+            }
+           ],
+           "parts": [
+            {
+             "words": "ladder",
+             "gives": "NUR",
+             "note": "in Britain a ladder in a stocking is what Americans call a run, taken upwards here"
+            },
+            {
+             "words": "slide",
+             "gives": "SE",
+             "note": "SLIDE keeps only its two ends"
+            }
+           ]
+          },
+          {
+           "unchecked": true,
+           "words": "stopping",
+           "note": "a stopping is a filling — a dentist's, or the plug in a bottle — and it is the LID in the middle"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1104,37 +1011,39 @@
    },
    "solution": "SCENE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SCENE",
     "definitions": [
      {
       "text": "picture",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "This is the departure sense and not the foliage one: what it names walks out of the longer word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old boy",
-      "note": "OB is the standard abbreviation for an old boy, a former pupil of a school"
-     },
-     {
-      "clueFragment": "disgusting",
-      "gives": "OBSCENE",
-      "note": "obscene = disgusting, offensively indecent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCENE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Old boy",
+       "note": "OB is the standard abbreviation for an old boy, a former pupil of a school"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "This is the departure sense and not the foliage one: what it names walks out of the longer word."
+        }
+       ],
+       "parts": [
+        {
+         "words": "disgusting",
+         "gives": "OBSCENE",
+         "note": "obscene = disgusting, offensively indecent"
+        },
+        {
+         "gives": "OB"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1157,34 +1066,29 @@
    },
    "solution": "HIM",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HIM",
     "definitions": [
      {
       "text": "That bloke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "Radio carries sound and not spelling, so what you want is the word you hear rather than the one printed."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song",
-      "gives": "HIM",
-      "soundsLike": "HYMN",
-      "note": "a hymn is a song sung in church"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HIM",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "Radio carries sound and not spelling, so what you want is the word you hear rather than the one printed."
+      }
+     ],
+     "parts": [
+      {
+       "words": "song",
+       "gives": "HYMN",
+       "note": "a hymn is a song sung in church"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The two are exact sound-twins once the silent letters go. 'That bloke's' reads as a possessive and is really 'that bloke is', which is the joinery.",
      "definitionFit": "It is the object pronoun for a male person, so 'that bloke' points at exactly the same man in words rather than grammar."
@@ -1205,42 +1109,31 @@
    },
    "solution": "MISSABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MISSABLE",
     "definitions": [
      {
       "text": "difficult to spot",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "swapping places",
-      "for": "charade",
-      "note": "Two things that swap places exchange positions, so the pieces go in the reverse of the order the clue names them."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "MISS",
-      "note": "a miss is a young unmarried woman"
-     },
-     {
-      "clueFragment": "Clever",
-      "gives": "ABLE",
-      "note": "able = clever, capable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MISS",
-      "ABLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "swapping places",
+       "note": "Two things that swap places exchange positions, so the pieces go in the reverse of the order the clue names them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl",
+       "gives": "MISS",
+       "note": "a miss is a young unmarried woman"
+      },
+      {
+       "words": "Clever",
+       "gives": "ABLE",
+       "note": "able = clever, capable"
+      }
      ]
     },
     "explanation": {
@@ -1263,37 +1156,38 @@
    },
    "solution": "LOWER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LOWER",
     "definitions": [
      {
       "text": "Take down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having removed outer wear",
-      "for": "deletion",
-      "note": "The outer wear is the letter at each end, and taking those off leaves the middle of the word standing."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bloomers",
-      "gives": "FLOWERS",
-      "note": "bloomers are things that bloom"
-     },
-     {
-      "clueFragment": "outer wear",
-      "note": "the F and the S at the two ends come off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOWER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "LOWER",
+       "indicators": [
+        {
+         "text": "having removed outer wear",
+         "note": "The outer wear is the letter at each end, and taking those off leaves the middle of the word standing."
+        }
+       ],
+       "parts": [
+        {
+         "words": "bloomers",
+         "gives": "FLOWERS",
+         "note": "bloomers are things that bloom"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "outer wear",
+       "note": "the F and the S at the two ends come off"
+      }
      ]
     },
     "explanation": {
@@ -1314,41 +1208,7 @@
     "text": "Single defeat is terminal",
     "enumeration": "8"
    },
-   "solution": "WATERLOO",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WATERLOO",
-    "definitions": [
-     {
-      "text": "defeat",
-      "at": 7
-     },
-     {
-      "text": "terminal",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Single",
-      "note": "a third definition: ABBA's Eurovision winner of 1974, released on a 45"
-     },
-     {
-      "clueFragment": "defeat",
-      "note": "Napoleon's last battle, in 1815, and ever since the byword for anyone's final rout"
-     },
-     {
-      "clueFragment": "terminal",
-      "note": "one of London's great railway termini, on the south bank of the Thames"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "Three definitions of one word and no wordplay at all: a pop record, a battle and a station. 'Is' is there only to hold the three together.",
-     "definitionFit": "The 1815 battle gave English 'meet your Waterloo' for a final defeat, and the London station is a terminal in the railway sense."
-    }
-   }
+   "solution": "WATERLOO"
   },
   {
    "number": 22,
@@ -1364,43 +1224,39 @@
    },
    "solution": "TERRIER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TERRIER",
     "definitions": [
      {
       "text": "dog",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Nameless",
-      "for": "deletion",
-      "note": "N is the standard abbreviation for name, and the '-less' on the end is the instruction to do without it."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "casserole",
-      "gives": "TERRINE",
-      "note": "a terrine is the earthenware pot for a slow-cooked dish, and the dish itself"
-     },
-     {
-      "clueFragment": "recipe",
-      "gives": "R",
-      "note": "R is the abbreviation for recipe, the Latin instruction at the head of a prescription"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TERRIE",
-      "R"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Nameless",
+       "note": "N is the standard abbreviation for name, and the '-less' on the end is the instruction to do without it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "casserole",
+         "gives": "TERRINE",
+         "note": "a terrine is the earthenware pot for a slow-cooked dish, and the dish itself"
+        },
+        {
+         "words": "recipe",
+         "gives": "R",
+         "note": "R is the abbreviation for recipe, the Latin instruction at the head of a prescription"
+        }
+       ]
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -1423,41 +1279,35 @@
    },
    "solution": "RETROD",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RETROD",
     "definitions": [
      {
       "text": "performed steps again",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "The head of a word is the letter at its front, so only the initial of the name that follows is used."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old school",
-      "gives": "RETRO",
-      "note": "retro means deliberately old-fashioned, in the style of an earlier decade"
-     },
-     {
-      "clueFragment": "Dance",
-      "gives": "D",
-      "select": "first",
-      "note": "the initial of the capitalised word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETRO",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old school",
+       "gives": "RETRO",
+       "note": "retro means deliberately old-fashioned, in the style of an earlier decade"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "The head of a word is the letter at its front, so only the initial of the name that follows is used."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dance",
+         "note": "the initial of the capitalised word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1480,44 +1330,35 @@
    },
    "solution": "RIMINI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RIMINI",
     "definitions": [
      {
       "text": "Italian city",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "stripped",
-      "for": "letter_selection",
-      "note": "To strip a thing is to take its outer covering off, leaving only what was inside the word."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brit",
-      "gives": "RI",
-      "select": "middle",
-      "note": "the middle of the word, once the letters at each end have gone"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "MINI",
-      "note": "the Mini, the small British car of the 1960s"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "MINI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "stripped",
+         "note": "To strip a thing is to take its outer covering off, leaving only what was inside the word."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brit",
+         "note": "the middle of the word, once the letters at each end have gone"
+        }
+       ]
+      },
+      {
+       "words": "car",
+       "gives": "MINI",
+       "note": "the Mini, the small British car of the 1960s"
+      }
      ]
     },
     "explanation": {
@@ -1540,53 +1381,53 @@
    },
    "solution": "SWEETIE",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SWEETIE",
     "definitions": [
      {
       "text": "baby",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "What's behind",
-      "for": "letter_selection",
-      "note": "What is behind a word is its back end, so only the final letter of the name is taken."
-     },
-     {
-      "text": "cuddling",
-      "for": "container",
-      "note": "A cuddle wraps arms right round someone, so these letters hold the short word between them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "James",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of the name"
-     },
-     {
-      "clueFragment": "little",
-      "gives": "WEE",
-      "note": "wee is the Scots word for little, and standard crossword shorthand"
-     },
-     {
-      "clueFragment": "Bond",
-      "gives": "TIE",
-      "note": "a bond between two people is a tie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEE",
-      "TIE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SWEETIE",
+     "indicators": [
+      {
+       "text": "cuddling",
+       "note": "A cuddle wraps arms right round someone, so these letters hold the short word between them."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "What's behind",
+           "note": "What is behind a word is its back end, so only the final letter of the name is taken."
+          }
+         ],
+         "parts": [
+          {
+           "words": "James",
+           "note": "the last letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "little",
+         "gives": "WEE",
+         "note": "wee is the Scots word for little, and standard crossword shorthand"
+        },
+        {
+         "words": "Bond",
+         "gives": "TIE",
+         "note": "a bond between two people is a tie"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1609,42 +1450,39 @@
    },
    "solution": "TETRA",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "TETRA",
     "definitions": [
      {
       "text": "fish",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "abruptly",
-      "note": "Something done abruptly is cut short before its proper end, so the final letter never arrives."
-     },
-     {
-      "text": "flipping",
-      "note": "Flipping a thing over presents it the other way round, so the letters are read in the opposite direction."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arsenal boss",
-      "gives": "ARTETA",
-      "note": "Mikel Arteta, manager of Arsenal, the north London football club"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TETRA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ARTET",
-       "to": "TETRA"
+       "text": "abruptly",
+       "note": "Something done abruptly is cut short before its proper end, so the final letter never arrives."
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "Flipping a thing over presents it the other way round, so the letters are read in the opposite direction."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arsenal boss",
+         "gives": "ARTETA",
+         "note": "Mikel Arteta, manager of Arsenal, the north London football club"
+        },
+        {
+         "gives": "A"
+        }
+       ]
       }
      ]
     },
@@ -1668,44 +1506,31 @@
    },
    "solution": "TREE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TREE",
     "definitions": [
      {
       "text": "Plant",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "OTT",
-      "for": "container",
-      "note": "OTT is 'over the top': the shirt goes over, and the top is the front letter of the name that follows."
-     }
-    ],
-    "linkWords": [
-     "is",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shirt",
-      "gives": "TEE",
-      "note": "a tee, or T-shirt, is a shirt"
-     },
-     {
-      "clueFragment": "Robert",
-      "gives": "R",
-      "note": "the first letter of the name, as in R. Plant on a record label"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "EE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "OTT",
+       "note": "OTT is 'over the top': the shirt goes over, and the top is the front letter of the name that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shirt",
+       "gives": "TEE",
+       "note": "a tee, or T-shirt, is a shirt"
+      },
+      {
+       "words": "Robert",
+       "gives": "R",
+       "note": "the first letter of the name, as in R. Plant on a record label"
+      }
      ]
     },
     "explanation": {
@@ -1728,60 +1553,54 @@
    },
    "solution": "MEANDERED",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MEANDERED",
     "definitions": [
      {
       "text": "wound",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "bit of",
-      "for": "letter_selection",
-      "note": "A bit of a word is a piece of it, and the piece a setter means by that is its opening letter."
-     },
-     {
-      "text": "to cover",
-      "for": "letter_selection",
-      "note": "To cover something is to lie over it, so what follows is tucked inside the letters already assembled."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fix",
-      "gives": "MEND",
-      "note": "to fix a broken thing is to mend it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "select": "first",
-      "note": "taken straight from the clue"
-     },
-     {
-      "clueFragment": "bit of Elastoplast",
-      "gives": "E",
-      "note": "Elastoplast is the British sticking plaster, the equivalent of a Band-Aid, and only its front letter is wanted"
-     },
-     {
-      "clueFragment": "bloody",
-      "gives": "RED",
-      "note": "blood is red, so 'bloody' is the colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "A",
-      "ND",
-      "E",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Fix",
+         "gives": "MEND",
+         "note": "to fix a broken thing is to mend it"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "note": "A bit of a word is a piece of it, and the piece a setter means by that is its opening letter."
+          },
+          {
+           "text": "to cover",
+           "note": "To cover something is to lie over it, so what follows is tucked inside the letters already assembled."
+          }
+         ],
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken straight from the clue"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "bit of Elastoplast",
+       "gives": "E",
+       "note": "Elastoplast is the British sticking plaster, the equivalent of a Band-Aid, and only its front letter is wanted"
+      },
+      {
+       "words": "bloody",
+       "gives": "RED",
+       "note": "blood is red, so 'bloody' is the colour"
+      }
      ]
     },
     "explanation": {
@@ -1804,38 +1623,25 @@
    },
    "solution": "DRAB",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DRAB",
     "definitions": [
      {
       "text": "Boring",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making comeback",
-      "for": "reversal",
-      "note": "A comeback is a return the way you came, so the letters are taken in the opposite order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poet",
-      "gives": "BARD",
-      "note": "a bard is a poet, Shakespeare being the Bard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BARD",
-       "to": "DRAB"
+       "text": "making comeback",
+       "note": "A comeback is a return the way you came, so the letters are taken in the opposite order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "poet",
+       "gives": "BARD",
+       "note": "a bard is a poet, Shakespeare being the Bard"
       }
      ]
     },
@@ -1859,34 +1665,39 @@
    },
    "solution": "DUTY",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "DUTY",
     "definitions": [
      {
       "text": "tax",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "note": "Raising a thing lifts it, and in a down entry that means reading the run of letters from the bottom up."
-     },
-     {
-      "text": "housing",
-      "note": "To house something is to give it a home inside, so the letters are already sitting in the clue rather than being clued."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Henry Tudor",
-      "gives": "YTUD",
-      "note": "four consecutive letters straddling the join between the two names"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raised",
+       "note": "Raising a thing lifts it, and in a down entry that means reading the run of letters from the bottom up."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "housing",
+         "note": "To house something is to give it a home inside, so the letters are already sitting in the clue rather than being clued."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Henry Tudor",
+         "gives": "YTUD",
+         "note": "four consecutive letters straddling the join between the two names"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Henry Tudor is Henry VII, and a name that specific is exactly what stops you looking at the letters themselves. The span crosses both words and runs up the entry.",
      "definitionFit": "A duty is a tax levied on goods — customs duty, stamp duty — the fiscal sense rather than the sense of obligation."
@@ -1907,59 +1718,74 @@
    },
    "solution": "EMOTIONAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EMOTIONAL",
     "definitions": [
      {
       "text": "Intense",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "escaping",
-      "note": "What escapes gets out, so the letter it names leaves the word it was sitting in."
-     },
-     {
-      "text": "the end of",
-      "note": "The end of a word is its final letter, and that is all that is taken from the one following."
-     },
-     {
-      "text": "before",
-      "note": "Before means in front, so the long piece is written ahead of the two short ones."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Germany",
-      "note": "D, for Deutschland, is Germany's international vehicle code, and that is the letter getting away"
-     },
-     {
-      "clueFragment": "relegation",
-      "gives": "EMOTION",
-      "note": "relegation is demotion, one letter lighter here"
-     },
-     {
-      "clueFragment": "the end of Europa",
-      "gives": "A",
-      "select": "last",
-      "note": "the last letter of the word"
-     },
-     {
-      "clueFragment": "League",
-      "gives": "L",
-      "note": "L is the standard abbreviation for league"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMOTION",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EMOTIONAL",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "escaping",
+         "note": "What escapes gets out, so the letter it names leaves the word it was sitting in."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Germany",
+         "note": "D, for Deutschland, is Germany's international vehicle code, and that is the letter getting away"
+        },
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "the end of",
+           "note": "The end of a word is its final letter, and that is all that is taken from the one following."
+          }
+         ],
+         "parts": [
+          {
+           "words": "relegation",
+           "gives": "EMOTION",
+           "note": "relegation is demotion, one letter lighter here"
+          },
+          {
+           "op": "last",
+           "unchecked": true,
+           "gives": "A",
+           "indicators": [
+            {
+             "text": "before",
+             "note": "Before means in front, so the long piece is written ahead of the two short ones."
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "the end of Europa",
+             "gives": "A",
+             "select": "last",
+             "note": "the last letter of the word"
+            }
+           ]
+          },
+          {
+           "words": "League",
+           "gives": "L",
+           "note": "L is the standard abbreviation for league"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1982,32 +1808,25 @@
    },
    "solution": "ADOPT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADOPT",
     "definitions": [
      {
       "text": "Take in",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "song and dance",
-      "gives": "ADO",
-      "note": "to make a song and dance about something is to make a fuss, and ado is the crossword's fuss"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "PT",
-      "note": "pt is the standard abbreviation for part"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADO",
-      "PT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "song and dance",
+       "gives": "ADO",
+       "note": "to make a song and dance about something is to make a fuss, and ado is the crossword's fuss"
+      },
+      {
+       "words": "part",
+       "gives": "PT",
+       "note": "pt is the standard abbreviation for part"
+      }
      ]
     },
     "explanation": {

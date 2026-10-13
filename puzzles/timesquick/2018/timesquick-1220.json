@@ -1,8 +1,6 @@
 {
  "id": "timesquick-1220",
  "number": 1220,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 1,220",
  "setter": "Tracy",
  "date": "2018-11-12",
  "dimensions": {
@@ -48,49 +46,51 @@
    },
    "solution": "HOTCHOCOLATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "deletion"
-    ],
-    "answer": "HOT CHOCOLATE",
     "definitions": [
      {
       "text": "drink",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Awful",
-      "note": "an awful version of the word is a badly mangled one"
-     },
-     {
-      "text": "swallowing",
-      "note": "the jumbled letters take the other piece inside them"
-     },
-     {
-      "text": "most of",
-      "note": "all but the last letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toothache",
-      "gives": "TOOTHACHE",
-      "note": "anagram fodder, jumbled around the next piece"
-     },
-     {
-      "clueFragment": "most of cold",
-      "gives": "COL",
-      "note": "COLD without its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOTCHOCOLATE",
+     "parts": [
       {
-       "fodder": "TOOTHACHE COL",
-       "gives": "HOTCHOCOLATE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Awful",
+         "note": "an awful version of the word is a badly mangled one"
+        },
+        {
+         "text": "most of",
+         "note": "all but the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "swallowing",
+           "note": "the jumbled letters take the other piece inside them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toothache",
+           "note": "anagram fodder, jumbled around the next piece"
+          }
+         ]
+        },
+        {
+         "words": "most of cold",
+         "gives": "COL",
+         "note": "COLD without its last letter"
+        }
+       ]
       }
      ]
     },
@@ -120,35 +120,24 @@
    },
    "solution": "HYDRA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HYDRA",
     "definitions": [
      {
       "text": "monster",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Gruesome",
-      "for": "anagram",
-      "note": "a gruesome version of the word is a grotesquely twisted one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hardy",
-      "gives": "HARDY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HARDY",
-       "gives": "HYDRA"
+       "text": "Gruesome",
+       "note": "a gruesome version of the word is a grotesquely twisted one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hardy",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -178,35 +167,24 @@
    },
    "solution": "TANGERINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TANGERINE",
     "definitions": [
      {
       "text": "fruit",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Variety of",
-      "for": "anagram",
-      "note": "a variety of the word is another arrangement of its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Argentine",
-      "gives": "ARGENTINE",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARGENTINE",
-       "gives": "TANGERINE"
+       "text": "Variety of",
+       "note": "a variety of the word is another arrangement of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Argentine",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -242,45 +220,43 @@
    },
    "solution": "HORSECHESTNUT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HORSE CHESTNUT",
     "definitions": [
      {
       "text": "tree",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "on either side of",
-      "for": "container",
-      "note": "the first two pieces sit at the two ends with the third between"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bay",
-      "gives": "HORSE",
-      "note": "a bay is a reddish-brown horse"
-     },
-     {
-      "clueFragment": "box",
-      "gives": "CHEST",
-      "note": "a chest is a box"
-     },
-     {
-      "clueFragment": "hazel, perhaps",
-      "gives": "NUT",
-      "note": "the hazel bears a nut, the hazelnut; 'perhaps' marks it as one example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HORSE",
-      "CHEST",
-      "NUT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "HORSECHESTNUT",
+     "indicators": [
+      {
+       "text": "on either side of",
+       "note": "the first two pieces sit at the two ends with the third between"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bay",
+         "gives": "HORSE",
+         "note": "a bay is a reddish-brown horse"
+        },
+        {
+         "words": "box",
+         "gives": "CHEST",
+         "note": "a chest is a box"
+        },
+        {
+         "words": "hazel, perhaps",
+         "gives": "NUT",
+         "note": "the hazel bears a nut, the hazelnut; 'perhaps' marks it as one example"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -310,41 +286,36 @@
    },
    "solution": "COFFER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COFFER",
     "definitions": [
      {
       "text": "chest",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "in a down clue the top of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Collector's top",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of COLLECTOR"
-     },
-     {
-      "clueFragment": "bid",
-      "gives": "OFFER",
-      "note": "a bid is an offer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OFFER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "in a down clue the top of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Collector's top",
+         "gives": "COLLECTORS",
+         "note": "first letter of COLLECTOR"
+        }
+       ]
+      },
+      {
+       "words": "bid",
+       "gives": "OFFER",
+       "note": "a bid is an offer"
+      }
      ]
     },
     "explanation": {
@@ -379,52 +350,43 @@
    },
    "solution": "LUNATICFRINGE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LUNATIC FRINGE",
     "definitions": [
      {
       "text": "group of extremists",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "a broken word has its letters rearranged"
-     },
-     {
-      "text": "after",
-      "note": "this piece comes after the next one"
-     }
-    ],
-    "linkWords": [
-     "forms"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "headcase",
-      "gives": "LUNATIC",
-      "note": "a headcase is a lunatic"
-     },
-     {
-      "clueFragment": "Finger broken",
-      "gives": "FRINGE",
-      "note": "FINGER rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LUNATICFRINGE",
+     "indicators": [
       {
-       "fodder": "LUNATIC FINGER",
-       "gives": "LUNATICFRINGE"
-      },
+       "text": "broken",
+       "note": "a broken word has its letters rearranged"
+      }
+     ],
+     "parts": [
       {
-       "fodder": "FINGER",
-       "gives": "FRINGE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "this piece comes after the next one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "headcase",
+         "gives": "LUNATIC",
+         "note": "a headcase is a lunatic"
+        },
+        {
+         "words": "Finger broken",
+         "gives": "FRINGE",
+         "note": "FINGER rearranged"
+        }
+       ]
       }
      ]
     },
@@ -455,38 +417,31 @@
    },
    "solution": "TEA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TEA",
     "definitions": [
      {
       "text": "meal",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "the letter named is taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Duck",
-      "gives": "TEAL",
-      "note": "a teal is a small duck"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left, removed from TEAL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "note": "the letter named is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Duck",
+       "gives": "TEAL",
+       "note": "a teal is a small duck"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left, removed from TEAL"
+      }
      ]
     },
     "explanation": {
@@ -515,45 +470,37 @@
    },
    "solution": "PRONTO",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PRONTO",
     "definitions": [
      {
       "text": "quickly",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "for": "anagram",
-      "note": "letters that are running have been set in motion into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In favour of",
-      "gives": "PRO",
-      "note": "pro = in favour of"
-     },
-     {
-      "clueFragment": "not running",
-      "gives": "NTO",
-      "note": "NOT rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PRONTO",
+     "indicators": [
       {
-       "fodder": "PRO NOT",
-       "gives": "PRONTO"
-      },
+       "text": "running",
+       "note": "letters that are running have been set in motion into a new order"
+      }
+     ],
+     "parts": [
       {
-       "fodder": "NOT",
-       "gives": "NTO"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "In favour of",
+         "gives": "PRO",
+         "note": "pro = in favour of"
+        },
+        {
+         "words": "not running",
+         "gives": "NTO",
+         "note": "NOT rearranged"
+        }
+       ]
       }
      ]
     },
@@ -583,40 +530,31 @@
    },
    "solution": "DONOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DONOR",
     "definitions": [
      {
       "text": "Benefactor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "the first piece goes inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entrance",
-      "gives": "DOOR",
-      "note": "a door is an entrance"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N = name, placed inside DOOR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "N",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "the first piece goes inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "entrance",
+       "gives": "DOOR",
+       "note": "a door is an entrance"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N = name, placed inside DOOR"
+      }
      ]
     },
     "explanation": {
@@ -644,39 +582,31 @@
    },
    "solution": "FUNFAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FUNFAIR",
     "definitions": [
      {
       "text": "amusement park",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "against",
-      "for": "charade",
-      "note": "one piece is placed up against the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F = fine, as on pencil leads"
-     },
-     {
-      "clueFragment": "Prejudiced",
-      "gives": "UNFAIR",
-      "note": "prejudiced = unfair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "UNFAIR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "against",
+       "note": "one piece is placed up against the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F = fine, as on pencil leads"
+      },
+      {
+       "words": "Prejudiced",
+       "gives": "UNFAIR",
+       "note": "prejudiced = unfair"
+      }
      ]
     },
     "explanation": {
@@ -705,38 +635,31 @@
    },
    "solution": "APE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "APE",
     "definitions": [
      {
       "text": "Primate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "the named letter is not there"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cloak",
-      "gives": "CAPE",
-      "note": "a cape is a cloak"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C = cold, dropped from CAPE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "the named letter is not there"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cloak",
+       "gives": "CAPE",
+       "note": "a cape is a cloak"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C = cold, dropped from CAPE"
+      }
      ]
     },
     "explanation": {
@@ -766,46 +689,43 @@
    },
    "solution": "EYESTRAIN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EYESTRAIN",
     "definitions": [
      {
       "text": "Problem caused by too much reading",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the piece goes in the middle of the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "of course",
-      "gives": "YES",
-      "note": "'of course!' = yes"
-     },
-     {
-      "clueFragment": "school",
-      "gives": "TRAIN",
-      "note": "to school is to train"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "YES",
-      "TRAIN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EYESTRAIN",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the piece goes in the middle of the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        },
+        {
+         "words": "of course",
+         "gives": "YES",
+         "note": "'of course!' = yes"
+        },
+        {
+         "words": "school",
+         "gives": "TRAIN",
+         "note": "to school is to train"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -834,56 +754,45 @@
    },
    "solution": "ARMADILLO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ARMADILLO",
     "definitions": [
      {
       "text": "Creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grabbing",
-      "for": "container",
-      "note": "the stream holds the next piece inside it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "stream",
-      "gives": "RILL",
-      "note": "a rill is a small stream"
-     },
-     {
-      "clueFragment": "frantic",
-      "gives": "MAD",
-      "note": "frantic = mad, grabbed by RILL"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a duck is a score of nought in cricket, O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "MAD",
-      "ILL",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grabbing",
+         "note": "the stream holds the next piece inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stream",
+         "gives": "RILL",
+         "note": "a rill is a small stream"
+        },
+        {
+         "words": "frantic",
+         "gives": "MAD",
+         "note": "frantic = mad, grabbed by RILL"
+        }
+       ]
+      },
+      {
+       "words": "duck",
+       "gives": "O",
+       "note": "a duck is a score of nought in cricket, O"
+      }
      ]
     },
     "explanation": {
@@ -912,45 +821,40 @@
    },
    "solution": "FAITH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FAITH",
     "definitions": [
      {
       "text": "Trust",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "placed in",
-      "for": "container",
-      "note": "I is put inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "big",
-      "gives": "FAT",
-      "note": "big = fat"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "as written, placed inside FAT"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H = hospital, as on road signs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAIT",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "placed in",
+         "note": "I is put inside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "big",
+         "gives": "FAT",
+         "note": "big = fat"
+        },
+        {
+         "words": "I",
+         "note": "as written, placed inside FAT"
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "gives": "H",
+       "note": "H = hospital, as on road signs"
+      }
      ]
     },
     "explanation": {
@@ -979,40 +883,31 @@
    },
    "solution": "FATHER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FATHER",
     "definitions": [
      {
       "text": "ancestor",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "acquired by",
-      "for": "container",
-      "note": "the article is taken inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remote",
-      "gives": "FAR",
-      "note": "remote = far"
-     },
-     {
-      "clueFragment": "Article",
-      "gives": "THE",
-      "note": "THE is the definite article, inside FAR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FA",
-      "THE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "acquired by",
+       "note": "the article is taken inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remote",
+       "gives": "FAR",
+       "note": "remote = far"
+      },
+      {
+       "words": "Article",
+       "gives": "THE",
+       "note": "THE is the definite article, inside FAR"
+      }
      ]
     },
     "explanation": {
@@ -1041,35 +936,25 @@
    },
    "solution": "CAMEO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAMEO",
     "definitions": [
      {
       "text": "Gem carved in relief",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arrived",
-      "gives": "CAME",
-      "note": "arrived = came"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "O is ring-shaped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAME",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "arrived",
+       "gives": "CAME",
+       "note": "arrived = came"
+      },
+      {
+       "words": "ring",
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
      ]
     },
     "explanation": {
@@ -1098,41 +983,36 @@
    },
    "solution": "GRILLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GRILLE",
     "definitions": [
      {
       "text": "Screen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "restaurant",
-      "gives": "GRILL",
-      "note": "a restaurant specialising in food cooked over direct heat"
-     },
-     {
-      "clueFragment": "close to home",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of HOME"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRILL",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "restaurant",
+       "gives": "GRILL",
+       "note": "a restaurant specialising in food cooked over direct heat"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to home",
+         "gives": "HOME",
+         "note": "last letter of HOME"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1161,49 +1041,43 @@
    },
    "solution": "TREASURER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TREASURER",
     "definitions": [
      {
       "text": "Bursar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "adjustment of",
-      "for": "anagram",
-      "note": "an adjustment rearranges the letters"
-     },
-     {
-      "text": "following",
-      "note": "this piece comes after the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "adjustment of rate",
-      "gives": "TREA",
-      "note": "RATE rearranged"
-     },
-     {
-      "clueFragment": "more confident",
-      "gives": "SURER",
-      "note": "more confident = surer"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TREASURER",
+     "indicators": [
       {
-       "fodder": "RATE SURER",
-       "gives": "TREASURER"
-      },
+       "text": "adjustment of",
+       "note": "an adjustment rearranges the letters"
+      }
+     ],
+     "parts": [
       {
-       "fodder": "RATE",
-       "gives": "TREA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "this piece comes after the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adjustment of rate",
+         "gives": "TREA",
+         "note": "RATE rearranged"
+        },
+        {
+         "words": "more confident",
+         "gives": "SURER",
+         "note": "more confident = surer"
+        }
+       ]
       }
      ]
     },
@@ -1232,33 +1106,29 @@
    },
    "solution": "DAM",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DAM",
     "definitions": [
      {
       "text": "weir",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "the word's head, its first letter, comes off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First man",
-      "gives": "ADAM",
-      "note": "Adam, the first man in Genesis, minus his first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAM"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "note": "the word's head, its first letter, comes off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "First man",
+       "gives": "ADAM",
+       "note": "Adam, the first man in Genesis, minus his first letter"
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -1287,38 +1157,25 @@
    },
    "solution": "MINED",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MINED",
     "definitions": [
      {
       "text": "Dug up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming over",
-      "for": "reversal",
-      "note": "the word turns over, running backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "material",
-      "gives": "DENIM",
-      "note": "denim is a cotton material, here written backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DENIM",
-       "to": "MINED"
+       "text": "coming over",
+       "note": "the word turns over, running backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "material",
+       "gives": "DENIM",
+       "note": "denim is a cotton material, here written backwards"
       }
      ]
     },
@@ -1348,35 +1205,24 @@
    },
    "solution": "ETERNAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ETERNAL",
     "definitions": [
      {
       "text": "Continuous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "resort",
-      "for": "anagram",
-      "note": "to re-sort letters is to sort them again into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "let near",
-      "gives": "LETNEAR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LET NEAR",
-       "gives": "ETERNAL"
+       "text": "resort",
+       "note": "to re-sort letters is to sort them again into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "let near",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1407,30 +1253,28 @@
    },
    "solution": "ELF",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELF",
     "definitions": [
      {
       "text": "Fairy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer lies in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "novel (fantasy)",
-      "gives": "ELF",
-      "note": "the letters run across novEL Fantasy"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer lies in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "novel (fantasy)",
+       "gives": "ELF",
+       "note": "the letters run across novEL Fantasy"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fairy appearing in a fantasy novel.",
      "walkthrough": "The brackets are only surface dressing; the letters run straight across them.",
@@ -1456,30 +1300,28 @@
    },
    "solution": "NYLON",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NYLON",
     "definitions": [
      {
       "text": "Material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "vital to",
-      "for": "hidden_word",
-      "note": "the answer sits at the heart of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "many Londoners",
-      "gives": "NYLON",
-      "note": "the letters run across maNY LONdoners"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "vital to",
+       "note": "the answer sits at the heart of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "many Londoners",
+       "gives": "NYLON",
+       "note": "the letters run across maNY LONdoners"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fabric that many people in London cannot do without.",
      "walkthrough": "'Vital' suggests importance; here it means inside, at the vitals.",
@@ -1516,30 +1358,16 @@
    },
    "solution": "OFFTHERECORD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OFF THE RECORD",
     "definitions": [
      {
       "text": "Taken from album",
-      "at": 0
+      "at": 0,
+      "meaning": "a track taken off a record"
      },
      {
       "text": "not intended for release",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taken from album",
-      "gives": "OFFTHERECORD",
-      "note": "a track taken off a record"
-     },
-     {
-      "clueFragment": "not intended for release",
-      "gives": "OFFTHERECORD",
-      "note": "said unofficially, not for publication"
+      "at": 17,
+      "meaning": "said unofficially, not for publication"
      }
     ],
     "explanation": {

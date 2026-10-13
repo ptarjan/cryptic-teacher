@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4768",
  "number": 4768,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,768",
  "setter": "David McLean",
  "date": "2017-10-15",
  "dimensions": {
@@ -42,61 +40,61 @@
    },
    "solution": "ASTI",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "ASTI",
     "definitions": [
      {
       "text": "Ace time with one drinking last of this?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drinking",
-      "for": "container",
-      "note": "whatever drinks something takes it inside, so one group of letters swallows the next"
-     },
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so only the end of the following word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ace",
-      "gives": "A",
-      "note": "A is the abbreviation for ace in cards"
-     },
-     {
-      "clueFragment": "this",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of 'this'"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "TI"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ASTI",
+     "indicators": [
+      {
+       "text": "drinking",
+       "note": "whatever drinks something takes it inside, so one group of letters swallows the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ace",
+         "gives": "A",
+         "note": "A is the abbreviation for ace in cards"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "note": "the last of a word is its final letter, so only the end of the following word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "this",
+           "note": "the final letter of 'this'"
+          }
+         ]
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the standard abbreviation for time"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A champion of the moment downs the dregs of a glass of something.",
      "walkthrough": "A, T and I make ATI, which takes S inside after the A to give ASTI. The whole clue also describes the answer: a wine one might be drinking.",
@@ -123,28 +121,16 @@
    },
    "solution": "STIRRUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STIRRUP",
     "definitions": [
      {
       "text": "Part of the body",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the ... bone, a tiny bone in the middle ear"
      },
      {
       "text": "that one up might put a foot in?",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of the body",
-      "note": "first meaning: the ... bone, a tiny bone in the middle ear"
-     },
-     {
-      "clueFragment": "that one up might put a foot in?",
-      "note": "second meaning: the loop hung from a saddle, where a rider puts a foot"
+      "at": 17,
+      "meaning": "second meaning: the loop hung from a saddle, where a rider puts a foot"
      }
     ],
     "explanation": {
@@ -174,50 +160,44 @@
    },
    "solution": "IRAQI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "IRAQI",
     "definitions": [
      {
       "text": "foreigner",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about means facing the other way, so the pair of letters is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paramilitary group",
-      "gives": "IRA",
-      "note": "the Irish Republican Army"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "question",
-      "gives": "Q",
-      "note": "Q is the abbreviation for question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRA",
-      "QI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IQ",
-       "to": "QI"
+       "words": "Paramilitary group",
+       "gives": "IRA",
+       "note": "the Irish Republican Army"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about means facing the other way, so the pair of letters is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "note": "taken as written"
+          },
+          {
+           "words": "question",
+           "gives": "Q",
+           "note": "Q is the abbreviation for question"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -247,41 +227,30 @@
    },
    "solution": "INHABITANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INHABITANT",
     "definitions": [
      {
       "text": "Resident",
       "at": 0
      }
     ],
-    "linkWords": [
-     "given by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wearing",
-      "gives": "IN",
-      "note": "dressed in something means wearing it"
-     },
-     {
-      "clueFragment": "clothes",
-      "gives": "HABIT",
-      "note": "a habit is a garment, as worn by a monk or nun"
-     },
-     {
-      "clueFragment": "social worker",
-      "gives": "ANT",
-      "note": "ants are social insects, and the worker ant is the classic type"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "HABIT",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wearing",
+       "gives": "IN",
+       "note": "dressed in something means wearing it"
+      },
+      {
+       "words": "clothes",
+       "gives": "HABIT",
+       "note": "a habit is a garment, as worn by a monk or nun"
+      },
+      {
+       "words": "social worker",
+       "gives": "ANT",
+       "note": "ants are social insects, and the worker ant is the classic type"
+      }
      ]
     },
     "explanation": {
@@ -311,57 +280,57 @@
    },
    "solution": "INANITIES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "INANITIES",
     "definitions": [
      {
       "text": "Asinine rubbish containing bits of idiotic trivia?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rubbish",
-      "for": "anagram",
-      "note": "as a verb, rubbish means trash or wreck, so the word before it is broken up and rearranged"
-     },
-     {
-      "text": "bits of",
-      "for": "letter_selection",
-      "note": "bits here are small pieces, just the opening letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Asinine",
-      "gives": "ASININE",
-      "note": "taken as written for the mix"
-     },
-     {
-      "clueFragment": "idiotic",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of 'idiotic'"
-     },
-     {
-      "clueFragment": "trivia",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of 'trivia'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASININEIT",
-       "gives": "INANITIES"
+       "text": "rubbish",
+       "note": "as a verb, rubbish means trash or wreck, so the word before it is broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Asinine",
+         "note": "taken as written for the mix"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bits of",
+           "note": "bits here are small pieces, just the opening letter of each following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "idiotic",
+           "note": "first letter of 'idiotic'"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "trivia",
+           "note": "first letter of 'trivia'"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A dig at foolish nonsense stuffed with silly trivia.",
      "walkthrough": "ASININE plus I and T is mixed up to give INANITIES, and the whole clue is itself a fair description of the answer.",
@@ -388,54 +357,50 @@
    },
    "solution": "HITACHI",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HITACHI",
     "definitions": [
      {
       "text": "electronics firm",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "parts",
-      "for": "container",
-      "note": "something that parts a thing splits it open and sits in the gap"
-     },
-     {
-      "text": "at centre",
-      "for": "letter_selection",
-      "note": "the centre of a five-letter word is its third letter, the only one kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "problem",
-      "gives": "HITCH",
-      "note": "a hitch is a snag or problem"
-     },
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ruins",
-      "gives": "I",
-      "select": "middle",
-      "note": "the middle letter of 'ruins'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIT",
-      "A",
-      "CH",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "parts",
+         "note": "something that parts a thing splits it open and sits in the gap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "problem",
+         "gives": "HITCH",
+         "note": "a hitch is a snag or problem"
+        },
+        {
+         "words": "A",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "at centre",
+         "note": "the centre of a five-letter word is its third letter, the only one kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ruins",
+         "note": "the middle letter of 'ruins'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -464,43 +429,31 @@
    },
    "solution": "BEACH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEACH",
     "definitions": [
      {
       "text": "Sandy strip",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "filled with",
-      "for": "container",
-      "note": "a vessel filled with something holds it inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "to see"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Composer's",
-      "gives": "BACH",
-      "note": "J. S. Bach, the composer; the 's stands for 'is'"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "E",
-      "ACH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filled with",
+       "note": "a vessel filled with something holds it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Composer's",
+       "gives": "BACH",
+       "note": "J. S. Bach, the composer; the 's stands for 'is'"
+      },
+      {
+       "words": "ecstasy",
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
      ]
     },
     "explanation": {
@@ -530,35 +483,24 @@
    },
    "solution": "TOLERANCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TOLERANCE",
     "definitions": [
      {
       "text": "endurance of misfortune",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "put off",
-      "for": "anagram",
-      "note": "something put off is disturbed or thrown out of order, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Let no care",
-      "gives": "LETNOCARE",
-      "note": "taken as written for the mix"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LETNOCARE",
-       "gives": "TOLERANCE"
+       "text": "put off",
+       "note": "something put off is disturbed or thrown out of order, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Let no care",
+       "note": "taken as written for the mix"
       }
      ]
     },
@@ -587,38 +529,30 @@
    },
    "solution": "NONPLUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NONPLUS",
     "definitions": [
      {
       "text": "Puzzle",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "certainly not",
-      "gives": "NO",
-      "note": "a firm refusal"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "Good point!",
-      "gives": "PLUS",
-      "note": "a plus is an advantage or good point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "N",
-      "PLUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "certainly not",
+       "gives": "NO",
+       "note": "a firm refusal"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "Good point!",
+       "gives": "PLUS",
+       "note": "a plus is an advantage or good point"
+      }
      ]
     },
     "explanation": {
@@ -647,26 +581,25 @@
    },
    "solution": "PINATA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PINATA",
     "definitions": [
      {
       "text": "Sweet-hearted ass kids give stick to at parties?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sweet-hearted ass",
-      "note": "surface reading: a kind-natured fool; setter's reading: a donkey-shaped figure whose hollow middle is filled with sweets"
-     },
-     {
-      "clueFragment": "kids give stick to at parties?",
-      "note": "surface reading: children mock someone; setter's reading: children literally hit it with a stick at a party"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sweet-hearted ass",
+       "note": "surface reading: a kind-natured fool; setter's reading: a donkey-shaped figure whose hollow middle is filled with sweets"
+      },
+      {
+       "words": "kids give stick to at parties?",
+       "note": "surface reading: children mock someone; setter's reading: children literally hit it with a stick at a party"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Give stick' usually means to tease or criticise, but here the stick is real and the ass is a papier-mâché donkey full of sweets.",
      "definitionFit": "A piñata is a decorated container, often donkey-shaped and packed with sweets, that blindfolded children break with a stick."
@@ -693,31 +626,29 @@
    },
    "solution": "THAILAND",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "THAILAND",
     "definitions": [
      {
       "text": "Country",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on radio",
-      "for": "homophone",
-      "note": "on radio only sound carries, so the phrase is identified by how it is heard"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "store that might flog neckwear",
-      "gives": "THAILAND",
-      "soundsLike": "TIE LAND",
-      "note": "an imagined shop selling ties"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "THAILAND",
+     "indicators": [
+      {
+       "text": "on radio",
+       "note": "on radio only sound carries, so the phrase is identified by how it is heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "store that might flog neckwear",
+       "gives": "TIELAND",
+       "note": "an imagined shop selling ties"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A national retailer broadcasting adverts to sell scarves and ties.",
      "walkthrough": "The 'th' of the country's name is spoken as a plain T, so it sounds like 'tie land'. To flog is British slang for to sell.",
@@ -745,35 +676,24 @@
    },
    "solution": "BRAINIAC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BRAINIAC",
     "definitions": [
      {
       "text": "One with great reason",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to adjust",
-      "for": "anagram",
-      "note": "adjusting something moves its parts around, so these letters are put into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "air in cab",
-      "gives": "AIRINCAB",
-      "note": "taken as written for the mix"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AIRINCAB",
-       "gives": "BRAINIAC"
+       "text": "to adjust",
+       "note": "adjusting something moves its parts around, so these letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "air in cab",
+       "note": "taken as written for the mix"
       }
      ]
     },
@@ -804,47 +724,41 @@
    },
    "solution": "HARDLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HARDLY",
     "definitions": [
      {
       "text": "just",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "stocking",
-      "for": "container",
-      "note": "stocking as a verb means keeping a supply inside, so one word holds the letter"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, which is all that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Durable",
-      "gives": "HARDY",
-      "note": "hardy means tough and long-lasting"
-     },
-     {
-      "clueFragment": "ladder",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of 'ladder'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "L",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stocking",
+       "note": "stocking as a verb means keeping a supply inside, so one word holds the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Durable",
+       "gives": "HARDY",
+       "note": "hardy means tough and long-lasting"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, which is all that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ladder",
+         "note": "first letter of 'ladder'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -874,51 +788,40 @@
    },
    "solution": "PROHIBITIONIST",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PROHIBITIONIST",
     "definitions": [
      {
       "text": "banner",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "waving",
-      "for": "anagram",
-      "note": "something waving moves back and forth out of place, so these letters are scrambled"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means placed on every side, so the mixed letters enclose another piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bishop in riot",
-      "gives": "BISHOPINRIOT",
-      "note": "taken as written for the mix"
-     },
-     {
-      "clueFragment": "union",
-      "gives": "IT",
-      "note": "'it' is a coy word for sex, a sexual union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROHIB",
-      "IT",
-      "IONIST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BISHOPINRIOT",
-       "gives": "PROHIBIONIST"
+       "text": "around",
+       "note": "around means placed on every side, so the mixed letters enclose another piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "waving",
+         "note": "something waving moves back and forth out of place, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bishop in riot",
+         "note": "taken as written for the mix"
+        }
+       ]
+      },
+      {
+       "words": "union",
+       "gives": "IT",
+       "note": "'it' is a coy word for sex, a sexual union"
       }
      ]
     },
@@ -949,43 +852,39 @@
    },
    "solution": "OTHERWISE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "OTHERWISE",
     "definitions": [
      {
       "text": "If not",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "will go topless",
-      "for": "deletion",
-      "note": "going topless means losing the top, which in a down answer is the opening letter"
-     }
-    ],
-    "linkWords": [
-     "at the front"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mum",
-      "gives": "MOTHER",
-      "note": "mum is an informal word for one's mother"
-     },
-     {
-      "clueFragment": "sensible",
-      "gives": "WISE",
-      "note": "wise means showing good sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTHER",
-      "WISE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "will go topless",
+       "note": "going topless means losing the top, which in a down answer is the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mum",
+         "gives": "MOTHER",
+         "note": "mum is an informal word for one's mother"
+        },
+        {
+         "words": "sensible",
+         "gives": "WISE",
+         "note": "wise means showing good sense"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1015,35 +914,25 @@
    },
    "solution": "IMPERFECT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPERFECT",
     "definitions": [
      {
       "text": "tense",
       "at": 34
      }
     ],
-    "linkWords": [
-     "can make you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Braggart's",
-      "gives": "IM",
-      "note": "a boaster's admission begins 'I'm'"
-     },
-     {
-      "clueFragment": "admission",
-      "gives": "PERFECT",
-      "note": "what the boaster admits is being flawless"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PERFECT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Braggart's",
+       "gives": "IM",
+       "note": "a boaster's admission begins 'I'm'"
+      },
+      {
+       "words": "admission",
+       "gives": "PERFECT",
+       "note": "what the boaster admits is being flawless"
+      }
      ]
     },
     "explanation": {
@@ -1083,38 +972,24 @@
    },
    "solution": "ONTHESCRAPHEAP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ON THE SCRAPHEAP",
     "definitions": [
      {
       "text": "written off",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means wrong or not right, so the letters before it are out of order"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "As the chap prone",
-      "gives": "ASTHECHAPPRONE",
-      "note": "taken as written for the mix"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASTHECHAPPRONE",
-       "gives": "ONTHESCRAPHEAP"
+       "text": "off",
+       "note": "off means wrong or not right, so the letters before it are out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "As the chap prone",
+       "note": "taken as written for the mix"
       }
      ]
     },
@@ -1150,44 +1025,40 @@
    },
    "solution": "NEWYEAR",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "NEW YEAR",
     "definitions": [
      {
       "text": "time for resolution",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "to Spooner",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner famously swapped the opening sounds of words, so the two words trade beginnings"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sheep",
-      "gives": "EWE",
-      "note": "a ewe is a female sheep"
-     },
-     {
-      "clueFragment": "mean",
-      "gives": "NEAR",
-      "note": "near is an old word for stingy or mean"
-     },
-     {
-      "clueFragment": "Sheep mean",
-      "gives": "NEWYEAR",
-      "soundsLike": "EWE NEAR",
-      "note": "the two words with their opening sounds swapped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEWYEAR"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "NEWYEAR",
+     "indicators": [
+      {
+       "text": "to Spooner",
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the two words trade beginnings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sheep",
+       "gives": "EWE",
+       "note": "a ewe is a female sheep"
+      },
+      {
+       "words": "mean",
+       "gives": "NEAR",
+       "note": "near is an old word for stingy or mean"
+      },
+      {
+       "unchecked": true,
+       "words": "Sheep mean",
+       "gives": "NEWYEAR",
+       "soundsLike": "EWE NEAR",
+       "note": "the two words with their opening sounds swapped"
+      }
      ]
     },
     "explanation": {
@@ -1223,35 +1094,25 @@
    },
    "solution": "REDFLAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RED FLAG",
     "definitions": [
      {
       "text": "One highlighting danger",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wine",
-      "gives": "RED",
-      "note": "red is red wine"
-     },
-     {
-      "clueFragment": "Blue Peter",
-      "gives": "FLAG",
-      "note": "the Blue Peter is a naval flag signalling a ship is about to sail"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "FLAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wine",
+       "gives": "RED",
+       "note": "red is red wine"
+      },
+      {
+       "words": "Blue Peter",
+       "gives": "FLAG",
+       "note": "the Blue Peter is a naval flag signalling a ship is about to sail"
+      }
      ]
     },
     "explanation": {
@@ -1281,28 +1142,16 @@
    },
    "solution": "PICKLED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PICKLED",
     "definitions": [
      {
       "text": "Stewed",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: drunk"
      },
      {
       "text": "in hot water might one say?",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stewed",
-      "note": "first meaning: drunk"
-     },
-     {
-      "clueFragment": "in hot water might one say?",
-      "note": "second meaning: playfully, the state of someone in a pickle, a fix or scrape"
+      "at": 7,
+      "meaning": "second meaning: playfully, the state of someone in a pickle, a fix or scrape"
      }
     ],
     "explanation": {
@@ -1331,40 +1180,31 @@
    },
    "solution": "SWERVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWERVE",
     "definitions": [
      {
       "text": "swing to the left?",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Having toured",
-      "for": "container",
-      "note": "having toured a place means having gone all round it, so one word wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minister to",
-      "gives": "SERVE",
-      "note": "to minister to someone is to serve them"
-     },
-     {
-      "clueFragment": "Wales",
-      "gives": "W",
-      "note": "W is the abbreviation for Wales"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "W",
-      "ERVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Having toured",
+       "note": "having toured a place means having gone all round it, so one word wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "minister to",
+       "gives": "SERVE",
+       "note": "to minister to someone is to serve them"
+      },
+      {
+       "words": "Wales",
+       "gives": "W",
+       "note": "W is the abbreviation for Wales"
+      }
      ]
     },
     "explanation": {
@@ -1394,54 +1234,50 @@
    },
    "solution": "EQUAL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EQUAL",
     "definitions": [
      {
       "text": "alike",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "dividing",
-      "for": "container",
-      "note": "something dividing a pair of letters sits between them, splitting them apart"
-     },
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so the opening letter of each word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "EU",
-      "gives": "EU",
-      "note": "the European Union, taken as written"
-     },
-     {
-      "clueFragment": "Question",
-      "gives": "Q",
-      "note": "Q is the abbreviation for question"
-     },
-     {
-      "clueFragment": "are leavers",
-      "gives": "AL",
-      "select": "first",
-      "note": "first letters of 'are' and 'leavers'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "Q",
-      "U",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "dividing",
+         "note": "something dividing a pair of letters sits between them, splitting them apart"
+        }
+       ],
+       "parts": [
+        {
+         "words": "EU",
+         "note": "the European Union, taken as written"
+        },
+        {
+         "words": "Question",
+         "gives": "Q",
+         "note": "Q is the abbreviation for question"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all, so the opening letter of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "are leavers",
+         "note": "first letters of 'are' and 'leavers'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1469,51 +1305,41 @@
    },
    "solution": "DERELICT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "DERELICT",
     "definitions": [
      {
       "text": "Ruined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overturned",
-      "for": "reversal",
-      "note": "something overturned is upside down, which in an across answer means read from right to left"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Edwardian dresser",
-      "gives": "TED",
-      "note": "a Teddy boy, or Ted, dressed in Edwardian-style clothes"
-     },
-     {
-      "clueFragment": "fossil",
-      "gives": "RELIC",
-      "note": "a fossil is a relic of the past"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "RELIC",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "TED",
-       "to": "DET"
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "note": "something overturned is upside down, which in an across answer means read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Edwardian dresser",
+         "gives": "TED",
+         "note": "a Teddy boy, or Ted, dressed in Edwardian-style clothes"
+        }
+       ]
+      },
+      {
+       "words": "fossil",
+       "gives": "RELIC",
+       "note": "a fossil is a relic of the past"
       }
      ]
     },
@@ -1544,43 +1370,31 @@
    },
    "solution": "LAGER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LAGER",
     "definitions": [
      {
       "text": "boozy beverage",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means encircling, so the pair of letters sits on either side of the middle word"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "both hands",
-      "gives": "LR",
-      "note": "L and R, left and right hands"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "AGE",
-      "note": "an age is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AGE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means encircling, so the pair of letters sits on either side of the middle word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "both hands",
+       "gives": "LR",
+       "note": "L and R, left and right hands"
+      },
+      {
+       "words": "Time",
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -1608,56 +1422,53 @@
    },
    "solution": "RESIDUAL",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "RESIDUAL",
     "definitions": [
      {
       "text": "repeat fee",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "securing",
-      "for": "container",
-      "note": "to secure something is to hold it fast inside, so one piece is enclosed"
-     },
-     {
-      "text": "Western",
-      "for": "reversal",
-      "note": "west is leftward on a map, so in an across answer the letters run from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Praise",
-      "gives": "LAUD",
-      "note": "to laud is to praise"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IS",
-      "note": "I for one plus 's for is"
-     },
-     {
-      "clueFragment": "leading lady",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the Queen as the country's first lady"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SI",
-      "DUAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "RESIDUAL",
+     "indicators": [
       {
-       "from": "LAUDISER",
-       "to": "RESIDUAL"
+       "text": "securing",
+       "note": "to secure something is to hold it fast inside, so one piece is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Western",
+         "note": "west is leftward on a map, so in an across answer the letters run from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Praise",
+           "gives": "LAUD",
+           "note": "to laud is to praise"
+          },
+          {
+           "words": "one's",
+           "gives": "IS",
+           "note": "I for one plus 's for is"
+          },
+          {
+           "words": "leading lady",
+           "gives": "ER",
+           "note": "ER, Elizabeth Regina, the Queen as the country's first lady"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1688,46 +1499,41 @@
    },
    "solution": "ENGELS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENGELS",
     "definitions": [
      {
       "text": "I might've flown the 18",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "central",
-      "for": "letter_selection",
-      "note": "central means in the middle, so just the inner letters of the next word survive"
-     },
-     {
-      "text": "east of",
-      "for": "charade",
-      "note": "in an across answer, east is to the right, so one piece comes after the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reno",
-      "gives": "EN",
-      "select": "middle",
-      "note": "the middle two letters of 'Reno'"
-     },
-     {
-      "clueFragment": "setters",
-      "gives": "GELS",
-      "note": "gels set things, as hair gel does"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "GELS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "east of",
+       "note": "in an across answer, east is to the right, so one piece comes after the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "central",
+         "note": "central means in the middle, so just the inner letters of the next word survive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reno",
+         "note": "the middle two letters of 'Reno'"
+        }
+       ]
+      },
+      {
+       "words": "setters",
+       "gives": "GELS",
+       "note": "gels set things, as hair gel does"
+      }
      ]
     },
     "explanation": {
@@ -1763,54 +1569,40 @@
    },
    "solution": "GREENLIGHT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GREEN LIGHT",
     "definitions": [
      {
       "text": "Go",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling",
-      "for": "anagram",
-      "note": "travelling means on the move, so these letters move into a new order"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means surrounding, so the mixed letters enclose the next piece"
-     }
-    ],
-    "linkWords": [
-     "on a circuit of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lengthier",
-      "gives": "LENGTHIER",
-      "note": "taken as written for the mix"
-     },
-     {
-      "clueFragment": "Gulf",
-      "gives": "G",
-      "note": "G is the abbreviation for gulf"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREENLI",
-      "G",
-      "HT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LENGTHIER",
-       "gives": "GREENLIHT"
+       "text": "around",
+       "note": "around means surrounding, so the mixed letters enclose the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "note": "travelling means on the move, so these letters move into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lengthier",
+         "note": "taken as written for the mix"
+        }
+       ]
+      },
+      {
+       "words": "Gulf",
+       "gives": "G",
+       "note": "G is the abbreviation for gulf"
       }
      ]
     },
@@ -1840,26 +1632,25 @@
    },
    "solution": "RUDE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RUDE",
     "definitions": [
      {
       "text": "What can be just as coarse with a capital C?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What can be just as coarse",
-      "note": "surface reading: something just as vulgar; setter's reading: a word for coarse"
-     },
-     {
-      "clueFragment": "with a capital C?",
-      "note": "surface reading: emphatic, coarse with a big C; setter's reading: put a C at the start and it means coarse too"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What can be just as coarse",
+       "note": "surface reading: something just as vulgar; setter's reading: a word for coarse"
+      },
+      {
+       "words": "with a capital C?",
+       "note": "surface reading: emphatic, coarse with a big C; setter's reading: put a C at the start and it means coarse too"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'With a capital C' sounds like emphasis, but it literally asks for a C on the front: the answer and the answer with C both mean coarse.",
      "definitionFit": "Rude and crude are both synonyms of vulgar, so the word means coarse with or without the leading C."

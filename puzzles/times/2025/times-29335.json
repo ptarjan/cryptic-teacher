@@ -1,8 +1,6 @@
 {
  "id": "times-29335",
  "number": 29335,
- "series": "times",
- "name": "Times cryptic crossword No 29,335",
  "date": "2025-09-15",
  "dimensions": {
   "cols": 15,
@@ -41,38 +39,30 @@
    },
    "solution": "CHASTENED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHASTENED",
     "definitions": [
      {
       "text": "humiliated",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "Charlie is C in the NATO alphabet"
-     },
-     {
-      "clueFragment": "Put foot down",
-      "gives": "HASTENED",
-      "note": "to put your foot down is to speed up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HASTENED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charlie",
+       "gives": "C",
+       "note": "Charlie is C in the NATO alphabet"
+      },
+      {
+       "words": "Put foot down",
+       "gives": "HASTENED",
+       "note": "to put your foot down is to speed up"
+      }
      ]
     },
     "explanation": {
@@ -101,54 +91,45 @@
    },
    "solution": "CREEPY",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "CREEPY",
     "definitions": [
      {
       "text": "Sinister",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "note": "in a down clue, turning a word up writes it from bottom to top"
-     },
-     {
-      "text": "in",
-      "note": "the turned word goes inside the emptied city"
-     },
-     {
-      "text": "empty",
-      "for": "reversal",
-      "note": "an empty word keeps only its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty city",
-      "gives": "CY",
-      "note": "CITY with its inside removed leaves C…Y"
-     },
-     {
-      "clueFragment": "fellow",
-      "gives": "PEER",
-      "note": "a peer is an equal, a fellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "REEP",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "PEER",
-       "to": "REEP"
+       "text": "turning up",
+       "note": "in a down clue, turning a word up writes it from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "empty city",
+       "gives": "CY",
+       "note": "CITY with its inside removed leaves C…Y"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the turned word goes inside the emptied city"
+        },
+        {
+         "text": "empty",
+         "note": "an empty word keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellow",
+         "gives": "PEER",
+         "note": "a peer is an equal, a fellow"
+        }
+       ]
       }
      ]
     },
@@ -178,35 +159,24 @@
    },
    "solution": "ABSTEMIOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ABSTEMIOUS",
     "definitions": [
      {
       "text": "sober",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "remarkably",
-      "for": "anagram",
-      "note": "done remarkably, the letters end up in an unexpected order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I mess about",
-      "gives": "IMESSABOUT",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "I MESS ABOUT",
-       "gives": "ABSTEMIOUS"
+       "text": "remarkably",
+       "note": "done remarkably, the letters end up in an unexpected order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I mess about",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -236,40 +206,38 @@
    },
    "solution": "TREASURE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TREASURE",
     "definitions": [
      {
       "text": "prize",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost the whole word: drop its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nurse almost",
-      "gives": "TREA",
-      "note": "TREAT (to nurse a patient) without its last letter"
-     },
-     {
-      "clueFragment": "guaranteed",
-      "gives": "SURE",
-      "note": "guaranteed = sure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREA",
-      "SURE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TREASURE",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost the whole word: drop its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nurse almost",
+         "gives": "TREA",
+         "note": "TREAT (to nurse a patient) without its last letter"
+        },
+        {
+         "words": "guaranteed",
+         "gives": "SURE",
+         "note": "guaranteed = sure"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -298,31 +266,29 @@
    },
    "solution": "NINJA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "and_lit"
-    ],
-    "answer": "NINJA",
     "definitions": [
      {
       "text": "Hitman in Japan hiding here?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hiding",
-      "for": "hidden_word",
-      "note": "the answer is concealed inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hitman in Japan",
-      "gives": "NINJA",
-      "note": "the letters run from the end of 'Hitman' through 'in' into the start of 'Japan'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hiding",
+       "note": "the answer is concealed inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hitman in Japan",
+       "gives": "NINJA",
+       "note": "the letters run from the end of 'Hitman' through 'in' into the start of 'Japan'"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A question about where a Japanese assassin might be lurking.",
      "walkthrough": "The whole clue is both the wordplay and the definition: a ninja was a covert Japanese assassin, and one is literally hiding in these words.",
@@ -349,39 +315,30 @@
    },
    "solution": "DELIGHTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DELIGHTED",
     "definitions": [
      {
       "text": "Pleased",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something done",
-      "gives": "DEED",
-      "note": "a deed is something done"
-     },
-     {
-      "clueFragment": "one of The Sun's offerings",
-      "gives": "LIGHT",
-      "note": "the sun gives light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "LIGHT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something done",
+       "gives": "DEED",
+       "note": "a deed is something done"
+      },
+      {
+       "words": "one of The Sun's offerings",
+       "gives": "LIGHT",
+       "note": "the sun gives light"
+      }
      ]
     },
     "explanation": {
@@ -411,39 +368,31 @@
    },
    "solution": "BARQUE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BARQUE",
     "definitions": [
      {
       "text": "old boat",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "must be removed from",
-      "for": "deletion",
-      "note": "take the first thing out of the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ornate",
-      "gives": "BAROQUE",
-      "note": "baroque = highly ornate"
-     },
-     {
-      "clueFragment": "Nothing",
-      "gives": "O",
-      "note": "nothing = O, the zero; taken out of BAROQUE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "QUE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "must be removed from",
+       "note": "take the first thing out of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ornate",
+       "gives": "BAROQUE",
+       "note": "baroque = highly ornate"
+      },
+      {
+       "words": "Nothing",
+       "gives": "O",
+       "note": "nothing = O, the zero; taken out of BAROQUE"
+      }
      ]
     },
     "explanation": {
@@ -470,50 +419,7 @@
     "text": "Lawsuit covering investigation",
     "enumeration": "4"
    },
-   "solution": "CASE",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CASE",
-    "definitions": [
-     {
-      "text": "Lawsuit",
-      "at": 0
-     },
-     {
-      "text": "investigation",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lawsuit",
-      "gives": "CASE",
-      "note": "an action brought before a court"
-     },
-     {
-      "clueFragment": "covering",
-      "gives": "CASE",
-      "note": "a protective container, as for a pillow or spectacles"
-     },
-     {
-      "clueFragment": "investigation",
-      "gives": "CASE",
-      "note": "what a detective works on"
-     }
-    ],
-    "explanation": {
-     "surface": "Legal action that extends to an inquiry.",
-     "walkthrough": "This is really a triple definition: 'covering' looks like a joining word but is a third meaning of case.",
-     "definitionFit": "Case means a lawsuit, a detective's investigation, and a protective cover."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "covering"
-    }
-   }
+   "solution": "CASE"
   },
   {
    "number": 8,
@@ -529,44 +435,41 @@
    },
    "solution": "PELLAGRA",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "PELLAGRA",
     "definitions": [
      {
       "text": "complaint",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Disorganised",
-      "note": "the letters are put out of order"
-     },
-     {
-      "text": "overlooking",
-      "note": "to overlook something is to leave it out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paralegal",
-      "gives": "PARALEGAL",
-      "note": "the fodder before one A is left out"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "one A dropped from PARALEGAL, leaving 8 letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PELLAGRA",
+     "parts": [
       {
-       "fodder": "PARALEGL",
-       "gives": "PELLAGRA"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "PELLAGRA",
+       "indicators": [
+        {
+         "text": "Disorganised",
+         "note": "the letters are put out of order"
+        },
+        {
+         "text": "overlooking",
+         "note": "to overlook something is to leave it out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paralegal",
+         "note": "the fodder before one A is left out"
+        },
+        {
+         "words": "a",
+         "note": "one A dropped from PARALEGAL, leaving 8 letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -596,45 +499,37 @@
    },
    "solution": "EMANATE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "EMANATE",
     "definitions": [
      {
       "text": "Issue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "going back, so the word is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "returning underwriter",
-      "gives": "EMAN",
-      "note": "a Name is an underwriter at Lloyd's of London, written backwards"
-     },
-     {
-      "clueFragment": "had",
-      "gives": "ATE",
-      "note": "had dinner = ate dinner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMAN",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "EMANATE",
+     "indicators": [
       {
-       "from": "NAME",
-       "to": "EMAN"
+       "text": "returning",
+       "note": "going back, so the word is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "returning underwriter",
+         "gives": "EMAN",
+         "note": "a Name is an underwriter at Lloyd's of London, written backwards"
+        },
+        {
+         "words": "had",
+         "gives": "ATE",
+         "note": "had dinner = ate dinner"
+        }
+       ]
       }
      ]
     },
@@ -664,30 +559,16 @@
    },
    "solution": "EASTERN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EASTERN",
     "definitions": [
      {
       "text": "E",
-      "at": 0
+      "at": 0,
+      "meaning": "a compass-point abbreviation, as on a map"
      },
      {
       "text": "from Indonesia perhaps",
-      "at": 2
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "E",
-      "gives": "EASTERN",
-      "note": "a compass-point abbreviation, as on a map"
-     },
-     {
-      "clueFragment": "from Indonesia perhaps",
-      "gives": "EASTERN",
-      "note": "Indonesia is one example of a country in Asia, the East"
+      "at": 2,
+      "meaning": "Indonesia is one example of a country in Asia, the East"
      }
     ],
     "explanation": {
@@ -716,50 +597,42 @@
    },
    "solution": "QUELL",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "QUELL",
     "definitions": [
      {
       "text": "Silence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making",
-      "for": "substitution",
-      "note": "the one letter is made into another"
-     },
-     {
-      "text": "at first",
-      "for": "substitution",
-      "note": "take only the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "writer",
-      "gives": "QUILL",
-      "note": "a quill pen writes"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "one = I, the Roman numeral, which is swapped out"
-     },
-     {
-      "clueFragment": "envious at first",
-      "gives": "E",
-      "note": "first letter of envious, swapped in for the I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QU",
-      "E",
-      "LL"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "QUELL",
+     "indicators": [
+      {
+       "text": "making",
+       "note": "the one letter is made into another"
+      },
+      {
+       "text": "at first",
+       "note": "take only the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer",
+       "gives": "QUILL",
+       "note": "a quill pen writes"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "one = I, the Roman numeral, which is swapped out"
+      },
+      {
+       "words": "envious at first",
+       "gives": "E",
+       "note": "first letter of envious, swapped in for the I"
+      }
      ]
     },
     "explanation": {
@@ -794,32 +667,25 @@
    },
    "solution": "PRESSGANG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESS-GANG",
     "definitions": [
      {
       "text": "Shanghai",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Correspondents",
-      "gives": "PRESS",
-      "note": "journalists are the press"
-     },
-     {
-      "clueFragment": "gathering",
-      "gives": "GANG",
-      "note": "a gang is a gathering of people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRESS",
-      "GANG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Correspondents",
+       "gives": "PRESS",
+       "note": "journalists are the press"
+      },
+      {
+       "words": "gathering",
+       "gives": "GANG",
+       "note": "a gang is a gathering of people"
+      }
      ]
     },
     "explanation": {
@@ -848,31 +714,29 @@
    },
    "solution": "HEELING",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HEELING",
     "definitions": [
      {
       "text": "Listing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "what people say, so go by the sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "showing signs of recovery",
-      "gives": "HEELING",
-      "soundsLike": "HEALING",
-      "note": "healing = getting better"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HEELING",
+     "indicators": [
+      {
+       "text": "they say",
+       "note": "what people say, so go by the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "showing signs of recovery",
+       "gives": "HEALING",
+       "note": "healing = getting better"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A patient on a list of those getting better.",
      "walkthrough": "'Listing' reads as putting on a list; it is a ship leaning over to one side, which is heeling.",
@@ -899,43 +763,33 @@
    },
    "solution": "INCOMPLETE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INCOMPLETE",
     "definitions": [
      {
       "text": "short",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "unusually",
-      "for": "anagram",
-      "note": "the letters come in an unusual order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "MP",
-      "gives": "MP",
-      "note": "anagram fodder, 2 letters"
-     },
-     {
-      "clueFragment": "election",
-      "gives": "ELECTION",
-      "note": "anagram fodder, 8 letters, joined to MP by 'in'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MP ELECTION",
-       "gives": "INCOMPLETE"
+       "text": "unusually",
+       "note": "the letters come in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "MP",
+         "note": "anagram fodder, 2 letters"
+        },
+        {
+         "words": "election",
+         "note": "anagram fodder, 8 letters, joined to MP by 'in'"
+        }
+       ]
       }
      ]
     },
@@ -965,32 +819,25 @@
    },
    "solution": "RELIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RELIT",
     "definitions": [
      {
       "text": "set on fire again",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "RE",
-      "note": "re is a note of the scale: do, re, mi"
-     },
-     {
-      "clueFragment": "Jean-Paul Sartre's bed",
-      "gives": "LIT",
-      "note": "lit is French for bed, and Sartre was French"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "gives": "RE",
+       "note": "re is a note of the scale: do, re, mi"
+      },
+      {
+       "words": "Jean-Paul Sartre's bed",
+       "gives": "LIT",
+       "note": "lit is French for bed, and Sartre was French"
+      }
      ]
     },
     "explanation": {
@@ -1026,30 +873,16 @@
    },
    "solution": "LEFTFIELD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LEFT-FIELD",
     "definitions": [
      {
       "text": "Withdrew from competition?",
-      "at": 0
+      "at": 0,
+      "meaning": "left the field: pulled out of the contest"
      },
      {
       "text": "Strange",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Withdrew from competition?",
-      "gives": "LEFTFIELD",
-      "note": "left the field: pulled out of the contest"
-     },
-     {
-      "clueFragment": "Strange",
-      "gives": "LEFTFIELD",
-      "note": "odd or unconventional, a baseball term"
+      "at": 27,
+      "meaning": "odd or unconventional, a baseball term"
      }
     ],
     "explanation": {
@@ -1079,33 +912,28 @@
    },
    "solution": "PHONE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PHONE",
     "definitions": [
      {
       "text": "Call",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cut short: drop the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "impostor briefly",
-      "gives": "PHONE",
-      "note": "PHONEY, a fake person, minus its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PHONE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PHONE",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "cut short: drop the last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "impostor briefly",
+       "gives": "PHONE",
+       "note": "PHONEY, a fake person, minus its last letter"
+      }
      ]
     },
     "explanation": {
@@ -1133,41 +961,30 @@
    },
    "solution": "PENELOPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PENELOPE",
     "definitions": [
      {
       "text": "Woman waiting ages",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "author",
-      "gives": "PEN",
-      "note": "to pen is to write, and a writer is a pen"
-     },
-     {
-      "clueFragment": "run off",
-      "gives": "ELOPE",
-      "note": "eloping lovers run off together"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "ELOPE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "author",
+       "gives": "PEN",
+       "note": "to pen is to write, and a writer is a pen"
+      },
+      {
+       "words": "run off",
+       "gives": "ELOPE",
+       "note": "eloping lovers run off together"
+      }
      ]
     },
     "explanation": {
@@ -1196,34 +1013,39 @@
    },
    "solution": "SACRA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SACRA",
     "definitions": [
      {
       "text": "Bones",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "note": "the answer is taken out of the next word"
-     },
-     {
-      "text": "lying around",
-      "note": "turned around, so read the letters backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "carcass",
-      "gives": "SACRA",
-      "note": "c(ARCAS)s read backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "the answer is taken out of the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "lying around",
+         "note": "turned around, so read the letters backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carcass",
+         "gives": "ARCAS",
+         "note": "c(ARCAS)s read backwards"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Bones pulled from a carcass left lying about.",
      "walkthrough": "The surface is a literal scene, bones from a carcass. Read CARCASS backwards (SSACRAC) and SACRA is inside.",
@@ -1249,40 +1071,34 @@
    },
    "solution": "SPINSTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPINSTER",
     "definitions": [
      {
       "text": "one not in union",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Misguided",
-      "for": "anagram",
-      "note": "guided wrongly, so the letters go astray"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R = Republican"
-     },
-     {
-      "clueFragment": "steps in",
-      "gives": "STEPSIN",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "R STEPS IN",
-       "gives": "SPINSTER"
+       "text": "Misguided",
+       "note": "guided wrongly, so the letters go astray"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Republican",
+         "gives": "R",
+         "note": "R = Republican"
+        },
+        {
+         "words": "steps in",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
       }
      ]
     },
@@ -1318,32 +1134,25 @@
    },
    "solution": "FEDUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FED UP",
     "definitions": [
      {
       "text": "Brassed off",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "agent",
-      "gives": "FED",
-      "note": "a Fed is an FBI agent"
-     },
-     {
-      "clueFragment": "in court",
-      "gives": "UP",
-      "note": "to be up before a judge is to be in court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FED",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "agent",
+       "gives": "FED",
+       "note": "a Fed is an FBI agent"
+      },
+      {
+       "words": "in court",
+       "gives": "UP",
+       "note": "to be up before a judge is to be in court"
+      }
      ]
     },
     "explanation": {
@@ -1371,32 +1180,25 @@
    },
    "solution": "NASCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NASCENT",
     "definitions": [
      {
       "text": "beginning to emerge",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "way to the top",
-      "gives": "ASCENT",
-      "note": "an ascent is a climb, a route up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ASCENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N = new"
+      },
+      {
+       "words": "way to the top",
+       "gives": "ASCENT",
+       "note": "an ascent is a climb, a route up"
+      }
      ]
     },
     "explanation": {
@@ -1424,26 +1226,25 @@
    },
    "solution": "EYELID",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EYELID",
     "definitions": [
      {
       "text": "Shutter closed when sleeping",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Shutter",
-      "note": "the surface wants a window shutter; the setter means a flap of skin over the eye"
-     },
-     {
-      "clueFragment": "closed when sleeping",
-      "note": "true of window shutters at night, and of this body part every night"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Shutter",
+       "note": "the surface wants a window shutter; the setter means a flap of skin over the eye"
+      },
+      {
+       "words": "closed when sleeping",
+       "note": "true of window shutters at night, and of this body part every night"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A window shutter pulled to at bedtime.",
      "walkthrough": "The surface is a window shutter closed at night; the shutter is part of your face.",
@@ -1477,30 +1278,16 @@
    },
    "solution": "ONFOOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON FOOT",
     "definitions": [
      {
       "text": "Where you might find mule",
-      "at": 0
+      "at": 0,
+      "meaning": "a mule is a backless slipper, worn on the foot"
      },
      {
       "text": "travelling thus",
-      "at": 26
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where you might find mule",
-      "gives": "ONFOOT",
-      "note": "a mule is a backless slipper, worn on the foot"
-     },
-     {
-      "clueFragment": "travelling thus",
-      "gives": "ONFOOT",
-      "note": "walking"
+      "at": 26,
+      "meaning": "walking"
      }
     ],
     "explanation": {
@@ -1536,41 +1323,42 @@
    },
    "solution": "FRYINGPAN",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "FRYING PAN",
     "definitions": [
      {
       "text": "one employed in the kitchen",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner swapped the first sounds of words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nosy",
-      "gives": "FRYING",
-      "soundsLike": "PRYING",
-      "note": "prying = nosy; it takes the F from the second word"
-     },
-     {
-      "clueFragment": "follower",
-      "gives": "PAN",
-      "soundsLike": "FAN",
-      "note": "a fan is a follower; it takes the P from the first word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRYING",
-      "PAN"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "FRYINGPAN",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "the Reverend Spooner swapped the first sounds of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "nosy",
+         "gives": "FRYING",
+         "soundsLike": "PRYING",
+         "note": "prying = nosy; it takes the F from the second word"
+        },
+        {
+         "unchecked": true,
+         "words": "follower",
+         "gives": "PAN",
+         "soundsLike": "FAN",
+         "note": "a fan is a follower; it takes the P from the first word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1600,39 +1388,27 @@
    },
    "solution": "YEAST",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "YEAST",
     "definitions": [
      {
       "text": "cause of ferment?",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "turning tail",
-      "for": "reversal",
-      "note": "the tail, the last letters, turned round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poet",
-      "gives": "YEATS",
-      "note": "W. B. Yeats, the Irish poet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YEA",
-      "ST"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "YEAST",
+     "indicators": [
       {
-       "from": "TS",
-       "to": "ST"
+       "text": "turning tail",
+       "note": "the tail, the last letters, turned round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Poet",
+       "gives": "YEATS",
+       "note": "W. B. Yeats, the Irish poet"
       }
      ]
     },
@@ -1663,34 +1439,29 @@
    },
    "solution": "LOCKE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LOCKE",
     "definitions": [
      {
       "text": "Philosopher",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "called out",
-      "for": "homophone",
-      "note": "spoken, so go by the sound"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bar",
-      "gives": "LOCKE",
-      "soundsLike": "LOCK",
-      "note": "to bar a door is to lock it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LOCKE",
+     "indicators": [
+      {
+       "text": "called out",
+       "note": "spoken, so go by the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "gives": "LOCK",
+       "note": "to bar a door is to lock it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A philosopher in a pub shouting.",
      "walkthrough": "'Bar' suggests a pub; it is the verb to fasten. John Locke was the English philosopher.",
@@ -1717,37 +1488,29 @@
    },
    "solution": "CARO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CARO",
     "definitions": [
      {
       "text": "Sculptor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing heart",
-      "for": "deletion",
-      "note": "the middle letter is removed"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "capital",
-      "gives": "CAIRO",
-      "note": "the capital of Egypt; its middle letter I goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "RO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing heart",
+       "note": "the middle letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "capital",
+       "gives": "CAIRO",
+       "note": "the capital of Egypt; its middle letter I goes"
+      },
+      {
+       "gives": "I"
+      }
      ]
     },
     "explanation": {
@@ -1782,44 +1545,42 @@
    },
    "solution": "ARTDECO",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "ART DECO",
     "definitions": [
      {
       "text": "Trend in Great Depression",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ruined",
-      "note": "wrecked, so the letters are rearranged"
-     },
-     {
-      "text": "lost",
-      "note": "what is lost is no longer there"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Democrat",
-      "gives": "DEMOCRAT",
-      "note": "the fodder before the M goes"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "m = millions, removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARTDECO",
+     "parts": [
       {
-       "fodder": "DEOCRAT",
-       "gives": "ARTDECO"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ARTDECO",
+       "indicators": [
+        {
+         "text": "ruined",
+         "note": "wrecked, so the letters are rearranged"
+        },
+        {
+         "text": "lost",
+         "note": "what is lost is no longer there"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Democrat",
+         "note": "the fodder before the M goes"
+        },
+        {
+         "words": "millions",
+         "gives": "M",
+         "note": "m = millions, removed"
+        }
+       ]
       }
      ]
     },
@@ -1849,46 +1610,43 @@
    },
    "solution": "PARTIAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PARTIAL",
     "definitions": [
      {
       "text": "one-sided",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "nearly",
-      "for": "deletion",
-      "note": "not quite all: drop the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "section",
-      "gives": "PART",
-      "note": "a part is a section"
-     },
-     {
-      "clueFragment": "First",
-      "gives": "I",
-      "note": "I = one, the Roman numeral, as in Part I"
-     },
-     {
-      "clueFragment": "nearly all",
-      "gives": "AL",
-      "note": "ALL without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PART",
-      "I",
-      "AL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PARTIAL",
+     "indicators": [
+      {
+       "text": "nearly",
+       "note": "not quite all: drop the last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "section",
+         "gives": "PART",
+         "note": "a part is a section"
+        },
+        {
+         "words": "First",
+         "gives": "I",
+         "note": "I = one, the Roman numeral, as in Part I"
+        },
+        {
+         "words": "nearly all",
+         "gives": "AL",
+         "note": "ALL without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1916,32 +1674,25 @@
    },
    "solution": "DETERGENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DETERGENT",
     "definitions": [
      {
       "text": "Cleaner",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "put off",
-      "gives": "DETER",
-      "note": "to deter is to put off"
-     },
-     {
-      "clueFragment": "man of good birth",
-      "gives": "GENT",
-      "note": "gent, short for gentleman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DETER",
-      "GENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "put off",
+       "gives": "DETER",
+       "note": "to deter is to put off"
+      },
+      {
+       "words": "man of good birth",
+       "gives": "GENT",
+       "note": "gent, short for gentleman"
+      }
      ]
     },
     "explanation": {

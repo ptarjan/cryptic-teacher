@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29201",
  "number": 29201,
- "series": "cryptic",
- "name": "Prize crossword No 29,201",
+ "prize": true,
  "setter": "Philistine",
  "date": "2023-10-14",
  "dimensions": {
@@ -44,47 +43,41 @@
    },
    "solution": "ACTFOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ACT FOR",
     "definitions": [
      {
       "text": "Represent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "to admit is to let in, so one piece takes the other inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "player",
-      "gives": "ACTOR",
-      "note": "a player on stage is an actor"
-     },
-     {
-      "clueFragment": "false",
-      "gives": "F",
-      "select": "first",
-      "note": "the first letter of false"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACT",
-      "F",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "note": "to admit is to let in, so one piece takes the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "player",
+       "gives": "ACTOR",
+       "note": "a player on stage is an actor"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start",
+         "note": "the start of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "false",
+         "note": "the first letter of false"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -140,53 +133,44 @@
     "2-down"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "FINE-TOOTH COMB",
     "definitions": [
      {
       "text": "nitpicker",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "letters set out wrong are in the wrong order and must be rearranged"
-     }
-    ],
-    "linkWords": [
-     "says"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bottom inch of",
-      "gives": "BOTTOMINCHOF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "loose",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of loose"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FINETOOTHCOMB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BOTTOMINCHOFE",
-       "gives": "FINETOOTHCOMB"
+       "text": "wrong",
+       "note": "letters set out wrong are in the wrong order and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bottom inch of",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end",
+           "note": "the end of a word is its final letter, so only that one is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "loose",
+           "note": "the last letter of loose"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -223,33 +207,28 @@
    },
    "solution": "RISQUE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RISQUE",
     "definitions": [
      {
       "text": "Comme Les Folies Bergère",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Quelle partie?",
-      "for": "hidden_word",
-      "note": "French for 'which part?', telling us the answer is a part of the words nearby"
-     }
-    ],
-    "linkWords": [
-     "de"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paris? Quelle",
-      "gives": "RISQUE",
-      "note": "the letters run across the end of Paris and the start of Quelle"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Quelle partie?",
+       "note": "French for 'which part?', telling us the answer is a part of the words nearby"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Paris? Quelle",
+       "gives": "RISQUE",
+       "note": "the letters run across the end of Paris and the start of Quelle"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A French question about which part of a famous Paris cabaret is meant.",
      "walkthrough": "The whole clue is in French, and 'Quelle partie?' ('which part?') is the hidden-word signal. The Folies Bergère is a Paris music hall known for its revealing costumes.",
@@ -276,49 +255,40 @@
    },
    "solution": "MACKEREL",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "MACKEREL",
     "definitions": [
      {
       "text": "fish",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooking turns ingredients into something new, so these letters are mixed up"
-     },
-     {
-      "text": "ate",
-      "for": "container",
-      "note": "what is eaten ends up inside the eater, so one letter goes in among the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lee Mack",
-      "gives": "LEEMACK",
-      "note": "the comedian's name, taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the usual abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MACKEREL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LEEMACKR",
-       "gives": "MACKEREL"
+       "text": "ate",
+       "note": "what is eaten ends up inside the eater, so one letter goes in among the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "note": "cooking turns ingredients into something new, so these letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lee Mack",
+         "note": "the comedian's name, taken as written"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the usual abbreviation for right"
       }
      ]
     },
@@ -366,76 +336,68 @@
    },
    "solution": "MINDONESPSANDQS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "homophone"
-    ],
-    "answer": "MIND ONE'S PS AND QS",
     "definitions": [
      {
       "text": "to be polite",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "reshaping",
-      "for": "anagram",
-      "note": "reshaping gives a word a new form, so its letters are rearranged"
-     },
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken, so the word is spelt as it sounds"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Object",
-      "gives": "MIND",
-      "note": "to mind something is to object to it"
-     },
-     {
-      "clueFragment": "nose",
-      "gives": "ONES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "PS",
-      "note": "a PS is a note added at the end of a letter"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "with means together with, and"
-     },
-     {
-      "clueFragment": "lines",
-      "gives": "QS",
-      "soundsLike": "CUES",
-      "note": "an actor's cues are the lines that prompt their own"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIND",
-      "ONES",
-      "PS",
-      "AND",
-      "QS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MINDONESPSANDQS",
+     "indicators": [
       {
-       "fodder": "NOSE",
-       "gives": "ONES"
+       "text": "reshaping",
+       "note": "reshaping gives a word a new form, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Object",
+         "gives": "MIND",
+         "note": "to mind something is to object to it"
+        },
+        {
+         "words": "nose",
+         "gives": "ONES",
+         "note": "taken as written"
+        },
+        {
+         "words": "note",
+         "gives": "PS",
+         "note": "a PS is a note added at the end of a letter"
+        },
+        {
+         "words": "with",
+         "gives": "AND",
+         "note": "with means together with, and"
+        },
+        {
+         "op": "homophone",
+         "spelt": "QS",
+         "indicators": [
+          {
+           "text": "said",
+           "note": "said means spoken, so the word is spelt as it sounds"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lines",
+           "gives": "CUES",
+           "note": "an actor's cues are the lines that prompt their own"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "spelling": "MIND ONE'S PS AND QS",
     "explanation": {
      "surface": "Objecting to cosmetic surgery on the nose, with a note about manners.",
      "walkthrough": "The first 'to' is a link word. 'Lines' are an actor's cues, which sound like the letter-names Qs.",
@@ -462,28 +424,16 @@
    },
    "solution": "CONSOLES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CONSOLES",
     "definitions": [
      {
       "text": "Gaming equipment",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: games machines, a noun plural"
      },
      {
       "text": "provides comfort",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gaming equipment",
-      "note": "first meaning: games machines, a noun plural"
-     },
-     {
-      "clueFragment": "provides comfort",
-      "note": "second meaning: soothes someone, a verb"
+      "at": 17,
+      "meaning": "second meaning: soothes someone, a verb"
      }
     ],
     "explanation": {
@@ -510,44 +460,39 @@
    },
    "solution": "ENNUI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ENNUI",
     "definitions": [
      {
       "text": "Boredom",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly not seen",
-      "for": "letter_selection",
-      "note": "the odd-numbered letters are unseen, so only the even-numbered ones remain"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lennon",
-      "gives": "ENN",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters of Lennon"
-     },
-     {
-      "clueFragment": "music",
-      "gives": "UI",
-      "select": "alternate",
-      "note": "second and fourth letters of music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENN",
-      "UI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly not seen",
+         "note": "the odd-numbered letters are unseen, so only the even-numbered ones remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lennon",
+         "note": "second, fourth and sixth letters of Lennon"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "parts": [
+        {
+         "words": "music",
+         "note": "second and fourth letters of music"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -576,31 +521,29 @@
    },
    "solution": "EUTHANASIA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EUTHANASIA",
     "definitions": [
      {
       "text": "Killing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "may be reported",
-      "for": "homophone",
-      "note": "reported means passed on by word of mouth, so the answer is spelt as the phrase sounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "juvenile Chinese",
-      "gives": "EUTHANASIA",
-      "soundsLike": "YOUTH IN ASIA",
-      "note": "a young Chinese person is a youth in Asia"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EUTHANASIA",
+     "indicators": [
+      {
+       "text": "may be reported",
+       "note": "reported means passed on by word of mouth, so the answer is spelt as the phrase sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "juvenile Chinese",
+       "gives": "YOUTHINASIA",
+       "note": "a young Chinese person is a youth in Asia"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A news report about a young Chinese person being killed.",
      "walkthrough": "'Juvenile Chinese' has to be turned into a description, 'youth in Asia', before it is said out loud.",
@@ -628,56 +571,51 @@
    },
    "solution": "AMUNDSEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "AMUNDSEN",
     "definitions": [
      {
       "text": "explorer",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "origin",
-      "for": "letter_selection",
-      "note": "the origin of a word is where it begins, its first letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes around the others"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The last word",
-      "gives": "AMEN",
-      "note": "amen is said at the end of a prayer, the last word"
-     },
-     {
-      "clueFragment": "German and",
-      "gives": "UND",
-      "note": "und is the German word for and"
-     },
-     {
-      "clueFragment": "Swiss",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Swiss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AM",
-      "UND",
-      "S",
-      "EN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes around the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "The last word",
+         "gives": "AMEN",
+         "note": "amen is said at the end of a prayer, the last word"
+        },
+        {
+         "words": "German and",
+         "gives": "UND",
+         "note": "und is the German word for and"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "origin",
+         "note": "the origin of a word is where it begins, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Swiss",
+         "note": "the first letter of Swiss"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -706,33 +644,28 @@
    },
    "solution": "NINETY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "NINETY",
     "definitions": [
      {
       "text": "Number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "substitution",
-      "note": "in says the letters wanted sit inside the following word, to be swapped for what they stand for"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exchange",
-      "gives": "XC",
-      "note": "the second and third letters of the word, a run that is also a Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NINETY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "NINETY",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in says the letters wanted sit inside the following word, to be swapped for what they stand for"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exchange",
+       "gives": "XC",
+       "note": "the second and third letters of the word, a run that is also a Roman numeral"
+      }
      ]
     },
     "explanation": {
@@ -762,41 +695,30 @@
    },
    "solution": "TAUTOLOGICAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAUTOLOGICAL",
     "definitions": [
      {
       "text": "to the summit at the top of the mountain?",
       "at": 34
      }
     ],
-    "linkWords": [
-     "to follow"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tight",
-      "gives": "TAUT",
-      "note": "taut means pulled tight"
-     },
-     {
-      "clueFragment": "circle",
-      "gives": "O",
-      "note": "O is circle-shaped"
-     },
-     {
-      "clueFragment": "Reasonable",
-      "gives": "LOGICAL",
-      "note": "reasonable means logical"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAUT",
-      "O",
-      "LOGICAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tight",
+       "gives": "TAUT",
+       "note": "taut means pulled tight"
+      },
+      {
+       "words": "circle",
+       "gives": "O",
+       "note": "O is circle-shaped"
+      },
+      {
+       "words": "Reasonable",
+       "gives": "LOGICAL",
+       "note": "reasonable means logical"
+      }
      ]
     },
     "explanation": {
@@ -826,44 +748,35 @@
    },
    "solution": "MALIGNMENT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MALIGNMENT",
     "definitions": [
      {
       "text": "Defamation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a tiny bit of",
-      "for": "letter_selection",
-      "note": "the smallest bit of a word is a single letter, its first"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minor",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of minor"
-     },
-     {
-      "clueFragment": "adjustment",
-      "gives": "ALIGNMENT",
-      "note": "an alignment is an adjustment that brings parts into line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ALIGNMENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a tiny bit of",
+         "note": "the smallest bit of a word is a single letter, its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minor",
+         "note": "the first letter of minor"
+        }
+       ]
+      },
+      {
+       "words": "adjustment",
+       "gives": "ALIGNMENT",
+       "note": "an alignment is an adjustment that brings parts into line"
+      }
      ]
     },
     "explanation": {
@@ -901,71 +814,60 @@
     "18-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "DADO RAIL",
     "definitions": [
      {
       "text": "moulding",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "something working is in motion, so the painter's name is rearranged"
-     },
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about means turned round to face the other way"
-     },
-     {
-      "text": "injection",
-      "for": "container",
-      "note": "an injection puts something inside, so one piece goes into the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dali",
-      "gives": "DALI",
-      "note": "the surrealist painter's name, taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "stick",
-      "gives": "ROD",
-      "note": "a rod is a stick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DA",
-      "DORA",
-      "IL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "DALI",
-       "gives": "DAIL"
+       "text": "about",
+       "note": "turned about means turned round to face the other way"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "AROD",
-       "to": "DORA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "injection",
+         "note": "an injection puts something inside, so one piece goes into the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "working",
+           "note": "something working is in motion, so the painter's name is rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Dali",
+             "note": "the surrealist painter's name, taken as written"
+            },
+            {
+             "words": "a",
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "stick",
+         "gives": "ROD",
+         "note": "a rod is a stick"
+        }
+       ]
       }
      ]
     },
@@ -995,61 +897,50 @@
    },
    "solution": "EXEMPLAR",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "EXEMPLAR",
     "definitions": [
      {
       "text": "ideal",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "trouble",
-      "for": "anagram",
-      "note": "a word in trouble is in disarray, so its letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us one piece sits inside another"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "EX",
-      "note": "ex means former, old"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP is a Member of Parliament"
-     },
-     {
-      "clueFragment": "real",
-      "gives": "REAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "E",
-      "MP",
-      "LAR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "REAL",
-       "gives": "ELAR"
+       "words": "Old",
+       "gives": "EX",
+       "note": "ex means former, old"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in tells us one piece sits inside another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "trouble",
+           "note": "a word in trouble is in disarray, so its letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "real",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
       }
      ]
     },
@@ -1079,52 +970,59 @@
    },
    "solution": "PARACHUTE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "homophone"
-    ],
-    "answer": "PARACHUTE",
     "definitions": [
      {
       "text": "This regiment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue, rising means read from bottom to top"
-     },
-     {
-      "text": "the sound of",
-      "for": "homophone",
-      "note": "the sound of a word is how it is said, so spell it the same way it sounds"
-     }
-    ],
-    "linkWords": [
-     "has",
-     "above"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "kind of music",
-      "gives": "RAP",
-      "note": "rap is a style of music"
-     },
-     {
-      "clueFragment": "fire",
-      "gives": "CHUTE",
-      "soundsLike": "SHOOT",
-      "note": "to fire a gun is to shoot"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down clue, rising means read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "kind of music",
+           "gives": "RAP",
+           "note": "rap is a style of music"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "CHUTE",
+       "indicators": [
+        {
+         "text": "the sound of",
+         "note": "the sound of a word is how it is said, so spell it the same way it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fire",
+         "gives": "SHOOT",
+         "note": "to fire a gun is to shoot"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A military band whose music plays over the noise of gunfire.",
      "walkthrough": "'Above' puts the reversed piece first in this down entry. 'This regiment' means one named after the answer: the British Army's Parachute Regiment.",
@@ -1151,40 +1049,30 @@
    },
    "solution": "NUISANCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NUISANCE",
     "definitions": [
      {
       "text": "Annoyance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hidden by",
-      "for": "container",
-      "note": "something hidden by another is covered by it, so it goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "subtlety",
-      "gives": "NUANCE",
-      "note": "a nuance is a subtlety"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "IS",
-      "ANCE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hidden by",
+       "note": "something hidden by another is covered by it, so it goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "subtlety",
+       "gives": "NUANCE",
+       "note": "a nuance is a subtlety"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1218,40 +1106,39 @@
    },
    "solution": "HIGHJUMP",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "HIGH JUMP",
     "definitions": [
      {
       "text": "an event",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Spoken",
-      "for": "homophone",
-      "note": "spoken means said out loud, so the word is spelt as it sounds"
-     }
-    ],
-    "linkWords": [
-     "to create"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "greeting",
-      "gives": "HIGH",
-      "soundsLike": "HI",
-      "note": "hi is a greeting"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "JUMP",
-      "note": "a bound is a leap"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HIGH",
+       "indicators": [
+        {
+         "text": "Spoken",
+         "note": "spoken means said out loud, so the word is spelt as it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "greeting",
+         "gives": "HI",
+         "note": "hi is a greeting"
+        }
+       ]
+      },
+      {
+       "words": "bound",
+       "gives": "JUMP",
+       "note": "a bound is a leap"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A spoken hello is sure to cause a fuss.",
      "walkthrough": "'Bound to create an event' reads as 'certain to make a scene', but 'bound' is the noun for a leap and 'an event' is the definition.",
@@ -1291,39 +1178,34 @@
    },
    "solution": "ATOLLS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ATOLLS",
     "definitions": [
      {
       "text": "Some islands",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "can be",
-      "for": "anagram",
-      "note": "the letters could become something else, so they are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so tall",
-      "gives": "SOTALL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "but not these",
-      "note": "surface padding that adds the joke; it supplies no letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SOTALL",
-       "gives": "ATOLLS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "can be",
+         "note": "the letters could become something else, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "so tall",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "but not these",
+       "note": "surface padding that adds the joke; it supplies no letters"
       }
      ]
     },
@@ -1354,54 +1236,40 @@
    },
    "solution": "ENTHUSIASTIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENTHUSIASTIC",
     "definitions": [
      {
       "text": "keen",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "changes",
-      "for": "anagram",
-      "note": "the phrase changes its form, so those letters are rearranged"
-     },
-     {
-      "text": "absorbed",
-      "for": "container",
-      "note": "something absorbed is soaked up inside, so it goes in the middle"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In case it",
-      "gives": "INCASEIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "so",
-      "gives": "THUS",
-      "note": "thus means so"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "THUS",
-      "IASTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "INCASEIT",
-       "gives": "ENIASTIC"
+       "text": "absorbed",
+       "note": "something absorbed is soaked up inside, so it goes in the middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "note": "the phrase changes its form, so those letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In case it",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "so",
+       "gives": "THUS",
+       "note": "thus means so"
       }
      ]
     },
@@ -1430,42 +1298,40 @@
    },
    "solution": "HAVEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "substitution"
-    ],
-    "answer": "HAVEN",
     "definitions": [
      {
       "text": "safe environment",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "leader must go",
-      "for": "deletion",
-      "note": "the leader of a word is its first letter, and it must go, so that letter is dropped"
-     },
-     {
-      "text": "to make it",
-      "for": "substitution",
-      "note": "what is left is then turned into another word it can stand for"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sport",
-      "gives": "SPORT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAVEN"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "HAVEN",
+     "indicators": [
+      {
+       "text": "to make it",
+       "note": "what is left is then turned into another word it can stand for"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HAVEN",
+       "indicators": [
+        {
+         "text": "leader must go",
+         "note": "the leader of a word is its first letter, and it must go, so that letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sport",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1494,30 +1360,30 @@
    },
    "solution": "HEAT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HEAT",
     "definitions": [
      {
       "text": "Qualifier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in says the answer sits within the other entry's letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "26",
-      "gives": "HEAT",
-      "note": "the answer to 26-across holds these letters between its first and last letters"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "HEAT",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in says the answer sits within the other entry's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "26",
+       "gives": "HEAT",
+       "note": "the answer to 26-across holds these letters between its first and last letters"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The answer is found inside SHEATH, the answer to 26-across.",
      "definitionFit": "In athletics, a heat is a preliminary race whose winners qualify for the next round."
@@ -1542,28 +1408,16 @@
    },
    "solution": "KELVIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KELVIN",
     "definitions": [
      {
       "text": "Clyde receives this",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a river in Glasgow that flows into the Clyde"
      },
      {
       "text": "degree",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clyde receives this",
-      "note": "first meaning: a river in Glasgow that flows into the Clyde"
-     },
-     {
-      "clueFragment": "degree",
-      "note": "second meaning: a unit on a temperature scale"
+      "at": 20,
+      "meaning": "second meaning: a unit on a temperature scale"
      }
     ],
     "explanation": {
@@ -1592,51 +1446,40 @@
    },
    "solution": "DELOUSED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DELOUSED",
     "definitions": [
      {
       "text": "having used 3/2",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Tortured",
-      "for": "anagram",
-      "note": "something tortured is twisted out of shape, so the letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the word indeed splits into in plus a noun, and in places one piece inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soul",
-      "gives": "SOUL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "indeed",
-      "gives": "DEED",
-      "note": "read as two words, in deed; the second word is taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "LOUS",
-      "ED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SOUL",
-       "gives": "LOUS"
+       "text": "in",
+       "note": "the word indeed splits into in plus a noun, and in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "indeed",
+       "gives": "DEED",
+       "note": "read as two words, in deed; the second word is taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Tortured",
+         "note": "something tortured is twisted out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soul",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1672,26 +1515,25 @@
    },
    "solution": "ETONMESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ETON MESS",
     "definitions": [
      {
       "text": "Note this dessert?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Note this dessert?",
-      "note": "surface reading: an invitation to take notice of a pudding"
-     },
-     {
-      "clueFragment": "Note this dessert?",
-      "note": "setter's reading: the dessert's name, read as an instruction, rearranges the letters of note"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Note this dessert?",
+       "note": "surface reading: an invitation to take notice of a pudding"
+      },
+      {
+       "words": "Note this dessert?",
+       "note": "setter's reading: the dessert's name, read as an instruction, rearranges the letters of note"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "ETON MESS can be read as 'a mess of ETON', and ETON rearranged gives NOTE. So the dessert's name describes how to get the clue's first word. An Eton mess is a British pudding of strawberries, cream and broken meringue.",
      "definitionFit": "This English pudding is named after Eton College, where it is traditionally served at a summer cricket match."
@@ -1718,43 +1560,31 @@
    },
    "solution": "SHEATH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHEATH",
     "definitions": [
      {
       "text": "protective cover",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes around the other"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Say nothing",
-      "gives": "SH",
-      "note": "sh is said to ask for silence"
-     },
-     {
-      "clueFragment": "fever",
-      "gives": "HEAT",
-      "note": "fever is bodily heat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HEAT",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Say nothing",
+       "gives": "SH",
+       "note": "sh is said to ask for silence"
+      },
+      {
+       "words": "fever",
+       "gives": "HEAT",
+       "note": "fever is bodily heat"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5192",
  "number": 5192,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,192",
  "setter": "Robert Price",
  "date": "2025-11-30",
  "dimensions": {
@@ -42,49 +40,40 @@
    },
    "solution": "ABETTING",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ABETTING",
     "definitions": [
      {
       "text": "Providing aid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stake",
-      "gives": "BET",
-      "note": "a stake is a bet"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "TIN",
-      "note": "tin is old slang for money"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BET",
-      "TIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invested in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stake",
+         "gives": "BET",
+         "note": "a stake is a bet"
+        },
+        {
+         "words": "money",
+         "gives": "TIN",
+         "note": "tin is old slang for money"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -114,59 +103,56 @@
    },
    "solution": "ARTEFACT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ARTEFACT",
     "definitions": [
      {
       "text": "Something made",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its first and last letters"
-     },
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "select": "last",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "report extremely",
-      "gives": "RT",
-      "select": "outer",
-      "note": "first and last letters of REPORT"
-     },
-     {
-      "clueFragment": "close to the",
-      "gives": "E",
-      "note": "last letter of THE"
-     },
-     {
-      "clueFragment": "truth",
-      "gives": "FACT",
-      "note": "a fact is a truth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RT",
-      "E",
-      "FACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "note": "kept as it is"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "report extremely",
+         "gives": "REPORT",
+         "note": "first and last letters of REPORT"
+        }
+       ]
+      },
+      {
+       "words": "close to the",
+       "gives": "E",
+       "note": "last letter of THE"
+      },
+      {
+       "words": "truth",
+       "gives": "FACT",
+       "note": "a fact is a truth"
+      }
      ]
     },
     "explanation": {
@@ -195,11 +181,6 @@
    },
    "solution": "EMPORIUM",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "EMPORIUM",
     "definitions": [
      {
       "text": "clothes store",
@@ -207,33 +188,42 @@
       "note": "An emporium sells all sorts of goods; \"clothes store\" is one kind."
      }
     ],
-    "indicators": [
-     {
-      "text": "latest",
-      "note": "the latest letter of a word is its last one"
-     },
-     {
-      "text": "new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oslo's latest",
-      "gives": "O",
-      "select": "last",
-      "note": "last letter of OSLO"
-     },
-     {
-      "clueFragment": "premium",
-      "gives": "PREMIUM",
-      "note": "anagram fodder with the O"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OPREMIUM",
-       "gives": "EMPORIUM"
+       "text": "latest",
+       "note": "the latest letter of a word is its last one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "new"
+        }
+       ],
+       "parts": [
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "O",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Oslo's latest",
+           "gives": "O",
+           "select": "last",
+           "note": "last letter of OSLO"
+          }
+         ]
+        },
+        {
+         "words": "premium",
+         "note": "anagram fodder with the O"
+        }
+       ]
       }
      ]
     },
@@ -263,45 +253,35 @@
    },
    "solution": "TARDY",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TARDY",
     "definitions": [
      {
       "text": "late",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down answer, turning a word up makes it read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yankee",
-      "gives": "Y",
-      "note": "Yankee is Y in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "that's annoying",
-      "gives": "DRAT",
-      "note": "\"drat!\" is what you say when something annoys you"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TARD",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "YDRAT",
-       "to": "TARDY"
+       "text": "turning up",
+       "note": "in a down answer, turning a word up makes it read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Yankee",
+         "gives": "Y",
+         "note": "Yankee is Y in the NATO phonetic alphabet"
+        },
+        {
+         "words": "that's annoying",
+         "gives": "DRAT",
+         "note": "\"drat!\" is what you say when something annoys you"
+        }
+       ]
       }
      ]
     },
@@ -337,35 +317,24 @@
    },
    "solution": "NEWSCONFERENCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEWS CONFERENCE",
     "definitions": [
      {
       "text": "gathering briefing papers",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Spreading",
-      "for": "anagram",
-      "note": "spreading the letters around rearranges them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "concern, few seen",
-      "gives": "CONCERNFEWSEEN",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CONCERNFEWSEEN",
-       "gives": "NEWSCONFERENCE"
+       "text": "Spreading",
+       "note": "spreading the letters around rearranges them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "concern, few seen",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -396,33 +365,16 @@
    },
    "solution": "SHOP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHOP",
     "definitions": [
      {
       "text": "Place to buy in",
-      "at": 0
+      "at": 0,
+      "meaning": "a retail premises, the ordinary noun"
      },
      {
       "text": "sell out",
-      "at": 19
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Place to buy in",
-      "gives": "SHOP",
-      "note": "a retail premises, the ordinary noun"
-     },
-     {
-      "clueFragment": "sell out",
-      "gives": "SHOP",
-      "note": "to betray someone, as an informer does to the police; a British slang verb"
+      "at": 19,
+      "meaning": "to betray someone, as an informer does to the police; a British slang verb"
      }
     ],
     "explanation": {
@@ -452,39 +404,35 @@
    },
    "solution": "HUNGRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HUNGRY",
     "definitions": [
      {
       "text": "lacking sufficient fare",
       "at": 25
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Suspended",
-      "gives": "HUNG",
-      "note": "hung means suspended"
-     },
-     {
-      "clueFragment": "on",
-      "note": "in a down answer, HUNG sits on top of RY"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "RY",
-      "note": "RY is an abbreviation for railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUNG",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Suspended",
+         "gives": "HUNG",
+         "note": "hung means suspended"
+        },
+        {
+         "words": "railway",
+         "gives": "RY",
+         "note": "RY is an abbreviation for railway"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "on",
+       "note": "in a down answer, HUNG sits on top of RY"
+      }
      ]
     },
     "explanation": {
@@ -514,32 +462,25 @@
    },
    "solution": "PLEASE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLEASE",
     "definitions": [
      {
       "text": "bring happiness",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Quietly",
-      "gives": "P",
-      "note": "p (piano) means quietly in music"
-     },
-     {
-      "clueFragment": "letting agreement",
-      "gives": "LEASE",
-      "note": "a lease is an agreement to let property"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LEASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "gives": "P",
+       "note": "p (piano) means quietly in music"
+      },
+      {
+       "words": "letting agreement",
+       "gives": "LEASE",
+       "note": "a lease is an agreement to let property"
+      }
      ]
     },
     "explanation": {
@@ -578,35 +519,24 @@
    },
    "solution": "PRISONERSOFWAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PRISONERS OF WAR",
     "definitions": [
      {
       "text": "Troops secured",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "the letters come together in some other way, i.e. rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a row for snipers",
-      "gives": "AROWFORSNIPERS",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AROWFORSNIPERS",
-       "gives": "PRISONERSOFWAR"
+       "text": "somehow",
+       "note": "the letters come together in some other way, i.e. rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a row for snipers",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -642,31 +572,29 @@
    },
    "solution": "ICECREAM",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ICE CREAM",
     "definitions": [
      {
       "text": "sweet, but cold",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "sounded",
-      "for": "homophone",
-      "note": "the confession is said, so it is the sound that counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A squealer's confession",
-      "gives": "ICECREAM",
-      "soundsLike": "I SCREAM",
-      "note": "someone who squeals admits \"I scream\""
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ICECREAM",
+     "indicators": [
+      {
+       "text": "sounded",
+       "note": "the confession is said, so it is the sound that counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A squealer's confession",
+       "gives": "ISCREAM",
+       "note": "someone who squeals admits \"I scream\""
+      }
+     ]
+    },
     "explanation": {
      "surface": "An informer confesses in a voice that is sweet but chilly.",
      "walkthrough": "A squealer seems to be an informer, but it is just someone who screams. The old rhyme \"I scream, you scream, we all scream for ice cream\" plays on the same sound.",
@@ -700,32 +628,25 @@
    },
    "solution": "TOPDRAWER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOP DRAWER",
     "definitions": [
      {
       "text": "of high standing",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Jersey",
-      "gives": "TOP",
-      "note": "a jersey is a top"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "DRAWER",
-      "note": "someone who draws is a drawer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "DRAWER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jersey",
+       "gives": "TOP",
+       "note": "a jersey is a top"
+      },
+      {
+       "words": "artist",
+       "gives": "DRAWER",
+       "note": "someone who draws is a drawer"
+      }
      ]
     },
     "explanation": {
@@ -755,43 +676,31 @@
    },
    "solution": "CANOE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CANOE",
     "definitions": [
      {
       "text": "Boat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "container",
-      "note": "something on board is inside the vessel"
-     }
-    ],
-    "linkWords": [
-     "bringing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staff",
-      "gives": "CANE",
-      "note": "a cane is a walking staff"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "O",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "something on board is inside the vessel"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staff",
+       "gives": "CANE",
+       "note": "a cane is a walking staff"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O looks like zero"
+      }
      ]
     },
     "explanation": {
@@ -821,38 +730,29 @@
    },
    "solution": "FORAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORAY",
     "definitions": [
      {
       "text": "Raid",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "spanning a period of",
-      "gives": "FOR",
-      "note": "as in \"for a year\": for gives how long something lasts"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y is an abbreviation for year"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "A",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spanning a period of",
+       "gives": "FOR",
+       "note": "as in \"for a year\": for gives how long something lasts"
+      },
+      {
+       "words": "a",
+       "note": "kept as it is"
+      },
+      {
+       "words": "year",
+       "gives": "Y",
+       "note": "Y is an abbreviation for year"
+      }
      ]
     },
     "explanation": {
@@ -887,44 +787,47 @@
    },
    "solution": "CASHCARDS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "CASH CARDS",
     "definitions": [
      {
       "text": "means to get ready",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "note": "most of CHASE, so its last letter goes"
-     },
-     {
-      "text": "prepared",
-      "note": "the letters are made into something new, i.e. rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Car chase mostly",
-      "gives": "CARCHAS",
-      "note": "CAR CHASE without its last letter"
-     },
-     {
-      "clueFragment": "DS",
-      "gives": "DS",
-      "note": "used as printed; DS is a detective sergeant in the surface"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CASHCARDS",
+     "parts": [
       {
-       "fodder": "CARCHASDS",
-       "gives": "CASHCARDS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "most of CHASE, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "prepared",
+           "note": "the letters are made into something new, i.e. rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Car chase mostly",
+           "gives": "CARCHAS",
+           "note": "CAR CHASE without its last letter"
+          },
+          {
+           "words": "DS",
+           "note": "used as printed; DS is a detective sergeant in the surface"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -955,44 +858,36 @@
    },
    "solution": "COUNTENANCES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "COUNTENANCES",
     "definitions": [
      {
       "text": "sanctions",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "the back of a word is its last letter"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look",
-      "gives": "COUNTENANCE",
-      "note": "a countenance is a face or look"
-     },
-     {
-      "clueFragment": "back on gas",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of GAS, placed after"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUNTENANCE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look",
+       "gives": "COUNTENANCE",
+       "note": "a countenance is a face or look"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "back on gas",
+         "gives": "ONGAS",
+         "note": "last letter of GAS, placed after"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1021,11 +916,6 @@
    },
    "solution": "THEORIES",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "THEORIES",
     "definitions": [
      {
       "text": "speculation",
@@ -1033,42 +923,36 @@
       "note": "THEORIES is plural; \"speculation\" is a mass noun covering the same thing."
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, up means read from bottom to top"
-     },
-     {
-      "text": "limiting",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "MPs",
-      "gives": "TORIES",
-      "note": "Tories are Conservative MPs"
-     },
-     {
-      "clueFragment": "What's up",
-      "gives": "HE",
-      "note": "\"Eh?\" means \"What?\", and it is written upwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HE",
-      "ORIES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "THEORIES",
+     "indicators": [
       {
-       "from": "EH",
-       "to": "HE"
+       "text": "up",
+       "note": "in a down answer, up means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "limiting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "MPs",
+         "gives": "TORIES",
+         "note": "Tories are Conservative MPs"
+        },
+        {
+         "words": "What's up",
+         "gives": "HE",
+         "note": "\"Eh?\" means \"What?\", and it is written upwards"
+        }
+       ]
       }
      ]
     },
@@ -1098,35 +982,25 @@
    },
    "solution": "STAMPEDE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAMPEDE",
     "definitions": [
      {
       "text": "Charge",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "identified",
-      "gives": "STAMPED",
-      "note": "a thing stamped is marked to show what it is"
-     },
-     {
-      "clueFragment": "electron",
-      "gives": "E",
-      "note": "e is the symbol for an electron"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAMPED",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "identified",
+       "gives": "STAMPED",
+       "note": "a thing stamped is marked to show what it is"
+      },
+      {
+       "words": "electron",
+       "gives": "E",
+       "note": "e is the symbol for an electron"
+      }
      ]
     },
     "explanation": {
@@ -1156,38 +1030,29 @@
    },
    "solution": "ARKANSAS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARKANSAS",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "vessel used to rescue",
-      "gives": "ARK",
-      "note": "Noah's ark saved the animals from the flood"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "elite force",
-      "gives": "SAS",
-      "note": "the SAS is the British Army's special forces regiment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARK",
-      "AN",
-      "SAS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vessel used to rescue",
+       "gives": "ARK",
+       "note": "Noah's ark saved the animals from the flood"
+      },
+      {
+       "words": "an",
+       "note": "kept as it is"
+      },
+      {
+       "words": "elite force",
+       "gives": "SAS",
+       "note": "the SAS is the British Army's special forces regiment"
+      }
      ]
     },
     "explanation": {
@@ -1216,46 +1081,40 @@
    },
    "solution": "TELEPROMPTER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TELEPROMPTER",
     "definitions": [
      {
       "text": "What newsreaders read",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conceals",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the expert seducer",
-      "gives": "TEMPTER",
-      "note": "a tempter is a seducer; \"the expert\" is split up, see below"
-     },
-     {
-      "clueFragment": "in French, the",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "PRO",
-      "note": "a pro is an expert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "LE",
-      "PRO",
-      "MPTER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conceals"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the expert seducer",
+       "gives": "TEMPTER",
+       "note": "a tempter is a seducer; \"the expert\" is split up, see below"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in French, the",
+         "gives": "LE",
+         "note": "le is French for the"
+        },
+        {
+         "words": "expert",
+         "gives": "PRO",
+         "note": "a pro is an expert"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1284,33 +1143,29 @@
    },
    "solution": "ASSETS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ASSETS",
     "definitions": [
      {
       "text": "Advantages",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off the lead",
-      "for": "deletion",
-      "note": "the lead is the first letter, and it comes off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dogs",
-      "gives": "BASSETS",
-      "note": "basset hounds; the B goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASSETS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off the lead",
+       "note": "the lead is the first letter, and it comes off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dogs",
+       "gives": "BASSETS",
+       "note": "basset hounds; the B goes"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -1340,38 +1195,39 @@
    },
    "solution": "SPRING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SPRING",
     "definitions": [
      {
       "text": "stem",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "cutting",
-      "for": "deletion",
-      "note": "cutting A out removes it from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Careful",
-      "gives": "SPARING",
-      "note": "sparing means careful, as with money"
-     },
-     {
-      "clueFragment": "a",
-      "note": "the A removed from SPARING"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "RING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cutting",
+         "note": "cutting A out removes it from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Careful",
+         "gives": "SPARING",
+         "note": "sparing means careful, as with money"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "a",
+       "note": "the A removed from SPARING"
+      }
      ]
     },
     "explanation": {
@@ -1400,59 +1256,46 @@
    },
    "solution": "SUPERHERO",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal"
-    ],
-    "answer": "SUPERHERO",
     "definitions": [
      {
       "text": "Comic character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "funny letters are strange ones, i.e. rearranged"
-     },
-     {
-      "text": "contrary",
-      "for": "reversal",
-      "note": "contrary means going the other way, so OR reads backwards"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peru: he's",
-      "gives": "SUPERHE",
-      "note": "anagram of PERU HES"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "RO",
-      "note": "OR backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUPERHE",
-      "RO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "PERUHES",
-       "gives": "SUPERHE"
+       "text": "contrary",
+       "note": "contrary means going the other way, so OR reads backwards"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "OR",
-       "to": "RO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "funny",
+         "note": "funny letters are strange ones, i.e. rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Peru: he's",
+           "gives": "SUPERHE",
+           "note": "anagram of PERU HES"
+          },
+          {
+           "words": "or",
+           "gives": "RO",
+           "note": "OR backwards"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1483,53 +1326,50 @@
    },
    "solution": "SAMBA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SAMBA",
     "definitions": [
      {
       "text": "Dance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backwards"
-     },
-     {
-      "text": "gripping"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "while",
-      "gives": "SA",
-      "note": "as = while, turned round"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "medic",
-      "gives": "MB",
-      "note": "MB is a medical degree, so a doctor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "MB",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SAMBA",
+     "parts": [
       {
-       "from": "AS",
-       "to": "SA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "gripping"
+          }
+         ],
+         "parts": [
+          {
+           "words": "while",
+           "gives": "SA",
+           "note": "as = while, turned round"
+          },
+          {
+           "words": "a",
+           "note": "kept as it is"
+          }
+         ]
+        },
+        {
+         "words": "medic",
+         "gives": "MB",
+         "note": "MB is a medical degree, so a doctor"
+        }
+       ]
       }
      ]
     },
@@ -1560,30 +1400,16 @@
    },
    "solution": "STRIP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRIP",
     "definitions": [
      {
       "text": "Something footballers put on",
-      "at": 0
+      "at": 0,
+      "meaning": "a British football team's shirts, shorts and socks, its kit"
      },
      {
       "text": "skin",
-      "at": 29
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something footballers put on",
-      "gives": "STRIP",
-      "note": "a British football team's shirts, shorts and socks, its kit"
-     },
-     {
-      "clueFragment": "skin",
-      "gives": "STRIP",
-      "note": "a verb: to peel off an outer covering"
+      "at": 29,
+      "meaning": "a verb: to peel off an outer covering"
      }
     ],
     "explanation": {
@@ -1613,30 +1439,28 @@
    },
    "solution": "ELIDE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELIDE",
     "definitions": [
      {
       "text": "Skip over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "only some of the letters of NOVEL IDEAS are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "novel ideas",
-      "gives": "ELIDE",
-      "note": "found inside novEL IDEas"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only some of the letters of NOVEL IDEAS are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "novel ideas",
+       "gives": "ELIDE",
+       "note": "found inside novEL IDEas"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An instruction to pass over a few fresh ideas.",
      "walkthrough": "\"Novel\" could be a book or an anagram signal, but here it just carries the letters.",
@@ -1669,39 +1493,30 @@
    },
    "solution": "COWORKERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CO-WORKERS",
     "definitions": [
      {
       "text": "colleagues",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Striking people",
-      "gives": "CORKERS",
-      "note": "a corker is a strikingly attractive person"
-     },
-     {
-      "clueFragment": "that hurt",
-      "gives": "OW",
-      "note": "\"ow!\" is what you say when something hurts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OW",
-      "ORKERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Striking people",
+       "gives": "CORKERS",
+       "note": "a corker is a strikingly attractive person"
+      },
+      {
+       "words": "that hurt",
+       "gives": "OW",
+       "note": "\"ow!\" is what you say when something hurts"
+      }
      ]
     },
     "explanation": {
@@ -1731,10 +1546,6 @@
    },
    "solution": "SIGH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SIGH",
     "definitions": [
      {
       "text": "I'm exasperated",
@@ -1742,27 +1553,33 @@
       "note": "The definition is a whole statement; SIGH is the sound that says it."
      }
     ],
-    "indicators": [
-     {
-      "text": "being wasted",
-      "for": "deletion",
-      "note": "the T is used up and lost"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seeing",
-      "gives": "SIGHT",
-      "note": "sight is the act of seeing"
-     },
-     {
-      "clueFragment": "time",
-      "note": "T for time, removed from SIGHT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIGH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being wasted",
+         "note": "the T is used up and lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seeing",
+         "gives": "SIGHT",
+         "note": "sight is the act of seeing"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "time",
+       "note": "T for time, removed from SIGHT"
+      }
      ]
     },
     "explanation": {
@@ -1791,47 +1608,41 @@
    },
    "solution": "PROPHETS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PROPHETS",
     "definitions": [
      {
       "text": "Forecasters",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbed by",
-      "for": "container",
-      "note": "something absorbed by a thing is taken inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro means for, in favour of"
-     },
-     {
-      "clueFragment": "\"cats and dogs\"?",
-      "gives": "PETS",
-      "note": "cats and dogs are examples of pets, hence the question mark"
-     },
-     {
-      "clueFragment": "hours",
-      "gives": "H",
-      "note": "h is an abbreviation for hours, taken inside PETS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "P",
-      "H",
-      "ETS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro means for, in favour of"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "absorbed by",
+         "note": "something absorbed by a thing is taken inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "\"cats and dogs\"?",
+         "gives": "PETS",
+         "note": "cats and dogs are examples of pets, hence the question mark"
+        },
+        {
+         "words": "hours",
+         "gives": "H",
+         "note": "h is an abbreviation for hours, taken inside PETS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

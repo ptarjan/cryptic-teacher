@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2810",
  "number": 2810,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,810",
  "setter": "Jimmy",
  "date": "2024-10-18",
  "dimensions": {
@@ -42,36 +40,35 @@
    },
    "solution": "BRIEFEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRIEFEST",
     "definitions": [
      {
       "text": "Shortest-lived",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "French cheese",
-      "gives": "BRIE",
-      "note": "a soft cheese from northern France"
-     },
-     {
-      "clueFragment": "gathering for",
-      "gives": "FEST",
-      "note": "a fest is a festival or get-together"
-     },
-     {
-      "clueFragment": "enthusiasts",
-      "note": "surface padding saying who the festival is for; it gives no letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIE",
-      "FEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "French cheese",
+         "gives": "BRIE",
+         "note": "a soft cheese from northern France"
+        },
+        {
+         "words": "gathering for",
+         "gives": "FEST",
+         "note": "a fest is a festival or get-together"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "enthusiasts",
+       "note": "surface padding saying who the festival is for; it gives no letters"
+      }
      ]
     },
     "explanation": {
@@ -101,28 +98,16 @@
    },
    "solution": "BADGERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BADGERS",
     "definitions": [
      {
       "text": "Burrowing animals",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: black-and-white striped mammals that dig setts"
      },
      {
       "text": "hounds or nags",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Burrowing animals",
-      "note": "first meaning: black-and-white striped mammals that dig setts"
-     },
-     {
-      "clueFragment": "hounds or nags",
-      "note": "second meaning: a verb for pestering someone persistently"
+      "at": 20,
+      "meaning": "second meaning: a verb for pestering someone persistently"
      }
     ],
     "explanation": {
@@ -152,44 +137,35 @@
    },
    "solution": "IRONY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "IRONY",
     "definitions": [
      {
       "text": "Rhetorical strategy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points to the very end, so only the final letter of that word is kept"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Press",
-      "gives": "IRON",
-      "note": "to press clothes is to iron them"
-     },
-     {
-      "clueFragment": "Secretary",
-      "gives": "Y",
-      "select": "last",
-      "note": "the word's final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRON",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Press",
+       "gives": "IRON",
+       "note": "to press clothes is to iron them"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately points to the very end, so only the final letter of that word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Secretary",
+         "note": "the word's final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -224,51 +200,40 @@
    },
    "solution": "FREUDIANSLIP",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FREUDIAN SLIP",
     "definitions": [
      {
       "text": "revealing lapse",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "foolishly",
-      "for": "anagram",
-      "note": "doing something foolishly means doing it wrongly, so these letters fall out of order"
-     },
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "to admit is to let in, so the rearranged letters take something inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paul's friend",
-      "gives": "PAULSFRIEND",
-      "note": "taken as written, ignoring the apostrophe"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FREUD",
-      "I",
-      "ANSLIP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PAULSFRIEND",
-       "gives": "FREUDANSLIP"
+       "text": "admitting",
+       "note": "to admit is to let in, so the rearranged letters take something inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foolishly",
+         "note": "doing something foolishly means doing it wrongly, so these letters fall out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paul's friend",
+         "note": "taken as written, ignoring the apostrophe"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
       }
      ]
     },
@@ -297,43 +262,31 @@
    },
    "solution": "SHAKE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHAKE",
     "definitions": [
      {
       "text": "sweet drink",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "tucked into",
-      "for": "container",
-      "note": "something tucked into another thing sits inside it, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Husband",
-      "gives": "H",
-      "note": "H is the standard abbreviation for husband"
-     },
-     {
-      "clueFragment": "Japanese wine",
-      "gives": "SAKE",
-      "note": "rice wine from Japan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "AKE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucked into",
+       "note": "something tucked into another thing sits inside it, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Japanese wine",
+       "gives": "SAKE",
+       "note": "rice wine from Japan"
+      },
+      {
+       "words": "Husband",
+       "gives": "H",
+       "note": "H is the standard abbreviation for husband"
+      }
      ]
     },
     "explanation": {
@@ -362,43 +315,31 @@
    },
    "solution": "SPAM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPAM",
     "definitions": [
      {
       "text": "Unwanted mail",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "penning",
-      "for": "container",
-      "note": "to pen is to enclose, as animals in a pen, so one piece wraps around the other"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American uncle",
-      "gives": "SAM",
-      "note": "Uncle Sam personifies the United States"
-     },
-     {
-      "clueFragment": "page",
-      "gives": "P",
-      "note": "P is the abbreviation for page"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "AM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "note": "to pen is to enclose, as animals in a pen, so one piece wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American uncle",
+       "gives": "SAM",
+       "note": "Uncle Sam personifies the United States"
+      },
+      {
+       "words": "page",
+       "gives": "P",
+       "note": "P is the abbreviation for page"
+      }
      ]
     },
     "explanation": {
@@ -428,35 +369,24 @@
    },
    "solution": "PAVLOVA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAVLOVA",
     "definitions": [
      {
       "text": "meringue dessert",
       "at": 32
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One who incited drooling",
-      "gives": "PAVLOV",
-      "note": "the Russian physiologist who trained dogs to salivate at a signal"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAVLOV",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One who incited drooling",
+       "gives": "PAVLOV",
+       "note": "the Russian physiologist who trained dogs to salivate at a signal"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -486,47 +416,41 @@
    },
    "solution": "MILAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MILAN",
     "definitions": [
      {
       "text": "city in Italy",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "someone touring goes all round a place, so one piece surrounds the other"
-     },
-     {
-      "text": "both sides of",
-      "for": "letter_selection",
-      "note": "both sides means the two edges, so only the first and last letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chap",
-      "gives": "MAN",
-      "note": "a chap is a man"
-     },
-     {
-      "clueFragment": "industrial",
-      "gives": "IL",
-      "select": "outer",
-      "note": "the word's two end letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IL",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "note": "someone touring goes all round a place, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chap",
+       "gives": "MAN",
+       "note": "a chap is a man"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "both sides of",
+         "note": "both sides means the two edges, so only the first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "industrial",
+         "note": "the word's two end letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -555,53 +479,43 @@
    },
    "solution": "GRASSHOPPERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "GRASSHOPPERS",
     "definitions": [
      {
       "text": "little green jumpers",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "awful means badly made, so these letters are in a poor order and need sorting"
-     },
-     {
-      "text": "going after",
-      "for": "charade",
-      "note": "going after means following, so this piece comes second in the answer"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rags",
-      "gives": "GRAS",
-      "note": "the word rags rearranged"
-     },
-     {
-      "clueFragment": "People making purchases",
-      "gives": "SHOPPERS",
-      "note": "people who buy things in stores"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAS",
-      "SHOPPERS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GRASSHOPPERS",
+     "indicators": [
       {
-       "fodder": "RAGS",
-       "gives": "GRAS"
+       "text": "awful",
+       "note": "awful means badly made, so these letters are in a poor order and need sorting"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "going after",
+         "note": "going after means following, so this piece comes second in the answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rags",
+         "gives": "GRAS",
+         "note": "the word rags rearranged"
+        },
+        {
+         "words": "People making purchases",
+         "gives": "SHOPPERS",
+         "note": "people who buy things in stores"
+        }
+       ]
       }
      ]
     },
@@ -632,43 +546,31 @@
    },
    "solution": "DROVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DROVE",
     "definitions": [
      {
       "text": "teed off, possibly",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "collared by",
-      "for": "container",
-      "note": "to be collared is to be seized and held, so one piece sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "peace advocate",
-      "gives": "DOVE",
-      "note": "a dove is someone favouring peace over war"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the abbreviation for Republican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "OVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collared by",
+       "note": "to be collared is to be seized and held, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "peace advocate",
+       "gives": "DOVE",
+       "note": "a dove is someone favouring peace over war"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R is the abbreviation for Republican"
+      }
      ]
     },
     "explanation": {
@@ -698,34 +600,29 @@
    },
    "solution": "ARRIVAL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ARRIVAL",
     "definitions": [
      {
       "text": "coming",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "We're told",
-      "for": "homophone",
-      "note": "being told something means hearing it spoken, so the words are taken by sound"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a competitor",
-      "gives": "ARRIVAL",
-      "soundsLike": "A RIVAL",
-      "note": "a rival is a competitor"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARRIVAL",
+     "indicators": [
+      {
+       "text": "We're told",
+       "note": "being told something means hearing it spoken, so the words are taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a competitor",
+       "gives": "ARIVAL",
+       "note": "a rival is a competitor"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An announcement that an opponent is on the way.",
      "walkthrough": "The apostrophe-s is 'is', linking the wordplay to the definition.",
@@ -752,34 +649,25 @@
    },
    "solution": "ELY",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ELY",
     "definitions": [
      {
       "text": "See",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at regular intervals",
-      "for": "letter_selection",
-      "note": "regular intervals means taking every other letter in turn and skipping the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wesley",
-      "gives": "ELY",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELY"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "at regular intervals",
+       "note": "regular intervals means taking every other letter in turn and skipping the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wesley",
+       "note": "the second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -815,28 +703,16 @@
    },
    "solution": "DRESSDOWN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DRESS DOWN",
     "definitions": [
      {
       "text": "Rebuke",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to scold someone severely"
      },
      {
       "text": "what people eschewing formal attire do",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rebuke",
-      "note": "first meaning: to scold someone severely"
-     },
-     {
-      "clueFragment": "what people eschewing formal attire do",
-      "note": "second meaning: to wear more casual clothes than usual"
+      "at": 7,
+      "meaning": "second meaning: to wear more casual clothes than usual"
      }
     ],
     "explanation": {
@@ -864,35 +740,25 @@
    },
    "solution": "SHAMAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHAMAN",
     "definitions": [
      {
       "text": "Maybe witch doctor",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fake",
-      "gives": "SHAM",
-      "note": "a sham is a fake"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHAM",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fake",
+       "gives": "SHAM",
+       "note": "a sham is a fake"
+      },
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -921,26 +787,25 @@
    },
    "solution": "AIRLINE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AIRLINE",
     "definitions": [
      {
       "text": "Company with high-flying employees?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Company with high-flying employees?",
-      "note": "surface reading: a firm whose staff are ambitious and successful"
-     },
-     {
-      "clueFragment": "high-flying",
-      "note": "setter's reading: staff who literally work high up in the sky, such as pilots and cabin crew"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Company with high-flying employees?",
+       "note": "surface reading: a firm whose staff are ambitious and successful"
+      },
+      {
+       "words": "high-flying",
+       "note": "setter's reading: staff who literally work high up in the sky, such as pilots and cabin crew"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "High-flying usually means ambitious and successful; here it is literal.",
      "definitionFit": "A carrier that flies passengers is a business whose staff spend their working hours in the air."
@@ -967,30 +832,28 @@
    },
    "solution": "SHEATH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SHEATH",
     "definitions": [
      {
       "text": "protective cover",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Caught in",
-      "for": "hidden_word",
-      "note": "something caught in a phrase is trapped inside it, so the letters are there to find"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relentless heat, hire",
-      "gives": "SHEATH",
-      "note": "the end of relentless, all of heat and the start of hire"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Caught in",
+       "note": "something caught in a phrase is trapped inside it, so the letters are there to find"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relentless heat, hire",
+       "gives": "SHEATH",
+       "note": "the end of relentless, all of heat and the start of hire"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone stuck in a heatwave hires something to shield them.",
      "definitionFit": "A sheath is a close-fitting case for a blade or similar, guarding it from damage."
@@ -1016,32 +879,25 @@
    },
    "solution": "HACKSAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HACKSAW",
     "definitions": [
      {
       "text": "cutting implement",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Journalist",
-      "gives": "HACK",
-      "note": "a hack is a journalist, often a disparaging term"
-     },
-     {
-      "clueFragment": "spotted",
-      "gives": "SAW",
-      "note": "to spot is to see, and saw is its past tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HACK",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Journalist",
+       "gives": "HACK",
+       "note": "a hack is a journalist, often a disparaging term"
+      },
+      {
+       "words": "spotted",
+       "gives": "SAW",
+       "note": "to spot is to see, and saw is its past tense"
+      }
      ]
     },
     "explanation": {
@@ -1069,26 +925,25 @@
    },
    "solution": "CARDSHARP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CARDSHARP",
     "definitions": [
      {
       "text": "Who you wouldn't trust to give you a hand?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Who you wouldn't trust to give you a hand?",
-      "note": "surface reading: an unreliable person you would not ask for help"
-     },
-     {
-      "clueFragment": "give you a hand",
-      "note": "setter's reading: to deal you the cards for a game, by someone who cheats"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Who you wouldn't trust to give you a hand?",
+       "note": "surface reading: an unreliable person you would not ask for help"
+      },
+      {
+       "words": "give you a hand",
+       "note": "setter's reading: to deal you the cards for a game, by someone who cheats"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A hand is help, but also the cards dealt to a player.",
      "definitionFit": "This is a professional cheat at card games, who would deal crooked cards to an opponent."
@@ -1115,57 +970,44 @@
    },
    "solution": "CHEAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CHEAP",
     "definitions": [
      {
       "text": "going for a song",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Start of",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening, so only the initial letter is kept"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "concert",
-      "gives": "C",
-      "select": "first",
-      "note": "the word's first letter"
-     },
-     {
-      "clueFragment": "that fellow",
-      "gives": "HE",
-      "note": "the pronoun for a man"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "P is the musical marking for piano, meaning softly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HE",
-      "A",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start of",
+         "note": "the start of a word is its opening, so only the initial letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concert",
+         "note": "the word's first letter"
+        }
+       ]
+      },
+      {
+       "words": "that fellow",
+       "gives": "HE",
+       "note": "the pronoun for a man"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "piano",
+       "gives": "P",
+       "note": "P is the musical marking for piano, meaning softly"
+      }
      ]
     },
     "explanation": {
@@ -1195,57 +1037,51 @@
    },
    "solution": "ALTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "ALTER",
     "definitions": [
      {
       "text": "change",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "starter of",
-      "for": "letter_selection",
-      "note": "a starter is the first course, so only the first letter is kept"
-     },
-     {
-      "text": "receiving",
-      "for": "container",
-      "note": "receiving means taking in, so the pieces wrap round another letter"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dined",
-      "gives": "ATE",
-      "note": "to dine is to eat; ate is its past tense"
-     },
-     {
-      "clueFragment": "radish",
-      "gives": "R",
-      "select": "first",
-      "note": "the word's first letter"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "L",
-      "note": "L, from Latin libra, is the symbol for a pound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "TER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "note": "receiving means taking in, so the pieces wrap round another letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dined",
+         "gives": "ATE",
+         "note": "to dine is to eat; ate is its past tense"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starter of",
+           "note": "a starter is the first course, so only the first letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "radish",
+           "note": "the word's first letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "pound",
+       "gives": "L",
+       "note": "L, from Latin libra, is the symbol for a pound"
+      }
      ]
     },
     "explanation": {
@@ -1275,47 +1111,45 @@
    },
    "solution": "SEC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SEC",
     "definitions": [
      {
       "text": "Like certain wines?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drained",
-      "for": "letter_selection",
-      "note": "a drained word has had its contents emptied, leaving only the outside letters"
-     },
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "last of points to the end, so only the final letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Souse",
-      "gives": "SE",
-      "select": "outer",
-      "note": "the word's first and last letters"
-     },
-     {
-      "clueFragment": "Barsac",
-      "gives": "C",
-      "select": "last",
-      "note": "the word's final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "drained",
+         "note": "a drained word has had its contents emptied, leaving only the outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Souse",
+         "note": "the word's first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "last of points to the end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Barsac",
+         "note": "the word's final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1345,55 +1179,44 @@
    },
    "solution": "SHRUB",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram",
-     "container"
-    ],
-    "answer": "SHRUB",
     "definitions": [
      {
       "text": "Cultivated bush is about right — for this?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Cultivated",
-      "for": "anagram",
-      "note": "cultivated means worked and reshaped, so these letters are rearranged"
-     },
-     {
-      "text": "is about",
-      "for": "container",
-      "note": "being about something means surrounding it, so the rearranged letters go round one more"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bush",
-      "gives": "BUSH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "R",
-      "UB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BUSH",
-       "gives": "SHUB"
+       "text": "is about",
+       "note": "being about something means surrounding it, so the rearranged letters go round one more"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cultivated",
+         "note": "cultivated means worked and reshaped, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bush",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A gardener tends a bush and asks what to call it.",
      "walkthrough": "The whole clue is the definition: a cultivated bush is exactly what the answer is.",
@@ -1420,30 +1243,28 @@
    },
    "solution": "ELITIST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELITIST",
     "definitions": [
      {
       "text": "Someone who prefers the best",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "portion of",
-      "for": "hidden_word",
-      "note": "a portion is a part, so the letters sit within a stretch of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "strudel — it is tasty",
-      "gives": "ELITIST",
-      "note": "the end of strudel, then it, is and the start of tasty"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "portion of",
+       "note": "a portion is a part, so the letters sit within a stretch of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strudel — it is tasty",
+       "gives": "ELITIST",
+       "note": "the end of strudel, then it, is and the start of tasty"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A food snob praising a slice of apple pastry.",
      "definitionFit": "An elitist favours the rule or company of a select upper group over ordinary people."
@@ -1469,54 +1290,40 @@
    },
    "solution": "EUROS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EUROS",
     "definitions": [
      {
       "text": "French bread",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Eccentric",
-      "for": "anagram",
-      "note": "eccentric means odd or off-centre, so these letters are jumbled"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "eating means taking inside, so the jumbled letters swallow another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rues",
-      "gives": "RUES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bagel",
-      "gives": "O",
-      "note": "a bagel is ring-shaped, like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EUR",
-      "O",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RUES",
-       "gives": "EURS"
+       "text": "eating",
+       "note": "eating means taking inside, so the jumbled letters swallow another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Eccentric",
+         "note": "eccentric means odd or off-centre, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rues",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "bagel",
+       "gives": "O",
+       "note": "a bagel is ring-shaped, like the letter O"
       }
      ]
     },
@@ -1547,31 +1354,29 @@
    },
    "solution": "PHEW",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PHEW",
     "definitions": [
      {
       "text": "what a relief!",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "in audition",
-      "for": "homophone",
-      "note": "an audition is literally a hearing, so the words are taken by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not many",
-      "gives": "PHEW",
-      "soundsLike": "FEW",
-      "note": "few means not many"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PHEW",
+     "indicators": [
+      {
+       "text": "in audition",
+       "note": "an audition is literally a hearing, so the words are taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not many",
+       "gives": "FEW",
+       "note": "few means not many"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Few people turned up to try out, which is a relief.",
      "walkthrough": "Audition looks like a stage tryout, but it also means the act of hearing.",
@@ -1599,35 +1404,25 @@
    },
    "solution": "CROSSBOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CROSSBOW",
     "definitions": [
      {
       "text": "one may get fired",
       "at": 31
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Annoyed",
-      "gives": "CROSS",
-      "note": "cross means angry"
-     },
-     {
-      "clueFragment": "gesture of respect",
-      "gives": "BOW",
-      "note": "a bow is a polite bending of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CROSS",
-      "BOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Annoyed",
+       "gives": "CROSS",
+       "note": "cross means angry"
+      },
+      {
+       "words": "gesture of respect",
+       "gives": "BOW",
+       "note": "a bow is a polite bending of the body"
+      }
      ]
     },
     "explanation": {

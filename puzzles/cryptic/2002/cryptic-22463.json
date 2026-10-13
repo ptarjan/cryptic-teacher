@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22463",
  "number": 22463,
- "series": "cryptic",
- "name": "Prize crossword No 22,463",
+ "prize": true,
  "setter": "Paul",
  "date": "2002-03-09",
  "dimensions": {
@@ -38,37 +37,39 @@
    },
    "solution": "CINNABAR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "CINNABAR",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as told by word of mouth, so we want what the phrase sounds like rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "C is the cricket scorecard abbreviation for caught"
-     },
-     {
-      "clueFragment": "drinking",
-      "gives": "INNABAR",
-      "soundsLike": "IN A BAR",
-      "note": "someone drinking is in a bar"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
+      },
+      {
+       "op": "homophone",
+       "spelt": "INNABAR",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly means as told by word of mouth, so we want what the phrase sounds like rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drinking",
+         "gives": "INABAR",
+         "note": "someone drinking is in a bar"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is rumoured to have been caught drinking somewhere they should not.",
      "walkthrough": "Spoken, C IN A BAR is CINNABAR; the cinnabar is a red-and-black moth whose striped caterpillars eat ragwort.",
@@ -95,33 +96,29 @@
    },
    "solution": "SCOT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SCOT",
     "definitions": [
      {
       "text": "One such as William Wallace",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "decapitated",
-      "for": "deletion",
-      "note": "decapitated means the head is cut off, so the first letter of the word is lost"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of course",
-      "gives": "ASCOT",
-      "note": "Ascot is a famous racecourse in Berkshire, so a racecourse name answers 'of course'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCOT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "decapitated",
+       "note": "decapitated means the head is cut off, so the first letter of the word is lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of course",
+       "gives": "ASCOT",
+       "note": "Ascot is a famous racecourse in Berkshire, so a racecourse name answers 'of course'"
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -151,45 +148,34 @@
    },
    "solution": "MANTIS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MANTIS",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mutant",
-      "for": "anagram",
-      "note": "a mutant is a changed form, so the letters of the little word beside it are altered in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "being",
-      "gives": "MAN",
-      "note": "a man is a human being"
-     },
-     {
-      "clueFragment": "its",
-      "gives": "ITS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "TIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ITS",
-       "gives": "TIS"
+       "words": "being",
+       "gives": "MAN",
+       "note": "a man is a human being"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mutant",
+         "note": "a mutant is a changed form, so the letters of the little word beside it are altered in order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "its",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -218,28 +204,16 @@
    },
    "solution": "OTHELLO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OTHELLO",
     "definitions": [
      {
       "text": "Play",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Shakespeare's tragedy of the Moor of Venice"
      },
      {
       "text": "game",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Play",
-      "note": "first meaning: Shakespeare's tragedy of the Moor of Venice"
-     },
-     {
-      "clueFragment": "game",
-      "note": "second meaning: a board game of black and white discs, also called reversi"
+      "at": 5,
+      "meaning": "second meaning: a board game of black and white discs, also called reversi"
      }
     ],
     "explanation": {
@@ -267,51 +241,59 @@
    },
    "solution": "BUCHANAN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "BUCHANAN",
     "definitions": [
      {
       "text": "US President",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "with its heading off, a word loses its first letter"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into tells us one piece goes inside another"
-     },
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "endlessly means the final letter of the word before it is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kind of republic",
-      "gives": "BANANA",
-      "note": "a banana republic is a small unstable state run for a few"
-     },
-     {
-      "clueFragment": "a lot",
-      "gives": "MUCH",
-      "note": "much means a lot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "UCH",
-      "ANAN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "into tells us one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "note": "with its heading off, a word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kind of republic",
+         "gives": "BANANA",
+         "note": "a banana republic is a small unstable state run for a few"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "endlessly means the final letter of the word before it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a lot",
+         "gives": "MUCH",
+         "note": "much means a lot"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -340,36 +322,25 @@
    },
    "solution": "SHOPSOILED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHOPSOILED",
     "definitions": [
      {
       "text": "worn",
       "at": 25
      }
     ],
-    "linkWords": [
-     "getting",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sings",
-      "gives": "SHOPS",
-      "note": "to sing is slang for informing on someone, as is to shop them"
-     },
-     {
-      "clueFragment": "drunk",
-      "gives": "OILED",
-      "note": "oiled is slang for drunk"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHOPS",
-      "OILED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sings",
+       "gives": "SHOPS",
+       "note": "to sing is slang for informing on someone, as is to shop them"
+      },
+      {
+       "words": "drunk",
+       "gives": "OILED",
+       "note": "oiled is slang for drunk"
+      }
      ]
     },
     "explanation": {
@@ -398,29 +369,17 @@
    },
    "solution": "SLEEVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SLEEVE",
     "definitions": [
      {
       "text": "Bit of a jumper",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the arm part of a jumper, the British word for a sweater"
      },
      {
       "text": "holding the record",
       "at": 17,
-      "note": "describes what the answer does: a thing holding the record"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bit of a jumper",
-      "note": "first meaning: the arm part of a jumper, the British word for a sweater"
-     },
-     {
-      "clueFragment": "holding the record",
-      "note": "second meaning: the card cover a vinyl record sits in"
+      "note": "describes what the answer does: a thing holding the record",
+      "meaning": "second meaning: the card cover a vinyl record sits in"
      }
     ],
     "explanation": {
@@ -450,35 +409,25 @@
    },
    "solution": "AIRCRAFT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIRCRAFT",
     "definitions": [
      {
       "text": "Wellington, for instance",
       "at": 0
      }
     ],
-    "linkWords": [
-     "had to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "show",
-      "gives": "AIR",
-      "note": "to air is to show or display"
-     },
-     {
-      "clueFragment": "guile",
-      "gives": "CRAFT",
-      "note": "craft means cunning or guile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "CRAFT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "show",
+       "gives": "AIR",
+       "note": "to air is to show or display"
+      },
+      {
+       "words": "guile",
+       "gives": "CRAFT",
+       "note": "craft means cunning or guile"
+      }
      ]
     },
     "explanation": {
@@ -507,38 +456,27 @@
    },
    "solution": "UPHOLD",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "UPHOLD",
     "definitions": [
      {
       "text": "Stand by",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "On the contrary",
-      "for": "cycling",
-      "note": "on the contrary says the phrase is taken the opposite way round, its back half brought to the front"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "armed robbery",
-      "gives": "HOLDUP",
-      "note": "a hold-up is an armed robbery"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "UPHOLD",
+     "indicators": [
       {
-       "fodder": "HOLDUP",
-       "gives": "UPHOLD"
+       "text": "On the contrary",
+       "note": "on the contrary says the phrase is taken the opposite way round, its back half brought to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "armed robbery",
+       "gives": "HOLDUP",
+       "note": "a hold-up is an armed robbery"
       }
      ]
     },
@@ -568,41 +506,25 @@
    },
    "solution": "GNAT",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GNAT",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rolled over",
-      "for": "reversal",
-      "note": "something rolled over is turned upside down, so in a down or across light it reads backwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flavour",
-      "gives": "TANG",
-      "note": "a tang is a sharp flavour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GNAT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TANG",
-       "to": "GNAT"
+       "text": "rolled over",
+       "note": "something rolled over is turned upside down, so in a down or across light it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flavour",
+       "gives": "TANG",
+       "note": "a tang is a sharp flavour"
       }
      ]
     },
@@ -637,46 +559,41 @@
    },
    "solution": "TREEHOPPER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TREE HOPPER",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "in tells us the preceding letters sit inside the headgear"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on or about"
-     },
-     {
-      "clueFragment": "what?",
-      "gives": "EH",
-      "note": "eh? is a request to repeat, like what?"
-     },
-     {
-      "clueFragment": "hat",
-      "gives": "TOPPER",
-      "note": "a topper is a top hat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "REEH",
-      "OPPER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "in tells us the preceding letters sit inside the headgear"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hat",
+       "gives": "TOPPER",
+       "note": "a topper is a top hat"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "gives": "RE",
+         "note": "re means on or about"
+        },
+        {
+         "words": "what?",
+         "gives": "EH",
+         "note": "eh? is a request to repeat, like what?"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -706,54 +623,39 @@
    },
    "solution": "ABACUS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ABACUS",
     "definitions": [
      {
       "text": "You can count on it!",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolutionary thing turns round, so the vehicle's name is read backwards"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Hackney",
-      "gives": "CAB",
-      "note": "a hackney carriage is the formal name for a London taxi"
-     },
-     {
-      "clueFragment": "the Guardian",
-      "gives": "US",
-      "note": "the setter writes for the Guardian, so from its point of view the paper is us"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BAC",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAB",
-       "to": "BAC"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "a revolutionary thing turns round, so the vehicle's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hackney",
+         "gives": "CAB",
+         "note": "a hackney carriage is the formal name for a London taxi"
+        }
+       ]
+      },
+      {
+       "words": "the Guardian",
+       "gives": "US",
+       "note": "the setter writes for the Guardian, so from its point of view the paper is us"
       }
      ]
     },
@@ -784,49 +686,41 @@
    },
    "solution": "COCKCHAFER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "COCKCHAFER",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imbibing",
-      "for": "container",
-      "note": "imbibing means drinking in, so the dog's name takes the drink inside it"
-     }
-    ],
-    "linkWords": [
-     "sees"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "COCKER",
-      "note": "a cocker is a cocker spaniel"
-     },
-     {
-      "clueFragment": "beverage",
-      "gives": "CHA",
-      "note": "cha is slang for tea"
-     },
-     {
-      "clueFragment": "loudly",
-      "gives": "F",
-      "note": "f is forte, the musical direction for loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCK",
-      "CHAF",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imbibing",
+       "note": "imbibing means drinking in, so the dog's name takes the drink inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dog",
+       "gives": "COCKER",
+       "note": "a cocker is a cocker spaniel"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "beverage",
+         "gives": "CHA",
+         "note": "cha is slang for tea"
+        },
+        {
+         "words": "loudly",
+         "gives": "F",
+         "note": "f is forte, the musical direction for loud"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -854,40 +748,31 @@
    },
    "solution": "LONDONER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LONDONER",
     "definitions": [
      {
       "text": "Capitalist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entertains",
-      "for": "container",
-      "note": "to entertain is to receive a guest within, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recluse",
-      "gives": "LONER",
-      "note": "a loner keeps to himself"
-     },
-     {
-      "clueFragment": "Spanish gentleman",
-      "gives": "DON",
-      "note": "Don is a Spanish title for a gentleman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LON",
-      "DON",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertains",
+       "note": "to entertain is to receive a guest within, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "recluse",
+       "gives": "LONER",
+       "note": "a loner keeps to himself"
+      },
+      {
+       "words": "Spanish gentleman",
+       "gives": "DON",
+       "note": "Don is a Spanish title for a gentleman"
+      }
      ]
     },
     "explanation": {
@@ -915,45 +800,7 @@
     "text": "25 with long legs, for instance?",
     "enumeration": "7"
    },
-   "solution": "CRICKET",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CRICKET",
-    "definitions": [
-     {
-      "text": "25",
-      "at": 0
-     },
-     {
-      "text": "with long legs, for instance?",
-      "at": 3,
-      "note": "describes the game, which has fielders called long leg"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "25",
-      "note": "first meaning: a chirping jumping insect"
-     },
-     {
-      "clueFragment": "with long legs, for instance?",
-      "note": "second meaning: the bat-and-ball game, whose fielding positions include long leg"
-     }
-    ],
-    "explanation": {
-     "surface": "An insect described by its long legs.",
-     "walkthrough": "Long leg is a fielding position in cricket, a British bat-and-ball game, so the game is a thing with long legs.",
-     "definitionFit": "The chirping grasshopper relative and the bat-and-ball sport share one name."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "legs"
-    }
-   }
+   "solution": "CRICKET"
   },
   {
    "number": 16,
@@ -969,35 +816,24 @@
    },
    "solution": "ESTIMATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESTIMATE",
     "definitions": [
      {
       "text": "hazard",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "wobbly",
-      "for": "anagram",
-      "note": "something wobbly is unsteady, so the letters are shaken into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Teatime's",
-      "gives": "TEATIMES",
-      "note": "taken as written, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEATIMES",
-       "gives": "ESTIMATE"
+       "text": "wobbly",
+       "note": "something wobbly is unsteady, so the letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Teatime's",
+       "note": "taken as written, apostrophe ignored"
       }
      ]
     },
@@ -1027,42 +863,31 @@
    },
    "solution": "ANTLION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTLION",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to",
-      "for": "charade",
-      "note": "to here means placed against, so one piece is set next to the next"
-     }
-    ],
-    "linkWords": [
-     "offering"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "25",
-      "gives": "ANT",
-      "note": "the second 25 is an example of an insect, a small one"
-     },
-     {
-      "clueFragment": "beast",
-      "gives": "LION",
-      "note": "a lion is a big beast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANT",
-      "LION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to",
+       "note": "to here means placed against, so one piece is set next to the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "25",
+       "gives": "ANT",
+       "note": "the second 25 is an example of an insect, a small one"
+      },
+      {
+       "words": "beast",
+       "gives": "LION",
+       "note": "a lion is a big beast"
+      }
      ]
     },
     "explanation": {
@@ -1097,45 +922,44 @@
    },
    "solution": "ONIONFLY",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ONION FLY",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear says the cross-referenced word is taken by its sound, not its spelling"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "continuing",
-      "gives": "ON",
-      "note": "to carry on is to continue"
-     },
-     {
-      "clueFragment": "charge",
-      "gives": "ION",
-      "note": "an ion is a particle carrying an electric charge"
-     },
-     {
-      "clueFragment": "24 down",
-      "gives": "FLY",
-      "soundsLike": "FLEE",
-      "note": "24 down is FLEA, which is said like flee, meaning to run away"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "continuing",
+       "gives": "ON",
+       "note": "to carry on is to continue"
+      },
+      {
+       "words": "charge",
+       "gives": "ION",
+       "note": "an ion is a particle carrying an electric charge"
+      },
+      {
+       "op": "homophone",
+       "spelt": "FLY",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "we hear says the cross-referenced word is taken by its sound, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "24 down",
+         "gives": "FLEE",
+         "note": "24 down is FLEA, which is said like flee, meaning to run away"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An insect keeps charging at a flea.",
      "walkthrough": "The sound of FLEA is FLEE, and to flee is to fly in the sense of escaping.",
@@ -1162,39 +986,31 @@
    },
    "solution": "BARRACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BARRACK",
     "definitions": [
      {
       "text": "Taunt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down light, on means placed above, so the first piece sits atop the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outlaw",
-      "gives": "BAR",
-      "note": "to outlaw is to bar or forbid"
-     },
-     {
-      "clueFragment": "instrument of torture",
-      "gives": "RACK",
-      "note": "the rack stretched its victims"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "RACK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down light, on means placed above, so the first piece sits atop the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outlaw",
+       "gives": "BAR",
+       "note": "to outlaw is to bar or forbid"
+      },
+      {
+       "words": "instrument of torture",
+       "gives": "RACK",
+       "note": "the rack stretched its victims"
+      }
      ]
     },
     "explanation": {
@@ -1223,41 +1039,30 @@
    },
    "solution": "CALCUTTA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CALCUTTA",
     "definitions": [
      {
       "text": "Asian city",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "state",
-      "gives": "CAL",
-      "note": "Cal is a short form for California"
-     },
-     {
-      "clueFragment": "crossed",
-      "gives": "CUT",
-      "note": "to cut across a road is to cross it"
-     },
-     {
-      "clueFragment": "reservists",
-      "gives": "TA",
-      "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAL",
-      "CUT",
-      "TA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "state",
+       "gives": "CAL",
+       "note": "Cal is a short form for California"
+      },
+      {
+       "words": "crossed",
+       "gives": "CUT",
+       "note": "to cut across a road is to cross it"
+      },
+      {
+       "words": "reservists",
+       "gives": "TA",
+       "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+      }
      ]
     },
     "explanation": {
@@ -1286,47 +1091,40 @@
    },
    "solution": "AGEING",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AGEING",
     "definitions": [
      {
       "text": "Getting on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "restrained",
-      "for": "container",
-      "note": "restrained means held in, so the German word is held inside the horse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "GG",
-      "note": "gee-gee is childish slang for a horse"
-     },
-     {
-      "clueFragment": "German one",
-      "gives": "EIN",
-      "note": "ein is German for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "G",
-      "EIN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restrained",
+         "note": "restrained means held in, so the German word is held inside the horse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse",
+         "gives": "GG",
+         "note": "gee-gee is childish slang for a horse"
+        },
+        {
+         "words": "German one",
+         "gives": "EIN",
+         "note": "ein is German for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1355,36 +1153,25 @@
    },
    "solution": "MADRID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MADRID",
     "definitions": [
      {
       "text": "European city",
       "at": 0
      }
     ],
-    "linkWords": [
-     "that's",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wild",
-      "gives": "MAD",
-      "note": "mad means wild or crazy"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "to rid is to free of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAD",
-      "RID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wild",
+       "gives": "MAD",
+       "note": "mad means wild or crazy"
+      },
+      {
+       "words": "free",
+       "gives": "RID",
+       "note": "to rid is to free of something"
+      }
      ]
     },
     "explanation": {
@@ -1412,44 +1199,38 @@
    },
    "solution": "MELLOW",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "MELLOW",
     "definitions": [
      {
       "text": "Mature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "substitution",
-      "note": "male not female says one gender's letter takes the place of the other's"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chap",
-      "gives": "FELLOW",
-      "note": "a fellow is a chap"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the standard abbreviation for male"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F is the standard abbreviation for female"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ELLOW"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "MELLOW",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "male not female says one gender's letter takes the place of the other's"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chap",
+       "gives": "FELLOW",
+       "note": "a fellow is a chap"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M is the standard abbreviation for male"
+      },
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "F is the standard abbreviation for female"
+      }
      ]
     },
     "explanation": {
@@ -1484,40 +1265,34 @@
    },
    "solution": "REDADMIRAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RED ADMIRAL",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "thrashing",
-      "for": "anagram",
-      "note": "a thrashing beats something about, so the words are knocked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Real",
-      "gives": "REAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "22",
-      "gives": "MADRID",
-      "note": "22 across is MADRID"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REALMADRID",
-       "gives": "REDADMIRAL"
+       "text": "thrashing",
+       "note": "a thrashing beats something about, so the words are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Real",
+         "note": "taken as written"
+        },
+        {
+         "words": "22",
+         "gives": "MADRID",
+         "note": "22 across is MADRID"
+        }
+       ]
       }
      ]
     },
@@ -1547,10 +1322,6 @@
    },
    "solution": "FINK",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FINK",
     "definitions": [
      {
       "text": "being a spy",
@@ -1558,24 +1329,23 @@
       "note": "a phrase describing the answer, a person who is a spy"
      }
     ],
-    "indicators": [
-     {
-      "text": "some 14s might say",
-      "for": "homophone",
-      "note": "some London speakers pronounce th as f, so we want what the word sounds like in that accent"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Consider",
-      "gives": "FINK",
-      "soundsLike": "THINK",
-      "note": "to think is to consider; a Cockney says it with an f"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FINK",
+     "indicators": [
+      {
+       "text": "some 14s might say",
+       "note": "some London speakers pronounce th as f, so we want what the word sounds like in that accent"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Consider",
+       "gives": "THINK",
+       "note": "to think is to consider; a Cockney says it with an f"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Think about it, a Londoner might say, being a spy.",
      "walkthrough": "14 across is LONDONER; many Londoners say f for th, so THINK comes out as FINK.",
@@ -1602,38 +1372,27 @@
    },
    "solution": "FLEA",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "FLEA",
     "definitions": [
      {
       "text": "25",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back to front",
-      "for": "cycling",
-      "note": "back to front here means the back letter is moved round to the front"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caterpillar grub",
-      "gives": "LEAF",
-      "note": "caterpillars feed on leaves, so a leaf is their grub, or food"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "FLEA",
+     "indicators": [
       {
-       "fodder": "LEAF",
-       "gives": "FLEA"
+       "text": "back to front",
+       "note": "back to front here means the back letter is moved round to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "caterpillar grub",
+       "gives": "LEAF",
+       "note": "caterpillars feed on leaves, so a leaf is their grub, or food"
       }
      ]
     },
@@ -1663,29 +1422,17 @@
    },
    "solution": "INSECT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INSECT",
     "definitions": [
      {
       "text": "Creature",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a six-legged creepy-crawly"
      },
      {
       "text": "having been brainwashed?",
       "at": 9,
-      "note": "split as IN SECT, a description of a person"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Creature",
-      "note": "first meaning: a six-legged creepy-crawly"
-     },
-     {
-      "clueFragment": "having been brainwashed?",
-      "note": "second meaning, read as two words: inside a cult"
+      "note": "split as IN SECT, a description of a person",
+      "meaning": "second meaning, read as two words: inside a cult"
      }
     ],
     "explanation": {
@@ -1715,47 +1462,41 @@
    },
    "solution": "CLOVELLY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CLOVELLY",
     "definitions": [
      {
       "text": "Devon village",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in says the letter goes inside the adjective that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     },
-     {
-      "clueFragment": "pretty",
-      "gives": "LOVELY",
-      "note": "lovely means pretty"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOVE",
-      "L",
-      "LY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A hundred",
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in says the letter goes inside the adjective that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pretty",
+         "gives": "LOVELY",
+         "note": "lovely means pretty"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

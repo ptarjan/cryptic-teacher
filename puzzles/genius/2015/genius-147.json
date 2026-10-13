@@ -1,8 +1,6 @@
 {
  "id": "genius-147",
  "number": 147,
- "series": "genius",
- "name": "Guardian genius crossword No 147",
  "setter": "Paul",
  "date": "2015-09-07",
  "preamble": "Each of the 26 solutions begins with a different letter, which is ignored in its clue. The clue order is random. The solutions should be fitted in to the grid jigsaw-wise, wherever they will go.",
@@ -43,64 +41,66 @@
    },
    "solution": "VOLUME",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "VOLUME",
     "definitions": [
      {
       "text": "Book",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of something is its uppermost part, so only the opening letter of the next word is used"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down light, one thing sitting on another is written directly above it"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the pair of letters goes inside the word that follows, which wraps round them"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "V",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     },
-     {
-      "clueFragment": "urn",
-      "gives": "U",
-      "select": "first",
-      "note": "the opening letter of urn"
-     },
-     {
-      "clueFragment": "'ouse",
-      "gives": "OME",
-      "note": "'ouse is house with the H dropped; the same dropped-H style turns home into 'ome"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "O",
-      "L",
-      "U",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down light, one thing sitting on another is written directly above it"
+      }
+     ],
+     "parts": [
+      {
+       "gives": "V",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the pair of letters goes inside the word that follows, which wraps round them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "'ouse",
+         "gives": "OME",
+         "note": "'ouse is house with the H dropped; the same dropped-H style turns home into 'ome"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "gives": "L",
+           "note": "L is the standard abbreviation for left"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "top of",
+             "note": "the top of something is its uppermost part, so only the opening letter of the next word is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "urn",
+             "note": "the opening letter of urn"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -129,68 +129,60 @@
    },
    "solution": "PENITENT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "PENITENT",
     "definitions": [
      {
       "text": "Sorry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "underneath",
-      "for": "charade",
-      "note": "in a down light, what comes underneath is written below the rest"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the little word sits inside the river's name"
-     },
-     {
-      "text": "capsized",
-      "for": "reversal",
-      "note": "a boat that capsizes turns over, and in a down light the river's name turns upside down"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "P",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "NENE",
-      "note": "the Nene is a river in eastern England"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EN",
-      "IT",
-      "EN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NENE",
-       "to": "ENEN"
+       "text": "underneath",
+       "note": "in a down light, what comes underneath is written below the rest"
+      }
+     ],
+     "parts": [
+      {
+       "gives": "P",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the little word sits inside the river's name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "capsized",
+           "note": "a boat that capsizes turns over, and in a down light the river's name turns upside down"
+          }
+         ],
+         "parts": [
+          {
+           "words": "river",
+           "gives": "NENE",
+           "note": "the Nene is a river in eastern England"
+          }
+         ]
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
       }
      ]
     },
@@ -226,46 +218,33 @@
    },
    "solution": "BEETHOVENSFIFTH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEETHOVENS FIFTH",
     "definitions": [
      {
       "text": "work",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Misspelling",
-      "for": "anagram",
-      "note": "a misspelling puts the letters in the wrong order, so the words that follow are rearranged"
-     }
-    ],
-    "linkWords": [
-     "being Hin"
-    ],
-    "blocks": [
-     {
-      "gives": "B",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "off, the seventh I",
-      "gives": "OFFTHESEVENTHI",
-      "note": "the letters as written, ignoring punctuation and spaces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EETHOVENSFIFTH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OFFTHESEVENTHI",
-       "gives": "EETHOVENSFIFTH"
+       "text": "Misspelling",
+       "note": "a misspelling puts the letters in the wrong order, so the words that follow are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "B",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "off, the seventh I",
+         "note": "the letters as written, ignoring punctuation and spaces"
+        }
+       ]
       }
      ]
     },
@@ -296,52 +275,50 @@
    },
    "solution": "UNCIVIL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "UNCIVIL",
     "definitions": [
      {
       "text": "Wild",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heads of",
-      "for": "letter_selection",
-      "note": "the heads of a group of words are their opening letters"
-     },
-     {
-      "text": "stuffed with",
-      "for": "container",
-      "note": "a stuffed bird has something packed inside it, so the word for duck wraps round the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "U",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "NIL",
-      "note": "a duck in cricket is a score of nothing"
-     },
-     {
-      "clueFragment": "chickens is vile",
-      "gives": "CIV",
-      "select": "first",
-      "note": "the opening letters of those three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "N",
-      "CIV",
-      "IL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "U",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stuffed with",
+         "note": "a stuffed bird has something packed inside it, so the word for duck wraps round the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duck",
+         "gives": "NIL",
+         "note": "a duck in cricket is a score of nothing"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heads of",
+           "note": "the heads of a group of words are their opening letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chickens is vile",
+           "note": "the opening letters of those three words"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -377,43 +354,33 @@
    },
    "solution": "HYDROGENCYANIDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HYDROGEN CYANIDE",
     "definitions": [
      {
       "text": "Poisoner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rotten",
-      "for": "anagram",
-      "note": "something rotten has fallen apart, so these letters are broken up and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "H",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "denying decay, or",
-      "gives": "DENYINGDECAYOR",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "YDROGENCYANIDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DENYINGDECAYOR",
-       "gives": "YDROGENCYANIDE"
+       "text": "rotten",
+       "note": "something rotten has fallen apart, so these letters are broken up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "H",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "denying decay, or",
+         "note": "the letters as written"
+        }
+       ]
       }
      ]
     },
@@ -443,50 +410,39 @@
    },
    "solution": "GOOGOL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GOOGOL",
     "definitions": [
      {
       "text": "phenomenal figure",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down light, rising means reading from the bottom upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "G",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "symbol",
-      "gives": "LOGO",
-      "note": "a logo is a company's emblem"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "O",
-      "OGOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LOGO",
-       "to": "OGOL"
+       "gives": "G",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down light, rising means reading from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "symbol",
+         "gives": "LOGO",
+         "note": "a logo is a company's emblem"
+        }
+       ]
       }
      ]
     },
@@ -517,38 +473,38 @@
    },
    "solution": "TASTEFUL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TASTEFUL",
     "definitions": [
      {
       "text": "Becoming",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader dismissed",
-      "for": "deletion",
-      "note": "the leader of a word is its opening letter, and sending it away removes that letter"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "T",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "grossly extravagant",
-      "gives": "WASTEFUL",
-      "note": "spending far too freely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ASTEFUL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leader dismissed",
+       "note": "the leader of a word is its opening letter, and sending it away removes that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "T",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "grossly extravagant",
+         "gives": "WASTEFUL",
+         "note": "spending far too freely"
+        }
+       ]
+      },
+      {
+       "gives": "W"
+      }
      ]
     },
     "explanation": {
@@ -577,53 +533,43 @@
    },
    "solution": "FORESEEN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FORESEEN",
     "definitions": [
      {
       "text": "anticipated",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "in a storm",
-      "for": "anagram",
-      "note": "a storm throws everything about, so the word it holds is jumbled"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "gives": "F",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Nothing",
-      "gives": "O",
-      "note": "O looks like a zero"
-     },
-     {
-      "clueFragment": "serene",
-      "gives": "SERENE",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "O",
-      "RESEEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SERENE",
-       "gives": "RESEEN"
+       "gives": "F",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a storm",
+         "note": "a storm throws everything about, so the word it holds is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Nothing",
+           "gives": "O",
+           "note": "O looks like a zero"
+          },
+          {
+           "words": "serene",
+           "note": "the letters as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -652,46 +598,39 @@
    },
    "solution": "YEOMAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "YEOMAN",
     "definitions": [
      {
       "text": "Agricultural worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last to",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so only that letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "Y",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "cultivate",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of cultivate"
-     },
-     {
-      "clueFragment": "land",
-      "gives": "OMAN",
-      "note": "Oman is a country on the Arabian peninsula"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "E",
-      "OMAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "Y",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last to",
+         "note": "the last of a word is its final letter, so only that letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cultivate",
+         "note": "the final letter of cultivate"
+        }
+       ]
+      },
+      {
+       "words": "land",
+       "gives": "OMAN",
+       "note": "Oman is a country on the Arabian peninsula"
+      }
      ]
     },
     "explanation": {
@@ -720,31 +659,24 @@
    },
    "solution": "QUAINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "QUAINT",
     "definitions": [
      {
       "text": "Curiously attractive",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "Q",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "you are not",
-      "gives": "UAINT",
-      "note": "you are not, said casually, is 'you ain't', written U AINT in text-speak"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Q",
-      "UAINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "Q",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "you are not",
+       "gives": "UAINT",
+       "note": "you are not, said casually, is 'you ain't', written U AINT in text-speak"
+      }
      ]
     },
     "explanation": {
@@ -774,45 +706,40 @@
    },
    "solution": "IRRIGATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IRRIGATE",
     "definitions": [
      {
       "text": "wet",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "one word goes round the other, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "I",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Charge",
-      "gives": "RATE",
-      "note": "a rate is a fee charged"
-     },
-     {
-      "clueFragment": "platform in the sea",
-      "gives": "RIG",
-      "note": "an oil rig is an offshore platform"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "R",
-      "RIG",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "I",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "one word goes round the other, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Charge",
+         "gives": "RATE",
+         "note": "a rate is a fee charged"
+        },
+        {
+         "words": "platform in the sea",
+         "gives": "RIG",
+         "note": "an oil rig is an offshore platform"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -841,37 +768,29 @@
    },
    "solution": "DEVELOPING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEVELOPING",
     "definitions": [
      {
       "text": "Emergent",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "D",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "the first sinner",
-      "gives": "EVE",
-      "note": "in Genesis, Eve eats the forbidden fruit first"
-     },
-     {
-      "clueFragment": "being a bounder",
-      "gives": "LOPING",
-      "note": "loping is moving with long bounding strides"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "EVE",
-      "LOPING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "D",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "the first sinner",
+       "gives": "EVE",
+       "note": "in Genesis, Eve eats the forbidden fruit first"
+      },
+      {
+       "words": "being a bounder",
+       "gives": "LOPING",
+       "note": "loping is moving with long bounding strides"
+      }
      ]
     },
     "explanation": {
@@ -901,31 +820,24 @@
    },
    "solution": "LIFT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIFT",
     "definitions": [
      {
       "text": "Cancel",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "L",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "two British newspapers",
-      "gives": "IFT",
-      "note": "the i and the FT (Financial Times) are both British newspapers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IFT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "L",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "two British newspapers",
+       "gives": "IFT",
+       "note": "the i and the FT (Financial Times) are both British newspapers"
+      }
      ]
     },
     "explanation": {
@@ -952,43 +864,33 @@
    },
    "solution": "ZESTIER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ZESTIER",
     "definitions": [
      {
       "text": "More like a lemon?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a lemon",
-      "for": "anagram",
-      "note": "a lemon is something faulty, a dud, so these letters come out wrong and need rearranging"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "Z",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Tree is",
-      "gives": "TREEIS",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Z",
-      "ESTIER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TREEIS",
-       "gives": "ESTIER"
+       "text": "a lemon",
+       "note": "a lemon is something faulty, a dud, so these letters come out wrong and need rearranging"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "Z",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "Tree is",
+         "note": "the letters as written"
+        }
+       ]
       }
      ]
     },
@@ -1019,34 +921,24 @@
    },
    "solution": "EMISSION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EMISSION",
     "definitions": [
      {
       "text": "Discharge",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "gives": "E",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "duty",
-      "gives": "MISSION",
-      "note": "a mission is an assigned task"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MISSION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "E",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "duty",
+       "gives": "MISSION",
+       "note": "a mission is an assigned task"
+      }
      ]
     },
     "explanation": {
@@ -1081,34 +973,24 @@
    },
    "solution": "KNOWALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KNOW-ALL",
     "definitions": [
      {
       "text": "walking encyclopaedia",
       "at": 33
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "gives": "K",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Obstruction has been removed",
-      "gives": "NOWALL",
-      "note": "once the barrier is gone there is no wall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "NOWALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "K",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "Obstruction has been removed",
+       "gives": "NOWALL",
+       "note": "once the barrier is gone there is no wall"
+      }
      ]
     },
     "explanation": {
@@ -1136,31 +1018,24 @@
    },
    "solution": "WHOPPING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHOPPING",
     "definitions": [
      {
       "text": "Mammoth",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "W",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "mad as a box of frogs?",
-      "gives": "HOPPING",
-      "note": "hopping mad means furious, and a box of frogs would be hopping"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HOPPING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "W",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "mad as a box of frogs?",
+       "gives": "HOPPING",
+       "note": "hopping mad means furious, and a box of frogs would be hopping"
+      }
      ]
     },
     "explanation": {
@@ -1190,46 +1065,34 @@
    },
    "solution": "JOHNSON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JOHNSON",
     "definitions": [
      {
       "text": "US president",
       "at": 35
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "gives": "J",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "I'm surprised",
-      "gives": "OH",
-      "note": "an exclamation of surprise"
-     },
-     {
-      "clueFragment": "partners",
-      "gives": "NS",
-      "note": "North and South are partners at the bridge table"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is working is on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "OH",
-      "NS",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "J",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "I'm surprised",
+       "gives": "OH",
+       "note": "an exclamation of surprise"
+      },
+      {
+       "words": "partners",
+       "gives": "NS",
+       "note": "North and South are partners at the bridge table"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is working is on"
+      }
      ]
     },
     "explanation": {
@@ -1258,37 +1121,29 @@
    },
    "solution": "MINX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MINX",
     "definitions": [
      {
       "text": "Jade",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "M",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "elected",
-      "gives": "IN",
-      "note": "a candidate who is elected gets in"
-     },
-     {
-      "clueFragment": "the mark of an election",
-      "gives": "X",
-      "note": "voters mark the ballot paper with a cross"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IN",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "M",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "elected",
+       "gives": "IN",
+       "note": "a candidate who is elected gets in"
+      },
+      {
+       "words": "the mark of an election",
+       "gives": "X",
+       "note": "voters mark the ballot paper with a cross"
+      }
      ]
     },
     "explanation": {
@@ -1317,43 +1172,33 @@
    },
    "solution": "XENOPS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "XENOPS",
     "definitions": [
      {
       "text": "Latin bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crackers",
-      "for": "anagram",
-      "note": "crackers means crazy, so the letters go haywire and must be rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "X",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "opens",
-      "gives": "OPENS",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "X",
-      "ENOPS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OPENS",
-       "gives": "ENOPS"
+       "text": "crackers",
+       "note": "crackers means crazy, so the letters go haywire and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "X",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "opens",
+         "note": "the letters as written"
+        }
+       ]
       }
      ]
     },
@@ -1383,68 +1228,64 @@
    },
    "solution": "STORYBOARD",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STORYBOARD",
     "definitions": [
      {
       "text": "screenwriter's plan",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "to accommodate",
-      "for": "container",
-      "note": "to accommodate guests is to take them in, so this word holds the others"
-     },
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily points to the first, so just the opening letter is used"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "gives": "S",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "TORY",
-      "note": "the Tories are the political right in Britain"
-     },
-     {
-      "clueFragment": "person",
-      "gives": "BOD",
-      "note": "bod is British slang for a person"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "request",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of request"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TORY",
-      "BO",
-      "A",
-      "R",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "note": "to accommodate guests is to take them in, so this word holds the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "S",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "Right",
+         "gives": "TORY",
+         "note": "the Tories are the political right in Britain"
+        },
+        {
+         "words": "person",
+         "gives": "BOD",
+         "note": "bod is British slang for a person"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "note": "primarily points to the first, so just the opening letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "request",
+           "note": "the opening letter of request"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1473,31 +1314,24 @@
    },
    "solution": "RELATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RELATE",
     "definitions": [
      {
       "text": "Describe",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "gives": "R",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "L",
-      "gives": "ELATE",
-      "note": "the L (or El) is short for elevated railway, and elate is an old word meaning elevated or lifted up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ELATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "R",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "L",
+       "gives": "ELATE",
+       "note": "the L (or El) is short for elevated railway, and elate is an old word meaning elevated or lifted up"
+      }
      ]
     },
     "explanation": {
@@ -1526,52 +1360,45 @@
    },
    "solution": "ASUNCION",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ASUNCION",
     "definitions": [
      {
       "text": "capital",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounds",
-      "for": "container",
-      "note": "one word surrounds the next, enclosing it on both sides"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "A",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "Warmer",
-      "gives": "SUN",
-      "note": "the sun is what warms the earth"
-     },
-     {
-      "clueFragment": "blue",
-      "gives": "CON",
-      "note": "blue is the Conservatives' colour, and Con is short for Conservative"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I is the abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SUN",
-      "C",
-      "I",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounds",
+       "note": "one word surrounds the next, enclosing it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "A",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "Warmer",
+         "gives": "SUN",
+         "note": "the sun is what warms the earth"
+        },
+        {
+         "words": "blue",
+         "gives": "CON",
+         "note": "blue is the Conservatives' colour, and Con is short for Conservative"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "I is the abbreviation for island"
+      }
      ]
     },
     "explanation": {
@@ -1600,40 +1427,28 @@
    },
    "solution": "NAPALM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NAPALM",
     "definitions": [
      {
       "text": "Jelly",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "gives": "N",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "PALM",
-      "note": "a palm is a tree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "A",
-      "PALM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "N",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "tree",
+       "gives": "PALM",
+       "note": "a palm is a tree"
+      }
      ]
     },
     "explanation": {
@@ -1662,58 +1477,60 @@
    },
    "solution": "COWPAT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "COWPAT",
     "definitions": [
      {
       "text": "Something smelly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ending",
-      "for": "letter_selection",
-      "note": "the ending of a word is its final letter, so only that letter is used"
-     },
-     {
-      "text": "in the",
-      "for": "container",
-      "note": "the letters go inside the word for grass"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "C",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "meadow",
-      "gives": "W",
-      "select": "last",
-      "note": "the final letter of meadow"
-     },
-     {
-      "clueFragment": "soft",
-      "gives": "P",
-      "note": "p (piano) is the musical direction for soft"
-     },
-     {
-      "clueFragment": "grass",
-      "gives": "OAT",
-      "note": "oat is a cereal grass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "O",
-      "W",
-      "P",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "C",
+       "note": "the first letter, which the preamble says the clue ignores"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in the",
+         "note": "the letters go inside the word for grass"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grass",
+         "gives": "OAT",
+         "note": "oat is a cereal grass"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ending",
+             "note": "the ending of a word is its final letter, so only that letter is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "meadow",
+             "note": "the final letter of meadow"
+            }
+           ]
+          },
+          {
+           "words": "soft",
+           "gives": "P",
+           "note": "p (piano) is the musical direction for soft"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1742,43 +1559,33 @@
    },
    "solution": "ORDINATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORDINATE",
     "definitions": [
      {
       "text": "measure from an axis",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Distribution of",
-      "for": "anagram",
-      "note": "a distribution spreads things out in a new arrangement, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "gives": "O",
-      "note": "the first letter, which the preamble says the clue ignores"
-     },
-     {
-      "clueFragment": "a trend I",
-      "gives": "ATRENDI",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RDINATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ATRENDI",
-       "gives": "RDINATE"
+       "text": "Distribution of",
+       "note": "a distribution spreads things out in a new arrangement, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "O",
+         "note": "the first letter, which the preamble says the clue ignores"
+        },
+        {
+         "words": "a trend I",
+         "note": "the letters as written"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1067",
  "number": 1067,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,067",
  "setter": "Matilda",
  "date": "2020-04-27",
  "dimensions": {
@@ -38,57 +36,51 @@
    },
    "solution": "SCRIPT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SCRIPT",
     "definitions": [
      {
       "text": "writing",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first asks for only the opening letter of the neighbouring word"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us one piece sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shed",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of shed"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is the standard abbreviation for court"
-     },
-     {
-      "clueFragment": "tear",
-      "gives": "RIP",
-      "note": "to tear is to rip"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "RIP",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first asks for only the opening letter of the neighbouring word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shed",
+         "note": "the opening letter of shed"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in tells us one piece sits inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "court",
+         "gives": "CT",
+         "note": "CT is the standard abbreviation for court"
+        },
+        {
+         "words": "tear",
+         "gives": "RIP",
+         "note": "to tear is to rip"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -118,60 +110,51 @@
    },
    "solution": "SPECIFIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SPECIFIC",
     "definitions": [
      {
       "text": "Particular",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rampant",
-      "for": "anagram",
-      "note": "rampant suggests running wild, so the fungus letters are jumbled"
-     },
-     {
-      "text": "production",
-      "for": "anagram",
-      "note": "a production is something made or worked up, so the genre letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the jumbled fungus inside the other jumbled word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mushroom",
-      "gives": "CEP",
-      "note": "a cep is an edible mushroom, the porcini"
-     },
-     {
-      "clueFragment": "sci-fi",
-      "gives": "SCIFI",
-      "note": "taken as written, without the hyphen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PEC",
-      "IFIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CEP",
-       "gives": "PEC"
+       "text": "in",
+       "note": "in places the jumbled fungus inside the other jumbled word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rampant",
+         "note": "rampant suggests running wild, so the fungus letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sci-fi",
+         "note": "taken as written, without the hyphen"
+        }
+       ]
       },
       {
-       "fodder": "SCIFI",
-       "gives": "SIFIC"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "production",
+         "note": "a production is something made or worked up, so the genre letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mushroom",
+         "gives": "CEP",
+         "note": "a cep is an edible mushroom, the porcini"
+        }
+       ]
       }
      ]
     },
@@ -208,48 +191,37 @@
    },
    "solution": "REARENDS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "REAR ENDS",
     "definitions": [
      {
       "text": "Backs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off here means out of order or awry, so the preceding word is scrambled"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "raise",
-      "gives": "REAR",
-      "note": "to rear is to raise, as children or animals"
-     },
-     {
-      "clueFragment": "send",
-      "gives": "ENDS",
-      "note": "the four letters of send, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAR",
-      "ENDS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "REARENDS",
+     "indicators": [
       {
-       "fodder": "SEND",
-       "gives": "ENDS"
+       "text": "off",
+       "note": "off here means out of order or awry, so the preceding word is scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "raise",
+         "gives": "REAR",
+         "note": "to rear is to raise, as children or animals"
+        },
+        {
+         "words": "send",
+         "gives": "ENDS",
+         "note": "the four letters of send, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -279,35 +251,25 @@
    },
    "solution": "PRESERVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESERVE",
     "definitions": [
      {
       "text": "Keep",
       "at": 0
      }
     ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quiet"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "RESERVE",
-      "note": "to book a table is to reserve it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RESERVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quiet",
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quiet"
+      },
+      {
+       "words": "book",
+       "gives": "RESERVE",
+       "note": "to book a table is to reserve it"
+      }
      ]
     },
     "explanation": {
@@ -336,32 +298,25 @@
    },
    "solution": "DISCOVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCOVER",
     "definitions": [
      {
       "text": "Find",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "DISC",
-      "note": "a disc is a gramophone record"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "OVER",
-      "note": "something finished is over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISC",
-      "OVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "words": "finished",
+       "gives": "OVER",
+       "note": "something finished is over"
+      }
      ]
     },
     "explanation": {
@@ -389,48 +344,37 @@
    },
    "solution": "IMPORTANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "IMPORTANCE",
     "definitions": [
      {
       "text": "significance",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "treatment",
-      "for": "anagram",
-      "note": "a treatment works on something and changes it, so the skin complaint's letters are reworked"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bring in",
-      "gives": "IMPORT",
-      "note": "to import goods is to bring them in"
-     },
-     {
-      "clueFragment": "acne",
-      "gives": "ANCE",
-      "note": "the letters of acne, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPORT",
-      "ANCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IMPORTANCE",
+     "indicators": [
       {
-       "fodder": "ACNE",
-       "gives": "ANCE"
+       "text": "treatment",
+       "note": "a treatment works on something and changes it, so the skin complaint's letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bring in",
+         "gives": "IMPORT",
+         "note": "to import goods is to bring them in"
+        },
+        {
+         "words": "acne",
+         "gives": "ANCE",
+         "note": "the letters of acne, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -459,50 +403,41 @@
    },
    "solution": "CONVEY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CONVEY",
     "definitions": [
      {
       "text": "communicate",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially asks for the opening letter of each of the following words"
-     },
-     {
-      "text": "to admit",
-      "for": "container",
-      "note": "to admit is to let in, so the shy word takes other letters inside it"
-     }
-    ],
-    "linkWords": [
-     "easy to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Timid",
-      "gives": "COY",
-      "note": "coy means shy or timid"
-     },
-     {
-      "clueFragment": "not very easy",
-      "gives": "NVE",
-      "select": "first",
-      "note": "the first letters of these three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "NVE",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to admit",
+       "note": "to admit is to let in, so the shy word takes other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Timid",
+       "gives": "COY",
+       "note": "coy means shy or timid"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially asks for the opening letter of each of the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not very easy",
+         "note": "the first letters of these three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -531,49 +466,48 @@
    },
    "solution": "VIOLIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "VIOLIN",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uncovered",
-      "for": "letter_selection",
-      "note": "uncovered means stripped of the outer layer, so each word loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "evil",
-      "gives": "VI",
-      "select": "middle",
-      "note": "evil without its outer letters"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OL",
-      "select": "middle",
-      "note": "gold without its outer letters"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "IN",
-      "select": "middle",
-      "note": "ring without its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VI",
-      "OL",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "note": "uncovered means stripped of the outer layer, so each word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evil",
+         "note": "evil without its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "gold",
+         "note": "gold without its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "ring",
+         "note": "ring without its outer letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -602,41 +536,27 @@
    },
    "solution": "RESIGN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESIGN",
     "definitions": [
      {
       "text": "Give up job",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lousy",
-      "for": "anagram",
-      "note": "lousy means bad or poorly done, so the letters are badly arranged and need sorting"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "singer",
-      "gives": "RESIGN",
-      "note": "the six letters of this word, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESIGN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RESIGN",
+     "indicators": [
       {
-       "fodder": "SINGER",
-       "gives": "RESIGN"
+       "text": "lousy",
+       "note": "lousy means bad or poorly done, so the letters are badly arranged and need sorting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "singer",
+       "gives": "RESIGN",
+       "note": "the six letters of this word, rearranged"
       }
      ]
     },
@@ -665,30 +585,28 @@
    },
    "solution": "ENAMEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENAMEL",
     "definitions": [
      {
       "text": "coating",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "In tells us the letters are sitting within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "green, a melamine",
-      "gives": "ENAMEL",
-      "note": "found across the end of green, the a and the start of melamine"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "In tells us the letters are sitting within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "green, a melamine",
+       "gives": "ENAMEL",
+       "note": "found across the end of green, the a and the start of melamine"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A green melamine finish on a kitchen worktop.",
      "definitionFit": "Enamel is a hard glossy paint or glaze applied as a protective surface layer."
@@ -714,41 +632,36 @@
    },
    "solution": "OPINIONS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OPINIONS",
     "definitions": [
      {
       "text": "Views",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the second of",
-      "for": "letter_selection",
-      "note": "the second of asks for only the letter in position two of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "four",
-      "gives": "O",
-      "select": 2,
-      "note": "the second letter of four"
-     },
-     {
-      "clueFragment": "gears",
-      "gives": "PINIONS",
-      "note": "pinions are small toothed gear wheels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "PINIONS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "the second of",
+         "note": "the second of asks for only the letter in position two of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "four",
+         "note": "the second letter of four"
+        }
+       ]
+      },
+      {
+       "words": "gears",
+       "gives": "PINIONS",
+       "note": "pinions are small toothed gear wheels"
+      }
      ]
     },
     "explanation": {
@@ -782,39 +695,31 @@
    },
    "solution": "IFEVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IF EVER",
     "definitions": [
      {
       "text": "seldom",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "faces",
-      "for": "charade",
-      "note": "faces means stands in front of, so the first piece comes before the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "illness",
-      "gives": "FEVER",
-      "note": "a fever is an illness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "FEVER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "faces",
+       "note": "faces means stands in front of, so the first piece comes before the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "illness",
+       "gives": "FEVER",
+       "note": "a fever is an illness"
+      }
      ]
     },
     "explanation": {
@@ -842,35 +747,25 @@
    },
    "solution": "FREEZING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FREEZING",
     "definitions": [
      {
       "text": "very cold",
       "at": 20
      }
     ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No-cost",
-      "gives": "FREE",
-      "note": "something costing nothing is free"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "ZING",
-      "note": "zing is liveliness or energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FREE",
-      "ZING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No-cost",
+       "gives": "FREE",
+       "note": "something costing nothing is free"
+      },
+      {
+       "words": "energy",
+       "gives": "ZING",
+       "note": "zing is liveliness or energy"
+      }
      ]
     },
     "explanation": {
@@ -898,48 +793,37 @@
    },
    "solution": "ADVANTAGES",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADVANTAGES",
     "definitions": [
      {
       "text": "benefits",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Broken",
-      "for": "anagram",
-      "note": "something broken is in pieces, so these letters are put back together differently"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "TV and a",
-      "gives": "ADVANT",
-      "note": "the letters of TV, and, a, rearranged"
-     },
-     {
-      "clueFragment": "long time",
-      "gives": "AGES",
-      "note": "ages means a very long time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADVANT",
-      "AGES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ADVANTAGES",
+     "indicators": [
       {
-       "fodder": "TVANDA",
-       "gives": "ADVANT"
+       "text": "Broken",
+       "note": "something broken is in pieces, so these letters are put back together differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "TV and a",
+         "gives": "ADVANT",
+         "note": "the letters of TV, and, a, rearranged"
+        },
+        {
+         "words": "long time",
+         "gives": "AGES",
+         "note": "ages means a very long time"
+        }
+       ]
       }
      ]
     },
@@ -968,49 +852,43 @@
    },
    "solution": "INDIVIDUAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "INDIVIDUAL",
     "definitions": [
      {
       "text": "single",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "halved",
-      "for": "deletion",
-      "note": "halved means cut in two, so only one half of the word is kept"
-     }
-    ],
-    "linkWords": [
-     "becomes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Home",
-      "gives": "IN",
-      "note": "in means at home"
-     },
-     {
-      "clueFragment": "dividend",
-      "gives": "DIVI",
-      "note": "the first half of this eight-letter word"
-     },
-     {
-      "clueFragment": "double",
-      "gives": "DUAL",
-      "note": "dual means double or twofold"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "DIVI",
-      "DUAL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INDIVIDUAL",
+     "indicators": [
+      {
+       "text": "halved",
+       "note": "halved means cut in two, so only one half of the word is kept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Home",
+         "gives": "IN",
+         "note": "in means at home"
+        },
+        {
+         "words": "dividend",
+         "gives": "DIVI",
+         "note": "the first half of this eight-letter word"
+        },
+        {
+         "words": "double",
+         "gives": "DUAL",
+         "note": "dual means double or twofold"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1038,42 +916,38 @@
    },
    "solution": "ALTHOUGH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ALTHOUGH",
     "definitions": [
      {
       "text": "Yet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "curtailed",
-      "for": "deletion",
-      "note": "curtailed means having the tail cut off, so each word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "must be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all",
-      "gives": "AL",
-      "note": "all without its last letter"
-     },
-     {
-      "clueFragment": "thought",
-      "gives": "THOUGH",
-      "note": "thought without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "THOUGH"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ALTHOUGH",
+     "indicators": [
+      {
+       "text": "curtailed",
+       "note": "curtailed means having the tail cut off, so each word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "all",
+         "gives": "AL",
+         "note": "all without its last letter"
+        },
+        {
+         "words": "thought",
+         "gives": "THOUGH",
+         "note": "thought without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1102,43 +976,31 @@
    },
    "solution": "STARTLED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STARTLED",
     "definitions": [
      {
       "text": "Surprised",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first item inside the vehicle"
-     }
-    ],
-    "linkWords": [
-     "to see"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "transport",
-      "gives": "SLED",
-      "note": "a sled is a sledge, a means of transport over snow"
-     },
-     {
-      "clueFragment": "pastry",
-      "gives": "TART",
-      "note": "a tart is a pastry case with filling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TART",
-      "LED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first item inside the vehicle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transport",
+       "gives": "SLED",
+       "note": "a sled is a sledge, a means of transport over snow"
+      },
+      {
+       "words": "pastry",
+       "gives": "TART",
+       "note": "a tart is a pastry case with filling"
+      }
      ]
     },
     "explanation": {
@@ -1167,50 +1029,40 @@
    },
    "solution": "PRODUCED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PRODUCED",
     "definitions": [
      {
       "text": "Made",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "1st of",
-      "for": "letter_selection",
-      "note": "1st of asks for only the opening letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro means for, in favour of"
-     },
-     {
-      "clueFragment": "Mussolini",
-      "gives": "DUCE",
-      "note": "Il Duce, the leader, was Mussolini's title"
-     },
-     {
-      "clueFragment": "December",
-      "gives": "D",
-      "select": "first",
-      "note": "the opening letter of December"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "DUCE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro means for, in favour of"
+      },
+      {
+       "words": "Mussolini",
+       "gives": "DUCE",
+       "note": "Il Duce, the leader, was Mussolini's title"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "1st of",
+         "note": "1st of asks for only the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "December",
+         "note": "the opening letter of December"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1238,38 +1090,27 @@
    },
    "solution": "CALCULATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CALCULATOR",
     "definitions": [
      {
       "text": "At least it can multiply",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "daft",
-      "for": "anagram",
-      "note": "daft means silly or mixed up, so the preceding words are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Call our cat",
-      "gives": "CALCULATOR",
-      "note": "the ten letters of these three words, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CALCULATOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CALCULATOR",
+     "indicators": [
       {
-       "fodder": "CALLOURCAT",
-       "gives": "CALCULATOR"
+       "text": "daft",
+       "note": "daft means silly or mixed up, so the preceding words are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Call our cat",
+       "gives": "CALCULATOR",
+       "note": "the ten letters of these three words, rearranged"
       }
      ]
     },
@@ -1300,50 +1141,41 @@
    },
    "solution": "JEWELS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "JEWELS",
     "definitions": [
      {
       "text": "treasure",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "to start",
-      "for": "letter_selection",
-      "note": "to start asks for the opening letters of the words before it"
-     },
-     {
-      "text": "gathering",
-      "for": "container",
-      "note": "gathering means collecting in, so those letters surround the animal"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Just like shepherd",
-      "gives": "JLS",
-      "select": "first",
-      "note": "the first letters of these three words"
-     },
-     {
-      "clueFragment": "sheep",
-      "gives": "EWE",
-      "note": "a ewe is a female sheep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "EWE",
-      "LS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gathering",
+       "note": "gathering means collecting in, so those letters surround the animal"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to start",
+         "note": "to start asks for the opening letters of the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Just like shepherd",
+         "note": "the first letters of these three words"
+        }
+       ]
+      },
+      {
+       "words": "sheep",
+       "gives": "EWE",
+       "note": "a ewe is a female sheep"
+      }
      ]
     },
     "explanation": {
@@ -1371,31 +1203,16 @@
    },
    "solution": "QUACKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "QUACKS",
     "definitions": [
      {
       "text": "Sounds like dabblers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the noises made by dabbling ducks"
      },
      {
       "text": "charlatans",
-      "at": 25
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sounds like dabblers",
-      "note": "first meaning: the noises made by dabbling ducks"
-     },
-     {
-      "clueFragment": "charlatans",
-      "note": "second meaning: frauds who pretend to medical skill"
+      "at": 25,
+      "meaning": "second meaning: frauds who pretend to medical skill"
      }
     ],
     "explanation": {
@@ -1424,41 +1241,35 @@
    },
    "solution": "PLEASE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLEASE",
     "definitions": [
      {
       "text": "Kindly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last",
-      "for": "letter_selection",
-      "note": "last asks for only the final letter of the word before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drop",
-      "gives": "P",
-      "select": "last",
-      "note": "the final letter of drop"
-     },
-     {
-      "clueFragment": "rent",
-      "gives": "LEASE",
-      "note": "a lease is a rental agreement; to lease is to rent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LEASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "note": "last asks for only the final letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drop",
+         "note": "the final letter of drop"
+        }
+       ]
+      },
+      {
+       "words": "rent",
+       "gives": "LEASE",
+       "note": "a lease is a rental agreement; to lease is to rent"
+      }
      ]
     },
     "explanation": {
@@ -1486,44 +1297,36 @@
    },
    "solution": "EQUALITY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EQUALITY",
     "definitions": [
      {
       "text": "fairness",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimate",
-      "for": "letter_selection",
-      "note": "ultimate means last, so only the final letter of the word is kept"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Judge's",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of judge"
-     },
-     {
-      "clueFragment": "trait",
-      "gives": "QUALITY",
-      "note": "a quality is a characteristic or trait"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "QUALITY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimate",
+         "note": "ultimate means last, so only the final letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Judge's",
+         "gives": "JUDGE",
+         "note": "the final letter of judge"
+        }
+       ]
+      },
+      {
+       "words": "trait",
+       "gives": "QUALITY",
+       "note": "a quality is a characteristic or trait"
+      }
      ]
     },
     "explanation": {
@@ -1551,40 +1354,30 @@
    },
    "solution": "SHARED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHARED",
     "definitions": [
      {
       "text": "joint",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "container",
-      "note": "over means covering, so the first word wraps around the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrap",
-      "gives": "SHRED",
-      "note": "a shred is a scrap or fragment"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "A",
-      "RED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "over means covering, so the first word wraps around the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scrap",
+       "gives": "SHRED",
+       "note": "a shred is a scrap or fragment"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1614,32 +1407,25 @@
    },
    "solution": "EXCHANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXCHANGE",
     "definitions": [
      {
       "text": "Swap",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "EX",
-      "note": "ex means former, as in ex-wife"
-     },
-     {
-      "clueFragment": "coins",
-      "gives": "CHANGE",
-      "note": "loose coins are called change"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "CHANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "EX",
+       "note": "ex means former, as in ex-wife"
+      },
+      {
+       "words": "coins",
+       "gives": "CHANGE",
+       "note": "loose coins are called change"
+      }
      ]
     },
     "explanation": {
@@ -1667,58 +1453,53 @@
    },
    "solution": "PUBLIC",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "PUBLIC",
     "definitions": [
      {
       "text": "out in the open",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "back tells us to read the next short word in the opposite direction"
-     },
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "embracing means holding, so the pen wraps around the learner"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "PU",
-      "note": "the word up read the other way"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "BIC",
-      "note": "a Bic is a brand of ballpoint pen"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L is a learner, as on a learner driver's plate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "B",
-      "L",
-      "IC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "PUBLIC",
+     "indicators": [
       {
-       "from": "UP",
-       "to": "PU"
+       "text": "Back",
+       "note": "back tells us to read the next short word in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "up",
+         "gives": "PU",
+         "note": "the word up read the other way"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "embracing",
+           "note": "embracing means holding, so the pen wraps around the learner"
+          }
+         ],
+         "parts": [
+          {
+           "words": "writer",
+           "gives": "BIC",
+           "note": "a Bic is a brand of ballpoint pen"
+          },
+          {
+           "words": "student",
+           "gives": "L",
+           "note": "L is a learner, as on a learner driver's plate"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1748,43 +1529,31 @@
    },
    "solution": "SUSPENSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUSPENSE",
     "definitions": [
      {
       "text": "Uncertainty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the feature inside the word for meaning"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meaning",
-      "gives": "SENSE",
-      "note": "the sense of a word is its meaning"
-     },
-     {
-      "clueFragment": "distinguishing feature",
-      "gives": "USP",
-      "note": "USP is a unique selling point, a marketing term"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "USP",
-      "ENSE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the feature inside the word for meaning"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meaning",
+       "gives": "SENSE",
+       "note": "the sense of a word is its meaning"
+      },
+      {
+       "words": "distinguishing feature",
+       "gives": "USP",
+       "note": "USP is a unique selling point, a marketing term"
+      }
      ]
     },
     "explanation": {
@@ -1813,48 +1582,37 @@
    },
    "solution": "SHADED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SHADED",
     "definitions": [
      {
       "text": "In the dark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly suggests a version that might be, so the letters can be rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "SH",
-      "note": "sh is the call for quiet"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "ADED",
-      "note": "the letters of dead, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "ADED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SHADED",
+     "indicators": [
       {
-       "fodder": "DEAD",
-       "gives": "ADED"
+       "text": "possibly",
+       "note": "possibly suggests a version that might be, so the letters can be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "gives": "SH",
+         "note": "sh is the call for quiet"
+        },
+        {
+         "words": "dead",
+         "gives": "ADED",
+         "note": "the letters of dead, rearranged"
+        }
+       ]
       }
      ]
     },

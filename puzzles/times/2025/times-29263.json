@@ -1,8 +1,6 @@
 {
  "id": "times-29263",
  "number": 29263,
- "series": "times",
- "name": "Times cryptic crossword No 29,263",
  "date": "2025-06-23",
  "dimensions": {
   "cols": 15,
@@ -41,30 +39,16 @@
    },
    "solution": "RAFFISH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAFFISH",
     "definitions": [
      {
       "text": "Disreputable",
-      "at": 0
+      "at": 0,
+      "meaning": "the straight sense: rakish, not quite respectable"
      },
      {
       "text": "rather like some service personnel?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disreputable",
-      "gives": "RAFFISH",
-      "note": "the straight sense: rakish, not quite respectable"
-     },
-     {
-      "clueFragment": "rather like some service personnel?",
-      "gives": "RAFFISH",
-      "note": "the joking sense: -ish means 'rather like', attached to the Royal Air Force"
+      "at": 14,
+      "meaning": "the joking sense: -ish means 'rather like', attached to the Royal Air Force"
      }
     ],
     "explanation": {
@@ -94,34 +78,29 @@
    },
    "solution": "RHEA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RHEA",
     "definitions": [
      {
       "text": "Flightless bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by the sound of it",
-      "for": "homophone",
-      "note": "tells you to judge the word by how it is heard, not spelt"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "back",
-      "gives": "RHEA",
-      "soundsLike": "REAR",
-      "note": "the rear is the back; say it the British way, with no final r"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RHEA",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "note": "tells you to judge the word by how it is heard, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "back",
+       "gives": "REAR",
+       "note": "the rear is the back; say it the British way, with no final r"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that a bird which cannot fly seems to have returned.",
      "walkthrough": "The homophone depends on non-rhotic British pronunciation, where the r at the end of REAR is not sounded.",
@@ -148,45 +127,49 @@
    },
    "solution": "FUCHSIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "FUCHSIA",
     "definitions": [
      {
       "text": "Flowering shrub",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sadly",
-      "note": "the letters are in a sorry state, i.e. jumbled"
-     },
-     {
-      "text": "beginning to",
-      "note": "take only the first letter of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning to age",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of age"
-     },
-     {
-      "clueFragment": "if such",
-      "gives": "IFSUCH",
-      "note": "taken as written, then mixed with the A"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AIFSUCH",
-       "gives": "FUCHSIA"
+       "text": "sadly",
+       "note": "the letters are in a sorry state, i.e. jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "take only the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "A",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beginning to age",
+           "gives": "A",
+           "select": "first",
+           "note": "first letter of age"
+          }
+         ]
+        },
+        {
+         "words": "if such",
+         "note": "taken as written, then mixed with the A"
+        }
+       ]
       }
      ]
     },
@@ -216,45 +199,42 @@
    },
    "solution": "ISAAC",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ISAAC",
     "definitions": [
      {
       "text": "Fellow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dividing",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "South Africa",
-      "gives": "SA",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "account",
-      "gives": "AC",
-      "note": "a/c = account"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "SA",
-      "AC"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ISAAC",
+     "indicators": [
+      {
+       "text": "dividing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "current",
+         "gives": "I",
+         "note": "I is the symbol for electric current"
+        },
+        {
+         "words": "South Africa",
+         "gives": "SA",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "account",
+         "gives": "AC",
+         "note": "a/c = account"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -283,45 +263,37 @@
    },
    "solution": "HINDERED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HINDERED",
     "definitions": [
      {
       "text": "formed an obstacle",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "for": "anagram",
-      "note": "the letters of the second deer are on the move, i.e. rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two deer",
-      "gives": "HIND",
-      "note": "a hind is a female deer, the first of the two"
-     },
-     {
-      "clueFragment": "one running",
-      "gives": "ERED",
-      "note": "the other deer, DEER itself, with its letters running"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIND",
-      "ERED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HINDERED",
+     "indicators": [
       {
-       "fodder": "DEER",
-       "gives": "ERED"
+       "text": "running",
+       "note": "the letters of the second deer are on the move, i.e. rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Two deer",
+         "gives": "HIND",
+         "note": "a hind is a female deer, the first of the two"
+        },
+        {
+         "words": "one running",
+         "gives": "ERED",
+         "note": "the other deer, DEER itself, with its letters running"
+        }
+       ]
       }
      ]
     },
@@ -351,36 +323,25 @@
    },
    "solution": "MASONIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MASONIC",
     "definitions": [
      {
       "text": "Like certain lodges",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two close relatives",
-      "gives": "MASON",
-      "note": "MA (mother) and SON"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "i/c = in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "SON",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two close relatives",
+       "gives": "MASON",
+       "note": "MA (mother) and SON"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "i/c = in charge"
+      }
      ]
     },
     "explanation": {
@@ -409,40 +370,31 @@
    },
    "solution": "MADCAP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MADCAP",
     "definitions": [
      {
       "text": "Impulsive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "the chart takes the assistant inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chart",
-      "gives": "MAP",
-      "note": "a map is a chart; it is split M…AP"
-     },
-     {
-      "clueFragment": "commander's assistant",
-      "gives": "ADC",
-      "note": "an aide-de-camp, a senior officer's personal assistant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ADC",
-      "AP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "the chart takes the assistant inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chart",
+       "gives": "MAP",
+       "note": "a map is a chart; it is split M…AP"
+      },
+      {
+       "words": "commander's assistant",
+       "gives": "ADC",
+       "note": "an aide-de-camp, a senior officer's personal assistant"
+      }
      ]
     },
     "explanation": {
@@ -471,50 +423,41 @@
    },
    "solution": "STORYLINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STORYLINE",
     "definitions": [
      {
       "text": "plot",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Ultimately",
-      "for": "letter_selection",
-      "note": "in the end, so take the final letter of serious"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ultimately serious",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of serious"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "TORY",
-      "note": "a Conservative"
-     },
-     {
-      "clueFragment": "row about",
-      "gives": "LINE",
-      "note": "a line is a row; the row is about the politician, so it follows him"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TORY",
-      "LINE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ultimately",
+         "note": "in the end, so take the final letter of serious"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ultimately serious",
+         "gives": "SERIOUS",
+         "note": "last letter of serious"
+        }
+       ]
+      },
+      {
+       "words": "politician",
+       "gives": "TORY",
+       "note": "a Conservative"
+      },
+      {
+       "words": "row about",
+       "gives": "LINE",
+       "note": "a line is a row; the row is about the politician, so it follows him"
+      }
      ]
     },
     "explanation": {
@@ -543,50 +486,44 @@
    },
    "solution": "NITRIDE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NITRIDE",
     "definitions": [
      {
       "text": "compound",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Rise of",
-      "for": "reversal",
-      "note": "in a down clue, rising means reading upwards, i.e. backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gunge",
-      "gives": "DIRT",
-      "note": "gunge is grime"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "E = east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NITRID",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DIRTIN",
-       "to": "NITRID"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rise of",
+         "note": "in a down clue, rising means reading upwards, i.e. backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "gunge",
+           "gives": "DIRT",
+           "note": "gunge is grime"
+          },
+          {
+           "words": "in",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "gives": "E",
+       "note": "E = east"
       }
      ]
     },
@@ -616,47 +553,45 @@
    },
    "solution": "CHANDELIER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHANDELIER",
     "definitions": [
      {
       "text": "Light fitting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to begin with",
-      "for": "letter_selection",
-      "note": "take the opening letter of each of the words before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "key",
-      "gives": "C",
-      "note": "C is a musical key"
-     },
-     {
-      "clueFragment": "composer",
-      "gives": "HANDEL",
-      "note": "George Frideric Handel"
-     },
-     {
-      "clueFragment": "installed extremely rarely to begin with",
-      "gives": "IER",
-      "select": "first",
-      "note": "first letters of installed, extremely, rarely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HANDEL",
-      "IER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "key",
+       "gives": "C",
+       "note": "C is a musical key"
+      },
+      {
+       "words": "composer",
+       "gives": "HANDEL",
+       "note": "George Frideric Handel"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "IER",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "note": "take the opening letter of each of the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "installed extremely rarely to begin with",
+         "gives": "IER",
+         "select": "first",
+         "note": "first letters of installed, extremely, rarely"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -685,56 +620,44 @@
    },
    "solution": "ENCHAINED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ENCHAINED",
     "definitions": [
      {
       "text": "Bound",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "houses",
-      "for": "container",
-      "note": "END gives the other letters a home inside it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "End",
-      "gives": "END",
-      "note": "taken as written; it is split EN…D"
-     },
-     {
-      "clueFragment": "serve tea",
-      "gives": "CHA",
-      "note": "cha is tea"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "E = east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "CHA",
-      "IN",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "note": "END gives the other letters a home inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "End",
+       "note": "taken as written; it is split EN…D"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "serve tea",
+         "gives": "CHA",
+         "note": "cha is tea"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "East",
+         "gives": "E",
+         "note": "E = east"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -763,53 +686,45 @@
    },
    "solution": "OSTIA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OSTIA",
     "definitions": [
      {
       "text": "historical Italian town",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "at its origin, so take the first letter of accessed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "select": "first",
-      "note": "O = old"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "ST",
-      "note": "St = street"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "originally accessed",
-      "gives": "A",
-      "note": "first letter of accessed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ST",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "at its origin, so take the first letter of accessed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old",
+         "note": "O = old"
+        }
+       ]
+      },
+      {
+       "words": "way",
+       "gives": "ST",
+       "note": "St = street"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral"
+      },
+      {
+       "words": "originally accessed",
+       "gives": "A",
+       "note": "first letter of accessed"
+      }
      ]
     },
     "explanation": {
@@ -844,64 +759,55 @@
    },
    "solution": "SECRETARYBIRD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SECRETARY BIRD",
     "definitions": [
      {
       "text": "African native",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to carry",
-      "note": "the attempt carries the king inside it"
-     },
-     {
-      "text": "across"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "covert",
-      "gives": "SECRET",
-      "note": "covert = secret"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "RY",
-      "note": "Ry = railway"
-     },
-     {
-      "clueFragment": "attempt",
-      "gives": "BID",
-      "note": "a bid is an attempt; it is split BI…D"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R = rex, king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SECRET",
-      "A",
-      "RY",
-      "BI",
-      "R",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to carry",
+       "note": "the attempt carries the king inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "across"
+        }
+       ],
+       "parts": [
+        {
+         "words": "covert",
+         "gives": "SECRET",
+         "note": "covert = secret"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "railway",
+         "gives": "RY",
+         "note": "Ry = railway"
+        },
+        {
+         "words": "attempt",
+         "gives": "BID",
+         "note": "a bid is an attempt; it is split BI…D"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R = rex, king"
+      }
      ]
     },
     "explanation": {
@@ -930,35 +836,24 @@
    },
    "solution": "GRAPEFRUIT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GRAPEFRUIT",
     "definitions": [
      {
       "text": "bitter comestible",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "the letters are cooked up, i.e. rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rapt figure",
-      "gives": "RAPTFIGURE",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAPTFIGURE",
-       "gives": "GRAPEFRUIT"
+       "text": "cooked",
+       "note": "the letters are cooked up, i.e. rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rapt figure",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -988,40 +883,31 @@
    },
    "solution": "ROADSTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROADSTER",
     "definitions": [
      {
       "text": "Open car",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entered in",
-      "for": "container",
-      "note": "A D is entered, written, inside the register"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "register",
-      "gives": "ROSTER",
-      "note": "a roster is a list or register; it is split RO…STER"
-     },
-     {
-      "clueFragment": "a duke",
-      "gives": "AD",
-      "note": "A as written, D = duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "AD",
-      "STER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered in",
+       "note": "A D is entered, written, inside the register"
+      }
+     ],
+     "parts": [
+      {
+       "words": "register",
+       "gives": "ROSTER",
+       "note": "a roster is a list or register; it is split RO…STER"
+      },
+      {
+       "words": "a duke",
+       "gives": "AD",
+       "note": "A as written, D = duke"
+      }
      ]
     },
     "explanation": {
@@ -1050,48 +936,40 @@
    },
    "solution": "SAMARITAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SAMARITAN",
     "definitions": [
      {
       "text": "Ancient Palestinian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "note": "the letters of artisan are on the run, rearranged"
-     },
-     {
-      "text": "around"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "artisan",
-      "gives": "SARITAN",
-      "note": "rearranged and split S…ARITAN"
-     },
-     {
-      "clueFragment": "before noon",
-      "gives": "AM",
-      "note": "a.m."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AM",
-      "ARITAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SAMARITAN",
+     "parts": [
       {
-       "fodder": "ARTISAN",
-       "gives": "SARITAN"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "running",
+         "note": "the letters of artisan are on the run, rearranged"
+        },
+        {
+         "text": "around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artisan",
+         "gives": "SARITAN",
+         "note": "rearranged and split S…ARITAN"
+        },
+        {
+         "words": "before noon",
+         "gives": "AM",
+         "note": "a.m."
+        }
+       ]
       }
      ]
     },
@@ -1121,33 +999,28 @@
    },
    "solution": "LINEAL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LINEAL",
     "definitions": [
      {
       "text": "of direct descent",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only part of the following words is used"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dwell in Ealing",
-      "gives": "LINEAL",
-      "note": "dwelL IN EALing"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only part of the following words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dwell in Ealing",
+       "gives": "LINEAL",
+       "note": "dwelL IN EALing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some residents of Ealing claim a direct family lineage.",
      "walkthrough": "Ealing is a suburb of west London; the answer runs across the join of three words.",
@@ -1174,41 +1047,30 @@
    },
    "solution": "BEARABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEARABLE",
     "definitions": [
      {
       "text": "possible to endure",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Live",
-      "gives": "BE",
-      "note": "to be is to live, exist"
-     },
-     {
-      "clueFragment": "farming land",
-      "gives": "ARABLE",
-      "note": "arable land is land farmed for crops"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "ARABLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Live",
+       "gives": "BE",
+       "note": "to be is to live, exist"
+      },
+      {
+       "words": "farming land",
+       "gives": "ARABLE",
+       "note": "arable land is land farmed for crops"
+      }
      ]
     },
     "explanation": {
@@ -1237,39 +1099,30 @@
    },
    "solution": "PLASMA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLASMA",
     "definitions": [
      {
       "text": "Blood for transfusion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carried by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paternal granny?",
-      "gives": "PASMA",
-      "note": "PA'S MA: your father's mother; it is split P…ASMA"
-     },
-     {
-      "clueFragment": "litres",
-      "gives": "L",
-      "note": "l = litres"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "L",
-      "ASMA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carried by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paternal granny?",
+       "gives": "PASMA",
+       "note": "PA'S MA: your father's mother; it is split P…ASMA"
+      },
+      {
+       "words": "litres",
+       "gives": "L",
+       "note": "l = litres"
+      }
      ]
     },
     "explanation": {
@@ -1299,51 +1152,56 @@
    },
    "solution": "ARTWORK",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "ARTWORK",
     "definitions": [
      {
       "text": "illustrations",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "note": "at its origin, so take the first letter of reproduced"
-     },
-     {
-      "text": "in",
-      "note": "those letters go inside the boat"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boat",
-      "gives": "ARK",
-      "note": "Noah's ark; it is split AR…K"
-     },
-     {
-      "clueFragment": "Couple",
-      "gives": "TWO",
-      "note": "a couple is two"
-     },
-     {
-      "clueFragment": "originally reproduced",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of reproduced"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "TWO",
-      "R",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "originally",
+       "note": "at its origin, so take the first letter of reproduced"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "those letters go inside the boat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boat",
+         "gives": "ARK",
+         "note": "Noah's ark; it is split AR…K"
+        },
+        {
+         "words": "Couple",
+         "gives": "TWO",
+         "note": "a couple is two"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "R",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "originally reproduced",
+         "gives": "R",
+         "select": "first",
+         "note": "first letter of reproduced"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1372,41 +1230,36 @@
    },
    "solution": "BEVERAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BEVERAGE",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "first and foremost, so take the first letter of brewed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "primarily brewed",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of brewed"
-     },
-     {
-      "clueFragment": "Dame Edna",
-      "gives": "EVERAGE",
-      "note": "her surname: Dame Edna Everage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EVERAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "first and foremost, so take the first letter of brewed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "primarily brewed",
+         "gives": "BREWED",
+         "note": "first letter of brewed"
+        }
+       ]
+      },
+      {
+       "words": "Dame Edna",
+       "gives": "EVERAGE",
+       "note": "her surname: Dame Edna Everage"
+      }
      ]
     },
     "explanation": {
@@ -1435,41 +1288,36 @@
    },
    "solution": "ATTRACT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ATTRACT",
     "definitions": [
      {
       "text": "Pull",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cover off",
-      "for": "letter_selection",
-      "note": "take the cover, the outside letters, from adolescent"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cover off adolescent",
-      "gives": "AT",
-      "select": "outer",
-      "note": "the outer letters of adolescent"
-     },
-     {
-      "clueFragment": "pamphlet",
-      "gives": "TRACT",
-      "note": "a tract is a short pamphlet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AT",
-      "TRACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cover off",
+         "note": "take the cover, the outside letters, from adolescent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cover off adolescent",
+         "gives": "ADOLESCENT",
+         "note": "the outer letters of adolescent"
+        }
+       ]
+      },
+      {
+       "words": "pamphlet",
+       "gives": "TRACT",
+       "note": "a tract is a short pamphlet"
+      }
      ]
     },
     "explanation": {
@@ -1498,43 +1346,40 @@
    },
    "solution": "SPARKS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SPARKS",
     "definitions": [
      {
       "text": "Electrician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "note": "take the last letter of overpass"
-     },
-     {
-      "text": "under"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "end of overpass",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of overpass"
-     },
-     {
-      "clueFragment": "leaves vehicle",
-      "gives": "PARKS",
-      "note": "a driver leaves a car in a space, i.e. puts it down for a while"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PARKS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "end of",
+       "note": "take the last letter of overpass"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "under"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end of overpass",
+         "note": "last letter of overpass"
+        }
+       ]
+      },
+      {
+       "words": "leaves vehicle",
+       "gives": "PARKS",
+       "note": "a driver leaves a car in a space, i.e. puts it down for a while"
+      }
      ]
     },
     "explanation": {
@@ -1569,33 +1414,16 @@
    },
    "solution": "FUTUREPERFECT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FUTURE PERFECT",
     "definitions": [
      {
       "text": "Tense",
-      "at": 0
+      "at": 0,
+      "meaning": "the grammatical tense of 'will have done'"
      },
      {
       "text": "optimistic prognostication?",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "yet"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tense",
-      "gives": "FUTUREPERFECT",
-      "note": "the grammatical tense of 'will have done'"
-     },
-     {
-      "clueFragment": "optimistic prognostication?",
-      "gives": "FUTUREPERFECT",
-      "note": "a cheerful forecast: all will be flawless ahead"
+      "at": 10,
+      "meaning": "a cheerful forecast: all will be flawless ahead"
      }
     ],
     "explanation": {
@@ -1625,35 +1453,25 @@
    },
    "solution": "EXILE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXILE",
     "definitions": [
      {
       "text": "Outcast",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "former",
-      "gives": "EX",
-      "note": "ex = former"
-     },
-     {
-      "clueFragment": "French island",
-      "gives": "ILE",
-      "note": "île is French for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "ILE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former",
+       "gives": "EX",
+       "note": "ex = former"
+      },
+      {
+       "words": "French island",
+       "gives": "ILE",
+       "note": "île is French for island"
+      }
      ]
     },
     "explanation": {
@@ -1682,35 +1500,25 @@
    },
    "solution": "HERA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HERA",
     "definitions": [
      {
       "text": "Olympian goddess",
       "at": 14
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "H = hard, as on pencils"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "ERA",
-      "note": "an era is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ERA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hard",
+       "gives": "H",
+       "note": "H = hard, as on pencils"
+      },
+      {
+       "words": "time",
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -1745,54 +1553,49 @@
    },
    "solution": "UBOAT",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "U-BOAT",
     "definitions": [
      {
       "text": "Warship",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "take the first letter of outlined"
-     },
-     {
-      "text": "in",
-      "for": "letter_selection",
-      "note": "that letter goes inside the club"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "select": "first",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "club",
-      "gives": "BAT",
-      "note": "a bat is a club, as in cricket or baseball; it is split B…AT"
-     },
-     {
-      "clueFragment": "outlined at first",
-      "gives": "O",
-      "note": "first letter of outlined"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "B",
-      "O",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "take the first letter of outlined"
+        },
+        {
+         "text": "in",
+         "note": "that letter goes inside the club"
+        }
+       ],
+       "parts": [
+        {
+         "words": "university",
+         "note": "U = university"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "club",
+         "gives": "BAT",
+         "note": "a bat is a club, as in cricket or baseball; it is split B…AT"
+        },
+        {
+         "words": "outlined at first",
+         "gives": "O",
+         "note": "first letter of outlined"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1821,51 +1624,53 @@
    },
    "solution": "RABBINATE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "RABBINATE",
     "definitions": [
      {
       "text": "Jewish scholars",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without its end, so the last letter goes"
-     },
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chattered endlessly",
-      "gives": "RABBITE",
-      "note": "RABBITED (British slang for chattered) without its last letter; split RABBI…TE"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N = northern"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A = area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RABBI",
-      "N",
-      "A",
-      "TE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RABBINATE",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "without its end, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Chattered endlessly",
+           "gives": "RABBITE",
+           "note": "RABBITED (British slang for chattered) without its last letter; split RABBI…TE"
+          },
+          {
+           "words": "northern",
+           "gives": "N",
+           "note": "N = northern"
+          }
+         ]
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "A = area"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1894,35 +1699,25 @@
    },
    "solution": "TAKINGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAKINGS",
     "definitions": [
      {
       "text": "income",
       "at": 19
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thanks",
-      "gives": "TA",
-      "note": "ta is British slang for thanks"
-     },
-     {
-      "clueFragment": "college",
-      "gives": "KINGS",
-      "note": "King's College, Cambridge or London"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "KINGS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Thanks",
+       "gives": "TA",
+       "note": "ta is British slang for thanks"
+      },
+      {
+       "words": "college",
+       "gives": "KINGS",
+       "note": "King's College, Cambridge or London"
+      }
      ]
     },
     "explanation": {
@@ -1951,40 +1746,37 @@
    },
    "solution": "ELECTRA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ELECTRA",
     "definitions": [
      {
       "text": "complex woman",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "abandons",
-      "for": "deletion",
-      "note": "the prince leaves the O behind"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German prince abandons love",
-      "gives": "ELECTR",
-      "note": "ELECTOR, a prince entitled to elect the Holy Roman Emperor, losing O (love = zero)"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELECTR",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ELECTRA",
+     "indicators": [
+      {
+       "text": "abandons",
+       "note": "the prince leaves the O behind"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "German prince abandons love",
+         "gives": "ELECTR",
+         "note": "ELECTOR, a prince entitled to elect the Holy Roman Emperor, losing O (love = zero)"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

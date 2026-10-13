@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29469",
  "number": 29469,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,469",
  "setter": "Paul",
  "date": "2024-08-23",
  "dimensions": {
@@ -52,57 +50,54 @@
     "11-across"
    ],
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "RAGS TO RICHES",
     "definitions": [
      {
       "text": "Cash (both extremes) described by newspaper articles — like so?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "both extremes",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its first and last letters, so only those two are kept"
-     },
-     {
-      "text": "described by",
-      "for": "container",
-      "note": "to describe is to draw a line around, so the cash letters sit inside the articles"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cash",
-      "gives": "CH",
-      "select": "outer",
-      "note": "first and last letters of cash"
-     },
-     {
-      "clueFragment": "newspaper",
-      "gives": "RAG",
-      "note": "rag is slang for a low-grade newspaper"
-     },
-     {
-      "clueFragment": "articles",
-      "gives": "STORIES",
-      "note": "newspaper articles are stories"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAG",
-      "STORI",
-      "CH",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "described by",
+       "note": "to describe is to draw a line around, so the cash letters sit inside the articles"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "newspaper",
+         "gives": "RAG",
+         "note": "rag is slang for a low-grade newspaper"
+        },
+        {
+         "words": "articles",
+         "gives": "STORIES",
+         "note": "newspaper articles are stories"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "both extremes",
+         "note": "the extremes of a word are its first and last letters, so only those two are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cash",
+         "note": "first and last letters of cash"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A newspaper feature about money, presented with a wink as an example of itself.",
      "walkthrough": "The clue is its own definition: tabloid stories about someone suddenly coming into money are the classic rags-to-riches tale.",
@@ -129,52 +124,45 @@
    },
    "solution": "RETRIAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RETRIAL",
     "definitions": [
      {
       "text": "Another hearing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rare",
-      "for": "anagram",
-      "note": "the second rare is read as unusual, telling us the preceding letters come out in an unusual order"
-     },
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter, so only that one is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it, rare",
-      "gives": "IT RARE",
-      "note": "taken as written, the anagram fodder"
-     },
-     {
-      "clueFragment": "owl's",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of owl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETRIA",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ITRARE",
-       "gives": "RETRIA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rare",
+         "note": "the second rare is read as unusual, telling us the preceding letters come out in an unusual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it, rare",
+         "note": "taken as written, the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the back of a word is its final letter, so only that one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "owl's",
+         "gives": "OWL",
+         "note": "last letter of owl"
+        }
+       ]
       }
      ]
     },
@@ -205,36 +193,39 @@
    },
    "solution": "GIRTH",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "GIRTH",
     "definitions": [
      {
       "text": "Measure of corporation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in tells us the letters sit inside the words that follow"
-     },
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue upset means turned upside down, so the letters read from the bottom up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hindsight, rightfully",
-      "gives": "HTRIG",
-      "note": "the end of hindsight running into the start of rightfully"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "note": "in a down clue upset means turned upside down, so the letters read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in tells us the letters sit inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hindsight, rightfully",
+         "gives": "HTRIG",
+         "note": "the end of hindsight running into the start of rightfully"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A company's size judged in hindsight, and the verdict rightly overturned.",
      "walkthrough": "Corporation is the jokey word for a big belly, not a company.",
@@ -268,37 +259,39 @@
    },
    "solution": "TIDYSUM",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "TIDY SUM",
     "definitions": [
      {
       "text": "Killing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the dictator",
-      "for": "homophone",
-      "note": "a dictator here is someone dictating out loud, so the word is taken by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in order",
-      "gives": "TIDY",
-      "note": "neat and in order"
-     },
-     {
-      "clueFragment": "not everyone",
-      "gives": "SUM",
-      "soundsLike": "SOME",
-      "note": "some means not all"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in order",
+       "gives": "TIDY",
+       "note": "neat and in order"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SUM",
+       "indicators": [
+        {
+         "text": "for the dictator",
+         "note": "a dictator here is someone dictating out loud, so the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not everyone",
+         "gives": "SOME",
+         "note": "some means not all"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tyrant sets out a killing list neatly, though not everyone is on it.",
      "walkthrough": "Dictator is not a tyrant but someone dictating a letter, so a spoken word is wanted.",
@@ -326,32 +319,25 @@
    },
    "solution": "CORPUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CORPUS",
     "definitions": [
      {
       "text": "Body",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "jeepers",
-      "gives": "COR",
-      "note": "cor is a British exclamation of surprise, like jeepers"
-     },
-     {
-      "clueFragment": "exuded fluid",
-      "gives": "PUS",
-      "note": "fluid oozing from an infection"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "PUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "jeepers",
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise, like jeepers"
+      },
+      {
+       "words": "exuded fluid",
+       "gives": "PUS",
+       "note": "fluid oozing from an infection"
+      }
      ]
     },
     "explanation": {
@@ -379,52 +365,47 @@
    },
    "solution": "OPIATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OPIATE",
     "definitions": [
      {
       "text": "Number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the one letter inside the word for head"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the head piece follows the zero piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "zero",
-      "gives": "O",
-      "note": "zero looks like the letter O"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "PATE",
-      "note": "pate is an old word for the head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "P",
-      "I",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the head piece follows the zero piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "zero",
+       "gives": "O",
+       "note": "zero looks like the letter O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the one letter inside the word for head"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head",
+         "gives": "PATE",
+         "note": "pate is an old word for the head"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -454,54 +435,40 @@
    },
    "solution": "PELMANISM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PELMANISM",
     "definitions": [
      {
       "text": "Game of cards",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "game",
-      "for": "anagram",
-      "note": "game can mean lame or damaged, as in a game leg, so the letters are out of shape"
-     },
-     {
-      "text": "thrown in",
-      "for": "container",
-      "note": "something thrown in goes into the middle of the other letters"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple",
-      "gives": "SIMPLE",
-      "note": "taken as written, the anagram fodder"
-     },
-     {
-      "clueFragment": "hand",
-      "gives": "MAN",
-      "note": "a hand is a worker, and to man something is to staff it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEL",
-      "MAN",
-      "ISM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SIMPLE",
-       "gives": "PELISM"
+       "text": "thrown in",
+       "note": "something thrown in goes into the middle of the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "game",
+         "note": "game can mean lame or damaged, as in a game leg, so the letters are out of shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "simple",
+         "note": "taken as written, the anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "hand",
+       "gives": "MAN",
+       "note": "a hand is a worker, and to man something is to staff it"
       }
      ]
     },
@@ -531,45 +498,40 @@
    },
    "solution": "SQUELCH",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SQUELCH",
     "definitions": [
      {
       "text": "it sounds like it sucks",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "having lost",
-      "for": "deletion",
-      "note": "having lost says a letter goes missing from the shriek word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shriek",
-      "gives": "SQUEAL",
-      "note": "a high-pitched cry"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter that is lost"
-     },
-     {
-      "clueFragment": "companion",
-      "gives": "CH",
-      "note": "Companion of Honour, a British order, abbreviated CH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SQUEL",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having lost",
+         "note": "having lost says a letter goes missing from the shriek word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shriek",
+         "gives": "SQUEAL",
+         "note": "a high-pitched cry"
+        },
+        {
+         "words": "a",
+         "note": "the letter that is lost"
+        }
+       ]
+      },
+      {
+       "words": "companion",
+       "gives": "CH",
+       "note": "Companion of Honour, a British order, abbreviated CH"
+      }
      ]
     },
     "explanation": {
@@ -613,43 +575,33 @@
     "25-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FRAGILE HANDLE WITH CARE",
     "definitions": [
      {
       "text": "that cargo needs protection!",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "trips",
-      "for": "anagram",
-      "note": "trips means stumbles, so the letters tumble into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Whitehall greed",
-      "gives": "WHITEHALLGREED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "African",
-      "gives": "AFRICAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WHITEHALLGREEDAFRICAN",
-       "gives": "FRAGILEHANDLEWITHCARE"
+       "text": "trips",
+       "note": "trips means stumbles, so the letters tumble into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Whitehall greed",
+         "note": "taken as written"
+        },
+        {
+         "words": "African",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -679,37 +631,29 @@
    },
    "solution": "STAR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "STAR",
     "definitions": [
      {
       "text": "Sun",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "briefly means cut short, so the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "seen"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dawn",
-      "gives": "START",
-      "note": "the dawn of something is its start"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "briefly means cut short, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dawn",
+       "gives": "START",
+       "note": "the dawn of something is its start"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -737,50 +681,44 @@
    },
    "solution": "DERAILLEUR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DERAILLEUR",
     "definitions": [
      {
       "text": "Mechanism on bike",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly keeps the letters in odd-numbered positions of the word before"
-     },
-     {
-      "text": "when changing",
-      "for": "anagram",
-      "note": "changing means altering, so the gathered letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all rider",
-      "gives": "ALLRIDER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "used",
-      "gives": "UE",
-      "select": "alternate",
-      "note": "first and third letters of used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALLRIDERUE",
-       "gives": "DERAILLEUR"
+       "text": "when changing",
+       "note": "changing means altering, so the gathered letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "all rider",
+         "note": "taken as written"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "note": "oddly keeps the letters in odd-numbered positions of the word before"
+          }
+         ],
+         "parts": [
+          {
+           "words": "used",
+           "note": "first and third letters of used"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -823,32 +761,25 @@
    },
    "solution": "GETTABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GETTABLE",
     "definitions": [
      {
       "text": "not beyond solver?",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Take",
-      "gives": "GET",
-      "note": "to take is to get"
-     },
-     {
-      "clueFragment": "a seat in restaurant, perhaps",
-      "gives": "TABLE",
-      "note": "in a restaurant you sit at a table"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GET",
-      "TABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Take",
+       "gives": "GET",
+       "note": "to take is to get"
+      },
+      {
+       "words": "a seat in restaurant, perhaps",
+       "gives": "TABLE",
+       "note": "in a restaurant you sit at a table"
+      }
      ]
     },
     "explanation": {
@@ -882,48 +813,38 @@
    },
    "solution": "ALPHAMALE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALPHA MALE",
     "definitions": [
      {
       "text": "chest-beating primate",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "scrapping",
-      "for": "anagram",
-      "note": "scrapping means fighting, and brawling animals end up in a jumble"
-     }
-    ],
-    "linkWords": [
-     "in goes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Llama",
-      "gives": "LLAMA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ape",
-      "gives": "APE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the pencil abbreviation for hard"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LLAMAAPEH",
-       "gives": "ALPHAMALE"
+       "text": "scrapping",
+       "note": "scrapping means fighting, and brawling animals end up in a jumble"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Llama",
+         "note": "taken as written"
+        },
+        {
+         "words": "ape",
+         "note": "taken as written"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        }
+       ]
       }
      ]
     },
@@ -959,35 +880,28 @@
    },
    "solution": "HIDDENGEM",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade"
-    ],
-    "answer": "HIDDEN GEM",
     "definitions": [
      {
       "text": "Wonder if not immediately apparent in fridge magnet?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "if not immediately apparent",
-      "gives": "HIDDEN",
-      "note": "something not obvious at first is concealed"
-     },
-     {
-      "clueFragment": "Wonder",
-      "gives": "GEM",
-      "note": "a gem is a marvel, a treasure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIDDEN",
-      "GEM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "if not immediately apparent",
+       "gives": "HIDDEN",
+       "note": "something not obvious at first is concealed"
+      },
+      {
+       "words": "Wonder",
+       "gives": "GEM",
+       "note": "a gem is a marvel, a treasure"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Pondering whether a fridge magnet hides something wonderful.",
      "walkthrough": "The clue demonstrates itself: the word for a wonder really is concealed across the end of fridge and the start of magnet.",
@@ -1034,26 +948,23 @@
    },
    "solution": "BIDE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BIDE",
     "definitions": [
      {
       "text": "Wait",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "POTU",
-      "gives": "BIDEN",
-      "note": "POTUS, the US president's title, cut short: so the then president's name is cut short too"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIDE"
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "POTU",
+       "gives": "BIDEN",
+       "note": "POTUS, the US president's title, cut short: so the then president's name is cut short too"
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -1083,55 +994,45 @@
    },
    "solution": "BURPING",
    "annotation": {
-    "type": [
-     "and_lit",
-     "container",
-     "reversal"
-    ],
-    "answer": "BURPING",
     "definitions": [
      {
       "text": "Action that brings up taste in food?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the taste word inside the food word"
-     },
-     {
-      "text": "brings up",
-      "for": "reversal",
-      "note": "in a down clue bringing up raises the letters so they read from the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "food",
-      "gives": "GRUB",
-      "note": "grub is informal for food"
-     },
-     {
-      "clueFragment": "taste",
-      "gives": "NIP",
-      "note": "a nip is a small taste of drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUR",
-      "PIN",
-      "G"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GNIPRUB",
-       "to": "BURPING"
+       "text": "brings up",
+       "note": "in a down clue bringing up raises the letters so they read from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the taste word inside the food word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food",
+         "gives": "GRUB",
+         "note": "grub is informal for food"
+        },
+        {
+         "words": "taste",
+         "gives": "NIP",
+         "note": "a nip is a small taste of drink"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A food critic's habit of raising the matter of flavour.",
      "walkthrough": "The whole clue is the definition: belching brings the taste of a meal back up.",
@@ -1165,56 +1066,44 @@
    },
    "solution": "AHAMOMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AHA MOMENT",
     "definitions": [
      {
       "text": "eureka!",
       "at": 65
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points at the last letter of the word before"
-     }
-    ],
-    "linkWords": [
-     "being completed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "of the swine",
-      "gives": "HAM",
-      "note": "ham comes from the pig"
-     },
-     {
-      "clueFragment": "sign",
-      "gives": "OMEN",
-      "note": "an omen is a sign of things to come"
-     },
-     {
-      "clueFragment": "cruciverbalist",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of cruciverbalist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "HAM",
-      "OMEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "of the swine",
+       "gives": "HAM",
+       "note": "ham comes from the pig"
+      },
+      {
+       "words": "sign",
+       "gives": "OMEN",
+       "note": "an omen is a sign of things to come"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points at the last letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cruciverbalist",
+         "note": "last letter of cruciverbalist"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1249,32 +1138,29 @@
    },
    "solution": "MINDYOU",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "MIND YOU",
     "definitions": [
      {
       "text": "however",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "declared",
-      "for": "homophone",
-      "note": "declared means spoken out, so the words are taken by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bomb owed",
-      "gives": "MINDYOU",
-      "soundsLike": "MINE DUE",
-      "note": "a mine is a buried bomb, and what is owed is due"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MINDYOU",
+     "indicators": [
+      {
+       "text": "declared",
+       "note": "declared means spoken out, so the words are taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bomb owed",
+       "gives": "MINEDUE",
+       "note": "a mine is a buried bomb, and what is owed is due"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A bomb that someone was owed, announced with a qualification.",
      "definitionFit": "Mind you is a spoken qualifier introducing a contrast, just as however does."
@@ -1306,44 +1192,38 @@
    },
    "solution": "NOTTRUE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "NOT TRUE",
     "definitions": [
      {
       "text": "Turn to specious note — that's what it is?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "specious",
-      "for": "anagram",
-      "note": "specious means falsely plausible, so the letters are presented in a misleading order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turn to",
-      "gives": "TURNTO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "E",
-      "note": "E is a musical note"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TURNTOE",
-       "gives": "NOTTRUE"
+       "text": "specious",
+       "note": "specious means falsely plausible, so the letters are presented in a misleading order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Turn to",
+         "note": "taken as written"
+        },
+        {
+         "words": "note",
+         "gives": "E",
+         "note": "E is a musical note"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A warning against relying on a misleading memo.",
      "walkthrough": "The definition is the whole clue: something specious is, by definition, false, so 'that's what it is'.",
@@ -1370,63 +1250,55 @@
    },
    "solution": "FIANCE",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FIANCÉ",
     "definitions": [
      {
       "text": "Intended",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lifts",
-      "for": "reversal",
-      "note": "in a down clue lifts means raised, so the word reads from the bottom up"
-     },
-     {
-      "text": "tips on",
-      "for": "letter_selection",
-      "note": "the tips of a word are its two ends"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after places the tips behind the raised word"
-     }
-    ],
-    "linkWords": [
-     "to give"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple",
-      "gives": "NAIF",
-      "note": "naif means naive or unsophisticated"
-     },
-     {
-      "clueFragment": "cabriole",
-      "gives": "CE",
-      "select": "outer",
-      "note": "first and last letters of cabriole"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIAN",
-      "CE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NAIF",
-       "to": "FIAN"
+       "text": "after",
+       "note": "after places the tips behind the raised word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifts",
+         "note": "in a down clue lifts means raised, so the word reads from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "simple",
+         "gives": "NAIF",
+         "note": "naif means naive or unsophisticated"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "tips on",
+         "note": "the tips of a word are its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cabriole",
+         "note": "first and last letters of cabriole"
+        }
+       ]
       }
      ]
     },
+    "spelling": "FIANCÉ",
     "explanation": {
      "surface": "A ballet dancer's intended cabriole leap after simple lifts.",
      "walkthrough": "A cabriole is a ballet jump, so lifts look like part of the dance.",
@@ -1453,10 +1325,6 @@
    },
    "solution": "ARTESIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARTESIAN",
     "definitions": [
      {
       "text": "well",
@@ -1464,28 +1332,18 @@
       "note": "adjective describing a well; 'so' says the answer is a kind of well"
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of treatment",
-      "for": "anagram",
-      "note": "something needing treatment is in poor shape, so the letters must be put right"
-     }
-    ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ears ain't",
-      "gives": "EARSAINT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EARSAINT",
-       "gives": "ARTESIAN"
+       "text": "in need of treatment",
+       "note": "something needing treatment is in poor shape, so the letters must be put right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ears ain't",
+       "note": "taken as written"
       }
      ]
     },
@@ -1516,31 +1374,29 @@
    },
    "solution": "NUDITY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NUDITY",
     "definitions": [
      {
       "text": "Exposure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the radio",
-      "for": "homophone",
-      "note": "on the radio words are only heard, so the sound is what counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song just written",
-      "gives": "NUDITY",
-      "soundsLike": "NEW DITTY",
-      "note": "a ditty is a short song, and one just written is new"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NUDITY",
+     "indicators": [
+      {
+       "text": "for the radio",
+       "note": "on the radio words are only heard, so the sound is what counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "song just written",
+       "gives": "NEWDITTY",
+       "note": "a ditty is a short song, and one just written is new"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fresh song written for broadcast, with a scandalous exposure.",
      "definitionFit": "Indecent exposure is the showing of the naked body, and nudity is that state of nakedness."
@@ -1567,28 +1423,16 @@
    },
    "solution": "DICKY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DICKY",
     "definitions": [
      {
       "text": "Ailing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: British slang for weak or unsound, as in a dodgy heart"
      },
      {
       "text": "like a detective?",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ailing",
-      "note": "first meaning: British slang for weak or unsound, as in a dodgy heart"
-     },
-     {
-      "clueFragment": "like a detective?",
-      "note": "second meaning: a dick is slang for a detective, so this is a jokey adjective from it"
+      "at": 9,
+      "meaning": "second meaning: a dick is slang for a detective, so this is a jokey adjective from it"
      }
     ],
     "explanation": {
@@ -1617,57 +1461,51 @@
    },
    "solution": "DIAGONALLY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DIAGONALLY",
     "definitions": [
      {
       "text": "as slash seen?",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "cut by",
-      "for": "container",
-      "note": "cut by means split open by, so the flirting word is broken apart with letters inside"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "end of takes just the final letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flirt",
-      "gives": "DALLY",
-      "note": "to dally is to toy amorously"
-     },
-     {
-      "clueFragment": "villain",
-      "gives": "IAGO",
-      "note": "Iago, the schemer in Shakespeare's Othello"
-     },
-     {
-      "clueFragment": "weapon",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of weapon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IAGO",
-      "N",
-      "ALLY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cut by",
+       "note": "cut by means split open by, so the flirting word is broken apart with letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flirt",
+       "gives": "DALLY",
+       "note": "to dally is to toy amorously"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "villain",
+         "gives": "IAGO",
+         "note": "Iago, the schemer in Shakespeare's Othello"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "end of takes just the final letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "weapon",
+           "note": "last letter of weapon"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1710,40 +1548,31 @@
    },
    "solution": "GIMLET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GIMLET",
     "definitions": [
      {
       "text": "Boring thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "jacketed",
-      "for": "container",
-      "note": "something jacketed is wrapped in an outer garment"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the abbreviation for male"
-     },
-     {
-      "clueFragment": "jacketed",
-      "gives": "GILET",
-      "note": "a gilet is a sleeveless jacket"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GI",
-      "M",
-      "LET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "jacketed",
+       "note": "something jacketed is wrapped in an outer garment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jacketed",
+       "gives": "GILET",
+       "note": "a gilet is a sleeveless jacket"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M is the abbreviation for male"
+      }
      ]
     },
     "explanation": {
@@ -1773,31 +1602,29 @@
    },
    "solution": "QUAYLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "QUAYLE",
     "definitions": [
      {
       "text": "Veep unfamiliar with King Edward",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the reporter",
-      "for": "homophone",
-      "note": "a reporter speaks the story, so the word is chosen by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "QUAYLE",
-      "soundsLike": "QUAIL",
-      "note": "quail is a game bird"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "QUAYLE",
+     "indicators": [
+      {
+       "text": "for the reporter",
+       "note": "a reporter speaks the story, so the word is chosen by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "gives": "QUAIL",
+       "note": "quail is a game bird"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A US vice president who doesn't know a British monarch, game for a press interview.",
      "walkthrough": "King Edward is a British potato variety; Dan Quayle, US vice president, famously misspelt potato as 'potatoe' in 1992.",

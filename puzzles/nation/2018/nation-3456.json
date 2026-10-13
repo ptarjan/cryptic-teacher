@@ -1,8 +1,6 @@
 {
  "id": "nation-3456",
  "number": 3456,
- "series": "nation",
- "name": "The Nation cryptic crossword No 3456",
  "setter": "Joshua Kosman and Henri Picciotto",
  "date": "2018-03-05",
  "dimensions": {
@@ -41,35 +39,24 @@
    },
    "solution": "INCONSISTENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INCONSISTENT",
     "definitions": [
      {
       "text": "lacking method",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Mad",
-      "for": "anagram",
-      "note": "something mad is crazed and disordered, so the letters next to it are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "non-scientist",
-      "gives": "NONSCIENTIST",
-      "note": "taken letter for letter, ignoring the hyphen"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NONSCIENTIST",
-       "gives": "INCONSISTENT"
+       "text": "Mad",
+       "note": "something mad is crazed and disordered, so the letters next to it are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "non-scientist",
+       "note": "taken letter for letter, ignoring the hyphen"
       }
      ]
     },
@@ -99,48 +86,35 @@
    },
    "solution": "NEPTUNE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NEPTUNE",
     "definitions": [
      {
       "text": "sea power",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down entry rising means reading upwards, so the word is turned around"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Compose",
-      "gives": "PEN",
-      "note": "to pen is to write or compose"
-     },
-     {
-      "clueFragment": "melody",
-      "gives": "TUNE",
-      "note": "a tune is a melody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEP",
-      "TUNE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PEN",
-       "to": "NEP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "note": "in a down entry rising means reading upwards, so the word is turned around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Compose",
+         "gives": "PEN",
+         "note": "to pen is to write or compose"
+        }
+       ]
+      },
+      {
+       "words": "melody",
+       "gives": "TUNE",
+       "note": "a tune is a melody"
       }
      ]
     },
@@ -170,41 +144,36 @@
    },
    "solution": "OPIATE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "OPIATE",
     "definitions": [
      {
       "text": "8",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Clothed in",
-      "for": "hidden_word",
-      "note": "something clothed in fabric is wrapped inside it, so the answer lies within these words"
-     },
-     {
-      "text": "opposite",
-      "for": "reversal",
-      "note": "opposite means facing the other way, so the concealed letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taffeta, I posed",
-      "gives": "ETAIPO",
-      "note": "the run of letters spanning the end of taffeta through I and into posed"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ETAIPO",
-       "to": "OPIATE"
+       "text": "opposite",
+       "note": "opposite means facing the other way, so the concealed letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Clothed in",
+         "note": "something clothed in fabric is wrapped inside it, so the answer lies within these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "taffeta, I posed",
+         "gives": "ETAIPO",
+         "note": "the run of letters spanning the end of taffeta through I and into posed"
+        }
+       ]
       }
      ]
     },
@@ -234,47 +203,39 @@
    },
    "solution": "SWISS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SWISS",
     "definitions": [
      {
       "text": "European",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first means only the opening letter of the preceding word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "southwest",
-      "gives": "SW",
-      "note": "the compass abbreviation"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "slow",
-      "gives": "S",
-      "select": "first",
-      "note": "its opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SW",
-      "IS",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "southwest",
+       "gives": "SW",
+       "note": "the compass abbreviation"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first means only the opening letter of the preceding word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slow",
+         "note": "its opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -309,57 +270,51 @@
    },
    "solution": "SUGARBEET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "SUGAR BEET",
     "definitions": [
      {
       "text": "sweet vegetable",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "a piece of",
-      "for": "letter_selection",
-      "note": "a piece means just one letter, the first, of the following word"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the clothing and the letter inside the fat word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dress",
-      "gives": "GARB",
-      "note": "garb is clothing, dress"
-     },
-     {
-      "clueFragment": "eggplant",
-      "gives": "E",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "animal fat",
-      "gives": "SUET",
-      "note": "suet is hard animal fat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "GARB",
-      "E",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the clothing and the letter inside the fat word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "animal fat",
+       "gives": "SUET",
+       "note": "suet is hard animal fat"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dress",
+         "gives": "GARB",
+         "note": "garb is clothing, dress"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a piece of",
+           "note": "a piece means just one letter, the first, of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eggplant",
+           "note": "its opening letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -388,64 +343,56 @@
    },
    "solution": "ESCAPADE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "ESCAPADE",
     "definitions": [
      {
       "text": "stunt",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "something poor is in bad shape, so the letters of the next word are disordered"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the commercial sits in the gym, inside its letters"
-     },
-     {
-      "text": "supports",
-      "for": "charade",
-      "note": "in a down clue the supporting piece stands underneath, so it comes after the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "case",
-      "gives": "CASE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Commercial",
-      "gives": "AD",
-      "note": "an ad is a commercial"
-     },
-     {
-      "clueFragment": "gym",
-      "gives": "PE",
-      "note": "PE is physical education, school gym class"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESCA",
-      "PADE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "CASE",
-       "gives": "ESCA"
+       "text": "supports",
+       "note": "in a down clue the supporting piece stands underneath, so it comes after the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "note": "something poor is in bad shape, so the letters of the next word are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "case",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the commercial sits in the gym, inside its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gym",
+         "gives": "PE",
+         "note": "PE is physical education, school gym class"
+        },
+        {
+         "words": "Commercial",
+         "gives": "AD",
+         "note": "an ad is a commercial"
+        }
+       ]
       }
      ]
     },
@@ -481,40 +428,31 @@
    },
    "solution": "TOOMUCH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOO MUCH",
     "definitions": [
      {
       "text": "Excessive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the sensitivity word encircles the mantra"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mantra",
-      "gives": "OM",
-      "note": "om is the sacred syllable chanted as a mantra"
-     },
-     {
-      "clueFragment": "sensitivity",
-      "gives": "TOUCH",
-      "note": "touch as a delicate sensitivity, as in a light touch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "OM",
-      "UCH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the sensitivity word encircles the mantra"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sensitivity",
+       "gives": "TOUCH",
+       "note": "touch as a delicate sensitivity, as in a light touch"
+      },
+      {
+       "words": "mantra",
+       "gives": "OM",
+       "note": "om is the sacred syllable chanted as a mantra"
+      }
      ]
     },
     "explanation": {
@@ -543,50 +481,40 @@
    },
    "solution": "NARCOTIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NARCOTIC",
     "definitions": [
      {
       "text": "Sleep-inducing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooking transforms ingredients, so the nut's letters are mixed up"
-     },
-     {
-      "text": "to overcome",
-      "for": "charade",
-      "note": "in a down clue overcoming means sitting on top, so the cooked letters come first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "acorn",
-      "gives": "ACORN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "spasm",
-      "gives": "TIC",
-      "note": "a tic is a twitching spasm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NARCO",
-      "TIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "ACORN",
-       "gives": "NARCO"
+       "text": "to overcome",
+       "note": "in a down clue overcoming means sitting on top, so the cooked letters come first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "note": "cooking transforms ingredients, so the nut's letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "acorn",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "spasm",
+       "gives": "TIC",
+       "note": "a tic is a twitching spasm"
       }
      ]
     },
@@ -616,34 +544,25 @@
    },
    "solution": "KNEE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "KNEE",
     "definitions": [
      {
       "text": "joint",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Finishes off",
-      "for": "letter_selection",
-      "note": "the finishes of the following words are their last letters, which are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "homework in little bookie",
-      "gives": "KNEE",
-      "select": "last",
-      "note": "the final letter of each of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KNEE"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Finishes off",
+       "note": "the finishes of the following words are their last letters, which are kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "homework in little bookie",
+       "note": "the final letter of each of the four words"
+      }
      ]
     },
     "explanation": {
@@ -672,52 +591,46 @@
    },
    "solution": "APPRISING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "APPRISING",
     "definitions": [
      {
       "text": "briefing",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "to follow",
-      "for": "charade",
-      "note": "the getting-up word is told to come after the earlier pieces rather than lead"
-     },
-     {
-      "text": "at start of",
-      "for": "letter_selection",
-      "note": "only the opening letter of the following word is wanted here"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "news service",
-      "gives": "AP",
-      "note": "the Associated Press, a US news agency"
-     },
-     {
-      "clueFragment": "press",
-      "gives": "P",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "Getting up",
-      "gives": "RISING",
-      "note": "getting up from bed or a seat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AP",
-      "P",
-      "RISING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "note": "the getting-up word is told to come after the earlier pieces rather than lead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "news service",
+       "gives": "AP",
+       "note": "the Associated Press, a US news agency"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at start of",
+         "note": "only the opening letter of the following word is wanted here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "press",
+         "note": "its opening letter"
+        }
+       ]
+      },
+      {
+       "words": "Getting up",
+       "gives": "RISING",
+       "note": "getting up from bed or a seat"
+      }
      ]
     },
     "explanation": {
@@ -746,41 +659,40 @@
    },
    "solution": "CLOWN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CLOWN",
     "definitions": [
      {
       "text": "someone with big shoes to fill",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "A pair of",
-      "for": "letter_selection",
-      "note": "a pair means two, so just the first two letters of the next word are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "climatologists",
-      "gives": "CL",
-      "select": "first",
-      "note": "its first two letters"
-     },
-     {
-      "clueFragment": "acknowledge",
-      "gives": "OWN",
-      "note": "to own up to something is to acknowledge it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CL",
-      "OWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CL",
+       "indicators": [
+        {
+         "text": "A pair of",
+         "note": "a pair means two, so just the first two letters of the next word are taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "climatologists",
+         "gives": "CL",
+         "select": "first",
+         "note": "its first two letters"
+        }
+       ]
+      },
+      {
+       "words": "acknowledge",
+       "gives": "OWN",
+       "note": "to own up to something is to acknowledge it"
+      }
      ]
     },
     "explanation": {
@@ -810,31 +722,16 @@
    },
    "solution": "COUNT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COUNT",
     "definitions": [
      {
       "text": "Nobleman",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a European noble ranking like an earl"
      },
      {
       "text": "read characters in front of this clue and above this puzzle, one after the other",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nobleman",
-      "note": "first meaning: a European noble ranking like an earl"
-     },
-     {
-      "clueFragment": "read characters in front of this clue and above this puzzle, one after the other",
-      "note": "second meaning: the clue number 12 and the puzzle number 3456 read in sequence go 1, 2, 3, 4, 5, 6"
+      "at": 12,
+      "meaning": "second meaning: the clue number 12 and the puzzle number 3456 read in sequence go 1, 2, 3, 4, 5, 6"
      }
     ],
     "explanation": {
@@ -863,57 +760,51 @@
    },
    "solution": "SCRIPTURE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "SCRIPTURE",
     "definitions": [
      {
       "text": "books of the Bible",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, the only one kept"
-     },
-     {
-      "text": "captivated by",
-      "for": "container",
-      "note": "something captivated is held captive, so these letters sit inside another word"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gang member",
-      "gives": "CRIP",
-      "note": "the Crips are a Los Angeles street gang"
-     },
-     {
-      "clueFragment": "wit",
-      "gives": "T",
-      "select": "last",
-      "note": "its final letter"
-     },
-     {
-      "clueFragment": "certain",
-      "gives": "SURE",
-      "note": "sure means certain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CRIP",
-      "T",
-      "URE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivated by",
+       "note": "something captivated is held captive, so these letters sit inside another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certain",
+       "gives": "SURE",
+       "note": "sure means certain"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gang member",
+         "gives": "CRIP",
+         "note": "the Crips are a Los Angeles street gang"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end",
+           "note": "the end of a word is its final letter, the only one kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wit",
+           "note": "its final letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -942,31 +833,16 @@
    },
    "solution": "TIER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TIER",
     "definitions": [
      {
       "text": "Class",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a rank or level"
      },
      {
       "text": "one learning macramé",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Class",
-      "note": "first meaning: a rank or level"
-     },
-     {
-      "clueFragment": "one learning macramé",
-      "note": "second meaning, whimsical: macramé is knotted cord, so its student is one who ties"
+      "at": 10,
+      "meaning": "second meaning, whimsical: macramé is knotted cord, so its student is one who ties"
      }
     ],
     "explanation": {
@@ -995,47 +871,41 @@
    },
    "solution": "FRIENDSHIP",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FRIENDSHIP",
     "definitions": [
      {
       "text": "Bond",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having",
-      "for": "container",
-      "note": "to have something is to hold it, so the fanatics word holds another letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "R is the cricket and baseball abbreviation for run"
-     },
-     {
-      "clueFragment": "fanatics",
-      "gives": "FIENDS",
-      "note": "fiends are devotees, as in fitness fiends"
-     },
-     {
-      "clueFragment": "with it",
-      "gives": "HIP",
-      "note": "hip means fashionable, with it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "R",
-      "IENDS",
-      "HIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "having",
+         "note": "to have something is to hold it, so the fanatics word holds another letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fanatics",
+         "gives": "FIENDS",
+         "note": "fiends are devotees, as in fitness fiends"
+        },
+        {
+         "words": "run",
+         "gives": "R",
+         "note": "R is the cricket and baseball abbreviation for run"
+        }
+       ]
+      },
+      {
+       "words": "with it",
+       "gives": "HIP",
+       "note": "hip means fashionable, with it"
+      }
      ]
     },
     "explanation": {
@@ -1064,35 +934,25 @@
    },
    "solution": "REAPPEARS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REAPPEARS",
     "definitions": [
      {
       "text": "Comes back",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "harvest",
-      "gives": "REAP",
-      "note": "to reap is to harvest"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "PEARS",
-      "note": "pears are fruit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAP",
-      "PEARS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "harvest",
+       "gives": "REAP",
+       "note": "to reap is to harvest"
+      },
+      {
+       "words": "fruit",
+       "gives": "PEARS",
+       "note": "pears are fruit"
+      }
      ]
     },
     "explanation": {
@@ -1121,35 +981,24 @@
    },
    "solution": "PERTNESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PERTNESS",
     "definitions": [
      {
       "text": "sass",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Slithering",
-      "for": "anagram",
-      "note": "slithering is twisting and writhing, so these letters wriggle into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "serpents",
-      "gives": "SERPENTS",
-      "note": "taken as written; the possessive is ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SERPENTS",
-       "gives": "PERTNESS"
+       "text": "Slithering",
+       "note": "slithering is twisting and writhing, so these letters wriggle into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "serpents",
+       "note": "taken as written; the possessive is ignored"
       }
      ]
     },
@@ -1184,40 +1033,33 @@
    },
    "solution": "NOTLEAST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NOT LEAST",
     "definitions": [
      {
       "text": "Frequently last",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sad",
-      "for": "anagram",
-      "note": "something in a sad state is in a sorry mess, so the preceding letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "talent",
-      "gives": "TALENT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "so",
-      "gives": "SO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TALENTSO",
-       "gives": "NOTLEAST"
+       "text": "sad",
+       "note": "something in a sad state is in a sorry mess, so the preceding letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "talent",
+         "note": "taken as written"
+        },
+        {
+         "words": "so",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1254,47 +1096,41 @@
    },
    "solution": "CARGOPANTS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CARGO PANTS",
     "definitions": [
      {
       "text": "They have deep pockets",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "to involve is to wrap up within, so the diatribes word encloses the party"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "California",
-      "gives": "CA",
-      "note": "the US postal abbreviation for California"
-     },
-     {
-      "clueFragment": "Republicans",
-      "gives": "GOP",
-      "note": "the Grand Old Party, the US Republican Party"
-     },
-     {
-      "clueFragment": "diatribes",
-      "gives": "RANTS",
-      "note": "a diatribe is an angry rant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "R",
-      "GOP",
-      "ANTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "California",
+       "gives": "CA",
+       "note": "the US postal abbreviation for California"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "note": "to involve is to wrap up within, so the diatribes word encloses the party"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diatribes",
+         "gives": "RANTS",
+         "note": "a diatribe is an angry rant"
+        },
+        {
+         "words": "Republicans",
+         "gives": "GOP",
+         "note": "the Grand Old Party, the US Republican Party"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1324,66 +1160,60 @@
    },
    "solution": "REVIEWS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "REVIEWS",
     "definitions": [
      {
       "text": "pans sometimes",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally points to the very start of the preceding word, its first letter"
-     },
-     {
-      "text": "On reflection",
-      "for": "reversal",
-      "note": "a reflection shows things back to front, so the letters are read in the opposite direction"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the reflected letters inside the word for guns"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "we",
-      "gives": "WE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "invested",
-      "gives": "I",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "guns",
-      "gives": "REVS",
-      "note": "to gun an engine is to rev it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REV",
-      "IEW",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "WEI",
-       "to": "IEW"
+       "text": "in",
+       "note": "in places the reflected letters inside the word for guns"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "guns",
+         "gives": "REVS",
+         "note": "to gun an engine is to rev it"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "note": "originally points to the very start of the preceding word, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "invested",
+           "note": "its opening letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "On reflection",
+         "note": "a reflection shows things back to front, so the letters are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "we",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1413,28 +1243,16 @@
    },
    "solution": "STIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STIR",
     "definitions": [
      {
       "text": "Agitate",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to ... up or ... a liquid"
      },
      {
       "text": "in prison",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agitate",
-      "note": "first meaning: to ... up or ... a liquid"
-     },
-     {
-      "clueFragment": "in prison",
-      "note": "second meaning: slang 'in ...' means behind bars"
+      "at": 8,
+      "meaning": "second meaning: slang 'in ...' means behind bars"
      }
     ],
     "explanation": {
@@ -1462,45 +1280,35 @@
    },
    "solution": "TOBACCO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TOBACCO",
     "definitions": [
      {
       "text": "killer crop",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down entry raising means reading upwards, so the explorer's name runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Early explorer of America",
-      "gives": "CABOT",
-      "note": "John Cabot reached North America in 1497"
-     },
-     {
-      "clueFragment": "company's",
-      "gives": "CO",
-      "note": "CO is the abbreviation for company; the 's joins"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOBAC",
-      "CO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CABOT",
-       "to": "TOBAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down entry raising means reading upwards, so the explorer's name runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Early explorer of America",
+         "gives": "CABOT",
+         "note": "John Cabot reached North America in 1497"
+        }
+       ]
+      },
+      {
+       "words": "company's",
+       "gives": "CO",
+       "note": "CO is the abbreviation for company; the 's joins"
       }
      ]
     },
@@ -1530,45 +1338,35 @@
    },
    "solution": "AUGUST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AUGUST",
     "definitions": [
      {
       "text": "Late summer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means coming later in sequence, so the breeze word follows the other pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "reversal of direction",
-      "gives": "U",
-      "note": "a U-turn reverses one's direction"
-     },
-     {
-      "clueFragment": "breeze",
-      "gives": "GUST",
-      "note": "a gust is a sudden breeze"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "U",
-      "GUST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after means coming later in sequence, so the breeze word follows the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "reversal of direction",
+       "gives": "U",
+       "note": "a U-turn reverses one's direction"
+      },
+      {
+       "words": "breeze",
+       "gives": "GUST",
+       "note": "a gust is a sudden breeze"
+      }
      ]
     },
     "explanation": {
@@ -1597,63 +1395,51 @@
    },
    "solution": "ENVELOPES",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "container"
-    ],
-    "answer": "ENVELOPES",
     "definitions": [
      {
       "text": "wrappers",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "heads west",
-      "for": "reversal",
-      "note": "across clues read left to right, so heading west means reading the word right to left"
-     },
-     {
-      "text": "tangled",
-      "for": "anagram",
-      "note": "a tangled number word has its letters jumbled"
-     },
-     {
-      "text": "amid",
-      "for": "container",
-      "note": "amid means in the middle of, so one piece is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Warsaw native",
-      "gives": "POLE",
-      "note": "Warsaw is in Poland, so a native is a Pole"
-     },
-     {
-      "clueFragment": "seven",
-      "gives": "SEVEN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENV",
-      "ELOP",
-      "ES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "SEVEN",
-       "gives": "ENVES"
+       "text": "heads west",
+       "note": "across clues read left to right, so heading west means reading the word right to left"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "POLE",
-       "to": "ELOP"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amid",
+         "note": "amid means in the middle of, so one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "tangled",
+           "note": "a tangled number word has its letters jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "seven",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "Warsaw native",
+         "gives": "POLE",
+         "note": "Warsaw is in Poland, so a native is a Pole"
+        }
+       ]
       }
      ]
     },
@@ -1683,37 +1469,25 @@
    },
    "solution": "EGGS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EGGS",
     "definitions": [
      {
       "text": "roe",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly means taking the letters in the odd positions, first, third and so on"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Engages",
-      "gives": "EGGS",
-      "select": "alternate",
-      "note": "its first, third, fifth and seventh letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EGGS"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly",
+       "note": "oddly means taking the letters in the odd positions, first, third and so on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Engages",
+       "note": "its first, third, fifth and seventh letters"
+      }
      ]
     },
     "explanation": {
@@ -1741,37 +1515,28 @@
    },
    "solution": "SANAA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "SANAA",
     "definitions": [
      {
       "text": "Leaders of Saudi Arabia's neighbor are around _____!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders of",
-      "for": "letter_selection",
-      "note": "the leaders of a group of words are their opening letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saudi Arabia's neighbor are around",
-      "gives": "SANAA",
-      "select": "first",
-      "note": "the first letter of each of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SANAA"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Leaders of",
+       "note": "the leaders of a group of words are their opening letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Saudi Arabia's neighbor are around",
+       "note": "the first letter of each of the five words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A fill-in-the-blank: where would you find the government of the country next to Saudi Arabia?",
      "walkthrough": "The whole clue is both wordplay and definition: the leaders of Yemen, which borders Saudi Arabia, sit in its capital.",
@@ -1798,41 +1563,31 @@
    },
    "solution": "URBAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "URBAN",
     "definitions": [
      {
       "text": "Metropolitan",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "timeless",
-      "for": "deletion",
-      "note": "read as time-less, it asks for the headdress word without its time letter"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "headdress",
-      "gives": "TURBAN",
-      "note": "a turban is a wound cloth headdress"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URBAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "timeless",
+       "note": "read as time-less, it asks for the headdress word without its time letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "headdress",
+       "gives": "TURBAN",
+       "note": "a turban is a wound cloth headdress"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the standard abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1861,39 +1616,25 @@
    },
    "solution": "GRETA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GRETA",
     "definitions": [
      {
       "text": "woman",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Flip conclusion of",
-      "for": "anagram",
-      "note": "flipping the ending swaps the final two letters of the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terrific",
-      "gives": "GREAT",
-      "note": "great means terrific"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRE",
-      "TA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AT",
-       "gives": "TA"
+       "text": "Flip conclusion of",
+       "note": "flipping the ending swaps the final two letters of the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terrific",
+       "gives": "GREAT",
+       "note": "great means terrific"
       }
      ]
     },
@@ -1923,41 +1664,31 @@
    },
    "solution": "ANNOUNCES",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANNOUNCES",
     "definitions": [
      {
       "text": "Proclaims",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the inside",
-      "for": "container",
-      "note": "something on the inside sits within, so the weight unit goes into the name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a lightweight",
-      "gives": "OUNCE",
-      "note": "an ounce is a small unit of weight"
-     },
-     {
-      "clueFragment": "Coulter's",
-      "gives": "ANNS",
-      "note": "Ann Coulter is a US conservative pundit; her name plus the S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANN",
-      "OUNCE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on the inside",
+       "note": "something on the inside sits within, so the weight unit goes into the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Coulter's",
+       "gives": "ANNS",
+       "note": "Ann Coulter is a US conservative pundit; her name plus the S"
+      },
+      {
+       "words": "a lightweight",
+       "gives": "OUNCE",
+       "note": "an ounce is a small unit of weight"
+      }
      ]
     },
     "explanation": {
@@ -1987,38 +1718,29 @@
    },
    "solution": "SATISFACTION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATISFACTION",
     "definitions": [
      {
       "text": "fulfillment",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A challenge for juniors",
-      "gives": "SAT",
-      "note": "US high-school juniors sit the SAT college entrance exam"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "clique's",
-      "gives": "FACTION",
-      "note": "a faction is a clique within a group; the 's is a joining possessive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "IS",
-      "FACTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A challenge for juniors",
+       "gives": "SAT",
+       "note": "US high-school juniors sit the SAT college entrance exam"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "clique's",
+       "gives": "FACTION",
+       "note": "a faction is a clique within a group; the 's is a joining possessive"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "quiptic-39",
  "number": 39,
- "series": "quiptic",
- "name": "Quiptic crossword No 39",
  "setter": "Moley",
  "date": "2000-08-14",
  "dimensions": {
@@ -56,38 +54,24 @@
    },
    "solution": "ASAMATTEROFFACT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AS A MATTER OF FACT",
     "definitions": [
      {
       "text": "In reality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "a suspect account cannot be trusted as it stands, so the letters must be put in a different order"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "same tact for a fat",
-      "gives": "SAMETACTFORAFAT",
-      "note": "the fodder, all fifteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAMETACTFORAFAT",
-       "gives": "ASAMATTEROFFACT"
+       "text": "suspect",
+       "note": "a suspect account cannot be trusted as it stands, so the letters must be put in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "same tact for a fat",
+       "note": "the fodder, all fifteen letters"
       }
      ]
     },
@@ -122,37 +106,39 @@
    },
    "solution": "ATLANTICCHARTER",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "ATLANTIC CHARTER",
     "definitions": [
      {
       "text": "International agreement?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stated",
-      "for": "homophone",
-      "note": "something stated is spoken, so the preceding word counts for its sound rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "ATLANTIC",
-      "soundsLike": "SEA",
-      "note": "said aloud, see is sea, and the Atlantic is an example of a sea"
-     },
-     {
-      "clueFragment": "contract",
-      "gives": "CHARTER",
-      "note": "a charter is a contract for hiring a ship or plane"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "ATLANTIC",
+       "indicators": [
+        {
+         "text": "stated",
+         "note": "something stated is spoken, so the preceding word counts for its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "See",
+         "gives": "SEA",
+         "note": "said aloud, see is sea, and the Atlantic is an example of a sea"
+        }
+       ]
+      },
+      {
+       "words": "contract",
+       "gives": "CHARTER",
+       "note": "a charter is a contract for hiring a ship or plane"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dictionary-style gloss: an international agreement, look up 'stated contract'.",
      "walkthrough": "'See' looks like a cross-reference instruction; it is the sound of 'sea', which then needs a specific ocean. The question mark flags the definition by example.",
@@ -180,53 +166,50 @@
    },
    "solution": "ANGST",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "ANGST",
     "definitions": [
      {
       "text": "Trepidation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "framing",
-      "for": "container",
-      "note": "a frame goes around a picture, so the first word surrounds what follows it"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word just before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "no-go",
-      "gives": "NG",
-      "note": "NG is a common abbreviation for no good, read here as no-go"
-     },
-     {
-      "clueFragment": "situation",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of situation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NG",
-      "S",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "framing",
+       "note": "a frame goes around a picture, so the first word surrounds what follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "at",
+         "note": "taken as written"
+        },
+        {
+         "words": "no-go",
+         "gives": "NG",
+         "note": "NG is a common abbreviation for no good, read here as no-go"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of the word just before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "situation",
+         "note": "first letter of situation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -254,32 +237,25 @@
    },
    "solution": "ABSOLVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABSOLVE",
     "definitions": [
      {
       "text": "Forgive",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "mariner",
-      "gives": "AB",
-      "note": "AB, able-bodied seaman, is a sailor"
-     },
-     {
-      "clueFragment": "doing what Quiptic fans do",
-      "gives": "SOLVE",
-      "note": "fans of a crossword series spend their time working the clues out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "SOLVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mariner",
+       "gives": "AB",
+       "note": "AB, able-bodied seaman, is a sailor"
+      },
+      {
+       "words": "doing what Quiptic fans do",
+       "gives": "SOLVE",
+       "note": "fans of a crossword series spend their time working the clues out"
+      }
      ]
     },
     "explanation": {
@@ -309,35 +285,25 @@
    },
    "solution": "TAINTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAINTED",
     "definitions": [
      {
       "text": "Corrupt",
       "at": 0
      }
     ],
-    "linkWords": [
-     "connected with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cockney isn''t",
-      "gives": "TAINT",
-      "note": "'tain't is the dropped-letter Cockney way of saying it isn't"
-     },
-     {
-      "clueFragment": "Edward",
-      "gives": "ED",
-      "note": "Ed is the short form of the name Edward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAINT",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cockney isn''t",
+       "gives": "TAINT",
+       "note": "'tain't is the dropped-letter Cockney way of saying it isn't"
+      },
+      {
+       "words": "Edward",
+       "gives": "ED",
+       "note": "Ed is the short form of the name Edward"
+      }
      ]
     },
     "explanation": {
@@ -366,26 +332,25 @@
    },
    "solution": "ROSEBUD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROSEBUD",
     "definitions": [
      {
       "text": "One to gather whilst ye may!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One to gather whilst ye may!",
-      "note": "surface reading: a playful exhortation to seize the day"
-     },
-     {
-      "clueFragment": "gather whilst ye may",
-      "note": "setter's reading: completes Herrick's line about young flowers to be picked while you still can"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One to gather whilst ye may!",
+       "note": "surface reading: a playful exhortation to seize the day"
+      },
+      {
+       "words": "gather whilst ye may",
+       "note": "setter's reading: completes Herrick's line about young flowers to be picked while you still can"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Robert Herrick's poem opens 'Gather ye rosebuds while ye may'; the clue quotes it and leaves the missing noun for the solver.",
      "definitionFit": "Herrick's famous verse urges young people to pick these unopened flowers before time passes, so one is the thing to gather."
@@ -410,43 +375,31 @@
    },
    "solution": "FOSSILS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FOSSILS",
     "definitions": [
      {
       "text": "things totally outdated",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "round says the first item encircles the next one"
-     }
-    ],
-    "linkWords": [
-     "are now"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Metal strips",
-      "gives": "FOILS",
-      "note": "foils are thin sheets of metal"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS is short for steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "SS",
-      "ILS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "round says the first item encircles the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Metal strips",
+       "gives": "FOILS",
+       "note": "foils are thin sheets of metal"
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS is short for steamship"
+      }
      ]
     },
     "explanation": {
@@ -480,38 +433,29 @@
    },
    "solution": "ABOUTTURN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABOUT TURN",
     "definitions": [
      {
       "text": "Reverse",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fight",
-      "gives": "BOUT",
-      "note": "a bout is a boxing or wrestling contest"
-     },
-     {
-      "clueFragment": "advantage",
-      "gives": "TURN",
-      "note": "a turn is a benefit, as in serving one's turn or doing a good turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BOUT",
-      "TURN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "fight",
+       "gives": "BOUT",
+       "note": "a bout is a boxing or wrestling contest"
+      },
+      {
+       "words": "advantage",
+       "gives": "TURN",
+       "note": "a turn is a benefit, as in serving one's turn or doing a good turn"
+      }
      ]
     },
     "explanation": {
@@ -545,35 +489,24 @@
    },
    "solution": "TICKLISHPROBLEM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TICKLISH PROBLEM",
     "definitions": [
      {
       "text": "tricky dilemma",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "different",
-      "for": "anagram",
-      "note": "different asks for the preceding words to be made into something other than they are, by rearranging"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother picks Bill",
-      "gives": "MOTHERPICKSBILL",
-      "note": "the fodder, fifteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MOTHERPICKSBILL",
-       "gives": "TICKLISHPROBLEM"
+       "text": "different",
+       "note": "different asks for the preceding words to be made into something other than they are, by rearranging"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mother picks Bill",
+       "note": "the fodder, fifteen letters"
       }
      ]
     },
@@ -602,62 +535,50 @@
    },
    "solution": "LOGISTICS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LOGISTICS",
     "definitions": [
      {
       "text": "Organisation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "round shows the first item wrapping around everything named after it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wood",
-      "gives": "LOGS",
-      "note": "logs are cut wood"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "ST",
-      "note": "St is short for street, a way"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "C",
-      "note": "C is a musical note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOG",
-      "I",
-      "ST",
-      "I",
-      "C",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "round shows the first item wrapping around everything named after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wood",
+       "gives": "LOGS",
+       "note": "logs are cut wood"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        },
+        {
+         "words": "way",
+         "gives": "ST",
+         "note": "St is short for street, a way"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "note",
+         "gives": "C",
+         "note": "C is a musical note"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -685,10 +606,6 @@
    },
    "solution": "STOIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STOIC",
     "definitions": [
      {
       "text": "One is long-suffering",
@@ -696,30 +613,24 @@
       "note": "a description: the answer is one who is long-suffering"
      }
     ],
-    "indicators": [
-     {
-      "text": "go in",
-      "for": "container",
-      "note": "go in tells the preceding word to enter the one that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thus",
-      "gives": "SIC",
-      "note": "sic is Latin for thus, used in quotations"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TO",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "go in",
+       "note": "go in tells the preceding word to enter the one that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thus",
+       "gives": "SIC",
+       "note": "sic is Latin for thus, used in quotations"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -747,35 +658,25 @@
    },
    "solution": "NOTELET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOTELET",
     "definitions": [
      {
       "text": "brief letter",
       "at": 28
      }
     ],
-    "linkWords": [
-     "given in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "notice",
-      "gives": "NOTE",
-      "note": "to note is to notice"
-     },
-     {
-      "clueFragment": "Allow",
-      "gives": "LET",
-      "note": "let means allow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOTE",
-      "LET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notice",
+       "gives": "NOTE",
+       "note": "to note is to notice"
+      },
+      {
+       "words": "Allow",
+       "gives": "LET",
+       "note": "let means allow"
+      }
      ]
     },
     "explanation": {
@@ -804,26 +705,25 @@
    },
    "solution": "BRISTOL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BRISTOL",
     "definitions": [
      {
       "text": "A shipshape city?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A shipshape city?",
-      "note": "surface reading: a tidy, well-ordered town"
-     },
-     {
-      "clueFragment": "shipshape",
-      "note": "setter's reading: the city in the sailors' saying 'shipshape and ... fashion'"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A shipshape city?",
+       "note": "surface reading: a tidy, well-ordered town"
+      },
+      {
+       "words": "shipshape",
+       "note": "setter's reading: the city in the sailors' saying 'shipshape and ... fashion'"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The British idiom 'shipshape and Bristol fashion' means neat and in good order; it came from the busy port in south-west England.",
      "definitionFit": "The city is the west-country port named in the old nautical phrase for everything being tidy and seaworthy."
@@ -850,30 +750,28 @@
    },
    "solution": "EMU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EMU",
     "definitions": [
      {
       "text": "a bird",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "featuring",
-      "for": "hidden_word",
-      "note": "featuring says the words contain the result within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Theorem unexplored",
-      "gives": "EMU",
-      "note": "spans the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "featuring",
+       "note": "featuring says the words contain the result within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Theorem unexplored",
+       "gives": "EMU",
+       "note": "spans the end of the first word and start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An untested proof that somehow has a bird in it.",
      "definitionFit": "The emu is a large flightless Australian bird."
@@ -900,12 +798,6 @@
    },
    "solution": "INSTEAD",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "INSTEAD",
     "definitions": [
      {
       "text": "Substitute",
@@ -913,46 +805,43 @@
       "note": "the answer is an adverb, 'as a substitute'"
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back, so the word is read backwards"
-     },
-     {
-      "text": "circumstances",
-      "for": "container",
-      "note": "circumstances are what surround something, so the word before it is put inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sad",
-      "gives": "SAD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "ET is the film's extraterrestrial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "S",
-      "TE",
-      "AD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ET",
-       "to": "TE"
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circumstances",
+         "note": "circumstances are what surround something, so the word before it is put inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sad",
+         "note": "taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "note": "returning means going back, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "alien",
+           "gives": "ET",
+           "note": "ET is the film's extraterrestrial"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -981,35 +870,25 @@
    },
    "solution": "STAGEHAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAGEHAND",
     "definitions": [
      {
       "text": "assistant in theatre",
       "at": 19
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Organise",
-      "gives": "STAGE",
-      "note": "to stage an event is to organise it"
-     },
-     {
-      "clueFragment": "worker",
-      "gives": "HAND",
-      "note": "a hand is a manual worker, as in farmhand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAGE",
-      "HAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Organise",
+       "gives": "STAGE",
+       "note": "to stage an event is to organise it"
+      },
+      {
+       "words": "worker",
+       "gives": "HAND",
+       "note": "a hand is a manual worker, as in farmhand"
+      }
      ]
     },
     "explanation": {
@@ -1037,31 +916,16 @@
    },
    "solution": "AIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AIR",
     "definitions": [
      {
       "text": "Appearance",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a manner or look"
      },
      {
       "text": "space",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Appearance",
-      "note": "first meaning: a manner or look"
-     },
-     {
-      "clueFragment": "space",
-      "note": "second meaning: the open sky above"
+      "at": 14,
+      "meaning": "second meaning: the open sky above"
      }
     ],
     "explanation": {
@@ -1089,32 +953,25 @@
    },
    "solution": "DISCUSS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCUSS",
     "definitions": [
      {
       "text": "Talk about",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "projectile",
-      "gives": "DISCUS",
-      "note": "the discus is the heavy disc thrown in athletics"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "S",
-      "note": "S, south, is a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISCUS",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "projectile",
+       "gives": "DISCUS",
+       "note": "the discus is the heavy disc thrown in athletics"
+      },
+      {
+       "words": "point",
+       "gives": "S",
+       "note": "S, south, is a compass point"
+      }
      ]
     },
     "explanation": {
@@ -1143,37 +1000,38 @@
    },
    "solution": "ILL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ILL",
     "definitions": [
      {
       "text": "unwell",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "for": "hidden_word",
-      "note": "partly says only a section of the words is wanted"
-     }
-    ],
-    "linkWords": [
-     "to being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Too much",
-      "note": "surface padding to set up the overindulgence picture"
-     },
-     {
-      "clueFragment": "Bovril led",
-      "gives": "ILL",
-      "note": "spans the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Too much",
+       "note": "surface padding to set up the overindulgence picture"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "partly",
+         "note": "partly says only a section of the words is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bovril led",
+         "gives": "ILL",
+         "note": "spans the end of the first word and start of the second"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Overindulging in a meat-extract drink made someone sick.",
      "walkthrough": "Bovril is a salty British beef-extract paste, spread on toast or made into a hot drink.",
@@ -1200,31 +1058,16 @@
    },
    "solution": "CHAMBRE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHAMBRE",
     "definitions": [
      {
       "text": "Room in France",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the French word for a bedroom"
      },
      {
       "text": "wine at the right temperature",
-      "at": 19
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Room in France",
-      "note": "first meaning: the French word for a bedroom"
-     },
-     {
-      "clueFragment": "wine at the right temperature",
-      "note": "second meaning: a red brought up to room warmth before serving"
+      "at": 19,
+      "meaning": "second meaning: a red brought up to room warmth before serving"
      }
     ],
     "explanation": {
@@ -1251,43 +1094,31 @@
    },
    "solution": "BRAVADO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BRAVADO",
     "definitions": [
      {
       "text": "show",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Take in",
-      "for": "container",
-      "note": "to take in is to absorb, so the first word holds the next"
-     }
-    ],
-    "linkWords": [
-     "for the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Well done!",
-      "gives": "BRAVO",
-      "note": "bravo is a cry of praise"
-     },
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an ad is an advertisement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAV",
-      "AD",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Take in",
+       "note": "to take in is to absorb, so the first word holds the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Well done!",
+       "gives": "BRAVO",
+       "note": "bravo is a cry of praise"
+      },
+      {
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an ad is an advertisement"
+      }
      ]
     },
     "explanation": {
@@ -1317,34 +1148,29 @@
    },
    "solution": "EVEREST",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EVEREST",
     "definitions": [
      {
       "text": "the mountain",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear says the words count for how they sound when spoken"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Always at ease",
-      "gives": "EVEREST",
-      "soundsLike": "EVER REST",
-      "note": "always is ever and at ease is at rest; run together the two words sound like one name"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EVEREST",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "we hear says the words count for how they sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Always at ease",
+       "gives": "EVERREST",
+       "note": "always is ever and at ease is at rest; run together the two words sound like one name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone forever relaxed while up on a peak.",
      "definitionFit": "Everest, on the Nepal–Tibet border, is the world's highest peak, the mountain par excellence."
@@ -1369,38 +1195,30 @@
    },
    "solution": "CLEANUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLEANUP",
     "definitions": [
      {
       "text": "reform",
       "at": 42
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for one hundred"
-     },
-     {
-      "clueFragment": "favour",
-      "gives": "LEAN",
-      "note": "to lean towards something is to favour it"
-     },
-     {
-      "clueFragment": "going to higher level",
-      "gives": "UP",
-      "note": "up is to a higher level"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LEAN",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A hundred",
+       "gives": "C",
+       "note": "C is the Roman numeral for one hundred"
+      },
+      {
+       "words": "favour",
+       "gives": "LEAN",
+       "note": "to lean towards something is to favour it"
+      },
+      {
+       "words": "going to higher level",
+       "gives": "UP",
+       "note": "up is to a higher level"
+      }
      ]
     },
     "explanation": {
@@ -1428,35 +1246,28 @@
    },
    "solution": "CATFISH",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade"
-    ],
-    "answer": "CATFISH",
     "definitions": [
      {
       "text": "Feline swimmer?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Feline",
-      "gives": "CAT",
-      "note": "a cat is a feline"
-     },
-     {
-      "clueFragment": "swimmer",
-      "gives": "FISH",
-      "note": "a fish is a creature that swims"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAT",
-      "FISH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Feline",
+       "gives": "CAT",
+       "note": "a cat is a feline"
+      },
+      {
+       "words": "swimmer",
+       "gives": "FISH",
+       "note": "a fish is a creature that swims"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "walkthrough": "The whole clue is also the definition: no cat swims, but the question mark admits a water creature named after one.",
      "definitionFit": "The catfish is a whiskered freshwater creature whose barbels look like a cat's whiskers."
@@ -1483,48 +1294,35 @@
    },
    "solution": "EMBLEMS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EMBLEMS",
     "definitions": [
      {
       "text": "Symbols",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of",
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "oriental",
-      "gives": "E",
-      "note": "E for East"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MB",
-      "note": "MB, Bachelor of Medicine, is a doctor's degree"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "title",
-      "gives": "MS",
-      "note": "Ms is a form of address for a woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MB",
-      "LE",
-      "MS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "oriental",
+       "gives": "E",
+       "note": "E for East"
+      },
+      {
+       "words": "doctor",
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is a doctor's degree"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "title",
+       "gives": "MS",
+       "note": "Ms is a form of address for a woman"
+      }
      ]
     },
     "explanation": {
@@ -1552,32 +1350,17 @@
    },
    "solution": "VIA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VIA",
     "definitions": [
      {
       "text": "Go through",
       "at": 0,
-      "note": "the answer is a preposition, 'going through' or 'by way of'"
+      "note": "the answer is a preposition, 'going through' or 'by way of'",
+      "meaning": "first meaning: by way of, passing through somewhere"
      },
      {
       "text": "the Italian way",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go through",
-      "note": "first meaning: by way of, passing through somewhere"
-     },
-     {
-      "clueFragment": "the Italian way",
-      "note": "second meaning: the Italian (and Latin) word for a road"
+      "at": 14,
+      "meaning": "second meaning: the Italian (and Latin) word for a road"
      }
     ],
     "explanation": {
@@ -1605,35 +1388,25 @@
    },
    "solution": "AVERAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AVERAGE",
     "definitions": [
      {
       "text": "usual",
       "at": 25
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "State",
-      "gives": "AVER",
-      "note": "to aver is to state firmly"
-     },
-     {
-      "clueFragment": "number of years",
-      "gives": "AGE",
-      "note": "your age is how many years you have lived"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVER",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "State",
+       "gives": "AVER",
+       "note": "to aver is to state firmly"
+      },
+      {
+       "words": "number of years",
+       "gives": "AGE",
+       "note": "your age is how many years you have lived"
+      }
      ]
     },
     "explanation": {
@@ -1661,50 +1434,41 @@
    },
    "solution": "TOBACCO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TOBACCO",
     "definitions": [
      {
       "text": "cigarettes, for example",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container",
-      "note": "including says the first word holds the others inside it"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Also",
-      "gives": "TOO",
-      "note": "too means also"
-     },
-     {
-      "clueFragment": "graduate",
-      "gives": "BA",
-      "note": "a BA is a Bachelor of Arts"
-     },
-     {
-      "clueFragment": "200",
-      "gives": "CC",
-      "note": "C is the Roman numeral for 100, twice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "BA",
-      "CC",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "note": "including says the first word holds the others inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Also",
+       "gives": "TOO",
+       "note": "too means also"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "graduate",
+         "gives": "BA",
+         "note": "a BA is a Bachelor of Arts"
+        },
+        {
+         "words": "200",
+         "gives": "CC",
+         "note": "C is the Roman numeral for 100, twice"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1732,32 +1496,25 @@
    },
    "solution": "CAMEO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAMEO",
     "definitions": [
      {
       "text": "The piece of jewellery",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "arrived",
-      "gives": "CAME",
-      "note": "came is arrived"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, which looks like O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAME",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "arrived",
+       "gives": "CAME",
+       "note": "came is arrived"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like O"
+      }
      ]
     },
     "explanation": {
@@ -1786,56 +1543,45 @@
    },
    "solution": "TIARA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TIARA",
     "definitions": [
      {
       "text": "headgear",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "First",
-      "for": "letter_selection",
-      "note": "first points to the opening letter of the word after it"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of take"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a is the indefinite article"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA, Royal Academician, is an artist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "I",
-      "A",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First",
+         "note": "first points to the opening letter of the word after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "take",
+         "note": "first letter of take"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "RA, Royal Academician, is an artist"
+      }
      ]
     },
     "explanation": {
@@ -1863,35 +1609,24 @@
    },
    "solution": "EPIDERMAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EPIDERMAL",
     "definitions": [
      {
       "text": "concerning skin",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "False",
-      "for": "anagram",
-      "note": "false means not genuine, so the following letters are not in their true order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male pride",
-      "gives": "MALEPRIDE",
-      "note": "the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MALEPRIDE",
-       "gives": "EPIDERMAL"
+       "text": "False",
+       "note": "false means not genuine, so the following letters are not in their true order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "male pride",
+       "note": "the fodder"
       }
      ]
     },
@@ -1934,54 +1669,43 @@
    },
    "solution": "RIDEOUTTHESTORM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "RIDE OUT THE STORM",
     "definitions": [
      {
       "text": "manage to survive",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "anagram",
-      "note": "turning something round changes its order, so these letters get reorganised"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I detour",
-      "gives": "IDETOUR",
-      "note": "the fodder"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "commotion",
-      "gives": "STORM",
-      "note": "a storm is an uproar or commotion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIDEOUT",
-      "THE",
-      "STORM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "IDETOUR",
-       "gives": "RIDEOUT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "turning something round changes its order, so these letters get reorganised"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I detour",
+           "note": "the fodder"
+          },
+          {
+           "words": "the",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "commotion",
+       "gives": "STORM",
+       "note": "a storm is an uproar or commotion"
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "quiptic-482",
  "number": 482,
- "series": "quiptic",
- "name": "Quiptic crossword No 482",
  "setter": "Quantum",
  "date": "2009-02-09",
  "dimensions": {
@@ -38,11 +36,6 @@
    },
    "solution": "SURCHARGED",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "SURCHARGED",
     "definitions": [
      {
       "text": "had to make an extra payment",
@@ -50,29 +43,33 @@
       "note": "the answer is a past participle: was charged extra"
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is speech, so the words are judged by their sound rather than their spelling"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Teacher's",
-      "gives": "SUR",
-      "soundsLike": "SIR",
-      "note": "schoolchildren call a male teacher sir"
-     },
-     {
-      "clueFragment": "rushed",
-      "gives": "CHARGED",
-      "note": "to charge is to rush forward at something"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SUR",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "what we hear is speech, so the words are judged by their sound rather than their spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Teacher's",
+         "gives": "SIR",
+         "note": "schoolchildren call a male teacher sir"
+        }
+       ]
+      },
+      {
+       "words": "rushed",
+       "gives": "CHARGED",
+       "note": "to charge is to rush forward at something"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pupil reports that the teacher ran in a hurry and was then landed with an extra bill.",
      "walkthrough": "Said out loud, 'sir charged' is the answer; the 's of Teacher's stands for 'is', which the surface hides.",
@@ -106,48 +103,37 @@
    },
    "solution": "WHITETIE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "WHITE TIE",
     "definitions": [
      {
       "text": "evening dress",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "organised",
-      "for": "anagram",
-      "note": "something organised has been put into a fresh order, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The WI",
-      "gives": "WHITE",
-      "note": "letters of these two words rearranged"
-     },
-     {
-      "clueFragment": "draw",
-      "gives": "TIE",
-      "note": "a drawn match is a tie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHITE",
-      "TIE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WHITETIE",
+     "indicators": [
       {
-       "fodder": "THEWI",
-       "gives": "WHITE"
+       "text": "organised",
+       "note": "something organised has been put into a fresh order, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The WI",
+         "gives": "WHITE",
+         "note": "letters of these two words rearranged"
+        },
+        {
+         "words": "draw",
+         "gives": "TIE",
+         "note": "a drawn match is a tie"
+        }
+       ]
       }
      ]
     },
@@ -177,40 +163,39 @@
    },
    "solution": "TRIPOD",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TRIPOD",
     "definitions": [
      {
       "text": "camera stand",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "most",
-      "for": "deletion",
-      "note": "most of a word is all but its final letter, so the word is cut short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fall over",
-      "gives": "TRIP",
-      "note": "to trip is to stumble and fall"
-     },
-     {
-      "clueFragment": "unusual",
-      "gives": "ODD",
-      "note": "odd means strange or unusual"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRIP",
-      "OD"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "most",
+       "note": "most of a word is all but its final letter, so the word is cut short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fall over",
+         "gives": "TRIP",
+         "note": "to trip is to stumble and fall"
+        },
+        {
+         "words": "unusual",
+         "gives": "ODD",
+         "note": "odd means strange or unusual"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -239,31 +224,16 @@
    },
    "solution": "STOW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STOW",
     "definitions": [
      {
       "text": "Stuff",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to cram or pack tightly"
      },
      {
       "text": "put away",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stuff",
-      "note": "first meaning: to cram or pack tightly"
-     },
-     {
-      "clueFragment": "put away",
-      "note": "second meaning: to store something out of sight"
+      "at": 9,
+      "meaning": "second meaning: to store something out of sight"
      }
     ],
     "explanation": {
@@ -291,39 +261,24 @@
    },
    "solution": "NEWSREADER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEWSREADER",
     "definitions": [
      {
       "text": "TV personality",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "fitting",
-      "for": "anagram",
-      "note": "fitting things together is assembling them, so these letters are put together in a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "as",
-     "for a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reward seen",
-      "gives": "REWARDSEEN",
-      "note": "the letters of both words are rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REWARDSEEN",
-       "gives": "NEWSREADER"
+       "text": "fitting",
+       "note": "fitting things together is assembling them, so these letters are put together in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reward seen",
+       "note": "the letters of both words are rearranged"
       }
      ]
     },
@@ -353,38 +308,24 @@
    },
    "solution": "FLOTILLA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FLOTILLA",
     "definitions": [
      {
       "text": "small group of vessels",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "turned around means moved about, so these letters are set in a different order"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'll float",
-      "gives": "ILLFLOAT",
-      "note": "the letters, apostrophe ignored, are rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ILLFLOAT",
-       "gives": "FLOTILLA"
+       "text": "around",
+       "note": "turned around means moved about, so these letters are set in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'll float",
+       "note": "the letters, apostrophe ignored, are rearranged"
       }
      ]
     },
@@ -413,33 +354,28 @@
    },
    "solution": "URCHIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "URCHIN",
     "definitions": [
      {
       "text": "Mischievous child",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "edges away",
-      "for": "deletion",
-      "note": "with its edges taken away a word loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moving unsteadily",
-      "gives": "LURCHING",
-      "note": "to lurch is to stagger or sway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URCHIN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "URCHIN",
+     "indicators": [
+      {
+       "text": "edges away",
+       "note": "with its edges taken away a word loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moving unsteadily",
+       "gives": "LURCHING",
+       "note": "to lurch is to stagger or sway"
+      }
      ]
     },
     "explanation": {
@@ -468,36 +404,29 @@
    },
    "solution": "LOLL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LOLL",
     "definitions": [
      {
       "text": "Lie idly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "a word that is short of its full length has lost its final letter"
-     }
-    ],
-    "linkWords": [
-     "by when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money's",
-      "gives": "LOLLY",
-      "note": "lolly is British slang for money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOLL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "a word that is short of its full length has lost its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "money's",
+       "gives": "LOLLY",
+       "note": "lolly is British slang for money"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -526,26 +455,25 @@
    },
    "solution": "USHERETTE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "USHERETTE",
     "definitions": [
      {
       "text": "A guide to theatre seating",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A guide to theatre seating",
-      "note": "surface reading: a printed plan or handbook showing where the seats are"
-     },
-     {
-      "clueFragment": "guide",
-      "note": "setter's reading: a person who guides playgoers to their seats"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A guide to theatre seating",
+       "note": "surface reading: a printed plan or handbook showing where the seats are"
+      },
+      {
+       "words": "guide",
+       "note": "setter's reading: a person who guides playgoers to their seats"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The clue reads like a seating chart or booklet; the guide is a woman with a torch.",
      "definitionFit": "An usherette is a woman employed in a theatre or cinema to show people to their places."
@@ -572,55 +500,51 @@
    },
    "solution": "LARGO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "LARGO",
     "definitions": [
      {
       "text": "Slow movement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letter of the following word"
-     },
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not means without, so the named element is removed"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "liquid",
-      "gives": "L",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "gas",
-      "gives": "ARGON",
-      "note": "argon is a noble gas"
-     },
-     {
-      "clueFragment": "nitrogen",
-      "gives": "N",
-      "note": "N is the chemical symbol for nitrogen, removed here"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ARGO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first points to the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "liquid",
+         "note": "its opening letter"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "not means without, so the named element is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gas",
+         "gives": "ARGON",
+         "note": "argon is a noble gas"
+        },
+        {
+         "words": "nitrogen",
+         "gives": "N",
+         "note": "N is the chemical symbol for nitrogen, removed here"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -655,30 +579,19 @@
    },
    "solution": "CATSPAW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAT'S PAW",
     "definitions": [
      {
       "text": "Ropy knot",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a sailor's hitch for attaching a rope to a hook"
      },
      {
       "text": "one used by another",
-      "at": 11
+      "at": 11,
+      "meaning": "second meaning: a dupe exploited by someone else, from the fable of the monkey and the cat"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Ropy knot",
-      "note": "first meaning: a sailor's hitch for attaching a rope to a hook"
-     },
-     {
-      "clueFragment": "one used by another",
-      "note": "second meaning: a dupe exploited by someone else, from the fable of the monkey and the cat"
-     }
-    ],
+    "spelling": "CAT'S PAW",
     "explanation": {
      "walkthrough": "In the fable a monkey uses a cat's foot to pull chestnuts from the fire, hence a person made a tool of.",
      "definitionFit": "The phrase names both a nautical hitch made in a rope's bight and a person manipulated to do another's dirty work."
@@ -704,41 +617,34 @@
    },
    "solution": "SATCHEL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SATCHEL",
     "definitions": [
      {
       "text": "seen at school?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly signals one possible arrangement of letters out of many"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Latin",
-      "gives": "L",
-      "note": "L is the abbreviation for Latin"
-     },
-     {
-      "clueFragment": "cheats",
-      "gives": "CHEATS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LCHEATS",
-       "gives": "SATCHEL"
+       "text": "possibly",
+       "note": "possibly signals one possible arrangement of letters out of many"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Latin",
+         "gives": "L",
+         "note": "L is the abbreviation for Latin"
+        },
+        {
+         "words": "cheats",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -768,38 +674,24 @@
    },
    "solution": "ACTED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ACTED",
     "definitions": [
      {
       "text": "Played part",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in new production",
-      "for": "anagram",
-      "note": "a new production stages the same material afresh, so the letters are presented in a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cadet",
-      "gives": "CADET",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CADET",
-       "gives": "ACTED"
+       "text": "in new production",
+       "note": "a new production stages the same material afresh, so the letters are presented in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cadet",
+       "note": "letters to rearrange"
       }
      ]
     },
@@ -829,43 +721,31 @@
    },
    "solution": "DWELLINGS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DWELLINGS",
     "definitions": [
      {
       "text": "Houses",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one word inside another"
-     }
-    ],
-    "linkWords": [
-     "could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rings",
-      "gives": "DINGS",
-      "note": "a bell dings when it rings"
-     },
-     {
-      "clueFragment": "OK",
-      "gives": "WELL",
-      "note": "well means all right or OK"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "WELL",
-      "INGS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one word inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rings",
+       "gives": "DINGS",
+       "note": "a bell dings when it rings"
+      },
+      {
+       "words": "OK",
+       "gives": "WELL",
+       "note": "well means all right or OK"
+      }
      ]
     },
     "explanation": {
@@ -894,26 +774,25 @@
    },
    "solution": "DOUBLETALK",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DOUBLE TALK",
     "definitions": [
      {
       "text": "Jaw-jaw?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Jaw-jaw?",
-      "note": "surface reading: Churchill's phrase for talking rather than fighting"
-     },
-     {
-      "clueFragment": "Jaw",
-      "note": "setter's reading: jaw means chat, and here it is said twice"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Jaw-jaw?",
+       "note": "surface reading: Churchill's phrase for talking rather than fighting"
+      },
+      {
+       "words": "Jaw",
+       "note": "setter's reading: jaw means chat, and here it is said twice"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Jaw is slang for talk, so doubling it gives the answer; Churchill's 'jaw-jaw is better than war-war' adds the flavour of evasive diplomatic talk.",
      "definitionFit": "Double talk is deliberately ambiguous or evasive speech, the kind of endless negotiating chatter the doubled slang suggests."
@@ -945,38 +824,24 @@
    },
    "solution": "SAGEGROUSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SAGE GROUSE",
     "definitions": [
      {
       "text": "North American game",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "becoming upset",
-      "for": "anagram",
-      "note": "upset means knocked over and disordered, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "USA's George",
-      "gives": "USASGEORGE",
-      "note": "the letters, apostrophe ignored, are rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "USASGEORGE",
-       "gives": "SAGEGROUSE"
+       "text": "becoming upset",
+       "note": "upset means knocked over and disordered, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "USA's George",
+       "note": "the letters, apostrophe ignored, are rearranged"
       }
      ]
     },
@@ -1012,26 +877,25 @@
    },
    "solution": "GREYHOUNDRACING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GREYHOUND RACING",
     "definitions": [
      {
       "text": "Where you can bet there''ll be traps",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Where you can bet there''ll be traps",
-      "note": "surface reading: somewhere you can be sure of pitfalls or snares"
-     },
-     {
-      "clueFragment": "traps",
-      "note": "setter's reading: traps are the starting boxes the dogs burst out of, and you literally bet there"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where you can bet there''ll be traps",
+       "note": "surface reading: somewhere you can be sure of pitfalls or snares"
+      },
+      {
+       "words": "traps",
+       "note": "setter's reading: traps are the starting boxes the dogs burst out of, and you literally bet there"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'you can bet' reads as 'certainly', but it is literal gambling; traps is the British term for the numbered starting stalls at a dog track.",
      "definitionFit": "At a dog track hounds race from starting traps after a mechanical hare, and spectators wager on the outcome."
@@ -1058,39 +922,31 @@
    },
    "solution": "HAIRLINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HAIRLINE",
     "definitions": [
      {
       "text": "Very fine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "below",
-      "for": "charade",
-      "note": "in a down entry, below means the first piece sits underneath the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "height",
-      "gives": "H",
-      "note": "H is the abbreviation for height"
-     },
-     {
-      "clueFragment": "company for flying",
-      "gives": "AIRLINE",
-      "note": "an airline is a company that flies passengers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AIRLINE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "below",
+       "note": "in a down entry, below means the first piece sits underneath the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "height",
+       "gives": "H",
+       "note": "H is the abbreviation for height"
+      },
+      {
+       "words": "company for flying",
+       "gives": "AIRLINE",
+       "note": "an airline is a company that flies passengers"
+      }
      ]
     },
     "explanation": {
@@ -1118,51 +974,43 @@
    },
    "solution": "INFRARED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "INFRARED",
     "definitions": [
      {
       "text": "kind of radiation",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out here means out of order, so the letters are rearranged"
-     },
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "taking in means holding something inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Find",
-      "gives": "INFD",
-      "note": "the letters rearranged"
-     },
-     {
-      "clueFragment": "unusual",
-      "gives": "RARE",
-      "note": "rare means seldom found or unusual"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INF",
-      "RARE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INFRARED",
+     "indicators": [
       {
-       "fodder": "FIND",
-       "gives": "INFD"
+       "text": "out",
+       "note": "out here means out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking in",
+         "note": "taking in means holding something inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Find",
+         "gives": "INFD",
+         "note": "the letters rearranged"
+        },
+        {
+         "words": "unusual",
+         "gives": "RARE",
+         "note": "rare means seldom found or unusual"
+        }
+       ]
       }
      ]
     },
@@ -1192,48 +1040,37 @@
    },
    "solution": "DISTILLER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DISTILLER",
     "definitions": [
      {
       "text": "I''m one for the drinks",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "put out",
-      "for": "anagram",
-      "note": "put out suggests disturbed or knocked about, so the letters are disordered"
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Diets I'll",
-      "gives": "DISTILLE",
-      "note": "the letters rearranged, apostrophe ignored"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISTILLE",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISTILLER",
+     "indicators": [
       {
-       "fodder": "DIETSILL",
-       "gives": "DISTILLE"
+       "text": "put out",
+       "note": "put out suggests disturbed or knocked about, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Diets I'll",
+         "gives": "DISTILLE",
+         "note": "the letters rearranged, apostrophe ignored"
+        },
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
       }
      ]
     },
@@ -1263,30 +1100,28 @@
    },
    "solution": "SMUDGE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SMUDGE",
     "definitions": [
      {
       "text": "Spot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "found in tells us the letters are sitting inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bogs/mud generally",
-      "gives": "SMUDGE",
-      "note": "consecutive letters spanning the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "found in tells us the letters are sitting inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bogs/mud generally",
+       "gives": "SMUDGE",
+       "note": "consecutive letters spanning the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dirty mark is typically picked up in marshes and mud.",
      "walkthrough": "The slash between words is ignored when reading the run of letters.",
@@ -1312,48 +1147,35 @@
    },
    "solution": "BEFOG",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BEFOG",
     "definitions": [
      {
       "text": "cause confusion",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means reading from right to left"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turn",
-      "gives": "GO",
-      "note": "a turn in a game is a go"
-     },
-     {
-      "clueFragment": "month",
-      "gives": "FEB",
-      "note": "FEB is the abbreviation for February"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEF",
-      "OG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GOFEB",
-       "to": "BEFOG"
+       "text": "back",
+       "note": "going back means reading from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Turn",
+         "gives": "GO",
+         "note": "a turn in a game is a go"
+        },
+        {
+         "words": "month",
+         "gives": "FEB",
+         "note": "FEB is the abbreviation for February"
+        }
+       ]
       }
      ]
     },
@@ -1383,26 +1205,25 @@
    },
    "solution": "BLONDE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BLONDE",
     "definitions": [
      {
       "text": "My Fair Lady?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "My Fair Lady?",
-      "note": "surface reading: the title of the musical about Eliza Doolittle"
-     },
-     {
-      "clueFragment": "Fair",
-      "note": "setter's reading: fair means light-haired, so my fair-haired woman"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "My Fair Lady?",
+       "note": "surface reading: the title of the musical about Eliza Doolittle"
+      },
+      {
+       "words": "Fair",
+       "note": "setter's reading: fair means light-haired, so my fair-haired woman"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The capitals make it look like the musical; read fair as describing hair colour.",
      "definitionFit": "A blonde is a woman with fair or yellow hair, a fair-haired lady."
@@ -1429,35 +1250,25 @@
    },
    "solution": "COUPLET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COUPLET",
     "definitions": [
      {
       "text": "lines of verse",
       "at": 26
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Successful move",
-      "gives": "COUP",
-      "note": "a coup is a brilliant stroke"
-     },
-     {
-      "clueFragment": "permit",
-      "gives": "LET",
-      "note": "to let is to allow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUP",
-      "LET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Successful move",
+       "gives": "COUP",
+       "note": "a coup is a brilliant stroke"
+      },
+      {
+       "words": "permit",
+       "gives": "LET",
+       "note": "to let is to allow"
+      }
      ]
     },
     "explanation": {
@@ -1485,31 +1296,16 @@
    },
    "solution": "CAVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAVE",
     "definitions": [
      {
       "text": "Look out",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: old British school slang for 'watch out!', from Latin 'beware'"
      },
      {
       "text": "grotto",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "of the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look out",
-      "note": "first meaning: old British school slang for 'watch out!', from Latin 'beware'"
-     },
-     {
-      "clueFragment": "grotto",
-      "note": "second meaning: a hollow in a hillside or cliff"
+      "at": 16,
+      "meaning": "second meaning: a hollow in a hillside or cliff"
      }
     ],
     "explanation": {
@@ -1538,49 +1334,44 @@
    },
    "solution": "AVOCADO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AVOCADO",
     "definitions": [
      {
       "text": "\"Pear Tree\"",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "without an end, the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an",
-      "gives": "A",
-      "note": "the indefinite article in its short form"
-     },
-     {
-      "clueFragment": "song",
-      "gives": "VOCAL",
-      "note": "a vocal is a sung piece or song"
-     },
-     {
-      "clueFragment": "a party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VOCA",
-      "DO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "without an end, the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "gives": "A",
+         "note": "the indefinite article in its short form"
+        },
+        {
+         "words": "song",
+         "gives": "VOCAL",
+         "note": "a vocal is a sung piece or song"
+        },
+        {
+         "words": "a party",
+         "gives": "DO",
+         "note": "a do is a party"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -1609,10 +1400,6 @@
    },
    "solution": "AGUE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AGUE",
     "definitions": [
      {
       "text": "shivers",
@@ -1620,31 +1407,25 @@
       "note": "the clue is plural, the answer a singular illness causing shivering"
      }
     ],
-    "indicators": [
-     {
-      "text": "Not",
-      "for": "deletion",
-      "note": "not means without, so the following abbreviation is taken out"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the abbreviation for very"
-     },
-     {
-      "clueFragment": "fuzzy",
-      "gives": "VAGUE",
-      "note": "vague means blurred or unclear"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGUE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "note": "not means without, so the following abbreviation is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fuzzy",
+       "gives": "VAGUE",
+       "note": "vague means blurred or unclear"
+      },
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "V is the abbreviation for very"
+      }
      ]
     },
     "explanation": {
@@ -1672,43 +1453,31 @@
    },
    "solution": "VEGAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VEGAN",
     "definitions": [
      {
       "text": "I don't take meat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside another"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the delivery vehicle",
-      "gives": "VAN",
-      "note": "a van delivers goods"
-     },
-     {
-      "clueFragment": "for instance",
-      "gives": "EG",
-      "note": "e.g. abbreviates the Latin for 'for example'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "EG",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the delivery vehicle",
+       "gives": "VAN",
+       "note": "a van delivers goods"
+      },
+      {
+       "words": "for instance",
+       "gives": "EG",
+       "note": "e.g. abbreviates the Latin for 'for example'"
+      }
      ]
     },
     "explanation": {
@@ -1737,11 +1506,6 @@
    },
    "solution": "LAUNDRESS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "LAUNDRESS",
     "definitions": [
      {
       "text": "who washes clothes",
@@ -1749,38 +1513,40 @@
       "note": "a relative clause standing for the noun: one who washes clothes"
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "deletion",
-      "note": "the middle of a word is what is left once its two ends are cut off"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means wrapping one piece about another"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl",
-      "gives": "LASS",
-      "note": "lass is a northern British and Scottish word for a girl"
-     },
-     {
-      "clueFragment": "century",
-      "gives": "HUNDRED",
-      "note": "a century is a hundred"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "UNDRE",
-      "SS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LAUNDRESS",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means wrapping one piece about another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "LAUNDRESS",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the middle of a word is what is left once its two ends are cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Girl",
+         "gives": "LASS",
+         "note": "lass is a northern British and Scottish word for a girl"
+        },
+        {
+         "words": "century",
+         "gives": "HUNDRED",
+         "note": "a century is a hundred"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

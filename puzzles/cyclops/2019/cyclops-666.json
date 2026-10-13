@@ -1,8 +1,6 @@
 {
  "id": "cyclops-666",
  "number": 666,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 666",
  "setter": "Cyclops",
  "date": "2019-12-13",
  "dimensions": {
@@ -42,47 +40,41 @@
    },
    "solution": "RETAILER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RETAILER",
     "definitions": [
      {
       "text": "a dealer",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "the starts of words are their opening letters, so only the first of each is kept"
-     },
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into the middle of something, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "complainant",
-      "gives": "RAILER",
-      "note": "one who rails, that is, complains bitterly"
-     },
-     {
-      "clueFragment": "Extreme Tory",
-      "gives": "ET",
-      "select": "first",
-      "note": "the opening letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ET",
-      "AILER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "to interrupt is to break into the middle of something, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "complainant",
+       "gives": "RAILER",
+       "note": "one who rails, that is, complains bitterly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "note": "the starts of words are their opening letters, so only the first of each is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Extreme Tory",
+         "note": "the opening letters of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -121,28 +113,16 @@
    },
    "solution": "KEEPITUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KEEP IT UP",
     "definitions": [
      {
       "text": "To maintain an erection",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, read literally and rudely: to stay aroused"
      },
      {
       "text": "be persistent",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "To maintain an erection",
-      "note": "first meaning, read literally and rudely: to stay aroused"
-     },
-     {
-      "clueFragment": "be persistent",
-      "note": "second meaning: to carry on with an effort without flagging"
+      "at": 25,
+      "meaning": "second meaning: to carry on with an effort without flagging"
      }
     ],
     "explanation": {
@@ -170,67 +150,83 @@
    },
    "solution": "OCULAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "container",
-     "anagram"
-    ],
-    "answer": "OCULAR",
     "definitions": [
      {
       "text": "Eye-related",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no. 2",
-      "for": "letter_selection",
-      "note": "number two in a word is its second letter, so just that one is picked"
-     },
-     {
-      "text": "ditching",
-      "for": "deletion",
-      "note": "to ditch something is to throw it away, so a letter is removed"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "'about' can mean around and in disorder, so the letters are moved round into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "colour",
-      "gives": "COLOUR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Boris's",
-      "gives": "O",
-      "select": 2,
-      "note": "the second letter of the name, which is removed from the colour word"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OCULAR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "COLAUR",
-       "gives": "OCULAR"
+       "text": "in",
+       "note": "one thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' can mean around and in disorder, so the letters are moved round into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "ditching",
+           "note": "to ditch something is to throw it away, so a letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "colour",
+           "note": "taken as written"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "nth",
+           "n": 2,
+           "indicators": [
+            {
+             "text": "no. 2",
+             "note": "number two in a word is its second letter, so just that one is picked"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Boris's",
+             "note": "the second letter of the name, which is removed from the colour word"
+            }
+           ]
+          },
+          {
+           "words": "article",
+           "gives": "A",
+           "note": "the indefinite article"
+          }
+         ]
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
@@ -260,57 +256,44 @@
    },
    "solution": "MUESLI",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "MUESLI",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
-     },
-     {
-      "text": "foul",
-      "for": "anagram",
-      "note": "something foul is spoiled or messed up, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "um",
-      "gives": "UM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lies",
-      "gives": "LIES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "ESLI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LIES",
-       "gives": "ESLI"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "um",
+         "note": "taken as written"
+        }
+       ]
+      },
       {
-       "from": "UM",
-       "to": "MU"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foul",
+         "note": "something foul is spoiled or messed up, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lies",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -340,54 +323,42 @@
    },
    "solution": "WHODUNNIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "WHODUNNIT",
     "definitions": [
      {
       "text": "story",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to turn",
-      "for": "anagram",
-      "note": "turning something changes its order, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "How",
-      "gives": "WHO",
-      "note": "the word's letters rearranged"
-     },
-     {
-      "clueFragment": "Brown",
-      "gives": "DUN",
-      "note": "dun is a dull greyish-brown colour"
-     },
-     {
-      "clueFragment": "mug",
-      "gives": "NIT",
-      "note": "a mug and a nit are both fools"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHO",
-      "DUN",
-      "NIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WHODUNNIT",
+     "indicators": [
       {
-       "fodder": "HOW",
-       "gives": "WHO"
+       "text": "to turn",
+       "note": "turning something changes its order, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "How",
+         "gives": "WHO",
+         "note": "the word's letters rearranged"
+        },
+        {
+         "words": "Brown",
+         "gives": "DUN",
+         "note": "dun is a dull greyish-brown colour"
+        },
+        {
+         "words": "mug",
+         "gives": "NIT",
+         "note": "a mug and a nit are both fools"
+        }
+       ]
       }
      ]
     },
@@ -417,44 +388,36 @@
    },
    "solution": "PRESIDENCY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PRESIDENCY",
     "definitions": [
      {
       "text": "term of office",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "the final part of a word is its closing letter, so only that one is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump's",
-      "gives": "P",
-      "select": "last",
-      "note": "the closing letter of the name"
-     },
-     {
-      "clueFragment": "official abode",
-      "gives": "RESIDENCY",
-      "note": "a residency is the official home of a governor or diplomat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RESIDENCY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final",
+         "note": "the final part of a word is its closing letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trump's",
+         "gives": "TRUMP",
+         "note": "the closing letter of the name"
+        }
+       ]
+      },
+      {
+       "words": "official abode",
+       "gives": "RESIDENCY",
+       "note": "a residency is the official home of a governor or diplomat"
+      }
      ]
     },
     "explanation": {
@@ -483,45 +446,34 @@
    },
    "solution": "PUSH",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PUSH",
     "definitions": [
      {
       "text": "Press",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turn",
-      "for": "reversal",
-      "note": "to turn something round makes it face the other way, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "say nothing",
-      "gives": "SH",
-      "note": "SH is the sound made to ask for silence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "SH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "UP",
-       "to": "PU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "note": "to turn something round makes it face the other way, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "say nothing",
+       "gives": "SH",
+       "note": "SH is the sound made to ask for silence"
       }
      ]
     },
@@ -569,34 +521,28 @@
     "14-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUSH TELEGRAPH",
     "definitions": [
      {
       "text": "rumour-spreader",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "US president",
-      "gives": "BUSH",
-      "note": "either George, father or son, who held the US presidency"
-     },
-     {
-      "clueFragment": "daily",
-      "gives": "TELEGRAPH",
-      "note": "the British broadsheet daily newspaper founded in 1855, often nicknamed the Torygraph"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUSH",
-      "TELEGRAPH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US president",
+       "gives": "BUSH",
+       "note": "either George, father or son, who held the US presidency"
+      },
+      {
+       "words": "daily",
+       "gives": "TELEGRAPH",
+       "note": "the British broadsheet daily newspaper founded in 1855, often nicknamed the Torygraph"
+      }
      ]
     },
+    "spelling": "BUSH TELEGRAPH",
     "explanation": {
      "surface": "An American president, like a tabloid paper, puts gossip about.",
      "walkthrough": "'daily' is a newspaper here, specifically the Telegraph, a conservative British daily.",
@@ -629,32 +575,25 @@
    },
    "solution": "PRESSRELEASE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESS RELEASE",
     "definitions": [
      {
       "text": "communiqué",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crowd",
-      "gives": "PRESS",
-      "note": "a press is a dense throng of people"
-     },
-     {
-      "clueFragment": "let loose",
-      "gives": "RELEASE",
-      "note": "to release is to set free"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRESS",
-      "RELEASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crowd",
+       "gives": "PRESS",
+       "note": "a press is a dense throng of people"
+      },
+      {
+       "words": "let loose",
+       "gives": "RELEASE",
+       "note": "to release is to set free"
+      }
      ]
     },
     "explanation": {
@@ -683,56 +622,51 @@
    },
    "solution": "SLANT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "anagram"
-    ],
-    "answer": "SLANT",
     "definitions": [
      {
       "text": "dip",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something put in another thing sits inside it"
-     },
-     {
-      "text": "catastrophic",
-      "for": "anagram",
-      "note": "a catastrophe throws everything into chaos, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Corbyn's",
-      "gives": "N",
-      "select": "last",
-      "note": "the final letter of the name"
-     },
-     {
-      "clueFragment": "last",
-      "gives": "LAST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LANST",
-       "gives": "SLANT"
+       "text": "in",
+       "note": "something put in another thing sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "catastrophic",
+         "note": "a catastrophe throws everything into chaos, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "last",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "note": "the end of a word is its final letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Corbyn's",
+         "gives": "CORBYN",
+         "note": "the final letter of the name"
+        }
+       ]
       }
      ]
     },
@@ -762,43 +696,33 @@
    },
    "solution": "POLARISED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POLARISED",
     "definitions": [
      {
       "text": "what British politics has become?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "'about' suggests moving around, so the letters are turned into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spoiler",
-      "gives": "SPOILER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ad",
-      "gives": "AD",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POLARISED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SPOILERAD",
-       "gives": "POLARISED"
+       "text": "about",
+       "note": "'about' suggests moving around, so the letters are turned into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Spoiler",
+         "note": "taken as written"
+        },
+        {
+         "words": "ad",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -828,30 +752,28 @@
    },
    "solution": "CLARET",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CLARET",
     "definitions": [
      {
       "text": "a red",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to some extent",
-      "for": "hidden_word",
-      "note": "only partly present, so the letters are sitting inside the words given"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Declare Trump",
-      "gives": "CLARET",
-      "note": "runs across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "note": "only partly present, so the letters are sitting inside the words given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Declare Trump",
+       "gives": "CLARET",
+       "note": "runs across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Accuse President Trump of being something of a communist.",
      "walkthrough": "'a red' looks like a communist, but the answer is a wine; the letters straddle the two words.",
@@ -883,49 +805,37 @@
     "7-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RUSSIAN INTERFERENCE",
     "definitions": [
      {
       "text": "which gave Trump an advantage?",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "messed around",
-      "for": "anagram",
-      "note": "something messed around has been disordered, so the letters are put into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sinner",
-      "gives": "SINNER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "user interface",
-      "gives": "USERINTERFACE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUSSIANINTERFERENCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SINNERUSERINTERFACE",
-       "gives": "RUSSIANINTERFERENCE"
+       "text": "messed around",
+       "note": "something messed around has been disordered, so the letters are put into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sinner",
+         "note": "taken as written"
+        },
+        {
+         "words": "user interface",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
+    "spelling": "RUSSIAN INTERFERENCE",
     "explanation": {
      "surface": "A wrongdoer tampered with a computer system, giving Donald Trump an edge.",
      "walkthrough": "The surface is itself an account of election hacking, and the whole of 'Sinner' plus 'user interface' rearranges into the answer.",
@@ -965,40 +875,38 @@
    },
    "solution": "EERIE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EERIE",
     "definitions": [
      {
       "text": "sinister",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Powerless",
-      "for": "deletion",
-      "note": "P stands for power, so being without power means losing that letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lords member",
-      "gives": "EER",
-      "note": "a peer sits in the House of Lords; without its P"
-     },
-     {
-      "clueFragment": "That is",
-      "gives": "IE",
-      "note": "i.e., Latin id est, means that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EER",
-      "IE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EERIE",
+     "indicators": [
+      {
+       "text": "Powerless",
+       "note": "P stands for power, so being without power means losing that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lords member",
+         "gives": "EER",
+         "note": "a peer sits in the House of Lords; without its P"
+        },
+        {
+         "words": "That is",
+         "gives": "IE",
+         "note": "i.e., Latin id est, means that is"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1031,53 +939,43 @@
     "27-across"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PEP PILL",
     "definitions": [
      {
       "text": "stimulant",
       "at": 64
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "the leaders of words are their front letters, so only those are kept"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "followed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exercise",
-      "gives": "PE",
-      "note": "PE is physical education"
-     },
-     {
-      "clueFragment": "party political",
-      "gives": "PP",
-      "select": "first",
-      "note": "the opening letters of the two words"
-     },
-     {
-      "clueFragment": "rough",
-      "gives": "ILL",
-      "note": "feeling rough means feeling unwell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "PP",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Exercise",
+       "gives": "PE",
+       "note": "PE is physical education"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "the leaders of words are their front letters, so only those are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party political",
+         "note": "the opening letters of the two words"
+        }
+       ]
+      },
+      {
+       "words": "rough",
+       "gives": "ILL",
+       "note": "feeling rough means feeling unwell"
+      }
      ]
     },
+    "spelling": "PEP PILL",
     "explanation": {
      "surface": "Party leaders' campaigning leaves them feeling poorly and in need of a boost.",
      "walkthrough": "'rough' is British slang for unwell, which gives ILL.",
@@ -1104,46 +1002,41 @@
    },
    "solution": "PAMPERED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PAMPERED",
     "definitions": [
      {
       "text": "Spoilt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entering",
-      "for": "container",
-      "note": "to enter is to go inside, so these letters go into another word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "Member of Parliament"
-     },
-     {
-      "clueFragment": "before",
-      "gives": "ERE",
-      "note": "an old word for before"
-     },
-     {
-      "clueFragment": "House",
-      "gives": "PAD",
-      "note": "a pad is slang for a home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "MPERE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "note": "to enter is to go inside, so these letters go into another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "House",
+       "gives": "PAD",
+       "note": "a pad is slang for a home"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "Member of Parliament"
+        },
+        {
+         "words": "before",
+         "gives": "ERE",
+         "note": "an old word for before"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1172,36 +1065,28 @@
    },
    "solution": "RABBI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RABBI",
     "definitions": [
      {
       "text": "Jewish leader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "take time off",
-      "for": "deletion",
-      "note": "T stands for time, so taking time off removes that letter"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "talk",
-      "gives": "RABBI",
-      "note": "to rabbit is to chatter, from rhyming slang rabbit and pork; its T dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RABBI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RABBI",
+     "indicators": [
+      {
+       "text": "take time off",
+       "note": "T stands for time, so taking time off removes that letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "talk",
+       "gives": "RABBI",
+       "note": "to rabbit is to chatter, from rhyming slang rabbit and pork; its T dropped"
+      }
      ]
     },
     "explanation": {
@@ -1230,50 +1115,44 @@
    },
    "solution": "BACKSIDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "BACKSIDE",
     "definitions": [
      {
       "text": "seat",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "what comes finally is at the very end, so the closing letter is kept"
-     },
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "something lost has gone astray, so the letters wander into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sick, bad",
-      "gives": "SICKBAD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Farage",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACKSIDE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SICKBADE",
-       "gives": "BACKSIDE"
+       "text": "lost",
+       "note": "something lost has gone astray, so the letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sick, bad",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "what comes finally is at the very end, so the closing letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Farage",
+           "note": "the closing letter of the name"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1304,46 +1183,33 @@
    },
    "solution": "EARNEST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EARNEST",
     "definitions": [
      {
       "text": "very serious",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "whipped",
-      "for": "anagram",
-      "note": "whipping stirs things up vigorously, so the letters are beaten into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arse",
-      "gives": "ARSE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "net",
-      "gives": "NET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARNEST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARSENET",
-       "gives": "EARNEST"
+       "text": "whipped",
+       "note": "whipping stirs things up vigorously, so the letters are beaten into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Arse",
+         "note": "taken as written"
+        },
+        {
+         "words": "net",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1374,45 +1240,34 @@
    },
    "solution": "RATTLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "RATTLE",
     "definitions": [
      {
       "text": "be a source of empty talk",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "mobile",
-      "for": "anagram",
-      "note": "something mobile moves about freely, so the letters shift into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arse",
-      "gives": "RAT",
-      "note": "both are insults for a contemptible person"
-     },
-     {
-      "clueFragment": "let",
-      "gives": "LET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAT",
-      "TLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LET",
-       "gives": "TLE"
+       "words": "Arse",
+       "gives": "RAT",
+       "note": "both are insults for a contemptible person"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mobile",
+         "note": "something mobile moves about freely, so the letters shift into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1442,47 +1297,40 @@
    },
    "solution": "TANKED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TANKED",
     "definitions": [
      {
       "text": "Incapable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "started",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brown",
-      "gives": "TAN",
-      "note": "tan is a light brown colour"
-     },
-     {
-      "clueFragment": "kick",
-      "gives": "K",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "Miliband",
-      "gives": "ED",
-      "note": "Ed Miliband, former Labour Party leader"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAN",
-      "K",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brown",
+       "gives": "TAN",
+       "note": "tan is a light brown colour"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "started",
+         "note": "the start of a word is its opening letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kick",
+         "note": "the opening letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "Miliband",
+       "gives": "ED",
+       "note": "Ed Miliband, former Labour Party leader"
+      }
      ]
     },
     "explanation": {
@@ -1511,50 +1359,41 @@
    },
    "solution": "MALICE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MALICE",
     "definitions": [
      {
       "text": "spite",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "guzzling",
-      "for": "container",
-      "note": "guzzling is swallowing greedily, so one piece takes others inside it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Commons staff",
-      "gives": "MACE",
-      "note": "the ceremonial mace symbolises royal authority in the House of Commons"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the size label for large"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "L",
-      "I",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guzzling",
+       "note": "guzzling is swallowing greedily, so one piece takes others inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Commons staff",
+       "gives": "MACE",
+       "note": "the ceremonial mace symbolises royal authority in the House of Commons"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L is the size label for large"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1584,46 +1423,41 @@
    },
    "solution": "SPAM",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SPAM",
     "definitions": [
      {
       "text": "junk email",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "to intercept",
-      "for": "container",
-      "note": "intercepting means stepping in between, so one letter cuts into the middle of another piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Second",
-      "gives": "S",
-      "note": "the abbreviation for second"
-     },
-     {
-      "clueFragment": "Boris's",
-      "gives": "PM",
-      "note": "Boris Johnson was then Prime Minister"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a means one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PA",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "gives": "S",
+       "note": "the abbreviation for second"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to intercept",
+         "note": "intercepting means stepping in between, so one letter cuts into the middle of another piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boris's",
+         "gives": "PM",
+         "note": "Boris Johnson was then Prime Minister"
+        },
+        {
+         "words": "one",
+         "gives": "A",
+         "note": "a means one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1652,54 +1486,40 @@
    },
    "solution": "RETICENCE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RETICENCE",
     "definitions": [
      {
       "text": "Not a Boris-like quality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "something ground has been crushed and broken up, so the letters are reassembled differently"
-     },
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "to take something in is to hold it inside, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre",
-      "gives": "CENTRE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "refreshment",
-      "gives": "ICE",
-      "note": "an ice is an ice cream or ice lolly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RET",
-      "ICE",
-      "NCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CENTRE",
-       "gives": "RETNCE"
+       "text": "taking",
+       "note": "to take something in is to hold it inside, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "note": "something ground has been crushed and broken up, so the letters are reassembled differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "centre",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "refreshment",
+       "gives": "ICE",
+       "note": "an ice is an ice cream or ice lolly"
       }
      ]
     },
@@ -1729,48 +1549,35 @@
    },
    "solution": "AESOP",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "AESOP",
     "definitions": [
      {
       "text": "a writer of tales",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Knocking back",
-      "for": "reversal",
-      "note": "knocking something back sends it in the opposite direction, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the drink",
-      "gives": "SEA",
-      "note": "'the drink' is slang for the sea"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op is short for opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AES",
-      "OP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SEA",
-       "to": "AES"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Knocking back",
+         "note": "knocking something back sends it in the opposite direction, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the drink",
+         "gives": "SEA",
+         "note": "'the drink' is slang for the sea"
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op is short for opus, a work"
       }
      ]
     },
@@ -1815,54 +1622,40 @@
    },
    "solution": "REFERENDUM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "REFERENDUM",
     "definitions": [
      {
       "text": "the first step to Brexit?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "wallow",
-      "for": "anagram",
-      "note": "to wallow is to roll about, so the letters tumble into a new order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ned free",
-      "gives": "NEDFREE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "booze",
-      "gives": "RUM",
-      "note": "rum is an alcoholic drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EFEREND",
-      "UM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NEDFREE",
-       "gives": "EFEREND"
+       "text": "in",
+       "note": "one thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "booze",
+       "gives": "RUM",
+       "note": "rum is an alcoholic drink"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wallow",
+         "note": "to wallow is to roll about, so the letters tumble into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ned free",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },

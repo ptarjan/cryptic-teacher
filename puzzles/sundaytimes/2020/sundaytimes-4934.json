@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4934",
  "number": 4934,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,934",
  "setter": "Dean Mayer",
  "date": "2020-12-20",
  "dimensions": {
@@ -52,28 +50,16 @@
    },
    "solution": "UNDERTHEVOLCANO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNDER THE VOLCANO",
     "definitions": [
      {
       "text": "Inferior to, say, Fuji",
-      "at": 0
+      "at": 0,
+      "meaning": "first reading: Fuji is an example of a volcano, and inferior here means physically lower than it"
      },
      {
       "text": "Film",
-      "at": 23
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Inferior to, say, Fuji",
-      "note": "first reading: Fuji is an example of a volcano, and inferior here means physically lower than it"
-     },
-     {
-      "clueFragment": "Film",
-      "note": "second reading: the title of a 1984 John Huston film from Malcolm Lowry's novel"
+      "at": 23,
+      "meaning": "second reading: the title of a 1984 John Huston film from Malcolm Lowry's novel"
      }
     ],
     "explanation": {
@@ -103,41 +89,36 @@
    },
    "solution": "UGLI",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "UGLI",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eats",
-      "for": "hidden_word",
-      "note": "what is eaten sits inside the eater, so the letters lie within the run of words"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading the letters bottom to top, backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cocktail guest",
-      "gives": "ILGU",
-      "note": "the letters spanning the end of the first word and the start of the second"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ILGU",
-       "to": "UGLI"
+       "text": "up",
+       "note": "in a down entry, going up means reading the letters bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "eats",
+         "note": "what is eaten sits inside the eater, so the letters lie within the run of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cocktail guest",
+         "gives": "ILGU",
+         "note": "the letters spanning the end of the first word and the start of the second"
+        }
+       ]
       }
      ]
     },
@@ -167,43 +148,38 @@
    },
    "solution": "DIRTIED",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DIRTIED",
     "definitions": [
      {
       "text": "contaminated",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "cutting something shortens it, so the final letter is trimmed off"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nasty",
-      "gives": "DIR",
-      "note": "DIRE, dreadful, with its last letter removed"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "TIED",
-      "note": "bound with rope is tied"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIR",
-      "TIED"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DIRTIED",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "cutting something shortens it, so the final letter is trimmed off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nasty",
+         "gives": "DIR",
+         "note": "DIRE, dreadful, with its last letter removed"
+        },
+        {
+         "words": "bound",
+         "gives": "TIED",
+         "note": "bound with rope is tied"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -238,38 +214,24 @@
    },
    "solution": "ROBINGOODFELLOW",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROBIN GOODFELLOW",
     "definitions": [
      {
       "text": "sprite",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Lost",
-      "for": "anagram",
-      "note": "something lost is astray and out of place, so these letters wander into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wood, goblin, elf or",
-      "gives": "WOODGOBLINELFOR",
-      "note": "four words taken letter for letter as the material to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WOODGOBLINELFOR",
-       "gives": "ROBINGOODFELLOW"
+       "text": "Lost",
+       "note": "something lost is astray and out of place, so these letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wood, goblin, elf or",
+       "note": "four words taken letter for letter as the material to rearrange"
       }
      ]
     },
@@ -299,41 +261,29 @@
    },
    "solution": "HEREBY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEREBY",
     "definitions": [
      {
       "text": "Because of this",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "echo",
-      "gives": "E",
-      "note": "Echo is the NATO alphabet word for E"
-     },
-     {
-      "clueFragment": "through",
-      "gives": "BY",
-      "note": "by means of, as in 'travel by rail'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HER",
-      "E",
-      "BY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "her",
+       "note": "taken as written"
+      },
+      {
+       "words": "echo",
+       "gives": "E",
+       "note": "Echo is the NATO alphabet word for E"
+      },
+      {
+       "words": "through",
+       "gives": "BY",
+       "note": "by means of, as in 'travel by rail'"
+      }
      ]
     },
     "explanation": {
@@ -362,40 +312,31 @@
    },
    "solution": "VANQUISH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VANQUISH",
     "definitions": [
      {
       "text": "master",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupted by",
-      "for": "container",
-      "note": "something interrupted has another thing break into its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ghost",
-      "gives": "VANISH",
-      "note": "to ghost is to disappear suddenly, to vanish"
-     },
-     {
-      "clueFragment": "question",
-      "gives": "QU",
-      "note": "QU is a standard abbreviation for question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VAN",
-      "QU",
-      "ISH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupted by",
+       "note": "something interrupted has another thing break into its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ghost",
+       "gives": "VANISH",
+       "note": "to ghost is to disappear suddenly, to vanish"
+      },
+      {
+       "words": "question",
+       "gives": "QU",
+       "note": "QU is a standard abbreviation for question"
+      }
      ]
     },
     "explanation": {
@@ -430,49 +371,43 @@
    },
    "solution": "LIBERALDEMOCRAT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LIBERAL DEMOCRAT",
     "definitions": [
      {
       "text": "MP",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not closed",
-      "for": "deletion",
-      "note": "something not closed lacks its end, so the last letter goes"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "free",
-      "gives": "LIBERAL",
-      "note": "liberal as in generous or unrestricted"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "DEMO",
-      "note": "a demo is a trial run or demonstration"
-     },
-     {
-      "clueFragment": "Case",
-      "gives": "CRAT",
-      "note": "a crate, a packing case, with its last letter missing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIBERAL",
-      "DEMO",
-      "CRAT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LIBERALDEMOCRAT",
+     "indicators": [
+      {
+       "text": "not closed",
+       "note": "something not closed lacks its end, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "free",
+         "gives": "LIBERAL",
+         "note": "liberal as in generous or unrestricted"
+        },
+        {
+         "words": "trial",
+         "gives": "DEMO",
+         "note": "a demo is a trial run or demonstration"
+        },
+        {
+         "words": "Case",
+         "gives": "CRAT",
+         "note": "a crate, a packing case, with its last letter missing"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -501,28 +436,16 @@
    },
    "solution": "AGAINST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AGAINST",
     "definitions": [
      {
       "text": "Hostile to",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: opposed to"
      },
      {
       "text": "touching",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hostile to",
-      "note": "first meaning: opposed to"
-     },
-     {
-      "clueFragment": "touching",
-      "note": "second meaning: in contact with, as in leaning on a wall"
+      "at": 11,
+      "meaning": "second meaning: in contact with, as in leaning on a wall"
      }
     ],
     "explanation": {
@@ -561,58 +484,50 @@
    },
    "solution": "ONTHEFRITZ",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "ON THE FRITZ",
     "definitions": [
      {
       "text": "Failing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container",
-      "note": "being among things means sitting in their midst, so one letter goes inside"
-     },
-     {
-      "text": "failing",
-      "for": "anagram",
-      "note": "something failing is breaking down, so those letters fall apart and regroup"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "often",
-      "gives": "OFTEN",
-      "note": "taken as written, the letters to be rearranged"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "Hotel is the NATO alphabet word for H"
-     },
-     {
-      "clueFragment": "hotel chain",
-      "gives": "RITZ",
-      "note": "the Ritz is a famous chain of luxury hotels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONT",
-      "H",
-      "EF",
-      "RITZ"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OFTEN",
-       "gives": "ONTEF"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "note": "being among things means sitting in their midst, so one letter goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "failing",
+           "note": "something failing is breaking down, so those letters fall apart and regroup"
+          }
+         ],
+         "parts": [
+          {
+           "words": "often",
+           "note": "taken as written, the letters to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "hotel",
+         "gives": "H",
+         "note": "Hotel is the NATO alphabet word for H"
+        }
+       ]
+      },
+      {
+       "words": "hotel chain",
+       "gives": "RITZ",
+       "note": "the Ritz is a famous chain of luxury hotels"
       }
      ]
     },
@@ -648,45 +563,39 @@
    },
    "solution": "LORDBYRON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LORD BYRON",
     "definitions": [
      {
       "text": "Poet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out can mean wrong or disordered, so the letters are put into a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     },
-     {
-      "clueFragment": "nobody",
-      "gives": "NOBODY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Romeo included twice",
-      "gives": "RR",
-      "note": "Romeo is the NATO alphabet word for R, put in the mix two times"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LNOBODYRR",
-       "gives": "LORDBYRON"
+       "text": "out",
+       "note": "out can mean wrong or disordered, so the letters are put into a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the standard abbreviation for left"
+        },
+        {
+         "words": "nobody",
+         "note": "taken as written"
+        },
+        {
+         "words": "Romeo included twice",
+         "gives": "RR",
+         "note": "Romeo is the NATO alphabet word for R, put in the mix two times"
+        }
+       ]
       }
      ]
     },
@@ -716,40 +625,30 @@
    },
    "solution": "BEAST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEAST",
     "definitions": [
      {
       "text": "monster",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "catching something means holding it within, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "5",
-      "gives": "BEST",
-      "note": "the answer to 5 down means master or defeat, which is to best"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "A",
-      "ST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "note": "catching something means holding it within, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "5",
+       "gives": "BEST",
+       "note": "the answer to 5 down means master or defeat, which is to best"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -777,36 +676,25 @@
    },
    "solution": "JINN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JINN",
     "definitions": [
      {
       "text": "spirits",
       "at": 24
      }
     ],
-    "linkWords": [
-     "needs",
-     "to serve"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is the abbreviation for jack in a pack of cards"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "INN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jack",
+       "gives": "J",
+       "note": "J is the abbreviation for jack in a pack of cards"
+      },
+      {
+       "words": "pub",
+       "gives": "INN",
+       "note": "an inn is a pub"
+      }
      ]
     },
     "explanation": {
@@ -842,10 +730,6 @@
    },
    "solution": "BLUERINSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLUE RINSE",
     "definitions": [
      {
       "text": "for older females?",
@@ -853,25 +737,18 @@
       "note": "the definition describes the users of the tint rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "sprays",
-      "for": "anagram",
-      "note": "a spray scatters droplets everywhere, so these letters are dispersed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nebuliser",
-      "gives": "NEBULISER",
-      "note": "taken as written, the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NEBULISER",
-       "gives": "BLUERINSE"
+       "text": "sprays",
+       "note": "a spray scatters droplets everywhere, so these letters are dispersed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nebuliser",
+       "note": "taken as written, the letters to be rearranged"
       }
      ]
     },
@@ -901,44 +778,34 @@
    },
    "solution": "DISCUSSANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCUSSANT",
     "definitions": [
      {
       "text": "a debater",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D is the abbreviation for Democrat"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "damn",
-      "gives": "CUSS",
-      "note": "to cuss is to curse or damn"
-     },
-     {
-      "clueFragment": "social type",
-      "gives": "ANT",
-      "note": "ants are social insects living in colonies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "CUSS",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Democrat",
+       "gives": "D",
+       "note": "D is the abbreviation for Democrat"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "damn",
+       "gives": "CUSS",
+       "note": "to cuss is to curse or damn"
+      },
+      {
+       "words": "social type",
+       "gives": "ANT",
+       "note": "ants are social insects living in colonies"
+      }
      ]
     },
     "explanation": {
@@ -967,26 +834,25 @@
    },
    "solution": "INDOOR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "INDOOR",
     "definitions": [
      {
       "text": "Competitors must enter for such games",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Competitors must enter for such games",
-      "note": "surface reading: rivals have to sign up to take part in some contest"
-     },
-     {
-      "clueFragment": "must enter",
-      "note": "setter's reading: players physically go through an entrance into a building to play these games"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Competitors must enter for such games",
+       "note": "surface reading: rivals have to sign up to take part in some contest"
+      },
+      {
+       "words": "must enter",
+       "note": "setter's reading: players physically go through an entrance into a building to play these games"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'enter' looks like registering for a competition, but it means stepping inside, which is what these games demand.",
      "definitionFit": "Games played inside a building, such as table tennis or darts, require players to come indoors."
@@ -1013,50 +879,40 @@
    },
    "solution": "ISOLATOR",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ISOLATOR",
     "definitions": [
      {
       "text": "switch",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps around the other"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "form of power",
-      "gives": "SOLAR",
-      "note": "solar is energy from the sun"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "SOLA",
-      "TO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece wraps around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "form of power",
+         "gives": "SOLAR",
+         "note": "solar is energy from the sun"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1085,54 +941,39 @@
    },
    "solution": "TACITURN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TACITURN",
     "definitions": [
      {
       "text": "mum",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down entry, raised means turned upwards so it reads backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Whip",
-      "gives": "CAT",
-      "note": "the cat-o'-nine-tails is a whip"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "go",
-      "gives": "TURN",
-      "note": "a go in a game is a turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAC",
-      "I",
-      "TURN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAT",
-       "to": "TAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down entry, raised means turned upwards so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Whip",
+         "gives": "CAT",
+         "note": "the cat-o'-nine-tails is a whip"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "go",
+       "gives": "TURN",
+       "note": "a go in a game is a turn"
       }
      ]
     },
@@ -1163,35 +1004,25 @@
    },
    "solution": "COMEDIAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COMEDIAN",
     "definitions": [
      {
       "text": "Entertainer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "partner",
-      "gives": "CO",
-      "note": "the prefix co- marks a partner, as in co-pilot"
-     },
-     {
-      "clueFragment": "average",
-      "gives": "MEDIAN",
-      "note": "the median is a kind of statistical average"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "MEDIAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "partner",
+       "gives": "CO",
+       "note": "the prefix co- marks a partner, as in co-pilot"
+      },
+      {
+       "words": "average",
+       "gives": "MEDIAN",
+       "note": "the median is a kind of statistical average"
+      }
      ]
     },
     "explanation": {
@@ -1221,46 +1052,44 @@
    },
    "solution": "MILKIER",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "MILKIER",
     "definitions": [
      {
       "text": "Less strong",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "short means lacking its end, so the final letter is dropped"
-     },
-     {
-      "text": "blocked by",
-      "for": "container",
-      "note": "a path blocked by something has that thing sitting in its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "runner",
-      "gives": "MILER",
-      "note": "a miler is an athlete who runs the mile"
-     },
-     {
-      "clueFragment": "kid",
-      "gives": "KI",
-      "note": "KID with its last letter removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIL",
-      "KI",
-      "ER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MILKIER",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "short means lacking its end, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "blocked by",
+         "note": "a path blocked by something has that thing sitting in its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "runner",
+         "gives": "MILER",
+         "note": "a miler is an athlete who runs the mile"
+        },
+        {
+         "words": "kid",
+         "gives": "KI",
+         "note": "KID with its last letter removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1289,40 +1118,31 @@
    },
    "solution": "SEXPOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEXPOT",
     "definitions": [
      {
       "text": "temptress",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "to grab",
-      "for": "container",
-      "note": "grabbing something holds it firmly within, so one piece encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One way",
-      "gives": "ST",
-      "note": "a street is one kind of way, abbreviated ST"
-     },
-     {
-      "clueFragment": "fair",
-      "gives": "EXPO",
-      "note": "an expo is a trade fair or exhibition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "EXPO",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to grab",
+       "note": "grabbing something holds it firmly within, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One way",
+       "gives": "ST",
+       "note": "a street is one kind of way, abbreviated ST"
+      },
+      {
+       "words": "fair",
+       "gives": "EXPO",
+       "note": "an expo is a trade fair or exhibition"
+      }
      ]
     },
     "explanation": {
@@ -1351,50 +1171,40 @@
    },
    "solution": "PREVIEW",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PREVIEW",
     "definitions": [
      {
       "text": "trailer",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "stashed in",
-      "for": "container",
-      "note": "stashed in means hidden away inside, so these pieces go within another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gun",
-      "gives": "REV",
-      "note": "to gun an engine is to rev it"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "seat",
-      "gives": "PEW",
-      "note": "a pew is a church seat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "REV",
-      "I",
-      "EW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stashed in",
+       "note": "stashed in means hidden away inside, so these pieces go within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seat",
+       "gives": "PEW",
+       "note": "a pew is a church seat"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gun",
+         "gives": "REV",
+         "note": "to gun an engine is to rev it"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1424,54 +1234,39 @@
    },
    "solution": "DOODAH",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DOODAH",
     "definitions": [
      {
       "text": "Gadget",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "all over",
-      "for": "reversal",
-      "note": "turned all over means flipped round, so the whole string reads backwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "had",
-      "gives": "HAD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "two zips",
-      "gives": "OO",
-      "note": "zip means nothing, zero, shown as O; two of them"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "D is the abbreviation for diamonds in card games"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "OO",
-      "DAH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HADOOD",
-       "to": "DOODAH"
+       "text": "all over",
+       "note": "turned all over means flipped round, so the whole string reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "had",
+         "note": "taken as written"
+        },
+        {
+         "words": "two zips",
+         "gives": "OO",
+         "note": "zip means nothing, zero, shown as O; two of them"
+        },
+        {
+         "words": "diamonds",
+         "gives": "D",
+         "note": "D is the abbreviation for diamonds in card games"
+        }
+       ]
       }
      ]
     },
@@ -1501,54 +1296,44 @@
    },
    "solution": "SOLFERINO",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SOLFERINO",
     "definitions": [
      {
       "text": "battle",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "odd",
-      "for": "anagram",
-      "note": "odd means strange or irregular, so these letters are made strange by reordering"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Very",
-      "gives": "SO",
-      "note": "so, as in so good, means very"
-     },
-     {
-      "clueFragment": "rifle",
-      "gives": "RIFLE",
-      "note": "taken as written, the letters to be rearranged"
-     },
-     {
-      "clueFragment": "not really",
-      "gives": "NO",
-      "note": "a reply of no means not really"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "LFERI",
-      "NO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RIFLE",
-       "gives": "LFERI"
+       "words": "Very",
+       "gives": "SO",
+       "note": "so, as in so good, means very"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "odd",
+         "note": "odd means strange or irregular, so these letters are made strange by reordering"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "rifle",
+           "note": "taken as written, the letters to be rearranged"
+          },
+          {
+           "words": "not really",
+           "gives": "NO",
+           "note": "a reply of no means not really"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1578,32 +1363,25 @@
    },
    "solution": "OBEY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBEY",
     "definitions": [
      {
       "text": "Follow",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "Turkish governor",
-      "gives": "BEY",
-      "note": "a bey was a governor of a province in the Ottoman Empire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "Turkish governor",
+       "gives": "BEY",
+       "note": "a bey was a governor of a province in the Ottoman Empire"
+      }
      ]
     },
     "explanation": {
@@ -1631,28 +1409,16 @@
    },
    "solution": "WELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WELL",
     "definitions": [
      {
       "text": "Good",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in good health, fine"
      },
      {
       "text": "source of water",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "note": "first meaning: in good health, fine"
-     },
-     {
-      "clueFragment": "source of water",
-      "note": "second meaning: a shaft sunk to reach groundwater"
+      "at": 5,
+      "meaning": "second meaning: a shaft sunk to reach groundwater"
      }
     ],
     "explanation": {
@@ -1680,10 +1446,6 @@
    },
    "solution": "ARIEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARIEL",
     "definitions": [
      {
       "text": "Sharon?",
@@ -1691,20 +1453,22 @@
       "note": "defined by example: the surname of a famous bearer of the name"
      }
     ],
-    "indicators": [
-     {
-      "text": "A bit of",
-      "for": "hidden_word",
-      "note": "a bit of something is a small part of it, so the letters sit within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Marie, Lisa",
-      "gives": "ARIEL",
-      "note": "the letters spanning the end of the first name and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A bit of",
+       "note": "a bit of something is a small part of it, so the letters sit within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Marie, Lisa",
+       "gives": "ARIEL",
+       "note": "the letters spanning the end of the first name and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A list of three women's names, asking about one of them.",
      "walkthrough": "'Sharon' looks like the third name in a list of women, but it is the surname of a famous Israeli prime minister.",
@@ -1731,11 +1495,6 @@
    },
    "solution": "UNDERMINE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UNDERMINE",
     "definitions": [
      {
       "text": "handbag?",
@@ -1743,32 +1502,32 @@
       "note": "handbag is used as a verb, so the question mark admits a loose definition"
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "almost means not quite complete, so the last letter is cut"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "destroy",
-      "gives": "UND",
-      "note": "UNDO, ruin, missing its final letter"
-     },
-     {
-      "clueFragment": "fur",
-      "gives": "ERMINE",
-      "note": "ermine is the white winter fur of the stoat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UND",
-      "ERMINE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNDERMINE",
+     "indicators": [
+      {
+       "text": "Almost",
+       "note": "almost means not quite complete, so the last letter is cut"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "destroy",
+         "gives": "UND",
+         "note": "UNDO, ruin, missing its final letter"
+        },
+        {
+         "words": "fur",
+         "gives": "ERMINE",
+         "note": "ermine is the white winter fur of the stoat"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1812,28 +1571,16 @@
    },
    "solution": "THROWINTHETOWEL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THROW IN THE TOWEL",
     "definitions": [
      {
       "text": "Stop trying",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the idiom for giving up, from boxing"
      },
      {
       "text": "to add cloth",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stop trying",
-      "note": "first meaning: the idiom for giving up, from boxing"
-     },
-     {
-      "clueFragment": "to add cloth",
-      "note": "second meaning, read literally: to toss a piece of fabric in as an extra"
+      "at": 12,
+      "meaning": "second meaning, read literally: to toss a piece of fabric in as an extra"
      }
     ],
     "explanation": {

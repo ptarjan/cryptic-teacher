@@ -1,8 +1,7 @@
 {
  "id": "cryptic-28691",
  "number": 28691,
- "series": "cryptic",
- "name": "Prize crossword No 28,691",
+ "prize": true,
  "setter": "Paul",
  "date": "2022-02-26",
  "dimensions": {
@@ -79,12 +78,6 @@
    },
    "solution": "TRAITORSGATE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "TRAITORS GATE",
     "definitions": [
      {
       "text": "seen entering here?",
@@ -92,46 +85,48 @@
       "note": "A descriptive definition: the place traitors were seen entering."
      }
     ],
-    "indicators": [
-     {
-      "text": "appearing untrustworthy",
-      "note": "an untrustworthy TOERAG is not to be relied on to keep its letters in order"
-     },
-     {
-      "text": "head",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Characteristic",
-      "gives": "TRAIT",
-      "note": "a trait is a characteristic"
-     },
-     {
-      "clueFragment": "toerag",
-      "gives": "TOERAG",
-      "note": "anagram fodder, jumbled together with the S"
-     },
-     {
-      "clueFragment": "spike",
-      "gives": "S",
-      "select": "first",
-      "note": "head (first letter) of spike"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAIT",
-      "ORSGATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "TOERAGS",
-       "gives": "ORSGATE"
+       "text": "appearing untrustworthy",
+       "note": "an untrustworthy TOERAG is not to be relied on to keep its letters in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Characteristic",
+       "gives": "TRAIT",
+       "note": "a trait is a characteristic"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "toerag",
+           "note": "anagram fodder, jumbled together with the S"
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "spike",
+             "note": "head (first letter) of spike"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -167,50 +162,42 @@
    },
    "solution": "THEMOVIES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "THE MOVIES",
     "definitions": [
      {
       "text": "American shows",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "closed off by",
-      "for": "container"
-     },
-     {
-      "text": "capricious",
-      "for": "anagram",
-      "note": "an unpredictable arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "capricious soviet",
-      "gives": "TOVIES",
-      "note": "SOVIET rearranged"
-     },
-     {
-      "clueFragment": "border",
-      "gives": "HEM",
-      "note": "a hem is the border of a garment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HEM",
-      "OVIES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "THEMOVIES",
+     "indicators": [
       {
-       "fodder": "SOVIET",
-       "gives": "TOVIES"
+       "text": "capricious",
+       "note": "an unpredictable arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "closed off by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capricious soviet",
+         "gives": "TOVIES",
+         "note": "SOVIET rearranged"
+        },
+        {
+         "words": "border",
+         "gives": "HEM",
+         "note": "a hem is the border of a garment"
+        }
+       ]
       }
      ]
     },
@@ -253,38 +240,25 @@
    },
    "solution": "TASER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TASER",
     "definitions": [
      {
       "text": "Stunner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bottom upward",
-      "for": "reversal",
-      "note": "in a down answer, the word is read from the bottom up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "once more placed",
-      "gives": "RESAT",
-      "note": "resat = sat again, placed once more"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TASER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RESAT",
-       "to": "TASER"
+       "text": "bottom upward",
+       "note": "in a down answer, the word is read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "once more placed",
+       "gives": "RESAT",
+       "note": "resat = sat again, placed once more"
       }
      ]
     },
@@ -315,44 +289,47 @@
    },
    "solution": "REINSURED",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "REINSURED",
     "definitions": [
      {
       "text": "covered again",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "or not",
-      "note": "'Or not' says the letters OR are not there, so ERROR must lose them"
-     },
-     {
-      "text": "bum",
-      "note": "British slang for bad or useless, so the letters are wrecked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Error with",
-      "gives": "ERR",
-      "note": "ERROR without OR"
-     },
-     {
-      "clueFragment": "undies",
-      "gives": "UNDIES",
-      "note": "anagram fodder with ERR"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "REINSURED",
+     "parts": [
       {
-       "fodder": "ERR UNDIES",
-       "gives": "REINSURED"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "or not",
+         "note": "'Or not' says the letters OR are not there, so ERROR must lose them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "bum",
+           "note": "British slang for bad or useless, so the letters are wrecked"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Error with",
+           "gives": "ERR",
+           "note": "ERROR without OR"
+          },
+          {
+           "words": "undies",
+           "note": "anagram fodder with ERR"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -389,30 +366,23 @@
    },
    "solution": "GEEGEE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GEE-GEE",
     "definitions": [
      {
       "text": "Horse",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Horse",
-      "note": "the definition, wanted in its nursery-talk form"
-     },
-     {
-      "clueFragment": "with bigger heart?",
-      "note": "take the two-letter racing abbreviation for a horse and let its middle swell until each letter is spelt out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEE",
-      "GEE"
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Horse",
+       "note": "the definition, wanted in its nursery-talk form"
+      },
+      {
+       "words": "with bigger heart?",
+       "note": "take the two-letter racing abbreviation for a horse and let its middle swell until each letter is spelt out"
+      }
      ]
     },
     "explanation": {
@@ -455,35 +425,25 @@
    },
    "solution": "WARSAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WARSAW",
     "definitions": [
      {
       "text": "capital",
       "at": 33
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sustained campaign",
-      "gives": "WAR",
-      "note": "a war can be a long campaign"
-     },
-     {
-      "clueFragment": "identified",
-      "gives": "SAW",
-      "note": "saw = identified, spotted"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sustained campaign",
+       "gives": "WAR",
+       "note": "a war can be a long campaign"
+      },
+      {
+       "words": "identified",
+       "gives": "SAW",
+       "note": "saw = identified, spotted"
+      }
      ]
     },
     "explanation": {
@@ -522,46 +482,40 @@
     "2-down"
    ],
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LESSER ANTILLES",
     "definitions": [
      {
       "text": "Caribbean location",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "houses",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Those renting",
-      "gives": "LESSEES",
-      "note": "lessees rent property"
-     },
-     {
-      "clueFragment": "fled",
-      "gives": "RAN",
-      "note": "ran = fled"
-     },
-     {
-      "clueFragment": "farm",
-      "gives": "TILL",
-      "note": "to till is to farm the soil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LESSE",
-      "RAN",
-      "TILL",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Those renting",
+       "gives": "LESSEES",
+       "note": "lessees rent property"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fled",
+         "gives": "RAN",
+         "note": "ran = fled"
+        },
+        {
+         "words": "farm",
+         "gives": "TILL",
+         "note": "to till is to farm the soil"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -609,10 +563,6 @@
    },
    "solution": "SLIDERULE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SLIDE RULE",
     "definitions": [
      {
       "text": "with pass is beautifully measured",
@@ -620,21 +570,23 @@
       "note": "A descriptive definition: the thing with which, by passing the slide along, things are neatly measured."
      }
     ],
-    "indicators": [
-     {
-      "text": "Reportedly",
-      "for": "homophone",
-      "note": "what is reported is heard, so the sound matters, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clever dribble",
-      "gives": "SLIDERULE",
-      "soundsLike": "SLY DROOL",
-      "note": "sly = clever, drool = dribble"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SLIDERULE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "note": "what is reported is heard, so the sound matters, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clever dribble",
+       "gives": "SLYDROOL",
+       "note": "sly = clever, drool = dribble"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A commentator praises a footballer's skilful dribble and perfectly weighted pass.",
      "walkthrough": "The football surface makes 'dribble' and 'pass' look like ball skills; dribble is drool, and the pass is the slide moving along the rule.",
@@ -672,48 +624,40 @@
     "9-across"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SPOILER ALERT",
     "definitions": [
      {
       "text": "reporter's warning",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "note": "letters scattered far and wide are rearranged"
-     },
-     {
-      "text": "in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "say, football",
-      "gives": "SPORT",
-      "note": "football is an example of a sport; 'say' flags the example"
-     },
-     {
-      "clueFragment": "Real lie",
-      "gives": "ILERALE",
-      "note": "REALLIE rearranged and placed after SPO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPO",
-      "ILERALE",
-      "RT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SPOILERALERT",
+     "parts": [
       {
-       "fodder": "REALLIE",
-       "gives": "ILERALE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "note": "letters scattered far and wide are rearranged"
+        },
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say, football",
+         "gives": "SPORT",
+         "note": "football is an example of a sport; 'say' flags the example"
+        },
+        {
+         "words": "Real lie",
+         "gives": "ILERALE",
+         "note": "REALLIE rearranged and placed after SPO"
+        }
+       ]
       }
      ]
     },
@@ -743,31 +687,29 @@
    },
    "solution": "SHEIKHS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SHEIKHS",
     "definitions": [
      {
       "text": "More than one tribal chief",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when speaking",
-      "for": "homophone",
-      "note": "the word is to be heard, not read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quivers",
-      "gives": "SHEIKHS",
-      "soundsLike": "SHAKES",
-      "note": "shakes = quivers"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHEIKHS",
+     "indicators": [
+      {
+       "text": "when speaking",
+       "note": "the word is to be heard, not read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quivers",
+       "gives": "SHAKES",
+       "note": "shakes = quivers"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about whether a tribal chief trembles as he gives a speech.",
      "walkthrough": "Say SHAKES and SHEIKHS aloud: in many accents they are the same.",
@@ -795,10 +737,6 @@
    },
    "solution": "WHITEBOARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHITEBOARD",
     "definitions": [
      {
       "text": "that may go to the wall?",
@@ -806,22 +744,19 @@
       "note": "A descriptive definition: 'something that may be mounted on the wall'."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "unrepresentative of BAME communities",
-      "gives": "WHITE",
-      "note": "BAME is British shorthand for Black, Asian and minority ethnic; a board that does not represent them is all white"
-     },
-     {
-      "clueFragment": "Leaders in company",
-      "gives": "BOARD",
-      "note": "the board of directors leads a company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHITE",
-      "BOARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unrepresentative of BAME communities",
+       "gives": "WHITE",
+       "note": "BAME is British shorthand for Black, Asian and minority ethnic; a board that does not represent them is all white"
+      },
+      {
+       "words": "Leaders in company",
+       "gives": "BOARD",
+       "note": "the board of directors leads a company"
+      }
      ]
     },
     "explanation": {
@@ -851,10 +786,6 @@
    },
    "solution": "OVERSIGHT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OVERSIGHT",
     "definitions": [
      {
       "text": "one's missed by mistake",
@@ -862,25 +793,18 @@
       "note": "Read as 'one that's missed by mistake', a noun phrase."
      }
     ],
-    "indicators": [
-     {
-      "text": "screws",
-      "for": "anagram",
-      "note": "letters screwed up are twisted out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give short",
-      "gives": "GIVESHORT",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIVE SHORT",
-       "gives": "OVERSIGHT"
+       "text": "screws",
+       "note": "letters screwed up are twisted out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Give short",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -910,33 +834,28 @@
    },
    "solution": "STAR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "STAR",
     "definitions": [
      {
       "text": "Personage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shortly",
-      "for": "deletion",
-      "note": "cut short, the word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "found",
-      "gives": "STAR",
-      "note": "START (found, as in found a company) minus its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STAR",
+     "indicators": [
+      {
+       "text": "shortly",
+       "note": "cut short, the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "found",
+       "gives": "STAR",
+       "note": "START (found, as in found a company) minus its last letter"
+      }
      ]
     },
     "explanation": {
@@ -965,47 +884,40 @@
    },
    "solution": "TREASURER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TREASURER",
     "definitions": [
      {
       "text": "Club official",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting"
-     },
-     {
-      "text": "base",
-      "note": "debased letters are corrupted, so rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rate",
-      "gives": "TREA",
-      "note": "RATE rearranged"
-     },
-     {
-      "clueFragment": "more confident",
-      "gives": "SURER",
-      "note": "surer = more confident"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREA",
-      "SURER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TREASURER",
+     "parts": [
       {
-       "fodder": "RATE",
-       "gives": "TREA"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "supporting"
+        },
+        {
+         "text": "base",
+         "note": "debased letters are corrupted, so rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rate",
+         "gives": "TREA",
+         "note": "RATE rearranged"
+        },
+        {
+         "words": "more confident",
+         "gives": "SURER",
+         "note": "surer = more confident"
+        }
+       ]
       }
      ]
     },
@@ -1035,50 +947,41 @@
    },
    "solution": "COTOPAXI",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "COTOPAXI",
     "definitions": [
      {
       "text": "South American volcano",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "for": "container",
-      "note": "to circle something is to go right round it, so the flattery word goes round the peak"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flatter",
-      "gives": "COAX",
-      "note": "to coax is to flatter someone into something"
-     },
-     {
-      "clueFragment": "peak",
-      "gives": "TOP",
-      "note": "top = peak"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "TOP",
-      "AX",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "note": "to circle something is to go right round it, so the flattery word goes round the peak"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flatter",
+         "gives": "COAX",
+         "note": "to coax is to flatter someone into something"
+        },
+        {
+         "words": "peak",
+         "gives": "TOP",
+         "note": "top = peak"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1107,31 +1010,29 @@
    },
    "solution": "NOSE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NOSE",
     "definitions": [
      {
       "text": "Feature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for a dictator",
-      "for": "homophone",
-      "note": "someone dictating speaks the words aloud"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "has the information",
-      "gives": "NOSE",
-      "soundsLike": "KNOWS",
-      "note": "to know is to have the information"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NOSE",
+     "indicators": [
+      {
+       "text": "for a dictator",
+       "note": "someone dictating speaks the words aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "has the information",
+       "gives": "KNOWS",
+       "note": "to know is to have the information"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A news feature that holds the facts a despot needs.",
      "walkthrough": "'Dictator' suggests a tyrant, but here it is the person dictating a letter, so the words are heard.",
@@ -1165,45 +1066,43 @@
    },
    "solution": "NOJOKE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "NO JOKE",
     "definitions": [
      {
       "text": "a serious matter",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container"
-     },
-     {
-      "text": "ejected",
-      "for": "deletion",
-      "note": "the I (one) is thrown out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relations after one ejected",
-      "gives": "NOOKE",
-      "note": "NOOKIE (British slang for sex, 'relations') without I (one)"
-     },
-     {
-      "clueFragment": "Judge",
-      "gives": "J",
-      "note": "J = judge, as in legal abbreviations"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "J",
-      "OKE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NOJOKE",
+     "indicators": [
+      {
+       "text": "ejected",
+       "note": "the I (one) is thrown out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relations after one ejected",
+         "gives": "NOOKE",
+         "note": "NOOKIE (British slang for sex, 'relations') without I (one)"
+        },
+        {
+         "words": "Judge",
+         "gives": "J",
+         "note": "J = judge, as in legal abbreviations"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1242,41 +1141,30 @@
    },
    "solution": "HEADTOHEAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEAD-TO-HEAD",
     "definitions": [
      {
       "text": "confrontational encounter",
       "at": 32
      }
     ],
-    "linkWords": [
-     "seeking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Set out",
-      "gives": "HEAD",
-      "note": "to head off is to set out"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "TO",
-      "note": "head for = head to"
-     },
-     {
-      "clueFragment": "promontory",
-      "gives": "HEAD",
-      "note": "a headland, like Beachy Head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAD",
-      "TO",
-      "HEAD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Set out",
+       "gives": "HEAD",
+       "note": "to head off is to set out"
+      },
+      {
+       "words": "for",
+       "gives": "TO",
+       "note": "head for = head to"
+      },
+      {
+       "words": "promontory",
+       "gives": "HEAD",
+       "note": "a headland, like Beachy Head"
+      }
      ]
     },
     "explanation": {
@@ -1314,54 +1202,40 @@
     "6-down"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DUMPER TRUCK",
     "definitions": [
      {
       "text": "Huge vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, the word is read from the bottom up"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kicking dirt",
-      "gives": "MUD",
-      "note": "the dirt that gets kicked up"
-     },
-     {
-      "clueFragment": "forward",
-      "gives": "PERT",
-      "note": "pert = forward, cheeky"
-     },
-     {
-      "clueFragment": "rugby pack",
-      "gives": "RUCK",
-      "note": "a ruck is the loose pack of players over the ball in rugby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUM",
-      "PERT",
-      "RUCK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MUD",
-       "to": "DUM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down answer, the word is read from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kicking dirt",
+         "gives": "MUD",
+         "note": "the dirt that gets kicked up"
+        }
+       ]
+      },
+      {
+       "words": "forward",
+       "gives": "PERT",
+       "note": "pert = forward, cheeky"
+      },
+      {
+       "words": "rugby pack",
+       "gives": "RUCK",
+       "note": "a ruck is the loose pack of players over the ball in rugby"
       }
      ]
     },
@@ -1391,44 +1265,45 @@
    },
    "solution": "SARONG",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SARONG",
     "definitions": [
      {
       "text": "Malay garment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wrapped round"
-     },
-     {
-      "text": "middle of",
-      "note": "the central letters of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "number",
-      "gives": "SONG",
-      "note": "a number is a song in a show"
-     },
-     {
-      "clueFragment": "middle of wearer",
-      "gives": "AR",
-      "select": "middle",
-      "note": "centre two letters of wEARer... the A and R at its heart"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AR",
-      "ONG"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wrapped round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "number",
+       "gives": "SONG",
+       "note": "a number is a song in a show"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "AR",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the central letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "middle of wearer",
+         "gives": "AR",
+         "select": "middle",
+         "note": "centre two letters of wEARer... the A and R at its heart"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1463,11 +1338,6 @@
    },
    "solution": "JIMJAMS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "JIM-JAMS",
     "definitions": [
      {
       "text": "children's garment",
@@ -1475,35 +1345,36 @@
       "note": "Jim-jams is plural in form but names one garment, a set of pyjamas."
      }
     ],
-    "indicators": [
-     {
-      "text": "shedding",
-      "note": "the word throws off a letter"
-     },
-     {
-      "text": "finally",
-      "note": "the last letter of onesie"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boy",
-      "gives": "JIM",
-      "note": "a boy's name"
-     },
-     {
-      "clueFragment": "himself shedding onesie finally",
-      "gives": "JAMS",
-      "note": "himself: Jim is short for JAMES, which drops the E that ends 'onesie'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JIM",
-      "JAMS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "JIMJAMS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "shedding",
+         "note": "the word throws off a letter"
+        },
+        {
+         "text": "finally",
+         "note": "the last letter of onesie"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boy",
+         "gives": "JIM",
+         "note": "a boy's name"
+        },
+        {
+         "words": "himself shedding onesie finally",
+         "gives": "JAMS",
+         "note": "himself: Jim is short for JAMES, which drops the E that ends 'onesie'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1532,11 +1403,6 @@
    },
    "solution": "MIMER",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "MIMER",
     "definitions": [
      {
       "text": "this artist's speechless",
@@ -1544,33 +1410,36 @@
       "note": "A descriptive definition: an artist who is speechless."
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'in' puts one thing inside another: the setter is stuck in the bog"
-     },
-     {
-      "text": "scratching bottom",
-      "note": "in a down answer, the last letter is struck off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bog",
-      "gives": "MIR",
-      "note": "MIRE (a bog) with its bottom letter scratched"
-     },
-     {
-      "clueFragment": "Paul",
-      "gives": "ME",
-      "note": "Paul is the setter, so ME"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MI",
-      "ME",
-      "R"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MIMER",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' puts one thing inside another: the setter is stuck in the bog"
+        },
+        {
+         "text": "scratching bottom",
+         "note": "in a down answer, the last letter is struck off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bog",
+         "gives": "MIR",
+         "note": "MIRE (a bog) with its bottom letter scratched"
+        },
+        {
+         "words": "Paul",
+         "gives": "ME",
+         "note": "Paul is the setter, so ME"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1600,44 +1469,42 @@
    },
    "solution": "BLOSSOM",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "BLOSSOM",
     "definitions": [
      {
       "text": "Flower",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'in' places the reduction inside the shortened money word"
-     },
-     {
-      "text": "when cut",
-      "note": "BOMB loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mint",
-      "gives": "BOM",
-      "note": "a mint = a bomb, a fortune (British: 'it cost a bomb'), with its last letter cut"
-     },
-     {
-      "clueFragment": "reduction",
-      "gives": "LOSS",
-      "note": "a reduction is a loss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LOSS",
-      "OM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BLOSSOM",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places the reduction inside the shortened money word"
+        },
+        {
+         "text": "when cut",
+         "note": "BOMB loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mint",
+         "gives": "BOM",
+         "note": "a mint = a bomb, a fortune (British: 'it cost a bomb'), with its last letter cut"
+        },
+        {
+         "words": "reduction",
+         "gives": "LOSS",
+         "note": "a reduction is a loss"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1666,53 +1533,50 @@
    },
    "solution": "BENIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "BENIN",
     "definitions": [
      {
       "text": "country",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "note": "the first letter of battles"
-     },
-     {
-      "text": "up",
-      "note": "in a down answer, the word reads upwards"
-     },
-     {
-      "text": "after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "battles",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "Square",
-      "gives": "NINE",
-      "note": "nine is a square number (3 x 3)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ENIN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "NINE",
-       "to": "ENIN"
+       "text": "first of",
+       "note": "the first letter of battles"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down answer, the word reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battles",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Square",
+         "gives": "NINE",
+         "note": "nine is a square number (3 x 3)"
+        }
+       ]
       }
      ]
     },
@@ -1752,55 +1616,53 @@
    },
    "solution": "KIMJONGUN",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "KIM JONG-UN",
     "definitions": [
      {
       "text": "Leader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imbued with",
-      "for": "container"
-     },
-     {
-      "text": "less",
-      "for": "deletion",
-      "note": "nothing (O) is taken away"
-     }
-    ],
-    "linkWords": [
-     "whose"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "family",
-      "gives": "KIN",
-      "note": "kin = family"
-     },
-     {
-      "clueFragment": "personal magnetism, nothing less",
-      "gives": "MJO",
-      "note": "MOJO minus O (nothing), placed inside KIN"
-     },
-     {
-      "clueFragment": "murderer?",
-      "gives": "GUN",
-      "note": "a gun, as in a hired gun, is a killer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KI",
-      "MJO",
-      "N",
-      "GUN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "KIMJONGUN",
+     "indicators": [
+      {
+       "text": "less",
+       "note": "nothing (O) is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "imbued with"
+          }
+         ],
+         "parts": [
+          {
+           "words": "family",
+           "gives": "KIN",
+           "note": "kin = family"
+          },
+          {
+           "words": "personal magnetism, nothing less",
+           "gives": "MJO",
+           "note": "MOJO minus O (nothing), placed inside KIN"
+          }
+         ]
+        },
+        {
+         "words": "murderer?",
+         "gives": "GUN",
+         "note": "a gun, as in a hired gun, is a killer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1828,40 +1690,37 @@
    },
    "solution": "AGREE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AGREE",
     "definitions": [
      {
       "text": "Match",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "virtual",
-      "for": "deletion",
-      "note": "almost, but not quite: the word stops one letter short"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "classic",
-      "gives": "GREE",
-      "note": "GREEK (a classic language) almost"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GREE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AGREE",
+     "indicators": [
+      {
+       "text": "virtual",
+       "note": "almost, but not quite: the word stops one letter short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as it stands"
+        },
+        {
+         "words": "classic",
+         "gives": "GREE",
+         "note": "GREEK (a classic language) almost"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1896,35 +1755,24 @@
    },
    "solution": "BRIGHTONPIER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BRIGHTON PIER",
     "definitions": [
      {
       "text": "Seaside attraction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "letters that have gone off are spoilt, so rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the boring rip",
-      "gives": "THEBORINGRIP",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THE BORING RIP",
-       "gives": "BRIGHTONPIER"
+       "text": "off",
+       "note": "letters that have gone off are spoilt, so rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the boring rip",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },

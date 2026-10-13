@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22456",
  "number": 22456,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,456",
  "setter": "Bunthorne",
  "date": "2002-03-01",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "ALABAMA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ALABAMA",
     "definitions": [
      {
       "text": "Mobile harbour here",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Mobile harbour here",
-      "note": "surface reading: somewhere you can find a harbour that moves about"
-     },
-     {
-      "clueFragment": "Mobile",
-      "note": "setter's reading: Mobile is a port city with its own bay, so the clue asks for the state that contains it"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mobile harbour here",
+       "note": "surface reading: somewhere you can find a harbour that moves about"
+      },
+      {
+       "words": "Mobile",
+       "note": "setter's reading: Mobile is a port city with its own bay, so the clue asks for the state that contains it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A puzzle about where a floating, movable harbour might be kept.",
      "walkthrough": "The capital M is hidden at the start of the clue: Mobile is a Gulf Coast port city in the American South, not an adjective.",
@@ -85,65 +82,66 @@
    },
    "solution": "AUDUBON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone",
-     "anagram",
-     "charade"
-    ],
-    "answer": "AUDUBON",
     "definitions": [
      {
       "text": "Birdman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word just before it"
-     },
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say asks us to take the sound of the word spoken, here a single letter that sounds the same"
-     },
-     {
-      "text": "to escape",
-      "for": "anagram",
-      "note": "letters that escape break loose from their order and scatter into a new one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alcatraz",
-      "gives": "A",
-      "select": "first",
-      "note": "the first letter of the prison island"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "soundsLike": "YOU",
-      "note": "the letter U is pronounced like the pronoun"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "BOUND",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "U",
-      "DUBON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BOUND",
-       "gives": "DUBON"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of the word just before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alcatraz",
+         "note": "the first letter of the prison island"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to escape",
+         "note": "letters that escape break loose from their order and scatter into a new one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "homophone",
+           "spelt": "U",
+           "indicators": [
+            {
+             "text": "say",
+             "note": "say asks us to take the sound of the word spoken, here a single letter that sounds the same"
+            }
+           ],
+           "parts": [
+            {
+             "words": "you",
+             "gives": "YOU",
+             "note": "the letter U is pronounced like the pronoun"
+            }
+           ]
+          },
+          {
+           "words": "bound",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -173,66 +171,61 @@
    },
    "solution": "ATAHUALPA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "ATAHUALPA",
     "definitions": [
      {
       "text": "Old Peruvian potentate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round, so the paired words wrap around what follows"
-     },
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "poor suggests a state in bad shape, so the letters of the state name are in a poor order"
-     }
-    ],
-    "linkWords": [
-     "writing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two articles",
-      "gives": "A",
-      "note": "the first of the two indefinite articles"
-     },
-     {
-      "clueFragment": "Utah's",
-      "gives": "TAHU",
-      "note": "the state name, rearranged"
-     },
-     {
-      "clueFragment": "mountain climbing",
-      "gives": "ALP",
-      "note": "an Alp is a mountain, the kind climbers tackle"
-     },
-     {
-      "clueFragment": "two articles",
-      "gives": "A",
-      "note": "the second of the two indefinite articles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TAHU",
-      "ALP",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "UTAH",
-       "gives": "TAHU"
+       "words": "two articles",
+       "gives": "A",
+       "note": "the first of the two indefinite articles"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means going round, so the paired words wrap around what follows"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "poor",
+           "note": "poor suggests a state in bad shape, so the letters of the state name are in a poor order"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Utah's",
+             "gives": "TAHU",
+             "note": "the state name, rearranged"
+            },
+            {
+             "words": "mountain climbing",
+             "gives": "ALP",
+             "note": "an Alp is a mountain, the kind climbers tackle"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "two articles",
+         "gives": "A",
+         "note": "the second of the two indefinite articles"
+        }
+       ]
       }
      ]
     },
@@ -262,26 +255,25 @@
    },
    "solution": "AESOP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AESOP",
     "definitions": [
      {
       "text": "His morals were fabulous",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "His morals were fabulous",
-      "note": "surface reading: a man of splendid personal virtue"
-     },
-     {
-      "clueFragment": "fabulous",
-      "note": "setter's reading: fabulous in its literal sense, belonging to fables, whose stories each end with a moral"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "His morals were fabulous",
+       "note": "surface reading: a man of splendid personal virtue"
+      },
+      {
+       "words": "fabulous",
+       "note": "setter's reading: fabulous in its literal sense, belonging to fables, whose stories each end with a moral"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Fabulous looks like praise for someone's ethics, but it means told in fables, and each fable closes with its moral.",
      "definitionFit": "The ancient Greek storyteller credited with the classic fables, each ending in a stated lesson, is the man meant."
@@ -308,28 +300,16 @@
    },
    "solution": "ALBATROSS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ALBATROSS",
     "definitions": [
      {
       "text": "Mariner's neckwear",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the bird hung round the Ancient Mariner's neck in Coleridge's poem"
      },
      {
       "text": "acclaimed at the 19th hole",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mariner's neckwear",
-      "note": "first meaning: the bird hung round the Ancient Mariner's neck in Coleridge's poem"
-     },
-     {
-      "clueFragment": "acclaimed at the 19th hole",
-      "note": "second meaning: a golf score three under par, toasted afterwards in the clubhouse bar, jokingly called the 19th hole"
+      "at": 19,
+      "meaning": "second meaning: a golf score three under par, toasted afterwards in the clubhouse bar, jokingly called the 19th hole"
      }
     ],
     "explanation": {
@@ -359,32 +339,25 @@
    },
    "solution": "KETCHUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KETCHUP",
     "definitions": [
      {
       "text": "Dressing",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "boat",
-      "gives": "KETCH",
-      "note": "a ketch is a two-masted sailing boat"
-     },
-     {
-      "clueFragment": "at Oxford",
-      "gives": "UP",
-      "note": "a student in residence at a university is said to be up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KETCH",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boat",
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      },
+      {
+       "words": "at Oxford",
+       "gives": "UP",
+       "note": "a student in residence at a university is said to be up"
+      }
      ]
     },
     "explanation": {
@@ -414,10 +387,6 @@
    },
    "solution": "KNURR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KNURR",
     "definitions": [
      {
       "text": "for expulsion from 22",
@@ -425,28 +394,24 @@
       "note": "a noun phrase: the thing meant for expulsion"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "1,000",
-      "gives": "K",
-      "note": "K stands for a thousand"
-     },
-     {
-      "clueFragment": "former railwaymen",
-      "gives": "NUR",
-      "note": "the National Union of Railwaymen, merged out of existence in 1990"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "NUR",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1,000",
+       "gives": "K",
+       "note": "K stands for a thousand"
+      },
+      {
+       "words": "former railwaymen",
+       "gives": "NUR",
+       "note": "the National Union of Railwaymen, merged out of existence in 1990"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "the usual abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -481,48 +446,37 @@
    },
    "solution": "TIMHENMAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TIM HENMAN",
     "definitions": [
      {
       "text": "court celebrity",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to change",
-      "for": "anagram",
-      "note": "change tells us the two words before it are altered into another order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Meant him",
-      "gives": "TIMHENMA",
-      "note": "the two words rearranged"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the standard abbreviation for name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIMHENMA",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TIMHENMAN",
+     "indicators": [
       {
-       "fodder": "MEANTHIM",
-       "gives": "TIMHENMA"
+       "text": "to change",
+       "note": "change tells us the two words before it are altered into another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Meant him",
+         "gives": "TIMHENMA",
+         "note": "the two words rearranged"
+        },
+        {
+         "words": "name",
+         "gives": "N",
+         "note": "N is the standard abbreviation for name"
+        }
+       ]
       }
      ]
     },
@@ -552,32 +506,24 @@
    },
    "solution": "HIVES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HIVES",
     "definitions": [
      {
       "text": "that's rash",
       "at": 41
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "H-",
-      "gives": "H",
-      "note": "the stammered first letter stands as written"
-     },
-     {
-      "clueFragment": "he composed \"The Unanswered Question\"",
-      "gives": "IVES",
-      "note": "Charles Ives, the American composer of that orchestral piece"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "IVES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "H-",
+       "note": "the stammered first letter stands as written"
+      },
+      {
+       "words": "he composed \"The Unanswered Question\"",
+       "gives": "IVES",
+       "note": "Charles Ives, the American composer of that orchestral piece"
+      }
      ]
     },
     "explanation": {
@@ -607,56 +553,55 @@
    },
    "solution": "PEEBLES",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "PEEBLES",
     "definitions": [
      {
       "text": "Royal Burgh",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over in a down clue means turned upside down, so the word is read from the bottom up"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the turned word inside the footballer's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Edson Arantes do Nascimento's",
-      "gives": "PE",
-      "note": "the opening of the great Brazilian footballer's nickname, with its possessive"
-     },
-     {
-      "clueFragment": "Live",
-      "gives": "EB",
-      "note": "to live is to be, and the word is turned round"
-     },
-     {
-      "clueFragment": "Edson Arantes do Nascimento's",
-      "gives": "LES",
-      "note": "the rest of the nickname with its possessive s"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "EB",
-      "LES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PEEBLES",
+     "indicators": [
       {
-       "from": "BE",
-       "to": "EB"
+       "text": "in",
+       "note": "in places the turned word inside the footballer's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "PEEBLES",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over in a down clue means turned upside down, so the word is read from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Edson Arantes do Nascimento's",
+           "gives": "PE",
+           "note": "the opening of the great Brazilian footballer's nickname, with its possessive"
+          },
+          {
+           "words": "Live",
+           "gives": "EB",
+           "note": "to live is to be, and the word is turned round"
+          },
+          {
+           "words": "Edson Arantes do Nascimento's",
+           "gives": "LES",
+           "note": "the rest of the nickname with its possessive s"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -686,10 +631,6 @@
    },
    "solution": "DIALS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIALS",
     "definitions": [
      {
       "text": "See 26",
@@ -697,17 +638,10 @@
       "note": "the definition is the quotation printed at 26, which this light completes"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "See 26",
-      "gives": "DIALS",
-      "note": "the second word of the two-word phrase clued at 26, formed from the rearranged Island once its N has gone to 26"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIALS"
-     ]
+    "wordplay": {
+     "words": "See 26",
+     "gives": "DIALS",
+     "note": "the second word of the two-word phrase clued at 26, formed from the rearranged Island once its N has gone to 26"
     },
     "explanation": {
      "walkthrough": "This light is the second half of SEVEN DIALS: the golfer Seve plus a rearranged ISLAND, with the N ending 26 and DIALS filling here.",
@@ -739,48 +673,38 @@
    },
    "solution": "BLUEMOVIE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLUE MOVIE",
     "definitions": [
      {
       "text": "Sexploitation",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Prepared",
-      "for": "anagram",
-      "note": "something prepared has been made ready by working on it, so these letters are worked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Volume",
-      "gives": "VOLUME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral one"
-     },
-     {
-      "clueFragment": "Be",
-      "gives": "BE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUEMOVIE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VOLUMEIBE",
-       "gives": "BLUEMOVIE"
+       "text": "Prepared",
+       "note": "something prepared has been made ready by working on it, so these letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Volume",
+         "note": "taken as written"
+        },
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "the Roman numeral one"
+        },
+        {
+         "words": "Be",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -817,35 +741,25 @@
    },
    "solution": "BLUEPETER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUE PETER",
     "definitions": [
      {
       "text": "TV for children",
       "at": 14
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sky",
-      "gives": "BLUE",
-      "note": "the sky is blue, and blue can mean the sky itself"
-     },
-     {
-      "clueFragment": "Safe",
-      "gives": "PETER",
-      "note": "peter is old criminal slang for a safe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "PETER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sky",
+       "gives": "BLUE",
+       "note": "the sky is blue, and blue can mean the sky itself"
+      },
+      {
+       "words": "Safe",
+       "gives": "PETER",
+       "note": "peter is old criminal slang for a safe"
+      }
      ]
     },
     "explanation": {
@@ -874,30 +788,28 @@
    },
    "solution": "EASEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EASEL",
     "definitions": [
      {
       "text": "Canvas backing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting",
-      "for": "hidden_word",
-      "note": "supporting here means held up within the quoted words, which carry the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Medea's Elegy",
-      "gives": "EASEL",
-      "note": "found across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "supporting here means held up within the quoted words, which carry the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Medea's Elegy",
+       "gives": "EASEL",
+       "note": "found across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Stage scenery behind a performance of a tragic lament for Medea.",
      "walkthrough": "The letters run across the join of Medea's and Elegy.",
@@ -924,28 +836,16 @@
    },
    "solution": "NOLAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOLAN",
     "definitions": [
      {
       "text": "One of the singing sisters",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a member of the ..., the Irish girl group of the 1970s and 80s"
      },
      {
       "text": "of Sir Sidney",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One of the singing sisters",
-      "note": "first meaning: a member of the ..., the Irish girl group of the 1970s and 80s"
-     },
-     {
-      "clueFragment": "of Sir Sidney",
-      "note": "second meaning: the surname of Sir Sidney, the Australian painter of the Ned Kelly series"
+      "at": 27,
+      "meaning": "second meaning: the surname of Sir Sidney, the Australian painter of the Ned Kelly series"
      }
     ],
     "explanation": {
@@ -972,46 +872,34 @@
    },
    "solution": "NETANYAHU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NETANYAHU",
     "definitions": [
      {
       "text": "Barak saw him off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "settlement",
-      "for": "anagram",
-      "note": "a settlement is something settled or arranged, so the letters before it are arranged anew"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "haunt any",
-      "gives": "HAUNTANY",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NETANYAHU"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HAUNTANYE",
-       "gives": "NETANYAHU"
+       "text": "settlement",
+       "note": "a settlement is something settled or arranged, so the letters before it are arranged anew"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "haunt any",
+         "note": "taken as written, then rearranged"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "the usual abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1047,26 +935,25 @@
    },
    "solution": "OPIUMWARS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OPIUM WARS",
     "definitions": [
      {
       "text": "No Poppy Days after these conflicts?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "No Poppy Days after these conflicts?",
-      "note": "surface reading: wars not remembered with the poppy appeal held each November for the fallen"
-     },
-     {
-      "clueFragment": "Poppy",
-      "note": "setter's reading: the poppy is the source of the drug these wars were fought to keep trading"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "No Poppy Days after these conflicts?",
+       "note": "surface reading: wars not remembered with the poppy appeal held each November for the fallen"
+      },
+      {
+       "words": "Poppy",
+       "note": "setter's reading: the poppy is the source of the drug these wars were fought to keep trading"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Poppy Day is the British name for Remembrance Day, when paper poppies honour the war dead; here the poppy is the plant yielding the drug.",
      "definitionFit": "Britain fought two nineteenth-century wars with China to force open its markets to the drug trade from Indian poppies."
@@ -1099,48 +986,36 @@
    },
    "solution": "IVANLENDL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IVAN LENDL",
     "definitions": [
      {
       "text": "court celebrity",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "leading",
-      "for": "charade",
-      "note": "leading puts the first piece in front of the ones that follow"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Terrible type",
-      "gives": "IVAN",
-      "note": "Ivan the Terrible, the Russian tsar"
-     },
-     {
-      "clueFragment": "advance",
-      "gives": "LEND",
-      "note": "to advance money is to lend it"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IVAN",
-      "LEND",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "note": "leading puts the first piece in front of the ones that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Terrible type",
+       "gives": "IVAN",
+       "note": "Ivan the Terrible, the Russian tsar"
+      },
+      {
+       "words": "advance",
+       "gives": "LEND",
+       "note": "to advance money is to lend it"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "the usual abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1169,57 +1044,49 @@
    },
    "solution": "ANTINOVEL",
    "annotation": {
-    "type": [
-     "substitution",
-     "anagram"
-    ],
-    "answer": "ANTINOVEL",
     "definitions": [
      {
       "text": "Nouveau roman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going",
-      "for": "substitution",
-      "note": "going and for together say one letter leaves and another takes its place"
-     },
-     {
-      "text": "wretched",
-      "for": "anagram",
-      "note": "wretched suggests a sorry, broken state, so the word's letters are broken up"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Levantine",
-      "gives": "LEVANTINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "the compass abbreviation, which leaves"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is nil in tennis, written as the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANTINOVEL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ANTINOVEL",
+     "indicators": [
       {
-       "fodder": "LOVANTINE",
-       "gives": "ANTINOVEL"
+       "text": "wretched",
+       "note": "wretched suggests a sorry, broken state, so the word's letters are broken up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "ANTINOVEL",
+       "indicators": [
+        {
+         "text": "going",
+         "note": "going and for together say one letter leaves and another takes its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Levantine",
+         "note": "taken as written"
+        },
+        {
+         "words": "East",
+         "gives": "E",
+         "note": "the compass abbreviation, which leaves"
+        },
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "love is nil in tennis, written as the letter O"
+        }
+       ]
       }
      ]
     },
@@ -1249,53 +1116,48 @@
    },
    "solution": "ANASTASIA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ANASTASIA",
     "definitions": [
      {
       "text": "Did she survive slaughter as a tsarina right away?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "right away",
-      "for": "deletion",
-      "note": "right away tells us the letter for right is taken out"
-     },
-     {
-      "text": "slaughter",
-      "for": "anagram",
-      "note": "slaughter suggests hacking things to pieces, so the letters are cut up and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as a tsarina",
-      "gives": "ASATSARINA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "the usual abbreviation, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANASTASIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ANASTASIA",
+     "indicators": [
       {
-       "fodder": "ASATSAINA",
-       "gives": "ANASTASIA"
+       "text": "slaughter",
+       "note": "slaughter suggests hacking things to pieces, so the letters are cut up and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ANASTASIA",
+       "indicators": [
+        {
+         "text": "right away",
+         "note": "right away tells us the letter for right is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as a tsarina",
+         "note": "taken as written"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "the usual abbreviation, removed"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "The old mystery of whether a Russian grand duchess escaped the massacre of her family.",
      "walkthrough": "The whole clue is the definition and also the wordplay: remove R from AS A TSARINA and rearrange.",
@@ -1332,52 +1194,47 @@
    },
    "solution": "ATANEND",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AT AN END",
     "definitions": [
      {
       "text": "Over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the first piece comes before what follows it"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in sends the second article inside the word for care"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "one as the indefinite article"
-     },
-     {
-      "clueFragment": "care",
-      "gives": "TEND",
-      "note": "to tend is to care for, split around the next piece"
-     },
-     {
-      "clueFragment": "another",
-      "gives": "AN",
-      "note": "another article, placed inside"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "AN",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the first piece comes before what follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "one as the indefinite article"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in sends the second article inside the word for care"
+        }
+       ],
+       "parts": [
+        {
+         "words": "care",
+         "gives": "TEND",
+         "note": "to tend is to care for, split around the next piece"
+        },
+        {
+         "words": "another",
+         "gives": "AN",
+         "note": "another article, placed inside"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1406,48 +1263,36 @@
    },
    "solution": "NITRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NITRE",
     "definitions": [
      {
       "text": "Explosive component",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "On the contrary",
-      "for": "charade",
-      "note": "the phrase asks us to flip the order of the two words just before it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ulster",
-      "gives": "NI",
-      "note": "Northern Ireland, often called Ulster"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "the usual abbreviation"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on, as in regarding"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "T",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "On the contrary",
+       "note": "the phrase asks us to flip the order of the two words just before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ulster",
+       "gives": "NI",
+       "note": "Northern Ireland, often called Ulster"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "the usual abbreviation"
+      },
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on, as in regarding"
+      }
      ]
     },
     "explanation": {
@@ -1476,28 +1321,16 @@
    },
    "solution": "ELEANOR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ELEANOR",
     "definitions": [
      {
       "text": "Miss Rigby once noted",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the lonely woman set to music in the Beatles song"
      },
      {
       "text": "in Aquitaine",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Miss Rigby once noted",
-      "note": "first meaning: the lonely woman set to music in the Beatles song"
-     },
-     {
-      "clueFragment": "in Aquitaine",
-      "note": "second meaning: the medieval duchess who became queen of France and then of England"
+      "at": 22,
+      "meaning": "second meaning: the medieval duchess who became queen of France and then of England"
      }
     ],
     "explanation": {
@@ -1527,26 +1360,25 @@
    },
    "solution": "ARSON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ARSON",
     "definitions": [
      {
       "text": "Match crime with punishment?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Match crime with punishment?",
-      "note": "surface reading: the principle that a sentence should fit the offence"
-     },
-     {
-      "clueFragment": "Match crime",
-      "note": "setter's reading: an offence committed with a match, that is, by setting fire"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Match crime with punishment?",
+       "note": "surface reading: the principle that a sentence should fit the offence"
+      },
+      {
+       "words": "Match crime",
+       "note": "setter's reading: an offence committed with a match, that is, by setting fire"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Match looks like a verb meaning pair up, but it is the thing you strike, and the crime is one done with it.",
      "definitionFit": "Deliberately setting fire to property is the offence that a struck match makes possible."
@@ -1573,32 +1405,17 @@
    },
    "solution": "SPELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPELL",
     "definitions": [
      {
       "text": "Take my place awhile",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to relieve someone by doing their work for a stretch"
      },
      {
       "text": "enchanting",
       "at": 27,
-      "note": "the clue's it's enchanting reads as the thing that enchants, a noun"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take my place awhile",
-      "note": "first meaning: to relieve someone by doing their work for a stretch"
-     },
-     {
-      "clueFragment": "enchanting",
-      "note": "second meaning: a magic charm that enchants"
+      "note": "the clue's it's enchanting reads as the thing that enchants, a noun",
+      "meaning": "second meaning: a magic charm that enchants"
      }
     ],
     "explanation": {
@@ -1626,55 +1443,46 @@
    },
    "solution": "ALLEMANDE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ALLEMANDE",
     "definitions": [
      {
       "text": "German dance",
       "at": 64
      }
     ],
-    "indicators": [
-     {
-      "text": "circles",
-      "for": "container",
-      "note": "circles means goes round, so the river's name surrounds what follows"
-     }
-    ],
-    "linkWords": [
-     "that should make a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Britten's river",
-      "gives": "A",
-      "note": "the start of the Suffolk river at Aldeburgh, Britten's home town"
-     },
-     {
-      "clueFragment": "Lake",
-      "gives": "L",
-      "note": "the usual abbreviation"
-     },
-     {
-      "clueFragment": "Geneva, on dit",
-      "gives": "LEMAN",
-      "note": "on dit is French for they say: the French call Lake Geneva Lac Leman"
-     },
-     {
-      "clueFragment": "Britten's river",
-      "gives": "DE",
-      "note": "the rest of the river's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "LEMAN",
-      "DE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Britten's river",
+       "gives": "A",
+       "note": "the start of the Suffolk river at Aldeburgh, Britten's home town"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circles",
+         "note": "circles means goes round, so the river's name surrounds what follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Geneva, on dit",
+         "gives": "LEMAN",
+         "note": "on dit is French for they say: the French call Lake Geneva Lac Leman"
+        },
+        {
+         "words": "Lake",
+         "gives": "L",
+         "note": "the usual abbreviation"
+        }
+       ]
+      },
+      {
+       "words": "Britten's river",
+       "gives": "DE",
+       "note": "the rest of the river's name"
+      }
      ]
     },
     "explanation": {
@@ -1703,28 +1511,16 @@
    },
    "solution": "ALIVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ALIVE",
     "definitions": [
      {
       "text": "In being",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in existence, still going"
      },
      {
       "text": "quick",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In being",
-      "note": "first meaning: in existence, still going"
-     },
-     {
-      "clueFragment": "quick",
-      "note": "second meaning: the old sense of quick as living, as in the quick and the dead"
+      "at": 9,
+      "meaning": "second meaning: the old sense of quick as living, as in the quick and the dead"
      }
     ],
     "explanation": {
@@ -1752,28 +1548,16 @@
    },
    "solution": "MUSIC",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MUSIC",
     "definitions": [
      {
       "text": "Let's face it",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the thing in the idiom about facing up to the consequences"
      },
      {
       "text": "it's barred",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Let's face it",
-      "note": "first meaning: the thing in the idiom about facing up to the consequences"
-     },
-     {
-      "clueFragment": "it's barred",
-      "note": "second meaning: written notation is divided into bars"
+      "at": 16,
+      "meaning": "second meaning: written notation is divided into bars"
      }
     ],
     "explanation": {
@@ -1803,26 +1587,25 @@
    },
    "solution": "ELEVATION",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ELEVATION",
     "definitions": [
      {
       "text": "Host got up for this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Host got up for this",
-      "note": "surface reading: a party's host rose to his feet for some occasion"
-     },
-     {
-      "clueFragment": "Host",
-      "note": "setter's reading: the consecrated bread at Mass, raised by the priest"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Host got up for this",
+       "note": "surface reading: a party's host rose to his feet for some occasion"
+      },
+      {
+       "words": "Host",
+       "note": "setter's reading: the consecrated bread at Mass, raised by the priest"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Host suggests a party giver, but it is the eucharistic wafer, which the priest lifts aloft after consecration.",
      "definitionFit": "In the Mass the moment when the priest raises the consecrated bread for the congregation to see has this name."
@@ -1849,48 +1632,37 @@
    },
    "solution": "SEVEN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SEVEN",
     "definitions": [
      {
       "text": "\"As in the lowly air of _____ \" (\"Iolanthe\"",
       "at": 8
      }
     ],
-    "indicators": [
-     {
-      "text": "eruption",
-      "for": "anagram",
-      "note": "an eruption blows things apart, so the word's letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ballesteros",
-      "gives": "SEVE",
-      "note": "Seve Ballesteros, the Spanish golfer"
-     },
-     {
-      "clueFragment": "Island",
-      "gives": "N",
-      "note": "the word rearranged; this light takes its first letter, and 9 takes the other five"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEVE",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SEVEN",
+     "indicators": [
       {
-       "fodder": "ISLAND",
-       "gives": "NDIALS"
+       "text": "eruption",
+       "note": "an eruption blows things apart, so the word's letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ballesteros",
+         "gives": "SEVE",
+         "note": "Seve Ballesteros, the Spanish golfer"
+        },
+        {
+         "words": "Island",
+         "gives": "N",
+         "note": "the word rearranged; this light takes its first letter, and 9 takes the other five"
+        }
+       ]
       }
      ]
     },
@@ -1920,56 +1692,51 @@
    },
    "solution": "DELOUSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DELOUSE",
     "definitions": [
      {
       "text": "Purify",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "something lost has gone astray, so these letters wander out of order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the rearranged word inside the river"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the water of Wales",
-      "gives": "DE",
-      "note": "the River Dee, which rises in Wales, split around the next piece"
-     },
-     {
-      "clueFragment": "soul",
-      "gives": "LOUS",
-      "note": "the word rearranged"
-     },
-     {
-      "clueFragment": "the water of Wales",
-      "gives": "E",
-      "note": "the river's last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "LOUS",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SOUL",
-       "gives": "LOUS"
+       "text": "in",
+       "note": "in places the rearranged word inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the water of Wales",
+       "gives": "DE",
+       "note": "the River Dee, which rises in Wales, split around the next piece"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "lost",
+         "note": "something lost has gone astray, so these letters wander out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "soul",
+           "gives": "LOUS",
+           "note": "the word rearranged"
+          },
+          {
+           "words": "the water of Wales",
+           "gives": "E",
+           "note": "the river's last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1999,50 +1766,41 @@
    },
    "solution": "LOCULAR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LOCULAR",
     "definitions": [
      {
       "text": "Having \"nooky\" places",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "embraced",
-      "for": "container",
-      "note": "embraced means held in the arms, so the name wraps round the next piece"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Miss Montez",
-      "gives": "LOLA",
-      "note": "Lola Montez, the nineteenth-century dancer and courtesan"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "CU",
-      "LA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embraced",
+         "note": "embraced means held in the arms, so the name wraps round the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Miss Montez",
+         "gives": "LOLA",
+         "note": "Lola Montez, the nineteenth-century dancer and courtesan"
+        },
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      }
      ]
     },
     "explanation": {

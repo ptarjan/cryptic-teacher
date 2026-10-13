@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2996",
  "number": 2996,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,996",
  "setter": "Jalna",
  "date": "2025-05-23",
  "dimensions": {
@@ -48,38 +46,24 @@
    },
    "solution": "FAIRDINKUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FAIR DINKUM",
     "definitions": [
      {
       "text": "Very square Aussie",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "the letters of the phrase are knocked over and rearranged"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "if I am drunk",
-      "gives": "IFIAMDRUNK",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IFIAMDRUNK",
-       "gives": "FAIRDINKUM"
+       "text": "upset",
+       "note": "the letters of the phrase are knocked over and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if I am drunk",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -109,40 +93,31 @@
    },
    "solution": "FACET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FACET",
     "definitions": [
      {
       "text": "feature",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "introducing",
-      "for": "container",
-      "note": "the newspaper takes the next word into itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Newspaper",
-      "gives": "FT",
-      "note": "FT is the Financial Times"
-     },
-     {
-      "clueFragment": "fantastic",
-      "gives": "ACE",
-      "note": "ace = excellent, fantastic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ACE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "introducing",
+       "note": "the newspaper takes the next word into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Newspaper",
+       "gives": "FT",
+       "note": "FT is the Financial Times"
+      },
+      {
+       "words": "fantastic",
+       "gives": "ACE",
+       "note": "ace = excellent, fantastic"
+      }
      ]
     },
     "explanation": {
@@ -186,30 +161,16 @@
    },
    "solution": "INTHELONGRUN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN THE LONG RUN",
     "definitions": [
      {
       "text": "Where you see marathon athletes",
-      "at": 0
+      "at": 0,
+      "meaning": "read literally: the place a marathon runner is found is out on a lengthy race"
      },
      {
       "text": "at the end of the day",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where you see marathon athletes",
-      "gives": "INTHELONGRUN",
-      "note": "read literally: the place a marathon runner is found is out on a lengthy race"
-     },
-     {
-      "clueFragment": "at the end of the day",
-      "gives": "INTHELONGRUN",
-      "note": "idiom: eventually, ultimately"
+      "at": 32,
+      "meaning": "idiom: eventually, ultimately"
      }
     ],
     "explanation": {
@@ -239,50 +200,50 @@
    },
    "solution": "DAHL",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DAHL",
     "definitions": [
      {
       "text": "Author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "note": "in a down clue, writing a word upwards reverses it"
-     },
-     {
-      "text": "finally",
-      "note": "take only the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ate",
-      "gives": "HAD",
-      "note": "had (a meal) = ate"
-     },
-     {
-      "clueFragment": "approval, finally",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of approvaL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAH",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "HAD",
-       "to": "DAH"
+       "text": "up",
+       "note": "in a down clue, writing a word upwards reverses it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "take only the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ate",
+         "gives": "HAD",
+         "note": "had (a meal) = ate"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "L",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "approval, finally",
+         "gives": "L",
+         "select": "last",
+         "note": "last letter of approvaL"
+        }
+       ]
       }
      ]
     },
@@ -312,48 +273,35 @@
    },
    "solution": "NANTES",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NANTES",
     "definitions": [
      {
       "text": "French city",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, writing a word upwards reverses it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elderly relative",
-      "gives": "NAN",
-      "note": "nan = grandmother"
-     },
-     {
-      "clueFragment": "put",
-      "gives": "SET",
-      "note": "set = put (down)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAN",
-      "TES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SET",
-       "to": "TES"
+       "words": "Elderly relative",
+       "gives": "NAN",
+       "note": "nan = grandmother"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, writing a word upwards reverses it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put",
+         "gives": "SET",
+         "note": "set = put (down)"
+        }
+       ]
       }
      ]
     },
@@ -383,35 +331,25 @@
    },
    "solution": "UNIVERSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNIVERSE",
     "definitions": [
      {
       "text": "All that is",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "place for learning",
-      "gives": "UNI",
-      "note": "uni = university"
-     },
-     {
-      "clueFragment": "poetry",
-      "gives": "VERSE",
-      "note": "verse = poetry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNI",
-      "VERSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place for learning",
+       "gives": "UNI",
+       "note": "uni = university"
+      },
+      {
+       "words": "poetry",
+       "gives": "VERSE",
+       "note": "verse = poetry"
+      }
      ]
     },
     "explanation": {
@@ -446,35 +384,24 @@
    },
    "solution": "WESTERNSAMOA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WESTERN SAMOA",
     "definitions": [
      {
       "text": "former country",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "the letters are turned about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Awesome rants",
-      "gives": "AWESOMERANTS",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AWESOMERANTS",
-       "gives": "WESTERNSAMOA"
+       "text": "about",
+       "note": "the letters are turned about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Awesome rants",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -504,47 +431,41 @@
    },
    "solution": "GLADLY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "GLADLY",
     "definitions": [
      {
       "text": "with a smile?",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomes",
-      "for": "container",
-      "note": "the noblewoman takes the Liberal inside her"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grand",
-      "gives": "G",
-      "note": "G = grand (a thousand)"
-     },
-     {
-      "clueFragment": "noblewoman",
-      "gives": "LADY",
-      "note": "a lady is a noblewoman"
-     },
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "note": "L = Liberal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LAD",
-      "L",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grand",
+       "gives": "G",
+       "note": "G = grand (a thousand)"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "welcomes",
+         "note": "the noblewoman takes the Liberal inside her"
+        }
+       ],
+       "parts": [
+        {
+         "words": "noblewoman",
+         "gives": "LADY",
+         "note": "a lady is a noblewoman"
+        },
+        {
+         "words": "Liberal",
+         "gives": "L",
+         "note": "L = Liberal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -579,33 +500,16 @@
    },
    "solution": "CATCHON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CATCH ON",
     "definitions": [
      {
       "text": "Get it",
-      "at": 0
+      "at": 0,
+      "meaning": "get it = understand, grasp the point"
      },
      {
       "text": "become popular",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get it",
-      "gives": "CATCHON",
-      "note": "get it = understand, grasp the point"
-     },
-     {
-      "clueFragment": "become popular",
-      "gives": "CATCHON",
-      "note": "a fashion catches on"
+      "at": 11,
+      "meaning": "a fashion catches on"
      }
     ],
     "explanation": {
@@ -633,32 +537,25 @@
    },
    "solution": "IDEAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDEAL",
     "definitions": [
      {
       "text": "Best possible",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "agreement",
-      "gives": "DEAL",
-      "note": "a deal is an agreement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DEAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "agreement",
+       "gives": "DEAL",
+       "note": "a deal is an agreement"
+      }
      ]
     },
     "explanation": {
@@ -687,33 +584,29 @@
    },
    "solution": "TWEE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TWEE",
     "definitions": [
      {
       "text": "Pretty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "something short falls short of its full length, so the word stops a letter early"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sound made by a bird",
-      "gives": "TWEET",
-      "note": "a tweet is a bird's chirp; lose its last T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "something short falls short of its full length, so the word stops a letter early"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sound made by a bird",
+       "gives": "TWEET",
+       "note": "a tweet is a bird's chirp; lose its last T"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -742,35 +635,25 @@
    },
    "solution": "RESENTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESENTED",
     "definitions": [
      {
       "text": "Disliked",
       "at": 0
      }
     ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "emailed again",
-      "gives": "RESENT",
-      "note": "re-sent = sent again"
-     },
-     {
-      "clueFragment": "senior journalist",
-      "gives": "ED",
-      "note": "ED = editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESENT",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "emailed again",
+       "gives": "RESENT",
+       "note": "re-sent = sent again"
+      },
+      {
+       "words": "senior journalist",
+       "gives": "ED",
+       "note": "ED = editor"
+      }
      ]
     },
     "explanation": {
@@ -810,57 +693,60 @@
    },
    "solution": "ASITWERE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "AS IT WERE",
     "definitions": [
      {
       "text": "In a way",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "note": "take the essence, the middle letter, of 'are'"
-     },
-     {
-      "text": "breaking into",
-      "note": "the letters burst inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "select": "middle",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "part of the Web",
-      "gives": "SITE",
-      "note": "a website"
-     },
-     {
-      "clueFragment": "we",
-      "gives": "WE",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "R",
-      "note": "middle letter of aRe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SIT",
-      "WE",
-      "R",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "essentially",
+       "note": "take the essence, the middle letter, of 'are'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "breaking into",
+         "note": "the letters burst inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "parts": [
+          {
+           "words": "a",
+           "note": "as printed"
+          }
+         ]
+        },
+        {
+         "words": "part of the Web",
+         "gives": "SITE",
+         "note": "a website"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "we",
+         "note": "as printed"
+        },
+        {
+         "words": "are",
+         "gives": "R",
+         "note": "middle letter of aRe"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -889,38 +775,25 @@
    },
    "solution": "IDOLS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IDOLS",
     "definitions": [
      {
       "text": "megastars",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Regular appearances from",
-      "for": "letter_selection",
-      "note": "take letters at regular intervals, here every second one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wild, foolish",
-      "gives": "IDOLS",
-      "select": "alternate",
-      "note": "the 2nd, 4th, 6th, 8th and 10th letters: wIlD fOoLiSh"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "D",
-      "O",
-      "L",
-      "S"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Regular appearances from",
+       "note": "take letters at regular intervals, here every second one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wild, foolish",
+       "note": "the 2nd, 4th, 6th, 8th and 10th letters: wIlD fOoLiSh"
+      }
      ]
     },
     "explanation": {
@@ -950,32 +823,25 @@
    },
    "solution": "INTACT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INTACT",
     "definitions": [
      {
       "text": "still together",
       "at": 34
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "International",
-      "gives": "INT",
-      "note": "INT = international"
-     },
-     {
-      "clueFragment": "group of performers",
-      "gives": "ACT",
-      "note": "an act, such as a band"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "ACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "International",
+       "gives": "INT",
+       "note": "INT = international"
+      },
+      {
+       "words": "group of performers",
+       "gives": "ACT",
+       "note": "an act, such as a band"
+      }
      ]
     },
     "explanation": {
@@ -1003,42 +869,31 @@
    },
    "solution": "SURLY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SURLY",
     "definitions": [
      {
       "text": "Bad-tempered",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "devoid of",
-      "for": "deletion",
-      "note": "devoid of means completely lacking"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "certainly",
-      "gives": "SURELY",
-      "note": "surely = certainly"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy; removed from SURELY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUR",
-      "LY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "devoid of",
+       "note": "devoid of means completely lacking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certainly",
+       "gives": "SURELY",
+       "note": "surely = certainly"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E = energy; removed from SURELY"
+      }
      ]
     },
     "explanation": {
@@ -1067,30 +922,28 @@
    },
    "solution": "MERINO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MERINO",
     "definitions": [
      {
       "text": "type of fabric",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Strand of",
-      "for": "hidden_word",
-      "note": "a thread pulled out of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "polymer in one",
-      "gives": "MERINO",
-      "note": "polyMER IN One"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Strand of",
+       "note": "a thread pulled out of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "polymer in one",
+       "gives": "MERINO",
+       "note": "polyMER IN One"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fibre of plastic found in a certain textile.",
      "walkthrough": "The surface is about fibres and fabric, so 'Strand' sounds like a thread rather than a hint to lift letters out.",
@@ -1118,52 +971,40 @@
    },
    "solution": "TOGETHER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TOGETHER",
     "definitions": [
      {
       "text": "well-organised",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "note": "Roget in some other possible arrangement"
-     },
-     {
-      "text": "includes",
-      "note": "the rearranged letters take THE inside"
-     }
-    ],
-    "linkWords": [
-     "synonym for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roget",
-      "gives": "TOGER",
-      "note": "anagram fodder, 5 letters"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOGE",
-      "THE",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ROGET",
-       "gives": "TOGER"
+       "text": "possibly",
+       "note": "Roget in some other possible arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roget",
+       "gives": "TOGER",
+       "note": "anagram fodder, 5 letters"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "includes",
+         "note": "the rearranged letters take THE inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "as printed"
+        }
+       ]
       }
      ]
     },
@@ -1199,34 +1040,39 @@
    },
    "solution": "ASIF",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "AS IF",
     "definitions": [
      {
       "text": "It's highly unlikely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "note": "only some of the letters are used"
-     },
-     {
-      "text": "returned",
-      "note": "something returned comes back the way it went, so the letters are read in the reverse direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stufF IS Actually",
-      "gives": "FISA",
-      "note": "the letters sit across three words, stuF IS Actually, and read right to left"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only some of the letters are used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "returned",
+         "note": "something returned comes back the way it went, so the letters are read in the reverse direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stufF IS Actually",
+         "gives": "FISA",
+         "note": "the letters sit across three words, stuF IS Actually, and read right to left"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doubter says there's little chance any goods will really come back.",
      "walkthrough": "'As if!' is the scornful exclamation meaning that will never happen.",
@@ -1253,30 +1099,16 @@
    },
    "solution": "FORCE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FORCE",
     "definitions": [
      {
       "text": "Might",
-      "at": 0
+      "at": 0,
+      "meaning": "might as a noun = strength, power"
      },
      {
       "text": "put pressure on",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Might",
-      "gives": "FORCE",
-      "note": "might as a noun = strength, power"
-     },
-     {
-      "clueFragment": "put pressure on",
-      "gives": "FORCE",
-      "note": "put pressure on = compel, coerce"
+      "at": 6,
+      "meaning": "put pressure on = compel, coerce"
      }
     ],
     "explanation": {
@@ -1306,32 +1138,24 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "far from basic?",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "police department",
-      "gives": "CID",
-      "note": "CID = Criminal Investigation Department, British detectives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as printed"
+      },
+      {
+       "words": "police department",
+       "gives": "CID",
+       "note": "CID = Criminal Investigation Department, British detectives"
+      }
      ]
     },
     "explanation": {
@@ -1361,39 +1185,31 @@
    },
    "solution": "COUPE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "COUPE",
     "definitions": [
      {
       "text": "car",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting",
-      "for": "deletion",
-      "note": "lacking: remove the named letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two people",
-      "gives": "COUPLE",
-      "note": "a couple = two people"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L = large; removed from COUPLE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COU",
-      "PE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "wanting",
+       "note": "lacking: remove the named letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Two people",
+       "gives": "COUPLE",
+       "note": "a couple = two people"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L = large; removed from COUPLE"
+      }
      ]
     },
     "explanation": {
@@ -1423,41 +1239,36 @@
    },
    "solution": "INCOMER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "INCOMER",
     "definitions": [
      {
       "text": "One entering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the left hand side",
-      "for": "letter_selection",
-      "note": "the leftmost letter of the word, its first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "revenue",
-      "gives": "INCOME",
-      "note": "revenue = income"
-     },
-     {
-      "clueFragment": "receipts on the left hand side",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Receipts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCOME",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revenue",
+       "gives": "INCOME",
+       "note": "revenue = income"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "on the left hand side",
+         "note": "the leftmost letter of the word, its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "receipts on the left hand side",
+         "gives": "RECEIPTS",
+         "note": "first letter of Receipts"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1493,35 +1304,24 @@
    },
    "solution": "SECONDRATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SECOND-RATE",
     "definitions": [
      {
       "text": "Mediocre",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be changed",
-      "for": "anagram",
-      "note": "the letters must be altered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actors need",
-      "gives": "ACTORSNEED",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACTORSNEED",
-       "gives": "SECONDRATE"
+       "text": "to be changed",
+       "note": "the letters must be altered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "actors need",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },

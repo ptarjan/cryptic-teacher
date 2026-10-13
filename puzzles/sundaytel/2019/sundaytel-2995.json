@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-2995",
  "number": 2995,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 2,995",
  "date": "2019-03-17",
  "dimensions": {
   "cols": 15,
@@ -37,47 +35,44 @@
    },
    "solution": "SPIRAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "SPIRAL",
     "definitions": [
      {
       "text": "coil",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "in tatters",
-      "for": "anagram",
-      "note": "something in tatters is torn apart, so the letters are scattered and reassembled"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paris",
-      "gives": "PARIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mortal",
-      "gives": "L",
-      "select": "last",
-      "note": "the final letter of mortal"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PARISL",
-       "gives": "SPIRAL"
+       "text": "in tatters",
+       "note": "something in tatters is torn apart, so the letters are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Paris",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "the end of a word is its final letter, so only that one is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mortal",
+           "note": "the final letter of mortal"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -107,47 +102,53 @@
    },
    "solution": "POWYS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "POWYS",
     "definitions": [
      {
       "text": "County",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the first letter of each word"
-     },
-     {
-      "text": "not English",
-      "for": "deletion",
-      "note": "not means without, so the abbreviation for English is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of Wales",
-      "gives": "POW",
-      "select": "first",
-      "note": "first letters of part, of and Wales"
-     },
-     {
-      "clueFragment": "Yes",
-      "gives": "YS",
-      "note": "yes without its E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POW",
-      "YS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "POWYS",
+     "indicators": [
+      {
+       "text": "not English",
+       "note": "not means without, so the abbreviation for English is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "POW",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the first letter of each word"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "part of Wales",
+           "gives": "POW",
+           "select": "first",
+           "note": "first letters of part, of and Wales"
+          }
+         ]
+        },
+        {
+         "words": "Yes",
+         "gives": "YS",
+         "note": "yes without its E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -175,32 +176,25 @@
    },
    "solution": "REARRANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REARRANGE",
     "definitions": [
      {
       "text": "Change",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "back",
-      "gives": "REAR",
-      "note": "the rear is the back"
-     },
-     {
-      "clueFragment": "chain",
-      "gives": "RANGE",
-      "note": "a range is a chain of mountains"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAR",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "back",
+       "gives": "REAR",
+       "note": "the rear is the back"
+      },
+      {
+       "words": "chain",
+       "gives": "RANGE",
+       "note": "a range is a chain of mountains"
+      }
      ]
     },
     "explanation": {
@@ -228,10 +222,6 @@
    },
    "solution": "LOWEST",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LOWEST",
     "definitions": [
      {
       "text": "Smallest number",
@@ -239,28 +229,24 @@
       "note": "adjectival phrase: lowest, as in the lowest number"
      }
     ],
-    "indicators": [
-     {
-      "text": "departing",
-      "for": "deletion",
-      "note": "something departing leaves, so those letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English port",
-      "gives": "LOWESTOFT",
-      "note": "Lowestoft is a port in Suffolk, eastern England"
-     },
-     {
-      "clueFragment": "oft",
-      "gives": "OFT",
-      "note": "taken as written, the letters removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOWEST"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "departing",
+       "note": "something departing leaves, so those letters are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English port",
+       "gives": "LOWESTOFT",
+       "note": "Lowestoft is a port in Suffolk, eastern England"
+      },
+      {
+       "words": "oft",
+       "note": "taken as written, the letters removed"
+      }
      ]
     },
     "explanation": {
@@ -288,35 +274,24 @@
    },
    "solution": "SEMITONE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SEMITONE",
     "definitions": [
      {
       "text": "Interval",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wasted",
-      "for": "anagram",
-      "note": "wasted means ruined or wrecked, so the letters fall into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time one's",
-      "gives": "TIMEONES",
-      "note": "the letters of these two words, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TIMEONES",
-       "gives": "SEMITONE"
+       "text": "wasted",
+       "note": "wasted means ruined or wrecked, so the letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time one's",
+       "note": "the letters of these two words, apostrophe ignored"
       }
      ]
     },
@@ -352,26 +327,25 @@
    },
    "solution": "SURROGATEMOTHER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SURROGATE MOTHER",
     "definitions": [
      {
       "text": "Woman expecting to help another couple?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Woman expecting",
-      "note": "surface: a woman who anticipates being of assistance"
-     },
-     {
-      "clueFragment": "expecting to help another couple",
-      "note": "cryptic: a pregnant woman carrying a baby on behalf of other parents"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Woman expecting",
+       "note": "surface: a woman who anticipates being of assistance"
+      },
+      {
+       "words": "expecting to help another couple",
+       "note": "cryptic: a pregnant woman carrying a baby on behalf of other parents"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Expecting reads as anticipating, but it means pregnant.",
      "definitionFit": "She carries and delivers a child for a couple who cannot have one themselves."
@@ -398,35 +372,24 @@
    },
    "solution": "MISSPELT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MISSPELT",
     "definitions": [
      {
       "text": "badly written",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "for": "anagram",
-      "note": "novel means new, so the letters take a fresh arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Simplest",
-      "gives": "SIMPLEST",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SIMPLEST",
-       "gives": "MISSPELT"
+       "text": "novel",
+       "note": "novel means new, so the letters take a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Simplest",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -456,35 +419,18 @@
    },
    "solution": "TENET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TENET",
     "definitions": [
      {
       "text": "Principle",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a firmly held belief"
      },
      {
       "text": "that may come up just the same",
-      "at": 10
+      "at": 10,
+      "meaning": "second meaning, cryptic: a word that reads identically when this down light is read upwards"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Principle",
-      "note": "first meaning: a firmly held belief"
-     },
-     {
-      "clueFragment": "that may come up just the same",
-      "note": "second meaning, cryptic: a word that reads identically when this down light is read upwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TENET"
-     ]
-    },
     "explanation": {
      "surface": "A principle that might reappear unchanged in debate.",
      "walkthrough": "In a down entry 'come up' means read from bottom to top; the second half describes a word that is a palindrome.",
@@ -511,35 +457,24 @@
    },
    "solution": "NOMINATED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NOMINATED",
     "definitions": [
      {
       "text": "selected",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Wild",
-      "for": "anagram",
-      "note": "wild means out of control, so the letters run riot into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "maiden not",
-      "gives": "MAIDENNOT",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MAIDENNOT",
-       "gives": "NOMINATED"
+       "text": "Wild",
+       "note": "wild means out of control, so the letters run riot into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maiden not",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -574,43 +509,31 @@
    },
    "solution": "SWEARWORDS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWEAR-WORDS",
     "definitions": [
      {
       "text": "those offensive",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it, so the first word goes within the second"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weapons",
-      "gives": "SWORDS",
-      "note": "swords are bladed weapons"
-     },
-     {
-      "clueFragment": "Damage",
-      "gives": "WEAR",
-      "note": "wear is damage caused by use"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEAR",
-      "WORDS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing placed in another sits inside it, so the first word goes within the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weapons",
+       "gives": "SWORDS",
+       "note": "swords are bladed weapons"
+      },
+      {
+       "words": "Damage",
+       "gives": "WEAR",
+       "note": "wear is damage caused by use"
+      }
      ]
     },
     "explanation": {
@@ -640,35 +563,25 @@
    },
    "solution": "NAME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NAME",
     "definitions": [
      {
       "text": "Title",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not applicable",
-      "gives": "NA",
-      "note": "N/A is the abbreviation for not applicable"
-     },
-     {
-      "clueFragment": "subject of autobiography",
-      "gives": "ME",
-      "note": "an autobiography is about the writer, me"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NA",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not applicable",
+       "gives": "NA",
+       "note": "N/A is the abbreviation for not applicable"
+      },
+      {
+       "words": "subject of autobiography",
+       "gives": "ME",
+       "note": "an autobiography is about the writer, me"
+      }
      ]
     },
     "explanation": {
@@ -696,50 +609,40 @@
    },
    "solution": "ESPRESSO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ESPRESSO",
     "definitions": [
      {
       "text": "coffee",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly unavailable",
-      "for": "letter_selection",
-      "note": "the odd-numbered letters are not available, so only the even ones remain"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Teas",
-      "gives": "ES",
-      "select": "alternate",
-      "note": "second and fourth letters of Teas"
-     },
-     {
-      "clueFragment": "push",
-      "gives": "PRESS",
-      "note": "to press is to push"
-     },
-     {
-      "clueFragment": "zero",
-      "gives": "O",
-      "note": "O looks like the figure zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "PRESS",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly unavailable",
+         "note": "the odd-numbered letters are not available, so only the even ones remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Teas",
+         "note": "second and fourth letters of Teas"
+        }
+       ]
+      },
+      {
+       "words": "push",
+       "gives": "PRESS",
+       "note": "to press is to push"
+      },
+      {
+       "words": "zero",
+       "gives": "O",
+       "note": "O looks like the figure zero"
+      }
      ]
     },
     "explanation": {
@@ -767,40 +670,31 @@
    },
    "solution": "POTENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "POTENT",
     "definitions": [
      {
       "text": "strong",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "boarding",
-      "for": "container",
-      "note": "a passenger boarding a ship goes inside it, so one piece enters the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "POT",
-      "note": "a pot is a cooking vessel"
-     },
-     {
-      "clueFragment": "Number",
-      "gives": "TEN",
-      "note": "ten is a number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "TEN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boarding",
+       "note": "a passenger boarding a ship goes inside it, so one piece enters the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "gives": "POT",
+       "note": "a pot is a cooking vessel"
+      },
+      {
+       "words": "Number",
+       "gives": "TEN",
+       "note": "ten is a number"
+      }
      ]
     },
     "explanation": {
@@ -829,38 +723,25 @@
    },
    "solution": "SPIN",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SPIN",
     "definitions": [
      {
       "text": "Revolution",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backwards",
-      "for": "reversal",
-      "note": "going backwards means the word is read from its end to its start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "goes quickly",
-      "gives": "NIPS",
-      "note": "to nip is to go somewhere quickly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPIN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NIPS",
-       "to": "SPIN"
+       "text": "backwards",
+       "note": "going backwards means the word is read from its end to its start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "goes quickly",
+       "gives": "NIPS",
+       "note": "to nip is to go somewhere quickly"
       }
      ]
     },
@@ -889,44 +770,35 @@
    },
    "solution": "PRONOUNCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PRONOUNCE",
     "definitions": [
      {
       "text": "Say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "empties",
-      "for": "letter_selection",
-      "note": "emptying a word removes its insides, leaving only the outside letters"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something perhaps",
-      "gives": "PRONOUN",
-      "note": "something is an example of a part of speech that stands in for a noun"
-     },
-     {
-      "clueFragment": "carriage",
-      "gives": "CE",
-      "select": "outer",
-      "note": "the first and last letters of carriage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRONOUN",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "something perhaps",
+       "gives": "PRONOUN",
+       "note": "something is an example of a part of speech that stands in for a noun"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empties",
+         "note": "emptying a word removes its insides, leaving only the outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carriage",
+         "note": "the first and last letters of carriage"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -955,61 +827,64 @@
    },
    "solution": "ALLOCATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "anagram"
-    ],
-    "answer": "ALLOCATE",
     "definitions": [
      {
       "text": "set aside",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter"
-     },
-     {
-      "text": "Imbibing",
-      "for": "container",
-      "note": "imbibing means drinking in, so the other letters take this one inside"
-     },
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "sadly suggests things have gone wrong, so the letters end up in a jumbled order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tea",
-      "gives": "TEA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "alcohol",
-      "gives": "L",
-      "select": "last",
-      "note": "final letter of alcohol"
-     },
-     {
-      "clueFragment": "cola",
-      "gives": "COLA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TEALCOLA",
-       "gives": "ALLOCATE"
+       "text": "Imbibing",
+       "note": "imbibing means drinking in, so the other letters take this one inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "note": "sadly suggests things have gone wrong, so the letters end up in a jumbled order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tea",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "last of",
+             "note": "the last of a word is its final letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "alcohol",
+             "note": "final letter of alcohol"
+            }
+           ]
+          },
+          {
+           "words": "cola",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1038,32 +913,25 @@
    },
    "solution": "CONSTABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONSTABLE",
     "definitions": [
      {
       "text": "Copper",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "racket",
-      "gives": "CON",
-      "note": "a con is a swindle or racket"
-     },
-     {
-      "clueFragment": "unlikely to break",
-      "gives": "STABLE",
-      "note": "something stable is steady and secure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "STABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "racket",
+       "gives": "CON",
+       "note": "a con is a swindle or racket"
+      },
+      {
+       "words": "unlikely to break",
+       "gives": "STABLE",
+       "note": "something stable is steady and secure"
+      }
      ]
     },
     "explanation": {
@@ -1092,35 +960,24 @@
    },
    "solution": "TANGIBLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TANGIBLE",
     "definitions": [
      {
       "text": "Actual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ludicrously",
-      "for": "anagram",
-      "note": "ludicrously means absurdly, so the letters come out in a crazy order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ban legit",
-      "gives": "BANLEGIT",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BANLEGIT",
-       "gives": "TANGIBLE"
+       "text": "ludicrously",
+       "note": "ludicrously means absurdly, so the letters come out in a crazy order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ban legit",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1149,40 +1006,31 @@
    },
    "solution": "COVERAGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COVERAGE",
     "definitions": [
      {
       "text": "News reports",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in somewhere means being enclosed by it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jail",
-      "gives": "CAGE",
-      "note": "a cage is a place of confinement"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "OVER",
-      "note": "something over has finished"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OVER",
-      "AGE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in somewhere means being enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jail",
+       "gives": "CAGE",
+       "note": "a cage is a place of confinement"
+      },
+      {
+       "words": "finished",
+       "gives": "OVER",
+       "note": "something over has finished"
+      }
      ]
     },
     "explanation": {
@@ -1210,32 +1058,25 @@
    },
    "solution": "NODS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NODS",
     "definitions": [
      {
       "text": "gestures in agreement",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Not one",
-      "gives": "NO",
-      "note": "no means not one, as in no people"
-     },
-     {
-      "clueFragment": "detective",
-      "gives": "DS",
-      "note": "DS is a Detective Sergeant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "DS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not one",
+       "gives": "NO",
+       "note": "no means not one, as in no people"
+      },
+      {
+       "words": "detective",
+       "gives": "DS",
+       "note": "DS is a Detective Sergeant"
+      }
      ]
     },
     "explanation": {
@@ -1269,40 +1110,30 @@
    },
    "solution": "LEANTO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEAN-TO",
     "definitions": [
      {
       "text": "shed",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "to collect",
-      "for": "container",
-      "note": "collecting something means taking it in, so one piece holds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Slow",
-      "gives": "LENTO",
-      "note": "lento is the musical direction for slow"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "A",
-      "NTO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to collect",
+       "note": "collecting something means taking it in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Slow",
+       "gives": "LENTO",
+       "note": "lento is the musical direction for slow"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1330,28 +1161,16 @@
    },
    "solution": "BORING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BORING",
     "definitions": [
      {
       "text": "Making holes",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: drilling into something"
      },
      {
       "text": "like watching paint dry",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Making holes",
-      "note": "first meaning: drilling into something"
-     },
-     {
-      "clueFragment": "like watching paint dry",
-      "note": "second meaning: tedious, as in the idiom for the dullest pastime"
+      "at": 13,
+      "meaning": "second meaning: tedious, as in the idiom for the dullest pastime"
      }
     ],
     "explanation": {
@@ -1380,32 +1199,25 @@
    },
    "solution": "INNER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INNER",
     "definitions": [
      {
       "text": "Hidden",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     },
-     {
-      "clueFragment": "The Queen",
-      "gives": "ER",
-      "note": "ER is Elizabeth Regina, the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INN",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pub",
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "words": "The Queen",
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
+      }
      ]
     },
     "explanation": {
@@ -1433,32 +1245,25 @@
    },
    "solution": "OVERTURN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERTURN",
     "definitions": [
      {
       "text": "Up-end",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "open",
-      "gives": "OVERT",
-      "note": "overt means open, not concealed"
-     },
-     {
-      "clueFragment": "container",
-      "gives": "URN",
-      "note": "an urn is a container, for ashes or tea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVERT",
-      "URN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "open",
+       "gives": "OVERT",
+       "note": "overt means open, not concealed"
+      },
+      {
+       "words": "container",
+       "gives": "URN",
+       "note": "an urn is a container, for ashes or tea"
+      }
      ]
     },
     "explanation": {
@@ -1486,10 +1291,6 @@
    },
    "solution": "RURAL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RURAL",
     "definitions": [
      {
       "text": "Country",
@@ -1497,20 +1298,22 @@
       "note": "adjective here: of the countryside"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in tells the solver the letters lie inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peru rallying",
-      "gives": "RURAL",
-      "note": "last letters of Peru and the start of rallying"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells the solver the letters lie inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Peru rallying",
+       "gives": "RURAL",
+       "note": "last letters of Peru and the start of rallying"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A nation in Peru, rallying for a cause.",
      "walkthrough": "Country looks like a nation next to Peru; it is the adjective, as in country life.",
@@ -1537,32 +1340,24 @@
    },
    "solution": "ANON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANON",
     "definitions": [
      {
       "text": "soon",
       "at": 31
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "denial requiring translation",
-      "gives": "NON",
-      "note": "non is French for no, a denial that needs translating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "denial requiring translation",
+       "gives": "NON",
+       "note": "non is French for no, a denial that needs translating"
+      }
      ]
     },
     "explanation": {
@@ -1597,28 +1392,16 @@
    },
    "solution": "BEHINDBARS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BEHIND BARS",
     "definitions": [
      {
       "text": "Where landlord might stand",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a pub landlord serves from the far side of the counters"
      },
      {
       "text": "in prison",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where landlord might stand",
-      "note": "first meaning: a pub landlord serves from the far side of the counters"
-     },
-     {
-      "clueFragment": "in prison",
-      "note": "second meaning: locked up, as in a cell"
+      "at": 27,
+      "meaning": "second meaning: locked up, as in a cell"
      }
     ],
     "explanation": {
@@ -1653,37 +1436,42 @@
    },
    "solution": "HEARHEAR",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "HEAR HEAR",
     "definitions": [
      {
       "text": "I agree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to speak",
-      "for": "homophone",
-      "note": "speaking means saying words out loud, so the sound counts, not the spelling"
-     },
-     {
-      "text": "repeatedly",
-      "for": "charade",
-      "note": "repeatedly means the same piece is used again, placed side by side twice"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at this point",
-      "gives": "HEARHEAR",
-      "soundsLike": "HERE HERE",
-      "note": "here means at this point, said twice"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "unchecked": true,
+     "gives": "HEARHEAR",
+     "indicators": [
+      {
+       "text": "repeatedly",
+       "note": "repeatedly means the same piece is used again, placed side by side twice"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HEARHEAR",
+       "indicators": [
+        {
+         "text": "to speak",
+         "note": "speaking means saying words out loud, so the sound counts, not the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at this point",
+         "gives": "HEREHERE",
+         "note": "here means at this point, said twice"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone agrees, saying it is their turn to speak, and then repeats themselves.",
      "walkthrough": "The cry is used in Parliament and meetings to back a speaker.",
@@ -1710,54 +1498,51 @@
    },
    "solution": "OVERLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "OVERLY",
     "definitions": [
      {
       "text": "Too",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader comes first, so only the opening letter is kept"
-     },
-     {
-      "text": "admitted",
-      "for": "container",
-      "note": "something admitted is let in, so it goes inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is a standard abbreviation for old"
-     },
-     {
-      "clueFragment": "really",
-      "gives": "VERY",
-      "note": "very and really both intensify"
-     },
-     {
-      "clueFragment": "Labour",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of Labour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "VER",
-      "L",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is a standard abbreviation for old"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admitted",
+         "note": "something admitted is let in, so it goes inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "really",
+         "gives": "VERY",
+         "note": "very and really both intensify"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "note": "a leader comes first, so only the opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Labour",
+           "note": "first letter of Labour"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {

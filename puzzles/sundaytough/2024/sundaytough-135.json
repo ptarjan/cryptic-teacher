@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-135",
  "number": 135,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 135",
  "setter": "Zandio",
  "date": "2024-08-25",
  "dimensions": {
@@ -44,38 +42,30 @@
    },
    "solution": "SUNDAYBEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUNDAY BEST",
     "definitions": [
      {
       "text": "Costume for Kirk",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Star",
-      "gives": "SUN",
-      "note": "the Sun is our star"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "DAY",
-      "note": "a date is a particular day"
-     },
-     {
-      "clueFragment": "number one",
-      "gives": "BEST",
-      "note": "number one is the best"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "DAY",
-      "BEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Star",
+       "gives": "SUN",
+       "note": "the Sun is our star"
+      },
+      {
+       "words": "date",
+       "gives": "DAY",
+       "note": "a date is a particular day"
+      },
+      {
+       "words": "number one",
+       "gives": "BEST",
+       "note": "number one is the best"
+      }
      ]
     },
     "explanation": {
@@ -105,53 +95,51 @@
    },
    "solution": "STRAFE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "STRAFE",
     "definitions": [
      {
       "text": "fire",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "the head of something is its top, so only its opening letter is kept"
-     },
-     {
-      "text": "probing",
-      "for": "container",
-      "note": "to probe is to poke inside, so one piece goes into another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "task",
-      "gives": "T",
-      "select": "first",
-      "note": "initial letter of task"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "RAF",
-      "note": "the Royal Air Force"
-     },
-     {
-      "clueFragment": "London area",
-      "gives": "SE",
-      "note": "SE is a London postcode area, south-east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TRAF",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probing",
+       "note": "to probe is to poke inside, so one piece goes into another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London area",
+       "gives": "SE",
+       "note": "SE is a London postcode area, south-east"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Head of",
+           "note": "the head of something is its top, so only its opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "task",
+           "note": "initial letter of task"
+          }
+         ]
+        },
+        {
+         "words": "force",
+         "gives": "RAF",
+         "note": "the Royal Air Force"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -180,50 +168,41 @@
    },
    "solution": "NUGGET",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NUGGET",
     "definitions": [
      {
       "text": "gold?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "lifting",
-      "for": "reversal",
-      "note": "in a down answer, lifting lets the letters run bottom to top"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "what follows comes after, so this piece is placed second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shooter",
-      "gives": "GUN",
-      "note": "a gun is a shooter"
-     },
-     {
-      "clueFragment": "See",
-      "gives": "GET",
-      "note": "to see is to get it, understand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUG",
-      "GET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "GUN",
-       "to": "NUG"
+       "text": "following",
+       "note": "what follows comes after, so this piece is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifting",
+         "note": "in a down answer, lifting lets the letters run bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shooter",
+         "gives": "GUN",
+         "note": "a gun is a shooter"
+        }
+       ]
+      },
+      {
+       "words": "See",
+       "gives": "GET",
+       "note": "to see is to get it, understand"
       }
      ]
     },
@@ -253,26 +232,25 @@
    },
    "solution": "ALLITERATION",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ALLITERATION",
     "definitions": [
      {
       "text": "Repeated stress of tackling tricky teasers?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Repeated stress",
-      "note": "surface reading: the strain of doing hard puzzles again and again"
-     },
-     {
-      "clueFragment": "tackling tricky teasers",
-      "note": "setter's reading: three words that all begin with the same sound, a figure of speech"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Repeated stress",
+       "note": "surface reading: the strain of doing hard puzzles again and again"
+      },
+      {
+       "words": "tackling tricky teasers",
+       "note": "setter's reading: three words that all begin with the same sound, a figure of speech"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The recurring strain of grappling with difficult puzzles.",
      "walkthrough": "The stress is not strain but emphasis: the phrase itself hammers the same opening letter three times over.",
@@ -300,43 +278,29 @@
    },
    "solution": "BITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BITE",
     "definitions": [
      {
       "text": "Rabid dogs may do it",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "whatever carries something holds it within"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "be",
-      "gives": "BE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "IT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "whatever carries something holds it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "be",
+       "note": "taken as written"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -365,11 +329,6 @@
    },
    "solution": "STRUCTURAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "STRUCTURAL",
     "definitions": [
      {
       "text": "design",
@@ -377,56 +336,50 @@
       "note": "the answer is an adjective; 'design' works as a noun used attributively, as in a design flaw"
      }
     ],
-    "indicators": [
-     {
-      "text": "Shift",
-      "for": "anagram",
-      "note": "to shift things is to move them around, so the letters are rearranged"
-     },
-     {
-      "text": "trashed",
-      "for": "anagram",
-      "note": "something trashed is wrecked and its parts scattered, so the letters are jumbled"
-     },
-     {
-      "text": "ignoring",
-      "for": "deletion",
-      "note": "to ignore something is to leave it out of account"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rust",
-      "gives": "RUST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "CAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lout",
-      "gives": "LOUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the standard abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRUCTURAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STRUCTURAL",
+     "indicators": [
       {
-       "fodder": "RUSTCARLUT",
-       "gives": "STRUCTURAL"
+       "text": "Shift",
+       "note": "to shift things is to move them around, so the letters are rearranged"
+      },
+      {
+       "text": "trashed",
+       "note": "something trashed is wrecked and its parts scattered, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "STRUCTURAL",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "note": "to ignore something is to leave it out of account"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rust",
+         "note": "taken as written"
+        },
+        {
+         "words": "car",
+         "note": "taken as written"
+        },
+        {
+         "words": "lout",
+         "note": "taken as written"
+        },
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O is the standard abbreviation for old"
+        }
+       ]
       }
      ]
     },
@@ -456,45 +409,41 @@
    },
    "solution": "ITCH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "ITCH",
     "definitions": [
      {
       "text": "Long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so a letter is taken away"
-     },
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "an opening is where something begins, so only the first letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "watercourse",
-      "gives": "DITCH",
-      "note": "a ditch is a channel for water"
-     },
-     {
-      "clueFragment": "delta",
-      "gives": "D",
-      "select": "first",
-      "note": "delta is D in the phonetic alphabet, and its first letter is D too"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ITCH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without means lacking, so a letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "watercourse",
+       "gives": "DITCH",
+       "note": "a ditch is a channel for water"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "note": "an opening is where something begins, so only the first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delta",
+         "note": "delta is D in the phonetic alphabet, and its first letter is D too"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -523,41 +472,29 @@
    },
    "solution": "TERMINUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TERMINUS",
     "definitions": [
      {
       "text": "bus garage?",
       "at": 26
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Expression",
-      "gives": "TERM",
-      "note": "a term is a word or expression"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "US is short for America"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TERM",
-      "IN",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Expression",
+       "gives": "TERM",
+       "note": "a term is a word or expression"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "America",
+       "gives": "US",
+       "note": "US is short for America"
+      }
      ]
     },
     "explanation": {
@@ -592,52 +529,46 @@
    },
    "solution": "HENPARTY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HEN PARTY",
     "definitions": [
      {
       "text": "all women do?",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter is kept"
-     },
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down answer, a supporting piece sits underneath the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "HE",
-      "note": "he is the male pronoun"
-     },
-     {
-      "clueFragment": "suppression",
-      "gives": "N",
-      "select": "last",
-      "note": "final letter of suppression"
-     },
-     {
-      "clueFragment": "Democrats maybe",
-      "gives": "PARTY",
-      "note": "the Democrats are an example of a political party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "N",
-      "PARTY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down answer, a supporting piece sits underneath the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "male",
+       "gives": "HE",
+       "note": "he is the male pronoun"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suppression",
+         "note": "final letter of suppression"
+        }
+       ]
+      },
+      {
+       "words": "Democrats maybe",
+       "gives": "PARTY",
+       "note": "the Democrats are an example of a political party"
+      }
      ]
     },
     "explanation": {
@@ -667,40 +598,39 @@
    },
    "solution": "REGULATORY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "REGULATORY",
     "definitions": [
      {
       "text": "executive",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "writing off last",
-      "for": "deletion",
-      "note": "writing off means cancelling, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Daily maybe",
-      "gives": "REGULAR",
-      "note": "something daily is an example of regular"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "TORY",
-      "note": "a Tory is a member of the UK Conservative Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REGULA",
-      "TORY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "writing off last",
+       "note": "writing off means cancelling, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Daily maybe",
+         "gives": "REGULAR",
+         "note": "something daily is an example of regular"
+        },
+        {
+         "words": "Conservative",
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -729,10 +659,6 @@
    },
    "solution": "IRAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IRAN",
     "definitions": [
      {
       "text": "here",
@@ -740,22 +666,18 @@
       "note": "the clue's 'here' points to a place, the country itself"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "flew",
-      "gives": "RAN",
-      "note": "to fly is to run fast, so flew becomes ran"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "flew",
+       "gives": "RAN",
+       "note": "to fly is to run fast, so flew becomes ran"
+      }
      ]
     },
     "explanation": {
@@ -791,57 +713,46 @@
    },
    "solution": "CALENDARYEAR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CALENDAR YEAR",
     "definitions": [
      {
       "text": "specific period",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "cracking",
-      "for": "container",
-      "note": "to crack something is to break into it, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loan a",
-      "gives": "LENDA",
-      "note": "to loan is to lend, plus A as written"
-     },
-     {
-      "clueFragment": "vehicle",
-      "gives": "CAR",
-      "note": "a car is a vehicle"
-     },
-     {
-      "clueFragment": "variable",
-      "gives": "Y",
-      "note": "Y is an algebraic unknown"
-     },
-     {
-      "clueFragment": "notice",
-      "gives": "EAR",
-      "note": "to give ear is to pay notice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "LENDA",
-      "R",
-      "Y",
-      "EAR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cracking",
+       "note": "to crack something is to break into it, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "vehicle",
+         "gives": "CAR",
+         "note": "a car is a vehicle"
+        },
+        {
+         "words": "variable",
+         "gives": "Y",
+         "note": "Y is an algebraic unknown"
+        },
+        {
+         "words": "notice",
+         "gives": "EAR",
+         "note": "to give ear is to pay notice"
+        }
+       ]
+      },
+      {
+       "words": "Loan a",
+       "gives": "LENDA",
+       "note": "to loan is to lend, plus A as written"
+      }
      ]
     },
     "explanation": {
@@ -870,30 +781,28 @@
    },
    "solution": "FIESTA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FIESTA",
     "definitions": [
      {
       "text": "Gala",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shows",
-      "for": "hidden_word",
-      "note": "to show is to display, so the letters are visible inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "glorifies talent",
-      "gives": "FIESTA",
-      "note": "the run of letters across the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "shows",
+       "note": "to show is to display, so the letters are visible inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "glorifies talent",
+       "gives": "FIESTA",
+       "note": "the run of letters across the end of the first word and start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A gala event that celebrates talent, such as an awards night.",
      "walkthrough": "'Shows' looks like a noun for talent shows, but it is a verb signalling the letters on display.",
@@ -920,52 +829,40 @@
    },
    "solution": "SCIATICA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "SCIATICA",
     "definitions": [
      {
       "text": "a pain",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Chopped up",
-      "for": "anagram",
-      "note": "chopping something up breaks it into bits that can be reassembled"
-     },
-     {
-      "text": "grasping",
-      "for": "container",
-      "note": "to grasp is to hold tight, so one piece is taken inside"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cacti, as",
-      "gives": "CACTIAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCIATICA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CACTIASI",
-       "gives": "SCIATICA"
+       "text": "grasping",
+       "note": "to grasp is to hold tight, so one piece is taken inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Chopped up",
+         "note": "chopping something up breaks it into bits that can be reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cacti, as",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
@@ -995,45 +892,35 @@
    },
    "solution": "WATCHSTRAP",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "WATCHSTRAP",
     "definitions": [
      {
       "text": "one should keep timer on",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "rotating",
-      "for": "reversal",
-      "note": "turning right round makes the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Notice",
-      "gives": "WATCH",
-      "note": "to watch is to notice"
-     },
-     {
-      "clueFragment": "components",
-      "gives": "PARTS",
-      "note": "components are parts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WATCH",
-      "STRAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PARTS",
-       "to": "STRAP"
+       "words": "Notice",
+       "gives": "WATCH",
+       "note": "to watch is to notice"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rotating",
+         "note": "turning right round makes the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "components",
+         "gives": "PARTS",
+         "note": "components are parts"
+        }
+       ]
       }
      ]
     },
@@ -1070,10 +957,6 @@
    },
    "solution": "TREASUREHUNT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TREASURE HUNT",
     "definitions": [
      {
       "text": "clues — they can be enriching",
@@ -1081,22 +964,19 @@
       "note": "the definition describes the game by its clues rather than naming it"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Love, say",
-      "gives": "TREASURE",
-      "note": "treasure is a term of endearment, as love is"
-     },
-     {
-      "clueFragment": "Jeremy's",
-      "gives": "HUNT",
-      "note": "Jeremy Hunt is a British Conservative politician"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREASURE",
-      "HUNT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love, say",
+       "gives": "TREASURE",
+       "note": "treasure is a term of endearment, as love is"
+      },
+      {
+       "words": "Jeremy's",
+       "gives": "HUNT",
+       "note": "Jeremy Hunt is a British Conservative politician"
+      }
      ]
     },
     "explanation": {
@@ -1132,58 +1012,51 @@
    },
    "solution": "DEADHEAT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "DEAD HEAT",
     "definitions": [
      {
       "text": "tie",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "coming in, repeatedly",
-      "for": "container",
-      "note": "something coming in enters, so it is placed inside, and repeatedly makes that happen twice"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pop",
-      "gives": "DAD",
-      "note": "pop is father"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "titfer",
-      "gives": "HAT",
-      "note": "titfer is rhyming slang for hat, from tit for tat"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "the same abbreviation, used a second time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "E",
-      "AD",
-      "H",
-      "E",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming in, repeatedly",
+         "note": "something coming in enters, so it is placed inside, and repeatedly makes that happen twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pop",
+         "gives": "DAD",
+         "note": "pop is father"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "titfer",
+         "gives": "HAT",
+         "note": "titfer is rhyming slang for hat, from tit for tat"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "the same abbreviation, used a second time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1212,41 +1085,36 @@
    },
    "solution": "CARRIAGE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "CARRIAGE",
     "definitions": [
      {
       "text": "Conduct",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "packaged",
-      "for": "hidden_word",
-      "note": "something packaged is wrapped inside, so the letters lie within the words"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, up means the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grieg air Rachmaninoff's",
-      "gives": "EGAIRRAC",
-      "note": "the run of letters spanning the end of the first composer, the middle word and the start of the second composer"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EGAIRRAC",
-       "to": "CARRIAGE"
+       "text": "up",
+       "note": "in a down answer, up means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "packaged",
+         "note": "something packaged is wrapped inside, so the letters lie within the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Grieg air Rachmaninoff's",
+         "gives": "EGAIRRAC",
+         "note": "the run of letters spanning the end of the first composer, the middle word and the start of the second composer"
+        }
+       ]
       }
      ]
     },
@@ -1282,53 +1150,40 @@
    },
    "solution": "ELASTICBANDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELASTIC BANDS",
     "definitions": [
      {
       "text": "they should tighten things up",
       "at": 48
      }
     ],
-    "linkWords": [
-     "going to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     },
-     {
-      "clueFragment": "final",
-      "gives": "LAST",
-      "note": "the final one is the last"
-     },
-     {
-      "clueFragment": "Italy",
-      "gives": "I",
-      "note": "I is the international vehicle code for Italy"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c is the cricket scoring abbreviation for caught"
-     },
-     {
-      "clueFragment": "parties",
-      "gives": "BANDS",
-      "note": "bands are groups or parties of people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LAST",
-      "I",
-      "C",
-      "BANDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
+      },
+      {
+       "words": "final",
+       "gives": "LAST",
+       "note": "the final one is the last"
+      },
+      {
+       "words": "Italy",
+       "gives": "I",
+       "note": "I is the international vehicle code for Italy"
+      },
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "c is the cricket scoring abbreviation for caught"
+      },
+      {
+       "words": "parties",
+       "gives": "BANDS",
+       "note": "bands are groups or parties of people"
+      }
      ]
     },
     "explanation": {
@@ -1357,51 +1212,41 @@
    },
    "solution": "GAZUMP",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GAZUMP",
     "definitions": [
      {
       "text": "Revalue property",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round another"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stick",
-      "gives": "GUM",
-      "note": "to gum is to stick"
-     },
-     {
-      "clueFragment": "city guide",
-      "gives": "AZ",
-      "note": "the A to Z is a street atlas of London and other cities"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P is the road-sign symbol for parking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AZ",
-      "UM",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece goes round another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "gives": "GUM",
+         "note": "to gum is to stick"
+        },
+        {
+         "words": "city guide",
+         "gives": "AZ",
+         "note": "the A to Z is a street atlas of London and other cities"
+        }
+       ]
+      },
+      {
+       "words": "parking",
+       "gives": "P",
+       "note": "P is the road-sign symbol for parking"
+      }
      ]
     },
     "explanation": {
@@ -1430,60 +1275,46 @@
    },
    "solution": "STEPPE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STEPPE",
     "definitions": [
      {
       "text": "plain",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "going over",
-      "for": "reversal",
-      "note": "going over suggests flipping, so the letters turn round"
-     },
-     {
-      "text": "and over again",
-      "for": "charade",
-      "note": "doing something over again repeats it, so the same piece is used a second time"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Street",
-      "gives": "ST",
-      "note": "St is the abbreviation for street"
-     },
-     {
-      "clueFragment": "drills",
-      "gives": "PE",
-      "note": "PE is physical education, gym drills"
-     },
-     {
-      "clueFragment": "drills",
-      "gives": "PE",
-      "note": "the same abbreviation, used again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "EP",
-      "PE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "PE",
-       "to": "EP"
+       "text": "and over again",
+       "note": "doing something over again repeats it, so the same piece is used a second time"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Street",
+       "gives": "ST",
+       "note": "St is the abbreviation for street"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going over",
+         "note": "going over suggests flipping, so the letters turn round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drills",
+         "gives": "PE",
+         "note": "PE is physical education, gym drills"
+        }
+       ]
+      },
+      {
+       "words": "drills",
+       "gives": "PE",
+       "note": "the same abbreviation, used again"
       }
      ]
     },
@@ -1513,43 +1344,39 @@
    },
    "solution": "DORMOUSE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DORMOUSE",
     "definitions": [
      {
       "text": "Partygoer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the East End",
-      "for": "deletion",
-      "note": "Cockneys of London's East End drop their aitches, so an initial H goes"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "place to sleep",
-      "gives": "DORM",
-      "note": "a dorm is a dormitory"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "HOUSE",
-      "note": "a house is a home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DORM",
-      "OUSE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "in the East End",
+       "note": "Cockneys of London's East End drop their aitches, so an initial H goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "place to sleep",
+         "gives": "DORM",
+         "note": "a dorm is a dormitory"
+        },
+        {
+         "words": "home",
+         "gives": "HOUSE",
+         "note": "a house is a home"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -1579,37 +1406,25 @@
    },
    "solution": "DREAMT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DREAMT",
     "definitions": [
      {
       "text": "Irregularly fancied",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter is taken"
-     }
-    ],
-    "linkWords": [
-     "visiting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dorset — admits",
-      "gives": "DREAMT",
-      "select": "alternate",
-      "note": "the first, third, fifth and following letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DREAMT"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "regularly means at even intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dorset — admits",
+       "note": "the first, third, fifth and following letters"
+      }
      ]
     },
     "explanation": {
@@ -1639,43 +1454,31 @@
    },
    "solution": "APES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "APES",
     "definitions": [
      {
       "text": "echoes",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupted",
-      "for": "container",
-      "note": "to interrupt is to break into, so one piece sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "we'll get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "when",
-      "gives": "AS",
-      "note": "as means when, as in 'as I left'"
-     },
-     {
-      "clueFragment": "drill's",
-      "gives": "PE",
-      "note": "PE, physical education, is drill; the 's is 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupted",
+       "note": "to interrupt is to break into, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "gives": "AS",
+       "note": "as means when, as in 'as I left'"
+      },
+      {
+       "words": "drill's",
+       "gives": "PE",
+       "note": "PE, physical education, is drill; the 's is 'is'"
+      }
      ]
     },
     "explanation": {
@@ -1704,45 +1507,35 @@
    },
    "solution": "EXAM",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EXAM",
     "definitions": [
      {
       "text": "Perhaps oral",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "something upset is knocked over, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "discharge",
-      "gives": "AXE",
-      "note": "to axe is to sack, discharge from a job"
-     },
-     {
-      "clueFragment": "maiden",
-      "gives": "M",
-      "note": "M is the cricket abbreviation for a maiden over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXA",
-      "M"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AXE",
-       "to": "EXA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "something upset is knocked over, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "discharge",
+         "gives": "AXE",
+         "note": "to axe is to sack, discharge from a job"
+        }
+       ]
+      },
+      {
+       "words": "maiden",
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
       }
      ]
     },
@@ -1778,26 +1571,25 @@
    },
    "solution": "TRIPLEJUMP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TRIPLE JUMP",
     "definitions": [
      {
       "text": "Googled to get gold, say, from this event?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Googled to get gold",
-      "note": "surface reading: searching online to find out how to win a medal"
-     },
-     {
-      "clueFragment": "from this event",
-      "note": "setter's reading: hopping, skipping and jumping over letters of the search word leaves the precious metal"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Googled to get gold",
+       "note": "surface reading: searching online to find out how to win a medal"
+      },
+      {
+       "words": "from this event",
+       "note": "setter's reading: hopping, skipping and jumping over letters of the search word leaves the precious metal"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An athlete searching online for how to win a gold medal.",
      "walkthrough": "Turning the search word into the metal means leaping past some of its letters, just as the athletics event combines a hop, a step and a jump.",
@@ -1825,43 +1617,31 @@
    },
    "solution": "TREE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TREE",
     "definitions": [
      {
       "text": "Growth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to crush",
-      "for": "container",
-      "note": "to crush is to squeeze, so one piece is pressed inside another"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "support on course",
-      "gives": "TEE",
-      "note": "a golf tee supports the ball on the course"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R is the symbol for electrical resistance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "EE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to crush",
+       "note": "to crush is to squeeze, so one piece is pressed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "support on course",
+       "gives": "TEE",
+       "note": "a golf tee supports the ball on the course"
+      },
+      {
+       "words": "resistance",
+       "gives": "R",
+       "note": "R is the symbol for electrical resistance"
+      }
      ]
     },
     "explanation": {
@@ -1890,26 +1670,25 @@
    },
    "solution": "APOSTROPHE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "APOSTROPHE",
     "definitions": [
      {
       "text": "John's avoiding one's places to go!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "John's avoiding one's places to go",
-      "note": "surface reading: someone named John is staying away from the places a person must visit"
-     },
-     {
-      "clueFragment": "avoiding one's",
-      "note": "setter's reading: remove the punctuation mark from the name and it becomes johns, slang for toilets, places to go"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "John's avoiding one's places to go",
+       "note": "surface reading: someone named John is staying away from the places a person must visit"
+      },
+      {
+       "words": "avoiding one's",
+       "note": "setter's reading: remove the punctuation mark from the name and it becomes johns, slang for toilets, places to go"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man called John steers clear of somewhere, with an exclamation of surprise.",
      "walkthrough": "A john is American slang for a toilet; take the little mark out of the possessive name and you are left with toilets, the places you go.",

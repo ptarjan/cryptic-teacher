@@ -1,8 +1,6 @@
 {
  "id": "nation-3271",
  "number": 3271,
- "series": "nation",
- "name": "The Nation cryptic crossword No 3271",
  "setter": "Joshua Kosman and Henri Picciotto",
  "date": "2013-02-25",
  "dimensions": {
@@ -41,40 +39,34 @@
    },
    "solution": "VENISONIVOROUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VENISONIVOROUS",
     "definitions": [
      {
       "text": "eating deer perhaps?",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Use and reuse",
-      "for": "anagram",
-      "note": "using letters and then using them again means drawing on them freely, in any order and more than once"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "souvenir",
-      "gives": "SOUVENIR",
-      "note": "every letter of the word, used once"
-     },
-     {
-      "clueFragment": "pieces of",
-      "gives": "VNISOO",
-      "note": "letters of the same word used a second time (O even a third)"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOUVENIRVNISOO",
-       "gives": "VENISONIVOROUS"
+       "text": "Use and reuse",
+       "note": "using letters and then using them again means drawing on them freely, in any order and more than once"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "souvenir",
+         "note": "every letter of the word, used once"
+        },
+        {
+         "words": "pieces of",
+         "gives": "VNISOO",
+         "note": "letters of the same word used a second time (O even a third)"
+        }
+       ]
       }
      ]
     },
@@ -105,41 +97,28 @@
    },
    "solution": "VISIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VISIT",
     "definitions": [
      {
       "text": "Drop in",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the fifth",
-      "gives": "V",
-      "note": "V is the Roman numeral five"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "IS",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the fifth",
+       "gives": "V",
+       "note": "V is the Roman numeral five"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -178,72 +157,71 @@
    },
    "solution": "NEXTOFKIN",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NEXT OF KIN",
     "definitions": [
      {
       "text": "Brother, for instance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down entry raising something lifts it upward, so the word reads bottom to top"
-     },
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold it within, so one piece sits inside another"
-     },
-     {
-      "text": "no-good",
-      "for": "anagram",
-      "note": "something no good is broken or messed up, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "farm animals",
-      "gives": "OXEN",
-      "note": "oxen are cattle on a farm"
-     },
-     {
-      "clueFragment": "the last bit of profit",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of profit"
-     },
-     {
-      "clueFragment": "fink",
-      "gives": "FKIN",
-      "note": "the word fink, letters shuffled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEX",
-      "T",
-      "O",
-      "FKIN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "FINK",
-       "gives": "FKIN"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down entry raising something lifts it upward, so the word reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "keeping",
+           "note": "to keep something is to hold it within, so one piece sits inside another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "farm animals",
+           "gives": "OXEN",
+           "note": "oxen are cattle on a farm"
+          },
+          {
+           "op": "last",
+           "parts": [
+            {
+             "words": "the last bit of profit",
+             "note": "the final letter of profit"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
       {
-       "from": "OXEN",
-       "to": "NEXO"
+       "op": "reversal",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "no-good",
+           "note": "something no good is broken or messed up, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fink",
+           "gives": "FKIN",
+           "note": "the word fink, letters shuffled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -273,52 +251,44 @@
    },
    "solution": "SCHOLAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SCHOLAR",
     "definitions": [
      {
       "text": "Academic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter, so only that one is kept"
-     },
-     {
-      "text": "arrangement",
-      "for": "anagram",
-      "note": "an arrangement sets things out in a chosen order, so these letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "score",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of score"
-     },
-     {
-      "clueFragment": "choral",
-      "gives": "CHORAL",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CHOLAR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CHORAL",
-       "gives": "CHOLAR"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its first letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "score",
+         "note": "the opening letter of score"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "arrangement",
+         "note": "an arrangement sets things out in a chosen order, so these letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choral",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -354,35 +324,25 @@
    },
    "solution": "NAILPOLISH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NAIL POLISH",
     "definitions": [
      {
       "text": "Some paint",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "secure",
-      "gives": "NAIL",
-      "note": "to nail something down is to secure it"
-     },
-     {
-      "clueFragment": "coming from Krakow",
-      "gives": "POLISH",
-      "note": "Krakow is a city in Poland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAIL",
-      "POLISH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secure",
+       "gives": "NAIL",
+       "note": "to nail something down is to secure it"
+      },
+      {
+       "words": "coming from Krakow",
+       "gives": "POLISH",
+       "note": "Krakow is a city in Poland"
+      }
      ]
     },
     "explanation": {
@@ -410,34 +370,29 @@
    },
    "solution": "VIAL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "VIAL",
     "definitions": [
      {
       "text": "vessel",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "sounds",
-      "for": "homophone",
-      "note": "sounds says the word is judged by how it is spoken, not how it is spelt"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Low",
-      "gives": "VIAL",
-      "soundsLike": "VILE",
-      "note": "low in the sense of base or despicable"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "VIAL",
+     "indicators": [
+      {
+       "text": "sounds",
+       "note": "sounds says the word is judged by how it is spoken, not how it is spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Low",
+       "gives": "VILE",
+       "note": "low in the sense of base or despicable"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Deep noises echoing inside a container.",
      "walkthrough": "'Low sounds' reads as deep noises, but low means vile and sounds is the cue to say it.",
@@ -465,35 +420,24 @@
    },
    "solution": "ROOMIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ROOMIES",
     "definitions": [
      {
       "text": "the people sharing my apartment",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "disturbed",
-      "for": "anagram",
-      "note": "something disturbed is thrown into disorder, so the letters get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Morose, I",
-      "gives": "MOROSEI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MOROSEI",
-       "gives": "ROOMIES"
+       "text": "disturbed",
+       "note": "something disturbed is thrown into disorder, so the letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Morose, I",
+       "note": "taken as written"
       }
      ]
     },
@@ -522,35 +466,25 @@
    },
    "solution": "USAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "USAGE",
     "definitions": [
      {
       "text": "Employment",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "USA",
-      "note": "the abbreviation for the country"
-     },
-     {
-      "clueFragment": "corporation",
-      "gives": "GE",
-      "note": "General Electric, the big American company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USA",
-      "GE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "gives": "USA",
+       "note": "the abbreviation for the country"
+      },
+      {
+       "words": "corporation",
+       "gives": "GE",
+       "note": "General Electric, the big American company"
+      }
      ]
     },
     "explanation": {
@@ -579,50 +513,41 @@
    },
    "solution": "MALARKEY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MALARKEY",
     "definitions": [
      {
       "text": "hogwash",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "clutches",
-      "for": "container",
-      "note": "clutching something means gripping it tightly inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He",
-      "gives": "MALE",
-      "note": "he refers to a male"
-     },
-     {
-      "clueFragment": "chest",
-      "gives": "ARK",
-      "note": "an ark is a chest or box, like the Ark of the Covenant"
-     },
-     {
-      "clueFragment": "yes",
-      "gives": "Y",
-      "note": "Y is short for yes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAL",
-      "ARK",
-      "E",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "clutches",
+         "note": "clutching something means gripping it tightly inside, so one piece goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He",
+         "gives": "MALE",
+         "note": "he refers to a male"
+        },
+        {
+         "words": "chest",
+         "gives": "ARK",
+         "note": "an ark is a chest or box, like the Ark of the Covenant"
+        }
+       ]
+      },
+      {
+       "words": "yes",
+       "gives": "Y",
+       "note": "Y is short for yes"
+      }
      ]
     },
     "explanation": {
@@ -651,44 +576,34 @@
    },
    "solution": "SIXTH",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SIXTH",
     "definitions": [
      {
       "text": "like F",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Smash",
-      "for": "anagram",
-      "note": "smashing something breaks it apart so the pieces can be put back in another order"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hits",
-      "gives": "HITS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a mark",
-      "gives": "X",
-      "note": "a cross is a mark, as on a ballot or map"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HITSX",
-       "gives": "SIXTH"
+       "text": "Smash",
+       "note": "smashing something breaks it apart so the pieces can be put back in another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hits",
+         "note": "taken as written"
+        },
+        {
+         "words": "a mark",
+         "gives": "X",
+         "note": "a cross is a mark, as on a ballot or map"
+        }
+       ]
       }
      ]
     },
@@ -719,51 +634,40 @@
    },
    "solution": "INAMORATA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "INAMORATA",
     "definitions": [
      {
       "text": "Girlfriend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back the way it came, so the string is read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "near",
-      "gives": "AT",
-      "note": "at a place means close to it"
-     },
-     {
-      "clueFragment": "top-grade",
-      "gives": "A",
-      "note": "A is the top grade"
-     },
-     {
-      "clueFragment": "ego?",
-      "gives": "ROMANI",
-      "note": "ego is Latin for I, so it is a Roman I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INAMOR",
-      "A",
-      "TA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ATAROMANI",
-       "to": "INAMORATA"
+       "text": "returning",
+       "note": "returning means going back the way it came, so the string is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "near",
+         "gives": "AT",
+         "note": "at a place means close to it"
+        },
+        {
+         "words": "top-grade",
+         "gives": "A",
+         "note": "A is the top grade"
+        },
+        {
+         "words": "ego?",
+         "gives": "ROMANI",
+         "note": "ego is Latin for I, so it is a Roman I"
+        }
+       ]
       }
      ]
     },
@@ -794,43 +698,39 @@
    },
    "solution": "TROLLOPE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TROLLOPE",
     "definitions": [
      {
       "text": "English novelist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "largely",
-      "for": "deletion",
-      "note": "largely means most but not all, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a monster",
-      "gives": "TROLL",
-      "note": "a troll is a monster of folklore"
-     },
-     {
-      "clueFragment": "outspoken",
-      "gives": "OPEN",
-      "note": "frank, candid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TROLL",
-      "OPE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "largely",
+       "note": "largely means most but not all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a monster",
+         "gives": "TROLL",
+         "note": "a troll is a monster of folklore"
+        },
+        {
+         "words": "outspoken",
+         "gives": "OPEN",
+         "note": "frank, candid"
+        }
+       ]
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -859,38 +759,24 @@
    },
    "solution": "CINEMA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CINEMA",
     "definitions": [
      {
       "text": "Movie theater",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "remake of",
-      "for": "anagram",
-      "note": "a remake reworks the original material into a new version, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "featuring"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Iceman",
-      "gives": "ICEMAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ICEMAN",
-       "gives": "CINEMA"
+       "text": "remake of",
+       "note": "a remake reworks the original material into a new version, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Iceman",
+       "note": "taken as written"
       }
      ]
     },
@@ -925,28 +811,16 @@
    },
    "solution": "LABORUNION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LABOR UNION",
     "definitions": [
      {
       "text": "Part of the Democratic constituency",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: organized workers' groups, a traditional base of the US Democratic Party"
      },
      {
       "text": "the bond between a woman and her Lamaze partner?",
-      "at": 37
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of the Democratic constituency",
-      "note": "first meaning: organized workers' groups, a traditional base of the US Democratic Party"
-     },
-     {
-      "clueFragment": "the bond between a woman and her Lamaze partner?",
-      "note": "second, punning meaning: the joining together of two people during childbirth"
+      "at": 37,
+      "meaning": "second, punning meaning: the joining together of two people during childbirth"
      }
     ],
     "explanation": {
@@ -975,28 +849,16 @@
    },
    "solution": "HIKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HIKER",
     "definitions": [
      {
       "text": "Walker",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: someone who walks for recreation in the country"
      },
      {
       "text": "center on the football field?",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Walker",
-      "note": "first meaning: someone who walks for recreation in the country"
-     },
-     {
-      "clueFragment": "center on the football field?",
-      "note": "second meaning: in American football the center hikes (snaps) the ball to start each play"
+      "at": 9,
+      "meaning": "second meaning: in American football the center hikes (snaps) the ball to start each play"
      }
     ],
     "explanation": {
@@ -1031,47 +893,41 @@
    },
    "solution": "HOMEPAGE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HOME PAGE",
     "definitions": [
      {
       "text": "starting point on the Internet",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "to involve something is to take it in, so one piece is enclosed by another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skip",
-      "gives": "HOP",
-      "note": "to skip is to hop"
-     },
-     {
-      "clueFragment": "this writer's",
-      "gives": "ME",
-      "note": "the writer refers to themself as me"
-     },
-     {
-      "clueFragment": "many years",
-      "gives": "AGE",
-      "note": "an age is a very long time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "ME",
-      "P",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "note": "to involve something is to take it in, so one piece is enclosed by another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Skip",
+         "gives": "HOP",
+         "note": "to skip is to hop"
+        },
+        {
+         "words": "this writer's",
+         "gives": "ME",
+         "note": "the writer refers to themself as me"
+        }
+       ]
+      },
+      {
+       "words": "many years",
+       "gives": "AGE",
+       "note": "an age is a very long time"
+      }
      ]
     },
     "explanation": {
@@ -1106,46 +962,43 @@
    },
    "solution": "LOANSHARK",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "LOAN SHARK",
     "definitions": [
      {
       "text": "Shylock",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exchanging daughter for son initially",
-      "for": "substitution",
-      "note": "exchanging one thing for another means swapping a letter: D (daughter) is replaced by the initial of son"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look",
-      "gives": "LO",
-      "note": "lo is an old word for look"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "ANS",
-      "note": "the word and with its D swapped for an S"
-     },
-     {
-      "clueFragment": "listen",
-      "gives": "HARK",
-      "note": "hark means listen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "ANS",
-      "HARK"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LOANSHARK",
+     "indicators": [
+      {
+       "text": "exchanging daughter for son initially",
+       "note": "exchanging one thing for another means swapping a letter: D (daughter) is replaced by the initial of son"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Look",
+         "gives": "LO",
+         "note": "lo is an old word for look"
+        },
+        {
+         "words": "and",
+         "gives": "ANS",
+         "note": "the word and with its D swapped for an S"
+        },
+        {
+         "words": "listen",
+         "gives": "HARK",
+         "note": "hark means listen"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1174,54 +1027,41 @@
    },
    "solution": "AFTERMATH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "AFTERMATH",
     "definitions": [
      {
       "text": "consequence",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "reconsidered",
-      "for": "anagram",
-      "note": "something reconsidered is thought through again and recast, so its letters are rearranged"
-     },
-     {
-      "text": "limiting",
-      "for": "container",
-      "note": "limiting puts bounds around something, so one piece holds the other inside"
-     }
-    ],
-    "linkWords": [
-     "as a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fatah",
-      "gives": "AFTAH",
-      "note": "the name rearranged"
-     },
-     {
-      "clueFragment": "tenure",
-      "gives": "TERM",
-      "note": "a term of office is a tenure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AF",
-      "TERM",
-      "ATH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "FATAH",
-       "gives": "AFTAH"
+       "text": "limiting",
+       "note": "limiting puts bounds around something, so one piece holds the other inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reconsidered",
+         "note": "something reconsidered is thought through again and recast, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fatah",
+         "gives": "AFTAH",
+         "note": "the name rearranged"
+        }
+       ]
+      },
+      {
+       "words": "tenure",
+       "gives": "TERM",
+       "note": "a term of office is a tenure"
       }
      ]
     },
@@ -1251,54 +1091,44 @@
    },
    "solution": "MANIFESTO",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MANIFESTO",
     "definitions": [
      {
       "text": "Declaration",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "something broken has its parts scattered, so these letters are put back in a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guy",
-      "gives": "MAN",
-      "note": "a guy is a man"
-     },
-     {
-      "clueFragment": "with condition",
-      "gives": "IF",
-      "note": "if introduces a condition"
-     },
-     {
-      "clueFragment": "toes",
-      "gives": "TOES",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "IF",
-      "ESTO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TOES",
-       "gives": "ESTO"
+       "words": "guy",
+       "gives": "MAN",
+       "note": "a guy is a man"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "note": "something broken has its parts scattered, so these letters are put back in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "with condition",
+           "gives": "IF",
+           "note": "if introduces a condition"
+          },
+          {
+           "words": "toes",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1328,40 +1158,30 @@
    },
    "solution": "FORAGER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FORAGER",
     "definitions": [
      {
       "text": "searcher",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "restricts",
-      "for": "container",
-      "note": "to restrict something is to hem it in, so one piece is held inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Someone falsifying documents",
-      "gives": "FORGER",
-      "note": "a forger fakes documents"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "A",
-      "GER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "restricts",
+       "note": "to restrict something is to hem it in, so one piece is held inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Someone falsifying documents",
+       "gives": "FORGER",
+       "note": "a forger fakes documents"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1390,44 +1210,35 @@
    },
    "solution": "ENTRY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENTRY",
     "definitions": [
      {
       "text": "a way in",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "the borders of",
-      "for": "letter_selection",
-      "note": "borders are the edges, so only the outermost letters of the word are kept"
-     }
-    ],
-    "linkWords": [
-     "By"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Edmonton",
-      "gives": "EN",
-      "select": "outer",
-      "note": "its first and last letters"
-     },
-     {
-      "clueFragment": "attempt",
-      "gives": "TRY",
-      "note": "a try is an attempt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "the borders of",
+         "note": "borders are the edges, so only the outermost letters of the word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Edmonton",
+         "note": "its first and last letters"
+        }
+       ]
+      },
+      {
+       "words": "attempt",
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      }
      ]
     },
     "explanation": {
@@ -1455,43 +1266,31 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "trade stoppage",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "goes in",
-      "for": "container",
-      "note": "going in means entering, so one piece is placed inside another"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "therefore",
-      "gives": "ERGO",
-      "note": "ergo is Latin for therefore"
-     },
-     {
-      "clueFragment": "manager with a degree",
-      "gives": "MBA",
-      "note": "the Master of Business Administration, a manager's degree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MBA",
-      "RGO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "goes in",
+       "note": "going in means entering, so one piece is placed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "therefore",
+       "gives": "ERGO",
+       "note": "ergo is Latin for therefore"
+      },
+      {
+       "words": "manager with a degree",
+       "gives": "MBA",
+       "note": "the Master of Business Administration, a manager's degree"
+      }
      ]
     },
     "explanation": {
@@ -1520,32 +1319,25 @@
    },
    "solution": "PAVERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAVERS",
     "definitions": [
      {
       "text": "street crews",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Quietly",
-      "gives": "P",
-      "note": "p is the musical marking piano, meaning quietly"
-     },
-     {
-      "clueFragment": "maintains",
-      "gives": "AVERS",
-      "note": "to aver is to assert or maintain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AVERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quietly",
+       "gives": "P",
+       "note": "p is the musical marking piano, meaning quietly"
+      },
+      {
+       "words": "maintains",
+       "gives": "AVERS",
+       "note": "to aver is to assert or maintain"
+      }
      ]
     },
     "explanation": {
@@ -1574,35 +1366,25 @@
    },
    "solution": "VROOM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VROOM",
     "definitions": [
      {
       "text": "Sound of engine",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "victory",
-      "gives": "V",
-      "note": "V for victory"
-     },
-     {
-      "clueFragment": "space",
-      "gives": "ROOM",
-      "note": "room means space"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ROOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "victory",
+       "gives": "V",
+       "note": "V for victory"
+      },
+      {
+       "words": "space",
+       "gives": "ROOM",
+       "note": "room means space"
+      }
      ]
     },
     "explanation": {
@@ -1631,32 +1413,25 @@
    },
    "solution": "SUNBURNS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUNBURNS",
     "definitions": [
      {
       "text": "beach woes",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Star",
-      "gives": "SUN",
-      "note": "the sun is a star"
-     },
-     {
-      "clueFragment": "documentary filmmaker's",
-      "gives": "BURNS",
-      "note": "Ken Burns, maker of The Civil War and other long documentaries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "BURNS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Star",
+       "gives": "SUN",
+       "note": "the sun is a star"
+      },
+      {
+       "words": "documentary filmmaker's",
+       "gives": "BURNS",
+       "note": "Ken Burns, maker of The Civil War and other long documentaries"
+      }
      ]
     },
     "explanation": {
@@ -1685,32 +1460,25 @@
    },
    "solution": "SUMAC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUMAC",
     "definitions": [
      {
       "text": "plant",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Whole",
-      "gives": "SUM",
-      "note": "a sum is a whole amount"
-     },
-     {
-      "clueFragment": "air-conditioning",
-      "gives": "AC",
-      "note": "the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUM",
-      "AC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Whole",
+       "gives": "SUM",
+       "note": "a sum is a whole amount"
+      },
+      {
+       "words": "air-conditioning",
+       "gives": "AC",
+       "note": "the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1739,44 +1507,35 @@
    },
    "solution": "ZINC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ZINC",
     "definitions": [
      {
       "text": "essential nutrient",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letter, so just that one is used"
-     }
-    ],
-    "linkWords": [
-     "make an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wine",
-      "gives": "ZIN",
-      "note": "zin is short for zinfandel"
-     },
-     {
-      "clueFragment": "cheese",
-      "gives": "C",
-      "select": "first",
-      "note": "its opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZIN",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wine",
+       "gives": "ZIN",
+       "note": "zin is short for zinfandel"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first points to the opening letter, so just that one is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "note": "its opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1811,34 +1570,25 @@
    },
    "solution": "GEORGEIII",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "GEORGE III",
     "definitions": [
      {
       "text": "Insane monarch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "read unevenly",
-      "for": "letter_selection",
-      "note": "reading unevenly means reading only the odd-numbered letters and skipping every second one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "goes on: \"Regret it if I",
-      "gives": "GEORGEIII",
-      "select": "alternate",
-      "note": "the first, third, fifth letter and so on of this run of words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEORGEIII"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "read unevenly",
+       "note": "reading unevenly means reading only the odd-numbered letters and skipping every second one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "goes on: \"Regret it if I",
+       "note": "the first, third, fifth letter and so on of this run of words"
+      }
      ]
     },
     "explanation": {
@@ -1867,40 +1617,31 @@
    },
    "solution": "REALM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REALM",
     "definitions": [
      {
       "text": "area",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "for": "container",
-      "note": "to cover something is to go around it, so one piece is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stack of paper",
-      "gives": "REAM",
-      "note": "a ream is 500 sheets of paper"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the clothing-size abbreviation for large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REA",
-      "L",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "note": "to cover something is to go around it, so one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stack of paper",
+       "gives": "REAM",
+       "note": "a ream is 500 sheets of paper"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
      ]
     },
     "explanation": {
@@ -1934,60 +1675,56 @@
    },
    "solution": "AMERICANGOTHIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "deletion"
-    ],
-    "answer": "AMERICAN GOTHIC",
     "definitions": [
      {
       "text": "artwork",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "unexpectedly",
-      "for": "anagram",
-      "note": "something happening unexpectedly comes out in no predictable order, so the letters are scrambled"
-     },
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most but not all, so the final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rain came",
-      "gives": "AMERICAN",
-      "note": "these two words, rearranged"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "GOT",
-      "note": "got means caught, as in got a cold"
-     },
-     {
-      "clueFragment": "provincial",
-      "gives": "HICK",
-      "note": "a hick is an unsophisticated country person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AMERICAN",
-      "GOT",
-      "HIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "AMERICANGOTHIC",
+     "indicators": [
       {
-       "fodder": "RAINCAME",
-       "gives": "AMERICAN"
+       "text": "unexpectedly",
+       "note": "something happening unexpectedly comes out in no predictable order, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "note": "most but not all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Rain came",
+           "gives": "AMERICAN",
+           "note": "these two words, rearranged"
+          },
+          {
+           "words": "caught",
+           "gives": "GOT",
+           "note": "got means caught, as in got a cold"
+          },
+          {
+           "words": "provincial",
+           "gives": "HICK",
+           "note": "a hick is an unsophisticated country person"
+          }
+         ]
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },

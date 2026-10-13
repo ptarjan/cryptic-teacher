@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3",
  "number": 3,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3",
  "setter": "Grumpy",
  "date": "2014-03-12",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "CAMPFIRE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CAMPFIRE",
     "definitions": [
      {
       "text": "What scouts might have to sing about?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What scouts might have to sing about?",
-      "note": "surface reading: a topic or song that scouts are expected to sing on"
-     },
-     {
-      "clueFragment": "sing about",
-      "note": "setter's reading: 'about' means around, so this is the blaze the troop gathers round to sing"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What scouts might have to sing about?",
+       "note": "surface reading: a topic or song that scouts are expected to sing on"
+      },
+      {
+       "words": "sing about",
+       "note": "setter's reading: 'about' means around, so this is the blaze the troop gathers round to sing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A wry question about what subject scouts are obliged to sing on.",
      "walkthrough": "'About' is read as 'around': scouts traditionally sing songs gathered round an outdoor fire at camp.",
@@ -85,34 +82,25 @@
    },
    "solution": "BIFF",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "BIFF",
     "definitions": [
      {
       "text": "hit",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Those fronting",
-      "for": "letter_selection",
-      "note": "the letters at the front of the following words are the ones wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "band include fab four",
-      "gives": "BIFF",
-      "select": "first",
-      "note": "the opening letter of each of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIFF"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Those fronting",
+       "note": "the letters at the front of the following words are the ones wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "band include fab four",
+       "note": "the opening letter of each of these four words"
+      }
      ]
     },
     "explanation": {
@@ -141,30 +129,28 @@
    },
    "solution": "RINSE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RINSE",
     "definitions": [
      {
       "text": "Hair treatment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "provided by some",
-      "for": "hidden_word",
-      "note": "'some' of the following words supplies the letters, a run sitting inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "barber in Seville",
-      "gives": "RINSE",
-      "note": "the letters run across the end of barber, all of in, and the start of Seville"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "provided by some",
+       "note": "'some' of the following words supplies the letters, a run sitting inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barber in Seville",
+       "gives": "RINSE",
+       "note": "the letters run across the end of barber, all of in, and the start of Seville"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hairdressing treatment offered by a barber in Seville, recalling the opera.",
      "walkthrough": "The Barber of Seville is Rossini's opera, which makes the phrase feel like a single unit.",
@@ -191,47 +177,41 @@
    },
    "solution": "BROTHER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BROTHER",
     "definitions": [
      {
       "text": "Sibling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter, so only that is kept"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it, so one piece goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Worry",
-      "gives": "BOTHER",
-      "note": "to worry or trouble"
-     },
-     {
-      "clueFragment": "rivalry's",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of rivalry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "R",
-      "OTHER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to surround it, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Worry",
+       "gives": "BOTHER",
+       "note": "to worry or trouble"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "note": "the beginning of a word is its first letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rivalry's",
+         "note": "first letter of rivalry"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -260,34 +240,25 @@
    },
    "solution": "AIM",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "AIM",
     "definitions": [
      {
       "text": "mission",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly ignored",
-      "for": "letter_selection",
-      "note": "the odd-numbered positions are dropped, leaving only the even ones"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Racism",
-      "gives": "AIM",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIM"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly ignored",
+       "note": "the odd-numbered positions are dropped, leaving only the even ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Racism",
+       "note": "second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -315,32 +286,25 @@
    },
    "solution": "CONSTABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONSTABLE",
     "definitions": [
      {
       "text": "artist",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Scam",
-      "gives": "CON",
-      "note": "a con is a swindle"
-     },
-     {
-      "clueFragment": "not likely to shake",
-      "gives": "STABLE",
-      "note": "something stable is firm and unlikely to wobble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "STABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scam",
+       "gives": "CON",
+       "note": "a con is a swindle"
+      },
+      {
+       "words": "not likely to shake",
+       "gives": "STABLE",
+       "note": "something stable is firm and unlikely to wobble"
+      }
      ]
     },
     "explanation": {
@@ -369,50 +333,44 @@
    },
    "solution": "SERAPH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "SERAPH",
     "definitions": [
      {
       "text": "angel",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two ends, so only its outermost letters count"
-     },
-     {
-      "text": "designed",
-      "for": "anagram",
-      "note": "something designed has been arranged anew, so these letters are put into a fresh order"
-     }
-    ],
-    "linkWords": [
-     "for an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "simple",
-      "gives": "SE",
-      "select": "outer",
-      "note": "first and last letters of simple"
-     },
-     {
-      "clueFragment": "harp",
-      "gives": "HARP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEHARP",
-       "gives": "SERAPH"
+       "text": "designed",
+       "note": "something designed has been arranged anew, so these letters are put into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "Extremely",
+           "note": "the extremes of a word are its two ends, so only its outermost letters count"
+          }
+         ],
+         "parts": [
+          {
+           "words": "simple",
+           "note": "first and last letters of simple"
+          }
+         ]
+        },
+        {
+         "words": "harp",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -441,30 +399,19 @@
    },
    "solution": "BOLTON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOLT-ON",
     "definitions": [
      {
       "text": "Additional",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an extra fitted onto something existing"
      },
      {
       "text": "northern town",
-      "at": 11
+      "at": 11,
+      "meaning": "second meaning: a town in Greater Manchester in the north of England"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Additional",
-      "note": "first meaning: an extra fitted onto something existing"
-     },
-     {
-      "clueFragment": "northern town",
-      "note": "second meaning: a town in Greater Manchester in the north of England"
-     }
-    ],
+    "spelling": "BOLT-ON",
     "explanation": {
      "walkthrough": "Bolton is a large town near Manchester; written with a hyphen it means an add-on part.",
      "definitionFit": "A bolt-on is an extra component attached later, and Bolton is a town in northern England."
@@ -490,35 +437,24 @@
    },
    "solution": "MINELAYER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MINELAYER",
     "definitions": [
      {
       "text": "Naval vessel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blowing up",
-      "for": "anagram",
-      "note": "things blown up are scattered in pieces, so these letters land in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enemy lair",
-      "gives": "ENEMYLAIR",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENEMYLAIR",
-       "gives": "MINELAYER"
+       "text": "blowing up",
+       "note": "things blown up are scattered in pieces, so these letters land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enemy lair",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -547,28 +483,16 @@
    },
    "solution": "CUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CUT",
     "definitions": [
      {
       "text": "Don't acknowledge presence of",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to snub or ignore someone deliberately"
      },
      {
       "text": "prune",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Don't acknowledge presence of",
-      "note": "first meaning: to snub or ignore someone deliberately"
-     },
-     {
-      "clueFragment": "prune",
-      "note": "second meaning: to trim back"
+      "at": 30,
+      "meaning": "second meaning: to trim back"
      }
     ],
     "explanation": {
@@ -598,39 +522,31 @@
    },
    "solution": "SWANSEA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWANSEA",
     "definitions": [
      {
       "text": "port",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to the west of",
-      "for": "charade",
-      "note": "in an across entry west means left, so this piece comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gliders",
-      "gives": "SWANS",
-      "note": "swans glide gracefully across water"
-     },
-     {
-      "clueFragment": "each",
-      "gives": "EA",
-      "note": "standard abbreviation for each"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWANS",
-      "EA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to the west of",
+       "note": "in an across entry west means left, so this piece comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gliders",
+       "gives": "SWANS",
+       "note": "swans glide gracefully across water"
+      },
+      {
+       "words": "each",
+       "gives": "EA",
+       "note": "standard abbreviation for each"
+      }
      ]
     },
     "explanation": {
@@ -659,54 +575,51 @@
    },
    "solution": "EXPEL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "EXPEL",
     "definitions": [
      {
       "text": "Kick out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start to",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter, which alone is taken"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "EXE",
-      "note": "the Exe is a river in Devon"
-     },
-     {
-      "clueFragment": "paddle",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of paddle"
-     },
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "abbreviation for lake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "P",
-      "E",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece placed in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "gives": "EXE",
+         "note": "the Exe is a river in Devon"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start to",
+           "note": "the start of a word is its first letter, which alone is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "paddle",
+           "note": "first letter of paddle"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "lake",
+       "gives": "L",
+       "note": "abbreviation for lake"
+      }
      ]
     },
     "explanation": {
@@ -735,31 +648,16 @@
    },
    "solution": "RAKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAKE",
     "definitions": [
      {
       "text": "Search",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to comb through thoroughly"
      },
      {
       "text": "Lothario",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Search",
-      "note": "first meaning: to comb through thoroughly"
-     },
-     {
-      "clueFragment": "Lothario",
-      "note": "second meaning: a dissolute womaniser"
+      "at": 11,
+      "meaning": "second meaning: a dissolute womaniser"
      }
     ],
     "explanation": {
@@ -788,47 +686,40 @@
    },
    "solution": "UNAFRAID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNAFRAID",
     "definitions": [
      {
       "text": "Fearless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader in",
-      "for": "letter_selection",
-      "note": "the leader of a word is its front letter, which alone is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "UNA",
-      "note": "a girl's name"
-     },
-     {
-      "clueFragment": "foreign",
-      "gives": "F",
-      "select": "first",
-      "note": "first letter of foreign"
-     },
-     {
-      "clueFragment": "incursion",
-      "gives": "RAID",
-      "note": "a raid is a sudden attack into territory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNA",
-      "F",
-      "RAID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "gives": "UNA",
+       "note": "a girl's name"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "note": "the leader of a word is its front letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foreign",
+         "note": "first letter of foreign"
+        }
+       ]
+      },
+      {
+       "words": "incursion",
+       "gives": "RAID",
+       "note": "a raid is a sudden attack into territory"
+      }
      ]
     },
     "explanation": {
@@ -856,40 +747,39 @@
    },
    "solution": "CARPALS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CARPALS",
     "definitions": [
      {
       "text": "Bones",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "something short lacks its full length, so its final letter is cut"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "CARP",
-      "note": "a freshwater fish"
-     },
-     {
-      "clueFragment": "too",
-      "gives": "ALSO",
-      "note": "also means as well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARP",
-      "ALS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "something short lacks its full length, so its final letter is cut"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fish",
+         "gives": "CARP",
+         "note": "a freshwater fish"
+        },
+        {
+         "words": "too",
+         "gives": "ALSO",
+         "note": "also means as well"
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -918,39 +808,31 @@
    },
    "solution": "MINIM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MINIM",
     "definitions": [
      {
       "text": "Note",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down entry one thing on another sits above it, so it comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "car",
-      "gives": "MINI",
-      "note": "the Mini is a classic small British car"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "M",
-      "note": "M as in M1, the abbreviation for motorway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINI",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down entry one thing on another sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "car",
+       "gives": "MINI",
+       "note": "the Mini is a classic small British car"
+      },
+      {
+       "words": "motorway",
+       "gives": "M",
+       "note": "M as in M1, the abbreviation for motorway"
+      }
      ]
     },
     "explanation": {
@@ -979,30 +861,19 @@
    },
    "solution": "FRENCHPOLISH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FRENCH POLISH",
     "definitions": [
      {
       "text": "Shine",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a glossy shellac finish for wood"
      },
      {
       "text": "like Pierre and Marie Curie?",
-      "at": 6
+      "at": 6,
+      "meaning": "second meaning: one scientist was from France, the other from Poland"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Shine",
-      "note": "first meaning: a glossy shellac finish for wood"
-     },
-     {
-      "clueFragment": "like Pierre and Marie Curie?",
-      "note": "second meaning: one scientist was from France, the other from Poland"
-     }
-    ],
+    "spelling": "FRENCH POLISH",
     "explanation": {
      "surface": "Something gleaming that resembles the famous scientific couple.",
      "walkthrough": "Pierre Curie was French and Marie Curie (born Skłodowska) was Polish, so as a pair they are French and Polish.",
@@ -1030,33 +901,28 @@
    },
    "solution": "ROBIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ROBIN",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without wings",
-      "for": "deletion",
-      "note": "a word's wings are its two ends, so both outside letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "investigating",
-      "gives": "PROBING",
-      "note": "probing means looking into"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROBIN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ROBIN",
+     "indicators": [
+      {
+       "text": "without wings",
+       "note": "a word's wings are its two ends, so both outside letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "investigating",
+       "gives": "PROBING",
+       "note": "probing means looking into"
+      }
      ]
     },
     "explanation": {
@@ -1085,28 +951,16 @@
    },
    "solution": "INHABIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INHABIT",
     "definitions": [
      {
       "text": "People",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, as a verb: to populate or live in"
      },
      {
       "text": "dressed for riding?",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "People",
-      "note": "first meaning, as a verb: to populate or live in"
-     },
-     {
-      "clueFragment": "dressed for riding?",
-      "note": "second meaning, split in two: wearing a riding habit, the outfit for horseback"
+      "at": 7,
+      "meaning": "second meaning, split in two: wearing a riding habit, the outfit for horseback"
      }
     ],
     "explanation": {
@@ -1136,31 +990,29 @@
    },
    "solution": "FURZE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FURZE",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "something reported is passed on by speech, so the word is matched by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trees",
-      "gives": "FURZE",
-      "soundsLike": "FIRS",
-      "note": "firs are conifers"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FURZE",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "something reported is passed on by speech, so the word is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trees",
+       "gives": "FIRS",
+       "note": "firs are conifers"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An instruction to plant trees, as people say.",
      "walkthrough": "'Plant' looks like a verb, but it is the noun.",
@@ -1187,26 +1039,26 @@
    },
    "solution": "DOITYOURSELF",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DO-IT-YOURSELF",
     "definitions": [
      {
       "text": "Don't ask for help with homework",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Don't ask for help with homework",
-      "note": "surface reading: a teacher telling pupils to complete school assignments alone"
-     },
-     {
-      "clueFragment": "homework",
-      "note": "setter's reading: work on one's house, repairs and decorating done without hiring tradesmen"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Don't ask for help with homework",
+       "note": "surface reading: a teacher telling pupils to complete school assignments alone"
+      },
+      {
+       "words": "homework",
+       "note": "setter's reading: work on one's house, repairs and decorating done without hiring tradesmen"
+      }
+     ]
+    },
+    "spelling": "DO-IT-YOURSELF",
     "explanation": {
      "surface": "A stern instruction to pupils to finish school assignments unaided.",
      "walkthrough": "'Homework' means jobs about the house, and the imperative phrase is also the name of the hobby.",
@@ -1234,38 +1086,30 @@
    },
    "solution": "RANSACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RANSACK",
     "definitions": [
      {
       "text": "loot",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Gunmen",
-      "gives": "RA",
-      "note": "the Royal Artillery, the British army's gunners"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "N",
-      "note": "standard abbreviation for note"
-     },
-     {
-      "clueFragment": "get rid of",
-      "gives": "SACK",
-      "note": "to dismiss from a job"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "N",
-      "SACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gunmen",
+       "gives": "RA",
+       "note": "the Royal Artillery, the British army's gunners"
+      },
+      {
+       "words": "note",
+       "gives": "N",
+       "note": "standard abbreviation for note"
+      },
+      {
+       "words": "get rid of",
+       "gives": "SACK",
+       "note": "to dismiss from a job"
+      }
      ]
     },
     "explanation": {
@@ -1294,35 +1138,25 @@
    },
    "solution": "NETTLED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NETTLED",
     "definitions": [
      {
       "text": "Cross",
       "at": 0
      }
     ],
-    "linkWords": [
-     "seen in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clear",
-      "gives": "NETT",
-      "note": "nett, as in nett profit, is what is left clear after deductions"
-     },
-     {
-      "clueFragment": "light",
-      "gives": "LED",
-      "note": "a light-emitting diode"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NETT",
-      "LED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "clear",
+       "gives": "NETT",
+       "note": "nett, as in nett profit, is what is left clear after deductions"
+      },
+      {
+       "words": "light",
+       "gives": "LED",
+       "note": "a light-emitting diode"
+      }
      ]
     },
     "explanation": {
@@ -1351,36 +1185,29 @@
    },
    "solution": "MISER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MISER",
     "definitions": [
      {
       "text": "Scrooge",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "having no end means the final letter is lost"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "woe",
-      "gives": "MISERY",
-      "note": "misery is great unhappiness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MISER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "having no end means the final letter is lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "woe",
+       "gives": "MISERY",
+       "note": "misery is great unhappiness"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -1409,47 +1236,41 @@
    },
    "solution": "YEARN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "YEARN",
     "definitions": [
      {
       "text": "Long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to wrap round it, so one piece encloses the other"
-     },
-     {
-      "text": "the capital of",
-      "for": "letter_selection",
-      "note": "a capital is a head letter, so only the first is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "story",
-      "gives": "YARN",
-      "note": "a yarn is a tale"
-     },
-     {
-      "clueFragment": "Ecuador",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of Ecuador"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "E",
-      "ARN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to wrap round it, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "gives": "YARN",
+       "note": "a yarn is a tale"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the capital of",
+         "note": "a capital is a head letter, so only the first is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ecuador",
+         "note": "first letter of Ecuador"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1478,41 +1299,29 @@
    },
    "solution": "CUPPA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUPPA",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "abbreviation for caught in cricket scoring"
-     },
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old man",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "UP",
-      "PA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "abbreviation for caught in cricket scoring"
+      },
+      {
+       "words": "up",
+       "note": "taken as written"
+      },
+      {
+       "words": "old man",
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      }
      ]
     },
     "explanation": {

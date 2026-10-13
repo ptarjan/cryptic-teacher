@@ -1,8 +1,6 @@
 {
  "id": "everyman-3890",
  "number": 3890,
- "series": "everyman",
- "name": "Everyman crossword No 3,890",
  "setter": "Everyman",
  "date": "2021-05-02",
  "dimensions": {
@@ -48,43 +46,34 @@
    },
    "solution": "GETTHEGIGGLES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GET THE GIGGLES",
     "definitions": [
      {
       "text": "Lose it",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Salad",
-      "for": "anagram",
-      "note": "a salad is a jumble of mixed ingredients tossed together, so the letters are tossed into a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two eggs",
-      "gives": "EGGEGG",
-      "note": "two copies of the word egg"
-     },
-     {
-      "clueFragment": "thistle",
-      "gives": "THISTLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EGGEGGTHISTLE",
-       "gives": "GETTHEGIGGLES"
+       "text": "Salad",
+       "note": "a salad is a jumble of mixed ingredients tossed together, so the letters are tossed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "two eggs",
+         "gives": "EGGEGG",
+         "note": "two copies of the word egg"
+        },
+        {
+         "words": "thistle",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -115,52 +104,47 @@
    },
    "solution": "GANGLIA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GANGLIA",
     "definitions": [
      {
       "text": "there's some nerve!",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "defending",
-      "for": "container",
-      "note": "to defend something is to stand around it, so one piece wraps another"
-     },
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down clue, a supporting piece sits underneath, so it comes after in the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mob",
-      "gives": "GANG",
-      "note": "a mob is a gang"
-     },
-     {
-      "clueFragment": "The French",
-      "gives": "LA",
-      "note": "la is the feminine form of 'the' in French"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GANG",
-      "L",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down clue, a supporting piece sits underneath, so it comes after in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mob",
+       "gives": "GANG",
+       "note": "a mob is a gang"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "defending",
+         "note": "to defend something is to stand around it, so one piece wraps another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The French",
+         "gives": "LA",
+         "note": "la is the feminine form of 'the' in French"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -190,41 +174,33 @@
    },
    "solution": "TESLA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "TESLA",
     "definitions": [
      {
       "text": "Thomas Edison's science-advancing, long-standing arch-rival",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "Primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the opening letters of the following words count"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thomas Edison's science-advancing, long-standing arch-rival",
-      "gives": "TESLA",
-      "select": "first",
-      "note": "the initial letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "E",
-      "S",
-      "L",
-      "A"
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "TESLA",
+     "indicators": [
+      {
+       "text": "Primarily",
+       "note": "primarily means first of all, so only the opening letters of the following words count"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Thomas Edison's science-advancing, long-standing arch-rival",
+       "gives": "TESLA",
+       "select": "first",
+       "note": "the initial letters of the five words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A tribute to the inventor who sparred with Thomas Edison for years while pushing science forward.",
      "walkthrough": "The whole clue does double duty: its initials spell the name, and the same words describe the man. Nikola Tesla championed alternating current against Edison's direct current.",
@@ -250,30 +226,28 @@
    },
    "solution": "HARISSA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HARISSA",
     "definitions": [
      {
       "text": "spicy paste",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Sourced in",
-      "for": "hidden_word",
-      "note": "something sourced in a place comes from within it, so the letters lie inside the run of words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kandahar is salty",
-      "gives": "HARISSA",
-      "note": "the letters run across the end of the city name and into the next two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Sourced in",
+       "note": "something sourced in a place comes from within it, so the letters lie inside the run of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kandahar is salty",
+       "gives": "HARISSA",
+       "note": "the letters run across the end of the city name and into the next two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A food note: a salty, spicy paste obtained from Kandahar in Afghanistan.",
      "walkthrough": "The answer straddles Kandahar, is and salty.",
@@ -306,35 +280,24 @@
    },
    "solution": "GRENADIERGUARDS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GRENADIER GUARDS",
     "definitions": [
      {
       "text": "Infantrymen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in orchestration",
-      "for": "anagram",
-      "note": "orchestrating music means arranging its parts anew, so the letters are scored in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guided arrangers",
-      "gives": "GUIDEDARRANGERS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GUIDEDARRANGERS",
-       "gives": "GRENADIERGUARDS"
+       "text": "in orchestration",
+       "note": "orchestrating music means arranging its parts anew, so the letters are scored in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "guided arrangers",
+       "note": "taken as written"
       }
      ]
     },
@@ -364,35 +327,25 @@
    },
    "solution": "GRANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRANGE",
     "definitions": [
      {
       "text": "farmhouse",
       "at": 30
      }
     ],
-    "linkWords": [
-     "reaching"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G is the standard abbreviation for good"
-     },
-     {
-      "clueFragment": "to roam freely",
-      "gives": "RANGE",
-      "note": "to range is to wander widely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "gives": "G",
+       "note": "G is the standard abbreviation for good"
+      },
+      {
+       "words": "to roam freely",
+       "gives": "RANGE",
+       "note": "to range is to wander widely"
+      }
      ]
     },
     "explanation": {
@@ -420,28 +373,16 @@
    },
    "solution": "LOUISIANA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LOUISIANA",
     "definitions": [
      {
       "text": "LA",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the postal abbreviation of a US state"
      },
      {
       "text": "it's in America, on the Gulf of Mexico",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "LA",
-      "note": "first meaning: the postal abbreviation of a US state"
-     },
-     {
-      "clueFragment": "it's in America, on the Gulf of Mexico",
-      "note": "second meaning: a southern state with a coastline on that gulf"
+      "at": 4,
+      "meaning": "second meaning: a southern state with a coastline on that gulf"
      }
     ],
     "explanation": {
@@ -470,32 +411,25 @@
    },
    "solution": "SATSUMA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATSUMA",
     "definitions": [
      {
       "text": "Mandarin",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "tests",
-      "gives": "SATS",
-      "note": "SATs are standardised school tests in the UK and US"
-     },
-     {
-      "clueFragment": "Ms. Thurman",
-      "gives": "UMA",
-      "note": "the actress Uma Thurman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SATS",
-      "UMA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tests",
+       "gives": "SATS",
+       "note": "SATs are standardised school tests in the UK and US"
+      },
+      {
+       "words": "Ms. Thurman",
+       "gives": "UMA",
+       "note": "the actress Uma Thurman"
+      }
      ]
     },
     "explanation": {
@@ -525,32 +459,25 @@
    },
    "solution": "ONUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONUS",
     "definitions": [
      {
       "text": "Burden",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "hanging over",
-      "gives": "ON",
-      "note": "a thing on another hangs over it"
-     },
-     {
-      "clueFragment": "setter and solver",
-      "gives": "US",
-      "note": "the setter and the solver together are 'us'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hanging over",
+       "gives": "ON",
+       "note": "a thing on another hangs over it"
+      },
+      {
+       "words": "setter and solver",
+       "gives": "US",
+       "note": "the setter and the solver together are 'us'"
+      }
      ]
     },
     "explanation": {
@@ -584,35 +511,24 @@
    },
    "solution": "REEVALUATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REEVALUATE",
     "definitions": [
      {
       "text": "Once more assess",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "slamming",
-      "for": "anagram",
-      "note": "slamming something knocks it about violently, so its letters are battered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leave a true",
-      "gives": "LEAVEATRUE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEAVEATRUE",
-       "gives": "REEVALUATE"
+       "text": "slamming",
+       "note": "slamming something knocks it about violently, so its letters are battered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leave a true",
+       "note": "taken as written"
       }
      ]
     },
@@ -642,41 +558,40 @@
    },
    "solution": "GLEANS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GLEANS",
     "definitions": [
      {
       "text": "Scrapes together",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half of",
-      "for": "letter_selection",
-      "note": "half of a word means only one of its two equal portions is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "single",
-      "gives": "GLE",
-      "select": "last",
-      "note": "the back three of the six letters"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "ANS",
-      "note": "ANS is a common abbreviation for answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLE",
-      "ANS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "GLE",
+       "indicators": [
+        {
+         "text": "half of",
+         "note": "half of a word means only one of its two equal portions is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "single",
+         "gives": "GLE",
+         "select": "last",
+         "note": "the back three of the six letters"
+        }
+       ]
+      },
+      {
+       "words": "answer",
+       "gives": "ANS",
+       "note": "ANS is a common abbreviation for answer"
+      }
      ]
     },
     "explanation": {
@@ -704,38 +619,30 @@
    },
    "solution": "AUGUSTUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AUGUSTUS",
     "definitions": [
      {
       "text": "statesman",
       "at": 32
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Gold",
-      "gives": "AU",
-      "note": "Au is the chemical symbol for gold"
-     },
-     {
-      "clueFragment": "bunch of wind",
-      "gives": "GUST",
-      "note": "a gust is a sudden burst of wind"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for the United States, hence American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AU",
-      "GUST",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gold",
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      },
+      {
+       "words": "bunch of wind",
+       "gives": "GUST",
+       "note": "a gust is a sudden burst of wind"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US is short for the United States, hence American"
+      }
      ]
     },
     "explanation": {
@@ -776,58 +683,57 @@
    },
    "solution": "FATTYACID",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "FATTY ACID",
     "definitions": [
      {
       "text": "Essential to Health",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means every other letter, skipping one each time"
-     },
-     {
-      "text": "#4",
-      "for": "letter_selection",
-      "note": "a number sign with four points to the letter in fourth place"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "coming after means the following piece is placed behind the one it follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roly-poly",
-      "gives": "FATTY",
-      "note": "roly-poly means plump, and fatty is an informal word for a plump person"
-     },
-     {
-      "clueFragment": "t'ai chi",
-      "gives": "ACI",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     },
-     {
-      "clueFragment": "pudding's",
-      "gives": "D",
-      "select": 4,
-      "note": "the fourth letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FATTY",
-      "ACI",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "coming after means the following piece is placed behind the one it follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "roly-poly",
+       "gives": "FATTY",
+       "note": "roly-poly means plump, and fatty is an informal word for a plump person"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals means every other letter, skipping one each time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "t'ai chi",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 4,
+       "indicators": [
+        {
+         "text": "#4",
+         "note": "a number sign with four points to the letter in fourth place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pudding's",
+         "note": "the fourth letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -864,39 +770,7 @@
      }
     ]
    },
-   "solution": "TITFORTAT",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TIT FOR TAT",
-    "definitions": [
-     {
-      "text": "Retaliation",
-      "at": 0
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Retaliation",
-      "note": "first meaning: paying back like with like"
-     },
-     {
-      "clueFragment": "what makes 'hit a toff' click",
-      "note": "second meaning: playfully, the motive that makes striking a posh person make sense, getting even with the upper classes"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "A toff is a British word for an upper-class person. The second half is a whimsical cryptic description rather than strict wordplay: hitting a toff only clicks as payback.",
-     "definitionFit": "The phrase means repaying an injury with an equivalent one, the very idea of a measured retaliation."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "click"
-    }
-   }
+   "solution": "TITFORTAT"
   },
   {
    "number": 14,
@@ -918,38 +792,25 @@
    },
    "solution": "RAJA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "RAJA",
     "definitions": [
      {
       "text": "Indian prince",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Withdrawn",
-      "for": "reversal",
-      "note": "something withdrawn is pulled back, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "partly open",
-      "gives": "AJAR",
-      "note": "a door that is ajar is slightly open"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAJA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AJAR",
-       "to": "RAJA"
+       "text": "Withdrawn",
+       "note": "something withdrawn is pulled back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "partly open",
+       "gives": "AJAR",
+       "note": "a door that is ajar is slightly open"
       }
      ]
     },
@@ -979,31 +840,29 @@
    },
    "solution": "PUTZ",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PUTZ",
     "definitions": [
      {
       "text": "US duffer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "loudly",
-      "for": "homophone",
-      "note": "said loudly means spoken out, so what counts is the sound of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plays green shot",
-      "gives": "PUTZ",
-      "soundsLike": "PUTTS",
-      "note": "to putt is to play a gentle shot on a golf green"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PUTZ",
+     "indicators": [
+      {
+       "text": "loudly",
+       "note": "said loudly means spoken out, so what counts is the sound of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plays green shot",
+       "gives": "PUTTS",
+       "note": "to putt is to play a gentle shot on a golf green"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An American golfing novice taps the ball on the green with a noisy stroke.",
      "walkthrough": "'Duffer' and 'green' paint golf, which hides that the duffer is the definition, an American slang word for a fool.",
@@ -1031,11 +890,6 @@
    },
    "solution": "PROLONG",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PROLONG",
     "definitions": [
      {
       "text": "get more drawn out",
@@ -1043,32 +897,33 @@
       "note": "a phrase for the verb meaning to make something last longer"
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "without a top means the first letter is removed"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prince",
-      "gives": "PR",
-      "note": "Pr is an abbreviation for prince"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "OOLONG",
-      "note": "oolong is a Chinese tea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PR",
-      "OLONG"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topless",
+       "note": "without a top means the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Prince",
+         "gives": "PR",
+         "note": "Pr is an abbreviation for prince"
+        },
+        {
+         "words": "tea",
+         "gives": "OOLONG",
+         "note": "oolong is a Chinese tea"
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -1098,35 +953,24 @@
    },
    "solution": "PROCLAIMS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PROCLAIMS",
     "definitions": [
      {
       "text": "Announces",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "massaged",
-      "for": "anagram",
-      "note": "a massage kneads and works the body over, so the letters are worked into new positions"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cramps; oil",
-      "gives": "CRAMPSOIL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CRAMPSOIL",
-       "gives": "PROCLAIMS"
+       "text": "massaged",
+       "note": "a massage kneads and works the body over, so the letters are worked into new positions"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cramps; oil",
+       "note": "taken as written"
       }
      ]
     },
@@ -1156,33 +1000,28 @@
    },
    "solution": "COLLIER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "COLLIER",
     "definitions": [
      {
       "text": "man seen with canary",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "A little",
-      "for": "hidden_word",
-      "note": "a little of the phrase is a small part of it, so the letters sit inside"
-     }
-    ],
-    "linkWords": [
-     "portrays"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "manic, Ollie Reed",
-      "gives": "COLLIER",
-      "note": "the letters run from the end of the first word through the name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A little",
+       "note": "a little of the phrase is a small part of it, so the letters sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "manic, Ollie Reed",
+       "gives": "COLLIER",
+       "note": "the letters run from the end of the first word through the name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The wild actor Oliver Reed, a touch manic, plays a man accompanied by a pet bird.",
      "walkthrough": "Oliver Reed was a British actor known for hellraising. The canary is the bird miners took underground to detect gas.",
@@ -1209,58 +1048,56 @@
    },
    "solution": "MARRIED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MARRIED",
     "definitions": [
      {
       "text": "took the plunge",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "a little",
-      "for": "letter_selection",
-      "note": "just a little of the word is its opening letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in means set inside the other piece"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, one piece on another sits above it, so it comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arrived",
-      "gives": "ARR",
-      "note": "arr. is the timetable abbreviation for arrives or arrived"
-     },
-     {
-      "clueFragment": "isthmus",
-      "gives": "I",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "Med",
-      "gives": "MED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ARRI",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in means set inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Med",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in a down clue, one piece on another sits above it, so it comes first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arrived",
+         "gives": "ARR",
+         "note": "arr. is the timetable abbreviation for arrives or arrived"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a little",
+           "note": "just a little of the word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "isthmus",
+           "note": "the opening letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1290,59 +1127,60 @@
    },
    "solution": "LUVVIE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LUVVIE",
     "definitions": [
      {
       "text": "Actor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means every other letter is kept"
-     },
-     {
-      "text": "at the outset",
-      "for": "letter_selection",
-      "note": "the outset is the start, so only opening letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loud",
-      "gives": "LU",
-      "select": "alternate",
-      "note": "the first and third letters"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the abbreviation for very"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "the same abbreviation again"
-     },
-     {
-      "clueFragment": "immodest and egotistical",
-      "gives": "IE",
-      "select": "first",
-      "note": "the initials of the two adjectives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LU",
-      "V",
-      "V",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals means every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loud",
+         "note": "the first and third letters"
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "V is the abbreviation for very"
+      },
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "the same abbreviation again"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "IE",
+       "indicators": [
+        {
+         "text": "at the outset",
+         "note": "the outset is the start, so only opening letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "immodest and egotistical",
+         "gives": "IE",
+         "select": "first",
+         "note": "the initials of the two adjectives"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1370,41 +1208,30 @@
    },
    "solution": "HONOLULU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HONOLULU",
     "definitions": [
      {
       "text": "somewhere in C Pacific",
       "at": 49
      }
     ],
-    "linkWords": [
-     "assembled"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Member of Steps",
-      "gives": "H",
-      "note": "Ian 'H' Watkins was a singer in the British pop group Steps"
-     },
-     {
-      "clueFragment": "Beatle wife",
-      "gives": "ONO",
-      "note": "Yoko Ono, John Lennon's wife"
-     },
-     {
-      "clueFragment": "60s diva",
-      "gives": "LULU",
-      "note": "Lulu, the Scottish singer who rose to fame in the 1960s"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ONO",
-      "LULU"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Member of Steps",
+       "gives": "H",
+       "note": "Ian 'H' Watkins was a singer in the British pop group Steps"
+      },
+      {
+       "words": "Beatle wife",
+       "gives": "ONO",
+       "note": "Yoko Ono, John Lennon's wife"
+      },
+      {
+       "words": "60s diva",
+       "gives": "LULU",
+       "note": "Lulu, the Scottish singer who rose to fame in the 1960s"
+      }
      ]
     },
     "explanation": {
@@ -1433,41 +1260,36 @@
    },
    "solution": "LAHORE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "LAHORE",
     "definitions": [
      {
       "text": "somewhere in Asia",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "some of the words means just a part of them is used"
-     },
-     {
-      "text": "retiring",
-      "for": "reversal",
-      "note": "to retire is to go back, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'hero' haltingly",
-      "gives": "EROHAL",
-      "note": "the letters straddle the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EROHAL",
-       "to": "LAHORE"
+       "text": "retiring",
+       "note": "to retire is to go back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "Some",
+         "note": "some of the words means just a part of them is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "'hero' haltingly",
+         "gives": "EROHAL",
+         "note": "the letters straddle the two words"
+        }
+       ]
       }
      ]
     },
@@ -1497,51 +1319,48 @@
    },
    "solution": "HAIKU",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "HAIKU",
     "definitions": [
      {
       "text": "poetry",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Hearts of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its centre, so only the middle letters are kept"
-     }
-    ],
-    "linkWords": [
-     "captured in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "H",
-      "select": "middle",
-      "note": "the centre letter"
-     },
-     {
-      "clueFragment": "vain",
-      "gives": "AI",
-      "select": "middle",
-      "note": "the middle pair"
-     },
-     {
-      "clueFragment": "yakuza",
-      "gives": "KU",
-      "select": "middle",
-      "note": "the middle pair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AI",
-      "KU"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Hearts of",
+         "note": "the heart of a word is its centre, so only the middle letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "the centre letter"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "vain",
+         "note": "the middle pair"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "yakuza",
+         "note": "the middle pair"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1570,11 +1389,6 @@
    },
    "solution": "MONTEVERDI",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MONTEVERDI",
     "definitions": [
      {
       "text": "another",
@@ -1582,40 +1396,35 @@
       "note": "stands for another Italian musician, leaning on the words before it"
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "a tour goes all round a region, so one piece goes around the other"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyman",
-      "gives": "ME",
-      "note": "the setter Everyman refers to himself as me"
-     },
-     {
-      "clueFragment": "Ontario",
-      "gives": "ONT",
-      "note": "Ont. is the abbreviation for the Canadian province"
-     },
-     {
-      "clueFragment": "Italian musician",
-      "gives": "VERDI",
-      "note": "the opera composer Giuseppe Verdi"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ONT",
-      "E",
-      "VERDI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring",
+         "note": "a tour goes all round a region, so one piece goes around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everyman",
+         "gives": "ME",
+         "note": "the setter Everyman refers to himself as me"
+        },
+        {
+         "words": "Ontario",
+         "gives": "ONT",
+         "note": "Ont. is the abbreviation for the Canadian province"
+        }
+       ]
+      },
+      {
+       "words": "Italian musician",
+       "gives": "VERDI",
+       "note": "the opera composer Giuseppe Verdi"
+      }
      ]
     },
     "explanation": {
@@ -1650,29 +1459,17 @@
    },
    "solution": "IRIS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IRIS",
     "definitions": [
      {
       "text": "Perhaps Murdoch's one",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the first name of the novelist Murdoch"
      },
      {
       "text": "seen in the Eye",
       "at": 22,
-      "note": "a thing seen in the eye; the definition is a phrase describing a noun"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps Murdoch's one",
-      "note": "first meaning: the first name of the novelist Murdoch"
-     },
-     {
-      "clueFragment": "seen in the Eye",
-      "note": "second meaning: the coloured ring of the eye"
+      "note": "a thing seen in the eye; the definition is a phrase describing a noun",
+      "meaning": "second meaning: the coloured ring of the eye"
      }
     ],
     "explanation": {
@@ -1705,39 +1502,7 @@
      }
     ]
    },
-   "solution": "GATHERSGROUND",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GATHERS GROUND",
-    "definitions": [
-     {
-      "text": "Makes progress",
-      "at": 0
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Makes progress",
-      "note": "first meaning: advances steadily, gains on someone"
-     },
-     {
-      "clueFragment": "clue for 'the rags'",
-      "note": "second meaning: read as a cryptic clue, its first word with 'ground' as a crushing signal would rearrange into 'the rags'"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "This is a reverse clue: the answer itself works as wordplay, with its second word telling you to grind up its first and so produce the rags.",
-     "definitionFit": "To gather ground is an idiom like gaining ground: moving forward or advancing on a rival in a race or contest."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "rags"
-    }
-   }
+   "solution": "GATHERSGROUND"
   }
  ]
 }

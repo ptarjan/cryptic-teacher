@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22098",
  "number": 22098,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,098",
  "setter": "Araucaria",
  "date": "2001-01-05",
  "dimensions": {
@@ -38,50 +36,40 @@
    },
    "solution": "GUIDANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GUIDANCE",
     "definitions": [
      {
       "text": "given by a dog",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "charade",
-      "note": "first tells the solver to keep only the opening letter of the preceding word, which then joins the chain"
-     }
-    ],
-    "linkWords": [
-     "maybe"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Little heraldic Red",
-      "gives": "GU",
-      "note": "gules is the heraldic word for red; little means it is cut to its short form"
-     },
-     {
-      "clueFragment": "Indian's",
-      "gives": "I",
-      "select": "first",
-      "note": "the opening letter of Indian"
-     },
-     {
-      "clueFragment": "ball",
-      "gives": "DANCE",
-      "note": "a ball is a formal dance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GU",
-      "I",
-      "DANCE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "note": "first tells the solver to keep only the opening letter of the preceding word, which then joins the chain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Little heraldic Red",
+       "gives": "GU",
+       "note": "gules is the heraldic word for red; little means it is cut to its short form"
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Indian's",
+         "note": "the opening letter of Indian"
+        }
+       ]
+      },
+      {
+       "words": "ball",
+       "gives": "DANCE",
+       "note": "a ball is a formal dance"
+      }
      ]
     },
     "explanation": {
@@ -110,29 +98,17 @@
    },
    "solution": "GOBSTOPPER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GOBSTOPPER",
     "definitions": [
      {
       "text": "Sweet",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a large hard round sweet"
      },
      {
       "text": "dumbing down",
       "at": 6,
-      "note": "a cryptic description: something that silences you"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sweet",
-      "note": "first meaning: a large hard round sweet"
-     },
-     {
-      "clueFragment": "dumbing down",
-      "note": "second meaning, read literally: a thing that stops your mouth (gob) and so makes you dumb"
+      "note": "a cryptic description: something that silences you",
+      "meaning": "second meaning, read literally: a thing that stops your mouth (gob) and so makes you dumb"
      }
     ],
     "explanation": {
@@ -162,10 +138,6 @@
    },
    "solution": "INTERVITAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTERVITAL",
     "definitions": [
      {
       "text": "Bury alive?",
@@ -177,30 +149,28 @@
       "at": 12
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "anagram",
-      "note": "the answer is made out of these letters, rebuilt from them rather than read straight"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trivial",
-      "gives": "TRIVIAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "TEN",
-      "note": "the number written as a word, not the cross-reference it pretends to be"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRIVIALTEN",
-       "gives": "INTERVITAL"
+       "text": "from",
+       "note": "the answer is made out of these letters, rebuilt from them rather than read straight"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "trivial",
+         "note": "taken as written"
+        },
+        {
+         "words": "10",
+         "gives": "TEN",
+         "note": "the number written as a word, not the cross-reference it pretends to be"
+        }
+       ]
       }
      ]
     },
@@ -231,32 +201,25 @@
    },
    "solution": "AGLOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGLOW",
     "definitions": [
      {
       "text": "Shining",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "base",
-      "gives": "LOW",
-      "note": "base in the sense of mean or low"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "LOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "words": "base",
+       "gives": "LOW",
+       "note": "base in the sense of mean or low"
+      }
      ]
     },
     "explanation": {
@@ -290,58 +253,46 @@
    },
    "solution": "COURTMARTIAL",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade",
-     "anagram"
-    ],
-    "answer": "COURT MARTIAL",
     "definitions": [
      {
       "text": "Form of trial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Form of",
-      "for": "anagram",
-      "note": "a form of something is a version of it shaped differently, so the following word's letters are reshaped"
-     }
-    ],
-    "linkWords": [
-     "before it"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "make up to",
-      "gives": "COURT",
-      "note": "to make up to someone is to woo or court them"
-     },
-     {
-      "clueFragment": "mother",
-      "gives": "MA",
-      "note": "an informal word for mother"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "RTIAL",
-      "note": "the word trial with its letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COURT",
-      "MA",
-      "RTIAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "COURTMARTIAL",
+     "indicators": [
       {
-       "fodder": "TRIAL",
-       "gives": "RTIAL"
+       "text": "Form of",
+       "note": "a form of something is a version of it shaped differently, so the following word's letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "make up to",
+         "gives": "COURT",
+         "note": "to make up to someone is to woo or court them"
+        },
+        {
+         "words": "mother",
+         "gives": "MA",
+         "note": "an informal word for mother"
+        },
+        {
+         "words": "trial",
+         "gives": "RTIAL",
+         "note": "the word trial with its letters rearranged"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Instructions for a kind of trial in which one sweet-talks one's mother first.",
      "walkthrough": "'Form of trial' is both the definition and the anagram of trial; 'mother before it' places MA ahead of that rearranged trial.",
@@ -380,89 +331,76 @@
     "19-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "deletion"
-    ],
-    "answer": "PLEASE NOTICE THROW STONES DO NOT",
     "definitions": [
      {
       "text": "appeal on board",
       "at": 103
      }
     ],
-    "indicators": [
-     {
-      "text": "odd",
-      "for": "anagram",
-      "note": "odd means strange or irregular, so the two words that follow are scrambled"
-     },
-     {
-      "text": "loses his head",
-      "for": "deletion",
-      "note": "losing a head means the first letter of the singer's surname is dropped"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Happy",
-      "gives": "PLEASED",
-      "note": "happy means pleased"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "excessive",
-      "gives": "OTT",
-      "note": "OTT, over the top, means excessive"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "HR",
-      "note": "HR is the abbreviation for hour"
-     },
-     {
-      "clueFragment": "twos",
-      "gives": "TWOS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ones",
-      "gives": "ONES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "singer Johnny",
-      "gives": "MATHIS",
-      "note": "Johnny Mathis, the American crooner"
-     },
-     {
-      "clueFragment": "not very cool stuff",
-      "gives": "NOTICE",
-      "note": "NOT plus ICE, the very cool stuff"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLEASE",
-      "NOTICE",
-      "THR",
-      "OWSTONES",
-      "DONOT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TWOSONES",
-       "gives": "OWSTONES"
+       "text": "odd",
+       "note": "odd means strange or irregular, so the two words that follow are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "loses his head",
+         "note": "losing a head means the first letter of the singer's surname is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Happy",
+           "gives": "PLEASED",
+           "note": "happy means pleased"
+          },
+          {
+           "words": "on",
+           "note": "taken as written"
+          },
+          {
+           "words": "excessive",
+           "gives": "OTT",
+           "note": "OTT, over the top, means excessive"
+          },
+          {
+           "words": "time",
+           "gives": "HR",
+           "note": "HR is the abbreviation for hour"
+          },
+          {
+           "words": "twos",
+           "note": "taken as written"
+          },
+          {
+           "words": "ones",
+           "note": "taken as written"
+          },
+          {
+           "words": "singer Johnny",
+           "gives": "MATHIS",
+           "note": "Johnny Mathis, the American crooner"
+          },
+          {
+           "words": "not very cool stuff",
+           "gives": "NOTICE",
+           "note": "NOT plus ICE, the very cool stuff"
+          }
+         ]
+        },
+        {
+         "gives": "SMATHI"
+        }
+       ]
       }
      ]
     },
@@ -499,54 +437,51 @@
    },
    "solution": "LOTUSLAND",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "charade"
-    ],
-    "answer": "LOTUS-LAND",
     "definitions": [
      {
       "text": "PM always here, seemingly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "culture",
-      "for": "anagram",
-      "note": "culture is cultivation, something worked over and reshaped, so the yob's letters are reworked"
-     },
-     {
-      "text": "some",
-      "for": "deletion",
-      "note": "only some of the defamatory remarks are used, the end being cut away"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lout",
-      "gives": "LOTU",
-      "note": "the letters of lout rearranged"
-     },
-     {
-      "clueFragment": "defamatory remarks",
-      "gives": "SLANDER",
-      "note": "slander is defamatory speech"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOTU",
-      "SLAND"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LOTUSLAND",
+     "indicators": [
       {
-       "fodder": "LOUT",
-       "gives": "LOTU"
+       "text": "culture",
+       "note": "culture is cultivation, something worked over and reshaped, so the yob's letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "some",
+         "note": "only some of the defamatory remarks are used, the end being cut away"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "lout",
+           "gives": "LOTU",
+           "note": "the letters of lout rearranged"
+          },
+          {
+           "words": "defamatory remarks",
+           "gives": "SLANDER",
+           "note": "slander is defamatory speech"
+          }
+         ]
+        },
+        {
+         "gives": "ER"
+        }
+       ]
       }
      ]
     },
@@ -577,32 +512,24 @@
    },
    "solution": "ACHE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACHE",
     "definitions": [
      {
       "text": "yearning",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "revolutionary's",
-      "gives": "CHE",
-      "note": "Che Guevara, the archetypal revolutionary; the 's means 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CHE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "revolutionary's",
+       "gives": "CHE",
+       "note": "Che Guevara, the archetypal revolutionary; the 's means 'is'"
+      }
      ]
     },
     "explanation": {
@@ -631,29 +558,17 @@
    },
    "solution": "EASY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EASY",
     "definitions": [
      {
       "text": "How to stand on a chair?",
       "at": 0,
-      "note": "a cryptic description: stand easy, and an easy chair"
+      "note": "a cryptic description: stand easy, and an easy chair",
+      "meaning": "first meaning: the word in the drill command telling soldiers to relax, and the word naming a comfortable armchair"
      },
      {
       "text": "No problem",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "How to stand on a chair?",
-      "note": "first meaning: the word in the drill command telling soldiers to relax, and the word naming a comfortable armchair"
-     },
-     {
-      "clueFragment": "No problem",
-      "note": "second meaning: simple, not difficult"
+      "at": 25,
+      "meaning": "second meaning: simple, not difficult"
      }
     ],
     "explanation": {
@@ -689,31 +604,29 @@
    },
    "solution": "BETELNUT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BETEL-NUT",
     "definitions": [
      {
       "text": "to be chewed up",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "reported means said out loud, so the phrase is heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fanatical coleopterist",
-      "gives": "BETELNUT",
-      "soundsLike": "BEETLE NUT",
-      "note": "a coleopterist studies beetles, and a fanatic is a nut"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BETELNUT",
+     "indicators": [
+      {
+       "text": "reported",
+       "note": "reported means said out loud, so the phrase is heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fanatical coleopterist",
+       "gives": "BEETLENUT",
+       "note": "a coleopterist studies beetles, and a fanatic is a nut"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An obsessive beetle collector gets torn apart by critics.",
      "definitionFit": "The areca seed wrapped in betel leaf is chewed across South and Southeast Asia as a mild stimulant."
@@ -754,26 +667,25 @@
     "15-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AT THIS POINT",
     "definitions": [
      {
       "text": "Here and now in time to follow",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Here and now in time to follow",
-      "note": "surface reading: something in the present moment that comes next"
-     },
-     {
-      "clueFragment": "in time to follow",
-      "note": "setter's reading: the answer means here and now, and adding 'in time' after it makes the familiar cliché"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Here and now in time to follow",
+       "note": "surface reading: something in the present moment that comes next"
+      },
+      {
+       "words": "in time to follow",
+       "note": "setter's reading: the answer means here and now, and adding 'in time' after it makes the familiar cliché"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The phrase completes the stock expression 'at this point in time', so 'in time' is the word that follows.",
      "definitionFit": "The phrase means at the present moment or in this place, which is what here and now conveys."
@@ -800,43 +712,50 @@
    },
    "solution": "INDEFENSIBLE",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "INDEFENSIBLE",
     "definitions": [
      {
       "text": "having nothing to be said for it",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Sound of",
-      "for": "homophone",
-      "note": "sound of means what follows is heard spoken, not read on the page"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "non-commercial",
-      "gives": "INDE",
-      "soundsLike": "INDIE",
-      "note": "an indie label works outside the commercial majors"
-     },
-     {
-      "clueFragment": "lowland",
-      "gives": "FEN",
-      "note": "a fen is low marshy land"
-     },
-     {
-      "clueFragment": "prophetess",
-      "gives": "SIBLE",
-      "soundsLike": "SIBYL",
-      "note": "a sibyl was a prophetess of the ancient world"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "INDE",
+       "indicators": [
+        {
+         "text": "Sound of",
+         "note": "sound of means what follows is heard spoken, not read on the page"
+        }
+       ],
+       "parts": [
+        {
+         "words": "non-commercial",
+         "gives": "INDIE",
+         "note": "an indie label works outside the commercial majors"
+        }
+       ]
+      },
+      {
+       "words": "lowland",
+       "gives": "FEN",
+       "note": "a fen is low marshy land"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SIBLE",
+       "parts": [
+        {
+         "words": "prophetess",
+         "gives": "SIBYL",
+         "note": "a sibyl was a prophetess of the ancient world"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An oddly named seer from the marshland whose behaviour can't be justified.",
      "walkthrough": "Fen is also a reference to the Fens of eastern England.",
@@ -884,70 +803,61 @@
    },
    "solution": "TENNISBALL",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "TENNIS BALL",
     "definitions": [
      {
       "text": "for striking, via the net?",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "way",
-      "for": "anagram",
-      "note": "read as 'in a way', the preceding word is rearranged in some fashion"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the word is read from the bottom upwards"
-     },
-     {
-      "text": "to hold",
-      "for": "container",
-      "note": "to hold something is to contain it, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Best",
-      "gives": "BEST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "everyone means all"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "NNI",
-      "SB",
-      "ALL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BEST",
-       "gives": "TESB"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "to hold",
+           "note": "to hold something is to contain it, so one piece sits inside the other"
+          }
+         ],
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "way",
+             "note": "read as 'in a way', the preceding word is rearranged in some fashion"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Best",
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "words": "pub",
+           "gives": "INN",
+           "note": "an inn is a pub"
+          }
+         ]
+        }
+       ]
+      },
       {
-       "from": "INN",
-       "to": "NNI"
+       "words": "everyone",
+       "gives": "ALL",
+       "note": "everyone means all"
       }
      ]
     },
@@ -978,38 +888,30 @@
    },
    "solution": "PENTASTYLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PENTASTYLE",
     "definitions": [
      {
       "text": "with a number of columns",
       "at": 36
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Write",
-      "gives": "PEN",
-      "note": "to pen is to write"
-     },
-     {
-      "clueFragment": "succulent",
-      "gives": "TASTY",
-      "note": "succulent food is tasty"
-     },
-     {
-      "clueFragment": "article in French",
-      "gives": "LE",
-      "note": "le is a French definite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "TASTY",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Write",
+       "gives": "PEN",
+       "note": "to pen is to write"
+      },
+      {
+       "words": "succulent",
+       "gives": "TASTY",
+       "note": "succulent food is tasty"
+      },
+      {
+       "words": "article in French",
+       "gives": "LE",
+       "note": "le is a French definite article"
+      }
      ]
     },
     "explanation": {
@@ -1053,51 +955,42 @@
    },
    "solution": "TELEGENIC",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TELEGENIC",
     "definitions": [
      {
       "text": "looking good on the box",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "producer",
-      "for": "anagram",
-      "note": "a producer makes something out of raw material, so these letters are worked into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lawrence",
-      "gives": "TE",
-      "note": "T E Lawrence, Lawrence of Arabia"
-     },
-     {
-      "clueFragment": "Walker",
-      "gives": "LEG",
-      "note": "a leg is what one walks with"
-     },
-     {
-      "clueFragment": "cine",
-      "gives": "ENIC",
-      "note": "the letters of cine rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "LEG",
-      "ENIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TELEGENIC",
+     "indicators": [
       {
-       "fodder": "CINE",
-       "gives": "ENIC"
+       "text": "producer",
+       "note": "a producer makes something out of raw material, so these letters are worked into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lawrence",
+         "gives": "TE",
+         "note": "T E Lawrence, Lawrence of Arabia"
+        },
+        {
+         "words": "Walker",
+         "gives": "LEG",
+         "note": "a leg is what one walks with"
+        },
+        {
+         "words": "cine",
+         "gives": "ENIC",
+         "note": "the letters of cine rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1128,49 +1021,43 @@
    },
    "solution": "ACERACEAE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ACERACEAE",
     "definitions": [
      {
       "text": "Maples",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a little bit of",
-      "for": "deletion",
-      "note": "only a little bit of the statesman's name is kept, the rest of its letters being discarded"
-     }
-    ],
-    "linkWords": [
-     "for the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "ACE",
-      "note": "an ace is a one in cards"
-     },
-     {
-      "clueFragment": "Nation",
-      "gives": "RACE",
-      "note": "a nation or people is a race"
-     },
-     {
-      "clueFragment": "Disraeli",
-      "gives": "AE",
-      "note": "two letters from inside the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACE",
-      "RACE",
-      "AE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ACERACEAE",
+     "indicators": [
+      {
+       "text": "a little bit of",
+       "note": "only a little bit of the statesman's name is kept, the rest of its letters being discarded"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "ACE",
+         "note": "an ace is a one in cards"
+        },
+        {
+         "words": "Nation",
+         "gives": "RACE",
+         "note": "a nation or people is a race"
+        },
+        {
+         "words": "Disraeli",
+         "gives": "AE",
+         "note": "two letters from inside the name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1199,32 +1086,25 @@
    },
    "solution": "EPAULETTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EPAULETTE",
     "definitions": [
      {
       "text": "has it in place of a chip",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "Miss Goddard",
-      "gives": "PAULETTE",
-      "note": "Paulette Goddard, the Hollywood actress"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PAULETTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "Miss Goddard",
+       "gives": "PAULETTE",
+       "note": "Paulette Goddard, the Hollywood actress"
+      }
      ]
     },
     "explanation": {
@@ -1268,29 +1148,17 @@
    },
    "solution": "GLASSHOUSES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GLASSHOUSES",
     "definitions": [
      {
       "text": "Prisons for soldiers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: military detention centres, in British army slang"
      },
      {
       "text": "who shouldn't 12",
       "at": 21,
-      "note": "a cryptic description: where people live who shouldn't throw stones"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prisons for soldiers",
-      "note": "first meaning: military detention centres, in British army slang"
-     },
-     {
-      "clueFragment": "who shouldn't 12",
-      "note": "second meaning: from the proverb about dwellers in fragile homes who shouldn't throw stones"
+      "note": "a cryptic description: where people live who shouldn't throw stones",
+      "meaning": "second meaning: from the proverb about dwellers in fragile homes who shouldn't throw stones"
      }
     ],
     "explanation": {
@@ -1319,34 +1187,28 @@
    },
    "solution": "OUTRE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OUTRE",
     "definitions": [
      {
       "text": "Far from normal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in tells the solver the letters sit inside the words that follow"
-     }
-    ],
-    "linkWords": [
-     "the way",
-     "me"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you treat",
-      "gives": "OUTRE",
-      "note": "the letters run across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells the solver the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you treat",
+       "gives": "OUTRE",
+       "note": "the letters run across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A complaint that someone treats the speaker very strangely.",
      "definitionFit": "Outré is a French borrowing for bizarre or unconventional, well beyond what is normal."
@@ -1382,10 +1244,6 @@
     "23-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPEN-CAST",
     "definitions": [
      {
       "text": "mine",
@@ -1393,25 +1251,19 @@
       "note": "the answer is an adjective describing a kind of mine"
      }
     ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frank",
-      "gives": "OPEN",
-      "note": "frank means candid or open"
-     },
-     {
-      "clueFragment": "actors",
-      "gives": "CAST",
-      "note": "the actors in a production are its cast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPEN",
-      "CAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Frank",
+       "gives": "OPEN",
+       "note": "frank means candid or open"
+      },
+      {
+       "words": "actors",
+       "gives": "CAST",
+       "note": "the actors in a production are its cast"
+      }
      ]
     },
     "explanation": {
@@ -1455,43 +1307,31 @@
    },
    "solution": "PLAINT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLAINT",
     "definitions": [
      {
       "text": "Legal statement of grievance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside another, the factory surrounding the single letter"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "factory",
-      "gives": "PLANT",
-      "note": "a plant is a factory"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLA",
-      "I",
-      "NT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside another, the factory surrounding the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "factory",
+       "gives": "PLANT",
+       "note": "a plant is a factory"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1519,46 +1359,39 @@
    },
    "solution": "OBITUARY",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "OBITUARY",
     "definitions": [
      {
       "text": "Writing after death",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "go in",
-      "for": "container",
-      "note": "go in means the single letter is placed among the others"
-     },
-     {
-      "text": "revolutionary",
-      "for": "anagram",
-      "note": "something revolutionary overturns the existing order, so the letters are turned about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to bury a",
-      "gives": "TOBURYA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ITOBURYA",
-       "gives": "OBITUARY"
+       "text": "go in",
+       "note": "go in means the single letter is placed among the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "something revolutionary overturns the existing order, so the letters are turned about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to bury a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
       }
      ]
     },
@@ -1612,35 +1445,25 @@
    },
    "solution": "PETERLEE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PETERLEE",
     "definitions": [
      {
       "text": "new town",
       "at": 16
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Safe",
-      "gives": "PETER",
-      "note": "peter is old criminal slang for a safe"
-     },
-     {
-      "clueFragment": "shelter",
-      "gives": "LEE",
-      "note": "the lee is the sheltered side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PETER",
-      "LEE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Safe",
+       "gives": "PETER",
+       "note": "peter is old criminal slang for a safe"
+      },
+      {
+       "words": "shelter",
+       "gives": "LEE",
+       "note": "the lee is the sheltered side"
+      }
      ]
     },
     "explanation": {

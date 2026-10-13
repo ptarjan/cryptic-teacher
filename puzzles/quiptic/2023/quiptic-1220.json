@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1220",
  "number": 1220,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,220",
  "setter": "Bartland",
  "date": "2023-04-03",
  "dimensions": {
@@ -38,48 +36,34 @@
    },
    "solution": "FRETFUL",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "FRETFUL",
     "definitions": [
      {
       "text": "Upset",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "anagram",
-      "note": "something broken has its parts scattered, so these letters come apart and are rearranged"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "father",
-      "gives": "FR",
-      "note": "Fr is the abbreviation for Father, as for a priest"
-     },
-     {
-      "clueFragment": "flute",
-      "gives": "FLUTE",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "ETFUL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "FLUTE",
-       "gives": "ETFUL"
+       "words": "father",
+       "gives": "FR",
+       "note": "Fr is the abbreviation for Father, as for a priest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking",
+         "note": "something broken has its parts scattered, so these letters come apart and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flute",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -109,41 +93,35 @@
    },
    "solution": "FLORAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FLORAL",
     "definitions": [
      {
       "text": "of flowers",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "borders",
-      "for": "letter_selection",
-      "note": "the borders of a word are its edges, so only its two outside letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Formal",
-      "gives": "FL",
-      "select": "outer",
-      "note": "first and last letters"
-     },
-     {
-      "clueFragment": "speaking",
-      "gives": "ORAL",
-      "note": "oral means spoken, done by speaking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FL",
-      "ORAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders",
+         "note": "the borders of a word are its edges, so only its two outside letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Formal",
+         "note": "first and last letters"
+        }
+       ]
+      },
+      {
+       "words": "speaking",
+       "gives": "ORAL",
+       "note": "oral means spoken, done by speaking"
+      }
      ]
     },
     "explanation": {
@@ -172,72 +150,72 @@
    },
    "solution": "EFFIGY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "EFFIGY",
     "definitions": [
      {
       "text": "Guy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back the way it came, so the word is read backwards"
-     },
-     {
-      "text": "accepted by",
-      "for": "container",
-      "note": "what is accepted is taken in, so one piece goes inside others"
-     },
-     {
-      "text": "centre",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle, so only the middle letters are kept"
-     },
-     {
-      "text": "extremists",
-      "for": "letter_selection",
-      "note": "extremes are the ends, so only the first and last letters are kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "EF",
-      "select": "middle",
-      "note": "the two middle letters"
-     },
-     {
-      "clueFragment": "if",
-      "gives": "IF",
-      "note": "taken as written, then turned round"
-     },
-     {
-      "clueFragment": "groovy",
-      "gives": "GY",
-      "select": "outer",
-      "note": "first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EF",
-      "FI",
-      "GY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EFFIGY",
+     "indicators": [
       {
-       "from": "IF",
-       "to": "FI"
+       "text": "accepted by",
+       "note": "what is accepted is taken in, so one piece goes inside others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centre",
+           "note": "the centre of a word is its middle, so only the middle letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "left",
+           "note": "the two middle letters"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "note": "returning means going back the way it came, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "if",
+           "note": "taken as written, then turned round"
+          }
+         ]
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremists",
+           "note": "extremes are the ends, so only the first and last letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "groovy",
+           "note": "first and last letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -273,35 +251,25 @@
    },
    "solution": "FALSESTART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FALSE START",
     "definitions": [
      {
       "text": "Failed attempt",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to produce"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "most counterfeit",
-      "gives": "FALSEST",
-      "note": "superlative of false, meaning fake"
-     },
-     {
-      "clueFragment": "watercolours, for example",
-      "gives": "ART",
-      "note": "watercolour painting is an example of art"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FALSEST",
-      "ART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "most counterfeit",
+       "gives": "FALSEST",
+       "note": "superlative of false, meaning fake"
+      },
+      {
+       "words": "watercolours, for example",
+       "gives": "ART",
+       "note": "watercolour painting is an example of art"
+      }
      ]
     },
     "explanation": {
@@ -330,30 +298,28 @@
    },
    "solution": "LIMOS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LIMOS",
     "definitions": [
      {
       "text": "Large cars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "garaged by",
-      "for": "hidden_word",
-      "note": "a car that is garaged is kept inside a building, so the word sits inside these letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "official I'm ostracising",
-      "gives": "LIMOS",
-      "note": "runs across the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "garaged by",
+       "note": "a car that is garaged is kept inside a building, so the word sits inside these letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "official I'm ostracising",
+       "gives": "LIMOS",
+       "note": "runs across the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone shunning a bureaucrat who keeps big cars in a garage.",
      "walkthrough": "'Garaged' suits the cars in the surface, but here it means kept inside the next few words.",
@@ -380,49 +346,41 @@
    },
    "solution": "COMMAND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COMMAND",
     "definitions": [
      {
       "text": "dictation",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Vacant",
-      "for": "letter_selection",
-      "note": "a vacant word has had its inside emptied out, leaving only the outer letters"
-     },
-     {
-      "text": "to follow",
-      "for": "charade",
-      "note": "following means coming after, so one piece is placed behind another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "punctuation mark",
-      "gives": "COMMA",
-      "note": "a comma is a punctuation mark"
-     },
-     {
-      "clueFragment": "needed",
-      "gives": "ND",
-      "select": "outer",
-      "note": "first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMMA",
-      "ND"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "note": "following means coming after, so one piece is placed behind another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "punctuation mark",
+       "gives": "COMMA",
+       "note": "a comma is a punctuation mark"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Vacant",
+         "note": "a vacant word has had its inside emptied out, leaving only the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "needed",
+         "note": "first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -451,35 +409,24 @@
    },
    "solution": "CARBONISE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARBONISE",
     "definitions": [
      {
       "text": "Burn",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pieces of",
-      "for": "anagram",
-      "note": "something in pieces is broken up, so the letters are scattered and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bacon, sire",
-      "gives": "BACONSIRE",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BACONSIRE",
-       "gives": "CARBONISE"
+       "text": "pieces of",
+       "note": "something in pieces is broken up, so the letters are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bacon, sire",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -509,31 +456,29 @@
    },
    "solution": "MAID",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MAID",
     "definitions": [
      {
       "text": "Girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "on the radio things are heard rather than seen, so the answer sounds like the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "composed",
-      "gives": "MAID",
-      "soundsLike": "MADE",
-      "note": "something composed has been created"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MAID",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "on the radio things are heard rather than seen, so the answer sounds like the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "composed",
+       "gives": "MADE",
+       "note": "something composed has been created"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A calm young woman being interviewed on air.",
      "walkthrough": "'Composed' looks like calm, describing the girl; it is the past tense of making something.",
@@ -561,35 +506,24 @@
    },
    "solution": "ACROBATS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ACROBATS",
     "definitions": [
      {
       "text": "tumblers",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Jumble",
-      "for": "anagram",
-      "note": "a jumble is a disordered heap, so the letters are mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coats, bra",
-      "gives": "COATSBRA",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COATSBRA",
-       "gives": "ACROBATS"
+       "text": "Jumble",
+       "note": "a jumble is a disordered heap, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coats, bra",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -620,60 +554,49 @@
    },
    "solution": "DYSLEXIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "DYSLEXIA",
     "definitions": [
      {
       "text": "difficulty in reading",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "devastated",
-      "for": "anagram",
-      "note": "something devastated is wrecked, so the letters are thrown into a new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps round another"
-     }
-    ],
-    "linkWords": [
-     "have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sadly",
-      "gives": "SADLY",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "former lover",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DYSL",
-      "EXI",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SADLY",
-       "gives": "DYSLA"
+       "text": "about",
+       "note": "about means around, so one piece wraps round another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "devastated",
+         "note": "something devastated is wrecked, so the letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sadly",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "former lover",
+         "gives": "EX",
+         "note": "an ex is a former partner"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -703,45 +626,35 @@
    },
    "solution": "OFFAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OFFAL",
     "definitions": [
      {
       "text": "Organs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter of each word is kept"
-     }
-    ],
-    "linkWords": [
-     "are",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not working",
-      "gives": "OFF",
-      "note": "a machine that is off is not working"
-     },
-     {
-      "clueFragment": "extra pedal",
-      "gives": "AL",
-      "select": "last",
-      "note": "the final letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "not working",
+       "gives": "OFF",
+       "note": "a machine that is off is not working"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra pedal",
+         "note": "the final letters of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -777,50 +690,40 @@
    },
    "solution": "MARDIGRAS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MARDI GRAS",
     "definitions": [
      {
       "text": "carnival",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Outrageous",
-      "for": "anagram",
-      "note": "something outrageous is wild and out of bounds, so the letters run wild into a new order"
-     },
-     {
-      "text": "coming at the end of",
-      "for": "charade",
-      "note": "coming at the end places one piece after another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "March",
-      "gives": "MAR",
-      "note": "Mar is the calendar abbreviation"
-     },
-     {
-      "clueFragment": "drag is",
-      "gives": "DRAGIS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "DIGRAS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "DRAGIS",
-       "gives": "DIGRAS"
+       "text": "coming at the end of",
+       "note": "coming at the end places one piece after another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "March",
+       "gives": "MAR",
+       "note": "Mar is the calendar abbreviation"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Outrageous",
+         "note": "something outrageous is wild and out of bounds, so the letters run wild into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drag is",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -850,64 +753,64 @@
    },
    "solution": "AGGRESSION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "AGGRESSION",
     "definitions": [
      {
       "text": "Hostility",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outsiders",
-      "for": "letter_selection",
-      "note": "the outsiders of a word are its outermost letters, the first and last"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the first letter is kept"
-     },
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "something mixed has been stirred together, so the letters change order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "among",
-      "gives": "AG",
-      "select": "outer",
-      "note": "first and last letters"
-     },
-     {
-      "clueFragment": "greeting",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "seniors",
-      "gives": "SENIORS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "G",
-      "RESSION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SENIORS",
-       "gives": "RESSION"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outsiders",
+         "note": "the outsiders of a word are its outermost letters, the first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "among",
+         "note": "first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "note": "something mixed has been stirred together, so the letters change order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially means at the start, so only the first letter is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "greeting",
+             "note": "first letter"
+            }
+           ]
+          },
+          {
+           "words": "seniors",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -937,44 +840,35 @@
    },
    "solution": "OBOE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OBOE",
     "definitions": [
      {
       "text": "pipe",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely points to the extremes of a word, its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alumnus",
-      "gives": "OB",
-      "note": "OB is old boy, a former pupil of a school"
-     },
-     {
-      "clueFragment": "obscure",
-      "gives": "OE",
-      "select": "outer",
-      "note": "first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "OE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Alumnus",
+       "gives": "OB",
+       "note": "OB is old boy, a former pupil of a school"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely points to the extremes of a word, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obscure",
+         "note": "first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1003,42 +897,29 @@
    },
    "solution": "BRATISLAVA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRATISLAVA",
     "definitions": [
      {
       "text": "European capital",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s",
-     "is linked to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terror",
-      "gives": "BRAT",
-      "note": "a little terror is a badly behaved child"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "volcanic emissions",
-      "gives": "LAVA",
-      "note": "lava is molten rock thrown out by a volcano"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAT",
-      "IS",
-      "LAVA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "terror",
+       "gives": "BRAT",
+       "note": "a little terror is a badly behaved child"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "volcanic emissions",
+       "gives": "LAVA",
+       "note": "lava is molten rock thrown out by a volcano"
+      }
      ]
     },
     "explanation": {
@@ -1073,70 +954,55 @@
    },
    "solution": "TUTTIFRUTTI",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TUTTI-FRUTTI",
     "definitions": [
      {
       "text": "ice cream",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Flipping",
-      "for": "reversal",
-      "note": "flipping something turns it over, so the word is read backwards"
-     },
-     {
-      "text": "upturned",
-      "for": "reversal",
-      "note": "upturned means turned upside down, which in a down-the-page reading reverses the letters"
-     }
-    ],
-    "linkWords": [
-     "and",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tsk",
-      "gives": "TUT",
-      "note": "tut and tsk are both sounds of disapproval"
-     },
-     {
-      "clueFragment": "tantrum",
-      "gives": "FIT",
-      "note": "a fit of temper"
-     },
-     {
-      "clueFragment": "routine",
-      "gives": "RUT",
-      "note": "a rut is a dull fixed routine"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUT",
-      "TIF",
-      "RUT",
-      "TI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "FIT",
-       "to": "TIF"
+       "words": "Tsk",
+       "gives": "TUT",
+       "note": "tut and tsk are both sounds of disapproval"
       },
       {
-       "from": "IT",
-       "to": "TI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Flipping",
+         "note": "flipping something turns it over, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tantrum",
+         "gives": "FIT",
+         "note": "a fit of temper"
+        }
+       ]
+      },
+      {
+       "words": "routine",
+       "gives": "RUT",
+       "note": "a rut is a dull fixed routine"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upturned",
+         "note": "upturned means turned upside down, which in a down-the-page reading reverses the letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1167,40 +1033,31 @@
    },
    "solution": "THEORISTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THEORISTS",
     "definitions": [
      {
       "text": "thinkers",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "to embrace is to wrap one's arms round, so one piece surrounds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Believers",
-      "gives": "THEISTS",
-      "note": "theists believe in a god"
-     },
-     {
-      "clueFragment": "alternative",
-      "gives": "OR",
-      "note": "or introduces an alternative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "OR",
-      "ISTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "note": "to embrace is to wrap one's arms round, so one piece surrounds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Believers",
+       "gives": "THEISTS",
+       "note": "theists believe in a god"
+      },
+      {
+       "words": "alternative",
+       "gives": "OR",
+       "note": "or introduces an alternative"
+      }
      ]
     },
     "explanation": {
@@ -1239,60 +1096,50 @@
    },
    "solution": "RENTACAR",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RENT-A-CAR",
     "definitions": [
      {
       "text": "hired vehicle",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "turn",
-      "for": "anagram",
-      "note": "a turn twists things about, so these letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside another"
-     },
-     {
-      "text": "unusually",
-      "for": "anagram",
-      "note": "unusually means not in the normal way, so the letters take an unexpected order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Can't",
-      "gives": "CANT",
-      "note": "taken as written, apostrophe dropped, then rearranged"
-     },
-     {
-      "clueFragment": "rare",
-      "gives": "RARE",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "NTAC",
-      "AR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CANT",
-       "gives": "NTAC"
+       "text": "in",
+       "note": "in places one piece inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turn",
+         "note": "a turn twists things about, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rare",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       },
       {
-       "fodder": "RARE",
-       "gives": "REAR"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "note": "unusually means not in the normal way, so the letters take an unexpected order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Can't",
+         "note": "taken as written, apostrophe dropped, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1328,36 +1175,25 @@
    },
    "solution": "FLIPFLOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLIP-FLOP",
     "definitions": [
      {
       "text": "a complete change of direction",
       "at": 31
      }
     ],
-    "linkWords": [
-     "with",
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eggy booze",
-      "gives": "FLIP",
-      "note": "a flip is a drink of spirits or wine mixed with beaten egg"
-     },
-     {
-      "clueFragment": "turkey",
-      "gives": "FLOP",
-      "note": "a turkey is a failure, as a show that flops"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLIP",
-      "FLOP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eggy booze",
+       "gives": "FLIP",
+       "note": "a flip is a drink of spirits or wine mixed with beaten egg"
+      },
+      {
+       "words": "turkey",
+       "gives": "FLOP",
+       "note": "a turkey is a failure, as a show that flops"
+      }
      ]
     },
     "explanation": {
@@ -1387,38 +1223,24 @@
    },
    "solution": "ENLARGEMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENLARGEMENT",
     "definitions": [
      {
       "text": "Stretching",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of order",
-      "for": "anagram",
-      "note": "things out of order are in the wrong sequence, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "green mantle",
-      "gives": "GREENMANTLE",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GREENMANTLE",
-       "gives": "ENLARGEMENT"
+       "text": "out of order",
+       "note": "things out of order are in the wrong sequence, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "green mantle",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1448,55 +1270,45 @@
    },
    "solution": "BODEGA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "BODEGA",
     "definitions": [
      {
       "text": "wine shop",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Empty",
-      "for": "letter_selection",
-      "note": "an empty word has lost its contents, leaving only its outer letters"
-     },
-     {
-      "text": "stuck-up",
-      "for": "reversal",
-      "note": "in a down clue something stuck up is placed upwards, so the letters read backwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bistro",
-      "gives": "BO",
-      "select": "outer",
-      "note": "first and last letters"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "AGED",
-      "note": "aged means old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "DEGA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AGED",
-       "to": "DEGA"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Empty",
+         "note": "an empty word has lost its contents, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bistro",
+         "note": "first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "stuck-up",
+         "note": "in a down clue something stuck up is placed upwards, so the letters read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old",
+         "gives": "AGED",
+         "note": "aged means old"
+        }
+       ]
       }
      ]
     },
@@ -1527,31 +1339,16 @@
    },
    "solution": "SETTLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SETTLE",
     "definitions": [
      {
       "text": "Pay",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to pay off a bill"
      },
      {
       "text": "rest",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pay",
-      "note": "first meaning: to pay off a bill"
-     },
-     {
-      "clueFragment": "rest",
-      "note": "second meaning: to come to rest or sit down"
+      "at": 8,
+      "meaning": "second meaning: to come to rest or sit down"
      }
     ],
     "explanation": {
@@ -1579,44 +1376,36 @@
    },
    "solution": "TYPO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TYPO",
     "definitions": [
      {
       "text": "Error",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in says the answer is sitting inside the following words"
-     },
-     {
-      "text": "turnover",
-      "for": "reversal",
-      "note": "a turnover turns something over, so the letters are read backwards"
-     }
-    ],
-    "linkWords": [
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copy taking",
-      "gives": "OPYT",
-      "note": "letters running across the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OPYT",
-       "to": "TYPO"
+       "text": "turnover",
+       "note": "a turnover turns something over, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in says the answer is sitting inside the following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copy taking",
+         "gives": "OPYT",
+         "note": "letters running across the two words"
+        }
+       ]
       }
      ]
     },
@@ -1647,38 +1436,30 @@
    },
    "solution": "GRINDSTONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRINDSTONE",
     "definitions": [
      {
       "text": "This sharpens",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "skin's",
-      "gives": "RIND'S",
-      "note": "rind is the skin of fruit or cheese"
-     },
-     {
-      "clueFragment": "colour",
-      "gives": "TONE",
-      "note": "a tone is a shade of colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RINDS",
-      "TONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the abbreviation for good"
+      },
+      {
+       "words": "skin's",
+       "gives": "RINDS",
+       "note": "rind is the skin of fruit or cheese"
+      },
+      {
+       "words": "colour",
+       "gives": "TONE",
+       "note": "a tone is a shade of colour"
+      }
      ]
     },
     "explanation": {
@@ -1707,41 +1488,29 @@
    },
    "solution": "NORSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NORSE",
     "definitions": [
      {
       "text": "Vikings",
       "at": 0
      }
     ],
-    "linkWords": [
-     "coming from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "north",
-      "gives": "N",
-      "note": "N is the compass abbreviation"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "south-east",
-      "gives": "SE",
-      "note": "SE is the compass abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "OR",
-      "SE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "north",
+       "gives": "N",
+       "note": "N is the compass abbreviation"
+      },
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "words": "south-east",
+       "gives": "SE",
+       "note": "SE is the compass abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1770,30 +1539,28 @@
    },
    "solution": "KNEE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "KNEE",
     "definitions": [
      {
       "text": "a bit of articulation",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "part of a phrase means a piece sitting inside its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remark needs",
-      "gives": "KNEE",
-      "note": "runs across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "part of a phrase means a piece sitting inside its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remark needs",
+       "gives": "KNEE",
+       "note": "runs across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A comment that needs to be spoken a little more clearly.",
      "walkthrough": "'Articulation' looks like clear speech, but it means a joint of the body.",
@@ -1821,50 +1588,39 @@
    },
    "solution": "COLONISER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COLONISER",
     "definitions": [
      {
       "text": "Invasive presence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely points to the extremes of a word, its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of the bowel",
-      "gives": "COLON",
-      "note": "the colon is the large intestine"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "eager",
-      "gives": "ER",
-      "select": "outer",
-      "note": "first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COLON",
-      "IS",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of the bowel",
+       "gives": "COLON",
+       "note": "the colon is the large intestine"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely points to the extremes of a word, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eager",
+         "note": "first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1893,28 +1649,16 @@
    },
    "solution": "ALERT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ALERT",
     "definitions": [
      {
       "text": "Quick",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: sharp-witted and watchful"
      },
      {
       "text": "signal",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quick",
-      "note": "first meaning: sharp-witted and watchful"
-     },
-     {
-      "clueFragment": "signal",
-      "note": "second meaning: a warning call"
+      "at": 6,
+      "meaning": "second meaning: a warning call"
      }
     ],
     "explanation": {
@@ -1942,30 +1686,28 @@
    },
    "solution": "REPRESS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "REPRESS",
     "definitions": [
      {
       "text": "Hold down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to some extent",
-      "for": "hidden_word",
-      "note": "to some extent means partly, so only part of these letters is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "core pressure",
-      "gives": "REPRESS",
-      "note": "runs across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "note": "to some extent means partly, so only part of these letters is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "core pressure",
+       "gives": "REPRESS",
+       "note": "runs across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice on pressing down on the middle of something, a bit.",
      "walkthrough": "'Core pressure' sounds like a physics term, but it simply houses the answer.",
@@ -1992,56 +1734,44 @@
    },
    "solution": "EMANATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EMANATE",
     "definitions": [
      {
       "text": "Discharge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fringe",
-      "for": "letter_selection",
-      "note": "a fringe is a border, so only the edge letters of the word are kept"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "bloke",
-      "gives": "MAN",
-      "note": "a bloke is British slang for a man"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "terrible",
-      "gives": "TE",
-      "select": "outer",
-      "note": "first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MAN",
-      "A",
-      "TE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "bloke",
+       "gives": "MAN",
+       "note": "a bloke is British slang for a man"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "fringe",
+         "note": "a fringe is a border, so only the edge letters of the word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "terrible",
+         "note": "first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

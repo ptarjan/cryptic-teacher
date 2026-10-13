@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22133",
  "number": 22133,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,133",
  "setter": "Araucaria",
  "date": "2001-02-15",
  "dimensions": {
@@ -38,12 +36,6 @@
    },
    "solution": "CAMPHOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "CAMPHOR",
     "definitions": [
      {
       "text": "it could have been mothballed",
@@ -51,40 +43,45 @@
       "note": "a clause describing the substance rather than a bare noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first asks for only the opening letter of the word century"
-     },
-     {
-      "text": "Missing article",
-      "for": "deletion",
-      "note": "an article is a word like a or the, and missing says it has been dropped from the vase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "century",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of century"
-     },
-     {
-      "clueFragment": "Greek vase",
-      "gives": "AMPHORA",
-      "note": "a two-handled jar of ancient Greece"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article, here dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "AMPHOR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first asks for only the opening letter of the word century"
+        }
+       ],
+       "parts": [
+        {
+         "words": "century",
+         "note": "the opening letter of century"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Missing article",
+         "note": "an article is a word like a or the, and missing says it has been dropped from the vase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greek vase",
+         "gives": "AMPHORA",
+         "note": "a two-handled jar of ancient Greece"
+        },
+        {
+         "words": "article",
+         "gives": "A",
+         "note": "the indefinite article, here dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -114,38 +111,24 @@
    },
    "solution": "CAPULET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CAPULET",
     "definitions": [
      {
       "text": "feuding family",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "maybe",
-      "for": "anagram",
-      "note": "maybe hints that the preceding words could be arranged some other way"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Apt clue",
-      "gives": "APTCLUE",
-      "note": "the seven letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "APTCLUE",
-       "gives": "CAPULET"
+       "text": "maybe",
+       "note": "maybe hints that the preceding words could be arranged some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Apt clue",
+       "note": "the seven letters to be rearranged"
       }
      ]
     },
@@ -181,11 +164,6 @@
    },
    "solution": "MANICDEPRESSIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MANIC DEPRESSIVE",
     "definitions": [
      {
       "text": "has his ups and downs",
@@ -193,47 +171,50 @@
       "note": "a clause describing the person rather than a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the English newspapers inside the word for a downward movement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chap",
-      "gives": "MAN",
-      "note": "a chap is a man"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "the standard abbreviation i/c"
-     },
-     {
-      "clueFragment": "downward movement",
-      "gives": "DIVE",
-      "note": "a plunge downwards, the outer piece"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "the usual abbreviation"
-     },
-     {
-      "clueFragment": "newspapers",
-      "gives": "PRESS",
-      "note": "the press, collectively"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "IC",
-      "D",
-      "EPRESS",
-      "IVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the English newspapers inside the word for a downward movement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chap",
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "in charge",
+         "gives": "IC",
+         "note": "the standard abbreviation i/c"
+        },
+        {
+         "words": "downward movement",
+         "gives": "DIVE",
+         "note": "a plunge downwards, the outer piece"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "the usual abbreviation"
+        },
+        {
+         "words": "newspapers",
+         "gives": "PRESS",
+         "note": "the press, collectively"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -269,11 +250,6 @@
    },
    "solution": "HALFTRUTH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HALF TRUTH",
     "definitions": [
      {
       "text": "is not altogether correct",
@@ -281,36 +257,35 @@
       "note": "a verb phrase; the answer is a statement that is only partly true"
      }
     ],
-    "indicators": [
-     {
-      "text": "interruption to",
-      "for": "container",
-      "note": "an interruption breaks into something, so the loud letter goes inside the word for stop"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stop",
-      "gives": "HALT",
-      "note": "to halt is to stop; the outer piece"
-     },
-     {
-      "clueFragment": "Loud",
-      "gives": "F",
-      "note": "f, forte, the musical mark for loud"
-     },
-     {
-      "clueFragment": "compassion",
-      "gives": "RUTH",
-      "note": "an old word for pity, as in ruthless"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAL",
-      "F",
-      "T",
-      "RUTH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interruption to",
+         "note": "an interruption breaks into something, so the loud letter goes inside the word for stop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stop",
+         "gives": "HALT",
+         "note": "to halt is to stop; the outer piece"
+        },
+        {
+         "words": "Loud",
+         "gives": "F",
+         "note": "f, forte, the musical mark for loud"
+        }
+       ]
+      },
+      {
+       "words": "compassion",
+       "gives": "RUTH",
+       "note": "an old word for pity, as in ruthless"
+      }
      ]
     },
     "explanation": {
@@ -339,45 +314,34 @@
    },
    "solution": "ROYAL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ROYAL",
     "definitions": [
      {
       "text": "of the crown",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Rising",
-      "for": "reversal",
-      "note": "in a down entry rising means the letters are read from the bottom upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of the people",
-      "gives": "LAY",
-      "note": "lay means belonging to ordinary people rather than clergy or experts"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "YAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LAYOR",
-       "to": "ROYAL"
+       "text": "Rising",
+       "note": "in a down entry rising means the letters are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "of the people",
+         "gives": "LAY",
+         "note": "lay means belonging to ordinary people rather than clergy or experts"
+        },
+        {
+         "words": "or",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -407,10 +371,6 @@
    },
    "solution": "SCALPEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCALPEL",
     "definitions": [
      {
       "text": "used in theatre",
@@ -418,25 +378,19 @@
       "note": "a description of the thing rather than a noun"
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trophy",
-      "gives": "SCALP",
-      "note": "a scalp taken as a trophy of victory"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "EL",
-      "note": "el is the American word for an elevated railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCALP",
-      "EL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Trophy",
+       "gives": "SCALP",
+       "note": "a scalp taken as a trophy of victory"
+      },
+      {
+       "words": "railway",
+       "gives": "EL",
+       "note": "el is the American word for an elevated railway"
+      }
      ]
     },
     "explanation": {
@@ -466,45 +420,33 @@
    },
    "solution": "SPHINCTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPHINCTER",
     "definitions": [
      {
       "text": "Muscle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inclined",
-      "for": "anagram",
-      "note": "inclined means tilted out of line, so the letters that follow are knocked out of order"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "with",
-     "stopped up"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pinch",
-      "gives": "PINCH",
-      "note": "first part of the letters to rearrange"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "REST",
-      "note": "second part of the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PINCHREST",
-       "gives": "SPHINCTER"
+       "text": "inclined",
+       "note": "inclined means tilted out of line, so the letters that follow are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pinch",
+         "note": "first part of the letters to rearrange"
+        },
+        {
+         "words": "rest",
+         "note": "second part of the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -540,34 +482,28 @@
    },
    "solution": "ABOVO",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "AB OVO",
     "definitions": [
      {
       "text": "Originally",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with new end",
-      "for": "substitution",
-      "note": "a new end means the last letter is swapped out for a different one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on top",
-      "gives": "ABOVE",
-      "note": "above means on top of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABOV",
-      "O"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ABOVO",
+     "indicators": [
+      {
+       "text": "with new end",
+       "note": "a new end means the last letter is swapped out for a different one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on top",
+       "gives": "ABOVE",
+       "note": "above means on top of"
+      }
      ]
     },
     "explanation": {
@@ -602,36 +538,25 @@
    },
    "solution": "PROCESSEDCHEESE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROCESSED CHEESE",
     "definitions": [
      {
       "text": "treated food",
       "at": 53
      }
     ],
-    "linkWords": [
-     "in front of",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Walked solemnly",
-      "gives": "PROCESSED",
-      "note": "to process is to walk in a procession"
-     },
-     {
-      "clueFragment": "important personage",
-      "gives": "CHEESE",
-      "note": "a big cheese is an important person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROCESSED",
-      "CHEESE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Walked solemnly",
+       "gives": "PROCESSED",
+       "note": "to process is to walk in a procession"
+      },
+      {
+       "words": "important personage",
+       "gives": "CHEESE",
+       "note": "a big cheese is an important person"
+      }
      ]
     },
     "explanation": {
@@ -661,50 +586,41 @@
    },
    "solution": "LOTTERY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LOTTERY",
     "definitions": [
      {
       "text": "Gamble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "keeping means holding something within, so the direction goes inside the attempt"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fate",
-      "gives": "LOT",
-      "note": "one's lot is one's fate"
-     },
-     {
-      "clueFragment": "have a go",
-      "gives": "TRY",
-      "note": "to try is to have a go"
-     },
-     {
-      "clueFragment": "direction",
-      "gives": "E",
-      "note": "east, a compass direction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOT",
-      "T",
-      "E",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fate",
+       "gives": "LOT",
+       "note": "one's lot is one's fate"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "keeping means holding something within, so the direction goes inside the attempt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "have a go",
+         "gives": "TRY",
+         "note": "to try is to have a go"
+        },
+        {
+         "words": "direction",
+         "gives": "E",
+         "note": "east, a compass direction"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -738,61 +654,53 @@
    },
    "solution": "PENALTYSHOOTOUT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "PENALTY SHOOTOUT",
     "definitions": [
      {
       "text": "Decider",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reactionary",
-      "for": "reversal",
-      "note": "a reactionary wants to go back, so the word too is read in the opposite direction"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the cry goes around the other piece"
-     }
-    ],
-    "linkWords": [
-     "could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine",
-      "gives": "PENALTY",
-      "note": "a fine is a monetary penalty"
-     },
-     {
-      "clueFragment": "cry",
-      "gives": "SHOUT",
-      "note": "to cry out is to shout; the outer piece"
-     },
-     {
-      "clueFragment": "too",
-      "gives": "OOT",
-      "note": "the word written backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PENALTY",
-      "SH",
-      "OOT",
-      "OUT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "PENALTYSHOOTOUT",
+     "indicators": [
       {
-       "from": "TOO",
-       "to": "OOT"
+       "text": "reactionary",
+       "note": "a reactionary wants to go back, so the word too is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "gives": "PENALTY",
+         "note": "a fine is a monetary penalty"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "about means surrounding, so the cry goes around the other piece"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cry",
+           "gives": "SHOUT",
+           "note": "to cry out is to shout; the outer piece"
+          },
+          {
+           "words": "too",
+           "gives": "OOT",
+           "note": "the word written backwards"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -822,38 +730,29 @@
    },
    "solution": "LICIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LICIT",
     "definitions": [
      {
       "text": "OK",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Student",
-      "gives": "L",
-      "note": "L for learner, as on a learner driver's plate"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "quoted",
-      "gives": "CIT",
-      "note": "cit. is the abbreviation for cited, used in references"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "CIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Student",
+       "gives": "L",
+       "note": "L for learner, as on a learner driver's plate"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "quoted",
+       "gives": "CIT",
+       "note": "cit. is the abbreviation for cited, used in references"
+      }
      ]
     },
     "explanation": {
@@ -888,57 +787,51 @@
    },
    "solution": "LONDONEYE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "LONDON EYE",
     "definitions": [
      {
       "text": "Wheel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "the start of a word is only its first letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the preceding pieces inside the word for solitary"
-     }
-    ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "solitary",
-      "gives": "LONE",
-      "note": "alone, the outer piece"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "DONE",
-      "note": "finished means done"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "select": "first",
-      "note": "the opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LON",
-      "DONE",
-      "Y",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the preceding pieces inside the word for solitary"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solitary",
+       "gives": "LONE",
+       "note": "alone, the outer piece"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "finished",
+         "gives": "DONE",
+         "note": "finished means done"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "the start of a word is only its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "year",
+           "note": "the opening letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -967,61 +860,54 @@
    },
    "solution": "TREMULANT",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "container"
-    ],
-    "answer": "TREMULANT",
     "definitions": [
      {
       "text": "Vibrator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "for": "deletion",
-      "note": "partly says only a portion of the metal's name is wanted, the rest cut away"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "put back means the portion is turned round to read the other way"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the portion inside the river"
-     }
-    ],
-    "linkWords": [
-     "made of",
-     "put"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "TRENT",
-      "note": "an English river through Nottingham; the outer piece"
-     },
-     {
-      "clueFragment": "aluminium",
-      "gives": "ALUMINIUM",
-      "note": "only its first four letters are kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRE",
-      "MULA",
-      "NT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ALUM",
-       "to": "MULA"
+       "text": "in",
+       "note": "in places the portion inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "TRENT",
+       "note": "an English river through Nottingham; the outer piece"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "put back means the portion is turned round to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "partly",
+           "note": "partly says only a portion of the metal's name is wanted, the rest cut away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "aluminium",
+           "note": "only its first four letters are kept"
+          },
+          {
+           "gives": "INIUM"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1052,51 +938,41 @@
    },
    "solution": "ACTUARIAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ACTUARIAL",
     "definitions": [
      {
       "text": "term connected with insurance",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry up means the word is read from the bottom upwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the tune inside the word for real"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "real",
-      "gives": "ACTUAL",
-      "note": "real means actual; the outer piece"
-     },
-     {
-      "clueFragment": "Tune",
-      "gives": "AIR",
-      "note": "an air is a melody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACTUA",
-      "RIA",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "AIR",
-       "to": "RIA"
+       "text": "in",
+       "note": "in places the tune inside the word for real"
+      }
+     ],
+     "parts": [
+      {
+       "words": "real",
+       "gives": "ACTUAL",
+       "note": "real means actual; the outer piece"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tune",
+         "gives": "AIR",
+         "note": "an air is a melody"
+        }
+       ]
       }
      ]
     },
@@ -1126,10 +1002,6 @@
    },
    "solution": "CUSHY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUSHY",
     "definitions": [
      {
       "text": "what's no trouble",
@@ -1137,25 +1009,19 @@
       "note": "a noun clause standing for an adjective meaning easy"
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "reserved",
-      "gives": "SHY",
-      "note": "shy and reserved both mean diffident"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "SHY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Copper",
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "words": "reserved",
+       "gives": "SHY",
+       "note": "shy and reserved both mean diffident"
+      }
      ]
     },
     "explanation": {
@@ -1184,10 +1050,6 @@
    },
    "solution": "CALLANDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CALLANDER",
     "definitions": [
      {
       "text": "in central Scotland",
@@ -1195,28 +1057,24 @@
       "note": "a description of a place rather than a place name"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Visit",
-      "gives": "CALL",
-      "note": "to call on someone is to visit"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and means together with"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CALL",
-      "AND",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Visit",
+       "gives": "CALL",
+       "note": "to call on someone is to visit"
+      },
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "and means together with"
+      },
+      {
+       "words": "Queen",
+       "gives": "ER",
+       "note": "Elizabeth Regina"
+      }
      ]
     },
     "explanation": {
@@ -1244,36 +1102,25 @@
    },
    "solution": "OPRAH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPRAH",
     "definitions": [
      {
       "text": "Chat show hostess",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s",
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is short for opus, a work"
-     },
-     {
-      "clueFragment": "a cheer",
-      "gives": "RAH",
-      "note": "a shout of encouragement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "RAH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op. is short for opus, a work"
+      },
+      {
+       "words": "a cheer",
+       "gives": "RAH",
+       "note": "a shout of encouragement"
+      }
      ]
     },
     "explanation": {
@@ -1301,50 +1148,41 @@
    },
    "solution": "OBLIQUE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OBLIQUE",
     "definitions": [
      {
       "text": "Slash",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the political colour goes around the brains"
-     }
-    ],
-    "linkWords": [
-     "There's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "zero, shaped like O"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "BLUE",
-      "note": "blue is the Conservative party colour; the outer piece"
-     },
-     {
-      "clueFragment": "brains",
-      "gives": "IQ",
-      "note": "intelligence quotient, a measure of brainpower"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BL",
-      "IQ",
-      "UE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "zero, shaped like O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so the political colour goes around the brains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "gives": "BLUE",
+         "note": "blue is the Conservative party colour; the outer piece"
+        },
+        {
+         "words": "brains",
+         "gives": "IQ",
+         "note": "intelligence quotient, a measure of brainpower"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1374,56 +1212,46 @@
    },
    "solution": "THRALLDOM",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "THRALLDOM",
     "definitions": [
      {
       "text": "slavery",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "kept by",
-      "for": "container",
-      "note": "kept by means held inside, so the uncle's name surrounds the preceding pieces"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "uncle",
-      "gives": "TOM",
-      "note": "Uncle Tom, from the Stowe novel; the outer piece"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "HR",
-      "note": "hr, the abbreviation for hour"
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "everyone means all"
-     },
-     {
-      "clueFragment": "died",
-      "gives": "D",
-      "note": "d. is the genealogical abbreviation for died"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HR",
-      "ALL",
-      "D",
-      "OM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept by",
+       "note": "kept by means held inside, so the uncle's name surrounds the preceding pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "uncle",
+       "gives": "TOM",
+       "note": "Uncle Tom, from the Stowe novel; the outer piece"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "gives": "HR",
+         "note": "hr, the abbreviation for hour"
+        },
+        {
+         "words": "everyone",
+         "gives": "ALL",
+         "note": "everyone means all"
+        },
+        {
+         "words": "died",
+         "gives": "D",
+         "note": "d. is the genealogical abbreviation for died"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1452,32 +1280,25 @@
    },
    "solution": "MINDSET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MINDSET",
     "definitions": [
      {
       "text": "attitude",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Objects to",
-      "gives": "MINDS",
-      "note": "if one minds something, one objects to it"
-     },
-     {
-      "clueFragment": "extraterrestrial",
-      "gives": "ET",
-      "note": "the film alien"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINDS",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Objects to",
+       "gives": "MINDS",
+       "note": "if one minds something, one objects to it"
+      },
+      {
+       "words": "extraterrestrial",
+       "gives": "ET",
+       "note": "the film alien"
+      }
      ]
     },
     "explanation": {
@@ -1512,51 +1333,40 @@
    },
    "solution": "LOSETRACK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LOSE TRACK",
     "definitions": [
      {
       "text": "fail to follow",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly says the word tears may appear in some other order"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without is used in its old sense of outside, so security wraps around"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Security",
-      "gives": "LOCK",
-      "note": "a lock gives security; the outer piece"
-     },
-     {
-      "clueFragment": "tears",
-      "gives": "TEARS",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "SETRA",
-      "CK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TEARS",
-       "gives": "SETRA"
+       "text": "without",
+       "note": "without is used in its old sense of outside, so security wraps around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Security",
+       "gives": "LOCK",
+       "note": "a lock gives security; the outer piece"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "note": "possibly says the word tears may appear in some other order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "note": "the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -1586,10 +1396,6 @@
    },
    "solution": "TOKEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOKEN",
     "definitions": [
      {
       "text": "Excuse for not doing things thoroughly",
@@ -1597,25 +1403,18 @@
       "note": "a phrase describing a token effort, standing for the adjective"
      }
     ],
-    "linkWords": [
-     "addressed"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "London mayor",
-      "gives": "KEN",
-      "note": "Ken Livingstone, Mayor of London from 2000"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "KEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "London mayor",
+       "gives": "KEN",
+       "note": "Ken Livingstone, Mayor of London from 2000"
+      }
      ]
     },
     "explanation": {
@@ -1644,31 +1443,16 @@
    },
    "solution": "KETCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KETCH",
     "definitions": [
      {
       "text": "Executioner",
-      "at": 0
+      "at": 0,
+      "meaning": "Jack ..., the notorious seventeenth-century English hangman"
      },
      {
       "text": "boat",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Executioner",
-      "note": "Jack ..., the notorious seventeenth-century English hangman"
-     },
-     {
-      "clueFragment": "boat",
-      "note": "a two-masted sailing vessel"
+      "at": 14,
+      "meaning": "a two-masted sailing vessel"
      }
     ],
     "explanation": {
@@ -1696,32 +1480,24 @@
    },
    "solution": "ASHEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASHEN",
     "definitions": [
      {
       "text": "Grey",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a bird",
-      "gives": "HEN",
-      "note": "a hen is a bird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "HEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "as",
+       "note": "taken as written"
+      },
+      {
+       "words": "a bird",
+       "gives": "HEN",
+       "note": "a hen is a bird"
+      }
      ]
     },
     "explanation": {
@@ -1755,50 +1531,41 @@
    },
    "solution": "QUICKWITTEDNESS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "QUICK WITTEDNESS",
     "definitions": [
      {
       "text": "acuity",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the little boy inside the word for testimony"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "living",
-      "gives": "QUICK",
-      "note": "as in the quick and the dead"
-     },
-     {
-      "clueFragment": "testimony",
-      "gives": "WITNESS",
-      "note": "to bear witness is to testify; the outer piece"
-     },
-     {
-      "clueFragment": "Little boy",
-      "gives": "TED",
-      "note": "short for Edward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUICK",
-      "WIT",
-      "TED",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "living",
+       "gives": "QUICK",
+       "note": "as in the quick and the dead"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the little boy inside the word for testimony"
+        }
+       ],
+       "parts": [
+        {
+         "words": "testimony",
+         "gives": "WITNESS",
+         "note": "to bear witness is to testify; the outer piece"
+        },
+        {
+         "words": "Little boy",
+         "gives": "TED",
+         "note": "short for Edward"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1827,51 +1594,40 @@
    },
    "solution": "ETERNAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ETERNAL",
     "definitions": [
      {
       "text": "going on and on",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "a return goes back the way it came, so late is read the other way"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the little boy inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "late",
-      "gives": "LATE",
-      "note": "taken as written; the outer piece"
-     },
-     {
-      "clueFragment": "Little boy",
-      "gives": "ERN",
-      "note": "Ernie cut short, a little Ernest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ET",
-      "ERN",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LATE",
-       "to": "ETAL"
+       "text": "in",
+       "note": "in places the little boy inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "a return goes back the way it came, so late is read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "note": "taken as written; the outer piece"
+        }
+       ]
+      },
+      {
+       "words": "Little boy",
+       "gives": "ERN",
+       "note": "Ernie cut short, a little Ernest"
       }
      ]
     },
@@ -1901,50 +1657,41 @@
    },
    "solution": "HARVEST",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HARVEST",
     "definitions": [
      {
       "text": "yield",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "coming about",
-      "for": "container",
-      "note": "coming about means turning around something, so the runners surround the five"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Runners",
-      "gives": "HARES",
-      "note": "hares are fast runners; the outer piece"
-     },
-     {
-      "clueFragment": "five",
-      "gives": "V",
-      "note": "the Roman numeral"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "the usual abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAR",
-      "V",
-      "ES",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming about",
+         "note": "coming about means turning around something, so the runners surround the five"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Runners",
+         "gives": "HARES",
+         "note": "hares are fast runners; the outer piece"
+        },
+        {
+         "words": "five",
+         "gives": "V",
+         "note": "the Roman numeral"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "the usual abbreviation"
+      }
      ]
     },
     "explanation": {

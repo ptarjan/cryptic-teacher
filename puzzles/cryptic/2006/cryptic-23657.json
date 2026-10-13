@@ -1,8 +1,7 @@
 {
  "id": "cryptic-23657",
  "number": 23657,
- "series": "cryptic",
- "name": "Prize crossword No 23,657",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2006-01-07",
  "preamble": "Across solutions are (more or less) of a kind and are partially clued.",
@@ -39,59 +38,51 @@
    },
    "solution": "BOOBYISH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BOOBYISH",
     "definitions": [
      {
       "text": "stupid",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "head's",
-      "for": "letter_selection",
-      "note": "a head is the top or front of something, so only the opening letter is kept"
-     },
-     {
-      "text": "in it",
-      "for": "container",
-      "note": "being inside something means one piece sits within the other's letters"
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "to",
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hoot at",
-      "gives": "BOO",
-      "note": "to hoot at a performer is to boo them"
-     },
-     {
-      "clueFragment": "mistake",
-      "gives": "BISH",
-      "note": "bish is British slang for a blunder"
-     },
-     {
-      "clueFragment": "your",
-      "gives": "Y",
-      "select": "first",
-      "note": "the head, or first letter, of 'your'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOO",
-      "B",
-      "Y",
-      "ISH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hoot at",
+       "gives": "BOO",
+       "note": "to hoot at a performer is to boo them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in it",
+         "note": "being inside something means one piece sits within the other's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mistake",
+         "gives": "BISH",
+         "note": "bish is British slang for a blunder"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head's",
+           "note": "a head is the top or front of something, so only the opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "your",
+           "note": "the head, or first letter, of 'your'"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -120,28 +111,16 @@
    },
    "solution": "FREE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FREE",
     "definitions": [
      {
       "text": "Out of prison",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: at liberty, released"
      },
      {
       "text": "without payment",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Out of prison",
-      "note": "first meaning: at liberty, released"
-     },
-     {
-      "clueFragment": "without payment",
-      "note": "second meaning: costing nothing"
+      "at": 14,
+      "meaning": "second meaning: costing nothing"
      }
     ],
     "explanation": {
@@ -168,10 +147,6 @@
    },
    "solution": "BEGONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEGONE",
     "definitions": [
      {
       "text": "leave",
@@ -179,26 +154,19 @@
       "note": "the answer is an imperative command to go away, matching 'leave' used as an order"
      }
     ],
-    "linkWords": [
-     "for",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plead",
-      "gives": "BEG",
-      "note": "to plead is to beg"
-     },
-     {
-      "clueFragment": "a person",
-      "gives": "ONE",
-      "note": "one, as in 'one should', means a person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEG",
-      "ONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plead",
+       "gives": "BEG",
+       "note": "to plead is to beg"
+      },
+      {
+       "words": "a person",
+       "gives": "ONE",
+       "note": "one, as in 'one should', means a person"
+      }
      ]
     },
     "explanation": {
@@ -233,39 +201,24 @@
    },
    "solution": "OLDHACK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OLD HACK",
     "definitions": [
      {
       "text": "experienced journalist",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Contrive",
-      "for": "anagram",
-      "note": "to contrive is to devise or rig up, so the letters are put together in a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "portrait of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "do chalk",
-      "gives": "DOCHALK",
-      "note": "the seven letters taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOCHALK",
-       "gives": "OLDHACK"
+       "text": "Contrive",
+       "note": "to contrive is to devise or rig up, so the letters are put together in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "do chalk",
+       "note": "the seven letters taken as written"
       }
      ]
     },
@@ -295,44 +248,37 @@
    },
    "solution": "STOCKADE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "STOCKADE",
     "definitions": [
      {
       "text": "defence in the West",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "something said is spoken, so the word is wanted for its sound rather than its spelling"
-     }
-    ],
-    "linkWords": [
-     "to be for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The usual",
-      "gives": "STOCK",
-      "note": "a stock response is the usual one"
-     },
-     {
-      "clueFragment": "help",
-      "gives": "ADE",
-      "soundsLike": "AID",
-      "note": "help is aid, spelt here as a different letter string with the same sound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOCK",
-      "ADE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The usual",
+       "gives": "STOCK",
+       "note": "a stock response is the usual one"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ADE",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "something said is spoken, so the word is wanted for its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "help",
+         "gives": "AID",
+         "note": "help is aid, spelt here as a different letter string with the same sound"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -361,35 +307,25 @@
    },
    "solution": "IMPEDIMENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPEDIMENT",
     "definitions": [
      {
       "text": "obstacle",
       "at": 49
      }
     ],
-    "linkWords": [
-     "providing an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The setter's",
-      "gives": "IM",
-      "note": "the setter is I, so 'the setter's' is I'M, I am"
-     },
-     {
-      "clueFragment": "where the tympanum is",
-      "gives": "PEDIMENT",
-      "note": "in architecture the tympanum is the triangular face enclosed by a pediment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PEDIMENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The setter's",
+       "gives": "IM",
+       "note": "the setter is I, so 'the setter's' is I'M, I am"
+      },
+      {
+       "words": "where the tympanum is",
+       "gives": "PEDIMENT",
+       "note": "in architecture the tympanum is the triangular face enclosed by a pediment"
+      }
      ]
     },
     "explanation": {
@@ -419,29 +355,17 @@
    },
    "solution": "BORDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BORDER",
     "definitions": [
      {
       "text": "International",
       "at": 0,
-      "note": "an adjective cluing a noun used attributively, as in an international or border crossing"
+      "note": "an adjective cluing a noun used attributively, as in an international or border crossing",
+      "meaning": "first meaning: the frontier between two countries"
      },
      {
       "text": "flower scene",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "International",
-      "note": "first meaning: the frontier between two countries"
-     },
-     {
-      "clueFragment": "flower scene",
-      "note": "second meaning: a long garden bed planted with flowers"
+      "at": 14,
+      "meaning": "second meaning: a long garden bed planted with flowers"
      }
     ],
     "explanation": {
@@ -476,36 +400,25 @@
    },
    "solution": "DOORBELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOOR BELL",
     "definedByPreamble": true,
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Deceive",
-      "gives": "DO",
-      "note": "to do someone is slang for cheating them"
-     },
-     {
-      "clueFragment": "the world",
-      "gives": "ORB",
-      "note": "an orb is a globe, a sphere like the world"
-     },
-     {
-      "clueFragment": "letter",
-      "gives": "ELL",
-      "note": "ell is the spelt-out name of the letter L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "ORB",
-      "ELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deceive",
+       "gives": "DO",
+       "note": "to do someone is slang for cheating them"
+      },
+      {
+       "words": "the world",
+       "gives": "ORB",
+       "note": "an orb is a globe, a sphere like the world"
+      },
+      {
+       "words": "letter",
+       "gives": "ELL",
+       "note": "ell is the spelt-out name of the letter L"
+      }
      ]
     },
     "explanation": {
@@ -540,21 +453,20 @@
    },
    "solution": "TOMTOM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TOM-TOM",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Son of 26 player",
-      "note": "surface reading: the child of a musician who plays the instrument at 26"
-     },
-     {
-      "clueFragment": "Son of 26 player",
-      "note": "setter's reading: 26 is a piper's instrument, and the nursery rhyme names the piper's son, whose name is doubled here"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Son of 26 player",
+       "note": "surface reading: the child of a musician who plays the instrument at 26"
+      },
+      {
+       "words": "Son of 26 player",
+       "note": "setter's reading: 26 is a piper's instrument, and the nursery rhyme names the piper's son, whose name is doubled here"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A musician's boy is introduced by his parentage.",
      "walkthrough": "The nursery rhyme runs 'Tom, Tom, the piper's son', and the answer at 26 is played by a piper; the doubled name is a drum.",
@@ -582,31 +494,20 @@
    },
    "solution": "OBOE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OBOE",
     "definedByPreamble": true,
-    "linkWords": [
-     "An"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "award",
-      "gives": "OBE",
-      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
-     },
-     {
-      "clueFragment": "empty",
-      "gives": "O",
-      "note": "O looks like zero, nothing, so it stands for empty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "O",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "words": "award",
+       "gives": "OBE",
+       "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+      },
+      {
+       "words": "empty",
+       "gives": "O",
+       "note": "O looks like zero, nothing, so it stands for empty"
+      }
      ]
     },
     "explanation": {
@@ -634,51 +535,46 @@
    },
    "solution": "OPHICLEIDE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OPHICLEIDE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about here means around, so one piece goes round the outside of another"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Work",
-      "gives": "OP",
-      "note": "op, short for opus, is a work"
-     },
-     {
-      "clueFragment": "conceal",
-      "gives": "HIDE",
-      "note": "to conceal is to hide"
-     },
-     {
-      "clueFragment": "a hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     },
-     {
-      "clueFragment": "Romanian notes",
-      "gives": "LEI",
-      "note": "lei are Romanian banknotes, the plural of leu"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "HI",
-      "C",
-      "LEI",
-      "DE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about here means around, so one piece goes round the outside of another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Work",
+         "gives": "OP",
+         "note": "op, short for opus, is a work"
+        },
+        {
+         "words": "conceal",
+         "gives": "HIDE",
+         "note": "to conceal is to hide"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a hundred",
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        },
+        {
+         "words": "Romanian notes",
+         "gives": "LEI",
+         "note": "lei are Romanian banknotes, the plural of leu"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -706,34 +602,7 @@
     "text": "Fraudulent transaction",
     "enumeration": "6"
    },
-   "solution": "FIDDLE",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FIDDLE",
-    "definitions": [
-     {
-      "text": "Fraudulent transaction",
-      "at": 0
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fraudulent transaction",
-      "note": "a swindle, a dishonest deal"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "Only a non-musical meaning is clued; the preamble supplies the other, the instrument the across entries share.",
-     "definitionFit": "In British slang a fiddle is a swindle or racket, such as fiddling the books."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun"
-    }
-   }
+   "solution": "FIDDLE"
   },
   {
    "number": 13,
@@ -749,51 +618,52 @@
    },
    "solution": "DISGRUNTLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "DISGRUNTLE",
     "definitions": [
      {
       "text": "to grieve",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "has no",
-      "for": "deletion",
-      "note": "having none of something means it is taken away"
-     },
-     {
-      "text": "Poor",
-      "for": "anagram",
-      "note": "something poor is in bad shape, so the letters end up in a damaged order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "GIRL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "STUDENT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time, removed once"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIRLSUDENT",
-       "gives": "DISGRUNTLE"
+       "text": "Poor",
+       "note": "something poor is in bad shape, so the letters end up in a damaged order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "has no",
+         "note": "having none of something means it is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "girl",
+           "note": "taken as written"
+          },
+          {
+           "words": "student",
+           "note": "taken as written"
+          },
+          {
+           "words": "time",
+           "gives": "T",
+           "note": "T is the abbreviation for time, removed once"
+          }
+         ]
+        },
+        {
+         "gives": "TT"
+        }
+       ]
       }
      ]
     },
@@ -823,30 +693,19 @@
    },
    "solution": "CLAVIERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CLAVIERS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "crash",
-      "for": "anagram",
-      "note": "in a crash things are smashed up and thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elvis' car",
-      "gives": "ELVISCAR",
-      "note": "the letters taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ELVISCAR",
-       "gives": "CLAVIERS"
+       "text": "crash",
+       "note": "in a crash things are smashed up and thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Elvis' car",
+       "note": "the letters taken as written"
       }
      ]
     },
@@ -876,30 +735,20 @@
    },
    "solution": "WHISTLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHISTLE",
     "definedByPreamble": true,
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Game",
-      "gives": "WHIST",
-      "note": "whist is a card game"
-     },
-     {
-      "clueFragment": "the people of 23",
-      "gives": "LE",
-      "note": "23 begins FRENCH, and le is French for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHIST",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Game",
+       "gives": "WHIST",
+       "note": "whist is a card game"
+      },
+      {
+       "words": "the people of 23",
+       "gives": "LE",
+       "note": "23 begins FRENCH, and le is French for the"
+      }
      ]
     },
     "explanation": {
@@ -928,10 +777,6 @@
    },
    "solution": "LONGHAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LONGHAND",
     "definitions": [
      {
       "text": "as penned",
@@ -939,22 +784,19 @@
       "note": "an adverbial phrase for a noun used adverbially, as in written in longhand"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "More than",
-      "gives": "LONG",
-      "note": "long means extending beyond the usual measure"
-     },
-     {
-      "clueFragment": "four inches",
-      "gives": "HAND",
-      "note": "a hand, used to measure horses' height, is four inches"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LONG",
-      "HAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "More than",
+       "gives": "LONG",
+       "note": "long means extending beyond the usual measure"
+      },
+      {
+       "words": "four inches",
+       "gives": "HAND",
+       "note": "a hand, used to measure horses' height, is four inches"
+      }
      ]
     },
     "explanation": {
@@ -984,21 +826,20 @@
    },
    "solution": "CELESTE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CELESTE",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Mary's lost crew",
-      "note": "surface reading: the sailors missing from a ship named Mary"
-     },
-     {
-      "clueFragment": "Mary's lost crew",
-      "note": "setter's reading: the famous ghost ship found adrift in 1872 without anyone aboard is named after Mary; its second name is wanted"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mary's lost crew",
+       "note": "surface reading: the sailors missing from a ship named Mary"
+      },
+      {
+       "words": "Mary's lost crew",
+       "note": "setter's reading: the famous ghost ship found adrift in 1872 without anyone aboard is named after Mary; its second name is wanted"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A ship's company has vanished.",
      "walkthrough": "The Mary Celeste was found drifting in the Atlantic in 1872 with its crew gone; the second word of its name is also an instrument.",
@@ -1025,28 +866,16 @@
    },
    "solution": "TREMBLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TREMBLER",
     "definitions": [
      {
       "text": "I'm afraid",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: one who shakes with fear"
      },
      {
       "text": "I'll break the circuit",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm afraid",
-      "note": "first meaning: one who shakes with fear"
-     },
-     {
-      "clueFragment": "I'll break the circuit",
-      "note": "second meaning: a vibrating contact that repeatedly makes and breaks an electric circuit, as in a bell"
+      "at": 11,
+      "meaning": "second meaning: a vibrating contact that repeatedly makes and breaks an electric circuit, as in a bell"
      }
     ],
     "explanation": {
@@ -1075,51 +904,41 @@
    },
    "solution": "STROPPY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "STROPPY",
     "definitions": [
      {
       "text": "Uncooperative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holds",
-      "for": "container",
-      "note": "to hold is to grip, so one piece encloses another"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top, backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agent",
-      "gives": "SPY",
-      "note": "a spy is a secret agent"
-     },
-     {
-      "clueFragment": "the left",
-      "gives": "PORT",
-      "note": "port is the left side of a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TROP",
-      "PY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "PORT",
-       "to": "TROP"
+       "text": "holds",
+       "note": "to hold is to grip, so one piece encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agent",
+       "gives": "SPY",
+       "note": "a spy is a secret agent"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, going up means reading from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the left",
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
+        }
+       ]
       }
      ]
     },
@@ -1149,35 +968,26 @@
    },
    "solution": "CLARINET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CLARINET",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "amid",
-      "for": "container",
-      "note": "amid means in the middle of, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "At home",
-      "gives": "IN",
-      "note": "to be in is to be at home"
-     },
-     {
-      "clueFragment": "blood",
-      "gives": "CLARET",
-      "note": "claret, a red wine, is old slang for blood, especially in boxing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLAR",
-      "IN",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "note": "amid means in the middle of, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blood",
+       "gives": "CLARET",
+       "note": "claret, a red wine, is old slang for blood, especially in boxing"
+      },
+      {
+       "words": "At home",
+       "gives": "IN",
+       "note": "to be in is to be at home"
+      }
      ]
     },
     "explanation": {
@@ -1206,36 +1016,25 @@
    },
    "solution": "LARKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LARKIN",
     "definitions": [
      {
       "text": "the poet",
       "at": 4
      }
     ],
-    "linkWords": [
-     "Was",
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird",
-      "gives": "LARK",
-      "note": "the lark is a songbird"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "IN",
-      "note": "to be in is to be at home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LARK",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird",
+       "gives": "LARK",
+       "note": "the lark is a songbird"
+      },
+      {
+       "words": "home",
+       "gives": "IN",
+       "note": "to be in is to be at home"
+      }
      ]
     },
     "explanation": {
@@ -1264,27 +1063,20 @@
    },
    "solution": "ZITHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ZITHER",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Spot",
-      "gives": "ZIT",
-      "note": "a zit is a pimple"
-     },
-     {
-      "clueFragment": "the lady",
-      "gives": "HER",
-      "note": "her refers to a lady"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZIT",
-      "HER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spot",
+       "gives": "ZIT",
+       "note": "a zit is a pimple"
+      },
+      {
+       "words": "the lady",
+       "gives": "HER",
+       "note": "her refers to a lady"
+      }
      ]
     },
     "explanation": {
@@ -1313,35 +1105,25 @@
    },
    "solution": "ZENANA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ZENANA",
     "definitions": [
      {
       "text": "seraglio",
       "at": 20
      }
     ],
-    "linkWords": [
-     "of a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Buddhist",
-      "gives": "ZEN",
-      "note": "Zen is a school of Buddhism"
-     },
-     {
-      "clueFragment": "Tales",
-      "gives": "ANA",
-      "note": "ana is a collection of anecdotes or sayings about someone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZEN",
-      "ANA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Buddhist",
+       "gives": "ZEN",
+       "note": "Zen is a school of Buddhism"
+      },
+      {
+       "words": "Tales",
+       "gives": "ANA",
+       "note": "ana is a collection of anecdotes or sayings about someone"
+      }
      ]
     },
     "explanation": {
@@ -1376,26 +1158,25 @@
    },
    "solution": "FRENCHHORN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FRENCH HORN",
     "definitions": [
      {
       "text": "Cor",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cor!",
-      "note": "surface reading: a British exclamation of surprise"
-     },
-     {
-      "clueFragment": "Cor",
-      "note": "setter's reading: the word in a foreign language, the brass instrument its speakers call by this name"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cor!",
+       "note": "surface reading: a British exclamation of surprise"
+      },
+      {
+       "words": "Cor",
+       "note": "setter's reading: the word in a foreign language, the brass instrument its speakers call by this name"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Cor! is a British exclamation like 'Gosh!', but cor is also the French word for a horn, which in English is called by that nation's name.",
      "definitionFit": "The French horn is a coiled brass instrument; in France it is simply called the cor."
@@ -1422,26 +1203,24 @@
    },
    "solution": "TUBA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TUBA",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Some talk of",
-      "for": "homophone",
-      "note": "how some people talk means the word is taken by its sound in certain accents"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "potato",
-      "gives": "TUBA",
-      "soundsLike": "TUBER",
-      "note": "a potato is a tuber, which in a non-rhotic accent ends without an R sound"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TUBA",
+     "indicators": [
+      {
+       "text": "Some talk of",
+       "note": "how some people talk means the word is taken by its sound in certain accents"
+      }
+     ],
+     "parts": [
+      {
+       "words": "potato",
+       "gives": "TUBER",
+       "note": "a potato is a tuber, which in a non-rhotic accent ends without an R sound"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A conversation about spuds.",
      "walkthrough": "'Some' matters: only speakers who drop the final R say the root vegetable word the same way as the instrument.",
@@ -1469,10 +1248,6 @@
    },
    "solution": "TWIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWIN",
     "definitions": [
      {
       "text": "could be identical",
@@ -1480,25 +1255,19 @@
       "note": "a phrase describing the answer rather than a straight synonym"
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Model",
-      "gives": "T",
-      "note": "the Model T was Ford's famous car"
-     },
-     {
-      "clueFragment": "success",
-      "gives": "WIN",
-      "note": "a win is a success"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Model",
+       "gives": "T",
+       "note": "the Model T was Ford's famous car"
+      },
+      {
+       "words": "success",
+       "gives": "WIN",
+       "note": "a win is a success"
+      }
      ]
     },
     "explanation": {
@@ -1525,33 +1294,7 @@
     "text": "12",
     "enumeration": "6"
    },
-   "solution": "VIOLIN",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VIOLIN",
-    "definitions": [
-     {
-      "text": "12",
-      "at": 0
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "12",
-      "note": "a cross-reference to the answer at 12 across, the everyday name for this instrument"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "The clue is a cross-reference to 12 across, whose answer is the everyday name for this instrument.",
-     "definitionFit": "Fiddle is the informal word for a violin, especially in folk music."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false
-    }
-   }
+   "solution": "VIOLIN"
   },
   {
    "number": 26,
@@ -1567,35 +1310,26 @@
    },
    "solution": "PANPIPES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PANPIPES",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means sitting inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seed",
-      "gives": "PIP",
-      "note": "a pip is a fruit seed"
-     },
-     {
-      "clueFragment": "sheets of glass",
-      "gives": "PANES",
-      "note": "panes are sheets of glass in windows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAN",
-      "PIP",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sheets of glass",
+       "gives": "PANES",
+       "note": "panes are sheets of glass in windows"
+      },
+      {
+       "words": "Seed",
+       "gives": "PIP",
+       "note": "a pip is a fruit seed"
+      }
      ]
     },
     "explanation": {

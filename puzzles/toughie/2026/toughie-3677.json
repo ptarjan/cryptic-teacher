@@ -1,8 +1,6 @@
 {
  "id": "toughie-3677",
  "number": 3677,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,677",
  "setter": "Hudson",
  "date": "2026-04-28",
  "dimensions": {
@@ -38,41 +36,35 @@
    },
    "solution": "ETHANOL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ETHANOL",
     "definitions": [
      {
       "text": "Booze",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "the start of a word is its opening letter, so only the first letter of each following word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cruise\" character on a mission",
-      "gives": "ETHAN",
-      "note": "Ethan Hunt is the agent Tom Cruise plays in the Mission: Impossible films"
-     },
-     {
-      "clueFragment": "order limoncello",
-      "gives": "OL",
-      "select": "first",
-      "note": "the opening letters of these two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETHAN",
-      "OL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cruise\" character on a mission",
+       "gives": "ETHAN",
+       "note": "Ethan Hunt is the agent Tom Cruise plays in the Mission: Impossible films"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "note": "the start of a word is its opening letter, so only the first letter of each following word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "order limoncello",
+         "note": "the opening letters of these two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -101,11 +93,6 @@
    },
    "solution": "INFLUENZA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "INFLUENZA",
     "definitions": [
      {
       "text": "that's infectious",
@@ -113,39 +100,38 @@
       "note": "an adjectival phrase for a noun: the answer is the thing that is infectious"
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "something new is remade, so the letters are rebuilt in a different order"
-     },
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the leading letters are kept"
-     }
-    ],
-    "linkWords": [
-     "featuring"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fanzine",
-      "gives": "FANZINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Leeds United",
-      "gives": "LU",
-      "select": "first",
-      "note": "the opening letters of the two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FANZINELU",
-       "gives": "INFLUENZA"
+       "text": "New",
+       "note": "something new is remade, so the letters are rebuilt in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fanzine",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "note": "primarily means first of all, so only the leading letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Leeds United",
+           "note": "the opening letters of the two words"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -175,60 +161,50 @@
    },
    "solution": "GHETTO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "GHETTO",
     "definitions": [
      {
       "text": "poor quarter",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "walls stripped",
-      "for": "deletion",
-      "note": "a building's walls are its outside, so stripping them removes the outer letters"
-     },
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "turned over means flipped end to end, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grand",
-      "gives": "G",
-      "note": "G is the abbreviation for grand, a thousand"
-     },
-     {
-      "clueFragment": "Hotel",
-      "gives": "H",
-      "note": "H is Hotel in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "decaying",
-      "gives": "ROTTEN",
-      "note": "something decaying is rotten"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "H",
-      "ETTO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "GHETTO",
+     "indicators": [
       {
-       "from": "OTTE",
-       "to": "ETTO"
+       "text": "over",
+       "note": "turned over means flipped end to end, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "GHETTO",
+       "indicators": [
+        {
+         "text": "walls stripped",
+         "note": "a building's walls are its outside, so stripping them removes the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Grand",
+         "gives": "G",
+         "note": "G is the abbreviation for grand, a thousand"
+        },
+        {
+         "words": "Hotel",
+         "gives": "H",
+         "note": "H is Hotel in the NATO phonetic alphabet"
+        },
+        {
+         "words": "decaying",
+         "gives": "ROTTEN",
+         "note": "something decaying is rotten"
+        }
+       ]
       }
      ]
     },
@@ -264,47 +240,41 @@
    },
    "solution": "CIGARBOX",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CIGAR BOX",
     "definitions": [
      {
       "text": "smokes here",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "in which",
-      "for": "container",
-      "note": "'in which' says something sits inside the pair just named, so one piece goes within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chapter",
-      "gives": "C",
-      "note": "C is the abbreviation for chapter"
-     },
-     {
-      "clueFragment": "nine",
-      "gives": "IX",
-      "note": "IX is nine in Roman numerals"
-     },
-     {
-      "clueFragment": "cool Swede",
-      "gives": "GARBO",
-      "note": "Greta Garbo, the famously aloof Swedish film star"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "I",
-      "GARBO",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chapter",
+       "gives": "C",
+       "note": "C is the abbreviation for chapter"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which",
+         "note": "'in which' says something sits inside the pair just named, so one piece goes within them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nine",
+         "gives": "IX",
+         "note": "IX is nine in Roman numerals"
+        },
+        {
+         "words": "cool Swede",
+         "gives": "GARBO",
+         "note": "Greta Garbo, the famously aloof Swedish film star"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -340,51 +310,41 @@
    },
    "solution": "COVERTOPERATION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COVERT OPERATION",
     "definitions": [
      {
       "text": "secret assignment",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "'after' says what follows comes later in the answer, fixing the running order of the parts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "C is Charlie in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "completed",
-      "gives": "OVER",
-      "note": "something completed is over"
-     },
-     {
-      "clueFragment": "Drink",
-      "gives": "TOPE",
-      "note": "to tope is to drink heavily"
-     },
-     {
-      "clueFragment": "helping",
-      "gives": "RATION",
-      "note": "a ration is a portion or helping"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OVER",
-      "TOPE",
-      "RATION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "'after' says what follows comes later in the answer, fixing the running order of the parts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charlie",
+       "gives": "C",
+       "note": "C is Charlie in the NATO phonetic alphabet"
+      },
+      {
+       "words": "completed",
+       "gives": "OVER",
+       "note": "something completed is over"
+      },
+      {
+       "words": "Drink",
+       "gives": "TOPE",
+       "note": "to tope is to drink heavily"
+      },
+      {
+       "words": "helping",
+       "gives": "RATION",
+       "note": "a ration is a portion or helping"
+      }
      ]
     },
     "explanation": {
@@ -419,41 +379,42 @@
    },
    "solution": "GOLDCARD",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "GOLD CARD",
     "definitions": [
      {
       "text": "One should give him credit",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "William Spooner swapped the opening sounds of words, so the starting sounds trade places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shivering",
-      "gives": "GOLD",
-      "soundsLike": "COLD",
-      "note": "a shivering person is cold; it takes the opening sound of the next word"
-     },
-     {
-      "clueFragment": "sentry",
-      "gives": "CARD",
-      "soundsLike": "GUARD",
-      "note": "a sentry is a guard; it takes the opening sound of the previous word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOLD",
-      "CARD"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "GOLDCARD",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "William Spooner swapped the opening sounds of words, so the starting sounds trade places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "shivering",
+         "gives": "GOLD",
+         "soundsLike": "COLD",
+         "note": "a shivering person is cold; it takes the opening sound of the next word"
+        },
+        {
+         "unchecked": true,
+         "words": "sentry",
+         "gives": "CARD",
+         "soundsLike": "GUARD",
+         "note": "a sentry is a guard; it takes the opening sound of the previous word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -483,33 +444,28 @@
    },
    "solution": "REAVE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "REAVE",
     "definitions": [
      {
       "text": "Old Rob",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "discovered",
-      "for": "deletion",
-      "note": "dis-covered means with its covering taken off, so the outside letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "much-loved striker Jimmy",
-      "gives": "GREAVES",
-      "note": "Jimmy Greaves, the prolific England and Tottenham goalscorer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAVE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "REAVE",
+     "indicators": [
+      {
+       "text": "discovered",
+       "note": "dis-covered means with its covering taken off, so the outside letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "much-loved striker Jimmy",
+       "gives": "GREAVES",
+       "note": "Jimmy Greaves, the prolific England and Tottenham goalscorer"
+      }
      ]
     },
     "explanation": {
@@ -538,26 +494,25 @@
    },
    "solution": "OARSMAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OARSMAN",
     "definitions": [
      {
       "text": "Chap carrying blade who's up for a row?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Chap carrying blade who's up for a row?",
-      "note": "surface reading: an armed man spoiling for a fight"
-     },
-     {
-      "clueFragment": "Chap carrying blade",
-      "note": "setter's reading: the blade is the flat end of a rowing oar, and a row is a trip on the water"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Chap carrying blade who's up for a row?",
+       "note": "surface reading: an armed man spoiling for a fight"
+      },
+      {
+       "words": "Chap carrying blade",
+       "note": "setter's reading: the blade is the flat end of a rowing oar, and a row is a trip on the water"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Row rhymes with cow in the surface and with low in the answer; a blade is part of an oar, not a knife.",
      "definitionFit": "A person who propels a boat with paddles in a crew is someone ready for a trip on the river."
@@ -584,32 +539,25 @@
    },
    "solution": "STENCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STENCH",
     "definitions": [
      {
       "text": "One smelt",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "TENCH",
-      "note": "a tench is a freshwater fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TENCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "fish",
+       "gives": "TENCH",
+       "note": "a tench is a freshwater fish"
+      }
      ]
     },
     "explanation": {
@@ -639,58 +587,54 @@
    },
    "solution": "VOLTAIRE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "anagram"
-    ],
-    "answer": "VOLTAIRE",
     "definitions": [
      {
       "text": "French writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "a gutted thing has had its insides removed, leaving only the outer shell"
-     },
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "something done terribly is badly messed up, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Victor Hugo",
-      "gives": "VO",
-      "select": "outer",
-      "note": "the first and last letters of the name"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "irate",
-      "gives": "IRATE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VO",
-      "L",
-      "TAIRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "IRATE",
-       "gives": "TAIRE"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "a gutted thing has had its insides removed, leaving only the outer shell"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Victor Hugo",
+         "note": "the first and last letters of the name"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "note": "something done terribly is badly messed up, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "left",
+           "gives": "L",
+           "note": "L is the abbreviation for left"
+          },
+          {
+           "words": "irate",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -720,11 +664,6 @@
    },
    "solution": "RACLETTE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RACLETTE",
     "definitions": [
      {
       "text": "such a melt",
@@ -732,34 +671,35 @@
       "note": "a phrase pointing at an example: the answer is a kind of melt"
      }
     ],
-    "indicators": [
-     {
-      "text": "away",
-      "for": "deletion",
-      "note": "what goes away is no longer there, so that letter leaves the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Carmen",
-      "gives": "RAC",
-      "note": "read as car men: the Royal Automobile Club, Britain's motoring organisation"
-     },
-     {
-      "clueFragment": "character",
-      "gives": "LETTER",
-      "note": "a character is a letter of the alphabet"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAC",
-      "LETTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Carmen",
+       "gives": "RAC",
+       "note": "read as car men: the Royal Automobile Club, Britain's motoring organisation"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "note": "what goes away is no longer there, so that letter leaves the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "character",
+         "gives": "LETTER",
+         "note": "a character is a letter of the alphabet"
+        },
+        {
+         "words": "runs",
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -789,44 +729,35 @@
    },
    "solution": "CREAMY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CREAMY",
     "definitions": [
      {
       "text": "Rich",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last seen",
-      "for": "letter_selection",
-      "note": "the last thing seen of a word is its final letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sixties supergroup",
-      "gives": "CREAM",
-      "note": "Cream was the 1960s band of Eric Clapton, Jack Bruce and Ginger Baker"
-     },
-     {
-      "clueFragment": "Glastonbury",
-      "gives": "Y",
-      "select": "last",
-      "note": "the final letter of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREAM",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sixties supergroup",
+       "gives": "CREAM",
+       "note": "Cream was the 1960s band of Eric Clapton, Jack Bruce and Ginger Baker"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last seen",
+         "note": "the last thing seen of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Glastonbury",
+         "note": "the final letter of the name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -855,51 +786,41 @@
    },
    "solution": "FOREMOST",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "FOREMOST",
     "definitions": [
      {
       "text": "Most advanced",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to have it inside, so one piece goes within the other"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so the letters run right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keep",
-      "gives": "FORT",
-      "note": "a keep is a castle stronghold, a fort"
-     },
-     {
-      "clueFragment": "a few",
-      "gives": "SOME",
-      "note": "a few is some"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "EMOS",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SOME",
-       "to": "EMOS"
+       "text": "holding",
+       "note": "to hold something is to have it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "keep",
+       "gives": "FORT",
+       "note": "a keep is a castle stronghold, a fort"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means travelling the other way, so the letters run right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a few",
+         "gives": "SOME",
+         "note": "a few is some"
+        }
+       ]
       }
      ]
     },
@@ -935,52 +856,41 @@
    },
    "solution": "ONREMAND",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ON REMAND",
     "definitions": [
      {
       "text": "in custody",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Preserving",
-      "for": "container",
-      "note": "preserving something means keeping it safe within, so one piece is held inside"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so the letters run right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bond villain",
-      "gives": "DRNO",
-      "note": "Dr No, the villain of the first James Bond film"
-     },
-     {
-      "clueFragment": "reputation",
-      "gives": "NAME",
-      "note": "a good name is a reputation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "R",
-      "EMAN",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DNAMERNO",
-       "to": "ONREMAND"
+       "text": "back",
+       "note": "going back means travelling the other way, so the letters run right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Preserving",
+         "note": "preserving something means keeping it safe within, so one piece is held inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bond villain",
+         "gives": "DRNO",
+         "note": "Dr No, the villain of the first James Bond film"
+        },
+        {
+         "words": "reputation",
+         "gives": "NAME",
+         "note": "a good name is a reputation"
+        }
+       ]
       }
      ]
     },
@@ -1010,33 +920,25 @@
    },
    "solution": "MANGETOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANGETOUT",
     "definitions": [
      {
       "text": "vegetable",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Dude",
-      "gives": "MAN",
-      "note": "dude and man are both slang forms of address"
-     },
-     {
-      "clueFragment": "just do one",
-      "gives": "GETOUT",
-      "note": "'do one' is British slang for go away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "GET",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dude",
+       "gives": "MAN",
+       "note": "dude and man are both slang forms of address"
+      },
+      {
+       "words": "just do one",
+       "gives": "GETOUT",
+       "note": "'do one' is British slang for go away"
+      }
      ]
     },
     "explanation": {
@@ -1066,51 +968,49 @@
    },
    "solution": "ARGONAUT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "ARGONAUT",
     "definitions": [
      {
       "text": "Seaman",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "fed",
-      "for": "container",
-      "note": "what is fed is taken inside, so a letter goes in among the others"
-     },
-     {
-      "text": "Stew of",
-      "for": "anagram",
-      "note": "a stew is a mixed jumble cooked together, so the letters are stirred up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tuna",
-      "gives": "TUNA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gar",
-      "gives": "GAR",
-      "note": "taken as written; a gar is a long-snouted fish"
-     },
-     {
-      "clueFragment": "Ordinary",
-      "gives": "O",
-      "note": "O is the abbreviation for ordinary"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TUNAGARO",
-       "gives": "ARGONAUT"
+       "text": "fed",
+       "note": "what is fed is taken inside, so a letter goes in among the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Stew of",
+         "note": "a stew is a mixed jumble cooked together, so the letters are stirred up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "tuna",
+           "note": "taken as written"
+          },
+          {
+           "words": "gar",
+           "note": "taken as written; a gar is a long-snouted fish"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Ordinary",
+       "gives": "O",
+       "note": "O is the abbreviation for ordinary"
       }
      ]
     },
@@ -1140,30 +1040,28 @@
    },
    "solution": "FILAGREE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FILAGREE",
     "definitions": [
      {
       "text": "wire",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "to have concealed",
-      "for": "hidden_word",
-      "note": "what is concealed is tucked away inside, so the answer lies within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fulfil agreement",
-      "gives": "FILAGREE",
-      "note": "runs across the end of the first word and most of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to have concealed",
+       "note": "what is concealed is tucked away inside, so the answer lies within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fulfil agreement",
+       "gives": "FILAGREE",
+       "note": "runs across the end of the first word and most of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone honours a deal that required them to hide a listening device.",
      "walkthrough": "Wire suggests a hidden microphone; it is the definition, for delicate metalwork.",
@@ -1200,42 +1098,39 @@
    },
    "solution": "INARAGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IN A RAGE",
     "definitions": [
      {
       "text": "Furious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stolen from",
-      "for": "deletion",
-      "note": "what is stolen is taken away, so that letter is removed"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Golf",
-      "gives": "G",
-      "note": "G is Golf in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "its covered parking spot",
-      "gives": "INAGARAGE",
-      "note": "where a car is kept under cover"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INA",
-      "RAGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "stolen from",
+       "note": "what is stolen is taken away, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "its covered parking spot",
+         "gives": "INAGARAGE",
+         "note": "where a car is kept under cover"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "Golf",
+       "gives": "G",
+       "note": "G is Golf in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1265,61 +1160,59 @@
    },
    "solution": "FEBRILE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "FEBRILE",
     "definitions": [
      {
       "text": "Frenzied",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "forgetting",
-      "for": "deletion",
-      "note": "what is forgotten is left out, so that letter is dropped"
-     },
-     {
-      "text": "wasted",
-      "for": "anagram",
-      "note": "wasted means wrecked or drunk, so the letters stagger into a new order"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down answer one piece written on another sits above it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "briefly",
-      "gives": "BRIEFLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y is the abbreviation for year"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEBRIL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BRIEFL",
-       "gives": "FEBRIL"
+       "text": "wasted",
+       "note": "wasted means wrecked or drunk, so the letters stagger into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forgetting",
+         "note": "what is forgotten is left out, so that letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "on",
+           "note": "in a down answer one piece written on another sits above it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "briefly",
+           "note": "taken as written"
+          },
+          {
+           "words": "year",
+           "gives": "Y",
+           "note": "Y is the abbreviation for year"
+          },
+          {
+           "words": "drug",
+           "gives": "E",
+           "note": "E is slang for the drug ecstasy"
+          }
+         ]
+        },
+        {
+         "gives": "YY"
+        }
+       ]
       }
      ]
     },
@@ -1349,35 +1242,25 @@
    },
    "solution": "REJIGGED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REJIGGED",
     "definitions": [
      {
       "text": "Moved around",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "again",
-      "gives": "RE",
-      "note": "the prefix meaning again"
-     },
-     {
-      "clueFragment": "performed dance",
-      "gives": "JIGGED",
-      "note": "to jig is to dance a jig"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "JIGGED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "again",
+       "gives": "RE",
+       "note": "the prefix meaning again"
+      },
+      {
+       "words": "performed dance",
+       "gives": "JIGGED",
+       "note": "to jig is to dance a jig"
+      }
      ]
     },
     "explanation": {
@@ -1405,41 +1288,36 @@
    },
    "solution": "JACKAL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "JACKAL",
     "definitions": [
      {
       "text": "a contract killer",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "defending",
-      "for": "hidden_word",
-      "note": "to defend is to keep something safe within, so the answer is held inside the words"
-     },
-     {
-      "text": "Rising",
-      "for": "reversal",
-      "note": "in a down answer rising means read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "counsel, a KC, a judge",
-      "gives": "LAKCAJ",
-      "note": "spans the last letter of the first word to the first letter of the last"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LAKCAJ",
-       "to": "JACKAL"
+       "text": "Rising",
+       "note": "in a down answer rising means read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "defending",
+         "note": "to defend is to keep something safe within, so the answer is held inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "counsel, a KC, a judge",
+         "gives": "LAKCAJ",
+         "note": "spans the last letter of the first word to the first letter of the last"
+        }
+       ]
       }
      ]
     },
@@ -1469,53 +1347,45 @@
    },
    "solution": "SAPPHO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SAPPHO",
     "definitions": [
      {
       "text": "poet",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "introduction to",
-      "for": "letter_selection",
-      "note": "an introduction comes at the start, so only the opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Singular",
-      "gives": "S",
-      "note": "S is the abbreviation for singular"
-     },
-     {
-      "clueFragment": "program for downloading",
-      "gives": "APP",
-      "note": "an app is a downloadable program"
-     },
-     {
-      "clueFragment": "Homer",
-      "gives": "H",
-      "select": "first",
-      "note": "the opening letter of the name"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "APP",
-      "H",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Singular",
+       "gives": "S",
+       "note": "S is the abbreviation for singular"
+      },
+      {
+       "words": "program for downloading",
+       "gives": "APP",
+       "note": "an app is a downloadable program"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction to",
+         "note": "an introduction comes at the start, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Homer",
+         "note": "the opening letter of the name"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      }
      ]
     },
     "explanation": {
@@ -1544,38 +1414,31 @@
    },
    "solution": "PRANG",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PRANG",
     "definitions": [
      {
       "text": "car crash",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "clear of",
-      "for": "deletion",
-      "note": "to be clear of something is to be free of it, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jumped",
-      "gives": "SPRANG",
-      "note": "sprang is a past tense of spring, to jump"
-     },
-     {
-      "clueFragment": "Sierra",
-      "gives": "S",
-      "note": "S is Sierra in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRANG"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "clear of",
+       "note": "to be clear of something is to be free of it, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jumped",
+       "gives": "SPRANG",
+       "note": "sprang is a past tense of spring, to jump"
+      },
+      {
+       "words": "Sierra",
+       "gives": "S",
+       "note": "S is Sierra in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1604,56 +1467,45 @@
    },
    "solution": "TACITURN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TACITURN",
     "definitions": [
      {
       "text": "Tight-lipped",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "flipping something turns it over, so the letters run backwards"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "'after' puts the first pieces behind the next one, setting the order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moggy",
-      "gives": "CAT",
-      "note": "moggy is British slang for an ordinary cat"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "go",
-      "gives": "TURN",
-      "note": "a go in a game is a turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAC",
-      "I",
-      "TURN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "CAT",
-       "to": "TAC"
+       "text": "after",
+       "note": "'after' puts the first pieces behind the next one, setting the order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "flipping something turns it over, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "moggy",
+         "gives": "CAT",
+         "note": "moggy is British slang for an ordinary cat"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "go",
+       "gives": "TURN",
+       "note": "a go in a game is a turn"
       }
      ]
     },
@@ -1684,65 +1536,60 @@
    },
    "solution": "CALAMARI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "CALAMARI",
     "definitions": [
      {
       "text": "Squid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of a word is its core, so only its middle letters are kept"
-     },
-     {
-      "text": "nasty",
-      "for": "anagram",
-      "note": "something nasty is twisted and disagreeable, so the letters are distorted"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places one piece inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roughly speaking",
-      "gives": "CA",
-      "note": "ca, for circa, means roughly or approximately"
-     },
-     {
-      "clueFragment": "Game",
-      "gives": "AM",
-      "select": "middle",
-      "note": "the two middle letters of the word"
-     },
-     {
-      "clueFragment": "lair",
-      "gives": "LAIR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "L",
-      "AM",
-      "ARI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LAIR",
-       "gives": "LARI"
+       "words": "roughly speaking",
+       "gives": "CA",
+       "note": "ca, for circa, means roughly or approximately"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places one piece inside another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "nasty",
+           "note": "something nasty is twisted and disagreeable, so the letters are distorted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lair",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "note": "the essence of a word is its core, so only its middle letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Game",
+           "note": "the two middle letters of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1772,46 +1619,41 @@
    },
    "solution": "AQUILA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AQUILA",
     "definitions": [
      {
       "text": "The Eagle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bottles",
-      "for": "container",
-      "note": "to bottle something is to seal it inside, so one piece is held within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "water",
-      "gives": "AQUA",
-      "note": "aqua is Latin for water"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is one in Roman numerals"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "L",
-      "note": "L is the symbol for a pound sterling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AQU",
-      "I",
-      "L",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bottles",
+       "note": "to bottle something is to seal it inside, so one piece is held within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "water",
+         "gives": "AQUA",
+         "note": "aqua is Latin for water"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is one in Roman numerals"
+        }
+       ]
+      },
+      {
+       "words": "pound",
+       "gives": "L",
+       "note": "L is the symbol for a pound sterling"
+      }
      ]
     },
     "explanation": {
@@ -1840,40 +1682,31 @@
    },
    "solution": "HEIGHTEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HEIGHTEN",
     "definitions": [
      {
       "text": "Raise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "to cover something is to wrap round it, so one piece goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "layer",
-      "gives": "HEN",
-      "note": "a hen is a layer of eggs"
-     },
-     {
-      "clueFragment": "a rowing boat",
-      "gives": "EIGHT",
-      "note": "an eight is a racing boat rowed by eight oarsmen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "EIGHT",
-      "EN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "to cover something is to wrap round it, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "layer",
+       "gives": "HEN",
+       "note": "a hen is a layer of eggs"
+      },
+      {
+       "words": "a rowing boat",
+       "gives": "EIGHT",
+       "note": "an eight is a racing boat rowed by eight oarsmen"
+      }
      ]
     },
     "explanation": {

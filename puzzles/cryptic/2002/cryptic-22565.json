@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22565",
  "number": 22565,
- "series": "cryptic",
- "name": "Prize crossword No 22,565",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2002-07-06",
  "preamble": "Characters in a certain opera are asterisked.",
@@ -45,57 +44,61 @@
    },
    "solution": "POLICESERGEANT",
    "annotation": {
-    "type": [
-     "substitution",
-     "deletion",
-     "container"
-    ],
-    "answer": "POLICE SERGEANT",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "for",
-      "for": "substitution",
-      "note": "'O for A' asks the solver to put the O where an A stood, a straight swap of one letter"
-     },
-     {
-      "text": "including",
-      "for": "container",
-      "note": "including means the altered word wraps around the other piece and holds it inside"
-     },
-     {
-      "text": "from",
-      "for": "deletion",
-      "note": "taking something from a word removes those letters from it, leaving the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pageant",
-      "gives": "PAGEANT",
-      "note": "taken as written; its first A is swapped out"
-     },
-     {
-      "clueFragment": "O",
-      "gives": "O",
-      "note": "the letter O, taken as written"
-     },
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "ET is the film alien"
-     },
-     {
-      "clueFragment": "Leicester",
-      "gives": "LEICESTER",
-      "note": "the English city, taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "LICESER",
-      "GEANT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "POLICESERGEANT",
+     "indicators": [
+      {
+       "text": "including",
+       "note": "including means the altered word wraps around the other piece and holds it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "POLICESERGEANT",
+       "indicators": [
+        {
+         "text": "for",
+         "note": "'O for A' asks the solver to put the O where an A stood, a straight swap of one letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "unchecked": true,
+         "gives": "POLICESERGEANT",
+         "indicators": [
+          {
+           "text": "from",
+           "note": "taking something from a word removes those letters from it, leaving the rest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pageant",
+           "note": "taken as written; its first A is swapped out"
+          },
+          {
+           "words": "O",
+           "note": "the letter O, taken as written"
+          },
+          {
+           "words": "alien",
+           "gives": "ET",
+           "note": "ET is the film alien"
+          },
+          {
+           "words": "Leicester",
+           "note": "the English city, taken as written"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -130,62 +133,57 @@
    },
    "solution": "PENZANCEPIRATE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PENZANCE PIRATE",
     "definitions": [
      {
       "text": "Concise eponym",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "to incur",
-      "for": "container",
-      "note": "to incur something is to take it on, so the punishment takes the letter into itself"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means the boasting word goes round the numeral on either side"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spiritual punishment",
-      "gives": "PENANCE",
-      "note": "penance is the punishment imposed for sin"
-     },
-     {
-      "clueFragment": "the last",
-      "gives": "Z",
-      "note": "Z is the last letter of the alphabet"
-     },
-     {
-      "clueFragment": "to boast",
-      "gives": "PRATE",
-      "note": "to prate is to talk boastfully and at length"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "Z",
-      "ANCE",
-      "P",
-      "I",
-      "RATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to incur",
+         "note": "to incur something is to take it on, so the punishment takes the letter into itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spiritual punishment",
+         "gives": "PENANCE",
+         "note": "penance is the punishment imposed for sin"
+        },
+        {
+         "words": "the last",
+         "gives": "Z",
+         "note": "Z is the last letter of the alphabet"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means the boasting word goes round the numeral on either side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to boast",
+         "gives": "PRATE",
+         "note": "to prate is to talk boastfully and at length"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -214,35 +212,25 @@
    },
    "solution": "LEAFBUD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEAFBUD",
     "definitions": [
      {
       "text": "vernal appearance",
       "at": 25
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Page",
-      "gives": "LEAF",
-      "note": "a leaf is a page of a book"
-     },
-     {
-      "clueFragment": "American comrade",
-      "gives": "BUD",
-      "note": "bud is American slang for a pal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAF",
-      "BUD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Page",
+       "gives": "LEAF",
+       "note": "a leaf is a page of a book"
+      },
+      {
+       "words": "American comrade",
+       "gives": "BUD",
+       "note": "bud is American slang for a pal"
+      }
      ]
     },
     "explanation": {
@@ -271,57 +259,51 @@
    },
    "solution": "CHAMELEON",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CHAMELEON",
     "definitions": [
      {
       "text": "colour changer",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "in which is",
-      "for": "container",
-      "note": "in which is says the fruit holds the next piece inside it"
-     },
-     {
-      "text": "the end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, the only one kept"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tea",
-      "gives": "CHA",
-      "note": "cha is slang for tea"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "MELON",
-      "note": "a melon is a fruit"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "the word itself supplies its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "MEL",
-      "E",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tea",
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in which is",
+         "note": "in which is says the fruit holds the next piece inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "gives": "MELON",
+         "note": "a melon is a fruit"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "the end of",
+           "note": "the end of a word is its final letter, the only one kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "note": "the word itself supplies its last letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -350,47 +332,41 @@
    },
    "solution": "SCANDAL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SCANDAL",
     "definitions": [
      {
       "text": "School subject",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in which",
-      "for": "container",
-      "note": "in which means the footwear holds the next letter inside it"
-     },
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of a word in a down clue is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "footwear",
-      "gives": "SANDAL",
-      "note": "a sandal is an open shoe"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of class"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "ANDAL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "note": "in which means the footwear holds the next letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "footwear",
+       "gives": "SANDAL",
+       "note": "a sandal is an open shoe"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "note": "the top of a word in a down clue is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "class",
+         "note": "the opening letter of class"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -420,32 +396,25 @@
    },
    "solution": "RESOUND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESOUND",
     "definitions": [
      {
       "text": "Echo, only more so",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "the bit",
-      "gives": "RE",
-      "note": "re, the note in sol-fa, taken as a little bit of a tune"
-     },
-     {
-      "clueFragment": "under",
-      "gives": "SOUND",
-      "note": "in this down entry the noise word sits under the note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SOUND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the bit",
+       "gives": "RE",
+       "note": "re, the note in sol-fa, taken as a little bit of a tune"
+      },
+      {
+       "words": "under",
+       "gives": "SOUND",
+       "note": "in this down entry the noise word sits under the note"
+      }
      ]
     },
     "explanation": {
@@ -474,40 +443,31 @@
    },
    "solution": "EARTH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EARTH",
     "definitions": [
      {
       "text": "the planet",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means the exclamation goes round the other word on both sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I didn't catch what you said",
-      "gives": "EH",
-      "note": "eh is what you say when you missed something"
-     },
-     {
-      "clueFragment": "painting",
-      "gives": "ART",
-      "note": "painting is a form of art"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "ART",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means the exclamation goes round the other word on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I didn't catch what you said",
+       "gives": "EH",
+       "note": "eh is what you say when you missed something"
+      },
+      {
+       "words": "painting",
+       "gives": "ART",
+       "note": "painting is a form of art"
+      }
      ]
     },
     "explanation": {
@@ -542,28 +502,16 @@
    },
    "solution": "NEWDEAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NEW DEAL",
     "definitions": [
      {
       "text": "Accidental exposure of card demands",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: at the card table, a card shown by mistake means the hands must be dealt again"
      },
      {
       "text": "response from FDR",
-      "at": 36
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Accidental exposure of card demands",
-      "note": "first meaning: at the card table, a card shown by mistake means the hands must be dealt again"
-     },
-     {
-      "clueFragment": "response from FDR",
-      "note": "second meaning: Roosevelt's programme answering the Great Depression"
+      "at": 36,
+      "meaning": "second meaning: Roosevelt's programme answering the Great Depression"
      }
     ],
     "explanation": {
@@ -607,38 +555,24 @@
    },
    "solution": "THESLAVEOFDUTY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE SLAVE OF DUTY",
     "definitions": [
      {
       "text": "Subtitle",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "exposed",
-      "for": "anagram",
-      "note": "the letters are laid open and set out afresh, exposed in a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "faulty votes he'd",
-      "gives": "FAULTYVOTESHED",
-      "note": "taken as written, all fourteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FAULTYVOTESHED",
-       "gives": "THESLAVEOFDUTY"
+       "text": "exposed",
+       "note": "the letters are laid open and set out afresh, exposed in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "faulty votes he'd",
+       "note": "taken as written, all fourteen letters"
       }
      ]
     },
@@ -668,48 +602,35 @@
    },
    "solution": "NIAGARA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NIAGARA",
     "definitions": [
      {
       "text": "Falls",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the word for once more from right to left"
-     }
-    ],
-    "linkWords": [
-     "upon"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "once more",
-      "gives": "AGAIN",
-      "note": "again means once more"
-     },
-     {
-      "clueFragment": "the Sun",
-      "gives": "RA",
-      "note": "Ra is the Egyptian sun god"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIAGA",
-      "RA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AGAIN",
-       "to": "NIAGA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back tells us to read the word for once more from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "once more",
+         "gives": "AGAIN",
+         "note": "again means once more"
+        }
+       ]
+      },
+      {
+       "words": "the Sun",
+       "gives": "RA",
+       "note": "Ra is the Egyptian sun god"
       }
      ]
     },
@@ -739,37 +660,39 @@
    },
    "solution": "STREWTH",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "STREWTH",
     "definitions": [
      {
       "text": "Exclamation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say tells us to go by the name as spoken, not as spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "canonising",
-      "gives": "ST",
-      "note": "canonising makes someone a saint, ST"
-     },
-     {
-      "clueFragment": "the maid of all work",
-      "gives": "REWTH",
-      "soundsLike": "RUTH",
-      "note": "Ruth is the pirates' maid of all work in the opera"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "canonising",
+       "gives": "ST",
+       "note": "canonising makes someone a saint, ST"
+      },
+      {
+       "op": "homophone",
+       "spelt": "REWTH",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "say tells us to go by the name as spoken, not as spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the maid of all work",
+         "gives": "RUTH",
+         "note": "Ruth is the pirates' maid of all work in the opera"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cry of surprise at a humble servant being made a saint.",
      "walkthrough": "ST plus REWTH, said like Ruth. The asterisk marks Ruth as a character in the opera.",
@@ -797,35 +720,25 @@
    },
    "solution": "AMBLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMBLE",
     "definitions": [
      {
       "text": "Walk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests the name is knocked out of its usual shape and reset"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the first of 25's 12",
-      "gives": "MABEL",
-      "note": "Major-General Stanley's eldest daughter in the opera"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MABEL",
-       "gives": "AMBLE"
+       "text": "out",
+       "note": "out suggests the name is knocked out of its usual shape and reset"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the first of 25's 12",
+       "gives": "MABEL",
+       "note": "Major-General Stanley's eldest daughter in the opera"
       }
      ]
     },
@@ -855,40 +768,31 @@
    },
    "solution": "DAUGHTERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DAUGHTERS",
     "definitions": [
      {
       "text": "25's",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container",
-      "note": "among means the exclamation sits in the middle of the people"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "those arranging to meet",
-      "gives": "DATERS",
-      "note": "people making dates"
-     },
-     {
-      "clueFragment": "Disgusting expression",
-      "gives": "UGH",
-      "note": "ugh is the noise of disgust"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DA",
-      "UGH",
-      "TERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "note": "among means the exclamation sits in the middle of the people"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those arranging to meet",
+       "gives": "DATERS",
+       "note": "people making dates"
+      },
+      {
+       "words": "Disgusting expression",
+       "gives": "UGH",
+       "note": "ugh is the noise of disgust"
+      }
      ]
     },
     "explanation": {
@@ -917,35 +821,25 @@
    },
    "solution": "CUDGELLED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUDGELLED",
     "definitions": [
      {
       "text": "beaten",
       "at": 24
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What is chewed",
-      "gives": "CUD",
-      "note": "cud is what cattle chew"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "GELLED",
-      "note": "gelled means set like a jelly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUD",
-      "GELLED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What is chewed",
+       "gives": "CUD",
+       "note": "cud is what cattle chew"
+      },
+      {
+       "words": "set",
+       "gives": "GELLED",
+       "note": "gelled means set like a jelly"
+      }
      ]
     },
     "explanation": {
@@ -974,38 +868,25 @@
    },
    "solution": "MELBA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MELBA",
     "definitions": [
      {
       "text": "Dame",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "took",
-      "for": "anagram",
-      "note": "the name was taken over and remade, as a performer takes a stage name"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the first of 25's 12",
-      "gives": "MABEL",
-      "note": "the general's eldest daughter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MABEL",
-       "gives": "MELBA"
+       "text": "took",
+       "note": "the name was taken over and remade, as a performer takes a stage name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the first of 25's 12",
+       "gives": "MABEL",
+       "note": "the general's eldest daughter"
       }
      ]
     },
@@ -1036,54 +917,40 @@
    },
    "solution": "MELODRAMA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MELODRAMA",
     "definitions": [
      {
       "text": "Sensational affair",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "characters",
-      "for": "anagram",
-      "note": "only the characters of the word are used, free to be rearranged"
-     },
-     {
-      "text": "among",
-      "for": "container",
-      "note": "among means the jumbled letters go in the middle of the mothers"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "older",
-      "gives": "OLDER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mothers",
-      "gives": "MAMA",
-      "note": "two mothers, MA and MA"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ELODR",
-      "AMA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OLDER",
-       "gives": "ELODR"
+       "text": "among",
+       "note": "among means the jumbled letters go in the middle of the mothers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mothers",
+       "gives": "MAMA",
+       "note": "two mothers, MA and MA"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "characters",
+         "note": "only the characters of the word are used, free to be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "older",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1113,28 +980,16 @@
    },
    "solution": "PLAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLAIN",
     "definitions": [
      {
       "text": "It's obvious",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: clear to see"
      },
      {
       "text": "what *the maid of all work proved to be",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It's obvious",
-      "note": "first meaning: clear to see"
-     },
-     {
-      "clueFragment": "what *the maid of all work proved to be",
-      "note": "second meaning: in the opera Frederic finds that Ruth is no beauty"
+      "at": 13,
+      "meaning": "second meaning: in the opera Frederic finds that Ruth is no beauty"
      }
     ],
     "explanation": {
@@ -1162,31 +1017,16 @@
    },
    "solution": "ABSENCE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ABSENCE",
     "definitions": [
      {
       "text": "Characteristic of wandering mind",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: as in ... of mind, daydreaming"
      },
      {
       "text": "warming heart?",
-      "at": 37
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Characteristic of wandering mind",
-      "note": "first meaning: as in ... of mind, daydreaming"
-     },
-     {
-      "clueFragment": "warming heart?",
-      "note": "second meaning: the proverb says it makes the heart grow fonder"
+      "at": 37,
+      "meaning": "second meaning: the proverb says it makes the heart grow fonder"
      }
     ],
     "explanation": {
@@ -1221,31 +1061,16 @@
    },
    "solution": "BATTLEAXE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BATTLE-AXE",
     "definitions": [
      {
       "text": "Old warrior has this",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the weapon an ancient fighter carries in his hand"
      },
      {
       "text": "tough old bird",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "in hand"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old warrior has this",
-      "note": "first meaning: the weapon an ancient fighter carries in his hand"
-     },
-     {
-      "clueFragment": "tough old bird",
-      "note": "second meaning: a fierce, domineering older woman"
+      "at": 21,
+      "meaning": "second meaning: a fierce, domineering older woman"
      }
     ],
     "explanation": {
@@ -1274,38 +1099,29 @@
    },
    "solution": "BARBARA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BARBARA",
     "definitions": [
      {
       "text": "girl",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Don't allow",
-      "gives": "BAR",
-      "note": "to bar is to forbid"
-     },
-     {
-      "clueFragment": "lawyers",
-      "gives": "BAR",
-      "note": "the Bar is the body of barristers"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "BAR",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Don't allow",
+       "gives": "BAR",
+       "note": "to bar is to forbid"
+      },
+      {
+       "words": "lawyers",
+       "gives": "BAR",
+       "note": "the Bar is the body of barristers"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1333,41 +1149,30 @@
    },
    "solution": "THYRSUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THYRSUS",
     "definitions": [
      {
       "text": "held by Greek god",
       "at": 26
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Solver's",
-      "gives": "THY",
-      "note": "the solver is 'you', and thy is the old word for your"
-     },
-     {
-      "clueFragment": "rights",
-      "gives": "RS",
-      "note": "R for right, twice over"
-     },
-     {
-      "clueFragment": "states",
-      "gives": "US",
-      "note": "the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THY",
-      "RS",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Solver's",
+       "gives": "THY",
+       "note": "the solver is 'you', and thy is the old word for your"
+      },
+      {
+       "words": "rights",
+       "gives": "RS",
+       "note": "R for right, twice over"
+      },
+      {
+       "words": "states",
+       "gives": "US",
+       "note": "the United States"
+      }
      ]
     },
     "explanation": {
@@ -1395,49 +1200,55 @@
    },
    "solution": "ACAUDAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ACAUDAL",
     "definitions": [
      {
       "text": "not tailed",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "topped",
-      "for": "deletion",
-      "note": "topped means the head is cut off, as when topping and tailing beans"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "AC",
-      "note": "AC is short for account, a bill"
-     },
-     {
-      "clueFragment": "Maud",
-      "gives": "MAUD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pal",
-      "gives": "PAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "AUD",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topped",
+         "note": "topped means the head is cut off, as when topping and tailing beans"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bill",
+           "gives": "AC",
+           "note": "AC is short for account, a bill"
+          },
+          {
+           "words": "Maud",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "pal",
+         "note": "taken as written"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1466,26 +1277,25 @@
    },
    "solution": "RASPBERRY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RASPBERRY",
     "definitions": [
      {
       "text": "Blown fruit",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Blown fruit",
-      "note": "surface reading: fruit that is overripe or puffed up"
-     },
-     {
-      "clueFragment": "Blown fruit",
-      "note": "setter's reading: the rude noise made by blowing through pursed lips is named after a berry"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Blown fruit",
+       "note": "surface reading: fruit that is overripe or puffed up"
+      },
+      {
+       "words": "Blown fruit",
+       "note": "setter's reading: the rude noise made by blowing through pursed lips is named after a berry"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Blowing a raspberry is the rude tongue noise, from rhyming slang raspberry tart.",
      "definitionFit": "The berry gives its name to the derisive spluttering noise, which is always described as blown."
@@ -1512,38 +1322,25 @@
    },
    "solution": "BLAME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLAME",
     "definitions": [
      {
       "text": "the rap",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "take",
-      "for": "anagram",
-      "note": "the name is taken and reworked into a different order"
-     }
-    ],
-    "linkWords": [
-     "may"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The first of 25's 12",
-      "gives": "MABEL",
-      "note": "the general's eldest daughter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MABEL",
-       "gives": "BLAME"
+       "text": "take",
+       "note": "the name is taken and reworked into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The first of 25's 12",
+       "gives": "MABEL",
+       "note": "the general's eldest daughter"
       }
      ]
     },
@@ -1573,33 +1370,28 @@
    },
    "solution": "DWARF",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DWARF",
     "definitions": [
      {
       "text": "little character",
       "at": 8
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in tells us the answer lies inside the run of words that follows"
-     }
-    ],
-    "linkWords": [
-     "There's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old warfare",
-      "gives": "DWARF",
-      "note": "the letters run across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells us the answer lies inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old warfare",
+       "gives": "DWARF",
+       "note": "the letters run across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Ancient battles had no room for personality.",
      "walkthrough": "'little character' reads as a lack of personality; it is a small person in a story.",
@@ -1627,41 +1419,29 @@
    },
    "solution": "TANTARA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TANTARA",
     "definitions": [
      {
       "text": "flourish",
       "at": 17
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beat",
-      "gives": "TAN",
-      "note": "to tan someone's hide is to beat them"
-     },
-     {
-      "clueFragment": "Jack",
-      "gives": "TAR",
-      "note": "jack and tar are both words for a sailor"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAN",
-      "TAR",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beat",
+       "gives": "TAN",
+       "note": "to tan someone's hide is to beat them"
+      },
+      {
+       "words": "Jack",
+       "gives": "TAR",
+       "note": "jack and tar are both words for a sailor"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1690,40 +1470,39 @@
    },
    "solution": "SPANDAU",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SPANDAU",
     "definitions": [
      {
       "text": "in Berlin",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "the opening of",
-      "for": "deletion",
-      "note": "only the opening is kept; the rest of the word is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extend across",
-      "gives": "SPAN",
-      "note": "to span is to stretch across"
-     },
-     {
-      "clueFragment": "12",
-      "gives": "DAUGHTERS",
-      "note": "the answer at 12 across"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPAN",
-      "DAU"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "the opening of",
+       "note": "only the opening is kept; the rest of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Extend across",
+         "gives": "SPAN",
+         "note": "to span is to stretch across"
+        },
+        {
+         "words": "12",
+         "gives": "DAUGHTERS",
+         "note": "the answer at 12 across"
+        }
+       ]
+      },
+      {
+       "gives": "GHTERS"
+      }
      ]
     },
     "explanation": {
@@ -1752,32 +1531,25 @@
    },
    "solution": "GENERALSTANLEY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GENERALSTANLEY",
     "definitions": [
      {
       "text": "Major",
       "at": 1
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "public",
-      "gives": "GENERAL",
-      "note": "general means common to everyone, public"
-     },
-     {
-      "clueFragment": "port that's capital",
-      "gives": "STANLEY",
-      "note": "Stanley, the harbour capital of the Falkland Islands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GENERAL",
-      "STANLEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "public",
+       "gives": "GENERAL",
+       "note": "general means common to everyone, public"
+      },
+      {
+       "words": "port that's capital",
+       "gives": "STANLEY",
+       "note": "Stanley, the harbour capital of the Falkland Islands"
+      }
      ]
     },
     "explanation": {

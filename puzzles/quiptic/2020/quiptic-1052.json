@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1052",
  "number": 1052,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,052",
  "setter": "Anto",
  "date": "2020-01-13",
  "dimensions": {
@@ -38,59 +36,61 @@
    },
    "solution": "COMMERCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "COMMERCE",
     "definitions": [
      {
       "text": "Business",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter, so only the front of market is wanted"
-     },
-     {
-      "text": "entered in",
-      "for": "container",
-      "note": "what has entered something now sits inside it, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "force",
-      "gives": "CO",
-      "note": "first part of COERCE, to force"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "M",
-      "note": "M is the physics symbol for mass"
-     },
-     {
-      "clueFragment": "market",
-      "gives": "M",
-      "select": "first",
-      "note": "the opening letter of market"
-     },
-     {
-      "clueFragment": "force",
-      "gives": "ERCE",
-      "note": "rest of COERCE, to force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "M",
-      "M",
-      "ERCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entered in",
+         "note": "what has entered something now sits inside it, so one piece goes within the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "force",
+           "gives": "CO",
+           "note": "first part of COERCE, to force"
+          },
+          {
+           "words": "mass",
+           "gives": "M",
+           "note": "M is the physics symbol for mass"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leaders",
+           "note": "the leader of a word is its opening letter, so only the front of market is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "market",
+           "note": "the opening letter of market"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "force",
+       "gives": "ERCE",
+       "note": "rest of COERCE, to force"
+      }
      ]
     },
     "explanation": {
@@ -119,34 +119,29 @@
    },
    "solution": "OVA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "OVA",
     "definitions": [
      {
       "text": "Eggs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "declared",
-      "for": "homophone",
-      "note": "something declared is spoken out, so we want a word that is said like the next one"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "done",
-      "gives": "OVA",
-      "soundsLike": "OVER",
-      "note": "done means finished, which is over; in a non-rhotic accent it is said like the plural of ovum"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "OVA",
+     "indicators": [
+      {
+       "text": "declared",
+       "note": "something declared is spoken out, so we want a word that is said like the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "done",
+       "gives": "OVER",
+       "note": "done means finished, which is over; in a non-rhotic accent it is said like the plural of ovum"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone announces that the eggs on the stove are cooked.",
      "definitionFit": "Ova is the plural of ovum, the biological term for a female reproductive cell or egg."
@@ -173,40 +168,31 @@
    },
    "solution": "MAGIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAGIC",
     "definitions": [
      {
       "text": "Brilliant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hacked into",
-      "for": "container",
-      "note": "a hacker gets inside a system, so the soldier breaks into the middle of the computer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "computer",
-      "gives": "MAC",
-      "note": "a Mac is an Apple computer"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "GI",
-      "note": "GI is an American soldier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "GI",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hacked into",
+       "note": "a hacker gets inside a system, so the soldier breaks into the middle of the computer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "computer",
+       "gives": "MAC",
+       "note": "a Mac is an Apple computer"
+      },
+      {
+       "words": "soldier",
+       "gives": "GI",
+       "note": "GI is an American soldier"
+      }
      ]
     },
     "explanation": {
@@ -244,58 +230,48 @@
    },
    "solution": "RINGSABELL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "RINGS A BELL",
     "definitions": [
      {
       "text": "sounds familiar",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "played",
-      "for": "anagram",
-      "note": "music that is played is performed in a new way, so these letters are rearranged"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening of the word lute, so only its first letter counts"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Single",
-      "gives": "SINGLE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bar",
-      "gives": "BAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lute",
-      "gives": "L",
-      "select": "first",
-      "note": "the first letter of lute"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RINGSABELL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SINGLEBARL",
-       "gives": "RINGSABELL"
+       "text": "played",
+       "note": "music that is played is performed in a new way, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Single",
+         "note": "taken as written"
+        },
+        {
+         "words": "bar",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening of the word lute, so only its first letter counts"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lute",
+           "note": "the first letter of lute"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -324,35 +300,25 @@
    },
    "solution": "ESCROW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESCROW",
     "definitions": [
      {
       "text": "legal contract",
       "at": 12
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Key",
-      "gives": "ESC",
-      "note": "Esc is the escape key on a computer keyboard"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "ROW",
-      "note": "a row is a line of things"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESC",
-      "ROW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Key",
+       "gives": "ESC",
+       "note": "Esc is the escape key on a computer keyboard"
+      },
+      {
+       "words": "line",
+       "gives": "ROW",
+       "note": "a row is a line of things"
+      }
      ]
     },
     "explanation": {
@@ -381,50 +347,53 @@
    },
    "solution": "SITCOM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SITCOM",
     "definitions": [
      {
       "text": "Friends perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across answer one piece written on another is placed after it"
-     },
-     {
-      "text": "having absolutely no",
-      "for": "deletion",
-      "note": "absolutely none means every instance is stripped out of both words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "site",
-      "gives": "SITE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "come",
-      "gives": "COME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIT",
-      "COM"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having absolutely no",
+       "note": "absolutely none means every instance is stripped out of both words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "on",
+           "note": "in an across answer one piece written on another is placed after it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "site",
+           "note": "taken as written"
+          },
+          {
+           "words": "come",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -454,44 +423,39 @@
    },
    "solution": "SKIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SKIN",
     "definitions": [
      {
       "text": "film",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "raise",
-      "for": "container",
-      "note": "in a down answer, raising a letter lifts it higher up the column, into an earlier spot within the word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decline",
-      "gives": "SINK",
-      "note": "to sink is to decline or go down"
-     },
-     {
-      "clueFragment": "grand",
-      "gives": "K",
-      "note": "K, for thousand, is slang for a grand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "K",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "raise",
+       "note": "in a down answer, raising a letter lifts it higher up the column, into an earlier spot within the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Decline",
+         "gives": "SINK",
+         "note": "to sink is to decline or go down"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "grand",
+       "gives": "K",
+       "note": "K, for thousand, is slang for a grand"
+      }
      ]
     },
     "explanation": {
@@ -527,54 +491,51 @@
    },
    "solution": "TIDALWAVE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "TIDAL WAVE",
     "definitions": [
      {
       "text": "it could swamp her",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "engaged in",
-      "for": "container",
-      "note": "someone engaged in an activity is inside it, so this letter goes among the others"
-     },
-     {
-      "text": "streaming",
-      "for": "anagram",
-      "note": "streaming suggests flowing about freely, so the letters are mixed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "LIVE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Woman",
-      "gives": "W",
-      "note": "W is an abbreviation for woman"
-     },
-     {
-      "clueFragment": "data",
-      "gives": "DATA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIDALWAVE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "TIDALWAVE",
+     "indicators": [
       {
-       "fodder": "LIVEWDATA",
-       "gives": "TIDALWAVE"
+       "text": "engaged in",
+       "note": "someone engaged in an activity is inside it, so this letter goes among the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "streaming",
+         "note": "streaming suggests flowing about freely, so the letters are mixed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "live",
+           "note": "taken as written"
+          },
+          {
+           "words": "Woman",
+           "gives": "W",
+           "note": "W is an abbreviation for woman"
+          },
+          {
+           "words": "data",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -603,48 +564,35 @@
    },
    "solution": "OPERATIONAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPERATIONAL",
     "definitions": [
      {
       "text": "Working",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "base for",
-      "for": "charade",
-      "note": "in a down answer the base sits at the bottom, so these letters come underneath the other piece"
-     }
-    ],
-    "linkWords": [
-     "to create"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "theatre event",
-      "gives": "OPERATION",
-      "note": "an operating theatre is where surgery, an operation, takes place"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPERATION",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "base for",
+       "note": "in a down answer the base sits at the bottom, so these letters come underneath the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theatre event",
+       "gives": "OPERATION",
+       "note": "an operating theatre is where surgery, an operation, takes place"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the abbreviation for large"
+      }
      ]
     },
     "explanation": {
@@ -680,32 +628,16 @@
    },
    "solution": "BANGON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BANG ON",
     "definitions": [
      {
       "text": "right",
-      "at": 5
+      "at": 5,
+      "meaning": "first meaning: exactly correct, a British informal phrase"
      },
      {
       "text": "discuss at tedious length",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "note": "first meaning: exactly correct, a British informal phrase"
-     },
-     {
-      "clueFragment": "discuss at tedious length",
-      "note": "second meaning: to keep talking about something boringly"
+      "at": 14,
+      "meaning": "second meaning: to keep talking about something boringly"
      }
     ],
     "explanation": {
@@ -733,28 +665,16 @@
    },
    "solution": "CHILDREN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHILDREN",
     "definitions": [
      {
       "text": "issue",
-      "at": 2
+      "at": 2,
+      "meaning": "first meaning: offspring, as in died without issue"
      },
      {
       "text": "some would prefer to observe in silence",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "issue",
-      "note": "first meaning: offspring, as in died without issue"
-     },
-     {
-      "clueFragment": "some would prefer to observe in silence",
-      "note": "second meaning: a cryptic nod to the old saying that the young should be seen and not heard"
+      "at": 8,
+      "meaning": "second meaning: a cryptic nod to the old saying that the young should be seen and not heard"
      }
     ],
     "explanation": {
@@ -784,35 +704,24 @@
    },
    "solution": "SUCCESSOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SUCCESSOR",
     "definitions": [
      {
       "text": "One following",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "development",
-      "for": "anagram",
-      "note": "development changes something into a new form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US soccer's",
-      "gives": "USSOCCERS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "USSOCCERS",
-       "gives": "SUCCESSOR"
+       "text": "development",
+       "note": "development changes something into a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US soccer's",
+       "note": "taken as written"
       }
      ]
     },
@@ -848,35 +757,24 @@
    },
    "solution": "URBANLEGEND",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "URBAN LEGEND",
     "definitions": [
      {
       "text": "It's just not true",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Rogue",
-      "for": "anagram",
-      "note": "a rogue behaves wildly and out of line, so the letters are thrown into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "angel burned",
-      "gives": "ANGELBURNED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANGELBURNED",
-       "gives": "URBANLEGEND"
+       "text": "Rogue",
+       "note": "a rogue behaves wildly and out of line, so the letters are thrown into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "angel burned",
+       "note": "taken as written"
       }
      ]
     },
@@ -905,40 +803,31 @@
    },
    "solution": "BLEAK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLEAK",
     "definitions": [
      {
       "text": "Severe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imprisons",
-      "for": "container",
-      "note": "a prisoner is held inside, so one piece is shut within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "judge",
-      "gives": "BEAK",
-      "note": "beak is British slang for a magistrate or judge"
-     },
-     {
-      "clueFragment": "learner",
-      "gives": "L",
-      "note": "L is for learner, as on British learner-driver plates"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "EAK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imprisons",
+       "note": "a prisoner is held inside, so one piece is shut within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "judge",
+       "gives": "BEAK",
+       "note": "beak is British slang for a magistrate or judge"
+      },
+      {
+       "words": "learner",
+       "gives": "L",
+       "note": "L is for learner, as on British learner-driver plates"
+      }
      ]
     },
     "explanation": {
@@ -972,28 +861,16 @@
    },
    "solution": "PASSEDOVER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PASSED OVER",
     "definitions": [
      {
       "text": "Died",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a euphemism for having passed away"
      },
      {
       "text": "ignored",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Died",
-      "note": "first meaning: a euphemism for having passed away"
-     },
-     {
-      "clueFragment": "ignored",
-      "note": "second meaning: not chosen, as when overlooked for promotion"
+      "at": 5,
+      "meaning": "second meaning: not chosen, as when overlooked for promotion"
      }
     ],
     "explanation": {
@@ -1021,48 +898,43 @@
    },
    "solution": "BLOBBY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLOBBY",
     "definitions": [
      {
       "text": "having spots",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "got arrested by",
-      "for": "container",
-      "note": "someone arrested is held by the police officer, so one piece is gripped inside the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "constable",
-      "gives": "B",
-      "note": "first letter of BOBBY, a British police constable"
-     },
-     {
-      "clueFragment": "who",
-      "gives": "L",
-      "note": "who refers back through the ellipsis to the learner in the previous clue, which is L"
-     },
-     {
-      "clueFragment": "constable",
-      "gives": "OBBY",
-      "note": "rest of BOBBY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "OBBY"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BLOBBY",
+     "indicators": [
+      {
+       "text": "got arrested by",
+       "note": "someone arrested is held by the police officer, so one piece is gripped inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "constable",
+         "gives": "B",
+         "note": "first letter of BOBBY, a British police constable"
+        },
+        {
+         "words": "who",
+         "gives": "L",
+         "note": "who refers back through the ellipsis to the learner in the previous clue, which is L"
+        },
+        {
+         "words": "constable",
+         "gives": "OBBY",
+         "note": "rest of BOBBY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1102,28 +974,16 @@
    },
    "solution": "ONTHELEFT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON THE LEFT",
     "definitions": [
      {
       "text": "Socialist",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: politically left-wing"
      },
      {
       "text": "driving side in the UK",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Socialist",
-      "note": "first meaning: politically left-wing"
-     },
-     {
-      "clueFragment": "driving side in the UK",
-      "note": "second meaning: British traffic keeps to that side of the road"
+      "at": 10,
+      "meaning": "second meaning: British traffic keeps to that side of the road"
      }
     ],
     "explanation": {
@@ -1152,35 +1012,25 @@
    },
    "solution": "TATAMI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TATAMI",
     "definitions": [
      {
       "text": "floor in Japan",
       "at": 22
      }
     ],
-    "linkWords": [
-     "found on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Goodbye",
-      "gives": "TATA",
-      "note": "ta-ta is an informal British way of saying farewell"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "MI",
-      "note": "mi is the third note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TATA",
-      "MI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Goodbye",
+       "gives": "TATA",
+       "note": "ta-ta is an informal British way of saying farewell"
+      },
+      {
+       "words": "note",
+       "gives": "MI",
+       "note": "mi is the third note of the sol-fa scale"
+      }
      ]
     },
     "explanation": {
@@ -1208,43 +1058,33 @@
    },
    "solution": "NETTLE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "NETTLE",
     "definitions": [
      {
       "text": "plant",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "substitution",
-      "note": "a leader stands at the front, so the opening letter of the word is the one replaced"
-     }
-    ],
-    "linkWords": [
-     "to have",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decide",
-      "gives": "SETTLE",
-      "note": "to settle a matter is to decide it"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ETTLE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "NETTLE",
+     "indicators": [
+      {
+       "text": "leader",
+       "note": "a leader stands at the front, so the opening letter of the word is the one replaced"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Decide",
+       "gives": "SETTLE",
+       "note": "to settle a matter is to decide it"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      }
      ]
     },
     "explanation": {
@@ -1274,52 +1114,48 @@
    },
    "solution": "ASTERN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ASTERN",
     "definitions": [
      {
       "text": "behind",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "extremists",
-      "for": "letter_selection",
-      "note": "extremes are the ends of a word, so only the first and last letters of each are kept"
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "create"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "atrocities",
-      "gives": "AS",
-      "select": "outer",
-      "note": "the two ends of atrocities"
-     },
-     {
-      "clueFragment": "these",
-      "gives": "TE",
-      "select": "outer",
-      "note": "the two ends of these"
-     },
-     {
-      "clueFragment": "Russian",
-      "gives": "RN",
-      "select": "outer",
-      "note": "the two ends of Russian"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "TE",
-      "RN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremists",
+         "note": "extremes are the ends of a word, so only the first and last letters of each are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "atrocities",
+         "note": "the two ends of atrocities"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "these",
+         "note": "the two ends of these"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "Russian",
+         "note": "the two ends of Russian"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1347,35 +1183,25 @@
    },
    "solution": "UPKEEP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPKEEP",
     "definitions": [
      {
       "text": "Service",
       "at": 0
      }
     ],
-    "linkWords": [
-     "provided by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leading",
-      "gives": "UP",
-      "note": "a side that is up is ahead or leading"
-     },
-     {
-      "clueFragment": "store",
-      "gives": "KEEP",
-      "note": "to keep something is to store it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "KEEP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "leading",
+       "gives": "UP",
+       "note": "a side that is up is ahead or leading"
+      },
+      {
+       "words": "store",
+       "gives": "KEEP",
+       "note": "to keep something is to store it"
+      }
      ]
     },
     "explanation": {
@@ -1403,33 +1229,28 @@
    },
    "solution": "LEPER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEPER",
     "definitions": [
      {
       "text": "Social outcast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "hidden_word",
-      "note": "a bit of something is a fragment of it, so the letters lie within the words that follow"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "people person",
-      "gives": "LEPER",
-      "note": "found across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a bit of",
+       "note": "a bit of something is a fragment of it, so the letters lie within the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "people person",
+       "gives": "LEPER",
+       "note": "found across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An irony: the shunned loner turns out to be rather sociable.",
      "definitionFit": "A leper is figuratively a person shunned and avoided by others, from the historic exclusion of those with leprosy."
@@ -1456,10 +1277,6 @@
    },
    "solution": "SPADEFULS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPADEFULS",
     "definitions": [
      {
       "text": "a lot",
@@ -1467,25 +1284,18 @@
       "note": "a lot is a singular phrase, the answer a plural noun meaning large amounts"
      }
     ],
-    "indicators": [
-     {
-      "text": "Manoeuvring",
-      "for": "anagram",
-      "note": "manoeuvring moves things about into new positions, so the letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flaps used",
-      "gives": "FLAPSUSED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FLAPSUSED",
-       "gives": "SPADEFULS"
+       "text": "Manoeuvring",
+       "note": "manoeuvring moves things about into new positions, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flaps used",
+       "note": "taken as written"
       }
      ]
     },
@@ -1514,48 +1324,48 @@
    },
    "solution": "FEWER",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FEWER",
     "definitions": [
      {
       "text": "Reduced numbers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centres",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle, so only those core letters are taken from each"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "affect",
-      "gives": "FE",
-      "select": "middle",
-      "note": "the middle two letters of affect"
-     },
-     {
-      "clueFragment": "town's",
-      "gives": "W",
-      "select": "middle",
-      "note": "the middle letter of towns"
-     },
-     {
-      "clueFragment": "referral",
-      "gives": "ER",
-      "select": "middle",
-      "note": "the middle two letters of referral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FE",
-      "W",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centres",
+         "note": "the centre of a word is its middle, so only those core letters are taken from each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "affect",
+         "note": "the middle two letters of affect"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "town's",
+         "note": "the middle letter of towns"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "referral",
+         "note": "the middle two letters of referral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1583,35 +1393,25 @@
    },
    "solution": "PAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAIR",
     "definitions": [
      {
       "text": "Match",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the symbol for power in physics"
-     },
-     {
-      "clueFragment": "attitude",
-      "gives": "AIR",
-      "note": "an air is a manner or attitude, as in an air of confidence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P is the symbol for power in physics"
+      },
+      {
+       "words": "attitude",
+       "gives": "AIR",
+       "note": "an air is a manner or attitude, as in an air of confidence"
+      }
      ]
     },
     "explanation": {
@@ -1639,45 +1439,41 @@
    },
    "solution": "LEVERAGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LEVERAGE",
     "definitions": [
      {
       "text": "Influence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to abandon",
-      "for": "deletion",
-      "note": "to abandon something is to leave it behind, so that letter drops out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "holiday",
-      "gives": "LEAVE",
-      "note": "leave is time off work"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is an abbreviation for American"
-     },
-     {
-      "clueFragment": "passion",
-      "gives": "RAGE",
-      "note": "rage is a fierce passion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEVE",
-      "RAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to abandon",
+         "note": "to abandon something is to leave it behind, so that letter drops out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "holiday",
+         "gives": "LEAVE",
+         "note": "leave is time off work"
+        },
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A is an abbreviation for American"
+        }
+       ]
+      },
+      {
+       "words": "passion",
+       "gives": "RAGE",
+       "note": "rage is a fierce passion"
+      }
      ]
     },
     "explanation": {
@@ -1705,26 +1501,25 @@
    },
    "solution": "VOWELS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "VOWELS",
     "definitions": [
      {
       "text": "Regularly gave wino rum for them",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Regularly gave wino rum",
-      "note": "surface reading: someone kept supplying a drunk with spirits"
-     },
-     {
-      "clueFragment": "for them",
-      "note": "setter's reading: every other letter of gave wino rum spells out the five letters a, e, i, o and u"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Regularly gave wino rum",
+       "note": "surface reading: someone kept supplying a drunk with spirits"
+      },
+      {
+       "words": "for them",
+       "note": "setter's reading: every other letter of gave wino rum spells out the five letters a, e, i, o and u"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone habitually handed a drunk a bottle of rum.",
      "walkthrough": "Taking alternate letters from gave wino rum gives A E I O U, so 'them' are those letters.",
@@ -1752,30 +1547,28 @@
    },
    "solution": "LEI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEI",
     "definitions": [
      {
       "text": "Floral tribute",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carried by",
-      "for": "hidden_word",
-      "note": "something carried is held within, so the letters sit inside the name that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Raleigh",
-      "gives": "LEI",
-      "note": "found in the middle of the name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "carried by",
+       "note": "something carried is held within, so the letters sit inside the name that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Raleigh",
+       "gives": "LEI",
+       "note": "found in the middle of the name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Sir Walter Raleigh bears a wreath of flowers.",
      "definitionFit": "A lei is a Hawaiian garland of flowers placed around the neck as a welcome or honour."
@@ -1801,36 +1594,39 @@
    },
    "solution": "EDITOR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "EDITOR",
     "definitions": [
      {
       "text": "Journalist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "hidden_word",
-      "note": "inside tells us the letters lie within the run of words given"
-     },
-     {
-      "text": "going back",
-      "for": "reversal",
-      "note": "going back means reading from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poirot identified",
-      "gives": "ROTIDE",
-      "note": "found across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going back",
+       "note": "going back means reading from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "inside tells us the letters lie within the run of words given"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Poirot identified",
+         "gives": "ROTIDE",
+         "note": "found across the two words"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A reporter is named by the detective Poirot as returning to the house.",
      "definitionFit": "An editor works in the press, preparing and overseeing written content, so they are a newspaper professional."
@@ -1856,58 +1652,53 @@
    },
    "solution": "PORTRAIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PORTRAIT",
     "definitions": [
      {
       "text": "Image",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so each of the next words gives its opening letter"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "printed",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of printed"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of on"
-     },
-     {
-      "clueFragment": "rag",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of rag"
-     },
-     {
-      "clueFragment": "quality",
-      "gives": "TRAIT",
-      "note": "a trait is a characteristic or quality"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "O",
-      "R",
-      "TRAIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all, so each of the next words gives its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "printed",
+         "note": "first letter of printed"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "on",
+         "note": "first letter of on"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "rag",
+         "note": "first letter of rag"
+        }
+       ]
+      },
+      {
+       "words": "quality",
+       "gives": "TRAIT",
+       "note": "a trait is a characteristic or quality"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18066",
  "number": 18066,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,066",
  "setter": "Io",
  "date": "2025-05-28",
  "dimensions": {
@@ -48,39 +46,28 @@
    },
    "solution": "DIVORCEPAPERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "DIVORCE PAPERS",
     "definitions": [
      {
       "text": "Proper advices on breaking up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking up",
-      "for": "anagram",
-      "note": "something breaking up falls to pieces, so the letters before it are scattered and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Proper advices",
-      "gives": "PROPERADVICES",
-      "note": "the thirteen letters of the two words, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PROPERADVICES",
-       "gives": "DIVORCEPAPERS"
+       "text": "breaking up",
+       "note": "something breaking up falls to pieces, so the letters before it are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Proper advices",
+       "note": "the thirteen letters of the two words, taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A columnist offering sound counsel to couples who are splitting.",
      "walkthrough": "The whole clue does double duty: the two opening words rearrange to DIVORCE PAPERS, and the clue read straight describes them.",
@@ -107,31 +94,29 @@
    },
    "solution": "IDA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "IDA",
     "definitions": [
      {
       "text": "Female",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "makes such a noise",
-      "for": "homophone",
-      "note": "the noise a word makes is its sound, so the bird's name is taken as spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "duck",
-      "gives": "IDA",
-      "soundsLike": "EIDER",
-      "note": "the eider is a sea duck; in a non-rhotic accent its name is said like the girl's name"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "IDA",
+     "indicators": [
+      {
+       "text": "makes such a noise",
+       "note": "the noise a word makes is its sound, so the bird's name is taken as spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "duck",
+       "gives": "EIDER",
+       "note": "the eider is a sea duck; in a non-rhotic accent its name is said like the girl's name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joke about a hen duck quacking loudly.",
      "walkthrough": "The eider, a large sea duck, is pronounced EYE-duh in British speech, with no final R sound.",
@@ -159,61 +144,67 @@
    },
    "solution": "OLO",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "OLO",
     "definitions": [
      {
       "text": "Invisible to us, this new blue-green",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no",
-      "for": "deletion",
-      "note": "no says the following piece is not wanted and must come out of the word"
-     },
-     {
-      "text": "nor",
-      "for": "deletion",
-      "note": "nor continues the refusal, so a second piece must also come out"
-     },
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letter only of the word it follows"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points to the final letter only of the word after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": ":",
-      "gives": "COLON",
-      "note": "the punctuation mark in the clue itself is named as a word"
-     },
-     {
-      "clueFragment": "chrome",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter, which is removed"
-     },
-     {
-      "clueFragment": "seen",
-      "gives": "N",
-      "select": "last",
-      "note": "the closing letter, which is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "note": "no says the following piece is not wanted and must come out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nor",
+         "note": "nor continues the refusal, so a second piece must also come out"
+        }
+       ],
+       "parts": [
+        {
+         "words": ":",
+         "gives": "COLON",
+         "note": "the punctuation mark in the clue itself is named as a word"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "note": "at first points to the opening letter only of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chrome",
+           "note": "the opening letter, which is removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately points to the final letter only of the word after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seen",
+         "note": "the closing letter, which is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -242,65 +233,59 @@
    },
    "solution": "CALIPHATE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "CALIPHATE",
     "definitions": [
      {
       "text": "spiritual office",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "struggles",
-      "for": "anagram",
-      "note": "struggles suggests writhing about, so the letters of the preceding word are thrown into a new order"
-     },
-     {
-      "text": "consuming",
-      "for": "container",
-      "note": "consuming means eating up, so the rearranged letters swallow the next piece"
-     }
-    ],
-    "linkWords": [
-     ":"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About",
-      "gives": "CA",
-      "note": "circa, abbreviated, means about"
-     },
-     {
-      "clueFragment": "face",
-      "gives": "LIP",
-      "note": "face as in cheek or insolence"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written, swallowed by the rearranged letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "LIP",
-      "HATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THE",
-       "gives": "HTE"
+       "words": "About",
+       "gives": "CA",
+       "note": "circa, abbreviated, means about"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "consuming",
+         "note": "consuming means eating up, so the rearranged letters swallow the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "struggles",
+           "note": "struggles suggests writhing about, so the letters of the preceding word are thrown into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "face",
+             "gives": "LIP",
+             "note": "face as in cheek or insolence"
+            },
+            {
+             "words": "the",
+             "note": "taken as written, then rearranged"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "note": "taken as written, swallowed by the rearranged letters"
+        }
+       ]
       }
      ]
     },
@@ -336,40 +321,31 @@
    },
    "solution": "PAYUP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PAY UP",
     "definitions": [
      {
       "text": "satisfy vendor",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "To secure",
-      "for": "container",
-      "note": "to secure something is to hold it fast, so the pair of letters grips the fish between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two pennies",
-      "gives": "PP",
-      "note": "P is the abbreviation for a penny, twice"
-     },
-     {
-      "clueFragment": "sweetfish",
-      "gives": "AYU",
-      "note": "the ayu is a small East Asian fish also called sweetfish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AYU",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "To secure",
+       "note": "to secure something is to hold it fast, so the pair of letters grips the fish between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two pennies",
+       "gives": "PP",
+       "note": "P is the abbreviation for a penny, twice"
+      },
+      {
+       "words": "sweetfish",
+       "gives": "AYU",
+       "note": "the ayu is a small East Asian fish also called sweetfish"
+      }
      ]
     },
     "explanation": {
@@ -404,48 +380,36 @@
    },
    "solution": "PARKINGFINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARKING FINE",
     "definitions": [
      {
       "text": "penalty",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Before",
-      "for": "charade",
-      "note": "before places the last-named item ahead of the pieces named first, setting the running order"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "even score",
-      "gives": "PAR",
-      "note": "par is level or an even score, as in golf"
-     },
-     {
-      "clueFragment": "set piece",
-      "gives": "KING",
-      "note": "a piece in a chess set"
-     },
-     {
-      "clueFragment": "Sterling",
-      "gives": "FINE",
-      "note": "sterling means of fine quality"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "KING",
-      "FINE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "note": "before places the last-named item ahead of the pieces named first, setting the running order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "even score",
+       "gives": "PAR",
+       "note": "par is level or an even score, as in golf"
+      },
+      {
+       "words": "set piece",
+       "gives": "KING",
+       "note": "a piece in a chess set"
+      },
+      {
+       "words": "Sterling",
+       "gives": "FINE",
+       "note": "sterling means of fine quality"
+      }
      ]
     },
     "explanation": {
@@ -480,56 +444,50 @@
    },
    "solution": "RIPPEDAPART",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "reversal"
-    ],
-    "answer": "RIPPED APART",
     "definitions": [
      {
       "text": "torn to pieces",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "almost in mid",
-      "for": "container",
-      "note": "a three-letter word has no exact centre, so the actor goes in nearly at its midpoint"
-     },
-     {
-      "text": "after launch",
-      "for": "reversal",
-      "note": "a launched rocket rises, and in a down clue rising means reading from the bottom up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Catch",
-      "gives": "TRAP",
-      "note": "to catch is to trap"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "AIR",
-      "note": "taken as written, opened after its first letter"
-     },
-     {
-      "clueFragment": "Johnny",
-      "gives": "DEPP",
-      "note": "the actor Johnny Depp"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIPPEDA",
-      "PART"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TRAPADEPPIR",
-       "to": "RIPPEDAPART"
+       "text": "after launch",
+       "note": "a launched rocket rises, and in a down clue rising means reading from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Catch",
+         "gives": "TRAP",
+         "note": "to catch is to trap"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "almost in mid",
+           "note": "a three-letter word has no exact centre, so the actor goes in nearly at its midpoint"
+          }
+         ],
+         "parts": [
+          {
+           "words": "air",
+           "note": "taken as written, opened after its first letter"
+          },
+          {
+           "words": "Johnny",
+           "gives": "DEPP",
+           "note": "the actor Johnny Depp"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -573,63 +531,54 @@
    },
    "solution": "EPITAPHTOADOG",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EPITAPH TO A DOG",
     "definitions": [
      {
       "text": "Memorial for best friend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wild",
-      "for": "anagram",
-      "note": "wild means out of control, so the letters that follow run riot into a new order"
-     },
-     {
-      "text": "scoffing",
-      "for": "container",
-      "note": "scoffing means wolfing down food, so the rearranged letters swallow what follows"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the contemptible person inside the bowl of food"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pig ate",
-      "gives": "PIGATE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "soup",
-      "gives": "PHO",
-      "note": "pho is a Vietnamese noodle soup"
-     },
-     {
-      "clueFragment": "heel",
-      "gives": "TOAD",
-      "note": "a heel and a toad are both a contemptible person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPITA",
-      "PH",
-      "TOAD",
-      "O",
-      "G"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PIGATE",
-       "gives": "EPITAG"
+       "text": "scoffing",
+       "note": "scoffing means wolfing down food, so the rearranged letters swallow what follows"
+      },
+      {
+       "text": "in",
+       "note": "in places the contemptible person inside the bowl of food"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "note": "wild means out of control, so the letters that follow run riot into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pig ate",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "soup",
+           "gives": "PHO",
+           "note": "pho is a Vietnamese noodle soup"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "heel",
+       "gives": "TOAD",
+       "note": "a heel and a toad are both a contemptible person"
       }
      ]
     },
@@ -673,52 +622,47 @@
    },
    "solution": "STEALAMARCHON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STEAL A MARCH ON",
     "definitions": [
      {
       "text": "Gain an advantage over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep is to hold inside, so the first piece wraps round the rest"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the performer inside the verb for instruction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "child",
-      "gives": "SON",
-      "note": "a son is a child"
-     },
-     {
-      "clueFragment": "school",
-      "gives": "TEACH",
-      "note": "to school someone is to teach them"
-     },
-     {
-      "clueFragment": "rapper",
-      "gives": "LAMAR",
-      "note": "Kendrick Lamar, the American rapper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEA",
-      "LAMAR",
-      "CH",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "note": "to keep is to hold inside, so the first piece wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "child",
+       "gives": "SON",
+       "note": "a son is a child"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the performer inside the verb for instruction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school",
+         "gives": "TEACH",
+         "note": "to school someone is to teach them"
+        },
+        {
+         "words": "rapper",
+         "gives": "LAMAR",
+         "note": "Kendrick Lamar, the American rapper"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -753,52 +697,51 @@
    },
    "solution": "PIANOPLAYER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PIANO PLAYER",
     "definitions": [
      {
       "text": "musician",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "restricts",
-      "for": "container",
-      "note": "to restrict is to hem in, so the first pieces enclose the letter for independent"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rubbish",
-      "gives": "PAN",
-      "note": "to pan a show is to rubbish it"
-     },
-     {
-      "clueFragment": "work in theatre",
-      "gives": "OP",
-      "note": "an op is an operation, work done in an operating theatre"
-     },
-     {
-      "clueFragment": "independent",
-      "gives": "I",
-      "note": "I is the abbreviation for independent"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "LAYER",
-      "note": "a film is a thin layer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "I",
-      "ANOP",
-      "LAYER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restricts",
+         "note": "to restrict is to hem in, so the first pieces enclose the letter for independent"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Rubbish",
+           "gives": "PAN",
+           "note": "to pan a show is to rubbish it"
+          },
+          {
+           "words": "work in theatre",
+           "gives": "OP",
+           "note": "an op is an operation, work done in an operating theatre"
+          }
+         ]
+        },
+        {
+         "words": "independent",
+         "gives": "I",
+         "note": "I is the abbreviation for independent"
+        }
+       ]
+      },
+      {
+       "words": "film",
+       "gives": "LAYER",
+       "note": "a film is a thin layer"
+      }
      ]
     },
     "explanation": {
@@ -827,28 +770,16 @@
    },
    "solution": "PAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PAT",
     "definitions": [
      {
       "text": "Spot on",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: exactly right"
      },
      {
       "text": "some butter",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spot on",
-      "note": "first meaning: exactly right"
-     },
-     {
-      "clueFragment": "some butter",
-      "note": "second meaning: a small portion of butter"
+      "at": 8,
+      "meaning": "second meaning: a small portion of butter"
      }
     ],
     "explanation": {
@@ -877,28 +808,16 @@
    },
    "solution": "TAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAG",
     "definitions": [
      {
       "text": "What identifies",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a label attached to identify something"
      },
      {
       "text": "playground game",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What identifies",
-      "note": "first meaning: a label attached to identify something"
-     },
-     {
-      "clueFragment": "playground game",
-      "note": "second meaning: the chasing game where one child touches another"
+      "at": 16,
+      "meaning": "second meaning: the chasing game where one child touches another"
      }
     ],
     "explanation": {
@@ -932,46 +851,43 @@
    },
    "solution": "GARDENCHAIR",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "GARDEN CHAIR",
     "definitions": [
      {
       "text": "seat out back?",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "inscribed in",
-      "for": "container",
-      "note": "something inscribed in is written inside, so the actress's surname sits within the other pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of school",
-      "gives": "GAR",
-      "note": "a gar is a fish, one member of a school"
-     },
-     {
-      "clueFragment": "Dame Judi",
-      "gives": "DENCH",
-      "note": "the actress Dame Judi Dench"
-     },
-     {
-      "clueFragment": "melody",
-      "gives": "AIR",
-      "note": "an air is a tune"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAR",
-      "DENCH",
-      "AIR"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GARDENCHAIR",
+     "indicators": [
+      {
+       "text": "inscribed in",
+       "note": "something inscribed in is written inside, so the actress's surname sits within the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Part of school",
+         "gives": "GAR",
+         "note": "a gar is a fish, one member of a school"
+        },
+        {
+         "words": "Dame Judi",
+         "gives": "DENCH",
+         "note": "the actress Dame Judi Dench"
+        },
+        {
+         "words": "melody",
+         "gives": "AIR",
+         "note": "an air is a tune"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1010,61 +926,56 @@
    },
    "solution": "POPUPCINEMA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "and_lit"
-    ],
-    "answer": "POP-UP CINEMA",
     "definitions": [
      {
       "text": "One-pic flicks entertaining youngster and mum?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flicks",
-      "for": "anagram",
-      "note": "to flick is to toss with a quick movement, so the letters before it are flung into a new order"
-     },
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "to entertain guests is to have them in, so the rearranged letters hold the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One-pic",
-      "gives": "ONEPIC",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "youngster",
-      "gives": "PUP",
-      "note": "a pup is a young person, informally"
-     },
-     {
-      "clueFragment": "mum",
-      "gives": "MA",
-      "note": "ma is mother"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "PUP",
-      "CINE",
-      "MA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "POPUPCINEMA",
+     "indicators": [
       {
-       "fodder": "ONEPIC",
-       "gives": "POCINE"
+       "text": "entertaining",
+       "note": "to entertain guests is to have them in, so the rearranged letters hold the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flicks",
+         "note": "to flick is to toss with a quick movement, so the letters before it are flung into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One-pic",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "youngster",
+           "gives": "PUP",
+           "note": "a pup is a young person, informally"
+          },
+          {
+           "words": "mum",
+           "gives": "MA",
+           "note": "ma is mother"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A one-film showing laid on for a child and mother.",
      "walkthrough": "'Flicks' looks like a noun for films but works as a verb; read whole, the clue describes a temporary screening that families drop into.",
@@ -1091,39 +1002,31 @@
    },
    "solution": "PROFITEROLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROFITEROLE",
     "definitions": [
      {
       "text": "Sweet",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "supervising",
-      "for": "charade",
-      "note": "supervising means standing over, so in a down answer the first piece sits above the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take",
-      "gives": "PROFIT",
-      "note": "the take is the profit"
-     },
-     {
-      "clueFragment": "function in online business",
-      "gives": "EROLE",
-      "note": "a role, with E- for electronic as in e-commerce"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROFIT",
-      "EROLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supervising",
+       "note": "supervising means standing over, so in a down answer the first piece sits above the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Take",
+       "gives": "PROFIT",
+       "note": "the take is the profit"
+      },
+      {
+       "words": "function in online business",
+       "gives": "EROLE",
+       "note": "a role, with E- for electronic as in e-commerce"
+      }
      ]
     },
     "explanation": {
@@ -1162,59 +1065,50 @@
    },
    "solution": "PERSONANONGRATA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PERSONA NON GRATA",
     "definitions": [
      {
       "text": "reject",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "to accept is to take in, so the song holds the word for immediately"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "PER",
-      "note": "per means a, as in so much a day"
-     },
-     {
-      "clueFragment": "ballad",
-      "gives": "SONG",
-      "note": "a ballad is a song"
-     },
-     {
-      "clueFragment": "Immediately",
-      "gives": "ANON",
-      "note": "anon is an old word for immediately"
-     },
-     {
-      "clueFragment": "singer",
-      "gives": "RAT",
-      "note": "a singer is an informer, who rats"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "SON",
-      "ANON",
-      "G",
-      "RAT",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "gives": "PER",
+       "note": "per means a, as in so much a day"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "note": "to accept is to take in, so the song holds the word for immediately"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ballad",
+         "gives": "SONG",
+         "note": "a ballad is a song"
+        },
+        {
+         "words": "Immediately",
+         "gives": "ANON",
+         "note": "anon is an old word for immediately"
+        }
+       ]
+      },
+      {
+       "words": "singer",
+       "gives": "RAT",
+       "note": "a singer is an informer, who rats"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1249,41 +1143,33 @@
    },
    "solution": "ONCEOVERS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ONCE-OVERS",
     "definitions": [
      {
       "text": "surveys",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "overlapping",
-      "for": "container",
-      "note": "overlapping means the two words lie across each other, so one breaks into the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A person",
-      "gives": "ONE",
-      "note": "one means a person, as in one should know"
-     },
-     {
-      "clueFragment": "insures against",
-      "gives": "COVERS",
-      "note": "to cover is to insure against"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "C",
-      "E",
-      "OVERS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ONCEOVERS",
+     "indicators": [
+      {
+       "text": "overlapping",
+       "note": "overlapping means the two words lie across each other, so one breaks into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A person",
+       "gives": "ONE",
+       "note": "one means a person, as in one should know"
+      },
+      {
+       "words": "insures against",
+       "gives": "COVERS",
+       "note": "to cover is to insure against"
+      }
      ]
     },
     "explanation": {
@@ -1322,57 +1208,50 @@
    },
    "solution": "THEBIGENCHILADA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "THE BIG ENCHILADA",
     "definitions": [
      {
       "text": "Top dog",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "worried",
-      "for": "anagram",
-      "note": "worried means agitated, so the letters are shaken into a new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the rearranged letters surround the news and the Greek letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heald a bit",
-      "gives": "HEALDABIT",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "news",
-      "gives": "GEN",
-      "note": "gen is slang for information"
-     },
-     {
-      "clueFragment": "letter",
-      "gives": "CHI",
-      "note": "chi is a Greek letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THEBI",
-      "GEN",
-      "CHI",
-      "LADA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HEALDABIT",
-       "gives": "THEBILADA"
+       "text": "about",
+       "note": "about means around, so the rearranged letters surround the news and the Greek letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "note": "worried means agitated, so the letters are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Heald a bit",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "news",
+           "gives": "GEN",
+           "note": "gen is slang for information"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "letter",
+       "gives": "CHI",
+       "note": "chi is a Greek letter"
       }
      ]
     },
@@ -1412,11 +1291,6 @@
    },
    "solution": "ASCREWLOOSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "A SCREW LOOSE",
     "definitions": [
      {
       "text": "Cuckoo",
@@ -1424,40 +1298,34 @@
       "note": "an adjective; the answer completes 'to have ...'"
      }
     ],
-    "indicators": [
-     {
-      "text": "through",
-      "for": "container",
-      "note": "through means passing within, so one piece sits inside the other"
-     },
-     {
-      "text": "turbulent",
-      "for": "anagram",
-      "note": "turbulent water is churned up, so the letters of the next word are stirred"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sea",
-      "gives": "SEA",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "perhaps heads",
-      "gives": "CREWLOOS",
-      "note": "on a ship the heads are lavatories, for example ones used by the crew"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "CREWLOOS",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SEA",
-       "gives": "ASE"
+       "text": "through",
+       "note": "through means passing within, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turbulent",
+         "note": "turbulent water is churned up, so the letters of the next word are stirred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sea",
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "words": "perhaps heads",
+       "gives": "CREWLOOS",
+       "note": "on a ship the heads are lavatories, for example ones used by the crew"
       }
      ]
     },
@@ -1487,33 +1355,28 @@
    },
    "solution": "LEIGH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LEIGH",
     "definitions": [
      {
       "text": "location within Greater Manchester",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "exposed",
-      "for": "deletion",
-      "note": "exposed means stripped of its covering, so the outside letters come off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cunning",
-      "gives": "SLEIGHT",
-      "note": "sleight is cunning or dexterity, as in sleight of hand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEIGH"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEIGH",
+     "indicators": [
+      {
+       "text": "exposed",
+       "note": "exposed means stripped of its covering, so the outside letters come off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cunning",
+       "gives": "SLEIGHT",
+       "note": "sleight is cunning or dexterity, as in sleight of hand"
+      }
      ]
     },
     "explanation": {
@@ -1542,30 +1405,28 @@
    },
    "solution": "TEC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TEC",
     "definitions": [
      {
       "text": "Eye",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "feature of",
-      "for": "hidden_word",
-      "note": "a feature of something is part of it, so the letters are found inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "climate change",
-      "gives": "TEC",
-      "note": "the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "feature of",
+       "note": "a feature of something is part of it, so the letters are found inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "climate change",
+       "gives": "TEC",
+       "note": "the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The eye of a storm as a characteristic of a warming climate.",
      "walkthrough": "'Eye' suggests a storm's eye, but it is a private eye.",
@@ -1592,31 +1453,29 @@
    },
    "solution": "OVA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "OVA",
     "definitions": [
      {
       "text": "Eggs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "as instructed?",
-      "for": "homophone",
-      "note": "an instruction is delivered by voice, so the word is to be taken by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "done",
-      "gives": "OVA",
-      "soundsLike": "OVER",
-      "note": "over means done or finished, said without the final R"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "OVA",
+     "indicators": [
+      {
+       "text": "as instructed?",
+       "note": "an instruction is delivered by voice, so the word is to be taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "done",
+       "gives": "OVER",
+       "note": "over means done or finished, said without the final R"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Eggs cooked exactly following the recipe.",
      "walkthrough": "'Done' suggests cooked eggs, but it means finished. In British speech the word sounds like OVA.",
@@ -1650,45 +1509,41 @@
    },
    "solution": "OLIVERTAMBO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "OLIVER TAMBO",
     "definitions": [
      {
       "text": "Nelson's predecessor",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "dropped",
-      "for": "deletion",
-      "note": "something dropped is let go, so those letters leave the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hardy, say",
-      "gives": "OLIVER",
-      "note": "Oliver Hardy, of Laurel and Hardy; 'say' marks him as one example of an Oliver"
-     },
-     {
-      "clueFragment": "instrument",
-      "gives": "TAMBOURINE",
-      "note": "a hand-held percussion instrument"
-     },
-     {
-      "clueFragment": "Wee",
-      "gives": "URINE",
-      "note": "wee is urine; this is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLIVER",
-      "TAMBO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hardy, say",
+       "gives": "OLIVER",
+       "note": "Oliver Hardy, of Laurel and Hardy; 'say' marks him as one example of an Oliver"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropped",
+         "note": "something dropped is let go, so those letters leave the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "instrument",
+         "gives": "TAMBOURINE",
+         "note": "a hand-held percussion instrument"
+        },
+        {
+         "words": "Wee",
+         "gives": "URINE",
+         "note": "wee is urine; this is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1717,45 +1572,35 @@
    },
    "solution": "TAU",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TAU",
     "definitions": [
      {
       "text": "Character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer up means reading from the bottom, so the word is turned round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doing",
-      "gives": "AT",
-      "note": "at means doing, as in what are you at?"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "U"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AT",
-       "to": "TA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down answer up means reading from the bottom, so the word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doing",
+         "gives": "AT",
+         "note": "at means doing, as in what are you at?"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university"
       }
      ]
     },
@@ -1785,28 +1630,16 @@
    },
    "solution": "MAY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MAY",
     "definitions": [
      {
       "text": "The fifth",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the fifth month of the year"
      },
      {
       "text": "PM",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The fifth",
-      "note": "first meaning: the fifth month of the year"
-     },
-     {
-      "clueFragment": "PM",
-      "note": "second meaning: Theresa ..., British prime minister 2016 to 2019"
+      "at": 10,
+      "meaning": "second meaning: Theresa ..., British prime minister 2016 to 2019"
      }
     ],
     "explanation": {
@@ -1840,10 +1673,6 @@
    },
    "solution": "BREECHESBUOYS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BREECHES BUOYS",
     "definitions": [
      {
       "text": "Gear saving lives",
@@ -1851,27 +1680,39 @@
       "note": "the answer is plural; the gear is a set of rescue devices"
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as told by others, so the words are taken by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "breaks",
-      "gives": "BREECHES",
-      "soundsLike": "BREACHES",
-      "note": "breaches are breaks"
-     },
-     {
-      "clueFragment": "young men",
-      "gives": "BUOYS",
-      "soundsLike": "BOYS",
-      "note": "boys are young men"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BREECHES",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly means as told by others, so the words are taken by sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breaks",
+         "gives": "BREACHES",
+         "note": "breaches are breaks"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BUOYS",
+       "parts": [
+        {
+         "words": "young men",
+         "gives": "BOYS",
+         "note": "boys are young men"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "News that safety equipment has failed some young men.",
      "walkthrough": "A breeches buoy is a lifebuoy with canvas shorts attached, slung on a rope to haul people from a wreck.",

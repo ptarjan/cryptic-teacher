@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4926",
  "number": 4926,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,926",
  "setter": "Robert Price",
  "date": "2020-10-25",
  "dimensions": {
@@ -48,35 +46,28 @@
    },
    "solution": "CAPITALLETTER",
    "annotation": {
-    "type": [
-     "charade",
-     "and_lit"
-    ],
-    "answer": "CAPITAL LETTER",
     "definitions": [
      {
       "text": "For example, Lima to Landlord",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "For example, Lima",
-      "gives": "CAPITAL",
-      "note": "Lima is an example of a capital city, that of Peru"
-     },
-     {
-      "clueFragment": "Landlord",
-      "gives": "LETTER",
-      "note": "a landlord is one who lets property"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAPITAL",
-      "LETTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "For example, Lima",
+       "gives": "CAPITAL",
+       "note": "Lima is an example of a capital city, that of Peru"
+      },
+      {
+       "words": "Landlord",
+       "gives": "LETTER",
+       "note": "a landlord is one who lets property"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone gives an example of a journey or a message going from Lima to a landlord.",
      "walkthrough": "Read as a whole, the clue also describes the shared initial: the L that begins both Lima and Landlord is an upper-case character.",
@@ -104,52 +95,44 @@
    },
    "solution": "CELESTIAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CELESTIAL",
     "definitions": [
      {
       "text": "Divine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from which",
-      "for": "deletion",
-      "note": "'from which ... taken' says a letter is removed from the words just named"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something off is out of order, so the remaining letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "'s taken"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lilac trees",
-      "gives": "LILACTREES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rook",
-      "gives": "R",
-      "note": "R is the chess notation for a rook"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CELESTIAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CELESTIAL",
+     "indicators": [
       {
-       "fodder": "LILACTEES",
-       "gives": "CELESTIAL"
+       "text": "off",
+       "note": "something off is out of order, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "CELESTIAL",
+       "indicators": [
+        {
+         "text": "from which",
+         "note": "'from which ... taken' says a letter is removed from the words just named"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lilac trees",
+         "note": "taken as written"
+        },
+        {
+         "words": "rook",
+         "gives": "R",
+         "note": "R is the chess notation for a rook"
+        }
+       ]
       }
      ]
     },
@@ -193,43 +176,50 @@
    },
    "solution": "PARFORTHECOURSE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "PAR FOR THE COURSE",
     "definitions": [
      {
       "text": "Average",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is spoken, so the pieces are spelt as words that sound the same"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salmon",
-      "gives": "PAR",
-      "soundsLike": "PARR",
-      "note": "a parr is a young salmon"
-     },
-     {
-      "clueFragment": "aimed at",
-      "gives": "FOR",
-      "note": "as in heading for, making for"
-     },
-     {
-      "clueFragment": "vulgar types",
-      "gives": "THECOURSE",
-      "soundsLike": "THE COARSE",
-      "note": "coarse people are vulgar"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PAR",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "what we hear is spoken, so the pieces are spelt as words that sound the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salmon",
+         "gives": "PARR",
+         "note": "a parr is a young salmon"
+        }
+       ]
+      },
+      {
+       "words": "aimed at",
+       "gives": "FOR",
+       "note": "as in heading for, making for"
+      },
+      {
+       "op": "homophone",
+       "spelt": "THECOURSE",
+       "parts": [
+        {
+         "words": "vulgar types",
+         "gives": "THECOARSE",
+         "note": "coarse people are vulgar"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An ordinary fish is lobbed at some uncouth people.",
      "definitionFit": "The idiom describes what is normal or expected, taken from golf where par is the standard score."
@@ -256,33 +246,28 @@
    },
    "solution": "TRYST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TRYST",
     "definitions": [
      {
       "text": "lovers' meeting",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "'in' says the letters sit inside the words that follow"
-     }
-    ],
-    "linkWords": [
-     "-crossed"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poetry, star",
-      "gives": "TRYST",
-      "note": "the end of poetry runs into the start of star"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "'in' says the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poetry, star",
+       "gives": "TRYST",
+       "note": "the end of poetry runs into the start of star"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Romeo and Juliet, the star-crossed lovers of poetry, meet in secret.",
      "definitionFit": "A tryst is a private romantic appointment arranged between two people in love."
@@ -314,26 +299,25 @@
    },
    "solution": "LADYGODIVA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LADY GODIVA",
     "definitions": [
      {
       "text": "Wife who barely got up to protest",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Wife who barely got up to protest",
-      "note": "surface reading: a married woman who hardly bothered to stand up and object"
-     },
-     {
-      "clueFragment": "barely got up",
-      "note": "setter's reading: got up means dressed, so barely got up means dressed in nothing at all"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Wife who barely got up to protest",
+       "note": "surface reading: a married woman who hardly bothered to stand up and object"
+      },
+      {
+       "words": "barely got up",
+       "note": "setter's reading: got up means dressed, so barely got up means dressed in nothing at all"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A lazy wife who could hardly rouse herself to complain.",
      "walkthrough": "Legend says the wife of Earl Leofric rode naked through Coventry to protest against his taxes.",
@@ -361,34 +345,29 @@
    },
    "solution": "EASE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EASE",
     "definitions": [
      {
       "text": "relax",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken, so what is meant is a word sounding like the drugs"
-     }
-    ],
-    "linkWords": [
-     "to make you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drugs",
-      "gives": "EASE",
-      "soundsLike": "ES",
-      "note": "E is slang for an ecstasy tablet, so several are Es"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EASE",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "said means spoken, so what is meant is a word sounding like the drugs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drugs",
+       "gives": "ES",
+       "note": "E is slang for an ecstasy tablet, so several are Es"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone recommends drugs as a way to unwind.",
      "definitionFit": "To ease is to loosen or slacken, a verb synonym for becoming or making less tense."
@@ -413,51 +392,40 @@
    },
    "solution": "TREATISES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TREATISES",
     "definitions": [
      {
       "text": "papers",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Cryptic",
-      "for": "anagram",
-      "note": "cryptic means puzzling or obscure, so the letters are scrambled"
-     },
-     {
-      "text": "is concealing",
-      "for": "container",
-      "note": "concealing means holding something hidden within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setter is",
-      "gives": "SETTERIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A is the standard abbreviation for answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRE",
-      "A",
-      "TISES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SETTERIS",
-       "gives": "TRETISES"
+       "text": "is concealing",
+       "note": "concealing means holding something hidden within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Cryptic",
+         "note": "cryptic means puzzling or obscure, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "setter is",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "answer",
+       "gives": "A",
+       "note": "A is the standard abbreviation for answer"
       }
      ]
     },
@@ -497,38 +465,24 @@
    },
    "solution": "REPUBLICOFCHINA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REPUBLIC OF CHINA",
     "definitions": [
      {
       "text": "state for some",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "drunken",
-      "for": "anagram",
-      "note": "a drunken person staggers about, so these letters lurch into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pub life, a chronic",
-      "gives": "PUBLIFEACHRONIC",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REPUBLICOFCHINA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PUBLIFEACHRONIC",
-       "gives": "REPUBLICOFCHINA"
+       "text": "drunken",
+       "note": "a drunken person staggers about, so these letters lurch into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pub life, a chronic",
+       "note": "taken as written"
       }
      ]
     },
@@ -559,47 +513,41 @@
    },
    "solution": "URGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "URGE",
     "definitions": [
      {
       "text": "Drive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the end, so only the final letter is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us one piece is placed inside the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ending",
-      "gives": "G",
-      "select": "last",
-      "note": "the last letter of the word"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "URE",
-      "note": "the Ure is a river in Yorkshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UR",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in tells us one piece is placed inside the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means at the end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ending",
+         "note": "the last letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -627,39 +575,31 @@
    },
    "solution": "LURGY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LURGY",
     "definitions": [
      {
       "text": "bug",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "to erase",
-      "for": "deletion",
-      "note": "erasing wipes out letters, so a piece is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Service",
-      "gives": "LITURGY",
-      "note": "a liturgy is a form of church service"
-     },
-     {
-      "clueFragment": "computing",
-      "gives": "IT",
-      "note": "IT is information technology"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "URGY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to erase",
+       "note": "erasing wipes out letters, so a piece is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Service",
+       "gives": "LITURGY",
+       "note": "a liturgy is a form of church service"
+      },
+      {
+       "words": "computing",
+       "gives": "IT",
+       "note": "IT is information technology"
+      }
      ]
     },
     "explanation": {
@@ -688,32 +628,25 @@
    },
    "solution": "DISTEMPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISTEMPER",
     "definitions": [
      {
       "text": "Boxers may get sick of this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "underworld",
-      "gives": "DIS",
-      "note": "Dis is the Roman god of the underworld"
-     },
-     {
-      "clueFragment": "character",
-      "gives": "TEMPER",
-      "note": "temper as in temperament or nature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "TEMPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "underworld",
+       "gives": "DIS",
+       "note": "Dis is the Roman god of the underworld"
+      },
+      {
+       "words": "character",
+       "gives": "TEMPER",
+       "note": "temper as in temperament or nature"
+      }
      ]
     },
     "explanation": {
@@ -743,35 +676,25 @@
    },
    "solution": "SHORTAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHORTAGE",
     "definitions": [
      {
       "text": "Need",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scotch, say",
-      "gives": "SHORT",
-      "note": "a short is a small measure of spirits, such as whisky"
-     },
-     {
-      "clueFragment": "mature",
-      "gives": "AGE",
-      "note": "to age is to mature, as whisky does"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHORT",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scotch, say",
+       "gives": "SHORT",
+       "note": "a short is a small measure of spirits, such as whisky"
+      },
+      {
+       "words": "mature",
+       "gives": "AGE",
+       "note": "to age is to mature, as whisky does"
+      }
      ]
     },
     "explanation": {
@@ -799,28 +722,16 @@
    },
    "solution": "STABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STABLE",
     "definitions": [
      {
       "text": "Sound",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: secure, firm, steady"
      },
      {
       "text": "accommodation for animals",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sound",
-      "note": "first meaning: secure, firm, steady"
-     },
-     {
-      "clueFragment": "accommodation for animals",
-      "note": "second meaning: a building where horses are kept"
+      "at": 6,
+      "meaning": "second meaning: a building where horses are kept"
      }
     ],
     "explanation": {
@@ -848,49 +759,41 @@
    },
    "solution": "STONEMASON",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "STONEMASON",
     "definitions": [
      {
       "text": "Craftsman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to bring in",
-      "for": "container",
-      "note": "bringing in means taking something inside"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pit",
-      "gives": "STONE",
-      "note": "a stone is the pit of a fruit"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "on as in operating, switched on"
-     },
-     {
-      "clueFragment": "graduates",
-      "gives": "MAS",
-      "note": "MA is a Master of Arts, so several are MAs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STONE",
-      "MAS",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to bring in",
+       "note": "bringing in means taking something inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pit",
+         "gives": "STONE",
+         "note": "a stone is the pit of a fruit"
+        },
+        {
+         "words": "working",
+         "gives": "ON",
+         "note": "on as in operating, switched on"
+        }
+       ]
+      },
+      {
+       "words": "graduates",
+       "gives": "MAS",
+       "note": "MA is a Master of Arts, so several are MAs"
+      }
      ]
     },
     "explanation": {
@@ -919,54 +822,51 @@
    },
    "solution": "INTIMIDATES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "INTIMIDATES",
     "definitions": [
      {
       "text": "bullies",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter"
-     },
-     {
-      "text": "protect",
-      "for": "container",
-      "note": "to protect something is to surround and shield it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pals",
-      "gives": "INTIMATES",
-      "note": "intimates are close friends"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "defy",
-      "gives": "D",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTIM",
-      "I",
-      "D",
-      "ATES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protect",
+       "note": "to protect something is to surround and shield it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pals",
+       "gives": "INTIMATES",
+       "note": "intimates are close friends"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "defy",
+           "note": "the first letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -994,42 +894,31 @@
    },
    "solution": "MALIGNING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MALIGNING",
     "definitions": [
      {
       "text": "vilifying",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "comes over",
-      "for": "charade",
-      "note": "in a down clue coming over means sitting above, so this piece goes first"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mass",
-      "gives": "M",
-      "note": "M is the abbreviation for mass in physics"
-     },
-     {
-      "clueFragment": "Evening",
-      "gives": "ALIGNING",
-      "note": "evening as in making level or straight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ALIGNING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "comes over",
+       "note": "in a down clue coming over means sitting above, so this piece goes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mass",
+       "gives": "M",
+       "note": "M is the abbreviation for mass in physics"
+      },
+      {
+       "words": "Evening",
+       "gives": "ALIGNING",
+       "note": "evening as in making level or straight"
+      }
      ]
     },
     "explanation": {
@@ -1058,37 +947,25 @@
    },
    "solution": "IRE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IRE",
     "definitions": [
      {
       "text": "Passion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "now and again",
-      "for": "letter_selection",
-      "note": "now and again means at intervals, so every other letter is taken"
-     }
-    ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diaries",
-      "gives": "IRE",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "now and again",
+       "note": "now and again means at intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diaries",
+       "note": "the second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -1115,47 +992,40 @@
    },
    "solution": "EXECRABLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EXECRABLE",
     "definitions": [
      {
       "text": "vile",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two end letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "gives": "EXE",
-      "note": "the Exe is a river in Devon"
-     },
-     {
-      "clueFragment": "crustacean",
-      "gives": "CRAB",
-      "note": "a crab is a crustacean"
-     },
-     {
-      "clueFragment": "larvae",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXE",
-      "CRAB",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon"
+      },
+      {
+       "words": "crustacean",
+       "gives": "CRAB",
+       "note": "a crab is a crustacean"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "the extremes of a word are its two end letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "larvae",
+         "note": "the first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1183,37 +1053,30 @@
    },
    "solution": "LEE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "LEE",
     "definitions": [
      {
       "text": "Shelter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "letter_selection",
-      "note": "inside means the interior, so the outer letters are dropped"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "freezing rain",
-      "gives": "LEE",
-      "select": "middle",
-      "note": "freezing rain is sleet, whose middle letters are kept"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEE"
+    "wordplay": {
+     "op": "middle",
+     "unchecked": true,
+     "gives": "LEE",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "inside means the interior, so the outer letters are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "freezing rain",
+       "gives": "LEE",
+       "select": "middle",
+       "note": "freezing rain is sleet, whose middle letters are kept"
+      }
      ]
     },
     "explanation": {
@@ -1241,45 +1104,37 @@
    },
    "solution": "LIVINGSTONE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LIVINGSTONE",
     "definitions": [
      {
       "text": "an explorer",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing means performing or fooling about, so the letters are moved around"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Job",
-      "gives": "LIVING",
-      "note": "a living is a job or means of earning"
-     },
-     {
-      "clueFragment": "on set",
-      "gives": "STONE",
-      "note": "these letters are rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIVING",
-      "STONE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LIVINGSTONE",
+     "indicators": [
       {
-       "fodder": "ONSET",
-       "gives": "STONE"
+       "text": "playing",
+       "note": "playing means performing or fooling about, so the letters are moved around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Job",
+         "gives": "LIVING",
+         "note": "a living is a job or means of earning"
+        },
+        {
+         "words": "on set",
+         "gives": "STONE",
+         "note": "these letters are rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1309,46 +1164,41 @@
    },
    "solution": "GROGGY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GROGGY",
     "definitions": [
      {
       "text": "Faint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on vacation",
-      "for": "letter_selection",
-      "note": "vacating means emptying, so the inside letters leave and only the ends stay"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says this piece follows the next one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "GROG",
-      "note": "grog is rum and water, or any alcoholic drink"
-     },
-     {
-      "clueFragment": "giddy",
-      "gives": "GY",
-      "select": "outer",
-      "note": "the first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GROG",
-      "GY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says this piece follows the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "GROG",
+       "note": "grog is rum and water, or any alcoholic drink"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "note": "vacating means emptying, so the inside letters leave and only the ends stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "giddy",
+         "note": "the first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1376,41 +1226,25 @@
    },
    "solution": "GUMS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "GUMS",
     "definitions": [
      {
       "text": "Clogs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading north",
-      "for": "reversal",
-      "note": "in a down clue going north means reading from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "seen as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "superior",
-      "gives": "SMUG",
-      "note": "smug means self-satisfied, feeling superior"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUMS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SMUG",
-       "to": "GUMS"
+       "text": "heading north",
+       "note": "in a down clue going north means reading from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "superior",
+       "gives": "SMUG",
+       "note": "smug means self-satisfied, feeling superior"
       }
      ]
     },
@@ -1440,45 +1274,41 @@
    },
    "solution": "EMBRACER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EMBRACER",
     "definitions": [
      {
       "text": "hugger",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoned by",
-      "for": "deletion",
-      "note": "being abandoned means being left behind, so a letter departs"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Burning wood",
-      "gives": "EMBER",
-      "note": "an ember is a glowing piece of wood in a dying fire"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "ACER",
-      "note": "an acer is a maple tree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMBR",
-      "ACER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by",
+         "note": "being abandoned means being left behind, so a letter departs"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Burning wood",
+         "gives": "EMBER",
+         "note": "an ember is a glowing piece of wood in a dying fire"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        }
+       ]
+      },
+      {
+       "words": "tree",
+       "gives": "ACER",
+       "note": "an acer is a maple tree"
+      }
      ]
     },
     "explanation": {
@@ -1507,31 +1337,16 @@
    },
    "solution": "RACES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RACES",
     "definitions": [
      {
       "text": "People",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: peoples, ethnic groups"
      },
      {
       "text": "careers",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "People",
-      "note": "first meaning: peoples, ethnic groups"
-     },
-     {
-      "clueFragment": "careers",
-      "note": "second meaning: rushes headlong"
+      "at": 9,
+      "meaning": "second meaning: rushes headlong"
      }
     ],
     "explanation": {
@@ -1560,28 +1375,16 @@
    },
    "solution": "LEAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LEAN",
     "definitions": [
      {
       "text": "Meagre",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: scant, thin"
      },
      {
       "text": "tip",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Meagre",
-      "note": "first meaning: scant, thin"
-     },
-     {
-      "clueFragment": "tip",
-      "note": "second meaning: tilt or slope"
+      "at": 7,
+      "meaning": "second meaning: tilt or slope"
      }
     ],
     "explanation": {
@@ -1610,32 +1413,25 @@
    },
    "solution": "MERCILESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MERCILESS",
     "definitions": [
      {
       "text": "cruel",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Nice cheers",
-      "gives": "MERCI",
-      "note": "merci is French for thanks, as said in the city of Nice"
-     },
-     {
-      "clueFragment": "not so",
-      "gives": "LESS",
-      "note": "less means not as much"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MERCI",
-      "LESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nice cheers",
+       "gives": "MERCI",
+       "note": "merci is French for thanks, as said in the city of Nice"
+      },
+      {
+       "words": "not so",
+       "gives": "LESS",
+       "note": "less means not as much"
+      }
      ]
     },
     "explanation": {
@@ -1664,44 +1460,35 @@
    },
    "solution": "CLIMB",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CLIMB",
     "definitions": [
      {
       "text": "Scale",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "front",
-      "for": "letter_selection",
-      "note": "the front of a word is its opening letter"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cayman's",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "leg",
-      "gives": "LIMB",
-      "note": "a leg is a limb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LIMB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front",
+         "note": "the front of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cayman's",
+         "note": "the first letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "leg",
+       "gives": "LIMB",
+       "note": "a leg is a limb"
+      }
      ]
     },
     "explanation": {
@@ -1745,26 +1532,25 @@
    },
    "solution": "EGGONONESFACE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EGG ON ONES FACE",
     "definitions": [
      {
       "text": "Embarrassment results from misdirecting soldiers",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Embarrassment results from misdirecting soldiers",
-      "note": "surface reading: an officer is shamed after sending troops the wrong way"
-     },
-     {
-      "clueFragment": "misdirecting soldiers",
-      "note": "setter's reading: soldiers are strips of toast dipped into a soft-boiled egg, and a missed dip ends up on your cheek"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Embarrassment results from misdirecting soldiers",
+       "note": "surface reading: an officer is shamed after sending troops the wrong way"
+      },
+      {
+       "words": "misdirecting soldiers",
+       "note": "setter's reading: soldiers are strips of toast dipped into a soft-boiled egg, and a missed dip ends up on your cheek"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A commander is humiliated after sending his troops the wrong way.",
      "walkthrough": "In Britain soldiers are fingers of toast for dunking in a boiled egg; aim one badly and the yolk lands on your face.",

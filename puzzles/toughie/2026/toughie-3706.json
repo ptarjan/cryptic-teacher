@@ -1,8 +1,6 @@
 {
  "id": "toughie-3706",
  "number": 3706,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,706",
  "setter": "Prime",
  "date": "2026-06-17",
  "dimensions": {
@@ -38,50 +36,48 @@
    },
    "solution": "MARC",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "reversal"
-    ],
-    "answer": "MARC",
     "definitions": [
      {
       "text": "Brandy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing half",
-      "for": "deletion",
-      "note": "the word for 'snaps' sheds half its length, keeping only its first three letters"
-     },
-     {
-      "text": "when rising",
-      "for": "reversal",
-      "note": "in a down answer, rising means the letters read from the bottom upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "snaps losing half",
-      "gives": "CRA",
-      "note": "snaps = CRACKS (breaks), which loses its back half"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "M",
-      "note": "m is the standard abbreviation for mass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MARC",
+     "indicators": [
       {
-       "from": "CRAM",
-       "to": "MARC"
+       "text": "losing half",
+       "note": "the word for 'snaps' sheds half its length, keeping only its first three letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when rising",
+         "note": "in a down answer, rising means the letters read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "snaps losing half",
+           "gives": "CRA",
+           "note": "snaps = CRACKS (breaks), which loses its back half"
+          },
+          {
+           "words": "mass",
+           "gives": "M",
+           "note": "m is the standard abbreviation for mass"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -111,45 +107,36 @@
    },
    "solution": "PORTMANTEAU",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PORTMANTEAU",
     "definitions": [
      {
       "text": "brunch?",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "ahead of",
-      "for": "charade",
-      "note": "the actress's surname comes in front of the meal and the Universal letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Natalie who won an Oscar",
-      "gives": "PORTMAN",
-      "note": "Natalie Portman, best actress for Black Swan"
-     },
-     {
-      "clueFragment": "meal",
-      "gives": "TEA",
-      "note": "an afternoon or evening meal"
-     },
-     {
-      "clueFragment": "Universal",
-      "gives": "U",
-      "note": "U is the film certificate for universal viewing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PORTMAN",
-      "TEA",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead of",
+       "note": "the actress's surname comes in front of the meal and the Universal letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Natalie who won an Oscar",
+       "gives": "PORTMAN",
+       "note": "Natalie Portman, best actress for Black Swan"
+      },
+      {
+       "words": "meal",
+       "gives": "TEA",
+       "note": "an afternoon or evening meal"
+      },
+      {
+       "words": "Universal",
+       "gives": "U",
+       "note": "U is the film certificate for universal viewing"
+      }
      ]
     },
     "explanation": {
@@ -179,50 +166,40 @@
    },
    "solution": "UPROOT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "UPROOT",
     "definitions": [
      {
       "text": "Destroy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "the United letter is placed in front of the rearranged city"
-     },
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "the team from 'Porto' is in play, its letters moving about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United",
-      "gives": "U",
-      "note": "U is the usual abbreviation for United in team names"
-     },
-     {
-      "clueFragment": "Porto",
-      "gives": "PORTO",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "PROOT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "PORTO",
-       "gives": "PROOT"
+       "text": "before",
+       "note": "the United letter is placed in front of the rearranged city"
+      }
+     ],
+     "parts": [
+      {
+       "words": "United",
+       "gives": "U",
+       "note": "U is the usual abbreviation for United in team names"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "note": "the team from 'Porto' is in play, its letters moving about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Porto",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -252,30 +229,16 @@
    },
    "solution": "UNDERGROUND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNDERGROUND",
     "definitions": [
      {
       "text": "Hidden",
-      "at": 0
+      "at": 0,
+      "meaning": "secret, operating out of sight"
      },
      {
       "text": "like unwanted lumps of beef?",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hidden",
-      "gives": "UNDERGROUND",
-      "note": "secret, operating out of sight"
-     },
-     {
-      "clueFragment": "like unwanted lumps of beef?",
-      "gives": "UNDERGROUND",
-      "note": "split the answer in two: mince not put through the grinder long enough, so it stays lumpy"
+      "at": 8,
+      "meaning": "split the answer in two: mince not put through the grinder long enough, so it stays lumpy"
      }
     ],
     "explanation": {
@@ -305,40 +268,31 @@
    },
    "solution": "RESIGN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RESIGN",
     "definitions": [
      {
       "text": "Give up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overwhelmed by",
-      "for": "container",
-      "note": "the golf letter is swamped, sitting inside the word for a repeated lapse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lapse yet again",
-      "gives": "RESIN",
-      "note": "RE (again) + SIN (lapse), read as a second sin"
-     },
-     {
-      "clueFragment": "golf",
-      "gives": "G",
-      "note": "G is golf in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESI",
-      "G",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overwhelmed by",
+       "note": "the golf letter is swamped, sitting inside the word for a repeated lapse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lapse yet again",
+       "gives": "RESIN",
+       "note": "RE (again) + SIN (lapse), read as a second sin"
+      },
+      {
+       "words": "golf",
+       "gives": "G",
+       "note": "G is golf in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -373,46 +327,44 @@
    },
    "solution": "OFFSTAGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "OFF-STAGE",
     "definitions": [
      {
       "text": "Unwatched",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut by",
-      "for": "container",
-      "note": "the phrase for eighteen is sliced open, with the other letters placed in the gap"
-     },
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the adult letter departs from the word for hurriedly"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "18 perhaps",
-      "gives": "OFAGE",
-      "note": "OF AGE: eighteen is the age of majority, with 'perhaps' marking it as an example"
-     },
-     {
-      "clueFragment": "hurriedly leaving adult",
-      "gives": "FST",
-      "note": "FAST (hurriedly) without A for adult"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OF",
-      "FST",
-      "AGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OFFSTAGE",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the adult letter departs from the word for hurriedly"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cut by",
+         "note": "the phrase for eighteen is sliced open, with the other letters placed in the gap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "18 perhaps",
+         "gives": "OFAGE",
+         "note": "OF AGE: eighteen is the age of majority, with 'perhaps' marking it as an example"
+        },
+        {
+         "words": "hurriedly leaving adult",
+         "gives": "FST",
+         "note": "FAST (hurriedly) without A for adult"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -441,35 +393,25 @@
    },
    "solution": "BASK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BASK",
     "definitions": [
      {
       "text": "Lounge",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "book",
-      "gives": "B",
-      "note": "B is the standard abbreviation for book"
-     },
-     {
-      "clueFragment": "quiz",
-      "gives": "ASK",
-      "note": "to quiz someone is to ask them questions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ASK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "book",
+       "gives": "B",
+       "note": "B is the standard abbreviation for book"
+      },
+      {
+       "words": "quiz",
+       "gives": "ASK",
+       "note": "to quiz someone is to ask them questions"
+      }
      ]
     },
     "explanation": {
@@ -498,42 +440,31 @@
    },
    "solution": "BACON",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BACON",
     "definitions": [
      {
       "text": "It may sizzle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when energy escapes",
-      "for": "deletion",
-      "note": "the energy letter gets out, leaving the word for a fire without it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fire",
-      "gives": "BEACON",
-      "note": "a signal fire lit on a hilltop"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ACON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "when energy escapes",
+       "note": "the energy letter gets out, leaving the word for a fire without it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fire",
+       "gives": "BEACON",
+       "note": "a signal fire lit on a hilltop"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
      ]
     },
     "explanation": {
@@ -562,61 +493,52 @@
    },
    "solution": "SWEDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "container"
-    ],
-    "answer": "SWEDE",
     "definitions": [
      {
       "text": "Vegetable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "only the central pair of letters from 'desert' is taken"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down answer, up means the moisture word reads from bottom to top"
-     },
-     {
-      "text": "used",
-      "for": "container",
-      "note": "the moisture is used in, placed inside, the middle letters"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "middle of desert",
-      "gives": "SE",
-      "select": "middle",
-      "note": "the two central letters of deSErt"
-     },
-     {
-      "clueFragment": "moisture",
-      "gives": "DEW",
-      "note": "morning moisture on grass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WED",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DEW",
-       "to": "WED"
+       "text": "used",
+       "note": "the moisture is used in, placed inside, the middle letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "only the central pair of letters from 'desert' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "middle of desert",
+         "gives": "DESERT",
+         "note": "the two central letters of deSErt"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down answer, up means the moisture word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "moisture",
+         "gives": "DEW",
+         "note": "morning moisture on grass"
+        }
+       ]
       }
      ]
     },
@@ -646,44 +568,35 @@
    },
    "solution": "ADORN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADORN",
     "definitions": [
      {
       "text": "deck",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "with",
-      "for": "charade",
-      "note": "the navy letters are joined by the word for commotion"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "the commotion sits on top of, so before, the navy letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "commotion",
-      "gives": "ADO",
-      "note": "fuss, as in much ado about nothing"
-     },
-     {
-      "clueFragment": "Royal Navy",
-      "gives": "RN",
-      "note": "RN is the usual abbreviation for the Royal Navy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADO",
-      "RN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "note": "the navy letters are joined by the word for commotion"
+      },
+      {
+       "text": "on",
+       "note": "the commotion sits on top of, so before, the navy letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "commotion",
+       "gives": "ADO",
+       "note": "fuss, as in much ado about nothing"
+      },
+      {
+       "words": "Royal Navy",
+       "gives": "RN",
+       "note": "RN is the usual abbreviation for the Royal Navy"
+      }
      ]
     },
     "explanation": {
@@ -712,35 +625,24 @@
    },
    "solution": "DISAFFECTED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISAFFECTED",
     "definitions": [
      {
       "text": "Hostile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to riot",
-      "for": "anagram",
-      "note": "rioting throws the letters of the staff's decision into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staff decide",
-      "gives": "STAFFDECIDE",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAFF DECIDE",
-       "gives": "DISAFFECTED"
+       "text": "to riot",
+       "note": "rioting throws the letters of the staff's decision into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staff decide",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -770,39 +672,31 @@
    },
    "solution": "CUTIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUTIE",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to the side of",
-      "for": "charade",
-      "note": "the abbreviation for 'that is' is placed next to the meat"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meat",
-      "gives": "CUT",
-      "note": "a cut of meat, such as a chop or joint"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e., Latin id est"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUT",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to the side of",
+       "note": "the abbreviation for 'that is' is placed next to the meat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meat",
+       "gives": "CUT",
+       "note": "a cut of meat, such as a chop or joint"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e., Latin id est"
+      }
      ]
     },
     "explanation": {
@@ -838,50 +732,41 @@
    },
    "solution": "RIGHTWINGER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RIGHT-WINGER",
     "definitions": [
      {
       "text": "Conservative donor, possibly",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "to limit",
-      "for": "container",
-      "note": "the personnel department sets limits around the brief pain, enclosing it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Supply",
-      "gives": "RIG",
-      "note": "to rig out is to supply or equip"
-     },
-     {
-      "clueFragment": "personnel",
-      "gives": "HR",
-      "note": "human resources, the personnel department"
-     },
-     {
-      "clueFragment": "short-term pain",
-      "gives": "TWINGE",
-      "note": "a sudden brief pang"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIG",
-      "H",
-      "TWINGE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Supply",
+       "gives": "RIG",
+       "note": "to rig out is to supply or equip"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to limit",
+         "note": "the personnel department sets limits around the brief pain, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "personnel",
+         "gives": "HR",
+         "note": "human resources, the personnel department"
+        },
+        {
+         "words": "short-term pain",
+         "gives": "TWINGE",
+         "note": "a sudden brief pang"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -920,47 +805,35 @@
    },
    "solution": "INGOODSHAPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IN GOOD SHAPE",
     "definitions": [
      {
       "text": "doing well",
       "at": 40
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sought-after",
-      "gives": "IN",
-      "note": "fashionable, in demand"
-     },
-     {
-      "clueFragment": "merchandise",
-      "gives": "GOODS",
-      "note": "wares for sale"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is hard, as on pencils"
-     },
-     {
-      "clueFragment": "copy",
-      "gives": "APE",
-      "note": "to ape is to imitate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "GOODS",
-      "H",
-      "APE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sought-after",
+       "gives": "IN",
+       "note": "fashionable, in demand"
+      },
+      {
+       "words": "merchandise",
+       "gives": "GOODS",
+       "note": "wares for sale"
+      },
+      {
+       "words": "hard",
+       "gives": "H",
+       "note": "H is hard, as on pencils"
+      },
+      {
+       "words": "copy",
+       "gives": "APE",
+       "note": "to ape is to imitate"
+      }
      ]
     },
     "explanation": {
@@ -995,35 +868,24 @@
    },
    "solution": "GROUPTHEORY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GROUP THEORY",
     "definitions": [
      {
       "text": "mathematical interest",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "destroyed",
-      "for": "anagram",
-      "note": "the rough verse is wrecked and its letters rebuilt in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rough poetry",
-      "gives": "ROUGHPOETRY",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROUGH POETRY",
-       "gives": "GROUPTHEORY"
+       "text": "destroyed",
+       "note": "the rough verse is wrecked and its letters rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rough poetry",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -1053,45 +915,40 @@
    },
    "solution": "RIPPLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RIPPLE",
     "definitions": [
      {
       "text": "little applause?",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "to drop a",
-      "for": "deletion",
-      "note": "the request lets go of its letter a, shortening it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wish for grave",
-      "gives": "RIP",
-      "note": "rest in peace, carved on headstones"
-     },
-     {
-      "clueFragment": "request",
-      "gives": "PLEA",
-      "note": "an earnest appeal"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter removed from the end of the request"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIP",
-      "PLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wish for grave",
+       "gives": "RIP",
+       "note": "rest in peace, carved on headstones"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to drop a",
+         "note": "the request lets go of its letter a, shortening it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "request",
+         "gives": "PLEA",
+         "note": "an earnest appeal"
+        },
+        {
+         "words": "a",
+         "note": "the letter removed from the end of the request"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1120,51 +977,47 @@
    },
    "solution": "APLOMB",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "APLOMB",
     "definitions": [
      {
       "text": "Self-assurance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "vomiting",
-      "for": "deletion",
-      "note": "throwing up expels the letters of the cheese from the long word"
-     },
-     {
-      "text": "spoilt",
-      "for": "deletion",
-      "note": "the cheese is jumbled, so its letters are removed wherever they sit"
-     },
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "the leftover letters of 'improbable' are in a sorry, disordered state"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "improbable",
-      "gives": "IMPROBABLE",
-      "note": "the fodder before removal"
-     },
-     {
-      "clueFragment": "Brie",
-      "gives": "BRIE",
-      "note": "these four letters are taken out, in any order"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "APLOMB",
+     "indicators": [
       {
-       "fodder": "MPOABL",
-       "gives": "APLOMB"
+       "text": "sadly",
+       "note": "the leftover letters of 'improbable' are in a sorry, disordered state"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "APLOMB",
+       "indicators": [
+        {
+         "text": "vomiting",
+         "note": "throwing up expels the letters of the cheese from the long word"
+        },
+        {
+         "text": "spoilt",
+         "note": "the cheese is jumbled, so its letters are removed wherever they sit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "improbable",
+         "note": "the fodder before removal"
+        },
+        {
+         "words": "Brie",
+         "note": "these four letters are taken out, in any order"
+        }
+       ]
       }
      ]
     },
@@ -1195,45 +1048,44 @@
    },
    "solution": "PENURY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PENURY",
     "definitions": [
      {
       "text": "Want",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to lead",
-      "for": "charade",
-      "note": "the author word goes in front of the shortened panel"
-     },
-     {
-      "text": "leaderless",
-      "for": "deletion",
-      "note": "the panel loses its first letter, its head"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "author",
-      "gives": "PEN",
-      "note": "to pen is to author, to write"
-     },
-     {
-      "clueFragment": "leaderless panel",
-      "gives": "URY",
-      "note": "JURY without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "URY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PENURY",
+     "indicators": [
+      {
+       "text": "leaderless",
+       "note": "the panel loses its first letter, its head"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to lead",
+         "note": "the author word goes in front of the shortened panel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "author",
+         "gives": "PEN",
+         "note": "to pen is to author, to write"
+        },
+        {
+         "words": "leaderless panel",
+         "gives": "URY",
+         "note": "JURY without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1268,50 +1120,41 @@
    },
    "solution": "AGEGROUP",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AGE GROUP",
     "definitions": [
      {
       "text": "Peers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "the word for difficulty holds the base inside it"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "difficulty",
-      "gives": "AGGRO",
-      "note": "British slang for trouble or hassle"
-     },
-     {
-      "clueFragment": "base",
-      "gives": "E",
-      "note": "e is the base of natural logarithms"
-     },
-     {
-      "clueFragment": "awake",
-      "gives": "UP",
-      "note": "out of bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "E",
-      "GRO",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "the word for difficulty holds the base inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "difficulty",
+         "gives": "AGGRO",
+         "note": "British slang for trouble or hassle"
+        },
+        {
+         "words": "base",
+         "gives": "E",
+         "note": "e is the base of natural logarithms"
+        }
+       ]
+      },
+      {
+       "words": "awake",
+       "gives": "UP",
+       "note": "out of bed"
+      }
      ]
     },
     "explanation": {
@@ -1340,26 +1183,25 @@
    },
    "solution": "DECREASE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DECREASE",
     "definitions": [
      {
       "text": "Reduction in iron?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Reduction in iron?",
-      "note": "surface reading: a fall in iron levels, perhaps in the blood or in chemistry"
-     },
-     {
-      "clueFragment": "in iron?",
-      "note": "setter's reading: what a clothes iron does, taking the folds out of a shirt, with the prefix meaning removal"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Reduction in iron?",
+       "note": "surface reading: a fall in iron levels, perhaps in the blood or in chemistry"
+      },
+      {
+       "words": "in iron?",
+       "note": "setter's reading: what a clothes iron does, taking the folds out of a shirt, with the prefix meaning removal"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Split the answer DE-CREASE and it is the job of a clothes iron. Unsplit, it plainly means a reduction.",
      "definitionFit": "A decrease is a lessening in amount, while ironing literally removes the creases from fabric."
@@ -1386,52 +1228,47 @@
    },
    "solution": "OVERUSED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OVERUSED",
     "definitions": [
      {
       "text": "Trite",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the poetry wraps about the university letter"
-     },
-     {
-      "text": "restricted by",
-      "for": "container",
-      "note": "the combined poetry is confined within the drug-taking abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "excessive drug-taking",
-      "gives": "OD",
-      "note": "overdose"
-     },
-     {
-      "clueFragment": "poetry",
-      "gives": "VERSE",
-      "note": "poetry in general"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "VER",
-      "U",
-      "SE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the poetry wraps about the university letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "excessive drug-taking",
+       "gives": "OD",
+       "note": "overdose"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restricted by",
+         "note": "the combined poetry is confined within the drug-taking abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poetry",
+         "gives": "VERSE",
+         "note": "poetry in general"
+        },
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "U is the standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1459,47 +1296,39 @@
    },
    "solution": "COMPEL",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "COMPEL",
     "definitions": [
      {
       "text": "Make",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to have control over",
-      "for": "container",
-      "note": "the approach word takes charge of the P by holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "approach",
-      "gives": "COME",
-      "note": "to come is to approach"
-     },
-     {
-      "clueFragment": "P",
-      "gives": "P",
-      "note": "the first letter of P&L"
-     },
-     {
-      "clueFragment": "L",
-      "gives": "L",
-      "note": "added after the container"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COM",
-      "P",
-      "E",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to have control over",
+         "note": "the approach word takes charge of the P by holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "approach",
+         "gives": "COME",
+         "note": "to come is to approach"
+        },
+        {
+         "words": "P",
+         "note": "the first letter of P&L"
+        }
+       ]
+      },
+      {
+       "words": "L",
+       "note": "added after the container"
+      }
      ]
     },
     "explanation": {
@@ -1528,50 +1357,41 @@
    },
    "solution": "HUMERI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "HUMERI",
     "definitions": [
      {
       "text": "Bones",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with",
-      "for": "charade",
-      "note": "the stink word is joined to the turned bile"
-     },
-     {
-      "text": "tipped over",
-      "for": "reversal",
-      "note": "the anger word is upended, reading backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stink",
-      "gives": "HUM",
-      "note": "British slang for a bad smell"
-     },
-     {
-      "clueFragment": "bile",
-      "gives": "IRE",
-      "note": "bile as bad temper, anger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUM",
-      "ERI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "IRE",
-       "to": "ERI"
+       "text": "with",
+       "note": "the stink word is joined to the turned bile"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stink",
+       "gives": "HUM",
+       "note": "British slang for a bad smell"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "tipped over",
+         "note": "the anger word is upended, reading backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bile",
+         "gives": "IRE",
+         "note": "bile as bad temper, anger"
+        }
+       ]
       }
      ]
     },
@@ -1601,39 +1421,31 @@
    },
    "solution": "BLUNDERBUSS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUNDERBUSS",
     "definitions": [
      {
       "text": "arm",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "By",
-      "for": "charade",
-      "note": "by means beside, so the mistake stands next to the kiss"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mistake",
-      "gives": "BLUNDER",
-      "note": "a clumsy error"
-     },
-     {
-      "clueFragment": "kiss",
-      "gives": "BUSS",
-      "note": "an old word for a kiss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUNDER",
-      "BUSS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "By",
+       "note": "by means beside, so the mistake stands next to the kiss"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mistake",
+       "gives": "BLUNDER",
+       "note": "a clumsy error"
+      },
+      {
+       "words": "kiss",
+       "gives": "BUSS",
+       "note": "an old word for a kiss"
+      }
      ]
     },
     "explanation": {
@@ -1663,50 +1475,42 @@
    },
    "solution": "LAIRD",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LAIRD",
     "definitions": [
      {
       "text": "estate owner in Fife",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "getting",
-      "for": "substitution",
-      "note": "the drug receives a new part in place of the small letter"
-     },
-     {
-      "text": "for",
-      "for": "substitution",
-      "note": "for means instead of, so one piece replaces the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trip provider",
-      "gives": "LSD",
-      "note": "the hallucinogen that sends users on a trip"
-     },
-     {
-      "clueFragment": "carriage",
-      "gives": "AIR",
-      "note": "carriage as bearing or manner, an air"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S for small, the letter swapped out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AIR",
-      "D"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LAIRD",
+     "indicators": [
+      {
+       "text": "getting",
+       "note": "the drug receives a new part in place of the small letter"
+      },
+      {
+       "text": "for",
+       "note": "for means instead of, so one piece replaces the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trip provider",
+       "gives": "LSD",
+       "note": "the hallucinogen that sends users on a trip"
+      },
+      {
+       "words": "carriage",
+       "gives": "AIR",
+       "note": "carriage as bearing or manner, an air"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S for small, the letter swapped out"
+      }
      ]
     },
     "explanation": {
@@ -1735,46 +1539,49 @@
    },
    "solution": "NIECE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "NIECE",
     "definitions": [
      {
       "text": "Family member",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "in a down answer the top letter is the first, and it is lost"
-     },
-     {
-      "text": "dropping",
-      "for": "anagram",
-      "note": "the ecstasy letter falls lower in the column, changing the order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "30, topless",
-      "gives": "ENICE",
-      "note": "30 across is VENICE, which loses its first letter"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENICE",
-       "gives": "NIECE"
+       "text": "dropping",
+       "note": "the ecstasy letter falls lower in the column, changing the order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "note": "in a down answer the top letter is the first, and it is lost"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "30, topless",
+           "gives": "ENICE",
+           "note": "30 across is VENICE, which loses its first letter"
+          },
+          {
+           "words": "ecstasy",
+           "gives": "E",
+           "note": "E is slang for the drug ecstasy"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
@@ -1804,34 +1611,17 @@
    },
    "solution": "HEELS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HEELS",
     "definitions": [
      {
       "text": "Old scoundrel",
       "at": 0,
-      "note": "singular in the clue, but the 's reads as 'is' joining the two halves"
+      "note": "singular in the clue, but the 's reads as 'is' joining the two halves",
+      "meaning": "dated slang for a cad"
      },
      {
       "text": "means of giving many women a raise?",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old scoundrel",
-      "gives": "HEELS",
-      "note": "dated slang for a cad"
-     },
-     {
-      "clueFragment": "means of giving many women a raise?",
-      "gives": "HEELS",
-      "note": "the raised backs of women's shoes lift the wearer a few inches"
+      "at": 16,
+      "meaning": "the raised backs of women's shoes lift the wearer a few inches"
      }
     ],
     "explanation": {
@@ -1861,30 +1651,28 @@
    },
    "solution": "SKYE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SKYE",
     "definitions": [
      {
       "text": "Where Scots are",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "hidden_word",
-      "note": "the answer is trapped within the following two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "risky endeavour",
-      "gives": "SKYE",
-      "note": "letters spanning the end of one word and start of the next"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "caught in",
+       "note": "the answer is trapped within the following two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "risky endeavour",
+       "gives": "SKYE",
+       "note": "letters spanning the end of one word and start of the next"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Scottish people trapped in a dangerous venture.",
      "walkthrough": "The definition is loose: Skye is a Hebridean island, a place where Scots live.",
@@ -1917,35 +1705,24 @@
    },
    "solution": "VIDEOCAMERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VIDEO CAMERA",
     "definitions": [
      {
       "text": "shooter",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "the letters are crooked, bent out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "CIA made over",
-      "gives": "CIAMADEOVER",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CIA MADE OVER",
-       "gives": "VIDEOCAMERA"
+       "text": "criminal",
+       "note": "the letters are crooked, bent out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "CIA made over",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -1976,40 +1753,31 @@
    },
    "solution": "PORKY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PORKY",
     "definitions": [
      {
       "text": "Fiction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to accommodate",
-      "for": "container",
-      "note": "the cramped space houses the Romeo letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "little space",
-      "gives": "POKY",
-      "note": "poky means small and cramped"
-     },
-     {
-      "clueFragment": "Romeo",
-      "gives": "R",
-      "note": "R is Romeo in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "R",
-      "KY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "note": "the cramped space houses the Romeo letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little space",
+       "gives": "POKY",
+       "note": "poky means small and cramped"
+      },
+      {
+       "words": "Romeo",
+       "gives": "R",
+       "note": "R is Romeo in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -2038,40 +1806,38 @@
    },
    "solution": "IDEE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "IDEE",
     "definitions": [
      {
       "text": "Descartes's theory",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "the phrase is clipped, losing its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as printed"
-     },
-     {
-      "clueFragment": "think",
-      "gives": "DEEM",
-      "note": "to deem is to think or judge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DEE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "the phrase is clipped, losing its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "note": "taken as printed"
+        },
+        {
+         "words": "think",
+         "gives": "DEEM",
+         "note": "to deem is to think or judge"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -2100,40 +1866,38 @@
    },
    "solution": "VENICE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "VENICE",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "the selling word stops just short, dropping its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "almost sell",
-      "gives": "VEN",
-      "note": "VEND without its last letter"
-     },
-     {
-      "clueFragment": "reserve",
-      "gives": "ICE",
-      "note": "reserve as coolness of manner, iciness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VEN",
-      "ICE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VENICE",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "the selling word stops just short, dropping its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "almost sell",
+         "gives": "VEN",
+         "note": "VEND without its last letter"
+        },
+        {
+         "words": "reserve",
+         "gives": "ICE",
+         "note": "reserve as coolness of manner, iciness"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

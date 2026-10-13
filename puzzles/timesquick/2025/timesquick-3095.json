@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3095",
  "number": 3095,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,095",
  "setter": "Joker",
  "date": "2025-09-16",
  "dimensions": {
@@ -52,50 +50,40 @@
    },
    "solution": "SPICKANDSPAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPICK AND SPAN",
     "definitions": [
      {
       "text": "Neat",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the standard abbreviation for small, as on clothing labels"
-     },
-     {
-      "clueFragment": "tool",
-      "gives": "PICK",
-      "note": "a pick is a digging tool"
-     },
-     {
-      "clueFragment": "plus",
-      "gives": "AND",
-      "note": "plus = and"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "utensil",
-      "gives": "PAN",
-      "note": "a pan is a kitchen utensil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PICK",
-      "AND",
-      "S",
-      "PAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "tool",
+       "gives": "PICK",
+       "note": "a pick is a digging tool"
+      },
+      {
+       "words": "plus",
+       "gives": "AND",
+       "note": "plus = and"
+      },
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "words": "utensil",
+       "gives": "PAN",
+       "note": "a pan is a kitchen utensil"
+      }
      ]
     },
     "explanation": {
@@ -124,35 +112,24 @@
    },
    "solution": "PROSECUTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PROSECUTE",
     "definitions": [
      {
       "text": "Take action against",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that goes wrong",
-      "for": "anagram",
-      "note": "something that goes wrong ends up in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "core set-up",
-      "gives": "CORESETUP",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CORE SETUP",
-       "gives": "PROSECUTE"
+       "text": "that goes wrong",
+       "note": "something that goes wrong ends up in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "core set-up",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -182,33 +159,16 @@
    },
    "solution": "COMMONS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COMMONS",
     "definitions": [
      {
       "text": "Greens perhaps",
-      "at": 0
+      "at": 0,
+      "meaning": "village greens are an example of open land shared by a community"
      },
      {
       "text": "parliament",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greens perhaps",
-      "gives": "COMMONS",
-      "note": "village greens are an example of open land shared by a community"
-     },
-     {
-      "clueFragment": "parliament",
-      "gives": "COMMONS",
-      "note": "the elected lower house of the UK Parliament"
+      "at": 18,
+      "meaning": "the elected lower house of the UK Parliament"
      }
     ],
     "explanation": {
@@ -238,54 +198,53 @@
    },
    "solution": "ACCUSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ACCUSE",
     "definitions": [
      {
       "text": "Point the finger at",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "copper goes in the rearranged letters"
-     },
-     {
-      "text": "unusual",
-      "note": "the letters of case are put in an unusual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "case",
-      "gives": "AC",
-      "note": "first part of ACSE, an anagram of CASE"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "case",
-      "gives": "SE",
-      "note": "rest of ACSE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "CU",
-      "SE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ACCUSE",
+     "parts": [
       {
-       "fodder": "CASE",
-       "gives": "ACSE"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "ACCUSE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "copper goes in the rearranged letters"
+          },
+          {
+           "text": "unusual",
+           "note": "the letters of case are put in an unusual order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "case",
+           "gives": "AC",
+           "note": "first part of ACSE, an anagram of CASE"
+          },
+          {
+           "words": "copper",
+           "gives": "CU",
+           "note": "Cu is the chemical symbol for copper"
+          },
+          {
+           "words": "case",
+           "gives": "SE",
+           "note": "rest of ACSE"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -315,10 +274,6 @@
    },
    "solution": "DRAPE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DRAPE",
     "definitions": [
      {
       "text": "hanging",
@@ -326,25 +281,18 @@
       "note": "hanging as a noun: a curtain or cloth hung up"
      }
     ],
-    "indicators": [
-     {
-      "text": "condemned",
-      "for": "anagram",
-      "note": "something condemned is wrecked, so its letters are knocked about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Padre",
-      "gives": "PADRE",
-      "note": "anagram fodder, 5 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PADRE",
-       "gives": "DRAPE"
+       "text": "condemned",
+       "note": "something condemned is wrecked, so its letters are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Padre",
+       "note": "anagram fodder, 5 letters"
       }
      ]
     },
@@ -375,36 +323,25 @@
    },
    "solution": "PIE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "PIE",
     "definitions": [
      {
       "text": "Bake Off item",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly taking",
-      "for": "letter_selection",
-      "note": "take letters at regular intervals: the 1st, 3rd and 5th"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prize",
-      "gives": "PIE",
-      "select": "alternate",
-      "note": "the 1st, 3rd and 5th letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "I",
-      "E"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly taking",
+       "note": "take letters at regular intervals: the 1st, 3rd and 5th"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prize",
+       "note": "the 1st, 3rd and 5th letters of the word"
+      }
      ]
     },
     "explanation": {
@@ -433,55 +370,52 @@
    },
    "solution": "NOURISHING",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NOURISHING",
     "definitions": [
      {
       "text": "nursing?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "broken by",
-      "note": "the word is split open with Sunak's name inside"
-     },
-     {
-      "text": "on",
-      "note": "in a down clue, one thing on another comes after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Word",
-      "gives": "NOU",
-      "note": "first part of NOUN, a word"
-     },
-     {
-      "clueFragment": "Sunak",
-      "gives": "RISHI",
-      "note": "Rishi Sunak, UK Prime Minister 2022–24"
-     },
-     {
-      "clueFragment": "Word",
-      "gives": "N",
-      "note": "rest of NOUN"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOU",
-      "RISHI",
-      "N",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NOURISHING",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "broken by",
+         "note": "the word is split open with Sunak's name inside"
+        },
+        {
+         "text": "on",
+         "note": "in a down clue, one thing on another comes after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Word",
+         "gives": "NOU",
+         "note": "first part of NOUN, a word"
+        },
+        {
+         "words": "Sunak",
+         "gives": "RISHI",
+         "note": "Rishi Sunak, UK Prime Minister 2022–24"
+        },
+        {
+         "words": "Word",
+         "gives": "N",
+         "note": "rest of NOUN"
+        },
+        {
+         "words": "good",
+         "gives": "G",
+         "note": "G is the abbreviation for good"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -510,32 +444,25 @@
    },
    "solution": "FORM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORM",
     "definitions": [
      {
       "text": "Structure",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in support of",
-      "gives": "FOR",
-      "note": "for = in favour of"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "M",
-      "note": "British motorways are numbered M1, M6 and so on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in support of",
+       "gives": "FOR",
+       "note": "for = in favour of"
+      },
+      {
+       "words": "motorway",
+       "gives": "M",
+       "note": "British motorways are numbered M1, M6 and so on"
+      }
      ]
     },
     "explanation": {
@@ -564,50 +491,41 @@
    },
    "solution": "CHATEAU",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHATEAU",
     "definitions": [
      {
       "text": "stately home",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "take only the final letter of you"
-     }
-    ],
-    "linkWords": [
-     "got in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two cuppas",
-      "gives": "CHA",
-      "note": "cha (or char) is British slang for tea"
-     },
-     {
-      "clueFragment": "Two cuppas",
-      "gives": "TEA",
-      "note": "the second cup of tea"
-     },
-     {
-      "clueFragment": "you finally",
-      "gives": "U",
-      "select": "last",
-      "note": "last letter of YOU"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "TEA",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two cuppas",
+       "gives": "CHA",
+       "note": "cha (or char) is British slang for tea"
+      },
+      {
+       "words": "Two cuppas",
+       "gives": "TEA",
+       "note": "the second cup of tea"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "take only the final letter of you"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you finally",
+         "gives": "YOU",
+         "note": "last letter of YOU"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -646,38 +564,30 @@
    },
    "solution": "TOUCHANDGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOUCH AND GO",
     "definitions": [
      {
       "text": "Risky",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "feel",
-      "gives": "TOUCH",
-      "note": "feel = touch"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "with = and"
-     },
-     {
-      "clueFragment": "journey",
-      "gives": "GO",
-      "note": "go = travel, journey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOUCH",
-      "AND",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "feel",
+       "gives": "TOUCH",
+       "note": "feel = touch"
+      },
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "with = and"
+      },
+      {
+       "words": "journey",
+       "gives": "GO",
+       "note": "go = travel, journey"
+      }
      ]
     },
     "explanation": {
@@ -706,45 +616,35 @@
    },
    "solution": "ONEROUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONEROUS",
     "definitions": [
      {
       "text": "Troublesome",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming to",
-      "for": "charade",
-      "note": "the pieces are joined up, one arriving at the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "emperor",
-      "gives": "NERO",
-      "note": "Nero, the Roman emperor"
-     },
-     {
-      "clueFragment": "US",
-      "gives": "US",
-      "note": "used as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "NERO",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "coming to",
+       "note": "the pieces are joined up, one arriving at the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "emperor",
+       "gives": "NERO",
+       "note": "Nero, the Roman emperor"
+      },
+      {
+       "words": "US",
+       "note": "used as it stands"
+      }
      ]
     },
     "explanation": {
@@ -774,30 +674,28 @@
    },
    "solution": "ENNUI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENNUI",
     "definitions": [
      {
       "text": "Sense of dissatisfaction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is about",
-      "for": "hidden_word",
-      "note": "the answer is about, that is present, in the words that precede it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "when nuisance",
-      "gives": "ENNUI",
-      "note": "whEN NUIsance"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is about",
+       "note": "the answer is about, that is present, in the words that precede it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when nuisance",
+       "gives": "ENNUI",
+       "note": "whEN NUIsance"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Feeling fed up whenever an irritating person is around.",
      "walkthrough": "The surface is a complete little observation, so the answer sitting across 'when nuisance' is easy to read past.",
@@ -824,35 +722,25 @@
    },
    "solution": "NEWSPRINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEWSPRINT",
     "definitions": [
      {
       "text": "where it's reported",
       "at": 27
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Modern",
-      "gives": "NEW",
-      "note": "modern = new"
-     },
-     {
-      "clueFragment": "athletics event",
-      "gives": "SPRINT",
-      "note": "a sprint is a short running race"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "SPRINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Modern",
+       "gives": "NEW",
+       "note": "modern = new"
+      },
+      {
+       "words": "athletics event",
+       "gives": "SPRINT",
+       "note": "a sprint is a short running race"
+      }
      ]
     },
     "explanation": {
@@ -880,33 +768,16 @@
    },
    "solution": "CRUISE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CRUISE",
     "definitions": [
      {
       "text": "Holiday afloat",
-      "at": 0
+      "at": 0,
+      "meaning": "a pleasure voyage on a ship"
      },
      {
       "text": "Tom?",
-      "at": 19
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Holiday afloat",
-      "gives": "CRUISE",
-      "note": "a pleasure voyage on a ship"
-     },
-     {
-      "clueFragment": "Tom?",
-      "gives": "CRUISE",
-      "note": "the surname of Tom, the Hollywood film actor"
+      "at": 19,
+      "meaning": "the surname of Tom, the Hollywood film actor"
      }
     ],
     "explanation": {
@@ -936,62 +807,56 @@
    },
    "solution": "GROWTH",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GROWTH",
     "definitions": [
      {
       "text": "Increase",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "letter_selection",
-      "note": "the noise goes inside the abbreviation for Great"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "take only the first letter of Haywood"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of GT, the abbreviation for Great used in place names"
-     },
-     {
-      "clueFragment": "noise",
-      "gives": "ROW",
-      "note": "a row is a loud noise, a din"
-     },
-     {
-      "clueFragment": "Great",
-      "gives": "T",
-      "note": "last letter of GT"
-     },
-     {
-      "clueFragment": "Haywood initially",
-      "gives": "H",
-      "note": "first letter of Haywood"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ROW",
-      "T",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GROWTH",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "the noise goes inside the abbreviation for Great"
+          },
+          {
+           "text": "initially",
+           "note": "take only the first letter of Haywood"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Great",
+           "note": "first letter of GT, the abbreviation for Great used in place names"
+          }
+         ]
+        },
+        {
+         "words": "noise",
+         "gives": "ROW",
+         "note": "a row is a loud noise, a din"
+        },
+        {
+         "words": "Great",
+         "gives": "T",
+         "note": "last letter of GT"
+        },
+        {
+         "words": "Haywood initially",
+         "gives": "H",
+         "note": "first letter of Haywood"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1020,45 +885,42 @@
    },
    "solution": "REALISM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REALISM",
     "definitions": [
      {
       "text": "Common sense",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is in",
-      "for": "container",
-      "note": "IS goes inside the kingdom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the monarch's domain",
-      "gives": "REAL",
-      "note": "first part of REALM, a monarch's kingdom"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "the monarch's domain",
-      "gives": "M",
-      "note": "rest of REALM"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAL",
-      "IS",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "REALISM",
+     "indicators": [
+      {
+       "text": "is in",
+       "note": "IS goes inside the kingdom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the monarch's domain",
+         "gives": "REAL",
+         "note": "first part of REALM, a monarch's kingdom"
+        },
+        {
+         "words": "is",
+         "note": "used as it stands"
+        },
+        {
+         "words": "the monarch's domain",
+         "gives": "M",
+         "note": "rest of REALM"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1087,35 +949,25 @@
    },
    "solution": "ACCENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACCENT",
     "definitions": [
      {
       "text": "Emphasise",
       "at": 0
      }
     ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "account",
-      "gives": "AC",
-      "note": "AC (or A/C) is the abbreviation for account"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "CENT",
-      "note": "a cent is a coin, a bit of money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "CENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "account",
+       "gives": "AC",
+       "note": "AC (or A/C) is the abbreviation for account"
+      },
+      {
+       "words": "money",
+       "gives": "CENT",
+       "note": "a cent is a coin, a bit of money"
+      }
      ]
     },
     "explanation": {
@@ -1144,39 +996,31 @@
    },
    "solution": "ALERT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALERT",
     "definitions": [
      {
       "text": "Wide awake",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "'after' is about sequence: the word it governs follows the other, so the right goes at the end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is a kind of beer"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "RT",
-      "note": "RT is an abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALE",
-      "RT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "'after' is about sequence: the word it governs follows the other, so the right goes at the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is a kind of beer"
+      },
+      {
+       "words": "right",
+       "gives": "RT",
+       "note": "RT is an abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1206,33 +1050,16 @@
    },
    "solution": "TRACE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRACE",
     "definitions": [
      {
       "text": "Very little",
-      "at": 0
+      "at": 0,
+      "meaning": "a tiny, barely detectable amount (noun)"
      },
      {
       "text": "track down and find",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Very little",
-      "gives": "TRACE",
-      "note": "a tiny, barely detectable amount (noun)"
-     },
-     {
-      "clueFragment": "track down and find",
-      "gives": "TRACE",
-      "note": "to locate by following clues (verb)"
+      "at": 15,
+      "meaning": "to locate by following clues (verb)"
      }
     ],
     "explanation": {
@@ -1260,48 +1087,43 @@
    },
    "solution": "CRAMPON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRAMPON",
     "definitions": [
      {
       "text": "Climber's aid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "'around' means surrounding, so the fiddle is wrapped about the slope"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fiddle",
-      "gives": "C",
-      "note": "first letter of CON, a swindle or fiddle"
-     },
-     {
-      "clueFragment": "slope",
-      "gives": "RAMP",
-      "note": "a ramp is a slope"
-     },
-     {
-      "clueFragment": "fiddle",
-      "gives": "ON",
-      "note": "rest of CON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RAMP",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CRAMPON",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "'around' means surrounding, so the fiddle is wrapped about the slope"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fiddle",
+         "gives": "C",
+         "note": "first letter of CON, a swindle or fiddle"
+        },
+        {
+         "words": "slope",
+         "gives": "RAMP",
+         "note": "a ramp is a slope"
+        },
+        {
+         "words": "fiddle",
+         "gives": "ON",
+         "note": "rest of CON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1330,51 +1152,48 @@
    },
    "solution": "DICTATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DICTATE",
     "definitions": [
      {
       "text": "Order",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to stop",
-      "for": "container",
-      "note": "the letters plug, or stop up, the middle of DATE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "appointment",
-      "gives": "D",
-      "note": "first letter of DATE, an appointment"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I is the abbreviation for international"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is the abbreviation for court"
-     },
-     {
-      "clueFragment": "appointment",
-      "gives": "ATE",
-      "note": "rest of DATE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "I",
-      "CT",
-      "ATE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DICTATE",
+     "indicators": [
+      {
+       "text": "to stop",
+       "note": "the letters plug, or stop up, the middle of DATE"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "appointment",
+         "gives": "D",
+         "note": "first letter of DATE, an appointment"
+        },
+        {
+         "words": "international",
+         "gives": "I",
+         "note": "I is the abbreviation for international"
+        },
+        {
+         "words": "court",
+         "gives": "CT",
+         "note": "CT is the abbreviation for court"
+        },
+        {
+         "words": "appointment",
+         "gives": "ATE",
+         "note": "rest of DATE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1403,31 +1222,29 @@
    },
    "solution": "CUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CUE",
     "definitions": [
      {
       "text": "What actor must follow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "as reported, that is spoken, so a sound-alike"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bond's tech wizard",
-      "gives": "CUE",
-      "soundsLike": "Q",
-      "note": "Q is the gadget-maker in the James Bond films"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CUE",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "as reported, that is spoken, so a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bond's tech wizard",
+       "gives": "Q",
+       "note": "Q is the gadget-maker in the James Bond films"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An actor having to trail behind the gadget man in a Bond film.",
      "walkthrough": "The surface puts the actor on a Bond set, but the letter Q, said out loud, is spelt CUE.",
@@ -1455,40 +1272,38 @@
    },
    "solution": "IRIS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "IRIS",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "remove the last letter of RISE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "to come up endlessly",
-      "gives": "RIS",
-      "note": "RISE, to come up, without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RIS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IRIS",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "remove the last letter of RISE"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "to come up endlessly",
+         "gives": "RIS",
+         "note": "RISE, to come up, without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1517,38 +1332,24 @@
    },
    "solution": "OVERESTIMATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OVERESTIMATE",
     "definitions": [
      {
       "text": "Excessively high prediction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rigged",
-      "for": "anagram",
-      "note": "a rigged vote has been tampered with, so its letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Emirates vote",
-      "gives": "EMIRATESVOTE",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EMIRATES VOTE",
-       "gives": "OVERESTIMATE"
+       "text": "rigged",
+       "note": "a rigged vote has been tampered with, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Emirates vote",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },

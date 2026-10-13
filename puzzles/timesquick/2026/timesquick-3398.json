@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3398",
  "number": 3398,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,398",
  "setter": "Asp",
  "date": "2026-09-04",
  "dimensions": {
@@ -42,28 +40,16 @@
    },
    "solution": "MATERIAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MATERIAL",
     "definitions": [
      {
       "text": "Stuff",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: substance or fabric, as a noun"
      },
      {
       "text": "of great importance",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stuff",
-      "note": "first meaning: substance or fabric, as a noun"
-     },
-     {
-      "clueFragment": "of great importance",
-      "note": "second meaning: significant or relevant, as an adjective"
+      "at": 6,
+      "meaning": "second meaning: significant or relevant, as an adjective"
      }
     ],
     "explanation": {
@@ -91,32 +77,25 @@
    },
    "solution": "MASK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MASK",
     "definitions": [
      {
       "text": "cover of The Face",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Millions",
-      "gives": "M",
-      "note": "M is the standard abbreviation for million"
-     },
-     {
-      "clueFragment": "question",
-      "gives": "ASK",
-      "note": "to question someone is to ask them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ASK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Millions",
+       "gives": "M",
+       "note": "M is the standard abbreviation for million"
+      },
+      {
+       "words": "question",
+       "gives": "ASK",
+       "note": "to question someone is to ask them"
+      }
      ]
     },
     "explanation": {
@@ -146,41 +125,35 @@
    },
    "solution": "TRIM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TRIM",
     "definitions": [
      {
       "text": "Cut",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surface of",
-      "for": "letter_selection",
-      "note": "the surface of something is its uppermost layer, so only the top letter of the next word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "top",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of top"
-     },
-     {
-      "clueFragment": "lip",
-      "gives": "RIM",
-      "note": "the lip of a cup or bowl is its rim"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RIM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "surface of",
+         "note": "the surface of something is its uppermost layer, so only the top letter of the next word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top",
+         "note": "the first letter of top"
+        }
+       ]
+      },
+      {
+       "words": "lip",
+       "gives": "RIM",
+       "note": "the lip of a cup or bowl is its rim"
+      }
      ]
     },
     "explanation": {
@@ -208,65 +181,60 @@
    },
    "solution": "REASONABLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REASONABLE",
     "definitions": [
      {
       "text": "fair",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "something made new is remade, so the place name's letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the seaman is placed within the rearranged city letters"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that one is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Orleans",
-      "gives": "ORLEANS",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "Sailor",
-      "gives": "AB",
-      "note": "AB, able seaman, is the usual crossword sailor"
-     },
-     {
-      "clueFragment": "enjoy",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of enjoy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REASON",
-      "AB",
-      "L",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ORLEANS",
-       "gives": "REASONL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the seaman is placed within the rearranged city letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "New",
+           "note": "something made new is remade, so the place name's letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Orleans",
+           "note": "taken as written, to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "Sailor",
+         "gives": "AB",
+         "note": "AB, able seaman, is the usual crossword sailor"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, so only that one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enjoy",
+         "note": "the first letter of enjoy"
+        }
+       ]
       }
      ]
     },
@@ -296,33 +264,29 @@
    },
    "solution": "AILING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AILING",
     "definitions": [
      {
       "text": "Troubling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially ignored",
-      "for": "deletion",
-      "note": "the opening letter of the word is to be left out, as if passed over"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flaw",
-      "gives": "FAILING",
-      "note": "a failing is a weakness or flaw"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AILING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "initially ignored",
+       "note": "the opening letter of the word is to be left out, as if passed over"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flaw",
+       "gives": "FAILING",
+       "note": "a failing is a weakness or flaw"
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -351,30 +315,28 @@
    },
    "solution": "LIMB",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LIMB",
     "definitions": [
      {
       "text": "Member",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "of",
-      "for": "hidden_word",
-      "note": "the letters are part of the following words, sitting inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muslim Brotherhood",
-      "gives": "LIMB",
-      "note": "found across the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "note": "the letters are part of the following words, sitting inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Muslim Brotherhood",
+       "gives": "LIMB",
+       "note": "found across the end of the first word and start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Describes someone who belongs to the Muslim Brotherhood organisation.",
      "definitionFit": "An arm or leg is a member of the body, an old anatomical sense."
@@ -401,39 +363,31 @@
    },
    "solution": "INSTANCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSTANCE",
     "definitions": [
      {
       "text": "case",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting",
-      "for": "charade",
-      "note": "in a down entry, a piece supporting another sits beneath it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "something in is fashionable or popular"
-     },
-     {
-      "clueFragment": "Position",
-      "gives": "STANCE",
-      "note": "a stance is a position or attitude"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "STANCE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "note": "in a down entry, a piece supporting another sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "popular",
+       "gives": "IN",
+       "note": "something in is fashionable or popular"
+      },
+      {
+       "words": "Position",
+       "gives": "STANCE",
+       "note": "a stance is a position or attitude"
+      }
      ]
     },
     "explanation": {
@@ -461,44 +415,35 @@
    },
    "solution": "BARITONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BARITONE",
     "definitions": [
      {
       "text": "male singer",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Save",
-      "gives": "BAR",
-      "note": "save and bar both mean except"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "high",
-      "gives": "TON",
-      "note": "the ton is high society or high fashion"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "E",
-      "note": "E is a musical note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAR",
-      "I",
-      "TON",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Save",
+       "gives": "BAR",
+       "note": "save and bar both mean except"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "high",
+       "gives": "TON",
+       "note": "the ton is high society or high fashion"
+      },
+      {
+       "words": "note",
+       "gives": "E",
+       "note": "E is a musical note"
+      }
      ]
     },
     "explanation": {
@@ -527,32 +472,25 @@
    },
    "solution": "SUITABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUITABLE",
     "definitions": [
      {
       "text": "Appropriate",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "executive",
-      "gives": "SUIT",
-      "note": "a suit is slang for a business executive"
-     },
-     {
-      "clueFragment": "having the necessary power",
-      "gives": "ABLE",
-      "note": "being able means having the power to do something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUIT",
-      "ABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "executive",
+       "gives": "SUIT",
+       "note": "a suit is slang for a business executive"
+      },
+      {
+       "words": "having the necessary power",
+       "gives": "ABLE",
+       "note": "being able means having the power to do something"
+      }
      ]
     },
     "explanation": {
@@ -580,38 +518,31 @@
    },
    "solution": "USER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "USER",
     "definitions": [
      {
       "text": "addict",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "giving away",
-      "for": "deletion",
-      "note": "giving something away means losing it, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Attendant",
-      "gives": "USHER",
-      "note": "an usher is an attendant who shows people to seats"
-     },
-     {
-      "clueFragment": "heroin",
-      "gives": "H",
-      "note": "H is slang for heroin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "giving away",
+       "note": "giving something away means losing it, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attendant",
+       "gives": "USHER",
+       "note": "an usher is an attendant who shows people to seats"
+      },
+      {
+       "words": "heroin",
+       "gives": "H",
+       "note": "H is slang for heroin"
+      }
      ]
     },
     "explanation": {
@@ -639,52 +570,44 @@
    },
    "solution": "DEGENERATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "DEGENERATE",
     "definitions": [
      {
       "text": "Corrupt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "letter_selection",
-      "note": "without its heart a word loses its middle and keeps only its two ends"
-     },
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is knocked into disorder, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "duke",
-      "gives": "DE",
-      "select": "outer",
-      "note": "the outside letters of duke"
-     },
-     {
-      "clueFragment": "teenager",
-      "gives": "TEENAGER",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "GENERATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TEENAGER",
-       "gives": "GENERATE"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "note": "without its heart a word loses its middle and keeps only its two ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duke",
+         "note": "the outside letters of duke"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "something upset is knocked into disorder, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teenager",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -713,39 +636,31 @@
    },
    "solution": "COUNTERACT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COUNTERACT",
     "definitions": [
      {
       "text": "Moderate effects of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across entry, one piece on another follows straight after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sales position",
-      "gives": "COUNTER",
-      "note": "a shop counter is where sales are made"
-     },
-     {
-      "clueFragment": "law",
-      "gives": "ACT",
-      "note": "an act of parliament is a law"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUNTER",
-      "ACT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across entry, one piece on another follows straight after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sales position",
+       "gives": "COUNTER",
+       "note": "a shop counter is where sales are made"
+      },
+      {
+       "words": "law",
+       "gives": "ACT",
+       "note": "an act of parliament is a law"
+      }
      ]
     },
     "explanation": {
@@ -773,35 +688,25 @@
    },
    "solution": "HARDSHIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HARDSHIP",
     "definitions": [
      {
       "text": "distress",
       "at": 28
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tough",
-      "gives": "HARD",
-      "note": "tough and hard are synonyms"
-     },
-     {
-      "clueFragment": "ocean-going vessel",
-      "gives": "SHIP",
-      "note": "a ship is a vessel that sails the sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "SHIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tough",
+       "gives": "HARD",
+       "note": "tough and hard are synonyms"
+      },
+      {
+       "words": "ocean-going vessel",
+       "gives": "SHIP",
+       "note": "a ship is a vessel that sails the sea"
+      }
      ]
     },
     "explanation": {
@@ -829,38 +734,30 @@
    },
    "solution": "CONSERVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONSERVE",
     "definitions": [
      {
       "text": "Protect",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "CO is the abbreviation for company"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is the abbreviation for name"
-     },
-     {
-      "clueFragment": "start to rally",
-      "gives": "SERVE",
-      "note": "in tennis a serve starts each rally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "N",
-      "SERVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "gives": "CO",
+       "note": "CO is the abbreviation for company"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N is the abbreviation for name"
+      },
+      {
+       "words": "start to rally",
+       "gives": "SERVE",
+       "note": "in tennis a serve starts each rally"
+      }
      ]
     },
     "explanation": {
@@ -890,31 +787,29 @@
    },
    "solution": "AVOWAL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "AVOWAL",
     "definitions": [
      {
       "text": "formal statement",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "read out",
-      "for": "homophone",
-      "note": "reading something out means saying it, so the answer is a word that matches how the phrase is pronounced"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A & E possibly",
-      "gives": "AVOWAL",
-      "soundsLike": "A VOWEL",
-      "note": "A and E are both examples of a vowel"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AVOWAL",
+     "indicators": [
+      {
+       "text": "read out",
+       "note": "reading something out means saying it, so the answer is a word that matches how the phrase is pronounced"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A & E possibly",
+       "gives": "AVOWEL",
+       "note": "A and E are both examples of a vowel"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hospital's accident and emergency department issues an official statement.",
      "walkthrough": "A & E is the British term for a hospital emergency department, but here it is just two letters, each an example of a vowel.",
@@ -942,39 +837,31 @@
    },
    "solution": "DEACON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEACON",
     "definitions": [
      {
       "text": "minister",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "meeting",
-      "for": "charade",
-      "note": "two pieces meeting are placed side by side, joined end to end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drug Enforcement Administration",
-      "gives": "DEA",
-      "note": "the initials of the US drugs agency"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "CON",
-      "note": "CON is the abbreviation for Conservative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEA",
-      "CON"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "meeting",
+       "note": "two pieces meeting are placed side by side, joined end to end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drug Enforcement Administration",
+       "gives": "DEA",
+       "note": "the initials of the US drugs agency"
+      },
+      {
+       "words": "Conservative",
+       "gives": "CON",
+       "note": "CON is the abbreviation for Conservative"
+      }
      ]
     },
     "explanation": {
@@ -1002,40 +889,31 @@
    },
    "solution": "DISOWN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DISOWN",
     "definitions": [
      {
       "text": "Refuse to acknowledge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "controls",
-      "for": "container",
-      "note": "something that controls another holds it in its grip, so it wraps around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "DOWN",
-      "note": "to down a drink is to swallow it"
-     },
-     {
-      "clueFragment": "lives",
-      "gives": "IS",
-      "note": "to live is to be, so lives gives the verb is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "OWN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "controls",
+       "note": "something that controls another holds it in its grip, so it wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "DOWN",
+       "note": "to down a drink is to swallow it"
+      },
+      {
+       "words": "lives",
+       "gives": "IS",
+       "note": "to live is to be, so lives gives the verb is"
+      }
      ]
     },
     "explanation": {
@@ -1063,54 +941,44 @@
    },
    "solution": "DISCLAIMER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DISCLAIMER",
     "definitions": [
      {
       "text": "denial",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "something wrong is out of order, so these letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Record",
-      "gives": "DISC",
-      "note": "a disc is a gramophone record"
-     },
-     {
-      "clueFragment": "email",
-      "gives": "EMAIL",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISC",
-      "LAIME",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EMAIL",
-       "gives": "LAIME"
+       "words": "Record",
+       "gives": "DISC",
+       "note": "a disc is a gramophone record"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "note": "something wrong is out of order, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "email",
+           "note": "taken as written, to be rearranged"
+          },
+          {
+           "words": "right",
+           "gives": "R",
+           "note": "R is the abbreviation for right"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1139,31 +1007,29 @@
    },
    "solution": "CITE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CITE",
     "definitions": [
      {
       "text": "Mention",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to audience",
-      "for": "homophone",
-      "note": "what an audience gets is what it hears, so the word is chosen for its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something worth seeing",
-      "gives": "CITE",
-      "soundsLike": "SIGHT",
-      "note": "a sight is something worth seeing, as in tourist sights"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CITE",
+     "indicators": [
+      {
+       "text": "to audience",
+       "note": "what an audience gets is what it hears, so the word is chosen for its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something worth seeing",
+       "gives": "SIGHT",
+       "note": "a sight is something worth seeing, as in tourist sights"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A presenter tells listeners about an attraction worth a visit.",
      "definitionFit": "To cite something is to quote or refer to it, which is to mention it."
@@ -1189,31 +1055,16 @@
    },
    "solution": "KNOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNOT",
     "definitions": [
      {
       "text": "Aquatic bird",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a wading shorebird of the sandpiper family"
      },
      {
       "text": "speed over water",
-      "at": 15
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aquatic bird",
-      "note": "first meaning: a wading shorebird of the sandpiper family"
-     },
-     {
-      "clueFragment": "speed over water",
-      "note": "second meaning: a nautical mile per hour, a unit for ships"
+      "at": 15,
+      "meaning": "second meaning: a nautical mile per hour, a unit for ships"
      }
     ],
     "explanation": {
@@ -1242,31 +1093,29 @@
    },
    "solution": "HERD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HERD",
     "definitions": [
      {
       "text": "Crowd",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "radio is heard rather than seen, so the word is chosen by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "received news",
-      "gives": "HERD",
-      "soundsLike": "HEARD",
-      "note": "someone who has received news has heard it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HERD",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "radio is heard rather than seen, so the word is chosen by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "received news",
+       "gives": "HEARD",
+       "note": "someone who has received news has heard it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A crowd of people hear news through a radio broadcast.",
      "definitionFit": "A herd is a large group of animals, and by extension a mass of people moving together."
@@ -1292,43 +1141,31 @@
    },
    "solution": "NOTATION",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NOTATION",
     "definitions": [
      {
       "text": "system for recording information",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "to keep something is to hold on to it, so one piece holds the other"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "People",
-      "gives": "NATION",
-      "note": "a nation is a people"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "OT",
-      "note": "OT, the Old Testament, is a set of books of the Bible"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "OT",
-      "ATION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "to keep something is to hold on to it, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "People",
+       "gives": "NATION",
+       "note": "a nation is a people"
+      },
+      {
+       "words": "books",
+       "gives": "OT",
+       "note": "OT, the Old Testament, is a set of books of the Bible"
+      }
      ]
     },
     "explanation": {
@@ -1356,41 +1193,35 @@
    },
    "solution": "POEM",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "POEM",
     "definitions": [
      {
       "text": "his work",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "last to",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US writer",
-      "gives": "POE",
-      "note": "Edgar Allan Poe, the American writer"
-     },
-     {
-      "clueFragment": "perform",
-      "gives": "M",
-      "select": "last",
-      "note": "the final letter of perform"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POE",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US writer",
+       "gives": "POE",
+       "note": "Edgar Allan Poe, the American writer"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last to",
+         "note": "the last of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "perform",
+         "note": "the final letter of perform"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1419,49 +1250,47 @@
    },
    "solution": "INDECENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "INDECENT",
     "definitions": [
      {
       "text": "Obscene",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "but not me",
-      "for": "deletion",
-      "note": "excluding me means those two letters are removed from the word before it"
-     },
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "broadcast suggests scattered widely, so the letters are strewn into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enticed",
-      "gives": "ENTICED",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "MEN",
-      "note": "taken as written, before two letters are removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INDECENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENTICEDN",
-       "gives": "INDECENT"
+       "text": "broadcast",
+       "note": "broadcast suggests scattered widely, so the letters are strewn into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not me",
+         "note": "excluding me means those two letters are removed from the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "enticed",
+           "note": "taken as written, to be rearranged"
+          },
+          {
+           "words": "men",
+           "note": "taken as written, before two letters are removed"
+          }
+         ]
+        },
+        {
+         "gives": "ME"
+        }
+       ]
       }
      ]
     },

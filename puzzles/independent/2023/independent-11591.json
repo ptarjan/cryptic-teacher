@@ -1,8 +1,6 @@
 {
  "id": "independent-11591",
  "number": 11591,
- "series": "independent",
- "name": "Independent cryptic crossword No 11,591",
  "setter": "Knut",
  "date": "2023-12-05",
  "dimensions": {
@@ -38,37 +36,39 @@
    },
    "solution": "CAMPSITE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "CAMPSITE",
     "definitions": [
      {
       "text": "Temporary accommodation frowned on by 3",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hearing",
-      "for": "homophone",
-      "note": "hearing a word rather than reading it means we want something that sounds like the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "affected",
-      "gives": "CAMP",
-      "note": "camp means theatrically affected or exaggerated in manner"
-     },
-     {
-      "clueFragment": "vision",
-      "gives": "SITE",
-      "soundsLike": "SIGHT",
-      "note": "sight is vision; a word spelt differently is said the same way"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "affected",
+       "gives": "CAMP",
+       "note": "camp means theatrically affected or exaggerated in manner"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SITE",
+       "indicators": [
+        {
+         "text": "hearing",
+         "note": "hearing a word rather than reading it means we want something that sounds like the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vision",
+         "gives": "SIGHT",
+         "note": "sight is vision; a word spelt differently is said the same way"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some lodging the Home Secretary scowls at stirs up her senses.",
      "walkthrough": "3 is SUELLA BRAVERMAN, the theme's Home Secretary, who objected to tents for rough sleepers; the definition leans on that cross-reference.",
@@ -95,48 +95,41 @@
    },
    "solution": "CRISIS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CRISIS",
     "definitions": [
      {
       "text": "a major problem",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "lacking means without, so the letter for that measurement is taken away"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About",
-      "gives": "C",
-      "note": "c is circa, Latin for about"
-     },
-     {
-      "clueFragment": "Sunak's",
-      "gives": "RISHIS",
-      "note": "Rishi Sunak, the former UK prime minister, with the possessive S"
-     },
-     {
-      "clueFragment": "height",
-      "gives": "H",
-      "note": "H is the abbreviation for height"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RISIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "gives": "C",
+       "note": "c is circa, Latin for about"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "note": "lacking means without, so the letter for that measurement is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sunak's",
+         "gives": "RISHIS",
+         "note": "Rishi Sunak, the former UK prime minister, with the possessive S"
+        },
+        {
+         "words": "height",
+         "gives": "H",
+         "note": "H is the abbreviation for height"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -172,59 +165,48 @@
    },
    "solution": "MALICIOUSINTENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MALICIOUS INTENT",
     "definitions": [
      {
       "text": "wickedness",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Falsely",
-      "for": "anagram",
-      "note": "falsely means not truly, so the letters are not in their true order"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "claim",
-      "gives": "CLAIM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "debts",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to pay debts"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "19 on 1A",
-      "gives": "TENT",
-      "note": "a shelter pitched on a campsite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MALICIOUS",
-      "IN",
-      "TENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CLAIMIOUS",
-       "gives": "MALICIOUS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Falsely",
+         "note": "falsely means not truly, so the letters are not in their true order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "claim",
+           "note": "taken as written"
+          },
+          {
+           "words": "debts",
+           "gives": "IOUS",
+           "note": "IOUs are written promises to pay debts"
+          },
+          {
+           "words": "in",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "19 on 1A",
+       "gives": "TENT",
+       "note": "a shelter pitched on a campsite"
       }
      ]
     },
@@ -260,35 +242,24 @@
    },
    "solution": "SUELLABRAVERMAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SUELLA BRAVERMAN",
     "definitions": [
      {
       "text": "Heroine of the far right",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a sort of",
-      "for": "anagram",
-      "note": "a sort of suggests a variant form, so the letters are rearranged into another shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smaller Eva Braun",
-      "gives": "SMALLEREVABRAUN",
-      "note": "all fifteen letters of these words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SMALLEREVABRAUN",
-       "gives": "SUELLABRAVERMAN"
+       "text": "a sort of",
+       "note": "a sort of suggests a variant form, so the letters are rearranged into another shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smaller Eva Braun",
+       "note": "all fifteen letters of these words"
       }
      ]
     },
@@ -324,41 +295,40 @@
    },
    "solution": "TAPINTO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TAP INTO",
     "definitions": [
      {
       "text": "Break in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "letter_selection",
-      "note": "half of a four-letter word is its first two letters, kept here"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tame",
-      "gives": "TA",
-      "select": "first",
-      "note": "the front half of tame"
-     },
-     {
-      "clueFragment": "a piebald nag",
-      "gives": "PINTO",
-      "note": "a pinto is a piebald or patchy horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "PINTO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "TA",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "half of a four-letter word is its first two letters, kept here"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "tame",
+         "gives": "TA",
+         "select": "first",
+         "note": "the front half of tame"
+        }
+       ]
+      },
+      {
+       "words": "a piebald nag",
+       "gives": "PINTO",
+       "note": "a pinto is a piebald or patchy horse"
+      }
      ]
     },
     "explanation": {
@@ -388,53 +358,44 @@
    },
    "solution": "ALWAYS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ALWAYS",
     "definitions": [
      {
       "text": "constantly",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "put back",
-      "for": "reversal",
-      "note": "putting something back sends it the other way, so the letters of the small boat run right to left"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the standard abbreviation for small"
-     },
-     {
-      "clueFragment": "sailing boat",
-      "gives": "YAWL",
-      "note": "a yawl is a two-masted sailing boat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LWAYS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SYAWL",
-       "to": "LWAYS"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put back",
+         "note": "putting something back sends it the other way, so the letters of the small boat run right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "small",
+           "gives": "S",
+           "note": "S is the standard abbreviation for small"
+          },
+          {
+           "words": "sailing boat",
+           "gives": "YAWL",
+           "note": "a yawl is a two-masted sailing boat"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -469,51 +430,44 @@
    },
    "solution": "LIFESTYLECHOICE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "LIFESTYLE CHOICE",
     "definitions": [
      {
       "text": "e.g. 8 18D for 3",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "inherently",
-      "for": "anagram",
-      "note": "inherently means within its own nature, so the needed word is made from that word's own letters rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Long sentence",
-      "gives": "LIFE",
-      "note": "a life sentence is the longest prison term"
-     },
-     {
-      "clueFragment": "technique",
-      "gives": "STYLE",
-      "note": "style is a way of doing something, a technique"
-     },
-     {
-      "clueFragment": "echoic",
-      "gives": "ECHOIC",
-      "note": "taken as letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIFE",
-      "STYLE",
-      "CHOICE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ECHOIC",
-       "gives": "CHOICE"
+       "words": "Long sentence",
+       "gives": "LIFE",
+       "note": "a life sentence is the longest prison term"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "inherently",
+         "note": "inherently means within its own nature, so the needed word is made from that word's own letters rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "technique",
+           "gives": "STYLE",
+           "note": "style is a way of doing something, a technique"
+          },
+          {
+           "words": "echoic",
+           "note": "taken as letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -549,35 +503,24 @@
    },
    "solution": "ALTERNATIVEVOTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALTERNATIVE VOTE",
     "definitions": [
      {
       "text": "way of expressing democracy",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "new means made afresh, so the letters before it are formed into a fresh arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Enter Tel Aviv, to a",
-      "gives": "ENTERTELAVIVTOA",
-      "note": "all fifteen letters of these words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENTERTELAVIVTOA",
-       "gives": "ALTERNATIVEVOTE"
+       "text": "new",
+       "note": "new means made afresh, so the letters before it are formed into a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Enter Tel Aviv, to a",
+       "note": "all fifteen letters of these words"
       }
      ]
     },
@@ -607,50 +550,41 @@
    },
    "solution": "SLEEPING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SLEEPING",
     "definitions": [
      {
       "text": "unconscious",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "letter_selection",
-      "note": "a bit of a word is a small piece of it, here its opening letter"
-     },
-     {
-      "text": "injected",
-      "for": "container",
-      "note": "something injected is pushed inside, so this letter goes into the word for leaking"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oozing",
-      "gives": "SEEPING",
-      "note": "seeping means oozing slowly"
-     },
-     {
-      "clueFragment": "liquid",
-      "gives": "L",
-      "select": "first",
-      "note": "the first letter of liquid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "L",
-      "EEPING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injected",
+       "note": "something injected is pushed inside, so this letter goes into the word for leaking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oozing",
+       "gives": "SEEPING",
+       "note": "seeping means oozing slowly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "note": "a bit of a word is a small piece of it, here its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "liquid",
+         "note": "the first letter of liquid"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -684,32 +618,25 @@
    },
    "solution": "ILLTEMPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ILL TEMPER",
     "definitions": [
      {
       "text": "spleen",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Knut will",
-      "gives": "ILL",
-      "note": "Knut is the setter, so he is I, and will contracts to 'LL: I'LL"
-     },
-     {
-      "clueFragment": "soften",
-      "gives": "TEMPER",
-      "note": "to temper is to moderate or soften"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILL",
-      "TEMPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Knut will",
+       "gives": "ILL",
+       "note": "Knut is the setter, so he is I, and will contracts to 'LL: I'LL"
+      },
+      {
+       "words": "soften",
+       "gives": "TEMPER",
+       "note": "to temper is to moderate or soften"
+      }
      ]
     },
     "explanation": {
@@ -739,34 +666,25 @@
    },
    "solution": "RETCH",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "RETCH",
     "definitions": [
      {
       "text": "gag",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "Starts to",
-      "for": "letter_selection",
-      "note": "the starts of words are their opening letters, one taken from each word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "read extremely tasteless Conservative homeless",
-      "gives": "RETCH",
-      "select": "first",
-      "note": "the opening letter of each of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RETCH"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Starts to",
+       "note": "the starts of words are their opening letters, one taken from each word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "read extremely tasteless Conservative homeless",
+       "note": "the opening letter of each of the five words"
+      }
      ]
     },
     "explanation": {
@@ -796,36 +714,39 @@
    },
    "solution": "FYTTE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "FYTTE",
     "definitions": [
      {
       "text": "a classic song",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "pens",
-      "for": "hidden_word",
-      "note": "pens means encloses, so the answer is held inside the words of the name"
-     },
-     {
-      "text": "When retired",
-      "for": "reversal",
-      "note": "something retired has drawn back, so the letters are read in the backward direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Betty Ford",
-      "gives": "ETTYF",
-      "note": "the run of letters sitting inside these two words"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "When retired",
+       "note": "something retired has drawn back, so the letters are read in the backward direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "pens",
+         "note": "pens means encloses, so the answer is held inside the words of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Betty Ford",
+         "gives": "ETTYF",
+         "note": "the run of letters sitting inside these two words"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A former First Lady in her retirement pens a well-known ballad.",
      "walkthrough": "Betty Ford was the wife of US president Gerald Ford; read her name backwards to find the old word.",
@@ -853,33 +774,29 @@
    },
    "solution": "INCEL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INCEL",
     "definitions": [
      {
       "text": "Single male reluctantly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end means the final letter of the phrase is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jailed",
-      "gives": "INCELL",
-      "note": "someone jailed is in cell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCEL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "without an end means the final letter of the phrase is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jailed",
+       "gives": "INCELL",
+       "note": "someone jailed is in cell"
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -919,28 +836,16 @@
    },
    "solution": "NOTASCRAP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOT A SCRAP",
     "definitions": [
      {
       "text": "Zip",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: nothing at all"
      },
      {
       "text": "slightly less rubbish",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Zip",
-      "note": "first meaning: nothing at all"
-     },
-     {
-      "clueFragment": "slightly less rubbish",
-      "note": "second meaning, split differently"
+      "at": 4,
+      "meaning": "second meaning, split differently"
      }
     ],
     "explanation": {
@@ -969,47 +874,41 @@
    },
    "solution": "TOLBOOTH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TOLBOOTH",
     "definitions": [
      {
       "text": "building on turnpike",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "acquiring",
-      "for": "container",
-      "note": "acquiring means taking something in, so one piece goes inside the phrase for in addition"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "On top of that",
-      "gives": "TOBOOT",
-      "note": "to boot means in addition, on top of that"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H is hotel in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "L",
-      "BOOT",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "acquiring",
+         "note": "acquiring means taking something in, so one piece goes inside the phrase for in addition"
+        }
+       ],
+       "parts": [
+        {
+         "words": "On top of that",
+         "gives": "TOBOOT",
+         "note": "to boot means in addition, on top of that"
+        },
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L is the abbreviation for large"
+        }
+       ]
+      },
+      {
+       "words": "hotel",
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1037,49 +936,41 @@
    },
    "solution": "YEARN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "YEARN",
     "definitions": [
      {
       "text": "Long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says which piece comes second when the pieces are joined in order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "study",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of study"
-     },
-     {
-      "clueFragment": "make some money",
-      "gives": "EARN",
-      "note": "to earn is to make money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "EARN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says which piece comes second when the pieces are joined in order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "study",
+         "note": "the last letter of study"
+        }
+       ]
+      },
+      {
+       "words": "make some money",
+       "gives": "EARN",
+       "note": "to earn is to make money"
+      }
      ]
     },
     "explanation": {
@@ -1108,54 +999,40 @@
    },
    "solution": "STACCATO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STACCATO",
     "definitions": [
      {
       "text": "Instruction to players",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "set up",
-      "for": "reversal",
-      "note": "in a down answer, set up means raised, so the word reads bottom to top"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical",
-      "gives": "CATS",
-      "note": "Cats is the Andrew Lloyd Webber musical"
-     },
-     {
-      "clueFragment": "whip",
-      "gives": "CAT",
-      "note": "the cat-o'-nine-tails is a whip"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is round in shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAC",
-      "CAT",
-      "O"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CATS",
-       "to": "STAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "note": "in a down answer, set up means raised, so the word reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical",
+         "gives": "CATS",
+         "note": "Cats is the Andrew Lloyd Webber musical"
+        }
+       ]
+      },
+      {
+       "words": "whip",
+       "gives": "CAT",
+       "note": "the cat-o'-nine-tails is a whip"
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is round in shape"
       }
      ]
     },
@@ -1186,34 +1063,25 @@
    },
    "solution": "TESLA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TESLA",
     "definitions": [
      {
       "text": "volatile firm run by an odd dude",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "something done only now and then picks every other letter of the words before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steers clear",
-      "gives": "TESLA",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TESLA"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "occasionally",
+       "note": "something done only now and then picks every other letter of the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Steers clear",
+       "note": "the second, fourth, sixth, eighth and tenth letters"
+      }
      ]
     },
     "explanation": {
@@ -1249,52 +1117,44 @@
    },
    "solution": "RISKEDIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RISKED IT",
     "definitions": [
      {
       "text": "gambled",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Poor",
-      "for": "anagram",
-      "note": "something poor is in bad shape, so the name's letters are knocked into a new order"
-     },
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means every second letter of the next word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Keir's",
-      "gives": "KEIRS",
-      "note": "the name with its possessive S, taken as letters"
-     },
-     {
-      "clueFragment": "adrift",
-      "gives": "DIT",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RISKE",
-      "DIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "KEIRS",
-       "gives": "RISKE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Poor",
+         "note": "something poor is in bad shape, so the name's letters are knocked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Keir's",
+         "note": "the name with its possessive S, taken as letters"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals means every second letter of the next word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adrift",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
       }
      ]
     },
@@ -1324,31 +1184,29 @@
    },
    "solution": "ROUGH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ROUGH",
     "definitions": [
      {
       "text": "coarse",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding",
-      "for": "homophone",
-      "note": "sounding means as heard, so the word is one that is pronounced the same as the card term"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trump",
-      "gives": "ROUGH",
-      "soundsLike": "RUFF",
-      "note": "to ruff is to trump in card games"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROUGH",
+     "indicators": [
+      {
+       "text": "sounding",
+       "note": "sounding means as heard, so the word is one that is pronounced the same as the card term"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trump",
+       "gives": "RUFF",
+       "note": "to ruff is to trump in card games"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Donald Trump comes across as crude.",
      "walkthrough": "Trump looks like the US president but is the card-play verb.",
@@ -1376,40 +1234,31 @@
    },
    "solution": "SHELTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHELTER",
     "definitions": [
      {
       "text": "Housing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "housing",
-      "for": "container",
-      "note": "housing something means giving it a home within, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very steep",
-      "gives": "SHEER",
-      "note": "a sheer cliff is very steep"
-     },
-     {
-      "clueFragment": "subaltern",
-      "gives": "LT",
-      "note": "a subaltern is a junior army officer, a lieutenant, abbreviated Lt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "LT",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housing",
+       "note": "housing something means giving it a home within, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very steep",
+       "gives": "SHEER",
+       "note": "a sheer cliff is very steep"
+      },
+      {
+       "words": "subaltern",
+       "gives": "LT",
+       "note": "a subaltern is a junior army officer, a lieutenant, abbreviated Lt"
+      }
      ]
     },
     "explanation": {
@@ -1438,31 +1287,29 @@
    },
    "solution": "LAFFER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LAFFER",
     "definitions": [
      {
       "text": "US economist famous for his curve",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sounds",
-      "for": "homophone",
-      "note": "sounds says we want a name pronounced like the word clued next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like, 22",
-      "gives": "LAFFER",
-      "soundsLike": "LAUGHER",
-      "note": "22 is HYENA, an animal known for its laugh, so a laugher"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LAFFER",
+     "indicators": [
+      {
+       "text": "sounds",
+       "note": "sounds says we want a name pronounced like the word clued next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "like, 22",
+       "gives": "LAUGHER",
+       "note": "22 is HYENA, an animal known for its laugh, so a laugher"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A chatty description of an American economist, the 'like' a verbal filler.",
      "walkthrough": "Arthur Laffer's curve claims tax cuts can raise revenue, a favourite of the right.",
@@ -1490,47 +1337,35 @@
    },
    "solution": "CANNELURE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CANNELURE",
     "definitions": [
      {
       "text": "groove",
       "at": 41
      }
     ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "C is Charlie in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "his sister",
-      "gives": "ANNE",
-      "note": "Princess Anne is the sister of King Charles"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "Midge",
-      "gives": "URE",
-      "note": "Midge Ure is the Scottish singer of Ultravox"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ANNE",
-      "L",
-      "URE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Charlie",
+       "gives": "C",
+       "note": "C is Charlie in the NATO phonetic alphabet"
+      },
+      {
+       "words": "his sister",
+       "gives": "ANNE",
+       "note": "Princess Anne is the sister of King Charles"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      },
+      {
+       "words": "Midge",
+       "gives": "URE",
+       "note": "Midge Ure is the Scottish singer of Ultravox"
+      }
      ]
     },
     "explanation": {
@@ -1560,40 +1395,31 @@
    },
    "solution": "HYENA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HYENA",
     "definitions": [
      {
       "text": "Carnivore",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to occupy",
-      "for": "container",
-      "note": "to occupy a space is to sit inside it, so the desire goes within the area"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an area of land",
-      "gives": "HA",
-      "note": "ha is the symbol for a hectare, a unit of land area"
-     },
-     {
-      "clueFragment": "longing",
-      "gives": "YEN",
-      "note": "a yen is a longing or craving"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "YEN",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to occupy",
+       "note": "to occupy a space is to sit inside it, so the desire goes within the area"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an area of land",
+       "gives": "HA",
+       "note": "ha is the symbol for a hectare, a unit of land area"
+      },
+      {
+       "words": "longing",
+       "gives": "YEN",
+       "note": "a yen is a longing or craving"
+      }
      ]
     },
     "explanation": {
@@ -1627,32 +1453,25 @@
    },
    "solution": "ATEAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "A-TEAM",
     "definitions": [
      {
       "text": "1st XI",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "took food",
-      "gives": "ATE",
-      "note": "to eat food, past tense"
-     },
-     {
-      "clueFragment": "before noon",
-      "gives": "AM",
-      "note": "am is the abbreviation for the hours before midday"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATE",
-      "AM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "took food",
+       "gives": "ATE",
+       "note": "to eat food, past tense"
+      },
+      {
+       "words": "before noon",
+       "gives": "AM",
+       "note": "am is the abbreviation for the hours before midday"
+      }
      ]
     },
     "explanation": {
@@ -1690,57 +1509,54 @@
    },
    "solution": "HITSITOFF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "HITS IT OFF",
     "definitions": [
      {
       "text": "Gets along well with",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "weird",
-      "for": "anagram",
-      "note": "weird means strange, so these letters come out in a strange order"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points at the first letter of the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this",
-      "gives": "THIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "irritating",
-      "gives": "I",
-      "select": "first",
-      "note": "the first letter of irritating"
-     },
-     {
-      "clueFragment": "nob",
-      "gives": "TOFF",
-      "note": "a nob and a toff are both slang for a posh upper-class person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HITSI",
-      "TOFF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THISI",
-       "gives": "HITSI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "weird",
+         "note": "weird means strange, so these letters come out in a strange order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "this",
+           "note": "taken as written"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially points at the first letter of the word that follows"
+            }
+           ],
+           "parts": [
+            {
+             "words": "irritating",
+             "note": "the first letter of irritating"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "nob",
+       "gives": "TOFF",
+       "note": "a nob and a toff are both slang for a posh upper-class person"
       }
      ]
     },
@@ -1770,51 +1586,46 @@
    },
    "solution": "OUTING",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "OUTING",
     "definitions": [
      {
       "text": "Trip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "left",
-      "for": "deletion",
-      "note": "left in the sense of departed, so that letter has gone from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O is the cricket scoring abbreviation for an over"
-     },
-     {
-      "clueFragment": "uniform",
-      "gives": "U",
-      "note": "U is uniform in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "object",
-      "gives": "THING",
-      "note": "a thing is an object"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "H is the abbreviation for husband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "U",
-      "TING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "left",
+       "note": "left in the sense of departed, so that letter has gone from the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
+        },
+        {
+         "words": "uniform",
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        },
+        {
+         "words": "object",
+         "gives": "THING",
+         "note": "a thing is an object"
+        }
+       ]
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "H is the abbreviation for husband"
+      }
      ]
     },
     "explanation": {
@@ -1849,48 +1660,40 @@
    },
    "solution": "FREEBEER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "FREE BEER",
     "definitions": [
      {
       "text": "Landlord's sardonic next-day offer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "scrapped",
-      "for": "deletion",
-      "note": "scrapped means thrown away, so those letters are removed from the word"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deliver",
-      "gives": "FREE",
-      "note": "to free is to deliver, as in deliver from evil"
-     },
-     {
-      "clueFragment": "better",
-      "gives": "BETTER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "times",
-      "gives": "TT",
-      "note": "T is time, so two of them are times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FREE",
-      "BEER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deliver",
+       "gives": "FREE",
+       "note": "to free is to deliver, as in deliver from evil"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scrapped",
+         "note": "scrapped means thrown away, so those letters are removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "better",
+         "note": "taken as written"
+        },
+        {
+         "words": "times",
+         "gives": "TT",
+         "note": "T is time, so two of them are times"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

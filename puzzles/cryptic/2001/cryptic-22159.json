@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22159",
  "number": 22159,
- "series": "cryptic",
- "name": "Prize crossword No 22,159",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2001-03-17",
  "dimensions": {
@@ -38,38 +37,24 @@
    },
    "solution": "ANGELOU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANGELOU",
     "definitions": [
      {
       "text": "13 on the May the first",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "prepared",
-      "for": "anagram",
-      "note": "something prepared has been worked up from raw materials, so the letters are made over into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A lounge",
-      "gives": "ALOUNGE",
-      "note": "the anagram fodder, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALOUNGE",
-       "gives": "ANGELOU"
+       "text": "prepared",
+       "note": "something prepared has been worked up from raw materials, so the letters are made over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A lounge",
+       "note": "the anagram fodder, taken letter for letter"
       }
      ]
     },
@@ -99,51 +84,41 @@
    },
    "solution": "NEOGENE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "NEOGENE",
     "definitions": [
      {
       "text": "Late Tertiary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down clue, turning up means the word is read from the bottom upwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one word inside the other, which wraps round it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East Anglian river",
-      "gives": "NENE",
-      "note": "the Nene flows through Northamptonshire and the Fens to the Wash"
-     },
-     {
-      "clueFragment": "personality",
-      "gives": "EGO",
-      "note": "the ego is the self or personality"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NE",
-      "OGE",
-      "NE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EGO",
-       "to": "OGE"
+       "text": "in",
+       "note": "in places one word inside the other, which wraps round it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "East Anglian river",
+       "gives": "NENE",
+       "note": "the Nene flows through Northamptonshire and the Fens to the Wash"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue, turning up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "personality",
+         "gives": "EGO",
+         "note": "the ego is the self or personality"
+        }
+       ]
       }
      ]
     },
@@ -173,33 +148,29 @@
    },
    "solution": "ENGEL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ENGEL",
     "definitions": [
      {
       "text": "editor of Wisden",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Singular",
-      "for": "deletion",
-      "note": "the name ends like a plural, so making it singular drops its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "communist",
-      "gives": "ENGELS",
-      "note": "Friedrich Engels, co-author of the Communist Manifesto"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENGEL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Singular",
+       "note": "the name ends like a plural, so making it singular drops its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "communist",
+       "gives": "ENGELS",
+       "note": "Friedrich Engels, co-author of the Communist Manifesto"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -235,47 +206,51 @@
    },
    "solution": "OPENWAR",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "OPEN WAR",
     "definitions": [
      {
       "text": "When it breaks out, endless weaponry will be used…",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "endless means the word loses its last letter"
-     },
-     {
-      "text": "breaks out",
-      "for": "anagram",
-      "note": "breaking out suggests an eruption that scatters the letters into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weaponry",
-      "gives": "WEAPONR",
-      "select": "first",
-      "note": "the word without its final letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OPENWAR",
+     "indicators": [
       {
-       "fodder": "WEAPONR",
-       "gives": "OPENWAR"
+       "text": "endless",
+       "note": "endless means the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaks out",
+         "note": "breaking out suggests an eruption that scatters the letters into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "WEAPONR",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "weaponry",
+           "gives": "WEAPONR",
+           "select": "first",
+           "note": "the word without its final letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A warning that once hostilities start, arms will be deployed without limit.",
      "walkthrough": "The whole clue is both wordplay and definition, and it runs on into 6 down.",
@@ -302,32 +277,25 @@
    },
    "solution": "SAWDUST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SAWDUST",
     "definitions": [
      {
       "text": "out of the wood?",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Observed",
-      "gives": "SAW",
-      "note": "past tense of see"
-     },
-     {
-      "clueFragment": "the end of Man",
-      "gives": "DUST",
-      "note": "dust to dust: mankind ends as dust, as the burial service says"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAW",
-      "DUST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Observed",
+       "gives": "SAW",
+       "note": "past tense of see"
+      },
+      {
+       "words": "the end of Man",
+       "gives": "DUST",
+       "note": "dust to dust: mankind ends as dust, as the burial service says"
+      }
      ]
     },
     "explanation": {
@@ -357,44 +325,31 @@
    },
    "solution": "ARMIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARMIES",
     "definitions": [
      {
       "text": "the military",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round, so the sign wraps around the other letter"
-     }
-    ],
-    "linkWords": [
-     "…by",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a sign",
-      "gives": "ARIES",
-      "note": "Aries the ram is a sign of the zodiac"
-     },
-     {
-      "clueFragment": "their leader",
-      "gives": "M",
-      "note": "their refers back to the military, whose leading letter this is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "M",
-      "IES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going round, so the sign wraps around the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sign",
+       "gives": "ARIES",
+       "note": "Aries the ram is a sign of the zodiac"
+      },
+      {
+       "words": "their leader",
+       "gives": "M",
+       "note": "their refers back to the military, whose leading letter this is"
+      }
      ]
     },
     "explanation": {
@@ -423,48 +378,35 @@
    },
    "solution": "DICKINSON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DICKINSON",
     "definitions": [
      {
       "text": "Emily the 13",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the back",
-      "for": "charade",
-      "note": "the back says this word is placed at the rear, after the other piece"
-     }
-    ],
-    "linkWords": [
-     "like a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "yard",
-      "gives": "DICK",
-      "note": "both are old slang for the penis"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "child",
-      "gives": "SON",
-      "note": "a son is a child"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DICK",
-      "IN",
-      "SON"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "the back",
+       "note": "the back says this word is placed at the rear, after the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yard",
+       "gives": "DICK",
+       "note": "both are old slang for the penis"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "child",
+       "gives": "SON",
+       "note": "a son is a child"
+      }
      ]
     },
     "explanation": {
@@ -494,10 +436,6 @@
    },
    "solution": "SATIATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATIATE",
     "definitions": [
      {
       "text": "be enough for",
@@ -505,33 +443,23 @@
       "note": "the clue's verb phrase; satiate means to fill or satisfy completely"
      }
     ],
-    "linkWords": [
-     "Having",
-     "which will",
-     "me"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taken a chair",
-      "gives": "SAT",
-      "note": "sat down on a chair"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "had a meal",
-      "gives": "ATE",
-      "note": "ate is had a meal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "I",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "taken a chair",
+       "gives": "SAT",
+       "note": "sat down on a chair"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "had a meal",
+       "gives": "ATE",
+       "note": "ate is had a meal"
+      }
      ]
     },
     "explanation": {
@@ -568,72 +496,73 @@
    },
    "solution": "EDGARALLANPOE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "container"
-    ],
-    "answer": "EDGAR ALLAN POE",
     "definitions": [
      {
       "text": "13",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most of means the word loses a letter, here its last"
-     },
-     {
-      "text": "between",
-      "for": "charade",
-      "note": "between places this piece in the middle, with one on either side"
-     },
-     {
-      "text": "Inside",
-      "for": "container",
-      "note": "split as in side, this places the central chain within a word for a side"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "side",
-      "gives": "EDG",
-      "note": "a side is an edge; its letters open and close the answer"
-     },
-     {
-      "clueFragment": "sea",
-      "gives": "ARAL",
-      "note": "the Aral Sea in Central Asia"
-     },
-     {
-      "clueFragment": "the land",
-      "gives": "LAND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "PO",
-      "note": "the Po is Italy's longest river"
-     },
-     {
-      "clueFragment": "side",
-      "gives": "E",
-      "note": "the last letter of the word for side, closing it round the chain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDG",
-      "ARAL",
-      "LAN",
-      "PO",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EDGARALLANPOE",
+     "indicators": [
+      {
+       "text": "Inside",
+       "note": "split as in side, this places the central chain within a word for a side"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "note": "most of means the word loses a letter, here its last"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "between",
+           "note": "between places this piece in the middle, with one on either side"
+          }
+         ],
+         "parts": [
+          {
+           "words": "side",
+           "gives": "EDG",
+           "note": "a side is an edge; its letters open and close the answer"
+          },
+          {
+           "words": "sea",
+           "gives": "ARAL",
+           "note": "the Aral Sea in Central Asia"
+          },
+          {
+           "words": "the land",
+           "gives": "LAND",
+           "note": "taken as written"
+          },
+          {
+           "words": "river",
+           "gives": "PO",
+           "note": "the Po is Italy's longest river"
+          },
+          {
+           "words": "side",
+           "gives": "E",
+           "note": "the last letter of the word for side, closing it round the chain"
+          }
+         ]
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -660,48 +589,7 @@
     "text": "13 a tall guy?",
     "enumeration": "4"
    },
-   "solution": "LONG",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LONG",
-    "definitions": [
-     {
-      "text": "13",
-      "at": 0,
-      "note": "defines the full name only when this light is joined to 12 across"
-     },
-     {
-      "text": "tall",
-      "at": 5,
-      "note": "the clue's tall guy splits in two: tall gives this light, guy the 12 across light"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13",
-      "note": "first meaning: an American poet, the thematic 13, whose surname continues in 12 across"
-     },
-     {
-      "clueFragment": "tall",
-      "note": "second meaning: lengthy, high"
-     },
-     {
-      "clueFragment": "guy",
-      "note": "not used in this light: it defines the 12 across half of the name"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "13 is AMERICAN. The grid gives no link, but this light and 12 across together spell the poet Henry Wadsworth Longfellow, read as 'a long fellow'.",
-     "definitionFit": "Long and tall both describe great height or length, and with the next light it names Henry Wadsworth Longfellow."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun"
-    }
-   }
+   "solution": "LONG"
   },
   {
    "number": 11,
@@ -717,32 +605,25 @@
    },
    "solution": "ENDEMICITY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENDEMICITY",
     "definitions": [
      {
       "text": "Prevalence",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in half French",
-      "gives": "ENDEMI",
-      "note": "the French words for in and half are en and demi"
-     },
-     {
-      "clueFragment": "town",
-      "gives": "CITY",
-      "note": "a city is a large town"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENDEMI",
-      "CITY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in half French",
+       "gives": "ENDEMI",
+       "note": "the French words for in and half are en and demi"
+      },
+      {
+       "words": "town",
+       "gives": "CITY",
+       "note": "a city is a large town"
+      }
      ]
     },
     "explanation": {
@@ -771,26 +652,25 @@
    },
    "solution": "FELLOW",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FELLOW",
     "definitions": [
      {
       "text": "See 10",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "See 10",
-      "note": "surface reading: an ordinary cross-reference with no wordplay of its own"
-     },
-     {
-      "clueFragment": "See 10",
-      "note": "setter's reading: look at 10 across, whose clue ends with guy, which this light means"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "See 10",
+       "note": "surface reading: an ordinary cross-reference with no wordplay of its own"
+      },
+      {
+       "words": "See 10",
+       "note": "setter's reading: look at 10 across, whose clue ends with guy, which this light means"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "This is the second half of the poet in 10 across, LONG + FELLOW; the 'guy' of that clue defines this half.",
      "definitionFit": "A fellow is an informal word for a man or chap, the same as the guy named in the other clue."
@@ -815,40 +695,33 @@
    },
    "solution": "AMERICAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMERICAN",
     "definitions": [
      {
       "text": "14 from where we are",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "in operation",
-      "for": "anagram",
-      "note": "something in operation is being worked, so the letters are set moving into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Camera",
-      "gives": "CAMERA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written; it also belongs to the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAMERAIN",
-       "gives": "AMERICAN"
+       "text": "in operation",
+       "note": "something in operation is being worked, so the letters are set moving into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Camera",
+         "note": "taken as written"
+        },
+        {
+         "words": "in",
+         "note": "taken as written; it also belongs to the anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -878,41 +751,30 @@
    },
    "solution": "HESPERIAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HESPERIAN",
     "definitions": [
      {
       "text": "Western",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men",
-      "gives": "HES",
-      "note": "jocular plural of he: males"
-     },
-     {
-      "clueFragment": "fairy",
-      "gives": "PERI",
-      "note": "a peri is a fairy of Persian legend"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HES",
-      "PERI",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "men",
+       "gives": "HES",
+       "note": "jocular plural of he: males"
+      },
+      {
+       "words": "fairy",
+       "gives": "PERI",
+       "note": "a peri is a fairy of Persian legend"
+      },
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -941,38 +803,30 @@
    },
    "solution": "POSTURIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POSTURIST",
     "definitions": [
      {
       "text": "Attitudiniser",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "after",
-      "gives": "POST",
-      "note": "post is Latin for after, as in postwar"
-     },
-     {
-      "clueFragment": "Geller''s",
-      "gives": "URIS",
-      "note": "Uri Geller, the spoon-bending showman"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "T",
-      "note": "the Model T Ford"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POST",
-      "URIS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "after",
+       "gives": "POST",
+       "note": "post is Latin for after, as in postwar"
+      },
+      {
+       "words": "Geller''s",
+       "gives": "URIS",
+       "note": "Uri Geller, the spoon-bending showman"
+      },
+      {
+       "words": "model",
+       "gives": "T",
+       "note": "the Model T Ford"
+      }
      ]
     },
     "explanation": {
@@ -1001,35 +855,25 @@
    },
    "solution": "USHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "USHER",
     "definitions": [
      {
       "text": "A fall guy (9)",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13",
-      "gives": "US",
-      "note": "the thematic 13 is American, abbreviated as for the country"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "HER",
-      "note": "a pronoun for a girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "HER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "13",
+       "gives": "US",
+       "note": "the thematic 13 is American, abbreviated as for the country"
+      },
+      {
+       "words": "girl",
+       "gives": "HER",
+       "note": "a pronoun for a girl"
+      }
      ]
     },
     "explanation": {
@@ -1057,42 +901,7 @@
     "text": "Disappointing weather for 13",
     "enumeration": "5"
    },
-   "solution": "FROST",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FROST",
-    "definitions": [
-     {
-      "text": "Disappointing weather",
-      "at": 0
-     },
-     {
-      "text": "13",
-      "at": 26
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disappointing weather",
-      "note": "first meaning: the cold that dashes gardeners' hopes"
-     },
-     {
-      "clueFragment": "13",
-      "note": "second meaning: Robert, the American poet"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "13 is AMERICAN.",
-     "definitionFit": "A frost is a spell of freezing weather, and a frost is also slang for a flop; Robert Frost was an American poet."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun"
-    }
-   }
+   "solution": "FROST"
   },
   {
    "number": 18,
@@ -1108,38 +917,30 @@
    },
    "solution": "REFRESH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REFRESH",
     "definitions": [
      {
       "text": "Give food and drink to",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one making decisions",
-      "gives": "REF",
-      "note": "a referee makes decisions in a game"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning"
-     },
-     {
-      "clueFragment": "silence",
-      "gives": "SH",
-      "note": "the call for quiet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REF",
-      "RE",
-      "SH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one making decisions",
+       "gives": "REF",
+       "note": "a referee makes decisions in a game"
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means concerning"
+      },
+      {
+       "words": "silence",
+       "gives": "SH",
+       "note": "the call for quiet"
+      }
      ]
     },
     "explanation": {
@@ -1167,42 +968,29 @@
    },
    "solution": "CLOSENESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLOSENESS",
     "definitions": [
      {
       "text": "Proximity",
       "at": 0
      }
     ],
-    "linkWords": [
-     "causing",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "many",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred, a crossword stand-in for many"
-     },
-     {
-      "clueFragment": "lose",
-      "gives": "LOSE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "NESS",
-      "note": "a ness is a headland, as in Loch Ness or Sheerness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LOSE",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "many",
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, a crossword stand-in for many"
+      },
+      {
+       "words": "lose",
+       "note": "taken as written"
+      },
+      {
+       "words": "head",
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness or Sheerness"
+      }
      ]
     },
     "explanation": {
@@ -1231,43 +1019,31 @@
    },
    "solution": "SALIERI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SALIERI",
     "definitions": [
      {
       "text": "Mozart's associate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first piece inside the garment"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a dress",
-      "gives": "SARI",
-      "note": "a sari is a draped Indian dress"
-     },
-     {
-      "clueFragment": "go to bed",
-      "gives": "LIE",
-      "note": "lie down to sleep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "LIE",
-      "RI"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first piece inside the garment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a dress",
+       "gives": "SARI",
+       "note": "a sari is a draped Indian dress"
+      },
+      {
+       "words": "go to bed",
+       "gives": "LIE",
+       "note": "lie down to sleep"
+      }
      ]
     },
     "explanation": {
@@ -1296,54 +1072,41 @@
    },
    "solution": "SPLURGE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SPLURGE",
     "definitions": [
      {
       "text": "Spend, spend, spend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rise",
-      "for": "reversal",
-      "note": "in a down clue, a rise reads the word from the bottom up"
-     },
-     {
-      "text": "breaking",
-      "for": "container",
-      "note": "breaking into something means getting inside it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "powerful increase",
-      "gives": "SURGE",
-      "note": "a surge is a powerful rise"
-     },
-     {
-      "clueFragment": "record",
-      "gives": "LP",
-      "note": "a long-playing record"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PL",
-      "URGE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "LP",
-       "to": "PL"
+       "text": "breaking",
+       "note": "breaking into something means getting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "powerful increase",
+       "gives": "SURGE",
+       "note": "a surge is a powerful rise"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise",
+         "note": "in a down clue, a rise reads the word from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "record",
+         "gives": "LP",
+         "note": "a long-playing record"
+        }
+       ]
       }
      ]
     },
@@ -1373,35 +1136,24 @@
    },
    "solution": "SISTRA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SISTRA",
     "definitions": [
      {
       "text": "Rattles",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "something damaged is knocked out of shape, so the letters fall into another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stairs",
-      "gives": "STAIRS",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAIRS",
-       "gives": "SISTRA"
+       "text": "damaged",
+       "note": "something damaged is knocked out of shape, so the letters fall into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stairs",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -1430,35 +1182,24 @@
    },
    "solution": "EFFUSION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EFFUSION",
     "definitions": [
      {
       "text": "Gush of these nine13s, perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "for": "anagram",
-      "note": "turned means the letters are spun round into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "off in use",
-      "gives": "OFFINUSE",
-      "note": "the anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OFFINUSE",
-       "gives": "EFFUSION"
+       "text": "turned",
+       "note": "turned means the letters are spun round into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "off in use",
+       "note": "the anagram fodder"
       }
      ]
     },
@@ -1488,32 +1229,25 @@
    },
    "solution": "LOWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOWELL",
     "definitions": [
      {
       "text": "13",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "LO",
-      "note": "lo means look or see"
-     },
-     {
-      "clueFragment": "clearly",
-      "gives": "WELL",
-      "note": "to see well is to see clearly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "See",
+       "gives": "LO",
+       "note": "lo means look or see"
+      },
+      {
+       "words": "clearly",
+       "gives": "WELL",
+       "note": "to see well is to see clearly"
+      }
      ]
     },
     "explanation": {
@@ -1542,35 +1276,25 @@
    },
    "solution": "WHEAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHEAT",
     "definitions": [
      {
       "text": "grain",
       "at": 19
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "14",
-      "gives": "W",
-      "note": "14 is the word meaning western, and W is its abbreviation"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "HEAT",
-      "note": "heat is a level of temperature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HEAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "14",
+       "gives": "W",
+       "note": "14 is the word meaning western, and W is its abbreviation"
+      },
+      {
+       "words": "temperature",
+       "gives": "HEAT",
+       "note": "heat is a level of temperature"
+      }
      ]
     },
     "explanation": {
@@ -1598,45 +1322,43 @@
    },
    "solution": "HELIOTROPE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HELIOTROPE",
     "definitions": [
      {
       "text": "flower",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "holds",
-      "for": "container",
-      "note": "holds means the outer pieces grip the other one inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "High",
-      "gives": "H",
-      "note": "H is the abbreviation for high"
-     },
-     {
-      "clueFragment": "13",
-      "gives": "ELIOT",
-      "note": "T. S. Eliot, the American-born poet"
-     },
-     {
-      "clueFragment": "wire",
-      "gives": "ROPE",
-      "note": "wire rope; a wire is a cord like a rope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ELIOT",
-      "ROPE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "HELIOTROPE",
+     "indicators": [
+      {
+       "text": "holds",
+       "note": "holds means the outer pieces grip the other one inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "High",
+         "gives": "H",
+         "note": "H is the abbreviation for high"
+        },
+        {
+         "words": "13",
+         "gives": "ELIOT",
+         "note": "T. S. Eliot, the American-born poet"
+        },
+        {
+         "words": "wire",
+         "gives": "ROPE",
+         "note": "wire rope; a wire is a cord like a rope"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1665,28 +1387,16 @@
    },
    "solution": "EZRA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EZRA",
     "definitions": [
      {
       "text": "Pound of the 13",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the forename of an American poet surnamed Pound"
      },
      {
       "text": "bible",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pound of the 13",
-      "note": "first meaning: the forename of an American poet surnamed Pound"
-     },
-     {
-      "clueFragment": "bible",
-      "note": "second meaning: a book of the Old Testament"
+      "at": 16,
+      "meaning": "second meaning: a book of the Old Testament"
      }
     ],
     "explanation": {
@@ -1715,38 +1425,31 @@
    },
    "solution": "WHITMAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "WHITMAN",
     "definitions": [
      {
       "text": "13",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "dropping",
-      "for": "deletion",
-      "note": "dropping means letting a letter fall out of the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caucasian male",
-      "gives": "WHITEMAN",
-      "note": "a Caucasian is a white person"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHITMAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping",
+       "note": "dropping means letting a letter fall out of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Caucasian male",
+       "gives": "WHITEMAN",
+       "note": "a Caucasian is a white person"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1775,34 +1478,29 @@
    },
    "solution": "WITTIER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "WITTIER",
     "definitions": [
      {
       "text": "more amusing",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "may be said",
-      "for": "homophone",
-      "note": "may be said points to how the name is pronounced rather than written"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13",
-      "gives": "WITTIER",
-      "soundsLike": "WHITTIER",
-      "note": "John Greenleaf Whittier, the American poet"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WITTIER",
+     "indicators": [
+      {
+       "text": "may be said",
+       "note": "may be said points to how the name is pronounced rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "13",
+       "gives": "WHITTIER",
+       "note": "John Greenleaf Whittier, the American poet"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An American is said to be funnier.",
      "walkthrough": "In most accents the H of the poet's name is silent.",

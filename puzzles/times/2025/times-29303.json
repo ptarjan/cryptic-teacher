@@ -1,8 +1,6 @@
 {
  "id": "times-29303",
  "number": 29303,
- "series": "times",
- "name": "Times cryptic crossword No 29,303",
  "date": "2025-08-08",
  "dimensions": {
   "cols": 15,
@@ -41,11 +39,6 @@
    },
    "solution": "LUCIFER",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "LUCIFER",
     "definitions": [
      {
       "text": "strike it!",
@@ -53,34 +46,43 @@
       "note": "The definition is an instruction about the answer: a lucifer is the thing you strike."
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "note": "'initially' means at the start, so only the first letter of 'reads' is taken"
-     },
-     {
-      "text": "badly",
-      "note": "letters that read badly are out of order, so they must be rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "If clue",
-      "gives": "IFCLUE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "initially reads",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of Reads"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IF CLUE R",
-       "gives": "LUCIFER"
+       "text": "initially",
+       "note": "'initially' means at the start, so only the first letter of 'reads' is taken"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "badly",
+         "note": "letters that read badly are out of order, so they must be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "If clue",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "R",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "initially reads",
+           "gives": "R",
+           "select": "first",
+           "note": "the first letter of Reads"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -111,44 +113,42 @@
    },
    "solution": "LAID",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LAID",
     "definitions": [
      {
       "text": "Bet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be superseded by",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "core part of livelihood",
-      "gives": "L",
-      "note": "LIVELIHOOD loses its core IVELIHOO, leaving L at the front"
-     },
-     {
-      "clueFragment": "ChatGPT, etc",
-      "gives": "AI",
-      "note": "ChatGPT and its kind are AI, artificial intelligence"
-     },
-     {
-      "clueFragment": "livelihood's",
-      "gives": "D",
-      "note": "the final letter of LIVELIHOOD, left after the core goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AI",
-      "D"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LAID",
+     "indicators": [
+      {
+       "text": "to be superseded by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "core part of livelihood",
+         "gives": "L",
+         "note": "LIVELIHOOD loses its core IVELIHOO, leaving L at the front"
+        },
+        {
+         "words": "ChatGPT, etc",
+         "gives": "AI",
+         "note": "ChatGPT and its kind are AI, artificial intelligence"
+        },
+        {
+         "words": "livelihood's",
+         "gives": "D",
+         "note": "the final letter of LIVELIHOOD, left after the core goes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -177,52 +177,48 @@
    },
    "solution": "CATNAPS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "cycling"
-    ],
-    "answer": "CATNAPS",
     "definitions": [
      {
       "text": "rests",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "note": "a cycle goes round, so a letter from one end travels round to the other"
-     },
-     {
-      "text": "in retirement",
-      "note": "retiring means drawing back, so the word is written backwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Accountant",
-      "gives": "CA",
-      "note": "CA = chartered accountant"
-     },
-     {
-      "clueFragment": "huffs and puffs",
-      "gives": "TNAPS",
-      "note": "PANTS (breathes hard), turned round to STNAP, then its S cycled to the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "TNAPS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "CATNAPS",
+     "parts": [
       {
-       "from": "PANTS",
-       "to": "STNAP"
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "CATNAPS",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "cycling",
+           "note": "a cycle goes round, so a letter from one end travels round to the other"
+          },
+          {
+           "text": "in retirement",
+           "note": "retiring means drawing back, so the word is written backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Accountant",
+           "gives": "CA",
+           "note": "CA = chartered accountant"
+          },
+          {
+           "words": "huffs and puffs",
+           "gives": "TNAPS",
+           "note": "PANTS (breathes hard), turned round to STNAP, then its S cycled to the end"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -262,49 +258,48 @@
    },
    "solution": "FORGOODNESSSAKE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "FOR GOODNESS SAKE",
     "definitions": [
      {
       "text": "in God's name",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "'one daughter's not' says one D is not there, so it is dropped"
-     },
-     {
-      "text": "after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sacrifice",
-      "gives": "FORGO",
-      "note": "to forgo is to give up"
-     },
-     {
-      "clueFragment": "It's strange if one daughter's not",
-      "gives": "ODNESS",
-      "note": "ODDNESS (the fact of being strange) with one D for daughter removed"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SAKE",
-      "note": "sake is Japanese rice wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FORGO",
-      "ODNESS",
-      "SAKE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FORGOODNESSSAKE",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "'one daughter's not' says one D is not there, so it is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sacrifice",
+         "gives": "FORGO",
+         "note": "to forgo is to give up"
+        },
+        {
+         "words": "It's strange if one daughter's not",
+         "gives": "ODNESS",
+         "note": "ODDNESS (the fact of being strange) with one D for daughter removed"
+        },
+        {
+         "words": "drink",
+         "gives": "SAKE",
+         "note": "sake is Japanese rice wine"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -333,38 +328,37 @@
    },
    "solution": "RARITY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "RARITY",
     "definitions": [
      {
       "text": "It can be difficult to find",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ceded to",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "queen",
-      "gives": "R",
-      "note": "R = Regina, queen; it takes the place of P"
-     },
-     {
-      "clueFragment": "equal treatment with power",
-      "gives": "ARITY",
-      "note": "PARITY (equality) with its P, power, taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ARITY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "RARITY",
+     "indicators": [
+      {
+       "text": "ceded to"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "queen",
+         "gives": "R",
+         "note": "R = Regina, queen; it takes the place of P"
+        },
+        {
+         "words": "equal treatment with power",
+         "gives": "ARITY",
+         "note": "PARITY (equality) with its P, power, taken out"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -393,50 +387,55 @@
    },
    "solution": "CHASSIS",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "CHASSIS",
     "definitions": [
      {
       "text": "frame",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "injected into",
-      "for": "container"
-     },
-     {
-      "text": "mainly",
-      "for": "deletion",
-      "note": "'mainly' means for the most part, so ASSIST keeps all but its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "carbon",
-      "gives": "C",
-      "note": "C is the symbol for carbon"
-     },
-     {
-      "clueFragment": "Hydrogen",
-      "gives": "H",
-      "note": "H is the symbol for hydrogen"
-     },
-     {
-      "clueFragment": "mainly to support",
-      "gives": "ASSIS",
-      "note": "ASSIST without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "H",
-      "ASSIS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHASSIS",
+     "indicators": [
+      {
+       "text": "mainly",
+       "note": "'mainly' means for the most part, so ASSIST keeps all but its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "CHASSIS",
+       "indicators": [
+        {
+         "text": "injected into"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "carbon",
+           "gives": "C",
+           "note": "C is the symbol for carbon"
+          },
+          {
+           "words": "Hydrogen",
+           "gives": "H",
+           "note": "H is the symbol for hydrogen"
+          },
+          {
+           "words": "mainly to support",
+           "gives": "ASSIS",
+           "note": "ASSIST without its last letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -471,49 +470,43 @@
    },
    "solution": "CUTIEPIE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CUTIE-PIE",
     "definitions": [
      {
       "text": "Peach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "peeled",
-      "for": "deletion",
-      "note": "peeling takes off the skin, so the outer letters come off"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prune",
-      "gives": "CUT",
-      "note": "to prune is to cut"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. = that is"
-     },
-     {
-      "clueFragment": "seen peeled",
-      "gives": "PIE",
-      "note": "SPIED (seen) with its first and last letters removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUT",
-      "IE",
-      "PIE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CUTIEPIE",
+     "indicators": [
+      {
+       "text": "peeled",
+       "note": "peeling takes off the skin, so the outer letters come off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "prune",
+         "gives": "CUT",
+         "note": "to prune is to cut"
+        },
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. = that is"
+        },
+        {
+         "words": "seen peeled",
+         "gives": "PIE",
+         "note": "SPIED (seen) with its first and last letters removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -561,47 +554,49 @@
    },
    "solution": "ASTORMINATEACUP",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "A STORM IN A TEACUP",
     "definitions": [
      {
       "text": "Bit of a hoo-ha",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "derailed",
-      "for": "anagram",
-      "note": "a derailed train leaves its tracks in disorder, so the letters are jumbled"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "'ultimately' means in the end, so the last letters of llama and farm are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "precautions at",
-      "gives": "PRECAUTIONSAT",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "llama farm ultimately",
-      "gives": "AM",
-      "select": "last",
-      "note": "the last letters of llamA and farM"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRECAUTIONS AT A M",
-       "gives": "ASTORMINATEACUP"
+       "text": "derailed",
+       "note": "a derailed train leaves its tracks in disorder, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "precautions at",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "AM",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "'ultimately' means in the end, so the last letters of llama and farm are taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "llama farm ultimately",
+           "gives": "AM",
+           "select": "last",
+           "note": "the last letters of llamA and farM"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -632,45 +627,49 @@
    },
    "solution": "SALIERI",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SALIERI",
     "definitions": [
      {
       "text": "composer",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Dreadful",
-      "note": "a dreadful arrangement is a bad one, so the letters are rearranged"
-     },
-     {
-      "text": "opening piece from",
-      "note": "the opening piece of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opening piece from Italian",
-      "gives": "I",
-      "select": "first",
-      "note": "the first letter of Italian"
-     },
-     {
-      "clueFragment": "serial",
-      "gives": "SERIAL",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "I SERIAL",
-       "gives": "SALIERI"
+       "text": "Dreadful",
+       "note": "a dreadful arrangement is a bad one, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "opening piece from",
+         "note": "the opening piece of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "I",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "opening piece from Italian",
+           "gives": "I",
+           "select": "first",
+           "note": "the first letter of Italian"
+          }
+         ]
+        },
+        {
+         "words": "serial",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -700,53 +699,50 @@
    },
    "solution": "SWEATSHIRT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "SWEATSHIRT",
     "definitions": [
      {
       "text": "Wear this running in street?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "running",
-      "note": "letters left running about are out of order, so they are rearranged"
-     },
-     {
-      "text": "in",
-      "note": "'in' puts the jumble inside the abbreviation for street"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "ST = street, the abbreviation, which goes round the jumble"
-     },
-     {
-      "clueFragment": "Wear this",
-      "gives": "WEATSHIR",
-      "note": "WEAR THIS jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEATSHIR",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "WEARTHIS",
-       "gives": "WEATSHIR"
+       "text": "running",
+       "note": "letters left running about are out of order, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' puts the jumble inside the abbreviation for street"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wear this",
+         "gives": "WEATSHIR",
+         "note": "WEAR THIS jumbled"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "words": "street",
+         "gives": "ST",
+         "note": "ST = street, the abbreviation, which goes round the jumble"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Advice on what to put on for a jog along the road.",
      "walkthrough": "The whole clue is both wordplay and definition: read straight, it recommends the answer as running gear.",
@@ -772,30 +768,28 @@
    },
    "solution": "INTERPRET",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INTERPRET",
     "definitions": [
      {
       "text": "Try to make sense of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "houses",
-      "for": "hidden_word",
-      "note": "to house is to hold inside, so the words before it contain the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painter prettifying",
-      "gives": "INTERPRET",
-      "note": "the letters run across the gap, after pa- and before -tifying"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "houses",
+       "note": "to house is to hold inside, so the words before it contain the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "painter prettifying",
+       "gives": "INTERPRET",
+       "note": "the letters run across the gap, after pa- and before -tifying"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An artist making houses look prettier.",
      "walkthrough": "'Houses' looks like the painter's subject; it is the instruction that the two words contain the answer.",
@@ -822,43 +816,31 @@
    },
    "solution": "TILDE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TILDE",
     "definitions": [
      {
       "text": "Mark",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Boxing",
-      "for": "container",
-      "note": "to box something is to enclose it"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bit of Scrabble",
-      "gives": "TILE",
-      "note": "a Scrabble tile"
-     },
-     {
-      "clueFragment": "Day",
-      "gives": "D",
-      "note": "D = day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIL",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Boxing",
+       "note": "to box something is to enclose it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bit of Scrabble",
+       "gives": "TILE",
+       "note": "a Scrabble tile"
+      },
+      {
+       "words": "Day",
+       "gives": "D",
+       "note": "D = day"
+      }
      ]
     },
     "explanation": {
@@ -898,56 +880,51 @@
    },
    "solution": "ZADOKTHEPRIEST",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "deletion"
-    ],
-    "answer": "ZADOK THE PRIEST",
     "definitions": [
      {
       "text": "anthem",
       "at": 67
      }
     ],
-    "indicators": [
-     {
-      "text": "Feeding"
-     },
-     {
-      "text": "shattered",
-      "note": "something shattered is in pieces, so the letters are broken up and rearranged"
-     },
-     {
-      "text": "missing",
-      "note": "'missing' means lacking, so N is left out"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spirit",
-      "gives": "ZEST",
-      "note": "zest = spirit, gusto"
-     },
-     {
-      "clueFragment": "tenor had kip, missing intro to national",
-      "gives": "ADOKTHEPRI",
-      "note": "TENOR HAD KIP without N (first letter of national), then jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Z",
-      "ADOKTHEPRI",
-      "EST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ZADOKTHEPRIEST",
+     "parts": [
       {
-       "fodder": "TEORHADKIP",
-       "gives": "ADOKTHEPRI"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "ZADOKTHEPRIEST",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "Feeding"
+          },
+          {
+           "text": "shattered",
+           "note": "something shattered is in pieces, so the letters are broken up and rearranged"
+          },
+          {
+           "text": "missing",
+           "note": "'missing' means lacking, so N is left out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spirit",
+           "gives": "ZEST",
+           "note": "zest = spirit, gusto"
+          },
+          {
+           "words": "tenor had kip, missing intro to national",
+           "gives": "ADOKTHEPRI",
+           "note": "TENOR HAD KIP without N (first letter of national), then jumbled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -977,40 +954,31 @@
    },
    "solution": "MINISERIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MINISERIES",
     "definitions": [
      {
       "text": "short run",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "'outside' puts the first word around the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wet blankets",
-      "gives": "MISERIES",
-      "note": "a misery is a gloomy killjoy"
-     },
-     {
-      "clueFragment": "during",
-      "gives": "IN",
-      "note": "in = during"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IN",
-      "ISERIES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "'outside' puts the first word around the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wet blankets",
+       "gives": "MISERIES",
+       "note": "a misery is a gloomy killjoy"
+      },
+      {
+       "words": "during",
+       "gives": "IN",
+       "note": "in = during"
+      }
      ]
     },
     "explanation": {
@@ -1039,31 +1007,29 @@
    },
    "solution": "INSIDE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "and_lit"
-    ],
-    "answer": "INSIDE",
     "definitions": [
      {
       "text": "What's here: villains ideally?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "What's here",
-      "for": "hidden_word",
-      "note": "'what's here' asks what is contained in the words that follow, so the answer is held within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "villains ideally",
-      "gives": "INSIDE",
-      "note": "the letters run across the gap, after vill- and before -ally"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "What's here",
+       "note": "'what's here' asks what is contained in the words that follow, so the answer is held within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "villains ideally",
+       "gives": "INSIDE",
+       "note": "the letters run across the gap, after vill- and before -ally"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A caption pointing at the place where criminals ought to be.",
      "walkthrough": "The answer describes itself: it sits in the middle of 'villains ideally', and ideally villains are in prison, which is the slang sense.",
@@ -1091,39 +1057,30 @@
    },
    "solution": "DIMINISH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIMINISH",
     "definitions": [
      {
       "text": "contract",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "to gain access to",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beauty",
-      "gives": "DISH",
-      "note": "a dish is an attractive person"
-     },
-     {
-      "clueFragment": "Sign me up",
-      "gives": "IMIN",
-      "note": "'I'm in!' is what you say to join something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IMIN",
-      "ISH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to gain access to"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beauty",
+       "gives": "DISH",
+       "note": "a dish is an attractive person"
+      },
+      {
+       "words": "Sign me up",
+       "gives": "IMIN",
+       "note": "'I'm in!' is what you say to join something"
+      }
      ]
     },
     "explanation": {
@@ -1152,50 +1109,41 @@
    },
    "solution": "BESMEARS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BESMEARS",
     "definitions": [
      {
       "text": "slurs",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "penning",
-      "for": "container",
-      "note": "to pen is to shut in an enclosure, so the message encloses the next piece"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Continue unchanging",
-      "gives": "BE",
-      "note": "to be is to remain as you are, as in 'let it be'"
-     },
-     {
-      "clueFragment": "message",
-      "gives": "SMS",
-      "note": "an SMS is a text message"
-     },
-     {
-      "clueFragment": "discrimination",
-      "gives": "EAR",
-      "note": "an ear for music is discrimination between sounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "SM",
-      "EAR",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Continue unchanging",
+       "gives": "BE",
+       "note": "to be is to remain as you are, as in 'let it be'"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penning",
+         "note": "to pen is to shut in an enclosure, so the message encloses the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "message",
+         "gives": "SMS",
+         "note": "an SMS is a text message"
+        },
+        {
+         "words": "discrimination",
+         "gives": "EAR",
+         "note": "an ear for music is discrimination between sounds"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1234,47 +1182,34 @@
    },
    "solution": "INTHERED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IN THE RED",
     "definitions": [
      {
       "text": "suffering embarrassment",
       "at": 32
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "I as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "N",
-      "note": "N = note"
-     },
-     {
-      "clueFragment": "response to where",
-      "gives": "THERE",
-      "note": "'Where?' 'There!'"
-     },
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "D = duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "N",
-      "THERE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "note": "I as written"
+      },
+      {
+       "words": "note",
+       "gives": "N",
+       "note": "N = note"
+      },
+      {
+       "words": "response to where",
+       "gives": "THERE",
+       "note": "'Where?' 'There!'"
+      },
+      {
+       "words": "duke",
+       "gives": "D",
+       "note": "D = duke"
+      }
      ]
     },
     "explanation": {
@@ -1303,39 +1238,28 @@
    },
    "solution": "TACKILY",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "TACKILY",
     "definitions": [
      {
       "text": "Lacy kit's modelled in such a way?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "modelled",
-      "for": "anagram",
-      "note": "to model is to shape, so the letters are shaped into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lacy kit",
-      "gives": "LACYKIT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LACY KIT",
-       "gives": "TACKILY"
+       "text": "modelled",
+       "note": "to model is to shape, so the letters are shaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lacy kit",
+       "note": "anagram fodder"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A catwalk critic suggests the lace outfit was worn in poor taste.",
      "walkthrough": "The whole clue does both jobs: the adverb describes how lacy kit might well be modelled.",
@@ -1361,45 +1285,36 @@
    },
    "solution": "GASPER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GASPER",
     "definitions": [
      {
       "text": "smoke",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Starting to",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Starting to gag",
-      "gives": "G",
-      "select": "first",
-      "note": "the first letter of Gag"
-     },
-     {
-      "clueFragment": "consistent",
-      "gives": "ASPER",
-      "note": "as per = in keeping with, consistent with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ASPER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Starting to",
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Starting to gag",
+         "gives": "GAG",
+         "note": "the first letter of Gag"
+        }
+       ]
+      },
+      {
+       "words": "consistent",
+       "gives": "ASPER",
+       "note": "as per = in keeping with, consistent with"
+      }
      ]
     },
     "explanation": {
@@ -1428,45 +1343,36 @@
    },
    "solution": "PICTURE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PICTURE",
     "definitions": [
      {
       "text": "Vivid description",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter of curries is taken"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old Northerner",
-      "gives": "PICT",
-      "note": "the Picts were an ancient people of northern Scotland"
-     },
-     {
-      "clueFragment": "curries regularly",
-      "gives": "URE",
-      "select": "alternate",
-      "note": "the even letters of cUrRiEs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PICT",
-      "URE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old Northerner",
+       "gives": "PICT",
+       "note": "the Picts were an ancient people of northern Scotland"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals, so every other letter of curries is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curries regularly",
+         "gives": "CURRIES",
+         "note": "the even letters of cUrRiEs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1495,39 +1401,31 @@
    },
    "solution": "OFFISH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OFFISH",
     "definitions": [
      {
       "text": "aloof",
       "at": 12
      }
     ],
-    "indicators": [
-     {
-      "text": "maybe",
-      "for": "charade",
-      "note": "'maybe' flags that a ray is only one example of the class meant"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'s",
-      "gives": "OF",
-      "note": "the possessive 's means 'of'"
-     },
-     {
-      "clueFragment": "Ray",
-      "gives": "FISH",
-      "note": "a ray is a fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OF",
-      "FISH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "maybe",
+       "note": "'maybe' flags that a ray is only one example of the class meant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'s",
+       "gives": "OF",
+       "note": "the possessive 's means 'of'"
+      },
+      {
+       "words": "Ray",
+       "gives": "FISH",
+       "note": "a ray is a fish"
+      }
      ]
     },
     "explanation": {
@@ -1567,30 +1465,16 @@
    },
    "solution": "EXCUSEMYFRENCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EXCUSE MY FRENCH",
     "definitions": [
      {
       "text": "Sorry if this is crude",
-      "at": 0
+      "at": 0,
+      "meaning": "said as an apology for swearing"
      },
      {
       "text": "way to make showman be shown?",
-      "at": 23
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sorry if this is crude",
-      "gives": "EXCUSEMYFRENCH",
-      "note": "said as an apology for swearing"
-     },
-     {
-      "clueFragment": "way to make showman be shown",
-      "gives": "EXCUSEMYFRENCH",
-      "note": "'my' in French is MA; excuse (let off) MA from SHOWMAN and you get SHOWN"
+      "at": 23,
+      "meaning": "'my' in French is MA; excuse (let off) MA from SHOWMAN and you get SHOWN"
      }
     ],
     "explanation": {
@@ -1620,36 +1504,28 @@
    },
    "solution": "STAT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "STAT",
     "definitions": [
      {
       "text": "One piece of information",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uncovered",
-      "for": "deletion",
-      "note": "uncovering takes off the cover, so the first and last letters go"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all I have uncovered",
-      "gives": "STAT",
-      "note": "ESTATE (all I own) without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STAT",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "uncovering takes off the cover, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all I have uncovered",
+       "gives": "STAT",
+       "note": "ESTATE (all I own) without its first and last letters"
+      }
      ]
     },
     "explanation": {
@@ -1678,46 +1554,43 @@
    },
    "solution": "IBIZA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IBIZA",
     "definitions": [
      {
       "text": "island",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the first piece inside the letter that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "island,",
-      "gives": "I",
-      "note": "I = island"
-     },
-     {
-      "clueFragment": "Casual trade",
-      "gives": "BIZ",
-      "note": "biz is informal for business, as in showbiz"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "BIZ",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "IBIZA",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places the first piece inside the letter that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island,",
+         "gives": "I",
+         "note": "I = island"
+        },
+        {
+         "words": "Casual trade",
+         "gives": "BIZ",
+         "note": "biz is informal for business, as in showbiz"
+        },
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A = American"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1746,35 +1619,25 @@
    },
    "solution": "AGINCOURT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGINCOURT",
     "definitions": [
      {
       "text": "battleground",
       "at": 22
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lawyer",
-      "gives": "AG",
-      "note": "AG = Attorney General"
-     },
-     {
-      "clueFragment": "Aptly-placed",
-      "gives": "INCOURT",
-      "note": "a lawyer is aptly placed in court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "IN COURT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lawyer",
+       "gives": "AG",
+       "note": "AG = Attorney General"
+      },
+      {
+       "words": "Aptly-placed",
+       "gives": "INCOURT",
+       "note": "a lawyer is aptly placed in court"
+      }
      ]
     },
     "explanation": {
@@ -1804,35 +1667,25 @@
    },
    "solution": "SHYNESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHYNESS",
     "definitions": [
      {
       "text": "feature of mouse?",
       "at": 13
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Short",
-      "gives": "SHY",
-      "note": "shy of = short of, as in two votes shy"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "NESS",
-      "note": "a ness is a headland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHY",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Short",
+       "gives": "SHY",
+       "note": "shy of = short of, as in two votes shy"
+      },
+      {
+       "words": "head",
+       "gives": "NESS",
+       "note": "a ness is a headland"
+      }
      ]
     },
     "explanation": {
@@ -1862,53 +1715,51 @@
    },
    "solution": "HIPPEST",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "HIPPEST",
     "definitions": [
      {
       "text": "Maximally in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boomeranging",
-      "note": "a boomerang comes back, so the letters are read backwards"
-     },
-     {
-      "text": "after",
-      "note": "'after' sends 'pain' behind the reversed piece in the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "irrational",
-      "gives": "PI",
-      "note": "pi is an irrational number"
-     },
-     {
-      "clueFragment": "hour",
-      "gives": "H",
-      "note": "H = hour"
-     },
-     {
-      "clueFragment": "pain",
-      "gives": "PEST",
-      "note": "a pain is a pest, a nuisance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIP",
-      "PEST"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "PIH",
-       "to": "HIP"
+       "text": "boomeranging",
+       "note": "a boomerang comes back, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "'after' sends 'pain' behind the reversed piece in the answer"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "irrational",
+           "gives": "PI",
+           "note": "pi is an irrational number"
+          },
+          {
+           "words": "hour",
+           "gives": "H",
+           "note": "H = hour"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "pain",
+       "gives": "PEST",
+       "note": "a pain is a pest, a nuisance"
       }
      ]
     },

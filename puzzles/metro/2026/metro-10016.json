@@ -1,8 +1,6 @@
 {
  "id": "metro-10016",
  "number": 10016,
- "series": "metro",
- "name": "Metro cryptic crossword No 10,016",
  "date": "2026-08-16",
  "dimensions": {
   "cols": 13,
@@ -38,44 +36,36 @@
    },
    "solution": "EQUIPS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EQUIPS",
     "definitions": [
      {
       "text": "Supplies",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "The top of a word is the letter it begins with, so only that single letter is taken and the rest is left alone."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "top entertainer",
-      "gives": "E",
-      "select": "first",
-      "note": "the letter standing at the top of ENTERTAINER"
-     },
-     {
-      "clueFragment": "jokes",
-      "gives": "QUIPS",
-      "note": "quips are short jokes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "QUIPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "The top of a word is the letter it begins with, so only that single letter is taken and the rest is left alone."
+        }
+       ],
+       "parts": [
+        {
+         "words": "top entertainer",
+         "gives": "ENTERTAINER",
+         "note": "the letter standing at the top of ENTERTAINER"
+        }
+       ]
+      },
+      {
+       "words": "jokes",
+       "gives": "QUIPS",
+       "note": "quips are short jokes"
+      }
      ]
     },
     "explanation": {
@@ -104,35 +94,24 @@
    },
    "solution": "QUESTIONNAIRE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUESTIONNAIRE",
     "definitions": [
      {
       "text": "form",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Distribute",
-      "for": "anagram",
-      "note": "To distribute things is to spread them about among different places, so the letters handed over do not stay where they were."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "NATO enquiries",
-      "gives": "NATOENQUIRIES",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NATO ENQUIRIES",
-       "gives": "QUESTIONNAIRE"
+       "text": "Distribute",
+       "note": "To distribute things is to spread them about among different places, so the letters handed over do not stay where they were."
+      }
+     ],
+     "parts": [
+      {
+       "words": "NATO enquiries",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -162,40 +141,31 @@
    },
    "solution": "IMAGINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMAGINE",
     "definitions": [
      {
       "text": "fancy",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "To capture something is to take it in and hold it, so the word in front closes around the one behind."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Figure",
-      "gives": "IMAGE",
-      "note": "a figure in a painting or a photograph is an image"
-     },
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "what is popular is in, as clothes are in this season"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMAG",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "note": "To capture something is to take it in and hold it, so the word in front closes around the one behind."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Figure",
+       "gives": "IMAGE",
+       "note": "a figure in a painting or a photograph is an image"
+      },
+      {
+       "words": "popular",
+       "gives": "IN",
+       "note": "what is popular is in, as clothes are in this season"
+      }
      ]
     },
     "explanation": {
@@ -224,45 +194,36 @@
    },
    "solution": "SONATAS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SONATAS",
     "definitions": [
      {
       "text": "Moonlight etc",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rises",
-      "for": "reversal",
-      "note": "In a down clue a thing that rises is read upwards from the bottom, so the letters named come out back to front."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so",
-      "gives": "SO",
-      "note": "the clue's own word, taken as it stands"
-     },
-     {
-      "clueFragment": "Satan rises",
-      "gives": "NATAS",
-      "note": "SATAN climbing a down clue is read from his last letter up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "NATAS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SONATAS",
+     "indicators": [
       {
-       "from": "SATAN",
-       "to": "NATAS"
+       "text": "rises",
+       "note": "In a down clue a thing that rises is read upwards from the bottom, so the letters named come out back to front."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "so",
+         "note": "the clue's own word, taken as it stands"
+        },
+        {
+         "words": "Satan rises",
+         "gives": "NATAS",
+         "note": "SATAN climbing a down clue is read from his last letter up"
+        }
+       ]
       }
      ]
     },
@@ -298,35 +259,25 @@
    },
    "solution": "SEESAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEE-SAW",
     "definitions": [
      {
       "text": "children's apparatus",
       "at": 26
      }
     ],
-    "linkWords": [
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look now",
-      "gives": "SEE",
-      "note": "to look in the present tense is to see"
-     },
-     {
-      "clueFragment": "and then",
-      "gives": "SAW",
-      "note": "the same verb shifted into the past tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEE",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look now",
+       "gives": "SEE",
+       "note": "to look in the present tense is to see"
+      },
+      {
+       "words": "and then",
+       "gives": "SAW",
+       "note": "the same verb shifted into the past tense"
+      }
      ]
     },
     "explanation": {
@@ -356,49 +307,40 @@
    },
    "solution": "SAMBA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SAMBA",
     "definitions": [
      {
       "text": "Dance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "In sets what comes before it inside what comes after, the outer word splitting open to make room."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Salvation Army",
-      "gives": "SA",
-      "note": "SA is how the Salvation Army, the uniformed Christian charity, signs itself"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own a, taken as it stands"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MB",
-      "note": "MB, Bachelor of Medicine, is the degree a British doctor qualifies with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "MB",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "In sets what comes before it inside what comes after, the outer word splitting open to make room."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Salvation Army",
+         "gives": "SA",
+         "note": "SA is how the Salvation Army, the uniformed Christian charity, signs itself"
+        },
+        {
+         "words": "a",
+         "note": "the clue's own a, taken as it stands"
+        }
+       ]
+      },
+      {
+       "words": "doctor",
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is the degree a British doctor qualifies with"
+      }
      ]
     },
     "explanation": {
@@ -427,40 +369,30 @@
    },
    "solution": "EAVES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EAVES",
     "definitions": [
      {
       "text": "part of the roof",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "going round",
-      "for": "container",
-      "note": "Going round a thing means passing on all sides of it, so the letters named close about what follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Woman's",
-      "gives": "EVES",
-      "note": "Eve, the first woman, with the clue's own S on the end"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own a, taken as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "A",
-      "VES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "note": "Going round a thing means passing on all sides of it, so the letters named close about what follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Woman's",
+       "gives": "EVES",
+       "note": "Eve, the first woman, with the clue's own S on the end"
+      },
+      {
+       "words": "a",
+       "note": "the clue's own a, taken as it stands"
+      }
      ]
     },
     "explanation": {
@@ -495,38 +427,24 @@
    },
    "solution": "ARTICLEDCLERK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARTICLED CLERK",
     "definitions": [
      {
       "text": "solicitor-to-be",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Put out",
-      "for": "anagram",
-      "note": "To put something out is to push it out of its proper place, so the letters are set down in an order that is not theirs."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "red alert, click",
-      "gives": "REDALERTCLICK",
-      "note": "anagram fodder, 13 letters; the comma is punctuation, not a letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RED ALERT CLICK",
-       "gives": "ARTICLEDCLERK"
+       "text": "Put out",
+       "note": "To put something out is to push it out of its proper place, so the letters are set down in an order that is not theirs."
+      }
+     ],
+     "parts": [
+      {
+       "words": "red alert, click",
+       "note": "anagram fodder, 13 letters; the comma is punctuation, not a letter"
       }
      ]
     },
@@ -562,51 +480,43 @@
    },
    "solution": "PERANNUM",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "PER ANNUM",
     "definitions": [
      {
       "text": "Yearly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupted by",
-      "for": "container",
-      "note": "A thing interrupted by another has that other cut into the middle of it and has to carry on afterwards."
-     },
-     {
-      "text": "mad",
-      "for": "anagram",
-      "note": "Mad means out of its right mind, and letters in that state will not stay in the right order either."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hairdo",
-      "gives": "PERM",
-      "note": "a perm is a hairdo, the curls set by a permanent wave"
-     },
-     {
-      "clueFragment": "a mad nun",
-      "gives": "ANNU",
-      "note": "the four letters of A NUN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "ANNU",
-      "M"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PERANNUM",
+     "indicators": [
       {
-       "fodder": "ANUN",
-       "gives": "ANNU"
+       "text": "mad",
+       "note": "Mad means out of its right mind, and letters in that state will not stay in the right order either."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupted by",
+         "note": "A thing interrupted by another has that other cut into the middle of it and has to carry on afterwards."
+        }
+       ],
+       "parts": [
+        {
+         "words": "hairdo",
+         "gives": "PERM",
+         "note": "a perm is a hairdo, the curls set by a permanent wave"
+        },
+        {
+         "words": "a mad nun",
+         "gives": "ANNU",
+         "note": "the four letters of A NUN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -637,38 +547,24 @@
    },
    "solution": "VOTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VOTE",
     "definitions": [
      {
       "text": "ballot",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "Upsetting something tips it over and spills what was inside, so the letters do not come out as they went in."
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Veto",
-      "gives": "VETO",
-      "note": "anagram fodder, four letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VETO",
-       "gives": "VOTE"
+       "text": "upset",
+       "note": "Upsetting something tips it over and spills what was inside, so the letters do not come out as they went in."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Veto",
+       "note": "anagram fodder, four letters"
       }
      ]
     },
@@ -698,30 +594,28 @@
    },
    "solution": "ETUI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ETUI",
     "definitions": [
      {
       "text": "Small case",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "kept in",
-      "for": "hidden_word",
-      "note": "Kept in says the letters wanted are being held inside the word that follows, in the order they already stand there."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "perpetuity",
-      "gives": "ETUI",
-      "note": "perpETUIty, four letters running on across the middle of one long word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "kept in",
+       "note": "Kept in says the letters wanted are being held inside the word that follows, in the order they already stand there."
+      }
+     ],
+     "parts": [
+      {
+       "words": "perpetuity",
+       "gives": "ETUI",
+       "note": "perpETUIty, four letters running on across the middle of one long word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A little box that nobody is ever going to part with.",
      "walkthrough": "This is a Victorian lady's needle-case, kept alive almost entirely by crosswords, so learning it once pays out for years. Perpetuity is chosen because nothing about for ever suggests a container.",
@@ -748,35 +642,24 @@
    },
    "solution": "TRANSACT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRANSACT",
     "definitions": [
      {
       "text": "perform",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Indisposed",
-      "for": "anagram",
-      "note": "Someone indisposed is out of sorts, and letters out of sorts are letters no longer in their proper order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "star can't",
-      "gives": "STARCANT",
-      "note": "anagram fodder, eight letters; the apostrophe counts for nothing"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAR CANT",
-       "gives": "TRANSACT"
+       "text": "Indisposed",
+       "note": "Someone indisposed is out of sorts, and letters out of sorts are letters no longer in their proper order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "star can't",
+       "note": "anagram fodder, eight letters; the apostrophe counts for nothing"
       }
      ]
     },
@@ -806,45 +689,37 @@
    },
    "solution": "NOVELS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "NOVELS",
     "definitions": [
      {
       "text": "works of fiction",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "unusual",
-      "for": "anagram",
-      "note": "Unusual means not as it usually is, so the letters in front of it are taken out of their usual order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Knight",
-      "gives": "N",
-      "note": "N is the knight in chess notation"
-     },
-     {
-      "clueFragment": "loves",
-      "gives": "OVELS",
-      "note": "the five letters of LOVES rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "OVELS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NOVELS",
+     "indicators": [
       {
-       "fodder": "LOVES",
-       "gives": "OVELS"
+       "text": "unusual",
+       "note": "Unusual means not as it usually is, so the letters in front of it are taken out of their usual order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Knight",
+         "gives": "N",
+         "note": "N is the knight in chess notation"
+        },
+        {
+         "words": "loves",
+         "gives": "OVELS",
+         "note": "the five letters of LOVES rearranged"
+        }
+       ]
       }
      ]
     },
@@ -874,34 +749,29 @@
    },
    "solution": "TOLLED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TOLLED",
     "definitions": [
      {
       "text": "rang a bell",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Soundly",
-      "for": "homophone",
-      "note": "Soundly points at the sound of a word rather than its spelling, so what is wanted is something said the same way."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spoke",
-      "gives": "TOLLED",
-      "soundsLike": "TOLD",
-      "note": "spoke is TOLD, and the answer is said exactly that way while being spelt nothing like it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TOLLED",
+     "indicators": [
+      {
+       "text": "Soundly",
+       "note": "Soundly points at the sound of a word rather than its spelling, so what is wanted is something said the same way."
+      }
+     ],
+     "parts": [
+      {
+       "words": "spoke",
+       "gives": "TOLD",
+       "note": "spoke is TOLD, and the answer is said exactly that way while being spelt nothing like it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Somebody spoke firmly and set a bell ringing.",
      "walkthrough": "Identical in the mouth, unrelated on the page — that gap is all a homophone needs. The definition wants the slow single strokes rung for a death rather than any old ringing.",
@@ -928,35 +798,24 @@
    },
    "solution": "TEDIOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEDIOUS",
     "definitions": [
      {
       "text": "Monotonous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "To broadcast is to scatter seed by hand across a field, and letters scattered that way land in no set order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "outside",
-      "gives": "OUTSIDE",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OUTSIDE",
-       "gives": "TEDIOUS"
+       "text": "broadcast",
+       "note": "To broadcast is to scatter seed by hand across a field, and letters scattered that way land in no set order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "outside",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -986,43 +845,31 @@
    },
    "solution": "LIMEADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIMEADE",
     "definitions": [
      {
       "text": "cordial",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "About means round the outside of a thing, so the word before it wraps itself around what comes next."
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tell fibs",
-      "gives": "LIE",
-      "note": "to tell fibs is to lie"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "MEAD",
-      "note": "mead is the honey wine of Anglo-Saxon feasting halls"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "MEAD",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "About means round the outside of a thing, so the word before it wraps itself around what comes next."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tell fibs",
+       "gives": "LIE",
+       "note": "to tell fibs is to lie"
+      },
+      {
+       "words": "drink",
+       "gives": "MEAD",
+       "note": "mead is the honey wine of Anglo-Saxon feasting halls"
+      }
      ]
     },
     "explanation": {
@@ -1051,49 +898,37 @@
    },
    "solution": "INTREPID",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "INTREPID",
     "definitions": [
      {
       "text": "valiant",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "foolish",
-      "for": "anagram",
-      "note": "Something foolish is not sensibly arranged, so the letters it points at are not left in a sensible order."
-     }
-    ],
-    "linkWords": [
-     "with",
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "International",
-      "gives": "INT",
-      "note": "int is the standard short form of international, as on a fixture list"
-     },
-     {
-      "clueFragment": "pride",
-      "gives": "REPID",
-      "note": "the five letters of PRIDE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "REPID"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INTREPID",
+     "indicators": [
       {
-       "fodder": "PRIDE",
-       "gives": "REPID"
+       "text": "foolish",
+       "note": "Something foolish is not sensibly arranged, so the letters it points at are not left in a sensible order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "International",
+         "gives": "INT",
+         "note": "int is the standard short form of international, as on a fixture list"
+        },
+        {
+         "words": "pride",
+         "gives": "REPID",
+         "note": "the five letters of PRIDE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1123,28 +958,16 @@
    },
    "solution": "RISER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RISER",
     "definitions": [
      {
       "text": "One who gets up",
-      "at": 0
+      "at": 0,
+      "meaning": "somebody out of bed before the rest of the house, an early one of these"
      },
      {
       "text": "part of the stairs",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One who gets up",
-      "note": "somebody out of bed before the rest of the house, an early one of these"
-     },
-     {
-      "clueFragment": "part of the stairs",
-      "note": "the upright board closing the gap between one tread and the next"
+      "at": 16,
+      "meaning": "the upright board closing the gap between one tread and the next"
      }
     ],
     "explanation": {
@@ -1173,32 +996,16 @@
    },
    "solution": "PRIME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PRIME",
     "definitions": [
      {
       "text": "most important",
-      "at": 5
+      "at": 5,
+      "meaning": "first in rank, as the minister is"
      },
      {
       "text": "prepare",
-      "at": 23
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "most important",
-      "note": "first in rank, as the minister is"
-     },
-     {
-      "clueFragment": "prepare",
-      "note": "getting a wall or a pump ready before it can do its job"
+      "at": 23,
+      "meaning": "getting a wall or a pump ready before it can do its job"
      }
     ],
     "explanation": {
@@ -1226,28 +1033,16 @@
    },
    "solution": "MOCK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MOCK",
     "definitions": [
      {
       "text": "Laugh at",
-      "at": 0
+      "at": 0,
+      "meaning": "to jeer at somebody, laughing in order to wound"
      },
      {
       "text": "imitation",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Laugh at",
-      "note": "to jeer at somebody, laughing in order to wound"
-     },
-     {
-      "clueFragment": "imitation",
-      "note": "sham, counterfeit, standing in for the real thing"
+      "at": 9,
+      "meaning": "sham, counterfeit, standing in for the real thing"
      }
     ],
     "explanation": {
@@ -1275,33 +1070,28 @@
    },
    "solution": "FIRS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FIRS",
     "definitions": [
      {
       "text": "trees",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "Almost all of a word is all of it bar the end, so the last letter is left off."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Almost original",
-      "gives": "FIRS",
-      "note": "FIRST means original and gives up its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIRS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FIRS",
+     "indicators": [
+      {
+       "text": "Almost",
+       "note": "Almost all of a word is all of it bar the end, so the last letter is left off."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Almost original",
+       "gives": "FIRS",
+       "note": "FIRST means original and gives up its last letter"
+      }
      ]
     },
     "explanation": {
@@ -1330,38 +1120,29 @@
    },
    "solution": "IDOLATER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDOLATER",
     "definitions": [
      {
       "text": "Hero-worshipper",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "the clue's own pronoun, taken as it stands"
-     },
-     {
-      "clueFragment": "swindle",
-      "gives": "DO",
-      "note": "to do somebody is British slang for cheating them — 'I've been done'"
-     },
-     {
-      "clueFragment": "afterwards",
-      "gives": "LATER",
-      "note": "later means afterwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DO",
-      "LATER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "note": "the clue's own pronoun, taken as it stands"
+      },
+      {
+       "words": "swindle",
+       "gives": "DO",
+       "note": "to do somebody is British slang for cheating them — 'I've been done'"
+      },
+      {
+       "words": "afterwards",
+       "gives": "LATER",
+       "note": "later means afterwards"
+      }
      ]
     },
     "explanation": {
@@ -1390,31 +1171,16 @@
    },
    "solution": "DEGREE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DEGREE",
     "definitions": [
      {
       "text": "Academic award",
-      "at": 0
+      "at": 0,
+      "meaning": "the qualification a university confers at the end of a course"
      },
      {
       "text": "scale",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Academic award",
-      "note": "the qualification a university confers at the end of a course"
-     },
-     {
-      "clueFragment": "scale",
-      "note": "extent or magnitude, the sense in which a thing happens on a large one"
+      "at": 18,
+      "meaning": "extent or magnitude, the sense in which a thing happens on a large one"
      }
     ],
     "explanation": {
@@ -1443,40 +1209,31 @@
    },
    "solution": "STEAKS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STEAKS",
     "definitions": [
      {
       "text": "Cuts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "container",
-      "note": "Anything on board a vessel is within it, so the word before goes inside the ship that follows."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS is the prefix on a steamship's name, as in SS Great Britain"
-     },
-     {
-      "clueFragment": "timber",
-      "gives": "TEAK",
-      "note": "teak is the hardwood timber traditionally laid as ships' decking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEAK",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "Anything on board a vessel is within it, so the word before goes inside the ship that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS is the prefix on a steamship's name, as in SS Great Britain"
+      },
+      {
+       "words": "timber",
+       "gives": "TEAK",
+       "note": "teak is the hardwood timber traditionally laid as ships' decking"
+      }
      ]
     },
     "explanation": {

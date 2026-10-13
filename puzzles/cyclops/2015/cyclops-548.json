@@ -1,8 +1,6 @@
 {
  "id": "cyclops-548",
  "number": 548,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 548",
  "setter": "Cyclops",
  "date": "2015-05-29",
  "dimensions": {
@@ -53,49 +51,37 @@
    },
    "solution": "GOSOFTON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GO SOFT ON",
     "definitions": [
      {
       "text": "be tolerant!",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "erection",
-      "for": "reversal",
-      "note": "An erection is something raised upright, so in a down entry 'no' erected is written from the bottom up."
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lose erection",
-      "gives": "GO SOFT",
-      "note": "To go soft is to lose an erection."
-     },
-     {
-      "clueFragment": "no",
-      "gives": "ON",
-      "note": "NO stood on its end, read upwards."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "SOFT",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "GOSOFTON",
+     "indicators": [
       {
-       "from": "NO",
-       "to": "ON"
+       "text": "erection",
+       "note": "An erection is something raised upright, so in a down entry 'no' erected is written from the bottom up."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lose erection",
+         "gives": "GOSOFT",
+         "note": "To go soft is to lose an erection."
+        },
+        {
+         "words": "no",
+         "gives": "ON",
+         "note": "NO stood on its end, read upwards."
+        }
+       ]
       }
      ]
     },
@@ -132,35 +118,27 @@
    },
    "solution": "OPENSECRET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OPEN SECRET",
     "definitions": [
      {
       "text": "It's public knowledge effectively",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is bollocks",
-      "for": "anagram",
-      "note": "Something that is bollocks, in British slang, is a mess or rubbish, so the letters are to be scrambled."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so pretence",
-      "gives": "OPENSECRET",
-      "note": "The ten letters of SO PRETENCE rearranged."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OPENSECRET",
+     "indicators": [
       {
-       "fodder": "SOPRETENCE",
-       "gives": "OPENSECRET"
+       "text": "is bollocks",
+       "note": "Something that is bollocks, in British slang, is a mess or rubbish, so the letters are to be scrambled."
+      }
+     ],
+     "parts": [
+      {
+       "words": "so pretence",
+       "gives": "OPENSECRET",
+       "note": "The ten letters of SO PRETENCE rearranged."
       }
      ]
     },
@@ -190,64 +168,63 @@
    },
    "solution": "VARIABLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "VARIABLE",
     "definitions": [
      {
       "text": "Maybe 'X'",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "squirming",
-      "note": "Squirming is wriggling out of shape, so BLAIR's letters twist into a new order."
-     },
-     {
-      "text": "trapped in",
-      "note": "Trapped in means held inside."
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "Initially points to the start of the word, taking only its opening letter."
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "state",
-      "gives": "VA",
-      "note": "VA is the postal abbreviation for the US state of Virginia."
-     },
-     {
-      "clueFragment": "Blair",
-      "gives": "RIABL",
-      "note": "BLAIR's letters, squirming into a new order."
-     },
-     {
-      "clueFragment": "enquiry",
-      "gives": "E",
-      "select": "first",
-      "note": "The first letter of enquiry."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VA",
-      "RIABL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "VARIABLE",
+     "parts": [
       {
-       "fodder": "BLAIR",
-       "gives": "RIABL"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "VARIABLE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "squirming",
+           "note": "Squirming is wriggling out of shape, so BLAIR's letters twist into a new order."
+          }
+         ],
+         "parts": [
+          {
+           "words": "state",
+           "gives": "VA",
+           "note": "VA is the postal abbreviation for the US state of Virginia."
+          },
+          {
+           "words": "Blair",
+           "gives": "RIABL",
+           "note": "BLAIR's letters, squirming into a new order."
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "trapped in",
+             "note": "Trapped in means held inside."
+            },
+            {
+             "text": "initially",
+             "note": "Initially points to the start of the word, taking only its opening letter."
+            }
+           ],
+           "parts": [
+            {
+             "words": "enquiry",
+             "note": "The first letter of enquiry."
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -295,57 +272,54 @@
     "9-across"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "STANDS DOWN",
     "definitions": [
      {
       "text": "resigns",
       "at": 84
      }
     ],
-    "indicators": [
-     {
-      "text": "beset by",
-      "note": "Beset by means surrounded by, so the brown sits inside the other letters."
-     },
-     {
-      "text": "leaders",
-      "note": "Leaders are the ones at the front, so each word gives its first letter."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "several disapproving socialist",
-      "gives": "SDS",
-      "select": "first",
-      "note": "The leading letters of several, disapproving and socialist."
-     },
-     {
-      "clueFragment": "Brown",
-      "gives": "TAN",
-      "note": "Tan is a light brown."
-     },
-     {
-      "clueFragment": "gets depressed",
-      "gives": "DOWN",
-      "note": "Someone depressed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAN",
-      "DS",
-      "DOWN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beset by",
+       "note": "Beset by means surrounded by, so the brown sits inside the other letters."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "Leaders are the ones at the front, so each word gives its first letter."
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "several disapproving socialist",
+           "note": "The leading letters of several, disapproving and socialist."
+          }
+         ]
+        },
+        {
+         "words": "Brown",
+         "gives": "TAN",
+         "note": "Tan is a light brown."
+        }
+       ]
+      },
+      {
+       "words": "gets depressed",
+       "gives": "DOWN",
+       "note": "Someone depressed"
+      }
      ]
     },
+    "spelling": "STANDS DOWN",
     "explanation": {
      "surface": "Gordon Brown, surrounded by disapproving Labour grandees, sinking into gloom and quitting.",
      "walkthrough": "'Brown' is dressed up as Gordon Brown, the former Labour leader, but it is only a colour. The initials come from the three words, not the socialist leaders in the surface.",
@@ -378,11 +352,6 @@
    },
    "solution": "VOXPOP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "VOX POP",
     "definitions": [
      {
       "text": "As a street interview",
@@ -390,40 +359,34 @@
       "note": "'As a street interview' reads adjectivally, and VOX POP is used attributively in just that way."
      }
     ],
-    "indicators": [
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "Starts are beginnings, so each of the two words gives its first letter."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very often",
-      "gives": "VO",
-      "select": "first",
-      "note": "The first letters of very and often."
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "X",
-      "note": "X is the multiplication sign, read as 'times'."
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "POP",
-      "note": "Pop is a fizzy drink."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "O",
-      "X",
-      "POP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "note": "Starts are beginnings, so each of the two words gives its first letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "very often",
+         "note": "The first letters of very and often."
+        }
+       ]
+      },
+      {
+       "words": "Times",
+       "gives": "X",
+       "note": "X is the multiplication sign, read as 'times'."
+      },
+      {
+       "words": "drink",
+       "gives": "POP",
+       "note": "Pop is a fizzy drink."
+      }
      ]
     },
     "explanation": {
@@ -452,32 +415,25 @@
    },
    "solution": "PIPIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PIPIT",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "seed",
-      "gives": "PIP",
-      "note": "A pip is a fruit seed."
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "IT is old slang for sex, or sex appeal."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIP",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "seed",
+       "gives": "PIP",
+       "note": "A pip is a fruit seed."
+      },
+      {
+       "words": "sex",
+       "gives": "IT",
+       "note": "IT is old slang for sex, or sex appeal."
+      }
      ]
     },
     "explanation": {
@@ -507,40 +463,31 @@
    },
    "solution": "BLAIRITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLAIRITE",
     "definitions": [
      {
       "text": "Ex-PM's disciple",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "securing",
-      "for": "container",
-      "note": "Securing means holding fast, so the prick holds the bolthole inside it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prick",
-      "gives": "BITE",
-      "note": "A bite, from an insect, is a small prick in the skin."
-     },
-     {
-      "clueFragment": "bolthole",
-      "gives": "LAIR",
-      "note": "A lair is an animal's hideout."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LAIR",
-      "ITE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "note": "Securing means holding fast, so the prick holds the bolthole inside it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "prick",
+       "gives": "BITE",
+       "note": "A bite, from an insect, is a small prick in the skin."
+      },
+      {
+       "words": "bolthole",
+       "gives": "LAIR",
+       "note": "A lair is an animal's hideout."
+      }
      ]
     },
     "explanation": {
@@ -574,41 +521,34 @@
     "15-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BORDER CONTROLS",
     "definitions": [
      {
       "text": "a big factor in Ukip's campaign",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "After means following, so the trouser-wearing word comes second, behind the skirt."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skirt",
-      "gives": "BORDER",
-      "note": "To skirt something"
-     },
-     {
-      "clueFragment": "Wears the trousers",
-      "gives": "CONTROLS",
-      "note": "Whoever wears the trousers is in charge of, or governs, the household."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BORDER",
-      "CONTROLS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "After means following, so the trouser-wearing word comes second, behind the skirt."
+      }
+     ],
+     "parts": [
+      {
+       "words": "skirt",
+       "gives": "BORDER",
+       "note": "To skirt something"
+      },
+      {
+       "words": "Wears the trousers",
+       "gives": "CONTROLS",
+       "note": "Whoever wears the trousers is in charge of, or governs, the household."
+      }
      ]
     },
+    "spelling": "BORDER CONTROLS",
     "explanation": {
      "surface": "A dig at Ukip's campaign as a story of men asserting themselves over women in skirts.",
      "walkthrough": "'Skirt' and 'trousers' conjure clothing and gender roles, but 'skirt' is a verb here. Ukip, the UK Independence Party, campaigned hard on immigration.",
@@ -650,48 +590,38 @@
    },
    "solution": "PARLIAMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PARLIAMENT",
     "definitions": [
      {
       "text": "MPs, altogether",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shambles",
-      "for": "anagram",
-      "note": "A shambles is a chaotic mess, so the letters beside it are thrown into disorder."
-     },
-     {
-      "text": "little",
-      "for": "anagram",
-      "note": "Little asks for the short form, so fun becomes its abbreviation."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a primal",
-      "gives": "APRIMAL",
-      "note": "Seven letters for the shambles."
-     },
-     {
-      "clueFragment": "fun",
-      "gives": "ENT",
-      "note": "ENT is short for entertainment."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "APRIMALENT",
-       "gives": "PARLIAMENT"
+       "text": "shambles",
+       "note": "A shambles is a chaotic mess, so the letters beside it are thrown into disorder."
+      },
+      {
+       "text": "little",
+       "note": "Little asks for the short form, so fun becomes its abbreviation."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a primal",
+         "note": "Seven letters for the shambles."
+        },
+        {
+         "words": "fun",
+         "gives": "ENT",
+         "note": "ENT is short for entertainment."
+        }
+       ]
       }
      ]
     },
@@ -721,57 +651,46 @@
    },
    "solution": "THEATRE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "THEATRE",
     "definitions": [
      {
       "text": "Luvvies here",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before",
-      "note": "Before places what precedes it ahead of what follows."
-     },
-     {
-      "text": "comeback",
-      "note": "A comeback is a return, so the Queen's letters run back the other way."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T is the grammar abbreviation for tense."
-     },
-     {
-      "clueFragment": "passion",
-      "gives": "HEAT",
-      "note": "Heat is intensity of feeling."
-     },
-     {
-      "clueFragment": "Brenda's",
-      "gives": "RE",
-      "note": "Brenda is Private Eye's nickname for the Queen, ER, reversed here."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HEAT",
-      "RE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "THEATRE",
+     "parts": [
       {
-       "from": "ER",
-       "to": "RE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "before",
+         "note": "Before places what precedes it ahead of what follows."
+        },
+        {
+         "text": "comeback",
+         "note": "A comeback is a return, so the Queen's letters run back the other way."
+        }
+       ],
+       "parts": [
+        {
+         "words": "tense",
+         "gives": "T",
+         "note": "T is the grammar abbreviation for tense."
+        },
+        {
+         "words": "passion",
+         "gives": "HEAT",
+         "note": "Heat is intensity of feeling."
+        },
+        {
+         "words": "Brenda's",
+         "gives": "RE",
+         "note": "Brenda is Private Eye's nickname for the Queen, ER, reversed here."
+        }
+       ]
       }
      ]
     },
@@ -801,43 +720,34 @@
    },
    "solution": "BEMUSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEMUSE",
     "definitions": [
      {
       "text": "put into confusion",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "screwing around",
-      "for": "anagram",
-      "note": "Screwing around means twisting about, so the letters are turned into a new order."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bums",
-      "gives": "BUMS",
-      "note": "The word itself, for scrambling."
-     },
-     {
-      "clueFragment": "amphetamines",
-      "gives": "EE",
-      "note": "E is slang for an ecstasy tablet, an amphetamine-type drug, and more than one gives two Es."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BUMSEE",
-       "gives": "BEMUSE"
+       "text": "screwing around",
+       "note": "Screwing around means twisting about, so the letters are turned into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bums",
+         "note": "The word itself, for scrambling."
+        },
+        {
+         "words": "amphetamines",
+         "gives": "EE",
+         "note": "E is slang for an ecstasy tablet, an amphetamine-type drug, and more than one gives two Es."
+        }
+       ]
       }
      ]
     },
@@ -868,32 +778,25 @@
    },
    "solution": "MOTHERHOOD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOTHERHOOD",
     "definitions": [
      {
       "text": "'Labour success confers such status'",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old lady",
-      "gives": "MOTHER",
-      "note": "Old lady is slang for one's mother."
-     },
-     {
-      "clueFragment": "Archer's",
-      "gives": "HOOD",
-      "note": "The Archer is Robin Hood."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOTHER",
-      "HOOD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old lady",
+       "gives": "MOTHER",
+       "note": "Old lady is slang for one's mother."
+      },
+      {
+       "words": "Archer's",
+       "gives": "HOOD",
+       "note": "The Archer is Robin Hood."
+      }
      ]
     },
     "explanation": {
@@ -923,28 +826,16 @@
    },
    "solution": "UNFROCK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNFROCK",
     "definitions": [
      {
       "text": "Ecclesiastical \"fire\"?",
-      "at": 0
+      "at": 0,
+      "meaning": "To sack a priest."
      },
      {
       "text": "Get out of the habit",
-      "at": 23
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ecclesiastical \"fire\"?",
-      "note": "To sack a priest."
-     },
-     {
-      "clueFragment": "Get out of the habit",
-      "note": "To take off a frock, the monk's habit."
+      "at": 23,
+      "meaning": "To take off a frock, the monk's habit."
      }
     ],
     "explanation": {
@@ -988,45 +879,37 @@
    },
    "solution": "LEFTISH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "LEFTISH",
     "definitions": [
      {
       "text": "Like a more traditional Socialist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "motley",
-      "for": "anagram",
-      "note": "Motley means jumbled and multicoloured, so the letters of 'his' come out mixed."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "took off",
-      "gives": "LEFT",
-      "note": "To take off is to leave, past tense LEFT."
-     },
-     {
-      "clueFragment": "his",
-      "gives": "ISH",
-      "note": "HIS rearranged."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEFT",
-      "ISH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LEFTISH",
+     "indicators": [
       {
-       "fodder": "HIS",
-       "gives": "ISH"
+       "text": "motley",
+       "note": "Motley means jumbled and multicoloured, so the letters of 'his' come out mixed."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "took off",
+         "gives": "LEFT",
+         "note": "To take off is to leave, past tense LEFT."
+        },
+        {
+         "words": "his",
+         "gives": "ISH",
+         "note": "HIS rearranged."
+        }
+       ]
       }
      ]
     },
@@ -1056,50 +939,40 @@
    },
    "solution": "SEDIMENT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SEDIMENT",
     "definitions": [
      {
       "text": "the dregs",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "In places the preceding words inside the word that follows."
-     }
-    ],
-    "linkWords": [
-     "which is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "broadcast",
-      "gives": "SENT",
-      "note": "A broadcast is sent out."
-     },
-     {
-      "clueFragment": "Miliband",
-      "gives": "ED",
-      "note": "Ed Miliband, Labour leader until 2015."
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "The word itself, apostrophe dropped."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ED",
-      "IM",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "In places the preceding words inside the word that follows."
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcast",
+       "gives": "SENT",
+       "note": "A broadcast is sent out."
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Miliband",
+         "gives": "ED",
+         "note": "Ed Miliband, Labour leader until 2015."
+        },
+        {
+         "words": "I'm",
+         "note": "The word itself, apostrophe dropped."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1129,30 +1002,28 @@
    },
    "solution": "TISWAS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TISWAS",
     "definitions": [
      {
       "text": "Excited state",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "In says the answer lies inside the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parliament is wasted",
-      "gives": "TISWAS",
-      "note": "Running across parliamenT IS WASted."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "In says the answer lies inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "parliament is wasted",
+       "gives": "TISWAS",
+       "note": "Running across parliamenT IS WASted."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A jibe that an agitated Parliament is a waste of everyone's time.",
      "walkthrough": "'Wasted' reads as the definition, meaning drunk, which pulls towards a word for tipsy. The answer hides across three words.",
@@ -1185,10 +1056,6 @@
    },
    "solution": "SPOTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPOT-ON",
     "definitions": [
      {
       "text": "precisely",
@@ -1196,22 +1063,19 @@
       "note": "Spot-on usually works as an adjective, but it is also used adverbially ('she judged it spot-on'), matching 'precisely'."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Smear",
-      "gives": "SPOT",
-      "note": "A spot is a mark or smear."
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "A machine that is on is working."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPOT",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Smear",
+       "gives": "SPOT",
+       "note": "A spot is a mark or smear."
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "A machine that is on is working."
+      }
      ]
     },
     "explanation": {
@@ -1240,48 +1104,38 @@
    },
    "solution": "PLIGHT",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "PLIGHT",
     "definitions": [
      {
       "text": "hole",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "for",
-      "for": "substitution",
-      "note": "For means in place of, so the penny takes the following letter's spot."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "following",
-      "gives": "F",
-      "note": "F is the abbreviation for following, as in 'p. 3f'; it is the letter swapped out."
-     },
-     {
-      "clueFragment": "Penny",
-      "gives": "P",
-      "note": "P is the abbreviation for a penny, and it goes in where the F was."
-     },
-     {
-      "clueFragment": "Fair",
-      "gives": "LIGHT",
-      "note": "Fair hair or skin is light."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LIGHT"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "PLIGHT",
+     "indicators": [
+      {
+       "text": "for",
+       "note": "For means in place of, so the penny takes the following letter's spot."
+      }
+     ],
+     "parts": [
+      {
+       "words": "following",
+       "gives": "F",
+       "note": "F is the abbreviation for following, as in 'p. 3f'; it is the letter swapped out."
+      },
+      {
+       "words": "Penny",
+       "gives": "P",
+       "note": "P is the abbreviation for a penny, and it goes in where the F was."
+      },
+      {
+       "words": "Fair",
+       "gives": "LIGHT",
+       "note": "Fair hair or skin is light."
+      }
      ]
     },
     "explanation": {
@@ -1311,43 +1165,34 @@
    },
    "solution": "INBREED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INBREED",
     "definitions": [
      {
       "text": "as hillbillies stereotypically do?",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "screwed",
-      "for": "anagram",
-      "note": "Screwed means twisted, so the letters are wrenched into a new order."
-     }
-    ],
-    "linkWords": [
-     "After"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "The Roman numeral for one."
-     },
-     {
-      "clueFragment": "bender",
-      "gives": "BENDER",
-      "note": "The word itself, for twisting."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IBENDER",
-       "gives": "INBREED"
+       "text": "screwed",
+       "note": "Screwed means twisted, so the letters are wrenched into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "The Roman numeral for one."
+        },
+        {
+         "words": "bender",
+         "note": "The word itself, for twisting."
+        }
+       ]
       }
      ]
     },
@@ -1378,31 +1223,16 @@
    },
    "solution": "BALLS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BALLS",
     "definitions": [
      {
       "text": "More than one party",
-      "at": 0
+      "at": 0,
+      "meaning": "Formal dances, in the plural."
      },
      {
       "text": "bollocks",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "generates"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "More than one party",
-      "note": "Formal dances, in the plural."
-     },
-     {
-      "clueFragment": "bollocks",
-      "note": "British slang for nonsense, and for testicles."
+      "at": 30,
+      "meaning": "British slang for nonsense, and for testicles."
      }
     ],
     "explanation": {
@@ -1432,31 +1262,16 @@
    },
    "solution": "WITHDRAWAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WITHDRAWAL",
     "definitions": [
      {
       "text": "Retirement",
-      "at": 0
+      "at": 0,
+      "meaning": "Retiring from a scene is withdrawing."
      },
      {
       "text": "coitus interruptus?",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "means"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Retirement",
-      "note": "Retiring from a scene is withdrawing."
-     },
-     {
-      "clueFragment": "coitus interruptus?",
-      "note": "The contraceptive method of pulling out."
+      "at": 17,
+      "meaning": "The contraceptive method of pulling out."
      }
     ],
     "explanation": {
@@ -1504,64 +1319,65 @@
     "24-down"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HOME FROM HOME",
     "definitions": [
      {
       "text": "Comfortable place",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "battered",
-      "note": "Battered means knocked out of shape, so the letters of 'for' are rearranged."
-     },
-     {
-      "text": "initially",
-      "note": "Initially takes the opening letter of the name before it."
-     },
-     {
-      "text": "dividing",
-      "note": "Dividing means coming between, so the new letters sit between two HOMEs."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Houses",
-      "gives": "HOMEHOME",
-      "note": "Two houses, each a four-letter word for a dwelling, split to take the insert."
-     },
-     {
-      "clueFragment": "for",
-      "gives": "FRO",
-      "note": "FOR, battered into a new order."
-     },
-     {
-      "clueFragment": "Miliband",
-      "gives": "M",
-      "select": "first",
-      "note": "The first letter of Miliband."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOME",
-      "FRO",
-      "M",
-      "HOME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "FOR",
-       "gives": "FRO"
+       "text": "battered",
+       "note": "Battered means knocked out of shape, so the letters of 'for' are rearranged."
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "Initially takes the opening letter of the name before it."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "dividing",
+           "note": "Dividing means coming between, so the new letters sit between two HOMEs."
+          }
+         ],
+         "parts": [
+          {
+           "words": "the Houses",
+           "gives": "HOMEHOME",
+           "note": "Two houses, each a four-letter word for a dwelling, split to take the insert."
+          },
+          {
+           "words": "for",
+           "gives": "FRO",
+           "note": "FOR, battered into a new order."
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Miliband",
+         "note": "The first letter of Miliband."
+        }
+       ]
       }
      ]
     },
+    "spelling": "HOME FROM HOME",
     "explanation": {
      "surface": "Ed Miliband, beaten in the 2015 election, looking for somewhere soft to land between the Houses of Parliament.",
      "walkthrough": "'For' looks like a link word but is the anagram fodder. 'The Houses' suggests Parliament, yet here it just means two homes.",
@@ -1588,32 +1404,25 @@
    },
    "solution": "SHAMBLES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHAMBLES",
     "definitions": [
      {
       "text": "Cock-up",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "SH",
-      "note": "SH is the call for quiet."
-     },
-     {
-      "clueFragment": "promenades",
-      "gives": "AMBLES",
-      "note": "To promenade is to amble at leisure."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "AMBLES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quiet",
+       "gives": "SH",
+       "note": "SH is the call for quiet."
+      },
+      {
+       "words": "promenades",
+       "gives": "AMBLES",
+       "note": "To promenade is to amble at leisure."
+      }
      ]
     },
     "explanation": {
@@ -1642,63 +1451,61 @@
    },
    "solution": "SPOONS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SPOONS",
     "definitions": [
      {
       "text": "Makes love like an old-timer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "note": "The head of a word is its front, so penis gives its first letter."
-     },
-     {
-      "text": "in",
-      "note": "In puts that letter inside the next word."
-     },
-     {
-      "text": "before",
-      "note": "Before puts that word ahead of the letter that follows."
-     },
-     {
-      "text": "beginning",
-      "note": "The beginning of a word is its first letter."
-     }
-    ],
-    "linkWords": [
-     "putting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "penis",
-      "gives": "P",
-      "select": "first",
-      "note": "The head, the first letter, of penis."
-     },
-     {
-      "clueFragment": "shortly",
-      "gives": "SOON",
-      "note": "Shortly means soon."
-     },
-     {
-      "clueFragment": "to shrink",
-      "gives": "S",
-      "note": "The first letter of shrink; 'to' just joins it."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "OON",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "head",
+       "note": "The head of a word is its front, so penis gives its first letter."
+      },
+      {
+       "text": "beginning",
+       "note": "The beginning of a word is its first letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "In puts that letter inside the next word."
+        }
+       ],
+       "parts": [
+        {
+         "words": "shortly",
+         "gives": "SOON",
+         "note": "Shortly means soon."
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "before",
+           "note": "Before puts that word ahead of the letter that follows."
+          }
+         ],
+         "parts": [
+          {
+           "words": "penis",
+           "note": "The head, the first letter, of penis."
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "to shrink",
+       "gives": "S",
+       "note": "The first letter of shrink; 'to' just joins it."
+      }
      ]
     },
     "explanation": {

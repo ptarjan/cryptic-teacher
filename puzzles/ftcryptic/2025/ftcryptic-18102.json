@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18102",
  "number": 18102,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,102",
  "setter": "Guy",
  "date": "2025-07-09",
  "dimensions": {
@@ -48,50 +46,40 @@
    },
    "solution": "REDCROSS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RED CROSS",
     "definitions": [
      {
       "text": "medics",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "front",
-      "for": "letter_selection",
-      "note": "the front of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dealing with",
-      "gives": "RE",
-      "note": "re means concerning or on the subject of"
-     },
-     {
-      "clueFragment": "desk",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of desk"
-     },
-     {
-      "clueFragment": "infuriated",
-      "gives": "CROSS",
-      "note": "cross means angry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "D",
-      "CROSS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dealing with",
+       "gives": "RE",
+       "note": "re means concerning or on the subject of"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front",
+         "note": "the front of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desk",
+         "note": "first letter of desk"
+        }
+       ]
+      },
+      {
+       "words": "infuriated",
+       "gives": "CROSS",
+       "note": "cross means angry"
+      }
      ]
     },
     "explanation": {
@@ -120,40 +108,39 @@
    },
    "solution": "RASCAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RASCAL",
     "definitions": [
      {
       "text": "Delinquent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "for": "deletion",
-      "note": "reduced means cut short, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painter",
-      "gives": "RA",
-      "note": "RA, Royal Academician"
-     },
-     {
-      "clueFragment": "proportion of things in picture",
-      "gives": "SCALE",
-      "note": "a picture's scale is the ratio of its sizes to those of real things"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "SCAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "reduced",
+       "note": "reduced means cut short, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "painter",
+         "gives": "RA",
+         "note": "RA, Royal Academician"
+        },
+        {
+         "words": "proportion of things in picture",
+         "gives": "SCALE",
+         "note": "a picture's scale is the ratio of its sizes to those of real things"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -191,63 +178,59 @@
    },
    "solution": "DAPHNEDUMAURIER",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "DAPHNE DU MAURIER",
     "definitions": [
      {
       "text": "Dame in purdah rueing half-finished novel?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-finished",
-      "for": "deletion",
-      "note": "half of the word is finished, meaning done away with, so its back half goes"
-     },
-     {
-      "text": "novel",
-      "for": "anagram",
-      "note": "novel means new, so the letters are made into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dame",
-      "gives": "DAME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "purdah",
-      "gives": "PURDAH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rueing",
-      "gives": "RUEING",
-      "note": "taken as written, before halving"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAPHNEDUMAURIER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DAMEINPURDAHRUE",
-       "gives": "DAPHNEDUMAURIER"
+       "text": "novel",
+       "note": "novel means new, so the letters are made into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-finished",
+         "note": "half of the word is finished, meaning done away with, so its back half goes"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Dame",
+           "note": "taken as written"
+          },
+          {
+           "words": "in",
+           "note": "taken as written"
+          },
+          {
+           "words": "purdah",
+           "note": "taken as written"
+          },
+          {
+           "words": "rueing",
+           "note": "taken as written, before halving"
+          }
+         ]
+        },
+        {
+         "gives": "ING"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Pictures a secluded titled lady regretting an unfinished book.",
      "walkthrough": "RUEING loses its last three letters to leave RUE. The whole clue doubles as the definition: a Dame, a novelist, and reclusive in later life.",
@@ -274,39 +257,31 @@
    },
    "solution": "RELAX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RELAX",
     "definitions": [
      {
       "text": "Calm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "given contrary order",
-      "for": "charade",
-      "note": "contrary order means the two parts are placed the opposite way round from the clue"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "engineers",
-      "gives": "RE",
-      "note": "RE, the Royal Engineers of the British Army"
-     },
-     {
-      "clueFragment": "American airport",
-      "gives": "LAX",
-      "note": "LAX is the code for Los Angeles International"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LAX"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "given contrary order",
+       "note": "contrary order means the two parts are placed the opposite way round from the clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "engineers",
+       "gives": "RE",
+       "note": "RE, the Royal Engineers of the British Army"
+      },
+      {
+       "words": "American airport",
+       "gives": "LAX",
+       "note": "LAX is the code for Los Angeles International"
+      }
      ]
     },
     "explanation": {
@@ -341,35 +316,24 @@
    },
    "solution": "SWEARTO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SWEAR TO",
     "definitions": [
      {
       "text": "State truly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sports",
-      "for": "anagram",
-      "note": "sports as a verb can mean plays about, so these letters frolic into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worse at",
-      "gives": "WORSEAT",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WORSEAT",
-       "gives": "SWEARTO"
+       "text": "sports",
+       "note": "sports as a verb can mean plays about, so these letters frolic into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worse at",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -398,40 +362,31 @@
    },
    "solution": "CRIPES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRIPES",
     "definitions": [
      {
       "text": "Jesus",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one word standing outside another wraps around it, holding it within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weeps",
-      "gives": "CRIES",
-      "note": "to weep is to cry"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quietly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRI",
-      "P",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "one word standing outside another wraps around it, holding it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weeps",
+       "gives": "CRIES",
+       "note": "to weep is to cry"
+      },
+      {
+       "words": "quietly",
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quietly"
+      }
      ]
     },
     "explanation": {
@@ -461,40 +416,31 @@
    },
    "solution": "REIMAGINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REIMAGINE",
     "definitions": [
      {
       "text": "picture again",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "captivated by",
-      "for": "container",
-      "note": "someone captivated by another is held captive by them, so one goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French queen's",
-      "gives": "REINE",
-      "note": "reine is French for queen"
-     },
-     {
-      "clueFragment": "Three kings",
-      "gives": "MAGI",
-      "note": "the three Magi or wise men, often called kings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REI",
-      "MAGI",
-      "NE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivated by",
+       "note": "someone captivated by another is held captive by them, so one goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French queen's",
+       "gives": "REINE",
+       "note": "reine is French for queen"
+      },
+      {
+       "words": "Three kings",
+       "gives": "MAGI",
+       "note": "the three Magi or wise men, often called kings"
+      }
      ]
     },
     "explanation": {
@@ -529,35 +475,24 @@
    },
    "solution": "PUREMATHEMATICS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PURE MATHEMATICS",
     "definitions": [
      {
       "text": "Academic subject",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exciting",
-      "for": "anagram",
-      "note": "exciting means stirring up, so these letters are stirred into another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "campus here at MIT",
-      "gives": "CAMPUSHEREATMIT",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAMPUSHEREATMIT",
-       "gives": "PUREMATHEMATICS"
+       "text": "exciting",
+       "note": "exciting means stirring up, so these letters are stirred into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "campus here at MIT",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -587,43 +522,31 @@
    },
    "solution": "STANDING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STANDING",
     "definitions": [
      {
       "text": "professional reputation",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "clothes",
-      "for": "container",
-      "note": "to clothe something is to cover it, so one word is wrapped around the other"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smart",
-      "gives": "STING",
-      "note": "to smart is to sting with pain"
-     },
-     {
-      "clueFragment": "added",
-      "gives": "AND",
-      "note": "and is the word that adds one thing to another"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "AND",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothes",
+       "note": "to clothe something is to cover it, so one word is wrapped around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Smart",
+       "gives": "STING",
+       "note": "to smart is to sting with pain"
+      },
+      {
+       "words": "added",
+       "gives": "AND",
+       "note": "and is the word that adds one thing to another"
+      }
      ]
     },
     "explanation": {
@@ -652,46 +575,46 @@
    },
    "solution": "SUPPLIER",
    "annotation": {
-    "type": [
-     "cycling",
-     "container"
-    ],
-    "answer": "SUPPLIER",
     "definitions": [
      {
       "text": "Seller",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back-to-front",
-      "for": "cycling",
-      "note": "the letter at the back of the word is carried round to its front"
-     },
-     {
-      "text": "gripping",
-      "for": "container",
-      "note": "a thing that grips another holds it inside itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tool",
-      "gives": "PLIERS",
-      "note": "pliers are a gripping hand tool"
-     },
-     {
-      "clueFragment": "happy",
-      "gives": "UP",
-      "note": "up means cheerful, as in 'feeling up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "UP",
-      "PLIER"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SUPPLIER",
+     "indicators": [
+      {
+       "text": "gripping",
+       "note": "a thing that grips another holds it inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "SUPPLIER",
+       "indicators": [
+        {
+         "text": "back-to-front",
+         "note": "the letter at the back of the word is carried round to its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tool",
+         "gives": "PLIERS",
+         "note": "pliers are a gripping hand tool"
+        },
+        {
+         "words": "happy",
+         "gives": "UP",
+         "note": "up means cheerful, as in 'feeling up'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -720,28 +643,16 @@
    },
    "solution": "SIERRA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIERRA",
     "definitions": [
      {
       "text": "Chain",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a mountain range"
      },
      {
       "text": "that's put on uniform in US?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chain",
-      "note": "first meaning: a mountain range"
-     },
-     {
-      "clueFragment": "that's put on uniform in US?",
-      "note": "second meaning: in the NATO alphabet U is Uniform and S is the code word that follows it in US"
+      "at": 6,
+      "meaning": "second meaning: in the NATO alphabet U is Uniform and S is the code word that follows it in US"
      }
     ],
     "explanation": {
@@ -771,28 +682,16 @@
    },
    "solution": "SCAT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SCAT",
     "definitions": [
      {
       "text": "Leave",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an order to go away at once, 'Shoo!'"
      },
      {
       "text": "jam for singer",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "note": "first meaning: an order to go away at once, 'Shoo!'"
-     },
-     {
-      "clueFragment": "jam for singer",
-      "note": "second meaning: jazz vocal improvisation with nonsense syllables"
+      "at": 6,
+      "meaning": "second meaning: jazz vocal improvisation with nonsense syllables"
      }
     ],
     "explanation": {
@@ -821,32 +720,25 @@
    },
    "solution": "ANNEX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANNEX",
     "definitions": [
      {
       "text": "Appropriate",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old queen",
-      "gives": "ANNE",
-      "note": "Queen Anne reigned 1702 to 1714"
-     },
-     {
-      "clueFragment": "sign-off from affectionate",
-      "gives": "X",
-      "note": "a kiss, the cross that ends an affectionate letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANNE",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old queen",
+       "gives": "ANNE",
+       "note": "Queen Anne reigned 1702 to 1714"
+      },
+      {
+       "words": "sign-off from affectionate",
+       "gives": "X",
+       "note": "a kiss, the cross that ends an affectionate letter"
+      }
      ]
     },
     "explanation": {
@@ -875,45 +767,36 @@
    },
    "solution": "RECLAIMED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RECLAIMED",
     "definitions": [
      {
       "text": "once underwater, perhaps",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "one thing on another sits after it here, so the earlier words follow the later piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "playing field",
-      "gives": "REC",
-      "note": "a rec is a recreation ground"
-     },
-     {
-      "clueFragment": "League",
-      "gives": "L",
-      "note": "L is a standard abbreviation for league"
-     },
-     {
-      "clueFragment": "trained",
-      "gives": "AIMED",
-      "note": "to train a gun on something is to aim it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REC",
-      "L",
-      "AIMED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "one thing on another sits after it here, so the earlier words follow the later piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "playing field",
+       "gives": "REC",
+       "note": "a rec is a recreation ground"
+      },
+      {
+       "words": "League",
+       "gives": "L",
+       "note": "L is a standard abbreviation for league"
+      },
+      {
+       "words": "trained",
+       "gives": "AIMED",
+       "note": "to train a gun on something is to aim it"
+      }
      ]
     },
     "explanation": {
@@ -942,38 +825,30 @@
    },
    "solution": "ADAGIO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADAGIO",
     "definitions": [
      {
       "text": "Slowly",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "notice",
-      "gives": "AD",
-      "note": "an ad is a notice advertising something"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "bits on your computer",
-      "gives": "IO",
-      "note": "1 and 0, the binary digits or bits a computer stores, read as letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "AG",
-      "IO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notice",
+       "gives": "AD",
+       "note": "an ad is a notice advertising something"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      },
+      {
+       "words": "bits on your computer",
+       "gives": "IO",
+       "note": "1 and 0, the binary digits or bits a computer stores, read as letters"
+      }
      ]
     },
     "explanation": {
@@ -1003,37 +878,30 @@
    },
    "solution": "GREYHOUND",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "GREYHOUND",
     "definitions": [
      {
       "text": "dog",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "named for William Spooner, whose slips swapped the starting sounds of two words"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cattle fodder turned into meal",
-      "gives": "GREYHOUND",
-      "soundsLike": "GRAY HOUND",
-      "note": "fodder is hay and turned into meal is ground; swap their opening sounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREYHOUND"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "GREYHOUND",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "named for William Spooner, whose slips swapped the starting sounds of two words"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "cattle fodder turned into meal",
+       "gives": "GREYHOUND",
+       "soundsLike": "GRAY HOUND",
+       "note": "fodder is hay and turned into meal is ground; swap their opening sounds"
+      }
      ]
     },
     "explanation": {
@@ -1063,54 +931,40 @@
    },
    "solution": "TRISTAN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TRISTAN",
     "definitions": [
      {
       "text": "could be one of Arthur's",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "a thing turning round faces the other way, so its letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "Knight",
-      "gives": "SIR",
-      "note": "Sir is the title of a knight"
-     },
-     {
-      "clueFragment": "brown",
-      "gives": "TAN",
-      "note": "tan is a light brown colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RIS",
-      "TAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SIR",
-       "to": "RIS"
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "a thing turning round faces the other way, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Knight",
+         "gives": "SIR",
+         "note": "Sir is the title of a knight"
+        }
+       ]
+      },
+      {
+       "words": "brown",
+       "gives": "TAN",
+       "note": "tan is a light brown colour"
       }
      ]
     },
@@ -1140,50 +994,41 @@
    },
    "solution": "CRASHPAD",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CRASHPAD",
     "definitions": [
      {
       "text": "quarters, temporarily",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "for": "container",
-      "note": "breaking into something means entering it, so these letters go inside the other word"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "album",
-      "gives": "CD",
-      "note": "an album released on compact disc"
-     },
-     {
-      "clueFragment": "Reckless",
-      "gives": "RASH",
-      "note": "rash means acting without thinking"
-     },
-     {
-      "clueFragment": "old man",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RASH",
-      "PA",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaks",
+       "note": "breaking into something means entering it, so these letters go inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "album",
+       "gives": "CD",
+       "note": "an album released on compact disc"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Reckless",
+         "gives": "RASH",
+         "note": "rash means acting without thinking"
+        },
+        {
+         "words": "old man",
+         "gives": "PA",
+         "note": "pa is an informal word for father"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1212,38 +1057,30 @@
    },
    "solution": "ROMPERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROMPERS",
     "definitions": [
      {
       "text": "Tiny onesie",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "memory",
-      "gives": "ROM",
-      "note": "read-only memory in a computer"
-     },
-     {
-      "clueFragment": "for each",
-      "gives": "PER",
-      "note": "per means for each, as in 'per head'"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROM",
-      "PER",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "memory",
+       "gives": "ROM",
+       "note": "read-only memory in a computer"
+      },
+      {
+       "words": "for each",
+       "gives": "PER",
+       "note": "per means for each, as in 'per head'"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      }
      ]
     },
     "explanation": {
@@ -1272,38 +1109,25 @@
    },
    "solution": "STUB",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "STUB",
     "definitions": [
      {
       "text": "Remainder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue raised means sent upward, so the word reads from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "objections",
-      "gives": "BUTS",
-      "note": "buts are objections, as in 'no ifs or buts'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BUTS",
-       "to": "STUB"
+       "text": "raised",
+       "note": "in a down clue raised means sent upward, so the word reads from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "objections",
+       "gives": "BUTS",
+       "note": "buts are objections, as in 'no ifs or buts'"
       }
      ]
     },
@@ -1333,28 +1157,16 @@
    },
    "solution": "PEERED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PEERED",
     "definitions": [
      {
       "text": "Possible symptom of beetroot consumption",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: read as two words, to urinate a red colour, which beetroot can cause"
      },
      {
       "text": "showed faintly",
-      "at": 41
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Possible symptom of beetroot consumption",
-      "note": "first meaning: read as two words, to urinate a red colour, which beetroot can cause"
-     },
-     {
-      "clueFragment": "showed faintly",
-      "note": "second meaning: an old sense of peer is to appear partly, to peep out"
+      "at": 41,
+      "meaning": "second meaning: an old sense of peer is to appear partly, to peep out"
      }
     ],
     "explanation": {
@@ -1384,36 +1196,39 @@
    },
    "solution": "PADLOCK",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "PADLOCK",
     "definitions": [
      {
       "text": "Security on the door",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blankets",
-      "for": "hidden_word",
-      "note": "the phrase blankets the answer, covering it inside its run of letters"
-     },
-     {
-      "text": "brought over",
-      "for": "reversal",
-      "note": "brought over means turned back, so the hidden letters are read in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "look cold, appreciating",
-      "gives": "KCOLDAP",
-      "note": "the letters spanning the end of look, all of cold and the start of appreciating"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "brought over",
+       "note": "brought over means turned back, so the hidden letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "blankets",
+         "note": "the phrase blankets the answer, covering it inside its run of letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "look cold, appreciating",
+         "gives": "KCOLDAP",
+         "note": "the letters spanning the end of look, all of cold and the start of appreciating"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Bouncers on the door look chilly and are grateful when blankets are brought to them.",
      "walkthrough": "'Security on the door' suggests door staff, but it is a lock. Read the run of letters backwards to get the answer.",
@@ -1446,28 +1261,16 @@
    },
    "solution": "ATREST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AT REST",
     "definitions": [
      {
       "text": "Still",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: motionless"
      },
      {
       "text": "reacting to spider?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Still",
-      "note": "first meaning: motionless"
-     },
-     {
-      "clueFragment": "reacting to spider?",
-      "note": "second meaning: in snooker a spider is a raised cue rest, so a player using it plays at the rest"
+      "at": 6,
+      "meaning": "second meaning: in snooker a spider is a raised cue rest, so a player using it plays at the rest"
      }
     ],
     "explanation": {
@@ -1502,58 +1305,56 @@
    },
    "solution": "SLUSHFUND",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "SLUSH FUND",
     "definitions": [
      {
       "text": "Pile of dodgy cash",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the word before it"
-     },
-     {
-      "text": "taken",
-      "for": "deletion",
-      "note": "something taken is removed, so that letter comes out of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bus",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of bus"
-     },
-     {
-      "clueFragment": "drunkard",
-      "gives": "LUSH",
-      "note": "a lush is a heavy drinker"
-     },
-     {
-      "clueFragment": "discovered",
-      "gives": "FOUND",
-      "note": "found means discovered"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LUSH",
-      "FUND"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taken",
+       "note": "something taken is removed, so that letter comes out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the closing letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bus",
+           "note": "last letter of bus"
+          }
+         ]
+        },
+        {
+         "words": "drunkard",
+         "gives": "LUSH",
+         "note": "a lush is a heavy drinker"
+        },
+        {
+         "words": "discovered",
+         "gives": "FOUND",
+         "note": "found means discovered"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
      ]
     },
     "explanation": {
@@ -1582,41 +1383,35 @@
    },
    "solution": "HEART",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HEART",
     "definitions": [
      {
       "text": "inexpensive meat",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "letter_selection",
-      "note": "a bit of a word is just a small piece of it, here its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "gives": "HEAR",
-      "note": "a judge hears or tries a case"
-     },
-     {
-      "clueFragment": "this",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of this"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAR",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Try",
+       "gives": "HEAR",
+       "note": "a judge hears or tries a case"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "note": "a bit of a word is just a small piece of it, here its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this",
+         "note": "first letter of this"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1645,38 +1440,30 @@
    },
    "solution": "HOTEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOTEL",
     "definitions": [
      {
       "text": "place with many bedrooms",
       "at": 39
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Henry",
-      "gives": "H",
-      "note": "H is the symbol for the henry, the unit of inductance"
-     },
-     {
-      "clueFragment": "expected money for selling",
-      "gives": "OTE",
-      "note": "OTE, on-target earnings, a salesperson's expected pay"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the clothing-size abbreviation for large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OTE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Henry",
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      },
+      {
+       "words": "expected money for selling",
+       "gives": "OTE",
+       "note": "OTE, on-target earnings, a salesperson's expected pay"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
      ]
     },
     "explanation": {
@@ -1705,32 +1492,25 @@
    },
    "solution": "PRIMUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRIMUS",
     "definitions": [
      {
       "text": "stove",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Proper",
-      "gives": "PRIM",
-      "note": "prim means stiffly proper"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRIM",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Proper",
+       "gives": "PRIM",
+       "note": "prim means stiffly proper"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US is short for American"
+      }
      ]
     },
     "explanation": {
@@ -1759,38 +1539,30 @@
    },
    "solution": "CONTRITE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONTRITE",
     "definitions": [
      {
       "text": "Sorry",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c (circa) means about, of a date"
-     },
-     {
-      "clueFragment": "repeatedly",
-      "gives": "ON",
-      "note": "on also means about, so 'about' is given a second time"
-     },
-     {
-      "clueFragment": "employing cliché",
-      "gives": "TRITE",
-      "note": "something that uses clichés is trite, stale and overused"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ON",
-      "TRITE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "c (circa) means about, of a date"
+      },
+      {
+       "words": "repeatedly",
+       "gives": "ON",
+       "note": "on also means about, so 'about' is given a second time"
+      },
+      {
+       "words": "employing cliché",
+       "gives": "TRITE",
+       "note": "something that uses clichés is trite, stale and overused"
+      }
      ]
     },
     "explanation": {
@@ -1819,48 +1591,35 @@
    },
    "solution": "DORADO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DORADO",
     "definitions": [
      {
       "text": "Fish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "something that returns goes back the way it came, so the word runs backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "angler",
-      "gives": "ROD",
-      "note": "a rod, standing for the person who fishes with one"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "ADO",
-      "note": "ado is fuss or bother"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOR",
-      "ADO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ROD",
-       "to": "DOR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "something that returns goes back the way it came, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "angler",
+         "gives": "ROD",
+         "note": "a rod, standing for the person who fishes with one"
+        }
+       ]
+      },
+      {
+       "words": "trouble",
+       "gives": "ADO",
+       "note": "ado is fuss or bother"
       }
      ]
     },
@@ -1896,38 +1655,30 @@
    },
    "solution": "SKILLSET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SKILL SET",
     "definitions": [
      {
       "text": "what can you do?",
       "at": 44
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sulphur",
-      "gives": "S",
-      "note": "S is the chemical symbol for sulphur"
-     },
-     {
-      "clueFragment": "is fatal to",
-      "gives": "KILLS",
-      "note": "something that kills is fatal"
-     },
-     {
-      "clueFragment": "life on remote planet",
-      "gives": "ET",
-      "note": "ET, the extra-terrestrial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KILLS",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sulphur",
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      },
+      {
+       "words": "is fatal to",
+       "gives": "KILLS",
+       "note": "something that kills is fatal"
+      },
+      {
+       "words": "life on remote planet",
+       "gives": "ET",
+       "note": "ET, the extra-terrestrial"
+      }
      ]
     },
     "explanation": {

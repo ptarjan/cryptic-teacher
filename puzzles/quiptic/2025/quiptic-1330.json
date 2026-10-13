@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1330",
  "number": 1330,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,330",
  "setter": "Anto",
  "date": "2025-05-18",
  "dimensions": {
@@ -38,30 +36,16 @@
    },
    "solution": "DOWNSIDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOWNSIDE",
     "definitions": [
      {
       "text": "Difficulty",
-      "at": 0
+      "at": 0,
+      "meaning": "a drawback or snag"
      },
      {
       "text": "opposing what's upfront?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Difficulty",
-      "gives": "DOWNSIDE",
-      "note": "a drawback or snag"
-     },
-     {
-      "clueFragment": "opposing what's upfront?",
-      "gives": "DOWNSIDE",
-      "note": "read 'upfront' as the up side; the opposing side faces the other way"
+      "at": 11,
+      "meaning": "read 'upfront' as the up side; the opposing side faces the other way"
      }
     ],
     "explanation": {
@@ -91,48 +75,35 @@
    },
    "solution": "DILDOS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DILDOS",
     "definitions": [
      {
       "text": "some stimulating objects",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "lifted",
-      "for": "reversal",
-      "note": "in a down clue, lifting the letters reads them bottom to top"
-     }
-    ],
-    "linkWords": [
-     "revealing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Earth",
-      "gives": "SOD",
-      "note": "sod is turf, a piece of earth"
-     },
-     {
-      "clueFragment": "cover",
-      "gives": "LID",
-      "note": "a lid covers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIL",
-      "DOS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SODLID",
-       "to": "DILDOS"
+       "text": "lifted",
+       "note": "in a down clue, lifting the letters reads them bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Earth",
+         "gives": "SOD",
+         "note": "sod is turf, a piece of earth"
+        },
+        {
+         "words": "cover",
+         "gives": "LID",
+         "note": "a lid covers"
+        }
+       ]
       }
      ]
     },
@@ -163,42 +134,30 @@
    },
    "solution": "WASTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WASTER",
     "definitions": [
      {
       "text": "good for nothing",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "immersed in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "WATER",
-      "note": "water is a drink"
-     },
-     {
-      "clueFragment": "Son",
-      "gives": "S",
-      "note": "S = son, placed between WA and TER"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WA",
-      "S",
-      "TER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "immersed in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "WATER",
+       "note": "water is a drink"
+      },
+      {
+       "words": "Son",
+       "gives": "S",
+       "note": "S = son, placed between WA and TER"
+      }
      ]
     },
     "explanation": {
@@ -227,41 +186,46 @@
    },
    "solution": "SCINTILLA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SCINTILLA",
     "definitions": [
      {
       "text": "Trace",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "reported speech is heard, so the pieces are spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crime",
-      "gives": "SIN",
-      "note": "a sin is a wrong"
-     },
-     {
-      "clueFragment": "farmer",
-      "gives": "TILLER",
-      "note": "a farmer tills the soil"
-     },
-     {
-      "clueFragment": "crime farmer reported",
-      "gives": "SCINTILLA",
-      "soundsLike": "SIN TILLER",
-      "note": "said together, sin + tiller matches the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "SCINTILLA",
+     "indicators": [
+      {
+       "text": "reported",
+       "note": "reported speech is heard, so the pieces are spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crime",
+       "gives": "SIN",
+       "note": "a sin is a wrong"
+      },
+      {
+       "words": "farmer",
+       "gives": "TILLER",
+       "note": "a farmer tills the soil"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SCINTILLA",
+       "parts": [
+        {
+         "words": "crime farmer reported",
+         "gives": "SINTILLER",
+         "note": "said together, sin + tiller matches the answer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A detective asked to trace a crime that a farmer has reported.",
      "walkthrough": "'Trace' pretends to be a verb for police work; it is the noun meaning a tiny amount.",
@@ -298,38 +262,24 @@
    },
    "solution": "DOUBLEOSEVEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOUBLE-O SEVEN",
     "definitions": [
      {
       "text": "a lethal agent",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "anagram",
-      "note": "the letters revolt, turning over into a new order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unloved, obese",
-      "gives": "UNLOVEDOBESE",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UNLOVED OBESE",
-       "gives": "DOUBLEOSEVEN"
+       "text": "revolutionary",
+       "note": "the letters revolt, turning over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unloved, obese",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -360,46 +310,40 @@
    },
    "solution": "ABORTS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ABORTS",
     "definitions": [
      {
       "text": "Shuts down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has in centre",
-      "for": "letter_selection",
-      "note": "take what each word has at its centre"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shabby",
-      "gives": "AB",
-      "select": "middle",
-      "note": "middle two letters of shABby"
-     },
-     {
-      "clueFragment": "stores",
-      "gives": "OR",
-      "note": "middle two letters of stORes"
-     },
-     {
-      "clueFragment": "Scotsman",
-      "gives": "TS",
-      "note": "middle two letters of ScoTSman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "OR",
-      "TS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "has in centre",
+         "note": "take what each word has at its centre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shabby",
+         "note": "middle two letters of shABby"
+        }
+       ]
+      },
+      {
+       "words": "stores",
+       "gives": "OR",
+       "note": "middle two letters of stORes"
+      },
+      {
+       "words": "Scotsman",
+       "gives": "TS",
+       "note": "middle two letters of ScoTSman"
+      }
      ]
     },
     "explanation": {
@@ -428,35 +372,25 @@
    },
    "solution": "BASIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BASIC",
     "definitions": [
      {
       "text": "pretty ordinary",
       "at": 27
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Graduate",
-      "gives": "BA",
-      "note": "BA = Bachelor of Arts"
-     },
-     {
-      "clueFragment": "as presented",
-      "gives": "SIC",
-      "note": "sic means 'thus', used to mark text reproduced exactly as presented"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "SIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Graduate",
+       "gives": "BA",
+       "note": "BA = Bachelor of Arts"
+      },
+      {
+       "words": "as presented",
+       "gives": "SIC",
+       "note": "sic means 'thus', used to mark text reproduced exactly as presented"
+      }
      ]
     },
     "explanation": {
@@ -485,42 +419,31 @@
    },
    "solution": "REBOUNDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REBOUNDS",
     "definitions": [
      {
       "text": "Comes back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, one piece sitting on another comes first"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "note",
-      "gives": "RE",
-      "note": "re is the second note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "limits",
-      "gives": "BOUNDS",
-      "note": "bounds are limits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BOUNDS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue, one piece sitting on another comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "gives": "RE",
+       "note": "re is the second note of the sol-fa scale"
+      },
+      {
+       "words": "limits",
+       "gives": "BOUNDS",
+       "note": "bounds are limits"
+      }
      ]
     },
     "explanation": {
@@ -555,36 +478,25 @@
    },
    "solution": "SCENEONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCENE ONE",
     "definitions": [
      {
       "text": "passage of play",
       "at": 34
      }
     ],
-    "linkWords": [
-     "by",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Embarrassing display",
-      "gives": "SCENE",
-      "note": "to make a scene is to cause an embarrassing display"
-     },
-     {
-      "clueFragment": "United",
-      "gives": "ONE",
-      "note": "people united are as one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCENE",
-      "ONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Embarrassing display",
+       "gives": "SCENE",
+       "note": "to make a scene is to cause an embarrassing display"
+      },
+      {
+       "words": "United",
+       "gives": "ONE",
+       "note": "people united are as one"
+      }
      ]
     },
     "explanation": {
@@ -614,34 +526,29 @@
    },
    "solution": "LUSCIOUS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LUSCIOUS",
     "definitions": [
      {
       "text": "quite rich",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "what people say is heard, so the word is spoken"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heavy drinkers they say",
-      "gives": "LUSCIOUS",
-      "soundsLike": "LUSHES",
-      "note": "lushes are heavy drinkers; said aloud, it approximates the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LUSCIOUS",
+     "indicators": [
+      {
+       "text": "they say",
+       "note": "what people say is heard, so the word is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Heavy drinkers they say",
+       "gives": "LUSHES",
+       "note": "lushes are heavy drinkers; said aloud, it approximates the answer"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A claim that the big drinkers are the wealthy ones.",
      "walkthrough": "A lush is slang for a drunkard. 'Rich' looks like money, but it describes food or taste.",
@@ -668,10 +575,6 @@
    },
    "solution": "USABLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "USABLE",
     "definitions": [
      {
       "text": "can work",
@@ -679,20 +582,22 @@
       "note": "a verb phrase standing for the adjective: what is usable can work"
      }
     ],
-    "indicators": [
-     {
-      "text": "Being a bit",
-      "for": "hidden_word",
-      "note": "the answer is only a bit of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pious, a blessing",
-      "gives": "USABLE",
-      "note": "inside piOUS A BLEssing"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Being a bit",
+       "note": "the answer is only a bit of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pious, a blessing",
+       "gives": "USABLE",
+       "note": "inside piOUS A BLEssing"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A mildly religious person hoping a blessing will do the trick.",
      "walkthrough": "The definition is loose: the clue says the thing can work, the answer says it is fit to be used.",
@@ -725,35 +630,25 @@
    },
    "solution": "ESCAPENOTICE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESCAPE NOTICE",
     "definitions": [
      {
       "text": "Keep out of sight",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dodge",
-      "gives": "ESCAPE",
-      "note": "to dodge is to escape"
-     },
-     {
-      "clueFragment": "bill",
-      "gives": "NOTICE",
-      "note": "a bill is a posted notice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESCAPE",
-      "NOTICE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dodge",
+       "gives": "ESCAPE",
+       "note": "to dodge is to escape"
+      },
+      {
+       "words": "bill",
+       "gives": "NOTICE",
+       "note": "a bill is a posted notice"
+      }
      ]
     },
     "explanation": {
@@ -782,41 +677,25 @@
    },
    "solution": "OVERT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "OVERT",
     "definitions": [
      {
       "text": "clear",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Starting",
-      "for": "letter_selection",
-      "note": "take the letter each word starts with"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out, vandal expects real trouble",
-      "gives": "OVERT",
-      "select": "first",
-      "note": "first letters of Out Vandal Expects Real Trouble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "V",
-      "E",
-      "R",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Starting",
+       "note": "take the letter each word starts with"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out, vandal expects real trouble",
+       "note": "first letters of Out Vandal Expects Real Trouble"
+      }
      ]
     },
     "explanation": {
@@ -851,44 +730,42 @@
    },
    "solution": "LOSTCAUSE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "LOST CAUSE",
     "definitions": [
      {
       "text": "no hope",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner said",
-      "for": "spoonerism",
-      "note": "Rev. Spooner swapped the opening sounds of words"
-     }
-    ],
-    "linkWords": [
-     "have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Price",
-      "gives": "LOST",
-      "soundsLike": "COST",
-      "note": "price = cost; it takes the L sound from the next word"
-     },
-     {
-      "clueFragment": "regulations",
-      "gives": "CAUSE",
-      "soundsLike": "LAWS",
-      "note": "regulations = laws; it takes the C sound from the first word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOST",
-      "CAUSE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "LOSTCAUSE",
+     "indicators": [
+      {
+       "text": "Spooner said",
+       "note": "Rev. Spooner swapped the opening sounds of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Price",
+         "gives": "LOST",
+         "soundsLike": "COST",
+         "note": "price = cost; it takes the L sound from the next word"
+        },
+        {
+         "unchecked": true,
+         "words": "regulations",
+         "gives": "CAUSE",
+         "soundsLike": "LAWS",
+         "note": "regulations = laws; it takes the C sound from the first word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -931,35 +808,24 @@
    },
    "solution": "ALLOFASUDDEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALL OF A SUDDEN",
     "definitions": [
      {
       "text": "without warning",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "bucking around",
-      "for": "anagram",
-      "note": "a bucking horse throws everything about, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unsaddle foal",
-      "gives": "UNSADDLEFOAL",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UNSADDLE FOAL",
-       "gives": "ALLOFASUDDEN"
+       "text": "bucking around",
+       "note": "a bucking horse throws everything about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unsaddle foal",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -989,33 +855,16 @@
    },
    "solution": "UNCHECKED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UNCHECKED",
     "definitions": [
      {
       "text": "The solution has four such letters",
-      "at": 0
+      "at": 0,
+      "meaning": "in the grid, four of this answer's nine letters are not crossed by another entry"
      },
      {
       "text": "not verified",
-      "at": 44
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The solution has four such letters",
-      "gives": "UNCHECKED",
-      "note": "in the grid, four of this answer's nine letters are not crossed by another entry"
-     },
-     {
-      "clueFragment": "not verified",
-      "gives": "UNCHECKED",
-      "note": "never confirmed or tested"
+      "at": 44,
+      "meaning": "never confirmed or tested"
      }
     ],
     "explanation": {
@@ -1043,35 +892,24 @@
    },
    "solution": "EPISODIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EPISODIC",
     "definitions": [
      {
       "text": "in sequence",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Broadcast",
-      "for": "anagram",
-      "note": "to broadcast is to scatter seed, so the letters are scattered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is copied",
-      "gives": "ISCOPIED",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IS COPIED",
-       "gives": "EPISODIC"
+       "text": "Broadcast",
+       "note": "to broadcast is to scatter seed, so the letters are scattered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is copied",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1101,35 +939,25 @@
    },
    "solution": "LIMPIDLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIMPIDLY",
     "definitions": [
      {
       "text": "in a bright way",
       "at": 27
      }
     ],
-    "linkWords": [
-     "put together"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flat",
-      "gives": "LIMP",
-      "note": "limp means flat, lacking firmness"
-     },
-     {
-      "clueFragment": "casually",
-      "gives": "IDLY",
-      "note": "idly means casually"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIMP",
-      "IDLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Flat",
+       "gives": "LIMP",
+       "note": "limp means flat, lacking firmness"
+      },
+      {
+       "words": "casually",
+       "gives": "IDLY",
+       "note": "idly means casually"
+      }
      ]
     },
     "explanation": {
@@ -1164,41 +992,30 @@
    },
    "solution": "PRIVATEBEACH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRIVATE BEACH",
     "definitions": [
      {
       "text": "where the public can't swim",
       "at": 37
      }
     ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unofficial",
-      "gives": "PRIVATE",
-      "note": "unofficial as in private, not public"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "B",
-      "note": "B = book"
-     },
-     {
-      "clueFragment": "for everyone",
-      "gives": "EACH",
-      "note": "each, as in 'one for each'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRIVATE",
-      "B",
-      "EACH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unofficial",
+       "gives": "PRIVATE",
+       "note": "unofficial as in private, not public"
+      },
+      {
+       "words": "book",
+       "gives": "B",
+       "note": "B = book"
+      },
+      {
+       "words": "for everyone",
+       "gives": "EACH",
+       "note": "each, as in 'one for each'"
+      }
      ]
     },
     "explanation": {
@@ -1227,38 +1044,30 @@
    },
    "solution": "PANINO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PANINO",
     "definitions": [
      {
       "text": "Italian snack",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Have a go at",
-      "gives": "PAN",
-      "note": "to pan is to criticise harshly"
-     },
-     {
-      "clueFragment": "trendy",
-      "gives": "IN",
-      "note": "in = fashionable"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAN",
-      "IN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Have a go at",
+       "gives": "PAN",
+       "note": "to pan is to criticise harshly"
+      },
+      {
+       "words": "trendy",
+       "gives": "IN",
+       "note": "in = fashionable"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O = old"
+      }
      ]
     },
     "explanation": {
@@ -1287,46 +1096,40 @@
    },
    "solution": "STAGES",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "STAGES",
     "definitions": [
      {
       "text": "where it's performed",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "take each word's extremes, its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smart",
-      "gives": "ST",
-      "select": "outer",
-      "note": "outer letters of SmarT"
-     },
-     {
-      "clueFragment": "acting",
-      "gives": "AG",
-      "note": "outer letters of ActinG"
-     },
-     {
-      "clueFragment": "enlivens",
-      "gives": "ES",
-      "note": "outer letters of EnliveNS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "AG",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "note": "take each word's extremes, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smart",
+         "note": "outer letters of SmarT"
+        }
+       ]
+      },
+      {
+       "words": "acting",
+       "gives": "AG",
+       "note": "outer letters of ActinG"
+      },
+      {
+       "words": "enlivens",
+       "gives": "ES",
+       "note": "outer letters of EnliveNS"
+      }
      ]
     },
     "explanation": {
@@ -1355,51 +1158,41 @@
    },
    "solution": "SUPERHERO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SUPERHERO",
     "definitions": [
      {
       "text": "Wolverine perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "restless",
-      "note": "restless letters will not stay in place"
-     },
-     {
-      "text": "around",
-      "note": "the anagram goes around the river"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "our sheep",
-      "gives": "SUPEHERO",
-      "note": "OUR SHEEP rearranged, split SUPE…HERO"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R = river, placed inside"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SUPERHERO",
+     "parts": [
       {
-       "fodder": "OUR SHEEP R",
-       "gives": "SUPERHERO"
-      },
-      {
-       "fodder": "OURSHEEP",
-       "gives": "SUPEHERO"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restless",
+         "note": "restless letters will not stay in place"
+        },
+        {
+         "text": "around",
+         "note": "the anagram goes around the river"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our sheep",
+         "gives": "SUPEHERO",
+         "note": "OUR SHEEP rearranged, split SUPE…HERO"
+        },
+        {
+         "words": "river",
+         "gives": "R",
+         "note": "R = river, placed inside"
+        }
+       ]
       }
      ]
     },
@@ -1430,39 +1223,31 @@
    },
    "solution": "RILES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RILES",
     "definitions": [
      {
       "text": "causes annoyance",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning",
-      "for": "deletion",
-      "note": "the force walks out of the word, leaving it behind"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weapons",
-      "gives": "RIFLES",
-      "note": "rifles are weapons"
-     },
-     {
-      "clueFragment": "Force",
-      "gives": "F",
-      "note": "F = force, removed from RIFLES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "LES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandoning",
+       "note": "the force walks out of the word, leaving it behind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weapons",
+       "gives": "RIFLES",
+       "note": "rifles are weapons"
+      },
+      {
+       "words": "Force",
+       "gives": "F",
+       "note": "F = force, removed from RIFLES"
+      }
      ]
     },
     "explanation": {
@@ -1491,32 +1276,25 @@
    },
    "solution": "EXACT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXACT",
     "definitions": [
      {
       "text": "Meticulous",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "EX",
-      "note": "ex = former, as in ex-wife"
-     },
-     {
-      "clueFragment": "deed",
-      "gives": "ACT",
-      "note": "an act is a deed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "ACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "gives": "EX",
+       "note": "ex = former, as in ex-wife"
+      },
+      {
+       "words": "deed",
+       "gives": "ACT",
+       "note": "an act is a deed"
+      }
      ]
     },
     "explanation": {
@@ -1545,43 +1323,31 @@
    },
    "solution": "DODDLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DODDLE",
     "definitions": [
      {
       "text": "an easy task",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Expanding",
-      "for": "container",
-      "note": "the benefit swells to take the two days inside it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "state benefit",
-      "gives": "DOLE",
-      "note": "the dole is British slang for unemployment benefit"
-     },
-     {
-      "clueFragment": "two days",
-      "gives": "DD",
-      "note": "D = day, twice, placed inside DOLE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "DD",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Expanding",
+       "note": "the benefit swells to take the two days inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "state benefit",
+       "gives": "DOLE",
+       "note": "the dole is British slang for unemployment benefit"
+      },
+      {
+       "words": "two days",
+       "gives": "DD",
+       "note": "D = day, twice, placed inside DOLE"
+      }
      ]
     },
     "explanation": {
@@ -1610,35 +1376,25 @@
    },
    "solution": "PICKLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PICKLING",
     "definitions": [
      {
       "text": "preserving",
       "at": 16
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Select",
-      "gives": "PICK",
-      "note": "to pick is to select"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "LING",
-      "note": "a ling is a fish related to cod"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PICK",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Select",
+       "gives": "PICK",
+       "note": "to pick is to select"
+      },
+      {
+       "words": "fish",
+       "gives": "LING",
+       "note": "a ling is a fish related to cod"
+      }
      ]
     },
     "explanation": {
@@ -1666,43 +1422,31 @@
    },
    "solution": "COYEST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COYEST",
     "definitions": [
      {
       "text": "Most reluctant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the response sits in the bed"
-     }
-    ],
-    "linkWords": [
-     "to give"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed",
-      "gives": "COT",
-      "note": "a cot is a bed"
-     },
-     {
-      "clueFragment": "positive response",
-      "gives": "YES",
-      "note": "yes is a positive response, placed between CO and T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "YES",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the response sits in the bed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "gives": "COT",
+       "note": "a cot is a bed"
+      },
+      {
+       "words": "positive response",
+       "gives": "YES",
+       "note": "yes is a positive response, placed between CO and T"
+      }
      ]
     },
     "explanation": {
@@ -1731,11 +1475,6 @@
    },
    "solution": "DEADLOSS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "DEAD LOSS",
     "definitions": [
      {
       "text": "Useless",
@@ -1743,33 +1482,36 @@
       "note": "an adjective standing for a noun: a dead loss is someone useless"
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "note": "a criminal version of the letters is a corrupted one"
-     },
-     {
-      "text": "dumping",
-      "note": "dumping the heroin drops its letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sheds load",
-      "gives": "SHEDSLOAD",
-      "note": "anagram fodder once the H is gone"
-     },
-     {
-      "clueFragment": "heroin",
-      "gives": "H",
-      "note": "H = heroin, dumped from the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DEADLOSS",
+     "parts": [
       {
-       "fodder": "SEDS LOAD",
-       "gives": "DEADLOSS"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "DEADLOSS",
+       "indicators": [
+        {
+         "text": "criminal",
+         "note": "a criminal version of the letters is a corrupted one"
+        },
+        {
+         "text": "dumping",
+         "note": "dumping the heroin drops its letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheds load",
+         "note": "anagram fodder once the H is gone"
+        },
+        {
+         "words": "heroin",
+         "gives": "H",
+         "note": "H = heroin, dumped from the fodder"
+        }
+       ]
       }
      ]
     },

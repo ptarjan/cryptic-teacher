@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30051",
  "number": 30051,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,051",
  "setter": "Caius",
  "date": "2026-07-06",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "GATEAU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "GATEAU",
     "definitions": [
      {
       "text": "Sweet treat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dunked in",
-      "for": "hidden_word",
-      "note": "Dunking pushes something down below the surface of what surrounds it, so the letters wanted are submerged in the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "senega tea, unusually",
-      "gives": "GATEAU",
-      "note": "six consecutive letters, starting in the middle of the first word and finishing in the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "dunked in",
+       "note": "Dunking pushes something down below the surface of what surrounds it, so the letters wanted are submerged in the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "senega tea, unusually",
+       "gives": "GATEAU",
+       "note": "six consecutive letters, starting in the middle of the first word and finishing in the third"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Unusually' looks like an anagram signal and is really just more hiding place: the letters need no shuffling, and a comma is no barrier to a concealed run.",
      "definitionFit": "A gateau is a rich iced cake, the French word English keeps for the fancy end of the trolley rather than everyday baking."
@@ -82,56 +78,51 @@
    },
    "solution": "LOGICIAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LOGICIAN",
     "definitions": [
      {
       "text": "person skilled at thought",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Following",
-      "note": "To follow is to walk behind, so everything named afterwards is written after the first piece rather than before it."
-     },
-     {
-      "text": "to take on",
-      "note": "A firm that takes someone on brings them inside it, so the piece named next is absorbed rather than added at the end."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "write-up",
-      "gives": "LOG",
-      "note": "a log is the written-up record of what happened"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "the clue's own pronoun, taken as a letter"
-     },
-     {
-      "clueFragment": "am able",
-      "gives": "CAN",
-      "note": "'I can' is 'I am able' — and this is the word that opens up"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOG",
-      "I",
-      "C",
-      "I",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Following",
+       "note": "To follow is to walk behind, so everything named afterwards is written after the first piece rather than before it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to take on",
+         "note": "A firm that takes someone on brings them inside it, so the piece named next is absorbed rather than added at the end."
+        }
+       ],
+       "parts": [
+        {
+         "words": "write-up",
+         "gives": "LOG",
+         "note": "a log is the written-up record of what happened"
+        },
+        {
+         "words": "I",
+         "note": "the clue's own pronoun, taken as a letter"
+        },
+        {
+         "words": "am able",
+         "gives": "CAN",
+         "note": "'I can' is 'I am able' — and this is the word that opens up"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -154,43 +145,48 @@
    },
    "solution": "RULERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "RULERS",
     "definitions": [
      {
       "text": "Those in charge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crushing",
-      "note": "To crush something is to squash it out of existence, so the little word it lands on never reaches the answer."
-     },
-     {
-      "text": "rebellion",
-      "note": "A rebellion overthrows the established order, and the letters left behind end up in a new order too."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "surreal",
-      "gives": "SURREAL",
-      "note": "anagram fodder, before the deletion"
-     },
-     {
-      "clueFragment": "crushing a",
-      "note": "the article is squashed out, taking one A with it"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "SURREL",
-       "gives": "RULERS"
+       "text": "crushing",
+       "note": "To crush something is to squash it out of existence, so the little word it lands on never reaches the answer."
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebellion",
+         "note": "A rebellion overthrows the established order, and the letters left behind end up in a new order too."
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "surreal",
+           "note": "anagram fodder, before the deletion"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "crushing a",
+       "note": "the article is squashed out, taking one A with it"
       }
      ]
     },
@@ -214,41 +210,35 @@
    },
    "solution": "GRATIFY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GRATIFY",
     "definitions": [
      {
       "text": "please",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Leader of",
-      "for": "letter_selection",
-      "note": "A leader walks at the front of the party, so what is handed over is the letter standing at the front of the word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "group",
-      "gives": "G",
-      "select": "first",
-      "note": "the first letter of Group"
-     },
-     {
-      "clueFragment": "to sign and approve",
-      "gives": "RATIFY",
-      "note": "to ratify a treaty is to sign it formally into force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RATIFY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "note": "A leader walks at the front of the party, so what is handed over is the letter standing at the front of the word."
+        }
+       ],
+       "parts": [
+        {
+         "words": "group",
+         "note": "the first letter of Group"
+        }
+       ]
+      },
+      {
+       "words": "to sign and approve",
+       "gives": "RATIFY",
+       "note": "to ratify a treaty is to sign it formally into force"
+      }
      ]
     },
     "explanation": {
@@ -271,64 +261,55 @@
    },
    "solution": "FRONDS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FRONDS",
     "definitions": [
      {
       "text": "Leaves",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the end",
-      "for": "letter_selection",
-      "note": "What comes at a word's finish is its final letter, and every word in this run hands over whichever letter it stops at."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "off",
-      "gives": "F",
-      "select": "last",
-      "note": "ofF — last letter"
-     },
-     {
-      "clueFragment": "career",
-      "gives": "R",
-      "note": "careeR — last letter"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "O",
-      "note": "tO — last letter"
-     },
-     {
-      "clueFragment": "retrain",
-      "gives": "N",
-      "note": "retraiN — last letter"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "D",
-      "note": "anD — last letter"
-     },
-     {
-      "clueFragment": "succeeds",
-      "gives": "S",
-      "note": "succeedS — last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "R",
-      "O",
-      "N",
-      "D",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "note": "What comes at a word's finish is its final letter, and every word in this run hands over whichever letter it stops at."
+        }
+       ],
+       "parts": [
+        {
+         "words": "off",
+         "note": "ofF — last letter"
+        }
+       ]
+      },
+      {
+       "words": "career",
+       "gives": "R",
+       "note": "careeR — last letter"
+      },
+      {
+       "words": "to",
+       "gives": "O",
+       "note": "tO — last letter"
+      },
+      {
+       "words": "retrain",
+       "gives": "N",
+       "note": "retraiN — last letter"
+      },
+      {
+       "words": "and",
+       "gives": "D",
+       "note": "anD — last letter"
+      },
+      {
+       "words": "succeeds",
+       "gives": "S",
+       "note": "succeedS — last letter"
+      }
      ]
     },
     "explanation": {
@@ -351,11 +332,6 @@
    },
    "solution": "UNKNOWNS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "UNKNOWNS",
     "definitions": [
      {
       "text": "what might cause difficulty?",
@@ -363,32 +339,43 @@
       "note": "The definition is a description rather than a noun: 'what might cause difficulty' names a set of things, so it stands in for a plural."
      }
     ],
-    "indicators": [
-     {
-      "text": "drifts",
-      "note": "Snow that drifts has been blown out of whatever shape it was lying in, and the letters go the same way."
-     },
-     {
-      "text": "getting out",
-      "note": "Getting out is leaving, so the little word named just before it walks away instead of joining the mix."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sunk in snow",
-      "gives": "SUNKINSNOW",
-      "note": "anagram fodder, before the deletion"
-     },
-     {
-      "clueFragment": "is",
-      "note": "these two letters are the ones that leave"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNKNOWNS",
+     "parts": [
       {
-       "fodder": "SUNK N NOW",
-       "gives": "UNKNOWNS"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "drifts",
+         "note": "Snow that drifts has been blown out of whatever shape it was lying in, and the letters go the same way."
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "unchecked": true,
+         "gives": "UNKNOWNS",
+         "indicators": [
+          {
+           "text": "getting out",
+           "note": "Getting out is leaving, so the little word named just before it walks away instead of joining the mix."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sunk in snow",
+           "note": "anagram fodder, before the deletion"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "is",
+         "note": "these two letters are the ones that leave"
+        }
+       ]
       }
      ]
     },
@@ -412,45 +399,34 @@
    },
    "solution": "MANOEUVRE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MANOEUVRE",
     "definitions": [
      {
       "text": "operation",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "getting upset",
-      "for": "anagram",
-      "note": "Something upset has been tipped over and its contents land in no particular order, which is what happens to the letters after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Island",
-      "gives": "MAN",
-      "note": "the Isle of Man, the crossword's default island"
-     },
-     {
-      "clueFragment": "over EU",
-      "gives": "OVEREU",
-      "note": "anagram fodder, six letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "OEUVRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MAN OVER EU",
-       "gives": "MANOEUVRE"
+       "words": "Island",
+       "gives": "MAN",
+       "note": "the Isle of Man, the crossword's default island"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting upset",
+         "note": "Something upset has been tipped over and its contents land in no particular order, which is what happens to the letters after it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "over EU",
+         "note": "anagram fodder, six letters"
+        }
+       ]
       }
      ]
     },
@@ -474,43 +450,31 @@
    },
    "solution": "CRANE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRANE",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "across",
-      "for": "container",
-      "note": "A thing laid across another lies over it from one side to the other, so the letter named next is covered rather than followed."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bamboo",
-      "gives": "CANE",
-      "note": "bamboo is a giant cane"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R is the mapmaker's abbreviation for river"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "R",
-      "ANE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "note": "A thing laid across another lies over it from one side to the other, so the letter named next is covered rather than followed."
+      }
+     ],
+     "parts": [
+      {
+       "words": "bamboo",
+       "gives": "CANE",
+       "note": "bamboo is a giant cane"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R is the mapmaker's abbreviation for river"
+      }
      ]
     },
     "explanation": {
@@ -533,53 +497,46 @@
    },
    "solution": "REGIMENTS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "REGIMENTS",
     "definitions": [
      {
       "text": "big groups",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed by",
-      "note": "To be welcomed by someone is to be taken into their house, so these letters end up inside the word that does the welcoming."
-     },
-     {
-      "text": "following",
-      "note": "Following a body of men means walking along behind them, so this piece is written after them rather than in front."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soldiers",
-      "gives": "RE",
-      "note": "the Royal Engineers, the two letters a clue's soldiers nearly always want"
-     },
-     {
-      "clueFragment": "chaps",
-      "gives": "GENTS",
-      "note": "gents is the everyday word for chaps, and it is what splits open"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "the clue's own two words, taken as two letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "G",
-      "IM",
-      "ENTS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "note": "To be welcomed by someone is to be taken into their house, so these letters end up inside the word that does the welcoming."
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "gives": "RE",
+       "note": "the Royal Engineers, the two letters a clue's soldiers nearly always want"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "Following a body of men means walking along behind them, so this piece is written after them rather than in front."
+        }
+       ],
+       "parts": [
+        {
+         "words": "chaps",
+         "gives": "GENTS",
+         "note": "gents is the everyday word for chaps, and it is what splits open"
+        },
+        {
+         "words": "I'm",
+         "note": "the clue's own two words, taken as two letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -602,43 +559,41 @@
    },
    "solution": "INANE",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "INANE",
     "definitions": [
      {
       "text": "Senseless",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "note": "A plain negative is enough to take something away: what comes after it is what the longer word has to do without."
-     },
-     {
-      "text": "in the head",
-      "note": "The head of a word is its front, so all that is meant by it is the single letter the word begins with."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unbalanced",
-      "gives": "INSANE",
-      "note": "someone unbalanced is out of their mind"
-     },
-     {
-      "clueFragment": "sharp",
-      "gives": "S",
-      "select": "first",
-      "note": "the letter at the head of Sharp — this is the one that goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INANE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "A plain negative is enough to take something away: what comes after it is what the longer word has to do without."
+      }
+     ],
+     "parts": [
+      {
+       "words": "unbalanced",
+       "gives": "INSANE",
+       "note": "someone unbalanced is out of their mind"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in the head",
+         "note": "The head of a word is its front, so all that is meant by it is the single letter the word begins with."
+        }
+       ],
+       "parts": [
+        {
+         "words": "sharp",
+         "note": "the letter at the head of Sharp — this is the one that goes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -661,35 +616,24 @@
    },
    "solution": "MEGA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEGA",
     "definitions": [
      {
       "text": "Really big",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to play",
-      "for": "anagram",
-      "note": "Play is the slack in a rope or a hinge, and letters with that much give in them will not stay where they were put."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "GAME",
-      "note": "anagram fodder, four letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GAME",
-       "gives": "MEGA"
+       "text": "to play",
+       "note": "Play is the slack in a rope or a hinge, and letters with that much give in them will not stay where they were put."
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "note": "anagram fodder, four letters"
       }
      ]
     },
@@ -713,35 +657,24 @@
    },
    "solution": "DUTIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DUTIES",
     "definitions": [
      {
       "text": "services",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "to perform",
-      "for": "anagram",
-      "note": "A piece is performed in whatever arrangement the players work it up into — a loose signal, but the only word here asking for anything to be done."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Suited",
-      "gives": "SUITED",
-      "note": "anagram fodder, six letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SUITED",
-       "gives": "DUTIES"
+       "text": "to perform",
+       "note": "A piece is performed in whatever arrangement the players work it up into — a loose signal, but the only word here asking for anything to be done."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Suited",
+       "note": "anagram fodder, six letters"
       }
      ]
     },
@@ -765,47 +698,40 @@
    },
    "solution": "FRETSAWS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FRETSAWS",
     "definitions": [
      {
       "text": "tools",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "container",
-      "note": "A car that picks you up takes you inside it, so the letter collected here sits within the short word beside it, not after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Worries",
-      "gives": "FRETS",
-      "note": "to fret is to worry away at something"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "the clue's own word, taken as two letters and then prised apart"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the standard abbreviation for wife"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRETS",
-      "A",
-      "W",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Worries",
+       "gives": "FRETS",
+       "note": "to fret is to worry away at something"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "picked up",
+         "note": "A car that picks you up takes you inside it, so the letter collected here sits within the short word beside it, not after it."
+        }
+       ],
+       "parts": [
+        {
+         "words": "as",
+         "note": "the clue's own word, taken as two letters and then prised apart"
+        },
+        {
+         "words": "wife",
+         "gives": "W",
+         "note": "W is the standard abbreviation for wife"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -828,38 +754,29 @@
    },
    "solution": "ABANDON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABANDON",
     "definitions": [
      {
       "text": "Give up",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the clue's own article, taken as a letter"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "BAND",
-      "note": "a wedding band is a ring"
-     },
-     {
-      "clueFragment": "wearing",
-      "gives": "ON",
-      "note": "the clothes you are wearing are the ones you have on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BAND",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "the clue's own article, taken as a letter"
+      },
+      {
+       "words": "ring",
+       "gives": "BAND",
+       "note": "a wedding band is a ring"
+      },
+      {
+       "words": "wearing",
+       "gives": "ON",
+       "note": "the clothes you are wearing are the ones you have on"
+      }
      ]
     },
     "explanation": {
@@ -882,32 +799,25 @@
    },
    "solution": "BROKERED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BROKERED",
     "definitions": [
      {
       "text": "Facilitated purchase of",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "very poor",
-      "gives": "BROKE",
-      "note": "someone broke has run out of money altogether"
-     },
-     {
-      "clueFragment": "chianti",
-      "gives": "RED",
-      "note": "chianti is a Tuscan wine, and the question mark admits it is only one example of the colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROKE",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very poor",
+       "gives": "BROKE",
+       "note": "someone broke has run out of money altogether"
+      },
+      {
+       "words": "chianti",
+       "gives": "RED",
+       "note": "chianti is a Tuscan wine, and the question mark admits it is only one example of the colour"
+      }
      ]
     },
     "explanation": {
@@ -930,40 +840,31 @@
    },
    "solution": "OHIO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OHIO",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "within",
-      "for": "container",
-      "note": "Within means inside the boundary of a thing, so the greeting goes between the pair named next rather than beside them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two rings",
-      "gives": "OO",
-      "note": "a ring drawn on the page is an O, and the clue asks for a pair of them"
-     },
-     {
-      "clueFragment": "how you might answer phone",
-      "gives": "HI",
-      "note": "the two-letter greeting you say when you pick up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "HI",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "note": "Within means inside the boundary of a thing, so the greeting goes between the pair named next rather than beside them."
+      }
+     ],
+     "parts": [
+      {
+       "words": "two rings",
+       "gives": "OO",
+       "note": "a ring drawn on the page is an O, and the clue asks for a pair of them"
+      },
+      {
+       "words": "how you might answer phone",
+       "gives": "HI",
+       "note": "the two-letter greeting you say when you pick up"
+      }
      ]
     },
     "explanation": {
@@ -986,48 +887,41 @@
    },
    "solution": "DAFTEST",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DAFTEST",
     "definitions": [
      {
       "text": "Most stupid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bucking",
-      "note": "A bucking horse throws its rider over its own head, and the word it is attached to lands the other way round."
-     },
-     {
-      "text": "first",
-      "note": "First means at the front of the answer, so the piece just turned round goes ahead of the other one."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trend",
-      "gives": "DAF",
-      "note": "a passing trend is a fad, written backwards"
-     },
-     {
-      "clueFragment": "to try",
-      "gives": "TEST",
-      "note": "to try something out is to test it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAF",
-      "TEST"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "DAFTEST",
+     "parts": [
       {
-       "from": "FAD",
-       "to": "DAF"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "bucking",
+         "note": "A bucking horse throws its rider over its own head, and the word it is attached to lands the other way round."
+        },
+        {
+         "text": "first",
+         "note": "First means at the front of the answer, so the piece just turned round goes ahead of the other one."
+        }
+       ],
+       "parts": [
+        {
+         "words": "trend",
+         "gives": "DAF",
+         "note": "a passing trend is a fad, written backwards"
+        },
+        {
+         "words": "to try",
+         "gives": "TEST",
+         "note": "to try something out is to test it"
+        }
+       ]
       }
      ]
     },
@@ -1051,41 +945,34 @@
    },
    "solution": "TATTOOED",
    "annotation": {
-    "type": [
-     "and_lit"
-    ],
-    "answer": "TATTOOED",
     "definitions": [
      {
       "text": "Having a depiction that's only skin-deep?",
-      "at": 0
+      "at": 0,
+      "indicators": [
+       {
+        "text": "Having",
+        "note": "This is the word that turns a thing into an adjective about its owner — a man with money is moneyed, a man with a beard bearded."
+       }
+      ]
      }
     ],
-    "indicators": [
-     {
-      "text": "Having",
-      "for": "and_lit",
-      "note": "This is the word that turns a thing into an adjective about its owner — a man with money is moneyed, a man with a beard bearded."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a depiction that's only skin-deep",
-      "gives": "TATTOO",
-      "note": "a picture that goes no further than the layer of skin it is inked into"
-     },
-     {
-      "clueFragment": "Having",
-      "gives": "ED",
-      "note": "the ending English adds to say someone owns one: moneyed, bearded, talented"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TATTOO",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a depiction that's only skin-deep",
+       "gives": "TATTOO",
+       "note": "a picture that goes no further than the layer of skin it is inked into"
+      },
+      {
+       "words": "Having",
+       "gives": "ED",
+       "note": "the ending English adds to say someone owns one: moneyed, bearded, talented"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "walkthrough": "There is no second half to hunt for: the sentence defines the answer and builds it at the same time, which is what an all-in-one clue does.",
      "definitionFit": "Someone tattooed carries a design inked into the skin, so 'only skin-deep' is meant literally here rather than as the usual dismissal of something superficial."
@@ -1106,35 +993,24 @@
    },
    "solution": "DEBATER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEBATER",
     "definitions": [
      {
       "text": "one making an argument",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Angrily",
-      "for": "anagram",
-      "note": "Anger throws things about without caring where they land, so the word beside it comes apart and is put back differently."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "berated",
-      "gives": "BERATED",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BERATED",
-       "gives": "DEBATER"
+       "text": "Angrily",
+       "note": "Anger throws things about without caring where they land, so the word beside it comes apart and is put back differently."
+      }
+     ],
+     "parts": [
+      {
+       "words": "berated",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -1158,56 +1034,55 @@
    },
    "solution": "DOCTRINE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DOCTRINE",
     "definitions": [
      {
       "text": "Teaching",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to withhold",
-      "note": "To withhold something is to keep it back, so the letter named after it never reaches the answer."
-     },
-     {
-      "text": "first sign of",
-      "note": "The first sign of anything is whatever shows at the very start, which here is one opening letter."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "medic",
-      "gives": "DOCTOR",
-      "note": "the everyday word for a medic, before it is made to give something up"
-     },
-     {
-      "clueFragment": "oxygen",
-      "gives": "O",
-      "select": "first",
-      "note": "O is oxygen's symbol on the periodic table — this is what is held back"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "the clue's own word, taken as two letters"
-     },
-     {
-      "clueFragment": "emergency",
-      "gives": "E",
-      "note": "the first letter of Emergency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOCTR",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to withhold",
+       "note": "To withhold something is to keep it back, so the letter named after it never reaches the answer."
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first sign of",
+         "note": "The first sign of anything is whatever shows at the very start, which here is one opening letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "medic",
+         "gives": "DOCTOR",
+         "note": "the everyday word for a medic, before it is made to give something up"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "oxygen",
+           "note": "O is oxygen's symbol on the periodic table — this is what is held back"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "note": "the clue's own word, taken as two letters"
+      },
+      {
+       "words": "emergency",
+       "gives": "E",
+       "note": "the first letter of Emergency"
+      }
      ]
     },
     "explanation": {
@@ -1230,26 +1105,25 @@
    },
    "solution": "TRUANT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TRUANT",
     "definitions": [
      {
       "text": "School leaver?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "School leaver",
-      "note": "the phrase everybody knows: a sixteen-year-old who has finished their education and is looking for a job"
-     },
-     {
-      "clueFragment": "?",
-      "note": "the question mark is the whole warning — take 'leaver' literally, as somebody walking out during the day rather than at the end of the years"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "School leaver",
+       "note": "the phrase everybody knows: a sixteen-year-old who has finished their education and is looking for a job"
+      },
+      {
+       "words": "?",
+       "note": "the question mark is the whole warning — take 'leaver' literally, as somebody walking out during the day rather than at the end of the years"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Nothing here to take apart: no indicator, no fodder, no letters to move. When a two-word clue offers none of those, it is one phrase with two readings and you want the second.",
      "definitionFit": "A truant leaves school without permission, so the answer takes 'leaver' at its word, while the phrase as a whole normally means someone who has finished school."
@@ -1270,38 +1144,24 @@
    },
    "solution": "SETTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SETTER",
     "definitions": [
      {
       "text": "Someone like me",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to use",
-      "for": "anagram",
-      "note": "Putting something to use means finding a fresh job for it, and letters given a fresh job turn up in a fresh order."
-     }
-    ],
-    "linkWords": [
-     "puts"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tester",
-      "gives": "TESTER",
-      "note": "anagram fodder, six letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TESTER",
-       "gives": "SETTER"
+       "text": "to use",
+       "note": "Putting something to use means finding a fresh job for it, and letters given a fresh job turn up in a fresh order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "tester",
+       "note": "anagram fodder, six letters"
       }
      ]
     },
@@ -1325,44 +1185,34 @@
    },
    "solution": "SIENNA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SIENNA",
     "definitions": [
      {
       "text": "Ms Miller",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "on the way up",
-      "for": "reversal",
-      "note": "This is a down entry, so anything travelling upwards is read from the bottom of the column back to the top."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hathaway",
-      "gives": "ANNE",
-      "note": "the first name of the actor who starred in The Devil Wears Prada"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "the clue's own word, taken as two letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIENNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANNEIS",
-       "to": "SIENNA"
+       "text": "on the way up",
+       "note": "This is a down entry, so anything travelling upwards is read from the bottom of the column back to the top."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hathaway",
+         "gives": "ANNE",
+         "note": "the first name of the actor who starred in The Devil Wears Prada"
+        },
+        {
+         "words": "is",
+         "note": "the clue's own word, taken as two letters"
+        }
+       ]
       }
      ]
     },
@@ -1386,31 +1236,16 @@
    },
    "solution": "ERRATA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ERRATA",
     "definitions": [
      {
       "text": "Slips",
-      "at": 0
+      "at": 0,
+      "meaning": "the everyday word for small mistakes, the kind that get through proofreading"
      },
      {
       "text": "slips",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Slips",
-      "note": "the everyday word for small mistakes, the kind that get through proofreading"
-     },
-     {
-      "clueFragment": "on slips",
-      "note": "in publishing these are printed on a loose leaf of paper tipped into the front of the book"
+      "at": 9,
+      "meaning": "in publishing these are printed on a loose leaf of paper tipped into the front of the book"
      }
     ],
     "explanation": {
@@ -1433,35 +1268,25 @@
    },
    "solution": "SERUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SERUM",
     "definitions": [
      {
       "text": "thin, watery liquid",
       "at": 20
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kentish",
-      "gives": "SE",
-      "note": "Kent sits in the south-eastern corner of England"
-     },
-     {
-      "clueFragment": "Spirit",
-      "gives": "RUM",
-      "note": "rum is the sailor's spirit, distilled from sugar cane"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "RUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kentish",
+       "gives": "SE",
+       "note": "Kent sits in the south-eastern corner of England"
+      },
+      {
+       "words": "Spirit",
+       "gives": "RUM",
+       "note": "rum is the sailor's spirit, distilled from sugar cane"
+      }
      ]
     },
     "explanation": {
@@ -1484,26 +1309,25 @@
    },
    "solution": "RACEGOERS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RACEGOERS",
     "definitions": [
      {
       "text": "Of course, they are spectators!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Of course",
-      "note": "the throwaway agreement — naturally, obviously — which is how the sentence asks to be read"
-     },
-     {
-      "clueFragment": "they are spectators",
-      "note": "the second reading takes the two words before it literally: these are the people of the course, out at the rails watching"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Of course",
+       "note": "the throwaway agreement — naturally, obviously — which is how the sentence asks to be read"
+      },
+      {
+       "words": "they are spectators",
+       "note": "the second reading takes the two words before it literally: these are the people of the course, out at the rails watching"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Two words carry the whole joke: 'of course' is an idiom on the surface and a possessive underneath, and the exclamation mark is the setter's nudge that something is up.",
      "definitionFit": "The crowd at a meeting are spectators of a course in the most literal sense the phrase allows, which is what the pun turns on."
@@ -1524,30 +1348,28 @@
    },
    "solution": "VEINS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "VEINS",
     "definitions": [
      {
       "text": "vessels",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "Some of a thing is a part of it and not the whole, so what is wanted is a stretch of letters cut out of the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soave in small",
-      "gives": "VEINS",
-      "note": "five consecutive letters, running across the ends of three words in a row"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "Some of a thing is a part of it and not the whole, so what is wanted is a stretch of letters cut out of the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "soave in small",
+       "gives": "VEINS",
+       "note": "five consecutive letters, running across the ends of three words in a row"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "An Italian white and a tasting note make a smooth surface, and the definition waiting at the end of it turns out to be anatomical rather than nautical.",
      "definitionFit": "Veins are the vessels that carry blood back to the heart, so 'vessels' is the anatomical sense of the word rather than ships or jars."
@@ -1568,32 +1390,25 @@
    },
    "solution": "REINVENTS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REINVENTS",
     "definitions": [
      {
       "text": "Puts a new spin on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "horse-based",
-      "gives": "REIN",
-      "note": "the strap a rider steers with, and it is based on the horse"
-     },
-     {
-      "clueFragment": "air conditioning",
-      "gives": "VENTS",
-      "note": "the slatted openings air conditioning blows through"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REIN",
-      "VENTS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "horse-based",
+       "gives": "REIN",
+       "note": "the strap a rider steers with, and it is based on the horse"
+      },
+      {
+       "words": "air conditioning",
+       "gives": "VENTS",
+       "note": "the slatted openings air conditioning blows through"
+      }
      ]
     },
     "explanation": {

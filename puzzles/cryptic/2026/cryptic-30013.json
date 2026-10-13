@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30013",
  "number": 30013,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,013",
  "setter": "Brockwell",
  "date": "2026-05-22",
  "dimensions": {
@@ -51,54 +49,52 @@
    },
    "solution": "RESOLUTE",
    "annotation": {
-    "type": [
-     "cycling",
-     "anagram",
-     "container"
-    ],
-    "answer": "RESOLUTE",
     "definitions": [
      {
       "text": "Determined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "note": "A wheel keeps every spoke in place but starts from a new one each turn, so the letters roll round without changing their order."
-     },
-     {
-      "text": "is overtaken by",
-      "note": "A car overtaking pulls out, draws level and finishes ahead, so the passing letters end up on both sides of the ones passed."
-     },
-     {
-      "text": "rogue",
-      "note": "A rogue element is one that has broken ranks, and letters that break ranks do not stay in the order they were given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "true rogue",
-      "gives": "RUTE",
-      "note": "the four letters of TRUE disturbed, then split so they sit either side of what follows"
-     },
-     {
-      "clueFragment": "1 cycling",
-      "gives": "ESOL",
-      "note": "1 down asks for a fish and this one is the flatfish SOLE, rolled round so its last letter leads"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ESOL",
-      "UTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RESOLUTE",
+     "parts": [
       {
-       "fodder": "TRUE",
-       "gives": "RUTE"
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "RESOLUTE",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "cycling",
+           "note": "A wheel keeps every spoke in place but starts from a new one each turn, so the letters roll round without changing their order."
+          },
+          {
+           "text": "is overtaken by",
+           "note": "A car overtaking pulls out, draws level and finishes ahead, so the passing letters end up on both sides of the ones passed."
+          },
+          {
+           "text": "rogue",
+           "note": "A rogue element is one that has broken ranks, and letters that break ranks do not stay in the order they were given."
+          }
+         ],
+         "parts": [
+          {
+           "words": "true rogue",
+           "gives": "RUTE",
+           "note": "the four letters of TRUE disturbed, then split so they sit either side of what follows"
+          },
+          {
+           "words": "1 cycling",
+           "gives": "ESOL",
+           "note": "1 down asks for a fish and this one is the flatfish SOLE, rolled round so its last letter leads"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -123,31 +119,16 @@
    },
    "solution": "BLUE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLUE",
     "definitions": [
      {
       "text": "Down",
-      "at": 0
+      "at": 0,
+      "meaning": "low in spirits, the mood sense of the colour"
      },
      {
       "text": "dirty",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Down",
-      "note": "low in spirits, the mood sense of the colour"
-     },
-     {
-      "clueFragment": "dirty",
-      "note": "smutty — the sense a comedian's material has when it is too near the knuckle"
+      "at": 9,
+      "meaning": "smutty — the sense a comedian's material has when it is too near the knuckle"
      }
     ],
     "explanation": {
@@ -171,47 +152,45 @@
    },
    "solution": "SMELTERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SMELTERS",
     "definitions": [
      {
       "text": "Metal producers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "manufactured",
-      "for": "anagram",
-      "note": "Something manufactured has been assembled out of parts into a new arrangement, which is what happens to the letters beside it."
-     },
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "Reading a word occasionally means dipping in every so often rather than straight through, so only every second letter is taken."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "steel",
-      "gives": "STEEL",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "frames occasionally",
-      "gives": "RMS",
-      "select": "alternate",
-      "note": "every second letter of fRaMeS"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STEEL RMS",
-       "gives": "SMELTERS"
+       "text": "manufactured",
+       "note": "Something manufactured has been assembled out of parts into a new arrangement, which is what happens to the letters beside it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "steel",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "note": "Reading a word occasionally means dipping in every so often rather than straight through, so only every second letter is taken."
+          }
+         ],
+         "parts": [
+          {
+           "words": "frames occasionally",
+           "gives": "FRAMES",
+           "note": "every second letter of fRaMeS"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -242,45 +221,46 @@
    },
    "solution": "TRAWLS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TRAWLS",
     "definitions": [
      {
       "text": "Thoroughly investigates",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tips from",
-      "note": "The tip of anything is its top end, so this takes the leading letter of each word it points at."
-     },
-     {
-      "text": "to cover",
-      "note": "One thing covering another lies over and around it, so these letters close on both sides of the piece named next."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tips from The Repair Shop",
-      "gives": "TRS",
-      "select": "first",
-      "note": "the first letters of the three words of the title — The Repair Shop is a BBC programme in which heirlooms are mended"
-     },
-     {
-      "clueFragment": "boring item",
-      "gives": "AWL",
-      "note": "an awl is the spike a leatherworker bores holes with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "AWL",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tips from",
+       "note": "The tip of anything is its top end, so this takes the leading letter of each word it points at."
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "TRS",
+       "indicators": [
+        {
+         "text": "to cover",
+         "note": "One thing covering another lies over and around it, so these letters close on both sides of the piece named next."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "tips from The Repair Shop",
+         "gives": "TRS",
+         "select": "first",
+         "note": "the first letters of the three words of the title — The Repair Shop is a BBC programme in which heirlooms are mended"
+        }
+       ]
+      },
+      {
+       "words": "boring item",
+       "gives": "AWL",
+       "note": "an awl is the spike a leatherworker bores holes with"
+      }
      ]
     },
     "explanation": {
@@ -304,53 +284,52 @@
    },
    "solution": "VERSAILLES",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "VERSAILLES",
     "definitions": [
      {
       "text": "Palace",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "To embrace is to get both arms right round something, so the word doing it closes over the letters named next."
-     },
-     {
-      "text": "ending for",
-      "for": "letter_selection",
-      "note": "'Ending for' asks only for the letter that finishes the word it points at."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Words in song",
-      "gives": "VERSES",
-      "note": "the verses are a song's words, as against its tune"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail somebody is to trouble or afflict them"
-     },
-     {
-      "clueFragment": "ending for Crystal",
-      "gives": "L",
-      "select": "last",
-      "note": "the last letter of CrystaL"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VERS",
-      "AIL",
-      "L",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "note": "To embrace is to get both arms right round something, so the word doing it closes over the letters named next."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Words in song",
+       "gives": "VERSES",
+       "note": "the verses are a song's words, as against its tune"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "trouble",
+         "gives": "AIL",
+         "note": "to ail somebody is to trouble or afflict them"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending for",
+           "note": "'Ending for' asks only for the letter that finishes the word it points at."
+          }
+         ],
+         "parts": [
+          {
+           "words": "ending for Crystal",
+           "gives": "CRYSTAL",
+           "note": "the last letter of CrystaL"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -390,38 +369,25 @@
     "1-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SO LONG AND THANKS FOR ALL THE FISH",
     "definitions": [
      {
       "text": "a novel quote",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "Liquid",
-      "for": "anagram",
-      "note": "A liquid holds no shape of its own, so the letters it describes are free to run into any order."
-     }
-    ],
-    "linkWords": [
-     "to produce"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flash Gordon in on the talks with Flash",
-      "gives": "FLASHGORDONINONTHETALKSFLASH",
-      "note": "anagram fodder, 28 letters — both Flashes are in it, and 'with' only joins the second one on"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FLASH GORDON IN ON THE TALKS FLASH",
-       "gives": "SOLONGANDTHANKSFORALLTHEFISH"
+       "text": "Liquid",
+       "note": "A liquid holds no shape of its own, so the letters it describes are free to run into any order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flash Gordon in on the talks with Flash",
+       "gives": "FLASHGORDONINONTHETALKSFLASH",
+       "note": "anagram fodder, 28 letters — both Flashes are in it, and 'with' only joins the second one on"
       }
      ]
     },
@@ -446,35 +412,25 @@
    },
    "solution": "PEEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEEL",
     "definitions": [
      {
       "text": "Strip",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "page",
-      "gives": "P",
-      "note": "p = page, the standard abbreviation"
-     },
-     {
-      "clueFragment": "1",
-      "gives": "EEL",
-      "note": "1 down is FISH, and the clue leaves you to pick a species — the long thin one fits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EEL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "page",
+       "gives": "P",
+       "note": "p = page, the standard abbreviation"
+      },
+      {
+       "words": "1",
+       "gives": "EEL",
+       "note": "1 down is FISH, and the clue leaves you to pick a species — the long thin one fits"
+      }
      ]
     },
     "explanation": {
@@ -498,32 +454,25 @@
    },
    "solution": "IDEAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDEAL",
     "definitions": [
      {
       "text": "Perfect",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "1",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "wood",
-      "gives": "DEAL",
-      "note": "deal is sawn fir or pine, the plank sort of timber"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "DEAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "wood",
+       "gives": "DEAL",
+       "note": "deal is sawn fir or pine, the plank sort of timber"
+      }
      ]
     },
     "explanation": {
@@ -553,44 +502,42 @@
    },
    "solution": "MORSECODE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "MORSE CODE",
     "definitions": [
      {
       "text": "Communication system",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for Spooner",
-      "for": "spoonerism",
-      "note": "The Reverend Spooner was famous for swapping the opening sounds of two neighbouring words, so the two that follow trade their fronts."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "common",
-      "gives": "MORSE",
-      "soundsLike": "COARSE",
-      "note": "common = coarse; it hands its hard opening sound over and takes an M in exchange"
-     },
-     {
-      "clueFragment": "kind",
-      "gives": "CODE",
-      "soundsLike": "MODE",
-      "note": "a kind of thing is a mode; it gives up its M and takes the hard sound back, written as a C"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MORSE",
-      "CODE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "MORSECODE",
+     "indicators": [
+      {
+       "text": "for Spooner",
+       "note": "The Reverend Spooner was famous for swapping the opening sounds of two neighbouring words, so the two that follow trade their fronts."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "common",
+         "gives": "MORSE",
+         "soundsLike": "COARSE",
+         "note": "common = coarse; it hands its hard opening sound over and takes an M in exchange"
+        },
+        {
+         "unchecked": true,
+         "words": "kind",
+         "gives": "CODE",
+         "soundsLike": "MODE",
+         "note": "a kind of thing is a mode; it gives up its M and takes the hard sound back, written as a C"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -620,54 +567,45 @@
    },
    "solution": "HOOKESLAW",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HOOKE'S LAW",
     "definitions": [
      {
       "text": "physical principle",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "played",
-      "note": "A tune played with is a tune messed about with, so the letters beside it are rearranged rather than sounded."
-     },
-     {
-      "text": "by",
-      "note": "Something done 'by' another thing stands right beside it, so these two pieces sit end to end rather than one inside the other."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "captain",
-      "gives": "HOOK",
-      "note": "Captain Hook is the pirate of Peter Pan"
-     },
-     {
-      "clueFragment": "Wales",
-      "gives": "ESLAW",
-      "note": "the five letters of WALES rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOK",
-      "ESLAW"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HOOKESLAW",
+     "parts": [
       {
-       "fodder": "WALES",
-       "gives": "ESLAW"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "played",
+         "note": "A tune played with is a tune messed about with, so the letters beside it are rearranged rather than sounded."
+        },
+        {
+         "text": "by",
+         "note": "Something done 'by' another thing stands right beside it, so these two pieces sit end to end rather than one inside the other."
+        }
+       ],
+       "parts": [
+        {
+         "words": "captain",
+         "gives": "HOOK",
+         "note": "Captain Hook is the pirate of Peter Pan"
+        },
+        {
+         "words": "Wales",
+         "gives": "ESLAW",
+         "note": "the five letters of WALES rearranged"
+        }
+       ]
       }
      ]
     },
+    "spelling": "HOOKE'S LAW",
     "explanation": {
      "surface": "Wales taking the field under a captain with firm rules about physical play.",
      "walkthrough": "The surface points hard at Welsh rugby, and the country is only letters while the captain comes from Peter Pan. Robert Hooke's law says a spring stretches in proportion to the force pulling on it.",
@@ -689,51 +627,43 @@
    },
    "solution": "SHOAL",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "SHOAL",
     "definitions": [
      {
       "text": "group",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "entertained by",
-      "for": "container",
-      "note": "To entertain a guest is to have them inside your house, so the letters doing the entertaining close round their visitor."
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "Backing a car sends it the way it came, and in an across answer that means the letters read right to left."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "country backing",
-      "gives": "SOAL",
-      "note": "LAOS, the south-east Asian country, written backwards"
-     },
-     {
-      "clueFragment": "Hotel",
-      "gives": "H",
-      "note": "H is Hotel in the radio alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "OAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "SHOAL",
+     "indicators": [
       {
-       "from": "LAOS",
-       "to": "SOAL"
+       "text": "backing",
+       "note": "Backing a car sends it the way it came, and in an across answer that means the letters read right to left."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertained by",
+         "note": "To entertain a guest is to have them inside your house, so the letters doing the entertaining close round their visitor."
+        }
+       ],
+       "parts": [
+        {
+         "words": "country backing",
+         "gives": "SOAL",
+         "note": "LAOS, the south-east Asian country, written backwards"
+        },
+        {
+         "words": "Hotel",
+         "gives": "H",
+         "note": "H is Hotel in the radio alphabet"
+        }
+       ]
       }
      ]
     },
@@ -758,45 +688,46 @@
    },
    "solution": "CRUMBLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CRUMBLE",
     "definitions": [
      {
       "text": "Sweet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "The opening of a word is the letter you meet first, before anything else of it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caroline's opening",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of Caroline"
-     },
-     {
-      "clueFragment": "fight",
-      "gives": "RUMBLE",
-      "note": "a rumble is a gang fight, the West Side Story word"
-     },
-     {
-      "clueFragment": "in Madison Square Garden",
-      "note": "the New York arena dresses the fight up as a title bout and supplies no letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RUMBLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening",
+           "note": "The opening of a word is the letter you meet first, before anything else of it."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Caroline's opening",
+           "gives": "CAROLINES",
+           "note": "the first letter of Caroline"
+          }
+         ]
+        },
+        {
+         "words": "fight",
+         "gives": "RUMBLE",
+         "note": "a rumble is a gang fight, the West Side Story word"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "in Madison Square Garden",
+       "note": "the New York arena dresses the fight up as a title bout and supplies no letters"
+      }
      ]
     },
     "explanation": {
@@ -820,35 +751,25 @@
    },
    "solution": "CHARM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHARM",
     "definitions": [
      {
       "text": "Allure",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1",
-      "gives": "CHAR",
-      "note": "1 down again asks for a fish; a char is the trout's cousin from cold northern lakes"
-     },
-     {
-      "clueFragment": "million",
-      "gives": "M",
-      "note": "m = million, the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAR",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1",
+       "gives": "CHAR",
+       "note": "1 down again asks for a fish; a char is the trout's cousin from cold northern lakes"
+      },
+      {
+       "words": "million",
+       "gives": "M",
+       "note": "m = million, the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -872,40 +793,38 @@
    },
    "solution": "BARCAROLLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "BARCAROLLE",
     "definitions": [
      {
       "text": "song",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "deletion",
-      "note": "'Part of' wants a piece rather than the whole, and here it points backwards at the word before it, docking its final letter — a loose instruction you have to take on trust."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spanish players",
-      "gives": "BARCA",
-      "note": "Barça is what everyone calls FC Barcelona"
-     },
-     {
-      "clueFragment": "delivered part of",
-      "gives": "ROLLE",
-      "note": "ROLLED, as a bowler delivers a ball, without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARCA",
-      "ROLLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BARCAROLLE",
+     "indicators": [
+      {
+       "text": "part of",
+       "note": "'Part of' wants a piece rather than the whole, and here it points backwards at the word before it, docking its final letter — a loose instruction you have to take on trust."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Spanish players",
+         "gives": "BARCA",
+         "note": "Barça is what everyone calls FC Barcelona"
+        },
+        {
+         "words": "delivered part of",
+         "gives": "ROLLE",
+         "note": "ROLLED, as a bowler delivers a ball, without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -929,60 +848,72 @@
    },
    "solution": "SLINGER",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SLINGER",
     "definitions": [
      {
       "text": "Thrower",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "'In' is the smallest container instruction there is: what comes before it goes inside what comes after."
-     },
-     {
-      "text": "borders",
-      "note": "A county's borders are its outer edges, so this takes the letter at each end of the word and drops the middle."
-     },
-     {
-      "text": "close to",
-      "note": "'Close to' means right up beside, so the letter it names is added on the end rather than tucked inside."
-     },
-     {
-      "text": "the heart of",
-      "note": "The heart of a word is the single letter sitting exactly in its middle."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shropshire borders",
-      "gives": "SE",
-      "select": "outer",
-      "note": "the outer letters of ShropshirE, an English county on the Welsh border"
-     },
-     {
-      "clueFragment": "Heather",
-      "gives": "LING",
-      "note": "ling is the heather that covers a moor — and a fish too, which suits this grid"
-     },
-     {
-      "clueFragment": "Percy",
-      "gives": "R",
-      "select": "middle",
-      "note": "the middle letter of PeRcy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LING",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' is the smallest container instruction there is: what comes before it goes inside what comes after."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "borders",
+         "note": "A county's borders are its outer edges, so this takes the letter at each end of the word and drops the middle."
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "SE",
+         "indicators": [
+          {
+           "text": "close to",
+           "note": "'Close to' means right up beside, so the letter it names is added on the end rather than tucked inside."
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Shropshire borders",
+           "gives": "SE",
+           "select": "outer",
+           "note": "the outer letters of ShropshirE, an English county on the Welsh border"
+          }
+         ]
+        },
+        {
+         "words": "Heather",
+         "gives": "LING",
+         "note": "ling is the heather that covers a moor — and a fish too, which suits this grid"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "the heart of",
+         "note": "The heart of a word is the single letter sitting exactly in its middle."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Percy",
+         "note": "the middle letter of PeRcy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1006,41 +937,36 @@
    },
    "solution": "RUDDY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RUDDY",
     "definitions": [
      {
       "text": "red",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "What a word is originally is what it starts as, so only its opening letter is wanted."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Amber perhaps",
-      "gives": "RUDD",
-      "note": "Amber Rudd is a British politician, and 'perhaps' flags her as one example of the surname"
-     },
-     {
-      "clueFragment": "originally yellowish",
-      "gives": "Y",
-      "select": "first",
-      "note": "the first letter of Yellowish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUDD",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Amber perhaps",
+       "gives": "RUDD",
+       "note": "Amber Rudd is a British politician, and 'perhaps' flags her as one example of the surname"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "What a word is originally is what it starts as, so only its opening letter is wanted."
+        }
+       ],
+       "parts": [
+        {
+         "words": "originally yellowish",
+         "gives": "YELLOWISH",
+         "note": "the first letter of Yellowish"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1070,39 +996,36 @@
    },
    "solution": "AMEER",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "AMEER",
     "definitions": [
      {
       "text": "The Prince",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "note": "Taking words partly means using a run of them as they stand and leaving the rest alone."
-     },
-     {
-      "text": "reflected",
-      "note": "A reflection shows you the same thing the other way round, so the run of letters is read backwards."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agree Machiavelli",
-      "gives": "REEMA",
-      "note": "a run of five letters straddles the gap between these two words, starting partway into the first"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REEMA",
-       "to": "AMEER"
+       "text": "partly",
+       "note": "Taking words partly means using a run of them as they stand and leaving the rest alone."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "reflected",
+         "note": "A reflection shows you the same thing the other way round, so the run of letters is read backwards."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Agree Machiavelli",
+         "gives": "REEMA",
+         "note": "a run of five letters straddles the gap between these two words, starting partway into the first"
+        }
+       ]
       }
      ]
     },
@@ -1131,32 +1054,25 @@
     "26-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEAWIFE",
     "definitions": [
      {
       "text": "1",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "main",
-      "gives": "SEA",
-      "note": "the main is an old poetic word for the open ocean, kept alive by the Spanish Main"
-     },
-     {
-      "clueFragment": "partner",
-      "gives": "WIFE",
-      "note": "a partner in marriage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEA",
-      "WIFE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "main",
+       "gives": "SEA",
+       "note": "the main is an old poetic word for the open ocean, kept alive by the Spanish Main"
+      },
+      {
+       "words": "partner",
+       "gives": "WIFE",
+       "note": "a partner in marriage"
+      }
      ]
     },
     "explanation": {
@@ -1180,40 +1096,31 @@
    },
    "solution": "ABRIDGED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ABRIDGED",
     "definitions": [
      {
       "text": "Potted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eaten by",
-      "for": "container",
-      "note": "Whatever is eaten ends up inside the eater, so these letters go within the ones named next."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "AD",
-      "note": "a bill is a poster or advertisement — hence the two letters, as in billboard"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "BRIDGE",
-      "note": "bridge is the card game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BRIDGE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eaten by",
+       "note": "Whatever is eaten ends up inside the eater, so these letters go within the ones named next."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bill",
+       "gives": "AD",
+       "note": "a bill is a poster or advertisement — hence the two letters, as in billboard"
+      },
+      {
+       "words": "game",
+       "gives": "BRIDGE",
+       "note": "bridge is the card game"
+      }
      ]
     },
     "explanation": {
@@ -1237,40 +1144,31 @@
    },
    "solution": "LIPID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIPID",
     "definitions": [
      {
       "text": "Fat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "You wear a hat by putting your head inside it, so the wearer's letters go within the hat's."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hat",
-      "gives": "LID",
-      "note": "lid is slang for a hat"
-     },
-     {
-      "clueFragment": "detective",
-      "gives": "PI",
-      "note": "PI = private investigator"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "PI",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "You wear a hat by putting your head inside it, so the wearer's letters go within the hat's."
+      }
+     ],
+     "parts": [
+      {
+       "words": "hat",
+       "gives": "LID",
+       "note": "lid is slang for a hat"
+      },
+      {
+       "words": "detective",
+       "gives": "PI",
+       "note": "PI = private investigator"
+      }
      ]
     },
     "explanation": {
@@ -1294,46 +1192,44 @@
    },
    "solution": "PIRANHAS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "PIRANHAS",
     "definitions": [
      {
       "text": "1",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brief",
-      "for": "deletion",
-      "note": "Something brief has been cut short, so the word it describes loses its final letter."
-     },
-     {
-      "text": "gripping",
-      "for": "container",
-      "note": "To grip something is to close your hand right round it, so these letters wrap the piece named next."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brief period",
-      "gives": "PHAS",
-      "note": "PHASE, a period of time, shorn of its last letter"
-     },
-     {
-      "clueFragment": "nation",
-      "gives": "IRAN",
-      "note": "the nation dropped into the gap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "IRAN",
-      "HAS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PIRANHAS",
+     "indicators": [
+      {
+       "text": "brief",
+       "note": "Something brief has been cut short, so the word it describes loses its final letter."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripping",
+         "note": "To grip something is to close your hand right round it, so these letters wrap the piece named next."
+        }
+       ],
+       "parts": [
+        {
+         "words": "brief period",
+         "gives": "PHAS",
+         "note": "PHASE, a period of time, shorn of its last letter"
+        },
+        {
+         "words": "nation",
+         "gives": "IRAN",
+         "note": "the nation dropped into the gap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1357,11 +1253,6 @@
    },
    "solution": "MICHAEL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MICHAEL",
     "definitions": [
      {
       "text": "for 1?",
@@ -1369,38 +1260,35 @@
       "note": "The clue does not define the answer directly: '1?' asks for a word that pairs with 1 down to name a real person, and the question mark admits the stretch."
      }
     ],
-    "indicators": [
-     {
-      "text": "Harry",
-      "note": "To harry is to harass and hound, and letters that have been hounded do not stay in the order they were in."
-     },
-     {
-      "text": "drinking",
-      "note": "Drinking takes something in, so the letters swallowed sit inside the ones doing the swallowing."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lime",
-      "gives": "MIEL",
-      "note": "the four letters of LIME rearranged, then opened up to take a drink"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "CHA",
-      "note": "cha is tea, from the Chinese, and a crossword regular"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MI",
-      "CHA",
-      "EL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "MICHAEL",
+     "parts": [
       {
-       "fodder": "LIME",
-       "gives": "MIEL"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Harry",
+         "note": "To harry is to harass and hound, and letters that have been hounded do not stay in the order they were in."
+        },
+        {
+         "text": "drinking",
+         "note": "Drinking takes something in, so the letters swallowed sit inside the ones doing the swallowing."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lime",
+         "gives": "MIEL",
+         "note": "the four letters of LIME rearranged, then opened up to take a drink"
+        },
+        {
+         "words": "tea",
+         "gives": "CHA",
+         "note": "cha is tea, from the Chinese, and a crossword regular"
+        }
+       ]
       }
      ]
     },
@@ -1425,49 +1313,41 @@
    },
    "solution": "COHORT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COHORT",
     "definitions": [
      {
       "text": "Group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' is the container instruction: everything before it is placed inside the word that follows."
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed",
-      "gives": "COT",
-      "note": "a cot is a bed"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H is the letter on the hot tap"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "OR",
-      "note": "OR = Other Ranks, the British Army's term for everyone below officer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "H",
-      "OR",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' is the container instruction: everything before it is placed inside the word that follows."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "bed",
+         "gives": "COT",
+         "note": "a cot is a bed"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H is the letter on the hot tap"
+        }
+       ]
+      },
+      {
+       "words": "men",
+       "gives": "OR",
+       "note": "OR = Other Ranks, the British Army's term for everyone below officer"
+      }
      ]
     },
     "explanation": {
@@ -1497,52 +1377,47 @@
    },
    "solution": "LEANTO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LEAN-TO",
     "definitions": [
      {
       "text": "Shed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "deletion",
-      "note": "The essence of a word is the letter at its very centre, with equal numbers either side."
-     },
-     {
-      "text": "leaving",
-      "note": "What leaves is gone, so the letter named is taken out of the word it was sitting in."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Eastern Mediterranean",
-      "gives": "LEVANT",
-      "note": "the Levant is the region along the eastern Mediterranean coast"
-     },
-     {
-      "clueFragment": "Seven essentially",
-      "gives": "V",
-      "note": "the middle letter of seVen, and it is this that goes"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O is nothing, the shape of a zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEANT",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "What leaves is gone, so the letter named is taken out of the word it was sitting in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "The essence of a word is the letter at its very centre, with equal numbers either side."
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Eastern Mediterranean",
+         "gives": "LEVANT",
+         "note": "the Levant is the region along the eastern Mediterranean coast"
+        },
+        {
+         "words": "Seven essentially",
+         "gives": "V",
+         "note": "the middle letter of seVen, and it is this that goes"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O is nothing, the shape of a zero"
+      }
      ]
     },
     "explanation": {
@@ -1572,45 +1447,49 @@
    },
    "solution": "RESPRAY",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "RESPRAY",
     "definitions": [
      {
       "text": "put new coat on",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Shivering",
-      "note": "Something shivering is shaking too hard to hold its shape, so its letters will not stay where they were put."
-     },
-     {
-      "text": "finally",
-      "note": "'Finally' asks for the letter each word ends on, the one it finishes with."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "après",
-      "gives": "APRES",
-      "note": "anagram fodder — the French word the italics mark out"
-     },
-     {
-      "clueFragment": "skier may finally",
-      "gives": "RY",
-      "select": "last",
-      "note": "the last letters of skieR and maY"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "APRES RY",
-       "gives": "RESPRAY"
+       "text": "Shivering",
+       "note": "Something shivering is shaking too hard to hold its shape, so its letters will not stay where they were put."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "'Finally' asks for the letter each word ends on, the one it finishes with."
+        }
+       ],
+       "parts": [
+        {
+         "words": "après",
+         "note": "anagram fodder — the French word the italics mark out"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "RY",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "skier may finally",
+           "gives": "RY",
+           "select": "last",
+           "note": "the last letters of skieR and maY"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1635,47 +1514,46 @@
    },
    "solution": "WAHOO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "WAHOO",
     "definitions": [
      {
       "text": "No.1",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly missed out",
-      "for": "container",
-      "note": "Missing letters out at a regular interval as you read leaves every other one — here the first and the third."
-     },
-     {
-      "text": "in",
-      "for": "letter_selection",
-      "note": "'In' puts what precedes it inside what follows, so the two selected letters land in the middle."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Court",
-      "gives": "WOO",
-      "note": "to court somebody is to woo them"
-     },
-     {
-      "clueFragment": "Ashe regularly",
-      "gives": "AH",
-      "select": "alternate",
-      "note": "the first and third letters of AsHe, the tennis champion Arthur Ashe on the surface"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "AH",
-      "OO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "regularly missed out",
+       "note": "Missing letters out at a regular interval as you read leaves every other one — here the first and the third."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Court",
+       "gives": "WOO",
+       "note": "to court somebody is to woo them"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "AH",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'In' puts what precedes it inside what follows, so the two selected letters land in the middle."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Ashe regularly",
+         "gives": "AH",
+         "select": "alternate",
+         "note": "the first and third letters of AsHe, the tennis champion Arthur Ashe on the surface"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1735,30 +1613,28 @@
    },
    "solution": "HUSS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HUSS",
     "definitions": [
      {
       "text": "dog meat",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "contains",
-      "for": "hidden_word",
-      "note": "What something contains is already sitting inside it, so the letters are there in order and untouched."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pikachu's sandwich",
-      "gives": "HUSS",
-      "note": "four consecutive letters straddle the join between these two words, apostrophe and all"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contains",
+       "note": "What something contains is already sitting inside it, so the letters are there in order and untouched."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pikachu's sandwich",
+       "gives": "HUSS",
+       "note": "four consecutive letters straddle the join between these two words, apostrophe and all"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Pikachu's packed lunch turning out to have dog in it.",
      "walkthrough": "Hidden runs are hardest to spot across a word break, and this one crosses an apostrophe as well. Huss is what a fishmonger calls dogfish — rock salmon on a chip-shop menu.",
@@ -1780,45 +1656,35 @@
    },
    "solution": "SEER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SEER",
     "definitions": [
      {
       "text": "Clairvoyant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought up",
-      "for": "reversal",
-      "note": "In a down clue, bringing something up carries it back towards the top of the grid, so its letters are read upwards."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, as in a memo headed 'on the subject of'"
-     },
-     {
-      "clueFragment": "drugs",
-      "gives": "ES",
-      "note": "E is ecstasy, and the clue's plural asks for more than one of them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REES",
-       "to": "SEER"
+       "text": "brought up",
+       "note": "In a down clue, bringing something up carries it back towards the top of the grid, so its letters are read upwards."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "gives": "RE",
+         "note": "re = on, as in a memo headed 'on the subject of'"
+        },
+        {
+         "words": "drugs",
+         "gives": "ES",
+         "note": "E is ecstasy, and the clue's plural asks for more than one of them"
+        }
+       ]
       }
      ]
     },
@@ -1870,44 +1736,35 @@
    },
    "solution": "SKATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SKATE",
     "definitions": [
      {
       "text": "Flat 1",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entrance in",
-      "for": "letter_selection",
-      "note": "The entrance is the way in, so it wants the letter you go in by — the first one of the word it points at."
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shepherd's",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Shepherd’s"
-     },
-     {
-      "clueFragment": "Bush",
-      "gives": "KATE",
-      "note": "Kate Bush, the English singer of Wuthering Heights"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance in",
+         "note": "The entrance is the way in, so it wants the letter you go in by — the first one of the word it points at."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shepherd's",
+         "note": "the first letter of Shepherd’s"
+        }
+       ]
+      },
+      {
+       "words": "Bush",
+       "gives": "KATE",
+       "note": "Kate Bush, the English singer of Wuthering Heights"
+      }
      ]
     },
     "explanation": {

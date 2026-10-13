@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1800",
  "number": 1800,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,800",
  "setter": "Umpire",
  "date": "2024-08-25",
  "dimensions": {
@@ -38,47 +36,41 @@
    },
    "solution": "PENCIL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PENCIL",
     "definitions": [
      {
       "text": "Bit of equipment from school",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "container",
-      "note": "something caught in a thing is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gym",
-      "gives": "PE",
-      "note": "PE = physical education, school gym lessons"
-     },
-     {
-      "clueFragment": "zip",
-      "gives": "NIL",
-      "note": "zip = nothing = nil"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c = caught, the cricket scorecard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "N",
-      "C",
-      "IL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gym",
+       "gives": "PE",
+       "note": "PE = physical education, school gym lessons"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught in",
+         "note": "something caught in a thing is held inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "zip",
+         "gives": "NIL",
+         "note": "zip = nothing = nil"
+        },
+        {
+         "words": "caught",
+         "gives": "C",
+         "note": "c = caught, the cricket scorecard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -107,57 +99,46 @@
    },
    "solution": "EBULLIENT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EBULLIENT",
     "definitions": [
      {
       "text": "Enthusiastic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turns up",
-      "note": "in a down answer, turning something up flips it to read bottom to top"
-     },
-     {
-      "text": "on",
-      "note": "in a down answer, one thing on another sits above it"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sex aid",
-      "gives": "LUBE",
-      "note": "lube = lubricant"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "LIEN",
-      "note": "a lien is a legal right to hold property until a debt is paid"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time, as in physics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EBUL",
-      "LIEN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "LUBE",
-       "to": "EBUL"
+       "text": "turns up",
+       "note": "in a down answer, turning something up flips it to read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in a down answer, one thing on another sits above it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sex aid",
+         "gives": "LUBE",
+         "note": "lube = lubricant"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "gives": "LIEN",
+       "note": "a lien is a legal right to hold property until a debt is paid"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time, as in physics"
       }
      ]
     },
@@ -187,49 +168,47 @@
    },
    "solution": "CALDERA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CALDERA",
     "definitions": [
      {
       "text": "hot dip?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Bulk of",
-      "for": "deletion",
-      "note": "the bulk of something is most of it, so CREAM loses its last letter"
-     },
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "mixed letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bulk of cream",
-      "gives": "CREA",
-      "note": "CREAM without its last letter"
-     },
-     {
-      "clueFragment": "lad",
-      "gives": "LAD",
-      "note": "used as it stands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CALDERA",
+     "indicators": [
       {
-       "fodder": "CREA LAD",
-       "gives": "CALDERA"
+       "text": "Bulk of",
+       "note": "the bulk of something is most of it, so CREAM loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "note": "mixed letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bulk of cream",
+           "gives": "CREA",
+           "note": "CREAM without its last letter"
+          },
+          {
+           "words": "lad",
+           "note": "used as it stands"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -260,57 +239,48 @@
    },
    "solution": "LUCID",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LUCID",
     "definitions": [
      {
       "text": "Bright",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at",
-      "for": "letter_selection"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L = learner, as on a learner driver's plate"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "select": "first",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "beginning to correct",
-      "gives": "C",
-      "note": "first letter of 'correct'"
-     },
-     {
-      "clueFragment": "papers",
-      "gives": "ID",
-      "note": "ID = identity papers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "U",
-      "C",
-      "ID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "student",
+       "gives": "L",
+       "note": "L = learner, as on a learner driver's plate"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at"
+        },
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "university",
+         "note": "U = university"
+        }
+       ]
+      },
+      {
+       "words": "beginning to correct",
+       "gives": "C",
+       "note": "first letter of 'correct'"
+      },
+      {
+       "words": "papers",
+       "gives": "ID",
+       "note": "ID = identity papers"
+      }
      ]
     },
     "explanation": {
@@ -339,45 +309,53 @@
    },
    "solution": "PUZZLES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "PUZZLES",
     "definitions": [
      {
       "text": "problems",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "note": "primarily means first of all"
-     },
-     {
-      "text": "uprooting",
-      "note": "uprooting pulls something out, so the N comes out of NUZZLES"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pig primarily",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of 'Pig'"
-     },
-     {
-      "clueFragment": "investigates with nose, uprooting new",
-      "gives": "UZZLES",
-      "note": "NUZZLES without N (new)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "UZZLES"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PUZZLES",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means first of all"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "P",
+         "indicators": [
+          {
+           "text": "uprooting",
+           "note": "uprooting pulls something out, so the N comes out of NUZZLES"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Pig primarily",
+           "gives": "P",
+           "select": "first",
+           "note": "first letter of 'Pig'"
+          }
+         ]
+        },
+        {
+         "words": "investigates with nose, uprooting new",
+         "gives": "UZZLES",
+         "note": "NUZZLES without N (new)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -412,45 +390,49 @@
    },
    "solution": "PLEIOCENE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "PLEIOCENE",
     "definitions": [
      {
       "text": "a long time",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "ultimately means in the end, so only the last letter of 'serial' is used"
-     },
-     {
-      "text": "broadcast",
-      "note": "broadcast seed is scattered, so the letters are scattered and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One Piece",
-      "gives": "ONEPIECE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "serial ultimately",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of 'serial'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONE PIECE L",
-       "gives": "PLEIOCENE"
+       "text": "ultimately",
+       "note": "ultimately means in the end, so only the last letter of 'serial' is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "note": "broadcast seed is scattered, so the letters are scattered and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One Piece",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "L",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "serial ultimately",
+           "gives": "L",
+           "select": "last",
+           "note": "last letter of 'serial'"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -480,54 +462,53 @@
    },
    "solution": "ZOMBIES",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ZOMBIES",
     "definitions": [
      {
       "text": "hacked computers?",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Up-and-coming",
-      "note": "in a down answer, 'up' means read from the bottom, so everything is reversed"
-     },
-     {
-      "text": "in",
-      "note": "the company sits in the middle of the southeast-and-Australia pair"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "southeast",
-      "gives": "SE",
-      "note": "SE = southeast, a compass point"
-     },
-     {
-      "clueFragment": "tech company",
-      "gives": "IBM",
-      "note": "IBM, the computer company"
-     },
-     {
-      "clueFragment": "Australia",
-      "gives": "OZ",
-      "note": "Oz = Australia, informally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZO",
-      "MBI",
-      "ES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ZOMBIES",
+     "parts": [
       {
-       "from": "SEIBMOZ",
-       "to": "ZOMBIES"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Up-and-coming",
+         "note": "in a down answer, 'up' means read from the bottom, so everything is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "the company sits in the middle of the southeast-and-Australia pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "southeast",
+           "gives": "SE",
+           "note": "SE = southeast, a compass point"
+          },
+          {
+           "words": "tech company",
+           "gives": "IBM",
+           "note": "IBM, the computer company"
+          },
+          {
+           "words": "Australia",
+           "gives": "OZ",
+           "note": "Oz = Australia, informally"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -558,40 +539,38 @@
    },
    "solution": "LEANT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "LEANT",
     "definitions": [
      {
       "text": "Inclined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disregarding",
-      "for": "deletion",
-      "note": "disregarding something leaves it out, so C is dropped from CLEAN"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to wash, disregarding cold",
-      "gives": "LEAN",
-      "note": "CLEAN without C (cold)"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "T = temperature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAN",
-      "T"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LEANT",
+     "indicators": [
+      {
+       "text": "disregarding",
+       "note": "disregarding something leaves it out, so C is dropped from CLEAN"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to wash, disregarding cold",
+         "gives": "LEAN",
+         "note": "CLEAN without C (cold)"
+        },
+        {
+         "words": "temperature",
+         "gives": "T",
+         "note": "T = temperature"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -620,48 +599,53 @@
    },
    "solution": "STEADY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "STEADY",
     "definitions": [
      {
       "text": "uniform",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "Gutted",
-      "note": "gutting removes the insides, leaving only the first and last letters of 'sergeant'"
-     },
-     {
-      "text": "to be stripped of hat",
-      "note": "a word's hat is its top, its first letter, so READY loses R"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gutted sergeant",
-      "gives": "ST",
-      "select": "outer",
-      "note": "outer letters of 'sergeant'"
-     },
-     {
-      "clueFragment": "prepared to be stripped of hat",
-      "gives": "EADY",
-      "note": "READY without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "EADY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STEADY",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Gutted",
+         "note": "gutting removes the insides, leaving only the first and last letters of 'sergeant'"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "ST",
+         "indicators": [
+          {
+           "text": "to be stripped of hat",
+           "note": "a word's hat is its top, its first letter, so READY loses R"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Gutted sergeant",
+           "gives": "ST",
+           "select": "outer",
+           "note": "outer letters of 'sergeant'"
+          }
+         ]
+        },
+        {
+         "words": "prepared to be stripped of hat",
+         "gives": "EADY",
+         "note": "READY without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -691,31 +675,29 @@
    },
    "solution": "SKULL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SKULL",
     "definitions": [
      {
       "text": "Headcase",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the phone",
-      "for": "homophone",
-      "note": "on the phone you only hear a word, so it is chosen by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "row",
-      "gives": "SKULL",
-      "soundsLike": "SCULL",
-      "note": "to scull is to row a boat"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SKULL",
+     "indicators": [
+      {
+       "text": "on the phone",
+       "note": "on the phone you only hear a word, so it is chosen by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "gives": "SCULL",
+       "note": "to scull is to row a boat"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A mad person rowing on the phone: a crank having an argument.",
      "walkthrough": "'Headcase' means a lunatic and 'row' an argument, but split 'Head case' and it is the bony case of the head; 'row' is rowing a boat, to scull.",
@@ -743,40 +725,31 @@
    },
    "solution": "SCHISM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCHISM",
     "definitions": [
      {
       "text": "Separation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "participating in",
-      "for": "container",
-      "note": "whatever participates in something is inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kinky sex",
-      "gives": "SM",
-      "note": "S&M, sadomasochism"
-     },
-     {
-      "clueFragment": "Greek characters",
-      "gives": "CHIS",
-      "note": "chi is a Greek letter; two or more are chis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CHIS",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "participating in",
+       "note": "whatever participates in something is inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kinky sex",
+       "gives": "SM",
+       "note": "S&M, sadomasochism"
+      },
+      {
+       "words": "Greek characters",
+       "gives": "CHIS",
+       "note": "chi is a Greek letter; two or more are chis"
+      }
      ]
     },
     "explanation": {
@@ -811,61 +784,62 @@
    },
    "solution": "CREAMCAKE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CREAM CAKE",
     "definitions": [
      {
       "text": "dessert",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "madly",
-      "for": "anagram",
-      "note": "done madly means done wildly, so the letters of RACE are jumbled"
-     },
-     {
-      "text": "first"
-     },
-     {
-      "text": "cracking"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Race",
-      "gives": "CREA",
-      "note": "RACE jumbled"
-     },
-     {
-      "clueFragment": "to produce",
-      "gives": "MAKE",
-      "note": "to make is to produce"
-     },
-     {
-      "clueFragment": "competition's first",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of 'competition'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREA",
-      "M",
-      "C",
-      "AKE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CREAMCAKE",
+     "indicators": [
       {
-       "fodder": "RACE",
-       "gives": "CREA"
+       "text": "madly",
+       "note": "done madly means done wildly, so the letters of RACE are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Race",
+         "gives": "CREA",
+         "note": "RACE jumbled"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "cracking"
+          }
+         ],
+         "parts": [
+          {
+           "words": "to produce",
+           "gives": "MAKE",
+           "note": "to make is to produce"
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "competition's first",
+             "gives": "COMPETITIONFIRST",
+             "note": "first letter of 'competition'"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -895,46 +869,41 @@
    },
    "solution": "HALBERD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HALBERD",
     "definitions": [
      {
       "text": "weapon",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to hold",
-      "for": "container",
-      "note": "a word that holds others keeps them inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Difficult",
-      "gives": "HARD",
-      "note": "hard = difficult"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L = large, the clothing size"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live, to exist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "L",
-      "BE",
-      "RD"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hold",
+       "note": "a word that holds others keeps them inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Difficult",
+         "gives": "HARD",
+         "note": "hard = difficult"
+        },
+        {
+         "words": "large",
+         "gives": "L",
+         "note": "L = large, the clothing size"
+        }
+       ]
+      },
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to be is to live, to exist"
+      }
      ]
     },
     "explanation": {
@@ -963,42 +932,30 @@
    },
    "solution": "OMITTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OMITTED",
     "definitions": [
      {
       "text": "left out",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dictionary",
-      "gives": "OED",
-      "note": "OED = Oxford English Dictionary"
-     },
-     {
-      "clueFragment": "Hand",
-      "gives": "MITT",
-      "note": "mitt = hand, informally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "MITT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dictionary",
+       "gives": "OED",
+       "note": "OED = Oxford English Dictionary"
+      },
+      {
+       "words": "Hand",
+       "gives": "MITT",
+       "note": "mitt = hand, informally"
+      }
      ]
     },
     "explanation": {
@@ -1027,45 +984,46 @@
    },
    "solution": "SKEDADDLE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SKEDADDLE",
     "definitions": [
      {
       "text": "Bolt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "securing",
-      "note": "the seat secures, holds, the letters inside it"
-     },
-     {
-      "text": "last pieces of",
-      "note": "the last pieces of three words are their last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seat",
-      "gives": "SADDLE",
-      "note": "a saddle is a bike's seat"
-     },
-     {
-      "clueFragment": "last pieces of track bike build",
-      "gives": "KED",
-      "select": "last",
-      "note": "last letters of trac-K, bik-E, buil-D"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KED",
-      "ADDLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "note": "the seat secures, holds, the letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seat",
+       "gives": "SADDLE",
+       "note": "a saddle is a bike's seat"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "KED",
+       "indicators": [
+        {
+         "text": "last pieces of",
+         "note": "the last pieces of three words are their last letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "last pieces of track bike build",
+         "gives": "KED",
+         "select": "last",
+         "note": "last letters of trac-K, bik-E, buil-D"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1095,35 +1053,24 @@
    },
    "solution": "DESPERADO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DESPERADO",
     "definitions": [
      {
       "text": "Somebody wanted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "translation of",
-      "for": "anagram",
-      "note": "translating turns words into new ones, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prose Edda",
-      "gives": "PROSEEDDA",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PROSE EDDA",
-       "gives": "DESPERADO"
+       "text": "translation of",
+       "note": "translating turns words into new ones, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prose Edda",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1154,32 +1101,25 @@
    },
    "solution": "SPUN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPUN",
     "definitions": [
      {
       "text": "given a whirl?",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S = small, the clothing size"
-     },
-     {
-      "clueFragment": "joke",
-      "gives": "PUN",
-      "note": "a pun is a joke on words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PUN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "S = small, the clothing size"
+      },
+      {
+       "words": "joke",
+       "gives": "PUN",
+       "note": "a pun is a joke on words"
+      }
      ]
     },
     "explanation": {
@@ -1209,58 +1149,52 @@
    },
    "solution": "UNANIMOUS",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade",
-     "reversal"
-    ],
-    "answer": "UNANIMOUS",
     "definitions": [
      {
       "text": "without opposition?",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "a word heard is chosen for its sound"
-     },
-     {
-      "text": "picked up",
-      "for": "reversal",
-      "note": "in a down answer, picking something up lifts it to read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "You heard",
-      "gives": "U",
-      "soundsLike": "YOU",
-      "note": "the letter U is said 'you'"
-     },
-     {
-      "clueFragment": "old lady",
-      "gives": "NAN",
-      "note": "nan = grandmother"
-     },
-     {
-      "clueFragment": "Finnish",
-      "gives": "SUOMI",
-      "note": "Suomi is Finland's name for itself and its language"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NAN",
-      "IMOUS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SUOMI",
-       "to": "IMOUS"
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "heard",
+         "note": "a word heard is chosen for its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You heard",
+         "gives": "YOU",
+         "note": "the letter U is said 'you'"
+        }
+       ]
+      },
+      {
+       "words": "old lady",
+       "gives": "NAN",
+       "note": "nan = grandmother"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "note": "in a down answer, picking something up lifts it to read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Finnish",
+         "gives": "SUOMI",
+         "note": "Suomi is Finland's name for itself and its language"
+        }
+       ]
       }
      ]
     },
@@ -1290,45 +1224,48 @@
    },
    "solution": "MEASLY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "MEASLY",
     "definitions": [
      {
       "text": "piddling",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "fending off",
-      "note": "fending something off keeps it out, so the I is dropped from EASILY"
-     },
-     {
-      "text": "onset of",
-      "note": "the onset of something is its start, so only the I of 'infection' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Male",
-      "gives": "M",
-      "select": "first",
-      "note": "M = male"
-     },
-     {
-      "clueFragment": "fending off onset of infection, comfortably",
-      "gives": "EASLY",
-      "note": "EASILY without I, the first letter of 'infection'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "EASLY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MEASLY",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "fending off",
+         "note": "fending something off keeps it out, so the I is dropped from EASILY"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "onset of",
+           "note": "the onset of something is its start, so only the I of 'infection' is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Male",
+           "note": "M = male"
+          }
+         ]
+        },
+        {
+         "words": "fending off onset of infection, comfortably",
+         "gives": "EASLY",
+         "note": "EASILY without I, the first letter of 'infection'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1358,39 +1295,36 @@
    },
    "solution": "UTAH",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "UTAH",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "incorporates",
-      "note": "the phrase holds the answer within its letters"
-     },
-     {
-      "text": "after revolution",
-      "note": "a revolution turns something round, so the hidden letters read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that USA",
-      "gives": "HATU",
-      "note": "the letters sit across the join of 'that' and 'USA'"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HATU",
-       "to": "UTAH"
+       "text": "incorporates",
+       "note": "the phrase holds the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "after revolution",
+         "note": "a revolution turns something round, so the hidden letters read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that USA",
+         "gives": "HATU",
+         "note": "the letters sit across the join of 'that' and 'USA'"
+        }
+       ]
       }
      ]
     },
@@ -1420,55 +1354,62 @@
    },
    "solution": "HAUTEUR",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HAUTEUR",
     "definitions": [
      {
       "text": "Pride",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "supports",
-      "note": "in a down answer, a support sits underneath"
-     },
-     {
-      "text": "snubbed",
-      "note": "snubbed means cut short, so HAUL loses its last letter"
-     },
-     {
-      "text": "at last",
-      "note": "only the last letter of 'act' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "snubbed drag",
-      "gives": "HAU",
-      "note": "HAUL (drag) cut short"
-     },
-     {
-      "clueFragment": "act at last",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of 'act'"
-     },
-     {
-      "clueFragment": "Europe",
-      "gives": "EUR",
-      "note": "Eur. = Europe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAU",
-      "T",
-      "EUR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HAUTEUR",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "supports",
+         "note": "in a down answer, a support sits underneath"
+        },
+        {
+         "text": "at last",
+         "note": "only the last letter of 'act' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snubbed drag",
+         "gives": "HAU",
+         "note": "HAUL (drag) cut short"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "T",
+         "indicators": [
+          {
+           "text": "snubbed",
+           "note": "snubbed means cut short, so HAUL loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "act at last",
+           "gives": "T",
+           "select": "last",
+           "note": "last letter of 'act'"
+          }
+         ]
+        },
+        {
+         "words": "Europe",
+         "gives": "EUR",
+         "note": "Eur. = Europe"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1498,54 +1439,63 @@
    },
    "solution": "SHELDRAKE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "deletion"
-    ],
-    "answer": "SHELDRAKE",
     "definitions": [
      {
       "text": "bird",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Initially",
-      "note": "initially means at the start"
-     },
-     {
-      "text": "not",
-      "note": "'not a' tells you to leave the A out of the letters"
-     },
-     {
-      "text": "dicky",
-      "note": "dicky is British slang for faulty or unsteady, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Initially surveying",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of 'surveying'"
-     },
-     {
-      "clueFragment": "lake, heard not a",
-      "gives": "LKEHEARD",
-      "note": "LAKE and HEARD, with one A removed, as fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HELDRAKE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SHELDRAKE",
+     "parts": [
       {
-       "fodder": "LKEHEARD",
-       "gives": "HELDRAKE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Initially",
+         "note": "initially means at the start"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "not",
+           "note": "'not a' tells you to leave the A out of the letters"
+          }
+         ],
+         "parts": [
+          {
+           "op": "first",
+           "unchecked": true,
+           "gives": "S",
+           "indicators": [
+            {
+             "text": "dicky",
+             "note": "dicky is British slang for faulty or unsteady, so the letters are jumbled"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "Initially surveying",
+             "gives": "S",
+             "select": "first",
+             "note": "first letter of 'surveying'"
+            }
+           ]
+          },
+          {
+           "words": "lake, heard not a",
+           "gives": "LKEHEARD",
+           "note": "LAKE and HEARD, with one A removed, as fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1576,56 +1526,61 @@
    },
    "solution": "DISLIKE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DISLIKE",
     "definitions": [
      {
       "text": "Disapprove of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "the president comes after the rest"
-     },
-     {
-      "text": "empty",
-      "note": "an emptied word loses its middle, leaving D and L of 'deal'"
-     },
-     {
-      "text": "is accepted",
-      "note": "IS is accepted into D...L, going inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "empty deal",
-      "gives": "DL",
-      "select": "outer",
-      "note": "outer letters of 'deal'"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "president",
-      "gives": "IKE",
-      "note": "Ike, nickname of US president Dwight Eisenhower"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "L",
-      "IKE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the president comes after the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "an emptied word loses its middle, leaving D and L of 'deal'"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "DL",
+         "indicators": [
+          {
+           "text": "is accepted",
+           "note": "IS is accepted into D...L, going inside it"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "empty deal",
+           "gives": "DL",
+           "select": "outer",
+           "note": "outer letters of 'deal'"
+          }
+         ]
+        },
+        {
+         "words": "is",
+         "note": "used as it stands"
+        }
+       ]
+      },
+      {
+       "words": "president",
+       "gives": "IKE",
+       "note": "Ike, nickname of US president Dwight Eisenhower"
+      }
      ]
     },
     "explanation": {
@@ -1654,50 +1609,42 @@
    },
    "solution": "PELVIC",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "PELVIC",
     "definitions": [
      {
       "text": "in hip area",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "arrests",
-      "for": "container"
-     },
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "criminal letters are bent out of shape, so VILE is rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Policeman",
-      "gives": "PC",
-      "note": "PC = police constable"
-     },
-     {
-      "clueFragment": "vile criminal",
-      "gives": "ELVI",
-      "note": "VILE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ELVI",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PELVIC",
+     "indicators": [
       {
-       "fodder": "VILE",
-       "gives": "ELVI"
+       "text": "criminal",
+       "note": "criminal letters are bent out of shape, so VILE is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arrests"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Policeman",
+         "gives": "PC",
+         "note": "PC = police constable"
+        },
+        {
+         "words": "vile criminal",
+         "gives": "ELVI",
+         "note": "VILE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1728,41 +1675,30 @@
    },
    "solution": "ERASURE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ERASURE",
     "definitions": [
      {
       "text": "cancellation",
       "at": 27
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA = Royal Academician, a British artist"
-     },
-     {
-      "clueFragment": "certain",
-      "gives": "SURE",
-      "note": "sure = certain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "RA",
-      "SURE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      },
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "RA = Royal Academician, a British artist"
+      },
+      {
+       "words": "certain",
+       "gives": "SURE",
+       "note": "sure = certain"
+      }
      ]
     },
     "explanation": {
@@ -1797,40 +1733,31 @@
    },
    "solution": "ARISE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARISE",
     "definitions": [
      {
       "text": "surface",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed in",
-      "for": "container",
-      "note": "a guest welcomed in goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something cheeky",
-      "gives": "ARSE",
-      "note": "British slang for bottom, whose cheeks make it 'cheeky'"
-     },
-     {
-      "clueFragment": "Independent",
-      "gives": "I",
-      "note": "I = Independent, as in election results"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "I",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed in",
+       "note": "a guest welcomed in goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something cheeky",
+       "gives": "ARSE",
+       "note": "British slang for bottom, whose cheeks make it 'cheeky'"
+      },
+      {
+       "words": "Independent",
+       "gives": "I",
+       "note": "I = Independent, as in election results"
+      }
      ]
     },
     "explanation": {
@@ -1860,46 +1787,43 @@
    },
    "solution": "PASTIES",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PASTIES",
     "definitions": [
      {
       "text": "baked goods",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "After"
-     },
-     {
-      "text": "spent",
-      "for": "deletion",
-      "note": "money spent is gone, so M leaves PASTIME"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money's spent in hobby",
-      "gives": "PASTIE",
-      "note": "PASTIME without M (money)"
-     },
-     {
-      "clueFragment": "succeeded",
-      "gives": "S",
-      "note": "s = succeeded, in family trees"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PASTIE",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PASTIES",
+     "indicators": [
+      {
+       "text": "spent",
+       "note": "money spent is gone, so M leaves PASTIME"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "After"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money's spent in hobby",
+         "gives": "PASTIE",
+         "note": "PASTIME without M (money)"
+        },
+        {
+         "words": "succeeded",
+         "gives": "S",
+         "note": "s = succeeded, in family trees"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1928,45 +1852,41 @@
    },
    "solution": "PILOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PILOT",
     "definitions": [
      {
       "text": "Trial",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "snorting",
-      "for": "container",
-      "note": "whatever is snorted goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drug",
-      "gives": "POT",
-      "note": "pot = cannabis"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L = line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "IL",
-      "OT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "snorting",
+       "note": "whatever is snorted goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "drug",
+         "gives": "POT",
+         "note": "pot = cannabis"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "gives": "L",
+       "note": "L = line"
+      }
      ]
     },
     "explanation": {
@@ -1995,60 +1915,52 @@
    },
    "solution": "VOICEMAIL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "VOICEMAIL",
     "definitions": [
      {
       "text": "Message",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "animated",
-      "for": "anagram",
-      "note": "animated means brought to lively motion, so MOVIE's letters are moved"
-     },
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "imparted by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "animated movie",
-      "gives": "VOIEM",
-      "note": "MOVIE rearranged"
-     },
-     {
-      "clueFragment": "cocaine",
-      "gives": "C",
-      "note": "C = cocaine"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VOI",
-      "C",
-      "EM",
-      "AIL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "VOICEMAIL",
+     "indicators": [
       {
-       "fodder": "MOVIE",
-       "gives": "VOIEM"
+       "text": "animated",
+       "note": "animated means brought to lively motion, so MOVIE's letters are moved"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "animated movie",
+           "gives": "VOIEM",
+           "note": "MOVIE rearranged"
+          },
+          {
+           "words": "cocaine",
+           "gives": "C",
+           "note": "C = cocaine"
+          }
+         ]
+        },
+        {
+         "words": "trouble",
+         "gives": "AIL",
+         "note": "to ail is to trouble"
+        }
+       ]
       }
      ]
     },
@@ -2078,46 +1990,40 @@
    },
    "solution": "IRONY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IRONY",
     "definitions": [
      {
       "text": "like heavy metal?",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "to stop",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "tracks",
-      "gives": "RY",
-      "note": "Ry = railway"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "on = working, of a switch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "R",
-      "ON",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to stop"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tracks",
+         "gives": "RY",
+         "note": "Ry = railway"
+        },
+        {
+         "words": "working",
+         "gives": "ON",
+         "note": "on = working, of a switch"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2147,54 +2053,47 @@
    },
    "solution": "CHEERIO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHEERIO",
     "definitions": [
      {
       "text": "See you",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "note": "in an across answer, a word on another comes after it"
-     },
-     {
-      "text": "nude",
-      "for": "letter_selection",
-      "note": "a nude word is stripped of its outer letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Red",
-      "gives": "CHE",
-      "note": "Che Guevara, the famous revolutionary, a Red"
-     },
-     {
-      "clueFragment": "Sea, nude",
-      "gives": "E",
-      "select": "middle",
-      "note": "SEA without its outer letters"
-     },
-     {
-      "clueFragment": "port",
-      "gives": "RIO",
-      "note": "Rio de Janeiro, the Brazilian port"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHE",
-      "E",
-      "RIO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across answer, a word on another comes after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Red",
+       "gives": "CHE",
+       "note": "Che Guevara, the famous revolutionary, a Red"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "nude",
+         "note": "a nude word is stripped of its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sea, nude",
+         "gives": "SEA",
+         "note": "SEA without its outer letters"
+        }
+       ]
+      },
+      {
+       "words": "port",
+       "gives": "RIO",
+       "note": "Rio de Janeiro, the Brazilian port"
+      }
      ]
     },
     "explanation": {
@@ -2223,40 +2122,38 @@
    },
    "solution": "TEENSY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TEENSY",
     "definitions": [
      {
       "text": "Very small",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dismissed",
-      "for": "deletion",
-      "note": "the dismissed PA is sent away from PANSY"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letter",
-      "gives": "TEE",
-      "note": "tee = the letter T spelt out"
-     },
-     {
-      "clueFragment": "flower personal assistant dismissed",
-      "gives": "NSY",
-      "note": "PANSY without PA (personal assistant)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEE",
-      "NSY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TEENSY",
+     "indicators": [
+      {
+       "text": "dismissed",
+       "note": "the dismissed PA is sent away from PANSY"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "letter",
+         "gives": "TEE",
+         "note": "tee = the letter T spelt out"
+        },
+        {
+         "words": "flower personal assistant dismissed",
+         "gives": "NSY",
+         "note": "PANSY without PA (personal assistant)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

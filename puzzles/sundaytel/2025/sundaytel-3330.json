@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3330",
  "number": 3330,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,330",
  "date": "2025-08-17",
  "dimensions": {
   "cols": 15,
@@ -37,44 +35,39 @@
    },
    "solution": "ORANGE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ORANGE",
     "definitions": [
      {
       "text": "Second in colourful spectrum — is it?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Second in",
-      "for": "letter_selection",
-      "note": "second in a word points to its letter in position two, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "colourful",
-      "gives": "O",
-      "select": 2,
-      "note": "the letter in position two"
-     },
-     {
-      "clueFragment": "spectrum",
-      "gives": "RANGE",
-      "note": "a spectrum is a range"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "Second in",
+         "note": "second in a word points to its letter in position two, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "colourful",
+         "note": "the letter in position two"
+        }
+       ]
+      },
+      {
+       "words": "spectrum",
+       "gives": "RANGE",
+       "note": "a spectrum is a range"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about which colour comes second in the rainbow.",
      "walkthrough": "The whole clue does double duty: read as wordplay it builds the answer, and read as a question it describes it, since the rainbow runs red first, then this colour.",
@@ -101,35 +94,25 @@
    },
    "solution": "TATTOO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TATTOO",
     "definitions": [
      {
       "text": "Painful design",
       "at": 0
      }
     ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "junk",
-      "gives": "TAT",
-      "note": "tat is cheap, shoddy goods"
-     },
-     {
-      "clueFragment": "I should add",
-      "gives": "TOO",
-      "note": "adding a point is saying 'as well'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAT",
-      "TOO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "junk",
+       "gives": "TAT",
+       "note": "tat is cheap, shoddy goods"
+      },
+      {
+       "words": "I should add",
+       "gives": "TOO",
+       "note": "adding a point is saying 'as well'"
+      }
      ]
     },
     "explanation": {
@@ -158,37 +141,25 @@
    },
    "solution": "STYE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "STYE",
     "definitions": [
      {
       "text": "Swelling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so we take the final letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "funds evident, money available",
-      "gives": "STYE",
-      "select": "last",
-      "note": "the closing letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "T",
-      "Y",
-      "E"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "ultimately means in the end, so we take the final letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "funds evident, money available",
+       "note": "the closing letters of the four words"
+      }
      ]
     },
     "explanation": {
@@ -223,28 +194,16 @@
    },
    "solution": "VERYWELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VERY WELL",
     "definitions": [
      {
       "text": "In the pink",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in excellent health"
      },
      {
       "text": "I suppose so",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In the pink",
-      "note": "first meaning: in excellent health"
-     },
-     {
-      "clueFragment": "I suppose so",
-      "note": "second meaning: a grudging agreement"
+      "at": 13,
+      "meaning": "second meaning: a grudging agreement"
      }
     ],
     "explanation": {
@@ -279,35 +238,24 @@
    },
    "solution": "SCOTFREE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCOT-FREE",
     "definitions": [
      {
       "text": "with impunity",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Spreading",
-      "for": "anagram",
-      "note": "spreading scatters things about, so the letters are dispersed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of secret",
-      "gives": "OFSECRET",
-      "note": "the two words taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OFSECRET",
-       "gives": "SCOTFREE"
+       "text": "Spreading",
+       "note": "spreading scatters things about, so the letters are dispersed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of secret",
+       "note": "the two words taken letter for letter"
       }
      ]
     },
@@ -347,28 +295,16 @@
    },
    "solution": "BREAKTHEICE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BREAK THE ICE",
     "definitions": [
      {
       "text": "Get acquainted",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: ease the first awkwardness between strangers"
      },
      {
       "text": "take your pick to do it",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get acquainted",
-      "note": "first meaning: ease the first awkwardness between strangers"
-     },
-     {
-      "clueFragment": "take your pick to do it",
-      "note": "second, playful meaning: an ice pick is the tool for shattering frozen water"
+      "at": 17,
+      "meaning": "second, playful meaning: an ice pick is the tool for shattering frozen water"
      }
     ],
     "explanation": {
@@ -397,41 +333,35 @@
    },
    "solution": "MAPLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MAPLE",
     "definitions": [
      {
       "text": "tree",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "hollowed out",
-      "for": "letter_selection",
-      "note": "hollowing something out leaves only its shell, so just the outside letters stay"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chart",
-      "gives": "MAP",
-      "note": "a chart is a map"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the word with its inside removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAP",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chart",
+       "gives": "MAP",
+       "note": "a chart is a map"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "hollowed out",
+         "note": "hollowing something out leaves only its shell, so just the outside letters stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large",
+         "note": "the word with its inside removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -460,28 +390,16 @@
    },
    "solution": "CATCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CATCH",
     "definitions": [
      {
       "text": "Hear",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: make out what someone said"
      },
      {
       "text": "all the fish in the net",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hear",
-      "note": "first meaning: make out what someone said"
-     },
-     {
-      "clueFragment": "all the fish in the net",
-      "note": "second meaning: the haul a fisherman brings in"
+      "at": 5,
+      "meaning": "second meaning: the haul a fisherman brings in"
      }
     ],
     "explanation": {
@@ -510,35 +428,24 @@
    },
    "solution": "GARNET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GARNET",
     "definitions": [
      {
       "text": "stone",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "fake",
-      "for": "anagram",
-      "note": "something fake is a made-up version, so the letters are reformed into something else"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Argent",
-      "gives": "ARGENT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARGENT",
-       "gives": "GARNET"
+       "text": "fake",
+       "note": "something fake is a made-up version, so the letters are reformed into something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Argent",
+       "note": "taken as written"
       }
      ]
     },
@@ -568,64 +475,60 @@
    },
    "solution": "EGYPTIAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "EGYPTIAN",
     "definitions": [
      {
       "text": "from North Africa, say",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally points to the end, so only the closing letter is kept"
-     },
-     {
-      "text": "tucked into",
-      "for": "container",
-      "note": "to tuck into is to be slipped inside, so one group sits within another"
-     },
-     {
-      "text": "freshly prepared",
-      "for": "anagram",
-      "note": "a dish freshly prepared is made anew, so its letters are reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hungry",
-      "gives": "Y",
-      "select": "last",
-      "note": "the final letter"
-     },
-     {
-      "clueFragment": "papa",
-      "gives": "P",
-      "note": "Papa is P in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "tagine",
-      "gives": "TAGINE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EG",
-      "YP",
-      "TIAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TAGINE",
-       "gives": "EGTIAN"
+       "text": "tucked into",
+       "note": "to tuck into is to be slipped inside, so one group sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "freshly prepared",
+         "note": "a dish freshly prepared is made anew, so its letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tagine",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Finally",
+           "note": "finally points to the end, so only the closing letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hungry",
+           "note": "the final letter"
+          }
+         ]
+        },
+        {
+         "words": "papa",
+         "gives": "P",
+         "note": "Papa is P in the NATO phonetic alphabet"
+        }
+       ]
       }
      ]
     },
@@ -655,35 +558,25 @@
    },
    "solution": "BLUEBOTTLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUEBOTTLE",
     "definitions": [
      {
       "text": "Fly",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "down",
-      "gives": "BLUE",
-      "note": "feeling down is feeling blue"
-     },
-     {
-      "clueFragment": "courage",
-      "gives": "BOTTLE",
-      "note": "bottle is British slang for nerve or courage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "BOTTLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "down",
+       "gives": "BLUE",
+       "note": "feeling down is feeling blue"
+      },
+      {
+       "words": "courage",
+       "gives": "BOTTLE",
+       "note": "bottle is British slang for nerve or courage"
+      }
      ]
     },
     "explanation": {
@@ -712,33 +605,29 @@
    },
    "solution": "BUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BUS",
     "definitions": [
      {
       "text": "Public transport",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "three-quarters",
-      "for": "deletion",
-      "note": "three quarters of a four-letter word means one letter in four is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "occupied",
-      "gives": "BUSY",
-      "note": "occupied means busy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "three-quarters",
+       "note": "three quarters of a four-letter word means one letter in four is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "occupied",
+       "gives": "BUSY",
+       "note": "occupied means busy"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -773,28 +662,16 @@
    },
    "solution": "TOWIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TO WIT",
     "definitions": [
      {
       "text": "That is",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: namely, introducing an explanation"
      },
      {
       "text": "what to do with broken down car",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "That is",
-      "note": "first meaning: namely, introducing an explanation"
-     },
-     {
-      "clueFragment": "what to do with broken down car",
-      "note": "second, playful meaning: haul the vehicle away with a rope"
+      "at": 8,
+      "meaning": "second, playful meaning: haul the vehicle away with a rope"
      }
     ],
     "explanation": {
@@ -823,32 +700,25 @@
    },
    "solution": "RACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RACE",
     "definitions": [
      {
       "text": "marathon, for example",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Run",
-      "gives": "R",
-      "note": "R is the cricket scoring abbreviation for a run"
-     },
-     {
-      "clueFragment": "wicked",
-      "gives": "ACE",
-      "note": "wicked and ace are both slang for excellent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Run",
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for a run"
+      },
+      {
+       "words": "wicked",
+       "gives": "ACE",
+       "note": "wicked and ace are both slang for excellent"
+      }
      ]
     },
     "explanation": {
@@ -883,43 +753,33 @@
    },
    "solution": "ORSONWELLES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORSON WELLES",
     "definitions": [
      {
       "text": "great director",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "unsettled",
-      "for": "anagram",
-      "note": "unsettled means disturbed from its place, so the letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lowness",
-      "gives": "LOWNESS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "role",
-      "gives": "ROLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOWNESSROLE",
-       "gives": "ORSONWELLES"
+       "text": "unsettled",
+       "note": "unsettled means disturbed from its place, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lowness",
+         "note": "taken as written"
+        },
+        {
+         "words": "role",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -955,32 +815,25 @@
    },
    "solution": "RUNNERUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUNNER-UP",
     "definitions": [
      {
       "text": "narrow loser",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Narrow thing",
-      "gives": "RUNNER",
-      "note": "a runner is a long narrow rug or strip of cloth"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "UP",
-      "note": "as in 'time is up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUNNER",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Narrow thing",
+       "gives": "RUNNER",
+       "note": "a runner is a long narrow rug or strip of cloth"
+      },
+      {
+       "words": "finished",
+       "gives": "UP",
+       "note": "as in 'time is up'"
+      }
      ]
     },
     "explanation": {
@@ -1009,57 +862,50 @@
    },
    "solution": "ORGANISM",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ORGANISM",
     "definitions": [
      {
       "text": "Living thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around suggests turning about, so the letters are moved into a new arrangement"
-     },
-     {
-      "text": "peak of",
-      "for": "letter_selection",
-      "note": "the peak is the top, which in a word is its first letter"
-     },
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down clue, one part over another means it is written above, so first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soaring",
-      "gives": "SOARING",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mountain",
-      "gives": "M",
-      "select": "first",
-      "note": "the opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORGANIS",
-      "M"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "SOARING",
-       "gives": "ORGANIS"
+       "text": "over",
+       "note": "in a down clue, one part over another means it is written above, so first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around suggests turning about, so the letters are moved into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soaring",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "peak of",
+         "note": "the peak is the top, which in a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "note": "the opening letter"
+        }
+       ]
       }
      ]
     },
@@ -1089,30 +935,28 @@
    },
    "solution": "LEI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEI",
     "definitions": [
      {
       "text": "Garland",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gathered by",
-      "for": "hidden_word",
-      "note": "things gathered by someone are held within their grasp, so the letters lie inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Madeleine",
-      "gives": "LEI",
-      "note": "the fourth to sixth letters of the name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "gathered by",
+       "note": "things gathered by someone are held within their grasp, so the letters lie inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Madeleine",
+       "gives": "LEI",
+       "note": "the fourth to sixth letters of the name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A girl called Madeleine picks flowers for a wreath.",
      "walkthrough": "Madeleine looks like a person picking flowers; she just holds the letters.",
@@ -1139,28 +983,16 @@
    },
    "solution": "LYING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LYING",
     "definitions": [
      {
       "text": "Fabrication",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: telling untruths"
      },
      {
       "text": "stretched out",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fabrication",
-      "note": "first meaning: telling untruths"
-     },
-     {
-      "clueFragment": "stretched out",
-      "note": "second meaning: reclining flat, as on a bed"
+      "at": 12,
+      "meaning": "second meaning: reclining flat, as on a bed"
      }
     ],
     "explanation": {
@@ -1189,38 +1021,25 @@
    },
    "solution": "DEVIL",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DEVIL",
     "definitions": [
      {
       "text": "Beelzebub",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being sent up",
-      "for": "reversal",
-      "note": "in a down clue, sending something up makes it read from bottom to top, so backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "survived",
-      "gives": "LIVED",
-      "note": "to survive is to have lived on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEVIL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LIVED",
-       "to": "DEVIL"
+       "text": "being sent up",
+       "note": "in a down clue, sending something up makes it read from bottom to top, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "survived",
+       "gives": "LIVED",
+       "note": "to survive is to have lived on"
       }
      ]
     },
@@ -1250,52 +1069,49 @@
    },
    "solution": "HYMN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "HYMN",
     "definitions": [
      {
       "text": "holy song",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Case of",
-      "for": "letter_selection",
-      "note": "a case is the outer shell, so only the outside letters are kept"
-     },
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so a letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "holy",
-      "gives": "HY",
-      "select": "outer",
-      "note": "the first and last letters"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "MAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HY",
-      "MN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Case of",
+         "note": "a case is the outer shell, so only the outside letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "holy",
+         "note": "the first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so a letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "the letter removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1334,26 +1150,25 @@
    },
    "solution": "GOTOPIECES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GO TO PIECES",
     "definitions": [
      {
       "text": "Crack",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crack",
-      "note": "surface reading: a single word for breaking under strain"
-     },
-     {
-      "clueFragment": "both physically and mentally?",
-      "note": "setter's reading: a phrase that fits a shattering object and a person having a breakdown"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Crack",
+       "note": "surface reading: a single word for breaking under strain"
+      },
+      {
+       "words": "both physically and mentally?",
+       "note": "setter's reading: a phrase that fits a shattering object and a person having a breakdown"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The question mark flags that one phrase covers both a smashed object and an emotional collapse.",
      "definitionFit": "The idiom means to lose emotional control under pressure, and literally describes an object breaking apart."
@@ -1380,56 +1195,50 @@
    },
    "solution": "PAGODA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "PAGODA",
     "definitions": [
      {
       "text": "Temple",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a word is its central letters, here the central pair"
-     },
-     {
-      "text": "housing",
-      "for": "container",
-      "note": "to house something is to shelter it inside, so one part goes within another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Denpasar",
-      "gives": "PA",
-      "select": "middle",
-      "note": "the two central letters of the eight"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "deity",
-      "gives": "GOD",
-      "note": "a deity is a god"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AGOD",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housing",
+       "note": "to house something is to shelter it inside, so one part goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the middle of a word is its central letters, here the central pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Denpasar",
+         "note": "the two central letters of the eight"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "deity",
+         "gives": "GOD",
+         "note": "a deity is a god"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1458,32 +1267,25 @@
    },
    "solution": "ERRAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ERRAND",
     "definitions": [
      {
       "text": "job",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Blunder",
-      "gives": "ERR",
-      "note": "to blunder is to err"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "with means together with, plus"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERR",
-      "AND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Blunder",
+       "gives": "ERR",
+       "note": "to blunder is to err"
+      },
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "with means together with, plus"
+      }
      ]
     },
     "explanation": {
@@ -1512,46 +1314,45 @@
    },
    "solution": "INFERNAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "INFERNAL",
     "definitions": [
      {
       "text": "Blooming",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unopened",
-      "for": "deletion",
-      "note": "something unopened lacks its opening, so the first letter goes"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one thing inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "closing",
-      "gives": "FINAL",
-      "note": "a closing scene is the final one"
-     },
-     {
-      "clueFragment": "plant",
-      "gives": "FERN",
-      "note": "a fern is a leafy green plant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "FERN",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one thing inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "note": "something unopened lacks its opening, so the first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "closing",
+         "gives": "FINAL",
+         "note": "a closing scene is the final one"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "words": "plant",
+       "gives": "FERN",
+       "note": "a fern is a leafy green plant"
+      }
      ]
     },
     "explanation": {
@@ -1581,28 +1382,16 @@
    },
    "solution": "LEAD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LEAD",
     "definitions": [
      {
       "text": "Chair",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: preside over a meeting, head it"
      },
      {
       "text": "something heavy",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chair",
-      "note": "first meaning: preside over a meeting, head it"
-     },
-     {
-      "clueFragment": "something heavy",
-      "note": "second meaning: the dense grey metal"
+      "at": 7,
+      "meaning": "second meaning: the dense grey metal"
      }
     ],
     "explanation": {
@@ -1630,48 +1419,34 @@
    },
    "solution": "GARLIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "GARLIC",
     "definitions": [
      {
       "text": "Bulb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "screwed up",
-      "for": "anagram",
-      "note": "screwing something up crumples and twists it, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a girl",
-      "gives": "AGIRL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the speed of light",
-      "gives": "C",
-      "note": "c is the physics symbol for the speed of light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GARLI",
-      "C"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AGIRL",
-       "gives": "GARLI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "screwed up",
+         "note": "screwing something up crumples and twists it, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a girl",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "the speed of light",
+       "gives": "C",
+       "note": "c is the physics symbol for the speed of light"
       }
      ]
     },
@@ -1701,32 +1476,25 @@
    },
    "solution": "OUTSTANDING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTSTANDING",
     "definitions": [
      {
       "text": "excellent",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "On strike",
-      "gives": "OUT",
-      "note": "striking workers are out"
-     },
-     {
-      "clueFragment": "position",
-      "gives": "STANDING",
-      "note": "one's standing is one's position or rank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "STANDING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On strike",
+       "gives": "OUT",
+       "note": "striking workers are out"
+      },
+      {
+       "words": "position",
+       "gives": "STANDING",
+       "note": "one's standing is one's position or rank"
+      }
      ]
     },
     "explanation": {

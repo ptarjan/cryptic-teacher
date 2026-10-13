@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1298",
  "number": 1298,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,298",
  "setter": "Anto",
  "date": "2024-10-06",
  "dimensions": {
@@ -44,48 +42,37 @@
    },
    "solution": "POTTYTRAINED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "POTTY TRAINED",
     "definitions": [
      {
       "text": "Able to control waste output",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "alternative",
-      "for": "anagram",
-      "note": "an alternative version of the letters is a rearrangement of them"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mad",
-      "gives": "POTTY",
-      "note": "potty = mad, crazy"
-     },
-     {
-      "clueFragment": "tried an",
-      "gives": "TRAINED",
-      "note": "TRIED AN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POTTY",
-      "TRAINED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "POTTYTRAINED",
+     "indicators": [
       {
-       "fodder": "TRIEDAN",
-       "gives": "TRAINED"
+       "text": "alternative",
+       "note": "an alternative version of the letters is a rearrangement of them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mad",
+         "gives": "POTTY",
+         "note": "potty = mad, crazy"
+        },
+        {
+         "words": "tried an",
+         "gives": "TRAINED",
+         "note": "TRIED AN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -116,45 +103,46 @@
    },
    "solution": "PEPPERS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PEPPERS",
     "definitions": [
      {
       "text": "they're generally quite hot!",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "note": "the toffs take the other letters inside them"
-     },
-     {
-      "text": "skins",
-      "note": "a parsnip's skins are its outside letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Toffs",
-      "gives": "PEERS",
-      "note": "peers = lords, toffs"
-     },
-     {
-      "clueFragment": "parsnip skins",
-      "gives": "PP",
-      "select": "outer",
-      "note": "outer letters of PARSNIP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "PP",
-      "ERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "the toffs take the other letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Toffs",
+       "gives": "PEERS",
+       "note": "peers = lords, toffs"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "PP",
+       "indicators": [
+        {
+         "text": "skins",
+         "note": "a parsnip's skins are its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "parsnip skins",
+         "gives": "PP",
+         "select": "outer",
+         "note": "outer letters of PARSNIP"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -183,40 +171,31 @@
    },
    "solution": "TOWNIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOWNIES",
     "definitions": [
      {
       "text": "Urban dwellers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "all around",
-      "for": "container",
-      "note": "the ties go all the way around the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "connections",
-      "gives": "TIES",
-      "note": "ties = connections, bonds"
-     },
-     {
-      "clueFragment": "have",
-      "gives": "OWN",
-      "note": "own = have, possess"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "OWN",
-      "IES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "all around",
+       "note": "the ties go all the way around the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "connections",
+       "gives": "TIES",
+       "note": "ties = connections, bonds"
+      },
+      {
+       "words": "have",
+       "gives": "OWN",
+       "note": "own = have, possess"
+      }
      ]
     },
     "explanation": {
@@ -245,39 +224,24 @@
    },
    "solution": "YARDSTICK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "YARDSTICK",
     "definitions": [
      {
       "text": "It measures",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "scattered, sown widely, so the letters are spread about"
-     }
-    ],
-    "linkWords": [
-     "how",
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tricky ads",
-      "gives": "TRICKYADS",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRICKYADS",
-       "gives": "YARDSTICK"
+       "text": "broadcast",
+       "note": "scattered, sown widely, so the letters are spread about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tricky ads",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -307,44 +271,36 @@
    },
    "solution": "RAFTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RAFTS",
     "definitions": [
      {
       "text": "Lots",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "letter_selection",
-      "note": "only the outside letters of 'tables' are used"
-     }
-    ],
-    "linkWords": [
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "service",
-      "gives": "RAF",
-      "note": "the Royal Air Force, one of the armed services"
-     },
-     {
-      "clueFragment": "tables outside",
-      "gives": "TS",
-      "select": "outer",
-      "note": "outer letters of TABLES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAF",
-      "TS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "service",
+       "gives": "RAF",
+       "note": "the Royal Air Force, one of the armed services"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "only the outside letters of 'tables' are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tables outside",
+         "gives": "TABLES",
+         "note": "outer letters of TABLES"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -380,30 +336,16 @@
    },
    "solution": "INERROR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN ERROR",
     "definitions": [
      {
       "text": "Where Rolls Royce is found for example",
-      "at": 0
+      "at": 0,
+      "meaning": "Rolls Royce abbreviates to RR; ask which everyday word has those two letters sitting in it"
      },
      {
       "text": "by mistake",
-      "at": 41
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where Rolls Royce is found for example",
-      "gives": "INERROR",
-      "note": "Rolls Royce abbreviates to RR; ask which everyday word has those two letters sitting in it"
-     },
-     {
-      "clueFragment": "by mistake",
-      "gives": "INERROR",
-      "note": "plain meaning"
+      "at": 41,
+      "meaning": "plain meaning"
      }
     ],
     "explanation": {
@@ -433,43 +375,31 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "a restriction",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "acquiring",
-      "for": "container",
-      "note": "the first word takes the second inside it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Therefore",
-      "gives": "ERGO",
-      "note": "Latin ergo = therefore"
-     },
-     {
-      "clueFragment": "a business degree",
-      "gives": "MBA",
-      "note": "Master of Business Administration"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MBA",
-      "RGO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "acquiring",
+       "note": "the first word takes the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Therefore",
+       "gives": "ERGO",
+       "note": "Latin ergo = therefore"
+      },
+      {
+       "words": "a business degree",
+       "gives": "MBA",
+       "note": "Master of Business Administration"
+      }
      ]
     },
     "explanation": {
@@ -507,38 +437,24 @@
    },
    "solution": "LIFEANDDEATH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LIFE AND DEATH",
     "definitions": [
      {
       "text": "really serious",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "ploughed up",
-      "for": "anagram",
-      "note": "turned over like soil, so the letters are churned"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Had neat field",
-      "gives": "HADNEATFIELD",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HADNEATFIELD",
-       "gives": "LIFEANDDEATH"
+       "text": "ploughed up",
+       "note": "turned over like soil, so the letters are churned"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Had neat field",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -574,35 +490,25 @@
    },
    "solution": "INPOWER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IN POWER",
     "definitions": [
      {
       "text": "elected?",
       "at": 41
      }
     ],
-    "linkWords": [
-     "get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "what's fashionable",
-      "gives": "IN",
-      "note": "in = fashionable"
-     },
-     {
-      "clueFragment": "Might follower",
-      "gives": "POWER",
-      "note": "power = might, and it follows IN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "POWER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "what's fashionable",
+       "gives": "IN",
+       "note": "in = fashionable"
+      },
+      {
+       "words": "Might follower",
+       "gives": "POWER",
+       "note": "power = might, and it follows IN"
+      }
      ]
     },
     "explanation": {
@@ -632,41 +538,30 @@
    },
    "solution": "FLEABAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLEABAG",
     "definitions": [
      {
       "text": "Cheap hotel",
       "at": 0
      }
     ],
-    "linkWords": [
-     "set in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F = fine, as on pencils"
-     },
-     {
-      "clueFragment": "meadow",
-      "gives": "LEA",
-      "note": "lea = meadow, a poetic word"
-     },
-     {
-      "clueFragment": "land",
-      "gives": "BAG",
-      "note": "to land a fish is to bag it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "LEA",
-      "BAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F = fine, as on pencils"
+      },
+      {
+       "words": "meadow",
+       "gives": "LEA",
+       "note": "lea = meadow, a poetic word"
+      },
+      {
+       "words": "land",
+       "gives": "BAG",
+       "note": "to land a fish is to bag it"
+      }
      ]
     },
     "explanation": {
@@ -701,41 +596,30 @@
    },
    "solution": "GOLDSTANDARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOLD STANDARD",
     "definitions": [
      {
       "text": "the best example of its kind",
       "at": 24
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grand",
-      "gives": "G",
-      "note": "G = grand, a thousand pounds"
-     },
-     {
-      "clueFragment": "antique",
-      "gives": "OLD",
-      "note": "old = antique"
-     },
-     {
-      "clueFragment": "banner",
-      "gives": "STANDARD",
-      "note": "a standard is a flag or banner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "OLD",
-      "STANDARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grand",
+       "gives": "G",
+       "note": "G = grand, a thousand pounds"
+      },
+      {
+       "words": "antique",
+       "gives": "OLD",
+       "note": "old = antique"
+      },
+      {
+       "words": "banner",
+       "gives": "STANDARD",
+       "note": "a standard is a flag or banner"
+      }
      ]
     },
     "explanation": {
@@ -764,26 +648,25 @@
    },
    "solution": "ENEMIES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ENEMIES",
     "definitions": [
      {
       "text": "Opposition forces catholic out?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Opposition forces",
-      "note": "the reading the setter meant: the people and armies ranged against you"
-     },
-     {
-      "clueFragment": "catholic out?",
-      "note": "the surface picture of a faction driving Catholics away, a religious red herring"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Opposition forces",
+       "note": "the reading the setter meant: the people and armies ranged against you"
+      },
+      {
+       "words": "catholic out?",
+       "note": "the surface picture of a faction driving Catholics away, a religious red herring"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about whether a rival faction drove the Catholics away.",
      "walkthrough": "The opposing forces in any contest are the enemies; the tail reads as a religious expulsion to disguise that plain sense.",
@@ -810,44 +693,40 @@
    },
    "solution": "SORORAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SORORAL",
     "definitions": [
      {
       "text": "sisterly",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Central",
-      "for": "letter_selection",
-      "note": "only the central letters of 'resorts' are used"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Central resorts",
-      "gives": "SOR",
-      "select": "middle",
-      "note": "middle three letters of reSORts"
-     },
-     {
-      "clueFragment": "said",
-      "gives": "ORAL",
-      "note": "oral = spoken, said"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOR",
-      "ORAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "SOR",
+       "indicators": [
+        {
+         "text": "Central",
+         "note": "only the central letters of 'resorts' are used"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Central resorts",
+         "gives": "SOR",
+         "select": "middle",
+         "note": "middle three letters of reSORts"
+        }
+       ]
+      },
+      {
+       "words": "said",
+       "gives": "ORAL",
+       "note": "oral = spoken, said"
+      }
      ]
     },
     "explanation": {
@@ -876,42 +755,31 @@
    },
    "solution": "NOSES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NOSES",
     "definitions": [
      {
       "text": "Features",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "the equipment goes without one letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "executioner's equipment",
-      "gives": "NOOSES",
-      "note": "a hangman's nooses"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O = zero, nothing; one O is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "SES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking",
+       "note": "the equipment goes without one letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "executioner's equipment",
+       "gives": "NOOSES",
+       "note": "a hangman's nooses"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O = zero, nothing; one O is removed"
+      }
      ]
     },
     "explanation": {
@@ -940,41 +808,30 @@
    },
    "solution": "IMPERIOUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IMPERIOUS",
     "definitions": [
      {
       "text": "arrogant",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "Being this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unfeeling",
-      "gives": "IMPERVIOUS",
-      "note": "impervious = unmoved, unfeeling"
-     },
-     {
-      "clueFragment": "victory",
-      "gives": "V",
-      "note": "V for victory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPER",
-      "IOUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unfeeling",
+       "gives": "IMPERVIOUS",
+       "note": "impervious = unmoved, unfeeling"
+      },
+      {
+       "words": "victory",
+       "gives": "V",
+       "note": "V for victory"
+      }
      ]
     },
     "explanation": {
@@ -1009,35 +866,25 @@
    },
    "solution": "PRESSPASS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRESS PASS",
     "definitions": [
      {
       "text": "It gives permission to report",
       "at": 0
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crowd",
-      "gives": "PRESS",
-      "note": "press = crowd, throng"
-     },
-     {
-      "clueFragment": "get through",
-      "gives": "PASS",
-      "note": "pass = get through, as an exam"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRESS",
-      "PASS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "crowd",
+       "gives": "PRESS",
+       "note": "press = crowd, throng"
+      },
+      {
+       "words": "get through",
+       "gives": "PASS",
+       "note": "pass = get through, as an exam"
+      }
      ]
     },
     "explanation": {
@@ -1077,41 +924,30 @@
    },
    "solution": "DONTASKME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DONT ASK ME",
     "definitions": [
      {
       "text": "I know nothing about",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "academic",
-      "gives": "DON",
-      "note": "a don is a university teacher"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "TASK",
-      "note": "task = work"
-     },
-     {
-      "clueFragment": "compiler",
-      "gives": "ME",
-      "note": "the compiler (setter) refers to themself as ME"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DON",
-      "TASK",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "academic",
+       "gives": "DON",
+       "note": "a don is a university teacher"
+      },
+      {
+       "words": "work",
+       "gives": "TASK",
+       "note": "task = work"
+      },
+      {
+       "words": "compiler",
+       "gives": "ME",
+       "note": "the compiler (setter) refers to themself as ME"
+      }
      ]
     },
     "explanation": {
@@ -1140,50 +976,47 @@
    },
    "solution": "NAIROBI",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NAIROBI",
     "definitions": [
      {
       "text": "African capital",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "adopted by",
-      "note": "the attitude is taken into the aristocrat"
-     },
-     {
-      "text": "over",
-      "note": "in a down clue, placed above the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aristocrat",
-      "gives": "NOB",
-      "note": "a nob is a toff"
-     },
-     {
-      "clueFragment": "Attitude",
-      "gives": "AIR",
-      "note": "an air = a manner, attitude"
-     },
-     {
-      "clueFragment": "independent",
-      "gives": "I",
-      "note": "I = independent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "AIR",
-      "OB",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "note": "the attitude is taken into the aristocrat"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "in a down clue, placed above the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aristocrat",
+         "gives": "NOB",
+         "note": "a nob is a toff"
+        },
+        {
+         "words": "Attitude",
+         "gives": "AIR",
+         "note": "an air = a manner, attitude"
+        }
+       ]
+      },
+      {
+       "words": "independent",
+       "gives": "I",
+       "note": "I = independent"
+      }
      ]
     },
     "explanation": {
@@ -1212,32 +1045,25 @@
    },
    "solution": "ASOCIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASOCIAL",
     "definitions": [
      {
       "text": "Unwilling to join in",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "adult",
-      "gives": "A",
-      "note": "A = adult, the film rating"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "SOCIAL",
-      "note": "party as an informal get-together, a noun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SOCIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "adult",
+       "gives": "A",
+       "note": "A = adult, the film rating"
+      },
+      {
+       "words": "party",
+       "gives": "SOCIAL",
+       "note": "party as an informal get-together, a noun"
+      }
      ]
     },
     "explanation": {
@@ -1265,38 +1091,25 @@
    },
    "solution": "SIGMA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SIGMA",
     "definitions": [
      {
       "text": "Character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "take the initial letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seen in Greece — maybe Athens",
-      "gives": "SIGMA",
-      "select": "first",
-      "note": "first letters of Seen In Greece Maybe Athens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "I",
-      "G",
-      "M",
-      "A"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "take the initial letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seen in Greece — maybe Athens",
+       "note": "first letters of Seen In Greece Maybe Athens"
+      }
      ]
     },
     "explanation": {
@@ -1325,30 +1138,28 @@
    },
    "solution": "SMETANA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SMETANA",
     "definitions": [
      {
       "text": "composer",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the letters in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Czechs met a native",
-      "gives": "SMETANA",
-      "note": "hidden in czechS MET A NAtive"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the letters in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Czechs met a native",
+       "gives": "SMETANA",
+       "note": "hidden in czechS MET A NAtive"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some Czech people meeting a local musician.",
      "walkthrough": "The hint is apt: Bedřich Smetana was a Czech composer.",
@@ -1374,40 +1185,31 @@
    },
    "solution": "GAVOTTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GAVOTTE",
     "definitions": [
      {
       "text": "type of dance",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "place to house",
-      "for": "container",
-      "note": "one piece is placed so as to hold the other inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Donated",
-      "gives": "GAVE",
-      "note": "gave = donated"
-     },
-     {
-      "clueFragment": "outrageous",
-      "gives": "OTT",
-      "note": "OTT = over the top, outrageous"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAV",
-      "OTT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "place to house",
+       "note": "one piece is placed so as to hold the other inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Donated",
+       "gives": "GAVE",
+       "note": "gave = donated"
+      },
+      {
+       "words": "outrageous",
+       "gives": "OTT",
+       "note": "OTT = over the top, outrageous"
+      }
      ]
     },
     "explanation": {
@@ -1436,11 +1238,6 @@
    },
    "solution": "ARIZONA",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ARIZONA",
     "definitions": [
      {
       "text": "in America",
@@ -1448,38 +1245,41 @@
       "note": "elliptical: the definition leans on 'region' from the wordplay, reading as a region in America"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "the aria goes around the other piece"
-     },
-     {
-      "text": "free",
-      "note": "the region is freed of the drug"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Operatic piece",
-      "gives": "ARIA",
-      "note": "an aria is a solo song in an opera"
-     },
-     {
-      "clueFragment": "region",
-      "gives": "ZONE",
-      "note": "zone = region"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E = ecstasy; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARI",
-      "ZON",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the aria goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Operatic piece",
+       "gives": "ARIA",
+       "note": "an aria is a solo song in an opera"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "free",
+         "note": "the region is freed of the drug"
+        }
+       ],
+       "parts": [
+        {
+         "words": "region",
+         "gives": "ZONE",
+         "note": "zone = region"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E = ecstasy; it is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1508,40 +1308,39 @@
    },
    "solution": "ARSON",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARSON",
     "definitions": [
      {
       "text": "Offence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost the head",
-      "for": "deletion",
-      "note": "a word that has lost its head has lost its first letter, the top of the word"
-     }
-    ],
-    "linkWords": [
-     "caused by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cleric",
-      "gives": "PARSON",
-      "note": "a parson is a clergyman"
-     },
-     {
-      "clueFragment": "who has lost the head",
-      "note": "P is removed from the front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARSON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost the head",
+         "note": "a word that has lost its head has lost its first letter, the top of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cleric",
+         "gives": "PARSON",
+         "note": "a parson is a clergyman"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "who has lost the head",
+       "note": "P is removed from the front"
+      }
      ]
     },
     "explanation": {
@@ -1571,45 +1370,41 @@
    },
    "solution": "SHELVED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SHELVED",
     "definitions": [
      {
       "text": "Suspended",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "deprived of",
-      "for": "deletion",
-      "note": "the word for 'was' loses a letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "woman",
-      "gives": "SHE",
-      "note": "she = a woman"
-     },
-     {
-      "clueFragment": "was",
-      "gives": "LIVED",
-      "note": "lived = was, existed"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "I",
-      "note": "I = information; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "LVED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "woman",
+       "gives": "SHE",
+       "note": "she = a woman"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "deprived of",
+         "note": "the word for 'was' loses a letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was",
+         "gives": "LIVED",
+         "note": "lived = was, existed"
+        },
+        {
+         "words": "information",
+         "gives": "I",
+         "note": "I = information; it is removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1638,40 +1433,31 @@
    },
    "solution": "HOODIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HOODIES",
     "definitions": [
      {
       "text": "Clothing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "worn by",
-      "for": "container",
-      "note": "the criminals wrap around, wear, the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "criminals",
-      "gives": "HOODS",
-      "note": "hoods = hoodlums, criminals"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. = id est, that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOD",
-      "IE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "worn by",
+       "note": "the criminals wrap around, wear, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criminals",
+       "gives": "HOODS",
+       "note": "hoods = hoodlums, criminals"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. = id est, that is"
+      }
      ]
     },
     "explanation": {
@@ -1700,35 +1486,25 @@
    },
    "solution": "ADAPTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADAPTER",
     "definitions": [
      {
       "text": "Device",
       "at": 0
      }
     ],
-    "linkWords": [
-     "supplied by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poster",
-      "gives": "AD",
-      "note": "an ad is a poster, an advert"
-     },
-     {
-      "clueFragment": "fitter",
-      "gives": "APTER",
-      "note": "apter = more apt, more fitting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "APTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "poster",
+       "gives": "AD",
+       "note": "an ad is a poster, an advert"
+      },
+      {
+       "words": "fitter",
+       "gives": "APTER",
+       "note": "apter = more apt, more fitting"
+      }
      ]
     },
     "explanation": {
@@ -1758,42 +1534,31 @@
    },
    "solution": "BILLINGSGATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BILLINGSGATE",
     "definitions": [
      {
       "text": "London market",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "charade",
-      "note": "a -gate scandal is about something named before it"
-     }
-    ],
-    "linkWords": [
-     "charged in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fees",
-      "gives": "BILLINGS",
-      "note": "billings = amounts charged, fees"
-     },
-     {
-      "clueFragment": "Scandal",
-      "gives": "GATE",
-      "note": "-gate, after Watergate, tags a scandal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BILLINGS",
-      "GATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "a -gate scandal is about something named before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fees",
+       "gives": "BILLINGS",
+       "note": "billings = amounts charged, fees"
+      },
+      {
+       "words": "Scandal",
+       "gives": "GATE",
+       "note": "-gate, after Watergate, tags a scandal"
+      }
      ]
     },
     "explanation": {

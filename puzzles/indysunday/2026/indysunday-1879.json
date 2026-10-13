@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1879",
  "number": 1879,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,879",
  "setter": "Filbert",
  "date": "2026-03-01",
  "dimensions": {
@@ -44,43 +42,30 @@
    },
    "solution": "SMALLFORTUNE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SMALL FORTUNE",
     "definitions": [
      {
       "text": "mint",
       "at": 52
      }
     ],
-    "linkWords": [
-     "of",
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sergeant major",
-      "gives": "SM",
-      "note": "SM is the army's shorthand for the rank, the two initials on a duty roster"
-     },
-     {
-      "clueFragment": "really in favour",
-      "gives": "ALLFOR",
-      "note": "somebody really in favour of a plan is all for it, six letters that arrive as one phrase"
-     },
-     {
-      "clueFragment": "cough sweet",
-      "gives": "TUNE",
-      "note": "Tunes were a British brand of menthol lozenge, sold in a roll for a blocked nose"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SM",
-      "ALL",
-      "FOR",
-      "TUNE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sergeant major",
+       "gives": "SM",
+       "note": "SM is the army's shorthand for the rank, the two initials on a duty roster"
+      },
+      {
+       "words": "really in favour",
+       "gives": "ALLFOR",
+       "note": "somebody really in favour of a plan is all for it, six letters that arrive as one phrase"
+      },
+      {
+       "words": "cough sweet",
+       "gives": "TUNE",
+       "note": "Tunes were a British brand of menthol lozenge, sold in a roll for a blocked nose"
+      }
      ]
     },
     "explanation": {
@@ -103,44 +88,35 @@
    },
    "solution": "MINUS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MINUS",
     "definitions": [
      {
       "text": "Without",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "Something upset has been tipped right over, and in a down entry that means reading the assembled letters from the bottom of the grid upwards."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good weather",
-      "gives": "SUN",
-      "note": "fine weather comes from the sun, three letters laid down first"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IM",
-      "note": "'one' in the formal sense is the speaker, so 'one's' is written I'm before anything is turned"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINUS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SUNIM",
-       "to": "MINUS"
+       "text": "upset",
+       "note": "Something upset has been tipped right over, and in a down entry that means reading the assembled letters from the bottom of the grid upwards."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "good weather",
+         "gives": "SUN",
+         "note": "fine weather comes from the sun, three letters laid down first"
+        },
+        {
+         "words": "one's",
+         "gives": "IM",
+         "note": "'one' in the formal sense is the speaker, so 'one's' is written I'm before anything is turned"
+        }
+       ]
       }
      ]
     },
@@ -170,52 +146,54 @@
    },
    "solution": "LOOSEENDS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "LOOSE ENDS",
     "definitions": [
      {
       "text": "Untidy business",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "One thing placed in another goes bodily inside it, so this word is what splits the letters already gathered."
-     },
-     {
-      "text": "emptied out",
-      "for": "letter_selection",
-      "note": "A container emptied out keeps only its walls, so the word beside it gives up everything between its first and last letters."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toilet",
-      "gives": "LOO",
-      "note": "the everyday British word for one, and it opens up to take a guest"
-     },
-     {
-      "clueFragment": "spotted",
-      "gives": "SEEN",
-      "note": "whatever was spotted was seen, and this is what drops into the gap"
-     },
-     {
-      "clueFragment": "diapers emptied out",
-      "gives": "DS",
-      "select": "outer",
-      "note": "the outside letters survive and the five in the middle are thrown away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOO",
-      "SEEN",
-      "DS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LOOSEENDS",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "One thing placed in another goes bodily inside it, so this word is what splits the letters already gathered."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "toilet",
+         "gives": "LOO",
+         "note": "the everyday British word for one, and it opens up to take a guest"
+        },
+        {
+         "words": "spotted",
+         "gives": "SEEN",
+         "note": "whatever was spotted was seen, and this is what drops into the gap"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "emptied out",
+           "note": "A container emptied out keeps only its walls, so the word beside it gives up everything between its first and last letters."
+          }
+         ],
+         "parts": [
+          {
+           "words": "diapers emptied out",
+           "gives": "DIAPERS",
+           "note": "the outside letters survive and the five in the middle are thrown away"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -238,40 +216,31 @@
    },
    "solution": "FOSSIL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FOSSIL",
     "definitions": [
      {
       "text": "being rock-bound",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "has cracked",
-      "for": "container",
-      "note": "Something cracked has split open, and the letters in front of the phrase part company to let the next piece into the gap."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thin metal",
-      "gives": "FOIL",
-      "note": "kitchen foil is metal rolled thin, and it splits after its second letter"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS is the prefix on a steamship's name, and it drops into the split"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "SS",
-      "IL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has cracked",
+       "note": "Something cracked has split open, and the letters in front of the phrase part company to let the next piece into the gap."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Thin metal",
+       "gives": "FOIL",
+       "note": "kitchen foil is metal rolled thin, and it splits after its second letter"
+      },
+      {
+       "words": "ship",
+       "gives": "SS",
+       "note": "SS is the prefix on a steamship's name, and it drops into the split"
+      }
      ]
     },
     "explanation": {
@@ -294,32 +263,25 @@
    },
    "solution": "REFORMER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REFORMER",
     "definitions": [
      {
       "text": "Change advocate",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "dealing with",
-      "gives": "RE",
-      "note": "RE heads a memo to say what it deals with, the standard two letters for 'concerning'"
-     },
-     {
-      "clueFragment": "ex",
-      "gives": "FORMER",
-      "note": "an ex-anything is a former one, plain synonym"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "FORMER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dealing with",
+       "gives": "RE",
+       "note": "RE heads a memo to say what it deals with, the standard two letters for 'concerning'"
+      },
+      {
+       "words": "ex",
+       "gives": "FORMER",
+       "note": "an ex-anything is a former one, plain synonym"
+      }
      ]
     },
     "explanation": {
@@ -342,38 +304,31 @@
    },
    "solution": "UTTER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UTTER",
     "definitions": [
      {
       "text": "Perfect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short of",
-      "for": "deletion",
-      "note": "To be short of a thing is to be missing it, so the word beside the phrase turns up without the letter named after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "golf club",
-      "gives": "PUTTER",
-      "note": "the club a golfer takes out on the green, six letters before anything goes"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P is the letter on a British road sign for parking, and this is the one that leaves"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UTTER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short of",
+       "note": "To be short of a thing is to be missing it, so the word beside the phrase turns up without the letter named after it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "golf club",
+       "gives": "PUTTER",
+       "note": "the club a golfer takes out on the green, six letters before anything goes"
+      },
+      {
+       "words": "parking",
+       "gives": "P",
+       "note": "P is the letter on a British road sign for parking, and this is the one that leaves"
+      }
      ]
     },
     "explanation": {
@@ -396,49 +351,55 @@
    },
    "solution": "EMPIRICAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "EMPIRICAL",
     "definitions": [
      {
       "text": "going by experience",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "melting",
-      "note": "Ice that melts loses its shape altogether, so the letters beside the word cannot keep the order they arrived in."
-     },
-     {
-      "text": "around",
-      "note": "What melts around a thing closes over it, so the single letter named next finishes up buried among the rest."
-     },
-     {
-      "text": "start of",
-      "note": "The start of a word is the letter it begins with, and that one letter is all this asks for."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "April ice",
-      "gives": "APRILICE",
-      "note": "eight letters of raw material: the month and the frozen water are there to be dissolved, not read"
-     },
-     {
-      "clueFragment": "start of month",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of the word that follows, joining the pool"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "APRIL ICE M",
-       "gives": "EMPIRICAL"
+       "text": "melting",
+       "note": "Ice that melts loses its shape altogether, so the letters beside the word cannot keep the order they arrived in."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "What melts around a thing closes over it, so the single letter named next finishes up buried among the rest."
+        }
+       ],
+       "parts": [
+        {
+         "words": "April ice",
+         "note": "eight letters of raw material: the month and the frozen water are there to be dissolved, not read"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "M",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "The start of a word is the letter it begins with, and that one letter is all this asks for."
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "start of month",
+           "gives": "M",
+           "select": "first",
+           "note": "the first letter of the word that follows, joining the pool"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -472,52 +433,43 @@
    },
    "solution": "ONONESUPPERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ON ONE'S UPPERS",
     "definitions": [
      {
       "text": "Short of cash",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "after",
-      "gives": "ON",
-      "note": "'on arrival' means after arriving, so 'on' is one of the words English uses for after"
-     },
-     {
-      "clueFragment": "a single",
-      "gives": "ONE",
-      "note": "a single of anything is one of it"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup is to drink, the old verb that survives in 'supping ale'"
-     },
-     {
-      "clueFragment": "for each",
-      "gives": "PER",
-      "note": "per is Latin for each, as in miles per hour"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the standard family-tree abbreviation for son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "ONE",
-      "SUP",
-      "PER",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "after",
+       "gives": "ON",
+       "note": "'on arrival' means after arriving, so 'on' is one of the words English uses for after"
+      },
+      {
+       "words": "a single",
+       "gives": "ONE",
+       "note": "a single of anything is one of it"
+      },
+      {
+       "words": "drink",
+       "gives": "SUP",
+       "note": "to sup is to drink, the old verb that survives in 'supping ale'"
+      },
+      {
+       "words": "for each",
+       "gives": "PER",
+       "note": "per is Latin for each, as in miles per hour"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the standard family-tree abbreviation for son"
+      }
      ]
     },
+    "spelling": "ON ONE'S UPPERS",
     "explanation": {
      "walkthrough": "The joins never fall where the wordplay does: the S that closes the second word is the front of the drink, and the son's S is the very last letter of all.",
      "definitionFit": "Short of cash -> ON ONE'S UPPERS: the idiom pictures shoes worn through the soles until only the uppers are left, so the wearer is broke."
@@ -538,40 +490,38 @@
    },
    "solution": "DINGO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DINGO",
     "definitions": [
      {
       "text": "Dog",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming last",
-      "for": "deletion",
-      "note": "Whatever comes last ends up at the back, so the bird's letter leaves the place it sits in and is written on the end instead."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "performing",
-      "gives": "DING",
-      "note": "to be performing is to be doing, and these four letters are what is left when the bird's is taken out"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a batsman out for no runs has scored a duck, and no runs is written as a nought"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DING",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DINGO",
+     "indicators": [
+      {
+       "text": "coming last",
+       "note": "Whatever comes last ends up at the back, so the bird's letter leaves the place it sits in and is written on the end instead."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "performing",
+         "gives": "DING",
+         "note": "to be performing is to be doing, and these four letters are what is left when the bird's is taken out"
+        },
+        {
+         "words": "duck",
+         "gives": "O",
+         "note": "a batsman out for no runs has scored a duck, and no runs is written as a nought"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -594,43 +544,34 @@
    },
    "solution": "DOPPELGANGER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOPPELGANGER",
     "definitions": [
      {
       "text": "identical spirit",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "fashioned",
-      "for": "anagram",
-      "note": "Something fashioned has been worked into a new shape, and the letters beside the word are worked into a new order."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two pegs",
-      "gives": "PEGPEG",
-      "note": "the word is written out twice over, six letters of raw material rather than a description"
-     },
-     {
-      "clueFragment": "Ronald",
-      "gives": "RONALD",
-      "note": "the name goes into the mix whole, all six of its letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PEG PEG RONALD",
-       "gives": "DOPPELGANGER"
+       "text": "fashioned",
+       "note": "Something fashioned has been worked into a new shape, and the letters beside the word are worked into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Two pegs",
+         "gives": "PEGPEG",
+         "note": "the word is written out twice over, six letters of raw material rather than a description"
+        },
+        {
+         "words": "Ronald",
+         "note": "the name goes into the mix whole, all six of its letters"
+        }
+       ]
       }
      ]
     },
@@ -660,26 +601,25 @@
    },
    "solution": "SAFETYPIN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SAFETY PIN",
     "definitions": [
      {
       "text": "Fixing device",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fixing device",
-      "note": "read straight: a small thing for holding two pieces of fabric together, the sort that lives in a sewing tin"
-     },
-     {
-      "clueFragment": "you can't see the point of?",
-      "note": "the surface says pointless; the setter means the sharp end really is out of sight, folded away under its little metal clasp"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fixing device",
+       "note": "read straight: a small thing for holding two pieces of fabric together, the sort that lives in a sewing tin"
+      },
+      {
+       "words": "you can't see the point of?",
+       "note": "the surface says pointless; the setter means the sharp end really is out of sight, folded away under its little metal clasp"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "There are no letters to collect here. The clue is one joke told twice over: no point as futility, and a point genuinely hidden so that it cannot prick anybody.",
      "definitionFit": "Fixing device -> SAFETY PIN: it fastens two pieces of cloth to each other, which is fixing in the fastening sense rather than the mending one."
@@ -700,35 +640,24 @@
    },
    "solution": "POSTERIOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POSTERIOR",
     "definitions": [
      {
       "text": "bringing up the rear",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "on manoeuvres",
-      "for": "anagram",
-      "note": "Troops on manoeuvres are marched about the field into fresh positions, and the nine letters beside the phrase take fresh positions too."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is trooper",
-      "gives": "ISTROOPER",
-      "note": "nine letters of raw material: the soldier is not a soldier here, only a supply of letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IS TROOPER",
-       "gives": "POSTERIOR"
+       "text": "on manoeuvres",
+       "note": "Troops on manoeuvres are marched about the field into fresh positions, and the nine letters beside the phrase take fresh positions too."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is trooper",
+       "note": "nine letters of raw material: the soldier is not a soldier here, only a supply of letters"
       }
      ]
     },
@@ -752,47 +681,41 @@
    },
    "solution": "RERUN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RERUN",
     "definitions": [
      {
       "text": "Programme you might have seen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "letter_selection",
-      "note": "A word made endless loses the letters at both of its ends, and with a three-letter word only the middle one is left standing."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "RE is the shorthand at the head of a memo, meaning 'about'"
-     },
-     {
-      "clueFragment": "sport",
-      "gives": "RU",
-      "note": "RU is rugby union, one of the games a British crossword shortens to two letters"
-     },
-     {
-      "clueFragment": "endless one",
-      "gives": "N",
-      "select": "middle",
-      "note": "strip a letter off each end of the number and a single one survives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "RU",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "RE is the shorthand at the head of a memo, meaning 'about'"
+      },
+      {
+       "words": "sport",
+       "gives": "RU",
+       "note": "RU is rugby union, one of the games a British crossword shortens to two letters"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "endless",
+         "note": "A word made endless loses the letters at both of its ends, and with a three-letter word only the middle one is left standing."
+        }
+       ],
+       "parts": [
+        {
+         "words": "endless one",
+         "gives": "ONE",
+         "note": "strip a letter off each end of the number and a single one survives"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -815,28 +738,16 @@
    },
    "solution": "EBBING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EBBING",
     "definitions": [
      {
       "text": "Missouri town at the cinema",
-      "at": 0
+      "at": 0,
+      "meaning": "the invented town of the 2017 film 'Three Billboards Outside ---, Missouri', so the place exists only on screen"
      },
      {
       "text": "going out",
-      "at": 29
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Missouri town at the cinema",
-      "note": "the invented town of the 2017 film 'Three Billboards Outside ---, Missouri', so the place exists only on screen"
-     },
-     {
-      "clueFragment": "going out",
-      "note": "said of the tide: the twice-daily retreat of the sea back down the beach"
+      "at": 29,
+      "meaning": "said of the tide: the twice-daily retreat of the sea back down the beach"
      }
     ],
     "explanation": {
@@ -859,35 +770,24 @@
    },
    "solution": "BLOOTERED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BLOOTERED",
     "definitions": [
      {
       "text": "Glaswegian drunk",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Distribute",
-      "for": "anagram",
-      "note": "To distribute things is to scatter them about, and the nine letters after the word are scattered into a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer to old",
-      "gives": "BEERTOOLD",
-      "note": "nine letters of raw material, three ordinary words handed over for their spelling"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEER TO OLD",
-       "gives": "BLOOTERED"
+       "text": "Distribute",
+       "note": "To distribute things is to scatter them about, and the nine letters after the word are scattered into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer to old",
+       "note": "nine letters of raw material, three ordinary words handed over for their spelling"
       }
      ]
     },
@@ -911,45 +811,41 @@
    },
    "solution": "LETTUCES",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LETTUCES",
     "definitions": [
      {
       "text": "Greens",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "putting Republican out",
-      "for": "deletion",
-      "note": "Putting somebody out is getting rid of them, so the letter that stands for the party is thrown out of the word in front."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sanctioned",
-      "gives": "LET",
-      "note": "to let a thing happen is to sanction it"
-     },
-     {
-      "clueFragment": "peace agreements",
-      "gives": "TRUCES",
-      "note": "a truce is an agreed pause in the fighting, and the plural is six letters long before anything goes"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R is the standard abbreviation for a Republican in American politics, and this is the letter that goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LET",
-      "TUCES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sanctioned",
+       "gives": "LET",
+       "note": "to let a thing happen is to sanction it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "putting Republican out",
+         "note": "Putting somebody out is getting rid of them, so the letter that stands for the party is thrown out of the word in front."
+        }
+       ],
+       "parts": [
+        {
+         "words": "peace agreements",
+         "gives": "TRUCES",
+         "note": "a truce is an agreed pause in the fighting, and the plural is six letters long before anything goes"
+        },
+        {
+         "words": "Republican",
+         "gives": "R",
+         "note": "R is the standard abbreviation for a Republican in American politics, and this is the letter that goes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -972,47 +868,41 @@
    },
    "solution": "TAOISEACH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TAOISEACH",
     "definitions": [
      {
       "text": "PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "Letters taken regularly come at a fixed interval, and here it is every second one, counting from the second letter of the word."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thanks",
-      "gives": "TA",
-      "note": "ta is the everyday British way of saying thanks"
-     },
-     {
-      "clueFragment": "Tories regularly",
-      "gives": "OIS",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters of the party, taken in order"
-     },
-     {
-      "clueFragment": "every single one",
-      "gives": "EACH",
-      "note": "every single one of a group is each of them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "OIS",
-      "EACH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "thanks",
+       "gives": "TA",
+       "note": "ta is the everyday British way of saying thanks"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "Letters taken regularly come at a fixed interval, and here it is every second one, counting from the second letter of the word."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tories regularly",
+         "gives": "TORIES",
+         "note": "the second, fourth and sixth letters of the party, taken in order"
+        }
+       ]
+      },
+      {
+       "words": "every single one",
+       "gives": "EACH",
+       "note": "every single one of a group is each of them"
+      }
      ]
     },
     "explanation": {
@@ -1041,47 +931,41 @@
    },
    "solution": "COCOPALM",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "COCO PALM",
     "definitions": [
      {
       "text": "Tree by the beach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sheltering",
-      "for": "container",
-      "note": "To shelter people is to take them in, so the word in front opens up and holds the two pieces named after it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "still",
-      "gives": "CALM",
-      "note": "still water is calm, and these four letters part company after the first"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the usual single letter for old"
-     },
-     {
-      "clueFragment": "policeman",
-      "gives": "COP",
-      "note": "a cop is a policeman, informally"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "O",
-      "COP",
-      "ALM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sheltering",
+       "note": "To shelter people is to take them in, so the word in front opens up and holds the two pieces named after it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "still",
+       "gives": "CALM",
+       "note": "still water is calm, and these four letters part company after the first"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O is the usual single letter for old"
+        },
+        {
+         "words": "policeman",
+         "gives": "COP",
+         "note": "a cop is a policeman, informally"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1110,41 +994,42 @@
    },
    "solution": "GOODSHOW",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "GOOD SHOW",
     "definitions": [
      {
       "text": "Congratulations",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "according to Spooner",
-      "for": "spoonerism",
-      "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the whole instruction."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are expected",
-      "gives": "GOOD",
-      "soundsLike": "SHOULD",
-      "note": "if you are expected somewhere then you should be there; this word gives its opening SH away and takes a G"
-     },
-     {
-      "clueFragment": "at event",
-      "gives": "SHOW",
-      "soundsLike": "GO",
-      "note": "to be at an event is to go to it, and this word collects the SH that its neighbour dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOOD",
-      "SHOW"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "GOODSHOW",
+     "indicators": [
+      {
+       "text": "according to Spooner",
+       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the whole instruction."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "are expected",
+         "gives": "GOOD",
+         "soundsLike": "SHOULD",
+         "note": "if you are expected somewhere then you should be there; this word gives its opening SH away and takes a G"
+        },
+        {
+         "unchecked": true,
+         "words": "at event",
+         "gives": "SHOW",
+         "soundsLike": "GO",
+         "note": "to be at an event is to go to it, and this word collects the SH that its neighbour dropped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1173,31 +1058,16 @@
    },
    "solution": "ROLLUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROLL-UP",
     "definitions": [
      {
       "text": "Come and see",
-      "at": 0
+      "at": 0,
+      "meaning": "the fairground barker's shout, two words hollered outside a tent to pull a crowd in"
      },
      {
       "text": "smoke",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Come and see",
-      "note": "the fairground barker's shout, two words hollered outside a tent to pull a crowd in"
-     },
-     {
-      "clueFragment": "smoke",
-      "note": "the noun: a cigarette somebody has made for themselves out of loose tobacco and a paper"
+      "at": 18,
+      "meaning": "the noun: a cigarette somebody has made for themselves out of loose tobacco and a paper"
      }
     ],
     "explanation": {
@@ -1220,34 +1090,39 @@
    },
    "solution": "PEDLAR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "PEDLAR",
     "definitions": [
      {
       "text": "Travelling salesman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "set up",
-      "note": "In a down entry, letters set up are read from the bottom towards the top, so they come out the other way round."
-     },
-     {
-      "text": "stores",
-      "note": "To store a thing is to keep it inside, so the two words beside this one are holding a run of letters between them."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rural department",
-      "gives": "PEDLAR",
-      "note": "six letters in a row straddle the space between the two words, sitting there back to front"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "set up",
+       "note": "In a down entry, letters set up are read from the bottom towards the top, so they come out the other way round."
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "stores",
+         "note": "To store a thing is to keep it inside, so the two words beside this one are holding a run of letters between them."
+        }
+       ],
+       "parts": [
+        {
+         "words": "rural department",
+         "gives": "RALDEP",
+         "note": "six letters in a row straddle the space between the two words, sitting there back to front"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Every word of the surface belongs to retail, which is the disguise: the shop talk hides a run of letters that has to be read the wrong way along the clue.",
      "definitionFit": "Travelling salesman -> PEDLAR: a pedlar carries goods from door to door on foot, which is selling on the move in its oldest form."
@@ -1268,32 +1143,25 @@
    },
    "solution": "NOTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOTED",
     "definitions": [
      {
       "text": "Roger",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "rather than",
-      "gives": "NOT",
-      "note": "choosing one thing rather than another is choosing it and not the other"
-     },
-     {
-      "clueFragment": "Edward",
-      "gives": "ED",
-      "note": "Ed is the everyday short form of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOT",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rather than",
+       "gives": "NOT",
+       "note": "choosing one thing rather than another is choosing it and not the other"
+      },
+      {
+       "words": "Edward",
+       "gives": "ED",
+       "note": "Ed is the everyday short form of the name"
+      }
      ]
     },
     "explanation": {
@@ -1316,43 +1184,38 @@
    },
    "solution": "DOHYO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DOHYO",
     "definitions": [
      {
       "text": "ring with heavyweights",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "A word cut short stops before it was due to end, so the pronoun beside the phrase arrives two letters long."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Homeric quote",
-      "gives": "DOH",
-      "note": "the Homer wanted is Homer Simpson, and his groan of self-reproach is his whole contribution"
-     },
-     {
-      "clueFragment": "you cut short",
-      "gives": "YO",
-      "note": "the pronoun gives up its final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOH",
-      "YO"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DOHYO",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "A word cut short stops before it was due to end, so the pronoun beside the phrase arrives two letters long."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Homeric quote",
+         "gives": "DOH",
+         "note": "the Homer wanted is Homer Simpson, and his groan of self-reproach is his whole contribution"
+        },
+        {
+         "words": "you cut short",
+         "gives": "YO",
+         "note": "the pronoun gives up its final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1375,50 +1238,41 @@
    },
    "solution": "OVERSTATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OVERSTATE",
     "definitions": [
      {
       "text": "Exaggerate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "full of",
-      "for": "container",
-      "note": "Something full of a thing has it inside, so the letters in front open up and take what follows into the middle."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "in tennis a score of nothing is called love, and nothing is written as a nought"
-     },
-     {
-      "clueFragment": "poem",
-      "gives": "VERSE",
-      "note": "a poem is verse, and these five letters part company before the last of them"
-     },
-     {
-      "clueFragment": "rubbish",
-      "gives": "TAT",
-      "note": "tat is cheap and shoddy stuff, the goods on a bad market stall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "VERS",
-      "TAT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "in tennis a score of nothing is called love, and nothing is written as a nought"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "full of",
+         "note": "Something full of a thing has it inside, so the letters in front open up and take what follows into the middle."
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem",
+         "gives": "VERSE",
+         "note": "a poem is verse, and these five letters part company before the last of them"
+        },
+        {
+         "words": "rubbish",
+         "gives": "TAT",
+         "note": "tat is cheap and shoddy stuff, the goods on a bad market stall"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1441,43 +1295,31 @@
    },
    "solution": "ALIEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALIEN",
     "definitions": [
      {
       "text": "Strange",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covers",
-      "for": "container",
-      "note": "To cover a thing is to lie over the top of it, so the two letters named here close around what they are covering."
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "one of English's three articles, and it opens up between its two letters"
-     },
-     {
-      "clueFragment": "story",
-      "gives": "LIE",
-      "note": "a story in the sense a child is told off for telling, an untruth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LIE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "note": "To cover a thing is to lie over the top of it, so the two letters named here close around what they are covering."
+      }
+     ],
+     "parts": [
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "one of English's three articles, and it opens up between its two letters"
+      },
+      {
+       "words": "story",
+       "gives": "LIE",
+       "note": "a story in the sense a child is told off for telling, an untruth"
+      }
      ]
     },
     "explanation": {
@@ -1500,43 +1342,34 @@
    },
    "solution": "EARTHFALL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EARTHFALL",
     "definitions": [
      {
       "text": "landslide",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "Somebody lost has wandered out of position, and the letters beside the word wander out of theirs."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "FATHER",
-      "note": "six letters handed over as material rather than read as a person"
-     },
-     {
-      "clueFragment": "everything",
-      "gives": "ALL",
-      "note": "everything is all of it, three more letters for the pile"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FATHER ALL",
-       "gives": "EARTHFALL"
+       "text": "lost",
+       "note": "Somebody lost has wandered out of position, and the letters beside the word wander out of theirs."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "note": "six letters handed over as material rather than read as a person"
+        },
+        {
+         "words": "everything",
+         "gives": "ALL",
+         "note": "everything is all of it, three more letters for the pile"
+        }
+       ]
       }
      ]
     },
@@ -1560,43 +1393,31 @@
    },
    "solution": "ALIAS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALIAS",
     "definitions": [
      {
       "text": "Fake ID",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imprisoned",
-      "for": "container",
-      "note": "A prisoner is shut inside walls, so the single letter named beside the word is locked into the middle of the four around it."
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unfortunately",
-      "gives": "ALAS",
-      "note": "alas is the old-fashioned word for unfortunately, and it splits after its second letter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one is a single upright stroke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "I",
-      "AS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imprisoned",
+       "note": "A prisoner is shut inside walls, so the single letter named beside the word is locked into the middle of the four around it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "unfortunately",
+       "gives": "ALAS",
+       "note": "alas is the old-fashioned word for unfortunately, and it splits after its second letter"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one is a single upright stroke"
+      }
      ]
     },
     "explanation": {
@@ -1625,10 +1446,6 @@
    },
    "solution": "DOOMMERCHANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOOM-MERCHANT",
     "definitions": [
      {
       "text": "I say it'll end badly",
@@ -1636,30 +1453,28 @@
       "note": "The definition is voiced by the answer itself: instead of describing the person from outside, the setter lets them announce themselves in the first person."
      }
     ],
-    "indicators": [
-     {
-      "text": "weird",
-      "for": "anagram",
-      "note": "Something weird is not as it ought to be, and the letters beside the word are not in the order they ought to be either."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Date",
-      "gives": "D",
-      "note": "D is the standard abbreviation for date, and it joins the letters being shuffled"
-     },
-     {
-      "clueFragment": "chat room men",
-      "gives": "CHATROOMMEN",
-      "note": "eleven letters of raw material, there for their spelling and not their meaning"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "D CHAT ROOM MEN",
-       "gives": "DOOMMERCHANT"
+       "text": "weird",
+       "note": "Something weird is not as it ought to be, and the letters beside the word are not in the order they ought to be either."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Date",
+         "gives": "D",
+         "note": "D is the standard abbreviation for date, and it joins the letters being shuffled"
+        },
+        {
+         "words": "chat room men",
+         "note": "eleven letters of raw material, there for their spelling and not their meaning"
+        }
+       ]
       }
      ]
     },

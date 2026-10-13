@@ -1,8 +1,6 @@
 {
  "id": "cyclops-527",
  "number": 527,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 527",
  "setter": "Cyclops",
  "date": "2014-08-08",
  "dimensions": {
@@ -42,55 +40,44 @@
    },
    "solution": "STUPID",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STUPID",
     "definitions": [
      {
       "text": "Nuts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stimulated",
-      "for": "anagram",
-      "note": "something stimulated is stirred up, so the following letters are stirred into a new order"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of the next word, keeping only its closing letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it's up",
-      "gives": "ITSUP",
-      "note": "the letters of the phrase, taken as written before being mixed"
-     },
-     {
-      "clueFragment": "inserted",
-      "gives": "D",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUPI",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ITSUP",
-       "gives": "STUPI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stimulated",
+         "note": "something stimulated is stirred up, so the following letters are stirred into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it's up",
+         "note": "the letters of the phrase, taken as written before being mixed"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the very end of the next word, keeping only its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inserted",
+         "note": "the last letter of the word"
+        }
+       ]
       }
      ]
     },
@@ -121,10 +108,6 @@
    },
    "solution": "COLLATERAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COLLATERAL",
     "definitions": [
      {
       "text": "Civilians cynically taken out",
@@ -132,33 +115,27 @@
       "note": "a description of the thing rather than a synonym; the answer is the adjective in 'collateral damage'"
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "drunk suggests something reeling and jumbled, so the named letters are thrown into disorder"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "claret",
-      "gives": "CLARET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Lola",
-      "gives": "LOLA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLARETLOLA",
-       "gives": "COLLATERAL"
+       "text": "drunk",
+       "note": "drunk suggests something reeling and jumbled, so the named letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "claret",
+         "note": "taken as written"
+        },
+        {
+         "words": "Lola",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -194,51 +171,43 @@
    },
    "solution": "BIGSCORE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BIG SCORE",
     "definitions": [
      {
       "text": "Quite a knock",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow means in some unspecified manner, so the dog word's letters are arranged in some other way"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without is used in its old sense of outside, so one piece wraps around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to live",
-      "gives": "BE",
-      "note": "to be is to live or exist"
-     },
-     {
-      "clueFragment": "corgis",
-      "gives": "IGSCOR",
-      "note": "the letters of corgis, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "IGSCOR",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BIGSCORE",
+     "indicators": [
       {
-       "fodder": "CORGIS",
-       "gives": "IGSCOR"
+       "text": "somehow",
+       "note": "somehow means in some unspecified manner, so the dog word's letters are arranged in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without is used in its old sense of outside, so one piece wraps around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to live",
+         "gives": "BE",
+         "note": "to be is to live or exist"
+        },
+        {
+         "words": "corgis",
+         "gives": "IGSCOR",
+         "note": "the letters of corgis, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -283,52 +252,54 @@
    },
    "solution": "GUSHER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GUSHER",
     "definitions": [
      {
       "text": "enthusiast",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "clutched by",
-      "for": "container",
-      "note": "something clutched is held inside, so one piece sits within the others"
-     },
-     {
-      "text": "ultimate",
-      "for": "letter_selection",
-      "note": "ultimate means last, so only the final letter of the politician's name is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clegg's",
-      "gives": "G",
-      "select": "last",
-      "note": "the last letter of Clegg"
-     },
-     {
-      "clueFragment": "Eye",
-      "gives": "US",
-      "note": "Private Eye refers to itself as us, the magazine speaking"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "HER",
-      "note": "her is the female pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "US",
-      "HER"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GUSHER",
+     "indicators": [
+      {
+       "text": "clutched by",
+       "note": "something clutched is held inside, so one piece sits within the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimate",
+           "note": "ultimate means last, so only the final letter of the politician's name is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Clegg's",
+           "gives": "CLEGG",
+           "note": "the last letter of Clegg"
+          }
+         ]
+        },
+        {
+         "words": "Eye",
+         "gives": "US",
+         "note": "Private Eye refers to itself as us, the magazine speaking"
+        },
+        {
+         "words": "female",
+         "gives": "HER",
+         "note": "her is the female pronoun"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -357,30 +328,28 @@
    },
    "solution": "URDU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "URDU",
     "definitions": [
      {
       "text": "tongue",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "hidden_word",
-      "note": "the opening words hold the answer inside them, so read straight across their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hurd, upbraided",
-      "gives": "URDU",
-      "note": "the letters run across the boundary between the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "the opening words hold the answer inside them, so read straight across their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hurd, upbraided",
+       "gives": "URDU",
+       "note": "the letters run across the boundary between the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Douglas Hurd is scolded and keeps his mouth shut.",
      "walkthrough": "'Holding tongue' suggests keeping quiet; tongue is really the definition, meaning language. Douglas Hurd was a Conservative foreign secretary.",
@@ -414,58 +383,52 @@
    },
    "solution": "DICKYBOW",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "DICKY BOW",
     "definitions": [
      {
       "text": "formal wear",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy means elaborate or imaginative, so the youngster's letters are fancifully rearranged"
-     },
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "the top of a word is its first letter, keeping just that one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Penis",
-      "gives": "DICK",
-      "note": "a vulgar slang word for the penis"
-     },
-     {
-      "clueFragment": "Boy's",
-      "gives": "YBO",
-      "note": "the letters of boy, rearranged"
-     },
-     {
-      "clueFragment": "white",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of white"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DICK",
-      "YBO",
-      "W"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DICKYBOW",
+     "indicators": [
       {
-       "fodder": "BOY",
-       "gives": "YBO"
+       "text": "fancy",
+       "note": "fancy means elaborate or imaginative, so the youngster's letters are fancifully rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Penis",
+         "gives": "DICK",
+         "note": "a vulgar slang word for the penis"
+        },
+        {
+         "words": "Boy's",
+         "gives": "YBO",
+         "note": "the letters of boy, rearranged"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top",
+           "note": "the top of a word is its first letter, keeping just that one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "white",
+           "note": "the first letter of white"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -502,28 +465,16 @@
    },
    "solution": "TOORIGHT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOO RIGHT",
     "definitions": [
      {
       "text": "Unacceptably more conservative than the Conservatives",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: excessively right-wing"
      },
      {
       "text": "Most certainly",
-      "at": 55
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unacceptably more conservative than the Conservatives",
-      "note": "first meaning: excessively right-wing"
-     },
-     {
-      "clueFragment": "Most certainly",
-      "note": "second meaning: an emphatic exclamation of agreement"
+      "at": 55,
+      "meaning": "second meaning: an emphatic exclamation of agreement"
      }
     ],
     "explanation": {
@@ -551,45 +502,36 @@
    },
    "solution": "GUARDI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GUARDI",
     "definitions": [
      {
       "text": "Artist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Number Two",
-      "for": "letter_selection",
-      "note": "number two points to the second letter in the artist's name that follows"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "placed in front of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "screen",
-      "gives": "GUARD",
-      "note": "a guard, like a fireguard, screens something off"
-     },
-     {
-      "clueFragment": "Hirst's",
-      "gives": "I",
-      "select": 2,
-      "note": "the second letter of Hirst"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUARD",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "screen",
+       "gives": "GUARD",
+       "note": "a guard, like a fireguard, screens something off"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "Number Two",
+         "note": "number two points to the second letter in the artist's name that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hirst's",
+         "note": "the second letter of Hirst"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -618,32 +560,25 @@
    },
    "solution": "HUMPBACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HUMPBACK",
     "definitions": [
      {
       "text": "a large marine presence",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Shag",
-      "gives": "HUMP",
-      "note": "both are vulgar slang for having sex"
-     },
-     {
-      "clueFragment": "retreat",
-      "gives": "BACK",
-      "note": "to back is to move backwards, retreat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUMP",
-      "BACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shag",
+       "gives": "HUMP",
+       "note": "both are vulgar slang for having sex"
+      },
+      {
+       "words": "retreat",
+       "gives": "BACK",
+       "note": "to back is to move backwards, retreat"
+      }
      ]
     },
     "explanation": {
@@ -673,28 +608,16 @@
    },
    "solution": "PILES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PILES",
     "definitions": [
      {
       "text": "Pain in the arse",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: haemorrhoids"
      },
      {
       "text": "top bankers make them",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pain in the arse",
-      "note": "first meaning: haemorrhoids"
-     },
-     {
-      "clueFragment": "top bankers make them",
-      "note": "second meaning: large heaps of money, as in making a fortune"
+      "at": 17,
+      "meaning": "second meaning: large heaps of money, as in making a fortune"
      }
     ],
     "explanation": {
@@ -729,11 +652,6 @@
    },
    "solution": "TOUGHLUCK",
    "annotation": {
-    "type": [
-     "charade",
-     "substitution"
-    ],
-    "answer": "TOUGH LUCK",
     "definitions": [
      {
       "text": "feel bad about that",
@@ -741,32 +659,27 @@
       "note": "the answer is a retort, 'too bad', so the definition is a loose paraphrase"
      }
     ],
-    "indicators": [
-     {
-      "text": "with new leader",
-      "for": "substitution",
-      "note": "a new leader means the first letter of the slang word is swapped for a different one"
-     }
-    ],
-    "linkWords": [
-     "gets to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hardy",
-      "gives": "TOUGH",
-      "note": "hardy means robust, able to endure"
-     },
-     {
-      "clueFragment": "shag",
-      "gives": "FUCK",
-      "note": "a coarser word for the same act"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOUGH",
-      "LUCK"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "TOUGHLUCK",
+     "indicators": [
+      {
+       "text": "with new leader",
+       "note": "a new leader means the first letter of the slang word is swapped for a different one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hardy",
+       "gives": "TOUGH",
+       "note": "hardy means robust, able to endure"
+      },
+      {
+       "words": "shag",
+       "gives": "FUCK",
+       "note": "a coarser word for the same act"
+      }
      ]
     },
     "explanation": {
@@ -796,61 +709,46 @@
    },
    "solution": "DETROIT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "anagram"
-    ],
-    "answer": "DETROIT",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going backwards, so the former prime minister's first name is read from its end"
-     },
-     {
-      "text": "switch of central characters",
-      "for": "anagram",
-      "note": "a switch swaps things over, here only the two middle letters of the uprising word trade places"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heath",
-      "gives": "TED",
-      "note": "Edward Heath, Conservative prime minister, was known as Ted"
-     },
-     {
-      "clueFragment": "revolt",
-      "gives": "RIOT",
-      "note": "a riot is a violent revolt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DET",
-      "ROIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RIOT",
-       "gives": "ROIT"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "backing means going backwards, so the former prime minister's first name is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Heath",
+         "gives": "TED",
+         "note": "Edward Heath, Conservative prime minister, was known as Ted"
+        }
+       ]
+      },
       {
-       "from": "TED",
-       "to": "DET"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "switch of central characters",
+         "note": "a switch swaps things over, here only the two middle letters of the uprising word trade places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revolt",
+         "gives": "RIOT",
+         "note": "a riot is a violent revolt"
+        }
+       ]
       }
      ]
     },
@@ -886,50 +784,47 @@
    },
    "solution": "TALKEDAT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "anagram"
-    ],
-    "answer": "TALKED AT",
     "definitions": [
      {
       "text": "addressed pompously",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "endlessly means without an end, so the name loses its final letter"
-     },
-     {
-      "text": "with manipulation",
-      "for": "anagram",
-      "note": "manipulation means handling and working something, so the combined letters are worked into a new order"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kate",
-      "gives": "KAT",
-      "note": "the name with its last letter removed"
-     },
-     {
-      "clueFragment": "dealt",
-      "gives": "DEALT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TALKEDAT",
+     "indicators": [
       {
-       "fodder": "KATDEALT",
-       "gives": "TALKEDAT"
+       "text": "endlessly",
+       "note": "endlessly means without an end, so the name loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "with manipulation",
+         "note": "manipulation means handling and working something, so the combined letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Kate",
+           "gives": "KAT",
+           "note": "the name with its last letter removed"
+          },
+          {
+           "words": "dealt",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -958,45 +853,37 @@
    },
    "solution": "PERTURB",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "PERTURB",
     "definitions": [
      {
       "text": "alarm",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "bust",
-      "for": "anagram",
-      "note": "something bust is broken, so the next word is broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jaunty",
-      "gives": "PERT",
-      "note": "pert means lively and cheeky"
-     },
-     {
-      "clueFragment": "rub",
-      "gives": "URB",
-      "note": "the letters of rub, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PERT",
-      "URB"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PERTURB",
+     "indicators": [
       {
-       "fodder": "RUB",
-       "gives": "URB"
+       "text": "bust",
+       "note": "something bust is broken, so the next word is broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Jaunty",
+         "gives": "PERT",
+         "note": "pert means lively and cheeky"
+        },
+        {
+         "words": "rub",
+         "gives": "URB",
+         "note": "the letters of rub, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1033,60 +920,53 @@
    },
    "solution": "UGLYTHREAT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "UGLY THREAT",
     "definitions": [
      {
       "text": "Scary utterance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blending",
-      "for": "anagram",
-      "note": "blending mixes things together, so the letters are mixed into a new order"
-     },
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader comes first, so only the opening letter of the party name is used"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hague",
-      "gives": "HAGUE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "TRY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of Tory"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HAGUETRYLT",
-       "gives": "UGLYTHREAT"
+       "text": "blending",
+       "note": "blending mixes things together, so the letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hague",
+         "note": "taken as written"
+        },
+        {
+         "words": "try",
+         "note": "taken as written"
+        },
+        {
+         "words": "Left",
+         "gives": "L",
+         "note": "L is the standard abbreviation for left"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "note": "a leader comes first, so only the opening letter of the party name is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tory",
+           "note": "the first letter of Tory"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1122,45 +1002,37 @@
    },
    "solution": "SURVEILLANCELAW",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SURVEILLANCE LAW",
     "definitions": [
      {
       "text": "a great opportunity for prying by the authorities",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Dodgy",
-      "for": "anagram",
-      "note": "dodgy means unreliable and suspect, signalling that the following letters are not in their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "insecure",
-      "gives": "INSECURE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lav",
-      "gives": "LAV",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "wall",
-      "gives": "WALL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INSECURELAVWALL",
-       "gives": "SURVEILLANCELAW"
+       "text": "Dodgy",
+       "note": "dodgy means unreliable and suspect, signalling that the following letters are not in their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "insecure",
+         "note": "taken as written"
+        },
+        {
+         "words": "lav",
+         "note": "taken as written"
+        },
+        {
+         "words": "wall",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1197,32 +1069,25 @@
    },
    "solution": "SCREWTOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCREW-TOP",
     "definitions": [
      {
       "text": "sort of bottle",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sod",
-      "gives": "SCREW",
-      "note": "'sod it' and 'screw it' are both dismissive curses"
-     },
-     {
-      "clueFragment": "Jersey",
-      "gives": "TOP",
-      "note": "a jersey is a knitted top"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCREW",
-      "TOP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sod",
+       "gives": "SCREW",
+       "note": "'sod it' and 'screw it' are both dismissive curses"
+      },
+      {
+       "words": "Jersey",
+       "gives": "TOP",
+       "note": "a jersey is a knitted top"
+      }
      ]
     },
     "explanation": {
@@ -1252,51 +1117,50 @@
    },
    "solution": "CARAPACE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CARAPACE",
     "definitions": [
      {
       "text": "Hard exterior",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "taking means taking in, so one piece accepts the others inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "criminal charge",
-      "gives": "RAP",
-      "note": "rap is American slang for a criminal charge, as in 'beat the rap'"
-     },
-     {
-      "clueFragment": "authority",
-      "gives": "ACE",
-      "note": "an ace is an expert, an authority on a subject"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ARAP",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C is the abbreviation for Conservative"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "note": "taking means taking in, so one piece accepts the others inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "authority",
+           "gives": "ACE",
+           "note": "an ace is an expert, an authority on a subject"
+          },
+          {
+           "words": "criminal charge",
+           "gives": "RAP",
+           "note": "rap is American slang for a criminal charge, as in 'beat the rap'"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1325,51 +1189,40 @@
    },
    "solution": "RELAPSE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "RELAPSE",
     "definitions": [
      {
       "text": "Return of disease",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "rejected means sent back, so the drug pills are written in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about, concerning"
-     },
-     {
-      "clueFragment": "genital area",
-      "gives": "LAP",
-      "note": "the lap is the front of the body between waist and knees when seated"
-     },
-     {
-      "clueFragment": "amphetamines",
-      "gives": "ES",
-      "note": "Es are ecstasy tablets, an amphetamine-type drug"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LAP",
-      "SE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ES",
-       "to": "SE"
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "words": "genital area",
+       "gives": "LAP",
+       "note": "the lap is the front of the body between waist and knees when seated"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "rejected means sent back, so the drug pills are written in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amphetamines",
+         "gives": "ES",
+         "note": "Es are ecstasy tablets, an amphetamine-type drug"
+        }
+       ]
       }
      ]
     },
@@ -1398,46 +1251,41 @@
    },
    "solution": "PLEDGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLEDGE",
     "definitions": [
      {
       "text": "promise",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "initial",
-      "for": "letter_selection",
-      "note": "initial means at the start, so only the first letter of the word is used"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after tells us the jutting piece is written second, following the politician's letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "politician's",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of politician"
-     },
-     {
-      "clueFragment": "What sticks out",
-      "gives": "LEDGE",
-      "note": "a ledge is a shelf that juts out from a wall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LEDGE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after tells us the jutting piece is written second, following the politician's letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initial",
+         "note": "initial means at the start, so only the first letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politician's",
+         "note": "the first letter of politician"
+        }
+       ]
+      },
+      {
+       "words": "What sticks out",
+       "gives": "LEDGE",
+       "note": "a ledge is a shelf that juts out from a wall"
+      }
      ]
     },
     "explanation": {
@@ -1465,30 +1313,28 @@
    },
    "solution": "KERATIN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "KERATIN",
     "definitions": [
      {
       "text": "horny thing",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "some means a portion of what follows, so the letters sit within the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arselicker at Interpol",
-      "gives": "KERATIN",
-      "note": "the letters run across the three words, ignoring the gaps"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "some means a portion of what follows, so the letters sit within the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arselicker at Interpol",
+       "gives": "KERATIN",
+       "note": "the letters run across the three words, ignoring the gaps"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A crawler at the international police agency is a randy so-and-so.",
      "walkthrough": "'Horny' reads as randy; it means made of horn.",
@@ -1516,32 +1362,25 @@
    },
    "solution": "NEEDLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEEDLE",
     "definitions": [
      {
       "text": "prick",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Require",
-      "gives": "NEED",
-      "note": "to need is to require"
-     },
-     {
-      "clueFragment": "foreign article",
-      "gives": "LE",
-      "note": "le is the French masculine definite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEED",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Require",
+       "gives": "NEED",
+       "note": "to need is to require"
+      },
+      {
+       "words": "foreign article",
+       "gives": "LE",
+       "note": "le is the French masculine definite article"
+      }
      ]
     },
     "explanation": {
@@ -1571,51 +1410,42 @@
    },
    "solution": "WHITEWASH",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "WHITEWASH",
     "definitions": [
      {
       "text": "which might cover the entire wall",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "tossed",
-      "for": "anagram",
-      "note": "something tossed is thrown about, so the last phrase is thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "With",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "sock",
-      "gives": "HIT",
-      "note": "to sock someone is to punch or hit them"
-     },
-     {
-      "clueFragment": "he was",
-      "gives": "EWASH",
-      "note": "the letters of the two words, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HIT",
-      "EWASH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WHITEWASH",
+     "indicators": [
       {
-       "fodder": "HEWAS",
-       "gives": "EWASH"
+       "text": "tossed",
+       "note": "something tossed is thrown about, so the last phrase is thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "With",
+         "gives": "W",
+         "note": "W is the abbreviation for with"
+        },
+        {
+         "words": "sock",
+         "gives": "HIT",
+         "note": "to sock someone is to punch or hit them"
+        },
+        {
+         "words": "he was",
+         "gives": "EWASH",
+         "note": "the letters of the two words, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1650,37 +1480,28 @@
     "4-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDLE CHAT",
     "definitions": [
      {
       "text": "rumour",
       "at": 32
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Python",
-      "gives": "IDLE",
-      "note": "Eric Idle was a member of the Monty Python comedy team"
-     },
-     {
-      "clueFragment": "the bird",
-      "gives": "CHAT",
-      "note": "a chat is a small songbird, as in stonechat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDLE",
-      "CHAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Python",
+       "gives": "IDLE",
+       "note": "Eric Idle was a member of the Monty Python comedy team"
+      },
+      {
+       "words": "the bird",
+       "gives": "CHAT",
+       "note": "a chat is a small songbird, as in stonechat"
+      }
      ]
     },
+    "spelling": "IDLE CHAT",
     "explanation": {
      "surface": "A Monty Python member is given the bird, booed off, according to gossip.",
      "walkthrough": "'Gets the bird' reads as the idiom for being jeered at; here the Python simply gets the bird name added to him.",
@@ -1708,40 +1529,31 @@
    },
    "solution": "HAUL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HAUL",
     "definitions": [
      {
       "text": "A drag",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "for": "container",
-      "note": "round means surrounding, so the king's name wraps the abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the old monarch",
-      "gives": "HAL",
-      "note": "Hal is the familiar name of Henry V, Shakespeare's Prince Hal"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "U",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "round means surrounding, so the king's name wraps the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the old monarch",
+       "gives": "HAL",
+       "note": "Hal is the familiar name of Henry V, Shakespeare's Prince Hal"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      }
      ]
     },
     "explanation": {
@@ -1770,35 +1582,25 @@
    },
    "solution": "PURGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PURGE",
     "definitions": [
      {
       "text": "Act like a tyrannical Russian leader",
       "at": 0
      }
     ],
-    "linkWords": [
-     "putting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pressure",
-      "gives": "P",
-      "note": "P is the symbol for pressure in physics"
-     },
-     {
-      "clueFragment": "press",
-      "gives": "URGE",
-      "note": "to press someone is to urge them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "URGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pressure",
+       "gives": "P",
+       "note": "P is the symbol for pressure in physics"
+      },
+      {
+       "words": "press",
+       "gives": "URGE",
+       "note": "to press someone is to urge them"
+      }
      ]
     },
     "explanation": {
@@ -1827,58 +1629,58 @@
    },
    "solution": "OBLIGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "OBLIGE",
     "definitions": [
      {
       "text": "bind",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "starts are beginnings, so the first letter of each of the two preceding words is taken"
-     },
-     {
-      "text": "accepting",
-      "for": "container",
-      "note": "accepting means taking in, so one pair of letters takes the rest inside"
-     },
-     {
-      "text": "rubbish",
-      "for": "anagram",
-      "note": "rubbish is used as a verb or adjective for junk, so the letters are trashed and reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Obama easily",
-      "gives": "OE",
-      "select": "first",
-      "note": "the first letters of the two words"
-     },
-     {
-      "clueFragment": "glib",
-      "gives": "BLIG",
-      "note": "the letters of glib, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "BLIG",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OBLIGE",
+     "indicators": [
       {
-       "fodder": "GLIB",
-       "gives": "BLIG"
+       "text": "rubbish",
+       "note": "rubbish is used as a verb or adjective for junk, so the letters are trashed and reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "note": "accepting means taking in, so one pair of letters takes the rest inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "OE",
+         "indicators": [
+          {
+           "text": "starts",
+           "note": "starts are beginnings, so the first letter of each of the two preceding words is taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Obama easily",
+           "gives": "OE",
+           "select": "first",
+           "note": "the first letters of the two words"
+          }
+         ]
+        },
+        {
+         "words": "glib",
+         "gives": "BLIG",
+         "note": "the letters of glib, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1914,26 +1716,25 @@
    },
    "solution": "PUBCRAWL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PUB CRAWL",
     "definitions": [
      {
       "text": "Local outing for those on benders?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Local outing for those on benders?",
-      "note": "surface reading: a neighbourhood trip for people who are bent over, or on their knees"
-     },
-     {
-      "clueFragment": "Local outing",
-      "note": "setter's reading: a local is a neighbourhood bar, and a bender is a drinking spree, so this is a tour of several bars"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Local outing for those on benders?",
+       "note": "surface reading: a neighbourhood trip for people who are bent over, or on their knees"
+      },
+      {
+       "words": "Local outing",
+       "note": "setter's reading: a local is a neighbourhood bar, and a bender is a drinking spree, so this is a tour of several bars"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A local is British for a neighbourhood pub, and a bender is a heavy drinking session; the second word also suggests going on all fours.",
      "definitionFit": "A tour drinking in a series of bars in one evening is the classic night out for heavy drinkers."

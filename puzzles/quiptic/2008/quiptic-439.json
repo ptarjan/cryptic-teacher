@@ -1,8 +1,6 @@
 {
  "id": "quiptic-439",
  "number": 439,
- "series": "quiptic",
- "name": "Quiptic crossword No 439",
  "setter": "Bonxie",
  "date": "2008-04-14",
  "dimensions": {
@@ -38,40 +36,31 @@
    },
    "solution": "PSALMS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PSALMS",
     "definitions": [
      {
       "text": "book",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "container",
-      "note": "hands placed over something cover it, so they wrap around the next item"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hands",
-      "gives": "PALMS",
-      "note": "the palms are the insides of the hands"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the clothing-size abbreviation for small"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "S",
-      "ALMS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "hands placed over something cover it, so they wrap around the next item"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hands",
+       "gives": "PALMS",
+       "note": "the palms are the insides of the hands"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      }
      ]
     },
     "explanation": {
@@ -100,32 +89,25 @@
    },
    "solution": "PALMATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PALMATE",
     "definitions": [
      {
       "text": "Web-footed",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "friends",
-      "gives": "PAL",
-      "note": "a pal is a friend"
-     },
-     {
-      "clueFragment": "friends",
-      "gives": "MATE",
-      "note": "a mate is a friend too"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAL",
-      "MATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "friends",
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "words": "friends",
+       "gives": "MATE",
+       "note": "a mate is a friend too"
+      }
      ]
     },
     "explanation": {
@@ -155,52 +137,58 @@
    },
    "solution": "APPLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "APPLE",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "odd",
-      "for": "letter_selection",
-      "note": "odd here means the odd-numbered positions, first and third, are taken from the word"
-     },
-     {
-      "text": "contains",
-      "for": "container",
-      "note": "a word that contains another holds it inside its own letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "A",
-      "note": "ale is a drink; its first letter opens the outer word"
-     },
-     {
-      "clueFragment": "pips",
-      "gives": "PP",
-      "select": "alternate",
-      "note": "the first and third letters of pips"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "LE",
-      "note": "the rest of the beer word closes around the inserted letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PP",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "APPLE",
+     "indicators": [
+      {
+       "text": "contains",
+       "note": "a word that contains another holds it inside its own letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "A",
+         "note": "ale is a drink; its first letter opens the outer word"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "PP",
+         "indicators": [
+          {
+           "text": "odd",
+           "note": "odd here means the odd-numbered positions, first and third, are taken from the word"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "pips",
+           "gives": "PP",
+           "select": "alternate",
+           "note": "the first and third letters of pips"
+          }
+         ]
+        },
+        {
+         "words": "drink",
+         "gives": "LE",
+         "note": "the rest of the beer word closes around the inserted letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -229,38 +217,29 @@
    },
    "solution": "MARSALA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARSALA",
     "definitions": [
      {
       "text": "Wine",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "spoils",
-      "gives": "MARS",
-      "note": "to mar is to spoil"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "city",
-      "gives": "LA",
-      "note": "LA is Los Angeles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARS",
-      "A",
-      "LA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spoils",
+       "gives": "MARS",
+       "note": "to mar is to spoil"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "city",
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      }
      ]
     },
     "explanation": {
@@ -288,53 +267,51 @@
    },
    "solution": "MISSED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MISSED",
     "definitions": [
      {
       "text": "Avoided",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the preceding items inside the following one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the sea",
-      "gives": "ME",
-      "note": "the Med, the Mediterranean, opens around the inserted letters"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "ship",
-      "gives": "SS",
-      "note": "SS stands for steamship"
-     },
-     {
-      "clueFragment": "the sea",
-      "gives": "D",
-      "note": "last letter of the Med word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "I",
-      "SS",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the preceding items inside the following one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the sea",
+         "gives": "ME",
+         "note": "the Med, the Mediterranean, opens around the inserted letters"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral one"
+          },
+          {
+           "words": "ship",
+           "gives": "SS",
+           "note": "SS stands for steamship"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "the sea",
+       "gives": "D",
+       "note": "last letter of the Med word"
+      }
      ]
     },
     "explanation": {
@@ -363,30 +340,28 @@
    },
    "solution": "INGRES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INGRES",
     "definitions": [
      {
       "text": "artist",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "A bit of",
-      "for": "hidden_word",
-      "note": "a bit of means only a piece of the following words is used, a run of consecutive letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painting restores",
-      "gives": "INGRES",
-      "note": "found across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "A bit of",
+       "note": "a bit of means only a piece of the following words is used, a run of consecutive letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "painting restores",
+       "gives": "INGRES",
+       "note": "found across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Restoring part of a picture brings back the painter's work.",
      "definitionFit": "Jean-Auguste-Dominique Ingres was a nineteenth-century French neoclassical painter."
@@ -412,55 +387,53 @@
    },
    "solution": "SENTIMENT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SENTIMENT",
     "definitions": [
      {
       "text": "opinion",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Prime",
-      "for": "letter_selection",
-      "note": "prime means first, so only the leading letter of the next word is used"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so one word surrounds the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aware",
-      "gives": "SENTI",
-      "note": "sentient means aware; its first part opens around the insertion"
-     },
-     {
-      "clueFragment": "Minister",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of Minister"
-     },
-     {
-      "clueFragment": "Aware",
-      "gives": "ENT",
-      "note": "the rest of the word for aware"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SENTI",
-      "M",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SENTIMENT",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so one word surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Aware",
+         "gives": "SENTI",
+         "note": "sentient means aware; its first part opens around the insertion"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Prime",
+           "note": "prime means first, so only the leading letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Minister",
+           "note": "the first letter of Minister"
+          }
+         ]
+        },
+        {
+         "words": "Aware",
+         "gives": "ENT",
+         "note": "the rest of the word for aware"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -489,52 +462,53 @@
    },
    "solution": "DESISTS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DESISTS",
     "definitions": [
      {
       "text": "Stops",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "final means only the last letter of the next word is taken"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means one word grips another inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "believers",
-      "gives": "DE",
-      "note": "deists are believers in a creator God; the first part opens around the insertion"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of mass"
-     },
-     {
-      "clueFragment": "believers",
-      "gives": "ISTS",
-      "note": "the rest of the word for believers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "S",
-      "ISTS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DESISTS",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "holding means one word grips another inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "believers",
+         "gives": "DE",
+         "note": "deists are believers in a creator God; the first part opens around the insertion"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "final",
+           "note": "final means only the last letter of the next word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mass",
+           "note": "the last letter of mass"
+          }
+         ]
+        },
+        {
+         "words": "believers",
+         "gives": "ISTS",
+         "note": "the rest of the word for believers"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -569,35 +543,25 @@
    },
    "solution": "GOINGCOMMANDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOING COMMANDO",
     "definitions": [
      {
       "text": "unbriefed",
       "at": 33
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "State of the ground",
-      "gives": "GOING",
-      "note": "in horse racing the going is the condition of the turf, such as good or soft"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "COMMANDO",
-      "note": "a commando is a soldier in an elite raiding unit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOING",
-      "COMMANDO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "State of the ground",
+       "gives": "GOING",
+       "note": "in horse racing the going is the condition of the turf, such as good or soft"
+      },
+      {
+       "words": "soldier",
+       "gives": "COMMANDO",
+       "note": "a commando is a soldier in an elite raiding unit"
+      }
      ]
     },
     "explanation": {
@@ -627,35 +591,25 @@
    },
    "solution": "CLAP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLAP",
     "definitions": [
      {
       "text": "cheer",
       "at": 20
      }
     ],
-    "linkWords": [
-     "produces"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cold",
-      "gives": "C",
-      "note": "C for cold, as on a tap"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "LAP",
-      "note": "to lap is to drink as a cat does"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LAP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cold",
+       "gives": "C",
+       "note": "C for cold, as on a tap"
+      },
+      {
+       "words": "drink",
+       "gives": "LAP",
+       "note": "to lap is to drink as a cat does"
+      }
      ]
     },
     "explanation": {
@@ -683,35 +637,24 @@
    },
    "solution": "REORGANISE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REORGANISE",
     "definitions": [
      {
       "text": "Reassemble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ruined",
-      "for": "anagram",
-      "note": "something ruined is wrecked, so its letters lie in a new disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "orangeries",
-      "gives": "ORANGERIES",
-      "note": "taken as written, ten letters to shuffle"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORANGERIES",
-       "gives": "REORGANISE"
+       "text": "ruined",
+       "note": "something ruined is wrecked, so its letters lie in a new disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "orangeries",
+       "note": "taken as written, ten letters to shuffle"
       }
      ]
     },
@@ -741,49 +684,43 @@
    },
    "solution": "CAMERA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CAMERA",
     "definitions": [
      {
       "text": "snapper",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about here means placed around, so the earlier words surround the next item"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Arrived",
-      "gives": "CAME",
-      "note": "came means arrived"
-     },
-     {
-      "clueFragment": "recipe",
-      "gives": "R",
-      "note": "R is the abbreviation for recipe, from Latin, seen on prescriptions"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAME",
-      "R",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CAMERA",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about here means placed around, so the earlier words surround the next item"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Arrived",
+         "gives": "CAME",
+         "note": "came means arrived"
+        },
+        {
+         "words": "recipe",
+         "gives": "R",
+         "note": "R is the abbreviation for recipe, from Latin, seen on prescriptions"
+        },
+        {
+         "words": "article",
+         "gives": "A",
+         "note": "the indefinite article"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -813,45 +750,43 @@
    },
    "solution": "NEEDIEST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NEEDIEST",
     "definitions": [
      {
       "text": "requiring most attention",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "enters",
-      "for": "container",
-      "note": "something that enters goes inside, so one word sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "home",
-      "gives": "NE",
-      "note": "a nest is a home; its first part opens around the insertion"
-     },
-     {
-      "clueFragment": "Woman",
-      "gives": "EDIE",
-      "note": "Edie is a woman's name"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "ST",
-      "note": "the rest of the word for home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NE",
-      "EDIE",
-      "ST"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NEEDIEST",
+     "indicators": [
+      {
+       "text": "enters",
+       "note": "something that enters goes inside, so one word sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "home",
+         "gives": "NE",
+         "note": "a nest is a home; its first part opens around the insertion"
+        },
+        {
+         "words": "Woman",
+         "gives": "EDIE",
+         "note": "Edie is a woman's name"
+        },
+        {
+         "words": "home",
+         "gives": "ST",
+         "note": "the rest of the word for home"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -880,45 +815,35 @@
    },
    "solution": "PERCHANCE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PERCHANCE",
     "definitions": [
      {
       "text": "Maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "returns means goes back the way it came, so the word runs from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salesman",
-      "gives": "REP",
-      "note": "a rep is a sales representative"
-     },
-     {
-      "clueFragment": "fortune",
-      "gives": "CHANCE",
-      "note": "chance means luck or fortune"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "CHANCE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "REP",
-       "to": "PER"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "returns means goes back the way it came, so the word runs from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salesman",
+         "gives": "REP",
+         "note": "a rep is a sales representative"
+        }
+       ]
+      },
+      {
+       "words": "fortune",
+       "gives": "CHANCE",
+       "note": "chance means luck or fortune"
       }
      ]
     },
@@ -947,45 +872,43 @@
    },
    "solution": "CORPOREAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CORPOREAL",
     "definitions": [
      {
       "text": "material",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first item inside the following one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pink",
-      "gives": "COR",
-      "note": "coral is a pinkish colour; its first part opens around the insertion"
-     },
-     {
-      "clueFragment": "Hole",
-      "gives": "PORE",
-      "note": "a pore is a tiny hole, as in skin"
-     },
-     {
-      "clueFragment": "pink",
-      "gives": "AL",
-      "note": "the rest of the colour word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "PORE",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CORPOREAL",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first item inside the following one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pink",
+         "gives": "COR",
+         "note": "coral is a pinkish colour; its first part opens around the insertion"
+        },
+        {
+         "words": "Hole",
+         "gives": "PORE",
+         "note": "a pore is a tiny hole, as in skin"
+        },
+        {
+         "words": "pink",
+         "gives": "AL",
+         "note": "the rest of the colour word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1014,28 +937,16 @@
    },
    "solution": "TEES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TEES",
     "definitions": [
      {
       "text": "Supporters",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: golf pegs that hold up the ball"
      },
      {
       "text": "running through Middlesbrough",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Supporters",
-      "note": "first meaning: golf pegs that hold up the ball"
-     },
-     {
-      "clueFragment": "running through Middlesbrough",
-      "note": "second meaning: the river that flows through that town in north-east England"
+      "at": 11,
+      "meaning": "second meaning: the river that flows through that town in north-east England"
      }
     ],
     "explanation": {
@@ -1064,48 +975,43 @@
    },
    "solution": "CORD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CORD",
     "definitions": [
      {
       "text": "line",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounding",
-      "for": "container",
-      "note": "surrounding means enclosing, so one word wraps around the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fish",
-      "gives": "CO",
-      "note": "a cod is a fish; its first part opens around the insertion"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R for river, as on maps"
-     },
-     {
-      "clueFragment": "Fish",
-      "gives": "D",
-      "note": "the end of the fish word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "R",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CORD",
+     "indicators": [
+      {
+       "text": "surrounding",
+       "note": "surrounding means enclosing, so one word wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fish",
+         "gives": "CO",
+         "note": "a cod is a fish; its first part opens around the insertion"
+        },
+        {
+         "words": "river",
+         "gives": "R",
+         "note": "R for river, as on maps"
+        },
+        {
+         "words": "Fish",
+         "gives": "D",
+         "note": "the end of the fish word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1134,28 +1040,16 @@
    },
    "solution": "CONTEND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CONTEND",
     "definitions": [
      {
       "text": "Declare",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to assert or maintain"
      },
      {
       "text": "war",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Declare",
-      "note": "first meaning: to assert or maintain"
-     },
-     {
-      "clueFragment": "war",
-      "note": "second meaning: to struggle or fight"
+      "at": 8,
+      "meaning": "second meaning: to struggle or fight"
      }
     ],
     "explanation": {
@@ -1184,48 +1078,37 @@
    },
    "solution": "AMPLITUDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMPLITUDE",
     "definitions": [
      {
       "text": "Width",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests something put out of order, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "medal",
-      "gives": "MEDAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "put",
-      "gives": "PUT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MEDALIPUT",
-       "gives": "AMPLITUDE"
+       "text": "out",
+       "note": "out suggests something put out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "medal",
+         "note": "taken as written"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "put",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1254,26 +1137,25 @@
    },
    "solution": "LOCKMAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LOCKMAN",
     "definitions": [
      {
       "text": "Bank worker with hairpiece",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bank worker",
-      "note": "surface reading: a bank clerk wearing a toupee"
-     },
-     {
-      "clueFragment": "with hairpiece",
-      "note": "setter's reading: one working on a canal or river bank, and literally a man with a lock of hair"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bank worker",
+       "note": "surface reading: a bank clerk wearing a toupee"
+      },
+      {
+       "words": "with hairpiece",
+       "note": "setter's reading: one working on a canal or river bank, and literally a man with a lock of hair"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Bank' suggests a financial bank but means a riverbank by a lock; a lock is also a curl of hair.",
      "definitionFit": "A lockman is a lock-keeper, who works the gates of a canal lock beside its bank."
@@ -1300,48 +1182,34 @@
    },
    "solution": "DECORUM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DECORUM",
     "definitions": [
      {
       "text": "protocol",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Break",
-      "for": "anagram",
-      "note": "to break something is to smash it apart, so its letters fall into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "code",
-      "gives": "CODE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "unusual",
-      "gives": "RUM",
-      "note": "rum is British slang for odd or strange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECO",
-      "RUM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CODE",
-       "gives": "DECO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Break",
+         "note": "to break something is to smash it apart, so its letters fall into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "code",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "unusual",
+       "gives": "RUM",
+       "note": "rum is British slang for odd or strange"
       }
      ]
     },
@@ -1370,26 +1238,25 @@
    },
    "solution": "SNEEZE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SNEEZE",
     "definitions": [
      {
       "text": "You might be blessed after this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "blessed",
-      "note": "surface reading: receiving a religious blessing after some act"
-     },
-     {
-      "clueFragment": "You might be blessed after this",
-      "note": "setter's reading: people say 'bless you' after an involuntary nasal outburst"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "blessed",
+       "note": "surface reading: receiving a religious blessing after some act"
+      },
+      {
+       "words": "You might be blessed after this",
+       "note": "setter's reading: people say 'bless you' after an involuntary nasal outburst"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The church sense of 'blessed' leads toward a ritual, but it is the everyday 'bless you'.",
      "definitionFit": "Saying 'bless you' is the customary response when someone expels air suddenly through the nose."
@@ -1416,26 +1283,25 @@
    },
    "solution": "INSOMNIA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "INSOMNIA",
     "definitions": [
      {
       "text": "It's hard to fall off with this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "fall off",
-      "note": "surface reading: tumbling from a horse or bicycle"
-     },
-     {
-      "clueFragment": "It's hard to fall off with this",
-      "note": "setter's reading: to fall off means to drop off to sleep, which this condition prevents"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "fall off",
+       "note": "surface reading: tumbling from a horse or bicycle"
+      },
+      {
+       "words": "It's hard to fall off with this",
+       "note": "setter's reading: to fall off means to drop off to sleep, which this condition prevents"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Fall off' suggests a physical tumble, but here it is 'drop off' to sleep.",
      "definitionFit": "Insomnia is chronic sleeplessness, which makes nodding off difficult."
@@ -1462,28 +1328,16 @@
    },
    "solution": "CHOICE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHOICE",
     "definitions": [
      {
       "text": "Hand-picked",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: specially selected"
      },
      {
       "text": "plum",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hand-picked",
-      "note": "first meaning: specially selected"
-     },
-     {
-      "clueFragment": "plum",
-      "note": "second meaning: excellent, desirable, as in a plum job"
+      "at": 12,
+      "meaning": "second meaning: excellent, desirable, as in a plum job"
      }
     ],
     "explanation": {
@@ -1512,33 +1366,29 @@
    },
    "solution": "OTHER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OTHER",
     "definitions": [
      {
       "text": "Unlike",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to lose head",
-      "for": "deletion",
-      "note": "losing its head means the word's first letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nurse",
-      "gives": "MOTHER",
-      "note": "to mother is to nurse or care for"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTHER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to lose head",
+       "note": "losing its head means the word's first letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse",
+       "gives": "MOTHER",
+       "note": "to mother is to nurse or care for"
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1566,43 +1416,33 @@
    },
    "solution": "REFERENDUM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REFERENDUM",
     "definitions": [
      {
       "text": "Vote",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "a change alters the arrangement, so the letters are put into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "refund",
-      "gives": "REFUND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mere",
-      "gives": "MERE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REFUNDMERE",
-       "gives": "REFERENDUM"
+       "text": "change",
+       "note": "a change alters the arrangement, so the letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "refund",
+         "note": "taken as written"
+        },
+        {
+         "words": "mere",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1631,35 +1471,25 @@
    },
    "solution": "HERE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HERE",
     "definitions": [
      {
       "text": "Present",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lady",
-      "gives": "HER",
-      "note": "her is a pronoun for a lady"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "E",
-      "note": "E is a musical note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HER",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lady",
+       "gives": "HER",
+       "note": "her is a pronoun for a lady"
+      },
+      {
+       "words": "note",
+       "gives": "E",
+       "note": "E is a musical note"
+      }
      ]
     },
     "explanation": {
@@ -1687,45 +1517,34 @@
    },
    "solution": "DOLMEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DOLMEN",
     "definitions": [
      {
       "text": "buried here?",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "fashioned",
-      "for": "anagram",
-      "note": "fashioned means shaped or made, so the letters are reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "OLD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "MEN",
-      "note": "men are people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOL",
-      "MEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OLD",
-       "gives": "DOL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fashioned",
+         "note": "fashioned means shaped or made, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "people",
+       "gives": "MEN",
+       "note": "men are people"
       }
      ]
     },
@@ -1755,41 +1574,29 @@
    },
    "solution": "ANTRIM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTRIM",
     "definitions": [
      {
       "text": "the county",
       "at": 15
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N for new"
-     },
-     {
-      "clueFragment": "dock",
-      "gives": "TRIM",
-      "note": "to dock a tail is to trim it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "TRIM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N for new"
+      },
+      {
+       "words": "dock",
+       "gives": "TRIM",
+       "note": "to dock a tail is to trim it"
+      }
      ]
     },
     "explanation": {

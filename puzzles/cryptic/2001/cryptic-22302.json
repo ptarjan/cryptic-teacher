@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22302",
  "number": 22302,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,302",
  "setter": "Auster",
  "date": "2001-08-31",
  "dimensions": {
@@ -38,48 +36,34 @@
    },
    "solution": "GRANITES",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "GRANITES",
     "definitions": [
      {
       "text": "these rocks",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "ransacked",
-      "for": "anagram",
-      "note": "a ransacked place is turned upside down, so the word after it is jumbled"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nana",
-      "gives": "GRAN",
-      "note": "nana and gran are both pet names for a grandmother"
-     },
-     {
-      "clueFragment": "site",
-      "gives": "SITE",
-      "note": "taken as written, then jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAN",
-      "ITES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SITE",
-       "gives": "ITES"
+       "words": "Nana",
+       "gives": "GRAN",
+       "note": "nana and gran are both pet names for a grandmother"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ransacked",
+         "note": "a ransacked place is turned upside down, so the word after it is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "site",
+         "note": "taken as written, then jumbled"
+        }
+       ]
       }
      ]
     },
@@ -108,41 +92,40 @@
    },
    "solution": "GLANCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GLANCE",
     "definitions": [
      {
       "text": "Look",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to the heart of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its inside, so only the letters away from its edges are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "England's",
-      "gives": "GLAN",
-      "select": "middle",
-      "note": "the inner letters of the country's name, with EN and D trimmed off"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLAN",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "GLAN",
+       "indicators": [
+        {
+         "text": "to the heart of",
+         "note": "the heart of a word is its inside, so only the letters away from its edges are used"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "England's",
+         "gives": "GLAN",
+         "select": "middle",
+         "note": "the inner letters of the country's name, with EN and D trimmed off"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -171,51 +154,39 @@
    },
    "solution": "ANSWER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ANSWER",
     "definitions": [
      {
       "text": "result",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "to back up",
-      "for": "reversal",
-      "note": "in a down entry, backing up means reading upward, so the short word is written in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "state",
-      "gives": "NSW",
-      "note": "New South Wales, an Australian state"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning or about"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NSW",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RE",
-       "to": "ER"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "state",
+       "gives": "NSW",
+       "note": "New South Wales, an Australian state"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to back up",
+         "note": "in a down entry, backing up means reading upward, so the short word is written in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re means concerning or about"
+        }
+       ]
       }
      ]
     },
@@ -244,31 +215,16 @@
    },
    "solution": "INTAKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INTAKE",
     "definitions": [
      {
       "text": "What's eaten",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the amount of food consumed"
      },
      {
       "text": "new recruits",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's eaten",
-      "note": "first meaning: the amount of food consumed"
-     },
-     {
-      "clueFragment": "new recruits",
-      "note": "second meaning: the batch of people taken on at one time"
+      "at": 16,
+      "meaning": "second meaning: the batch of people taken on at one time"
      }
     ],
     "explanation": {
@@ -297,40 +253,39 @@
    },
    "solution": "EXASPERATE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "EXASPERATE",
     "definitions": [
      {
       "text": "needle",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "soundly",
-      "for": "homophone",
-      "note": "soundly here means by sound, so we want a spelling that is only heard like the word for breathe"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "late",
-      "gives": "EX",
-      "note": "ex means former, as in a late or past holder of a post"
-     },
-     {
-      "clueFragment": "Breathe",
-      "gives": "ASPERATE",
-      "soundsLike": "ASPIRATE",
-      "note": "to aspirate is to pronounce with an audible breath"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "late",
+       "gives": "EX",
+       "note": "ex means former, as in a late or past holder of a post"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ASPERATE",
+       "indicators": [
+        {
+         "text": "soundly",
+         "note": "soundly here means by sound, so we want a spelling that is only heard like the word for breathe"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Breathe",
+         "gives": "ASPIRATE",
+         "note": "to aspirate is to pronounce with an audible breath"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice to breathe deeply after a late injection.",
      "walkthrough": "The wordplay is read in reverse order: 'after late' puts EX first. The breathing word only sounds like the ending; its spelling changes the I to E.",
@@ -358,28 +313,16 @@
    },
    "solution": "CLOSET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLOSET",
     "definitions": [
      {
       "text": "Secret",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: hidden, not admitted openly"
      },
      {
       "text": "cupboard",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Secret",
-      "note": "first meaning: hidden, not admitted openly"
-     },
-     {
-      "clueFragment": "cupboard",
-      "note": "second meaning: a small storage room or wardrobe"
+      "at": 7,
+      "meaning": "second meaning: a small storage room or wardrobe"
      }
     ],
     "explanation": {
@@ -407,32 +350,25 @@
    },
    "solution": "LONGHAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LONGHAIR",
     "definitions": [
      {
       "text": "A feature of \"Samson\"",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "more than average",
-      "gives": "LONG",
-      "note": "long means greater than usual in length"
-     },
-     {
-      "clueFragment": "musical",
-      "gives": "HAIR",
-      "note": "Hair is the 1960s rock musical"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LONG",
-      "HAIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "more than average",
+       "gives": "LONG",
+       "note": "long means greater than usual in length"
+      },
+      {
+       "words": "musical",
+       "gives": "HAIR",
+       "note": "Hair is the 1960s rock musical"
+      }
      ]
     },
     "explanation": {
@@ -462,48 +398,34 @@
    },
    "solution": "SKILLETS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SKILLETS",
     "definitions": [
      {
       "text": "long-handled pots",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "set out suggests the word is laid out afresh, so its letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "to design"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Art",
-      "gives": "SKILL",
-      "note": "art in the sense of craft or expertise"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKILL",
-      "ETS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SET",
-       "gives": "ETS"
+       "words": "Art",
+       "gives": "SKILL",
+       "note": "art in the sense of craft or expertise"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "set out suggests the word is laid out afresh, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -532,39 +454,29 @@
    },
    "solution": "TANGIERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "TANGIERS",
     "definitions": [
      {
       "text": "Where 1 across and 27 can be found mixed in Africa",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "mixed means stirred together, so the letters of the cross-referenced answers are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1 across",
-      "gives": "GRANITES",
-      "note": "the answer to 1 across; 27 across has the same letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GRANITES",
-       "gives": "TANGIERS"
+       "text": "mixed",
+       "note": "mixed means stirred together, so the letters of the cross-referenced answers are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "1 across",
+       "gives": "GRANITES",
+       "note": "the answer to 1 across; 27 across has the same letters"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A geology question: where in Africa would you find rocks and fury all stirred together?",
      "walkthrough": "Both GRANITES and ANGRIEST rearrange to TANGIERS, so the whole clue describes the place where those letters are found jumbled.",
@@ -591,56 +503,56 @@
    },
    "solution": "ALSATIAN",
    "annotation": {
-    "type": [
-     "homophone",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ALSATIAN",
     "definitions": [
      {
       "text": "the dog",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken, so the phrase is replaced by letters that sound the same"
-     },
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "leaving means departing, so those letters go out of the word"
-     },
-     {
-      "text": "Transferred",
-      "for": "anagram",
-      "note": "transferred suggests moving things around, so the remaining letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australian",
-      "gives": "AUSTRALIAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "you are",
-      "gives": "UR",
-      "soundsLike": "YOU ARE",
-      "note": "the two letters U and R pronounced together give the phrase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALSATIAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALSATIAN",
+     "indicators": [
       {
-       "fodder": "ASTALIAN",
-       "gives": "ALSATIAN"
+       "text": "Transferred",
+       "note": "transferred suggests moving things around, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "ALSATIAN",
+       "indicators": [
+        {
+         "text": "to leave",
+         "note": "leaving means departing, so those letters go out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Australian",
+         "note": "taken as written"
+        },
+        {
+         "op": "homophone",
+         "spelt": "UR",
+         "indicators": [
+          {
+           "text": "said",
+           "note": "said means spoken, so the phrase is replaced by letters that sound the same"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you are",
+           "gives": "YOUARE",
+           "note": "the two letters U and R pronounced together give the phrase"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -670,32 +582,25 @@
    },
    "solution": "ENSIGN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENSIGN",
     "definitions": [
      {
       "text": "the flag",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A measure",
-      "gives": "EN",
-      "note": "an en is a printer's measure of width"
-     },
-     {
-      "clueFragment": "to endorse",
-      "gives": "SIGN",
-      "note": "to sign a document is to endorse it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "SIGN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A measure",
+       "gives": "EN",
+       "note": "an en is a printer's measure of width"
+      },
+      {
+       "words": "to endorse",
+       "gives": "SIGN",
+       "note": "to sign a document is to endorse it"
+      }
      ]
     },
     "explanation": {
@@ -730,43 +635,31 @@
    },
    "solution": "CHECKUPS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHECK-UPS",
     "definitions": [
      {
       "text": "Investigations",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means surrounding, so one word is placed outside the other"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small squares",
-      "gives": "CHECKS",
-      "note": "a check is a chequered pattern of small squares"
-     },
-     {
-      "clueFragment": "the rise",
-      "gives": "UP",
-      "note": "up as in an upward movement or rise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHECK",
-      "UP",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "around means surrounding, so one word is placed outside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small squares",
+       "gives": "CHECKS",
+       "note": "a check is a chequered pattern of small squares"
+      },
+      {
+       "words": "the rise",
+       "gives": "UP",
+       "note": "up as in an upward movement or rise"
+      }
      ]
     },
     "explanation": {
@@ -794,35 +687,25 @@
    },
    "solution": "CHILLI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHILLI",
     "definitions": [
      {
       "text": "Something hot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cool",
-      "gives": "CHILL",
-      "note": "to chill is to make cold"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHILL",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cool",
+       "gives": "CHILL",
+       "note": "to chill is to make cold"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -858,35 +741,25 @@
    },
    "solution": "SPONGEDOWN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPONGE DOWN",
     "definitions": [
      {
       "text": "wipe clean",
       "at": 22
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrounge",
-      "gives": "SPONGE",
-      "note": "to sponge is to live off others"
-     },
-     {
-      "clueFragment": "feathers",
-      "gives": "DOWN",
-      "note": "down is the soft fine plumage of birds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPONGE",
-      "DOWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scrounge",
+       "gives": "SPONGE",
+       "note": "to sponge is to live off others"
+      },
+      {
+       "words": "feathers",
+       "gives": "DOWN",
+       "note": "down is the soft fine plumage of birds"
+      }
      ]
     },
     "explanation": {
@@ -914,43 +787,33 @@
    },
    "solution": "PROPRIETOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PROPRIETOR",
     "definitions": [
      {
       "text": "Titleholder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to change",
-      "for": "anagram",
-      "note": "a change of order means the letters before it are rearranged"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perot",
-      "gives": "PEROT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "prior",
-      "gives": "PRIOR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PEROTPRIOR",
-       "gives": "PROPRIETOR"
+       "text": "to change",
+       "note": "a change of order means the letters before it are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Perot",
+         "note": "taken as written"
+        },
+        {
+         "words": "prior",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -979,35 +842,25 @@
    },
    "solution": "INGRATES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INGRATES",
     "definitions": [
      {
       "text": "A thankless lot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly from",
-      "for": "anagram",
-      "note": "possibly signals one of several ways of arranging, so the letters of the referenced answer are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "8",
-      "gives": "TANGIERS",
-      "note": "the answer to 8 down"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TANGIERS",
-       "gives": "INGRATES"
+       "text": "possibly from",
+       "note": "possibly signals one of several ways of arranging, so the letters of the referenced answer are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "8",
+       "gives": "TANGIERS",
+       "note": "the answer to 8 down"
       }
      ]
     },
@@ -1035,41 +888,30 @@
    },
    "solution": "WINDFALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WINDFALL",
     "definitions": [
      {
       "text": "an unexpected bonus",
       "at": 23
      }
     ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pick up",
-      "gives": "WIN",
-      "note": "to pick up a prize is to win it"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "D is the Roman numeral for 500"
-     },
-     {
-      "clueFragment": "drop",
-      "gives": "FALL",
-      "note": "a fall is a drop"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIN",
-      "D",
-      "FALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pick up",
+       "gives": "WIN",
+       "note": "to pick up a prize is to win it"
+      },
+      {
+       "words": "500",
+       "gives": "D",
+       "note": "D is the Roman numeral for 500"
+      },
+      {
+       "words": "drop",
+       "gives": "FALL",
+       "note": "a fall is a drop"
+      }
      ]
     },
     "explanation": {
@@ -1097,56 +939,47 @@
    },
    "solution": "ABRASION",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ABRASION",
     "definitions": [
      {
       "text": "wound",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "replaced",
-      "for": "anagram",
-      "note": "replaced means put back in a different place, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "BRA",
-      "note": "a brassiere is a supporting undergarment"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BRA",
-      "SION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ISON",
-       "gives": "SION"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "replaced",
+         "note": "replaced means put back in a different place, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "support",
+           "gives": "BRA",
+           "note": "a brassiere is a supporting undergarment"
+          },
+          {
+           "words": "is",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "on",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1182,40 +1015,31 @@
    },
    "solution": "NAILBITING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NAIL-BITING",
     "definitions": [
      {
       "text": "exciting",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "outside means placed around, so one word encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hammering",
-      "gives": "NAILING",
-      "note": "nailing is hammering in nails"
-     },
-     {
-      "clueFragment": "a little",
-      "gives": "BIT",
-      "note": "a bit is a small amount"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAIL",
-      "BIT",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "outside means placed around, so one word encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hammering",
+       "gives": "NAILING",
+       "note": "nailing is hammering in nails"
+      },
+      {
+       "words": "a little",
+       "gives": "BIT",
+       "note": "a bit is a small amount"
+      }
      ]
     },
     "explanation": {
@@ -1243,50 +1067,37 @@
    },
    "solution": "EASIER",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "EASIER",
     "definitions": [
      {
       "text": "less complicated",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "should replace",
-      "for": "substitution",
-      "note": "replacing means one thing takes another's place within the word"
-     }
-    ],
-    "linkWords": [
-     "It's",
-     "if",
-     "during"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the feast",
-      "gives": "EASTER",
-      "note": "the Christian spring festival"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "T",
-      "note": "the Model T Ford"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EAS",
-      "I",
-      "ER"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "EASIER",
+     "indicators": [
+      {
+       "text": "should replace",
+       "note": "replacing means one thing takes another's place within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the feast",
+       "gives": "EASTER",
+       "note": "the Christian spring festival"
+      },
+      {
+       "words": "model",
+       "gives": "T",
+       "note": "the Model T Ford"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1315,43 +1126,33 @@
    },
    "solution": "GYRATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GYRATE",
     "definitions": [
      {
       "text": "turn",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "to twist",
-      "for": "anagram",
-      "note": "twisting distorts something, so the preceding letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get",
-      "gives": "GET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Ray",
-      "gives": "RAY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GETRAY",
-       "gives": "GYRATE"
+       "text": "to twist",
+       "note": "twisting distorts something, so the preceding letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Get",
+         "note": "taken as written"
+        },
+        {
+         "words": "Ray",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1380,39 +1181,31 @@
    },
    "solution": "DECENT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DECENT",
     "definitions": [
      {
       "text": "Acceptable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "though missing",
-      "for": "deletion",
-      "note": "missing means lacking, so one letter is taken out of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drop",
-      "gives": "DESCENT",
-      "note": "a descent is a drop or downward slope"
-     },
-     {
-      "clueFragment": "the point",
-      "gives": "S",
-      "note": "S, south, is a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "CENT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "though missing",
+       "note": "missing means lacking, so one letter is taken out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drop",
+       "gives": "DESCENT",
+       "note": "a descent is a drop or downward slope"
+      },
+      {
+       "words": "the point",
+       "gives": "S",
+       "note": "S, south, is a compass point"
+      }
      ]
     },
     "explanation": {
@@ -1441,31 +1234,16 @@
    },
    "solution": "REDRAW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "REDRAW",
     "definitions": [
      {
       "text": "To portray it again",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to draw something a second time"
      },
      {
       "text": "painful",
-      "at": 28
-     }
-    ],
-    "linkWords": [
-     "appears"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "To portray it again",
-      "note": "first meaning: to draw something a second time"
-     },
-     {
-      "clueFragment": "painful",
-      "note": "second meaning, split into two words"
+      "at": 28,
+      "meaning": "second meaning, split into two words"
      }
     ],
     "explanation": {
@@ -1495,51 +1273,43 @@
    },
    "solution": "MEGABYTE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "MEGABYTE",
     "definitions": [
      {
       "text": "Lots of little bits",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spoilt",
-      "for": "anagram",
-      "note": "something spoilt is damaged, so the next word is broken up and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "GAME",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "BY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Lawrence",
-      "gives": "TE",
-      "note": "T. E. Lawrence, Lawrence of Arabia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEGA",
-      "BY",
-      "TE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GAME",
-       "gives": "MEGA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoilt",
+         "note": "something spoilt is damaged, so the next word is broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "game",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "by",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Lawrence",
+       "gives": "TE",
+       "note": "T. E. Lawrence, Lawrence of Arabia"
       }
      ]
     },
@@ -1569,54 +1339,41 @@
    },
    "solution": "TRAGIC",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TRAGIC",
     "definitions": [
      {
       "text": "dreadful",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "backs",
-      "for": "reversal",
-      "note": "backing up means going in reverse, so the vehicle word is read backwards"
-     },
-     {
-      "text": "over",
-      "for": "container",
-      "note": "over means covering, so the vehicle word goes around the soldier"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vehicle",
-      "gives": "CART",
-      "note": "a cart is a wheeled vehicle"
-     },
-     {
-      "clueFragment": "soldier",
-      "gives": "GI",
-      "note": "GI is an American soldier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRA",
-      "GI",
-      "C"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "CART",
-       "to": "TRAC"
+       "text": "over",
+       "note": "over means covering, so the vehicle word goes around the soldier"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backs",
+         "note": "backing up means going in reverse, so the vehicle word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vehicle",
+         "gives": "CART",
+         "note": "a cart is a wheeled vehicle"
+        }
+       ]
+      },
+      {
+       "words": "soldier",
+       "gives": "GI",
+       "note": "GI is an American soldier"
       }
      ]
     },
@@ -1645,38 +1402,29 @@
    },
    "solution": "COGITATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COGITATE",
     "definitions": [
      {
       "text": "think about it",
       "at": 53
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Low-ranking member of organisation",
-      "gives": "COG",
-      "note": "a small cog in a big machine is an unimportant member"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "knocked back",
-      "gives": "ATE",
-      "note": "to knock back food or drink is to consume it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COG",
-      "IT",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Low-ranking member of organisation",
+       "gives": "COG",
+       "note": "a small cog in a big machine is an unimportant member"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      },
+      {
+       "words": "knocked back",
+       "gives": "ATE",
+       "note": "to knock back food or drink is to consume it"
+      }
      ]
     },
     "explanation": {
@@ -1705,38 +1453,24 @@
    },
    "solution": "SILENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SILENT",
     "definitions": [
      {
       "text": "without a sound",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "anyhow",
-      "for": "anagram",
-      "note": "anyhow means in a careless or random way, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Listen",
-      "gives": "LISTEN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LISTEN",
-       "gives": "SILENT"
+       "text": "anyhow",
+       "note": "anyhow means in a careless or random way, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Listen",
+       "note": "taken as written"
       }
      ]
     },
@@ -1765,38 +1499,25 @@
    },
    "solution": "ANGRIEST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANGRIEST",
     "definitions": [
      {
       "text": "Most irate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is misplaced",
-      "for": "anagram",
-      "note": "misplaced means put in the wrong position, so the referenced answer's letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1",
-      "gives": "GRANITES",
-      "note": "the answer to 1 across"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GRANITES",
-       "gives": "ANGRIEST"
+       "text": "is misplaced",
+       "note": "misplaced means put in the wrong position, so the referenced answer's letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "1",
+       "gives": "GRANITES",
+       "note": "the answer to 1 across"
       }
      ]
     },

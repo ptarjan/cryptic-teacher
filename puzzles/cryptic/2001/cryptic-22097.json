@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22097",
  "number": 22097,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,097",
  "setter": "Rover",
  "date": "2001-01-04",
  "dimensions": {
@@ -69,30 +67,28 @@
    },
    "solution": "SAMPLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SAMPLE",
     "definitions": [
      {
       "text": "Try this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "product",
-      "for": "hidden_word",
-      "note": "a product is what something yields, so the run of letters is produced by the two words written together"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this Ampleforth",
-      "gives": "SAMPLE",
-      "note": "the last letter of the first word runs on into the start of the school's name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "product",
+       "note": "a product is what something yields, so the run of letters is produced by the two words written together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this Ampleforth",
+       "gives": "SAMPLE",
+       "note": "the last letter of the first word runs on into the start of the school's name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An advert inviting you to taste something made at Ampleforth, the Yorkshire monastery and school.",
      "walkthrough": "Ampleforth is a Benedictine abbey and boarding school in Yorkshire; the monks really do sell their produce, which makes the surface convincing.",
@@ -119,10 +115,6 @@
    },
    "solution": "AUNT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AUNT",
     "definitions": [
      {
       "text": "Fair Sally's",
@@ -130,20 +122,22 @@
       "note": "the clue gives the first half of the fairground name Aunt Sally; the answer is the word that precedes Sally"
      }
     ],
-    "indicators": [
-     {
-      "text": "seated in",
-      "for": "hidden_word",
-      "note": "something seated in a vehicle is carried inside it, so the letters sit within the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jaunting-car",
-      "gives": "AUNT",
-      "note": "the letters sit inside the first part of this Irish cart's name"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "seated in",
+       "note": "something seated in a vehicle is carried inside it, so the letters sit within the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jaunting-car",
+       "gives": "AUNT",
+       "note": "the letters sit inside the first part of this Irish cart's name"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A girl called Sally, pretty and fair, rides in an Irish jaunting-car.",
      "walkthrough": "An Aunt Sally is a fairground game in which you throw sticks at a dummy's head, so the fair's Sally is the aunt. A jaunting-car is a light two-wheeled Irish horse cart.",
@@ -171,52 +165,48 @@
    },
    "solution": "PRESBYTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "PRESBYTER",
     "definitions": [
      {
       "text": "Church elder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "a confused person has things muddled, so the letters lose their order"
-     },
-     {
-      "text": "introduction of",
-      "for": "letter_selection",
-      "note": "an introduction comes at the start, so only the opening letter of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "by",
-      "gives": "BY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Peter's",
-      "gives": "PETERS",
-      "note": "taken as written, the apostrophe ignored"
-     },
-     {
-      "clueFragment": "ritual",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of ritual"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BYPETERSR",
-       "gives": "PRESBYTER"
+       "text": "confused",
+       "note": "a confused person has things muddled, so the letters lose their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "by",
+         "note": "taken as written"
+        },
+        {
+         "words": "Peter's",
+         "note": "taken as written, the apostrophe ignored"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction of",
+           "note": "an introduction comes at the start, so only the opening letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ritual",
+           "note": "first letter of ritual"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -245,35 +235,25 @@
    },
    "solution": "ESTATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESTATE",
     "definitions": [
      {
       "text": "Land",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spain",
-      "gives": "E",
-      "note": "E is the international vehicle code for Spain (España)"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "STATE",
-      "note": "to say something is to state it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "STATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spain",
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain (España)"
+      },
+      {
+       "words": "say",
+       "gives": "STATE",
+       "note": "to say something is to state it"
+      }
      ]
     },
     "explanation": {
@@ -302,28 +282,16 @@
    },
    "solution": "SUSPECTS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SUSPECTS",
     "definitions": [
      {
       "text": "Detectives are aware of these",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the people police believe may have committed a crime"
      },
      {
       "text": "doubts",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Detectives are aware of these",
-      "note": "first meaning: the people police believe may have committed a crime"
-     },
-     {
-      "clueFragment": "doubts",
-      "note": "second meaning: a verb, mistrusts or has misgivings about"
+      "at": 30,
+      "meaning": "second meaning: a verb, mistrusts or has misgivings about"
      }
     ],
     "explanation": {
@@ -352,29 +320,17 @@
    },
    "solution": "STRAIGHTFORWARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRAIGHTFORWARD",
     "definitions": [
      {
       "text": "Undemanding",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: easy, uncomplicated"
      },
      {
       "text": "unlike a hooker",
       "at": 13,
-      "note": "split into two words, it describes a forward who plays straight"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Undemanding",
-      "note": "first meaning: easy, uncomplicated"
-     },
-     {
-      "clueFragment": "unlike a hooker",
-      "note": "second meaning, read as two words: a rugby hooker is a forward, but hooking means bending the ball or playing crooked"
+      "note": "split into two words, it describes a forward who plays straight",
+      "meaning": "second meaning, read as two words: a rugby hooker is a forward, but hooking means bending the ball or playing crooked"
      }
     ],
     "explanation": {
@@ -404,29 +360,17 @@
    },
    "solution": "STOPGAPS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STOPGAPS",
     "definitions": [
      {
       "text": "Locums",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: temporary substitutes filling a post"
      },
      {
       "text": "try to do this at the dentist",
       "at": 7,
-      "note": "a verb phrase: read as two words, filling holes in teeth"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Locums",
-      "note": "first meaning: temporary substitutes filling a post"
-     },
-     {
-      "clueFragment": "try to do this at the dentist",
-      "note": "second meaning, read as two words: plugging holes, as a dentist fills cavities"
+      "note": "a verb phrase: read as two words, filling holes in teeth",
+      "meaning": "second meaning, read as two words: plugging holes, as a dentist fills cavities"
      }
     ],
     "explanation": {
@@ -455,36 +399,29 @@
    },
    "solution": "ETHEL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ETHEL",
     "definitions": [
      {
       "text": "Girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "without its top, a down entry loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a chapel",
-      "gives": "BETHEL",
-      "note": "a bethel is a nonconformist chapel or seamen's place of worship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETHEL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topless",
+       "note": "without its top, a down entry loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a chapel",
+       "gives": "BETHEL",
+       "note": "a bethel is a nonconformist chapel or seamen's place of worship"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -514,26 +451,25 @@
    },
    "solution": "TELEPHONES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TELEPHONES",
     "definitions": [
      {
       "text": "They are used when giving a 22",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They are used when giving a 22",
-      "note": "surface reading: something handed over along with entry 22, apparently an inventor"
-     },
-     {
-      "clueFragment": "giving a 22",
-      "note": "setter's reading: 22 is a word for a call, and giving someone one is ringing them up"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They are used when giving a 22",
+       "note": "surface reading: something handed over along with entry 22, apparently an inventor"
+      },
+      {
+       "words": "giving a 22",
+       "note": "setter's reading: 22 is a word for a call, and giving someone one is ringing them up"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Things employed when presenting the item at 22.",
      "walkthrough": "The answer at 22 is BELL; 'give me a bell' is British slang for phone me, and Bell also invented the device.",
@@ -561,47 +497,44 @@
    },
    "solution": "ANCESTOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ANCESTOR",
     "definitions": [
      {
       "text": "He planted a tree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hollow",
-      "for": "letter_selection",
-      "note": "something hollow has had its insides scooped out, leaving only the shell of the word before"
-     },
-     {
-      "text": "using",
-      "for": "anagram",
-      "note": "to use material is to work it into something new, so the letters are worked into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "these",
-      "gives": "TE",
-      "select": "outer",
-      "note": "the outside letters of these"
-     },
-     {
-      "clueFragment": "acorns",
-      "gives": "ACORNS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEACORNS",
-       "gives": "ANCESTOR"
+       "text": "using",
+       "note": "to use material is to work it into something new, so the letters are worked into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "hollow",
+           "note": "something hollow has had its insides scooped out, leaving only the shell of the word before"
+          }
+         ],
+         "parts": [
+          {
+           "words": "these",
+           "note": "the outside letters of these"
+          }
+         ]
+        },
+        {
+         "words": "acorns",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -638,29 +571,17 @@
    },
    "solution": "ONHOLD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON HOLD",
     "definitions": [
      {
       "text": "Put off",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: postponed, suspended for now"
      },
      {
       "text": "when nearly through",
       "at": 8,
-      "note": "an adverbial phrase describing a waiting caller"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Put off",
-      "note": "first meaning: postponed, suspended for now"
-     },
-     {
-      "clueFragment": "when nearly through",
-      "note": "second meaning: a telephone caller waiting to be connected"
+      "note": "an adverbial phrase describing a waiting caller",
+      "meaning": "second meaning: a telephone caller waiting to be connected"
      }
     ],
     "explanation": {
@@ -696,26 +617,25 @@
    },
    "solution": "BETTINGSLIPS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BETTING SLIPS",
     "definitions": [
      {
       "text": "They indicate the stakes, not the mistakes",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They indicate the stakes, not the mistakes",
-      "note": "surface reading: something that shows what is at risk rather than the errors made"
-     },
-     {
-      "clueFragment": "not the mistakes",
-      "note": "setter's reading: the papers carry a word that can also mean errors, but here they record wagers at the bookmaker"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They indicate the stakes, not the mistakes",
+       "note": "surface reading: something that shows what is at risk rather than the errors made"
+      },
+      {
+       "words": "not the mistakes",
+       "note": "setter's reading: the papers carry a word that can also mean errors, but here they record wagers at the bookmaker"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Documents that show what is at risk rather than the blunders made.",
      "walkthrough": "A slip can be a small error or a small piece of paper; at a bookmaker's the paper records your bet.",
@@ -743,31 +663,29 @@
    },
    "solution": "COMPLEMENT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "COMPLEMENT",
     "definitions": [
      {
       "text": "It makes perfect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on radio",
-      "for": "homophone",
-      "note": "radio carries only sound, so the word is identified by how it is heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tribute",
-      "gives": "COMPLEMENT",
-      "soundsLike": "COMPLIMENT",
-      "note": "a tribute is praise, a word heard identically to its near-twin"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "COMPLEMENT",
+     "indicators": [
+      {
+       "text": "on radio",
+       "note": "radio carries only sound, so the word is identified by how it is heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tribute",
+       "gives": "COMPLIMENT",
+       "note": "a tribute is praise, a word heard identically to its near-twin"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A broadcast tribute that rounds off a programme perfectly.",
      "walkthrough": "Compliment (praise, with an i) and complement (completing part, with an e) sound the same.",
@@ -794,26 +712,25 @@
    },
    "solution": "COLT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "COLT",
     "definitions": [
      {
       "text": "A gunrunner",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A gunrunner",
-      "note": "surface reading: a smuggler of illegal weapons"
-     },
-     {
-      "clueFragment": "gunrunner",
-      "note": "setter's reading: split in two, a firearm brand that is also a racing animal"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A gunrunner",
+       "note": "surface reading: a smuggler of illegal weapons"
+      },
+      {
+       "words": "gunrunner",
+       "note": "setter's reading: split in two, a firearm brand that is also a racing animal"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Gunrunner' looks like an arms smuggler, but split it into gun and runner: one word is both a revolver make and a young horse.",
      "definitionFit": "Colt is the American firearms maker famous for its revolvers, and a young male horse that may race is called the same."
@@ -840,28 +757,16 @@
    },
    "solution": "HYPERION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HYPERION",
     "definitions": [
      {
       "text": "Famous racehorse",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the 1933 Derby winner and leading sire"
      },
      {
       "text": "who lit up the Classics?",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Famous racehorse",
-      "note": "first meaning: the 1933 Derby winner and leading sire"
-     },
-     {
-      "clueFragment": "who lit up the Classics?",
-      "note": "second meaning: the Titan of light in Greek myth"
+      "at": 17,
+      "meaning": "second meaning: the Titan of light in Greek myth"
      }
     ],
     "explanation": {
@@ -890,41 +795,29 @@
    },
    "solution": "RAINSTORM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAINSTORM",
     "definitions": [
      {
       "text": "nasty weather",
       "at": 23
      }
     ],
-    "linkWords": [
-     "brings"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sun-god",
-      "gives": "RA",
-      "note": "Ra is the Egyptian sun god"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rage",
-      "gives": "STORM",
-      "note": "to storm is to rage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "IN",
-      "STORM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sun-god",
+       "gives": "RA",
+       "note": "Ra is the Egyptian sun god"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "rage",
+       "gives": "STORM",
+       "note": "to storm is to rage"
+      }
      ]
     },
     "explanation": {
@@ -953,29 +846,17 @@
    },
    "solution": "STANDARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STANDARD",
     "definitions": [
      {
       "text": "Popular",
       "at": 0,
-      "note": "an adjective in the sense of usual or widely adopted"
+      "note": "an adjective in the sense of usual or widely adopted",
+      "meaning": "first meaning: normal, commonly used"
      },
      {
       "text": "colours",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Popular",
-      "note": "first meaning: normal, commonly used"
-     },
-     {
-      "clueFragment": "colours",
-      "note": "second meaning: a flag or banner, as in a regiment's colours"
+      "at": 8,
+      "meaning": "second meaning: a flag or banner, as in a regiment's colours"
      }
     ],
     "explanation": {
@@ -1003,26 +884,25 @@
    },
    "solution": "APERITIF",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "APERITIF",
     "definitions": [
      {
       "text": "Opening shot before the starter's orders",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Opening shot before the starter's orders",
-      "note": "surface reading: a starting pistol fired at a race meeting before the start is called"
-     },
-     {
-      "clueFragment": "starter's orders",
-      "note": "setter's reading: the first course is ordered, and a shot is a drink taken before it"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Opening shot before the starter's orders",
+       "note": "surface reading: a starting pistol fired at a race meeting before the start is called"
+      },
+      {
+       "words": "starter's orders",
+       "note": "setter's reading: the first course is ordered, and a shot is a drink taken before it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pistol going off at the beginning of a race, before the starter has given the signal.",
      "walkthrough": "'Under starter's orders' is racing language, but here the starter is the first course of a meal.",
@@ -1050,39 +930,31 @@
    },
    "solution": "ILEX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ILEX",
     "definitions": [
      {
       "text": "prickly family",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "pursues",
-      "for": "charade",
-      "note": "to pursue is to follow behind, so the first-mentioned piece comes after the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "Roman law",
-      "gives": "LEX",
-      "note": "lex is Latin for law"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "LEX"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursues",
+       "note": "to pursue is to follow behind, so the first-mentioned piece comes after the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      },
+      {
+       "words": "Roman law",
+       "gives": "LEX",
+       "note": "lex is Latin for law"
+      }
      ]
     },
     "explanation": {
@@ -1110,29 +982,17 @@
    },
    "solution": "KNOCKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNOCKS",
     "definitions": [
      {
       "text": "Find fault with",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: criticises, runs down"
      },
      {
       "text": "square boxes",
       "at": 16,
-      "note": "a plural noun: straight blows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Find fault with",
-      "note": "first meaning: criticises, runs down"
-     },
-     {
-      "clueFragment": "square boxes",
-      "note": "second meaning: clean blows, as a box on the ear is a cuff"
+      "note": "a plural noun: straight blows",
+      "meaning": "second meaning: clean blows, as a box on the ear is a cuff"
      }
     ],
     "explanation": {
@@ -1167,26 +1027,25 @@
    },
    "solution": "WEDDINGRINGS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WEDDING RINGS",
     "definitions": [
      {
       "text": "They are fingered in exchange, connecting calls",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They are fingered in exchange, connecting calls",
-      "note": "surface reading: an old telephone exchange where operators put calls through"
-     },
-     {
-      "clueFragment": "fingered in exchange",
-      "note": "setter's reading: placed on fingers as vows are swapped at a marriage service"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They are fingered in exchange, connecting calls",
+       "note": "surface reading: an old telephone exchange where operators put calls through"
+      },
+      {
+       "words": "fingered in exchange",
+       "note": "setter's reading: placed on fingers as vows are swapped at a marriage service"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Switchboard operators handling equipment at a telephone exchange to connect callers.",
      "walkthrough": "The exchange is of vows, and the calls are rings, a word for both phone calls and bands of gold.",
@@ -1214,34 +1073,28 @@
    },
    "solution": "DRAMA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DRAMA",
     "definitions": [
      {
       "text": "it suitable for the Prince of Wales, for instance",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "some of the spoken words, a portion only, contains the letters needed"
-     }
-    ],
-    "linkWords": [
-     "say",
-     "made"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alexandra made",
-      "gives": "DRAMA",
-      "note": "the end of the name runs on into the first letters of the next word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "some of the spoken words, a portion only, contains the letters needed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alexandra made",
+       "gives": "DRAMA",
+       "note": "the end of the name runs on into the first letters of the next word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some claim Princess Alexandra made something fit for the heir to the throne.",
      "walkthrough": "The Prince of Wales is a West End theatre in London, not the royal heir; 'made' lends its first letters as well as reading as a verb.",
@@ -1269,36 +1122,29 @@
    },
    "solution": "BELL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BELL",
     "definitions": [
      {
       "text": "Inventor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bottomless",
-      "for": "deletion",
-      "note": "with no bottom, a down entry loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "of the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pot",
-      "gives": "BELLY",
-      "note": "a pot is a paunch, a big stomach"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BELL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bottomless",
+       "note": "with no bottom, a down entry loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pot",
+       "gives": "BELLY",
+       "note": "a pot is a paunch, a big stomach"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -1327,59 +1173,44 @@
    },
    "solution": "NEVADA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NEVADA",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing about with something rearranges it freely"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the actress sits inside the other letters"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the played-about letters go round the outside"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and",
-      "gives": "AND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Bartok",
-      "gives": "EVA",
-      "note": "Eva Bartok was a Hungarian-born film actress"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EVA",
-      "DA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AND",
-       "gives": "NDA"
+       "text": "in",
+       "note": "the actress sits inside the other letters"
+      },
+      {
+       "text": "around",
+       "note": "the played-about letters go round the outside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "note": "playing about with something rearranges it freely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Bartok",
+       "gives": "EVA",
+       "note": "Eva Bartok was a Hungarian-born film actress"
       }
      ]
     },
@@ -1409,26 +1240,25 @@
    },
    "solution": "ANCHORED",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ANCHORED",
     "definitions": [
      {
       "text": "Fast in the water",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fast in the water",
-      "note": "surface reading: speedy when swimming or sailing"
-     },
-     {
-      "clueFragment": "Fast",
-      "note": "setter's reading: fixed firmly, as a moored ship is held"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fast in the water",
+       "note": "surface reading: speedy when swimming or sailing"
+      },
+      {
+       "words": "Fast",
+       "note": "setter's reading: fixed firmly, as a moored ship is held"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something quick in the sea.",
      "walkthrough": "Fast means firmly fixed, not quick.",
@@ -1456,26 +1286,25 @@
    },
    "solution": "STRANDED",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "STRANDED",
     "definitions": [
      {
       "text": "and fast on land",
       "at": 2
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "and fast on land",
-      "note": "surface reading: speedy when on the ground rather than at sea"
-     },
-     {
-      "clueFragment": "fast",
-      "note": "setter's reading: stuck firmly, as a boat run aground is"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "and fast on land",
+       "note": "surface reading: speedy when on the ground rather than at sea"
+      },
+      {
+       "words": "fast",
+       "note": "setter's reading: stuck firmly, as a boat run aground is"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something quick ashore, continuing the previous clue.",
      "walkthrough": "Again fast means stuck, here of a vessel driven onto the shore.",
@@ -1503,29 +1332,17 @@
    },
    "solution": "SIMPLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIMPLE",
     "definitions": [
      {
       "text": "5 down",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: uncomplicated, easy"
      },
      {
       "text": "in the herb-garden",
       "at": 7,
-      "note": "a phrase standing for a noun: a plant found there"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "5 down",
-      "note": "first meaning: uncomplicated, easy"
-     },
-     {
-      "clueFragment": "in the herb-garden",
-      "note": "second meaning: an old name for a medicinal plant"
+      "note": "a phrase standing for a noun: a plant found there",
+      "meaning": "second meaning: an old name for a medicinal plant"
      }
     ],
     "explanation": {

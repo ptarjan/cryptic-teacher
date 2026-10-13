@@ -1,8 +1,6 @@
 {
  "id": "everyman-4061",
  "number": 4061,
- "series": "everyman",
- "name": "Everyman crossword No 4,061",
  "setter": "Everyman",
  "date": "2024-08-18",
  "dimensions": {
@@ -48,35 +46,24 @@
    },
    "solution": "BEFOREONESTIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEFORE ONES TIME",
     "definitions": [
      {
       "text": "When the world's not ready",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trounced",
-      "for": "anagram",
-      "note": "the letters are beaten into a new shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for enemies to be",
-      "gives": "FORENEMIESTOBE",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FORENEMIESTOBE",
-       "gives": "BEFOREONESTIME"
+       "text": "trounced",
+       "note": "the letters are beaten into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for enemies to be",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -106,58 +93,65 @@
    },
    "solution": "BISCAY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BISCAY",
     "definitions": [
      {
       "text": "Bay",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "included"
-     },
-     {
-      "text": "principally",
-      "note": "take the first letters of 'included' and 'Shipping'"
-     },
-     {
-      "text": "in the middle",
-      "for": "letter_selection",
-      "note": "take the middle letter of 'Forecasts'"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bay",
-      "gives": "BAY",
-      "note": "the outer word, split B…AY"
-     },
-     {
-      "clueFragment": "included principally in Shipping",
-      "gives": "IS",
-      "select": "first",
-      "note": "first letters of 'included' and 'Shipping'"
-     },
-     {
-      "clueFragment": "Forecasts — in the middle",
-      "gives": "C",
-      "select": "middle",
-      "note": "C is the fifth of FORECASTS' nine letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ISC",
-      "AY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "principally",
+         "note": "take the first letters of 'included' and 'Shipping'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bay",
+         "note": "the outer word, split B…AY"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "IS",
+         "indicators": [
+          {
+           "text": "in the middle",
+           "note": "take the middle letter of 'Forecasts'"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "included principally in Shipping",
+           "gives": "IS",
+           "select": "first",
+           "note": "first letters of 'included' and 'Shipping'"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Forecasts — in the middle",
+         "gives": "FORECASTS",
+         "note": "C is the fifth of FORECASTS' nine letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -192,59 +186,58 @@
    },
    "solution": "FEATHEREDFRIEND",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "container"
-    ],
-    "answer": "FEATHERED FRIEND",
     "definitions": [
      {
       "text": "bird",
       "at": 72
      }
     ],
-    "indicators": [
-     {
-      "text": "faceless",
-      "for": "deletion",
-      "note": "LEATHERED loses its front letter"
-     },
-     {
-      "text": "suppressing",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "and getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loudly",
-      "gives": "F",
-      "note": "f = forte, loudly in music"
-     },
-     {
-      "clueFragment": "punished faceless",
-      "gives": "EATHERED",
-      "note": "LEATHERED (beaten) without its first letter"
-     },
-     {
-      "clueFragment": "aficionado",
-      "gives": "FIEND",
-      "note": "a fiend = an enthusiast, as in 'fitness fiend'"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R = resistance in physics, placed inside FIEND"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "EATHERED",
-      "FRIEND"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FEATHEREDFRIEND",
+     "indicators": [
+      {
+       "text": "faceless",
+       "note": "LEATHERED loses its front letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "suppressing"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Loudly",
+           "gives": "F",
+           "note": "f = forte, loudly in music"
+          },
+          {
+           "words": "punished faceless",
+           "gives": "EATHERED",
+           "note": "LEATHERED (beaten) without its first letter"
+          },
+          {
+           "words": "aficionado",
+           "gives": "FIEND",
+           "note": "a fiend = an enthusiast, as in 'fitness fiend'"
+          }
+         ]
+        },
+        {
+         "words": "resistance",
+         "gives": "R",
+         "note": "R = resistance in physics, placed inside FIEND"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -279,30 +272,16 @@
    },
    "solution": "RIDESOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RIDES OUT",
     "definitions": [
      {
       "text": "Survives",
-      "at": 0
+      "at": 0,
+      "meaning": "as a ship gets through a storm without sinking"
      },
      {
       "text": "leaves on horseback",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Survives",
-      "gives": "RIDESOUT",
-      "note": "as a ship gets through a storm without sinking"
-     },
-     {
-      "clueFragment": "leaves on horseback",
-      "gives": "RIDESOUT",
-      "note": "literal: sets off from the stable mounted"
+      "at": 10,
+      "meaning": "literal: sets off from the stable mounted"
      }
     ],
     "explanation": {
@@ -330,38 +309,25 @@
    },
    "solution": "OGRE",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "OGRE",
     "definitions": [
      {
       "text": "Monster",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recoiling",
-      "for": "reversal",
-      "note": "to recoil is to spring back, so the word runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "therefore",
-      "gives": "ERGO",
-      "note": "ergo = therefore, from Latin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OGRE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ERGO",
-       "to": "OGRE"
+       "text": "recoiling",
+       "note": "to recoil is to spring back, so the word runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "therefore",
+       "gives": "ERGO",
+       "note": "ergo = therefore, from Latin"
       }
      ]
     },
@@ -391,35 +357,24 @@
    },
    "solution": "ENSHROUDED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENSHROUDED",
     "definitions": [
      {
       "text": "Hid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rabid",
-      "for": "anagram",
-      "note": "a rabid animal is wild and out of control, so the letters are too"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "deerhounds",
-      "gives": "DEERHOUNDS",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DEERHOUNDS",
-       "gives": "ENSHROUDED"
+       "text": "rabid",
+       "note": "a rabid animal is wild and out of control, so the letters are too"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deerhounds",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -449,33 +404,28 @@
    },
    "solution": "TRAUMA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TRAUMA",
     "definitions": [
      {
       "text": "shock",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only part of the following words is taken"
-     }
-    ],
-    "linkWords": [
-     "gives you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra umami",
-      "gives": "TRAUMA",
-      "note": "the last three letters of 'extra' run on into the first three of 'umami'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only part of the following words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra umami",
+       "gives": "TRAUMA",
+       "note": "the last three letters of 'extra' run on into the first three of 'umami'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An unexpectedly strong savoury flavour startles a diner.",
      "walkthrough": "The food vocabulary makes 'shock' read as a jolt to the taste buds; umami is the savoury fifth taste.",
@@ -516,38 +466,24 @@
    },
    "solution": "MEETSASTICKYEND",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEETS A STICKY END",
     "definitions": [
      {
       "text": "bites the dust",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "go awry",
-      "for": "anagram",
-      "note": "the letters go wrong and end up out of order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Makes destiny etc",
-      "gives": "MAKESDESTINYETC",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MAKESDESTINYETC",
-       "gives": "MEETSASTICKYEND"
+       "text": "go awry",
+       "note": "the letters go wrong and end up out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Makes destiny etc",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -577,33 +513,16 @@
    },
    "solution": "STANDARDS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STANDARDS",
     "definitions": [
      {
       "text": "Old songs",
-      "at": 0
+      "at": 0,
+      "meaning": "long-established songs every singer covers, like 'My Funny Valentine'"
      },
      {
       "text": "flags",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old songs",
-      "gives": "STANDARDS",
-      "note": "long-established songs every singer covers, like 'My Funny Valentine'"
-     },
-     {
-      "clueFragment": "flags",
-      "gives": "STANDARDS",
-      "note": "a standard is a flag, as in the royal standard"
+      "at": 14,
+      "meaning": "a standard is a flag, as in the royal standard"
      }
     ],
     "explanation": {
@@ -638,32 +557,25 @@
    },
    "solution": "ATEAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "A-TEAM",
     "definitions": [
      {
       "text": "Élite group",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "had some food",
-      "gives": "ATE",
-      "note": "ate = had food"
-     },
-     {
-      "clueFragment": "before noon",
-      "gives": "AM",
-      "note": "a.m. = before noon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ATE",
-      "AM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "had some food",
+       "gives": "ATE",
+       "note": "ate = had food"
+      },
+      {
+       "words": "before noon",
+       "gives": "AM",
+       "note": "a.m. = before noon"
+      }
      ]
     },
     "explanation": {
@@ -692,48 +604,40 @@
    },
    "solution": "MOSEYS",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "MOSEYS",
     "definitions": [
      {
       "text": "Leisurely walks?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "engrossing"
-     },
-     {
-      "text": "on reflection",
-      "note": "a reflection shows the word backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brief moments",
-      "gives": "MOS",
-      "note": "mo = a moment, short for 'half a mo'"
-     },
-     {
-      "clueFragment": "I'd be glad to",
-      "gives": "YES",
-      "note": "an eager yes, turned round to SEY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "SEY",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "YES",
-       "to": "SEY"
+       "text": "engrossing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brief moments",
+       "gives": "MOS",
+       "note": "mo = a moment, short for 'half a mo'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "note": "a reflection shows the word backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'd be glad to",
+         "gives": "YES",
+         "note": "an eager yes, turned round to SEY"
+        }
+       ]
       }
      ]
     },
@@ -763,30 +667,16 @@
    },
    "solution": "ASHES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ASHES",
     "definitions": [
      {
       "text": "Woods may hold such",
-      "at": 0
+      "at": 0,
+      "meaning": "ash trees grow in woods"
      },
      {
       "text": "sporting prize",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Woods may hold such",
-      "gives": "ASHES",
-      "note": "ash trees grow in woods"
-     },
-     {
-      "clueFragment": "sporting prize",
-      "gives": "ASHES",
-      "note": "the small urn England and Australia play Test cricket for"
+      "at": 20,
+      "meaning": "the small urn England and Australia play Test cricket for"
      }
     ],
     "explanation": {
@@ -816,33 +706,16 @@
    },
    "solution": "PREMISES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PREMISES",
     "definitions": [
      {
       "text": "Property",
-      "at": 0
+      "at": 0,
+      "meaning": "a building and its grounds, as in 'no smoking on the ...'"
      },
      {
       "text": "theses",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Property",
-      "gives": "PREMISES",
-      "note": "a building and its grounds, as in 'no smoking on the ...'"
-     },
-     {
-      "clueFragment": "theses",
-      "gives": "PREMISES",
-      "note": "propositions an argument starts from"
+      "at": 12,
+      "meaning": "propositions an argument starts from"
      }
     ],
     "explanation": {
@@ -877,26 +750,25 @@
    },
    "solution": "ORIONSBELT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ORIONS BELT",
     "definitions": [
      {
       "text": "It comes out at night offering support to a hunter",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It comes out at night",
-      "note": "the surface suggests an owl or a bat; it is a group of stars appearing after dark"
-     },
-     {
-      "clueFragment": "offering support to a hunter",
-      "note": "the Hunter is a constellation, and what supports his trousers is a belt"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It comes out at night",
+       "note": "the surface suggests an owl or a bat; it is a group of stars appearing after dark"
+      },
+      {
+       "words": "offering support to a hunter",
+       "note": "the Hunter is a constellation, and what supports his trousers is a belt"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A nocturnal creature helps a huntsman.",
      "walkthrough": "The clue reads like an owl or a bat assisting someone on a hunt; the thing that comes out at night is a row of stars.",
@@ -930,50 +802,25 @@
    },
    "solution": "FROUFROU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FROU-FROU",
     "definitions": [
      {
       "text": "fancy!",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "runs to the west",
-      "for": "anagram",
-      "note": "the R (runs) moves leftwards in each FOUR"
-     }
-    ],
-    "linkWords": [
-     "twice"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "44",
-      "gives": "FOURFOUR",
-      "note": "4 and 4 read as the words FOUR FOUR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FROU",
-      "FROU"
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "runs to the west",
+       "note": "the R (runs) moves leftwards in each FOUR"
+      }
      ],
-     "anagrams": [
+     "parts": [
       {
-       "fodder": "FOURFOUR",
-       "gives": "FROUFROU"
-      },
-      {
-       "fodder": "FOUR",
-       "gives": "FROU"
-      },
-      {
-       "fodder": "FOUR",
-       "gives": "FROU"
+       "words": "44",
+       "gives": "FOURFOUR",
+       "note": "4 and 4 read as the words FOUR FOUR"
       }
      ]
     },
@@ -1003,44 +850,36 @@
    },
    "solution": "ESPY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESPY",
     "definitions": [
      {
       "text": "Glimpse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "psychic powers",
-      "gives": "ESP",
-      "note": "ESP = extrasensory perception"
-     },
-     {
-      "clueFragment": "yeti's head",
-      "gives": "Y",
-      "select": "first",
-      "note": "first letter of 'yeti'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESP",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "psychic powers",
+       "gives": "ESP",
+       "note": "ESP = extrasensory perception"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yeti's head",
+         "gives": "YETIS",
+         "note": "first letter of 'yeti'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1068,34 +907,29 @@
    },
    "solution": "HOLMES",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HOLMES",
     "definitions": [
      {
       "text": "Detective",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the auditorium",
-      "for": "homophone",
-      "note": "an auditorium is where things are heard"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "addresses",
-      "gives": "HOLMES",
-      "soundsLike": "HOMES",
-      "note": "addresses = homes, the places people live; the spelling adds a silent L"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HOLMES",
+     "indicators": [
+      {
+       "text": "in the auditorium",
+       "note": "an auditorium is where things are heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "addresses",
+       "gives": "HOMES",
+       "note": "addresses = homes, the places people live; the spelling adds a silent L"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A detective gives speeches to a theatre audience.",
      "walkthrough": "'Addresses' reads as speeches, but it means homes. The apostrophe-s is 'is', linking definition to wordplay.",
@@ -1129,44 +963,37 @@
    },
    "solution": "WARDANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "WAR DANCE",
     "definitions": [
      {
       "text": "preparation for hostilities",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "announced",
-      "for": "homophone",
-      "note": "said out loud, so it is the sound that counts"
-     }
-    ],
-    "linkWords": [
-     "given to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Protégée",
-      "gives": "WARD",
-      "note": "a ward is a young person under a guardian's care"
-     },
-     {
-      "clueFragment": "aunts announced",
-      "gives": "ANCE",
-      "soundsLike": "AUNTS",
-      "note": "in a US or northern English accent 'aunts' rhymes with 'pants', giving -ANCE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WARD",
-      "ANCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Protégée",
+       "gives": "WARD",
+       "note": "a ward is a young person under a guardian's care"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ANCE",
+       "indicators": [
+        {
+         "text": "announced",
+         "note": "said out loud, so it is the sound that counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aunts announced",
+         "gives": "AUNTS",
+         "note": "in a US or northern English accent 'aunts' rhymes with 'pants', giving -ANCE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1195,33 +1022,28 @@
    },
    "solution": "OLDE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OLDE",
     "definitions": [
      {
       "text": "Twee 'antique'",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uncased",
-      "for": "deletion",
-      "note": "the case, or outer letters, is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "golden, uncased",
-      "gives": "OLDE",
-      "note": "GOLDEN without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLDE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OLDE",
+     "indicators": [
+      {
+       "text": "uncased",
+       "note": "the case, or outer letters, is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "golden, uncased",
+       "gives": "OLDE",
+       "note": "GOLDEN without its first and last letters"
+      }
      ]
     },
     "explanation": {
@@ -1256,44 +1078,28 @@
    },
    "solution": "OPERATIC",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "OPERATIC",
     "definitions": [
      {
       "text": "Primarily orotund, pronouncedly emotively rococo; alternatively, that involves Carmen?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Primarily",
-      "for": "letter_selection",
-      "note": "take the first letter of each word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "orotund, pronouncedly emotively rococo; alternatively, that involves Carmen",
-      "gives": "OPERATIC",
-      "select": "first",
-      "note": "first letters of the eight words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "P",
-      "E",
-      "R",
-      "A",
-      "T",
-      "I",
-      "C"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Primarily",
+       "note": "take the first letter of each word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "orotund, pronouncedly emotively rococo; alternatively, that involves Carmen",
+       "note": "first letters of the eight words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A critic piles up adjectives to describe a grand, florid singing style, then simply points to Carmen.",
      "walkthrough": "The whole clue defines the answer: orotund, emotive and rococo describe operatic singing, and Carmen is Bizet's opera. The question mark marks this double duty.",
@@ -1319,30 +1125,28 @@
    },
    "solution": "PIMPLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "PIMPLE",
     "definitions": [
      {
       "text": "Spot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking some measure",
-      "for": "hidden_word",
-      "note": "only a measure, or portion, of the words is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sharp implement",
-      "gives": "PIMPLE",
-      "note": "the last letter of 'sharp' runs on into the first five of 'implement'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taking some measure",
+       "note": "only a measure, or portion, of the words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sharp implement",
+       "gives": "PIMPLE",
+       "note": "the last letter of 'sharp' runs on into the first five of 'implement'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone spots a sharp tool and uses it to measure something.",
      "walkthrough": "'Measure' reads as a ruler's job for the implement; with 'taking some' it means a portion of the letters.",
@@ -1369,41 +1173,40 @@
    },
    "solution": "ERASER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ERASER",
     "definitions": [
      {
       "text": "I'll correct writer's mistakes",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "take the final letters of the next two words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Historical periods",
-      "gives": "ERAS",
-      "note": "eras = historical periods"
-     },
-     {
-      "clueFragment": "ultimately come together",
-      "gives": "ER",
-      "select": "last",
-      "note": "last letters of 'come' and 'together'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERAS",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Historical periods",
+       "gives": "ERAS",
+       "note": "eras = historical periods"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "ER",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "take the final letters of the next two words"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "ultimately come together",
+         "gives": "ER",
+         "select": "last",
+         "note": "last letters of 'come' and 'together'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1432,30 +1235,16 @@
    },
    "solution": "MERRIEST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MERRIEST",
     "definitions": [
      {
       "text": "Most like Friar Tuck",
-      "at": 0
+      "at": 0,
+      "meaning": "Friar Tuck is one of Robin Hood's Merry Men"
      },
      {
       "text": "squiffier than the rest",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Most like Friar Tuck",
-      "gives": "MERRIEST",
-      "note": "Friar Tuck is one of Robin Hood's Merry Men"
-     },
-     {
-      "clueFragment": "squiffier than the rest",
-      "gives": "MERRIEST",
-      "note": "merry = slightly drunk, as is squiffy"
+      "at": 22,
+      "meaning": "merry = slightly drunk, as is squiffy"
      }
     ],
     "explanation": {
@@ -1484,38 +1273,30 @@
    },
    "solution": "DAKAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DAKAR",
     "definitions": [
      {
       "text": "capital!",
       "at": 37
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D = Democrat"
-     },
-     {
-      "clueFragment": "you may know as",
-      "gives": "AKA",
-      "note": "aka = also known as"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R = Republican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "AKA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Democrat",
+       "gives": "D",
+       "note": "D = Democrat"
+      },
+      {
+       "words": "you may know as",
+       "gives": "AKA",
+       "note": "aka = also known as"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R = Republican"
+      }
      ]
     },
     "explanation": {
@@ -1545,41 +1326,36 @@
    },
    "solution": "IDEA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "IDEA",
     "definitions": [
      {
       "text": "product of thought",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "at heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyman had",
-      "gives": "ID",
-      "note": "the setter, Everyman, is I; I'd = I had"
-     },
-     {
-      "clueFragment": "at heart, dreary",
-      "gives": "EA",
-      "select": "middle",
-      "note": "the middle two letters of DREARY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ID",
-      "EA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everyman had",
+       "gives": "ID",
+       "note": "the setter, Everyman, is I; I'd = I had"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "at heart",
+         "note": "the heart of a word is its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at heart, dreary",
+         "gives": "DREARY",
+         "note": "the middle two letters of DREARY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1608,41 +1384,25 @@
    },
    "solution": "SLEEP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SLEEP",
     "definitions": [
      {
       "text": "slumber",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "laying back",
-      "for": "reversal",
-      "note": "the word is laid down backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strips off",
-      "gives": "PEELS",
-      "note": "peels = strips off, as with clothes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLEEP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PEELS",
-       "to": "SLEEP"
+       "text": "laying back",
+       "note": "the word is laid down backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Strips off",
+       "gives": "PEELS",
+       "note": "peels = strips off, as with clothes"
       }
      ]
     },
@@ -1672,32 +1432,25 @@
    },
    "solution": "ENDANGERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENDANGERS",
     "definitions": [
      {
       "text": "Puts at risk",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "the final",
-      "gives": "END",
-      "note": "the final part = the end"
-     },
-     {
-      "clueFragment": "causes fury",
-      "gives": "ANGERS",
-      "note": "angers = causes fury"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "END",
-      "ANGERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the final",
+       "gives": "END",
+       "note": "the final part = the end"
+      },
+      {
+       "words": "causes fury",
+       "gives": "ANGERS",
+       "note": "angers = causes fury"
+      }
      ]
     },
     "explanation": {
@@ -1732,26 +1485,25 @@
    },
    "solution": "ADVENTCALENDAR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ADVENT CALENDAR",
     "definitions": [
      {
       "text": "Doors increasingly left open in winter?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Doors increasingly left open",
-      "note": "the surface suggests a draughty house; these are small cardboard flaps, one more opened each day"
-     },
-     {
-      "clueFragment": "in winter?",
-      "note": "the days counted down are those of December, leading to Christmas"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Doors increasingly left open",
+       "note": "the surface suggests a draughty house; these are small cardboard flaps, one more opened each day"
+      },
+      {
+       "words": "in winter?",
+       "note": "the days counted down are those of December, leading to Christmas"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone keeps leaving the doors open in cold weather, letting the heat out.",
      "walkthrough": "The picture is a draughty house; the doors are the numbered flaps of a calendar counting down to Christmas.",

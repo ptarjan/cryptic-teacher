@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3052",
  "number": 3052,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,052",
  "setter": "Hurley",
  "date": "2025-07-28",
  "dimensions": {
@@ -42,41 +40,40 @@
    },
    "solution": "DECADENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DECADENT",
     "definitions": [
      {
       "text": "degenerate",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "not extremely",
-      "for": "letter_selection",
-      "note": "only the extremes, the first and last letters, of 'not' are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ten years",
-      "gives": "DECADE",
-      "note": "a decade is ten years"
-     },
-     {
-      "clueFragment": "not extremely",
-      "gives": "NT",
-      "select": "outer",
-      "note": "the outside letters of NOT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DECADE",
-      "NT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ten years",
+       "gives": "DECADE",
+       "note": "a decade is ten years"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "NT",
+       "indicators": [
+        {
+         "text": "not extremely",
+         "note": "only the extremes, the first and last letters, of 'not' are taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "not extremely",
+         "gives": "NT",
+         "select": "outer",
+         "note": "the outside letters of NOT"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -105,42 +102,30 @@
    },
    "solution": "FINALE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FINALE",
     "definitions": [
      {
       "text": "Closing section",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dossier",
-      "gives": "FILE",
-      "note": "a dossier is a file of documents"
-     },
-     {
-      "clueFragment": "not applicable",
-      "gives": "NA",
-      "note": "N/A, the standard abbreviation on forms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "NA",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dossier",
+       "gives": "FILE",
+       "note": "a dossier is a file of documents"
+      },
+      {
+       "words": "not applicable",
+       "gives": "NA",
+       "note": "N/A, the standard abbreviation on forms"
+      }
      ]
     },
     "explanation": {
@@ -169,39 +154,30 @@
    },
    "solution": "LOFT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOFT",
     "definitions": [
      {
       "text": "attic space",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great deal",
-      "gives": "LOT",
-      "note": "a lot is a great deal"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F = fine, as on pencil leads"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "F",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Great deal",
+       "gives": "LOT",
+       "note": "a lot is a great deal"
+      },
+      {
+       "words": "fine",
+       "gives": "F",
+       "note": "F = fine, as on pencil leads"
+      }
      ]
     },
     "explanation": {
@@ -231,45 +207,37 @@
    },
    "solution": "REGINA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "REGINA",
     "definitions": [
      {
       "text": "Queen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in an unusual way",
-      "for": "anagram",
-      "note": "the letters of 'gain' are arranged in an unusual order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "referring to",
-      "gives": "RE",
-      "note": "re = regarding, as in a letter heading"
-     },
-     {
-      "clueFragment": "gain",
-      "gives": "GINA",
-      "note": "letters of GAIN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "GINA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "REGINA",
+     "indicators": [
       {
-       "fodder": "GAIN",
-       "gives": "GINA"
+       "text": "in an unusual way",
+       "note": "the letters of 'gain' are arranged in an unusual order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "referring to",
+         "gives": "RE",
+         "note": "re = regarding, as in a letter heading"
+        },
+        {
+         "words": "gain",
+         "gives": "GINA",
+         "note": "letters of GAIN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -299,48 +267,40 @@
    },
    "solution": "SOUVENIR",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SOUVENIR",
     "definitions": [
      {
       "text": "It may help to remember",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "adapted",
-      "note": "'version' is changed into a new arrangement"
-     },
-     {
-      "text": "to accommodate"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "version",
-      "gives": "SOVENIR",
-      "note": "letters of VERSION rearranged"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "U = you, as in texting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "U",
-      "VENIR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SOUVENIR",
+     "parts": [
       {
-       "fodder": "VERSION",
-       "gives": "SOVENIR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adapted",
+         "note": "'version' is changed into a new arrangement"
+        },
+        {
+         "text": "to accommodate"
+        }
+       ],
+       "parts": [
+        {
+         "words": "version",
+         "gives": "SOVENIR",
+         "note": "letters of VERSION rearranged"
+        },
+        {
+         "words": "you",
+         "gives": "U",
+         "note": "U = you, as in texting"
+        }
+       ]
       }
      ]
     },
@@ -370,69 +330,72 @@
    },
    "solution": "ATRIUM",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "ATRIUM",
     "definitions": [
      {
       "text": "part of large building",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "note": "in a down clue, 'up' turns the word for cheers upside down"
-     },
-     {
-      "text": "over",
-      "note": "the first part is placed above, before, the drink"
-     },
-     {
-      "text": "included",
-      "note": "the I goes inside the drink"
-     },
-     {
-      "text": "minimum of",
-      "note": "only the smallest part, the first letter, of 'ice' is taken"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cheers up",
-      "gives": "AT",
-      "note": "TA is British slang for thanks, turned upward"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "RUM",
-      "note": "rum, a spirit"
-     },
-     {
-      "clueFragment": "minimum of ice",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of ICE, placed inside RUM"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AT",
-      "R",
-      "I",
-      "UM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ATRIUM",
+     "parts": [
       {
-       "from": "TA",
-       "to": "AT"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, 'up' turns the word for cheers upside down"
+        },
+        {
+         "text": "minimum of",
+         "note": "only the smallest part, the first letter, of 'ice' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cheers up",
+         "gives": "AT",
+         "note": "TA is British slang for thanks, turned upward"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "over",
+           "note": "the first part is placed above, before, the drink"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drink",
+           "gives": "RUM",
+           "note": "rum, a spirit"
+          },
+          {
+           "op": "first",
+           "unchecked": true,
+           "gives": "I",
+           "indicators": [
+            {
+             "text": "included",
+             "note": "the I goes inside the drink"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "minimum of ice",
+             "gives": "I",
+             "select": "first",
+             "note": "first letter of ICE, placed inside RUM"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -462,39 +425,30 @@
    },
    "solution": "ACME",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACME",
     "definitions": [
      {
       "text": "highest point of achievement",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "to incorporate",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brilliant",
-      "gives": "ACE",
-      "note": "ace = excellent, brilliant"
-     },
-     {
-      "clueFragment": "Mike",
-      "gives": "M",
-      "note": "Mike is M in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AC",
-      "M",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to incorporate"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brilliant",
+       "gives": "ACE",
+       "note": "ace = excellent, brilliant"
+      },
+      {
+       "words": "Mike",
+       "gives": "M",
+       "note": "Mike is M in the NATO alphabet"
+      }
      ]
     },
     "explanation": {
@@ -523,40 +477,38 @@
    },
    "solution": "EPITOME",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EPITOME",
     "definitions": [
      {
       "text": "summary",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Not quite",
-      "for": "deletion",
-      "note": "the word is not quite complete, losing its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not quite epic",
-      "gives": "EPI",
-      "note": "EPIC without its last letter"
-     },
-     {
-      "clueFragment": "large book",
-      "gives": "TOME",
-      "note": "a tome is a big, heavy book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPI",
-      "TOME"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EPITOME",
+     "indicators": [
+      {
+       "text": "Not quite",
+       "note": "the word is not quite complete, losing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Not quite epic",
+         "gives": "EPI",
+         "note": "EPIC without its last letter"
+        },
+        {
+         "words": "large book",
+         "gives": "TOME",
+         "note": "a tome is a big, heavy book"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -585,47 +537,41 @@
    },
    "solution": "OPTIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OPTIC",
     "definitions": [
      {
       "text": "Device for measuring spirits",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to begin with",
-      "for": "letter_selection",
-      "note": "only the beginning, the first letter, of 'carefully' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "choose",
-      "gives": "OPT",
-      "note": "to opt is to choose"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "carefully to begin with",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of CAREFULLY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPT",
-      "I",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "choose",
+       "gives": "OPT",
+       "note": "to opt is to choose"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "note": "only the beginning, the first letter, of 'carefully' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carefully to begin with",
+         "gives": "CAREFULLY",
+         "note": "first letter of CAREFULLY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -653,32 +599,25 @@
    },
    "solution": "APART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APART",
     "definitions": [
      {
       "text": "Separate",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A = answer, as in Q and A"
-     },
-     {
-      "clueFragment": "section",
-      "gives": "PART",
-      "note": "section, as in one portion of a paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "answer",
+       "gives": "A",
+       "note": "A = answer, as in Q and A"
+      },
+      {
+       "words": "section",
+       "gives": "PART",
+       "note": "section, as in one portion of a paper"
+      }
      ]
     },
     "explanation": {
@@ -707,30 +646,16 @@
    },
    "solution": "INVOICE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "INVOICE",
     "definitions": [
      {
       "text": "Bill",
-      "at": 0
+      "at": 0,
+      "meaning": "bill in the commercial sense, a request for payment"
      },
      {
       "text": "ready to sing?",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill",
-      "gives": "INVOICE",
-      "note": "bill in the commercial sense, a request for payment"
-     },
-     {
-      "clueFragment": "ready to sing?",
-      "gives": "INVOICE",
-      "note": "a singer ready to perform is said to be in good voice; here the answer splits into two words"
+      "at": 5,
+      "meaning": "a singer ready to perform is said to be in good voice; here the answer splits into two words"
      }
     ],
     "explanation": {
@@ -760,41 +685,37 @@
    },
    "solution": "EYESTRAIN",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "EYESTRAIN",
     "definitions": [
      {
       "text": "Discomfort seeing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "the letters are heard, not seen, giving their sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letters, we hear",
-      "gives": "EYES",
-      "soundsLike": "I'S",
-      "note": "the letter I in the plural, said out loud"
-     },
-     {
-      "clueFragment": "practise",
-      "gives": "TRAIN",
-      "note": "to train is to practise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EYES",
-      "TRAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EYES",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "the letters are heard, not seen, giving their sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "letters, we hear",
+         "gives": "IS",
+         "note": "the letter I in the plural, said out loud"
+        }
+       ]
+      },
+      {
+       "words": "practise",
+       "gives": "TRAIN",
+       "note": "to train is to practise"
+      }
      ]
     },
     "explanation": {
@@ -824,43 +745,31 @@
    },
    "solution": "TRAVESTY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRAVESTY",
     "definitions": [
      {
       "text": "farce",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "to pack in",
-      "for": "container",
-      "note": "the word for attempt packs the other words inside it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Attempt",
-      "gives": "TRY",
-      "note": "a try is an attempt"
-     },
-     {
-      "clueFragment": "a singlet",
-      "gives": "AVEST",
-      "note": "A + VEST, a vest being a singlet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "AVEST",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to pack in",
+       "note": "the word for attempt packs the other words inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attempt",
+       "gives": "TRY",
+       "note": "a try is an attempt"
+      },
+      {
+       "words": "a singlet",
+       "gives": "AVEST",
+       "note": "A + VEST, a vest being a singlet"
+      }
      ]
     },
     "explanation": {
@@ -889,36 +798,30 @@
    },
    "solution": "MUD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "MUD",
     "definitions": [
      {
       "text": "Slander",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of all",
-      "for": "letter_selection",
-      "note": "the first letter of all three words is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "most ugly, despicable, first of all",
-      "gives": "MUD",
-      "select": "first",
-      "note": "first letters of MOST, UGLY, DESPICABLE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "U",
-      "D"
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "MUD",
+     "indicators": [
+      {
+       "text": "first of all",
+       "note": "the first letter of all three words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "most ugly, despicable, first of all",
+       "gives": "MUD",
+       "select": "first",
+       "note": "first letters of MOST, UGLY, DESPICABLE"
+      }
      ]
     },
     "explanation": {
@@ -947,30 +850,16 @@
    },
    "solution": "DISCOUNT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DISCOUNT",
     "definitions": [
      {
       "text": "Pay no regard to",
-      "at": 0
+      "at": 0,
+      "meaning": "verb sense: to set aside or disregard"
      },
      {
       "text": "deduction from full price",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pay no regard to",
-      "gives": "DISCOUNT",
-      "note": "verb sense: to set aside or disregard"
-     },
-     {
-      "clueFragment": "deduction from full price",
-      "gives": "DISCOUNT",
-      "note": "noun sense: money taken off the price"
+      "at": 17,
+      "meaning": "noun sense: money taken off the price"
      }
     ],
     "explanation": {
@@ -999,32 +888,26 @@
    },
    "solution": "TUT",
    "annotation": {
-    "type": [
-     "palindrome"
-    ],
-    "answer": "TUT",
     "definitions": [
      {
       "text": "Rebuke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "however you look at it",
-      "for": "palindrome",
-      "note": "the word is the same read either way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rebuke",
-      "note": "the definition end: a small clicking noise of disapproval"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUT"
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "however you look at it",
+       "note": "the word is the same read either way"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Rebuke",
+       "note": "the definition end: a small clicking noise of disapproval"
+      }
      ]
     },
     "explanation": {
@@ -1052,47 +935,40 @@
    },
    "solution": "TURNIP",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TURNIP",
     "definitions": [
      {
       "text": "Vegetable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "only the initial letter of 'propose' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "change",
-      "gives": "TURN",
-      "note": "to turn is to change, as milk turns"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "select": "first",
-      "note": "I, as written"
-     },
-     {
-      "clueFragment": "propose initially",
-      "gives": "P",
-      "note": "first letter of PROPOSE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TURN",
-      "I",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "change",
+       "gives": "TURN",
+       "note": "to turn is to change, as milk turns"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "only the initial letter of 'propose' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "note": "I, as written"
+        }
+       ]
+      },
+      {
+       "words": "propose initially",
+       "gives": "P",
+       "note": "first letter of PROPOSE"
+      }
      ]
     },
     "explanation": {
@@ -1121,35 +997,24 @@
    },
    "solution": "APPARATUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APPARATUS",
     "definitions": [
      {
       "text": "Equipment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "the letters that follow are mixed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up as a trap",
-      "gives": "UPASATRAP",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UPASATRAP",
-       "gives": "APPARATUS"
+       "text": "mixed",
+       "note": "the letters that follow are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "up as a trap",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1179,52 +1044,46 @@
    },
    "solution": "PILFER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PILFER",
     "definitions": [
      {
       "text": "Steal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "housing"
-     },
-     {
-      "text": "by",
-      "note": "'by' means next to, as in a house by the sea"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large building",
-      "gives": "PILE",
-      "note": "a pile is a large, grand building"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "F = female"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R = river, as on maps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIL",
-      "F",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "housing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "'by' means next to, as in a house by the sea"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large building",
+         "gives": "PILE",
+         "note": "a pile is a large, grand building"
+        },
+        {
+         "words": "female",
+         "gives": "F",
+         "note": "F = female"
+        }
+       ]
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R = river, as on maps"
+      }
      ]
     },
     "explanation": {
@@ -1253,30 +1112,28 @@
    },
    "solution": "TINSEL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TINSEL",
     "definitions": [
      {
       "text": "Showy stuff",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "hidden_word",
-      "note": "the phrase boxes the answer inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "put in selection",
-      "gives": "TINSEL",
-      "note": "inside puT IN SELection"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "boxes",
+       "note": "the phrase boxes the answer inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "put in selection",
+       "gives": "TINSEL",
+       "note": "inside puT IN SELection"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Glitzy things packed into a selection box, a Christmas scene.",
      "walkthrough": "'Boxes' is a verb, not the selection boxes of chocolates at Christmas.",
@@ -1303,35 +1160,24 @@
    },
    "solution": "SURREAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SURREAL",
     "definitions": [
      {
       "text": "very strange",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "After shake-up",
-      "for": "anagram",
-      "note": "the letters that follow have been shaken into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a ruler's",
-      "gives": "ARULERS",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARULERS",
-       "gives": "SURREAL"
+       "text": "After shake-up",
+       "note": "the letters that follow have been shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a ruler's",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1361,41 +1207,36 @@
    },
    "solution": "SAGO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SAGO",
     "definitions": [
      {
       "text": "Cereal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close, the last letter, of 'oats' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close to oats",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of OATS"
-     },
-     {
-      "clueFragment": "in the past",
-      "gives": "AGO",
-      "note": "ago = in the past"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AGO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close, the last letter, of 'oats' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to oats",
+         "gives": "OATS",
+         "note": "last letter of OATS"
+        }
+       ]
+      },
+      {
+       "words": "in the past",
+       "gives": "AGO",
+       "note": "ago = in the past"
+      }
      ]
     },
     "explanation": {
@@ -1424,30 +1265,28 @@
    },
    "solution": "BINGO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "BINGO",
     "definitions": [
      {
       "text": "game",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "the answer is part of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Robin Goodfellow's",
-      "gives": "BINGO",
-      "note": "inside roBIN GOodfellow's"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "the answer is part of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Robin Goodfellow's",
+       "gives": "BINGO",
+       "note": "inside roBIN GOodfellow's"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about which game belongs to Robin Goodfellow, the folklore sprite Puck.",
      "walkthrough": "Robin Goodfellow is another name for Puck; the name is only there to carry the letters.",
@@ -1474,30 +1313,16 @@
    },
    "solution": "BASE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BASE",
     "definitions": [
      {
       "text": "Centre of operations",
-      "at": 0
+      "at": 0,
+      "meaning": "the headquarters that operations are run from, as for an army"
      },
      {
       "text": "of inferior quality",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Centre of operations",
-      "gives": "BASE",
-      "note": "the headquarters that operations are run from, as for an army"
-     },
-     {
-      "clueFragment": "of inferior quality",
-      "gives": "BASE",
-      "note": "low-grade, as in the metals alchemists tried to turn to gold"
+      "at": 21,
+      "meaning": "low-grade, as in the metals alchemists tried to turn to gold"
      }
     ],
     "explanation": {
@@ -1525,50 +1350,40 @@
    },
    "solution": "GUILT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "GUILT",
     "definitions": [
      {
       "text": "Remorse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "substitution"
-     },
-     {
-      "text": "to replace",
-      "for": "substitution"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellowship",
-      "gives": "GUILD",
-      "note": "a guild is an association, a fellowship"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "D = diamonds, the card suit; this letter goes out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUIL",
-      "T"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "GUILT",
+     "indicators": [
+      {
+       "text": "taking"
+      },
+      {
+       "text": "to replace"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fellowship",
+       "gives": "GUILD",
+       "note": "a guild is an association, a fellowship"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T = time"
+      },
+      {
+       "words": "diamonds",
+       "gives": "D",
+       "note": "D = diamonds, the card suit; this letter goes out"
+      }
      ]
     },
     "explanation": {
@@ -1597,38 +1412,30 @@
    },
    "solution": "EASTERN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EASTERN",
     "definitions": [
      {
       "text": "referring to One Direction?",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "at back of",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "at back of ship",
-      "gives": "ASTERN",
-      "note": "astern means at or toward the rear of a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "ASTERN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at back of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      },
+      {
+       "words": "at back of ship",
+       "gives": "ASTERN",
+       "note": "astern means at or toward the rear of a ship"
+      }
      ]
     },
     "explanation": {

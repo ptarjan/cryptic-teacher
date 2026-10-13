@@ -1,8 +1,6 @@
 {
  "id": "cyclops-532",
  "number": 532,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 532",
  "setter": "Cyclops",
  "date": "2014-10-17",
  "dimensions": {
@@ -52,26 +50,25 @@
     "17-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "KNEE JERK REACTION",
     "definitions": [
      {
       "text": "typical tabloid-like response to events",
       "at": 31
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Balls harmed by this",
-      "note": "surface reading: something that injures a man's testicles, a blow below the belt"
-     },
-     {
-      "clueFragment": "typical tabloid-like response to events",
-      "note": "setter's reading: the instant, unthinking outrage a tabloid headline produces; the blow to the balls comes from the joint in the leg"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Balls harmed by this",
+       "note": "surface reading: something that injures a man's testicles, a blow below the belt"
+      },
+      {
+       "words": "typical tabloid-like response to events",
+       "note": "setter's reading: the instant, unthinking outrage a tabloid headline produces; the blow to the balls comes from the joint in the leg"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A crude joke about a groin injury doubling as a jab at reflexive tabloid outrage.",
      "walkthrough": "The first phrase hints at a knee in the groin; the whole names the reflex response tabloids are known for. Two halves of one phrase share the clue.",
@@ -113,66 +110,69 @@
    },
    "solution": "ENCLAVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "reversal"
-    ],
-    "answer": "ENCLAVE",
     "definitions": [
      {
       "text": "Country besieged by foreigners!",
       "at": 82
      }
     ],
-    "indicators": [
-     {
-      "text": "extreme elements",
-      "for": "letter_selection",
-      "note": "the extreme elements of a phrase are its outermost letters, the very first and very last"
-     },
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "a word taking others in holds them inside itself"
-     },
-     {
-      "text": "rise",
-      "for": "reversal",
-      "note": "in a down entry, rising means the letters are read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hitler lover",
-      "gives": "EVA",
-      "note": "Eva Braun was Hitler's companion"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "L is the abbreviation for line"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "Nigel Farage's",
-      "gives": "NE",
-      "select": "outer",
-      "note": "the first letter of Nigel and the last of Farage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENCLAVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ENCLAVE",
+     "indicators": [
       {
-       "from": "EVALCNE",
-       "to": "ENCLAVE"
+       "text": "taking",
+       "note": "a word taking others in holds them inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise",
+         "note": "in a down entry, rising means the letters are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Hitler lover",
+           "gives": "EVA",
+           "note": "Eva Braun was Hitler's companion"
+          },
+          {
+           "words": "line",
+           "gives": "L",
+           "note": "L is the abbreviation for line"
+          },
+          {
+           "words": "Conservative",
+           "gives": "C",
+           "note": "C is the abbreviation for Conservative"
+          },
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "extreme elements",
+             "note": "the extreme elements of a phrase are its outermost letters, the very first and very last"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Nigel Farage's",
+             "gives": "NIGELFARAGE",
+             "note": "the first letter of Nigel and the last of Farage"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -202,43 +202,31 @@
    },
    "solution": "FRAGILE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FRAGILE",
     "definitions": [
      {
       "text": "Slight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "perpetrated by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "column",
-      "gives": "FILE",
-      "note": "a file is a column of people, one behind another"
-     },
-     {
-      "clueFragment": "tabloid",
-      "gives": "RAG",
-      "note": "a rag is a disparaging word for a low-quality newspaper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RAG",
-      "ILE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "column",
+       "gives": "FILE",
+       "note": "a file is a column of people, one behind another"
+      },
+      {
+       "words": "tabloid",
+       "gives": "RAG",
+       "note": "a rag is a disparaging word for a low-quality newspaper"
+      }
      ]
     },
     "explanation": {
@@ -267,50 +255,41 @@
    },
    "solution": "BANDMASTER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BANDMASTER",
     "definitions": [
      {
       "text": "One with brass (and more)",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "framed in",
-      "for": "container",
-      "note": "something framed in another is surrounded by it on all sides"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jest",
-      "gives": "BANTER",
-      "note": "banter is joking talk"
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     },
-     {
-      "clueFragment": "mothers",
-      "gives": "MAS",
-      "note": "ma is an informal word for mother; two of them are mas"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "D",
-      "MAS",
-      "TER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "framed in",
+       "note": "something framed in another is surrounded by it on all sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jest",
+       "gives": "BANTER",
+       "note": "banter is joking talk"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "daughter",
+         "gives": "D",
+         "note": "D is the abbreviation for daughter"
+        },
+        {
+         "words": "mothers",
+         "gives": "MAS",
+         "note": "ma is an informal word for mother; two of them are mas"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -340,35 +319,24 @@
    },
    "solution": "CITRUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CITRUS",
     "definitions": [
      {
       "text": "it might well bring tears to your eyes",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancing letters move about and end up in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rustic",
-      "gives": "RUSTIC",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RUSTIC",
-       "gives": "CITRUS"
+       "text": "dancing",
+       "note": "dancing letters move about and end up in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rustic",
+       "note": "taken as written"
       }
      ]
     },
@@ -405,58 +373,55 @@
    },
    "solution": "ONLYONCE",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ONLY ONCE",
     "definitions": [
      {
       "text": "never again",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "alternative",
-      "for": "anagram",
-      "note": "an alternative version of a word is an altered arrangement of its letters"
-     },
-     {
-      "text": "termination",
-      "for": "letter_selection",
-      "note": "a word's termination is where it ends, its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'Unique'",
-      "gives": "ONLY",
-      "note": "the only one of its kind is unique"
-     },
-     {
-      "clueFragment": "Con.",
-      "gives": "CON",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "candidate's",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of candidate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONLY",
-      "ONC",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CON",
-       "gives": "ONC"
+       "words": "'Unique'",
+       "gives": "ONLY",
+       "note": "the only one of its kind is unique"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "alternative",
+         "note": "an alternative version of a word is an altered arrangement of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Con.",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "termination",
+             "note": "a word's termination is where it ends, its final letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "candidate's",
+             "gives": "CANDIDATE",
+             "note": "the final letter of candidate"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -485,39 +450,31 @@
    },
    "solution": "PANTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PANTO",
     "definitions": [
      {
       "text": "sort of entertainment!",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "to pursue",
-      "for": "charade",
-      "note": "one thing pursuing another comes behind it, so it is placed after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heavy breathing",
-      "gives": "PANT",
-      "note": "to pant is to breathe heavily"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love is zero in tennis, and zero looks like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PANT",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to pursue",
+       "note": "one thing pursuing another comes behind it, so it is placed after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heavy breathing",
+       "gives": "PANT",
+       "note": "to pant is to breathe heavily"
+      },
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "love is zero in tennis, and zero looks like the letter O"
+      }
      ]
     },
     "explanation": {
@@ -551,38 +508,28 @@
     "24-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PUBIC HAIRS",
     "definitions": [
      {
       "text": "the making of Bush",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone wrong, so the letters are disordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "CIA/Bush rip",
-      "gives": "CIABUSHRIP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CIABUSHRIP",
-       "gives": "PUBICHAIRS"
+       "text": "off",
+       "note": "off means gone wrong, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "CIA/Bush rip",
+       "note": "taken as written"
       }
      ]
     },
+    "spelling": "PUBIC HAIRS",
     "explanation": {
      "surface": "A dig at the CIA and President Bush plagiarising something, the making of his presidency.",
      "walkthrough": "'Bush' reads as the US president, but in the definition it is slang for a woman's pubic hair.",
@@ -610,48 +557,35 @@
    },
    "solution": "NARRATION",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NARRATION",
     "definitions": [
      {
       "text": "Account of events",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spin",
-      "for": "reversal",
-      "note": "to spin something round turns it to face the opposite way"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "managed",
-      "gives": "RAN",
-      "note": "to run a business is to manage it"
-     },
-     {
-      "clueFragment": "a fair share",
-      "gives": "RATION",
-      "note": "a ration is an allotted portion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAR",
-      "RATION"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RAN",
-       "to": "NAR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "spin",
+         "note": "to spin something round turns it to face the opposite way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "managed",
+         "gives": "RAN",
+         "note": "to run a business is to manage it"
+        }
+       ]
+      },
+      {
+       "words": "a fair share",
+       "gives": "RATION",
+       "note": "a ration is an allotted portion"
       }
      ]
     },
@@ -692,38 +626,30 @@
    },
    "solution": "BREAKALEG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BREAK A LEG",
     "definitions": [
      {
       "text": "attempt at verbal encouragement",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bust",
-      "gives": "BREAK",
-      "note": "to bust something is to break it"
-     },
-     {
-      "clueFragment": "top class",
-      "gives": "A",
-      "note": "A is the top grade or class"
-     },
-     {
-      "clueFragment": "member's",
-      "gives": "LEG",
-      "note": "a leg is a limb, or member, of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BREAK",
-      "A",
-      "LEG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bust",
+       "gives": "BREAK",
+       "note": "to bust something is to break it"
+      },
+      {
+       "words": "top class",
+       "gives": "A",
+       "note": "A is the top grade or class"
+      },
+      {
+       "words": "member's",
+       "gives": "LEG",
+       "note": "a leg is a limb, or member, of the body"
+      }
      ]
     },
     "explanation": {
@@ -756,37 +682,28 @@
     "2-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIRTY WORK",
     "definitions": [
      {
       "text": "Unpleasant duty",
       "at": 9
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sullied",
-      "gives": "DIRTY",
-      "note": "something sullied is soiled"
-     },
-     {
-      "clueFragment": "Labour",
-      "gives": "WORK",
-      "note": "labour is toil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIRTY",
-      "WORK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sullied",
+       "gives": "DIRTY",
+       "note": "something sullied is soiled"
+      },
+      {
+       "words": "Labour",
+       "gives": "WORK",
+       "note": "labour is toil"
+      }
      ]
     },
+    "spelling": "DIRTY WORK",
     "explanation": {
      "surface": "A jibe at the tarnished Labour Party and its distasteful obligations.",
      "walkthrough": "'Labour' looks like the political party; here it simply means toil.",
@@ -814,31 +731,29 @@
    },
    "solution": "CHEKHOV",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHEKHOV",
     "definitions": [
      {
       "text": "moody writer",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "homophone",
-      "note": "a broadcast is heard rather than seen, so the sound counts, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Put a tick against",
-      "gives": "CHEKHOV",
-      "soundsLike": "CHECK OFF",
-      "note": "to check off an item on a list is to mark it with a tick"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHEKHOV",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "note": "a broadcast is heard rather than seen, so the sound counts, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Put a tick against",
+       "gives": "CHECKOFF",
+       "note": "to check off an item on a list is to mark it with a tick"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A reviewer marks down a gloomy author on air.",
      "walkthrough": "Anton Chekhov was the Russian playwright and short-story writer.",
@@ -866,59 +781,49 @@
    },
    "solution": "HEDONISTIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "HEDONISTIC",
     "definitions": [
      {
       "text": "voluptuous?",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "tight",
-      "for": "anagram",
-      "note": "tight means drunk, and drunken letters stagger into a new order"
-     },
-     {
-      "text": "squeezed by",
-      "for": "container",
-      "note": "something squeezed by another is pressed inside it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Balls",
-      "gives": "ED",
-      "note": "Ed Balls is a former Labour politician"
-     },
-     {
-      "clueFragment": "chinos",
-      "gives": "CHINOS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ED",
-      "ONISTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CHINOSIT",
-       "gives": "HONISTIC"
+       "text": "squeezed by",
+       "note": "something squeezed by another is pressed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tight",
+         "note": "tight means drunk, and drunken letters stagger into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "chinos",
+           "note": "taken as written"
+          },
+          {
+           "words": "it",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Balls",
+       "gives": "ED",
+       "note": "Ed Balls is a former Labour politician"
       }
      ]
     },
@@ -949,30 +854,28 @@
    },
    "solution": "LIAISON",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LIAISON",
     "definitions": [
      {
       "text": "Covert affair",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the letters sought lie within the run of words that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australia is one-sided",
-      "gives": "LIAISON",
-      "note": "the letters span the end of the first word, all of the second and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the letters sought lie within the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australia is one-sided",
+       "gives": "LIAISON",
+       "note": "the letters span the end of the first word, all of the second and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A secret fling conducted down under that is all on one side.",
      "definitionFit": "A liaison is a secret sexual relationship, typically an illicit one conducted behind a partner's back."
@@ -1018,61 +921,50 @@
    },
    "solution": "BOOTHILL",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "BOOT HILL",
     "definitions": [
      {
       "text": "Resting-place",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blasted",
-      "for": "anagram",
-      "note": "blasted things are blown apart and scattered"
-     },
-     {
-      "text": "grabs",
-      "for": "container",
-      "note": "something that grabs others holds them within its grip"
-     }
-    ],
-    "linkWords": [
-     "in which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clinton",
-      "gives": "BILL",
-      "note": "Bill Clinton, the former US president"
-     },
-     {
-      "clueFragment": "too",
-      "gives": "TOO",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the abbreviation for hard, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OOT",
-      "H",
-      "ILL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TOO",
-       "gives": "OOT"
+       "text": "grabs",
+       "note": "something that grabs others holds them within its grip"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Clinton",
+       "gives": "BILL",
+       "note": "Bill Clinton, the former US president"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "blasted",
+           "note": "blasted things are blown apart and scattered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "too",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
       }
      ]
     },
@@ -1102,51 +994,46 @@
    },
    "solution": "TERSE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "TERSE",
     "definitions": [
      {
       "text": "Blunt",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "going",
-      "for": "deletion",
-      "note": "the named letter is going, so it is dropped from the word"
-     },
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "something taken in by another is received inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written, then shortened"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the abbreviation for hard"
-     },
-     {
-      "clueFragment": "His employer's",
-      "gives": "ERS",
-      "note": "ER (Elizabeth Regina) employs His Majesty's servants; ER's gives ERS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ERS",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "something taken in by another is received inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going",
+         "note": "the named letter is going, so it is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "taken as written, then shortened"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H is the abbreviation for hard"
+        }
+       ]
+      },
+      {
+       "words": "His employer's",
+       "gives": "ERS",
+       "note": "ER (Elizabeth Regina) employs His Majesty's servants; ER's gives ERS"
+      }
      ]
     },
     "explanation": {
@@ -1189,10 +1076,6 @@
    },
    "solution": "DEFICIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DEFICIT",
     "definitions": [
      {
       "text": "which falls short of what's required",
@@ -1200,30 +1083,25 @@
       "note": "a clause describing the noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "appropriation of",
-      "for": "container",
-      "note": "appropriating something means taking it into your own possession, so it ends up held inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Adroit",
-      "gives": "DEFT",
-      "note": "deft means skilful"
-     },
-     {
-      "clueFragment": "old British company",
-      "gives": "ICI",
-      "note": "ICI, Imperial Chemical Industries, was a major British firm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEF",
-      "ICI",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appropriation of",
+       "note": "appropriating something means taking it into your own possession, so it ends up held inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Adroit",
+       "gives": "DEFT",
+       "note": "deft means skilful"
+      },
+      {
+       "words": "old British company",
+       "gives": "ICI",
+       "note": "ICI, Imperial Chemical Industries, was a major British firm"
+      }
      ]
     },
     "explanation": {
@@ -1252,53 +1130,44 @@
    },
    "solution": "MARILYN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "MARILYN",
     "definitions": [
      {
       "text": "Old movie star",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pissed",
-      "for": "anagram",
-      "note": "pissed is British slang for drunk, and drunken letters reel into a new order"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the last letter of the word before"
-     }
-    ],
-    "linkWords": [
-     "acquiring"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mainly",
-      "gives": "MAINLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Oscar",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of Oscar"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARILYN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MAINLYR",
-       "gives": "MARILYN"
+       "text": "pissed",
+       "note": "pissed is British slang for drunk, and drunken letters reel into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "mainly",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the last letter of the word before"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Oscar",
+           "note": "the final letter of Oscar"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1328,51 +1197,48 @@
    },
    "solution": "OFFENCE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "OFFENCE",
     "definitions": [
      {
       "text": "often taken by PC types",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "without its top, a word loses its first letter"
-     },
-     {
-      "text": "sort of",
-      "for": "anagram",
-      "note": "to sort something is to rearrange it into a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unsavoury",
-      "gives": "OFF",
-      "note": "food that is off has gone bad"
-     },
-     {
-      "clueFragment": "scene",
-      "gives": "SCENE",
-      "note": "taken as written, then cut and rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "ENCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CENE",
-       "gives": "ENCE"
+       "words": "Unsavoury",
+       "gives": "OFF",
+       "note": "food that is off has gone bad"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sort of",
+         "note": "to sort something is to rearrange it into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "topless",
+           "note": "without its top, a word loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "scene",
+           "note": "taken as written, then cut and rearranged"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1402,54 +1268,41 @@
    },
    "solution": "FRIDAY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "FRIDAY",
     "definitions": [
      {
       "text": "Manservant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "'rising up'",
-      "for": "reversal",
-      "note": "in a down entry, rising up means the letters are read from the bottom"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one word wraps the other"
-     }
-    ],
-    "linkWords": [
-     "causes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "row",
-      "gives": "FRAY",
-      "note": "a fray is a fight or quarrel"
-     },
-     {
-      "clueFragment": "dead royal",
-      "gives": "DI",
-      "note": "Princess Diana, known as Di, who died in 1997"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "ID",
-      "AY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DI",
-       "to": "ID"
+       "text": "about",
+       "note": "about means around, so one word wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "row",
+       "gives": "FRAY",
+       "note": "a fray is a fight or quarrel"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "'rising up'",
+         "note": "in a down entry, rising up means the letters are read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead royal",
+         "gives": "DI",
+         "note": "Princess Diana, known as Di, who died in 1997"
+        }
+       ]
       }
      ]
     },
@@ -1485,51 +1338,41 @@
    },
    "solution": "AIRRAID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AIR-RAID",
     "definitions": [
      {
       "text": "a bomb-dropping event",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "centre",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle letter"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broadcast",
-      "gives": "AIR",
-      "note": "to air a programme is to broadcast it"
-     },
-     {
-      "clueFragment": "Boris's",
-      "gives": "R",
-      "select": "middle",
-      "note": "the middle letter of Boris"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "AID",
-      "note": "aid is help"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "R",
-      "AID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Broadcast",
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre",
+         "note": "the centre of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Boris's",
+         "gives": "BORIS",
+         "note": "the middle letter of Boris"
+        }
+       ]
+      },
+      {
+       "words": "support",
+       "gives": "AID",
+       "note": "aid is help"
+      }
      ]
     },
     "explanation": {
@@ -1557,52 +1400,45 @@
    },
    "solution": "DOWSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "DOWSE",
     "definitions": [
      {
       "text": "Make use of a pointer",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "tip",
-      "for": "letter_selection",
-      "note": "the tip is the end of a word, here its final letter"
-     },
-     {
-      "text": "out of hand",
-      "for": "anagram",
-      "note": "things out of hand are out of control, so the letters run wild"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Miliband's",
-      "gives": "D",
-      "select": "last",
-      "note": "the final letter of Miliband"
-     },
-     {
-      "clueFragment": "Woes",
-      "gives": "WOES",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "OWSE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WOES",
-       "gives": "OWSE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tip",
+         "note": "the tip is the end of a word, here its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Miliband's",
+         "gives": "MILIBAND",
+         "note": "the final letter of Miliband"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out of hand",
+         "note": "things out of hand are out of control, so the letters run wild"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Woes",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1652,63 +1488,60 @@
    },
    "solution": "IRISHSTEW",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "IRISH STEW",
     "definitions": [
      {
       "text": "Hot dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "awful means badly made, so the letters are jumbled"
-     },
-     {
-      "text": "beset by",
-      "for": "container",
-      "note": "beset by others means surrounded by them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Murdoch",
-      "gives": "IRIS",
-      "note": "Iris Murdoch, the novelist, not Rupert"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "Sun",
-      "gives": "S",
-      "note": "S is the abbreviation for sun"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRIS",
-      "H",
-      "S",
-      "TEW"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "THE",
-       "gives": "HTE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "beset by",
+         "note": "beset by others means surrounded by them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "awful",
+           "note": "awful means badly made, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Murdoch",
+             "gives": "IRIS",
+             "note": "Iris Murdoch, the novelist, not Rupert"
+            },
+            {
+             "words": "the",
+             "note": "taken as written, then rearranged"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "Sun",
+         "gives": "S",
+         "note": "S is the abbreviation for sun"
+        }
+       ]
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W is the abbreviation for wife"
       }
      ]
     },
@@ -1743,30 +1576,19 @@
     "15-across"
    ],
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HALF BAKED",
     "definitions": [
      {
       "text": "Harebrained",
-      "at": 10
+      "at": 10,
+      "meaning": "first meaning: ill-conceived, foolish"
      },
      {
       "text": "as Cook's far from 100% effort?",
-      "at": 22
+      "at": 22,
+      "meaning": "second meaning: a cook's dish only partly done in the oven"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Harebrained",
-      "note": "first meaning: ill-conceived, foolish"
-     },
-     {
-      "clueFragment": "as Cook's far from 100% effort?",
-      "note": "second meaning: a cook's dish only partly done in the oven"
-     }
-    ],
+    "spelling": "HALF BAKED",
     "explanation": {
      "surface": "A foolish scheme by someone named Cook, who did not give it full effort.",
      "walkthrough": "The capital on 'Cook' suggests a person; it is just a cook whose bread is underdone.",
@@ -1794,69 +1616,61 @@
    },
    "solution": "LIABILITY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LIABILITY",
     "definitions": [
      {
       "text": "burden",
       "at": 70
      }
     ],
-    "indicators": [
-     {
-      "text": "infiltrating",
-      "for": "container",
-      "note": "something infiltrating a group gets inside it"
-     },
-     {
-      "text": "the ultimate in",
-      "for": "letter_selection",
-      "note": "the ultimate letter of a word is its last"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "party",
-      "gives": "LAB",
-      "note": "Lab is short for the Labour Party"
-     },
-     {
-      "clueFragment": "Independent",
-      "gives": "I",
-      "note": "I is the abbreviation for Independent"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "pissed",
-      "gives": "LIT",
-      "note": "lit is slang for drunk"
-     },
-     {
-      "clueFragment": "Tory",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of Tory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "AB",
-      "I",
-      "LIT",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "infiltrating",
+         "note": "something infiltrating a group gets inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "gives": "LAB",
+         "note": "Lab is short for the Labour Party"
+        },
+        {
+         "words": "Independent",
+         "gives": "I",
+         "note": "I is the abbreviation for Independent"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "pissed",
+       "gives": "LIT",
+       "note": "lit is slang for drunk"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the ultimate in",
+         "note": "the ultimate letter of a word is its last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "note": "the last letter of Tory"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1885,43 +1699,31 @@
    },
    "solution": "LOOSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOOSE",
     "definitions": [
      {
       "text": "immoral",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "accepting",
-      "for": "container",
-      "note": "a word accepting another takes it in"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What LibDem candidates often do",
-      "gives": "LOSE",
-      "note": "Liberal Democrat candidates frequently fail to win their seats"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "O",
-      "OSE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "note": "a word accepting another takes it in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What LibDem candidates often do",
+       "gives": "LOSE",
+       "note": "Liberal Democrat candidates frequently fail to win their seats"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O looks like zero"
+      }
      ]
     },
     "explanation": {

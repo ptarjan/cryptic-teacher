@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5042",
  "number": 5042,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,042",
  "setter": "David McLean",
  "date": "2023-01-15",
  "dimensions": {
@@ -42,26 +40,25 @@
    },
    "solution": "JOCKEY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "JOCKEY",
     "definitions": [
      {
       "text": "Type of person who'll be up for a race?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Type of person who'll be up for a race?",
-      "note": "Surface reading: someone keen and ready to take part in a competition, 'up for it'."
-     },
-     {
-      "clueFragment": "up for a race",
-      "note": "Setter's reading: 'up' means mounted in the saddle, so this is the rider sitting on a horse for the race."
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Type of person who'll be up for a race?",
+       "note": "Surface reading: someone keen and ready to take part in a competition, 'up for it'."
+      },
+      {
+       "words": "up for a race",
+       "note": "Setter's reading: 'up' means mounted in the saddle, so this is the rider sitting on a horse for the race."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A description of an eager competitor who is always game for a contest.",
      "walkthrough": "'Up for' pretends to mean willing; in racing a rider who is 'up' is on the horse, which is the jockey's job.",
@@ -89,45 +86,35 @@
    },
    "solution": "JABBERER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "JABBERER",
     "definitions": [
      {
       "text": "one expelling much gas",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "'about' turns the short word for 'on' around so it reads backwards after the boxer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boxer",
-      "gives": "JABBER",
-      "note": "a boxer throws jabs, so one who jabs"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning, as in memo headers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JABBER",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RE",
-       "to": "ER"
+       "words": "Boxer",
+       "gives": "JABBER",
+       "note": "a boxer throws jabs, so one who jabs"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' turns the short word for 'on' around so it reads backwards after the boxer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "gives": "RE",
+         "note": "re = on, concerning, as in memo headers"
+        }
+       ]
       }
      ]
     },
@@ -157,30 +144,28 @@
    },
    "solution": "CRU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CRU",
     "definitions": [
      {
       "text": "French wine producer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "nurses",
-      "for": "hidden_word",
-      "note": "to nurse is to hold close, so 'recruiting' cradles the answer within its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "recruiting",
-      "gives": "CRU",
-      "note": "letters two to four of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "nurses",
+       "note": "to nurse is to hold close, so 'recruiting' cradles the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "recruiting",
+       "gives": "CRU",
+       "note": "letters two to four of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A French vineyard owner hiring staff to look after things.",
      "walkthrough": "'Nurses' looks like a noun being recruited; it is a verb meaning holds.",
@@ -207,46 +192,43 @@
    },
    "solution": "EXCELLENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EXCELLENT",
     "definitions": [
      {
       "text": "Superior",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'room' sits inside the two pieces from 'old' and 'hospital unit'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "EX",
-      "note": "ex = former, as in ex-wife"
-     },
-     {
-      "clueFragment": "room",
-      "gives": "CELL",
-      "note": "a cell is a small room, in a prison or monastery"
-     },
-     {
-      "clueFragment": "hospital unit",
-      "gives": "ENT",
-      "note": "the ear, nose and throat department"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "CELL",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EXCELLENT",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'room' sits inside the two pieces from 'old' and 'hospital unit'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "EX",
+         "note": "ex = former, as in ex-wife"
+        },
+        {
+         "words": "room",
+         "gives": "CELL",
+         "note": "a cell is a small room, in a prison or monastery"
+        },
+        {
+         "words": "hospital unit",
+         "gives": "ENT",
+         "note": "the ear, nose and throat department"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -275,35 +257,25 @@
    },
    "solution": "IMMODEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMMODEST",
     "definitions": [
      {
       "text": "indecent",
       "at": 34
      }
     ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Your setter's",
-      "gives": "IM",
-      "note": "the setter speaking of himself: I am, shortened"
-     },
-     {
-      "clueFragment": "not ostentatious",
-      "gives": "MODEST",
-      "note": "modest = unshowy, not flaunting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "MODEST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Your setter's",
+       "gives": "IM",
+       "note": "the setter speaking of himself: I am, shortened"
+      },
+      {
+       "words": "not ostentatious",
+       "gives": "MODEST",
+       "note": "modest = unshowy, not flaunting"
+      }
      ]
     },
     "explanation": {
@@ -333,39 +305,31 @@
    },
    "solution": "MISTRAL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MISTRAL",
     "definitions": [
      {
       "text": "wind",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "after one's passed",
-      "for": "deletion",
-      "note": "once 'one' has passed on, it has gone from the word for the useless hearing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hearing judged useless",
-      "gives": "MISTRIAL",
-      "note": "a court hearing voided because of a procedural error"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "one = I, the Roman numeral, which is taken away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIST",
-      "RAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after one's passed",
+       "note": "once 'one' has passed on, it has gone from the word for the useless hearing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hearing judged useless",
+       "gives": "MISTRIAL",
+       "note": "a court hearing voided because of a procedural error"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "one = I, the Roman numeral, which is taken away"
+      }
      ]
     },
     "explanation": {
@@ -395,47 +359,35 @@
    },
    "solution": "OPALS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OPALS",
     "definitions": [
      {
       "text": "Stones",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Retro",
-      "for": "reversal",
-      "note": "retro means going backwards, so the whole 'hit by Love' string is read in reverse"
-     }
-    ],
-    "linkWords": [
-     "or the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sort of hit",
-      "gives": "SLAP",
-      "note": "a slap is one kind of blow"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love = zero in tennis, shaped like O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPALS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SLAPO",
-       "to": "OPALS"
+       "text": "Retro",
+       "note": "retro means going backwards, so the whole 'hit by Love' string is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sort of hit",
+         "gives": "SLAP",
+         "note": "a slap is one kind of blow"
+        },
+        {
+         "words": "Love",
+         "gives": "O",
+         "note": "love = zero in tennis, shaped like O"
+        }
+       ]
       }
      ]
     },
@@ -466,51 +418,40 @@
    },
    "solution": "ENDORSEMENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENDORSEMENT",
     "definitions": [
      {
       "text": "Support",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pants",
-      "for": "anagram",
-      "note": "pants is British slang for rubbish, so the following words are a garbled mess"
-     },
-     {
-      "text": "grasping",
-      "for": "container",
-      "note": "the jumbled letters hold on to the soprano in their middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on men deter",
-      "gives": "ONMENDETER",
-      "note": "anagram fodder, ten letters"
-     },
-     {
-      "clueFragment": "soprano",
-      "gives": "S",
-      "note": "s = soprano in musical scores"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENDOR",
-      "S",
-      "EMENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ONMENDETER",
-       "gives": "ENDOREMENT"
+       "text": "grasping",
+       "note": "the jumbled letters hold on to the soprano in their middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pants",
+         "note": "pants is British slang for rubbish, so the following words are a garbled mess"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on men deter",
+         "note": "anagram fodder, ten letters"
+        }
+       ]
+      },
+      {
+       "words": "soprano",
+       "gives": "S",
+       "note": "s = soprano in musical scores"
       }
      ]
     },
@@ -541,38 +482,24 @@
    },
    "solution": "TOSSER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TOSSER",
     "definitions": [
      {
       "text": "A pancake-maker perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cooking",
-      "for": "anagram",
-      "note": "cooking the books means falsifying them, so the letters of 'stores' are doctored"
-     }
-    ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stores",
-      "gives": "STORES",
-      "note": "anagram fodder, six letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STORES",
-       "gives": "TOSSER"
+       "text": "cooking",
+       "note": "cooking the books means falsifying them, so the letters of 'stores' are doctored"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stores",
+       "note": "anagram fodder, six letters"
       }
      ]
     },
@@ -603,31 +530,29 @@
    },
    "solution": "TAIPEI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TAIPEI",
     "definitions": [
      {
       "text": "foreign capital",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "to be delivered",
-      "for": "homophone",
-      "note": "a speech is delivered out loud, so the two words are to be spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Draw wages",
-      "gives": "TAIPEI",
-      "soundsLike": "TIE PAY",
-      "note": "a draw is a tie, and wages are pay"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TAIPEI",
+     "indicators": [
+      {
+       "text": "to be delivered",
+       "note": "a speech is delivered out loud, so the two words are to be spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Draw wages",
+       "gives": "TIEPAY",
+       "note": "a draw is a tie, and wages are pay"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Collecting your salary to be paid out in an overseas city.",
      "walkthrough": "'Foreign capital' looks like overseas money to go with the wages; it is a city.",
@@ -655,41 +580,42 @@
    },
    "solution": "BLUECOATS",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "BLUECOATS",
     "definitions": [
      {
       "text": "they may sail",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "Reverend Spooner swapped the opening sounds of words, so the two words here trade their starts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lead",
-      "gives": "BLUE",
-      "soundsLike": "CLUE",
-      "note": "a lead is a clue, a hint; its C sound goes to the second word"
-     },
-     {
-      "clueFragment": "vessels",
-      "gives": "COATS",
-      "soundsLike": "BOATS",
-      "note": "vessels are boats; the B sound goes to the first word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "COATS"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "BLUECOATS",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "Reverend Spooner swapped the opening sounds of words, so the two words here trade their starts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "lead",
+         "gives": "BLUE",
+         "soundsLike": "CLUE",
+         "note": "a lead is a clue, a hint; its C sound goes to the second word"
+        },
+        {
+         "unchecked": true,
+         "words": "vessels",
+         "gives": "COATS",
+         "soundsLike": "BOATS",
+         "note": "vessels are boats; the B sound goes to the first word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -719,41 +645,35 @@
    },
    "solution": "ANDES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ANDES",
     "definitions": [
      {
       "text": "Range",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "original parts from",
-      "for": "letter_selection",
-      "note": "the original part of a word is where it starts, so take the opening of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and = with, joining one thing to another"
-     },
-     {
-      "clueFragment": "Essex supplier",
-      "gives": "ES",
-      "select": "first",
-      "note": "the initial of each of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AND",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "and = with, joining one thing to another"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "original parts from",
+         "note": "the original part of a word is where it starts, so take the opening of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Essex supplier",
+         "note": "the initial of each of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -782,50 +702,45 @@
    },
    "solution": "ENVELOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ENVELOP",
     "definitions": [
      {
       "text": "Blanket",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "'about' turns the words for 'staff' and 'see' round to read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nurse",
-      "gives": "EN",
-      "note": "EN = enrolled nurse"
-     },
-     {
-      "clueFragment": "staff",
-      "gives": "POLE",
-      "note": "a staff is a long pole"
-     },
-     {
-      "clueFragment": "see",
-      "gives": "V",
-      "note": "v = vide, Latin for see, used in references"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "VELOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "POLEV",
-       "to": "VELOP"
+       "words": "nurse",
+       "gives": "EN",
+       "note": "EN = enrolled nurse"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' turns the words for 'staff' and 'see' round to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "staff",
+           "gives": "POLE",
+           "note": "a staff is a long pole"
+          },
+          {
+           "words": "see",
+           "gives": "V",
+           "note": "v = vide, Latin for see, used in references"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -855,35 +770,24 @@
    },
    "solution": "VISCOUNTESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VISCOUNTESS",
     "definitions": [
      {
       "text": "Title-holder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of training",
-      "for": "anagram",
-      "note": "something untrained is not yet in order, so these letters must be knocked into shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vets cousins",
-      "gives": "VETSCOUSINS",
-      "note": "anagram fodder, eleven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VETSCOUSINS",
-       "gives": "VISCOUNTESS"
+       "text": "in need of training",
+       "note": "something untrained is not yet in order, so these letters must be knocked into shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vets cousins",
+       "note": "anagram fodder, eleven letters"
       }
      ]
     },
@@ -913,28 +817,16 @@
    },
    "solution": "RESERVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RESERVE",
     "definitions": [
      {
       "text": "Ice",
-      "at": 0
+      "at": 0,
+      "meaning": "coldness of manner, a cool aloofness"
      },
      {
       "text": "store",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ice",
-      "note": "coldness of manner, a cool aloofness"
-     },
-     {
-      "clueFragment": "store",
-      "note": "a supply kept back for later use"
+      "at": 4,
+      "meaning": "a supply kept back for later use"
      }
     ],
     "explanation": {
@@ -968,26 +860,25 @@
    },
    "solution": "EASTERISLANDER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EASTER ISLANDER",
     "definitions": [
      {
       "text": "Local who might look up to a chisel-jawed bighead?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Local who might look up to a chisel-jawed bighead?",
-      "note": "Surface reading: a villager admiring some square-jawed, conceited celebrity."
-     },
-     {
-      "clueFragment": "chisel-jawed bighead",
-      "note": "Setter's reading: literally a huge head with a jaw carved by chisel, a giant stone statue on a Pacific island."
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Local who might look up to a chisel-jawed bighead?",
+       "note": "Surface reading: a villager admiring some square-jawed, conceited celebrity."
+      },
+      {
+       "words": "chisel-jawed bighead",
+       "note": "Setter's reading: literally a huge head with a jaw carved by chisel, a giant stone statue on a Pacific island."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A small-town resident idolising a handsome but arrogant hero.",
      "walkthrough": "The moai of Rapa Nui are giant carved stone heads with jutting jaws; the island's people literally look up at them.",
@@ -1021,52 +912,46 @@
    },
    "solution": "NILEGREEN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NILE GREEN",
     "definitions": [
      {
       "text": "A shade",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "the word for 'jealous' is placed after the pieces from 'love' and 'elopes'"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of 'elopes' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "NIL",
-      "note": "love = nothing, a score of nil"
-     },
-     {
-      "clueFragment": "elopes",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "jealous",
-      "gives": "GREEN",
-      "note": "green with envy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIL",
-      "E",
-      "GREEN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the word for 'jealous' is placed after the pieces from 'love' and 'elopes'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "love",
+       "gives": "NIL",
+       "note": "love = nothing, a score of nil"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letter of 'elopes' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elopes",
+         "note": "the first letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "jealous",
+       "gives": "GREEN",
+       "note": "green with envy"
+      }
      ]
     },
     "explanation": {
@@ -1096,47 +981,40 @@
    },
    "solution": "ASBESTOS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ASBESTOS",
     "definitions": [
      {
       "text": "health hazard",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "'about' means around, so the call for help wraps round the word for 'prime'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "request for help",
-      "gives": "SOS",
-      "note": "the distress signal"
-     },
-     {
-      "clueFragment": "prime",
-      "gives": "BEST",
-      "note": "prime = finest, best"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "BEST",
-      "OS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "used as it stands"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "'about' means around, so the call for help wraps round the word for 'prime'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "request for help",
+         "gives": "SOS",
+         "note": "the distress signal"
+        },
+        {
+         "words": "prime",
+         "gives": "BEST",
+         "note": "prime = finest, best"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1170,42 +1048,31 @@
    },
    "solution": "FORTUNETELLERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORTUNE-TELLERS",
     "definitions": [
      {
       "text": "those in futures",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "the bank workers are placed after the word for 'wealth'"
-     }
-    ],
-    "linkWords": [
-     "could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wealth",
-      "gives": "FORTUNE",
-      "note": "a fortune is great wealth"
-     },
-     {
-      "clueFragment": "Bank staff",
-      "gives": "TELLERS",
-      "note": "tellers serve customers at a bank counter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FORTUNE",
-      "TELLERS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the bank workers are placed after the word for 'wealth'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wealth",
+       "gives": "FORTUNE",
+       "note": "a fortune is great wealth"
+      },
+      {
+       "words": "Bank staff",
+       "gives": "TELLERS",
+       "note": "tellers serve customers at a bank counter"
+      }
      ]
     },
     "explanation": {
@@ -1235,58 +1102,50 @@
    },
    "solution": "NITRATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "charade"
-    ],
-    "answer": "NITRATE",
     "definitions": [
      {
       "text": "Fertilizer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upended",
-      "for": "reversal",
-      "note": "in a down answer, upending the little word 'in' turns it bottom to top"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so the gallery surrounds 'right'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used as it stands, then turned over"
-     },
-     {
-      "clueFragment": "art gallery",
-      "gives": "TATE",
-      "note": "the Tate, a London art gallery"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "r = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "T",
-      "R",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IN",
-       "to": "NI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upended",
+         "note": "in a down answer, upending the little word 'in' turns it bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "note": "used as it stands, then turned over"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without in its old sense of outside, so the gallery surrounds 'right'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "art gallery",
+         "gives": "TATE",
+         "note": "the Tate, a London art gallery"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "r = right"
+        }
+       ]
       }
      ]
     },
@@ -1316,31 +1175,16 @@
    },
    "solution": "TONGUE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TONGUE",
     "definitions": [
      {
       "text": "Spit",
-      "at": 0
+      "at": 0,
+      "meaning": "a narrow point of land running out into the sea"
      },
      {
       "text": "found in one's mouth",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spit",
-      "note": "a narrow point of land running out into the sea"
-     },
-     {
-      "clueFragment": "found in one's mouth",
-      "note": "the muscular organ used for tasting and speech"
+      "at": 12,
+      "meaning": "the muscular organ used for tasting and speech"
      }
     ],
     "explanation": {
@@ -1370,48 +1214,42 @@
    },
    "solution": "ACACIA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACACIA",
     "definitions": [
      {
       "text": "One with roots",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "arrests",
-      "for": "container",
-      "note": "arresting someone means holding them, so the agency holds the state"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "California",
-      "gives": "CA",
-      "note": "the postal abbreviation for the state"
-     },
-     {
-      "clueFragment": "US agency",
-      "gives": "CIA",
-      "note": "the Central Intelligence Agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CA",
-      "CIA"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ACACIA",
+     "indicators": [
+      {
+       "text": "arrests",
+       "note": "arresting someone means holding them, so the agency holds the state"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as it stands"
+        },
+        {
+         "words": "California",
+         "gives": "CA",
+         "note": "the postal abbreviation for the state"
+        },
+        {
+         "words": "US agency",
+         "gives": "CIA",
+         "note": "the Central Intelligence Agency"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1441,36 +1279,25 @@
    },
    "solution": "CONVERT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONVERT",
     "definitions": [
      {
       "text": "One seen changing",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservative",
-      "gives": "CON",
-      "note": "Con = Conservative, the British party"
-     },
-     {
-      "clueFragment": "Green",
-      "gives": "VERT",
-      "note": "vert is green in heraldry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "VERT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "gives": "CON",
+       "note": "Con = Conservative, the British party"
+      },
+      {
+       "words": "Green",
+       "gives": "VERT",
+       "note": "vert is green in heraldry"
+      }
      ]
     },
     "explanation": {
@@ -1499,41 +1326,31 @@
    },
    "solution": "ERROR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ERROR",
     "definitions": [
      {
       "text": "a mistake",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Being out of",
-      "for": "deletion",
-      "note": "being out of something means having none left, so 'time' goes from the word for 'dread'"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dread",
-      "gives": "TERROR",
-      "note": "terror = great fear"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time, which is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERROR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Being out of",
+       "note": "being out of something means having none left, so 'time' goes from the word for 'dread'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dread",
+       "gives": "TERROR",
+       "note": "terror = great fear"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time, which is removed"
+      }
      ]
     },
     "explanation": {
@@ -1562,32 +1379,25 @@
    },
    "solution": "NIGHTIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NIGHTIE",
     "definitions": [
      {
       "text": "Item of clothing",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "near",
-      "gives": "NIGH",
-      "note": "nigh = near, an old word"
-     },
-     {
-      "clueFragment": "neckwear",
-      "gives": "TIE",
-      "note": "a tie is worn round the neck; 'item of' just makes it one piece"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGH",
-      "TIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "near",
+       "gives": "NIGH",
+       "note": "nigh = near, an old word"
+      },
+      {
+       "words": "neckwear",
+       "gives": "TIE",
+       "note": "a tie is worn round the neck; 'item of' just makes it one piece"
+      }
      ]
     },
     "explanation": {
@@ -1616,28 +1426,16 @@
    },
    "solution": "CLEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLEAR",
     "definitions": [
      {
       "text": "Net",
-      "at": 0
+      "at": 0,
+      "meaning": "as in net profit, left after all deductions"
      },
      {
       "text": "emptied of cargo",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Net",
-      "note": "as in net profit, left after all deductions"
-     },
-     {
-      "clueFragment": "emptied of cargo",
-      "note": "as a ship's hold unloaded and empty"
+      "at": 4,
+      "meaning": "as a ship's hold unloaded and empty"
      }
     ],
     "explanation": {
@@ -1666,55 +1464,47 @@
    },
    "solution": "AMUSEMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AMUSEMENT",
     "definitions": [
      {
       "text": "fun",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "to punch",
-      "for": "container",
-      "note": "a punch goes into its target, so these pieces go inside 'a tenor'"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "Type to inspire",
-      "gives": "MUSE",
-      "note": "a muse is a source of artistic inspiration"
-     },
-     {
-      "clueFragment": "chaps",
-      "gives": "MEN",
-      "note": "chaps = men"
-     },
-     {
-      "clueFragment": "tenor",
-      "gives": "T",
-      "note": "t = tenor in choral scores"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MUSE",
-      "MEN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "AMUSEMENT",
+     "indicators": [
+      {
+       "text": "to punch",
+       "note": "a punch goes into its target, so these pieces go inside 'a tenor'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as it stands"
+        },
+        {
+         "words": "Type to inspire",
+         "gives": "MUSE",
+         "note": "a muse is a source of artistic inspiration"
+        },
+        {
+         "words": "chaps",
+         "gives": "MEN",
+         "note": "chaps = men"
+        },
+        {
+         "words": "tenor",
+         "gives": "T",
+         "note": "t = tenor in choral scores"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1744,31 +1534,29 @@
    },
    "solution": "EYE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EYE",
     "definitions": [
      {
       "text": "a peeper",
       "at": 9
      }
     ],
-    "indicators": [
-     {
-      "text": "caught",
-      "for": "homophone",
-      "note": "to catch what someone says is to hear it, so the word is heard rather than read"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "EYE",
-      "soundsLike": "I",
-      "note": "the letter or pronoun, spoken"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYE",
+     "indicators": [
+      {
+       "text": "caught",
+       "note": "to catch what someone says is to hear it, so the word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "gives": "I",
+       "note": "the letter or pronoun, spoken"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone confessing that they caught a voyeur in the act.",
      "walkthrough": "'Caught' reads as nabbing the peeper; it means heard, so say the letter I aloud. 'Peeper' is slang for an eye.",
@@ -1796,48 +1584,38 @@
    },
    "solution": "ASSORTED",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ASSORTED",
     "definitions": [
      {
       "text": "Ranked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "replaced",
-      "for": "substitution",
-      "note": "the soldiers take the monarch's place inside the claim, replacing her"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stated claim",
-      "gives": "ASSERTED",
-      "note": "to assert is to state a claim"
-     },
-     {
-      "clueFragment": "monarch",
-      "gives": "ER",
-      "note": "ER = Elizabeth Regina, taken out"
-     },
-     {
-      "clueFragment": "men in army",
-      "gives": "OR",
-      "note": "OR = other ranks, soldiers below officer grade, put in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASS",
-      "OR",
-      "TED"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ASSORTED",
+     "indicators": [
+      {
+       "text": "replaced",
+       "note": "the soldiers take the monarch's place inside the claim, replacing her"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stated claim",
+       "gives": "ASSERTED",
+       "note": "to assert is to state a claim"
+      },
+      {
+       "words": "monarch",
+       "gives": "ER",
+       "note": "ER = Elizabeth Regina, taken out"
+      },
+      {
+       "words": "men in army",
+       "gives": "OR",
+       "note": "OR = other ranks, soldiers below officer grade, put in"
+      }
      ]
     },
     "explanation": {
@@ -1866,35 +1644,25 @@
    },
    "solution": "ENGELS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENGELS",
     "definitions": [
      {
       "text": "Red",
       "at": 0
      }
     ],
-    "linkWords": [
-     "needing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nut",
-      "gives": "EN",
-      "note": "printers call an en space a nut"
-     },
-     {
-      "clueFragment": "hair preparations",
-      "gives": "GELS",
-      "note": "gels are styling products for hair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "GELS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nut",
+       "gives": "EN",
+       "note": "printers call an en space a nut"
+      },
+      {
+       "words": "hair preparations",
+       "gives": "GELS",
+       "note": "gels are styling products for hair"
+      }
      ]
     },
     "explanation": {

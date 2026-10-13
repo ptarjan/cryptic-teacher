@@ -1,8 +1,7 @@
 {
  "id": "cryptic-24331",
  "number": 24331,
- "series": "cryptic",
- "name": "Prize crossword No 24,331",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2008-03-08",
  "preamble": "Solve the clues and enter the solutions in the diagram jigsaw-wise, wherever they will go.",
@@ -39,10 +38,6 @@
    },
    "solution": "QUIGHT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUIGHT",
     "definitions": [
      {
       "text": "that Spenser's left just so",
@@ -50,30 +45,27 @@
       "note": "the answer is Spenser's own spelling of 'quit', in the sense 'left'"
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "something poor is in bad shape, so these letters are in a bad order and need fixing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thug",
-      "gives": "THUG",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "IQ",
-      "gives": "IQ",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THUGIQ",
-       "gives": "QUIGHT"
+       "text": "poor",
+       "note": "something poor is in bad shape, so these letters are in a bad order and need fixing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Thug",
+         "note": "taken as written"
+        },
+        {
+         "words": "IQ",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -103,43 +95,33 @@
    },
    "solution": "UPANDOVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UP-AND-OVER",
     "definitions": [
      {
       "text": "type of door",
       "at": 31
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turn",
-      "gives": "U",
-      "note": "a U-turn, so U stands for a turn"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p (piano) is the musical marking for quiet"
-     },
-     {
-      "clueFragment": "Hampshire town",
-      "gives": "ANDOVER",
-      "note": "Andover is a market town in Hampshire, a county in southern England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "P",
-      "ANDOVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turn",
+       "gives": "U",
+       "note": "a U-turn, so U stands for a turn"
+      },
+      {
+       "words": "quiet",
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quiet"
+      },
+      {
+       "words": "Hampshire town",
+       "gives": "ANDOVER",
+       "note": "Andover is a market town in Hampshire, a county in southern England"
+      }
      ]
     },
+    "spelling": "UP-AND-OVER",
     "explanation": {
      "surface": "Someone is told to head back towards a quiet Hampshire town and its doors.",
      "walkthrough": "'Turn' looks like a verb but supplies just U, from the U-turn.",
@@ -166,35 +148,25 @@
    },
    "solution": "GRANGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRANGE",
     "definitions": [
      {
       "text": "The country house",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is here"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the standard abbreviation for good"
-     },
-     {
-      "clueFragment": "extent",
-      "gives": "RANGE",
-      "note": "the range of something is its extent or scope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RANGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the standard abbreviation for good"
+      },
+      {
+       "words": "extent",
+       "gives": "RANGE",
+       "note": "the range of something is its extent or scope"
+      }
      ]
     },
     "explanation": {
@@ -223,44 +195,37 @@
    },
    "solution": "TAILPLANE",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "TAILPLANE",
     "definitions": [
      {
       "text": "end of kite",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "told",
-      "for": "homophone",
-      "note": "something told is spoken, so a word is heard rather than read"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A story",
-      "gives": "TAIL",
-      "soundsLike": "TALE",
-      "note": "a story is a tale, which is said the same as this word"
-     },
-     {
-      "clueFragment": "figure",
-      "gives": "PLANE",
-      "note": "a plane figure is a flat geometric shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAIL",
-      "PLANE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "TAIL",
+       "indicators": [
+        {
+         "text": "told",
+         "note": "something told is spoken, so a word is heard rather than read"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A story",
+         "gives": "TALE",
+         "note": "a story is a tale, which is said the same as this word"
+        }
+       ]
+      },
+      {
+       "words": "figure",
+       "gives": "PLANE",
+       "note": "a plane figure is a flat geometric shape"
+      }
      ]
     },
     "explanation": {
@@ -294,56 +259,49 @@
     "5-down"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "WONDER WOMAN",
     "definitions": [
      {
       "text": "Di Prince",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so the letters run from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blushing",
-      "gives": "RED",
-      "note": "someone blushing has gone red"
-     },
-     {
-      "clueFragment": "now",
-      "gives": "NOW",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "note": "W is the abbreviation for with"
-     },
-     {
-      "clueFragment": "Arab state",
-      "gives": "OMAN",
-      "note": "Oman is a sultanate on the Arabian peninsula"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WONDER",
-      "W",
-      "OMAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "REDNOW",
-       "to": "WONDER"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means travelling the other way, so the letters run from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "blushing",
+           "gives": "RED",
+           "note": "someone blushing has gone red"
+          },
+          {
+           "words": "now",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "gives": "W",
+       "note": "W is the abbreviation for with"
+      },
+      {
+       "words": "Arab state",
+       "gives": "OMAN",
+       "note": "Oman is a sultanate on the Arabian peninsula"
       }
      ]
     },
@@ -388,47 +346,41 @@
    },
    "solution": "NUNDINAL",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "NUNDINAL",
     "definitions": [
      {
       "text": "Relating to fair",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sister",
-      "gives": "NUN",
-      "note": "a nun is a religious sister"
-     },
-     {
-      "clueFragment": "face",
-      "gives": "DIAL",
-      "note": "a dial is the face of a clock or watch"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUN",
-      "DI",
-      "N",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sister",
+       "gives": "NUN",
+       "note": "a nun is a religious sister"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "to be in something is to sit inside it, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "face",
+         "gives": "DIAL",
+         "note": "a dial is the face of a clock or watch"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -458,41 +410,35 @@
    },
    "solution": "ELOIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ELOIN",
     "definitions": [
      {
       "text": "far off to send",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "End of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final character, so only that one is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of this word"
-     },
-     {
-      "clueFragment": "cut of meat",
-      "gives": "LOIN",
-      "note": "loin is a joint cut from the back of an animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LOIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "End of",
+         "note": "the end of a word is its final character, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "the final letter of this word"
+        }
+       ]
+      },
+      {
+       "words": "cut of meat",
+       "gives": "LOIN",
+       "note": "loin is a joint cut from the back of an animal"
+      }
      ]
     },
     "explanation": {
@@ -521,41 +467,29 @@
    },
    "solution": "CHAPATI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHAPATI",
     "definitions": [
      {
       "text": "oriental fare",
       "at": 19
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "CHAP",
-      "note": "a chap is a fellow"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAP",
-      "AT",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "CHAP",
+       "note": "a chap is a fellow"
+      },
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -584,55 +518,57 @@
    },
    "solution": "CLOTHESPROP",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "CLOTHES PROP",
     "definitions": [
      {
       "text": "hoists line in air",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "(most)",
-      "for": "deletion",
-      "note": "most of something is nearly all of it, so the last bit is lost"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "LO",
-      "note": "lo is an old word meaning see or behold"
-     },
-     {
-      "clueFragment": "actors",
-      "gives": "THESP",
-      "note": "thesps are actors; the final S goes"
-     },
-     {
-      "clueFragment": "cut",
-      "gives": "CROP",
-      "note": "to crop is to cut short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LO",
-      "THESP",
-      "ROP"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CLOTHESPROP",
+     "indicators": [
+      {
+       "text": "(most)",
+       "note": "most of something is nearly all of it, so the last bit is lost"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "to be in something is to sit inside it, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "gives": "CROP",
+         "note": "to crop is to cut short"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "See",
+           "gives": "LO",
+           "note": "lo is an old word meaning see or behold"
+          },
+          {
+           "words": "actors",
+           "gives": "THESP",
+           "note": "thesps are actors; the final S goes"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
+    "spelling": "CLOTHES PROP",
     "explanation": {
      "surface": "Watch the performers in an edited version while a line is hauled into the sky.",
      "walkthrough": "Thesp is a casual shortening of thespian, an actor.",
@@ -659,32 +595,25 @@
    },
    "solution": "MINTOFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MINTOFF",
     "definitions": [
      {
       "text": "Maltese",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "herb",
-      "gives": "MINT",
-      "note": "mint is a garden herb"
-     },
-     {
-      "clueFragment": "no longer on the menu",
-      "gives": "OFF",
-      "note": "a dish that is off can no longer be ordered"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MINT",
-      "OFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "herb",
+       "gives": "MINT",
+       "note": "mint is a garden herb"
+      },
+      {
+       "words": "no longer on the menu",
+       "gives": "OFF",
+       "note": "a dish that is off can no longer be ordered"
+      }
      ]
     },
     "explanation": {
@@ -713,10 +642,6 @@
    },
    "solution": "FIRSTFOOTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FIRST-FOOTER",
     "definitions": [
      {
       "text": "welcomed at New Year",
@@ -724,24 +649,22 @@
       "note": "describes the person, so it reads as 'one welcomed at New Year'"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The premier",
-      "gives": "FIRST",
-      "note": "premier means first"
-     },
-     {
-      "clueFragment": "league game",
-      "gives": "FOOTER",
-      "note": "footer is old slang for football"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIRST",
-      "FOOTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The premier",
+       "gives": "FIRST",
+       "note": "premier means first"
+      },
+      {
+       "words": "league game",
+       "gives": "FOOTER",
+       "note": "footer is old slang for football"
+      }
      ]
     },
+    "spelling": "FIRST-FOOTER",
     "explanation": {
      "surface": "A top-flight football match greeted at New Year.",
      "walkthrough": "'Premier league' looks like the English football competition, but the two words go to separate pieces.",
@@ -768,73 +691,64 @@
    },
    "solution": "OLDAGEPENSIONER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "OLD AGE PENSIONER",
     "definitions": [
      {
       "text": "senior",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "skirting",
-      "for": "container",
-      "note": "to skirt something is to go round its edge, so one piece wraps another"
-     },
-     {
-      "text": "whose bits are out of place",
-      "for": "anagram",
-      "note": "pieces out of place are disordered and must be rearranged"
-     },
-     {
-      "text": "who has hurt himself",
-      "for": "anagram",
-      "note": "someone hurt is damaged, so this word's letters are knocked about"
-     }
-    ],
-    "linkWords": [
-     "encounters"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frank",
-      "gives": "OPEN",
-      "note": "frank and open both mean candid"
-     },
-     {
-      "clueFragment": "glade",
-      "gives": "GLADE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "senior",
-      "gives": "SENIOR",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "LDAGE",
-      "PEN",
-      "SIONER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GLADE",
-       "gives": "LDAGE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "skirting",
+         "note": "to skirt something is to go round its edge, so one piece wraps another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Frank",
+         "gives": "OPEN",
+         "note": "frank and open both mean candid"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "whose bits are out of place",
+           "note": "pieces out of place are disordered and must be rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "glade",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       },
       {
-       "fodder": "SENIOR",
-       "gives": "SIONER"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "who has hurt himself",
+         "note": "someone hurt is damaged, so this word's letters are knocked about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "senior",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
+    "spelling": "OLD AGE PENSIONER",
     "explanation": {
      "surface": "A frank man walking round a messy clearing meets an elderly man who has injured himself.",
      "walkthrough": "'Senior' does double duty as the definition and as the letters to rearrange, a liberty Araucaria often took.",
@@ -861,36 +775,29 @@
    },
    "solution": "HIVE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HIVE",
     "definitions": [
      {
       "text": "home of queen",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "A singular",
-      "for": "deletion",
-      "note": "making a plural word singular drops its plural ending"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "complaint",
-      "gives": "HIVES",
-      "note": "an itchy skin rash, a word that looks plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIVE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "A singular",
+       "note": "making a plural word singular drops its plural ending"
+      }
+     ],
+     "parts": [
+      {
+       "words": "complaint",
+       "gives": "HIVES",
+       "note": "an itchy skin rash, a word that looks plural"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -920,51 +827,48 @@
    },
    "solution": "JACKRABBIT",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "JACK RABBIT",
     "definitions": [
      {
       "text": "The beast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not English",
-      "for": "deletion",
-      "note": "'not' tells you to leave something out, here the English abbreviation"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coat",
-      "gives": "JACKET",
-      "note": "a jacket is a coat; its E goes"
-     },
-     {
-      "clueFragment": "a cleric",
-      "gives": "RABBI",
-      "note": "a rabbi is a Jewish religious teacher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "RABBI",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "to be in something is to sit inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not English",
+         "note": "'not' tells you to leave something out, here the English abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coat",
+         "gives": "JACKET",
+         "note": "a jacket is a coat; its E goes"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "a cleric",
+       "gives": "RABBI",
+       "note": "a rabbi is a Jewish religious teacher"
+      }
      ]
     },
+    "spelling": "JACK RABBIT",
     "explanation": {
      "surface": "An animal dressed in a coat turns out to be a clergyman.",
      "walkthrough": "E for English is the common abbreviation; dropping it from the coat leaves a shell for the cleric.",
@@ -992,46 +896,37 @@
    },
    "solution": "KEEPGUARD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "KEEP GUARD",
     "definitions": [
      {
       "text": "Maintain a watch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hysteric",
-      "for": "anagram",
-      "note": "someone hysterical is wildly out of control, so the letters are thrown about"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dark",
-      "gives": "DARK",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gee up",
-      "gives": "GEEUP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DARKGEEUP",
-       "gives": "KEEPGUARD"
+       "text": "hysteric",
+       "note": "someone hysterical is wildly out of control, so the letters are thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dark",
+         "note": "taken as written"
+        },
+        {
+         "words": "gee up",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
+    "spelling": "KEEP GUARD",
     "explanation": {
      "surface": "A sentry on night watch urges on a panicking horse.",
      "walkthrough": "'Gee up' is what a rider says to a horse, but here it is just letters.",
@@ -1058,37 +953,28 @@
    },
    "solution": "BROADBEAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BROAD BEAN",
     "definitions": [
      {
       "text": "in padded pod is found",
       "at": 17
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lake",
-      "gives": "BROAD",
-      "note": "the Norfolk Broads are a network of shallow lakes, each one a broad"
-     },
-     {
-      "clueFragment": "Fellow",
-      "gives": "BEAN",
-      "note": "'old bean' is dated British slang for a chap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROAD",
-      "BEAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lake",
+       "gives": "BROAD",
+       "note": "the Norfolk Broads are a network of shallow lakes, each one a broad"
+      },
+      {
+       "words": "Fellow",
+       "gives": "BEAN",
+       "note": "'old bean' is dated British slang for a chap"
+      }
      ]
     },
+    "spelling": "BROAD BEAN",
     "explanation": {
      "surface": "A man from the lake is discovered curled up in a cushioned capsule.",
      "walkthrough": "The Norfolk Broads are lakes in eastern England. 'From' lets the fellow come after the lake.",
@@ -1116,49 +1002,35 @@
    },
    "solution": "ZILLIONS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ZILLIONS",
     "definitions": [
      {
       "text": "much more than scores",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down entry, raising something lifts it to read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "that's",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The queen",
-      "gives": "LIZ",
-      "note": "Liz is short for Elizabeth, the Queen"
-     },
-     {
-      "clueFragment": "kings",
-      "gives": "LIONS",
-      "note": "the lion is called king of the beasts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZIL",
-      "LIONS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LIZ",
-       "to": "ZIL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down entry, raising something lifts it to read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The queen",
+         "gives": "LIZ",
+         "note": "Liz is short for Elizabeth, the Queen"
+        }
+       ]
+      },
+      {
+       "words": "kings",
+       "gives": "LIONS",
+       "note": "the lion is called king of the beasts"
       }
      ]
     },
@@ -1188,43 +1060,33 @@
    },
    "solution": "SERVICEMEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SERVICEMEN",
     "definitions": [
      {
       "text": "soldiers",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "cannot be right",
-      "for": "anagram",
-      "note": "if a thing cannot be right it must be wrong, so the order given is wrong"
-     }
-    ],
-    "linkWords": [
-     "For"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "even",
-      "gives": "EVEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "crimes",
-      "gives": "CRIMES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EVENCRIMES",
-       "gives": "SERVICEMEN"
+       "text": "cannot be right",
+       "note": "if a thing cannot be right it must be wrong, so the order given is wrong"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "even",
+         "note": "taken as written"
+        },
+        {
+         "words": "crimes",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1254,60 +1116,61 @@
    },
    "solution": "YOYO",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "YO-YO",
     "definitions": [
      {
       "text": "The toy that's back and topless here encores",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the other way, so letters run right to left"
-     },
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "without a top means the leading character is taken off"
-     },
-     {
-      "text": "encores",
-      "for": "charade",
-      "note": "an encore is a repeat performance, so the piece is given twice"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "toy",
-      "gives": "YO",
-      "note": "the word loses its first letter and is turned round"
-     },
-     {
-      "clueFragment": "here",
-      "gives": "YO",
-      "note": "the same piece once more"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YO",
-      "YO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "YOYO",
+     "indicators": [
       {
-       "from": "OY",
-       "to": "YO"
+       "text": "topless",
+       "note": "without a top means the leading character is taken off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "unchecked": true,
+       "gives": "YOYO",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means travelling the other way, so letters run right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "encores",
+           "note": "an encore is a repeat performance, so the piece is given twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "toy",
+           "gives": "YO",
+           "note": "the word loses its first letter and is turned round"
+          },
+          {
+           "words": "here",
+           "gives": "YO",
+           "note": "the same piece once more"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "spelling": "YO-YO",
+    "andLit": true,
     "explanation": {
      "surface": "A plaything that keeps coming back and makes a repeat appearance here.",
      "walkthrough": "The whole clue describes the toy, which goes down and comes back, again and again.",
@@ -1335,11 +1198,6 @@
    },
    "solution": "XRATED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "X-RATED",
     "definitions": [
      {
       "text": "Blue movies should be",
@@ -1347,33 +1205,32 @@
       "note": "the answer describes what such films are"
      }
     ],
-    "indicators": [
-     {
-      "text": "do it straight",
-      "for": "anagram",
-      "note": "to straighten something out is to put it into proper order, so the letters are reorganised"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taxed",
-      "gives": "TAXED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TAXEDR",
-       "gives": "XRATED"
+       "text": "do it straight",
+       "note": "to straighten something out is to put it into proper order, so the letters are reorganised"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "taxed",
+         "note": "taken as written"
+        },
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
       }
      ]
     },
+    "spelling": "X-RATED",
     "explanation": {
      "surface": "Someone argues that pornographic films ought to carry a tax, then urges honesty.",
      "walkthrough": "'Blue' here means pornographic, a common British sense.",
@@ -1400,26 +1257,26 @@
    },
    "solution": "REVOLVINGCREDIT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "REVOLVING CREDIT",
     "definitions": [
      {
       "text": "frequent borrowers know",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Direct solution",
-      "note": "surface reading: a straightforward answer to a problem"
-     },
-     {
-      "clueFragment": "Direct solution",
-      "note": "setter's reading: the second word of the answer, rearranged ('revolving'), solves to the word 'direct'"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Direct solution",
+       "note": "surface reading: a straightforward answer to a problem"
+      },
+      {
+       "words": "Direct solution",
+       "note": "setter's reading: the second word of the answer, rearranged ('revolving'), solves to the word 'direct'"
+      }
+     ]
+    },
+    "spelling": "REVOLVING CREDIT",
     "explanation": {
      "surface": "A plain fix for a problem that habitual borrowers are aware of.",
      "walkthrough": "This is a reverse clue: the answer, read as an instruction, turns its second word into the first word of the clue.",
@@ -1447,28 +1304,16 @@
    },
    "solution": "VERGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VERGE",
     "definitions": [
      {
       "text": "The roadside",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the grass strip along the edge of a road"
      },
      {
       "text": "rod processions have before",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The roadside",
-      "note": "first meaning: the grass strip along the edge of a road"
-     },
-     {
-      "clueFragment": "rod processions have before",
-      "note": "second meaning: the staff of office carried in front of a bishop or dean"
+      "at": 13,
+      "meaning": "second meaning: the staff of office carried in front of a bishop or dean"
      }
     ],
     "explanation": {
@@ -1497,35 +1342,25 @@
    },
    "solution": "IBSEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IBSEN",
     "definitions": [
      {
       "text": "the source of many a Norse scene",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "Wood",
-      "for": "anagram",
-      "note": "wood is an old word for mad, and mad letters run wild"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Woodbines",
-      "gives": "BINES",
-      "note": "split the word after its first four letters; bines are climbing stems, as of hops"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BINES",
-       "gives": "IBSEN"
+       "text": "Wood",
+       "note": "wood is an old word for mad, and mad letters run wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Woodbines",
+       "gives": "BINES",
+       "note": "split the word after its first four letters; bines are climbing stems, as of hops"
       }
      ]
     },
@@ -1556,12 +1391,6 @@
    },
    "solution": "PARLOUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PARLOUS",
     "definitions": [
      {
       "text": "Endangered",
@@ -1569,38 +1398,42 @@
       "note": "the answer means dangerous or precarious rather than strictly endangered"
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "cutting something short trims its end, so the last letter goes"
-     },
-     {
-      "text": "top of",
-      "for": "letter_selection",
-      "note": "the top of a word in an across entry is its opening letter"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "room",
-      "gives": "PARLOU",
-      "note": "a parlour is a sitting room; the final R goes"
-     },
-     {
-      "clueFragment": "shelf",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of this word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARLOU",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PARLOUS",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "cutting something short trims its end, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "room",
+         "gives": "PARLOU",
+         "note": "a parlour is a sitting room; the final R goes"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top of",
+           "note": "the top of a word in an across entry is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shelf",
+           "note": "the opening letter of this word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1629,47 +1462,40 @@
    },
    "solution": "ANTBEAR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ANTBEAR",
     "definitions": [
      {
       "text": "Edentate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gets around",
-      "for": "container",
-      "note": "to get around something is to surround it, so one piece encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old salt",
-      "gives": "TAR",
-      "note": "a tar is a sailor, as is an old salt"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to exist or live"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "T",
-      "BE",
-      "AR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "an",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gets around",
+         "note": "to get around something is to surround it, so one piece encloses another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old salt",
+         "gives": "TAR",
+         "note": "a tar is a sailor, as is an old salt"
+        },
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be is to exist or live"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1698,32 +1524,25 @@
    },
    "solution": "LESSON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LESSON",
     "definitions": [
      {
       "text": "the school's the venue",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Not so much",
-      "gives": "LESS",
-      "note": "less means not so much"
-     },
-     {
-      "clueFragment": "happening",
-      "gives": "ON",
-      "note": "an event that is on is taking place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LESS",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not so much",
+       "gives": "LESS",
+       "note": "less means not so much"
+      },
+      {
+       "words": "happening",
+       "gives": "ON",
+       "note": "an event that is on is taking place"
+      }
      ]
     },
     "explanation": {
@@ -1752,38 +1571,24 @@
    },
    "solution": "DEDANS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEDANS",
     "definitions": [
      {
       "text": "Where tennis players watch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sad",
-      "for": "anagram",
-      "note": "something in a sorry state is a mess, so the letters that follow are muddled"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sad end",
-      "gives": "SADEND",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SADEND",
-       "gives": "DEDANS"
+       "text": "sad",
+       "note": "something in a sorry state is a mess, so the letters that follow are muddled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sad end",
+       "note": "taken as written"
       }
      ]
     },

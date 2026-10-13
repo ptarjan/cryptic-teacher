@@ -1,8 +1,6 @@
 {
  "id": "toughie-3625",
  "number": 3625,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,625",
  "setter": "Hudson",
  "date": "2026-01-27",
  "dimensions": {
@@ -38,58 +36,59 @@
    },
    "solution": "PROSCENIUM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "cycling",
-     "charade"
-    ],
-    "answer": "PROSCENIUM",
     "definitions": [
      {
       "text": "stage",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Unlimited",
-      "for": "letter_selection",
-      "note": "without limits means without its boundary letters at either end, leaving only the inside"
-     },
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "to cycle is to go round, so a letter moves from the front of the word round to the back"
-     },
-     {
-      "text": "chasing",
-      "for": "charade",
-      "note": "to chase is to come behind, so this piece is placed after the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "professionals",
-      "gives": "PROS",
-      "note": "pros is the short form of professionals"
-     },
-     {
-      "clueFragment": "Nice",
-      "gives": "CENI",
-      "note": "the French city's name with its first letter moved to the end"
-     },
-     {
-      "clueFragment": "sums",
-      "gives": "UM",
-      "select": "middle",
-      "note": "the word with its first and last letters removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROS",
-      "CENI",
-      "UM"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "PROSCENIUM",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "to cycle is to go round, so a letter moves from the front of the word round to the back"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "chasing",
+         "note": "to chase is to come behind, so this piece is placed after the others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "professionals",
+         "gives": "PROS",
+         "note": "pros is the short form of professionals"
+        },
+        {
+         "words": "Nice",
+         "gives": "CENI",
+         "note": "the French city's name with its first letter moved to the end"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Unlimited",
+           "note": "without limits means without its boundary letters at either end, leaving only the inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sums",
+           "note": "the word with its first and last letters removed"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -118,45 +117,50 @@
    },
    "solution": "PRAISE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PRAISE",
     "definitions": [
      {
       "text": "Commend",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "minimum",
-      "for": "letter_selection",
-      "note": "the least possible amount of the word is just its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wage",
-      "gives": "P",
-      "select": "first",
-      "note": "a wage is pay, and the first letter of that is kept"
-     },
-     {
-      "clueFragment": "increase for American",
-      "gives": "RAISE",
-      "note": "a raise is the American word for a pay increase"
-     },
-     {
-      "clueFragment": "in Britain",
-      "note": "surface padding: the question mark teases that Britons would say rise instead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RAISE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "P",
+         "indicators": [
+          {
+           "text": "minimum",
+           "note": "the least possible amount of the word is just its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "wage",
+           "gives": "P",
+           "select": "first",
+           "note": "a wage is pay, and the first letter of that is kept"
+          }
+         ]
+        },
+        {
+         "words": "increase for American",
+         "gives": "RAISE",
+         "note": "a raise is the American word for a pay increase"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "in Britain",
+       "note": "surface padding: the question mark teases that Britons would say rise instead"
+      }
      ]
     },
     "explanation": {
@@ -185,47 +189,41 @@
    },
    "solution": "ORPHAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ORPHAN",
     "definitions": [
      {
       "text": "Disadvantaged child",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to acquire",
-      "for": "container",
-      "note": "acquiring something means taking it in, so one piece ends up inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oscar",
-      "gives": "O",
-      "note": "Oscar is O in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "managed",
-      "gives": "RAN",
-      "note": "ran a business means managed it"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH, public house, is the map abbreviation for a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "PH",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oscar",
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to acquire",
+         "note": "acquiring something means taking it in, so one piece ends up inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "managed",
+         "gives": "RAN",
+         "note": "ran a business means managed it"
+        },
+        {
+         "words": "pub",
+         "gives": "PH",
+         "note": "PH, public house, is the map abbreviation for a pub"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -264,50 +262,42 @@
    },
    "solution": "CHARIOTSOFFIRE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHARIOTS OF FIRE",
     "definitions": [
      {
       "text": "Film",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "excited",
-      "for": "anagram",
-      "note": "excited things are stirred up and agitated, so the letters get thoroughly mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first",
-      "gives": "FIRST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "F1",
-      "gives": "FI",
-      "note": "the digit 1 is read as the letter I"
-     },
-     {
-      "clueFragment": "race",
-      "gives": "RACE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ooh",
-      "gives": "OOH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FIRSTFIRACEOOH",
-       "gives": "CHARIOTSOFFIRE"
+       "text": "excited",
+       "note": "excited things are stirred up and agitated, so the letters get thoroughly mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "first",
+         "note": "taken as written"
+        },
+        {
+         "words": "F1",
+         "gives": "FI",
+         "note": "the digit 1 is read as the letter I"
+        },
+        {
+         "words": "race",
+         "note": "taken as written"
+        },
+        {
+         "words": "ooh",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -337,60 +327,56 @@
    },
    "solution": "NEWMARKET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "NEWMARKET",
     "definitions": [
      {
       "text": "racecourse",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "back from",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter, which is the one taken"
-     },
-     {
-      "text": "Invest",
-      "for": "container",
-      "note": "to invest money in something is to put it inside, so one piece is placed within the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fresh",
-      "gives": "NEW",
-      "note": "fresh means new"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "MARE",
-      "note": "a mare is a female horse"
-     },
-     {
-      "clueFragment": "Ascot",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of the name"
-     },
-     {
-      "clueFragment": "thousand",
-      "gives": "K",
-      "note": "K is short for a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "MAR",
-      "K",
-      "E",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Invest",
+       "note": "to invest money in something is to put it inside, so one piece is placed within the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fresh",
+         "gives": "NEW",
+         "note": "fresh means new"
+        },
+        {
+         "words": "horse",
+         "gives": "MARE",
+         "note": "a mare is a female horse"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back from",
+           "note": "the back of a word is its final letter, which is the one taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Ascot",
+           "note": "the final letter of the name"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "thousand",
+       "gives": "K",
+       "note": "K is short for a thousand"
+      }
      ]
     },
     "explanation": {
@@ -419,43 +405,41 @@
    },
    "solution": "UNDER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UNDER",
     "definitions": [
      {
       "text": "beneath",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "things that leave depart, so these letters go out of the longer word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sign of storm",
-      "gives": "THUNDER",
-      "note": "thunder announces a storm"
-     },
-     {
-      "clueFragment": "Temperature",
-      "gives": "T",
-      "note": "T is the symbol for temperature"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "H for hot, as on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNDER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "things that leave depart, so these letters go out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sign of storm",
+       "gives": "THUNDER",
+       "note": "thunder announces a storm"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Temperature",
+         "gives": "T",
+         "note": "T is the symbol for temperature"
+        },
+        {
+         "words": "hot",
+         "gives": "H",
+         "note": "H for hot, as on a tap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -484,34 +468,30 @@
    },
    "solution": "OSSA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "OSSA",
     "definitions": [
      {
       "text": "bones",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "uncovered",
-      "for": "letter_selection",
-      "note": "stripped of its covering, the word loses its outermost letters on both sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Security service",
-      "gives": "OSSA",
-      "select": "middle",
-      "note": "Mossad, Israel's intelligence agency, without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OSSA"
+    "wordplay": {
+     "op": "middle",
+     "unchecked": true,
+     "gives": "OSSA",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "stripped of its covering, the word loses its outermost letters on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Security service",
+       "gives": "OSSA",
+       "select": "middle",
+       "note": "Mossad, Israel's intelligence agency, without its first and last letters"
+      }
      ]
     },
     "explanation": {
@@ -540,54 +520,51 @@
    },
    "solution": "SQUIRREL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "SQUIRREL",
     "definitions": [
      {
       "text": "animal",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "a head is at the top, so only the opening letter of the word is used"
-     },
-     {
-      "text": "grabbing",
-      "for": "container",
-      "note": "to grab something is to hold it, so one piece takes another inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gentleman",
-      "gives": "SQUIRE",
-      "note": "a squire is a country gentleman"
-     },
-     {
-      "clueFragment": "really",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of the word"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the clothing-size abbreviation for large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SQUI",
-      "R",
-      "RE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grabbing",
+         "note": "to grab something is to hold it, so one piece takes another inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gentleman",
+         "gives": "SQUIRE",
+         "note": "a squire is a country gentleman"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "note": "a head is at the top, so only the opening letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "really",
+           "note": "the first letter of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
      ]
     },
     "explanation": {
@@ -616,58 +593,51 @@
    },
    "solution": "ANECDOTE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "ANECDOTE",
     "definitions": [
      {
       "text": "Funny story",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue something upset is turned upside down, so the letters run the other way"
-     },
-     {
-      "text": "bored by",
-      "for": "container",
-      "note": "something bored through has a hole drilled in it, so a piece is pushed inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Italian hothead",
-      "gives": "ETNA",
-      "note": "Etna is the active volcano on Sicily, a fiery Italian peak"
-     },
-     {
-      "clueFragment": "City",
-      "gives": "EC",
-      "note": "EC is the postcode of the City of London"
-     },
-     {
-      "clueFragment": "bash",
-      "gives": "DO",
-      "note": "a bash or a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "EC",
-      "DO",
-      "TE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ETNA",
-       "to": "ANTE"
+       "text": "bored by",
+       "note": "something bored through has a hole drilled in it, so a piece is pushed inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "in a down clue something upset is turned upside down, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian hothead",
+         "gives": "ETNA",
+         "note": "Etna is the active volcano on Sicily, a fiery Italian peak"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "City",
+         "gives": "EC",
+         "note": "EC is the postcode of the City of London"
+        },
+        {
+         "words": "bash",
+         "gives": "DO",
+         "note": "a bash or a do is a party"
+        }
+       ]
       }
      ]
     },
@@ -708,43 +678,38 @@
    },
    "solution": "WHATSTHEDAMAGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WHAT'S THE DAMAGE",
     "definitions": [
      {
       "text": "How much is that",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rubbish",
-      "for": "anagram",
-      "note": "rubbish is used as a verb meaning to trash or wreck, so the letters are messed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "#",
-      "gives": "HASHTAG",
-      "note": "the symbol is called a hashtag on social media"
-     },
-     {
-      "clueFragment": "Wed team",
-      "gives": "WEDTEAM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HASHTAGWEDTEAM",
-       "gives": "WHATSTHEDAMAGE"
+       "text": "rubbish",
+       "note": "rubbish is used as a verb meaning to trash or wreck, so the letters are messed up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "#",
+         "gives": "HASHTAG",
+         "note": "the symbol is called a hashtag on social media"
+        },
+        {
+         "words": "Wed team",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
+    "spelling": "WHAT'S THE DAMAGE",
     "explanation": {
      "surface": "A social-media post sneering at a Wednesday side, perhaps Sheffield Wednesday football club.",
      "walkthrough": "The # symbol must be read out in full as HASHTAG to supply its letters to the fodder.",
@@ -771,40 +736,31 @@
    },
    "solution": "ALPHA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALPHA",
     "definitions": [
      {
       "text": "Highest grade",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "container",
-      "note": "breaking into something means entering it, so one piece forces its way inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "LP",
-      "note": "an LP is a long-playing vinyl record"
-     },
-     {
-      "clueFragment": "Norwegian band",
-      "gives": "AHA",
-      "note": "A-ha are the Norwegian pop group behind Take On Me"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LP",
-      "HA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "note": "breaking into something means entering it, so one piece forces its way inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Norwegian band",
+       "gives": "AHA",
+       "note": "A-ha are the Norwegian pop group behind Take On Me"
+      },
+      {
+       "words": "record",
+       "gives": "LP",
+       "note": "an LP is a long-playing vinyl record"
+      }
      ]
     },
     "explanation": {
@@ -839,54 +795,51 @@
    },
    "solution": "WODEHOUSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "WODEHOUSE",
     "definitions": [
      {
       "text": "PG",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "what comes finally is at the end, so only the closing letter counts"
-     },
-     {
-      "text": "screening",
-      "for": "container",
-      "note": "a screen hides something behind or within it, so one piece shelters another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Misery",
-      "gives": "WOE",
-      "note": "woe is misery"
-     },
-     {
-      "clueFragment": "rated",
-      "gives": "D",
-      "select": "last",
-      "note": "the last letter of the word"
-     },
-     {
-      "clueFragment": "US TV medical series",
-      "gives": "HOUSE",
-      "note": "House was an American medical drama starring Hugh Laurie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WO",
-      "D",
-      "E",
-      "HOUSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "screening",
+         "note": "a screen hides something behind or within it, so one piece shelters another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Misery",
+         "gives": "WOE",
+         "note": "woe is misery"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "what comes finally is at the end, so only the closing letter counts"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rated",
+           "note": "the last letter of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "US TV medical series",
+       "gives": "HOUSE",
+       "note": "House was an American medical drama starring Hugh Laurie"
+      }
      ]
     },
     "explanation": {
@@ -916,49 +869,41 @@
    },
    "solution": "STAMINA",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "STAMINA",
     "definitions": [
      {
       "text": "Endurance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when lacking",
-      "for": "deletion",
-      "note": "lacking something means being without it, so a letter is dropped"
-     },
-     {
-      "text": "13 Across",
-      "for": "reversal",
-      "note": "that entry's solution means withdrawn or gone back, so the letters retreat and run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "enlivens",
-      "gives": "ANIMATES",
-      "note": "to animate is to bring to life"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the symbol for energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAMINA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANIMATS",
-       "to": "STAMINA"
+       "text": "13 Across",
+       "note": "that entry's solution means withdrawn or gone back, so the letters retreat and run the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when lacking",
+         "note": "lacking something means being without it, so a letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enlivens",
+         "gives": "ANIMATES",
+         "note": "to animate is to bring to life"
+        },
+        {
+         "words": "energy",
+         "gives": "E",
+         "note": "E is the symbol for energy"
+        }
+       ]
       }
      ]
     },
@@ -988,41 +933,35 @@
    },
    "solution": "RETIRED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RETIRED",
     "definitions": [
      {
       "text": "went to bed",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "exhausted",
-      "for": "letter_selection",
-      "note": "an exhausted thing is emptied out, so its inner letters go and only the ends remain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Refugee",
-      "gives": "RE",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     },
-     {
-      "clueFragment": "weary",
-      "gives": "TIRED",
-      "note": "weary means tired"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TIRED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "note": "an exhausted thing is emptied out, so its inner letters go and only the ends remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Refugee",
+         "note": "the first and last letters of the word"
+        }
+       ]
+      },
+      {
+       "words": "weary",
+       "gives": "TIRED",
+       "note": "weary means tired"
+      }
      ]
     },
     "explanation": {
@@ -1061,59 +1000,50 @@
    },
    "solution": "STOKEONTRENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "STOKE-ON-TRENT",
     "definitions": [
      {
       "text": "the city",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Playing",
-      "for": "anagram",
-      "note": "letters at play are moved around freely, so they are rearranged"
-     },
-     {
-      "text": "frames",
-      "for": "container",
-      "note": "a frame surrounds a picture, so the rearranged letters go round another piece"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ten snooker",
-      "gives": "TENSNOOKER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "t. is the grammar abbreviation for tense"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is short for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOKEONTREN",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TENSNOOKERT",
-       "gives": "STOKEONTREN"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "frames",
+         "note": "a frame surrounds a picture, so the rearranged letters go round another piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Playing",
+           "note": "letters at play are moved around freely, so they are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ten snooker",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "tense",
+         "gives": "T",
+         "note": "t. is the grammar abbreviation for tense"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is short for time"
       }
      ]
     },
@@ -1143,26 +1073,25 @@
    },
    "solution": "OARSWOMAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OARSWOMAN",
     "definitions": [
      {
       "text": "She's always up for a row!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "She's always up for a row!",
-      "note": "surface reading: a quarrelsome woman who loves an argument"
-     },
-     {
-      "clueFragment": "row",
-      "note": "setter's reading: a row on the water, pulling a boat with oars"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "She's always up for a row!",
+       "note": "surface reading: a quarrelsome woman who loves an argument"
+      },
+      {
+       "words": "row",
+       "note": "setter's reading: a row on the water, pulling a boat with oars"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Row rhymes with cow in the surface but with go in the answer; the woman is keen on rowing, not rowing.",
      "definitionFit": "A female rower who propels a boat with oars is always ready for some time on the river."
@@ -1189,26 +1118,25 @@
    },
    "solution": "STARGAZE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "STARGAZE",
     "definitions": [
      {
       "text": "Hunt Great Bear?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Hunt Great Bear?",
-      "note": "surface reading: go after a huge wild animal"
-     },
-     {
-      "clueFragment": "Great Bear",
-      "note": "setter's reading: the Great Bear is the constellation Ursa Major, sought in the night sky"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Hunt Great Bear?",
+       "note": "surface reading: go after a huge wild animal"
+      },
+      {
+       "words": "Great Bear",
+       "note": "setter's reading: the Great Bear is the constellation Ursa Major, sought in the night sky"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The question mark flags that the bear is not an animal but a group of stars; hunting for it means scanning the sky.",
      "definitionFit": "Searching the night sky for constellations such as Ursa Major is what an astronomer does."
@@ -1235,57 +1163,57 @@
    },
    "solution": "FEASIBLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "FEASIBLE",
     "definitions": [
      {
       "text": "Likely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting",
-      "for": "deletion",
-      "note": "wanting means lacking or short of, so a letter is missing"
-     },
-     {
-      "text": "injected with",
-      "for": "container",
-      "note": "an injection puts something inside the body, so pieces go into the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weak",
-      "gives": "FEEBLE",
-      "note": "feeble means weak"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     },
-     {
-      "clueFragment": "arsenic",
-      "gives": "AS",
-      "note": "As is the chemical symbol for arsenic"
-     },
-     {
-      "clueFragment": "iodine",
-      "gives": "I",
-      "note": "I is the chemical symbol for iodine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FE",
-      "AS",
-      "I",
-      "BLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injected with",
+       "note": "an injection puts something inside the body, so pieces go into the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wanting",
+           "note": "wanting means lacking or short of, so a letter is missing"
+          }
+         ],
+         "parts": [
+          {
+           "words": "weak",
+           "gives": "FEEBLE",
+           "note": "feeble means weak"
+          },
+          {
+           "words": "drug",
+           "gives": "E",
+           "note": "E is slang for the drug ecstasy"
+          }
+         ]
+        },
+        {
+         "words": "arsenic",
+         "gives": "AS",
+         "note": "As is the chemical symbol for arsenic"
+        }
+       ]
+      },
+      {
+       "words": "iodine",
+       "gives": "I",
+       "note": "I is the chemical symbol for iodine"
+      }
      ]
     },
     "explanation": {
@@ -1320,58 +1248,50 @@
    },
    "solution": "THEPOTTERIES",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "THE POTTERIES",
     "definitions": [
      {
       "text": "dishes from here",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "exotic",
-      "for": "anagram",
-      "note": "something exotic is unusual and out of the ordinary, so the letters take an unfamiliar order"
-     },
-     {
-      "text": "tucking into",
-      "for": "container",
-      "note": "to tuck into is to go inside, so these pieces sit within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "these",
-      "gives": "THESE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "snooker player",
-      "gives": "POTTER",
-      "note": "a potter pots balls at snooker"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "POTTER",
-      "I",
-      "ES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "THESE",
-       "gives": "THEES"
+       "text": "tucking into",
+       "note": "to tuck into is to go inside, so these pieces sit within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exotic",
+         "note": "something exotic is unusual and out of the ordinary, so the letters take an unfamiliar order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "these",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "snooker player",
+         "gives": "POTTER",
+         "note": "a potter pots balls at snooker"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
@@ -1402,51 +1322,57 @@
    },
    "solution": "IGUANA",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "IGUANA",
     "definitions": [
      {
       "text": "reptile",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "with no end, the word loses its final letter"
-     },
-     {
-      "text": "fed to",
-      "for": "container",
-      "note": "food fed to someone goes inside them, so one piece enters the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "I is short for island"
-     },
-     {
-      "clueFragment": "Bird droppings",
-      "gives": "GUANO",
-      "note": "guano is the excrement of seabirds"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is short for area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "GUAN",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "IGUANA",
+     "indicators": [
+      {
+       "text": "fed to",
+       "note": "food fed to someone goes inside them, so one piece enters the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "with no end, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "island",
+           "gives": "I",
+           "note": "I is short for island"
+          },
+          {
+           "words": "Bird droppings",
+           "gives": "GUANO",
+           "note": "guano is the excrement of seabirds"
+          },
+          {
+           "words": "area",
+           "gives": "A",
+           "note": "A is short for area"
+          }
+         ]
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1475,41 +1401,35 @@
    },
    "solution": "MEDICK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MEDICK",
     "definitions": [
      {
       "text": "Lucerne",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last seen in",
-      "for": "letter_selection",
-      "note": "what is seen last is at the very end, so only the final letter is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doctor",
-      "gives": "MEDIC",
-      "note": "a medic is a doctor"
-     },
-     {
-      "clueFragment": "Innsbruck",
-      "gives": "K",
-      "select": "last",
-      "note": "the final letter of the city's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEDIC",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "gives": "MEDIC",
+       "note": "a medic is a doctor"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last seen in",
+         "note": "what is seen last is at the very end, so only the final letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Innsbruck",
+         "note": "the final letter of the city's name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1538,63 +1458,51 @@
    },
    "solution": "RESTFUL",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "RESTFUL",
     "definitions": [
      {
       "text": "Relaxing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "complex",
-      "for": "anagram",
-      "note": "something complex is intricate and tangled, so the letters are jumbled"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "moving backwards means the letters run in the opposite direction"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rules",
-      "gives": "RULES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "newspaper",
-      "gives": "FT",
-      "note": "the FT is the Financial Times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "TF",
-      "UL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "RULES",
-       "gives": "RESUL"
+       "text": "backing",
+       "note": "moving backwards means the letters run in the opposite direction"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "FT",
-       "to": "TF"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "complex",
+           "note": "something complex is intricate and tangled, so the letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rules",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "newspaper",
+         "gives": "FT",
+         "note": "the FT is the Financial Times"
+        }
+       ]
       }
      ]
     },
@@ -1624,32 +1532,25 @@
    },
    "solution": "LOTTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOTTO",
     "definitions": [
      {
       "text": "it might be worth millions",
       "at": 26
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Item for auction",
-      "gives": "LOT",
-      "note": "each item in an auction is a lot"
-     },
-     {
-      "clueFragment": "closed",
-      "gives": "TO",
-      "note": "a door pushed to is closed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOT",
-      "TO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Item for auction",
+       "gives": "LOT",
+       "note": "each item in an auction is a lot"
+      },
+      {
+       "words": "closed",
+       "gives": "TO",
+       "note": "a door pushed to is closed"
+      }
      ]
     },
     "explanation": {
@@ -1678,52 +1579,46 @@
    },
    "solution": "WRANGLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "WRANGLE",
     "definitions": [
      {
       "text": "Dispute",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two ends, the only letters kept"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "coming after puts this material behind the opening piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is short for wife"
-     },
-     {
-      "clueFragment": "called",
-      "gives": "RANG",
-      "note": "rang means telephoned"
-     },
-     {
-      "clueFragment": "lachrymose",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "RANG",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "coming after puts this material behind the opening piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W is short for wife"
+      },
+      {
+       "words": "called",
+       "gives": "RANG",
+       "note": "rang means telephoned"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "the extremes of a word are its two ends, the only letters kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lachrymose",
+         "note": "the first and last letters of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1752,45 +1647,36 @@
    },
    "solution": "ARBORETUM",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ARBORETUM",
     "definitions": [
      {
       "text": "botanical garden",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "During",
-      "for": "hidden_word",
-      "note": "during means within the span of, so the letters lie inside the words that follow"
-     },
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "to return is to go back, so the letters are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "commute, Rob rang",
-      "gives": "MUTEROBRA",
-      "note": "letters running across the end of the first word, all of the second and the start of the third"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARBORETU",
-      "M"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MUTEROBRA",
-       "to": "ARBORETUM"
+       "text": "return",
+       "note": "to return is to go back, so the letters are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "During",
+         "note": "during means within the span of, so the letters lie inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commute, Rob rang",
+         "gives": "MUTEROBRA",
+         "note": "letters running across the end of the first word, all of the second and the start of the third"
+        }
+       ]
       }
      ]
     },
@@ -1820,46 +1706,44 @@
    },
    "solution": "AMATI",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "AMATI",
     "definitions": [
      {
       "text": "Italian master",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "draped in",
-      "for": "container",
-      "note": "draped in fabric means wrapped by it, so one piece is covered by another"
-     },
-     {
-      "text": "undressed",
-      "for": "deletion",
-      "note": "undressing strips off the outer layer, so the first and last letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother",
-      "gives": "MA",
-      "note": "ma is a familiar word for mother"
-     },
-     {
-      "clueFragment": "satin",
-      "gives": "ATI",
-      "note": "the word without its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MA",
-      "TI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AMATI",
+     "indicators": [
+      {
+       "text": "undressed",
+       "note": "undressing strips off the outer layer, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "draped in",
+         "note": "draped in fabric means wrapped by it, so one piece is covered by another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "satin",
+         "gives": "ATI",
+         "note": "the word without its outer letters"
+        },
+        {
+         "words": "Mother",
+         "gives": "MA",
+         "note": "ma is a familiar word for mother"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1889,34 +1773,25 @@
    },
    "solution": "EDEN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EDEN",
     "definitions": [
      {
       "text": "Garden",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly pruned",
-      "for": "letter_selection",
-      "note": "cutting back at a steady interval removes every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seed ferns",
-      "gives": "EDEN",
-      "select": "alternate",
-      "note": "the second, fourth, sixth and eighth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDEN"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly pruned",
+       "note": "cutting back at a steady interval removes every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seed ferns",
+       "note": "the second, fourth, sixth and eighth letters"
+      }
      ]
     },
     "explanation": {
@@ -1945,41 +1820,37 @@
    },
    "solution": "MOUNTEBANK",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "MOUNTEBANK",
     "definitions": [
      {
       "text": "fraud",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "called out",
-      "for": "homophone",
-      "note": "calling something out means saying it audibly, so the word is judged by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Canadian cop",
-      "gives": "MOUNTE",
-      "soundsLike": "MOUNTIE",
-      "note": "a Mountie is a member of the Royal Canadian Mounted Police"
-     },
-     {
-      "clueFragment": "stock",
-      "gives": "BANK",
-      "note": "a bank is a store or stock of something, as in a blood bank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOUNTE",
-      "BANK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MOUNTE",
+       "indicators": [
+        {
+         "text": "called out",
+         "note": "calling something out means saying it audibly, so the word is judged by sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Canadian cop",
+         "gives": "MOUNTIE",
+         "note": "a Mountie is a member of the Royal Canadian Mounted Police"
+        }
+       ]
+      },
+      {
+       "words": "stock",
+       "gives": "BANK",
+       "note": "a bank is a store or stock of something, as in a blood bank"
+      }
      ]
     },
     "explanation": {

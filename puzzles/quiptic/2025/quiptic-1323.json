@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1323",
  "number": 1323,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,323",
  "setter": "Carpathian",
  "date": "2025-03-30",
  "dimensions": {
@@ -38,43 +36,48 @@
    },
    "solution": "MIRACLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "MIRACLE",
     "definitions": [
      {
       "text": "Marvel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "remade",
-      "note": "a film that is remade is put together again in a new form, so its letters are rebuilt in a new order"
-     },
-     {
-      "text": "without",
-      "note": "the fodder goes without something, so that letter is taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "race film",
-      "gives": "RACEILM",
-      "note": "the letters of race film with the F taken out"
-     },
-     {
-      "clueFragment": "female",
-      "note": "F = female, the letter removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MIRACLE",
+     "parts": [
       {
-       "fodder": "RACEILM",
-       "gives": "MIRACLE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "remade",
+         "note": "a film that is remade is put together again in a new form, so its letters are rebuilt in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "without",
+           "note": "the fodder goes without something, so that letter is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "race film",
+           "gives": "RACEILM",
+           "note": "the letters of race film with the F taken out"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "female",
+         "note": "F = female, the letter removed"
+        }
+       ]
       }
      ]
     },
@@ -105,30 +108,28 @@
    },
    "solution": "MALICE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MALICE",
     "definitions": [
      {
       "text": "venom",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "containing",
-      "for": "hidden_word",
-      "note": "the words before it contain the answer, holding it inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Abysmal ice-cream",
-      "gives": "MALICE",
-      "note": "the letters run from the end of abysmal into the start of ice"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "containing",
+       "note": "the words before it contain the answer, holding it inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Abysmal ice-cream",
+       "gives": "MALICE",
+       "note": "the letters run from the end of abysmal into the start of ice"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A complaint that a dessert is so bad it might as well be poisoned.",
      "walkthrough": "The hyphen and the word break are both ignored: the hidden answer straddles 'abysmal' and 'ice'.",
@@ -155,43 +156,31 @@
    },
    "solution": "ROAMED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROAMED",
     "definitions": [
      {
       "text": "Wandered around",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting in",
-      "for": "container",
-      "note": "the setter is getting in the way, so it goes inside the word for way"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "way",
-      "gives": "ROA_D",
-      "note": "road = way, opened up"
-     },
-     {
-      "clueFragment": "setter",
-      "gives": "ME",
-      "note": "the setter refers to himself as ME"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROA",
-      "ME",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in",
+       "note": "the setter is getting in the way, so it goes inside the word for way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way",
+       "gives": "ROAD",
+       "note": "road = way, opened up"
+      },
+      {
+       "words": "setter",
+       "gives": "ME",
+       "note": "the setter refers to himself as ME"
+      }
      ]
     },
     "explanation": {
@@ -220,35 +209,24 @@
    },
    "solution": "CONFISCATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONFISCATE",
     "definitions": [
      {
       "text": "Take away",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "concoction",
-      "for": "anagram",
-      "note": "a concoction is a mixture of ingredients, so the letters are mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "finest coca",
-      "gives": "FINESTCOCA",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FINESTCOCA",
-       "gives": "CONFISCATE"
+       "text": "concoction",
+       "note": "a concoction is a mixture of ingredients, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "finest coca",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -279,33 +257,28 @@
    },
    "solution": "EGRET",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EGRET",
     "definitions": [
      {
       "text": "bird",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "missing first",
-      "for": "deletion",
-      "note": "the word is missing its first letter, so the opening letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lament missing first",
-      "gives": "EGRET",
-      "note": "regret = lament, without its opening R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EGRET"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EGRET",
+     "indicators": [
+      {
+       "text": "missing first",
+       "note": "the word is missing its first letter, so the opening letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lament missing first",
+       "gives": "EGRET",
+       "note": "regret = lament, without its opening R"
+      }
      ]
     },
     "explanation": {
@@ -334,38 +307,30 @@
    },
    "solution": "IMPOSES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPOSES",
     "definitions": [
      {
       "text": "Lays on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I = international"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M = male"
-     },
-     {
-      "clueFragment": "models",
-      "gives": "POSES",
-      "note": "to model is to pose"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "POSES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "international",
+       "gives": "I",
+       "note": "I = international"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M = male"
+      },
+      {
+       "words": "models",
+       "gives": "POSES",
+       "note": "to model is to pose"
+      }
      ]
     },
     "explanation": {
@@ -394,41 +359,30 @@
    },
    "solution": "INCENTIVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INCENTIVE",
     "definitions": [
      {
       "text": "bribe",
       "at": 23
      }
     ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Popular",
-      "gives": "IN",
-      "note": "in = fashionable, popular"
-     },
-     {
-      "clueFragment": "coin",
-      "gives": "CENT",
-      "note": "a cent is a coin"
-     },
-     {
-      "clueFragment": "I have",
-      "gives": "IVE",
-      "note": "I have = I've"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "CENT",
-      "IVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "gives": "IN",
+       "note": "in = fashionable, popular"
+      },
+      {
+       "words": "coin",
+       "gives": "CENT",
+       "note": "a cent is a coin"
+      },
+      {
+       "words": "I have",
+       "gives": "IVE",
+       "note": "I have = I've"
+      }
      ]
     },
     "explanation": {
@@ -457,30 +411,16 @@
    },
    "solution": "PUNT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PUNT",
     "definitions": [
      {
       "text": "Boat",
-      "at": 0
+      "at": 0,
+      "meaning": "a flat-bottomed river boat pushed along with a pole"
      },
      {
       "text": "stake",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boat",
-      "gives": "PUNT",
-      "note": "a flat-bottomed river boat pushed along with a pole"
-     },
-     {
-      "clueFragment": "stake",
-      "gives": "PUNT",
-      "note": "a bet, in British slang"
+      "at": 5,
+      "meaning": "a bet, in British slang"
      }
     ],
     "explanation": {
@@ -509,30 +449,16 @@
    },
    "solution": "SWEEPING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SWEEPING",
     "definitions": [
      {
       "text": "General",
-      "at": 0
+      "at": 0,
+      "meaning": "wide-ranging, as of a statement that ignores exceptions"
      },
      {
       "text": "cleaning up",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "General",
-      "gives": "SWEEPING",
-      "note": "wide-ranging, as of a statement that ignores exceptions"
-     },
-     {
-      "clueFragment": "cleaning up",
-      "gives": "SWEEPING",
-      "note": "brushing a floor clean with a broom"
+      "at": 8,
+      "meaning": "brushing a floor clean with a broom"
      }
     ],
     "explanation": {
@@ -562,43 +488,48 @@
    },
    "solution": "SPRINTED",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "SPRINTED",
     "definitions": [
      {
       "text": "ran",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "note": "taking something from a word removes it, so the drug comes out"
-     },
-     {
-      "text": "foolishly",
-      "note": "something done foolishly is done in a muddled way, so the letters are muddled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "President",
-      "gives": "PRSIDENT",
-      "note": "the letters of president with one E taken out"
-     },
-     {
-      "clueFragment": "drug",
-      "note": "E = ecstasy, the letter removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SPRINTED",
+     "parts": [
       {
-       "fodder": "PRSIDENT",
-       "gives": "SPRINTED"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "taking",
+         "note": "taking something from a word removes it, so the drug comes out"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "foolishly",
+           "note": "something done foolishly is done in a muddled way, so the letters are muddled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "President",
+           "gives": "PRSIDENT",
+           "note": "the letters of president with one E taken out"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "drug",
+         "note": "E = ecstasy, the letter removed"
+        }
+       ]
       }
      ]
     },
@@ -629,45 +560,46 @@
    },
    "solution": "LEARN",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "LEARN",
     "definitions": [
      {
       "text": "Be informed of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "note": "the incline goes around the letter, enclosing it"
-     },
-     {
-      "text": "start of",
-      "note": "the start of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "incline",
-      "gives": "LEA_N",
-      "note": "lean = incline, opened up"
-     },
-     {
-      "clueFragment": "start of road",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA",
-      "R",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the incline goes around the letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "incline",
+       "gives": "LEAN",
+       "note": "lean = incline, opened up"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "R",
+       "indicators": [
+        {
+         "text": "start of",
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "start of road",
+         "gives": "R",
+         "select": "first",
+         "note": "first letter of road"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -696,53 +628,47 @@
    },
    "solution": "RACONTEUR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "RACONTEUR",
     "definitions": [
      {
       "text": "Story teller",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "note": "the traitor carries the prisoner, holding it inside"
-     },
-     {
-      "text": "to",
-      "note": "added to, so Europe follows on at the end"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "traitor",
-      "gives": "RA_T",
-      "note": "a rat is a traitor"
-     },
-     {
-      "clueFragment": "prisoner",
-      "gives": "CON",
-      "note": "con = convict"
-     },
-     {
-      "clueFragment": "Europe",
-      "gives": "EUR",
-      "note": "EUR = Europe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "CON",
-      "T",
-      "EUR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "the traitor carries the prisoner, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to",
+         "note": "added to, so Europe follows on at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "traitor",
+         "gives": "RAT",
+         "note": "a rat is a traitor"
+        },
+        {
+         "words": "prisoner",
+         "gives": "CON",
+         "note": "con = convict"
+        }
+       ]
+      },
+      {
+       "words": "Europe",
+       "gives": "EUR",
+       "note": "EUR = Europe"
+      }
      ]
     },
     "explanation": {
@@ -771,35 +697,24 @@
    },
    "solution": "COEXISTING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COEXISTING",
     "definitions": [
      {
       "text": "living together",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "newly",
-      "for": "anagram",
-      "note": "newly means made anew, so the letters are made into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "So exciting",
-      "gives": "SOEXCITING",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOEXCITING",
-       "gives": "COEXISTING"
+       "text": "newly",
+       "note": "newly means made anew, so the letters are made into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "So exciting",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -829,36 +744,25 @@
    },
    "solution": "PIN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "PIN",
     "definitions": [
      {
       "text": "Fix",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "options",
-      "gives": "PIN",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters of options"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "at regular intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "options",
+       "note": "the second, fourth and sixth letters of options"
+      }
      ]
     },
     "explanation": {
@@ -887,61 +791,53 @@
    },
    "solution": "ATTRACTION",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "ATTRACTION",
     "definitions": [
      {
       "text": "Draw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns something round, so the word is written backwards"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "during the battle means inside it, so these letters go into the word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "battle",
-      "gives": "A_CTION",
-      "note": "action = battle, opened after the A"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     },
-     {
-      "clueFragment": "revolutionary skill",
-      "gives": "TRA",
-      "note": "art = skill, turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "TRA",
-      "CTION"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ATTRACTION",
+     "indicators": [
       {
-       "from": "ART",
-       "to": "TRA"
+       "text": "revolutionary",
+       "note": "a revolution turns something round, so the word is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "note": "during the battle means inside it, so these letters go into the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battle",
+         "gives": "ACTION",
+         "note": "action = battle, opened after the A"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "time",
+           "gives": "T",
+           "note": "T = time"
+          },
+          {
+           "words": "revolutionary skill",
+           "gives": "TRA",
+           "note": "art = skill, turned round"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -972,35 +868,24 @@
    },
    "solution": "ACQUAINTANCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ACQUAINTANCE",
     "definitions": [
      {
       "text": "Someone you know",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancers move about and change places, so the letters do too"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a quiet can-can",
-      "gives": "AQUIETCANCAN",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AQUIETCANCAN",
-       "gives": "ACQUAINTANCE"
+       "text": "dancing",
+       "note": "dancers move about and change places, so the letters do too"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a quiet can-can",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -1031,38 +916,30 @@
    },
    "solution": "UNOPPOSED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNOPPOSED",
     "definitions": [
      {
       "text": "without dissent",
       "at": 37
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "United nations",
-      "gives": "UN",
-      "note": "UN = United Nations"
-     },
-     {
-      "clueFragment": "operation",
-      "gives": "OP",
-      "note": "op = operation"
-     },
-     {
-      "clueFragment": "put forward",
-      "gives": "POSED",
-      "note": "to pose a question is to put it forward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "OP",
-      "POSED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "United nations",
+       "gives": "UN",
+       "note": "UN = United Nations"
+      },
+      {
+       "words": "operation",
+       "gives": "OP",
+       "note": "op = operation"
+      },
+      {
+       "words": "put forward",
+       "gives": "POSED",
+       "note": "to pose a question is to put it forward"
+      }
      ]
     },
     "explanation": {
@@ -1091,35 +968,24 @@
    },
    "solution": "SHRAPNEL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SHRAPNEL",
     "definitions": [
      {
       "text": "pieces",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "going to",
-      "for": "anagram",
-      "note": "going to pieces means falling apart, so the letters fall apart and regroup"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Her plans",
-      "gives": "HERPLANS",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HERPLANS",
-       "gives": "SHRAPNEL"
+       "text": "going to",
+       "note": "going to pieces means falling apart, so the letters fall apart and regroup"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Her plans",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -1150,56 +1016,46 @@
    },
    "solution": "SAUTERNE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SAUTERNE",
     "definitions": [
      {
       "text": "wine",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "tip",
-      "for": "letter_selection",
-      "note": "the tip of the radish is its first letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lightly fry",
-      "gives": "SAUTE",
-      "note": "to saute is to fry lightly"
-     },
-     {
-      "clueFragment": "radish tip",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of radish"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAUTE",
-      "R",
-      "N",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lightly fry",
+       "gives": "SAUTE",
+       "note": "to saute is to fry lightly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tip",
+         "note": "the tip of the radish is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "radish tip",
+         "gives": "RADISH",
+         "note": "first letter of radish"
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N = new"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      }
      ]
     },
     "explanation": {
@@ -1238,38 +1094,29 @@
    },
    "solution": "HEARTTOHEART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEART-TO-HEART",
     "definitions": [
      {
       "text": "Intimate interaction",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one card",
-      "gives": "HEART",
-      "note": "a card of the red suit with a heart symbol"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "used as itself"
-     },
-     {
-      "clueFragment": "another",
-      "gives": "HEART",
-      "note": "another card of the same suit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEART",
-      "TO",
-      "HEART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one card",
+       "gives": "HEART",
+       "note": "a card of the red suit with a heart symbol"
+      },
+      {
+       "words": "to",
+       "note": "used as itself"
+      },
+      {
+       "words": "another",
+       "gives": "HEART",
+       "note": "another card of the same suit"
+      }
      ]
     },
     "explanation": {
@@ -1299,34 +1146,29 @@
    },
    "solution": "GAMBLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GAMBLE",
     "definitions": [
      {
       "text": "take a chance",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Loudly",
-      "for": "homophone",
-      "note": "said out loud, so it is the sound of the word that counts, not its spelling"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "frolic",
-      "gives": "GAMBLE",
-      "soundsLike": "GAMBOL",
-      "note": "to gambol is to frolic, skipping about like a lamb"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GAMBLE",
+     "indicators": [
+      {
+       "text": "Loudly",
+       "note": "said out loud, so it is the sound of the word that counts, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "frolic",
+       "gives": "GAMBOL",
+       "note": "to gambol is to frolic, skipping about like a lamb"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone told to frolic noisily and risk it.",
      "walkthrough": "'Loudly' sits beside 'frolic' as if describing it, but it signals a sound-alike.",
@@ -1354,33 +1196,28 @@
    },
    "solution": "DETERS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DETERS",
     "definitions": [
      {
       "text": "Puts off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dropping",
-      "for": "deletion",
-      "note": "the word is dropping something, so those letters fall out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "those discussing dropping degree",
-      "gives": "DETERS",
-      "note": "debaters = those discussing, with BA (a Bachelor of Arts degree) taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DETERS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DETERS",
+     "indicators": [
+      {
+       "text": "dropping",
+       "note": "the word is dropping something, so those letters fall out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those discussing dropping degree",
+       "gives": "DETERS",
+       "note": "debaters = those discussing, with BA (a Bachelor of Arts degree) taken out"
+      }
      ]
     },
     "explanation": {
@@ -1409,46 +1246,40 @@
    },
    "solution": "ANT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ANT",
     "definitions": [
      {
       "text": "Worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "what comes at first in each word is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "accepts",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of accepts"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "first letter of new"
-     },
-     {
-      "clueFragment": "technology",
-      "gives": "T",
-      "note": "first letter of technology"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "N",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "what comes at first in each word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accepts",
+         "note": "first letter of accepts"
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "first letter of new"
+      },
+      {
+       "words": "technology",
+       "gives": "T",
+       "note": "first letter of technology"
+      }
      ]
     },
     "explanation": {
@@ -1477,35 +1308,24 @@
    },
    "solution": "APPRECIATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APPRECIATE",
     "definitions": [
      {
       "text": "Be aware of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "melting",
-      "for": "anagram",
-      "note": "something melting loses its shape and sets in a new one, as the letters do"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ice parapet",
-      "gives": "ICEPARAPET",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ICEPARAPET",
-       "gives": "APPRECIATE"
+       "text": "melting",
+       "note": "something melting loses its shape and sets in a new one, as the letters do"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ice parapet",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1535,40 +1355,31 @@
    },
    "solution": "RESIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RESIT",
     "definitions": [
      {
       "text": "exam",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the lie goes about the one, surrounding it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lie",
-      "gives": "RES_T",
-      "note": "rest = lie, opened up"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "I",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the lie goes about the one, surrounding it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lie",
+       "gives": "REST",
+       "note": "rest = lie, opened up"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one"
+      }
      ]
     },
     "explanation": {
@@ -1598,38 +1409,25 @@
    },
    "solution": "DIVA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DIVA",
     "definitions": [
      {
       "text": "female performer",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "Upset",
-      "for": "reversal",
-      "note": "set upside down; in a down clue the word reads upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "keen",
-      "gives": "AVID",
-      "note": "avid = keen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIVA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AVID",
-       "to": "DIVA"
+       "text": "Upset",
+       "note": "set upside down; in a down clue the word reads upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "keen",
+       "gives": "AVID",
+       "note": "avid = keen"
       }
      ]
     },
@@ -1660,56 +1458,43 @@
    },
    "solution": "NARCISSUS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NARCISSUS",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starting to",
-      "for": "letter_selection",
-      "note": "the word that is starting gives only its start, the first letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US drugs agent",
-      "gives": "NARC",
-      "note": "a narc is an American narcotics officer"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used as itself"
-     },
-     {
-      "clueFragment": "share",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of share"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "used as itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NARC",
-      "IS",
-      "S",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US drugs agent",
+       "gives": "NARC",
+       "note": "a narc is an American narcotics officer"
+      },
+      {
+       "words": "is",
+       "note": "used as itself"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starting to",
+         "note": "the word that is starting gives only its start, the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "share",
+         "note": "first letter of share"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "note": "used as itself"
+      }
      ]
     },
     "explanation": {
@@ -1739,46 +1524,40 @@
    },
    "solution": "IMBUE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IMBUE",
     "definitions": [
      {
       "text": "Inspire",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hearts of",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle, so take the centre letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grimly",
-      "gives": "IM",
-      "select": "middle",
-      "note": "middle two of grimly"
-     },
-     {
-      "clueFragment": "robust",
-      "gives": "BU",
-      "note": "middle two of robust"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "E",
-      "note": "middle of men"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "BU",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "hearts of",
+         "note": "the heart of a word is its middle, so take the centre letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grimly",
+         "note": "middle two of grimly"
+        }
+       ]
+      },
+      {
+       "words": "robust",
+       "gives": "BU",
+       "note": "middle two of robust"
+      },
+      {
+       "words": "men",
+       "gives": "E",
+       "note": "middle of men"
+      }
      ]
     },
     "explanation": {
@@ -1808,44 +1587,35 @@
    },
    "solution": "LEEWARD",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LEEWARD",
     "definitions": [
      {
       "text": "in direction of shelter",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "coming back the way it went, so the whole is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sketch",
-      "gives": "DRAW",
-      "note": "to sketch is to draw"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "EEL",
-      "note": "an eel is a fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEEWARD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DRAWEEL",
-       "to": "LEEWARD"
+       "text": "returning",
+       "note": "coming back the way it went, so the whole is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sketch",
+         "gives": "DRAW",
+         "note": "to sketch is to draw"
+        },
+        {
+         "words": "fish",
+         "gives": "EEL",
+         "note": "an eel is a fish"
+        }
+       ]
       }
      ]
     },
@@ -1875,35 +1645,24 @@
    },
    "solution": "TUNNELS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TUNNELS",
     "definitions": [
      {
       "text": "passages",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "broadcast first meant scattered widely, like sown seed, so the letters are scattered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Let nuns",
-      "gives": "LETNUNS",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LETNUNS",
-       "gives": "TUNNELS"
+       "text": "broadcast",
+       "note": "broadcast first meant scattered widely, like sown seed, so the letters are scattered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Let nuns",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "genius-272",
  "number": 272,
- "series": "genius",
- "name": "Guardian genius crossword No 272",
  "setter": "Qaos",
  "date": "2026-02-02",
  "preamble": "A turtle starts on a perimeter cell and moves forward cell by cell. If it lands on an L, it turns 90 degrees anticlockwise; if an R, 90 degrees clockwise; otherwise it continues in the same direction. One word in each clue must be removed before solving; in clue order, these words’ first letters provide an extra instruction. When the turtle exits the grid after making at least one turn, its path has traced what letter?",
@@ -43,51 +41,53 @@
    },
    "solution": "PREVIOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PREVIOUS",
     "definitions": [
      {
       "text": "Former",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks",
-      "for": "container",
-      "note": "breaking into something means getting inside it, so one piece enters the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P is the road-sign abbreviation for parking"
-     },
-     {
-      "clueFragment": "minister",
-      "gives": "REV",
-      "note": "Rev, short for Reverend, is a minister of religion"
-     },
-     {
-      "clueFragment": "promises",
-      "gives": "IOUS",
-      "note": "IOUs are written promises to pay"
-     },
-     {
-      "clueFragment": "Tory",
-      "note": "the superfluous word; its T begins TURTLE in the downs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "EV",
-      "IOUS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PREVIOUS",
+     "indicators": [
+      {
+       "text": "breaks",
+       "note": "breaking into something means getting inside it, so one piece enters the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "parking",
+           "gives": "P",
+           "note": "P is the road-sign abbreviation for parking"
+          },
+          {
+           "words": "minister",
+           "gives": "REV",
+           "note": "Rev, short for Reverend, is a minister of religion"
+          },
+          {
+           "words": "promises",
+           "gives": "IOUS",
+           "note": "IOUs are written promises to pay"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "Tory",
+         "note": "the superfluous word; its T begins TURTLE in the downs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -116,58 +116,51 @@
    },
    "solution": "GAOL",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "GAOL",
     "definitions": [
      {
       "text": "prison",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "stealing",
-      "for": "container",
-      "note": "a thief takes the loot into his possession, so the word holds the next piece"
-     },
-     {
-      "text": "returns",
-      "for": "reversal",
-      "note": "returning is going back the way you came, so the result is read backwards"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Convict",
-      "gives": "LAG",
-      "note": "an old lag is a habitual convict"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a duck is a score of nought in cricket"
-     },
-     {
-      "clueFragment": "ugly",
-      "note": "the superfluous word; its U comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "O",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LOAG",
-       "to": "GAOL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returns",
+         "note": "returning is going back the way you came, so the result is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "stealing",
+           "note": "a thief takes the loot into his possession, so the word holds the next piece"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Convict",
+           "gives": "LAG",
+           "note": "an old lag is a habitual convict"
+          },
+          {
+           "words": "duck",
+           "gives": "O",
+           "note": "a duck is a score of nought in cricket"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "ugly",
+       "note": "the superfluous word; its U comes next in the hidden instruction"
       }
      ]
     },
@@ -198,43 +191,41 @@
    },
    "solution": "SHADOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHADOW",
     "definitions": [
      {
       "text": "cloud",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "supports",
-      "for": "charade",
-      "note": "in a down entry, a support sits underneath, so this piece goes below the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cryptographic algorithm",
-      "gives": "SHA",
-      "note": "SHA is the Secure Hash Algorithm family used in cryptography"
-     },
-     {
-      "clueFragment": "Stock market index",
-      "gives": "DOW",
-      "note": "the Dow Jones index of the New York Stock Exchange"
-     },
-     {
-      "clueFragment": "risky",
-      "note": "the superfluous word; its R comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHA",
-      "DOW"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "note": "in a down entry, a support sits underneath, so this piece goes below the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cryptographic algorithm",
+         "gives": "SHA",
+         "note": "SHA is the Secure Hash Algorithm family used in cryptography"
+        },
+        {
+         "words": "Stock market index",
+         "gives": "DOW",
+         "note": "the Dow Jones index of the New York Stock Exchange"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "risky",
+       "note": "the superfluous word; its R comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -264,57 +255,57 @@
    },
    "solution": "LEMONADE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LEMONADE",
     "definitions": [
      {
       "text": "drink",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "the pieces that follow are placed in the middle of the general's name"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "during means within a span of time, so this piece falls between the two days"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "general",
-      "gives": "LEE",
-      "note": "Robert E Lee, the Confederate general"
-     },
-     {
-      "clueFragment": "two days",
-      "gives": "MOND",
-      "note": "MON for Monday and D for day"
-     },
-     {
-      "clueFragment": "adult",
-      "gives": "A",
-      "note": "A is the film-rating abbreviation for adult"
-     },
-     {
-      "clueFragment": "tastes",
-      "note": "the superfluous word; its T comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "MON",
-      "A",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "the pieces that follow are placed in the middle of the general's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "general",
+         "gives": "LEE",
+         "note": "Robert E Lee, the Confederate general"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "during",
+           "note": "during means within a span of time, so this piece falls between the two days"
+          }
+         ],
+         "parts": [
+          {
+           "words": "two days",
+           "gives": "MOND",
+           "note": "MON for Monday and D for day"
+          },
+          {
+           "words": "adult",
+           "gives": "A",
+           "note": "A is the film-rating abbreviation for adult"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "tastes",
+       "note": "the superfluous word; its T comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -343,49 +334,46 @@
    },
    "solution": "GAZE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GAZE",
     "definitions": [
      {
       "text": "Look",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backs",
-      "for": "charade",
-      "note": "to back something is to stand behind it, so this piece follows the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "government",
-      "gives": "G",
-      "note": "G is an abbreviation for government"
-     },
-     {
-      "clueFragment": "Arizona",
-      "gives": "AZ",
-      "note": "AZ is the postal code for the US state of Arizona"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     },
-     {
-      "clueFragment": "laws",
-      "note": "the superfluous word; its L comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AZ",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "backs",
+       "note": "to back something is to stand behind it, so this piece follows the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "government",
+         "gives": "G",
+         "note": "G is an abbreviation for government"
+        },
+        {
+         "words": "Arizona",
+         "gives": "AZ",
+         "note": "AZ is the postal code for the US state of Arizona"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "laws",
+       "note": "the superfluous word; its L comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -414,36 +402,34 @@
    },
    "solution": "SCREAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCREAM",
     "definitions": [
      {
       "text": "Comedian",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "best",
-      "gives": "CREAM",
-      "note": "the cream is the best part, as in the cream of the crop"
-     },
-     {
-      "clueFragment": "ever",
-      "note": "the superfluous word; its E comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CREAM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "'s",
+         "note": "taken as written"
+        },
+        {
+         "words": "best",
+         "gives": "CREAM",
+         "note": "the cream is the best part, as in the cream of the crop"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "ever",
+       "note": "the superfluous word; its E comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -472,60 +458,60 @@
    },
    "solution": "BREATHES",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "charade"
-    ],
-    "answer": "BREATHES",
     "definitions": [
      {
       "text": "lives",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "saving",
-      "for": "container",
-      "note": "to save something is to keep it safe inside, so one piece is held within the other"
-     },
-     {
-      "text": "doctor",
-      "for": "anagram",
-      "note": "to doctor is to tamper with or falsify, so the combined letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the standard abbreviation for British"
-     },
-     {
-      "clueFragment": "hates",
-      "gives": "HATES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "soldiers'",
-      "gives": "RE",
-      "note": "the Royal Engineers, a British army corps"
-     },
-     {
-      "clueFragment": "toy",
-      "note": "the superfluous word; its T starts the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "REATHES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HARETES",
-       "gives": "REATHES"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "saving",
+         "note": "to save something is to keep it safe inside, so one piece is held within the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British",
+           "gives": "B",
+           "note": "B is the standard abbreviation for British"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "doctor",
+             "note": "to doctor is to tamper with or falsify, so the combined letters are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "hates",
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "soldiers'",
+         "gives": "RE",
+         "note": "the Royal Engineers, a British army corps"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "toy",
+       "note": "the superfluous word; its T starts the hidden instruction"
       }
      ]
     },
@@ -555,52 +541,44 @@
    },
    "solution": "SISTER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SISTER",
     "definitions": [
      {
       "text": "Relative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dancing",
-      "for": "anagram",
-      "note": "dancers move about and change places, so these letters swap positions"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tries",
-      "gives": "TRIES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "foxtrot",
-      "note": "the superfluous word; its F begins FACES"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SISTE",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TRIESS",
-       "gives": "SISTER"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "note": "dancers move about and change places, so these letters swap positions"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "tries",
+           "note": "taken as written"
+          },
+          {
+           "words": "son",
+           "gives": "S",
+           "note": "S is the abbreviation for son"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "foxtrot",
+       "note": "the superfluous word; its F begins FACES"
       }
      ]
     },
@@ -630,59 +608,60 @@
    },
    "solution": "EXARCH",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EXARCH",
     "definitions": [
      {
       "text": "bishop",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "employs",
-      "for": "container",
-      "note": "an employer takes staff in, so the outer letters take the next ones inside them"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "EX",
-      "note": "ex- means former, as in ex-wife"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the usual abbreviation for church"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rector",
-      "gives": "R",
-      "note": "R is an abbreviation for rector"
-     },
-     {
-      "clueFragment": "old",
-      "note": "the superfluous word, the second of the two; its O comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "A",
-      "R",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "employs",
+         "note": "an employer takes staff in, so the outer letters take the next ones inside them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Old",
+           "gives": "EX",
+           "note": "ex- means former, as in ex-wife"
+          },
+          {
+           "words": "church",
+           "gives": "CH",
+           "note": "CH is the usual abbreviation for church"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "rector",
+           "gives": "R",
+           "note": "R is an abbreviation for rector"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "old",
+       "note": "the superfluous word, the second of the two; its O comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -711,48 +690,45 @@
    },
    "solution": "OVAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OVAL",
     "definitions": [
      {
       "text": "Ground",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "slice of",
-      "for": "letter_selection",
-      "note": "a slice is a small cut taken from the front, so only the word's opening letter is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eggs",
-      "gives": "OVA",
-      "note": "ova are egg cells, the Latin plural of ovum"
-     },
-     {
-      "clueFragment": "lamb",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "beef",
-      "note": "the superfluous word; its B begins the instruction's second word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVA",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "eggs",
+         "gives": "OVA",
+         "note": "ova are egg cells, the Latin plural of ovum"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "slice of",
+           "note": "a slice is a small cut taken from the front, so only the word's opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lamb",
+           "note": "the opening letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "beef",
+       "note": "the superfluous word; its B begins the instruction's second word"
+      }
      ]
     },
     "explanation": {
@@ -782,65 +758,64 @@
    },
    "solution": "DISCOVERED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DISCOVERED",
     "definitions": [
      {
       "text": "Found",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "smashing",
-      "for": "anagram",
-      "note": "something smashed is broken into pieces, so the word's letters are put back together differently"
-     },
-     {
-      "text": "it's all about",
-      "for": "container",
-      "note": "the whole jumbled group goes around the next piece, surrounding it"
-     },
-     {
-      "text": "taken by",
-      "for": "container",
-      "note": "to be taken by someone is to be held by them, so the outer letters enclose the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "theologian",
-      "gives": "DD",
-      "note": "DD is Doctor of Divinity, a theologian's degree"
-     },
-     {
-      "clueFragment": "service",
-      "gives": "SERVICE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like O"
-     },
-     {
-      "clueFragment": "Easter",
-      "note": "the superfluous word; its E comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ISCOVERE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SERVICEO",
-       "gives": "ISCOVERE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "it's all about",
+         "note": "the whole jumbled group goes around the next piece, surrounding it"
+        },
+        {
+         "text": "taken by",
+         "note": "to be taken by someone is to be held by them, so the outer letters enclose the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theologian",
+         "gives": "DD",
+         "note": "DD is Doctor of Divinity, a theologian's degree"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "smashing",
+           "note": "something smashed is broken into pieces, so the word's letters are put back together differently"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "service",
+             "note": "taken as written"
+            },
+            {
+             "words": "love",
+             "gives": "O",
+             "note": "love is zero in tennis, shaped like O"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "Easter",
+       "note": "the superfluous word; its E comes next in the hidden instruction"
       }
      ]
     },
@@ -870,72 +845,75 @@
    },
    "solution": "FOLLOW",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "FOLLOW",
     "definitions": [
      {
       "text": "chase",
       "at": 71
      }
     ],
-    "indicators": [
-     {
-      "text": "retiring",
-      "for": "reversal",
-      "note": "to retire is to draw back, so the word is read backwards in this across entry"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points at the opening letter of each of the two words just before it"
-     },
-     {
-      "text": "over",
-      "for": "container",
-      "note": "the outer word spreads over the inserted letters, covering them on both sides"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps Don Juan",
-      "gives": "WOLF",
-      "note": "a wolf is a predatory womaniser, of whom Don Juan is the classic example"
-     },
-     {
-      "clueFragment": "other",
-      "gives": "O",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "ladies",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "genteel",
-      "note": "the superfluous word; its G begins BEGIN's last letters run"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "OL",
-      "LOW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "WOLF",
-       "to": "FLOW"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "note": "to retire is to draw back, so the word is read backwards in this across entry"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "over",
+           "note": "the outer word spreads over the inserted letters, covering them on both sides"
+          }
+         ],
+         "parts": [
+          {
+           "op": "container",
+           "parts": [
+            {
+             "words": "Perhaps Don Juan",
+             "gives": "WOLF",
+             "note": "a wolf is a predatory womaniser, of whom Don Juan is the classic example"
+            },
+            {
+             "op": "first",
+             "indicators": [
+              {
+               "text": "initially",
+               "note": "initially points at the opening letter of each of the two words just before it"
+              }
+             ],
+             "parts": [
+              {
+               "words": "other",
+               "note": "the opening letter"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "ladies",
+             "note": "the opening letter"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "genteel",
+       "note": "the superfluous word; its G begins BEGIN's last letters run"
       }
      ]
     },
@@ -965,55 +943,51 @@
    },
    "solution": "LILAC",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "LILAC",
     "definitions": [
      {
       "text": "tree",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the word is read from its end in this down entry"
-     },
-     {
-      "text": "to buy",
-      "for": "container",
-      "note": "buying something brings it into your possession, so the word takes the next piece inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ring",
-      "gives": "CALL",
-      "note": "to ring someone is to call them"
-     },
-     {
-      "clueFragment": "single",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "ash",
-      "note": "the superfluous word; its A comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "LAC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CALL",
-       "to": "LLAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means the word is read from its end in this down entry"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "to buy",
+           "note": "buying something brings it into your possession, so the word takes the next piece inside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Ring",
+           "gives": "CALL",
+           "note": "to ring someone is to call them"
+          },
+          {
+           "words": "single",
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "ash",
+       "note": "the superfluous word; its A comes next in the hidden instruction"
       }
      ]
     },
@@ -1043,65 +1017,61 @@
    },
    "solution": "ERATHEMS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ERATHEMS",
     "definitions": [
      {
       "text": "geological units",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "describing",
-      "for": "container",
-      "note": "to describe a shape is to draw round it, so these letters encircle the next one"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after sends the first-named piece second, placing it behind the later one"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "ERA",
-      "note": "an era is a long period of time"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time in physics"
-     },
-     {
-      "clueFragment": "he's",
-      "gives": "HES",
-      "note": "taken as written, without the apostrophe"
-     },
-     {
-      "clueFragment": "mass",
-      "gives": "M",
-      "note": "M is the symbol for mass"
-     },
-     {
-      "clueFragment": "iceberg's",
-      "note": "the superfluous word; its I comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERA",
-      "T",
-      "HE",
-      "M",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after sends the first-named piece second, placing it behind the later one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "describing",
+         "note": "to describe a shape is to draw round it, so these letters encircle the next one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "time",
+           "gives": "ERA",
+           "note": "an era is a long period of time"
+          },
+          {
+           "words": "Time",
+           "gives": "T",
+           "note": "T is the abbreviation for time in physics"
+          },
+          {
+           "words": "he's",
+           "note": "taken as written, without the apostrophe"
+          }
+         ]
+        },
+        {
+         "words": "mass",
+         "gives": "M",
+         "note": "M is the symbol for mass"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "iceberg's",
+       "note": "the superfluous word; its I comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -1130,52 +1100,59 @@
    },
    "solution": "HAIKU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "HAIKU",
     "definitions": [
      {
       "text": "Poem",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "leaders go in front, so each word gives only its opening letter"
-     },
-     {
-      "text": "shocked",
-      "for": "anagram",
-      "note": "something shocked is jolted out of place, so the gathered letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about unseating King",
-      "gives": "AUK",
-      "select": "first",
-      "note": "the opening letters of these three words"
-     },
-     {
-      "clueFragment": "has international",
-      "gives": "HI",
-      "select": "first",
-      "note": "the opening letters of these two words"
-     },
-     {
-      "clueFragment": "Charles",
-      "note": "the superfluous word; its C comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AUKHI",
-       "gives": "HAIKU"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shocked",
+         "note": "something shocked is jolted out of place, so the gathered letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "leaders",
+             "note": "leaders go in front, so each word gives only its opening letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "about unseating King",
+             "note": "the opening letters of these three words"
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "has international",
+             "note": "the opening letters of these two words"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "Charles",
+       "note": "the superfluous word; its C comes next in the hidden instruction"
       }
      ]
     },
@@ -1205,52 +1182,51 @@
    },
    "solution": "SELECT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SELECT",
     "definitions": [
      {
       "text": "pick",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "when someone leaves they are gone, so those letters disappear from the longer word"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S is the clothing-size abbreviation for small"
-     },
-     {
-      "clueFragment": "tiny particle",
-      "gives": "ELECTRON",
-      "note": "an electron is a subatomic particle"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "RON",
-      "note": "Ron is a boy's name"
-     },
-     {
-      "clueFragment": "nose",
-      "note": "the superfluous word; its N completes BEGIN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ELECT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small",
+         "gives": "S",
+         "note": "S is the clothing-size abbreviation for small"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "note": "when someone leaves they are gone, so those letters disappear from the longer word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tiny particle",
+           "gives": "ELECTRON",
+           "note": "an electron is a subatomic particle"
+          },
+          {
+           "words": "boy",
+           "gives": "RON",
+           "note": "Ron is a boy's name"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "nose",
+       "note": "the superfluous word; its N completes BEGIN"
+      }
      ]
     },
     "explanation": {
@@ -1280,48 +1256,48 @@
    },
    "solution": "COMPARED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COMPARED",
     "definitions": [
      {
       "text": "Equated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something made new is remade, so these letters take a fresh arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moped",
-      "gives": "MOPED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "with",
-      "note": "joins the two words that are mixed together"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "CAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "electric",
-      "note": "the superfluous word; its E comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MOPEDCAR",
-       "gives": "COMPARED"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "note": "something made new is remade, so these letters take a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "moped",
+           "note": "taken as written"
+          },
+          {
+           "words": "car",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "with",
+       "note": "joins the two words that are mixed together"
+      },
+      {
+       "unchecked": true,
+       "words": "electric",
+       "note": "the superfluous word; its E comes next in the hidden instruction"
       }
      ]
     },
@@ -1350,49 +1326,44 @@
    },
    "solution": "RECIPE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "RECIPE",
     "definitions": [
      {
       "text": "formula?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about can mean moved around or in disorder, so the word's letters are turned about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writing",
-      "gives": "R",
-      "note": "writing is one of the three Rs, reading, writing and arithmetic"
-     },
-     {
-      "clueFragment": "piece",
-      "gives": "PIECE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "winning",
-      "note": "the superfluous word; its W begins WITH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ECIPE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PIECE",
-       "gives": "ECIPE"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Writing",
+         "gives": "R",
+         "note": "writing is one of the three Rs, reading, writing and arithmetic"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "about can mean moved around or in disorder, so the word's letters are turned about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "piece",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "winning",
+       "note": "the superfluous word; its W begins WITH"
       }
      ]
     },
@@ -1422,47 +1393,41 @@
    },
    "solution": "ELEVATED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ELEVATED",
     "definitions": [
      {
       "text": "raised up",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Clutching",
-      "for": "container",
-      "note": "clutching means gripping tightly in your hands, so the word holds the other inside it"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "happy",
-      "gives": "ELATED",
-      "note": "elated means joyful"
-     },
-     {
-      "clueFragment": "bible",
-      "gives": "EV",
-      "note": "EV, short for evangel, a gospel book"
-     },
-     {
-      "clueFragment": "sinner's",
-      "note": "the superfluous word; its S comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "EV",
-      "ATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Clutching",
+         "note": "clutching means gripping tightly in your hands, so the word holds the other inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "happy",
+         "gives": "ELATED",
+         "note": "elated means joyful"
+        },
+        {
+         "words": "bible",
+         "gives": "EV",
+         "note": "EV, short for evangel, a gospel book"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "sinner's",
+       "note": "the superfluous word; its S comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -1491,55 +1456,58 @@
    },
    "solution": "ENNEAD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ENNEAD",
     "definitions": [
      {
       "text": "set of nine",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Essentially",
-      "for": "letter_selection",
-      "note": "the essence of something is at its heart, so only each word's central letters are kept"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sent",
-      "gives": "EN",
-      "select": "middle",
-      "note": "the central two letters"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "NE",
-      "select": "middle",
-      "note": "the central two letters, ignoring the apostrophe"
-     },
-     {
-      "clueFragment": "grades",
-      "gives": "AD",
-      "select": "middle",
-      "note": "the central two letters"
-     },
-     {
-      "clueFragment": "newest",
-      "note": "the superfluous word; its N begins NORTH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "NE",
-      "AD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Essentially",
+           "note": "the essence of something is at its heart, so only each word's central letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sent",
+           "note": "the central two letters"
+          }
+         ]
+        },
+        {
+         "op": "middle",
+         "parts": [
+          {
+           "words": "one's",
+           "note": "the central two letters, ignoring the apostrophe"
+          }
+         ]
+        },
+        {
+         "op": "middle",
+         "parts": [
+          {
+           "words": "grades",
+           "note": "the central two letters"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "newest",
+       "note": "the superfluous word; its N begins NORTH"
+      }
      ]
     },
     "explanation": {
@@ -1567,65 +1535,61 @@
    },
    "solution": "SPECIMEN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "SPECIMEN",
     "definitions": [
      {
       "text": "Example",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling the opposite way, so that word is read from its end"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to have it within your grasp, so one piece sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "square",
-      "gives": "S",
-      "note": "S taken as a short form of square, as in an address"
-     },
-     {
-      "clueFragment": "enclosure",
-      "gives": "PEN",
-      "note": "a pen is an enclosure for animals"
-     },
-     {
-      "clueFragment": "rodents",
-      "gives": "MICE",
-      "note": "mice are small rodents"
-     },
-     {
-      "clueFragment": "infected",
-      "note": "the superfluous word; its I comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "ECIM",
-      "EN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MICE",
-       "to": "ECIM"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "square",
+         "gives": "S",
+         "note": "S taken as a short form of square, as in an address"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "holding",
+           "note": "to hold something is to have it within your grasp, so one piece sits inside the other"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enclosure",
+           "gives": "PEN",
+           "note": "a pen is an enclosure for animals"
+          },
+          {
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "back",
+             "note": "going back means travelling the opposite way, so that word is read from its end"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rodents",
+             "gives": "MICE",
+             "note": "mice are small rodents"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "infected",
+       "note": "the superfluous word; its I comes next in the hidden instruction"
       }
      ]
     },
@@ -1655,39 +1619,34 @@
    },
    "solution": "PIANOS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PIANOS",
     "definitions": [
      {
       "text": "Instruments",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "letters at play move around freely, so these are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in soap",
-      "gives": "INSOAP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "opera",
-      "note": "the superfluous word; its O comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "INSOAP",
-       "gives": "PIANOS"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "note": "letters at play move around freely, so these are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in soap",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "opera",
+       "note": "the superfluous word; its O comes next in the hidden instruction"
       }
      ]
     },
@@ -1715,50 +1674,7 @@
     "text": "Thomas Hardy's partner gets award",
     "enumeration": "6"
    },
-   "solution": "LAUREL",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LAUREL",
-    "definitions": [
-     {
-      "text": "Hardy's partner",
-      "at": 7
-     },
-     {
-      "text": "award",
-      "at": 28
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hardy's partner",
-      "note": "first meaning: Stan ..., comedy partner of Oliver Hardy in ... and Hardy"
-     },
-     {
-      "clueFragment": "award",
-      "note": "second meaning: a wreath of bay leaves given as an honour"
-     },
-     {
-      "clueFragment": "Thomas",
-      "note": "the superfluous word; its T begins THE"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "'Thomas' points to the novelist Thomas Hardy; remove it and Hardy is Oliver Hardy, the film comedian.",
-     "definitionFit": "Stan Laurel was the thin half of the double act, and a laurel wreath has honoured victors since ancient Greece."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Thomas"
-    }
-   }
+   "solution": "LAUREL"
   },
   {
    "number": 23,
@@ -1774,46 +1690,41 @@
    },
    "solution": "LATEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LATEST",
     "definitions": [
      {
       "text": "Most recent news",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down entry, one piece placed on another sits above it, so it comes first"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Los Angeles",
-      "gives": "LA",
-      "note": "LA is the usual abbreviation for Los Angeles"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "TEST",
-      "note": "a test is a trial"
-     },
-     {
-      "clueFragment": "robber",
-      "note": "the superfluous word; its R comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "TEST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down entry, one piece placed on another sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Los Angeles",
+         "gives": "LA",
+         "note": "LA is the usual abbreviation for Los Angeles"
+        },
+        {
+         "words": "trial",
+         "gives": "TEST",
+         "note": "a test is a trial"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "robber",
+       "note": "the superfluous word; its R comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -1842,56 +1753,61 @@
    },
    "solution": "PARLIAMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PARLIAMENT",
     "definitions": [
      {
       "text": "collective",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "inspiring",
-      "for": "container",
-      "note": "to inspire is literally to breathe in, so the outer word draws the others inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Even",
-      "gives": "PAR",
-      "note": "on a par means even or level"
-     },
-     {
-      "clueFragment": "literature",
-      "gives": "LIT",
-      "note": "lit is the short form of literature"
-     },
-     {
-      "clueFragment": "Australian",
-      "gives": "A",
-      "note": "A is an abbreviation for Australian"
-     },
-     {
-      "clueFragment": "workers",
-      "gives": "MEN",
-      "note": "men in the sense of a workforce"
-     },
-     {
-      "clueFragment": "honest",
-      "note": "the superfluous word; its H comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAR",
-      "LI",
-      "AMEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inspiring",
+         "note": "to inspire is literally to breathe in, so the outer word draws the others inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Even",
+           "gives": "PAR",
+           "note": "on a par means even or level"
+          },
+          {
+           "words": "literature",
+           "gives": "LIT",
+           "note": "lit is the short form of literature"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Australian",
+           "gives": "A",
+           "note": "A is an abbreviation for Australian"
+          },
+          {
+           "words": "workers",
+           "gives": "MEN",
+           "note": "men in the sense of a workforce"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "honest",
+       "note": "the superfluous word; its H comes next in the hidden instruction"
+      }
      ]
     },
     "explanation": {
@@ -1920,45 +1836,46 @@
    },
    "solution": "LINO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "LINO",
     "definitions": [
      {
       "text": "Floor covering",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "hidden_word",
-      "note": "the answer is only a portion of the words that follow, lying across them"
-     },
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means coming back the other way, so the run is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mansion I like",
-      "gives": "ONIL",
-      "note": "the letters straddle the end of mansion, the I and the start of like"
-     },
-     {
-      "clueFragment": "to",
-      "note": "the superfluous word; its T comes next in the hidden instruction"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ONIL",
-       "to": "LINO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "note": "returning means coming back the other way, so the run is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "hidden",
+         "indicators": [
+          {
+           "text": "part of",
+           "note": "the answer is only a portion of the words that follow, lying across them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mansion I like",
+           "gives": "ONIL",
+           "note": "the letters straddle the end of mansion, the I and the start of like"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "to",
+       "note": "the superfluous word; its T comes next in the hidden instruction"
       }
      ]
     },
@@ -1987,35 +1904,39 @@
    },
    "solution": "PRAY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PRAY",
     "definitions": [
      {
       "text": "I ask you",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by ear",
-      "for": "homophone",
-      "note": "judging by ear means going on how the words are heard, not how they are spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "victim of attack",
-      "gives": "PRAY",
-      "soundsLike": "PREY",
-      "note": "prey is a creature attacked by a predator"
-     },
-     {
-      "clueFragment": "trace",
-      "note": "the superfluous word; its T begins TURTLE"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PRAY",
+       "indicators": [
+        {
+         "text": "by ear",
+         "note": "judging by ear means going on how the words are heard, not how they are spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "victim of attack",
+         "gives": "PREY",
+         "note": "prey is a creature attacked by a predator"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "trace",
+       "note": "the superfluous word; its T begins TURTLE"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone asks for help tracing the victim of an attack.",
      "walkthrough": "'I ask you' looks like a frustrated aside, but it is the definition.",
@@ -2042,52 +1963,54 @@
    },
    "solution": "PAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PAGE",
     "definitions": [
      {
       "text": "sheet",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points at the end, so each of the next words gives its closing letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "reading",
-      "gives": "G",
-      "select": "last",
-      "note": "the closing letter"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter"
-     },
-     {
-      "clueFragment": "hymn",
-      "note": "the superfluous word; its H ends the instruction, FACES NORTH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "gives": "PA",
+         "note": "pa is an informal word for father"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points at the end, so each of the next words gives its closing letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reading",
+           "note": "the closing letter"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "the",
+           "note": "the closing letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "hymn",
+       "note": "the superfluous word; its H ends the instruction, FACES NORTH"
+      }
      ]
     },
     "explanation": {
@@ -2116,36 +2039,35 @@
    },
    "solution": "BOUNCE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOUNCE",
     "definitions": [
      {
       "text": "as Tigger might do?",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Black",
-      "gives": "B",
-      "note": "B is the abbreviation for black, as on pencils"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "OUNCE",
-      "note": "the ounce is the snow leopard, a big cat"
-     },
-     {
-      "clueFragment": "hunting",
-      "note": "the superfluous word; its H continues the instruction's word THE... sequence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OUNCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Black",
+         "gives": "B",
+         "note": "B is the abbreviation for black, as on pencils"
+        },
+        {
+         "words": "cat",
+         "gives": "OUNCE",
+         "note": "the ounce is the snow leopard, a big cat"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "hunting",
+       "note": "the superfluous word; its H continues the instruction's word THE... sequence"
+      }
      ]
     },
     "explanation": {
@@ -2175,34 +2097,38 @@
    },
    "solution": "DISAGREE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DISAGREE",
     "definitions": [
      {
       "text": "No way!",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "the answer lies inside the run of words that follows, spanning several of them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "England, is a greenhouse",
-      "gives": "DISAGREE",
-      "note": "the letters run from the end of England through the start of greenhouse"
-     },
-     {
-      "clueFragment": "essential",
-      "note": "the superfluous word; its E ends the instruction's word THE"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "the answer lies inside the run of words that follows, spanning several of them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England, is a greenhouse",
+         "gives": "DISAGREE",
+         "note": "the letters run from the end of England through the start of greenhouse"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "essential",
+       "note": "the superfluous word; its E ends the instruction's word THE"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Is a greenhouse really essential in England? Certainly not!",
      "walkthrough": "'Essential' looks like a middle-letters signal, but it is the extra word; 'In' does the work.",

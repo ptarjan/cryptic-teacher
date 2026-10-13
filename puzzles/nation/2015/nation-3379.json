@@ -1,8 +1,6 @@
 {
  "id": "nation-3379",
  "number": 3379,
- "series": "nation",
- "name": "The Nation cryptic crossword No 3379",
  "setter": "Joshua Kosman and Henri Picciotto",
  "date": "2015-11-16",
  "dimensions": {
@@ -41,51 +39,40 @@
    },
    "solution": "PUNISHMENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PUNISHMENT",
     "definitions": [
      {
       "text": "Penalty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "something shot is wrecked or done for, so the letters before it are knocked into a new order"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "the kick word goes around the outside of the other piece, wrapping it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kick",
-      "gives": "PUNT",
-      "note": "a punt is a kick of a dropped ball before it lands"
-     },
-     {
-      "clueFragment": "hems in",
-      "gives": "HEMSIN",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUN",
-      "ISHMEN",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "HEMSIN",
-       "gives": "ISHMEN"
+       "text": "outside",
+       "note": "the kick word goes around the outside of the other piece, wrapping it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kick",
+       "gives": "PUNT",
+       "note": "a punt is a kick of a dropped ball before it lands"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "note": "something shot is wrecked or done for, so the letters before it are knocked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hems in",
+         "note": "taken as written, as letters to be reordered"
+        }
+       ]
       }
      ]
     },
@@ -115,44 +102,38 @@
    },
    "solution": "PAVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "PAVE",
     "definitions": [
      {
       "text": "Finally, top a road!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally points to the end, so only the last letter of the next word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "top",
-      "gives": "P",
-      "select": "last",
-      "note": "the closing letter of the word"
-     },
-     {
-      "clueFragment": "a road",
-      "gives": "AVE",
-      "note": "Ave is the abbreviation for avenue, a road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "note": "finally points to the end, so only the last letter of the next word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "top",
+         "note": "the closing letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "a road",
+       "gives": "AVE",
+       "note": "Ave is the abbreviation for avenue, a road"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An exasperated cry that someone has at last surfaced a street.",
      "walkthrough": "The whole clue is the definition too: to put a top on a road is to surface it with asphalt.",
@@ -185,52 +166,48 @@
    },
    "solution": "NORTHWIND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "NORTH WIND",
     "definitions": [
      {
       "text": "blow from one quarter",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out can mean disordered or wrong, so the preceding letters are rearranged"
-     },
-     {
-      "text": "onset of",
-      "for": "letter_selection",
-      "note": "an onset is a beginning, so only the first letter of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thrown",
-      "gives": "THROWN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "devastating",
-      "gives": "D",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THROWNIND",
-       "gives": "NORTHWIND"
+       "text": "out",
+       "note": "out can mean disordered or wrong, so the preceding letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Thrown",
+         "note": "taken as written"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "onset of",
+           "note": "an onset is a beginning, so only the first letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "devastating",
+           "note": "the opening letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -261,43 +238,31 @@
    },
    "solution": "SPELUNK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPELUNK",
     "definitions": [
      {
       "text": "Go underground",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "protected by",
-      "for": "container",
-      "note": "something protected by another is surrounded by it, so the train word sits inside"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moxie",
-      "gives": "SPUNK",
-      "note": "spunk is courage or nerve, as is moxie"
-     },
-     {
-      "clueFragment": "train",
-      "gives": "EL",
-      "note": "the El is an elevated railway, as in Chicago"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "EL",
-      "UNK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "note": "something protected by another is surrounded by it, so the train word sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moxie",
+       "gives": "SPUNK",
+       "note": "spunk is courage or nerve, as is moxie"
+      },
+      {
+       "words": "train",
+       "gives": "EL",
+       "note": "the El is an elevated railway, as in Chicago"
+      }
      ]
     },
     "explanation": {
@@ -326,48 +291,34 @@
    },
    "solution": "MIDAS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MIDAS",
     "definitions": [
      {
       "text": "a touchy guy?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning round means facing the other way, so the preceding words are read backwards"
-     }
-    ],
-    "linkWords": [
-     "When"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sorrowful",
-      "gives": "SAD",
-      "note": "sad means unhappy or sorrowful"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, without the apostrophe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MI",
-      "DAS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SADIM",
-       "to": "MIDAS"
+       "text": "turning",
+       "note": "turning round means facing the other way, so the preceding words are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sorrowful",
+         "gives": "SAD",
+         "note": "sad means unhappy or sorrowful"
+        },
+        {
+         "words": "I'm",
+         "note": "taken as written, without the apostrophe"
+        }
+       ]
       }
      ]
     },
@@ -398,36 +349,29 @@
    },
    "solution": "NUMB",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NUMB",
     "definitions": [
      {
       "text": "insensitive",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Two-thirds of",
-      "for": "deletion",
-      "note": "keeping only two thirds of a six-letter word drops its last third, two letters"
-     }
-    ],
-    "linkWords": [
-     "can make you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical piece",
-      "gives": "NUMBER",
-      "note": "a number is a song or piece in a show"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUMB"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Two-thirds of",
+       "note": "keeping only two thirds of a six-letter word drops its last third, two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "musical piece",
+       "gives": "NUMBER",
+       "note": "a number is a song or piece in a show"
+      },
+      {
+       "gives": "ER"
+      }
      ]
     },
     "explanation": {
@@ -455,30 +399,28 @@
    },
    "solution": "HEAD",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HEAD",
     "definitions": [
      {
       "text": "Addict",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hosted by",
-      "for": "hidden_word",
-      "note": "a guest hosted by others sits inside their home, so the answer lies within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the administration",
-      "gives": "HEAD",
-      "note": "the letters run across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "note": "a guest hosted by others sits inside their home, so the answer lies within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the administration",
+       "gives": "HEAD",
+       "note": "the letters run across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A drug user is found to be working inside the government.",
      "definitionFit": "Head is slang for a habitual drug user, as in pothead or acid head."
@@ -504,33 +446,28 @@
    },
    "solution": "ENNUI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENNUI",
     "definitions": [
      {
       "text": "Boredom",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "hidden_word",
-      "note": "essentially points to the core or heart of the words, where the answer lies"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unbidden nuisance",
-      "gives": "ENNUI",
-      "note": "the letters straddle the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "essentially",
+       "note": "essentially points to the core or heart of the words, where the answer lies"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unbidden nuisance",
+       "gives": "ENNUI",
+       "note": "the letters straddle the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sigh that tedium is basically an uninvited pest.",
      "definitionFit": "Ennui, borrowed from French, is listless weariness and dissatisfaction."
@@ -556,51 +493,44 @@
    },
    "solution": "DESCENDER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DESCENDER",
     "definitions": [
      {
       "text": "part of certain letters",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "chief",
-      "for": "letter_selection",
-      "note": "the chief part leads, so only the first letter of the division word is taken"
-     },
-     {
-      "text": "illegally",
-      "for": "anagram",
-      "note": "doing something illegally is doing it improperly, so these letters are put out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Division",
-      "gives": "D",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "screened",
-      "gives": "SCREENED",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ESCENDER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SCREENED",
-       "gives": "ESCENDER"
+       "text": "illegally",
+       "note": "doing something illegally is doing it improperly, so these letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "chief",
+           "note": "the chief part leads, so only the first letter of the division word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Division",
+           "note": "the opening letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "screened",
+         "note": "taken as written, as letters to be reordered"
+        }
+       ]
       }
      ]
     },
@@ -631,43 +561,39 @@
    },
    "solution": "ELICIT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ELICIT",
     "definitions": [
      {
       "text": "Draw out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most of means all but a little, so the final letter of the city word is dropped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yale student",
-      "gives": "ELI",
-      "note": "Yale students are called Elis, after benefactor Elihu Yale"
-     },
-     {
-      "clueFragment": "New Haven, for example",
-      "gives": "CITY",
-      "note": "New Haven, Connecticut, is a city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELI",
-      "CIT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "most of",
+       "note": "most of means all but a little, so the final letter of the city word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Yale student",
+         "gives": "ELI",
+         "note": "Yale students are called Elis, after benefactor Elihu Yale"
+        },
+        {
+         "words": "New Haven, for example",
+         "gives": "CITY",
+         "note": "New Haven, Connecticut, is a city"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -695,33 +621,28 @@
    },
    "solution": "VERSE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "VERSE",
     "definitions": [
      {
       "text": "Poem",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Without Clothing",
-      "for": "deletion",
-      "note": "stripping off the clothes removes the outer layer, so the word loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "To Be the Boss",
-      "gives": "OVERSEE",
-      "note": "to oversee is to supervise, to be in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VERSE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VERSE",
+     "indicators": [
+      {
+       "text": "Without Clothing",
+       "note": "stripping off the clothes removes the outer layer, so the word loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "To Be the Boss",
+       "gives": "OVERSEE",
+       "note": "to oversee is to supervise, to be in charge"
+      }
      ]
     },
     "explanation": {
@@ -751,54 +672,40 @@
    },
    "solution": "DUMPLINGS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DUMPLINGS",
     "definitions": [
      {
       "text": "For example, kreplach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "distasteful",
-      "for": "anagram",
-      "note": "something distasteful is unpleasantly off, a hint that the following word is jumbled"
-     },
-     {
-      "text": "hiding",
-      "for": "container",
-      "note": "the imperfections conceal the other piece by holding it inside them"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minor imperfections",
-      "gives": "DINGS",
-      "note": "dings are small dents or nicks"
-     },
-     {
-      "clueFragment": "lump",
-      "gives": "LUMP",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "UMPL",
-      "INGS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LUMP",
-       "gives": "UMPL"
+       "text": "hiding",
+       "note": "the imperfections conceal the other piece by holding it inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "minor imperfections",
+       "gives": "DINGS",
+       "note": "dings are small dents or nicks"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distasteful",
+         "note": "something distasteful is unpleasantly off, a hint that the following word is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lump",
+         "note": "taken as written, as letters to be reordered"
+        }
+       ]
       }
      ]
     },
@@ -828,35 +735,24 @@
    },
    "solution": "GHOULS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GHOULS",
     "definitions": [
      {
       "text": "evil creatures",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something off has gone bad or wrong, so the letters before it are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Slough",
-      "gives": "SLOUGH",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SLOUGH",
-       "gives": "GHOULS"
+       "text": "off",
+       "note": "something off has gone bad or wrong, so the letters before it are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Slough",
+       "note": "taken as written, as letters to be reordered"
       }
      ]
     },
@@ -886,11 +782,6 @@
    },
    "solution": "CRIME",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CRIME",
     "definitions": [
      {
       "text": "that's against the law",
@@ -898,36 +789,33 @@
       "note": "a descriptive clause standing for the noun: something that is illegal"
      }
     ],
-    "indicators": [
-     {
-      "text": "exposed",
-      "for": "deletion",
-      "note": "exposing something strips off its covering, so the country's name loses its outer letters"
-     },
-     {
-      "text": "disrupted",
-      "for": "anagram",
-      "note": "disrupted means thrown into disorder, so the remaining letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "America",
-      "gives": "AMERICA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRIME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CRIME",
+     "indicators": [
       {
-       "fodder": "MERIC",
-       "gives": "CRIME"
+       "text": "disrupted",
+       "note": "disrupted means thrown into disorder, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "CRIME",
+       "indicators": [
+        {
+         "text": "exposed",
+         "note": "exposing something strips off its covering, so the country's name loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -956,39 +844,28 @@
    },
    "solution": "ACDC",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "AC DC",
     "definitions": [
      {
       "text": "Going either way",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ignoring the odds",
-      "for": "letter_selection",
-      "note": "skipping the odd-numbered positions leaves only the second, fourth, sixth and eighth letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hatch duck",
-      "gives": "ACDC",
-      "select": "alternate",
-      "note": "the even-placed letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACDC"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "ignoring the odds",
+       "note": "skipping the odd-numbered positions leaves only the second, fourth, sixth and eighth letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hatch duck",
+       "note": "the even-placed letters of the two words"
+      }
      ]
     },
+    "spelling": "AC DC",
     "explanation": {
      "surface": "Advice to take a chance and dodge a hatching duckling, whichever direction it goes.",
      "walkthrough": "AC/DC means alternating and direct current; as slang it describes someone attracted to both sexes.",
@@ -1016,54 +893,47 @@
    },
    "solution": "CHICKEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CHICKEN",
     "definitions": [
      {
       "text": "Cowardly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "deletion",
-      "note": "with something off means it is taken away, so that letter is removed from the coin word"
-     },
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "something taken in is held inside, so the yokel word goes within the coin word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smallest denomination",
-      "gives": "CENT",
-      "note": "the cent is the smallest US coin"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     },
-     {
-      "clueFragment": "yokel",
-      "gives": "HICK",
-      "note": "a hick is an unsophisticated country person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HICK",
-      "EN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "something taken in is held inside, so the yokel word goes within the coin word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "with something off means it is taken away, so that letter is removed from the coin word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smallest denomination",
+         "gives": "CENT",
+         "note": "the cent is the smallest US coin"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the standard abbreviation for time"
+        }
+       ]
+      },
+      {
+       "words": "yokel",
+       "gives": "HICK",
+       "note": "a hick is an unsophisticated country person"
+      }
      ]
     },
     "explanation": {
@@ -1092,35 +962,24 @@
    },
    "solution": "COMPRISED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COMPRISED",
     "definitions": [
      {
       "text": "included",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "with an upgrade",
-      "for": "anagram",
-      "note": "an upgrade changes and reworks something, so the preceding letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crisp demo",
-      "gives": "CRISPDEMO",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CRISPDEMO",
-       "gives": "COMPRISED"
+       "text": "with an upgrade",
+       "note": "an upgrade changes and reworks something, so the preceding letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crisp demo",
+       "note": "taken as written, as letters to be reordered"
       }
      ]
     },
@@ -1150,30 +1009,28 @@
    },
    "solution": "NASA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NASA",
     "definitions": [
      {
       "text": "Rover's owner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "goes through",
-      "for": "hidden_word",
-      "note": "the answer runs through the following words, straddling them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tuna salad",
-      "gives": "NASA",
-      "note": "the letters straddle the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "goes through",
+       "note": "the answer runs through the following words, straddling them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tuna salad",
+       "gives": "NASA",
+       "note": "the letters straddle the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dog's owner rummages through a fish salad.",
      "walkthrough": "Rover sounds like a pet dog; it is the Mars rover.",
@@ -1207,56 +1064,52 @@
    },
    "solution": "CATFOOD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "CAT FOOD",
     "definitions": [
      {
       "text": "Fat, cod, and a bit of oil mashed together?!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "letter_selection",
-      "note": "a bit is only a small portion, here the opening letter of the next word"
-     },
-     {
-      "text": "mashed together",
-      "for": "anagram",
-      "note": "mashing pulps things into a new mixture, so all the preceding letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fat",
-      "gives": "FAT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cod",
-      "gives": "COD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "oil",
-      "gives": "O",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FATCODO",
-       "gives": "CATFOOD"
+       "text": "mashed together",
+       "note": "mashing pulps things into a new mixture, so all the preceding letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fat",
+         "note": "taken as written"
+        },
+        {
+         "words": "cod",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a bit of",
+           "note": "a bit is only a small portion, here the opening letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "oil",
+           "note": "the opening letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A disgusted description of some mushy mixture of grease, fish and oil.",
      "walkthrough": "The whole clue is both wordplay and definition: the '?!' signals that the unappetising mush described is exactly what comes out of a pet-food tin.",
@@ -1293,35 +1146,24 @@
    },
    "solution": "ONTHEBEAM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ON THE BEAM",
     "definitions": [
      {
       "text": "Proceeding correctly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "distressed",
-      "for": "anagram",
-      "note": "something distressed is battered and roughed up, so these letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be not (ahem)",
-      "gives": "BENOTAHEM",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BENOTAHEM",
-       "gives": "ONTHEBEAM"
+       "text": "distressed",
+       "note": "something distressed is battered and roughed up, so these letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be not (ahem)",
+       "note": "taken as written, as letters to be reordered"
       }
      ]
     },
@@ -1350,41 +1192,25 @@
    },
    "solution": "AND",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "AND",
     "definitions": [
      {
       "text": "a link for six pairs of Across entries",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Reverse",
-      "for": "reversal",
-      "note": "to reverse something is to turn it back to front, so the code word is read from its end"
-     }
-    ],
-    "linkWords": [
-     "to read"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "code",
-      "gives": "DNA",
-      "note": "DNA carries the genetic code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AND"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DNA",
-       "to": "AND"
+       "text": "Reverse",
+       "note": "to reverse something is to turn it back to front, so the code word is read from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "code",
+       "gives": "DNA",
+       "note": "DNA carries the genetic code"
       }
      ]
     },
@@ -1420,52 +1246,45 @@
    },
    "solution": "MADDOGS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "MAD DOGS",
     "definitions": [
      {
       "text": "they're dangerous when they bite",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "principal",
-      "for": "letter_selection",
-      "note": "the principal part comes first, so only the opening letter of the school word is kept"
-     },
-     {
-      "text": "crawfishes",
-      "for": "reversal",
-      "note": "to crawfish is to back away, so the letters before it run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "School",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "cursed",
-      "gives": "GODDAM",
-      "note": "goddam is an oath, used as an adjective for something cursed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MADDOG",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SGODDAM",
-       "to": "MADDOGS"
+       "text": "crawfishes",
+       "note": "to crawfish is to back away, so the letters before it run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "principal",
+           "note": "the principal part comes first, so only the opening letter of the school word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "School",
+           "note": "the opening letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "cursed",
+         "gives": "GODDAM",
+         "note": "goddam is an oath, used as an adjective for something cursed"
+        }
+       ]
       }
      ]
     },
@@ -1495,32 +1314,25 @@
    },
    "solution": "ONEILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONEILL",
     "definitions": [
      {
       "text": "playwright",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "ONE",
-      "note": "a and one both mean a single"
-     },
-     {
-      "clueFragment": "sick",
-      "gives": "ILL",
-      "note": "ill means unwell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONE",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "gives": "ONE",
+       "note": "a and one both mean a single"
+      },
+      {
+       "words": "sick",
+       "gives": "ILL",
+       "note": "ill means unwell"
+      }
      ]
     },
     "explanation": {
@@ -1549,40 +1361,31 @@
    },
    "solution": "CHAPTER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHAPTER",
     "definitions": [
      {
       "text": "branch",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "holds on to",
-      "for": "container",
-      "note": "a person holding on to something keeps it within their grasp, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oscar winner",
-      "gives": "CHER",
-      "note": "the singer and actor won the Academy Award for Moonstruck"
-     },
-     {
-      "clueFragment": "suitable",
-      "gives": "APT",
-      "note": "apt means fitting or appropriate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "APT",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds on to",
+       "note": "a person holding on to something keeps it within their grasp, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oscar winner",
+       "gives": "CHER",
+       "note": "the singer and actor won the Academy Award for Moonstruck"
+      },
+      {
+       "words": "suitable",
+       "gives": "APT",
+       "note": "apt means fitting or appropriate"
+      }
      ]
     },
     "explanation": {
@@ -1610,53 +1413,40 @@
    },
    "solution": "AUTOBUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "AUTOBUS",
     "definitions": [
      {
       "text": "vehicle",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "traveling",
-      "for": "anagram",
-      "note": "travelling means moving around, so the letters of the following word are shifted"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means the group word is placed at the end, following the other piece"
-     }
-    ],
-    "linkWords": [
-     "in a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "ABOUT",
-      "note": "taken as written, as letters to be reordered"
-     },
-     {
-      "clueFragment": "Our group",
-      "gives": "US",
-      "note": "us is the first-person plural, our own group"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AUTOB",
-      "US"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "ABOUT",
-       "gives": "AUTOB"
+       "text": "after",
+       "note": "after means the group word is placed at the end, following the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "traveling",
+         "note": "travelling means moving around, so the letters of the following word are shifted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "note": "taken as written, as letters to be reordered"
+        }
+       ]
+      },
+      {
+       "words": "Our group",
+       "gives": "US",
+       "note": "us is the first-person plural, our own group"
       }
      ]
     },
@@ -1686,50 +1476,41 @@
    },
    "solution": "RUBLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RUBLE",
     "definitions": [
      {
       "text": "Money",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leadership in",
-      "for": "letter_selection",
-      "note": "leadership is the position at the front, so only the opening letter of the next word is used"
-     },
-     {
-      "text": "assuming",
-      "for": "container",
-      "note": "assuming here means taking on board, so the power word takes the selected letter inside it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "power",
-      "gives": "RULE",
-      "note": "rule is authority or control"
-     },
-     {
-      "clueFragment": "banking",
-      "gives": "B",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "B",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "assuming",
+       "note": "assuming here means taking on board, so the power word takes the selected letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "power",
+       "gives": "RULE",
+       "note": "rule is authority or control"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leadership in",
+         "note": "leadership is the position at the front, so only the opening letter of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "banking",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1758,29 +1539,17 @@
    },
    "solution": "BLOOM",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLOOM",
     "definitions": [
      {
       "text": "Leopold's",
       "at": 0,
-      "note": "possessive: the surname belonging to Leopold"
+      "note": "possessive: the surname belonging to Leopold",
+      "meaning": "first meaning: Leopold ... is the hero of James Joyce's Ulysses"
      },
      {
       "text": "flower",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leopold's",
-      "note": "first meaning: Leopold ... is the hero of James Joyce's Ulysses"
-     },
-     {
-      "clueFragment": "flower",
-      "note": "second meaning: a blossom"
+      "at": 10,
+      "meaning": "second meaning: a blossom"
      }
     ],
     "explanation": {
@@ -1808,32 +1577,25 @@
    },
    "solution": "BUTTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BUTTER",
     "definitions": [
      {
       "text": "dairy product",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Montana city",
-      "gives": "BUTTE",
-      "note": "Butte is a mining city in Montana"
-     },
-     {
-      "clueFragment": "restricted",
-      "gives": "R",
-      "note": "R is the US film rating for restricted viewing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUTTE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Montana city",
+       "gives": "BUTTE",
+       "note": "Butte is a mining city in Montana"
+      },
+      {
+       "words": "restricted",
+       "gives": "R",
+       "note": "R is the US film rating for restricted viewing"
+      }
      ]
     },
     "explanation": {
@@ -1862,50 +1624,41 @@
    },
    "solution": "BASIL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BASIL",
     "definitions": [
      {
       "text": "Herb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "involving means wrapping in, so the release word goes around the selected letter"
-     },
-     {
-      "text": "an element of",
-      "for": "letter_selection",
-      "note": "an element is a single component, here the first letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "release from jail",
-      "gives": "BAIL",
-      "note": "bail is money paid to free someone from custody pending trial"
-     },
-     {
-      "clueFragment": "surprise",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "S",
-      "IL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "involving means wrapping in, so the release word goes around the selected letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "release from jail",
+       "gives": "BAIL",
+       "note": "bail is money paid to free someone from custody pending trial"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "an element of",
+         "note": "an element is a single component, here the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "surprise",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1935,34 +1688,29 @@
    },
    "solution": "SEEN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SEEN",
     "definitions": [
      {
       "text": "Watched",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "listened to",
-      "for": "homophone",
-      "note": "something listened to is heard rather than read, so the answer is a word that sounds like the next one"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a tantrum",
-      "gives": "SEEN",
-      "soundsLike": "SCENE",
-      "note": "making a scene means throwing a public fit"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SEEN",
+     "indicators": [
+      {
+       "text": "listened to",
+       "note": "something listened to is heard rather than read, so the answer is a word that sounds like the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a tantrum",
+       "gives": "SCENE",
+       "note": "making a scene means throwing a public fit"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone observed and overheard a child's meltdown.",
      "definitionFit": "Seen is the past participle of see, so it can replace watched in a sentence like 'it was watched'."
@@ -1989,36 +1737,29 @@
    },
    "solution": "ODIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ODIN",
     "definitions": [
      {
       "text": "god",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "removing cap",
-      "for": "deletion",
-      "note": "taking off a cap uncovers the head, so the first letter of the sculptor's name goes"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sculptor",
-      "gives": "RODIN",
-      "note": "Auguste Rodin sculpted The Thinker"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ODIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing cap",
+       "note": "taking off a cap uncovers the head, so the first letter of the sculptor's name goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sculptor",
+       "gives": "RODIN",
+       "note": "Auguste Rodin sculpted The Thinker"
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -2046,43 +1787,33 @@
    },
    "solution": "SHOULDERS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SHOULDERS",
     "definitions": [
      {
       "text": "Accepts the responsibility of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without margins",
-      "for": "deletion",
-      "note": "a page without margins has lost its edges, so the referenced answer loses its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "has an obligation to",
-      "gives": "SHOULD",
-      "note": "should expresses duty: you should means you ought to"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "VERSE",
-      "note": "the answer to 10-across"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHOULD",
-      "ERS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SHOULDERS",
+     "indicators": [
+      {
+       "text": "without margins",
+       "note": "a page without margins has lost its edges, so the referenced answer loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "has an obligation to",
+       "gives": "SHOULD",
+       "note": "should expresses duty: you should means you ought to"
+      },
+      {
+       "words": "10",
+       "gives": "VERSE",
+       "note": "the answer to 10-across"
+      }
      ]
     },
     "explanation": {
@@ -2111,35 +1842,25 @@
    },
    "solution": "BREAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BREAD",
     "definitions": [
      {
       "text": "Cash",
       "at": 0
      }
     ],
-    "linkWords": [
-     "found in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second-rate",
-      "gives": "B",
-      "note": "B is the second grade, as in a B-movie"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "READ",
-      "note": "a book can be called a good read"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "READ"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second-rate",
+       "gives": "B",
+       "note": "B is the second grade, as in a B-movie"
+      },
+      {
+       "words": "book",
+       "gives": "READ",
+       "note": "a book can be called a good read"
+      }
      ]
     },
     "explanation": {
@@ -2168,56 +1889,45 @@
    },
    "solution": "DUMB",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DUMB",
     "definitions": [
      {
       "text": "stupid",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "regressive",
-      "for": "reversal",
-      "note": "regressive means going backwards, so the slander word runs back to front"
-     },
-     {
-      "text": "A piece of",
-      "for": "letter_selection",
-      "note": "a piece is just a small part, here the opening letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "is",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slander",
-      "gives": "MUD",
-      "note": "mud is defamation, as in mudslinging"
-     },
-     {
-      "clueFragment": "belittling",
-      "gives": "B",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUM",
-      "B"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MUD",
-       "to": "DUM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "regressive",
+         "note": "regressive means going backwards, so the slander word runs back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slander",
+         "gives": "MUD",
+         "note": "mud is defamation, as in mudslinging"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "A piece of",
+         "note": "a piece is just a small part, here the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "belittling",
+         "note": "the opening letter of the word"
+        }
+       ]
       }
      ]
     },
@@ -2246,38 +1956,24 @@
    },
    "solution": "ENGLISHMEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENGLISHMEN",
     "definitions": [
      {
       "text": "the likes of Paul McCartney",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Unexpectedly",
-      "for": "anagram",
-      "note": "something that happens unexpectedly breaks the normal order, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hens mingle",
-      "gives": "HENSMINGLE",
-      "note": "taken as written, as letters to be reordered"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HENSMINGLE",
-       "gives": "ENGLISHMEN"
+       "text": "Unexpectedly",
+       "note": "something that happens unexpectedly breaks the normal order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hens mingle",
+       "note": "taken as written, as letters to be reordered"
       }
      ]
     },

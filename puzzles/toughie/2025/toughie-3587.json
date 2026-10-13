@@ -1,8 +1,6 @@
 {
  "id": "toughie-3587",
  "number": 3587,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,587",
  "setter": "Django",
  "date": "2025-11-20",
  "dimensions": {
@@ -38,40 +36,31 @@
    },
    "solution": "SCOUSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCOUSE",
     "definitions": [
      {
       "text": "stew",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "something eating takes another thing inside it, so the first word swallows the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drunk",
-      "gives": "SOUSE",
-      "note": "a souse is an old word for a drunkard"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold on a tap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "OUSE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "something eating takes another thing inside it, so the first word swallows the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drunk",
+       "gives": "SOUSE",
+       "note": "a souse is an old word for a drunkard"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold on a tap"
+      }
      ]
     },
     "explanation": {
@@ -100,56 +89,50 @@
    },
    "solution": "CHOKE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CHOKE",
     "definitions": [
      {
       "text": "throttle",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely points at the extremities of the word, its two outermost letters"
-     },
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its final letter, so only its ending is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clutch",
-      "gives": "CH",
-      "select": "outer",
-      "note": "first and last letters of clutch"
-     },
-     {
-      "clueFragment": "well",
-      "gives": "OK",
-      "note": "well in the sense of all right, fine"
-     },
-     {
-      "clueFragment": "brake",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of brake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "OK",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely points at the extremities of the word, its two outermost letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clutch",
+         "note": "first and last letters of clutch"
+        }
+       ]
+      },
+      {
+       "words": "well",
+       "gives": "OK",
+       "note": "well in the sense of all right, fine"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its final letter, so only its ending is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brake",
+         "note": "last letter of brake"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -179,54 +162,51 @@
    },
    "solution": "UTTERANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "UTTERANCE",
     "definitions": [
      {
       "text": "statement",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of a word is its very centre, so only the middle letter is wanted"
-     },
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into something, so one piece sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unqualified",
-      "gives": "UTTER",
-      "note": "unqualified as in complete, absolute"
-     },
-     {
-      "clueFragment": "expert's",
-      "gives": "ACE",
-      "note": "an ace is an expert"
-     },
-     {
-      "clueFragment": "dunce",
-      "gives": "N",
-      "select": "middle",
-      "note": "middle letter of dunce"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UTTER",
-      "A",
-      "N",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unqualified",
+       "gives": "UTTER",
+       "note": "unqualified as in complete, absolute"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupting",
+         "note": "to interrupt is to break into something, so one piece sits inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expert's",
+         "gives": "ACE",
+         "note": "an ace is an expert"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "note": "the essence of a word is its very centre, so only the middle letter is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dunce",
+           "note": "middle letter of dunce"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -255,45 +235,36 @@
    },
    "solution": "EXPOSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXPOSE",
     "definitions": [
      {
       "text": "Reveal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in support of",
-      "for": "charade",
-      "note": "in a down entry a support sits underneath, so this part comes after the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "electronic",
-      "gives": "E",
-      "note": "E is the standard abbreviation for electronic, as in e-mail"
-     },
-     {
-      "clueFragment": "vote",
-      "gives": "X",
-      "note": "a cross on a ballot paper marks a vote"
-     },
-     {
-      "clueFragment": "stance",
-      "gives": "POSE",
-      "note": "a pose is a stance or posture"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "X",
-      "POSE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in support of",
+       "note": "in a down entry a support sits underneath, so this part comes after the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "electronic",
+       "gives": "E",
+       "note": "E is the standard abbreviation for electronic, as in e-mail"
+      },
+      {
+       "words": "vote",
+       "gives": "X",
+       "note": "a cross on a ballot paper marks a vote"
+      },
+      {
+       "words": "stance",
+       "gives": "POSE",
+       "note": "a pose is a stance or posture"
+      }
      ]
     },
     "explanation": {
@@ -327,39 +298,31 @@
    },
    "solution": "CUTSBACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUTS BACK",
     "definitions": [
      {
       "text": "Saves",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting on end of",
-      "for": "charade",
-      "note": "getting on the end of something means attaching at its tail, so this word is placed last"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crosses",
-      "gives": "CUTS",
-      "note": "crosses as in goes across, cuts across"
-     },
-     {
-      "clueFragment": "defender",
-      "gives": "BACK",
-      "note": "a back is a defensive player in football or rugby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUTS",
-      "BACK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "getting on end of",
+       "note": "getting on the end of something means attaching at its tail, so this word is placed last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crosses",
+       "gives": "CUTS",
+       "note": "crosses as in goes across, cuts across"
+      },
+      {
+       "words": "defender",
+       "gives": "BACK",
+       "note": "a back is a defensive player in football or rugby"
+      }
      ]
     },
     "explanation": {
@@ -403,32 +366,25 @@
    },
    "solution": "CASTLESINTHEAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CASTLES IN THE AIR",
     "definitions": [
      {
       "text": "Crazy dreams",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "rooks",
-      "gives": "CASTLES",
-      "note": "the rook in chess is also called the castle"
-     },
-     {
-      "clueFragment": "flying",
-      "gives": "INTHEAIR",
-      "note": "anything flying is aloft, off the ground"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CASTLES",
-      "INTHEAIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rooks",
+       "gives": "CASTLES",
+       "note": "the rook in chess is also called the castle"
+      },
+      {
+       "words": "flying",
+       "gives": "INTHEAIR",
+       "note": "anything flying is aloft, off the ground"
+      }
      ]
     },
     "explanation": {
@@ -468,64 +424,65 @@
    },
    "solution": "THEATEAM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "THE A-TEAM",
     "definitions": [
      {
       "text": "TV show",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the very end, so only the last letter is taken"
-     },
-     {
-      "text": "missing out on",
-      "for": "deletion",
-      "note": "a word missing out on something goes without it, so that letter is dropped"
-     },
-     {
-      "text": "lead in",
-      "for": "letter_selection",
-      "note": "the lead of a word is its front, its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stage",
-      "gives": "THEATRE",
-      "note": "the stage as a profession or place of drama"
-     },
-     {
-      "clueFragment": "actor",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of actor, the one removed"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Mexican",
-      "gives": "M",
-      "select": "first",
-      "note": "first letter of Mexican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THEATE",
-      "A",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing out on",
+         "note": "a word missing out on something goes without it, so that letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stage",
+         "gives": "THEATRE",
+         "note": "the stage as a profession or place of drama"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately means at the very end, so only the last letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "actor",
+           "note": "last letter of actor, the one removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead in",
+         "note": "the lead of a word is its front, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mexican",
+         "note": "first letter of Mexican"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -564,48 +521,36 @@
     "16-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRIEF ENCOUNTER",
     "definitions": [
      {
       "text": "picture",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following means coming after, so the earlier pieces are placed behind the later word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thumbnail",
-      "gives": "BRIEF",
-      "note": "a thumbnail sketch is short and concise"
-     },
-     {
-      "clueFragment": "Nurse",
-      "gives": "EN",
-      "note": "EN is an Enrolled Nurse"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "COUNTER",
-      "note": "to counter is to answer back"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIEF",
-      "EN",
-      "COUNTER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following means coming after, so the earlier pieces are placed behind the later word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thumbnail",
+       "gives": "BRIEF",
+       "note": "a thumbnail sketch is short and concise"
+      },
+      {
+       "words": "Nurse",
+       "gives": "EN",
+       "note": "EN is an Enrolled Nurse"
+      },
+      {
+       "words": "answer",
+       "gives": "COUNTER",
+       "note": "to counter is to answer back"
+      }
      ]
     },
     "explanation": {
@@ -634,11 +579,6 @@
    },
    "solution": "CROCODILE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CROCODILE",
     "definitions": [
      {
       "text": "Screen Dundee",
@@ -646,58 +586,54 @@
       "note": "the answer completes the film title Crocodile Dundee"
      }
     ],
-    "indicators": [
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "in a down entry, something put on another sits above it"
-     },
-     {
-      "text": "before",
-      "for": "charade",
-      "note": "before means placed ahead of what follows"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points at the opening letters of each of the preceding words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C is clubs, the card suit"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "Firm",
-      "gives": "CO",
-      "note": "Co is company, a firm"
-     },
-     {
-      "clueFragment": "Derby is large enough",
-      "gives": "DILE",
-      "select": "first",
-      "note": "first letters of Derby, is, large and enough"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "R",
-      "O",
-      "CO",
-      "DILE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "in a down entry, something put on another sits above it"
+      },
+      {
+       "text": "before",
+       "note": "before means placed ahead of what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clubs",
+       "gives": "C",
+       "note": "C is clubs, the card suit"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the abbreviation for old"
+      },
+      {
+       "words": "Firm",
+       "gives": "CO",
+       "note": "Co is company, a firm"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points at the opening letters of each of the preceding words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Derby is large enough",
+         "note": "first letters of Derby, is, large and enough"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -727,47 +663,41 @@
    },
    "solution": "TOOTHPASTE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TOOTHPASTE",
     "definitions": [
      {
       "text": "it normally comes in tubes",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "bottles",
-      "for": "container",
-      "note": "a word that bottles something holds it inside like a container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "also",
-      "gives": "TOO",
-      "note": "too means also"
-     },
-     {
-      "clueFragment": "liking",
-      "gives": "TASTE",
-      "note": "a taste for something is a liking for it"
-     },
-     {
-      "clueFragment": "Sauce brand",
-      "gives": "HP",
-      "note": "HP is a well-known British brown sauce"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOO",
-      "T",
-      "HP",
-      "ASTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "also",
+       "gives": "TOO",
+       "note": "too means also"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bottles",
+         "note": "a word that bottles something holds it inside like a container"
+        }
+       ],
+       "parts": [
+        {
+         "words": "liking",
+         "gives": "TASTE",
+         "note": "a taste for something is a liking for it"
+        },
+        {
+         "words": "Sauce brand",
+         "gives": "HP",
+         "note": "HP is a well-known British brown sauce"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -796,28 +726,16 @@
    },
    "solution": "IRON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IRON",
     "definitions": [
      {
       "text": "Press",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: smooth clothes with a heated appliance"
      },
      {
       "text": "club",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Press",
-      "note": "first meaning: smooth clothes with a heated appliance"
-     },
-     {
-      "clueFragment": "club",
-      "note": "second meaning: a golf club with an angled metal head"
+      "at": 6,
+      "meaning": "second meaning: a golf club with an angled metal head"
      }
     ],
     "explanation": {
@@ -846,49 +764,41 @@
    },
    "solution": "REPRISAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "REPRISAL",
     "definitions": [
      {
       "text": "compensation",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "charade",
-      "note": "taking means picking up and adding on the following letters"
-     },
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter is kept"
-     }
-    ],
-    "linkWords": [
-     "needing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "18 Across",
-      "gives": "REP",
-      "note": "18 Across is a salesman, shortened to rep"
-     },
-     {
-      "clueFragment": "trains — badly",
-      "gives": "RISAL",
-      "select": "alternate",
-      "note": "second, fourth, sixth, eighth and tenth letters of trains badly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REP",
-      "RISAL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "taking means picking up and adding on the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "18 Across",
+       "gives": "REP",
+       "note": "18 Across is a salesman, shortened to rep"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trains — badly",
+         "note": "second, fourth, sixth, eighth and tenth letters of trains badly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -917,52 +827,51 @@
    },
    "solution": "TEFLON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "TEFLON",
     "definitions": [
      {
       "text": "it won't stick",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so the last letter of each following word is taken"
-     },
-     {
-      "text": "exporting",
-      "for": "deletion",
-      "note": "something exported is sent out, so it leaves the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught the",
-      "gives": "TE",
-      "select": "last",
-      "note": "last letters of caught and the"
-     },
-     {
-      "clueFragment": "criminal",
-      "gives": "FELON",
-      "note": "a felon is a criminal"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is ecstasy, the drug, the letter removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "FLON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "note": "finally means at the end, so the last letter of each following word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caught the",
+         "note": "last letters of caught and the"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "exporting",
+         "note": "something exported is sent out, so it leaves the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "criminal",
+         "gives": "FELON",
+         "note": "a felon is a criminal"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E is ecstasy, the drug, the letter removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -992,50 +901,41 @@
    },
    "solution": "SPAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SPAN",
     "definitions": [
      {
       "text": "Last",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "first of means the opening letter of the next word"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hospital",
-      "gives": "SAN",
-      "note": "a san is a sanatorium, a kind of hospital"
-     },
-     {
-      "clueFragment": "patients",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of patients"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "P",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital",
+       "gives": "SAN",
+       "note": "a san is a sanatorium, a kind of hospital"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "first of means the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "patients",
+         "note": "first letter of patients"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1064,49 +964,47 @@
    },
    "solution": "PRACTICAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "PRACTICAL",
     "definitions": [
      {
       "text": "real",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "not opening",
-      "for": "deletion",
-      "note": "not opening means without its opening, so the first letter goes"
-     },
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "new letters make something fresh, so the fodder is rearranged into a new word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mac",
-      "gives": "AC",
-      "note": "Mac without its first letter"
-     },
-     {
-      "clueFragment": "clipart",
-      "gives": "CLIPART",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PRACTICAL",
+     "indicators": [
       {
-       "fodder": "ACCLIPART",
-       "gives": "PRACTICAL"
+       "text": "not opening",
+       "note": "not opening means without its opening, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "New",
+         "note": "new letters make something fresh, so the fodder is rearranged into a new word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Mac",
+           "gives": "AC",
+           "note": "Mac without its first letter"
+          },
+          {
+           "words": "clipart",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1150,48 +1048,38 @@
     "18-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SNAKE-OIL SALESMAN",
     "definitions": [
      {
       "text": "deceptive pitcher",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "letters set working are put into action and moved about into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "All season, Mike's",
-      "gives": "ALLSEASONMIKES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALLSEASONMIKESAN",
-       "gives": "SNAKEOILSALESMAN"
+       "text": "working",
+       "note": "letters set working are put into action and moved about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "All season, Mike's",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        }
+       ]
       }
      ]
     },
@@ -1235,39 +1123,31 @@
    },
    "solution": "AMENABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AMENABLE",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with",
-      "for": "charade",
-      "note": "with means accompanied by, so one part simply joins the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in the morning",
-      "gives": "AM",
-      "note": "am is ante meridiem, before noon"
-     },
-     {
-      "clueFragment": "permit",
-      "gives": "ENABLE",
-      "note": "to enable is to permit or allow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AM",
-      "ENABLE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "note": "with means accompanied by, so one part simply joins the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in the morning",
+       "gives": "AM",
+       "note": "am is ante meridiem, before noon"
+      },
+      {
+       "words": "permit",
+       "gives": "ENABLE",
+       "note": "to enable is to permit or allow"
+      }
      ]
     },
     "explanation": {
@@ -1308,34 +1188,25 @@
    },
    "solution": "CREE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "CREE",
     "definitions": [
      {
       "text": "Canadian people",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly ignored",
-      "for": "letter_selection",
-      "note": "the odd-numbered letters are ignored, so only the even ones remain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scorsese",
-      "gives": "CREE",
-      "select": "alternate",
-      "note": "second, fourth, sixth and eighth letters of Scorsese"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly ignored",
+       "note": "the odd-numbered letters are ignored, so only the even ones remain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scorsese",
+       "note": "second, fourth, sixth and eighth letters of Scorsese"
+      }
      ]
     },
     "explanation": {
@@ -1363,39 +1234,31 @@
    },
    "solution": "ORDERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORDERS",
     "definitions": [
      {
       "text": "groups",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "joining",
-      "for": "charade",
-      "note": "joining means attached to, so one piece is added to the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "book",
-      "gives": "ORDER",
-      "note": "to book something is to order it in advance"
-     },
-     {
-      "clueFragment": "Son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORDER",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joining",
+       "note": "joining means attached to, so one piece is added to the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "book",
+       "gives": "ORDER",
+       "note": "to book something is to order it in advance"
+      },
+      {
+       "words": "Son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      }
      ]
     },
     "explanation": {
@@ -1423,52 +1286,44 @@
    },
    "solution": "STAMEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "STAMEN",
     "definitions": [
      {
       "text": "viola part?",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally means at the origin, so only the first letter is used"
-     },
-     {
-      "text": "to play",
-      "for": "anagram",
-      "note": "to play with letters is to move them about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soloist",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of soloist"
-     },
-     {
-      "clueFragment": "meant",
-      "gives": "MEANT",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAMEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MEANT",
-       "gives": "TAMEN"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "originally means at the origin, so only the first letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Soloist",
+         "note": "first letter of soloist"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to play",
+         "note": "to play with letters is to move them about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meant",
+         "note": "taken as written, then rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1499,30 +1354,28 @@
    },
    "solution": "MEDOC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MEDOC",
     "definitions": [
      {
       "text": "Wine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imbibed",
-      "for": "hidden_word",
-      "note": "something imbibed is swallowed and held within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some doctor's",
-      "gives": "MEDOC",
-      "note": "found inside some doctor's"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "imbibed",
+       "note": "something imbibed is swallowed and held within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some doctor's",
+       "gives": "MEDOC",
+       "note": "found inside some doctor's"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doctor has knocked back some wine.",
      "definitionFit": "Médoc is a red Bordeaux wine from the region of that name on the Gironde estuary in France."
@@ -1548,57 +1401,59 @@
    },
    "solution": "HERCULES",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HERCULES",
     "definitions": [
      {
       "text": "Powerhouse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "deciphered",
-      "for": "anagram",
-      "note": "deciphering means working out a code, rearranging letters into sense"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means coming later, so this piece is placed behind the next"
-     },
-     {
-      "text": "in just seconds",
-      "for": "letter_selection",
-      "note": "only the second letters of the following words are wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the penny drops",
-      "gives": "HER",
-      "select": 2,
-      "note": "second letters of the, penny and drops"
-     },
-     {
-      "clueFragment": "clues",
-      "gives": "CULES",
-      "note": "the letters of clues, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HER",
-      "CULES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HERCULES",
+     "indicators": [
       {
-       "fodder": "CLUES",
-       "gives": "CULES"
+       "text": "deciphered",
+       "note": "deciphering means working out a code, rearranging letters into sense"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "after means coming later, so this piece is placed behind the next"
+        }
+       ],
+       "parts": [
+        {
+         "op": "nth",
+         "unchecked": true,
+         "gives": "HER",
+         "n": 2,
+         "indicators": [
+          {
+           "text": "in just seconds",
+           "note": "only the second letters of the following words are wanted"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "the penny drops",
+           "gives": "HER",
+           "select": 2,
+           "note": "second letters of the, penny and drops"
+          }
+         ]
+        },
+        {
+         "words": "clues",
+         "gives": "CULES",
+         "note": "the letters of clues, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1628,45 +1483,44 @@
    },
    "solution": "ELITE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ELITE",
     "definitions": [
      {
       "text": "Cream",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "snubbed",
-      "for": "deletion",
-      "note": "snubbed hints at stubbed or cut short, so its last letter is lopped"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so the pieces sit next to each other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "priest",
-      "gives": "ELI",
-      "note": "Eli is the priest in the Book of Samuel"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "TE",
-      "note": "tea without its final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELI",
-      "TE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ELITE",
+     "indicators": [
+      {
+       "text": "snubbed",
+       "note": "snubbed hints at stubbed or cut short, so its last letter is lopped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "by means beside, so the pieces sit next to each other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "priest",
+         "gives": "ELI",
+         "note": "Eli is the priest in the Book of Samuel"
+        },
+        {
+         "words": "tea",
+         "gives": "TE",
+         "note": "tea without its final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1695,49 +1549,41 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "LSD",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "discovered",
-      "for": "letter_selection",
-      "note": "discovered here means uncovered, with the covering outer letters stripped off"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so the pieces sit next to each other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bag",
-      "gives": "A",
-      "select": "middle",
-      "note": "bag with its first and last letters removed"
-     },
-     {
-      "clueFragment": "police unit",
-      "gives": "CID",
-      "note": "CID is the Criminal Investigation Department of British police"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CID"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "note": "by means beside, so the pieces sit next to each other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "note": "discovered here means uncovered, with the covering outer letters stripped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bag",
+         "note": "bag with its first and last letters removed"
+        }
+       ]
+      },
+      {
+       "words": "police unit",
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department of British police"
+      }
      ]
     },
     "explanation": {
@@ -1775,47 +1621,40 @@
    },
    "solution": "BEATENTOIT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BEATEN TO IT",
     "definitions": [
      {
       "text": "just not first",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "container",
-      "note": "a word that boxes another encloses it like a box"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bento",
-      "gives": "BENTO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "feed",
-      "gives": "EAT",
-      "note": "to feed is to eat"
-     },
-     {
-      "clueFragment": "computer department",
-      "gives": "IT",
-      "note": "IT is information technology, the computer department"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EAT",
-      "ENTO",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boxes",
+         "note": "a word that boxes another encloses it like a box"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bento",
+         "note": "taken as written"
+        },
+        {
+         "words": "feed",
+         "gives": "EAT",
+         "note": "to feed is to eat"
+        }
+       ]
+      },
+      {
+       "words": "computer department",
+       "gives": "IT",
+       "note": "IT is information technology, the computer department"
+      }
      ]
     },
     "explanation": {
@@ -1850,32 +1689,25 @@
    },
    "solution": "ALLCLEAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALL-CLEAR",
     "definitions": [
      {
       "text": "safety signal",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Entirely",
-      "gives": "ALL",
-      "note": "all means entirely, wholly"
-     },
-     {
-      "clueFragment": "audible",
-      "gives": "CLEAR",
-      "note": "clear in the sense of easily heard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "CLEAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Entirely",
+       "gives": "ALL",
+       "note": "all means entirely, wholly"
+      },
+      {
+       "words": "audible",
+       "gives": "CLEAR",
+       "note": "clear in the sense of easily heard"
+      }
      ]
     },
     "explanation": {
@@ -1903,45 +1735,35 @@
    },
    "solution": "SORBET",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SORBET",
     "definitions": [
      {
       "text": "it's sweet",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "making comeback",
-      "for": "reversal",
-      "note": "a comeback is a return, so the band's name is read the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "80s band",
-      "gives": "BROS",
-      "note": "Bros were a British boy band of the late 1980s"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "ET",
-      "note": "ET is the 1982 Spielberg film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SORB",
-      "ET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BROS",
-       "to": "SORB"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "making comeback",
+         "note": "a comeback is a return, so the band's name is read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "80s band",
+         "gives": "BROS",
+         "note": "Bros were a British boy band of the late 1980s"
+        }
+       ]
+      },
+      {
+       "words": "film",
+       "gives": "ET",
+       "note": "ET is the 1982 Spielberg film"
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "quiptic-487",
  "number": 487,
- "series": "quiptic",
- "name": "Quiptic crossword No 487",
  "setter": "Pan",
  "date": "2009-03-16",
  "dimensions": {
@@ -38,37 +36,28 @@
    },
    "solution": "EPIC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "EPIC",
     "definitions": [
      {
       "text": "\"Beowulf\" is one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "origins",
-      "for": "letter_selection",
-      "note": "origins are where things begin, so take the opening letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "early poem in canon",
-      "gives": "EPIC",
-      "select": "first",
-      "note": "initial letters of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPIC"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "origins",
+       "note": "origins are where things begin, so take the opening letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "early poem in canon",
+       "note": "initial letters of these four words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A literary note placing Beowulf among the oldest poems of the English canon.",
      "walkthrough": "The whole clue is both definition and wordplay: the first letters spell the answer while the sentence describes it.",
@@ -105,31 +94,16 @@
     "23-down"
    ],
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SECOND TO NONE",
     "definitions": [
      {
       "text": "The \"Greatest\"",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: unsurpassed, the best of all, as Muhammad Ali styled himself"
      },
      {
       "text": "with no function in the ring",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The \"Greatest\"",
-      "note": "first meaning: unsurpassed, the best of all, as Muhammad Ali styled himself"
-     },
-     {
-      "clueFragment": "with no function in the ring",
-      "note": "a boxer's corner assistant serving nobody"
+      "at": 21,
+      "meaning": "a boxer's corner assistant serving nobody"
      }
     ],
     "explanation": {
@@ -164,53 +138,51 @@
    },
    "solution": "CACKHANDED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CACK-HANDED",
     "definitions": [
      {
       "text": "Inept",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ensnared by",
-      "for": "container",
-      "note": "something caught in a snare is trapped inside it, so these pieces go within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good-for-nothing",
-      "gives": "CAD",
-      "note": "a cad is a worthless rogue"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c. is short for circa, about"
-     },
-     {
-      "clueFragment": "Muslim ruler",
-      "gives": "KHAN",
-      "note": "a khan is a ruler in Central Asia"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "C",
-      "KHAN",
-      "D",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "ensnared by",
+         "note": "something caught in a snare is trapped inside it, so these pieces go within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good-for-nothing",
+         "gives": "CAD",
+         "note": "a cad is a worthless rogue"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "about",
+           "gives": "C",
+           "note": "c. is short for circa, about"
+          },
+          {
+           "words": "Muslim ruler",
+           "gives": "KHAN",
+           "note": "a khan is a ruler in Central Asia"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -239,49 +211,42 @@
    },
    "solution": "MESMER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MESMER",
     "definitions": [
      {
       "text": "old Austrian hypnotist",
       "at": 66
      }
     ],
-    "indicators": [
-     {
-      "text": "Interminable",
-      "for": "deletion",
-      "note": "without an end, so the final letter is cut off"
-     },
-     {
-      "text": "given 50% discount",
-      "for": "deletion",
-      "note": "a half-price discount keeps only half of the surname"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "disorder",
-      "gives": "MES",
-      "note": "mess with its last letter removed"
-     },
-     {
-      "clueFragment": "German Chancellor",
-      "gives": "MER",
-      "note": "the first half of Angela Merkel's surname"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MES",
-      "MER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MESMER",
+     "indicators": [
+      {
+       "text": "Interminable",
+       "note": "without an end, so the final letter is cut off"
+      },
+      {
+       "text": "given 50% discount",
+       "note": "a half-price discount keeps only half of the surname"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "disorder",
+         "gives": "MES",
+         "note": "mess with its last letter removed"
+        },
+        {
+         "words": "German Chancellor",
+         "gives": "MER",
+         "note": "the first half of Angela Merkel's surname"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -310,48 +275,36 @@
    },
    "solution": "STAGNANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAGNANT",
     "definitions": [
      {
       "text": "Sluggish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to attend",
-      "for": "charade",
-      "note": "attending means following along behind, so these letters come after the party"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lads' party",
-      "gives": "STAG",
-      "note": "a stag party is a groom's night out with his friends before the wedding"
-     },
-     {
-      "clueFragment": "older relative",
-      "gives": "NAN",
-      "note": "nan is a grandmother"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAG",
-      "NAN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to attend",
+       "note": "attending means following along behind, so these letters come after the party"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lads' party",
+       "gives": "STAG",
+       "note": "a stag party is a groom's night out with his friends before the wedding"
+      },
+      {
+       "words": "older relative",
+       "gives": "NAN",
+       "note": "nan is a grandmother"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -380,45 +333,38 @@
    },
    "solution": "SLAB",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SLAB",
     "definitions": [
      {
       "text": "mortuary table",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Heart's gone",
-      "for": "deletion",
-      "note": "the heart of a word is its centre, and losing it drops the middle letter"
-     },
-     {
-      "text": "astray",
-      "for": "anagram",
-      "note": "letters gone astray have wandered out of their proper order"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "balls",
-      "gives": "BALS",
-      "note": "the middle letter of balls is removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SLAB",
+     "indicators": [
       {
-       "fodder": "BALS",
-       "gives": "SLAB"
+       "text": "Heart's gone",
+       "note": "the heart of a word is its centre, and losing it drops the middle letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "astray",
+         "note": "letters gone astray have wandered out of their proper order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "balls",
+         "gives": "BALS",
+         "note": "the middle letter of balls is removed"
+        }
+       ]
       }
      ]
     },
@@ -448,50 +394,40 @@
    },
    "solution": "QUACKERY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "QUACKERY",
     "definitions": [
      {
       "text": "Unfounded claim to expertise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "going about something means surrounding it on both sides"
-     }
-    ],
-    "linkWords": [
-     "laid bare by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doubt",
-      "gives": "QUERY",
-      "note": "a query expresses doubt"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fashion designer's initials",
-      "gives": "CK",
-      "note": "Calvin Klein's initials"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QU",
-      "A",
-      "CK",
-      "ERY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "going about something means surrounding it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doubt",
+       "gives": "QUERY",
+       "note": "a query expresses doubt"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "fashion designer's initials",
+         "gives": "CK",
+         "note": "Calvin Klein's initials"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -533,56 +469,46 @@
    },
    "solution": "PREVALENT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PREVALENT",
     "definitions": [
      {
       "text": "common",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the confining word goes around the rest"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shut up",
-      "gives": "PENT",
-      "note": "pent means confined, as in pent-up"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning"
-     },
-     {
-      "clueFragment": "little book",
-      "gives": "V",
-      "note": "v. abbreviates volume"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "AL",
-      "note": "a short boy's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RE",
-      "V",
-      "AL",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "the confining word goes around the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shut up",
+       "gives": "PENT",
+       "note": "pent means confined, as in pent-up"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "gives": "RE",
+         "note": "re means concerning"
+        },
+        {
+         "words": "little book",
+         "gives": "V",
+         "note": "v. abbreviates volume"
+        },
+        {
+         "words": "boy",
+         "gives": "AL",
+         "note": "a short boy's name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -611,40 +537,31 @@
    },
    "solution": "LAURA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LAURA",
     "definitions": [
      {
       "text": "girl",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "entertains",
-      "for": "container",
-      "note": "a host who entertains takes a guest inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sportsman noted for scoring",
-      "gives": "LARA",
-      "note": "Brian Lara, the West Indies batsman famous for record-breaking innings"
-     },
-     {
-      "clueFragment": "posh",
-      "gives": "U",
-      "note": "U means upper-class in British slang"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "U",
-      "RA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertains",
+       "note": "a host who entertains takes a guest inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sportsman noted for scoring",
+       "gives": "LARA",
+       "note": "Brian Lara, the West Indies batsman famous for record-breaking innings"
+      },
+      {
+       "words": "posh",
+       "gives": "U",
+       "note": "U means upper-class in British slang"
+      }
      ]
     },
     "explanation": {
@@ -674,44 +591,36 @@
    },
    "solution": "CHOCK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CHOCK",
     "definitions": [
      {
       "text": "Block preventing movement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fourth",
-      "for": "letter_selection",
-      "note": "the ordinal tells us to take just letter number four"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fischer's",
-      "gives": "C",
-      "select": 4,
-      "note": "the fourth letter of Fischer"
-     },
-     {
-      "clueFragment": "pawn",
-      "gives": "HOCK",
-      "note": "to hock something is to pawn it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HOCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 4,
+       "indicators": [
+        {
+         "text": "fourth",
+         "note": "the ordinal tells us to take just letter number four"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fischer's",
+         "note": "the fourth letter of Fischer"
+        }
+       ]
+      },
+      {
+       "words": "pawn",
+       "gives": "HOCK",
+       "note": "to hock something is to pawn it"
+      }
      ]
     },
     "explanation": {
@@ -741,54 +650,47 @@
    },
    "solution": "MEGABUCKS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "charade"
-    ],
-    "answer": "MEGABUCKS",
     "definitions": [
      {
       "text": "riches",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Corrupt",
-      "for": "anagram",
-      "note": "corrupted things are twisted from their proper form"
-     },
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "only one of the two halves survives, the other is dropped"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mugabe",
-      "gives": "MUGABE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "blacks'",
-      "gives": "CKS",
-      "note": "the back half of blacks"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEGABU",
-      "CKS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MEGABUCKS",
+     "indicators": [
       {
-       "fodder": "MUGABE",
-       "gives": "MEGABU"
+       "text": "half",
+       "note": "only one of the two halves survives, the other is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Corrupt",
+           "note": "corrupted things are twisted from their proper form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Mugabe",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "blacks'",
+         "gives": "CKS",
+         "note": "the back half of blacks"
+        }
+       ]
       }
      ]
     },
@@ -831,26 +733,25 @@
     "8-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BAD HAIR DAYS",
     "definitions": [
      {
       "text": "Thatch will never look right on them",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Thatch",
-      "note": "surface reading: the straw roof of a country cottage"
-     },
-     {
-      "clueFragment": "will never look right on them",
-      "note": "setter's reading: thatch as slang for a mop on the head, and the occasions when it won't behave"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Thatch",
+       "note": "surface reading: the straw roof of a country cottage"
+      },
+      {
+       "words": "will never look right on them",
+       "note": "setter's reading: thatch as slang for a mop on the head, and the occasions when it won't behave"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The clue sounds like a roofer's lament, but thatch is also slang for the hair on someone's head.",
      "definitionFit": "The idiom names days when your hair refuses to look good, and by extension days when everything goes wrong."
@@ -877,39 +778,31 @@
    },
    "solution": "BRASS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRASS",
     "definitions": [
      {
       "text": "Cash",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covered with",
-      "for": "charade",
-      "note": "in a down answer something covered has the other piece placed on top of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "undies",
-      "gives": "BRA",
-      "note": "a bra is an item of underwear"
-     },
-     {
-      "clueFragment": "Cashpoint's",
-      "gives": "SS",
-      "note": "split after cash: point is a compass point, S, and the apostrophe-s is read as another S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRA",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covered with",
+       "note": "in a down answer something covered has the other piece placed on top of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "undies",
+       "gives": "BRA",
+       "note": "a bra is an item of underwear"
+      },
+      {
+       "words": "Cashpoint's",
+       "gives": "SS",
+       "note": "split after cash: point is a compass point, S, and the apostrophe-s is read as another S"
+      }
      ]
     },
     "explanation": {
@@ -939,11 +832,6 @@
    },
    "solution": "ANISEED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANISEED",
     "definitions": [
      {
       "text": "liqueur",
@@ -951,44 +839,41 @@
       "note": "aniseed is the flavouring of such liqueurs rather than a liqueur itself"
      }
     ],
-    "indicators": [
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "placed beside, so the next pieces sit alongside"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the material goes inside the following word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lives",
-      "gives": "IS",
-      "note": "is means exists, lives"
-     },
-     {
-      "clueFragment": "double dose of drug",
-      "gives": "EE",
-      "note": "E is ecstasy, taken twice"
-     },
-     {
-      "clueFragment": "conjunction",
-      "gives": "AND",
-      "note": "and is the commonest conjunction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "IS",
-      "EE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the material goes inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conjunction",
+       "gives": "AND",
+       "note": "and is the commonest conjunction"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "by",
+         "note": "placed beside, so the next pieces sit alongside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lives",
+         "gives": "IS",
+         "note": "is means exists, lives"
+        },
+        {
+         "words": "double dose of drug",
+         "gives": "EE",
+         "note": "E is ecstasy, taken twice"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1017,38 +902,24 @@
    },
    "solution": "INFINITIVE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INFINITIVE",
     "definitions": [
      {
       "text": "a basic verbal form",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Confused",
-      "for": "anagram",
-      "note": "a confused jumble has its letters muddled up"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I five, innit",
-      "gives": "IFIVEINNIT",
-      "note": "the ten letters of the quoted phrase"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IFIVEINNIT",
-       "gives": "INFINITIVE"
+       "text": "Confused",
+       "note": "a confused jumble has its letters muddled up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I five, innit",
+       "note": "the ten letters of the quoted phrase"
       }
      ]
     },
@@ -1079,30 +950,28 @@
    },
    "solution": "DURER",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DURER",
     "definitions": [
      {
       "text": "Artist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits inside the run of letters that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ordure reeks",
-      "gives": "DURER",
-      "note": "letters straddling the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits inside the run of letters that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ordure reeks",
+       "gives": "DURER",
+       "note": "letters straddling the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An art critic's unkind verdict that a painter's work smells of dung.",
      "definitionFit": "Albrecht Dürer was a German Renaissance painter and engraver."
@@ -1129,28 +998,16 @@
    },
    "solution": "AMEND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AMEND",
     "definitions": [
      {
       "text": "Change for the better",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: improve, as with a revised law"
      },
      {
       "text": "at midday",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Change for the better",
-      "note": "first meaning: improve, as with a revised law"
-     },
-     {
-      "clueFragment": "at midday",
-      "note": "second meaning, cryptically: the close of the morning, a.m. end"
+      "at": 22,
+      "meaning": "second meaning, cryptically: the close of the morning, a.m. end"
      }
     ],
     "explanation": {
@@ -1179,49 +1036,44 @@
    },
    "solution": "EMISSARY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "EMISSARY",
     "definitions": [
      {
       "text": "agent",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "topless",
-      "for": "deletion",
-      "note": "with no top, the first letter is removed"
-     },
-     {
-      "text": "captivating",
-      "for": "container",
-      "note": "captivating means holding captive, enclosing"
-     }
-    ],
-    "linkWords": [
-     "exposes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weeping",
-      "gives": "EARY",
-      "note": "teary without its first letter"
-     },
-     {
-      "clueFragment": "young woman",
-      "gives": "MISS",
-      "note": "a miss is a girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MISS",
-      "ARY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EMISSARY",
+     "indicators": [
+      {
+       "text": "topless",
+       "note": "with no top, the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "captivating",
+         "note": "captivating means holding captive, enclosing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weeping",
+         "gives": "EARY",
+         "note": "teary without its first letter"
+        },
+        {
+         "words": "young woman",
+         "gives": "MISS",
+         "note": "a miss is a girl"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1250,34 +1102,26 @@
    },
    "solution": "HOT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "HOT",
     "definitions": [
      {
       "text": "Sexy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centrepiece",
-      "for": "letter_selection",
-      "note": "a centrepiece is the middle part, so only the core letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "photo's",
-      "gives": "HOT",
-      "select": "middle",
-      "note": "the middle three letters of photo"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT"
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "centrepiece",
+       "note": "a centrepiece is the middle part, so only the core letters are kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "photo's",
+       "gives": "PHOTO",
+       "note": "the middle three letters of photo"
+      }
      ]
     },
     "explanation": {
@@ -1311,49 +1155,44 @@
    },
    "solution": "HOGROAST",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "HOG ROAST",
     "definitions": [
      {
       "text": "such a feast",
       "at": 71
      }
     ],
-    "indicators": [
-     {
-      "text": "not entirely",
-      "for": "deletion",
-      "note": "incomplete, so the final letter is dropped"
-     },
-     {
-      "text": "suppressed by",
-      "for": "container",
-      "note": "held down within something else, so these letters go inside"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "large gathering",
-      "gives": "HOST",
-      "note": "a host is a multitude"
-     },
-     {
-      "clueFragment": "Expression of discomfort",
-      "gives": "GROA",
-      "note": "groan, missing its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "GROA",
-      "ST"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOGROAST",
+     "indicators": [
+      {
+       "text": "not entirely",
+       "note": "incomplete, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "suppressed by",
+         "note": "held down within something else, so these letters go inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large gathering",
+         "gives": "HOST",
+         "note": "a host is a multitude"
+        },
+        {
+         "words": "Expression of discomfort",
+         "gives": "GROA",
+         "note": "groan, missing its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1382,36 +1221,39 @@
    },
    "solution": "FOYER",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "FOYER",
     "definitions": [
      {
       "text": "lobby",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the letters lie within the words that follow"
-     },
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "going back means reading from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surrey, officials",
-      "gives": "REYOF",
-      "note": "letters spanning the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Back",
+       "note": "going back means reading from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters lie within the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Surrey, officials",
+         "gives": "REYOF",
+         "note": "letters spanning the two words"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Council officials back in Surrey lobbying for something.",
      "walkthrough": "'lobby' looks like a verb about officials pressing their case, but it is the noun.",
@@ -1439,45 +1281,36 @@
    },
    "solution": "SHINDIG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHINDIG",
     "definitions": [
      {
       "text": "lively party",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "placing these letters after the others fixes the order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "appeal for quiet",
-      "gives": "SH",
-      "note": "shh, a call for silence"
-     },
-     {
-      "clueFragment": "during",
-      "gives": "IN",
-      "note": "in meaning within a time, as in 'in the night'"
-     },
-     {
-      "clueFragment": "Turn up",
-      "gives": "DIG",
-      "note": "to dig is to turn up soil"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "IN",
-      "DIG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "placing these letters after the others fixes the order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appeal for quiet",
+       "gives": "SH",
+       "note": "shh, a call for silence"
+      },
+      {
+       "words": "during",
+       "gives": "IN",
+       "note": "in meaning within a time, as in 'in the night'"
+      },
+      {
+       "words": "Turn up",
+       "gives": "DIG",
+       "note": "to dig is to turn up soil"
+      }
      ]
     },
     "explanation": {
@@ -1505,43 +1338,31 @@
    },
    "solution": "MONITOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MONITOR",
     "definitions": [
      {
       "text": "check",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "container",
-      "note": "keeping something means holding it within"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "North African",
-      "gives": "MOOR",
-      "note": "a Moor is from North Africa"
-     },
-     {
-      "clueFragment": "small creature",
-      "gives": "NIT",
-      "note": "a nit is a louse egg"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "NIT",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "keeping something means holding it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "North African",
+       "gives": "MOOR",
+       "note": "a Moor is from North Africa"
+      },
+      {
+       "words": "small creature",
+       "gives": "NIT",
+       "note": "a nit is a louse egg"
+      }
      ]
     },
     "explanation": {
@@ -1570,43 +1391,38 @@
    },
    "solution": "MALORY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MALORY",
     "definitions": [
      {
       "text": "Old English writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing two leading characters",
-      "for": "deletion",
-      "note": "losing the front two letters, the ones that lead"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bad Latin",
-      "gives": "MAL",
-      "note": "mal- is the Latin-derived root for bad, as in malus"
-     },
-     {
-      "clueFragment": "story",
-      "gives": "ORY",
-      "note": "story without its first two letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAL",
-      "ORY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MALORY",
+     "indicators": [
+      {
+       "text": "missing two leading characters",
+       "note": "losing the front two letters, the ones that lead"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bad Latin",
+         "gives": "MAL",
+         "note": "mal- is the Latin-derived root for bad, as in malus"
+        },
+        {
+         "words": "story",
+         "gives": "ORY",
+         "note": "story without its first two letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1659,49 +1475,44 @@
    },
    "solution": "CASTOROIL",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CASTOR OIL",
     "definitions": [
      {
       "text": "Purgative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "powerless",
-      "for": "deletion",
-      "note": "power abbreviates to one letter, which is removed"
-     },
-     {
-      "text": "gripped by",
-      "for": "container",
-      "note": "held inside the grip of the other word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wind",
-      "gives": "COIL",
-      "note": "to wind is to coil"
-     },
-     {
-      "clueFragment": "clergyman",
-      "gives": "ASTOR",
-      "note": "pastor without P, the abbreviation for power"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ASTOR",
-      "OIL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CASTOROIL",
+     "indicators": [
+      {
+       "text": "powerless",
+       "note": "power abbreviates to one letter, which is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripped by",
+         "note": "held inside the grip of the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wind",
+         "gives": "COIL",
+         "note": "to wind is to coil"
+        },
+        {
+         "words": "clergyman",
+         "gives": "ASTOR",
+         "note": "pastor without P, the abbreviation for power"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1731,48 +1542,38 @@
    },
    "solution": "COMB",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "COMB",
     "definitions": [
      {
       "text": "Groom",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swapping sport for love",
-      "for": "substitution",
-      "note": "one item is taken out and another slotted into its place"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small measure of comfort",
-      "gives": "CRUMB",
-      "note": "as in 'a crumb of comfort'"
-     },
-     {
-      "clueFragment": "sport",
-      "gives": "RU",
-      "note": "rugby union"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "zero in tennis scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "O",
-      "MB"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "COMB",
+     "indicators": [
+      {
+       "text": "swapping sport for love",
+       "note": "one item is taken out and another slotted into its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small measure of comfort",
+       "gives": "CRUMB",
+       "note": "as in 'a crumb of comfort'"
+      },
+      {
+       "words": "sport",
+       "gives": "RU",
+       "note": "rugby union"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "zero in tennis scoring"
+      }
      ]
     },
     "explanation": {
@@ -1802,31 +1603,29 @@
    },
    "solution": "OVER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "OVER",
     "definitions": [
      {
       "text": "finished",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Declared",
-      "for": "homophone",
-      "note": "something declared is said out loud, so the sound matters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eggs",
-      "gives": "OVER",
-      "soundsLike": "OVA",
-      "note": "ova are eggs"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "OVER",
+     "indicators": [
+      {
+       "text": "Declared",
+       "note": "something declared is said out loud, so the sound matters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eggs",
+       "gives": "OVA",
+       "note": "ova are eggs"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cook announcing the eggs are done.",
      "walkthrough": "In non-rhotic British speech, ova and over sound alike.",
@@ -1854,43 +1653,31 @@
    },
    "solution": "TINGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TINGE",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having consumed",
-      "for": "container",
-      "note": "consuming means taking inside"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spike",
-      "gives": "TINE",
-      "note": "a tine is a prong or spike"
-     },
-     {
-      "clueFragment": "gallons",
-      "gives": "G",
-      "note": "abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIN",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having consumed",
+       "note": "consuming means taking inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spike",
+       "gives": "TINE",
+       "note": "a tine is a prong or spike"
+      },
+      {
+       "words": "gallons",
+       "gives": "G",
+       "note": "abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1920,33 +1707,28 @@
    },
    "solution": "EARN",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "EARN",
     "definitions": [
      {
       "text": "Get deservedly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top to bottom",
-      "for": "cycling",
-      "note": "in a down entry the first letter is moved to the end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close",
-      "gives": "NEAR",
-      "note": "near means close"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARN"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "EARN",
+     "indicators": [
+      {
+       "text": "top to bottom",
+       "note": "in a down entry the first letter is moved to the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "close",
+       "gives": "NEAR",
+       "note": "near means close"
+      }
      ]
     },
     "explanation": {
@@ -1974,47 +1756,40 @@
    },
    "solution": "MARGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MARGE",
     "definitions": [
      {
       "text": "Mrs Simpson",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "a no-no in",
-      "for": "deletion",
-      "note": "something forbidden in a place is not allowed there, so it is removed"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wedding",
-      "gives": "MARRIAGE",
-      "note": "a wedding is a marriage"
-     },
-     {
-      "clueFragment": "Religious instruction",
-      "gives": "RI",
-      "note": "the abbreviation used for RE lessons in British schools"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "GE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "a no-no in",
+       "note": "something forbidden in a place is not allowed there, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wedding",
+       "gives": "MARRIAGE",
+       "note": "a wedding is a marriage"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Religious instruction",
+         "gives": "RI",
+         "note": "the abbreviation used for RE lessons in British schools"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2044,57 +1819,45 @@
    },
    "solution": "SCRIVENER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SCRIVENER",
     "definitions": [
      {
       "text": "Old scribe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first means only the opening letter is taken"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spenser's",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Spenser"
-     },
-     {
-      "clueFragment": "chapter",
-      "gives": "C",
-      "note": "abbreviation"
-     },
-     {
-      "clueFragment": "split",
-      "gives": "RIVEN",
-      "note": "riven means split apart"
-     },
-     {
-      "clueFragment": "the Faerie Queene",
-      "gives": "ER",
-      "note": "Elizabeth Regina, the queen Spenser's poem honours"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "C",
-      "RIVEN",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first means only the opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spenser's",
+         "note": "the first letter of Spenser"
+        }
+       ]
+      },
+      {
+       "words": "chapter",
+       "gives": "C",
+       "note": "abbreviation"
+      },
+      {
+       "words": "split",
+       "gives": "RIVEN",
+       "note": "riven means split apart"
+      },
+      {
+       "words": "the Faerie Queene",
+       "gives": "ER",
+       "note": "Elizabeth Regina, the queen Spenser's poem honours"
+      }
      ]
     },
     "explanation": {

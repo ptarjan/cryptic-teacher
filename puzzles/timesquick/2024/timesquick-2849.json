@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2849",
  "number": 2849,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,849",
  "setter": "Izetti",
  "date": "2024-12-03",
  "dimensions": {
@@ -42,28 +40,16 @@
    },
    "solution": "PRIMER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PRIMER",
     "definitions": [
      {
       "text": "Paint",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an undercoat applied before the top coat"
      },
      {
       "text": "book for learners",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paint",
-      "note": "first meaning: an undercoat applied before the top coat"
-     },
-     {
-      "clueFragment": "book for learners",
-      "note": "second meaning: an elementary schoolbook"
+      "at": 6,
+      "meaning": "second meaning: an elementary schoolbook"
      }
     ],
     "explanation": {
@@ -92,33 +78,28 @@
    },
    "solution": "ROACH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ROACH",
     "definitions": [
      {
       "text": "Fish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting caught here",
-      "for": "hidden_word",
-      "note": "the answer is said to be trapped inside the neighbouring word, held within its letters"
-     }
-    ],
-    "linkWords": [
-     "see it"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "approached",
-      "gives": "ROACH",
-      "note": "the letters sit inside this word, after APP and before ED"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "getting caught here",
+       "note": "the answer is said to be trapped inside the neighbouring word, held within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "approached",
+       "gives": "ROACH",
+       "note": "the letters sit inside this word, after APP and before ED"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An angler watches a fish come close and get hooked on the spot.",
      "walkthrough": "The fishing scene makes 'caught' read as angling, but it means held inside a word.",
@@ -145,35 +126,24 @@
    },
    "solution": "MEDICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEDICAL",
     "definitions": [
      {
       "text": "Sort of test",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be fantastic",
-      "for": "anagram",
-      "note": "something fantastic is wildly imaginative, so the letters are rearranged into a fanciful new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "claimed",
-      "gives": "CLAIMED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLAIMED",
-       "gives": "MEDICAL"
+       "text": "to be fantastic",
+       "note": "something fantastic is wildly imaginative, so the letters are rearranged into a fanciful new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "claimed",
+       "note": "taken as written"
       }
      ]
     },
@@ -203,28 +173,16 @@
    },
    "solution": "RUN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RUN",
     "definitions": [
      {
       "text": "Maybe an extra",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in cricket, extras such as byes and wides are scored as these"
      },
      {
       "text": "sequence in the West End",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maybe an extra",
-      "note": "first meaning: in cricket, extras such as byes and wides are scored as these"
-     },
-     {
-      "clueFragment": "sequence in the West End",
-      "note": "second meaning: a series of consecutive performances of a London stage show"
+      "at": 15,
+      "meaning": "second meaning: a series of consecutive performances of a London stage show"
      }
     ],
     "explanation": {
@@ -254,52 +212,39 @@
    },
    "solution": "SAFARI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SAFARI",
     "definitions": [
      {
       "text": "journey",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "on return",
-      "for": "reversal",
-      "note": "a return goes back the way it came, so the letters are read from the end"
-     }
-    ],
-    "linkWords": [
-     "seen"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "group of fliers",
-      "gives": "RAF",
-      "note": "the Royal Air Force, Britain's military air service"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAFARI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "IRAFAS",
-       "to": "SAFARI"
+       "text": "on return",
+       "note": "a return goes back the way it came, so the letters are read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "group of fliers",
+         "gives": "RAF",
+         "note": "the Royal Air Force, Britain's military air service"
+        },
+        {
+         "words": "as",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -329,46 +274,44 @@
    },
    "solution": "SCEPTICAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SCEPTICAL",
     "definitions": [
      {
       "text": "Disbelieving",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extraordinary",
-      "for": "anagram",
-      "note": "what is extraordinary is out of the usual order, so the letters are rearranged"
-     },
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "saying not this means leaving that item out of the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "special act",
-      "gives": "SPECIALACT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the first",
-      "gives": "A",
-      "note": "A is the first letter of the alphabet"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SCEPTICAL",
+     "indicators": [
       {
-       "fodder": "SPECILACT",
-       "gives": "SCEPTICAL"
+       "text": "extraordinary",
+       "note": "what is extraordinary is out of the usual order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SCEPTICAL",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "saying not this means leaving that item out of the letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "special act",
+         "note": "taken as written"
+        },
+        {
+         "words": "the first",
+         "gives": "A",
+         "note": "A is the first letter of the alphabet"
+        }
+       ]
       }
      ]
     },
@@ -398,43 +341,31 @@
    },
    "solution": "FLOUR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FLOUR",
     "definitions": [
      {
       "text": "Food ingredient",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to collect",
-      "for": "container",
-      "note": "to collect something is to gather it in, so one piece takes another inside"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "number",
-      "gives": "FOUR",
-      "note": "a number spelt out"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "L",
-      "OUR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to collect",
+       "note": "to collect something is to gather it in, so one piece takes another inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "number",
+       "gives": "FOUR",
+       "note": "a number spelt out"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -463,40 +394,31 @@
    },
    "solution": "REPOSED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REPOSED",
     "definitions": [
      {
       "text": "rested",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "clothed in",
-      "for": "container",
-      "note": "something clothed is wrapped by its garment, so one piece is wrapped by another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crimson",
-      "gives": "RED",
-      "note": "crimson is a shade of red"
-     },
-     {
-      "clueFragment": "Model",
-      "gives": "POSE",
-      "note": "to model is to pose for an artist or camera"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "POSE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothed in",
+       "note": "something clothed is wrapped by its garment, so one piece is wrapped by another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crimson",
+       "gives": "RED",
+       "note": "crimson is a shade of red"
+      },
+      {
+       "words": "Model",
+       "gives": "POSE",
+       "note": "to model is to pose for an artist or camera"
+      }
      ]
     },
     "explanation": {
@@ -531,33 +453,28 @@
    },
    "solution": "WARDANCE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "WAR DANCE",
     "definitions": [
      {
       "text": "hostile gestures",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the following letters are wanted, a run lifted from inside the words"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reward ancestors",
-      "gives": "WARDANCE",
-      "note": "the letters run across the two words, after RE and before STORS"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the following letters are wanted, a run lifted from inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reward ancestors",
+       "gives": "WARDANCE",
+       "note": "the letters run across the two words, after RE and before STORS"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some people honour their forebears in return for acts of aggression.",
      "walkthrough": "The answer straddles the gap between the two words.",
@@ -584,36 +501,29 @@
    },
    "solution": "OOPS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OOPS",
     "definitions": [
      {
       "text": "Sorry about that!",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Cockney",
-      "for": "deletion",
-      "note": "Cockney speakers famously drop their H sounds, so an initial H goes missing"
-     }
-    ],
-    "linkWords": [
-     "must go through?"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Difficult things",
-      "gives": "HOOPS",
-      "note": "obstacles one is made to jump through, from the idiom about tiresome procedures"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OOPS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "note": "Cockney speakers famously drop their H sounds, so an initial H goes missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Difficult things",
+       "gives": "HOOPS",
+       "note": "obstacles one is made to jump through, from the idiom about tiresome procedures"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -643,32 +553,25 @@
    },
    "solution": "CHIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHIC",
     "definitions": [
      {
       "text": "Smart",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "companion",
-      "gives": "CH",
-      "note": "Companion of Honour, a British order, abbreviated CH"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "IC is the standard abbreviation for in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "companion",
+       "gives": "CH",
+       "note": "Companion of Honour, a British order, abbreviated CH"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "IC is the standard abbreviation for in charge"
+      }
      ]
     },
     "explanation": {
@@ -697,48 +600,35 @@
    },
    "solution": "BUTTRESS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BUTTRESS",
     "definitions": [
      {
       "text": "Support",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading back",
-      "for": "reversal",
-      "note": "going back retraces the route, so the letters are read in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "TUB",
-      "note": "a tub is an open container"
-     },
-     {
-      "clueFragment": "something hairy",
-      "gives": "TRESS",
-      "note": "a tress is a lock of hair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUT",
-      "TRESS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TUB",
-       "to": "BUT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "heading back",
+         "note": "going back retraces the route, so the letters are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "gives": "TUB",
+         "note": "a tub is an open container"
+        }
+       ]
+      },
+      {
+       "words": "something hairy",
+       "gives": "TRESS",
+       "note": "a tress is a lock of hair"
       }
      ]
     },
@@ -769,48 +659,40 @@
    },
    "solution": "BAGATELLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BAGATELLE",
     "definitions": [
      {
       "text": "fluff",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "hiding",
-      "for": "container",
-      "note": "to hide something is to keep it out of sight within, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beautiful female",
-      "gives": "BELLE",
-      "note": "a belle is a beautiful woman"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gun",
-      "gives": "GAT",
-      "note": "gat is old slang for a pistol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "AGAT",
-      "ELLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "note": "to hide something is to keep it out of sight within, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Beautiful female",
+         "gives": "BELLE",
+         "note": "a belle is a beautiful woman"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "gun",
+       "gives": "GAT",
+       "note": "gat is old slang for a pistol"
+      }
      ]
     },
     "explanation": {
@@ -840,50 +722,41 @@
    },
    "solution": "STALAG",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STALAG",
     "definitions": [
      {
       "text": "Prison",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means travelling in the opposite direction, so the letters are read from the end"
-     },
-     {
-      "text": "at end of",
-      "for": "charade",
-      "note": "placing something at the end means it follows on after the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street"
-     },
-     {
-      "clueFragment": "festival",
-      "gives": "GALA",
-      "note": "a gala is a festive celebration"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "ALAG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "GALA",
-       "to": "ALAG"
+       "text": "at end of",
+       "note": "placing something at the end means it follows on after the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means travelling in the opposite direction, so the letters are read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "festival",
+         "gives": "GALA",
+         "note": "a gala is a festive celebration"
+        }
+       ]
       }
      ]
     },
@@ -913,48 +786,34 @@
    },
    "solution": "TEMPEST",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TEMPEST",
     "definitions": [
      {
       "text": "storm",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something off is out of its proper state, so the letters are disturbed into another order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Casual worker",
-      "gives": "TEMP",
-      "note": "a temp is a temporary employee"
-     },
-     {
-      "clueFragment": "set",
-      "gives": "SET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEMP",
-      "EST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SET",
-       "gives": "EST"
+       "words": "Casual worker",
+       "gives": "TEMP",
+       "note": "a temp is a temporary employee"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something off is out of its proper state, so the letters are disturbed into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -984,43 +843,31 @@
    },
    "solution": "CROWDS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CROWDS",
     "definitions": [
      {
       "text": "large groups",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounded by",
-      "for": "container",
-      "note": "being surrounded means being enclosed on all sides, so one piece sits inside another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "birds",
-      "gives": "CROWS",
-      "note": "crows are black birds"
-     },
-     {
-      "clueFragment": "Daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CROW",
-      "D",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "note": "being surrounded means being enclosed on all sides, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "birds",
+       "gives": "CROWS",
+       "note": "crows are black birds"
+      },
+      {
+       "words": "Daughter",
+       "gives": "D",
+       "note": "D is the abbreviation for daughter"
+      }
      ]
     },
     "explanation": {
@@ -1049,32 +896,25 @@
    },
    "solution": "OBSERVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OBSERVE",
     "definitions": [
      {
       "text": "See",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "old boy",
-      "gives": "OB",
-      "note": "OB is the abbreviation for old boy, a former pupil"
-     },
-     {
-      "clueFragment": "wait",
-      "gives": "SERVE",
-      "note": "to wait at table is to serve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OB",
-      "SERVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "words": "wait",
+       "gives": "SERVE",
+       "note": "to wait at table is to serve"
+      }
      ]
     },
     "explanation": {
@@ -1103,43 +943,31 @@
    },
    "solution": "IMMORTAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMMORTAL",
     "definitions": [
      {
       "text": "Great",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going around",
-      "for": "container",
-      "note": "to go around something is to encircle it, so one piece wraps another"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wicked",
-      "gives": "IMMORAL",
-      "note": "wicked means morally wrong"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMMOR",
-      "T",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going around",
+       "note": "to go around something is to encircle it, so one piece wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wicked",
+       "gives": "IMMORAL",
+       "note": "wicked means morally wrong"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1168,36 +996,29 @@
    },
    "solution": "OFFER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OFFER",
     "definitions": [
      {
       "text": "Present",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unopened",
-      "for": "deletion",
-      "note": "a thing unopened has not had its front broken into, so the word loses its opening letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "box",
-      "gives": "COFFER",
-      "note": "a coffer is a strongbox for valuables"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFFER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unopened",
+       "note": "a thing unopened has not had its front broken into, so the word loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "box",
+       "gives": "COFFER",
+       "note": "a coffer is a strongbox for valuables"
+      },
+      {
+       "gives": "C"
+      }
      ]
     },
     "explanation": {
@@ -1227,32 +1048,25 @@
    },
    "solution": "SALE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SALE",
     "definitions": [
      {
       "text": "it may come with a special offer",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is a type of beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ALE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "gives": "S",
+       "note": "S is the abbreviation for second"
+      },
+      {
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is a type of beer"
+      }
      ]
     },
     "explanation": {
@@ -1281,38 +1095,25 @@
    },
    "solution": "LAGER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LAGER",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down clue, sending something up the column turns its letters to read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fit for a king",
-      "gives": "REGAL",
-      "note": "regal means royal, suitable for a monarch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAGER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REGAL",
-       "to": "LAGER"
+       "text": "served up",
+       "note": "in a down clue, sending something up the column turns its letters to read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fit for a king",
+       "gives": "REGAL",
+       "note": "regal means royal, suitable for a monarch"
       }
      ]
     },
@@ -1342,45 +1143,35 @@
    },
    "solution": "BEEF",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BEEF",
     "definitions": [
      {
       "text": "meat",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its opening letter, so only that one is kept"
-     }
-    ],
-    "linkWords": [
-     "that's",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Insect",
-      "gives": "BEE",
-      "note": "a bee is an insect"
-     },
-     {
-      "clueFragment": "feed",
-      "gives": "F",
-      "select": "first",
-      "note": "the opening letter of this word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEE",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Insect",
+       "gives": "BEE",
+       "note": "a bee is an insect"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feed",
+         "note": "the opening letter of this word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1409,42 +1200,30 @@
    },
    "solution": "LEVERAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEVERAGE",
     "definitions": [
      {
       "text": "strategic advantage",
       "at": 41
      }
     ],
-    "linkWords": [
-     "needing",
-     "to establish"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Learner",
-      "gives": "L",
-      "note": "L for learner, as on British learner-driver plates"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EVER",
-      "note": "ever means always"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a long period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EVER",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Learner",
+       "gives": "L",
+       "note": "L for learner, as on British learner-driver plates"
+      },
+      {
+       "words": "always",
+       "gives": "EVER",
+       "note": "ever means always"
+      },
+      {
+       "words": "time",
+       "gives": "AGE",
+       "note": "an age is a long period of time"
+      }
      ]
     },
     "explanation": {
@@ -1473,30 +1252,28 @@
    },
    "solution": "VAT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "VAT",
     "definitions": [
      {
       "text": "Tax",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "introduced by",
-      "for": "hidden_word",
-      "note": "something introduced by a word is carried within it, so the answer sits inside the letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conservatives",
-      "gives": "VAT",
-      "note": "the letters sit in the middle of this word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "introduced by",
+       "note": "something introduced by a word is carried within it, so the answer sits inside the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Conservatives",
+       "gives": "VAT",
+       "note": "the letters sit in the middle of this word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A levy brought in by the Tory party.",
      "walkthrough": "The surface is historically true: Britain's Conservative government brought in value added tax in 1973.",
@@ -1523,43 +1300,31 @@
    },
    "solution": "STARVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STARVE",
     "definitions": [
      {
       "text": "get very hungry",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to eat",
-      "for": "container",
-      "note": "eating takes something inside, so one piece swallows the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Look",
-      "gives": "STARE",
-      "note": "to stare is to look fixedly"
-     },
-     {
-      "clueFragment": "very little",
-      "gives": "V",
-      "note": "V is the abbreviation for very, a little piece of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAR",
-      "V",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat",
+       "note": "eating takes something inside, so one piece swallows the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Look",
+       "gives": "STARE",
+       "note": "to stare is to look fixedly"
+      },
+      {
+       "words": "very little",
+       "gives": "V",
+       "note": "V is the abbreviation for very, a little piece of the word"
+      }
      ]
     },
     "explanation": {
@@ -1588,43 +1353,31 @@
    },
    "solution": "THEORY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THEORY",
     "definitions": [
      {
       "text": "Idea",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entertains",
-      "for": "container",
-      "note": "a host who entertains has a guest within the home, so one piece takes another inside"
-     }
-    ],
-    "linkWords": [
-     "coming when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "politician",
-      "gives": "TORY",
-      "note": "a Tory is a British Conservative politician"
-     },
-     {
-      "clueFragment": "ambassador",
-      "gives": "HE",
-      "note": "His Excellency, the title given to an ambassador"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HE",
-      "ORY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertains",
+       "note": "a host who entertains has a guest within the home, so one piece takes another inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "politician",
+       "gives": "TORY",
+       "note": "a Tory is a British Conservative politician"
+      },
+      {
+       "words": "ambassador",
+       "gives": "HE",
+       "note": "His Excellency, the title given to an ambassador"
+      }
      ]
     },
     "explanation": {

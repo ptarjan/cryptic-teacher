@@ -1,8 +1,6 @@
 {
  "id": "independent-11727",
  "number": 11727,
- "series": "independent",
- "name": "Independent cryptic crossword No 11,727",
  "setter": "Bluth",
  "date": "2024-05-11",
  "dimensions": {
@@ -38,57 +36,46 @@
    },
    "solution": "MARMOT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "MARMOT",
     "definitions": [
      {
       "text": "rodent",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "On reflection",
-      "for": "reversal",
-      "note": "a reflection shows a thing mirrored, so the word for butter is read backwards"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means the word for cat is written bottom to top"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "butter",
-      "gives": "RAM",
-      "note": "a ram is an animal that butts, so a butter"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "TOM",
-      "note": "a tom is a male cat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "MOT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RAM",
-       "to": "MAR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "On reflection",
+         "note": "a reflection shows a thing mirrored, so the word for butter is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "butter",
+         "gives": "RAM",
+         "note": "a ram is an animal that butts, so a butter"
+        }
+       ]
       },
       {
-       "from": "TOM",
-       "to": "MOT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, going up means the word for cat is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "gives": "TOM",
+         "note": "a tom is a male cat"
+        }
+       ]
       }
      ]
     },
@@ -125,48 +112,45 @@
    },
    "solution": "ICECREAM",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ICE CREAM",
     "definitions": [
      {
       "text": "Cool dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "requires spraying",
-      "for": "anagram",
-      "note": "spraying scatters things about, so the letters are flung into a new order"
-     },
-     {
-      "text": "back",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter, so only the end of plate is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ceramic",
-      "gives": "CERAMIC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "plate's",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of plate"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CERAMICE",
-       "gives": "ICECREAM"
+       "text": "requires spraying",
+       "note": "spraying scatters things about, so the letters are flung into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ceramic",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "the back of a word is its final letter, so only the end of plate is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "plate's",
+           "gives": "PLATE",
+           "note": "the last letter of plate"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -197,45 +181,35 @@
    },
    "solution": "ENTIRE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENTIRE",
     "definitions": [
      {
       "text": "Whole",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely deficient",
-      "for": "letter_selection",
-      "note": "lacking at the extremes means the first and last letters are dropped, leaving only the middle"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hospital department",
-      "gives": "ENT",
-      "note": "ear, nose and throat, a standard hospital department"
-     },
-     {
-      "clueFragment": "siren",
-      "gives": "IRE",
-      "select": "middle",
-      "note": "siren without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENT",
-      "IRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hospital department",
+       "gives": "ENT",
+       "note": "ear, nose and throat, a standard hospital department"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "extremely deficient",
+         "note": "lacking at the extremes means the first and last letters are dropped, leaving only the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "siren",
+         "note": "siren without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -269,35 +243,25 @@
    },
    "solution": "CHINCHIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHIN-CHIN",
     "definitions": [
      {
       "text": "cheers",
       "at": 17
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hit",
-      "gives": "CHIN",
-      "note": "to chin someone is to punch them on the jaw"
-     },
-     {
-      "clueFragment": "feature",
-      "gives": "CHIN",
-      "note": "the chin is a facial feature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIN",
-      "CHIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hit",
+       "gives": "CHIN",
+       "note": "to chin someone is to punch them on the jaw"
+      },
+      {
+       "words": "feature",
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      }
      ]
     },
     "explanation": {
@@ -332,55 +296,48 @@
    },
    "solution": "DUALCITIZENSHIP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DUAL CITIZENSHIP",
     "definitions": [
      {
       "text": "something Boris used to enjoy",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Somehow",
-      "for": "anagram",
-      "note": "somehow suggests things done in some unspecified way, so the letters are arranged afresh"
-     },
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly points to the odd-numbered positions, first, third and fifth, of the surname"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hide panic",
-      "gives": "HIDEPANIC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Liz",
-      "gives": "LIZ",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Truss",
-      "gives": "TUS",
-      "select": "alternate",
-      "note": "the first, third and fifth letters of Truss"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HIDEPANICLIZTUS",
-       "gives": "DUALCITIZENSHIP"
+       "text": "Somehow",
+       "note": "somehow suggests things done in some unspecified way, so the letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hide panic",
+         "note": "taken as written"
+        },
+        {
+         "words": "Liz",
+         "note": "taken as written"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "oddly",
+           "note": "oddly points to the odd-numbered positions, first, third and fifth, of the surname"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Truss",
+           "note": "the first, third and fifth letters of Truss"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -420,61 +377,50 @@
     "19-down"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DUCKING-STOOL",
     "definitions": [
      {
       "text": "Form of public humiliation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a five-letter word is its third letter, which alone is kept"
-     },
-     {
-      "text": "covered in",
-      "for": "charade",
-      "note": "in a down entry a piece covered by another sits beneath it, so the bird comes on top"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bird",
-      "gives": "DUCK",
-      "note": "a duck is a bird"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Wigan",
-      "gives": "G",
-      "select": "middle",
-      "note": "the central letter of Wigan"
-     },
-     {
-      "clueFragment": "poo",
-      "gives": "STOOL",
-      "note": "stool is a medical word for faeces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUCK",
-      "IN",
-      "G",
-      "STOOL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covered in",
+       "note": "in a down entry a piece covered by another sits beneath it, so the bird comes on top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "gives": "DUCK",
+       "note": "a duck is a bird"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the middle of a five-letter word is its third letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wigan",
+         "note": "the central letter of Wigan"
+        }
+       ]
+      },
+      {
+       "words": "poo",
+       "gives": "STOOL",
+       "note": "stool is a medical word for faeces"
+      }
      ]
     },
     "explanation": {
@@ -503,35 +449,25 @@
    },
    "solution": "TABULA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TABULA",
     "definitions": [
      {
       "text": "flattened structure",
       "at": 17
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Forbidden",
-      "gives": "TABU",
-      "note": "a variant spelling of taboo, meaning forbidden"
-     },
-     {
-      "clueFragment": "City",
-      "gives": "LA",
-      "note": "Los Angeles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TABU",
-      "LA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Forbidden",
+       "gives": "TABU",
+       "note": "a variant spelling of taboo, meaning forbidden"
+      },
+      {
+       "words": "City",
+       "gives": "LA",
+       "note": "Los Angeles"
+      }
      ]
     },
     "explanation": {
@@ -566,57 +502,51 @@
    },
    "solution": "ZEALOT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ZEALOT",
     "definitions": [
      {
       "text": "Fanatic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, here every second letter of the phrase"
-     },
-     {
-      "text": "ultimate in",
-      "for": "letter_selection",
-      "note": "the ultimate letter is the final one, so only the end of the word is kept"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "one piece following another is placed after it in the entry"
-     }
-    ],
-    "linkWords": [
-     "seeing",
-     "if",
-     "shows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiz",
-      "gives": "Z",
-      "select": "last",
-      "note": "the final letter of quiz"
-     },
-     {
-      "clueFragment": "Tenable on TV",
-      "gives": "EALOT",
-      "select": "alternate",
-      "note": "the second, fourth, sixth, eighth and tenth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Z",
-      "EALOT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "one piece following another is placed after it in the entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, here every second letter of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quiz",
+         "note": "the final letter of quiz"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "ultimate in",
+         "note": "the ultimate letter is the final one, so only the end of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tenable on TV",
+         "note": "the second, fourth, sixth, eighth and tenth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -655,57 +585,46 @@
     "16-down"
    ],
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PETER CAPALDI",
     "definitions": [
      {
       "text": "At one point, Doctor Who",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trousers",
-      "for": "container",
-      "note": "as a verb, to trouser is to pocket something, so one word takes another inside it"
-     }
-    ],
-    "linkWords": [
-     "'s in",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lord",
-      "gives": "PEER",
-      "note": "a lord is a peer of the realm"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "Top",
-      "gives": "CAP",
-      "note": "a cap is a top, as on a bottle"
-     },
-     {
-      "clueFragment": "Shop",
-      "gives": "ALDI",
-      "note": "Aldi is a discount supermarket chain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "T",
-      "ER",
-      "CAP",
-      "ALDI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trousers",
+         "note": "as a verb, to trouser is to pocket something, so one word takes another inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lord",
+         "gives": "PEER",
+         "note": "a lord is a peer of the realm"
+        },
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      },
+      {
+       "words": "Top",
+       "gives": "CAP",
+       "note": "a cap is a top, as on a bottle"
+      },
+      {
+       "words": "Shop",
+       "gives": "ALDI",
+       "note": "Aldi is a discount supermarket chain"
+      }
      ]
     },
     "explanation": {
@@ -735,45 +654,36 @@
    },
    "solution": "COMIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COMIC",
     "definitions": [
      {
       "text": "Funny",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across entry one piece on another is written after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "business",
-      "gives": "CO",
-      "note": "CO is short for company"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "MI",
-      "note": "the M1 motorway, with the 1 read as the letter I"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "C is the cricket scoring abbreviation for caught"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "MI",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across entry one piece on another is written after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business",
+       "gives": "CO",
+       "note": "CO is short for company"
+      },
+      {
+       "words": "motorway",
+       "gives": "MI",
+       "note": "the M1 motorway, with the 1 read as the letter I"
+      },
+      {
+       "words": "caught",
+       "gives": "C",
+       "note": "C is the cricket scoring abbreviation for caught"
+      }
      ]
     },
     "explanation": {
@@ -808,35 +718,25 @@
    },
    "solution": "BRAZILNUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRAZIL NUT",
     "definitions": [
      {
       "text": "crunchy snack?",
       "at": 11
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Film",
-      "gives": "BRAZIL",
-      "note": "Brazil is Terry Gilliam's 1985 film"
-     },
-     {
-      "clueFragment": "fan",
-      "gives": "NUT",
-      "note": "a nut is an enthusiast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAZIL",
-      "NUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Film",
+       "gives": "BRAZIL",
+       "note": "Brazil is Terry Gilliam's 1985 film"
+      },
+      {
+       "words": "fan",
+       "gives": "NUT",
+       "note": "a nut is an enthusiast"
+      }
      ]
     },
     "explanation": {
@@ -874,46 +774,38 @@
    },
    "solution": "INTHEALTOGETHER",
    "annotation": {
-    "type": [
-     "cycling",
-     "charade"
-    ],
-    "answer": "IN THE ALTOGETHER",
     "definitions": [
      {
       "text": "Naked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling moves round in a loop, so the front letter is carried round to the back"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can",
-      "gives": "TIN",
-      "note": "a tin is a can"
-     },
-     {
-      "clueFragment": "get better",
-      "gives": "HEAL",
-      "note": "to heal is to recover"
-     },
-     {
-      "clueFragment": "as a group",
-      "gives": "TOGETHER",
-      "note": "doing things together is doing them as a group"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INT",
-      "HEAL",
-      "TOGETHER"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "INTHEALTOGETHER",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "cycling moves round in a loop, so the front letter is carried round to the back"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can",
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "get better",
+       "gives": "HEAL",
+       "note": "to heal is to recover"
+      },
+      {
+       "words": "as a group",
+       "gives": "TOGETHER",
+       "note": "doing things together is doing them as a group"
+      }
      ]
     },
     "explanation": {
@@ -943,49 +835,38 @@
    },
    "solution": "GRAMMY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "GRAMMY",
     "definitions": [
      {
       "text": "award",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "making ladies say",
-      "for": "substitution",
-      "note": "making one part say something else means swapping that part for a new word"
-     }
-    ],
-    "linkWords": [
-     "when",
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Despondent",
-      "gives": "GLOOMY",
-      "note": "gloomy means low in spirits"
-     },
-     {
-      "clueFragment": "ladies",
-      "gives": "LOO",
-      "note": "the ladies is a women's lavatory, a loo"
-     },
-     {
-      "clueFragment": "stuff",
-      "gives": "RAM",
-      "note": "to ram is to stuff or cram"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RAM",
-      "MY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "GRAMMY",
+     "indicators": [
+      {
+       "text": "making ladies say",
+       "note": "making one part say something else means swapping that part for a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Despondent",
+       "gives": "GLOOMY",
+       "note": "gloomy means low in spirits"
+      },
+      {
+       "words": "ladies",
+       "gives": "LOO",
+       "note": "the ladies is a women's lavatory, a loo"
+      },
+      {
+       "words": "stuff",
+       "gives": "RAM",
+       "note": "to ram is to stuff or cram"
+      }
      ]
     },
     "explanation": {
@@ -1014,35 +895,24 @@
    },
    "solution": "AMBITION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMBITION",
     "definitions": [
      {
       "text": "Dream",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "at sea means confused and disoriented, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm in boat",
-      "gives": "IMINBOAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IMINBOAT",
-       "gives": "AMBITION"
+       "text": "at sea",
+       "note": "at sea means confused and disoriented, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm in boat",
+       "note": "taken as written"
       }
      ]
     },
@@ -1071,48 +941,36 @@
    },
    "solution": "SCENIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCENIC",
     "definitions": [
      {
       "text": "Theatrical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going after",
-      "for": "charade",
-      "note": "a piece going after another is placed behind it in the entry"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "Chancellor of the Exchequer",
-      "gives": "CE",
-      "note": "the initials of the title's two main words"
-     },
-     {
-      "clueFragment": "tax payments",
-      "gives": "NIC",
-      "note": "National Insurance Contributions, a UK payroll tax"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CE",
-      "NIC"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going after",
+       "note": "a piece going after another is placed behind it in the entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "Chancellor of the Exchequer",
+       "gives": "CE",
+       "note": "the initials of the title's two main words"
+      },
+      {
+       "words": "tax payments",
+       "gives": "NIC",
+       "note": "National Insurance Contributions, a UK payroll tax"
+      }
      ]
     },
     "explanation": {
@@ -1141,65 +999,57 @@
    },
    "solution": "CREATIVE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "CREATIVE",
     "definitions": [
      {
       "text": "Original",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns something round, so the word for queen is turned back to front"
-     },
-     {
-      "text": "withdrawn",
-      "for": "reversal",
-      "note": "withdrawn suggests drawn back, so the show's title runs backwards"
-     },
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down entry a piece over the rest sits at the top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copyright",
-      "gives": "C",
-      "note": "C is the copyright symbol"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina"
-     },
-     {
-      "clueFragment": "musical",
-      "gives": "EVITA",
-      "note": "the Lloyd Webber musical about Eva Perón"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RE",
-      "ATIVE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "ER",
-       "to": "RE"
+       "text": "over",
+       "note": "in a down entry a piece over the rest sits at the top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "copyright",
+       "gives": "C",
+       "note": "C is the copyright symbol"
       },
       {
-       "from": "EVITA",
-       "to": "ATIVE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "a revolution turns something round, so the word for queen is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Queen",
+         "gives": "ER",
+         "note": "Elizabeth Regina"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawn",
+         "note": "withdrawn suggests drawn back, so the show's title runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "musical",
+         "gives": "EVITA",
+         "note": "the Lloyd Webber musical about Eva Perón"
+        }
+       ]
       }
      ]
     },
@@ -1242,45 +1092,34 @@
    },
    "solution": "STONED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "STONED",
     "definitions": [
      {
       "text": "High",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "badly done means put together wrongly, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Street",
-      "gives": "ST",
-      "note": "ST is the abbreviation for street"
-     },
-     {
-      "clueFragment": "done",
-      "gives": "DONE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "ONED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DONE",
-       "gives": "ONED"
+       "words": "Street",
+       "gives": "ST",
+       "note": "ST is the abbreviation for street"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "note": "badly done means put together wrongly, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1311,50 +1150,40 @@
    },
    "solution": "UNCLAD",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "UNCLAD",
     "definitions": [
      {
       "text": "11",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for starters",
-      "for": "letter_selection",
-      "note": "starters are what come first, so only the opening letters of the two words are kept"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "peacekeepers",
-      "gives": "UN",
-      "note": "United Nations peacekeeping forces"
-     },
-     {
-      "clueFragment": "150",
-      "gives": "CL",
-      "note": "CL is 150 in Roman numerals"
-     },
-     {
-      "clueFragment": "active duty",
-      "gives": "AD",
-      "select": "first",
-      "note": "the first letters of active and duty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "CL",
-      "AD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "peacekeepers",
+       "gives": "UN",
+       "note": "United Nations peacekeeping forces"
+      },
+      {
+       "words": "150",
+       "gives": "CL",
+       "note": "CL is 150 in Roman numerals"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for starters",
+         "note": "starters are what come first, so only the opening letters of the two words are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "active duty",
+         "note": "the first letters of active and duty"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1389,63 +1218,61 @@
    },
    "solution": "SUBSISTENCECROP",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SUBSISTENCE CROP",
     "definitions": [
      {
       "text": "its growth is important, but not profit",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "assuming",
-      "for": "container",
-      "note": "to assume is to take on, so one piece takes another into itself"
-     },
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "taking something in means holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Membership fee",
-      "gives": "SUBS",
-      "note": "subs are subscriptions paid to belong to a club"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "10p",
-      "gives": "TENP",
-      "note": "ten p, written out"
-     },
-     {
-      "clueFragment": "boss",
-      "gives": "CEO",
-      "note": "chief executive officer"
-     },
-     {
-      "clueFragment": "credit",
-      "gives": "CR",
-      "note": "CR is the accounting abbreviation for credit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUBS",
-      "IS",
-      "TEN",
-      "CECRO",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "assuming",
+       "note": "to assume is to take on, so one piece takes another into itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Membership fee",
+         "gives": "SUBS",
+         "note": "subs are subscriptions paid to belong to a club"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "words": "10p",
+         "gives": "TENP",
+         "note": "ten p, written out"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "note": "taking something in means holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boss",
+         "gives": "CEO",
+         "note": "chief executive officer"
+        },
+        {
+         "words": "credit",
+         "gives": "CR",
+         "note": "CR is the accounting abbreviation for credit"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1493,31 +1320,16 @@
    },
    "solution": "INGEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN GEAR",
     "definitions": [
      {
       "text": "Not 18",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: not unclad, so dressed in one's kit"
      },
      {
       "text": "ready to drive",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not 18",
-      "note": "first meaning: not unclad, so dressed in one's kit"
-     },
-     {
-      "clueFragment": "ready to drive",
-      "note": "second meaning: with a car's gears engaged"
+      "at": 11,
+      "meaning": "second meaning: with a car's gears engaged"
      }
     ],
     "explanation": {
@@ -1546,32 +1358,25 @@
    },
    "solution": "REWIND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REWIND",
     "definitions": [
      {
       "text": "Spool back",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on, in the sense of concerning"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "WIND",
-      "note": "wind is moving air"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "WIND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on, in the sense of concerning"
+      },
+      {
+       "words": "air",
+       "gives": "WIND",
+       "note": "wind is moving air"
+      }
      ]
     },
     "explanation": {
@@ -1599,41 +1404,30 @@
    },
    "solution": "OCTAGONAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OCTAGONAL",
     "definitions": [
      {
       "text": "with eight sides",
       "at": 41
      }
     ],
-    "linkWords": [
-     "formed"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Month",
-      "gives": "OCT",
-      "note": "OCT is the calendar abbreviation for October"
-     },
-     {
-      "clueFragment": "since",
-      "gives": "AGO",
-      "note": "ago and since both refer back to a past time"
-     },
-     {
-      "clueFragment": "North American League",
-      "gives": "NAL",
-      "note": "the initials of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OCT",
-      "AGO",
-      "NAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Month",
+       "gives": "OCT",
+       "note": "OCT is the calendar abbreviation for October"
+      },
+      {
+       "words": "since",
+       "gives": "AGO",
+       "note": "ago and since both refer back to a past time"
+      },
+      {
+       "words": "North American League",
+       "gives": "NAL",
+       "note": "the initials of the three words"
+      }
      ]
     },
     "explanation": {
@@ -1662,57 +1456,57 @@
    },
    "solution": "TOWEL",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TOWEL",
     "definitions": [
      {
       "text": "drier",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "losing something means it is taken away from the word"
-     },
-     {
-      "text": "lead to",
-      "for": "letter_selection",
-      "note": "the lead of a word is its opening letter, which alone is kept"
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across entry a piece on another follows it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tumble",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of tumble"
-     },
-     {
-      "clueFragment": "I maybe",
-      "gives": "VOWEL",
-      "note": "I is one example of a vowel"
-     },
-     {
-      "clueFragment": "volts",
-      "gives": "V",
-      "note": "V is the symbol for volts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "OWEL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across entry a piece on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead to",
+         "note": "the lead of a word is its opening letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tumble",
+         "note": "the first letter of tumble"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "note": "losing something means it is taken away from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I maybe",
+         "gives": "VOWEL",
+         "note": "I is one example of a vowel"
+        },
+        {
+         "words": "volts",
+         "gives": "V",
+         "note": "V is the symbol for volts"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1752,56 +1546,48 @@
    },
    "solution": "LEONARDODAVINCI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "LEONARDO DA VINCI",
     "definitions": [
      {
       "text": "famous artist",
       "at": 77
      }
     ],
-    "indicators": [
-     {
-      "text": "Working",
-      "for": "anagram",
-      "note": "working suggests the letters are worked over into a new shape"
-     },
-     {
-      "text": "principally",
-      "for": "letter_selection",
-      "note": "principally means chiefly, so the chief, first letter of each word is kept"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on radio",
-      "gives": "ONRADIO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Clive",
-      "gives": "CLIVE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Anderson narrating documentary",
-      "gives": "AND",
-      "select": "first",
-      "note": "first letters of the three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONRADIOCLIVEAND",
-       "gives": "LEONARDODAVINCI"
+       "text": "Working",
+       "note": "working suggests the letters are worked over into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on radio",
+         "note": "taken as written"
+        },
+        {
+         "words": "Clive",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "principally",
+           "note": "principally means chiefly, so the chief, first letter of each word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Anderson narrating documentary",
+           "note": "first letters of the three words"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

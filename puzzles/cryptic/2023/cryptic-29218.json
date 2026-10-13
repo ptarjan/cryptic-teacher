@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29218",
  "number": 29218,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,218",
  "setter": "Soup",
  "date": "2023-11-03",
  "dimensions": {
@@ -38,35 +36,25 @@
    },
    "solution": "PSALTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PSALTER",
     "definitions": [
      {
       "text": "church text",
       "at": 19
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Addendum",
-      "gives": "PS",
-      "note": "PS, postscript, is an addendum to a letter"
-     },
-     {
-      "clueFragment": "reform",
-      "gives": "ALTER",
-      "note": "to reform something is to alter it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PS",
-      "ALTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Addendum",
+       "gives": "PS",
+       "note": "PS, postscript, is an addendum to a letter"
+      },
+      {
+       "words": "reform",
+       "gives": "ALTER",
+       "note": "to reform something is to alter it"
+      }
      ]
     },
     "explanation": {
@@ -94,64 +82,60 @@
    },
    "solution": "STOMATA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "reversal"
-    ],
-    "answer": "STOMATA",
     "definitions": [
      {
       "text": "Pores",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first bits of",
-      "for": "letter_selection",
-      "note": "first bits means the opening letter of each of the next two words"
-     },
-     {
-      "text": "clutched",
-      "for": "container",
-      "note": "clutched means held tightly inside, so those letters go within the child's word"
-     },
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "in a down entry, over means flipped upside down, so the whole build is read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "child's",
-      "gives": "TOTS",
-      "note": "a tot is a small child, and the 's becomes S"
-     },
-     {
-      "clueFragment": "artwork, messily",
-      "gives": "AM",
-      "select": "first",
-      "note": "the opening letter of each word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STO",
-      "MA",
-      "T",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ATAMOTS",
-       "to": "STOMATA"
+       "text": "over",
+       "note": "in a down entry, over means flipped upside down, so the whole build is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "clutched",
+           "note": "clutched means held tightly inside, so those letters go within the child's word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "child's",
+           "gives": "TOTS",
+           "note": "a tot is a small child, and the 's becomes S"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "first bits of",
+             "note": "first bits means the opening letter of each of the next two words"
+            }
+           ],
+           "parts": [
+            {
+             "words": "artwork, messily",
+             "note": "the opening letter of each word"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -182,47 +166,41 @@
    },
    "solution": "LEAST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LEAST",
     "definitions": [
      {
       "text": "not being this, as the saying goes?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to finish",
-      "for": "letter_selection",
-      "note": "to finish points at the closing letter of the word before it"
-     },
-     {
-      "text": "admitted",
-      "for": "container",
-      "note": "admitted means let in, so that letter goes inside the word for final"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Final",
-      "gives": "LAST",
-      "note": "the final one is the last"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "E",
-      "AST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitted",
+       "note": "admitted means let in, so that letter goes inside the word for final"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Final",
+       "gives": "LAST",
+       "note": "the final one is the last"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "to finish",
+         "note": "to finish points at the closing letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "note": "the closing letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -251,38 +229,30 @@
    },
    "solution": "EXHALED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXHALED",
     "definitions": [
      {
       "text": "had a blow-out?",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Formerly",
-      "gives": "EX",
-      "note": "ex- means former"
-     },
-     {
-      "clueFragment": "healthy",
-      "gives": "HALE",
-      "note": "hale means robustly healthy"
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "HALE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Formerly",
+       "gives": "EX",
+       "note": "ex- means former"
+      },
+      {
+       "words": "healthy",
+       "gives": "HALE",
+       "note": "hale means robustly healthy"
+      },
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "D is the abbreviation for daughter"
+      }
      ]
     },
     "explanation": {
@@ -312,26 +282,25 @@
    },
    "solution": "PEACOCK",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PEACOCK",
     "definitions": [
      {
       "text": "It's all eyes on this popinjay!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It's all eyes on this popinjay!",
-      "note": "surface reading: everyone is staring at this show-off"
-     },
-     {
-      "clueFragment": "all eyes",
-      "note": "setter's reading: the bird's tail feathers are covered in eye-like markings"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It's all eyes on this popinjay!",
+       "note": "surface reading: everyone is staring at this show-off"
+      },
+      {
+       "words": "all eyes",
+       "note": "setter's reading: the bird's tail feathers are covered in eye-like markings"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A vain dandy who loves being the centre of attention.",
      "walkthrough": "'All eyes on' sounds like an audience watching, but it is literal: the bird's fanned tail is patterned with eyespots.",
@@ -359,44 +328,39 @@
    },
    "solution": "ENTRAP",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "ENTRAP",
     "definitions": [
      {
       "text": "Catch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting his end away",
-      "for": "deletion",
-      "note": "the end of the lover is sent away, so the closing letter is dropped; a cheeky British idiom for sex"
-     },
-     {
-      "text": "bound up",
-      "for": "reversal",
-      "note": "in a down entry, bound up means heading upwards, so the letters read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lover",
-      "gives": "PARTNER",
-      "note": "a partner is one's lover"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENTRAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PARTNE",
-       "to": "ENTRAP"
+       "text": "bound up",
+       "note": "in a down entry, bound up means heading upwards, so the letters read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting his end away",
+         "note": "the end of the lover is sent away, so the closing letter is dropped; a cheeky British idiom for sex"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lover",
+         "gives": "PARTNER",
+         "note": "a partner is one's lover"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
@@ -437,50 +401,46 @@
    },
    "solution": "COCKAHOOP",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "COCK-A-HOOP",
     "definitions": [
      {
       "text": "Very happy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the Reverend",
-      "for": "spoonerism",
-      "note": "the Reverend William Spooner famously swapped the opening sounds of words"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stake",
-      "gives": "COCK",
-      "soundsLike": "HOCK",
-      "note": "to hock is to pawn or stake; it takes its opening sound from the birdhouse word"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "birdhouse",
-      "gives": "HOOP",
-      "soundsLike": "COOP",
-      "note": "a coop houses hens; it takes its opening sound from the pawning word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COCK",
-      "A",
-      "HOOP"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "COCKAHOOP",
+     "indicators": [
+      {
+       "text": "for the Reverend",
+       "note": "the Reverend William Spooner famously swapped the opening sounds of words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "stake",
+         "gives": "COCK",
+         "soundsLike": "HOCK",
+         "note": "to hock is to pawn or stake; it takes its opening sound from the birdhouse word"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "unchecked": true,
+         "words": "birdhouse",
+         "gives": "HOOP",
+         "soundsLike": "COOP",
+         "note": "a coop houses hens; it takes its opening sound from the pawning word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -510,39 +470,33 @@
    },
    "solution": "COMPETE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "COMPETE",
     "definitions": [
      {
       "text": "Take part",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not all of",
-      "for": "deletion",
-      "note": "not all of means part of the word is missing"
-     },
-     {
-      "text": "missing fifth",
-      "for": "deletion",
-      "note": "says which part is lost: the letter in position five"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "whole",
-      "gives": "COMPLETE",
-      "note": "something whole is complete"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMP",
-      "ETE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not all of",
+       "note": "not all of means part of the word is missing"
+      },
+      {
+       "text": "missing fifth",
+       "note": "says which part is lost: the letter in position five"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whole",
+       "gives": "COMPLETE",
+       "note": "something whole is complete"
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -580,31 +534,16 @@
    },
    "solution": "HAVENOTHINGON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HAVE NOTHING ON",
     "definitions": [
      {
       "text": "Be free",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to have no engagements in one's diary"
      },
      {
       "text": "be a nudist",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be free",
-      "note": "first meaning: to have no engagements in one's diary"
-     },
-     {
-      "clueFragment": "be a nudist",
-      "note": "second meaning: to wear no clothes at all"
+      "at": 11,
+      "meaning": "second meaning: to wear no clothes at all"
      }
     ],
     "explanation": {
@@ -634,33 +573,28 @@
    },
    "solution": "FORA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FORA",
     "definitions": [
      {
       "text": "meetings",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Quite the reverse",
-      "for": "hidden_word",
-      "note": "the clue says these meetings contain the phrase; flipping that claim means the meetings sit inside the phrase instead"
-     }
-    ],
-    "linkWords": [
-     "in these"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Free-for-all",
-      "gives": "FORA",
-      "note": "the letters run across the middle of the hyphenated phrase"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Quite the reverse",
+       "note": "the clue says these meetings contain the phrase; flipping that claim means the meetings sit inside the phrase instead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Free-for-all",
+       "gives": "FORA",
+       "note": "the letters run across the middle of the hyphenated phrase"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joke that these gatherings are anything goes, then a sly retraction.",
      "walkthrough": "Read the first half backwards in sense: not 'free-for-all in meetings' but 'meetings in free-for-all'. FORA is the Latin plural of forum.",
@@ -693,48 +627,34 @@
    },
    "solution": "HEALTHCAMP",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "HEALTH CAMP",
     "definitions": [
      {
       "text": "fitness retreat",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "anagram",
-      "note": "touring suggests wandering about, so the following letters roam into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "That chap",
-      "gives": "HE",
-      "note": "that chap is referred to as he"
-     },
-     {
-      "clueFragment": "calm path",
-      "gives": "CALMPATH",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "ALTHCAMP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CALMPATH",
-       "gives": "ALTHCAMP"
+       "words": "That chap",
+       "gives": "HE",
+       "note": "that chap is referred to as he"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "touring",
+         "note": "touring suggests wandering about, so the following letters roam into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "calm path",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -763,26 +683,25 @@
    },
    "solution": "MANTEL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MANTEL",
     "definitions": [
      {
       "text": "Might her novels go here?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "her novels",
-      "note": "surface reading: the books of some woman novelist, and where they should be shelved"
-     },
-     {
-      "clueFragment": "Might her novels go here?",
-      "note": "setter's reading: the shelf above a fireplace shares its name with the author of Wolf Hall"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "her novels",
+       "note": "surface reading: the books of some woman novelist, and where they should be shelved"
+      },
+      {
+       "words": "Might her novels go here?",
+       "note": "setter's reading: the shelf above a fireplace shares its name with the author of Wolf Hall"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wondering where a particular woman's books should be kept.",
      "walkthrough": "Hilary Mantel wrote the Wolf Hall novels; 'her' refers to her, and the answer is the shelf over the fireplace where books might stand.",
@@ -810,35 +729,24 @@
    },
    "solution": "EMANATES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EMANATES",
     "definitions": [
      {
       "text": "Discharges",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "a drunk person staggers about, so the following letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men at sea",
-      "gives": "MENATSEA",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENATSEA",
-       "gives": "EMANATES"
+       "text": "drunk",
+       "note": "a drunk person staggers about, so the following letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men at sea",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -873,52 +781,47 @@
    },
    "solution": "SACREDCOW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SACRED COW",
     "definitions": [
      {
       "text": "belief that can't be questioned",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "in with a place means everything else is placed inside that place's abbreviation"
-     },
-     {
-      "text": "assumes",
-      "for": "container",
-      "note": "to assume is to take on, so the word that follows takes the Catholic inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cornwall",
-      "gives": "SW",
-      "note": "Cornwall lies in the South West of England"
-     },
-     {
-      "clueFragment": "a belief",
-      "gives": "ACREDO",
-      "note": "a credo is a statement of belief"
-     },
-     {
-      "clueFragment": "Catholic",
-      "gives": "C",
-      "note": "C is a standard abbreviation for Catholic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ACRED",
-      "C",
-      "O",
-      "W"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "in with a place means everything else is placed inside that place's abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cornwall",
+       "gives": "SW",
+       "note": "Cornwall lies in the South West of England"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "assumes",
+         "note": "to assume is to take on, so the word that follows takes the Catholic inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a belief",
+         "gives": "ACREDO",
+         "note": "a credo is a statement of belief"
+        },
+        {
+         "words": "Catholic",
+         "gives": "C",
+         "note": "C is a standard abbreviation for Catholic"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -947,50 +850,40 @@
    },
    "solution": "RECALLING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RECALLING",
     "definitions": [
      {
       "text": "Thinking back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finisher",
-      "for": "letter_selection",
-      "note": "the finisher of a word is its closing letter"
-     }
-    ],
-    "linkWords": [
-     "to being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "REC",
-      "note": "REC is a common abbreviation for record"
-     },
-     {
-      "clueFragment": "exhausted",
-      "gives": "ALLIN",
-      "note": "all in means tired out"
-     },
-     {
-      "clueFragment": "breaking",
-      "gives": "G",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REC",
-      "ALLIN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "gives": "REC",
+       "note": "REC is a common abbreviation for record"
+      },
+      {
+       "words": "exhausted",
+       "gives": "ALLIN",
+       "note": "all in means tired out"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finisher",
+         "note": "the finisher of a word is its closing letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breaking",
+         "note": "the closing letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1019,31 +912,29 @@
    },
    "solution": "FOLEY",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FOLEY",
     "definitions": [
      {
       "text": "In film, sounds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Sounds like it",
-      "for": "homophone",
-      "note": "says the answer is pronounced the same as the horsey description just given"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like a little horse",
-      "gives": "FOLEY",
-      "soundsLike": "FOALY",
-      "note": "like a foal, a little horse"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FOLEY",
+     "indicators": [
+      {
+       "text": "Sounds like it",
+       "note": "says the answer is pronounced the same as the horsey description just given"
+      }
+     ],
+     "parts": [
+      {
+       "words": "like a little horse",
+       "gives": "FOALY",
+       "note": "like a foal, a little horse"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A film question about horse noises, answered with a wink.",
      "walkthrough": "The closing exclamation also hints at what Foley artists do: create sounds, such as coconut-shell hoofbeats, that mimic the real thing.",
@@ -1071,56 +962,48 @@
    },
    "solution": "DANCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "DANCE",
     "definitions": [
      {
       "text": "Might one feature dapper hat and cane-twirling?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hat",
-      "for": "letter_selection",
-      "note": "a hat sits on top, so only the very top of the word is taken"
-     },
-     {
-      "text": "twirling",
-      "for": "anagram",
-      "note": "twirling spins things round, so the letters are turned into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dapper",
-      "gives": "D",
-      "select": "first",
-      "note": "the top letter of the word"
-     },
-     {
-      "clueFragment": "cane",
-      "gives": "CANE",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ANCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CANE",
-       "gives": "ANCE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "hat",
+         "note": "a hat sits on top, so only the very top of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dapper",
+         "note": "the top letter of the word"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "twirling",
+         "note": "twirling spins things round, so the letters are turned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cane",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Picturing a top-hat-and-cane routine on stage.",
      "walkthrough": "The whole clue also describes the answer: a song-and-dance number in the Fred Astaire style uses a smart hat and a twirled cane.",
@@ -1147,53 +1030,51 @@
    },
    "solution": "ASKANCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ASKANCE",
     "definitions": [
      {
       "text": "sideways",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "forward",
-      "for": "letter_selection",
-      "note": "the forward part of a word is the front, its opening letter"
-     },
-     {
-      "text": "tackling",
-      "for": "container",
-      "note": "tackling means grappling with, so the footballer's name closes around the letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like",
-      "gives": "AS",
-      "note": "as means like"
-     },
-     {
-      "clueFragment": "footballer Harry",
-      "gives": "KANE",
-      "note": "Harry Kane is England's football captain"
-     },
-     {
-      "clueFragment": "Chelsea's",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of the club name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "KAN",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like",
+       "gives": "AS",
+       "note": "as means like"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "tackling",
+         "note": "tackling means grappling with, so the footballer's name closes around the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "footballer Harry",
+         "gives": "KANE",
+         "note": "Harry Kane is England's football captain"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "forward",
+           "note": "the forward part of a word is the front, its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Chelsea's",
+           "note": "the opening letter of the club name"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1222,64 +1103,60 @@
    },
    "solution": "CHIROPODY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CHIROPODY",
     "definitions": [
      {
       "text": "Footing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up front",
-      "for": "letter_selection",
-      "note": "up front points to the opening letter of the preceding word"
-     },
-     {
-      "text": "taking on",
-      "for": "container",
-      "note": "to take on is to take aboard, so the word before holds the next one inside"
-     },
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "touring means travelling around, so the preceding letters go around the next item"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cost",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "Hawaii",
-      "gives": "HI",
-      "note": "HI is the US postal abbreviation for Hawaii"
-     },
-     {
-      "clueFragment": "poor",
-      "gives": "ROPY",
-      "note": "ropy means of poor quality"
-     },
-     {
-      "clueFragment": "overdraft",
-      "gives": "OD",
-      "note": "OD is the banking abbreviation for overdrawn or overdraft"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HI",
-      "ROP",
-      "OD",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking on",
+       "note": "to take on is to take aboard, so the word before holds the next one inside"
+      },
+      {
+       "text": "touring",
+       "note": "touring means travelling around, so the preceding letters go around the next item"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "up front",
+           "note": "up front points to the opening letter of the preceding word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cost",
+           "note": "the opening letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "Hawaii",
+         "gives": "HI",
+         "note": "HI is the US postal abbreviation for Hawaii"
+        },
+        {
+         "words": "poor",
+         "gives": "ROPY",
+         "note": "ropy means of poor quality"
+        }
+       ]
+      },
+      {
+       "words": "overdraft",
+       "gives": "OD",
+       "note": "OD is the banking abbreviation for overdrawn or overdraft"
+      }
      ]
     },
     "explanation": {
@@ -1309,41 +1186,25 @@
    },
    "solution": "RECUSED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RECUSED",
     "definitions": [
      {
       "text": "Withdrawn",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "son heads south",
-      "for": "anagram",
-      "note": "in a down entry, south means lower down, so the abbreviation for a male child slides to a later place"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relieved",
-      "gives": "RESCUED",
-      "note": "to relieve a besieged place is to rescue it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RECUSED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RESCUED",
-       "gives": "RECUSED"
+       "text": "son heads south",
+       "note": "in a down entry, south means lower down, so the abbreviation for a male child slides to a later place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relieved",
+       "gives": "RESCUED",
+       "note": "to relieve a besieged place is to rescue it"
       }
      ]
     },
@@ -1373,40 +1234,31 @@
    },
    "solution": "DIURNAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIURNAL",
     "definitions": [
      {
       "text": "daily",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "taking means taking in, so the clock word holds the pot inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Face",
-      "gives": "DIAL",
-      "note": "a dial is a clock face"
-     },
-     {
-      "clueFragment": "pot",
-      "gives": "URN",
-      "note": "an urn is a pot or vase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "URN",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "taking means taking in, so the clock word holds the pot inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Face",
+       "gives": "DIAL",
+       "note": "a dial is a clock face"
+      },
+      {
+       "words": "pot",
+       "gives": "URN",
+       "note": "an urn is a pot or vase"
+      }
      ]
     },
     "explanation": {
@@ -1434,32 +1286,25 @@
    },
    "solution": "ATRIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATRIAL",
     "definitions": [
      {
       "text": "Somewhat hearty",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "one kicks off",
-      "gives": "A",
-      "note": "a means one, and kicking off puts it at the start"
-     },
-     {
-      "clueFragment": "nuisance",
-      "gives": "TRIAL",
-      "note": "a trial is an annoying person or thing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TRIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one kicks off",
+       "gives": "A",
+       "note": "a means one, and kicking off puts it at the start"
+      },
+      {
+       "words": "nuisance",
+       "gives": "TRIAL",
+       "note": "a trial is an annoying person or thing"
+      }
      ]
     },
     "explanation": {
@@ -1489,28 +1334,16 @@
    },
    "solution": "SKELETON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SKELETON",
     "definitions": [
      {
       "text": "Support",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the bony framework that holds up a body"
      },
      {
       "text": "Bob in the Winter Olympics",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Support",
-      "note": "first meaning: the bony framework that holds up a body"
-     },
-     {
-      "clueFragment": "Bob in the Winter Olympics",
-      "note": "second meaning: a head-first sledding event, a cousin of the bobsleigh"
+      "at": 8,
+      "meaning": "second meaning: a head-first sledding event, a cousin of the bobsleigh"
      }
     ],
     "explanation": {
@@ -1540,49 +1373,43 @@
    },
    "solution": "CACTUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CACTUS",
     "definitions": [
      {
       "text": "prickly sort",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "ignored",
-      "for": "deletion",
-      "note": "something ignored is left out, so that letter is dropped from the next word"
-     },
-     {
-      "text": "irritable",
-      "for": "anagram",
-      "note": "an irritable person is out of sorts, so the remaining letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "the letter to be removed"
-     },
-     {
-      "clueFragment": "caustic",
-      "gives": "CAUSTIC",
-      "note": "the word the letter comes out of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CACTUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CACTUS",
+     "indicators": [
       {
-       "fodder": "CAUSTC",
-       "gives": "CACTUS"
+       "text": "irritable",
+       "note": "an irritable person is out of sorts, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "CACTUS",
+       "indicators": [
+        {
+         "text": "ignored",
+         "note": "something ignored is left out, so that letter is dropped from the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "note": "the letter to be removed"
+        },
+        {
+         "words": "caustic",
+         "note": "the word the letter comes out of"
+        }
+       ]
       }
      ]
     },
@@ -1612,35 +1439,24 @@
    },
    "solution": "COSTA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COSTA",
     "definitions": [
      {
       "text": "coffee chain",
       "at": 30
      }
     ],
-    "linkWords": [
-     "when visiting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What one pays",
-      "gives": "COST",
-      "note": "the cost is what you pay"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COST",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What one pays",
+       "gives": "COST",
+       "note": "the cost is what you pay"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1668,35 +1484,24 @@
    },
    "solution": "INHIBITORS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INHIBITORS",
     "definitions": [
      {
       "text": "They block things",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "for": "anagram",
-      "note": "circling means going round and round, so the following letters are stirred into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in his orbit",
-      "gives": "INHISORBIT",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INHISORBIT",
-       "gives": "INHIBITORS"
+       "text": "circling",
+       "note": "circling means going round and round, so the following letters are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in his orbit",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1725,34 +1530,25 @@
    },
    "solution": "SONG",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SONG",
     "definitions": [
      {
       "text": "one of these",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of each of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hears alto section performing",
-      "gives": "SONG",
-      "select": "last",
-      "note": "the closing letter of each of these four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SONG"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Finally",
+       "note": "finally points to the closing letter of each of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hears alto section performing",
+       "note": "the closing letter of each of these four words"
+      }
      ]
     },
     "explanation": {
@@ -1781,53 +1577,55 @@
    },
    "solution": "SEAGULL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SEAGULL",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a couple of scraps of",
-      "for": "letter_selection",
-      "note": "a couple of scraps means just the first two letters of the next word"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "eating takes something inside, so the word before swallows the next pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hawk",
-      "gives": "SELL",
-      "note": "to hawk goods is to sell them"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "guacamole",
-      "gives": "GU",
-      "select": "first",
-      "note": "the opening two letters of the dip"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "A",
-      "GU",
-      "LL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "eating takes something inside, so the word before swallows the next pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "hawk",
+         "gives": "SELL",
+         "note": "to hawk goods is to sell them"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "GU",
+       "indicators": [
+        {
+         "text": "a couple of scraps of",
+         "note": "a couple of scraps means just the first two letters of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "guacamole",
+         "gives": "GU",
+         "select": "first",
+         "note": "the opening two letters of the dip"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1856,32 +1654,25 @@
    },
    "solution": "IDEALLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDEALLY",
     "definitions": [
      {
       "text": "In theory",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "IDE",
-      "note": "the ide is a freshwater fish"
-     },
-     {
-      "clueFragment": "one supports",
-      "gives": "ALLY",
-      "note": "an ally is one who supports another"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDE",
-      "ALLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish"
+      },
+      {
+       "words": "one supports",
+       "gives": "ALLY",
+       "note": "an ally is one who supports another"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3137",
  "number": 3137,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,137",
  "setter": "Jalna",
  "date": "2025-11-04",
  "dimensions": {
@@ -45,28 +43,16 @@
    },
    "solution": "FORBIDDING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FORBIDDING",
     "definitions": [
      {
       "text": "Sinister",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: threatening, unfriendly in appearance"
      },
      {
       "text": "reason to attend an auction",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sinister",
-      "note": "first meaning: threatening, unfriendly in appearance"
-     },
-     {
-      "clueFragment": "reason to attend an auction",
-      "note": "second meaning, read as two words: you go to a sale for the purpose of making offers"
+      "at": 9,
+      "meaning": "second meaning, read as two words: you go to a sale for the purpose of making offers"
      }
     ],
     "explanation": {
@@ -95,33 +81,29 @@
    },
    "solution": "OTHER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OTHER",
     "definitions": [
      {
       "text": "Additional",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when leader is ousted",
-      "for": "deletion",
-      "note": "a leader ousted is the front-runner thrown out, so the opening letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fuss",
-      "gives": "BOTHER",
-      "note": "bother is trouble or commotion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTHER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "when leader is ousted",
+       "note": "a leader ousted is the front-runner thrown out, so the opening letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fuss",
+       "gives": "BOTHER",
+       "note": "bother is trouble or commotion"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -150,50 +132,44 @@
    },
    "solution": "BENEATH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "BENEATH",
     "definitions": [
      {
       "text": "Lower",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the closing letter of the word is used"
-     },
-     {
-      "text": "strangely",
-      "for": "anagram",
-      "note": "done strangely means done in an odd, unexpected order, so the letters get rearranged"
-     }
-    ],
-    "linkWords": [
-     "seen in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attendance",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "the NBA",
-      "gives": "THENBA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETHENBA",
-       "gives": "BENEATH"
+       "text": "strangely",
+       "note": "done strangely means done in an odd, unexpected order, so the letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately means in the end, so only the closing letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "attendance",
+           "note": "the final letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "the NBA",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -223,48 +199,53 @@
    },
    "solution": "DRY",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DRY",
     "definitions": [
      {
       "text": "not drinking",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally points to the end of each word, so the closing letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relapsed",
-      "gives": "D",
-      "select": "last",
-      "note": "closing letter"
-     },
-     {
-      "clueFragment": "after",
-      "gives": "R",
-      "select": "last",
-      "note": "closing letter"
-     },
-     {
-      "clueFragment": "years",
-      "gives": "Y",
-      "select": "last",
-      "note": "closing letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "R",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "note": "finally points to the end of each word, so the closing letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relapsed",
+         "note": "closing letter"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "after",
+         "note": "closing letter"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "Y",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "years",
+         "gives": "Y",
+         "select": "last",
+         "note": "closing letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -293,58 +274,55 @@
    },
    "solution": "INAUGURAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "INAUGURAL",
     "definitions": [
      {
       "text": "Opening",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something new has been remade, so the letters take a fresh form"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means encircling, so one group of letters wraps another"
-     },
-     {
-      "text": "first half of",
-      "for": "letter_selection",
-      "note": "only the front half of the word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "urinal",
-      "gives": "URINAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "month",
-      "gives": "AUG",
-      "select": "first",
-      "note": "the first half of AUGUST"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "AUG",
-      "URAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "URINAL",
-       "gives": "INURAL"
+       "text": "around",
+       "note": "around means encircling, so one group of letters wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "note": "something new has been remade, so the letters take a fresh form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "urinal",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "AUG",
+       "indicators": [
+        {
+         "text": "first half of",
+         "note": "only the front half of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "month",
+         "gives": "AUG",
+         "select": "first",
+         "note": "the first half of AUGUST"
+        }
+       ]
       }
      ]
     },
@@ -375,35 +353,24 @@
    },
    "solution": "GATES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GATES",
     "definitions": [
      {
       "text": "entrances",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Elaborate",
-      "for": "anagram",
-      "note": "to elaborate is to work something up into a new, developed form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stage",
-      "gives": "STAGE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STAGE",
-       "gives": "GATES"
+       "text": "Elaborate",
+       "note": "to elaborate is to work something up into a new, developed form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stage",
+       "note": "taken as written"
       }
      ]
     },
@@ -434,50 +401,40 @@
    },
    "solution": "IMPAIR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "IMPAIR",
     "definitions": [
      {
       "text": "Spoil",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "every so often",
-      "for": "letter_selection",
-      "note": "every so often means at intervals, so alternate letters are picked"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral for one"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "Member of Parliament"
-     },
-     {
-      "clueFragment": "caviar",
-      "gives": "AIR",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral for one"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "Member of Parliament"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "every so often",
+         "note": "every so often means at intervals, so alternate letters are picked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caviar",
+         "note": "second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -506,41 +463,35 @@
    },
    "solution": "THINGY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "THINGY",
     "definitions": [
      {
       "text": "doodah",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely read as at the extremes, so only the outermost letters count"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lightweight",
-      "gives": "THIN",
-      "note": "slight, insubstantial"
-     },
-     {
-      "clueFragment": "glossy",
-      "gives": "GY",
-      "select": "outer",
-      "note": "the two end letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THIN",
-      "GY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lightweight",
+       "gives": "THIN",
+       "note": "slight, insubstantial"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely read as at the extremes, so only the outermost letters count"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glossy",
+         "note": "the two end letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -569,26 +520,25 @@
    },
    "solution": "AUTUMN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AUTUMN",
     "definitions": [
      {
       "text": "Fall for a New Yorker?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fall for a New Yorker?",
-      "note": "surface reading: a tumble, or falling in love with someone from New York, or the magazine"
-     },
-     {
-      "clueFragment": "Fall for a New Yorker?",
-      "note": "setter's reading: the season an American calls fall, translated into the other English name"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fall for a New Yorker?",
+       "note": "surface reading: a tumble, or falling in love with someone from New York, or the magazine"
+      },
+      {
+       "words": "Fall for a New Yorker?",
+       "note": "setter's reading: the season an American calls fall, translated into the other English name"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Americans call the season between summer and winter 'fall'; the clue asks for the word the rest of the English-speaking world uses.",
      "definitionFit": "The season Americans name fall is known elsewhere by its other name, so the clue is a translation."
@@ -615,30 +565,28 @@
    },
    "solution": "ORCA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORCA",
     "definitions": [
      {
       "text": "Sea creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "netted in",
-      "for": "hidden_word",
-      "note": "something netted is caught inside, so the letters sit enclosed in the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "major catch",
-      "gives": "ORCA",
-      "note": "spans the end of the first word and start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "netted in",
+       "note": "something netted is caught inside, so the letters sit enclosed in the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "major catch",
+       "gives": "ORCA",
+       "note": "spans the end of the first word and start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fisherman's boast about hauling in a big sea animal.",
      "walkthrough": "The fishing surface fits the definition, so the solver hunts for a fish rather than reading the letters in front of them.",
@@ -665,38 +613,24 @@
    },
    "solution": "MEGASTAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEGASTAR",
     "definitions": [
      {
       "text": "A-list celeb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unusually",
-      "for": "anagram",
-      "note": "unusually means in an uncommon manner, so the letters are set out in an uncommon order"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ramsgate",
-      "gives": "RAMSGATE",
-      "note": "Ramsgate is a seaside town in Kent, England"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAMSGATE",
-       "gives": "MEGASTAR"
+       "text": "unusually",
+       "note": "unusually means in an uncommon manner, so the letters are set out in an uncommon order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ramsgate",
+       "note": "Ramsgate is a seaside town in Kent, England"
       }
      ]
     },
@@ -726,54 +660,40 @@
    },
    "solution": "MCMANSION",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MCMANSION",
     "definitions": [
      {
       "text": "large, modern house",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Crooked",
-      "for": "anagram",
-      "note": "crooked means bent out of shape, so the letters are twisted into another order"
-     },
-     {
-      "text": "stealing",
-      "for": "container",
-      "note": "to steal is to take something in and hold it, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "con man is",
-      "gives": "CONMANIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "standard abbreviation for million"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MC",
-      "M",
-      "ANSION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CONMANIS",
-       "gives": "MCANSION"
+       "text": "stealing",
+       "note": "to steal is to take something in and hold it, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Crooked",
+         "note": "crooked means bent out of shape, so the letters are twisted into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "con man is",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "millions",
+       "gives": "M",
+       "note": "standard abbreviation for million"
       }
      ]
     },
@@ -803,28 +723,16 @@
    },
    "solution": "FATHOM",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FATHOM",
     "definitions": [
      {
       "text": "Get to the bottom of",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: understand fully, work out"
      },
      {
       "text": "six feet of water",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get to the bottom of",
-      "note": "first meaning: understand fully, work out"
-     },
-     {
-      "clueFragment": "six feet of water",
-      "note": "second meaning: a unit of depth at sea equal to six feet"
+      "at": 21,
+      "meaning": "second meaning: a unit of depth at sea equal to six feet"
      }
     ],
     "explanation": {
@@ -853,49 +761,41 @@
    },
    "solution": "ABACUS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ABACUS",
     "definitions": [
      {
       "text": "something you can count on",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means being enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Second-rate",
-      "gives": "B",
-      "note": "B grade is second class"
-     },
-     {
-      "clueFragment": "aircon",
-      "gives": "AC",
-      "note": "air conditioning abbreviated"
-     },
-     {
-      "clueFragment": "Australia",
-      "gives": "AUS",
-      "note": "the country's abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BAC",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means being enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australia",
+       "gives": "AUS",
+       "note": "the country's abbreviation"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Second-rate",
+         "gives": "B",
+         "note": "B grade is second class"
+        },
+        {
+         "words": "aircon",
+         "gives": "AC",
+         "note": "air conditioning abbreviated"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -925,32 +825,25 @@
    },
    "solution": "REMARK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REMARK",
     "definitions": [
      {
       "text": "Casual comment",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning"
-     },
-     {
-      "clueFragment": "work on exam papers",
-      "gives": "MARK",
-      "note": "a teacher marks exam scripts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MARK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means concerning"
+      },
+      {
+       "words": "work on exam papers",
+       "gives": "MARK",
+       "note": "a teacher marks exam scripts"
+      }
      ]
     },
     "explanation": {
@@ -980,41 +873,29 @@
    },
    "solution": "MARTINI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARTINI",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "market",
-      "gives": "MART",
-      "note": "a mart is a trading place"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "India",
-      "gives": "I",
-      "note": "India is I in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MART",
-      "IN",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "market",
+       "gives": "MART",
+       "note": "a mart is a trading place"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "India",
+       "gives": "I",
+       "note": "India is I in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1043,28 +924,16 @@
    },
    "solution": "CARDINAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CARDINAL",
     "definitions": [
      {
       "text": "For example, one",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a counting number such as one, two or three"
      },
      {
       "text": "red-coloured finch",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "For example, one",
-      "note": "first meaning: a counting number such as one, two or three"
-     },
-     {
-      "clueFragment": "red-coloured finch",
-      "note": "second meaning: a bright red North American songbird"
+      "at": 17,
+      "meaning": "second meaning: a bright red North American songbird"
      }
     ],
     "explanation": {
@@ -1092,43 +961,31 @@
    },
    "solution": "DEBUT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DEBUT",
     "definitions": [
      {
       "text": "Launch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beset by",
-      "for": "container",
-      "note": "beset means surrounded on all sides, so one piece is hemmed in by another"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "financial liability",
-      "gives": "DEBT",
-      "note": "money owed"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEB",
-      "U",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "note": "beset means surrounded on all sides, so one piece is hemmed in by another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "financial liability",
+       "gives": "DEBT",
+       "note": "money owed"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1157,34 +1014,29 @@
    },
    "solution": "RODE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RODE",
     "definitions": [
      {
       "text": "Went by bike",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by the sounds of it",
-      "for": "homophone",
-      "note": "what something sounds like is how it is heard spoken, not how it is written"
-     }
-    ],
-    "linkWords": [
-     "or maybe"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "went by dinghy",
-      "gives": "RODE",
-      "soundsLike": "ROWED",
-      "note": "a small boat is propelled with oars"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RODE",
+     "indicators": [
+      {
+       "text": "by the sounds of it",
+       "note": "what something sounds like is how it is heard spoken, not how it is written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "went by dinghy",
+       "gives": "ROWED",
+       "note": "a small boat is propelled with oars"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Two ways a person might have travelled: on two wheels or in a small boat.",
      "walkthrough": "Both halves look like definitions; only the cycling one is, and the boating one sounds the same.",
@@ -1212,35 +1064,25 @@
    },
    "solution": "DENSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DENSE",
     "definitions": [
      {
       "text": "Compact",
       "at": 0
      }
     ],
-    "linkWords": [
-     "at the base of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "animal hideouts",
-      "gives": "DENS",
-      "note": "lairs of wild creatures"
-     },
-     {
-      "clueFragment": "earth",
-      "gives": "E",
-      "note": "E is the abbreviation for earth, as on electrical plugs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DENS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "animal hideouts",
+       "gives": "DENS",
+       "note": "lairs of wild creatures"
+      },
+      {
+       "words": "earth",
+       "gives": "E",
+       "note": "E is the abbreviation for earth, as on electrical plugs"
+      }
      ]
     },
     "explanation": {
@@ -1269,55 +1111,53 @@
    },
    "solution": "MUMBAI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MUMBAI",
     "definitions": [
      {
       "text": "city",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "heads for",
-      "for": "letter_selection",
-      "note": "heads are the tops or fronts, so the opening letters are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Family member",
-      "gives": "MUM",
-      "note": "mother, in British spelling"
-     },
-     {
-      "clueFragment": "Bologna",
-      "gives": "B",
-      "select": "first",
-      "note": "opening letter"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "A",
-      "select": "first",
-      "note": "opening letter"
-     },
-     {
-      "clueFragment": "Italian",
-      "gives": "I",
-      "select": "first",
-      "note": "opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUM",
-      "B",
-      "A",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Family member",
+       "gives": "MUM",
+       "note": "mother, in British spelling"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads for",
+         "note": "heads are the tops or fronts, so the opening letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bologna",
+         "note": "opening letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "an",
+         "note": "opening letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Italian",
+         "note": "opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1346,35 +1186,25 @@
    },
    "solution": "FRIEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRIEND",
     "definitions": [
      {
       "text": "pal",
       "at": 15
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Day",
-      "gives": "FRI",
-      "note": "abbreviation for Friday"
-     },
-     {
-      "clueFragment": "close",
-      "gives": "END",
-      "note": "the close is the conclusion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRI",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Day",
+       "gives": "FRI",
+       "note": "abbreviation for Friday"
+      },
+      {
+       "words": "close",
+       "gives": "END",
+       "note": "the close is the conclusion"
+      }
      ]
     },
     "explanation": {
@@ -1403,34 +1233,25 @@
    },
    "solution": "FEE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FEE",
     "definitions": [
      {
       "text": "Price",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every second letter is picked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "offered",
-      "gives": "FEE",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "regularly means at even intervals, so every second letter is picked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "offered",
+       "note": "second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -1459,40 +1280,31 @@
    },
    "solution": "TANGERINES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TANGERINES",
     "definitions": [
      {
       "text": "fruit",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "picking up",
-      "for": "container",
-      "note": "to pick something up is to take hold of it, so one piece holds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fork prongs",
-      "gives": "TINES",
-      "note": "the points of a fork"
-     },
-     {
-      "clueFragment": "passion",
-      "gives": "ANGER",
-      "note": "strong emotion, rage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ANGER",
-      "INES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "picking up",
+       "note": "to pick something up is to take hold of it, so one piece holds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fork prongs",
+       "gives": "TINES",
+       "note": "the points of a fork"
+      },
+      {
+       "words": "passion",
+       "gives": "ANGER",
+       "note": "strong emotion, rage"
+      }
      ]
     },
     "explanation": {

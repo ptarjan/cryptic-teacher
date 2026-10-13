@@ -1,8 +1,6 @@
 {
  "id": "times-29380",
  "number": 29380,
- "series": "times",
- "name": "Times cryptic crossword No 29,380",
  "date": "2025-11-06",
  "dimensions": {
   "cols": 15,
@@ -47,32 +45,19 @@
    },
    "solution": "DOGSBREAKFAST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOG'S BREAKFAST",
     "definitions": [
      {
       "text": "Hash",
-      "at": 0
+      "at": 0,
+      "meaning": "not food here: a hash is a botched job, a mess"
      },
      {
       "text": "in bowl on floor?",
-      "at": 5
+      "at": 5,
+      "meaning": "taken literally: a pet's morning meal, served on the floor"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Hash",
-      "gives": "DOGSBREAKFAST",
-      "note": "not food here: a hash is a botched job, a mess"
-     },
-     {
-      "clueFragment": "in bowl on floor?",
-      "gives": "DOGSBREAKFAST",
-      "note": "taken literally: a pet's morning meal, served on the floor"
-     }
-    ],
+    "spelling": "DOG'S BREAKFAST",
     "explanation": {
      "surface": "Someone describes where the hash has ended up: in a bowl on the floor.",
      "walkthrough": "'Hash' looks like food, which the second half keeps up; it is really the British slang sense of a botched job, which is what 'a dog's breakfast' means.",
@@ -100,45 +85,39 @@
    },
    "solution": "DISSOLUTION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "DISSOLUTION",
     "definitions": [
      {
       "text": "Given instigation of divorce, could the answer be — this?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "instigation of",
-      "for": "letter_selection",
-      "note": "the instigation is the start, so take the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "instigation of divorce",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of divorce"
-     },
-     {
-      "clueFragment": "could the answer be",
-      "gives": "ISSOLUTION",
-      "note": "turned into a statement: 'the answer is SOLUTION'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "SOLUTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "instigation of",
+         "note": "the instigation is the start, so take the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "instigation of divorce",
+         "gives": "DIVORCE",
+         "note": "first letter of divorce"
+        }
+       ]
+      },
+      {
+       "words": "could the answer be",
+       "gives": "ISSOLUTION",
+       "note": "turned into a statement: 'the answer is SOLUTION'"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about what follows once a divorce has been set in motion.",
      "walkthrough": "The whole clue is both wordplay and definition: D followed by IS SOLUTION, and the dissolution of a marriage is exactly what a divorce brings about.",
@@ -165,59 +144,60 @@
    },
    "solution": "GAUDI",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "GAUDI",
     "definitions": [
      {
       "text": "I moved earth toward heaven to inspire Barcelona, ultimately — did I?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "toward heaven",
-      "note": "in a down entry, going up toward heaven means reading from the bottom"
-     },
-     {
-      "text": "to inspire",
-      "note": "to inspire is to breathe in, so the letters take something inside"
-     },
-     {
-      "text": "ultimately",
-      "note": "ultimately means in the end, so only the last letter of Barcelona counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I moved earth",
-      "gives": "IDUG",
-      "note": "I DUG: dug is moved earth"
-     },
-     {
-      "clueFragment": "Barcelona, ultimately",
-      "gives": "A",
-      "select": "last",
-      "note": "last letter of Barcelona"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "A",
-      "UDI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "IDUG",
-       "to": "GUDI"
+       "text": "toward heaven",
+       "note": "in a down entry, going up toward heaven means reading from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to inspire",
+         "note": "to inspire is to breathe in, so the letters take something inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I moved earth",
+         "gives": "IDUG",
+         "note": "I DUG: dug is moved earth"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "A",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately means in the end, so only the last letter of Barcelona counts"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Barcelona, ultimately",
+           "gives": "A",
+           "select": "last",
+           "note": "last letter of Barcelona"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A voice asks whether it really shifted earth skyward to fire up Barcelona.",
      "walkthrough": "I DUG turned upward gives GUDI, which takes in A. The whole clue is also the definition: Gaudí dug the foundations of the Sagrada Família, rising toward heaven, in Barcelona.",
@@ -250,38 +230,30 @@
    },
    "solution": "BONGODRUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BONGO DRUM",
     "definitions": [
      {
       "text": "Beat this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "good French",
-      "gives": "BON",
-      "note": "bon is French for good"
-     },
-     {
-      "clueFragment": "Olympian",
-      "gives": "GOD",
-      "note": "the Olympians were the gods of Mount Olympus"
-     },
-     {
-      "clueFragment": "spirit",
-      "gives": "RUM",
-      "note": "rum is a spirit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BON",
-      "GOD",
-      "RUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good French",
+       "gives": "BON",
+       "note": "bon is French for good"
+      },
+      {
+       "words": "Olympian",
+       "gives": "GOD",
+       "note": "the Olympians were the gods of Mount Olympus"
+      },
+      {
+       "words": "spirit",
+       "gives": "RUM",
+       "note": "rum is a spirit"
+      }
      ]
     },
     "explanation": {
@@ -311,60 +283,64 @@
    },
    "solution": "ETRURIA",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ETRURIA",
     "definitions": [
      {
       "text": "kingdom of Italy",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the river goes inside the city"
-     },
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "the city loses its last letter"
-     },
-     {
-      "text": "bordering",
-      "note": "a country bordering another sits right beside it, so A is placed directly after the city"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E = European"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R = river"
-     },
-     {
-      "clueFragment": "Piedmont city almost",
-      "gives": "TURI",
-      "note": "TURIN, the capital of Piedmont, without its last letter"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "TRURI",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ETRURIA",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "the city loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the river goes inside the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "E = European"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "bordering",
+           "note": "a country bordering another sits right beside it, so A is placed directly after the city"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Piedmont city almost",
+           "gives": "TURI",
+           "note": "TURIN, the capital of Piedmont, without its last letter"
+          },
+          {
+           "words": "river",
+           "gives": "R",
+           "note": "R = river"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "note": "as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -392,10 +368,6 @@
    },
    "solution": "KNEAD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KNEAD",
     "definitions": [
      {
       "text": "to make a bloomer, say",
@@ -403,21 +375,23 @@
       "note": "the definition describes what you do to make a loaf: knead is the verb"
      }
     ],
-    "indicators": [
-     {
-      "text": "in conference",
-      "for": "homophone",
-      "note": "conferring is talking, so the word is heard, not seen"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Imperative",
-      "gives": "KNEAD",
-      "soundsLike": "NEED",
-      "note": "a need is an imperative, something you must have"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNEAD",
+     "indicators": [
+      {
+       "text": "in conference",
+       "note": "conferring is talking, so the word is heard, not seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Imperative",
+       "gives": "NEED",
+       "note": "a need is an imperative, something you must have"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A meeting rule that insists someone commit a blunder.",
      "walkthrough": "A bloomer looks like a blunder; here it is a long British loaf of white bread with a rounded top, and dough for it must be kneaded.",
@@ -445,38 +419,24 @@
    },
    "solution": "ALIGNMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALIGNMENT",
     "definitions": [
      {
       "text": "what might set one straight?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in a muddle",
-      "for": "anagram",
-      "note": "something in a muddle is disordered, so the letters of lamenting come out of order"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lamenting",
-      "gives": "LAMENTING",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LAMENTING",
-       "gives": "ALIGNMENT"
+       "text": "in a muddle",
+       "note": "something in a muddle is disordered, so the letters of lamenting come out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lamenting",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -507,30 +467,16 @@
    },
    "solution": "TAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAN",
     "definitions": [
      {
       "text": "Brown",
-      "at": 0
+      "at": 0,
+      "meaning": "a colour: a light yellowish brown, as of leather"
      },
      {
       "text": "belt",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brown",
-      "gives": "TAN",
-      "note": "a colour: a light yellowish brown, as of leather"
-     },
-     {
-      "clueFragment": "belt",
-      "gives": "TAN",
-      "note": "a verb: to thrash, as in giving someone a hiding"
+      "at": 6,
+      "meaning": "a verb: to thrash, as in giving someone a hiding"
      }
     ],
     "explanation": {
@@ -559,30 +505,28 @@
    },
    "solution": "ESAU",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ESAU",
     "definitions": [
      {
       "text": "Biblical character",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "arrests",
-      "for": "hidden_word",
-      "note": "the phrase holds the answer captive inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "James authorises",
-      "gives": "ESAU",
-      "note": "jamES AUthorises"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "arrests",
+       "note": "the phrase holds the answer captive inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "James authorises",
+       "gives": "ESAU",
+       "note": "jamES AUthorises"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man named James signs off on some arrests.",
      "walkthrough": "James sounds like the apostle, making the answer seem to be another New Testament name; Esau is Jacob's twin from Genesis.",
@@ -609,47 +553,47 @@
    },
    "solution": "NORWEGIAN",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "NORWEGIAN",
     "definitions": [
      {
       "text": "European",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "75 per cent",
-      "note": "keep three of the four letters of want"
-     },
-     {
-      "text": "unfortunately",
-      "note": "things going badly suggests the letters are mixed up"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "region",
-      "gives": "REGION",
-      "note": "anagram fodder, 6 letters"
-     },
-     {
-      "clueFragment": "75 per cent in want",
-      "gives": "WAN",
-      "note": "three quarters of WANT"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NORWEGIAN",
+     "parts": [
       {
-       "fodder": "REGION WAN",
-       "gives": "NORWEGIAN"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "75 per cent",
+         "note": "keep three of the four letters of want"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "unfortunately",
+           "note": "things going badly suggests the letters are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "region",
+           "note": "anagram fodder, 6 letters"
+          },
+          {
+           "words": "75 per cent in want",
+           "gives": "WAN",
+           "note": "three quarters of WANT"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -689,57 +633,52 @@
    },
    "solution": "KOHINOOR",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "container"
-    ],
-    "answer": "KOH-I-NOOR",
     "definitions": [
      {
       "text": "Big rock",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rolled back",
-      "note": "read the castle's letters backwards"
-     },
-     {
-      "text": "not initially",
-      "note": "the word is missing at the start, so its first letter is dropped"
-     },
-     {
-      "text": "gaining access",
-      "note": "the charger gets inside the castle"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "castle",
-      "gives": "ROOK",
-      "note": "in chess the castle is also called the rook"
-     },
-     {
-      "clueFragment": "charger not initially",
-      "gives": "HINO",
-      "note": "RHINO, famous for charging, loses its R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KO",
-      "HINO",
-      "OR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "KOHINOOR",
+     "parts": [
       {
-       "from": "ROOK",
-       "to": "KOOR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "rolled back",
+         "note": "read the castle's letters backwards"
+        },
+        {
+         "text": "gaining access",
+         "note": "the charger gets inside the castle"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "not initially",
+           "note": "the word is missing at the start, so its first letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "castle",
+           "gives": "ROOK",
+           "note": "in chess the castle is also called the rook"
+          }
+         ]
+        },
+        {
+         "words": "charger not initially",
+         "gives": "HINO",
+         "note": "RHINO, famous for charging, loses its R"
+        }
+       ]
       }
      ]
     },
@@ -770,42 +709,30 @@
    },
    "solution": "DINGHY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DINGHY",
     "definitions": [
      {
       "text": "rescuer at sea?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dark",
-      "gives": "DINGY",
-      "note": "dingy = dark, gloomy"
-     },
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "H = hard, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DING",
-      "H",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dark",
+       "gives": "DINGY",
+       "note": "dingy = dark, gloomy"
+      },
+      {
+       "words": "Hard",
+       "gives": "H",
+       "note": "H = hard, as on pencils"
+      }
      ]
     },
     "explanation": {
@@ -839,49 +766,40 @@
    },
    "solution": "HOMOSAPIENS",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "HOMO SAPIENS",
     "definitions": [
      {
       "text": "man",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "note": "the party girls wrap around the other letters"
-     },
-     {
-      "text": "embarrassed",
-      "note": "flustered, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Party girls",
-      "gives": "HENS",
-      "note": "the women at a hen party, a British bachelorette party"
-     },
-     {
-      "clueFragment": "OAP, I'm so",
-      "gives": "OAPIMSO",
-      "note": "anagram fodder, 7 letters; an OAP is a British old-age pensioner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OMOSAPI",
-      "ENS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OAPIMSO",
-       "gives": "OMOSAPI"
+       "text": "embracing",
+       "note": "the party girls wrap around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Party girls",
+       "gives": "HENS",
+       "note": "the women at a hen party, a British bachelorette party"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "embarrassed",
+         "note": "flustered, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "OAP, I'm so",
+         "note": "anagram fodder, 7 letters; an OAP is a British old-age pensioner"
+        }
+       ]
       }
      ]
     },
@@ -912,54 +830,44 @@
    },
    "solution": "JUGGERNAUT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "JUGGERNAUT",
     "definitions": [
      {
       "text": "Unstoppable force",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "wrong, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prison",
-      "gives": "JUG",
-      "note": "jug is slang for prison"
-     },
-     {
-      "clueFragment": "anger",
-      "gives": "ANGER",
-      "note": "anagram fodder, 5 letters"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "UT",
-      "note": "ut is the old name for the note do"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JUG",
-      "GERNA",
-      "UT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ANGER",
-       "gives": "GERNA"
+       "words": "prison",
+       "gives": "JUG",
+       "note": "jug is slang for prison"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "note": "wrong, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "anger",
+           "note": "anagram fodder, 5 letters"
+          },
+          {
+           "words": "note",
+           "gives": "UT",
+           "note": "ut is the old name for the note do"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -995,62 +903,49 @@
    },
    "solution": "GUMARABIC",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "GUM ARABIC",
     "definitions": [
      {
       "text": "Adhesive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "note": "in a down entry, reading upward reverses the letters"
-     },
-     {
-      "text": "on top of",
-      "note": "in a down entry, this chunk sits above the next"
-     },
-     {
-      "text": "top of",
-      "for": "reversal",
-      "note": "the top of a down-standing word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "with which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stick a vessel",
-      "gives": "BARAMUG",
-      "note": "BAR (a stick) + A + MUG (a vessel)"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "top of cupboard",
-      "gives": "C",
-      "note": "first letter of cupboard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUMARAB",
-      "I",
-      "C"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "BARAMUG",
-       "to": "GUMARAB"
+       "text": "up",
+       "note": "in a down entry, reading upward reverses the letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on top of",
+         "note": "in a down entry, this chunk sits above the next"
+        },
+        {
+         "text": "top of",
+         "note": "the top of a down-standing word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick a vessel",
+         "gives": "BARAMUG",
+         "note": "BAR (a stick) + A + MUG (a vessel)"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "as written"
+      },
+      {
+       "words": "top of cupboard",
+       "gives": "C",
+       "note": "first letter of cupboard"
       }
      ]
     },
@@ -1080,50 +975,41 @@
    },
    "solution": "TRANSONIC",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TRANSONIC",
     "definitions": [
      {
       "text": "Very fast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "through",
-      "for": "container",
-      "note": "the hurried boy passes through the middle of the twitch"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twitch",
-      "gives": "TIC",
-      "note": "a tic is a twitch"
-     },
-     {
-      "clueFragment": "hurried",
-      "gives": "RAN",
-      "note": "ran = hurried"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "SON",
-      "note": "a son is a boy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAN",
-      "SON",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "note": "the hurried boy passes through the middle of the twitch"
+      }
+     ],
+     "parts": [
+      {
+       "words": "twitch",
+       "gives": "TIC",
+       "note": "a tic is a twitch"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hurried",
+         "gives": "RAN",
+         "note": "ran = hurried"
+        },
+        {
+         "words": "boy",
+         "gives": "SON",
+         "note": "a son is a boy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1152,44 +1038,46 @@
    },
    "solution": "EMMA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EMMA",
     "definitions": [
      {
       "text": "book",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "note": "in an across entry, the graduate comes after"
-     },
-     {
-      "text": "cover of",
-      "note": "the cover is the outside, so take the outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cover of exam",
-      "gives": "EM",
-      "select": "outer",
-      "note": "outer letters of exam"
-     },
-     {
-      "clueFragment": "Graduate",
-      "gives": "MA",
-      "note": "MA = Master of Arts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "MA"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across entry, the graduate comes after"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "EM",
+       "indicators": [
+        {
+         "text": "cover of",
+         "note": "the cover is the outside, so take the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "cover of exam",
+         "gives": "EM",
+         "select": "outer",
+         "note": "outer letters of exam"
+        }
+       ]
+      },
+      {
+       "words": "Graduate",
+       "gives": "MA",
+       "note": "MA = Master of Arts"
+      }
      ]
     },
     "explanation": {
@@ -1218,37 +1106,30 @@
    },
    "solution": "FIRM",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FIRM",
     "definitions": [
      {
       "text": "Concern",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "kicking off",
-      "for": "letter_selection",
-      "note": "starting, so take the first letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for international relations, maybe, all",
-      "gives": "FIRM",
-      "select": "first",
-      "note": "For International Relations Maybe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "I",
-      "R",
-      "M"
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "FIRM",
+     "indicators": [
+      {
+       "text": "kicking off",
+       "note": "starting, so take the first letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "for international relations, maybe, all",
+       "gives": "FIRM",
+       "select": "first",
+       "note": "For International Relations Maybe"
+      }
      ]
     },
     "explanation": {
@@ -1284,62 +1165,66 @@
    },
    "solution": "MIMEARTIST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MIME ARTIST",
     "definitions": [
      {
       "text": "silent movie star?",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "in the end",
-      "note": "what comes in the end of redundant is its final letter"
-     },
-     {
-      "text": "after",
-      "note": "the listener and the end letter follow I'M"
-     },
-     {
-      "text": "introduced to",
-      "note": "the whole chunk is put inside the film"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "film",
-      "gives": "MIST",
-      "note": "a film of mist on glass"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "as written, without the apostrophe"
-     },
-     {
-      "clueFragment": "Listener",
-      "gives": "EAR",
-      "note": "the ear is what listens"
-     },
-     {
-      "clueFragment": "redundant in the end",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of redundant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IM",
-      "EAR",
-      "T",
-      "IST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in the end",
+       "note": "what comes in the end of redundant is its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film",
+       "gives": "MIST",
+       "note": "a film of mist on glass"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "the listener and the end letter follow I'M"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm",
+         "note": "as written, without the apostrophe"
+        },
+        {
+         "words": "Listener",
+         "gives": "EAR",
+         "note": "the ear is what listens"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "T",
+         "indicators": [
+          {
+           "text": "introduced to",
+           "note": "the whole chunk is put inside the film"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "redundant in the end",
+           "gives": "T",
+           "select": "last",
+           "note": "last letter of redundant"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1369,43 +1254,31 @@
    },
    "solution": "MARTINI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MARTINI",
     "definitions": [
      {
       "text": "Alcoholic drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "secreted in",
-      "for": "container",
-      "note": "to secrete something is to hide it away, so guile goes inside pocket"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pocket",
-      "gives": "MINI",
-      "note": "pocket as an adjective, pocket-sized: mini"
-     },
-     {
-      "clueFragment": "guile",
-      "gives": "ART",
-      "note": "art = cunning, guile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ART",
-      "INI"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secreted in",
+       "note": "to secrete something is to hide it away, so guile goes inside pocket"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pocket",
+       "gives": "MINI",
+       "note": "pocket as an adjective, pocket-sized: mini"
+      },
+      {
+       "words": "guile",
+       "gives": "ART",
+       "note": "art = cunning, guile"
+      }
      ]
     },
     "explanation": {
@@ -1434,41 +1307,30 @@
    },
    "solution": "UNWRAP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNWRAP",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "opponents",
-      "gives": "NW",
-      "note": "North and West, partners at bridge, are the opponents of South and East"
-     },
-     {
-      "clueFragment": "hit",
-      "gives": "RAP",
-      "note": "a rap is a sharp hit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NW",
-      "RAP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "University",
+       "gives": "U",
+       "note": "U = university"
+      },
+      {
+       "words": "opponents",
+       "gives": "NW",
+       "note": "North and West, partners at bridge, are the opponents of South and East"
+      },
+      {
+       "words": "hit",
+       "gives": "RAP",
+       "note": "a rap is a sharp hit"
+      }
      ]
     },
     "explanation": {
@@ -1497,43 +1359,31 @@
    },
    "solution": "PRADO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRADO",
     "definitions": [
      {
       "text": "Gallery",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "frames",
-      "for": "container",
-      "note": "one word surrounds the other like a picture frame"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro = for, in favour of"
-     },
-     {
-      "clueFragment": "bill",
-      "gives": "AD",
-      "note": "a bill is a poster, an advertisement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PR",
-      "AD",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "frames",
+       "note": "one word surrounds the other like a picture frame"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro = for, in favour of"
+      },
+      {
+       "words": "bill",
+       "gives": "AD",
+       "note": "a bill is a poster, an advertisement"
+      }
      ]
     },
     "explanation": {
@@ -1562,48 +1412,38 @@
    },
    "solution": "RESCRIPT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESCRIPT",
     "definitions": [
      {
       "text": "decree",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "claimed by",
-      "for": "anagram",
-      "note": "taken up by, so the credit joins the priest's letters"
-     },
-     {
-      "text": "amending",
-      "for": "anagram",
-      "note": "changing, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Credit",
-      "gives": "CR",
-      "note": "CR = credit"
-     },
-     {
-      "clueFragment": "priest",
-      "gives": "PRIEST",
-      "note": "anagram fodder, 6 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CR PRIEST",
-       "gives": "RESCRIPT"
+       "text": "claimed by",
+       "note": "taken up by, so the credit joins the priest's letters"
+      },
+      {
+       "text": "amending",
+       "note": "changing, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Credit",
+         "gives": "CR",
+         "note": "CR = credit"
+        },
+        {
+         "words": "priest",
+         "note": "anagram fodder, 6 letters"
+        }
+       ]
       }
      ]
     },
@@ -1633,40 +1473,31 @@
    },
    "solution": "ROMEO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROMEO",
     "definitions": [
      {
       "text": "Gallant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "donning",
-      "for": "container",
-      "note": "putting on, so the jumper wraps round the first person"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jumper",
-      "gives": "ROO",
-      "note": "a roo, a kangaroo, is a jumper"
-     },
-     {
-      "clueFragment": "first person",
-      "gives": "ME",
-      "note": "me is the first person pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "ME",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "donning",
+       "note": "putting on, so the jumper wraps round the first person"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jumper",
+       "gives": "ROO",
+       "note": "a roo, a kangaroo, is a jumper"
+      },
+      {
+       "words": "first person",
+       "gives": "ME",
+       "note": "me is the first person pronoun"
+      }
      ]
     },
     "explanation": {
@@ -1696,59 +1527,57 @@
    },
    "solution": "LIBRARIAN",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LIBRARIAN",
     "definitions": [
      {
       "text": "Card issuer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "banking",
-      "note": "a bank lines each side of a river"
-     },
-     {
-      "text": "firstly",
-      "note": "firstly means at the start, so only the opening letter of instruction is used"
-     },
-     {
-      "text": "alongside",
-      "note": "the sign sits next to the rest"
-     }
-    ],
-    "linkWords": [
-     "it"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sign",
-      "gives": "LIBRA",
-      "note": "Libra is a sign of the zodiac"
-     },
-     {
-      "clueFragment": "printed",
-      "gives": "RAN",
-      "note": "a newspaper ran the story: printed it"
-     },
-     {
-      "clueFragment": "instruction firstly",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of instruction"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIBRA",
-      "R",
-      "I",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "banking",
+       "note": "a bank lines each side of a river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sign",
+       "gives": "LIBRA",
+       "note": "Libra is a sign of the zodiac"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "firstly",
+         "note": "firstly means at the start, so only the opening letter of instruction is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "printed",
+         "gives": "RAN",
+         "note": "a newspaper ran the story: printed it"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "alongside",
+           "note": "the sign sits next to the rest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "instruction firstly",
+           "note": "first letter of instruction"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1778,36 +1607,29 @@
    },
    "solution": "LAV",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LAV",
     "definitions": [
      {
       "text": "John",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "doffs cap",
-      "for": "deletion",
-      "note": "removing the cap takes off the top letter"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "SLAV",
-      "note": "a Slav is a European; drop the S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAV"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doffs cap",
+       "note": "removing the cap takes off the top letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European",
+       "gives": "SLAV",
+       "note": "a Slav is a European; drop the S"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1837,32 +1659,25 @@
    },
    "solution": "MEET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MEET",
     "definitions": [
      {
       "text": "Gather",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I'm",
-      "gives": "ME",
-      "note": "I am: the speaker is ME"
-     },
-     {
-      "clueFragment": "from another planet",
-      "gives": "ET",
-      "note": "ET = extraterrestrial"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "ET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I'm",
+       "gives": "ME",
+       "note": "I am: the speaker is ME"
+      },
+      {
+       "words": "from another planet",
+       "gives": "ET",
+       "note": "ET = extraterrestrial"
+      }
      ]
     },
     "explanation": {
@@ -1898,33 +1713,25 @@
    },
    "solution": "VICTORIACROSS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VICTORIA CROSS",
     "definitions": [
      {
       "text": "Award",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "gold medallist",
-      "gives": "VICTOR",
-      "note": "the gold medal goes to the winner, the victor"
-     },
-     {
-      "clueFragment": "the first clue",
-      "gives": "IACROSS",
-      "note": "the first clue in a crossword is 1 across, with I as the Roman one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VICTOR",
-      "I",
-      "ACROSS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gold medallist",
+       "gives": "VICTOR",
+       "note": "the gold medal goes to the winner, the victor"
+      },
+      {
+       "words": "the first clue",
+       "gives": "IACROSS",
+       "note": "the first clue in a crossword is 1 across, with I as the Roman one"
+      }
      ]
     },
     "explanation": {

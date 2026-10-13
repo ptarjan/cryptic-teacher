@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3069",
  "number": 3069,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,069",
  "setter": "Rongo",
  "date": "2025-08-16",
  "dimensions": {
@@ -42,44 +40,45 @@
    },
    "solution": "BROTH",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BROTH",
     "definitions": [
      {
       "text": "soup",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "consuming"
-     },
-     {
-      "text": "starter of",
-      "note": "the starter of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The two",
-      "gives": "BOTH",
-      "note": "the two = both"
-     },
-     {
-      "clueFragment": "starter of rich",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of rich, taken inside B…OTH"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "R",
-      "OTH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consuming"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The two",
+       "gives": "BOTH",
+       "note": "the two = both"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "R",
+       "indicators": [
+        {
+         "text": "starter of",
+         "note": "the starter of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "starter of rich",
+         "gives": "R",
+         "select": "first",
+         "note": "first letter of rich, taken inside B…OTH"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -109,32 +108,25 @@
    },
    "solution": "BEAGLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BEAGLE",
     "definitions": [
      {
       "text": "dog",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B = British"
-     },
-     {
-      "clueFragment": "bird",
-      "gives": "EAGLE",
-      "note": "an eagle is a bird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EAGLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B = British"
+      },
+      {
+       "words": "bird",
+       "gives": "EAGLE",
+       "note": "an eagle is a bird"
+      }
      ]
     },
     "explanation": {
@@ -163,35 +155,24 @@
    },
    "solution": "OCTOGENARIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OCTOGENARIAN",
     "definitions": [
      {
       "text": "Very old",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tailor",
-      "for": "anagram",
-      "note": "to tailor is to cut and refashion, so the letters are reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in orange coat",
-      "gives": "INORANGECOAT",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INORANGECOAT",
-       "gives": "OCTOGENARIAN"
+       "text": "tailor",
+       "note": "to tailor is to cut and refashion, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in orange coat",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -221,39 +202,35 @@
    },
    "solution": "HARDSHIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HARDSHIP",
     "definitions": [
      {
       "text": "difficulty",
       "at": 19
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stern",
-      "gives": "HARD",
-      "note": "stern = hard, severe"
-     },
-     {
-      "clueFragment": "on",
-      "note": "placed before, in a down clue"
-     },
-     {
-      "clueFragment": "vessel",
-      "gives": "SHIP",
-      "note": "a ship is a vessel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HARD",
-      "SHIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Stern",
+         "gives": "HARD",
+         "note": "stern = hard, severe"
+        },
+        {
+         "words": "vessel",
+         "gives": "SHIP",
+         "note": "a ship is a vessel"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "on",
+       "note": "placed before, in a down clue"
+      }
      ]
     },
     "explanation": {
@@ -289,39 +266,25 @@
    },
    "solution": "DEJAVU",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DEJA VU",
     "definitions": [
      {
       "text": "sense of repetition",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "Introductions to",
-      "for": "letter_selection",
-      "note": "each word's introduction is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "duke, earl, judge and viscount use",
-      "gives": "DEJAVU",
-      "select": "first",
-      "note": "first letters of the six words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "E",
-      "J",
-      "A",
-      "V",
-      "U"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Introductions to",
+       "note": "each word's introduction is its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "duke, earl, judge and viscount use",
+       "note": "first letters of the six words"
+      }
      ]
     },
     "explanation": {
@@ -350,44 +313,35 @@
    },
    "solution": "YAWN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "YAWN",
     "definitions": [
      {
       "text": "something boring",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "to lift",
-      "for": "reversal",
-      "note": "in a down clue, lifting turns the letters bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N = new"
-     },
-     {
-      "clueFragment": "method",
-      "gives": "WAY",
-      "note": "a method is a way"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YAWN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NWAY",
-       "to": "YAWN"
+       "text": "to lift",
+       "note": "in a down clue, lifting turns the letters bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "gives": "N",
+         "note": "N = new"
+        },
+        {
+         "words": "method",
+         "gives": "WAY",
+         "note": "a method is a way"
+        }
+       ]
       }
      ]
     },
@@ -418,38 +372,30 @@
    },
    "solution": "PRESET",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PRESET",
     "definitions": [
      {
       "text": "arranged in advance",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "missing from",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gift",
-      "gives": "PRESENT",
-      "note": "a gift is a present"
-     },
-     {
-      "clueFragment": "Name",
-      "gives": "N",
-      "note": "N = name, taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRES",
-      "ET"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing from"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gift",
+       "gives": "PRESENT",
+       "note": "a gift is a present"
+      },
+      {
+       "words": "Name",
+       "gives": "N",
+       "note": "N = name, taken out"
+      }
      ]
     },
     "explanation": {
@@ -478,35 +424,24 @@
    },
    "solution": "ALEXANDER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ALEXANDER",
     "definitions": [
      {
       "text": "ancient Macedonian hero",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Work",
-      "for": "anagram",
-      "note": "work the letters, as dough is worked into a new shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relaxed an",
-      "gives": "RELAXEDAN",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RELAXEDAN",
-       "gives": "ALEXANDER"
+       "text": "Work",
+       "note": "work the letters, as dough is worked into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "relaxed an",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -536,35 +471,24 @@
    },
    "solution": "DISCOURTEOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISCOURTEOUS",
     "definitions": [
      {
       "text": "Rude",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "the letters are put in a terrible mess"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "too rude — I cuss",
-      "gives": "TOORUDEICUSS",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOORUDEICUSS",
-       "gives": "DISCOURTEOUS"
+       "text": "terribly",
+       "note": "the letters are put in a terrible mess"
+      }
+     ],
+     "parts": [
+      {
+       "words": "too rude — I cuss",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -594,33 +518,29 @@
    },
    "solution": "AFTER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AFTER",
     "definitions": [
      {
       "text": "behind",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "with no front",
-      "for": "deletion",
-      "note": "the first letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roof support",
-      "gives": "RAFTER",
-      "note": "a rafter holds up a roof; drop the R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AFTER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no front",
+       "note": "the first letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roof support",
+       "gives": "RAFTER",
+       "note": "a rafter holds up a roof; drop the R"
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -649,52 +569,43 @@
    },
    "solution": "DIAGNOSIS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DIAGNOSIS",
     "definitions": [
      {
       "text": "identification of a problem",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Withdrawing",
-      "for": "reversal"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "air",
-      "gives": "SONG",
-      "note": "an air is a tune or song"
-     },
-     {
-      "clueFragment": "to help",
-      "gives": "AID",
-      "note": "to aid is to help"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIAGNOS",
-      "IS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SONGAID",
-       "to": "DIAGNOS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Withdrawing"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "air",
+           "gives": "SONG",
+           "note": "an air is a tune or song"
+          },
+          {
+           "words": "to help",
+           "gives": "AID",
+           "note": "to aid is to help"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "note": "as written"
       }
      ]
     },
@@ -724,34 +635,25 @@
    },
    "solution": "EVE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EVE",
     "definitions": [
      {
       "text": "Woman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "undressed",
-      "for": "letter_selection",
-      "note": "stripped of its outer layer, so the end letters come off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "never",
-      "gives": "EVE",
-      "select": "middle",
-      "note": "NEVER without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVE"
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "undressed",
+       "note": "stripped of its outer layer, so the end letters come off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "never",
+       "note": "NEVER without its first and last letters"
+      }
      ]
     },
     "explanation": {
@@ -781,54 +683,47 @@
    },
    "solution": "HOUSEBOAT",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HOUSEBOAT",
     "definitions": [
      {
       "text": "floating home",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "catching",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "H = hard, as on pencils"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "OUSE",
-      "note": "the Ouse is an English river"
-     },
-     {
-      "clueFragment": "snake",
-      "gives": "BOA",
-      "note": "a boa is a snake"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OUSE",
-      "BOA",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "HOUSEBOAT",
+     "indicators": [
+      {
+       "text": "catching"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hard",
+         "gives": "H",
+         "note": "H = hard, as on pencils"
+        },
+        {
+         "words": "river",
+         "gives": "OUSE",
+         "note": "the Ouse is an English river"
+        },
+        {
+         "words": "snake",
+         "gives": "BOA",
+         "note": "a boa is a snake"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T = time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -857,32 +752,25 @@
    },
    "solution": "ENDANGER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENDANGER",
     "definitions": [
      {
       "text": "Put at risk",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "stop",
-      "gives": "END",
-      "note": "to stop is to end"
-     },
-     {
-      "clueFragment": "rage",
-      "gives": "ANGER",
-      "note": "rage = anger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "END",
-      "ANGER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stop",
+       "gives": "END",
+       "note": "to stop is to end"
+      },
+      {
+       "words": "rage",
+       "gives": "ANGER",
+       "note": "rage = anger"
+      }
      ]
     },
     "explanation": {
@@ -910,47 +798,40 @@
    },
    "solution": "SWAMPLAND",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SWAMPLAND",
     "definitions": [
      {
       "text": "fen area",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "only the initial letter of drain is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps did butterfly",
-      "gives": "SWAM",
-      "note": "butterfly is a swimming stroke, so someone doing it swam"
-     },
-     {
-      "clueFragment": "scheme",
-      "gives": "PLAN",
-      "note": "a scheme is a plan"
-     },
-     {
-      "clueFragment": "drain",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWAM",
-      "PLAN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perhaps did butterfly",
+       "gives": "SWAM",
+       "note": "butterfly is a swimming stroke, so someone doing it swam"
+      },
+      {
+       "words": "scheme",
+       "gives": "PLAN",
+       "note": "a scheme is a plan"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "only the initial letter of drain is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drain",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -980,41 +861,36 @@
    },
    "solution": "SICKLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SICKLE",
     "definitions": [
      {
       "text": "Tool for cutting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "edges of",
-      "for": "letter_selection",
-      "note": "the edges of a word are its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diseased",
-      "gives": "SICK",
-      "note": "diseased = sick"
-     },
-     {
-      "clueFragment": "edges of lucerne",
-      "gives": "LE",
-      "select": "outer",
-      "note": "first and last letters of lucerne"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SICK",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "diseased",
+       "gives": "SICK",
+       "note": "diseased = sick"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "edges of",
+         "note": "the edges of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "edges of lucerne",
+         "gives": "LUCERNE",
+         "note": "first and last letters of lucerne"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1042,38 +918,29 @@
    },
    "solution": "ALIBIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALIBIS",
     "definitions": [
      {
       "text": "They say one's somewhere else",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "Liberal",
-      "gives": "LIB",
-      "note": "Lib = Liberal"
-     },
-     {
-      "clueFragment": "exists",
-      "gives": "IS",
-      "note": "is = exists"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LIB",
-      "IS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as written"
+      },
+      {
+       "words": "Liberal",
+       "gives": "LIB",
+       "note": "Lib = Liberal"
+      },
+      {
+       "words": "exists",
+       "gives": "IS",
+       "note": "is = exists"
+      }
      ]
     },
     "explanation": {
@@ -1103,41 +970,25 @@
    },
    "solution": "RAP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "RAP",
     "definitions": [
      {
       "text": "declamatory song style",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Back",
-      "for": "reversal",
-      "note": "as an adverb, back means towards the rear, so the letters are read from the rear forwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "equality",
-      "gives": "PAR",
-      "note": "at par = equal, as in on a par with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PAR",
-       "to": "RAP"
+       "text": "Back",
+       "note": "as an adverb, back means towards the rear, so the letters are read from the rear forwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "equality",
+       "gives": "PAR",
+       "note": "at par = equal, as in on a par with"
       }
      ]
     },
@@ -1167,46 +1018,40 @@
    },
    "solution": "POETRY",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "POETRY",
     "definitions": [
      {
       "text": "lines",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "favourite",
-      "gives": "PET",
-      "note": "a pet is a favourite, as in teacher's pet"
-     },
-     {
-      "clueFragment": "Circle",
-      "gives": "O",
-      "note": "O is circle-shaped"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "RY",
-      "note": "RY = railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "O",
-      "ET",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among"
+        }
+       ],
+       "parts": [
+        {
+         "words": "favourite",
+         "gives": "PET",
+         "note": "a pet is a favourite, as in teacher's pet"
+        },
+        {
+         "words": "Circle",
+         "gives": "O",
+         "note": "O is circle-shaped"
+        }
+       ]
+      },
+      {
+       "words": "railway",
+       "gives": "RY",
+       "note": "RY = railway"
+      }
      ]
     },
     "explanation": {
@@ -1236,38 +1081,24 @@
    },
    "solution": "CRITERION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CRITERION",
     "definitions": [
      {
       "text": "Requirement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fix",
-      "for": "anagram",
-      "note": "to fix is to repair, so the letters are put right in a new order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rot in rice",
-      "gives": "ROTINRICE",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROTINRICE",
-       "gives": "CRITERION"
+       "text": "fix",
+       "note": "to fix is to repair, so the letters are put right in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rot in rice",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1297,30 +1128,16 @@
    },
    "solution": "ECHO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ECHO",
     "definitions": [
      {
       "text": "Repeat",
-      "at": 0
+      "at": 0,
+      "meaning": "to repeat a sound back is what a canyon wall does"
      },
      {
       "text": "fifth word of radio series",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Repeat",
-      "gives": "ECHO",
-      "note": "to repeat a sound back is what a canyon wall does"
-     },
-     {
-      "clueFragment": "fifth word of radio series",
-      "gives": "ECHO",
-      "note": "the radio series is the phonetic alphabet; its fifth word stands for E"
+      "at": 7,
+      "meaning": "the radio series is the phonetic alphabet; its fifth word stands for E"
      }
     ],
     "explanation": {
@@ -1349,35 +1166,25 @@
    },
    "solution": "GHOST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GHOST",
     "definitions": [
      {
       "text": "Spirit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G = good"
-     },
-     {
-      "clueFragment": "party-giver",
-      "gives": "HOST",
-      "note": "the host gives the party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "HOST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G = good"
+      },
+      {
+       "words": "party-giver",
+       "gives": "HOST",
+       "note": "the host gives the party"
+      }
      ]
     },
     "explanation": {
@@ -1407,40 +1214,34 @@
    },
    "solution": "LUNCHTIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LUNCHTIME",
     "definitions": [
      {
       "text": "when midday meal is taken",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "the letters are put out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L = left"
-     },
-     {
-      "clueFragment": "the cumin",
-      "gives": "THECUMIN",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LTHECUMIN",
-       "gives": "LUNCHTIME"
+       "text": "out",
+       "note": "the letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Left",
+         "gives": "L",
+         "note": "L = left"
+        },
+        {
+         "words": "the cumin",
+         "note": "anagram fodder, 8 letters"
+        }
+       ]
       }
      ]
     },
@@ -1470,47 +1271,41 @@
    },
    "solution": "RISKY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RISKY",
     "definitions": [
      {
       "text": "Hazardous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lead-in for",
-      "for": "letter_selection",
-      "note": "the lead-in of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lead-in for Radio",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Radio"
-     },
-     {
-      "clueFragment": "1",
-      "gives": "I",
-      "note": "1 looks like the Roman numeral I"
-     },
-     {
-      "clueFragment": "broadcaster",
-      "gives": "SKY",
-      "note": "Sky is a British broadcaster"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "I",
-      "SKY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead-in for",
+         "note": "the lead-in of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lead-in for Radio",
+         "gives": "RADIO",
+         "note": "first letter of Radio"
+        }
+       ]
+      },
+      {
+       "words": "1",
+       "gives": "I",
+       "note": "1 looks like the Roman numeral I"
+      },
+      {
+       "words": "broadcaster",
+       "gives": "SKY",
+       "note": "Sky is a British broadcaster"
+      }
      ]
     },
     "explanation": {

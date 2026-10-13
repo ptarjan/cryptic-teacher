@@ -1,8 +1,6 @@
 {
  "id": "timesquick-2968",
  "number": 2968,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 2,968",
  "setter": "Trelawney",
  "date": "2025-04-21",
  "dimensions": {
@@ -42,31 +40,29 @@
    },
    "solution": "AUTOCUE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "AUTOCUE",
     "definitions": [
      {
       "text": "Aid for speaker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "what is reported is passed on by word of mouth, so the answer is how the phrase sounds when said"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "traffic jam",
-      "gives": "AUTOCUE",
-      "soundsLike": "AUTO QUEUE",
-      "note": "a traffic jam is a queue of autos (cars)"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AUTOCUE",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "what is reported is passed on by word of mouth, so the answer is how the phrase sounds when said"
+      }
+     ],
+     "parts": [
+      {
+       "words": "traffic jam",
+       "gives": "AUTOQUEUE",
+       "note": "a traffic jam is a queue of autos (cars)"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A speaker stuck in traffic, wondering what could help.",
      "walkthrough": "An Autocue is the screen that scrolls a presenter's script; the traffic jam is the wordplay, not the scene.",
@@ -94,41 +90,39 @@
    },
    "solution": "AMP",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AMP",
     "definitions": [
      {
       "text": "Concert gear",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without lid",
-      "for": "deletion",
-      "note": "in a down entry the lid is the top letter, so the first letter comes off"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a bit wet",
-      "gives": "DAMP",
-      "note": "slightly wet"
-     },
-     {
-      "clueFragment": "without lid",
-      "gives": "AMP",
-      "note": "the top letter D is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AMP"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without lid",
+       "note": "in a down entry the lid is the top letter, so the first letter comes off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a bit wet",
+         "gives": "DAMP",
+         "note": "slightly wet"
+        },
+        {
+         "words": "without lid",
+         "gives": "AMP",
+         "note": "the top letter D is removed"
+        }
+       ]
+      },
+      {
+       "gives": "DAMP"
+      }
      ]
     },
     "explanation": {
@@ -157,38 +151,24 @@
    },
    "solution": "TRAIPSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRAIPSE",
     "definitions": [
      {
       "text": "walk, wearily",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone wrong, like milk, so the letters are no longer in order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pair set",
-      "gives": "PAIRSET",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PAIRSET",
-       "gives": "TRAIPSE"
+       "text": "off",
+       "note": "off means gone wrong, like milk, so the letters are no longer in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pair set",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -218,48 +198,35 @@
    },
    "solution": "CONGA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CONGA",
     "definitions": [
      {
       "text": "dance",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "reversal",
-      "note": "in a down entry, picking something up lifts it, so the letters read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prisoner",
-      "gives": "CON",
-      "note": "short for convict"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "the chemical symbol for silver, turned upward by 'picked up'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "GA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AG",
-       "to": "GA"
+       "words": "Prisoner",
+       "gives": "CON",
+       "note": "short for convict"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "note": "in a down entry, picking something up lifts it, so the letters read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silver",
+         "gives": "AG",
+         "note": "the chemical symbol for silver, turned upward by 'picked up'"
+        }
+       ]
       }
      ]
     },
@@ -289,33 +256,28 @@
    },
    "solution": "ENGINES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENGINES",
     "definitions": [
      {
       "text": "motors",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "only some of the letters in the words that follow are taken"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stolen gin especially",
-      "gives": "ENGINES",
-      "note": "the letters run from the end of the first word across the second into the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "only some of the letters in the words that follow are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stolen gin especially",
+       "gives": "ENGINES",
+       "note": "the letters run from the end of the first word across the second into the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Stolen gin turns out to be handy as fuel.",
      "walkthrough": "stol(EN GIN ES)pecially: the answer spans all three words, with GIN sitting whole in the middle.",
@@ -342,35 +304,25 @@
    },
    "solution": "ROBE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROBE",
     "definitions": [
      {
       "text": "garment",
       "at": 22
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steal from",
-      "gives": "ROB",
-      "note": "to take from someone by theft"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "standard abbreviation for European"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROB",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Steal from",
+       "gives": "ROB",
+       "note": "to take from someone by theft"
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "standard abbreviation for European"
+      }
      ]
     },
     "explanation": {
@@ -399,35 +351,25 @@
    },
    "solution": "RODEO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RODEO",
     "definitions": [
      {
       "text": "Wild West show",
       "at": 28
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was transported",
-      "gives": "RODE",
-      "note": "travelled on a horse or as a passenger"
-     },
-     {
-      "clueFragment": "on duck",
-      "gives": "O",
-      "note": "a duck is a zero score in cricket, O; 'on' puts it after"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RODE",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Was transported",
+       "gives": "RODE",
+       "note": "travelled on a horse or as a passenger"
+      },
+      {
+       "words": "on duck",
+       "gives": "O",
+       "note": "a duck is a zero score in cricket, O; 'on' puts it after"
+      }
      ]
     },
     "explanation": {
@@ -457,35 +399,25 @@
    },
    "solution": "BREAKFAST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BREAKFAST",
     "definitions": [
      {
       "text": "meal",
       "at": 18
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pause",
-      "gives": "BREAK",
-      "note": "a short stop or interval"
-     },
-     {
-      "clueFragment": "quickly",
-      "gives": "FAST",
-      "note": "at speed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BREAK",
-      "FAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pause",
+       "gives": "BREAK",
+       "note": "a short stop or interval"
+      },
+      {
+       "words": "quickly",
+       "gives": "FAST",
+       "note": "at speed"
+      }
      ]
     },
     "explanation": {
@@ -513,45 +445,41 @@
    },
    "solution": "SPRAIN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SPRAIN",
     "definitions": [
      {
       "text": "Twist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back of",
-      "note": "the back of a word is its end, so its last letter"
-     },
-     {
-      "text": "in",
-      "note": "the letter is placed within the country"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "back of shoulder",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of shoulder"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "SPAIN",
-      "note": "a European country, split after its second letter to take R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "R",
-      "AIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "back of",
+       "note": "the back of a word is its end, so its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "country",
+       "gives": "SPAIN",
+       "note": "a European country, split after its second letter to take R"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letter is placed within the country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "back of shoulder",
+         "note": "last letter of shoulder"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -580,50 +508,51 @@
    },
    "solution": "GADGET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GADGET",
     "definitions": [
      {
       "text": "device",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "start of",
-      "note": "the start of a word is its first letter"
-     },
-     {
-      "text": "After",
-      "note": "the acquiring word follows what has come before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "start of great",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of great"
-     },
-     {
-      "clueFragment": "advert",
-      "gives": "AD",
-      "note": "short for advertisement"
-     },
-     {
-      "clueFragment": "acquire",
-      "gives": "GET",
-      "note": "to obtain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AD",
-      "GET"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "start of",
+       "note": "the start of a word is its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "G",
+       "indicators": [
+        {
+         "text": "After",
+         "note": "the acquiring word follows what has come before"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "start of great",
+         "gives": "G",
+         "select": "first",
+         "note": "first letter of great"
+        }
+       ]
+      },
+      {
+       "words": "advert",
+       "gives": "AD",
+       "note": "short for advertisement"
+      },
+      {
+       "words": "acquire",
+       "gives": "GET",
+       "note": "to obtain"
+      }
      ]
     },
     "explanation": {
@@ -657,35 +586,24 @@
    },
    "solution": "CAPTAINHOOK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CAPTAIN HOOK",
     "definitions": [
      {
       "text": "a pirate",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Transform",
-      "for": "anagram",
-      "note": "transforming something changes its shape, so the letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "OK chap into a",
-      "gives": "OKCHAPINTOA",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OKCHAPINTOA",
-       "gives": "CAPTAINHOOK"
+       "text": "Transform",
+       "note": "transforming something changes its shape, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "OK chap into a",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -721,57 +639,56 @@
    },
    "solution": "CANOPENER",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CAN OPENER",
     "definitions": [
      {
       "text": "kitchen utensil",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "the writer is put within the boat"
-     },
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at the start, so only the first letter of the next word"
-     }
-    ],
-    "linkWords": [
-     "requires"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "gives": "PEN",
-      "note": "the thing that writes"
-     },
-     {
-      "clueFragment": "boat",
-      "gives": "CANOE",
-      "note": "a light paddled boat, opened before its last letter"
-     },
-     {
-      "clueFragment": "at first",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of the next word, 'requires'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CANO",
-      "PEN",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "the writer is put within the boat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boat",
+         "gives": "CANOE",
+         "note": "a light paddled boat, opened before its last letter"
+        },
+        {
+         "words": "Writer",
+         "gives": "PEN",
+         "note": "the thing that writes"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "R",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at the start, so only the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "at first",
+         "gives": "R",
+         "select": "first",
+         "note": "first letter of the next word, 'requires'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -800,45 +717,46 @@
    },
    "solution": "INTERN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "INTERN",
     "definitions": [
      {
       "text": "Trainee",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "note": "at regular intervals, so every other letter"
-     },
-     {
-      "text": "entering",
-      "note": "the letters go into the pub"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "they're regularly",
-      "gives": "TER",
-      "select": "alternate",
-      "note": "first, third and fifth letters of they're"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an old word for a pub, opened after its second letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "TER",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "at regular intervals, so every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "gives": "INN",
+       "note": "an old word for a pub, opened after its second letter"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "TER",
+       "indicators": [
+        {
+         "text": "entering",
+         "note": "the letters go into the pub"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "they're regularly",
+         "gives": "TER",
+         "select": "alternate",
+         "note": "first, third and fifth letters of they're"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -867,35 +785,24 @@
    },
    "solution": "NAIROBI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NAIROBI",
     "definitions": [
      {
       "text": "a city in Africa",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Broken",
-      "for": "anagram",
-      "note": "something broken falls apart, and its letters are put back in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "biro in a",
-      "gives": "BIROINA",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BIROINA",
-       "gives": "NAIROBI"
+       "text": "Broken",
+       "note": "something broken falls apart, and its letters are put back in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "biro in a",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -925,32 +832,25 @@
    },
    "solution": "SEESAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEESAW",
     "definitions": [
      {
       "text": "it has its ups and downs",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Watch",
-      "gives": "SEE",
-      "note": "to view"
-     },
-     {
-      "clueFragment": "horror film",
-      "gives": "SAW",
-      "note": "title of a 2004 horror film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEE",
-      "SAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Watch",
+       "gives": "SEE",
+       "note": "to view"
+      },
+      {
+       "words": "horror film",
+       "gives": "SAW",
+       "note": "title of a 2004 horror film"
+      }
      ]
     },
     "explanation": {
@@ -980,30 +880,16 @@
    },
    "solution": "EXHAUST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EXHAUST",
     "definitions": [
      {
       "text": "Wear out",
-      "at": 0
+      "at": 0,
+      "meaning": "to tire completely, or use up entirely"
      },
      {
       "text": "part of car",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wear out",
-      "gives": "EXHAUST",
-      "note": "to tire completely, or use up entirely"
-     },
-     {
-      "clueFragment": "part of car",
-      "gives": "EXHAUST",
-      "note": "the pipe carrying fumes away from the engine"
+      "at": 9,
+      "meaning": "the pipe carrying fumes away from the engine"
      }
     ],
     "explanation": {
@@ -1038,33 +924,16 @@
    },
    "solution": "PARTINGSHOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PARTING SHOT",
     "definitions": [
      {
       "text": "Photo of hairstyle",
-      "at": 0
+      "at": 0,
+      "meaning": "a picture of the line where hair is divided, read whimsically"
      },
      {
       "text": "the final insult",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Photo of hairstyle",
-      "gives": "PARTINGSHOT",
-      "note": "a picture of the line where hair is divided, read whimsically"
-     },
-     {
-      "clueFragment": "the final insult",
-      "gives": "PARTINGSHOT",
-      "note": "a last cutting remark made on leaving"
+      "at": 22,
+      "meaning": "a last cutting remark made on leaving"
      }
     ],
     "explanation": {
@@ -1094,39 +963,36 @@
    },
    "solution": "REIGN",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "REIGN",
     "definitions": [
      {
       "text": "Rule",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "note": "only part of the word is used"
-     },
-     {
-      "text": "from the south",
-      "note": "in a down entry south is the bottom, so the letters read upward"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of Tangiers",
-      "gives": "NGIER",
-      "note": "the middle five letters of Tangiers, read upward"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NGIER",
-       "to": "REIGN"
+       "text": "part of",
+       "note": "only part of the word is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "from the south",
+         "note": "in a down entry south is the bottom, so the letters read upward"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part of Tangiers",
+         "gives": "NGIER",
+         "note": "the middle five letters of Tangiers, read upward"
+        }
+       ]
       }
      ]
     },
@@ -1156,30 +1022,16 @@
    },
    "solution": "GRATE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GRATE",
     "definitions": [
      {
       "text": "Shred",
-      "at": 0
+      "at": 0,
+      "meaning": "to rub food against a rough surface into small strips, as with cheese"
      },
      {
       "text": "part of a fireplace",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shred",
-      "gives": "GRATE",
-      "note": "to rub food against a rough surface into small strips, as with cheese"
-     },
-     {
-      "clueFragment": "part of a fireplace",
-      "gives": "GRATE",
-      "note": "the metal frame that holds the burning fuel"
+      "at": 6,
+      "meaning": "the metal frame that holds the burning fuel"
      }
     ],
     "explanation": {
@@ -1208,45 +1060,37 @@
    },
    "solution": "INDIGO",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "INDIGO",
     "definitions": [
      {
       "text": "Shade",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exercises",
-      "for": "anagram",
-      "note": "exercising puts something through its paces, moving the letters about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "doing",
-      "gives": "NDIGO",
-      "note": "its letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NDIGO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INDIGO",
+     "indicators": [
       {
-       "fodder": "DOING",
-       "gives": "NDIGO"
+       "text": "exercises",
+       "note": "exercising puts something through its paces, moving the letters about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "doing",
+         "gives": "NDIGO",
+         "note": "its letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1276,45 +1120,48 @@
    },
    "solution": "AMULET",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AMULET",
     "definitions": [
      {
       "text": "Charm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-heartedly",
-      "for": "deletion",
-      "note": "the heart of the fish is a double letter; with half of it gone, one of the pair drops out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the article as printed"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "MULLET",
-      "note": "a common food fish"
-     },
-     {
-      "clueFragment": "half-heartedly",
-      "gives": "MULET",
-      "note": "one of the two middle Ls goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MULET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "the article as printed"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-heartedly",
+         "note": "the heart of the fish is a double letter; with half of it gone, one of the pair drops out"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "fish",
+           "gives": "MULLET",
+           "note": "a common food fish"
+          },
+          {
+           "words": "half-heartedly",
+           "gives": "MULET",
+           "note": "one of the two middle Ls goes"
+          }
+         ]
+        },
+        {
+         "gives": "MULLET"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1343,36 +1190,25 @@
    },
    "solution": "ERA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ERA",
     "definitions": [
      {
       "text": "Historical period",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "at the start, so the initial letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eclipsing Roman age",
-      "gives": "ERA",
-      "select": "first",
-      "note": "the first letter of each of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "R",
-      "A"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "at the start, so the initial letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eclipsing Roman age",
+       "note": "the first letter of each of the three words"
+      }
      ]
     },
     "explanation": {
@@ -1401,41 +1237,39 @@
    },
    "solution": "GRAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GRAN",
     "definitions": [
      {
       "text": "Relative",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing final piece",
-      "for": "deletion",
-      "note": "the word is missing its final piece, its last letter, as a jigsaw might lack its last piece"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "piano",
-      "gives": "GRAND",
-      "note": "short for a large concert piano"
-     },
-     {
-      "clueFragment": "missing final piece",
-      "gives": "GRAN",
-      "note": "the last letter D goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing final piece",
+       "note": "the word is missing its final piece, its last letter, as a jigsaw might lack its last piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "piano",
+         "gives": "GRAND",
+         "note": "short for a large concert piano"
+        },
+        {
+         "words": "missing final piece",
+         "gives": "GRAN",
+         "note": "the last letter D goes"
+        }
+       ]
+      },
+      {
+       "gives": "GRAND"
+      }
      ]
     },
     "explanation": {
@@ -1470,38 +1304,24 @@
    },
    "solution": "ICEDTEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ICED TEA",
     "definitions": [
      {
       "text": "Cold drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "things going badly for the letters leave them jumbled"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a deceit",
-      "gives": "ADECEIT",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ADECEIT",
-       "gives": "ICEDTEA"
+       "text": "unfortunately",
+       "note": "things going badly for the letters leave them jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a deceit",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },

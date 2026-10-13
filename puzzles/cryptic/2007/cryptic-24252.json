@@ -1,8 +1,6 @@
 {
  "id": "cryptic-24252",
  "number": 24252,
- "series": "cryptic",
- "name": "Cryptic crossword No 24,252",
  "setter": "Araucaria",
  "date": "2007-12-05",
  "preamble": "Asterisked solutions are of a kind and their clues may be partial",
@@ -39,11 +37,6 @@
    },
    "solution": "COLANDER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "COLANDER",
     "definitions": [
      {
       "text": "I strain",
@@ -51,44 +44,45 @@
       "note": "a first-person description, spoken by the utensil itself, standing for a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "its leaders",
-      "for": "letter_selection",
-      "note": "the leaders of a word are its opening letters, so only the front of that word is kept"
-     },
-     {
-      "text": "pursuing",
-      "for": "charade",
-      "note": "to pursue is to chase from behind, so what comes next is placed after the rest"
-     }
-    ],
-    "linkWords": [
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "country",
-      "gives": "CO",
-      "select": "first",
-      "note": "the leading two letters of the word, taken by the selection signal"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "LAND",
-      "note": "a land is a country"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the usual crossword queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "LAND",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "note": "to pursue is to chase from behind, so what comes next is placed after the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CO",
+       "indicators": [
+        {
+         "text": "its leaders",
+         "note": "the leaders of a word are its opening letters, so only the front of that word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "country",
+         "gives": "CO",
+         "select": "first",
+         "note": "the leading two letters of the word, taken by the selection signal"
+        }
+       ]
+      },
+      {
+       "words": "country",
+       "gives": "LAND",
+       "note": "a land is a country"
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the usual crossword queen"
+      }
      ]
     },
     "explanation": {
@@ -118,43 +112,38 @@
    },
    "solution": "AGHAST",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "AGHAST",
     "definitions": [
      {
       "text": "shocked",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "something cut short loses its tail, so the final letter goes"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     },
-     {
-      "clueFragment": "rush",
-      "gives": "HAST",
-      "note": "haste, a rush, without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "HAST"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AGHAST",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "something cut short loses its tail, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Silver",
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        },
+        {
+         "words": "rush",
+         "gives": "HAST",
+         "note": "haste, a rush, without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -183,49 +172,34 @@
    },
    "solution": "HUCKSTER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "HUCKSTER",
     "definitions": [
      {
       "text": "pedlar",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "disturbed",
-      "for": "anagram",
-      "note": "disturbed things are thrown out of their settled order"
-     }
-    ],
-    "linkWords": [
-     "has",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finn",
-      "gives": "HUCK",
-      "note": "Huck Finn, Mark Twain's Huckleberry Finn"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "REST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUCK",
-      "STER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "REST",
-       "gives": "STER"
+       "words": "Finn",
+       "gives": "HUCK",
+       "note": "Huck Finn, Mark Twain's Huckleberry Finn"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disturbed",
+         "note": "disturbed things are thrown out of their settled order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rest",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -262,26 +236,25 @@
    },
    "solution": "ODDBOD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ODD BOD",
     "definitions": [
      {
       "text": "Funny fellow in rhyme",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Funny fellow",
-      "note": "surface reading: a comedian, or an eccentric man"
-     },
-     {
-      "clueFragment": "in rhyme",
-      "note": "setter's reading: the phrase for a strange chap is two short words that rhyme with each other"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Funny fellow",
+       "note": "surface reading: a comedian, or an eccentric man"
+      },
+      {
+       "words": "in rhyme",
+       "note": "setter's reading: the phrase for a strange chap is two short words that rhyme with each other"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A comic character appearing in a nursery rhyme.",
      "walkthrough": "'In rhyme' seems to place the fellow in a poem, but it describes the answer itself: funny is odd, a fellow is a bod, and the two rhyme.",
@@ -309,28 +282,16 @@
    },
    "solution": "SPONGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPONGE",
     "definitions": [
      {
       "text": "Animal",
-      "at": 1
+      "at": 1,
+      "meaning": "first meaning: a simple sea creature, which zoologists class as an animal"
      },
      {
       "text": "cleaner",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Animal",
-      "note": "first meaning: a simple sea creature, which zoologists class as an animal"
-     },
-     {
-      "clueFragment": "cleaner",
-      "note": "second meaning: a soft porous pad used for washing"
+      "at": 8,
+      "meaning": "second meaning: a soft porous pad used for washing"
      }
     ],
     "explanation": {
@@ -356,33 +317,7 @@
     "text": "*Old pretender",
     "enumeration": "6"
    },
-   "solution": "SIMNEL",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SIMNEL",
-    "definitions": [
-     {
-      "text": "Old pretender",
-      "at": 1
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old pretender",
-      "note": "first meaning: a boy impostor who claimed the English throne in 1487"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "Lambert Simnel is the pretender. The clue is partial, as the preamble warns: the second meaning is the cake, a marzipan-topped fruit cake eaten at Easter in Britain.",
-     "definitionFit": "Lambert Simnel was a boy impostor passed off as a Plantagenet prince to challenge Henry VII for the crown."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false
-    }
-   }
+   "solution": "SIMNEL"
   },
   {
    "number": 6,
@@ -396,33 +331,7 @@
     "text": "*Bonny city",
     "enumeration": "6"
    },
-   "solution": "DUNDEE",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DUNDEE",
-    "definitions": [
-     {
-      "text": "Bonny city",
-      "at": 1
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bonny city",
-      "note": "first meaning: the Scottish city on the Tay"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "A partial clue, as the preamble allows: the other meaning is the cake, a rich fruit cake topped with whole almonds, named after the city.",
-     "definitionFit": "The old Scots song and poem 'Bonnie Dundee' gave the port on the Firth of Tay its lasting epithet."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false
-    }
-   }
+   "solution": "DUNDEE"
   },
   {
    "number": 7,
@@ -438,33 +347,28 @@
    },
    "solution": "ECCLES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ECCLES",
     "definitions": [
      {
       "text": "town",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Little",
-      "for": "deletion",
-      "note": "a little version is a shortened one, so the word loses its ending"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "ECCLES",
-      "note": "ecclesia, the Greek and Latin word for church, cut down"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECCLES"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ECCLES",
+     "indicators": [
+      {
+       "text": "Little",
+       "note": "a little version is a shortened one, so the word loses its ending"
+      }
+     ],
+     "parts": [
+      {
+       "words": "church",
+       "gives": "ECCLES",
+       "note": "ecclesia, the Greek and Latin word for church, cut down"
+      }
      ]
     },
     "explanation": {
@@ -499,48 +403,34 @@
    },
    "solution": "STRAITLACED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "STRAIT-LACED",
     "definitions": [
      {
       "text": "like a puritan",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Weird",
-      "for": "anagram",
-      "note": "something weird is strange and out of normal shape, so the letters are bent into another order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "artist",
-      "gives": "ARTIST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in corset",
-      "gives": "LACED",
-      "note": "a woman in a corset is laced into it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAIT",
-      "LACED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ARTIST",
-       "gives": "STRAIT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Weird",
+         "note": "something weird is strange and out of normal shape, so the letters are bent into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artist",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "in corset",
+       "gives": "LACED",
+       "note": "a woman in a corset is laced into it"
       }
      ]
     },
@@ -571,10 +461,6 @@
    },
    "solution": "IMPALA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPALA",
     "definitions": [
      {
       "text": "deer",
@@ -582,22 +468,19 @@
       "note": "loosely: the impala is an antelope rather than a true deer"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Monkey",
-      "gives": "IMP",
-      "note": "a monkey is a mischievous child, an imp"
-     },
-     {
-      "clueFragment": "in style of",
-      "gives": "A LA",
-      "note": "à la, French for in the style of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP",
-      "ALA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Monkey",
+       "gives": "IMP",
+       "note": "a monkey is a mischievous child, an imp"
+      },
+      {
+       "words": "in style of",
+       "gives": "ALA",
+       "note": "à la, French for in the style of"
+      }
      ]
     },
     "explanation": {
@@ -632,31 +515,16 @@
    },
    "solution": "TAKEBACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAKE BACK",
     "definitions": [
      {
       "text": "Withdraw",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: retract a remark or promise"
      },
      {
       "text": "recover",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Withdraw",
-      "note": "first meaning: retract a remark or promise"
-     },
-     {
-      "clueFragment": "recover",
-      "note": "second meaning: regain possession of something"
+      "at": 12,
+      "meaning": "second meaning: regain possession of something"
      }
     ],
     "explanation": {
@@ -684,28 +552,16 @@
    },
    "solution": "SEED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SEED",
     "definitions": [
      {
       "text": "Select",
-      "at": 1
+      "at": 1,
+      "meaning": "first meaning: rank players in a tournament draw"
      },
      {
       "text": "descendants",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Select",
-      "note": "first meaning: rank players in a tournament draw"
-     },
-     {
-      "clueFragment": "descendants",
-      "note": "second meaning: offspring"
+      "at": 8,
+      "meaning": "second meaning: offspring"
      }
     ],
     "explanation": {
@@ -739,33 +595,19 @@
    },
    "solution": "TOASTEDTEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TOASTED TEA",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "letters in the wrong order need to be set right in another arrangement"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to eat dates",
-      "gives": "TOEATDATES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOEATDATES",
-       "gives": "TOASTEDTEA"
+       "text": "wrong",
+       "note": "letters in the wrong order need to be set right in another arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to eat dates",
+       "note": "taken as written"
       }
      ]
     },
@@ -796,33 +638,25 @@
    },
    "solution": "PROFITEROLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROFITEROLE",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Return",
-      "gives": "PROFIT",
-      "note": "a return on an investment is a profit"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "ROLE",
-      "note": "an actor's part is a role"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROFIT",
-      "E",
-      "ROLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Return",
+       "gives": "PROFIT",
+       "note": "a return on an investment is a profit"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "part",
+       "gives": "ROLE",
+       "note": "an actor's part is a role"
+      }
      ]
     },
     "explanation": {
@@ -857,11 +691,6 @@
    },
    "solution": "FIFTYSIX",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "FIFTY-SIX",
     "definitions": [
      {
       "text": "… quadrupled",
@@ -869,41 +698,47 @@
       "note": "the dots stand for the clue's own number, 14"
      }
     ],
-    "indicators": [
-     {
-      "text": "not performing",
-      "for": "deletion",
-      "note": "a performer who is not appearing is off stage, not on, so that pair of letters is struck out"
-     },
-     {
-      "text": "in it",
-      "for": "container",
-      "note": "being in something means sitting inside it, so the other letters are wrapped round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "predicament",
-      "gives": "FIX",
-      "note": "to be in a fix is to be in a predicament"
-     },
-     {
-      "clueFragment": "if",
-      "gives": "IF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Tyson's",
-      "gives": "TYS",
-      "note": "TYSONS, the boxer's name with its S, minus ON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "IF",
-      "TYS",
-      "IX"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FIFTYSIX",
+     "indicators": [
+      {
+       "text": "not performing",
+       "note": "a performer who is not appearing is off stage, not on, so that pair of letters is struck out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in it",
+         "note": "being in something means sitting inside it, so the other letters are wrapped round"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "predicament",
+           "gives": "FIX",
+           "note": "to be in a fix is to be in a predicament"
+          },
+          {
+           "words": "if",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "Tyson's",
+         "gives": "TYS",
+         "note": "TYSONS, the boxer's name with its S, minus ON"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -932,31 +767,16 @@
    },
    "solution": "LOBSTERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LOBSTERS",
     "definitions": [
      {
       "text": "Food in pots",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: shellfish caught in traps called pots"
      },
      {
       "text": "slow bowlers?",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Food in pots",
-      "note": "first meaning: shellfish caught in traps called pots"
-     },
-     {
-      "clueFragment": "slow bowlers?",
-      "note": "second meaning, whimsical: those who bowl lobs, slow high underarm deliveries in cricket"
+      "at": 17,
+      "meaning": "second meaning, whimsical: those who bowl lobs, slow high underarm deliveries in cricket"
      }
     ],
     "explanation": {
@@ -991,43 +811,31 @@
    },
    "solution": "BOPEEP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BO-PEEP",
     "definitions": [
      {
       "text": "Shepherdess",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "amid",
-      "for": "container",
-      "note": "to be amid something is to be surrounded by it, so one piece sits inside another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "electronic noise",
-      "gives": "BEEP",
-      "note": "a beep is the short tone a machine makes"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op., opus, a numbered musical work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OP",
-      "EEP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "note": "to be amid something is to be surrounded by it, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "electronic noise",
+       "gives": "BEEP",
+       "note": "a beep is the short tone a machine makes"
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op., opus, a numbered musical work"
+      }
      ]
     },
     "explanation": {
@@ -1056,38 +864,24 @@
    },
    "solution": "ARREST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARREST",
     "definitions": [
      {
       "text": "Detention",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "translating",
-      "for": "anagram",
-      "note": "translating turns words into a different form, so the letters are rendered anew"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sartre",
-      "gives": "SARTRE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SARTRE",
-       "gives": "ARREST"
+       "text": "translating",
+       "note": "translating turns words into a different form, so the letters are rendered anew"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sartre",
+       "note": "taken as written"
       }
      ]
     },
@@ -1118,51 +912,45 @@
    },
    "solution": "PONTEFRACT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PONTEFRACT",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Move",
-      "for": "anagram",
-      "note": "to move things is to shift them about, so the letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "TEN",
-      "note": "the number written as a word, not a reference to 10 across"
-     },
-     {
-      "clueFragment": "agreement",
-      "gives": "PACT",
-      "note": "a pact is an agreement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ONTEFR",
-      "ACT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "FORTEN",
-       "gives": "ONTEFR"
+       "text": "in",
+       "note": "one thing in another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "gives": "PACT",
+       "note": "a pact is an agreement"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Move",
+         "note": "to move things is to shift them about, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "for",
+           "note": "taken as written"
+          },
+          {
+           "words": "10",
+           "gives": "TEN",
+           "note": "the number written as a word, not a reference to 10 across"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1198,38 +986,24 @@
    },
    "solution": "TEAURN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEA URN",
     "definitions": [
      {
       "text": "Brewer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints that the letters could be one of several arrangements"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nature",
-      "gives": "NATURE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NATURE",
-       "gives": "TEAURN"
+       "text": "perhaps",
+       "note": "perhaps hints that the letters could be one of several arrangements"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nature",
+       "note": "taken as written"
       }
      ]
     },
@@ -1260,28 +1034,16 @@
    },
    "solution": "TUBMAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TUBMAN",
     "definitions": [
      {
       "text": "Formerly presiding Liberian",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a president of Liberia from 1944 to 1971"
      },
      {
       "text": "bath attendant?",
-      "at": 28
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Formerly presiding Liberian",
-      "note": "first meaning: a president of Liberia from 1944 to 1971"
-     },
-     {
-      "clueFragment": "bath attendant?",
-      "note": "second meaning, whimsical: a man who looks after the bathtub"
+      "at": 28,
+      "meaning": "second meaning, whimsical: a man who looks after the bathtub"
      }
     ],
     "explanation": {
@@ -1323,50 +1085,40 @@
    },
    "solution": "MEGABYTE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MEGABYTE",
     "definitions": [
      {
       "text": "computer space",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "secured",
-      "for": "container",
-      "note": "securing something means holding it fast, so one piece is clasped inside another"
-     }
-    ],
-    "linkWords": [
-     "following"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setter's",
-      "gives": "ME",
-      "note": "the setter refers to themself as me"
-     },
-     {
-      "clueFragment": "Entry",
-      "gives": "GATE",
-      "note": "a gate is a way in"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "BY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "GA",
-      "BY",
-      "TE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setter's",
+       "gives": "ME",
+       "note": "the setter refers to themself as me"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "secured",
+         "note": "securing something means holding it fast, so one piece is clasped inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Entry",
+         "gives": "GATE",
+         "note": "a gate is a way in"
+        },
+        {
+         "words": "by",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1399,40 +1151,30 @@
     "21-across"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BATTENBURG",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "regurgitated",
-      "for": "reversal",
-      "note": "what is regurgitated comes back up the way it went down, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Feed on",
-      "gives": "BATTEN",
-      "note": "to feed greedily at another's expense"
-     },
-     {
-      "clueFragment": "food",
-      "gives": "GRUB",
-      "note": "grub is informal for food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BATTEN",
-      "BURG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GRUB",
-       "to": "BURG"
+       "words": "Feed on",
+       "gives": "BATTEN",
+       "note": "to feed greedily at another's expense"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "regurgitated",
+         "note": "what is regurgitated comes back up the way it went down, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food",
+         "gives": "GRUB",
+         "note": "grub is informal for food"
+        }
+       ]
       }
      ]
     },
@@ -1462,27 +1204,20 @@
    },
    "solution": "PARKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARKIN",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Leave car",
-      "gives": "PARK",
-      "note": "to leave a car somewhere is to park it"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARK",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leave car",
+       "gives": "PARK",
+       "note": "to leave a car somewhere is to park it"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "someone at home is in"
+      }
      ]
     },
     "explanation": {
@@ -1510,30 +1245,20 @@
    },
    "solution": "CARROT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CARROT",
     "definedByPreamble": true,
-    "linkWords": [
-     "and let it"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "…",
-      "gives": "CAR",
-      "note": "the dots carry over the car left at home in the previous clue"
-     },
-     {
-      "clueFragment": "decay",
-      "gives": "ROT",
-      "note": "to rot is to decay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "ROT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "…",
+       "gives": "CAR",
+       "note": "the dots carry over the car left at home in the previous clue"
+      },
+      {
+       "words": "decay",
+       "gives": "ROT",
+       "note": "to rot is to decay"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "toughie-3611",
  "number": 3611,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,611",
  "setter": "Samuel",
  "date": "2026-01-01",
  "dimensions": {
@@ -48,51 +46,52 @@
    },
    "solution": "HAPPYNEWYEAR",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "HAPPY NEW YEAR",
     "definitions": [
      {
       "text": "greeting",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "something cut short loses its tail end, so the final letter goes"
-     },
-     {
-      "text": "cryptic",
-      "for": "anagram",
-      "note": "something cryptic is obscure and jumbled, so the letters come in a disguised order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pay twice",
-      "gives": "PAYPAY",
-      "note": "the word taken as written, two copies"
-     },
-     {
-      "clueFragment": "when",
-      "gives": "WHEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rep",
-      "gives": "RE",
-      "note": "the word without its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HAPPYNEWYEAR",
+     "indicators": [
       {
-       "fodder": "PAYPAYWHENRE",
-       "gives": "HAPPYNEWYEAR"
+       "text": "cut short",
+       "note": "something cut short loses its tail end, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "note": "something cryptic is obscure and jumbled, so the letters come in a disguised order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Pay twice",
+           "gives": "PAYPAY",
+           "note": "the word taken as written, two copies"
+          },
+          {
+           "words": "when",
+           "note": "taken as written"
+          },
+          {
+           "words": "rep",
+           "gives": "RE",
+           "note": "the word without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -122,40 +121,38 @@
    },
    "solution": "HERETIC",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HERETIC",
     "definitions": [
      {
       "text": "Dissident",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in this position",
-      "gives": "HERE",
-      "note": "here means at this place"
-     },
-     {
-      "clueFragment": "opposite of cross",
-      "gives": "TIC",
-      "note": "a tick is the opposite of a cross on a marked answer; drop its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HERE",
-      "TIC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HERETIC",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in this position",
+         "gives": "HERE",
+         "note": "here means at this place"
+        },
+        {
+         "words": "opposite of cross",
+         "gives": "TIC",
+         "note": "a tick is the opposite of a cross on a marked answer; drop its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -185,46 +182,57 @@
    },
    "solution": "PROP",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PROP",
     "definitions": [
      {
       "text": "stay",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "whatever is leaving departs, so those letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "As",
-      "note": "the plural of the letter A: every A goes"
-     },
-     {
-      "clueFragment": "typical",
-      "gives": "PAR",
-      "note": "par is the normal or average standard"
-     },
-     {
-      "clueFragment": "pensioner",
-      "gives": "OAP",
-      "note": "OAP is old-age pensioner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "R",
-      "O",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "As",
+       "note": "the plural of the letter A: every A goes"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaving",
+           "note": "whatever is leaving departs, so those letters are taken away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "typical",
+           "gives": "PAR",
+           "note": "par is the normal or average standard"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "pensioner",
+           "gives": "OAP",
+           "note": "OAP is old-age pensioner"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -259,59 +267,53 @@
    },
    "solution": "YOKOONO",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "YOKO ONO",
     "definitions": [
      {
       "text": "Artist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not to start",
-      "for": "deletion",
-      "note": "refusing to start means each word loses its opening letter and keeps the rest"
-     },
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "turning something over flips it, so the string is read backwards"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "ON",
-      "note": "without its first letter"
-     },
-     {
-      "clueFragment": "took",
-      "gives": "OOK",
-      "note": "without its first letter"
-     },
-     {
-      "clueFragment": "toy",
-      "gives": "OY",
-      "note": "without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YO",
-      "KOO",
-      "NO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "YOKOONO",
+     "indicators": [
       {
-       "from": "ONOOKOY",
-       "to": "YOKOONO"
+       "text": "Not to start",
+       "note": "refusing to start means each word loses its opening letter and keeps the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "turning something over flips it, so the string is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "son",
+           "gives": "ON",
+           "note": "without its first letter"
+          },
+          {
+           "words": "took",
+           "gives": "OOK",
+           "note": "without its first letter"
+          },
+          {
+           "words": "toy",
+           "gives": "OY",
+           "note": "without its first letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -341,51 +343,43 @@
    },
    "solution": "ENTHRAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENTHRAL",
     "definitions": [
      {
       "text": "entrance",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctor",
-      "for": "anagram",
-      "note": "to doctor is to tamper with or falsify, so the letters are altered"
-     },
-     {
-      "text": "to go around",
-      "for": "container",
-      "note": "going around something encircles it, so one piece wraps another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "learnt",
-      "gives": "ENTRAL",
-      "note": "its letters rearranged"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H is the map abbreviation for hospital"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENT",
-      "H",
-      "RAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENTHRAL",
+     "indicators": [
       {
-       "fodder": "LEARNT",
-       "gives": "ENTRAL"
+       "text": "Doctor",
+       "note": "to doctor is to tamper with or falsify, so the letters are altered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to go around",
+         "note": "going around something encircles it, so one piece wraps another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "learnt",
+         "gives": "ENTRAL",
+         "note": "its letters rearranged"
+        },
+        {
+         "words": "hospital",
+         "gives": "H",
+         "note": "H is the map abbreviation for hospital"
+        }
+       ]
       }
      ]
     },
@@ -416,40 +410,31 @@
    },
    "solution": "YANK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "YANK",
     "definitions": [
      {
       "text": "New Yorker",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the animal goes around the letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something beastly",
-      "gives": "YAK",
-      "note": "a yak is a beast, an animal"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YA",
-      "N",
-      "K"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the animal goes around the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something beastly",
+       "gives": "YAK",
+       "note": "a yak is a beast, an animal"
+      },
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      }
      ]
     },
     "explanation": {
@@ -479,51 +464,48 @@
    },
    "solution": "ALADDIN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ALADDIN",
     "definitions": [
      {
       "text": "show",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Stripping off",
-      "for": "letter_selection",
-      "note": "stripping off takes away the outer layers, so only the inner letters remain"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Salah",
-      "gives": "ALA",
-      "select": "middle",
-      "note": "the word without its first and last letters"
-     },
-     {
-      "clueFragment": "adds",
-      "gives": "DD",
-      "select": "middle",
-      "note": "the word without its first and last letters"
-     },
-     {
-      "clueFragment": "wink",
-      "gives": "IN",
-      "select": "middle",
-      "note": "the word without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALA",
-      "DD",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Stripping off",
+         "note": "stripping off takes away the outer layers, so only the inner letters remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Salah",
+         "note": "the word without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "adds",
+         "note": "the word without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "wink",
+         "note": "the word without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -552,38 +534,24 @@
    },
    "solution": "INCOMMUNICADO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INCOMMUNICADO",
     "definitions": [
      {
       "text": "out of touch",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Funny",
-      "for": "anagram",
-      "note": "funny can mean odd or peculiar, so the letters are put in a strange order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "man in comic duo",
-      "gives": "MANINCOMICDUO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MANINCOMICDUO",
-       "gives": "INCOMMUNICADO"
+       "text": "Funny",
+       "note": "funny can mean odd or peculiar, so the letters are put in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man in comic duo",
+       "note": "taken as written"
       }
      ]
     },
@@ -619,26 +587,25 @@
    },
    "solution": "ADVANCEDLEVEL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ADVANCED LEVEL",
     "definitions": [
      {
       "text": "A qualification?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A qualification?",
-      "note": "surface reading: any one certificate or diploma"
-     },
-     {
-      "clueFragment": "A",
-      "note": "setter's reading: the letter A names an English school exam taken at eighteen"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A qualification?",
+       "note": "surface reading: any one certificate or diploma"
+      },
+      {
+       "words": "A",
+       "note": "setter's reading: the letter A names an English school exam taken at eighteen"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The 'A' looks like the article, but A-levels are the English exams taken at the end of school, and the A stands for this phrase.",
      "definitionFit": "The full name of the A-level, the school-leaving examination in England, Wales and Northern Ireland."
@@ -665,40 +632,31 @@
    },
    "solution": "NORFOLK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NORFOLK",
     "definitions": [
      {
       "text": "part of the country",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "to visit",
-      "for": "container",
-      "note": "a visitor goes inside someone's place, so this letter enters the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "apparently unpopulated",
-      "gives": "NOFOLK",
-      "note": "no folk, nobody living there"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "R",
-      "FOLK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to visit",
+       "note": "a visitor goes inside someone's place, so this letter enters the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "apparently unpopulated",
+       "gives": "NOFOLK",
+       "note": "no folk, nobody living there"
+      },
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -728,35 +686,25 @@
    },
    "solution": "TANKARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TANKARD",
     "definitions": [
      {
       "text": "Mug",
       "at": 36
      }
     ],
-    "linkWords": [
-     "to go after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vehicle",
-      "gives": "TANK",
-      "note": "a tank is an armoured vehicle"
-     },
-     {
-      "clueFragment": "In Bow, tricky",
-      "gives": "ARD",
-      "note": "hard as spoken in Cockney, which drops the H"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TANK",
-      "ARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vehicle",
+       "gives": "TANK",
+       "note": "a tank is an armoured vehicle"
+      },
+      {
+       "words": "In Bow, tricky",
+       "gives": "ARD",
+       "note": "hard as spoken in Cockney, which drops the H"
+      }
      ]
     },
     "explanation": {
@@ -786,40 +734,30 @@
    },
    "solution": "OATH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OATH",
     "definitions": [
      {
       "text": "Curse",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hosts",
-      "for": "container",
-      "note": "a host takes guests in, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gracious",
-      "gives": "OH",
-      "note": "'Gracious!' is an exclamation of surprise, like oh"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "AT",
-      "H"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosts",
+       "note": "a host takes guests in, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gracious",
+       "gives": "OH",
+       "note": "'Gracious!' is an exclamation of surprise, like oh"
+      },
+      {
+       "words": "at",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -848,48 +786,48 @@
    },
    "solution": "HOARD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "HOARD",
     "definitions": [
      {
       "text": "collection",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "When all undressed",
-      "for": "letter_selection",
-      "note": "undressing removes the outside layers, so each word keeps only its inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "show",
-      "gives": "HO",
-      "select": "middle",
-      "note": "without its first and last letters"
-     },
-     {
-      "clueFragment": "earl",
-      "gives": "AR",
-      "select": "middle",
-      "note": "without its first and last letters"
-     },
-     {
-      "clueFragment": "odd",
-      "gives": "D",
-      "select": "middle",
-      "note": "without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "AR",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "When all undressed",
+         "note": "undressing removes the outside layers, so each word keeps only its inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show",
+         "note": "without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "earl",
+         "note": "without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "odd",
+         "note": "without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -919,53 +857,43 @@
    },
    "solution": "IDEA",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "IDEA",
     "definitions": [
      {
       "text": "feeling",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "could display",
-      "for": "anagram",
-      "note": "the combined letters, rearranged, could show a different word"
-     },
-     {
-      "text": "with",
-      "for": "deletion",
-      "note": "the answer is what must go with the other piece, so it is what remains when that piece is taken away"
-     }
-    ],
-    "linkWords": [
-     "hit",
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aptitude",
-      "gives": "APTITUDE",
-      "note": "taken as written: the full set of letters"
-     },
-     {
-      "clueFragment": "Putt",
-      "gives": "PUTT",
-      "note": "taken as written: the letters to remove"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDEA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IDEA",
+     "indicators": [
       {
-       "fodder": "APTITUDE",
-       "gives": "PUTTIDEA"
+       "text": "could display",
+       "note": "the combined letters, rearranged, could show a different word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "IDEA",
+       "indicators": [
+        {
+         "text": "with",
+         "note": "the answer is what must go with the other piece, so it is what remains when that piece is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aptitude",
+         "note": "taken as written: the full set of letters"
+        },
+        {
+         "words": "Putt",
+         "note": "taken as written: the letters to remove"
+        }
+       ]
       }
      ]
     },
@@ -995,41 +923,42 @@
    },
    "solution": "MAYBE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "MAYBE",
     "definitions": [
      {
       "text": "Possibly",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "For Spooner",
-      "for": "spoonerism",
-      "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds trade places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Howl",
-      "gives": "MAY",
-      "soundsLike": "BAY",
-      "note": "to bay is to howl like a hound; it takes the other word's opening sound"
-     },
-     {
-      "clueFragment": "The compiler",
-      "gives": "BE",
-      "soundsLike": "ME",
-      "note": "the setter refers to themselves as me; it takes the other word's opening sound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAY",
-      "BE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "MAYBE",
+     "indicators": [
+      {
+       "text": "For Spooner",
+       "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds trade places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Howl",
+         "gives": "MAY",
+         "soundsLike": "BAY",
+         "note": "to bay is to howl like a hound; it takes the other word's opening sound"
+        },
+        {
+         "unchecked": true,
+         "words": "The compiler",
+         "gives": "BE",
+         "soundsLike": "ME",
+         "note": "the setter refers to themselves as me; it takes the other word's opening sound"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1058,51 +987,55 @@
    },
    "solution": "SCORN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SCORN",
     "definitions": [
      {
       "text": "contempt",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "spurning",
-      "for": "deletion",
-      "note": "to spurn is to reject, so that letter is thrown out"
-     },
-     {
-      "text": "inspires",
-      "for": "container",
-      "note": "to inspire is literally to breathe in, so one piece takes another inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "SN",
-      "note": "the word minus O"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, shaped like O"
-     },
-     {
-      "clueFragment": "My",
-      "gives": "COR",
-      "note": "'Cor!' and 'My!' are both exclamations of surprise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "COR",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspires",
+       "note": "to inspire is literally to breathe in, so one piece takes another inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "son",
+       "gives": "SN",
+       "note": "the word minus O"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "spurning",
+           "note": "to spurn is to reject, so that letter is thrown out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "My",
+           "gives": "COR",
+           "note": "'Cor!' and 'My!' are both exclamations of surprise"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        },
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "love is zero in tennis, shaped like O"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1131,54 +1064,51 @@
    },
    "solution": "MECCANO",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MECCANO",
     "definitions": [
      {
       "text": "construction materials?",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "to purchase",
-      "for": "container",
-      "note": "purchase can mean grip or hold, so one piece holds another"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the start, so only the first letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Intend",
-      "gives": "MEAN",
-      "note": "to mean is to intend"
-     },
-     {
-      "clueFragment": "copies",
-      "gives": "CC",
-      "note": "cc is carbon copies"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "CC",
-      "AN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to purchase",
+         "note": "purchase can mean grip or hold, so one piece holds another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Intend",
+         "gives": "MEAN",
+         "note": "to mean is to intend"
+        },
+        {
+         "words": "copies",
+         "gives": "CC",
+         "note": "cc is carbon copies"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the start, so only the first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1208,46 +1138,40 @@
    },
    "solution": "LACONIC",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "LACONIC",
     "definitions": [
      {
       "text": "Economical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "installed by",
-      "for": "container",
-      "note": "something installed is fitted inside, so one piece is placed within another"
-     },
-     {
-      "text": "Moulding",
-      "for": "anagram",
-      "note": "moulding reshapes material, so the letters are formed into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aircon",
-      "gives": "AC",
-      "note": "AC is air conditioning"
-     },
-     {
-      "clueFragment": "Colin",
-      "gives": "COLIN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "COLACIN",
-       "gives": "LACONIC"
+       "text": "installed by",
+       "note": "something installed is fitted inside, so one piece is placed within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Moulding",
+         "note": "moulding reshapes material, so the letters are formed into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Colin",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "aircon",
+       "gives": "AC",
+       "note": "AC is air conditioning"
       }
      ]
     },
@@ -1278,28 +1202,16 @@
    },
    "solution": "NOTABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOTABLE",
     "definitions": [
      {
       "text": "Somebody",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a person of importance"
      },
      {
       "text": "incompetent",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Somebody",
-      "note": "first meaning: a person of importance"
-     },
-     {
-      "clueFragment": "incompetent",
-      "note": "second meaning: split as two words, lacking capability"
+      "at": 9,
+      "meaning": "second meaning: split as two words, lacking capability"
      }
     ],
     "explanation": {
@@ -1328,45 +1240,35 @@
    },
    "solution": "THERAPY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "THERAPY",
     "definitions": [
      {
       "text": "treatment",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end, so only the last letter is kept"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beat this when acquitted",
-      "gives": "THERAP",
-      "note": "a defendant who escapes conviction is said to beat the rap"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "RAP",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beat this when acquitted",
+       "gives": "THERAP",
+       "note": "a defendant who escapes conviction is said to beat the rap"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end, so only the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "try",
+         "note": "last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1395,28 +1297,16 @@
    },
    "solution": "EYEWASH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EYEWASH",
     "definitions": [
      {
       "text": "Rubbish",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: nonsense"
      },
      {
       "text": "solution for irritated viewers",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rubbish",
-      "note": "first meaning: nonsense"
-     },
-     {
-      "clueFragment": "solution for irritated viewers",
-      "note": "second meaning: a lotion for sore eyes"
+      "at": 8,
+      "meaning": "second meaning: a lotion for sore eyes"
      }
     ],
     "explanation": {
@@ -1445,35 +1335,25 @@
    },
    "solution": "GARLAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GARLAND",
     "definitions": [
      {
       "text": "leaves",
       "at": 22
      }
     ],
-    "linkWords": [
-     "served with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fish",
-      "gives": "GAR",
-      "note": "the gar is a long-snouted fish"
-     },
-     {
-      "clueFragment": "dock",
-      "gives": "LAND",
-      "note": "to dock a ship is to land it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAR",
-      "LAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fish",
+       "gives": "GAR",
+       "note": "the gar is a long-snouted fish"
+      },
+      {
+       "words": "dock",
+       "gives": "LAND",
+       "note": "to dock a ship is to land it"
+      }
      ]
     },
     "explanation": {
@@ -1502,34 +1382,28 @@
    },
    "solution": "GRIFFIN",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "GRIFFIN",
     "definitions": [
      {
       "text": "Monster",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when cycling",
-      "for": "cycling",
-      "note": "cycling goes round in a loop, so the last letter moves round to the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "improvising",
-      "gives": "RIFFING",
-      "note": "riffing is improvising, as musicians or comics do"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RIFFIN"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "GRIFFIN",
+     "indicators": [
+      {
+       "text": "when cycling",
+       "note": "cycling goes round in a loop, so the last letter moves round to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "improvising",
+       "gives": "RIFFING",
+       "note": "riffing is improvising, as musicians or comics do"
+      }
      ]
     },
     "explanation": {
@@ -1559,57 +1433,51 @@
    },
    "solution": "ALGEBRA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "ALGEBRA",
     "definitions": [
      {
       "text": "school subject",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end, so only the last letter is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so this letter goes within the other piece"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pupil",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a long period of time"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "BRA",
-      "note": "a bra is a supporting undergarment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "GE",
-      "BRA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so this letter goes within the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "gives": "AGE",
+         "note": "an age is a long period of time"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the end, so only the last letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Pupil",
+           "note": "last letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "support",
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
+      }
      ]
     },
     "explanation": {
@@ -1638,29 +1506,17 @@
    },
    "solution": "CREW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CREW",
     "definitions": [
      {
       "text": "Hands",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: workers, especially on a ship"
      },
      {
       "text": "clapped themselves",
       "at": 6,
-      "note": "past tense verb: crowed, boasted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hands",
-      "note": "first meaning: workers, especially on a ship"
-     },
-     {
-      "clueFragment": "clapped themselves",
-      "note": "second meaning: an old past tense of crow, to boast or applaud oneself"
+      "note": "past tense verb: crowed, boasted",
+      "meaning": "second meaning: an old past tense of crow, to boast or applaud oneself"
      }
     ],
     "explanation": {
@@ -1690,43 +1546,30 @@
    },
    "solution": "BENIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BENIN",
     "definitions": [
      {
       "text": "land",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in",
-      "for": "container",
-      "note": "money invested in something is put into it, so the letter goes inside"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old Labour MP",
-      "gives": "BENN",
-      "note": "Tony Benn was a veteran left-wing Labour MP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BEN",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invested in",
+       "note": "money invested in something is put into it, so the letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old Labour MP",
+       "gives": "BENN",
+       "note": "Tony Benn was a veteran left-wing Labour MP"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1755,30 +1598,28 @@
    },
    "solution": "AGUE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AGUE",
     "definitions": [
      {
       "text": "Fit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in means contained within, so the letters sit inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra guest",
-      "gives": "AGUE",
-      "note": "letters running across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in means contained within, so the letters sit inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra guest",
+       "gives": "AGUE",
+       "note": "letters running across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Squeezing one more visitor into the party.",
      "walkthrough": "'Fit in' looks like a phrasal verb, but 'Fit' is the definition and 'in' the signal.",
@@ -1805,51 +1646,48 @@
    },
    "solution": "LUDO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LUDO",
     "definitions": [
      {
       "text": "game",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so this letter goes within the other piece"
-     },
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "funny can mean odd or peculiar, so the letters are put in a strange order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United",
-      "gives": "U",
-      "note": "U is the abbreviation for United in team names"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "LDO",
-      "note": "its letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "U",
-      "DO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LUDO",
+     "indicators": [
       {
-       "fodder": "OLD",
-       "gives": "LDO"
+       "text": "in",
+       "note": "in means placed inside, so this letter goes within the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "funny",
+         "note": "funny can mean odd or peculiar, so the letters are put in a strange order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "United",
+           "gives": "U",
+           "note": "U is the abbreviation for United in team names"
+          },
+          {
+           "words": "old",
+           "gives": "LDO",
+           "note": "its letters rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1880,28 +1718,16 @@
    },
    "solution": "WEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WEAR",
     "definitions": [
      {
       "text": "River",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the river flowing through Durham and Sunderland"
      },
      {
       "text": "Don",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "note": "first meaning: the river flowing through Durham and Sunderland"
-     },
-     {
-      "clueFragment": "Don",
-      "note": "second meaning: to put on clothes"
+      "at": 6,
+      "meaning": "second meaning: to put on clothes"
      }
     ],
     "explanation": {
@@ -1930,47 +1756,41 @@
    },
    "solution": "DRACULA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "DRACULA",
     "definitions": [
      {
       "text": "Count",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so these letters go within the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drivers",
-      "gives": "RAC",
-      "note": "the RAC is the Royal Automobile Club, a British motoring organisation"
-     },
-     {
-      "clueFragment": "some French",
-      "gives": "DU",
-      "note": "du is French for some, as in du pain"
-     },
-     {
-      "clueFragment": "city",
-      "gives": "LA",
-      "note": "LA is Los Angeles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "RAC",
-      "U",
-      "LA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so these letters go within the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some French",
+         "gives": "DU",
+         "note": "du is French for some, as in du pain"
+        },
+        {
+         "words": "drivers",
+         "gives": "RAC",
+         "note": "the RAC is the Royal Automobile Club, a British motoring organisation"
+        }
+       ]
+      },
+      {
+       "words": "city",
+       "gives": "LA",
+       "note": "LA is Los Angeles"
+      }
      ]
     },
     "explanation": {
@@ -2000,51 +1820,41 @@
    },
    "solution": "FREEBIE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "FREEBIE",
     "definitions": [
      {
       "text": "Perhaps tip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "knocking a glass over turns it upside down, so the word is read backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so these letters go within the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "BEER",
-      "note": "beer is a drink"
-     },
-     {
-      "clueFragment": "expression of disgust",
-      "gives": "FIE",
-      "note": "'Fie!' is an old cry of disgust"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "REEB",
-      "IE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "BEER",
-       "to": "REEB"
+       "text": "in",
+       "note": "in means placed inside, so these letters go within the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expression of disgust",
+       "gives": "FIE",
+       "note": "'Fie!' is an old cry of disgust"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "knocking a glass over turns it upside down, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "BEER",
+         "note": "beer is a drink"
+        }
+       ]
       }
      ]
     },
@@ -2075,26 +1885,25 @@
    },
    "solution": "HYPOCHONDRIA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HYPOCHONDRIA",
     "definitions": [
      {
       "text": "Feeling sick in the head?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Feeling sick in the head?",
-      "note": "surface reading: having a headache or a nauseous head"
-     },
-     {
-      "clueFragment": "in the head",
-      "note": "setter's reading: the illness exists only in the mind"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Feeling sick in the head?",
+       "note": "surface reading: having a headache or a nauseous head"
+      },
+      {
+       "words": "in the head",
+       "note": "setter's reading: the illness exists only in the mind"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The surface suggests a headache; the setter means imagining you are ill, the sickness being all in the mind.",
      "definitionFit": "The condition is an excessive, unfounded worry about having a serious illness."

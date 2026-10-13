@@ -1,8 +1,6 @@
 {
  "id": "mephisto-3035",
  "number": 3035,
- "series": "mephisto",
- "name": "Sunday Times mephisto crossword No 3,035",
  "date": "2018-10-28",
  "dimensions": {
   "cols": 12,
@@ -55,75 +53,88 @@
    },
    "solution": "MANSLAUGHTER",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion",
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "MANSLAUGHTER",
     "definitions": [
      {
       "text": "One headless attack in case of mate at end of tether?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "headless",
-      "for": "deletion",
-      "note": "without a head means the word for attack loses its opening letter"
-     },
-     {
-      "text": "case of",
-      "for": "letter_selection",
-      "note": "the case of a word is its outside, so only the first and last letters of mate are kept"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only the last letter of tether is used"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing placed in another sits inside it, so the attack goes within the outer pair"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mate",
-      "gives": "ME",
-      "select": "outer",
-      "note": "the outside letters of mate"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "A",
-      "note": "A means one, as in 'a pound'"
-     },
-     {
-      "clueFragment": "attack",
-      "gives": "ONSLAUGHT",
-      "note": "an onslaught is a fierce attack; it loses its first letter"
-     },
-     {
-      "clueFragment": "tether",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of tether"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "A",
-      "NSLAUGHT",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing placed in another sits inside it, so the attack goes within the outer pair"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "case of",
+           "note": "the case of a word is its outside, so only the first and last letters of mate are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mate",
+           "note": "the outside letters of mate"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "headless",
+           "note": "without a head means the word for attack loses its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "One",
+             "gives": "A",
+             "note": "A means one, as in 'a pound'"
+            },
+            {
+             "words": "attack",
+             "gives": "ONSLAUGHT",
+             "note": "an onslaught is a fierce attack; it loses its first letter"
+            }
+           ]
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only the last letter of tether is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tether",
+         "note": "the final letter of tether"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A spouse at the end of their tether lashes out, with one assault leaving a partner dead.",
      "walkthrough": "Anslaught is an old form of onslaught. Read whole, the clue also describes the crime itself: killing a mate in a moment of desperation.",
@@ -150,35 +161,24 @@
    },
    "solution": "MISANTHROPE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MISANTHROPE",
     "definitions": [
      {
       "text": "A hateful guy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "do",
-      "for": "anagram",
-      "note": "to do something over is to work it into a new form, so the following words are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not spare him",
-      "gives": "NOTSPAREHIM",
-      "note": "all eleven letters taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTSPAREHIM",
-       "gives": "MISANTHROPE"
+       "text": "do",
+       "note": "to do something over is to work it into a new form, so the following words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not spare him",
+       "note": "all eleven letters taken as written"
       }
      ]
     },
@@ -208,36 +208,28 @@
    },
    "solution": "ANANA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ANANA",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without shell",
-      "for": "deletion",
-      "note": "removing the shell leaves only the inside, so the first and last letters go"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nuts",
-      "gives": "BANANAS",
-      "note": "bananas is slang for crazy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANANA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANANA",
+     "indicators": [
+      {
+       "text": "without shell",
+       "note": "removing the shell leaves only the inside, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nuts",
+       "gives": "BANANAS",
+       "note": "bananas is slang for crazy"
+      }
      ]
     },
     "explanation": {
@@ -267,49 +259,44 @@
    },
    "solution": "SHASHLIK",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SHASHLIK",
     "definitions": [
      {
       "text": "lamb kebab",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "to be cut",
-      "for": "deletion",
-      "note": "a word that is cut is trimmed, so its last letter is lopped off"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Special",
-      "gives": "S",
-      "note": "S is the abbreviation for special"
-     },
-     {
-      "clueFragment": "mince",
-      "gives": "HASH",
-      "note": "hash is chopped or minced meat"
-     },
-     {
-      "clueFragment": "inclined",
-      "gives": "LIKE",
-      "note": "like can mean likely or inclined to, as in 'like to fail'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HASH",
-      "LIK"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be cut",
+       "note": "a word that is cut is trimmed, so its last letter is lopped off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Special",
+         "gives": "S",
+         "note": "S is the abbreviation for special"
+        },
+        {
+         "words": "mince",
+         "gives": "HASH",
+         "note": "hash is chopped or minced meat"
+        },
+        {
+         "words": "inclined",
+         "gives": "LIKE",
+         "note": "like can mean likely or inclined to, as in 'like to fail'"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -337,45 +324,41 @@
    },
    "solution": "ARGENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "ARGENT",
     "definitions": [
      {
       "text": "White",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with no",
-      "for": "deletion",
-      "note": "being without something means it is taken out of the word"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, which is the one taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "border once",
-      "gives": "MARGENT",
-      "note": "margent is an archaic form of margin"
-     },
-     {
-      "clueFragment": "geranium",
-      "gives": "M",
-      "select": "last",
-      "note": "the last letter of geranium"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARGENT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "note": "being without something means it is taken out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "border once",
+       "gives": "MARGENT",
+       "note": "margent is an archaic form of margin"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, which is the one taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "geranium",
+         "note": "the last letter of geranium"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -404,46 +387,41 @@
    },
    "solution": "UNITY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UNITY",
     "definitions": [
      {
       "text": "Number one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "away",
-      "for": "deletion",
-      "note": "things sent away are no longer there, so these letters are removed"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chance",
-      "gives": "OPPORTUNITY",
-      "note": "an opportunity is a chance"
-     },
-     {
-      "clueFragment": "friend",
-      "gives": "OPPO",
-      "note": "oppo is British slang for a friend or colleague"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "RT",
-      "note": "RT is an abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNITY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "note": "things sent away are no longer there, so these letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chance",
+       "gives": "OPPORTUNITY",
+       "note": "an opportunity is a chance"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "friend",
+         "gives": "OPPO",
+         "note": "oppo is British slang for a friend or colleague"
+        },
+        {
+         "words": "right",
+         "gives": "RT",
+         "note": "RT is an abbreviation for right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -472,46 +450,45 @@
    },
    "solution": "GAMETE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "GAMETE",
     "definitions": [
      {
       "text": "Cell",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blocked by",
-      "for": "container",
-      "note": "something blocked by another has that thing stuck in its middle"
-     },
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without its end, the word loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entrance",
-      "gives": "GATE",
-      "note": "a gate is an entrance"
-     },
-     {
-      "clueFragment": "fellows",
-      "gives": "MEN",
-      "note": "fellows are men; the last letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "ME",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocked by",
+       "note": "something blocked by another has that thing stuck in its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "entrance",
+       "gives": "GATE",
+       "note": "a gate is an entrance"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "without its end, the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellows",
+         "gives": "MEN",
+         "note": "fellows are men; the last letter goes"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -539,38 +516,30 @@
    },
    "solution": "THALLUSES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THALLUSES",
     "definitions": [
      {
       "text": "bodies on plant",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The",
-      "gives": "T",
-      "note": "t' is the dialect contraction of the, as in northern English"
-     },
-     {
-      "clueFragment": "college",
-      "gives": "HALL",
-      "note": "a hall is a college, or its residence"
-     },
-     {
-      "clueFragment": "employs",
-      "gives": "USES",
-      "note": "to employ something is to use it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "HALL",
-      "USES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The",
+       "gives": "T",
+       "note": "t' is the dialect contraction of the, as in northern English"
+      },
+      {
+       "words": "college",
+       "gives": "HALL",
+       "note": "a hall is a college, or its residence"
+      },
+      {
+       "words": "employs",
+       "gives": "USES",
+       "note": "to employ something is to use it"
+      }
      ]
     },
     "explanation": {
@@ -600,34 +569,29 @@
    },
    "solution": "EILEEN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EILEEN",
     "definitions": [
      {
       "text": "her",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "in speech",
-      "for": "homophone",
-      "note": "in speech means the words are heard spoken rather than read"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I have an inclination",
-      "gives": "EILEEN",
-      "soundsLike": "I LEAN",
-      "note": "to have an inclination is to lean"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EILEEN",
+     "indicators": [
+      {
+       "text": "in speech",
+       "note": "in speech means the words are heard spoken rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I have an inclination",
+       "gives": "ILEAN",
+       "note": "to have an inclination is to lean"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone confesses that they have a soft spot for a particular woman.",
      "walkthrough": "'inclination' reads as a romantic liking, but it is a physical slope.",
@@ -655,40 +619,31 @@
    },
    "solution": "INKHORN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INKHORN",
     "definitions": [
      {
       "text": "Obscure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "a thing around another encloses it, so the second word sits inside the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotel",
-      "gives": "INN",
-      "note": "an inn is a hotel"
-     },
-     {
-      "clueFragment": "ravine",
-      "gives": "KHOR",
-      "note": "a khor is a dry watercourse or ravine in North Africa"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "KHOR",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "a thing around another encloses it, so the second word sits inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel",
+       "gives": "INN",
+       "note": "an inn is a hotel"
+      },
+      {
+       "words": "ravine",
+       "gives": "KHOR",
+       "note": "a khor is a dry watercourse or ravine in North Africa"
+      }
      ]
     },
     "explanation": {
@@ -717,33 +672,29 @@
    },
    "solution": "CHIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CHIC",
     "definitions": [
      {
       "text": "Elegant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting rear pinched",
-      "for": "deletion",
-      "note": "the rear of a word is its end, and pinching it takes it away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "young girl",
-      "gives": "CHICK",
-      "note": "chick is slang for a young woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "getting rear pinched",
+       "note": "the rear of a word is its end, and pinching it takes it away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "young girl",
+       "gives": "CHICK",
+       "note": "chick is slang for a young woman"
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -778,10 +729,6 @@
    },
    "solution": "CLEVERCLOGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLEVER CLOGS",
     "definitions": [
      {
       "text": "Smarties",
@@ -789,37 +736,29 @@
       "note": "plural; clever clogs is used for one or many"
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in clubs more than once",
-      "gives": "C",
-      "note": "C is clubs in card notation; it opens the answer and appears again later"
-     },
-     {
-      "clueFragment": "Purchase",
-      "gives": "LEVER",
-      "note": "purchase is mechanical grip or leverage, which a lever gives"
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "the second C for clubs"
-     },
-     {
-      "clueFragment": "records",
-      "gives": "LOGS",
-      "note": "logs are written records"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LEVER",
-      "C",
-      "LOGS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in clubs more than once",
+       "gives": "C",
+       "note": "C is clubs in card notation; it opens the answer and appears again later"
+      },
+      {
+       "words": "Purchase",
+       "gives": "LEVER",
+       "note": "purchase is mechanical grip or leverage, which a lever gives"
+      },
+      {
+       "words": "clubs",
+       "gives": "C",
+       "note": "the second C for clubs"
+      },
+      {
+       "words": "records",
+       "gives": "LOGS",
+       "note": "logs are written records"
+      }
      ]
     },
     "explanation": {
@@ -849,46 +788,45 @@
    },
    "solution": "SARANGI",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SARANGI",
     "definitions": [
      {
       "text": "something like a fiddle",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all, so the final letter goes"
-     },
-     {
-      "text": "clips",
-      "for": "container",
-      "note": "to clip something is to hold it tight within a grip"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mentioned",
-      "gives": "SAID",
-      "note": "said means mentioned; the last letter is dropped"
-     },
-     {
-      "clueFragment": "sounded clearly",
-      "gives": "RANG",
-      "note": "a bell rang, sounding clearly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "RANG",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clips",
+       "note": "to clip something is to hold it tight within a grip"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "note": "mostly means most but not all, so the final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mentioned",
+         "gives": "SAID",
+         "note": "said means mentioned; the last letter is dropped"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "sounded clearly",
+       "gives": "RANG",
+       "note": "a bell rang, sounding clearly"
+      }
      ]
     },
     "explanation": {
@@ -917,28 +855,16 @@
    },
    "solution": "MYALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MYALL",
     "definitions": [
      {
       "text": "What I give when fully committed",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: giving '...' is total commitment"
      },
      {
       "text": "wild in Perth",
-      "at": 37
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What I give when fully committed",
-      "note": "first meaning: giving '...' is total commitment"
-     },
-     {
-      "clueFragment": "wild in Perth",
-      "note": "second meaning: an Australian word for wild or untamed"
+      "at": 37,
+      "meaning": "second meaning: an Australian word for wild or untamed"
      }
     ],
     "explanation": {
@@ -966,35 +892,24 @@
    },
    "solution": "SCAGLIOLA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCAGLIOLA",
     "definitions": [
      {
       "text": "Imitation marble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in new design",
-      "for": "anagram",
-      "note": "a new design is a fresh arrangement, so these letters are set out differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so glacial",
-      "gives": "SOGLACIAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOGLACIAL",
-       "gives": "SCAGLIOLA"
+       "text": "in new design",
+       "note": "a new design is a fresh arrangement, so these letters are set out differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "so glacial",
+       "note": "taken as written"
       }
      ]
     },
@@ -1023,35 +938,25 @@
    },
    "solution": "PETERLEE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PETERLEE",
     "definitions": [
      {
       "text": "\"new\" Durham town",
       "at": 16
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Safe",
-      "gives": "PETER",
-      "note": "peter is old criminal slang for a safe"
-     },
-     {
-      "clueFragment": "shelter",
-      "gives": "LEE",
-      "note": "lee is shelter from the wind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PETER",
-      "LEE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Safe",
+       "gives": "PETER",
+       "note": "peter is old criminal slang for a safe"
+      },
+      {
+       "words": "shelter",
+       "gives": "LEE",
+       "note": "lee is shelter from the wind"
+      }
      ]
     },
     "explanation": {
@@ -1080,49 +985,41 @@
    },
    "solution": "NACHE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NACHE",
     "definitions": [
      {
       "text": "derrière",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Bit of",
-      "for": "letter_selection",
-      "note": "a bit of a word is a single letter, here its first"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "coming after places this piece behind the other one"
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dancing act",
-      "gives": "NACH",
-      "note": "nach, or nautch, is an Indian dance performance"
-     },
-     {
-      "clueFragment": "embarrassment",
-      "gives": "E",
-      "select": "first",
-      "note": "the opening letter of embarrassment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NACH",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "coming after places this piece behind the other one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dancing act",
+       "gives": "NACH",
+       "note": "nach, or nautch, is an Indian dance performance"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Bit of",
+         "note": "a bit of a word is a single letter, here its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "embarrassment",
+         "note": "the opening letter of embarrassment"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1152,40 +1049,39 @@
    },
    "solution": "STILBENE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "STILBENE",
     "definitions": [
      {
       "text": "Component of dye",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "for": "deletion",
-      "note": "reduced means cut down, so the word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as before",
-      "gives": "STILL",
-      "note": "still means as before, continuing"
-     },
-     {
-      "clueFragment": "well in Italy",
-      "gives": "BENE",
-      "note": "bene is Italian for well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STIL",
-      "BENE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "reduced",
+       "note": "reduced means cut down, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "as before",
+         "gives": "STILL",
+         "note": "still means as before, continuing"
+        },
+        {
+         "words": "well in Italy",
+         "gives": "BENE",
+         "note": "bene is Italian for well"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -1223,46 +1119,47 @@
    },
    "solution": "CALLTHETUNE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CALL THE TUNE",
     "definitions": [
      {
       "text": "order",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "No good",
-      "for": "deletion",
-      "note": "with no good, the letter standing for good is taken away"
-     },
-     {
-      "text": "must",
-      "for": "anagram",
-      "note": "must is grape juice in ferment, and fermenting letters are churned into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get",
-      "gives": "GET",
-      "note": "taken as written; the G for good goes"
-     },
-     {
-      "clueFragment": "late lunch",
-      "gives": "LATELUNCH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETLATELUNCH",
-       "gives": "CALLTHETUNE"
+       "text": "must",
+       "note": "must is grape juice in ferment, and fermenting letters are churned into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No good",
+         "note": "with no good, the letter standing for good is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "get",
+           "note": "taken as written; the G for good goes"
+          },
+          {
+           "words": "late lunch",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
@@ -1292,47 +1189,44 @@
    },
    "solution": "HAGIOLOGIST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "HAGIOLOGIST",
     "definitions": [
      {
       "text": "Legendary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "piece of",
-      "for": "letter_selection",
-      "note": "a piece of a word is one letter, here its first"
-     },
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "ground means crushed and broken up, so the letters are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Golgotha is",
-      "gives": "GOLGOTHAIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "interment",
-      "gives": "I",
-      "select": "first",
-      "note": "the first letter of interment"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GOLGOTHAISI",
-       "gives": "HAGIOLOGIST"
+       "text": "ground",
+       "note": "ground means crushed and broken up, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Golgotha is",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "piece of",
+           "note": "a piece of a word is one letter, here its first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "interment",
+           "note": "the first letter of interment"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1362,35 +1256,25 @@
    },
    "solution": "ALTAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALTAIR",
     "definitions": [
      {
       "text": "Star",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "key",
-      "gives": "ALT",
-      "note": "Alt is a key on a computer keyboard"
-     },
-     {
-      "clueFragment": "broadcast",
-      "gives": "AIR",
-      "note": "to air a programme is to broadcast it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALT",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "key",
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      },
+      {
+       "words": "broadcast",
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
+      }
      ]
     },
     "explanation": {
@@ -1419,53 +1303,44 @@
    },
    "solution": "ORSINO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ORSINO",
     "definitions": [
      {
       "text": "Duke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heading for",
-      "for": "letter_selection",
-      "note": "the heading of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "otherwise",
-      "gives": "OR",
-      "note": "or means otherwise"
-     },
-     {
-      "clueFragment": "Shakespeare",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of Shakespeare"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Love",
-      "gives": "O",
-      "note": "love is zero in tennis, the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "S",
-      "IN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "otherwise",
+       "gives": "OR",
+       "note": "or means otherwise"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "note": "the heading of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shakespeare",
+         "note": "the first letter of Shakespeare"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "Love",
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      }
      ]
     },
     "explanation": {
@@ -1494,32 +1369,25 @@
    },
    "solution": "OUTEAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTEAT",
     "definitions": [
      {
       "text": "Best in a mess maybe",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "thoroughly",
-      "gives": "OUT",
-      "note": "out means thoroughly or completely, as in 'tired out'"
-     },
-     {
-      "clueFragment": "upset",
-      "gives": "EAT",
-      "note": "eat can mean worry or trouble, as in 'what's eating you?'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "EAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "thoroughly",
+       "gives": "OUT",
+       "note": "out means thoroughly or completely, as in 'tired out'"
+      },
+      {
+       "words": "upset",
+       "gives": "EAT",
+       "note": "eat can mean worry or trouble, as in 'what's eating you?'"
+      }
      ]
     },
     "explanation": {
@@ -1549,45 +1417,37 @@
    },
    "solution": "LISTS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LISTS",
     "definitions": [
      {
       "text": "Rolls",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be entered for",
-      "for": "substitution",
-      "note": "entered for means put in place of, so one piece swaps into another's spot"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "nothing is zero, the letter O"
-     },
-     {
-      "clueFragment": "outside film areas",
-      "gives": "LOTS",
-      "note": "lots are the outdoor areas of a film studio"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IS",
-      "TS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LISTS",
+     "indicators": [
+      {
+       "text": "to be entered for",
+       "note": "entered for means put in place of, so one piece swaps into another's spot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
+      },
+      {
+       "words": "outside film areas",
+       "gives": "LOTS",
+       "note": "lots are the outdoor areas of a film studio"
+      }
      ]
     },
     "explanation": {
@@ -1617,45 +1477,41 @@
    },
    "solution": "ILEAC",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ILEAC",
     "definitions": [
      {
       "text": "Concerned with intestines",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "something leaving goes away, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "former physician years ago",
-      "gives": "LEACH",
-      "note": "leach is an obsolete spelling of leech, the old word for a doctor"
-     },
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H is the abbreviation for hospital"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "LEAC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "something leaving goes away, so that letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "former physician years ago",
+         "gives": "LEACH",
+         "note": "leach is an obsolete spelling of leech, the old word for a doctor"
+        },
+        {
+         "words": "hospital",
+         "gives": "H",
+         "note": "H is the abbreviation for hospital"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1684,36 +1540,29 @@
    },
    "solution": "AVINE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AVINE",
     "definitions": [
      {
       "text": "Like a chat perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not the first",
-      "for": "deletion",
-      "note": "without the first means the opening letter is removed"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gill",
-      "gives": "RAVINE",
-      "note": "a gill, or ghyll, is a ravine in northern England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVINE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not the first",
+       "note": "without the first means the opening letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gill",
+       "gives": "RAVINE",
+       "note": "a gill, or ghyll, is a ravine in northern England"
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -1743,47 +1592,37 @@
    },
    "solution": "OTIOSITY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "OTIOSITY",
     "definitions": [
      {
       "text": "idleness",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "used for",
-      "for": "substitution",
-      "note": "something used for another is put in its place"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bible book's",
-      "gives": "OT",
-      "note": "OT is the Old Testament, a book of the Bible"
-     },
-     {
-      "clueFragment": "Vic",
-      "gives": "VIC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "malignancy",
-      "gives": "VICIOSITY",
-      "note": "viciosity is an old word for viciousness or malignancy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OT",
-      "IOSITY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "OTIOSITY",
+     "indicators": [
+      {
+       "text": "used for",
+       "note": "something used for another is put in its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bible book's",
+       "gives": "OT",
+       "note": "OT is the Old Testament, a book of the Bible"
+      },
+      {
+       "words": "Vic",
+       "note": "taken as written"
+      },
+      {
+       "words": "malignancy",
+       "gives": "VICIOSITY",
+       "note": "viciosity is an old word for viciousness or malignancy"
+      }
      ]
     },
     "explanation": {
@@ -1812,54 +1651,40 @@
    },
    "solution": "PAOLI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PAOLI",
     "definitions": [
      {
       "text": "money as before",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "old-timer",
-      "gives": "OAP",
-      "note": "an OAP is an old-age pensioner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAO",
-      "L",
-      "I"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ILOAP",
-       "to": "PAOLI"
+       "text": "returning",
+       "note": "returning means going back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left"
+        },
+        {
+         "words": "old-timer",
+         "gives": "OAP",
+         "note": "an OAP is an old-age pensioner"
+        }
+       ]
       }
      ]
     },
@@ -1889,54 +1714,44 @@
    },
    "solution": "SENECIO",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SENECIO",
     "definitions": [
      {
       "text": "Groundsel, perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wild",
-      "for": "anagram",
-      "note": "wild means out of control, so these letters run loose into a new order"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seen",
-      "gives": "SEEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Channel Islands",
-      "gives": "CI",
-      "note": "CI is the abbreviation for the Channel Islands"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is round in shape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SENE",
-      "CI",
-      "O"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SEEN",
-       "gives": "SENE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "note": "wild means out of control, so these letters run loose into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "seen",
+           "note": "taken as written"
+          },
+          {
+           "words": "Channel Islands",
+           "gives": "CI",
+           "note": "CI is the abbreviation for the Channel Islands"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is round in shape"
       }
      ]
     },
@@ -1966,35 +1781,24 @@
    },
    "solution": "EILD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EILD",
     "definitions": [
      {
       "text": "old age",
       "at": 11
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about can mean turned around, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lied",
-      "gives": "LIED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LIED",
-       "gives": "EILD"
+       "text": "about",
+       "note": "about can mean turned around, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lied",
+       "note": "taken as written"
       }
      ]
     },
@@ -2024,32 +1828,25 @@
    },
    "solution": "TANNING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TANNING",
     "definitions": [
      {
       "text": "Striking",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "content of red wine",
-      "gives": "TANNIN",
-      "note": "tannin is a substance found in red wine"
-     },
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G is the abbreviation for German"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TANNIN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "content of red wine",
+       "gives": "TANNIN",
+       "note": "tannin is a substance found in red wine"
+      },
+      {
+       "words": "German",
+       "gives": "G",
+       "note": "G is the abbreviation for German"
+      }
      ]
     },
     "explanation": {
@@ -2078,55 +1875,49 @@
    },
    "solution": "ERATOSTHENES",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ERATOSTHENES",
     "definitions": [
      {
       "text": "Greek scholar",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all, so the last letter goes"
-     }
-    ],
-    "linkWords": [
-     "for a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muse",
-      "gives": "ERATO",
-      "note": "Erato is the Muse of lyric and love poetry"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "THE",
-      "note": "the definite article"
-     },
-     {
-      "clueFragment": "Head",
-      "gives": "NESS",
-      "note": "a ness is a headland; the last letter is dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERATO",
-      "S",
-      "THE",
-      "NES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means most but not all, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Muse",
+         "gives": "ERATO",
+         "note": "Erato is the Muse of lyric and love poetry"
+        },
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "S is the abbreviation for second"
+        },
+        {
+         "words": "article",
+         "gives": "THE",
+         "note": "the definite article"
+        },
+        {
+         "words": "Head",
+         "gives": "NESS",
+         "note": "a ness is a headland; the last letter is dropped"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {

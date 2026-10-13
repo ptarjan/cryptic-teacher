@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29908",
  "number": 29908,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,908",
  "setter": "Brendan",
  "date": "2026-01-20",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "ZERO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ZERO",
     "definitions": [
      {
       "text": "Minimum probability",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "one can get out of",
-      "for": "hidden_word",
-      "note": "the answer can be taken out of the letters that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "maze, roughly",
-      "gives": "ZERO",
-      "note": "maZE ROughly"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "one can get out of",
+       "note": "the answer can be taken out of the letters that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maze, roughly",
+       "gives": "ZERO",
+       "note": "maZE ROughly"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice on the odds of finding your way out of a maze, which are close to nil.",
      "walkthrough": "The comma splits the two words the answer straddles, so the surface reads as a rough estimate rather than a string of letters.",
@@ -88,36 +84,25 @@
    },
    "solution": "BETTERED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BETTERED",
     "definitions": [
      {
       "text": "beaten",
       "at": 42
      }
     ],
-    "linkWords": [
-     "on",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Person risking money",
-      "gives": "BETTER",
-      "note": "one who bets"
-     },
-     {
-      "clueFragment": "form of Edward",
-      "gives": "ED",
-      "note": "Ed is a short form of the name Edward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BETTER",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Person risking money",
+       "gives": "BETTER",
+       "note": "one who bets"
+      },
+      {
+       "words": "form of Edward",
+       "gives": "ED",
+       "note": "Ed is a short form of the name Edward"
+      }
      ]
     },
     "explanation": {
@@ -147,55 +132,47 @@
    },
    "solution": "STOCHASTIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STOCHASTIC",
     "definitions": [
      {
       "text": "randomly determined",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "'about' means around, so the calm word goes around the rest"
-     },
-     {
-      "text": "including",
-      "for": "container",
-      "note": "to include is to hold within, so the players take in the husband"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Calm",
-      "gives": "STOIC",
-      "note": "stoic = calm, unmoved"
-     },
-     {
-      "clueFragment": "players",
-      "gives": "CAST",
-      "note": "the cast of a play"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STO",
-      "C",
-      "H",
-      "AST",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "'about' means around, so the calm word goes around the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Calm",
+       "gives": "STOIC",
+       "note": "stoic = calm, unmoved"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "note": "to include is to hold within, so the players take in the husband"
+        }
+       ],
+       "parts": [
+        {
+         "words": "players",
+         "gives": "CAST",
+         "note": "the cast of a play"
+        },
+        {
+         "words": "husband",
+         "gives": "H",
+         "note": "standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -224,43 +201,38 @@
    },
    "solution": "LAYMAN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LAYMAN",
     "definitions": [
      {
       "text": "nonprofessional",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "most of the word, so its last letter goes"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stake",
-      "gives": "LAY",
-      "note": "to lay a bet is to stake money"
-     },
-     {
-      "clueFragment": "a lot — mostly",
-      "gives": "MAN",
-      "note": "MANY without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAY",
-      "MAN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LAYMAN",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most of the word, so its last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Stake",
+         "gives": "LAY",
+         "note": "to lay a bet is to stake money"
+        },
+        {
+         "words": "a lot — mostly",
+         "gives": "MAN",
+         "note": "MANY without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -289,44 +261,40 @@
    },
    "solution": "FEASIBLY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FEASIBLY",
     "definitions": [
      {
       "text": "Within bounds of possibility",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ensnaring",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "having no difficulty",
-      "gives": "EASILY",
-      "note": "easily = without difficulty"
-     },
-     {
-      "clueFragment": "bachelor",
-      "gives": "B",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "EASIBLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "ensnaring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "having no difficulty",
+         "gives": "EASILY",
+         "note": "easily = without difficulty"
+        },
+        {
+         "words": "bachelor",
+         "gives": "B",
+         "note": "standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -355,31 +323,17 @@
    },
    "solution": "ABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ABLE",
     "definitions": [
      {
       "text": "Accomplished",
       "at": 0,
-      "note": "the second definition is the part of PROBABLE that follows PROB"
+      "note": "the second definition is the part of PROBABLE that follows PROB",
+      "meaning": "accomplished = skilled, capable"
      },
      {
       "text": "what's likely after 24 down",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Accomplished",
-      "gives": "ABLE",
-      "note": "accomplished = skilled, capable"
-     },
-     {
-      "clueFragment": "what's likely after 24 down",
-      "gives": "ABLE",
-      "note": "the tail of a word for likely, once 24 down's letters stand in front"
+      "at": 13,
+      "meaning": "the tail of a word for likely, once 24 down's letters stand in front"
      }
     ],
     "explanation": {
@@ -407,49 +361,43 @@
    },
    "solution": "CASINO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CASINO",
     "definitions": [
      {
       "text": "Place for gambling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "always endless",
-      "for": "deletion",
-      "note": "every one of the three words loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "in which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cash",
-      "gives": "CAS",
-      "note": "CASH without its last letter"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "I",
-      "note": "IS without its last letter"
-     },
-     {
-      "clueFragment": "not",
-      "gives": "NO",
-      "note": "NOT without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAS",
-      "I",
-      "NO"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CASINO",
+     "indicators": [
+      {
+       "text": "always endless",
+       "note": "every one of the three words loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cash",
+         "gives": "CAS",
+         "note": "CASH without its last letter"
+        },
+        {
+         "words": "is",
+         "gives": "I",
+         "note": "IS without its last letter"
+        },
+        {
+         "words": "not",
+         "gives": "NO",
+         "note": "NOT without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -479,40 +427,28 @@
    },
    "solution": "ODDS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "ODDS",
     "definitions": [
      {
       "text": "Probability of dice delivering six",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "take the first letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of dice delivering six",
-      "gives": "ODDS",
-      "select": "first",
-      "note": "Of Dice Delivering Six"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "D",
-      "D",
-      "S"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "take the first letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of dice delivering six",
+       "note": "Of Dice Delivering Six"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about the chance of rolling a six.",
      "walkthrough": "The whole clue is both definition and wordplay: the chance of rolling a six is exactly what the odds are.",
@@ -538,48 +474,59 @@
    },
    "solution": "EVENTUATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "homophone"
-    ],
-    "answer": "EVENTUATE",
     "definitions": [
      {
       "text": "Chance to happen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "announced"
-     },
-     {
-      "text": "in",
-      "note": "'in' places the sound of 'you' inside the gallery's name, as a visitor stands in a gallery"
-     },
-     {
-      "text": "on"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drawing",
-      "gives": "EVEN",
-      "note": "a drawn game leaves the scores even"
-     },
-     {
-      "clueFragment": "gallery",
-      "gives": "TATE",
-      "note": "the Tate, London's art gallery"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "soundsLike": "YOU",
-      "note": "the letter U is said like 'you'"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "announced"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drawing",
+       "gives": "EVEN",
+       "note": "a drawn game leaves the scores even"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places the sound of 'you' inside the gallery's name, as a visitor stands in a gallery"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gallery",
+         "gives": "TATE",
+         "note": "the Tate, London's art gallery"
+        },
+        {
+         "op": "homophone",
+         "spelt": "U",
+         "indicators": [
+          {
+           "text": "on"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "gives": "YOU",
+           "note": "the letter U is said like 'you'"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something happens in a gallery just as you said it would, over a drawing.",
      "walkthrough": "'Drawing' and 'gallery' together paint a picture of art; here drawing means a tied game. The Tate is a group of London art galleries.",
@@ -607,31 +554,29 @@
    },
    "solution": "BOARD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BOARD",
     "definitions": [
      {
       "text": "Location for dicey games",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "the answer is how the word is said, not spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lacking excitement",
-      "gives": "BOARD",
-      "soundsLike": "BORED",
-      "note": "bored = lacking excitement"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BOARD",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "the answer is how the word is said, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lacking excitement",
+       "gives": "BORED",
+       "note": "bored = lacking excitement"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A place where dice games are played, which sounds rather dull.",
      "walkthrough": "'Dicey' plays on dice: board games such as backgammon are played with dice.",
@@ -659,39 +604,30 @@
    },
    "solution": "OPTIC",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OPTIC",
     "definitions": [
      {
       "text": "relating to one sense organ",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "or another",
-      "gives": "OTIC",
-      "note": "otic = relating to another sense organ, the ear"
-     },
-     {
-      "clueFragment": "Probability",
-      "gives": "P",
-      "note": "p is the symbol for probability"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "P",
-      "TIC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or another",
+       "gives": "OTIC",
+       "note": "otic = relating to another sense organ, the ear"
+      },
+      {
+       "words": "Probability",
+       "gives": "P",
+       "note": "p is the symbol for probability"
+      }
      ]
     },
     "explanation": {
@@ -720,49 +656,55 @@
    },
    "solution": "MYSTERIES",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "MYSTERIES",
     "definitions": [
      {
       "text": "they can be hard to solve",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Origin of",
-      "note": "the first letter of the word"
-     },
-     {
-      "text": "in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brendan's",
-      "gives": "MY",
-      "note": "the setter Brendan speaking of himself"
-     },
-     {
-      "clueFragment": "collection",
-      "gives": "SERIES",
-      "note": "a series = a collection"
-     },
-     {
-      "clueFragment": "Origin of theme",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of theme"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MYS",
-      "T",
-      "ERIES"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Origin of",
+       "note": "the first letter of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brendan's",
+       "gives": "MY",
+       "note": "the setter Brendan speaking of himself"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "collection",
+         "gives": "SERIES",
+         "note": "a series = a collection"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "T",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Origin of theme",
+           "gives": "T",
+           "select": "first",
+           "note": "first letter of theme"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -791,35 +733,24 @@
    },
    "solution": "CERTAIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CERTAIN",
     "definitions": [
      {
       "text": "Associated with probability one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when wrecked",
-      "for": "anagram",
-      "note": "the letters are broken up and rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can tire",
-      "gives": "CANTIRE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAN TIRE",
-       "gives": "CERTAIN"
+       "text": "when wrecked",
+       "note": "the letters are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can tire",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -849,26 +780,25 @@
    },
    "solution": "CUBIC",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CUBIC",
     "definitions": [
      {
       "text": "Like simple random number generator, sugar?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Like simple random number generator",
-      "note": "the surface suggests software; the simplest generator of random numbers is a die"
-     },
-     {
-      "clueFragment": "sugar?",
-      "note": "sugar is sold in lumps of the same shape as a die"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Like simple random number generator",
+       "note": "the surface suggests software; the simplest generator of random numbers is a die"
+      },
+      {
+       "words": "sugar?",
+       "note": "sugar is sold in lumps of the same shape as a die"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about what a die and a lump of sugar have in common.",
      "walkthrough": "'Random number generator' sounds like software; the simplest one is a die, which is a cube, like a sugar lump.",
@@ -902,35 +832,25 @@
    },
    "solution": "BACKOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BACK OUT",
     "definitions": [
      {
       "text": "withdraw",
       "at": 27
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bet on",
-      "gives": "BACK",
-      "note": "to back a horse is to bet on it"
-     },
-     {
-      "clueFragment": "way of escaping",
-      "gives": "OUT",
-      "note": "an out = a way of escape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACK",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bet on",
+       "gives": "BACK",
+       "note": "to back a horse is to bet on it"
+      },
+      {
+       "words": "way of escaping",
+       "gives": "OUT",
+       "note": "an out = a way of escape"
+      }
      ]
     },
     "explanation": {
@@ -958,35 +878,25 @@
    },
    "solution": "CHANCELESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHANCELESS",
     "definitions": [
      {
       "text": "Perfectly played",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of church",
-      "gives": "CHANCEL",
-      "note": "the chancel is the part of a church around the altar"
-     },
-     {
-      "clueFragment": "female ending",
-      "gives": "ESS",
-      "note": "-ess, the suffix making lioness, actress"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHANCEL",
-      "ESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of church",
+       "gives": "CHANCEL",
+       "note": "the chancel is the part of a church around the altar"
+      },
+      {
+       "words": "female ending",
+       "gives": "ESS",
+       "note": "-ess, the suffix making lioness, actress"
+      }
      ]
     },
     "explanation": {
@@ -1015,31 +925,17 @@
    },
    "solution": "TOTES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOTES",
     "definitions": [
      {
       "text": "Betting system's",
       "at": 0,
-      "note": "the first definition reads as TOTE'S, a possessive"
+      "note": "the first definition reads as TOTE'S, a possessive",
+      "meaning": "the Tote, short for totalizator, with 's"
      },
      {
       "text": "takes",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Betting system's",
-      "gives": "TOTES",
-      "note": "the Tote, short for totalizator, with 's"
-     },
-     {
-      "clueFragment": "takes",
-      "gives": "TOTES",
-      "note": "to tote = to carry, take along"
+      "at": 17,
+      "meaning": "to tote = to carry, take along"
      }
     ],
     "explanation": {
@@ -1069,40 +965,31 @@
    },
    "solution": "BIDET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BIDET",
     "definitions": [
      {
       "text": "it helps one clean up",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "placed inside",
-      "for": "container",
-      "note": "'placed inside' describes putting one thing into another, so I'D goes into the wager"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wager",
-      "gives": "BET",
-      "note": "bet = wager"
-     },
-     {
-      "clueFragment": "I had",
-      "gives": "ID",
-      "note": "I'd = I had"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ID",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "placed inside",
+       "note": "'placed inside' describes putting one thing into another, so I'D goes into the wager"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wager",
+       "gives": "BET",
+       "note": "bet = wager"
+      },
+      {
+       "words": "I had",
+       "gives": "ID",
+       "note": "I'd = I had"
+      }
      ]
     },
     "explanation": {
@@ -1132,33 +1019,16 @@
    },
    "solution": "SHY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHY",
     "definitions": [
      {
       "text": "Not enough, as cash",
-      "at": 0
+      "at": 0,
+      "meaning": "short of a required sum by some amount"
      },
      {
       "text": "toss",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "for it"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not enough, as cash",
-      "gives": "SHY",
-      "note": "short of a required sum by some amount"
-     },
-     {
-      "clueFragment": "toss",
-      "gives": "SHY",
-      "note": "to fling or throw, as at a fairground stall"
+      "at": 22,
+      "meaning": "to fling or throw, as at a fairground stall"
      }
     ],
     "explanation": {
@@ -1187,48 +1057,40 @@
    },
    "solution": "STRATEGY",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "STRATEGY",
     "definitions": [
      {
       "text": "long-term plan",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "overturned"
-     },
-     {
-      "text": "in",
-      "note": "'in' means within, so the reversed word sits within the word for random"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "random",
-      "gives": "STRAY",
-      "note": "a stray shot is a random one"
-     },
-     {
-      "clueFragment": "Contract",
-      "gives": "GET",
-      "note": "to contract an illness is to get it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRA",
-      "TEG",
-      "Y"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "GET",
-       "to": "TEG"
+       "text": "overturned"
+      }
+     ],
+     "parts": [
+      {
+       "words": "random",
+       "gives": "STRAY",
+       "note": "a stray shot is a random one"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' means within, so the reversed word sits within the word for random"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Contract",
+         "gives": "GET",
+         "note": "to contract an illness is to get it"
+        }
+       ]
       }
      ]
     },
@@ -1258,35 +1120,24 @@
    },
    "solution": "ASCOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASCOT",
     "definitions": [
      {
       "text": "English course that offers better opportunities",
       "at": 22
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "non-English type",
-      "gives": "SCOT",
-      "note": "a native of the country north of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SCOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as written"
+      },
+      {
+       "words": "non-English type",
+       "gives": "SCOT",
+       "note": "a native of the country north of England"
+      }
      ]
     },
     "explanation": {
@@ -1322,35 +1173,25 @@
    },
    "solution": "CHIPSHOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHIP SHOT",
     "definitions": [
      {
       "text": "Approach",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "counter in gaming club",
-      "gives": "CHIP",
-      "note": "a casino chip"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SHOT",
-      "note": "a shot of spirits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIP",
-      "SHOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "counter in gaming club",
+       "gives": "CHIP",
+       "note": "a casino chip"
+      },
+      {
+       "words": "drink",
+       "gives": "SHOT",
+       "note": "a shot of spirits"
+      }
      ]
     },
     "explanation": {
@@ -1380,43 +1221,33 @@
    },
    "solution": "CHANCER",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "CHANCER",
     "definitions": [
      {
       "text": "opportunist",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "having change of heart",
-      "for": "substitution",
-      "note": "the middle letter of the poet's name is swapped for another"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Poet",
-      "gives": "CHAUCER",
-      "note": "Geoffrey Chaucer"
-     },
-     {
-      "clueFragment": "change of heart",
-      "gives": "N",
-      "note": "the central U becomes N"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "N",
-      "CER"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "CHANCER",
+     "indicators": [
+      {
+       "text": "having change of heart",
+       "note": "the middle letter of the poet's name is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Poet",
+       "gives": "CHAUCER",
+       "note": "Geoffrey Chaucer"
+      },
+      {
+       "words": "change of heart",
+       "gives": "N",
+       "note": "the central U becomes N"
+      }
      ]
     },
     "explanation": {
@@ -1445,57 +1276,46 @@
    },
    "solution": "ARCADE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ARCADE",
     "definitions": [
      {
       "text": "game situation",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "something wrong is out of order, so the letters of card are disordered"
-     },
-     {
-      "text": "concludes"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as written"
-     },
-     {
-      "clueFragment": "card",
-      "gives": "RCAD",
-      "note": "CARD rearranged"
-     },
-     {
-      "clueFragment": "bridge player",
-      "gives": "E",
-      "note": "East, one of the four players at bridge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RCAD",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ARCADE",
+     "indicators": [
       {
-       "fodder": "CARD",
-       "gives": "RCAD"
+       "text": "wrong",
+       "note": "something wrong is out of order, so the letters of card are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "concludes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A",
+         "note": "as written"
+        },
+        {
+         "words": "card",
+         "gives": "RCAD",
+         "note": "CARD rearranged"
+        },
+        {
+         "words": "bridge player",
+         "gives": "E",
+         "note": "East, one of the four players at bridge"
+        }
+       ]
       }
      ]
     },
@@ -1525,40 +1345,31 @@
    },
    "solution": "TACTICS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TACTICS",
     "definitions": [
      {
       "text": "plans to reduce risk",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "'about' means around, so TACT IS goes around the constant"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Diplomacy's",
-      "gives": "TACTIS",
-      "note": "tact is = diplomacy's, reading 's as 'is'"
-     },
-     {
-      "clueFragment": "constant",
-      "gives": "C",
-      "note": "c, the speed of light, a physical constant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TACTI",
-      "C",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "'about' means around, so TACT IS goes around the constant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Diplomacy's",
+       "gives": "TACTIS",
+       "note": "tact is = diplomacy's, reading 's as 'is'"
+      },
+      {
+       "words": "constant",
+       "gives": "C",
+       "note": "c, the speed of light, a physical constant"
+      }
      ]
     },
     "explanation": {
@@ -1587,30 +1398,16 @@
    },
    "solution": "TOSSED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOSSED",
     "definitions": [
      {
       "text": "Decisively raised a little bit of money",
-      "at": 0
+      "at": 0,
+      "meaning": "a coin flipped into the air to settle a decision"
      },
      {
       "text": "wasn't easy",
-      "at": 42
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decisively raised a little bit of money",
-      "gives": "TOSSED",
-      "note": "a coin flipped into the air to settle a decision"
-     },
-     {
-      "clueFragment": "wasn't easy",
-      "gives": "TOSSED",
-      "note": "was restless, turning over and over in bed"
+      "at": 42,
+      "meaning": "was restless, turning over and over in bed"
      }
     ],
     "explanation": {
@@ -1640,41 +1437,31 @@
    },
    "solution": "PECULATES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PECULATES",
     "definitions": [
      {
       "text": "Embezzles",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after initial loss",
-      "for": "deletion",
-      "note": "the word loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gambles",
-      "gives": "SPECULATES",
-      "note": "to speculate is to gamble"
-     },
-     {
-      "clueFragment": "initial",
-      "gives": "S",
-      "note": "the first letter, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PECULATES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after initial loss",
+       "note": "the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gambles",
+       "gives": "SPECULATES",
+       "note": "to speculate is to gamble"
+      },
+      {
+       "words": "initial",
+       "gives": "S",
+       "note": "the first letter, removed"
+      }
      ]
     },
     "explanation": {
@@ -1703,31 +1490,17 @@
    },
    "solution": "PROB",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PROB",
     "definitions": [
      {
       "text": "A little difficulty?",
       "at": 0,
-      "note": "the second definition is the part of PROBABLE that comes before ABLE"
+      "note": "the second definition is the part of PROBABLE that comes before ABLE",
+      "meaning": "a clipped, informal problem"
      },
      {
       "text": "Before 6, it's to be expected",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A little difficulty?",
-      "gives": "PROB",
-      "note": "a clipped, informal problem"
-     },
-     {
-      "clueFragment": "Before 6, it's to be expected",
-      "gives": "PROB",
-      "note": "the front of a word for likely, once 6 down's letters follow"
+      "at": 21,
+      "meaning": "the front of a word for likely, once 6 down's letters follow"
      }
     ],
     "explanation": {
@@ -1757,31 +1530,17 @@
    },
    "solution": "LOTS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LOTS",
     "definitions": [
      {
       "text": "Something drawn using paper",
       "at": 0,
-      "note": "'Something' is singular; LOTS is plural"
+      "note": "'Something' is singular; LOTS is plural",
+      "meaning": "slips of paper drawn from a hat to decide by chance"
      },
      {
       "text": "a great deal",
-      "at": 28
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something drawn using paper",
-      "gives": "LOTS",
-      "note": "slips of paper drawn from a hat to decide by chance"
-     },
-     {
-      "clueFragment": "a great deal",
-      "gives": "LOTS",
-      "note": "a large amount, informally"
+      "at": 28,
+      "meaning": "a large amount, informally"
      }
     ],
     "explanation": {
@@ -1811,38 +1570,31 @@
    },
    "solution": "LOSER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LOSER",
     "definitions": [
      {
       "text": "Player out of luck, perhaps?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing head",
-      "for": "deletion",
-      "note": "to lose the head is to lose the top, so the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not so far",
-      "gives": "CLOSER",
-      "note": "closer = nearer, not so far"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "C",
-      "note": "first letter, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOSER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "note": "to lose the head is to lose the top, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not so far",
+       "gives": "CLOSER",
+       "note": "closer = nearer, not so far"
+      },
+      {
+       "words": "head",
+       "gives": "C",
+       "note": "first letter, removed"
+      }
      ]
     },
     "explanation": {
@@ -1871,30 +1623,16 @@
    },
    "solution": "RAKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAKE",
     "definitions": [
      {
       "text": "Playboy",
-      "at": 0
+      "at": 0,
+      "meaning": "a dissolute man of fashion"
      },
      {
       "text": "that takes in money at roulette table",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Playboy",
-      "gives": "RAKE",
-      "note": "a dissolute man of fashion"
-     },
-     {
-      "clueFragment": "that takes in money at roulette table",
-      "gives": "RAKE",
-      "note": "the croupier's long-handled tool for gathering chips"
+      "at": 8,
+      "meaning": "the croupier's long-handled tool for gathering chips"
      }
     ],
     "explanation": {
@@ -1928,35 +1666,24 @@
    },
    "solution": "ONDIT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ON-DIT",
     "definitions": [
      {
       "text": "Uncertain news from France",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "the letters are scattered and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I don't",
-      "gives": "IDONT",
-      "note": "anagram fodder, 5 letters, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "I DONT",
-       "gives": "ONDIT"
+       "text": "broadcast",
+       "note": "the letters are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I don't",
+       "note": "anagram fodder, 5 letters, apostrophe ignored"
       }
      ]
     },
@@ -1986,47 +1713,41 @@
    },
    "solution": "GUESSWORK",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "GUESSWORK",
     "definitions": [
      {
       "text": "It has some chance of success",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "to lose something is to be without it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Company",
-      "gives": "GUESTS",
-      "note": "company = visitors, guests"
-     },
-     {
-      "clueFragment": "little time",
-      "gives": "T",
-      "note": "t = time, removed"
-     },
-     {
-      "clueFragment": "a week-end",
-      "gives": "WORK",
-      "note": "an end of WEEK is W or K"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUESS",
-      "W",
-      "OR",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "note": "to lose something is to be without it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Company",
+         "gives": "GUESTS",
+         "note": "company = visitors, guests"
+        },
+        {
+         "words": "little time",
+         "gives": "T",
+         "note": "t = time, removed"
+        }
+       ]
+      },
+      {
+       "words": "a week-end",
+       "gives": "WORK",
+       "note": "an end of WEEK is W or K"
+      }
      ]
     },
     "explanation": {

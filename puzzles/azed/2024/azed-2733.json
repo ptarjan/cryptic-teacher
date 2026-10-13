@@ -1,8 +1,6 @@
 {
  "id": "azed-2733",
  "number": 2733,
- "series": "azed",
- "name": "Observer azed crossword No 2,733",
  "setter": "Azed",
  "date": "2024-11-03",
  "dimensions": {
@@ -56,30 +54,28 @@
    },
    "solution": "IMBOSOM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "IMBOSOM",
     "definitions": [
      {
       "text": "Cuddle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without clothing",
-      "for": "hidden_word",
-      "note": "stripped of its outer covering, the phrase shows only the run of letters inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bimbo somewhat",
-      "gives": "IMBOSOM",
-      "note": "the letters run across the two words once the outer ones are stripped away"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "without clothing",
+       "note": "stripped of its outer covering, the phrase shows only the run of letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bimbo somewhat",
+       "gives": "IMBOSOM",
+       "note": "the letters run across the two words once the outer ones are stripped away"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone hugs a scantily dressed young woman, perhaps with no clothes at all.",
      "walkthrough": "IMBOSOM sits inside bIMBO SOMewhat; only the first and last few letters are shed.",
@@ -106,35 +102,24 @@
    },
    "solution": "POURTRAHED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POURTRAHED",
     "definitions": [
      {
       "text": "Poet's featured in picture",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "strangely",
-      "for": "anagram",
-      "note": "something done strangely is out of its usual order, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parrot-hued",
-      "gives": "PARROTHUED",
-      "note": "taken letter for letter, hyphen ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PARROTHUED",
-       "gives": "POURTRAHED"
+       "text": "strangely",
+       "note": "something done strangely is out of its usual order, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parrot-hued",
+       "note": "taken letter for letter, hyphen ignored"
       }
      ]
     },
@@ -164,45 +149,35 @@
    },
    "solution": "POGGE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "POGGE",
     "definitions": [
      {
       "text": "it's armed at sea",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "mounting",
-      "for": "reversal",
-      "note": "in a down clue, something mounting climbs upward, so the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bomb",
-      "gives": "EGG",
-      "note": "egg is old military slang for a bomb or mine"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op, short for opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "GGE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EGGOP",
-       "to": "POGGE"
+       "text": "mounting",
+       "note": "in a down clue, something mounting climbs upward, so the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bomb",
+         "gives": "EGG",
+         "note": "egg is old military slang for a bomb or mine"
+        },
+        {
+         "words": "work",
+         "gives": "OP",
+         "note": "op, short for opus, a work"
+        }
+       ]
       }
      ]
     },
@@ -233,46 +208,45 @@
    },
    "solution": "ALGAE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "ALGAE",
     "definitions": [
      {
       "text": "Weedy group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "taking half a word keeps only its front portion and drops the rest"
-     },
-     {
-      "text": "to get stuck into",
-      "for": "container",
-      "note": "something stuck into another thing ends up lodged inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer",
-      "gives": "ALE",
-      "note": "ale is a kind of beer"
-     },
-     {
-      "clueFragment": "crazy",
-      "gives": "GAGA",
-      "note": "gaga means crazy or senile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "GA",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to get stuck into",
+       "note": "something stuck into another thing ends up lodged inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is a kind of beer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "note": "taking half a word keeps only its front portion and drops the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crazy",
+         "gives": "GAGA",
+         "note": "gaga means crazy or senile"
+        },
+        {
+         "gives": "GA"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -302,35 +276,25 @@
    },
    "solution": "STICKJAW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STICKJAW",
     "definitions": [
      {
       "text": "Stodgy pudding",
       "at": 0
      }
     ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "club",
-      "gives": "STICK",
-      "note": "a stick is a club or cudgel"
-     },
-     {
-      "clueFragment": "chat",
-      "gives": "JAW",
-      "note": "to jaw is to talk or chatter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STICK",
-      "JAW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "club",
+       "gives": "STICK",
+       "note": "a stick is a club or cudgel"
+      },
+      {
+       "words": "chat",
+       "gives": "JAW",
+       "note": "to jaw is to talk or chatter"
+      }
      ]
     },
     "explanation": {
@@ -358,41 +322,29 @@
    },
    "solution": "TENTIGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TENTIGO",
     "definitions": [
      {
       "text": "Lewd display?",
       "at": 0
      }
     ],
-    "linkWords": [
-     "following earlier"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "probe",
-      "gives": "TENT",
-      "note": "a tent is a surgical probe or plug for a wound"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "buzz off",
-      "gives": "GO",
-      "note": "buzz off means go away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TENT",
-      "I",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "probe",
+       "gives": "TENT",
+       "note": "a tent is a surgical probe or plug for a wound"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "buzz off",
+       "gives": "GO",
+       "note": "buzz off means go away"
+      }
      ]
     },
     "explanation": {
@@ -421,46 +373,45 @@
    },
    "solution": "COHOG",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "COHOG",
     "definitions": [
      {
       "text": "Clam",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means nearly all of the word is kept, with its final letter dropped"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one part placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wooden bowl for Sandy",
-      "gives": "COG",
-      "note": "cog is a Scots word for a wooden bowl; Sandy is a stock Scotsman"
-     },
-     {
-      "clueFragment": "heated",
-      "gives": "HOT",
-      "note": "heated means hot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "HO",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one part placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wooden bowl for Sandy",
+       "gives": "COG",
+       "note": "cog is a Scots word for a wooden bowl; Sandy is a stock Scotsman"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means nearly all of the word is kept, with its final letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heated",
+         "gives": "HOT",
+         "note": "heated means hot"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -489,51 +440,49 @@
    },
    "solution": "KRIMMER",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "KRIMMER",
     "definitions": [
      {
       "text": "Lamb's fur",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reverse of",
-      "for": "reversal",
-      "note": "the reverse of a word is that word read backwards"
-     },
-     {
-      "text": "it lost",
-      "for": "deletion",
-      "note": "the letters i and t are lost from the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dark",
-      "gives": "MIRK",
-      "note": "mirk is a variant of murk, darkness"
-     },
-     {
-      "clueFragment": "value",
-      "gives": "MERIT",
-      "note": "merit means worth or value"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KRIM",
-      "MER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MIRK",
-       "to": "KRIM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reverse of",
+         "note": "the reverse of a word is that word read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dark",
+         "gives": "MIRK",
+         "note": "mirk is a variant of murk, darkness"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "it lost",
+         "note": "the letters i and t are lost from the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "value",
+         "gives": "MERIT",
+         "note": "merit means worth or value"
+        },
+        {
+         "gives": "IT"
+        }
+       ]
       }
      ]
     },
@@ -563,38 +512,30 @@
    },
    "solution": "JASP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JASP",
     "definitions": [
      {
       "text": "fine porcelain",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is the abbreviation for jack in cards"
-     },
-     {
-      "clueFragment": "What'll make",
-      "gives": "AS",
-      "note": "the instruction J as P is what turns one word into the other"
-     },
-     {
-      "clueFragment": "pack",
-      "gives": "P",
-      "note": "the letter that replaces J in jack to make pack"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "AS",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jack",
+       "gives": "J",
+       "note": "J is the abbreviation for jack in cards"
+      },
+      {
+       "words": "What'll make",
+       "gives": "AS",
+       "note": "the instruction J as P is what turns one word into the other"
+      },
+      {
+       "words": "pack",
+       "gives": "P",
+       "note": "the letter that replaces J in jack to make pack"
+      }
      ]
     },
     "explanation": {
@@ -624,58 +565,51 @@
    },
    "solution": "WEIRD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "reversal"
-    ],
-    "answer": "WEIRD",
     "definitions": [
      {
       "text": "One of Macbeth's witches",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centre of",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle letter"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "going round something encloses it"
-     },
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down clue, climbing reads upward, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "described",
-      "gives": "DREW",
-      "note": "drew means sketched or described"
-     },
-     {
-      "clueFragment": "pit",
-      "gives": "I",
-      "select": "middle",
-      "note": "the middle letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WE",
-      "I",
-      "RD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DRIEW",
-       "to": "WEIRD"
+       "text": "climbing",
+       "note": "in a down clue, climbing reads upward, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "going round something encloses it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "described",
+         "gives": "DREW",
+         "note": "drew means sketched or described"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centre of",
+           "note": "the centre of a word is its middle letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pit",
+           "note": "the middle letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -705,43 +639,31 @@
    },
    "solution": "MOOLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MOOLY",
     "definitions": [
      {
       "text": "Beef",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "served in",
-      "for": "container",
-      "note": "something served in a dish is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wild onion",
-      "gives": "MOLY",
-      "note": "moly is a wild garlic or onion"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a duck is a score of nought, written O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "O",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "served in",
+       "note": "something served in a dish is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wild onion",
+       "gives": "MOLY",
+       "note": "moly is a wild garlic or onion"
+      },
+      {
+       "words": "duck",
+       "gives": "O",
+       "note": "a duck is a score of nought, written O"
+      }
      ]
     },
     "explanation": {
@@ -770,36 +692,25 @@
    },
    "solution": "BORAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BORAGE",
     "definitions": [
      {
       "text": "Salad herb",
       "at": 0
      }
     ],
-    "linkWords": [
-     "yielding",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "distinctive smell",
-      "gives": "BO",
-      "note": "BO, body odour, is a distinctive personal smell"
-     },
-     {
-      "clueFragment": "heat",
-      "gives": "RAGE",
-      "note": "heat as in the heat of anger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "RAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "distinctive smell",
+       "gives": "BO",
+       "note": "BO, body odour, is a distinctive personal smell"
+      },
+      {
+       "words": "heat",
+       "gives": "RAGE",
+       "note": "heat as in the heat of anger"
+      }
      ]
     },
     "explanation": {
@@ -827,54 +738,51 @@
    },
    "solution": "BUGGANE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "BUGGANE",
     "definitions": [
      {
       "text": "Nasty spirit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means nearly all of the word is kept, its last letter dropped"
-     },
-     {
-      "text": "whipped up",
-      "for": "anagram",
-      "note": "whipping up a mixture beats the ingredients into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "but",
-      "gives": "BUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "egg",
-      "gives": "EGG",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BUANEGG",
-       "gives": "BUGGANE"
+       "text": "whipped up",
+       "note": "whipping up a mixture beats the ingredients into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means nearly all of the word is kept, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "but",
+           "note": "taken as written"
+          },
+          {
+           "words": "an",
+           "note": "taken as written"
+          },
+          {
+           "words": "egg",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
@@ -904,35 +812,24 @@
    },
    "solution": "PERICLINAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PERICLINAL",
     "definitions": [
      {
       "text": "sloping downwards all round",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "fashioned",
-      "for": "anagram",
-      "note": "something fashioned is shaped anew, so these letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nice pillar",
-      "gives": "NICEPILLAR",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NICEPILLAR",
-       "gives": "PERICLINAL"
+       "text": "fashioned",
+       "note": "something fashioned is shaped anew, so these letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nice pillar",
+       "note": "taken letter for letter"
       }
      ]
     },
@@ -962,30 +859,28 @@
    },
    "solution": "GANT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "GANT",
     "definitions": [
      {
       "text": "Sign of fatigue for Scots",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "hidden_word",
-      "note": "something on board a vessel is carried inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brigantine",
-      "gives": "GANT",
-      "note": "four letters carried inside this word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "something on board a vessel is carried inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brigantine",
+       "gives": "GANT",
+       "note": "four letters carried inside this word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tired Scottish sailor shows signs of weariness aboard a two-masted ship.",
      "walkthrough": "A brigantine is a two-masted sailing ship.",
@@ -1012,48 +907,35 @@
    },
    "solution": "ROMPER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ROMPER",
     "definitions": [
      {
       "text": "playsuit?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "to and fro",
-      "for": "reversal",
-      "note": "going to and then fro, the second reading runs back the other way"
-     }
-    ],
-    "linkWords": [
-     "going"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Traveller",
-      "gives": "ROM",
-      "note": "a Rom is a Romany, a Traveller"
-     },
-     {
-      "clueFragment": "Traveller",
-      "gives": "REP",
-      "note": "read a second time: a rep is a travelling salesman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROM",
-      "PER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "REP",
-       "to": "PER"
+       "words": "Traveller",
+       "gives": "ROM",
+       "note": "a Rom is a Romany, a Traveller"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to and fro",
+         "note": "going to and then fro, the second reading runs back the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Traveller",
+         "gives": "REP",
+         "note": "read a second time: a rep is a travelling salesman"
+        }
+       ]
       }
      ]
     },
@@ -1083,35 +965,24 @@
    },
    "solution": "STEEVING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STEEVING",
     "definitions": [
      {
       "text": "Packing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tight?",
-      "for": "anagram",
-      "note": "tight is slang for drunk, and drunk letters reel into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "e.g. vest in",
-      "gives": "EGVESTIN",
-      "note": "taken letter for letter, points ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EGVESTIN",
-       "gives": "STEEVING"
+       "text": "tight?",
+       "note": "tight is slang for drunk, and drunk letters reel into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "e.g. vest in",
+       "note": "taken letter for letter, points ignored"
       }
      ]
     },
@@ -1142,38 +1013,25 @@
    },
    "solution": "MARD",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MARD",
     "definitions": [
      {
       "text": "old poet's addled",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "knocked back",
-      "for": "reversal",
-      "note": "a drink knocked back is downed, and here the word is turned backwards too"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "DRAM",
-      "note": "a dram is a small drink of spirits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DRAM",
-       "to": "MARD"
+       "text": "knocked back",
+       "note": "a drink knocked back is downed, and here the word is turned backwards too"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drink",
+       "gives": "DRAM",
+       "note": "a dram is a small drink of spirits"
       }
      ]
     },
@@ -1203,54 +1061,40 @@
    },
    "solution": "ORTHOGENETIC",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ORTHOGENETIC",
     "definitions": [
      {
       "text": "Regarding determinate variation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wild",
-      "for": "anagram",
-      "note": "running wild means out of order, so these letters scatter"
-     },
-     {
-      "text": "imbibing",
-      "for": "container",
-      "note": "imbibing means taking in, so one part is swallowed inside the other"
-     }
-    ],
-    "linkWords": [
-     "see"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "riot etc",
-      "gives": "RIOTETC",
-      "note": "taken letter for letter"
-     },
-     {
-      "clueFragment": "strong drink",
-      "gives": "HOGEN",
-      "note": "hogen is an old word for strong liquor, from hogen-mogen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORT",
-      "HOGEN",
-      "ETIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RIOTETC",
-       "gives": "ORTETIC"
+       "text": "imbibing",
+       "note": "imbibing means taking in, so one part is swallowed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "note": "running wild means out of order, so these letters scatter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "riot etc",
+         "note": "taken letter for letter"
+        }
+       ]
+      },
+      {
+       "words": "strong drink",
+       "gives": "HOGEN",
+       "note": "hogen is an old word for strong liquor, from hogen-mogen"
       }
      ]
     },
@@ -1280,43 +1124,31 @@
    },
    "solution": "HALIDOM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HALIDOM",
     "definitions": [
      {
       "text": "precious antique?",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "for": "container",
-      "note": "circling something means surrounding it on all sides"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bad actor",
-      "gives": "HAM",
-      "note": "a ham is an overacting performer"
-     },
-     {
-      "clueFragment": "beach",
-      "gives": "LIDO",
-      "note": "a lido is a bathing beach or open-air pool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "LIDO",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circling",
+       "note": "circling something means surrounding it on all sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bad actor",
+       "gives": "HAM",
+       "note": "a ham is an overacting performer"
+      },
+      {
+       "words": "beach",
+       "gives": "LIDO",
+       "note": "a lido is a bathing beach or open-air pool"
+      }
      ]
     },
     "explanation": {
@@ -1345,30 +1177,28 @@
    },
    "solution": "ESTREPE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ESTREPE",
     "definitions": [
      {
       "text": "Ruin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part in",
-      "for": "hidden_word",
-      "note": "part in means a portion found within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "best repertory",
-      "gives": "ESTREPE",
-      "note": "seven letters run across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part in",
+       "note": "part in means a portion found within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "best repertory",
+       "gives": "ESTREPE",
+       "note": "seven letters run across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An actor's role in a top repertory company threatens to wreck the show.",
      "definitionFit": "Estrepe is a legal term meaning to lay waste or commit waste on land, hence to ruin or despoil."
@@ -1394,26 +1224,25 @@
    },
    "solution": "CALOTTE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CALOTTE",
     "definitions": [
      {
       "text": "Skullcap",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Skullcap",
-      "note": "the only word printed: this is the competition word, so the setter gives a bare definition"
-     },
-     {
-      "clueFragment": "Skullcap",
-      "note": "competitors supply their own wordplay; the printed word is the meaning alone"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Skullcap",
+       "note": "the only word printed: this is the competition word, so the setter gives a bare definition"
+      },
+      {
+       "words": "Skullcap",
+       "note": "competitors supply their own wordplay; the printed word is the meaning alone"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "In an Azed competition puzzle one answer is given only by its meaning; entrants write the clue themselves.",
      "definitionFit": "A calotte is a small close-fitting cap worn on the crown, such as a priest's zucchetto."
@@ -1438,47 +1267,41 @@
    },
    "solution": "MALACOSTRACA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MALACOSTRACA",
     "definitions": [
      {
       "text": "varied shellfish",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "container",
-      "note": "involved means wrapped up inside something else"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What rattles",
-      "gives": "MARACA",
-      "note": "a maraca is a gourd rattle shaken in Latin music"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "LA",
-      "note": "la is an old exclamation meaning look or behold"
-     },
-     {
-      "clueFragment": "price",
-      "gives": "COST",
-      "note": "cost means price"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "LA",
-      "COST",
-      "RACA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved",
+       "note": "involved means wrapped up inside something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What rattles",
+       "gives": "MARACA",
+       "note": "a maraca is a gourd rattle shaken in Latin music"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "look",
+         "gives": "LA",
+         "note": "la is an old exclamation meaning look or behold"
+        },
+        {
+         "words": "price",
+         "gives": "COST",
+         "note": "cost means price"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1507,38 +1330,30 @@
    },
    "solution": "CHAL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CHAL",
     "definitions": [
      {
       "text": "Vagrant person",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "avoided by",
-      "for": "deletion",
-      "note": "the letters avoided are left out of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parasite",
-      "gives": "CHALCID",
-      "note": "a chalcid is a tiny parasitic wasp"
-     },
-     {
-      "clueFragment": "CID",
-      "gives": "CID",
-      "note": "taken as written; the CID is the British police detective branch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "avoided by",
+       "note": "the letters avoided are left out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parasite",
+       "gives": "CHALCID",
+       "note": "a chalcid is a tiny parasitic wasp"
+      },
+      {
+       "words": "CID",
+       "note": "taken as written; the CID is the British police detective branch"
+      }
      ]
     },
     "explanation": {
@@ -1567,33 +1382,29 @@
    },
    "solution": "CROSS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CROSS",
     "definitions": [
      {
       "text": "Peevish?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doffing topper",
-      "for": "deletion",
-      "note": "doffing a topper takes off the hat, so the word loses its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not what I am",
-      "gives": "ACROSS",
-      "note": "this is a down clue, so it is not an across"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CROSS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "doffing topper",
+       "note": "doffing a topper takes off the hat, so the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not what I am",
+       "gives": "ACROSS",
+       "note": "this is a down clue, so it is not an across"
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -1623,40 +1434,31 @@
    },
    "solution": "CATCHALL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CATCHALL",
     "definitions": [
      {
       "text": "it omits nothing",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "included in",
-      "for": "container",
-      "note": "something included in another is placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "derisive shout",
-      "gives": "CATCALL",
-      "note": "a catcall is a jeering whistle or shout"
-     },
-     {
-      "clueFragment": "Henry",
-      "gives": "H",
-      "note": "H is the symbol for the henry, unit of inductance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CATC",
-      "H",
-      "ALL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included in",
+       "note": "something included in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "derisive shout",
+       "gives": "CATCALL",
+       "note": "a catcall is a jeering whistle or shout"
+      },
+      {
+       "words": "Henry",
+       "gives": "H",
+       "note": "H is the symbol for the henry, unit of inductance"
+      }
      ]
     },
     "explanation": {
@@ -1684,46 +1486,45 @@
    },
    "solution": "CAIRO",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CAIRO",
     "definitions": [
      {
       "text": "capital",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "endless means the final letter is cut off"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round, so one part is enclosed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song",
-      "gives": "CAROL",
-      "note": "a carol is a festive song"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I is the abbreviation for international"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "I",
-      "RO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going round, so one part is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "note": "endless means the final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "gives": "CAROL",
+         "note": "a carol is a festive song"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "international",
+       "gives": "I",
+       "note": "I is the abbreviation for international"
+      }
      ]
     },
     "explanation": {
@@ -1750,42 +1551,34 @@
    },
    "solution": "HITON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HIT ON",
     "definitions": [
      {
       "text": "Flirt with",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "full of",
-      "for": "container",
-      "note": "something full of another thing holds it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poppet",
-      "gives": "HON",
-      "note": "hon, short for honey, is a term of endearment like poppet"
-     },
-     {
-      "clueFragment": "sexiness",
-      "gives": "IT",
-      "note": "it is slang for sex appeal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "IT",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "full of",
+       "note": "something full of another thing holds it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poppet",
+       "gives": "HON",
+       "note": "hon, short for honey, is a term of endearment like poppet"
+      },
+      {
+       "words": "sexiness",
+       "gives": "IT",
+       "note": "it is slang for sex appeal"
+      }
      ]
     },
+    "spelling": "HIT ON",
     "explanation": {
      "surface": "Someone flirts with a darling who oozes sex appeal.",
      "definitionFit": "To hit on someone is to make romantic advances, informal for flirting with them."
@@ -1811,35 +1604,25 @@
    },
    "solution": "ANANA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANANA",
     "definitions": [
      {
       "text": "Poll's associated with me?",
       "at": 0
      }
     ],
-    "linkWords": [
-     "led by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "adult maybe",
-      "gives": "A",
-      "note": "A was the film certificate for adult audiences"
-     },
-     {
-      "clueFragment": "Poll",
-      "gives": "NANA",
-      "note": "both slang for the head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NANA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "adult maybe",
+       "gives": "A",
+       "note": "A was the film certificate for adult audiences"
+      },
+      {
+       "words": "Poll",
+       "gives": "NANA",
+       "note": "both slang for the head"
+      }
      ]
     },
     "explanation": {
@@ -1869,51 +1652,40 @@
    },
    "solution": "RETIAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RETIAL",
     "definitions": [
      {
       "text": "Network's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means running in the reverse direction"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means keeping something inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "genuine",
-      "gives": "REAL",
-      "note": "real means genuine"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TI",
-      "AL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "IT",
-       "to": "TI"
+       "text": "holding",
+       "note": "holding means keeping something inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "genuine",
+       "gives": "REAL",
+       "note": "real means genuine"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back means running in the reverse direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1942,28 +1714,16 @@
    },
    "solution": "TONY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TONY",
     "definitions": [
      {
       "text": "Trendy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: fashionable or stylish, in US informal use"
      },
      {
       "text": "old twit",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trendy",
-      "note": "first meaning: fashionable or stylish, in US informal use"
-     },
-     {
-      "clueFragment": "old twit",
-      "note": "second meaning: an obsolete word for a simpleton or fool"
+      "at": 7,
+      "meaning": "second meaning: an obsolete word for a simpleton or fool"
      }
     ],
     "explanation": {
@@ -1991,43 +1751,31 @@
    },
    "solution": "RUIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RUIN",
     "definitions": [
      {
       "text": "bankruptcy",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "caught by",
-      "for": "container",
-      "note": "caught by means held inside something else"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chance",
-      "gives": "RUN",
-      "note": "a run at something is a chance or try"
-     },
-     {
-      "clueFragment": "I'll",
-      "gives": "I",
-      "note": "the clue's I is the piece to insert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "note": "caught by means held inside something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chance",
+       "gives": "RUN",
+       "note": "a run at something is a chance or try"
+      },
+      {
+       "words": "I'll",
+       "gives": "I",
+       "note": "the clue's I is the piece to insert"
+      }
      ]
     },
     "explanation": {
@@ -2055,38 +1803,24 @@
    },
    "solution": "REPTANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REPTANT",
     "definitions": [
      {
       "text": "Like creeping plants",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "odd",
-      "for": "anagram",
-      "note": "something odd is irregular, so these letters are put out of order"
-     }
-    ],
-    "linkWords": [
-     "forming"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pattern",
-      "gives": "PATTERN",
-      "note": "taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PATTERN",
-       "gives": "REPTANT"
+       "text": "odd",
+       "note": "something odd is irregular, so these letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pattern",
+       "note": "taken letter for letter"
       }
      ]
     },
@@ -2115,43 +1849,31 @@
    },
    "solution": "SENORA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SENORA",
     "definitions": [
      {
       "text": "foreign lady",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one part placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "going for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "army abroad",
-      "gives": "SENA",
-      "note": "sena is the Hindi word for an army"
-     },
-     {
-      "clueFragment": "Rankers",
-      "gives": "OR",
-      "note": "OR, other ranks, the soldiers who are not officers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEN",
-      "OR",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one part placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "army abroad",
+       "gives": "SENA",
+       "note": "sena is the Hindi word for an army"
+      },
+      {
+       "words": "Rankers",
+       "gives": "OR",
+       "note": "OR, other ranks, the soldiers who are not officers"
+      }
      ]
     },
     "explanation": {
@@ -2179,40 +1901,31 @@
    },
    "solution": "DONAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DONAT",
     "definitions": [
      {
       "text": "Primer, once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held in",
-      "for": "container",
-      "note": "something held in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spoon?",
-      "gives": "DOAT",
-      "note": "doat is a variant of dote, and to spoon is to dote lovingly"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "N",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held in",
+       "note": "something held in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spoon?",
+       "gives": "DOAT",
+       "note": "doat is a variant of dote, and to spoon is to dote lovingly"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      }
      ]
     },
     "explanation": {
@@ -2241,52 +1954,44 @@
    },
    "solution": "SPYMONEY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SPY-MONEY",
     "definitions": [
      {
       "text": "agent's fee?",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in something means sitting inside it"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Seychelles",
-      "gives": "SY",
-      "note": "SY is the international vehicle code for the Seychelles"
-     },
-     {
-      "clueFragment": "Founder of democracy (John)",
-      "gives": "PYM",
-      "note": "John Pym led the parliamentary opposition to Charles I"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "ONE",
-      "note": "one is the first number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PYM",
-      "ONE",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in something means sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Seychelles",
+       "gives": "SY",
+       "note": "SY is the international vehicle code for the Seychelles"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Founder of democracy (John)",
+         "gives": "PYM",
+         "note": "John Pym led the parliamentary opposition to Charles I"
+        },
+        {
+         "words": "first",
+         "gives": "ONE",
+         "note": "one is the first number"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "SPY-MONEY",
     "explanation": {
      "surface": "A parliamentary pioneer heads first to the Seychelles, with a spy's payment in hand.",
      "walkthrough": "John Pym, the 17th-century parliamentarian, is hailed as a defender of parliamentary government.",

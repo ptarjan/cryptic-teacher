@@ -1,8 +1,6 @@
 {
  "id": "toughie-3223",
  "number": 3223,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,223",
  "setter": "Silvanus",
  "date": "2024-02-22",
  "dimensions": {
@@ -38,45 +36,46 @@
    },
    "solution": "WOOLWICH",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "WOOLWICH",
     "definitions": [
      {
       "text": "London Crown Court",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "told",
-      "for": "homophone",
-      "note": "something told is spoken, so we want what the words sound like rather than how they are spelt"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "yarn",
-      "gives": "WOOL",
-      "note": "yarn spun for knitting"
-     },
-     {
-      "clueFragment": "Irritation",
-      "gives": "ITCH",
-      "note": "an irritation of the skin"
-     },
-     {
-      "clueFragment": "Irritation caused by yarn told",
-      "gives": "WOOLWICH",
-      "soundsLike": "WOOL ITCH",
-      "note": "the place name is said with a silent W in the middle"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "WOOLWICH",
+     "indicators": [
+      {
+       "text": "told",
+       "note": "something told is spoken, so we want what the words sound like rather than how they are spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yarn",
+       "gives": "WOOL",
+       "note": "yarn spun for knitting"
+      },
+      {
+       "words": "Irritation",
+       "gives": "ITCH",
+       "note": "an irritation of the skin"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WOOLWICH",
+       "parts": [
+        {
+         "words": "Irritation caused by yarn told",
+         "gives": "WOOLITCH",
+         "note": "the place name is said with a silent W in the middle"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A defendant complains that an itchy jumper made a day at court miserable.",
      "walkthrough": "'Caused by' puts the irritation after the yarn: an itch from wool. The London district of Woolwich is pronounced 'Woolitch', with the second W silent.",
@@ -104,34 +103,28 @@
    },
    "solution": "WATCH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "WATCH",
     "definitions": [
      {
       "text": "Mind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "before leader's overthrown",
-      "for": "substitution",
-      "note": "overthrown means turned upside down, so the opening letter is flipped over into a different letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "MATCH",
-      "note": "a match is a game or contest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ATCH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "WATCH",
+     "indicators": [
+      {
+       "text": "before leader's overthrown",
+       "note": "overthrown means turned upside down, so the opening letter is flipped over into a different letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "gives": "MATCH",
+       "note": "a match is a game or contest"
+      }
      ]
     },
     "explanation": {
@@ -160,61 +153,55 @@
    },
    "solution": "OUTERMOST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "OUTERMOST",
     "definitions": [
      {
       "text": "Extreme",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conclusion",
-      "for": "letter_selection",
-      "note": "the conclusion of a word is its final letter, the only one kept"
-     },
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow suggests being made in some unspecified way, so the letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "overshadows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "public",
-      "gives": "OUT",
-      "note": "when news is out, it is public"
-     },
-     {
-      "clueFragment": "race's",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of race"
-     },
-     {
-      "clueFragment": "storm",
-      "gives": "STORM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "E",
-      "RMOST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "STORM",
-       "gives": "RMOST"
+       "words": "public",
+       "gives": "OUT",
+       "note": "when news is out, it is public"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "note": "somehow suggests being made in some unspecified way, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "conclusion",
+             "note": "the conclusion of a word is its final letter, the only one kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "race's",
+             "gives": "RACE",
+             "note": "the last letter of race"
+            }
+           ]
+          },
+          {
+           "words": "storm",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -244,36 +231,39 @@
    },
    "solution": "WONDERFUL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "WONDERFUL",
     "definitions": [
      {
       "text": "Fabulous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "hidden_word",
-      "note": "part of means the answer is a piece inside the longer string of words"
-     },
-     {
-      "text": "seen around",
-      "for": "reversal",
-      "note": "seen around means viewed turned round, so the letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Honolulu Fred nowadays",
-      "gives": "LUFREDNOW",
-      "note": "the letters spanning the end of Honolulu, all of Fred, and the start of nowadays"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "seen around",
+       "note": "seen around means viewed turned round, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part of",
+         "note": "part of means the answer is a piece inside the longer string of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Honolulu Fred nowadays",
+         "gives": "LUFREDNOW",
+         "note": "the letters spanning the end of Honolulu, all of Fred, and the start of nowadays"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man called Fred is seen in Hawaii these days, having a wonderful time.",
      "definitionFit": "Fabulous is used loosely to mean marvellous, extremely good."
@@ -299,11 +289,6 @@
    },
    "solution": "CAMPHOR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CAMPHOR",
     "definitions": [
      {
       "text": "Liniment",
@@ -311,39 +296,34 @@
       "note": "camphor is an ingredient of liniments rather than one itself"
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "for": "letter_selection",
-      "note": "the essence of a word is its core, so its middle letters are kept"
-     }
-    ],
-    "linkWords": [
-     "puts on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "affected",
-      "gives": "CAMP",
-      "note": "camp means theatrically affected or exaggerated"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OR",
-      "select": "middle",
-      "note": "the middle two letters of work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAMP",
-      "H",
-      "OR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "affected",
+       "gives": "CAMP",
+       "note": "camp means theatrically affected or exaggerated"
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "standard abbreviation"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "the essence of a word is its core, so its middle letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "note": "the middle two letters of work"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -372,58 +352,51 @@
    },
    "solution": "SHERIF",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SHERIF",
     "definitions": [
      {
       "text": "Muslim ruler",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns something right round, so the word for sacks is read backwards"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the very end, so only the final letter of untruth is wanted"
-     },
-     {
-      "text": "over",
-      "for": "container",
-      "note": "over here means lying across and covering, so the turned word spreads over the other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sacks",
-      "gives": "FIRES",
-      "note": "fires an employee, dismisses"
-     },
-     {
-      "clueFragment": "untruth",
-      "gives": "H",
-      "select": "last",
-      "note": "last letter of untruth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "ERIF"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "FIRES",
-       "to": "SERIF"
+       "text": "revolutionary",
+       "note": "a revolution turns something right round, so the word for sacks is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over here means lying across and covering, so the turned word spreads over the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sacks",
+         "gives": "FIRES",
+         "note": "fires an employee, dismisses"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "ultimately means at the very end, so only the final letter of untruth is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "untruth",
+           "note": "last letter of untruth"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -453,45 +426,35 @@
    },
    "solution": "HEATH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HEATH",
     "definitions": [
      {
       "text": "PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter, the only one used here"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trouble",
-      "gives": "HEAT",
-      "note": "the heat is trouble or pressure, especially from the police"
-     },
-     {
-      "clueFragment": "hustings",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of hustings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAT",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trouble",
+       "gives": "HEAT",
+       "note": "the heat is trouble or pressure, especially from the police"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "note": "the start of a word is its first letter, the only one used here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hustings",
+         "note": "first letter of hustings"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -520,28 +483,16 @@
    },
    "solution": "RISER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RISER",
     "definitions": [
      {
       "text": "One getting up",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a person who gets out of bed"
      },
      {
       "text": "vertical pipe",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One getting up",
-      "note": "first meaning: a person who gets out of bed"
-     },
-     {
-      "clueFragment": "vertical pipe",
-      "note": "second meaning: an upright pipe carrying water or gas between floors"
+      "at": 15,
+      "meaning": "second meaning: an upright pipe carrying water or gas between floors"
      }
     ],
     "explanation": {
@@ -569,34 +520,29 @@
    },
    "solution": "FORESIGHT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FORESIGHT",
     "definitions": [
      {
       "text": "Prescience",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "homophone",
-      "note": "broadcast means sent out on air, so we hear the name rather than see it"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "literary saga",
-      "gives": "FORESIGHT",
-      "soundsLike": "FORSYTE",
-      "note": "The Forsyte Saga is John Galsworthy's series of novels"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FORESIGHT",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "note": "broadcast means sent out on air, so we hear the name rather than see it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "literary saga",
+       "gives": "FORSYTE",
+       "note": "The Forsyte Saga is John Galsworthy's series of novels"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone shows foresight by adapting a classic family saga for television.",
      "walkthrough": "The Forsyte Saga, by John Galsworthy, was famously adapted by the BBC.",
@@ -624,41 +570,25 @@
    },
    "solution": "DRAWER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DRAWER",
     "definitions": [
      {
       "text": "Signatory of cheque",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is raised",
-      "for": "reversal",
-      "note": "in a down clue, raised means lifted upward, so the word reads from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "compensation",
-      "gives": "REWARD",
-      "note": "a reward is payment for a service"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAWER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REWARD",
-       "to": "DRAWER"
+       "text": "is raised",
+       "note": "in a down clue, raised means lifted upward, so the word reads from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "compensation",
+       "gives": "REWARD",
+       "note": "a reward is payment for a service"
       }
      ]
     },
@@ -687,38 +617,31 @@
    },
    "solution": "TITAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TITAN",
     "definitions": [
      {
       "text": "Planet's icy moon",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Second one struck by",
-      "for": "deletion",
-      "note": "struck means crossed out, and the second I (one) is the letter crossed out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Red",
-      "gives": "TITIAN",
-      "note": "a reddish-auburn shade named after the Venetian painter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TITAN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Second one struck by",
+       "note": "struck means crossed out, and the second I (one) is the letter crossed out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Red",
+       "gives": "TITIAN",
+       "note": "a reddish-auburn shade named after the Venetian painter"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -747,53 +670,51 @@
    },
    "solution": "MERGANSER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MERGANSER",
     "definitions": [
      {
       "text": "flier",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "stopping",
-      "for": "container",
-      "note": "something stopping a hole sits inside it, so these letters go inside the word for union"
-     }
-    ],
-    "linkWords": [
-     "issuing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "union",
-      "gives": "MERGER",
-      "note": "a merger is a union of companies"
-     },
-     {
-      "clueFragment": "Advanced",
-      "gives": "A",
-      "note": "A is a common abbreviation for advanced"
-     },
-     {
-      "clueFragment": "on",
-      "note": "places the poles after the A"
-     },
-     {
-      "clueFragment": "Poles",
-      "gives": "NS",
-      "note": "the north and south poles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MERG",
-      "ANS",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stopping",
+         "note": "something stopping a hole sits inside it, so these letters go inside the word for union"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "gives": "MERGER",
+         "note": "a merger is a union of companies"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Advanced",
+           "gives": "A",
+           "note": "A is a common abbreviation for advanced"
+          },
+          {
+           "words": "Poles",
+           "gives": "NS",
+           "note": "the north and south poles"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "on",
+       "note": "places the poles after the A"
+      }
      ]
     },
     "explanation": {
@@ -822,43 +743,31 @@
    },
    "solution": "HORDE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HORDE",
     "definitions": [
      {
       "text": "Large crowd",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crossing",
-      "for": "container",
-      "note": "the area lies across the road, so its letters wrap around those for road"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "area of Plymouth",
-      "gives": "HOE",
-      "note": "Plymouth Hoe is the famous open seafront area of the Devon city"
-     },
-     {
-      "clueFragment": "road",
-      "gives": "RD",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "RD",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "note": "the area lies across the road, so its letters wrap around those for road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "area of Plymouth",
+       "gives": "HOE",
+       "note": "Plymouth Hoe is the famous open seafront area of the Devon city"
+      },
+      {
+       "words": "road",
+       "gives": "RD",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -887,66 +796,60 @@
    },
    "solution": "HAWTHORNS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "HAWTHORNS",
     "definitions": [
      {
       "text": "trees",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "gutting removes the insides, leaving only the outside letters of the word"
-     },
-     {
-      "text": "carelessly",
-      "for": "anagram",
-      "note": "something done carelessly is jumbled, so these letters come out in a muddled order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the kept outer letters go around the jumbled group"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hundreds",
-      "gives": "HS",
-      "select": "outer",
-      "note": "first and last letters of Hundreds"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "thrown",
-      "gives": "THROWN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AWTHORN",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ATHROWN",
-       "gives": "AWTHORN"
+       "text": "about",
+       "note": "about means surrounding, so the kept outer letters go around the jumbled group"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "gutting removes the insides, leaving only the outside letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hundreds",
+         "note": "first and last letters of Hundreds"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "carelessly",
+         "note": "something done carelessly is jumbled, so these letters come out in a muddled order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "article",
+           "gives": "A",
+           "note": "the indefinite article"
+          },
+          {
+           "words": "thrown",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -982,41 +885,39 @@
    },
    "solution": "ROOTFOR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ROOT FOR",
     "definitions": [
      {
       "text": "cheer",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Heard",
-      "for": "homophone",
-      "note": "heard means we take the sound of the word for boundary, not its spelling"
-     }
-    ],
-    "linkWords": [
-     "by",
-     "brings"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "England cricketer",
-      "gives": "ROOT",
-      "note": "Joe Root, former England Test captain"
-     },
-     {
-      "clueFragment": "boundary",
-      "gives": "FOR",
-      "soundsLike": "FOUR",
-      "note": "in cricket a boundary is a shot reaching the rope, scoring four runs"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "England cricketer",
+       "gives": "ROOT",
+       "note": "Joe Root, former England Test captain"
+      },
+      {
+       "op": "homophone",
+       "spelt": "FOR",
+       "indicators": [
+        {
+         "text": "Heard",
+         "note": "heard means we take the sound of the word for boundary, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boundary",
+         "gives": "FOUR",
+         "note": "in cricket a boundary is a shot reaching the rope, scoring four runs"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cricket fan cheers when an England batsman hits the ball to the rope.",
      "walkthrough": "In cricket a boundary is a hit that reaches the edge of the field, worth four runs (six if it clears it). Joe Root is one of England's best-known batsmen.",
@@ -1043,60 +944,50 @@
    },
    "solution": "RESILIENT",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "RESILIENT",
     "definitions": [
      {
       "text": "tough",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Unconfined",
-      "for": "deletion",
-      "note": "unconfined means released from its boundaries, so the outer letters are removed"
-     },
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over means turned over, so the trimmed word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agony",
-      "gives": "MISERY",
-      "note": "great suffering"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "LIEN",
-      "note": "a lien is a legal right to keep someone's property until a debt is paid"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESI",
-      "LIEN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "RESILIENT",
+     "indicators": [
       {
-       "from": "ISER",
-       "to": "RESI"
+       "text": "over",
+       "note": "over means turned over, so the trimmed word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RESILIENT",
+       "indicators": [
+        {
+         "text": "Unconfined",
+         "note": "unconfined means released from its boundaries, so the outer letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agony",
+         "gives": "MISERY",
+         "note": "great suffering"
+        },
+        {
+         "words": "right",
+         "gives": "LIEN",
+         "note": "a lien is a legal right to keep someone's property until a debt is paid"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "standard abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1126,40 +1017,39 @@
    },
    "solution": "RUSTING",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "RUSTING",
     "definitions": [
      {
       "text": "showing signs of decline?",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the last letter of the word for regret is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "regret",
-      "gives": "RUE",
-      "note": "to rue is to regret"
-     },
-     {
-      "clueFragment": "Geordie musician",
-      "gives": "STING",
-      "note": "the singer Sting comes from Newcastle; a Geordie is a native of Tyneside"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "STING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Mostly",
+       "note": "mostly means not quite all, so the last letter of the word for regret is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "regret",
+         "gives": "RUE",
+         "note": "to rue is to regret"
+        },
+        {
+         "words": "Geordie musician",
+         "gives": "STING",
+         "note": "the singer Sting comes from Newcastle; a Geordie is a native of Tyneside"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1188,69 +1078,60 @@
    },
    "solution": "SAXOPHONE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SAXOPHONE",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "played",
-      "for": "anagram",
-      "note": "played suggests the letters are played around with and rearranged"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "outside means surrounding, so the rearranged letters go around the others"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one's",
-      "gives": "ONES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "amp",
-      "gives": "A",
-      "note": "A is the symbol for ampere"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "X",
-      "note": "x is the algebraic unknown"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH, public house, as on maps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "XOPH",
-      "ONE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ONESA",
-       "gives": "SAONE"
+       "text": "outside",
+       "note": "outside means surrounding, so the rearranged letters go around the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "note": "played suggests the letters are played around with and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one's",
+           "note": "taken as written"
+          },
+          {
+           "words": "amp",
+           "gives": "A",
+           "note": "A is the symbol for ampere"
+          },
+          {
+           "words": "unknown",
+           "gives": "X",
+           "note": "x is the algebraic unknown"
+          },
+          {
+           "words": "old",
+           "gives": "O",
+           "note": "standard abbreviation"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "pub",
+       "gives": "PH",
+       "note": "PH, public house, as on maps"
       }
      ]
     },
@@ -1280,56 +1161,56 @@
    },
    "solution": "IBUPROFEN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IBUPROFEN",
     "definitions": [
      {
       "text": "Drug",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "protecting",
-      "for": "container",
-      "note": "protecting means covering on all sides, so the outer letters go around the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e., id est, Latin for that is"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "professor",
-      "gives": "PROF",
-      "note": "short form of professor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "BUPROF",
-      "EN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "note": "protecting means covering on all sides, so the outer letters go around the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e., id est, Latin for that is"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "standard abbreviation"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "gives": "B",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "professor",
+         "gives": "PROF",
+         "note": "short form of professor"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1357,44 +1238,35 @@
    },
    "solution": "SETTLED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SETTLED",
     "definitions": [
      {
       "text": "fixed",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally",
-      "for": "letter_selection",
-      "note": "occasionally means every so often, so only every other letter of the phrase is kept"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Games of tennis",
-      "gives": "SET",
-      "note": "a tennis set is made up of games"
-     },
-     {
-      "clueFragment": "still end",
-      "gives": "TLED",
-      "select": "alternate",
-      "note": "the second, fourth, sixth and eighth letters of still end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SET",
-      "TLED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Games of tennis",
+       "gives": "SET",
+       "note": "a tennis set is made up of games"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "note": "occasionally means every so often, so only every other letter of the phrase is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "still end",
+         "note": "the second, fourth, sixth and eighth letters of still end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1423,31 +1295,16 @@
    },
    "solution": "DETAIL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DETAIL",
     "definitions": [
      {
       "text": "Task force",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a small group of soldiers assigned a particular duty"
      },
      {
       "text": "dock",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Task force",
-      "note": "first meaning: a small group of soldiers assigned a particular duty"
-     },
-     {
-      "clueFragment": "dock",
-      "note": "second meaning: to dock is to cut off an animal's tail"
+      "at": 14,
+      "meaning": "second meaning: to dock is to cut off an animal's tail"
      }
     ],
     "explanation": {
@@ -1483,32 +1340,25 @@
    },
    "solution": "FOXHUNT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FOX HUNT",
     "definitions": [
      {
       "text": "meet, preceding this?",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Two Cameron Cabinet ministers",
-      "gives": "FOX",
-      "note": "Liam Fox, Defence Secretary under David Cameron"
-     },
-     {
-      "clueFragment": "Two Cameron Cabinet ministers",
-      "gives": "HUNT",
-      "note": "Jeremy Hunt, Health Secretary under David Cameron"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOX",
-      "HUNT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two Cameron Cabinet ministers",
+       "gives": "FOX",
+       "note": "Liam Fox, Defence Secretary under David Cameron"
+      },
+      {
+       "words": "Two Cameron Cabinet ministers",
+       "gives": "HUNT",
+       "note": "Jeremy Hunt, Health Secretary under David Cameron"
+      }
      ]
     },
     "explanation": {
@@ -1538,29 +1388,17 @@
    },
    "solution": "FISHEYE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FISH-EYE",
     "definitions": [
      {
       "text": "Type of lens",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an ultra-wide-angle camera lens"
      },
      {
       "text": "through which a doctor perhaps looks",
       "at": 13,
-      "note": "cryptic: the eye of a fish"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Type of lens",
-      "note": "first meaning: an ultra-wide-angle camera lens"
-     },
-     {
-      "clueFragment": "through which a doctor perhaps looks",
-      "note": "second meaning: the organ of sight of a doctorfish, a tropical surgeonfish"
+      "note": "cryptic: the eye of a fish",
+      "meaning": "second meaning: the organ of sight of a doctorfish, a tropical surgeonfish"
      }
     ],
     "explanation": {
@@ -1590,51 +1428,40 @@
    },
    "solution": "LITIGATES",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LITIGATES",
     "definitions": [
      {
       "text": "Disputes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reforms",
-      "for": "anagram",
-      "note": "reforms means reshapes, so the letters are rearranged into a new form"
-     },
-     {
-      "text": "brought in",
-      "for": "container",
-      "note": "the state abbreviation is brought inside the rearranged letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elitist",
-      "gives": "ELITIST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Georgia",
-      "gives": "GA",
-      "note": "the US state abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LITI",
-      "GA",
-      "TES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ELITIST",
-       "gives": "LITITES"
+       "text": "brought in",
+       "note": "the state abbreviation is brought inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reforms",
+         "note": "reforms means reshapes, so the letters are rearranged into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elitist",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Georgia",
+       "gives": "GA",
+       "note": "the US state abbreviation"
       }
      ]
     },
@@ -1663,45 +1490,41 @@
    },
    "solution": "TWIST",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TWIST",
     "definitions": [
      {
       "text": "Swindle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taken",
-      "for": "deletion",
-      "note": "taken means removed, so the letter for nothing comes out of the word for couple"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "couple",
-      "gives": "TWO",
-      "note": "a couple is two"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "zero, nothing, looks like O"
-     },
-     {
-      "clueFragment": "initially",
-      "gives": "IST",
-      "note": "1st, first, read as letters, means initially"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TW",
-      "IST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taken",
+         "note": "taken means removed, so the letter for nothing comes out of the word for couple"
+        }
+       ],
+       "parts": [
+        {
+         "words": "couple",
+         "gives": "TWO",
+         "note": "a couple is two"
+        },
+        {
+         "words": "nothing",
+         "gives": "O",
+         "note": "zero, nothing, looks like O"
+        }
+       ]
+      },
+      {
+       "words": "initially",
+       "gives": "IST",
+       "note": "1st, first, read as letters, means initially"
+      }
      ]
     },
     "explanation": {
@@ -1730,33 +1553,29 @@
    },
    "solution": "GROVE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GROVE",
     "definitions": [
      {
       "text": "wood",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Half-heartedly",
-      "for": "deletion",
-      "note": "half-heartedly means losing half of the centre, so one of the two middle letters goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chamfer",
-      "gives": "GROOVE",
-      "note": "a chamfer is a groove cut in wood"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GROVE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Half-heartedly",
+       "note": "half-heartedly means losing half of the centre, so one of the two middle letters goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chamfer",
+       "gives": "GROOVE",
+       "note": "a chamfer is a groove cut in wood"
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -1785,36 +1604,28 @@
    },
    "solution": "PARKS",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "PARKS",
     "definitions": [
      {
       "text": "green spaces",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling means going round, so the first letter rotates to the back of the word"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flash",
-      "gives": "SPARK",
-      "note": "a spark is a flash of light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARKS"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "PARKS",
+     "indicators": [
+      {
+       "text": "cycling",
+       "note": "cycling means going round, so the first letter rotates to the back of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Flash",
+       "gives": "SPARK",
+       "note": "a spark is a flash of light"
+      }
      ]
     },
     "explanation": {
@@ -1843,30 +1654,28 @@
    },
    "solution": "SHRED",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SHRED",
     "definitions": [
      {
       "text": "Scrap",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to some extent",
-      "for": "hidden_word",
-      "note": "to some extent means partly, so the answer is a part of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lavish redevelopment",
-      "gives": "SHRED",
-      "note": "the end of lavish and the start of redevelopment"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "note": "to some extent means partly, so the answer is a part of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lavish redevelopment",
+       "gives": "SHRED",
+       "note": "the end of lavish and the start of redevelopment"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A council scraps an extravagant building redevelopment, at least partly.",
      "definitionFit": "A shred is a scrap, a tiny torn piece of something."
@@ -1892,52 +1701,44 @@
    },
    "solution": "EPITOMISE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "EPITOMISE",
     "definitions": [
      {
       "text": "Shorten",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "introduction to",
-      "for": "letter_selection",
-      "note": "the introduction is the opening, so just the first letter of the name is used"
-     },
-     {
-      "text": "ruined",
-      "for": "anagram",
-      "note": "something ruined is wrecked, so these words are broken up and rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eliot's",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of Eliot's"
-     },
-     {
-      "clueFragment": "poem, is it",
-      "gives": "POEMISIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PITOMISE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "POEMISIT",
-       "gives": "PITOMISE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "introduction to",
+         "note": "the introduction is the opening, so just the first letter of the name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eliot's",
+         "note": "first letter of Eliot's"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "note": "something ruined is wrecked, so these words are broken up and rebuilt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem, is it",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1967,45 +1768,41 @@
    },
    "solution": "OFFER",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "OFFER",
     "definitions": [
      {
       "text": "Propose",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drops",
-      "for": "deletion",
-      "note": "drops means lets go of, so a letter is lost from the word for store"
-     },
-     {
-      "text": "focus of",
-      "for": "letter_selection",
-      "note": "'focus of' keeps only the middle letter of 'pricing'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "store",
-      "gives": "COFFER",
-      "note": "a coffer is a strongbox where valuables are stored"
-     },
-     {
-      "clueFragment": "pricing",
-      "gives": "C",
-      "select": "middle",
-      "note": "the central letter of pricing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFFER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "drops",
+       "note": "drops means lets go of, so a letter is lost from the word for store"
+      }
+     ],
+     "parts": [
+      {
+       "words": "store",
+       "gives": "COFFER",
+       "note": "a coffer is a strongbox where valuables are stored"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "focus of",
+         "note": "'focus of' keeps only the middle letter of 'pricing'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pricing",
+         "note": "the central letter of pricing"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2034,39 +1831,31 @@
    },
    "solution": "TETHER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TETHER",
     "definitions": [
      {
       "text": "Lead",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after conceding",
-      "for": "deletion",
-      "note": "conceding means giving something up, so these letters are surrendered from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United",
-      "gives": "TOGETHER",
-      "note": "united means joined together"
-     },
-     {
-      "clueFragment": "own goal",
-      "gives": "OG",
-      "note": "standard abbreviation in football reports"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ETHER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after conceding",
+       "note": "conceding means giving something up, so these letters are surrendered from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "United",
+       "gives": "TOGETHER",
+       "note": "united means joined together"
+      },
+      {
+       "words": "own goal",
+       "gives": "OG",
+       "note": "standard abbreviation in football reports"
+      }
      ]
     },
     "explanation": {
@@ -2095,42 +1884,33 @@
    },
    "solution": "DEMEANED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DEMEANED",
     "definitions": [
      {
       "text": "Humbled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into something, so these letters go inside the word for inquiry"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Europeans separately",
-      "gives": "EE",
-      "note": "E is the abbreviation for European; separately means the two go in at different places"
-     },
-     {
-      "clueFragment": "inquiry",
-      "gives": "DEMAND",
-      "note": "a demand is a request or question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEM",
-      "E",
-      "AN",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "DEMEANED",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "to interrupt is to break into something, so these letters go inside the word for inquiry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Europeans separately",
+       "gives": "EE",
+       "note": "E is the abbreviation for European; separately means the two go in at different places"
+      },
+      {
+       "words": "inquiry",
+       "gives": "DEMAND",
+       "note": "a demand is a request or question"
+      }
      ]
     },
     "explanation": {

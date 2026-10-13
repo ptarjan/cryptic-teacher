@@ -1,8 +1,6 @@
 {
  "id": "times-26878",
  "number": 26878,
- "series": "times",
- "name": "Times cryptic crossword No 26,878",
  "date": "2017-11-09",
  "dimensions": {
   "cols": 15,
@@ -41,47 +39,41 @@
    },
    "solution": "FOOTLING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "FOOTLING",
     "definitions": [
      {
       "text": "Silly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back of",
-      "for": "letter_selection",
-      "note": "the back of a word is its final letter, so only the end is kept"
-     },
-     {
-      "text": "around outside",
-      "for": "container",
-      "note": "going around or sitting outside something means wrapping it, so one piece encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clowning",
-      "gives": "FOOLING",
-      "note": "clowning about is fooling"
-     },
-     {
-      "clueFragment": "hut",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of hut"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOO",
-      "T",
-      "LING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around outside",
+       "note": "going around or sitting outside something means wrapping it, so one piece encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clowning",
+       "gives": "FOOLING",
+       "note": "clowning about is fooling"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "note": "the back of a word is its final letter, so only the end is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hut",
+         "note": "last letter of hut"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,31 +102,29 @@
    },
    "solution": "FEUD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FEUD",
     "definitions": [
      {
       "text": "Vendetta",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "spoken of",
-      "for": "homophone",
-      "note": "something spoken of is said out loud, so we want a word matching its sound, not its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not many'd",
-      "gives": "FEUD",
-      "soundsLike": "FEW'D",
-      "note": "not many is few, and the setter adds the contraction 'd to make it few'd"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FEUD",
+     "indicators": [
+      {
+       "text": "spoken of",
+       "note": "something spoken of is said out loud, so we want a word matching its sound, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not many'd",
+       "gives": "FEWD",
+       "note": "not many is few, and the setter adds the contraction 'd to make it few'd"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An awkward line about a vendetta that few people would talk about.",
      "walkthrough": "The ugly contraction 'many'd' is the setter's signal: 'not many'd' is 'few'd', which is said exactly like the answer.",
@@ -180,51 +170,42 @@
    },
    "solution": "ONCEINABLUEMOON",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ONCE IN A BLUE MOON",
     "definitions": [
      {
       "text": "Very rarely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "varied",
-      "for": "anagram",
-      "note": "something varied has been changed about, so these letters come in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "performing",
-      "gives": "ON",
-      "note": "a performer who is on is on stage"
-     },
-     {
-      "clueFragment": "a nice",
-      "gives": "CEINA",
-      "note": "letters to be rearranged"
-     },
-     {
-      "clueFragment": "1930s song",
-      "gives": "BLUEMOON",
-      "note": "Blue Moon is a Rodgers and Hart song from 1934"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "CEINA",
-      "BLUEMOON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ONCEINABLUEMOON",
+     "indicators": [
       {
-       "fodder": "ANICE",
-       "gives": "CEINA"
+       "text": "varied",
+       "note": "something varied has been changed about, so these letters come in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "performing",
+         "gives": "ON",
+         "note": "a performer who is on is on stage"
+        },
+        {
+         "words": "a nice",
+         "gives": "CEINA",
+         "note": "letters to be rearranged"
+        },
+        {
+         "words": "1930s song",
+         "gives": "BLUEMOON",
+         "note": "Blue Moon is a Rodgers and Hart song from 1934"
+        }
+       ]
       }
      ]
     },
@@ -254,26 +235,25 @@
    },
    "solution": "LOVEBIRD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LOVEBIRD",
     "definitions": [
      {
       "text": "a budgie",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What a convict won't do",
-      "note": "surface reading: something a prisoner refuses to do"
-     },
-     {
-      "clueFragment": "What a convict won't do",
-      "note": "setter's reading: 'bird' is slang for a prison sentence, and no convict will enjoy doing time"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What a convict won't do",
+       "note": "surface reading: something a prisoner refuses to do"
+      },
+      {
+       "words": "What a convict won't do",
+       "note": "setter's reading: 'bird' is slang for a prison sentence, and no convict will enjoy doing time"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joke about a prisoner's attitude to a pet budgerigar.",
      "walkthrough": "Doing bird is British slang for serving a jail term, so a convict won't love bird; read as one word, that is a small parrot.",
@@ -301,48 +281,40 @@
    },
    "solution": "NYLON",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NYLON",
     "definitions": [
      {
       "text": "material",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "when something is leaving, it departs and is taken out of the word it was in"
-     }
-    ],
-    "linkWords": [
-     "to provide"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "City",
-      "gives": "NY",
-      "note": "NY is New York"
-     },
-     {
-      "clueFragment": "don",
-      "gives": "DON",
-      "note": "taken as written, the letters to remove"
-     },
-     {
-      "clueFragment": "capital",
-      "gives": "LONDON",
-      "note": "the British capital city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NY",
-      "LON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "City",
+       "gives": "NY",
+       "note": "NY is New York"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "when something is leaving, it departs and is taken out of the word it was in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "gives": "LONDON",
+         "note": "the British capital city"
+        },
+        {
+         "words": "don",
+         "note": "taken as written, the letters to remove"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -371,52 +343,51 @@
    },
    "solution": "DONJON",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DONJON",
     "definitions": [
      {
       "text": "Keep",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the same",
-      "gives": "DO",
-      "note": "DO is short for ditto, meaning the same"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "judge",
-      "gives": "J",
-      "note": "J is the abbreviation for judge"
-     },
-     {
-      "clueFragment": "cricket side",
-      "gives": "ON",
-      "note": "the on side is the leg side of a cricket field"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "N",
-      "J",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "to be in something is to sit inside it, so one piece goes within the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the same",
+           "gives": "DO",
+           "note": "DO is short for ditto, meaning the same"
+          },
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "N is the abbreviation for new"
+          }
+         ]
+        },
+        {
+         "words": "judge",
+         "gives": "J",
+         "note": "J is the abbreviation for judge"
+        }
+       ]
+      },
+      {
+       "words": "cricket side",
+       "gives": "ON",
+       "note": "the on side is the leg side of a cricket field"
+      }
      ]
     },
     "explanation": {
@@ -445,30 +416,28 @@
    },
    "solution": "ORACHE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORACHE",
     "definitions": [
      {
       "text": "plant",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "for": "hidden_word",
-      "note": "partly means only a portion is used, so the letters sit inside a longer run of text"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for a chemical",
-      "gives": "ORACHE",
-      "note": "letters running across the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "partly",
+       "note": "partly means only a portion is used, so the letters sit inside a longer run of text"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for a chemical",
+       "gives": "ORACHE",
+       "note": "letters running across the words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Continuing 4 down: material is supplied, in part, for a chemical works.",
      "walkthrough": "The ellipsis links back to 4 down, but this clue stands alone: the letters run through 'for a chemical', and 'chemical plant' is a false phrase.",
@@ -509,57 +478,45 @@
    },
    "solution": "JACKOFALLTRADES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "JACK OF ALL TRADES",
     "definitions": [
      {
       "text": "Versatile worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the start of a word, so its first letter is kept"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flag",
-      "gives": "JACK",
-      "note": "a jack is a small flag flown on a ship"
-     },
-     {
-      "clueFragment": "overturned",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of overturned"
-     },
-     {
-      "clueFragment": "autumn",
-      "gives": "FALL",
-      "note": "fall is the American word for autumn"
-     },
-     {
-      "clueFragment": "winds",
-      "gives": "TRADES",
-      "note": "the trades are the trade winds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JACK",
-      "O",
-      "FALL",
-      "TRADES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "flag",
+       "gives": "JACK",
+       "note": "a jack is a small flag flown on a ship"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the start of a word, so its first letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overturned",
+         "note": "first letter of overturned"
+        }
+       ]
+      },
+      {
+       "words": "autumn",
+       "gives": "FALL",
+       "note": "fall is the American word for autumn"
+      },
+      {
+       "words": "winds",
+       "gives": "TRADES",
+       "note": "the trades are the trade winds"
+      }
      ]
     },
     "explanation": {
@@ -588,40 +545,31 @@
    },
    "solution": "NATURALIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NATURALIST",
     "definitions": [
      {
       "text": "Scholar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "to be outside something is to surround it, so one piece wraps around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one barely recognisable",
-      "gives": "NATURIST",
-      "note": "someone barely recognisable is wearing next to nothing, like a nudist"
-     },
-     {
-      "clueFragment": "Alabama",
-      "gives": "AL",
-      "note": "AL is the postal abbreviation for Alabama"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NATUR",
-      "AL",
-      "IST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "to be outside something is to surround it, so one piece wraps around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one barely recognisable",
+       "gives": "NATURIST",
+       "note": "someone barely recognisable is wearing next to nothing, like a nudist"
+      },
+      {
+       "words": "Alabama",
+       "gives": "AL",
+       "note": "AL is the postal abbreviation for Alabama"
+      }
      ]
     },
     "explanation": {
@@ -651,65 +599,62 @@
    },
    "solution": "CYRILLIC",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CYRILLIC",
     "definitions": [
      {
       "text": "alphabet",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "to be in something is to sit inside it, so one piece goes within another"
-     },
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "C",
-      "gives": "C",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Unknown",
-      "gives": "Y",
-      "note": "algebra's unknowns are x, y and z"
-     },
-     {
-      "clueFragment": "stream",
-      "gives": "RILL",
-      "note": "a rill is a small stream"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "child's",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of child"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "Y",
-      "RILL",
-      "I",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CYRILLIC",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "to be in something is to sit inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "C",
+         "note": "taken as written"
+        },
+        {
+         "words": "Unknown",
+         "gives": "Y",
+         "note": "algebra's unknowns are x, y and z"
+        },
+        {
+         "words": "stream",
+         "gives": "RILL",
+         "note": "a rill is a small stream"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "the first of a word is its opening letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "child's",
+           "note": "first letter of child"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -738,63 +683,56 @@
    },
    "solution": "UNCIVILLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "UNCIVILLY",
     "definitions": [
      {
       "text": "Rudely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the start of a word, so only its opening letter is kept"
-     },
-     {
-      "text": "nursing",
-      "for": "container",
-      "note": "to nurse something is to hold it close, so one piece is held inside another"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a French",
-      "gives": "UN",
-      "note": "un is French for a"
-     },
-     {
-      "clueFragment": "cursed",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of cursed"
-     },
-     {
-      "clueFragment": "climber",
-      "gives": "IVY",
-      "note": "ivy is a climbing plant"
-     },
-     {
-      "clueFragment": "injury",
-      "gives": "ILL",
-      "note": "ill as a noun means harm or injury"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "C",
-      "IV",
-      "ILL",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "note": "to nurse something is to hold it close, so one piece is held inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a French",
+         "gives": "UN",
+         "note": "un is French for a"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "note": "at first points to the start of a word, so only its opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cursed",
+           "note": "first letter of cursed"
+          }
+         ]
+        },
+        {
+         "words": "climber",
+         "gives": "IVY",
+         "note": "ivy is a climbing plant"
+        }
+       ]
+      },
+      {
+       "words": "injury",
+       "gives": "ILL",
+       "note": "ill as a noun means harm or injury"
+      }
      ]
     },
     "explanation": {
@@ -823,35 +761,24 @@
    },
    "solution": "ASCOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASCOT",
     "definitions": [
      {
       "text": "a type of neckwear",
       "at": 14
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Former tax",
-      "gives": "SCOT",
-      "note": "scot was an old tax, surviving in scot-free"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SCOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Former tax",
+       "gives": "SCOT",
+       "note": "scot was an old tax, surviving in scot-free"
+      }
      ]
     },
     "explanation": {
@@ -880,35 +807,25 @@
    },
    "solution": "LIMB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIMB",
     "definitions": [
      {
       "text": "member",
       "at": 32
      }
     ],
-    "linkWords": [
-     "attending"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Light Infantry",
-      "gives": "LI",
-      "note": "LI is the military abbreviation for Light Infantry"
-     },
-     {
-      "clueFragment": "Doctor",
-      "gives": "MB",
-      "note": "MB is Bachelor of Medicine, a doctor's degree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "MB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Light Infantry",
+       "gives": "LI",
+       "note": "LI is the military abbreviation for Light Infantry"
+      },
+      {
+       "words": "Doctor",
+       "gives": "MB",
+       "note": "MB is Bachelor of Medicine, a doctor's degree"
+      }
      ]
     },
     "explanation": {
@@ -937,35 +854,24 @@
    },
    "solution": "NEIGHBOUR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEIGHBOUR",
     "definitions": [
      {
       "text": "the bloke next door",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "for": "anagram",
-      "note": "could be suggests what the letters might become if arranged differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Our Bing? He",
-      "gives": "OURBINGHE",
-      "note": "letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OURBINGHE",
-       "gives": "NEIGHBOUR"
+       "text": "could be",
+       "note": "could be suggests what the letters might become if arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Our Bing? He",
+       "note": "letters to be rearranged"
       }
      ]
     },
@@ -1002,35 +908,25 @@
    },
    "solution": "SQUARESAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SQUARE SAIL",
     "definitions": [
      {
       "text": "canvas on yard",
       "at": 28
      }
     ],
-    "linkWords": [
-     "seeing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fuddy-duddies",
-      "gives": "SQUARES",
-      "note": "squares are old-fashioned, conventional people"
-     },
-     {
-      "clueFragment": "worry",
-      "gives": "AIL",
-      "note": "to ail is to trouble or worry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SQUARES",
-      "AIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fuddy-duddies",
+       "gives": "SQUARES",
+       "note": "squares are old-fashioned, conventional people"
+      },
+      {
+       "words": "worry",
+       "gives": "AIL",
+       "note": "to ail is to trouble or worry"
+      }
      ]
     },
     "explanation": {
@@ -1059,47 +955,42 @@
    },
    "solution": "QUADRANGLE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "QUADRANGLE",
     "definitions": [
      {
       "text": "Figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on phone?",
-      "for": "homophone",
-      "note": "on the phone we hear sounds without seeing spelling, so the word is judged by how it is said"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in role of",
-      "gives": "QUA",
-      "note": "qua is Latin for in the capacity of"
-     },
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "D is the abbreviation for duke"
-     },
-     {
-      "clueFragment": "noisy argument",
-      "gives": "RANGLE",
-      "soundsLike": "WRANGLE",
-      "note": "a wrangle is a loud dispute; the silent w drops out in the spelling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUA",
-      "D",
-      "RANGLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in role of",
+       "gives": "QUA",
+       "note": "qua is Latin for in the capacity of"
+      },
+      {
+       "words": "duke",
+       "gives": "D",
+       "note": "D is the abbreviation for duke"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RANGLE",
+       "indicators": [
+        {
+         "text": "on phone?",
+         "note": "on the phone we hear sounds without seeing spelling, so the word is judged by how it is said"
+        }
+       ],
+       "parts": [
+        {
+         "words": "noisy argument",
+         "gives": "WRANGLE",
+         "note": "a wrangle is a loud dispute; the silent w drops out in the spelling"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1128,50 +1019,48 @@
    },
    "solution": "NUTHATCH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NUTHATCH",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "nests in",
-      "for": "container",
-      "note": "to nest in a place is to settle snugly inside it, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the abbreviation for northern"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     },
-     {
-      "clueFragment": "which",
-      "gives": "THAT",
-      "note": "which and that are interchangeable relative pronouns"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "THAT",
-      "CH"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "NUTHATCH",
+     "indicators": [
+      {
+       "text": "nests in",
+       "note": "to nest in a place is to settle snugly inside it, so one piece sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "northern",
+         "gives": "N",
+         "note": "N is the abbreviation for northern"
+        },
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "U is the abbreviation for university"
+        },
+        {
+         "words": "which",
+         "gives": "THAT",
+         "note": "which and that are interchangeable relative pronouns"
+        },
+        {
+         "words": "church",
+         "gives": "CH",
+         "note": "CH is the abbreviation for church"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1200,34 +1089,29 @@
    },
    "solution": "GAEL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GAEL",
     "definitions": [
      {
       "text": "Highland Scot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "verbal report of",
-      "for": "homophone",
-      "note": "a verbal report is spoken, so the word wanted matches the sound, not the spelling"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "force eight wind, perhaps",
-      "gives": "GAEL",
-      "soundsLike": "GALE",
-      "note": "force eight on the Beaufort scale is a gale; 'perhaps' marks it as one example"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GAEL",
+     "indicators": [
+      {
+       "text": "verbal report of",
+       "note": "a verbal report is spoken, so the word wanted matches the sound, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "force eight wind, perhaps",
+       "gives": "GALE",
+       "note": "force eight on the Beaufort scale is a gale; 'perhaps' marks it as one example"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A Highlander gives a spoken account of a severe storm.",
      "walkthrough": "The 's stands for 'is'. Force eight is gale on the Beaufort wind scale.",
@@ -1253,41 +1137,35 @@
    },
    "solution": "SPILLAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SPILLAGE",
     "definitions": [
      {
       "text": "Escape of liquid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the last letter of a word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "damages",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of damages"
-     },
-     {
-      "clueFragment": "sacking",
-      "gives": "PILLAGE",
-      "note": "sacking a town is plundering it, which is pillage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PILLAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the last letter of a word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "damages",
+         "note": "last letter of damages"
+        }
+       ]
+      },
+      {
+       "words": "sacking",
+       "gives": "PILLAGE",
+       "note": "sacking a town is plundering it, which is pillage"
+      }
      ]
     },
     "explanation": {
@@ -1316,32 +1194,25 @@
    },
    "solution": "ALLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALLY",
     "definitions": [
      {
       "text": "person giving us support",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Completely",
-      "gives": "ALL",
-      "note": "all as in 'all alone', meaning completely"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "algebra's unknowns are x, y and z"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Completely",
+       "gives": "ALL",
+       "note": "all as in 'all alone', meaning completely"
+      },
+      {
+       "words": "unknown",
+       "gives": "Y",
+       "note": "algebra's unknowns are x, y and z"
+      }
      ]
     },
     "explanation": {
@@ -1370,47 +1241,41 @@
    },
    "solution": "STOCKPILES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "STOCKPILES",
     "definitions": [
      {
       "text": "Stores",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "investing",
-      "for": "container",
-      "note": "to invest is to clothe or surround, so one piece is placed within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "standard",
-      "gives": "STOCK",
-      "note": "stock as an adjective means standard or usual"
-     },
-     {
-      "clueFragment": "baked foods",
-      "gives": "PIES",
-      "note": "pies are baked dishes"
-     },
-     {
-      "clueFragment": "pounds",
-      "gives": "L",
-      "note": "L is the abbreviation for pounds sterling, from libra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOCK",
-      "PI",
-      "L",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "standard",
+       "gives": "STOCK",
+       "note": "stock as an adjective means standard or usual"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "investing",
+         "note": "to invest is to clothe or surround, so one piece is placed within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "baked foods",
+         "gives": "PIES",
+         "note": "pies are baked dishes"
+        },
+        {
+         "words": "pounds",
+         "gives": "L",
+         "note": "L is the abbreviation for pounds sterling, from libra"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1439,48 +1304,35 @@
    },
    "solution": "DUENNA",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DUENNA",
     "definitions": [
      {
       "text": "governess",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "retiring",
-      "for": "reversal",
-      "note": "retiring means going back, so this piece is read backwards"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Proper",
-      "gives": "DUE",
-      "note": "due means proper or fitting, as in due care"
-     },
-     {
-      "clueFragment": "woman",
-      "gives": "ANN",
-      "note": "a common woman's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUE",
-      "NNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ANN",
-       "to": "NNA"
+       "words": "Proper",
+       "gives": "DUE",
+       "note": "due means proper or fitting, as in due care"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "note": "retiring means going back, so this piece is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "woman",
+         "gives": "ANN",
+         "note": "a common woman's name"
+        }
+       ]
       }
      ]
     },
@@ -1510,55 +1362,48 @@
    },
    "solution": "EXECUTANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EXECUTANT",
     "definitions": [
      {
       "text": "Performer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed by",
-      "for": "container",
-      "note": "someone welcomed is taken in, so this piece is placed inside others"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one-time",
-      "gives": "EX",
-      "note": "ex means former"
-     },
-     {
-      "clueFragment": "City",
-      "gives": "EC",
-      "note": "EC is the postcode of the City of London"
-     },
-     {
-      "clueFragment": "Utah",
-      "gives": "UT",
-      "note": "UT is the postal abbreviation for Utah"
-     },
-     {
-      "clueFragment": "worker",
-      "gives": "ANT",
-      "note": "the worker ant is the crossword's standard worker"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "EC",
-      "UT",
-      "ANT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EXECUTANT",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "note": "someone welcomed is taken in, so this piece is placed inside others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one-time",
+         "gives": "EX",
+         "note": "ex means former"
+        },
+        {
+         "words": "City",
+         "gives": "EC",
+         "note": "EC is the postcode of the City of London"
+        },
+        {
+         "words": "Utah",
+         "gives": "UT",
+         "note": "UT is the postal abbreviation for Utah"
+        },
+        {
+         "words": "worker",
+         "gives": "ANT",
+         "note": "the worker ant is the crossword's standard worker"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1587,43 +1432,31 @@
    },
    "solution": "TASSO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TASSO",
     "definitions": [
      {
       "text": "Old Italian poet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "immersed in",
-      "for": "container",
-      "note": "to be immersed in something is to be sunk inside it, so one piece sits within another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chinese way of life",
-      "gives": "TAO",
-      "note": "the Tao is the Way in Chinese philosophy"
-     },
-     {
-      "clueFragment": "sons",
-      "gives": "SS",
-      "note": "S for son, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "SS",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "immersed in",
+       "note": "to be immersed in something is to be sunk inside it, so one piece sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chinese way of life",
+       "gives": "TAO",
+       "note": "the Tao is the Way in Chinese philosophy"
+      },
+      {
+       "words": "sons",
+       "gives": "SS",
+       "note": "S for son, doubled for the plural"
+      }
      ]
     },
     "explanation": {
@@ -1652,32 +1485,25 @@
    },
    "solution": "LORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LORE",
     "definitions": [
      {
       "text": "specialised knowledge",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "LO",
-      "note": "lo is an old word for look or see"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LO",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "See",
+       "gives": "LO",
+       "note": "lo is an old word for look or see"
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
      ]
     },
     "explanation": {
@@ -1706,47 +1532,41 @@
    },
    "solution": "MARC",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MARC",
     "definitions": [
      {
       "text": "Alcoholic drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so only the last letter is kept"
-     },
-     {
-      "text": "concealed in",
-      "for": "container",
-      "note": "something concealed in another is hidden inside it, so one piece goes within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coat",
-      "gives": "MAC",
-      "note": "a mac is a raincoat, short for mackintosh"
-     },
-     {
-      "clueFragment": "boozer",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of boozer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "R",
-      "C"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealed in",
+       "note": "something concealed in another is hidden inside it, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coat",
+       "gives": "MAC",
+       "note": "a mac is a raincoat, short for mackintosh"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally means at the end, so only the last letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boozer",
+         "note": "last letter of boozer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1775,53 +1595,50 @@
    },
    "solution": "ACORN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ACORN",
     "definitions": [
      {
       "text": "fruit",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "introduction of",
-      "for": "letter_selection",
-      "note": "an introduction is the opening, so only the first letter is kept"
-     },
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "to involve is to include or take in, so one piece is placed within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "scam",
-      "gives": "CON",
-      "note": "a con is a swindle"
-     },
-     {
-      "clueFragment": "ripe",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of ripe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CO",
-      "R",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "note": "to involve is to include or take in, so one piece is placed within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scam",
+         "gives": "CON",
+         "note": "a con is a swindle"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction of",
+           "note": "an introduction is the opening, so only the first letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ripe",
+           "note": "first letter of ripe"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1850,32 +1667,25 @@
    },
    "solution": "CASSANDRA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CASSANDRA",
     "definitions": [
      {
       "text": "one fated to be disbelieved",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Accountant's",
-      "gives": "CAS",
-      "note": "CA is a chartered accountant, with the 's kept"
-     },
-     {
-      "clueFragment": "woman",
-      "gives": "SANDRA",
-      "note": "a woman's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAS",
-      "SANDRA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Accountant's",
+       "gives": "CAS",
+       "note": "CA is a chartered accountant, with the 's kept"
+      },
+      {
+       "words": "woman",
+       "gives": "SANDRA",
+       "note": "a woman's name"
+      }
      ]
     },
     "explanation": {
@@ -1904,53 +1714,44 @@
    },
    "solution": "LANDAU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LANDAU",
     "definitions": [
      {
       "text": "four-wheeled carriage",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader goes in front, so only the opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Liberal",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of Liberal"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "and means with or plus"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "posh",
-      "gives": "U",
-      "note": "U means upper-class, as in U and non-U"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AND",
-      "A",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader goes in front, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Liberal",
+         "note": "first letter of Liberal"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "gives": "AND",
+       "note": "and means with or plus"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "posh",
+       "gives": "U",
+       "note": "U means upper-class, as in U and non-U"
+      }
      ]
     },
     "explanation": {
@@ -1979,35 +1780,24 @@
    },
    "solution": "FORENSIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FORENSIC",
     "definitions": [
      {
       "text": "connected with court",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Variety of",
-      "for": "anagram",
-      "note": "a variety is a different form of something, so these letters appear in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "conifers",
-      "gives": "CONIFERS",
-      "note": "letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CONIFERS",
-       "gives": "FORENSIC"
+       "text": "Variety of",
+       "note": "a variety is a different form of something, so these letters appear in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conifers",
+       "note": "letters to be rearranged"
       }
      ]
     },

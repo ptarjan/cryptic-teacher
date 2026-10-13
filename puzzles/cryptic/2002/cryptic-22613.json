@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22613",
  "number": 22613,
- "series": "cryptic",
- "name": "Prize crossword No 22,613",
+ "prize": true,
  "setter": "Bunthorne",
  "date": "2002-08-31",
  "dimensions": {
@@ -44,35 +43,24 @@
    },
    "solution": "BODYLANGUAGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BODY-LANGUAGE",
     "definitions": [
      {
       "text": "Indirect speech",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "twitches",
-      "for": "anagram",
-      "note": "twitches are jerky movements, so the preceding words are jumbled about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "You gab and leg",
-      "gives": "YOUGABANDLEG",
-      "note": "the four words taken letter for letter as the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YOUGABANDLEG",
-       "gives": "BODYLANGUAGE"
+       "text": "twitches",
+       "note": "twitches are jerky movements, so the preceding words are jumbled about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "You gab and leg",
+       "note": "the four words taken letter for letter as the fodder"
       }
      ]
     },
@@ -102,11 +90,6 @@
    },
    "solution": "BUCCINA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BUCCINA",
     "definitions": [
      {
       "text": "a blast from the past from this",
@@ -114,35 +97,36 @@
       "note": "the instrument is defined by the sound it makes"
      }
     ],
-    "indicators": [
-     {
-      "text": "incomplete",
-      "for": "deletion",
-      "note": "incomplete means the word before it is cut short by its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "But",
-      "gives": "BUT",
-      "note": "taken as written before trimming"
-     },
-     {
-      "clueFragment": "chapters",
-      "gives": "CC",
-      "note": "C is the abbreviation for chapter, doubled for the plural"
-     },
-     {
-      "clueFragment": "in a",
-      "gives": "INA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "CC",
-      "INA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "incomplete",
+       "note": "incomplete means the word before it is cut short by its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "But",
+         "note": "taken as written before trimming"
+        },
+        {
+         "words": "chapters",
+         "gives": "CC",
+         "note": "C is the abbreviation for chapter, doubled for the plural"
+        },
+        {
+         "words": "in a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -172,54 +156,47 @@
    },
    "solution": "DUBIETY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "DUBIETY",
     "definitions": [
      {
       "text": "doubt",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "despoiled",
-      "for": "anagram",
-      "note": "something despoiled has been ransacked and left in disorder"
-     },
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without tells us to leave out the small word that follows it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beauty",
-      "gives": "BEAUTY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I'd",
-      "gives": "ID",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter removed from the fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUBIETY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DUBIETY",
+     "indicators": [
       {
-       "fodder": "BEUTYID",
-       "gives": "DUBIETY"
+       "text": "despoiled",
+       "note": "something despoiled has been ransacked and left in disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "DUBIETY",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without tells us to leave out the small word that follows it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beauty",
+         "note": "taken as written"
+        },
+        {
+         "words": "I'd",
+         "note": "taken as written, apostrophe dropped"
+        },
+        {
+         "words": "a",
+         "note": "the letter removed from the fodder"
+        }
+       ]
       }
      ]
     },
@@ -255,26 +232,25 @@
    },
    "solution": "LASTDITCH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LAST DITCH",
     "definitions": [
      {
       "text": "Ha-ha! Is this the final attempt?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Ha-ha!",
-      "note": "surface reading: mocking laughter at a doomed effort"
-     },
-     {
-      "clueFragment": "Is this the final attempt?",
-      "note": "setter's reading: a ha-ha is a sunken boundary trench at the far edge of a garden, so it is literally the final one of its kind"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ha-ha!",
+       "note": "surface reading: mocking laughter at a doomed effort"
+      },
+      {
+       "words": "Is this the final attempt?",
+       "note": "setter's reading: a ha-ha is a sunken boundary trench at the far edge of a garden, so it is literally the final one of its kind"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone jeers at what looks like a desperate final try.",
      "walkthrough": "A ha-ha is a sunken trench hiding a garden's boundary; being at the edge of the grounds, it can be called the final ditch.",
@@ -302,54 +278,39 @@
    },
    "solution": "NAIKS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NAIKS",
     "definitions": [
      {
       "text": "NCOs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "different",
-      "for": "anagram",
-      "note": "different asks for the word after it in another form, its letters rearranged"
-     },
-     {
-      "text": "cover",
-      "for": "container",
-      "note": "to cover something is to wrap around it, so the rearranged word encloses the single letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skin",
-      "gives": "SKIN",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "A",
-      "IKS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SKIN",
-       "gives": "NIKS"
+       "text": "cover",
+       "note": "to cover something is to wrap around it, so the rearranged word encloses the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "different",
+         "note": "different asks for the word after it in another form, its letters rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "skin",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
       }
      ]
     },
@@ -378,41 +339,38 @@
    },
    "solution": "UPPSALA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "UPPSALA",
     "definitions": [
      {
       "text": "Where Linnaeus graduated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "endless means the following word loses its last letter"
-     },
-     {
-      "text": "engendering",
-      "for": "anagram",
-      "note": "engendering means producing something new, so the letters are made into a fresh word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "applause",
-      "gives": "APPLAUS",
-      "note": "the word with its final letter cut"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UPPSALA",
+     "indicators": [
       {
-       "fodder": "APPLAUS",
-       "gives": "UPPSALA"
+       "text": "endless",
+       "note": "endless means the following word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "engendering",
+         "note": "engendering means producing something new, so the letters are made into a fresh word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "applause",
+         "gives": "APPLAUS",
+         "note": "the word with its final letter cut"
+        }
+       ]
       }
      ]
     },
@@ -442,53 +400,46 @@
    },
    "solution": "GUARANI",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GUARANI",
     "definitions": [
      {
       "text": "Indians",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no",
-      "for": "deletion",
-      "note": "no means the item named after it is taken away from the long word"
-     },
-     {
-      "text": "concludes",
-      "for": "charade",
-      "note": "concludes places the numeral at the very end of the build"
-     }
-    ],
-    "linkWords": [
-     "seeking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guarantee",
-      "gives": "GUARANTEE",
-      "note": "taken as written before trimming"
-     },
-     {
-      "clueFragment": "support for it",
-      "gives": "TEE",
-      "note": "a golf tee is the peg that holds up the ball"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUARAN",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "concludes",
+       "note": "concludes places the numeral at the very end of the build"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "note": "no means the item named after it is taken away from the long word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guarantee",
+         "note": "taken as written before trimming"
+        },
+        {
+         "words": "support for it",
+         "gives": "TEE",
+         "note": "a golf tee is the peg that holds up the ball"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -527,26 +478,25 @@
    },
    "solution": "PIGSMIGHTFLY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PIGS MIGHT FLY",
     "definitions": [
      {
       "text": "Never",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "But plods do — in helicopters!",
-      "note": "surface reading: police officers do take to the air in helicopters"
-     },
-     {
-      "clueFragment": "Never?",
-      "note": "setter's reading: plod and pig are slang for police, so airborne police make the impossible saying come true"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "But plods do — in helicopters!",
+       "note": "surface reading: police officers do take to the air in helicopters"
+      },
+      {
+       "words": "Never?",
+       "note": "setter's reading: plod and pig are slang for police, so airborne police make the impossible saying come true"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doubter says it can never happen, but police officers fly in helicopters all the time.",
      "walkthrough": "PIGS MIGHT FLY is the scornful phrase for something that will never happen; 'plod' is British slang for the police, as is 'pigs'.",
@@ -574,35 +524,24 @@
    },
    "solution": "INCUBUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INCUBUS",
     "definitions": [
      {
       "text": "a demon in bed",
       "at": 47
      }
     ],
-    "linkWords": [
-     "He must be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "So the vixen is with child",
-      "gives": "INCUB",
-      "note": "a pregnant vixen is carrying a fox cub, so she is in cub"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INCUB",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "So the vixen is with child",
+       "gives": "INCUB",
+       "note": "a pregnant vixen is carrying a fox cub, so she is in cub"
+      },
+      {
+       "words": "us",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -632,50 +571,45 @@
    },
    "solution": "IMPLANT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "IMPLANT",
     "definitions": [
      {
       "text": "a pacemaker for one",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Climbing",
-      "for": "reversal",
-      "note": "climbing means going backwards up the page, so the first pair of words is read in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mountain",
-      "gives": "ALP",
-      "note": "an alp is a high mountain"
-     },
-     {
-      "clueFragment": "road",
-      "gives": "MI",
-      "note": "the M1 motorway, with the 1 written as I"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "NT",
-      "note": "NT is the New Testament, a set of books"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPLA",
-      "NT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ALPMI",
-       "to": "IMPLA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Climbing",
+         "note": "climbing means going backwards up the page, so the first pair of words is read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mountain",
+           "gives": "ALP",
+           "note": "an alp is a high mountain"
+          },
+          {
+           "words": "road",
+           "gives": "MI",
+           "note": "the M1 motorway, with the 1 written as I"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "books",
+       "gives": "NT",
+       "note": "NT is the New Testament, a set of books"
       }
      ]
     },
@@ -715,31 +649,16 @@
    },
    "solution": "TAKETHEFIFTH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAKE THE FIFTH",
     "definitions": [
      {
       "text": "Consider Catherine Howard's position",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Catherine Howard was Henry VIII's fifth wife, so to take on her place is to be the fifth"
      },
      {
       "text": "refuse to testify",
-      "at": 41
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Consider Catherine Howard's position",
-      "note": "first meaning: Catherine Howard was Henry VIII's fifth wife, so to take on her place is to be the fifth"
-     },
-     {
-      "clueFragment": "refuse to testify",
-      "note": "second meaning: invoking the US Fifth Amendment right not to incriminate oneself"
+      "at": 41,
+      "meaning": "second meaning: invoking the US Fifth Amendment right not to incriminate oneself"
      }
     ],
     "explanation": {
@@ -769,32 +688,25 @@
    },
    "solution": "STIPEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STIPEND",
     "definitions": [
      {
       "text": "Grant",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "society",
-      "gives": "S",
-      "note": "S is the abbreviation for society"
-     },
-     {
-      "clueFragment": "two conclusions",
-      "gives": "TIPEND",
-      "note": "two words for a conclusion or extremity, a tip and an end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TIPEND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "society",
+       "gives": "S",
+       "note": "S is the abbreviation for society"
+      },
+      {
+       "words": "two conclusions",
+       "gives": "TIPEND",
+       "note": "two words for a conclusion or extremity, a tip and an end"
+      }
      ]
     },
     "explanation": {
@@ -828,48 +740,34 @@
    },
    "solution": "SEAHAWK",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEA HAWK",
     "definitions": [
      {
       "text": "winged predator",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "dreadful",
-      "for": "anagram",
-      "note": "dreadful means very bad, so the words before it come out in poor order"
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was he a",
-      "gives": "WASHEA",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "K",
-      "note": "K is the chess abbreviation for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEAHAW",
-      "K"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WASHEA",
-       "gives": "SEAHAW"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dreadful",
+         "note": "dreadful means very bad, so the words before it come out in poor order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Was he a",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
       }
      ]
     },
@@ -898,41 +796,30 @@
    },
    "solution": "ITALY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ITALY",
     "definitions": [
      {
       "text": "Shelley's \"paradise of exiles\"",
       "at": 28
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "Grand Master",
-      "gives": "TAL",
-      "note": "Mikhail Tal was a Latvian chess grandmaster and world champion"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "Y is a mathematical unknown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "TAL",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "Grand Master",
+       "gives": "TAL",
+       "note": "Mikhail Tal was a Latvian chess grandmaster and world champion"
+      },
+      {
+       "words": "unknown",
+       "gives": "Y",
+       "note": "Y is a mathematical unknown"
+      }
      ]
     },
     "explanation": {
@@ -961,45 +848,41 @@
    },
    "solution": "TOPIARIST",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TOPIARIST",
     "definitions": [
      {
       "text": "Bush's former",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from it",
-      "for": "deletion",
-      "note": "from it means the letter for died is taken away from the word just before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chief",
-      "gives": "TOP",
-      "note": "top means chief or leading"
-     },
-     {
-      "clueFragment": "chronicler",
-      "gives": "DIARIST",
-      "note": "a diarist chronicles daily events"
-     },
-     {
-      "clueFragment": "died",
-      "gives": "D",
-      "note": "D is the abbreviation for died"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "IARIST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "chief",
+       "gives": "TOP",
+       "note": "top means chief or leading"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from it",
+         "note": "from it means the letter for died is taken away from the word just before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chronicler",
+         "gives": "DIARIST",
+         "note": "a diarist chronicles daily events"
+        },
+        {
+         "words": "died",
+         "gives": "D",
+         "note": "D is the abbreviation for died"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1029,35 +912,25 @@
    },
    "solution": "PSYCHOSIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PSYCHOSIS",
     "definitions": [
      {
       "text": "Breakdown",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Norman Bates's",
-      "gives": "PSYCHO",
-      "note": "Norman Bates is the title killer in Hitchcock's film Psycho; the possessive makes the sibling his"
-     },
-     {
-      "clueFragment": "sibling",
-      "gives": "SIS",
-      "note": "sis is short for sister"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PSYCHO",
-      "SIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Norman Bates's",
+       "gives": "PSYCHO",
+       "note": "Norman Bates is the title killer in Hitchcock's film Psycho; the possessive makes the sibling his"
+      },
+      {
+       "words": "sibling",
+       "gives": "SIS",
+       "note": "sis is short for sister"
+      }
      ]
     },
     "explanation": {
@@ -1097,31 +970,16 @@
    },
    "solution": "HITTHEHAY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "HIT THE HAY",
     "definitions": [
      {
       "text": "Retire",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: go to bed, an informal idiom"
      },
      {
       "text": "take revenge on pollenosis",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Retire",
-      "note": "first meaning: go to bed, an informal idiom"
-     },
-     {
-      "clueFragment": "take revenge on pollenosis",
-      "note": "second meaning, read literally: strike back at the fever caused by pollen"
+      "at": 10,
+      "meaning": "second meaning, read literally: strike back at the fever caused by pollen"
      }
     ],
     "explanation": {
@@ -1151,37 +1009,39 @@
    },
    "solution": "TESTUDO",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "TESTUDO",
     "definitions": [
      {
       "text": "this ancient air raid shelter",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "I hear",
-      "for": "homophone",
-      "note": "I hear tells us the words that follow are to be taken by their spoken sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Try",
-      "gives": "TEST",
-      "note": "to test is to try something out"
-     },
-     {
-      "clueFragment": "you do",
-      "gives": "UDO",
-      "soundsLike": "YOU DO",
-      "note": "spoken, the two words run together as a three-letter sound"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Try",
+       "gives": "TEST",
+       "note": "to test is to try something out"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UDO",
+       "indicators": [
+        {
+         "text": "I hear",
+         "note": "I hear tells us the words that follow are to be taken by their spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you do",
+         "gives": "YOUDO",
+         "note": "spoken, the two words run together as a three-letter sound"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An offer to test out a very old bomb shelter.",
      "walkthrough": "The 'air raid' is the rain of arrows and stones that Roman soldiers sheltered from by locking shields overhead.",
@@ -1215,26 +1075,25 @@
    },
    "solution": "HEAVEUP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HEAVE UP",
     "definitions": [
      {
       "text": "Gag",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Gag Eva, eh?!",
-      "note": "surface reading: an exclamation about silencing a woman called Eva"
-     },
-     {
-      "clueFragment": "Eva, eh",
-      "note": "setter's reading, a reverse clue: the answer read as an instruction, throwing its first word upward into disorder, produces these five letters"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Gag Eva, eh?!",
+       "note": "surface reading: an exclamation about silencing a woman called Eva"
+      },
+      {
+       "words": "Eva, eh",
+       "note": "setter's reading, a reverse clue: the answer read as an instruction, throwing its first word upward into disorder, produces these five letters"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone exclaims at the idea of silencing Eva.",
      "walkthrough": "This is a reverse clue: the answer's first word jumbled, with 'up' as the jumbling signal, spells 'Eva, eh'; 'Gag' is the plain definition.",
@@ -1261,10 +1120,6 @@
    },
    "solution": "ABELE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABELE",
     "definitions": [
      {
       "text": "Poplar",
@@ -1272,32 +1127,25 @@
       "note": "Poplar is also a district of London's East End"
      }
     ],
-    "indicators": [
-     {
-      "text": "End",
-      "for": "charade",
-      "note": "End places the compass letter at the close of the name"
-     }
-    ],
-    "linkWords": [
-     "appearing at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Magwich",
-      "gives": "ABEL",
-      "note": "Abel Magwitch is the convict in Dickens's Great Expectations"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "E is the compass abbreviation for east"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABEL",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "End",
+       "note": "End places the compass letter at the close of the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Magwich",
+       "gives": "ABEL",
+       "note": "Abel Magwitch is the convict in Dickens's Great Expectations"
+      },
+      {
+       "words": "East",
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      }
      ]
     },
     "explanation": {
@@ -1327,45 +1175,34 @@
    },
    "solution": "ALBANIA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ALBANIA",
     "definitions": [
      {
       "text": "state",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "sorry",
-      "for": "anagram",
-      "note": "sorry means in a bad way, so the two small words are put into poor order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Her Grace posed naked",
-      "gives": "ALBA",
-      "note": "the Duchess of Alba is the noblewoman said to have posed for Goya's Naked Maja"
-     },
-     {
-      "clueFragment": "in a",
-      "gives": "INA",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALBA",
-      "NIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "INA",
-       "gives": "NIA"
+       "words": "Her Grace posed naked",
+       "gives": "ALBA",
+       "note": "the Duchess of Alba is the noblewoman said to have posed for Goya's Naked Maja"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sorry",
+         "note": "sorry means in a bad way, so the two small words are put into poor order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in a",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1395,50 +1232,41 @@
    },
    "solution": "ENCLAVE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ENCLAVE",
     "definitions": [
      {
       "text": "\"Some corner of a foreign field that is for ever…\"",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without here means outside, so the word for a warning goes around the letter"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "France's in",
-      "gives": "EN",
-      "note": "en is French for in"
-     },
-     {
-      "clueFragment": "warning",
-      "gives": "CAVE",
-      "note": "cave, Latin for beware, was the schoolboy warning that a teacher was coming"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "C",
-      "L",
-      "AVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "France's in",
+       "gives": "EN",
+       "note": "en is French for in"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without here means outside, so the word for a warning goes around the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "warning",
+         "gives": "CAVE",
+         "note": "cave, Latin for beware, was the schoolboy warning that a teacher was coming"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1467,42 +1295,31 @@
    },
    "solution": "FASLANE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FASLANE",
     "definitions": [
      {
       "text": "Where nuclear subs are",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "losing means the letter for the word after it is dropped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the outside track",
-      "gives": "FASTLANE",
-      "note": "on a motorway the outer, overtaking lane is the quick one"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAS",
-      "LANE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing",
+       "note": "losing means the letter for the word after it is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the outside track",
+       "gives": "FASTLANE",
+       "note": "on a motorway the outer, overtaking lane is the quick one"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1531,33 +1348,28 @@
    },
    "solution": "ERNST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ERNST",
     "definitions": [
      {
       "text": "Dadaist",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "expression",
-      "for": "hidden_word",
-      "note": "expression is read as pressing out, squeezing letters from inside the words before it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Modern style",
-      "gives": "ERNST",
-      "note": "letters running across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "expression",
+       "note": "expression is read as pressing out, squeezing letters from inside the words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Modern style",
+       "gives": "ERNST",
+       "note": "letters running across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A contemporary manner as the voice of an avant-garde artist.",
      "definitionFit": "Max Ernst was a German painter who belonged to the Dada movement before moving into Surrealism."
@@ -1583,56 +1395,56 @@
    },
    "solution": "HIBACHI",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HIBACHI",
     "definitions": [
      {
       "text": "barbecue",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "a lot of",
-      "for": "letter_selection",
-      "note": "a lot of means most but not all, so only the opening part of the word is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the meat portion inside the pair of greetings"
-     }
-    ],
-    "linkWords": [
-     "There's",
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hello",
-      "gives": "HI",
-      "note": "hi is a greeting"
-     },
-     {
-      "clueFragment": "hello",
-      "gives": "HI",
-      "note": "the greeting again"
-     },
-     {
-      "clueFragment": "bacon",
-      "gives": "BAC",
-      "select": "first",
-      "note": "the first three of the five letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HI",
-      "BAC",
-      "HI"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the meat portion inside the pair of greetings"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hello",
+         "gives": "HI",
+         "note": "hi is a greeting"
+        },
+        {
+         "words": "hello",
+         "gives": "HI",
+         "note": "the greeting again"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "BAC",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "note": "a lot of means most but not all, so only the opening part of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "bacon",
+         "gives": "BAC",
+         "select": "first",
+         "note": "the first three of the five letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1666,45 +1478,35 @@
    },
    "solution": "YOUREON",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "YOURE ON",
     "definitions": [
      {
       "text": "thumbs up!",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "resolving",
-      "for": "anagram",
-      "note": "resolving means breaking down and reworking, so the emperor's name is rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Solvers",
-      "gives": "YOU",
-      "note": "the setter addresses the solvers as you"
-     },
-     {
-      "clueFragment": "Nero's",
-      "gives": "NERO",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YOU",
-      "REON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NERO",
-       "gives": "REON"
+       "words": "Solvers",
+       "gives": "YOU",
+       "note": "the setter addresses the solvers as you"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "resolving",
+         "note": "resolving means breaking down and reworking, so the emperor's name is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nero's",
+         "gives": "NERO",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1734,26 +1536,25 @@
    },
    "solution": "SUNFAST",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SUNFAST",
     "definitions": [
      {
       "text": "Impervious to the fading light",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "the fading light",
-      "note": "surface reading: dusk, the light dying away at evening"
-     },
-     {
-      "clueFragment": "Impervious to the fading light",
-      "note": "setter's reading: unaffected by the daylight that bleaches colours"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "the fading light",
+       "note": "surface reading: dusk, the light dying away at evening"
+      },
+      {
+       "words": "Impervious to the fading light",
+       "note": "setter's reading: unaffected by the daylight that bleaches colours"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something unbothered by the dusk.",
      "walkthrough": "'Fading light' suggests dusk, but it means the light that fades things.",
@@ -1791,28 +1592,16 @@
    },
    "solution": "FORPETESSAKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FOR PETES SAKE",
     "definitions": [
      {
       "text": "Irritation expressed",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an exasperated exclamation"
      },
      {
       "text": "on behalf of… Who — Mr Townshend?",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irritation expressed",
-      "note": "first meaning: an exasperated exclamation"
-     },
-     {
-      "clueFragment": "on behalf of… Who — Mr Townshend?",
-      "note": "second meaning, read literally: for the benefit of the guitarist of the rock band The Who"
+      "at": 21,
+      "meaning": "second meaning, read literally: for the benefit of the guitarist of the rock band The Who"
      }
     ],
     "explanation": {

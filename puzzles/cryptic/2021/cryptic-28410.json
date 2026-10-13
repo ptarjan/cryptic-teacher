@@ -1,8 +1,7 @@
 {
  "id": "cryptic-28410",
  "number": 28410,
- "series": "cryptic",
- "name": "Prize crossword No 28,410",
+ "prize": true,
  "setter": "Maskarade",
  "date": "2021-04-03",
  "preamble": "Wordplay in 38 clues omits one (or once, two) of three related theme words.",
@@ -39,52 +38,44 @@
    },
    "solution": "NICARAGUAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "NICARAGUAN",
     "definitions": [
      {
       "text": "Central American",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming from",
-      "for": "anagram",
-      "note": "what comes from raw material is made out of it, so the letters are reworked into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the map abbreviation for north or northern"
-     },
-     {
-      "clueFragment": "Guiana",
-      "gives": "GUIANA",
-      "note": "the country name, taken letter for letter as raw material"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "I",
-      "CAR",
-      "AGUAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GUIANA",
-       "gives": "IAGUAN"
+       "words": "northern",
+       "gives": "N",
+       "note": "N is the map abbreviation for north or northern"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "coming from",
+         "note": "what comes from raw material is made out of it, so the letters are reworked into something new"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Guiana",
+           "note": "the country name, taken letter for letter as raw material"
+          },
+          {
+           "words": " ",
+           "gives": "CAR",
+           "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -114,44 +105,34 @@
    },
    "solution": "MADAGASCAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MADAGASCAR",
     "definitions": [
      {
       "text": "island",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crazed",
-      "gives": "MAD",
-      "note": "crazed and mad are synonyms"
-     },
-     {
-      "clueFragment": "commander",
-      "gives": "AGA",
-      "note": "an aga is a commander or chief officer in the old Ottoman Empire"
-     },
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "the possessive ending, taken as written"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAD",
-      "AGA",
-      "S",
-      "CAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crazed",
+       "gives": "MAD",
+       "note": "crazed and mad are synonyms"
+      },
+      {
+       "words": "commander",
+       "gives": "AGA",
+       "note": "an aga is a commander or chief officer in the old Ottoman Empire"
+      },
+      {
+       "words": "'s",
+       "note": "the possessive ending, taken as written"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -180,45 +161,42 @@
    },
    "solution": "FOVANT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FOVANT",
     "definitions": [
      {
       "text": "village near Salisbury",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly here means taking the odd-numbered positions, first, third and fifth, of a word"
-     }
-    ],
-    "linkWords": [
-     "seen in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frost",
-      "gives": "FOT",
-      "select": "alternate",
-      "note": "the first, third and fifth letters of the surname"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "VAN",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "FOVANT",
+     "indicators": [
+      {
+       "text": "oddly",
+       "note": "oddly here means taking the odd-numbered positions, first, third and fifth, of a word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "FOT",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Frost",
+         "gives": "FOT",
+         "select": "alternate",
+         "note": "the first, third and fifth letters of the surname"
+        }
+       ]
+      },
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -247,51 +225,41 @@
    },
    "solution": "UNASPIRING",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "UNASPIRING",
     "definitions": [
      {
       "text": "having no ambition",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Wielded",
-      "for": "anagram",
-      "note": "a wielded weapon is swung and brandished about, so its letters get thrown around too"
-     },
-     {
-      "text": "swallowing",
-      "for": "container",
-      "note": "to swallow is to take something down inside, so one piece ends up within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gun",
-      "gives": "UNG",
-      "note": "the three letters rearranged"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "ASPIRIN",
-      "note": "aspirin is a common painkilling drug"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "ASPIRIN",
-      "G"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GUN",
-       "gives": "UNG"
+       "text": "swallowing",
+       "note": "to swallow is to take something down inside, so one piece ends up within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gun",
+       "gives": "UNG",
+       "note": "the three letters rearranged"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wielded",
+         "note": "a wielded weapon is swung and brandished about, so its letters get thrown around too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drug",
+         "gives": "ASPIRIN",
+         "note": "aspirin is a common painkilling drug"
+        }
+       ]
       }
      ]
     },
@@ -327,56 +295,51 @@
    },
    "solution": "CARRYINGUP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CARRYING UP",
     "definitions": [
      {
       "text": "Tracing back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very last letter of the word it follows"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "to go round something is to surround it, so one piece encloses the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "RINGUP",
-      "note": "to ring up is to call someone on the telephone"
-     },
-     {
-      "clueFragment": "ancestry",
-      "gives": "Y",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "R",
-      "Y",
-      "INGUP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "to go round something is to surround it, so one piece encloses the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "call",
+         "gives": "RINGUP",
+         "note": "to ring up is to call someone on the telephone"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very last letter of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ancestry",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -405,49 +368,34 @@
    },
    "solution": "PURIM",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "PURIM",
     "definitions": [
      {
       "text": "festival",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Turn",
-      "for": "reversal",
-      "note": "to turn something is to flip it about, so the letters run the other way"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "band",
-      "gives": "RIM",
-      "note": "a rim is an encircling band, as round a wheel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "RIM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "UP",
-       "to": "PU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Turn",
+         "note": "to turn something is to flip it about, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "band",
+       "gives": "RIM",
+       "note": "a rim is an encircling band, as round a wheel"
       }
      ]
     },
@@ -477,54 +425,42 @@
    },
    "solution": "CARICATURE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CARICATURE",
     "definitions": [
      {
       "text": "Comical likeness",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mad",
-      "for": "anagram",
-      "note": "something gone mad is out of order and disordered, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "curate",
-      "gives": "CATURE",
-      "note": "the six letters of the clergyman rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "I",
-      "CATURE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CARICATURE",
+     "indicators": [
       {
-       "fodder": "CURATE",
-       "gives": "CATURE"
+       "text": "mad",
+       "note": "something gone mad is out of order and disordered, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": " ",
+         "gives": "CAR",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "curate",
+         "gives": "CATURE",
+         "note": "the six letters of the clergyman rearranged"
+        }
+       ]
       }
      ]
     },
@@ -554,51 +490,39 @@
    },
    "solution": "CELLISTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CELLISTS",
     "definitions": [
      {
       "text": "players",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letters of the words that follow"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small room",
-      "gives": "CELL",
-      "note": "a cell is a small room, as in a prison or monastery"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "too small",
-      "gives": "TS",
-      "select": "first",
-      "note": "the opening letter of each of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CELL",
-      "IS",
-      "T",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small room",
+       "gives": "CELL",
+       "note": "a cell is a small room, as in a prison or monastery"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first points to the opening letters of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too small",
+         "note": "the opening letter of each of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -627,29 +551,17 @@
    },
    "solution": "REVISION",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "REVISION",
     "definitions": [
      {
       "text": "Preparation for an exam",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: going back over notes before a test, in British usage"
      },
      {
       "text": "That will make a change",
       "at": 25,
-      "note": "a clause describing the thing rather than a noun naming it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Preparation for an exam",
-      "note": "first meaning: going back over notes before a test, in British usage"
-     },
-     {
-      "clueFragment": "That will make a change",
-      "note": "second meaning: an alteration or amendment, as made to a text"
+      "note": "a clause describing the thing rather than a noun naming it",
+      "meaning": "second meaning: an alteration or amendment, as made to a text"
      }
     ],
     "explanation": {
@@ -678,40 +590,31 @@
    },
    "solution": "CONOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CONOR",
     "definitions": [
      {
       "text": "Irish boy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "inside places one piece within the walls of another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good gracious",
-      "gives": "COR",
-      "note": "cor is a British exclamation of surprise"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ON",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "inside places one piece within the walls of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "good gracious",
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      }
      ]
     },
     "explanation": {
@@ -740,41 +643,33 @@
    },
    "solution": "TUSCARORA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TUSCARORA",
     "definitions": [
      {
       "text": "Native American",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mentioned in",
-      "for": "deletion",
-      "note": "what is mentioned in a text is only a small part of it, so the outer letters are discarded and an inner run kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tacitus or Aristophanes",
-      "gives": "TUSORA",
-      "note": "the run of letters spanning the end of the Roman, the little word and the start of the Greek"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TUS",
-      "CAR",
-      "ORA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TUSCARORA",
+     "indicators": [
+      {
+       "text": "mentioned in",
+       "note": "what is mentioned in a text is only a small part of it, so the outer letters are discarded and an inner run kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tacitus or Aristophanes",
+       "gives": "TUSORA",
+       "note": "the run of letters spanning the end of the Roman, the little word and the start of the Greek"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -803,32 +698,25 @@
    },
    "solution": "REESTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REESTED",
     "definitions": [
      {
       "text": "was not co-operative",
       "at": 23
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Welshman",
-      "gives": "REES",
-      "note": "Rees is a common Welsh first name and surname"
-     },
-     {
-      "clueFragment": "young lad",
-      "gives": "TED",
-      "note": "Ted is a short name for a boy, as in Teddy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REES",
-      "TED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Welshman",
+       "gives": "REES",
+       "note": "Rees is a common Welsh first name and surname"
+      },
+      {
+       "words": "young lad",
+       "gives": "TED",
+       "note": "Ted is a short name for a boy, as in Teddy"
+      }
      ]
     },
     "explanation": {
@@ -857,42 +745,30 @@
    },
    "solution": "PICAROON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PICAROON",
     "definitions": [
      {
       "text": "Setter",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "constant",
-      "gives": "PI",
-      "note": "pi is the mathematical constant, about 3.14"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "nude",
-      "gives": "OON",
-      "note": "someone nude has nothing on: O for nothing, then ON"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "CAR",
-      "O",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "constant",
+       "gives": "PI",
+       "note": "pi is the mathematical constant, about 3.14"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "nude",
+       "gives": "OON",
+       "note": "someone nude has nothing on: O for nothing, then ON"
+      }
      ]
     },
     "explanation": {
@@ -922,33 +798,25 @@
    },
    "solution": "ABUSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ABUSE",
     "definitions": [
      {
       "text": "maltreatment",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The same Scottish",
-      "gives": "AE",
-      "note": "ae is Scots for one, so things that are ae are one and the same"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BUS",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "words": "The same Scottish",
+       "gives": "AE",
+       "note": "ae is Scots for one, so things that are ae are one and the same"
+      },
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -977,38 +845,30 @@
    },
    "solution": "VANISHED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VANISHED",
     "definitions": [
      {
       "text": "Mysteriously left",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "humble abode",
-      "gives": "SHED",
-      "note": "a shed is a simple, lowly building"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VAN",
-      "I",
-      "SHED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "humble abode",
+       "gives": "SHED",
+       "note": "a shed is a simple, lowly building"
+      }
      ]
     },
     "explanation": {
@@ -1037,54 +897,40 @@
    },
    "solution": "CARAVANSERAI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARAVANSERAI",
     "definitions": [
      {
       "text": "Old inn for Eastern travellers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fresh",
-      "for": "anagram",
-      "note": "fresh means new, so the letters are made into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: a second missing vehicle, the one time two are dropped"
-     },
-     {
-      "clueFragment": "sea air",
-      "gives": "ASERAI",
-      "note": "the six letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "A",
-      "VAN",
-      "SERAI"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEAAIR",
-       "gives": "ASERAI"
+       "text": "fresh",
+       "note": "fresh means new, so the letters are made into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": " ",
+         "gives": "CAR",
+         "note": "nothing in the clue: one of the vehicles the preamble says are left out of the wordplay"
+        },
+        {
+         "words": " ",
+         "gives": "VAN",
+         "note": "nothing in the clue: a second missing vehicle, the one time two are dropped"
+        },
+        {
+         "words": "sea air",
+         "gives": "ASERAI",
+         "note": "the six letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1114,53 +960,38 @@
    },
    "solution": "MAIDSERVANTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MAIDSERVANTS",
     "definitions": [
      {
       "text": "Those below stairs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around suggests letters moved about and scattered into another order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sit",
-      "gives": "SIT",
-      "note": "taken as written, as raw material"
-     },
-     {
-      "clueFragment": "dreams",
-      "gives": "DREAMS",
-      "note": "taken as written, as raw material"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAIDSER",
-      "VAN",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SITDREAMS",
-       "gives": "MAIDSERTS"
+       "text": "around",
+       "note": "around suggests letters moved about and scattered into another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sit",
+         "note": "taken as written, as raw material"
+        },
+        {
+         "words": "dreams",
+         "note": "taken as written, as raw material"
+        },
+        {
+         "words": " ",
+         "gives": "VAN",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        }
+       ]
       }
      ]
     },
@@ -1190,32 +1021,25 @@
    },
    "solution": "CARA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CARA",
     "definitions": [
      {
       "text": "girl",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "Active",
-      "gives": "A",
-      "note": "A is the standard abbreviation for active, as in grammar's active voice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "Active",
+       "gives": "A",
+       "note": "A is the standard abbreviation for active, as in grammar's active voice"
+      }
      ]
     },
     "explanation": {
@@ -1243,46 +1067,40 @@
    },
    "solution": "TWILIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TWILIT",
     "definitions": [
      {
       "text": "Somewhat dim",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on board",
-      "for": "container",
-      "note": "passengers on board are inside a vessel, so these pieces go within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fool",
-      "gives": "TWIT",
-      "note": "a twit is a silly person, British slang"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TW",
-      "I",
-      "L",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on board",
+       "note": "passengers on board are inside a vessel, so these pieces go within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "fool",
+         "gives": "TWIT",
+         "note": "a twit is a silly person, British slang"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -1312,32 +1130,25 @@
    },
    "solution": "STRONGHOLDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STRONGHOLDS",
     "definitions": [
      {
       "text": "Keeps",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "tight",
-      "gives": "STRONG",
-      "note": "a tight grip is a strong one"
-     },
-     {
-      "clueFragment": "grips",
-      "gives": "HOLDS",
-      "note": "holds and grips are synonyms as nouns"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRONG",
-      "HOLDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tight",
+       "gives": "STRONG",
+       "note": "a tight grip is a strong one"
+      },
+      {
+       "words": "grips",
+       "gives": "HOLDS",
+       "note": "holds and grips are synonyms as nouns"
+      }
      ]
     },
     "explanation": {
@@ -1367,35 +1178,24 @@
    },
    "solution": "GUARANTIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GUARANTIES",
     "definitions": [
      {
       "text": "undertakings to be responsible",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests turning things round and moving them about into another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A signature",
-      "gives": "ASIGNATURE",
-      "note": "ten letters of raw material, used in full"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASIGNATURE",
-       "gives": "GUARANTIES"
+       "text": "about",
+       "note": "about suggests turning things round and moving them about into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A signature",
+       "note": "ten letters of raw material, used in full"
       }
      ]
     },
@@ -1425,41 +1225,37 @@
    },
    "solution": "SULLIVAN",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "SULLIVAN",
     "definitions": [
      {
       "text": "man of note",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "Spoke of",
-      "for": "homophone",
-      "note": "what is spoken is heard rather than read, so the sound matters, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dirty",
-      "gives": "SULLI",
-      "soundsLike": "SULLY",
-      "note": "to sully is to dirty or soil"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SULLI",
-      "VAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SULLI",
+       "indicators": [
+        {
+         "text": "Spoke of",
+         "note": "what is spoken is heard rather than read, so the sound matters, not the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dirty",
+         "gives": "SULLY",
+         "note": "to sully is to dirty or soil"
+        }
+       ]
+      },
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -1495,60 +1291,51 @@
    },
    "solution": "GUNCARRIAGE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GUN CARRIAGE",
     "definitions": [
      {
       "text": "Army mount",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "polluted",
-      "for": "anagram",
-      "note": "something polluted is spoiled and corrupted, so its letters are disordered"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in puts the pieces before it within the piece after it"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "air",
-      "gives": "RIA",
-      "note": "the three letters rearranged"
-     },
-     {
-      "clueFragment": "messy stuff",
-      "gives": "GUNGE",
-      "note": "gunge is British slang for sticky, messy matter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUN",
-      "CAR",
-      "RIA",
-      "GE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "AIR",
-       "gives": "RIA"
+       "text": "in",
+       "note": "in puts the pieces before it within the piece after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "polluted",
+         "note": "something polluted is spoiled and corrupted, so its letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "air",
+           "gives": "RIA",
+           "note": "the three letters rearranged"
+          },
+          {
+           "words": "messy stuff",
+           "gives": "GUNGE",
+           "note": "gunge is British slang for sticky, messy matter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
       }
      ]
     },
@@ -1584,35 +1371,25 @@
    },
    "solution": "RAISESCAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAISES CAIN",
     "definitions": [
      {
       "text": "causes trouble",
       "at": 28
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Promotes",
-      "gives": "RAISES",
-      "note": "to raise someone is to promote them in rank"
-     },
-     {
-      "clueFragment": "the second man",
-      "gives": "CAIN",
-      "note": "in Genesis, Cain is the first son of Adam, so the second man after him"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAISES",
-      "CAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Promotes",
+       "gives": "RAISES",
+       "note": "to raise someone is to promote them in rank"
+      },
+      {
+       "words": "the second man",
+       "gives": "CAIN",
+       "note": "in Genesis, Cain is the first son of Adam, so the second man after him"
+      }
      ]
     },
     "explanation": {
@@ -1641,40 +1418,35 @@
    },
    "solution": "CARRIE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "CARRIE",
     "definitions": [
      {
       "text": "Ms Fisher's horror film",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "praise",
-      "gives": "RIE",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "RIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Regularly",
+         "note": "regularly means at even intervals, so every other letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "praise",
+         "note": "the second, fourth and sixth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1704,35 +1476,25 @@
    },
    "solution": "CEBUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CEBUS",
     "definitions": [
      {
       "text": "Monkeys",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is short for the Church of England"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CE",
-      "BUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE is short for the Church of England"
+      },
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -1762,55 +1524,47 @@
    },
    "solution": "CARACAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CARACAL",
     "definitions": [
      {
       "text": "Desert lynx",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Manx",
-      "for": "deletion",
-      "note": "the Manx breed is born without a tail, so the word that follows loses its tail end"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "CA",
-      "note": "the word without its final letter"
-     },
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "L is the map abbreviation for lake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "A",
-      "CA",
-      "L"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CARACAL",
+     "indicators": [
+      {
+       "text": "Manx",
+       "note": "the Manx breed is born without a tail, so the word that follows loses its tail end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": " ",
+         "gives": "CAR",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "cat",
+         "gives": "CA",
+         "note": "the word without its final letter"
+        },
+        {
+         "words": "lake",
+         "gives": "L",
+         "note": "L is the map abbreviation for lake"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1839,44 +1593,40 @@
    },
    "solution": "CARINA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CARINA",
     "definitions": [
      {
       "text": "the location of Canopus",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "The heart of",
-      "for": "letter_selection",
-      "note": "a heart is at the centre, so the middle letters of the word are kept"
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "luminance",
-      "gives": "INA",
-      "select": "middle",
-      "note": "the middle three of the nine letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "INA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "INA",
+       "indicators": [
+        {
+         "text": "The heart of",
+         "note": "a heart is at the centre, so the middle letters of the word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "luminance",
+         "gives": "INA",
+         "select": "middle",
+         "note": "the middle three of the nine letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1905,29 +1655,17 @@
    },
    "solution": "SNORTING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SNORTING",
     "definitions": [
      {
       "text": "Taking cocaine",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: sniffing a powdered drug up the nose"
      },
      {
       "text": "disparagingly",
       "at": 16,
-      "note": "an adverb against a participle: the answer means scoffing or sneering"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taking cocaine",
-      "note": "first meaning: sniffing a powdered drug up the nose"
-     },
-     {
-      "clueFragment": "disparagingly",
-      "note": "second meaning: making a scornful noise through the nose"
+      "note": "an adverb against a participle: the answer means scoffing or sneering",
+      "meaning": "second meaning: making a scornful noise through the nose"
      }
     ],
     "explanation": {
@@ -1956,48 +1694,43 @@
    },
    "solution": "SAVANNAS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SAVANNAS",
     "definitions": [
      {
       "text": "parts of tropical Africa",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "dropped off",
-      "for": "deletion",
-      "note": "what drops off falls away and is no longer there, so a letter goes"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father Christmas has",
-      "gives": "SANAS",
-      "note": "Santa's, the 's standing for has, with the T removed"
-     },
-     {
-      "clueFragment": "first of toys",
-      "note": "the letter removed: the opening letter of toys"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "VAN",
-      "NAS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SAVANNAS",
+       "indicators": [
+        {
+         "text": "dropped off",
+         "note": "what drops off falls away and is no longer there, so a letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Father Christmas has",
+         "gives": "SANAS",
+         "note": "Santa's, the 's standing for has, with the T removed"
+        },
+        {
+         "words": " ",
+         "gives": "VAN",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "first of toys",
+       "note": "the letter removed: the opening letter of toys"
+      }
      ]
     },
     "explanation": {
@@ -2027,41 +1760,33 @@
    },
    "solution": "OXCART",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "OXCART",
     "definitions": [
      {
       "text": "Lumbering vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "deletion",
-      "note": "in points to the inside of the word that follows, so its outer letters are discarded"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Toxteth",
-      "gives": "OXT",
-      "note": "the three letters after the first"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OX",
-      "CAR",
-      "T"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OXCART",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in points to the inside of the word that follows, so its outer letters are discarded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Toxteth",
+       "gives": "OXT",
+       "note": "the three letters after the first"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -2090,41 +1815,30 @@
    },
    "solution": "PAVANES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAVANES",
     "definitions": [
      {
       "text": "dances",
       "at": 30
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Secretary",
-      "gives": "PA",
-      "note": "a PA is a personal assistant, a secretary"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "opposing players",
-      "gives": "ES",
-      "note": "in bridge, East and South sit on opposite sides, so they are opponents"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "VAN",
-      "ES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Secretary",
+       "gives": "PA",
+       "note": "a PA is a personal assistant, a secretary"
+      },
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "opposing players",
+       "gives": "ES",
+       "note": "in bridge, East and South sit on opposite sides, so they are opponents"
+      }
      ]
     },
     "explanation": {
@@ -2153,40 +1867,31 @@
    },
    "solution": "AUDITS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AUDITS",
     "definitions": [
      {
       "text": "inspections",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "container",
-      "note": "to be involved in something is to be caught up inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "another car manufacturer's",
-      "gives": "AUDIS",
-      "note": "the German carmaker's name with its possessive S"
-     },
-     {
-      "clueFragment": "Ford's early model",
-      "gives": "T",
-      "note": "the Model T was Ford's famous early car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AUDI",
-      "T",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "to be involved in something is to be caught up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "another car manufacturer's",
+       "gives": "AUDIS",
+       "note": "the German carmaker's name with its possessive S"
+      },
+      {
+       "words": "Ford's early model",
+       "gives": "T",
+       "note": "the Model T was Ford's famous early car"
+      }
      ]
     },
     "explanation": {
@@ -2215,35 +1920,25 @@
    },
    "solution": "BABUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BABUS",
     "definitions": [
      {
       "text": "Indian office workers",
       "at": 11
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Degree",
-      "gives": "BA",
-      "note": "BA is a Bachelor of Arts degree"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "BUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Degree",
+       "gives": "BA",
+       "note": "BA is a Bachelor of Arts degree"
+      },
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -2272,41 +1967,33 @@
    },
    "solution": "BACARDI",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BACARDI",
     "definitions": [
      {
       "text": "Rum",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not half",
-      "for": "deletion",
-      "note": "not half means only part survives, so the word is cut down by half"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "playful talk",
-      "gives": "BADI",
-      "note": "badinage is playful banter; its first four of eight letters"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "CAR",
-      "DI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BACARDI",
+     "indicators": [
+      {
+       "text": "Not half",
+       "note": "not half means only part survives, so the word is cut down by half"
+      }
+     ],
+     "parts": [
+      {
+       "words": "playful talk",
+       "gives": "BADI",
+       "note": "badinage is playful banter; its first four of eight letters"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -2346,42 +2033,30 @@
    },
    "solution": "VANDERHUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VAN DER HUM",
     "definitions": [
      {
       "text": "South African liqueur",
       "at": 25
      }
     ],
-    "linkWords": [
-     "with",
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "The German",
-      "gives": "DER",
-      "note": "der is a German word for the"
-     },
-     {
-      "clueFragment": "smell",
-      "gives": "HUM",
-      "note": "hum is British slang for a bad smell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VAN",
-      "DER",
-      "HUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "The German",
+       "gives": "DER",
+       "note": "der is a German word for the"
+      },
+      {
+       "words": "smell",
+       "gives": "HUM",
+       "note": "hum is British slang for a bad smell"
+      }
      ]
     },
     "explanation": {
@@ -2410,36 +2085,25 @@
    },
    "solution": "AKABUSI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AKABUSI",
     "definitions": [
      {
       "text": "British sprinter",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Japanese keyboard",
-      "gives": "AKAI",
-      "note": "Akai is a Japanese maker of electronic keyboards and synthesisers"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AKA",
-      "BUS",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "words": "Japanese keyboard",
+       "gives": "AKAI",
+       "note": "Akai is a Japanese maker of electronic keyboards and synthesisers"
+      },
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -2468,44 +2132,35 @@
    },
    "solution": "BUSTLES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BUSTLES",
     "definitions": [
      {
       "text": "Frames for skirts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "now and again",
-      "for": "letter_selection",
-      "note": "now and again means at intervals, so letters are taken at regular spacing"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "tailpieces",
-      "gives": "TLES",
-      "select": "regular",
-      "note": "every third letter, starting from the first"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUS",
-      "TLES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "op": "regular",
+       "indicators": [
+        {
+         "text": "now and again",
+         "note": "now and again means at intervals, so letters are taken at regular spacing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tailpieces",
+         "note": "every third letter, starting from the first"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2540,38 +2195,24 @@
    },
    "solution": "SUIGENERIS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SUI GENERIS",
     "definitions": [
      {
       "text": "unique",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "ground means crushed or milled, so the letters are broken down and reformed"
-     }
-    ],
-    "linkWords": [
-     "that is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Siege ruins",
-      "gives": "SIEGERUINS",
-      "note": "ten letters of raw material, used in full"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SIEGERUINS",
-       "gives": "SUIGENERIS"
+       "text": "ground",
+       "note": "ground means crushed or milled, so the letters are broken down and reformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Siege ruins",
+       "note": "ten letters of raw material, used in full"
       }
      ]
     },
@@ -2607,41 +2248,29 @@
    },
    "solution": "ACIDRAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACID RAIN",
     "definitions": [
      {
       "text": "Precipitation",
       "at": 0
      }
     ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Jersey",
-      "gives": "CI",
-      "note": "Jersey is one of the Channel Islands, abbreviated CI"
-     },
-     {
-      "clueFragment": "sewer",
-      "gives": "DRAIN",
-      "note": "a drain carries waste water away, like a sewer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CI",
-      "DRAIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Jersey",
+       "gives": "CI",
+       "note": "Jersey is one of the Channel Islands, abbreviated CI"
+      },
+      {
+       "words": "sewer",
+       "gives": "DRAIN",
+       "note": "a drain carries waste water away, like a sewer"
+      }
      ]
     },
     "explanation": {
@@ -2670,58 +2299,58 @@
    },
    "solution": "AMBUSCADES",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "AMBUSCADES",
     "definitions": [
      {
       "text": "More than one surprise attack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ruined",
-      "for": "anagram",
-      "note": "something ruined is wrecked and broken up, so its letters are scattered"
-     },
-     {
-      "text": "forgotten",
-      "for": "deletion",
-      "note": "what is forgotten is left out and goes missing"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "academies",
-      "gives": "ACADEMS",
-      "note": "the colleges with two of their letters struck out before the shuffle"
-     },
-     {
-      "clueFragment": "that is",
-      "note": "the letters removed: ie, the abbreviation for that is"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AM",
-      "BUS",
-      "CADES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AMBUSCADES",
+     "indicators": [
       {
-       "fodder": "ACADEMS",
-       "gives": "AMCADES"
+       "text": "forgotten",
+       "note": "what is forgotten is left out and goes missing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "ruined",
+           "note": "something ruined is wrecked and broken up, so its letters are scattered"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "academies",
+             "gives": "ACADEMS",
+             "note": "the colleges with two of their letters struck out before the shuffle"
+            },
+            {
+             "words": " ",
+             "gives": "BUS",
+             "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "that is",
+         "note": "the letters removed: ie, the abbreviation for that is"
+        }
+       ]
       }
      ]
     },
@@ -2757,44 +2386,35 @@
    },
    "solution": "RUNSSCARED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUNS SCARED",
     "definitions": [
      {
       "text": "is frightened",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Scores",
-      "gives": "RUNS",
-      "note": "in cricket and baseball the scores are runs"
-     },
-     {
-      "clueFragment": "but Roman",
-      "gives": "S",
-      "note": "sed is Latin for but; its first letter comes before the missing vehicle"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "but Roman",
-      "gives": "ED",
-      "note": "the rest of the Latin word for but, after the missing vehicle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUNS",
-      "S",
-      "CAR",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scores",
+       "gives": "RUNS",
+       "note": "in cricket and baseball the scores are runs"
+      },
+      {
+       "words": "but Roman",
+       "gives": "S",
+       "note": "sed is Latin for but; its first letter comes before the missing vehicle"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "but Roman",
+       "gives": "ED",
+       "note": "the rest of the Latin word for but, after the missing vehicle"
+      }
      ]
     },
     "explanation": {
@@ -2823,26 +2443,25 @@
    },
    "solution": "INSOMNIACS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "INSOMNIACS",
     "definitions": [
      {
       "text": "Woolly jumper counters",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Woolly jumper",
-      "note": "reads as a knitted sweater (a jumper in British English), but it is a sheep leaping a fence"
-     },
-     {
-      "clueFragment": "counters",
-      "note": "not shop surfaces or tokens but people who count, as the sleepless count sheep"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Woolly jumper",
+       "note": "reads as a knitted sweater (a jumper in British English), but it is a sheep leaping a fence"
+      },
+      {
+       "words": "counters",
+       "note": "not shop surfaces or tokens but people who count, as the sleepless count sheep"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Counting sheep is the traditional remedy for sleeplessness, so the people counting woolly jumpers are those who cannot sleep. No theme word is missing.",
      "definitionFit": "Insomniacs are people who cannot sleep, and counting sheep jumping over a fence is the classic remedy they try."
@@ -2875,35 +2494,25 @@
    },
    "solution": "NOTTHAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOT THAT",
     "definitions": [
      {
       "text": "No, this one!",
       "at": 41
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Falklands War defence secretary",
-      "gives": "NOTT",
-      "note": "John Nott was the UK Defence Secretary during the 1982 Falklands War"
-     },
-     {
-      "clueFragment": "cover",
-      "gives": "HAT",
-      "note": "a hat is a head covering"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOTT",
-      "HAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Falklands War defence secretary",
+       "gives": "NOTT",
+       "note": "John Nott was the UK Defence Secretary during the 1982 Falklands War"
+      },
+      {
+       "words": "cover",
+       "gives": "HAT",
+       "note": "a hat is a head covering"
+      }
      ]
     },
     "explanation": {
@@ -2938,44 +2547,35 @@
    },
    "solution": "TAROTCARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TAROT CARD",
     "definitions": [
      {
       "text": "The Pope, say",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "volunteers",
-      "gives": "TA",
-      "note": "the TA, Territorial Army, is Britain's volunteer reserve force"
-     },
-     {
-      "clueFragment": "to corrupt",
-      "gives": "ROT",
-      "note": "to rot is to decay or corrupt"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "God",
-      "gives": "D",
-      "note": "D is short for Deus, Latin for God, as in DV, Deo volente"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "ROT",
-      "CAR",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "volunteers",
+       "gives": "TA",
+       "note": "the TA, Territorial Army, is Britain's volunteer reserve force"
+      },
+      {
+       "words": "to corrupt",
+       "gives": "ROT",
+       "note": "to rot is to decay or corrupt"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "God",
+       "gives": "D",
+       "note": "D is short for Deus, Latin for God, as in DV, Deo volente"
+      }
      ]
     },
     "explanation": {
@@ -3004,54 +2604,41 @@
    },
    "solution": "NARENDRA",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "NARENDRA",
     "definitions": [
      {
       "text": "Modi",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "something upset is knocked over, so in a down clue it runs the other way"
-     },
-     {
-      "text": "in Scottish",
-      "for": "container",
-      "note": "in places one piece inside the next"
-     }
-    ],
-    "linkWords": [
-     "in cottage"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish isle",
-      "gives": "ARRAN",
-      "note": "Arran is an island in the Firth of Clyde"
-     },
-     {
-      "clueFragment": "room",
-      "gives": "END",
-      "note": "in Scotland an end is a room of a two-roomed cottage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAR",
-      "END",
-      "RA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ARRAN",
-       "to": "NARRA"
+       "text": "in Scottish",
+       "note": "in places one piece inside the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "something upset is knocked over, so in a down clue it runs the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish isle",
+         "gives": "ARRAN",
+         "note": "Arran is an island in the Firth of Clyde"
+        }
+       ]
+      },
+      {
+       "words": "room",
+       "gives": "END",
+       "note": "in Scotland an end is a room of a two-roomed cottage"
       }
      ]
     },
@@ -3081,50 +2668,41 @@
    },
    "solution": "CARTLOAD",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "CARTLOAD",
     "definitions": [
      {
       "text": "Collection of monkeys",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "inside places one piece within the walls of another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "amphibian",
-      "gives": "TOAD",
-      "note": "a toad is an amphibian"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAR",
-      "T",
-      "L",
-      "OAD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "note": "inside places one piece within the walls of another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amphibian",
+         "gives": "TOAD",
+         "note": "a toad is an amphibian"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the standard abbreviation for left"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -3160,49 +2738,41 @@
    },
    "solution": "BIGBUSINESS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BIG BUSINESS",
     "definitions": [
      {
       "text": "influential commercial activity",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "entry into",
-      "for": "container",
-      "note": "an entry into something goes inside it"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bulk",
-      "gives": "BIGNESS",
-      "note": "bigness is size or bulk"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "Independent",
-      "gives": "I",
-      "note": "I is the standard abbreviation for Independent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIG",
-      "BUS",
-      "I",
-      "NESS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entry into",
+       "note": "an entry into something goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "bulk",
+         "gives": "BIGNESS",
+         "note": "bigness is size or bulk"
+        },
+        {
+         "words": " ",
+         "gives": "BUS",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        }
+       ]
+      },
+      {
+       "words": "Independent",
+       "gives": "I",
+       "note": "I is the standard abbreviation for Independent"
+      }
      ]
     },
     "explanation": {
@@ -3237,51 +2807,38 @@
    },
    "solution": "SCARINGAWAY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SCARING AWAY",
     "definitions": [
      {
       "text": "Frightening off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "illiberal",
-      "for": "deletion",
-      "note": "illiberal means not liberal, so the abbreviation for liberal is taken out"
-     }
-    ],
-    "linkWords": [
-     "from",
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "evil act",
-      "gives": "SIN",
-      "note": "a sin is a wicked deed"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "city in Ireland",
-      "gives": "GAWAY",
-      "note": "Galway on Ireland's west coast, with its L removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CAR",
-      "IN",
-      "GAWAY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SCARINGAWAY",
+     "indicators": [
+      {
+       "text": "illiberal",
+       "note": "illiberal means not liberal, so the abbreviation for liberal is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evil act",
+       "gives": "SIN",
+       "note": "a sin is a wicked deed"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      },
+      {
+       "words": "city in Ireland",
+       "gives": "GAWAY",
+       "note": "Galway on Ireland's west coast, with its L removed"
+      }
      ]
     },
     "explanation": {
@@ -3310,31 +2867,16 @@
    },
    "solution": "COURIER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "COURIER",
     "definitions": [
      {
       "text": "Travel guide",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a person employed to look after a group of tourists"
      },
      {
       "text": "font",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "found by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Travel guide",
-      "note": "first meaning: a person employed to look after a group of tourists"
-     },
-     {
-      "clueFragment": "font",
-      "note": "second meaning: the typewriter-style typeface on most computers"
+      "at": 22,
+      "meaning": "second meaning: the typewriter-style typeface on most computers"
      }
     ],
     "explanation": {
@@ -3361,54 +2903,7 @@
     "text": "Admiral or magazine editor getting hold on 111",
     "enumeration": "6"
    },
-   "solution": "NELSON",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NELSON",
-    "definitions": [
-     {
-      "text": "Admiral or magazine editor",
-      "at": 0
-     },
-     {
-      "text": "hold",
-      "at": 35
-     },
-     {
-      "text": "111",
-      "at": 43
-     }
-    ],
-    "linkWords": [
-     "getting",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Admiral or magazine editor",
-      "note": "first meaning: Horatio, the admiral of Trafalgar, or Fraser, editor of The Spectator"
-     },
-     {
-      "clueFragment": "hold",
-      "note": "second meaning: a wrestling hold, the arm locked behind the opponent's neck"
-     },
-     {
-      "clueFragment": "111",
-      "note": "third meaning: a cricket score of 111, thought unlucky"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "A multiple definition. In cricket a team or batsman on 111 is 'on a Nelson', said to recall the admiral's one eye, one arm and one leg. No theme word is missing.",
-     "definitionFit": "The admiral, the Spectator editor Fraser Nelson, the wrestling grip and the cricket score all go by this one name."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "hold"
-    }
-   }
+   "solution": "NELSON"
   },
   {
    "number": 49,
@@ -3424,30 +2919,28 @@
    },
    "solution": "NAIRAS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NAIRAS",
     "definitions": [
      {
       "text": "Money",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "from says the letters are drawn out of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "thin air — a surprise",
-      "gives": "NAIRAS",
-      "note": "the run starting at the end of the first word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "from says the letters are drawn out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thin air — a surprise",
+       "gives": "NAIRAS",
+       "note": "the run starting at the end of the first word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Cash conjured out of nowhere, to everyone's delight.",
      "walkthrough": "'Out of thin air' is the idiom the surface leans on, but here the letters are inside the phrase. No theme word is missing.",
@@ -3474,36 +2967,28 @@
    },
    "solution": "SEMI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SEMI",
     "definitions": [
      {
       "text": "House",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half",
-      "for": "deletion",
-      "note": "half means cutting a word down so only its front part survives"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the wine",
-      "gives": "SEMI",
-      "note": "the first four letters of Semillon, a white wine grape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEMI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SEMI",
+     "indicators": [
+      {
+       "text": "half",
+       "note": "half means cutting a word down so only its front part survives"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the wine",
+       "gives": "SEMI",
+       "note": "the first four letters of Semillon, a white wine grape"
+      }
      ]
     },
     "explanation": {
@@ -3538,56 +3023,49 @@
    },
    "solution": "BUSTERKEATON",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "BUSTER KEATON",
     "definitions": [
      {
       "text": "Great stone-faced film star",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "demolished",
-      "for": "anagram",
-      "note": "something demolished is knocked down and broken apart, so the letters are rebuilt differently"
-     },
-     {
-      "text": "hollow",
-      "for": "letter_selection",
-      "note": "hollow means emptied of its inside, so just the outside letters stay"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "oak tree",
-      "gives": "OAKTREE",
-      "note": "seven letters of raw material"
-     },
-     {
-      "clueFragment": "not",
-      "gives": "NT",
-      "select": "outer",
-      "note": "the first and last letters, without the middle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUS",
-      "TERKEATON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OAKTREENT",
-       "gives": "TERKEATON"
+       "text": "demolished",
+       "note": "something demolished is knocked down and broken apart, so the letters are rebuilt differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": " ",
+         "gives": "BUS",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        },
+        {
+         "words": "oak tree",
+         "note": "seven letters of raw material"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "hollow",
+           "note": "hollow means emptied of its inside, so just the outside letters stay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "note": "the first and last letters, without the middle"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -3617,35 +3095,25 @@
    },
    "solution": "REBUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REBUS",
     "definitions": [
      {
       "text": "detective",
       "at": 11
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lesson",
-      "gives": "RE",
-      "note": "RE, religious education, is a school lesson in Britain"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "BUS",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lesson",
+       "gives": "RE",
+       "note": "RE, religious education, is a school lesson in Britain"
+      },
+      {
+       "words": " ",
+       "gives": "BUS",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -3673,32 +3141,25 @@
    },
    "solution": "NOMAD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOMAD",
     "definitions": [
      {
       "text": "Drifter",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "certainly not",
-      "gives": "NO",
-      "note": "no is the flat refusal"
-     },
-     {
-      "clueFragment": "without reason",
-      "gives": "MAD",
-      "note": "someone without reason has lost their mind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "MAD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "certainly not",
+       "gives": "NO",
+       "note": "no is the flat refusal"
+      },
+      {
+       "words": "without reason",
+       "gives": "MAD",
+       "note": "someone without reason has lost their mind"
+      }
      ]
     },
     "explanation": {
@@ -3733,57 +3194,51 @@
    },
    "solution": "OPERATICARIA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "OPERATIC ARIA",
     "definitions": [
      {
       "text": "performance at La Scala?",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "included in",
-      "for": "container",
-      "note": "what is included in something goes inside it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Works",
-      "gives": "OPERA",
-      "note": "opera is the Latin plural of opus, a work"
-     },
-     {
-      "clueFragment": "thanks",
-      "gives": "TA",
-      "note": "ta is British informal thanks"
-     },
-     {
-      "clueFragment": "team",
-      "gives": "II",
-      "note": "a team of eleven, its 11 read as two Roman ones"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPERA",
-      "T",
-      "I",
-      "CAR",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Works",
+       "gives": "OPERA",
+       "note": "opera is the Latin plural of opus, a work"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included in",
+         "note": "what is included in something goes inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thanks",
+         "gives": "TA",
+         "note": "ta is British informal thanks"
+        },
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "team",
+           "gives": "II",
+           "note": "a team of eleven, its 11 read as two Roman ones"
+          },
+          {
+           "words": " ",
+           "gives": "CAR",
+           "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -3818,49 +3273,41 @@
    },
    "solution": "DIVANBED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIVAN BED",
     "definitions": [
      {
       "text": "place to sleep",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to keep it inside, so one piece contains another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Passed away",
-      "gives": "DIED",
-      "note": "to pass away is to die"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "B",
-      "note": "B is the abbreviation for book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "VAN",
-      "B",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "to hold something is to keep it inside, so one piece contains another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Passed away",
+         "gives": "DIED",
+         "note": "to pass away is to die"
+        },
+        {
+         "words": " ",
+         "gives": "VAN",
+         "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+        }
+       ]
+      },
+      {
+       "words": "book",
+       "gives": "B",
+       "note": "B is the abbreviation for book"
+      }
      ]
     },
     "explanation": {
@@ -3889,36 +3336,25 @@
    },
    "solution": "ACARI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACARI",
     "definitions": [
      {
       "text": "Mites",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sloth",
-      "gives": "AI",
-      "note": "the ai is the three-toed sloth, a crossword favourite"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "CAR",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CAR",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "words": "sloth",
+       "gives": "AI",
+       "note": "the ai is the three-toed sloth, a crossword favourite"
+      },
+      {
+       "words": " ",
+       "gives": "CAR",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -3947,41 +3383,33 @@
    },
    "solution": "EVANESCE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "EVANESCE",
     "definitions": [
      {
       "text": "fade away",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Some of",
-      "for": "deletion",
-      "note": "some of means only a part is kept, so the letters at each end are discarded"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "three scents",
-      "gives": "EESCE",
-      "note": "the run spanning the end of the first word and the start of the second"
-     },
-     {
-      "clueFragment": " ",
-      "gives": "VAN",
-      "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "VAN",
-      "ESCE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EVANESCE",
+     "indicators": [
+      {
+       "text": "Some of",
+       "note": "some of means only a part is kept, so the letters at each end are discarded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "three scents",
+       "gives": "EESCE",
+       "note": "the run spanning the end of the first word and the start of the second"
+      },
+      {
+       "words": " ",
+       "gives": "VAN",
+       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+      }
      ]
     },
     "explanation": {
@@ -4010,26 +3438,25 @@
    },
    "solution": "BRIDESMAID",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BRIDESMAID",
     "definitions": [
      {
       "text": "One holding up the train?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "holding up the train",
-      "note": "reads as a robber stopping a railway train"
-     },
-     {
-      "clueFragment": "the train",
-      "note": "really the long trailing back of a wedding dress, carried off the ground by an attendant"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "holding up the train",
+       "note": "reads as a robber stopping a railway train"
+      },
+      {
+       "words": "the train",
+       "note": "really the long trailing back of a wedding dress, carried off the ground by an attendant"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The question mark admits the pun: not a train robber but a wedding attendant lifting the bride's long skirt. No theme word is missing.",
      "definitionFit": "A bridesmaid attends the bride at a wedding, and one traditional duty is carrying the trailing back of her gown."

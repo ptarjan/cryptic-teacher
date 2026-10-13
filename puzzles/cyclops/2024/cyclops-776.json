@@ -1,8 +1,6 @@
 {
  "id": "cyclops-776",
  "number": 776,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 776",
  "setter": "Cyclops",
  "date": "2024-04-12",
  "dimensions": {
@@ -42,48 +40,46 @@
    },
    "solution": "JESTER",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "JESTER",
     "definitions": [
      {
       "text": "Comic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "note": "One word placed about another goes round it."
-     },
-     {
-      "text": "leaders",
-      "note": "The leaders of a group walk at its front, so these are the first letters of senior and Tory."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dig",
-      "gives": "JEER",
-      "note": "a dig is a jibe, a jeer"
-     },
-     {
-      "clueFragment": "senior Tory leaders",
-      "gives": "ST",
-      "select": "first",
-      "note": "first letters of senior and Tory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JE",
-      "ST",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "One word placed about another goes round it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "dig",
+       "gives": "JEER",
+       "note": "a dig is a jibe, a jeer"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "ST",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "The leaders of a group walk at its front, so these are the first letters of senior and Tory."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "senior Tory leaders",
+         "gives": "ST",
+         "select": "first",
+         "note": "first letters of senior and Tory"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -118,48 +114,40 @@
    },
    "solution": "JEREMYHUNT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "JEREMY HUNT",
     "definitions": [
      {
       "text": "Minister",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting screwed",
-      "note": "Something screwed up is twisted out of shape, so these letters are twisted into a new order."
-     },
-     {
-      "text": "aboard"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plane",
-      "gives": "JET",
-      "note": "a jet is a plane"
-     },
-     {
-      "clueFragment": "Henry, um",
-      "gives": "REMYHUN",
-      "note": "HENRYUM rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JE",
-      "REMYHUN",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "JEREMYHUNT",
+     "parts": [
       {
-       "fodder": "HENRYUM",
-       "gives": "REMYHUN"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "getting screwed",
+         "note": "Something screwed up is twisted out of shape, so these letters are twisted into a new order."
+        },
+        {
+         "text": "aboard"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plane",
+         "gives": "JET",
+         "note": "a jet is a plane"
+        },
+        {
+         "words": "Henry, um",
+         "gives": "REMYHUN",
+         "note": "HENRYUM rearranged"
+        }
+       ]
       }
      ]
     },
@@ -189,63 +177,63 @@
    },
    "solution": "SIGNALS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "SIGNALS",
     "definitions": [
      {
       "text": "Waves",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fantastic",
-      "note": "Something fantastic is fanciful and unreal, so the letters of gains take a fanciful new order."
-     },
-     {
-      "text": "followed by",
-      "note": "What follows comes after."
-     },
-     {
-      "text": "backing",
-      "note": "Backing is moving backwards, so SO is read right to left as OS."
-     },
-     {
-      "text": "out",
-      "note": "Letters sent out leave, so OS is taken out of LOSS."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gains",
-      "gives": "SIGNA",
-      "note": "GAINS rearranged"
-     },
-     {
-      "clueFragment": "loss — so backing out",
-      "gives": "LS",
-      "note": "LOSS with OS removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIGNA",
-      "LS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SIGNALS",
+     "parts": [
       {
-       "fodder": "GAINS",
-       "gives": "SIGNA"
-      }
-     ],
-     "reversals": [
-      {
-       "from": "SO",
-       "to": "OS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "fantastic",
+         "note": "Something fantastic is fanciful and unreal, so the letters of gains take a fanciful new order."
+        },
+        {
+         "text": "out",
+         "note": "Letters sent out leave, so OS is taken out of LOSS."
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "followed by",
+           "note": "What follows comes after."
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "backing",
+             "note": "Backing is moving backwards, so SO is read right to left as OS."
+            }
+           ],
+           "parts": [
+            {
+             "words": "gains",
+             "gives": "SIGNA",
+             "note": "GAINS rearranged"
+            },
+            {
+             "words": "loss — so backing out",
+             "gives": "LS",
+             "note": "LOSS with OS removed"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -275,42 +263,31 @@
    },
    "solution": "ENTRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENTRY",
     "definitions": [
      {
       "text": "penetration",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "then",
-      "for": "charade",
-      "note": "Then means next in order."
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Measure",
-      "gives": "EN",
-      "note": "an en is a printer's measure of width"
-     },
-     {
-      "clueFragment": "test",
-      "gives": "TRY",
-      "note": "to try is to test"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "then",
+       "note": "Then means next in order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Measure",
+       "gives": "EN",
+       "note": "an en is a printer's measure of width"
+      },
+      {
+       "words": "test",
+       "gives": "TRY",
+       "note": "to try is to test"
+      }
      ]
     },
     "explanation": {
@@ -345,10 +322,6 @@
    },
    "solution": "GLADHAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GLAD-HAND",
     "definitions": [
      {
       "text": "as campaigning politicians often do",
@@ -356,31 +329,24 @@
       "note": "The definition describes an action rather than naming it; glad-hand is the verb that fills it."
      }
     ],
-    "linkWords": [
-     "to have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "standard abbreviation for good"
-     },
-     {
-      "clueFragment": "youth",
-      "gives": "LAD",
-      "note": "a youth is a lad"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "HAND",
-      "note": "to give a hand is to support"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LAD",
-      "HAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "gives": "G",
+       "note": "standard abbreviation for good"
+      },
+      {
+       "words": "youth",
+       "gives": "LAD",
+       "note": "a youth is a lad"
+      },
+      {
+       "words": "support",
+       "gives": "HAND",
+       "note": "to give a hand is to support"
+      }
      ]
     },
     "explanation": {
@@ -409,35 +375,25 @@
    },
    "solution": "LEGATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEGATE",
     "definitions": [
      {
       "text": "Ambassador",
       "at": 0
      }
     ],
-    "linkWords": [
-     "wants"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "member",
-      "gives": "LEG",
-      "note": "a leg is a limb, a member of the body"
-     },
-     {
-      "clueFragment": "put away",
-      "gives": "ATE",
-      "note": "to put away food is to eat it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEG",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "member",
+       "gives": "LEG",
+       "note": "a leg is a limb, a member of the body"
+      },
+      {
+       "words": "put away",
+       "gives": "ATE",
+       "note": "to put away food is to eat it"
+      }
      ]
     },
     "explanation": {
@@ -466,43 +422,34 @@
    },
    "solution": "DISSIDENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISSIDENT",
     "definitions": [
      {
       "text": "Navalny",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on reform",
-      "for": "anagram",
-      "note": "To reform something is to form it again, so the letters are put together in a new order."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dead",
-      "gives": "D",
-      "note": "D is the abbreviation for dead, as on family trees"
-     },
-     {
-      "clueFragment": "insisted",
-      "gives": "INSISTED",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DINSISTED",
-       "gives": "DISSIDENT"
+       "text": "on reform",
+       "note": "To reform something is to form it again, so the letters are put together in a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dead",
+         "gives": "D",
+         "note": "D is the abbreviation for dead, as on family trees"
+        },
+        {
+         "words": "insisted",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -532,55 +479,44 @@
    },
    "solution": "AMATEUR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AMATEUR",
     "definitions": [
      {
       "text": "Not pro",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in brief",
-      "for": "charade",
-      "note": "Something in brief is cut short."
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "After means coming later."
-     },
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "In a down clue what is on something sits above it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "one is a"
-     },
-     {
-      "clueFragment": "carpet",
-      "gives": "MAT",
-      "note": "a mat is a small carpet"
-     },
-     {
-      "clueFragment": "Europe",
-      "gives": "EUR",
-      "note": "EUR is the short form of Europe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MAT",
-      "EUR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in brief",
+       "note": "Something in brief is cut short."
+      },
+      {
+       "text": "after",
+       "note": "After means coming later."
+      },
+      {
+       "text": "on",
+       "note": "In a down clue what is on something sits above it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "one is a"
+      },
+      {
+       "words": "carpet",
+       "gives": "MAT",
+       "note": "a mat is a small carpet"
+      },
+      {
+       "words": "Europe",
+       "gives": "EUR",
+       "note": "EUR is the short form of Europe"
+      }
      ]
     },
     "explanation": {
@@ -609,39 +545,31 @@
    },
    "solution": "DAMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DAMP",
     "definitions": [
      {
       "text": "Wet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "After means coming later."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lawyer",
-      "gives": "DA",
-      "note": "a DA is a district attorney, an American public prosecutor"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DA",
-      "MP"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "After means coming later."
+      }
+     ],
+     "parts": [
+      {
+       "words": "lawyer",
+       "gives": "DA",
+       "note": "a DA is a district attorney, an American public prosecutor"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -671,36 +599,25 @@
    },
    "solution": "WINDBAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WINDBAG",
     "definitions": [
      {
       "text": "Rambling politician",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s",
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "turn",
-      "gives": "WIND",
-      "note": "to wind is to turn, as with a handle"
-     },
-     {
-      "clueFragment": "sack",
-      "gives": "BAG",
-      "note": "a sack is a bag"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIND",
-      "BAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "turn",
+       "gives": "WIND",
+       "note": "to wind is to turn, as with a handle"
+      },
+      {
+       "words": "sack",
+       "gives": "BAG",
+       "note": "a sack is a bag"
+      }
      ]
     },
     "explanation": {
@@ -735,32 +652,25 @@
    },
    "solution": "RIGHTWING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RIGHT-WING",
     "definitions": [
      {
       "text": "for Liz Truss and co",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Just",
-      "gives": "RIGHT",
-      "note": "just is right, fair"
-     },
-     {
-      "clueFragment": "a prison block",
-      "gives": "WING",
-      "note": "a prison is divided into wings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIGHT",
-      "WING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Just",
+       "gives": "RIGHT",
+       "note": "just is right, fair"
+      },
+      {
+       "words": "a prison block",
+       "gives": "WING",
+       "note": "a prison is divided into wings"
+      }
      ]
     },
     "explanation": {
@@ -790,45 +700,41 @@
    },
    "solution": "SWARM",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SWARM",
     "definitions": [
      {
       "text": "Host",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drinking",
-      "note": "What you drink goes inside you."
-     },
-     {
-      "text": "last of",
-      "note": "The last of something is its final part, so beer gives its final letter."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "was like a fish",
-      "gives": "SWAM",
-      "note": "a fish swims"
-     },
-     {
-      "clueFragment": "last of beer",
-      "gives": "R",
-      "select": "last",
-      "note": "final letter of beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWA",
-      "R",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "note": "What you drink goes inside you."
+      }
+     ],
+     "parts": [
+      {
+       "words": "was like a fish",
+       "gives": "SWAM",
+       "note": "a fish swims"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "The last of something is its final part, so beer gives its final letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "last of beer",
+         "note": "final letter of beer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -861,38 +767,28 @@
     "18-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEALY-MOUTHED",
     "definitions": [
      {
       "text": "just like a question-dodging politician",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "Something done badly comes out wrong, so the letters come out in the wrong order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Emulated — oh my!",
-      "gives": "EMULATEDOHMY",
-      "note": "anagram fodder, twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EMULATEDOHMY",
-       "gives": "MEALYMOUTHED"
+       "text": "badly",
+       "note": "Something done badly comes out wrong, so the letters come out in the wrong order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Emulated — oh my!",
+       "note": "anagram fodder, twelve letters"
       }
      ]
     },
+    "spelling": "MEALY-MOUTHED",
     "explanation": {
      "surface": "Someone copying an evasive politician rather poorly, to the speaker's dismay.",
      "walkthrough": "Oh my! reads as an exclamation, but its letters are fodder along with emulated.",
@@ -919,26 +815,25 @@
    },
    "solution": "DETAINEE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DETAINEE",
     "definitions": [
      {
       "text": "A political con?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A political",
-      "note": "read as describing a scheme cooked up by politicians, meant as a person held for political reasons"
-     },
-     {
-      "clueFragment": "con?",
-      "note": "read as a swindle, meant as short for convict, a prisoner"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A political",
+       "note": "read as describing a scheme cooked up by politicians, meant as a person held for political reasons"
+      },
+      {
+       "words": "con?",
+       "note": "read as a swindle, meant as short for convict, a prisoner"
+      }
+     ]
+    },
     "explanation": {
      "surface": "What sounds like a scam pulled by a politician.",
      "walkthrough": "Con looks like a swindle, the usual charge against politicians; it is short for convict, and a political prisoner is a detainee.",
@@ -966,28 +861,16 @@
    },
    "solution": "BELABOURED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BELABOURED",
     "definitions": [
      {
       "text": "Given the Opposition party treatment",
-      "at": 0
+      "at": 0,
+      "meaning": "a pun: made into the Opposition party, which was Labour when this was set"
      },
      {
       "text": "done to death",
-      "at": 38
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Given the Opposition party treatment",
-      "note": "a pun: made into the Opposition party, which was Labour when this was set"
-     },
-     {
-      "clueFragment": "done to death",
-      "note": "said of a point argued far past its useful life"
+      "at": 38,
+      "meaning": "said of a point argued far past its useful life"
      }
     ],
     "explanation": {
@@ -1017,38 +900,25 @@
    },
    "solution": "HOSPITAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HOSPITAL",
     "definitions": [
      {
       "text": "M*A*S*H final part",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "resurrected",
-      "for": "anagram",
-      "note": "Something resurrected is brought back in a new form, so the letters return in a new order."
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'Hot Lips' and a",
-      "gives": "HOTLIPSA",
-      "note": "anagram fodder, eight letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOTLIPSA",
-       "gives": "HOSPITAL"
+       "text": "resurrected",
+       "note": "Something resurrected is brought back in a new form, so the letters return in a new order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "'Hot Lips' and a",
+       "gives": "HOTLIPSA",
+       "note": "anagram fodder, eight letters"
       }
      ]
     },
@@ -1078,40 +948,34 @@
    },
    "solution": "INCOGNITO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INCOGNITO",
     "definitions": [
      {
       "text": "Not looking yourself",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pissed",
-      "for": "anagram",
-      "note": "Pissed is British slang for drunk, and drunken letters stagger into a new order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "noticing",
-      "gives": "NOTICING",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero, nothing"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTICINGO",
-       "gives": "INCOGNITO"
+       "text": "pissed",
+       "note": "Pissed is British slang for drunk, and drunken letters stagger into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "noticing",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "nothing",
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        }
+       ]
       }
      ]
     },
@@ -1145,51 +1009,41 @@
     "29-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GEORGE GALLOWAY",
     "definitions": [
      {
       "text": "political maverick",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "bending",
-      "for": "anagram",
-      "note": "What is bent is pulled out of shape, so the letters are pulled into a new order."
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gargoyle",
-      "gives": "GARGOYLE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "ego",
-      "gives": "EGO",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "law",
-      "gives": "LAW",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GARGOYLEEGOLAW",
-       "gives": "GEORGEGALLOWAY"
+       "text": "bending",
+       "note": "What is bent is pulled out of shape, so the letters are pulled into a new order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gargoyle",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "ego",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "law",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
+    "spelling": "GEORGE GALLOWAY",
     "explanation": {
      "surface": "An insulting nickname for a rule-bending political maverick.",
      "walkthrough": "George Galloway is a veteran left-wing British MP, expelled from Labour and elected for Rochdale in 2024. Law-bending reads as a description of him; law is fodder and bending the instruction.",
@@ -1230,45 +1084,34 @@
    },
    "solution": "NOVICE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NOVICE",
     "definitions": [
      {
       "text": "No expert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on reflection",
-      "for": "reversal",
-      "note": "A reflection is a mirror image, so ON is read backwards."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "Kamala Harris",
-      "gives": "VICE",
-      "note": "she was Vice President of the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "VICE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ON",
-       "to": "NO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "note": "A reflection is a mirror image, so ON is read backwards."
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "note": "the word itself"
+        }
+       ]
+      },
+      {
+       "words": "Kamala Harris",
+       "gives": "VICE",
+       "note": "she was Vice President of the United States"
       }
      ]
     },
@@ -1298,53 +1141,55 @@
    },
    "solution": "VITRIOL",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "VITRIOL",
     "definitions": [
      {
       "text": "abuse",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "note": "The extremes of a word are its ends, so impartial gives its first and last letters."
-     },
-     {
-      "text": "accepts"
-     }
-    ],
-    "linkWords": [
-     "equals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Victor",
-      "gives": "V",
-      "note": "Victor is V in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "extremely impartial",
-      "gives": "IL",
-      "select": "outer",
-      "note": "first and last letters of impartial"
-     },
-     {
-      "clueFragment": "threesome",
-      "gives": "TRIO",
-      "note": "a trio is a group of three"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "I",
-      "TRIO",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "extremely",
+       "note": "The extremes of a word are its ends, so impartial gives its first and last letters."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Victor",
+       "gives": "V",
+       "note": "Victor is V in the NATO phonetic alphabet"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "IL",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "extremely impartial",
+           "gives": "IL",
+           "select": "outer",
+           "note": "first and last letters of impartial"
+          }
+         ]
+        },
+        {
+         "words": "threesome",
+         "gives": "TRIO",
+         "note": "a trio is a group of three"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1373,41 +1218,29 @@
    },
    "solution": "TORTILLA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TORTILLA",
     "definitions": [
      {
       "text": "wrap",
       "at": 34
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's wrong",
-      "gives": "TORT",
-      "note": "a tort is a civil wrong in law"
-     },
-     {
-      "clueFragment": "Dicky",
-      "gives": "ILL",
-      "note": "dicky is British slang for unwell or weak, as in a dicky heart"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the word itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TORT",
-      "ILL",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What's wrong",
+       "gives": "TORT",
+       "note": "a tort is a civil wrong in law"
+      },
+      {
+       "words": "Dicky",
+       "gives": "ILL",
+       "note": "dicky is British slang for unwell or weak, as in a dicky heart"
+      },
+      {
+       "words": "a",
+       "note": "the word itself"
+      }
      ]
     },
     "explanation": {
@@ -1436,45 +1269,37 @@
    },
    "solution": "LOBSTER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "LOBSTER",
     "definitions": [
      {
       "text": "Victim of pot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "Out means out of order, so the letters of rest are rearranged."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chuck",
-      "gives": "LOB",
-      "note": "to chuck is to throw, lob"
-     },
-     {
-      "clueFragment": "rest",
-      "gives": "STER",
-      "note": "REST rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOB",
-      "STER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LOBSTER",
+     "indicators": [
       {
-       "fodder": "REST",
-       "gives": "STER"
+       "text": "out",
+       "note": "Out means out of order, so the letters of rest are rearranged."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chuck",
+         "gives": "LOB",
+         "note": "to chuck is to throw, lob"
+        },
+        {
+         "words": "rest",
+         "gives": "STER",
+         "note": "REST rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1505,38 +1330,24 @@
    },
    "solution": "RAFFIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RAFFIA",
     "definitions": [
      {
       "text": "Ropey thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "scandalous",
-      "for": "anagram",
-      "note": "What is scandalous is shocking and improper, so the letters are shocked out of their proper order."
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "affair",
-      "gives": "AFFAIR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AFFAIR",
-       "gives": "RAFFIA"
+       "text": "scandalous",
+       "note": "What is scandalous is shocking and improper, so the letters are shocked out of their proper order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "affair",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1567,54 +1378,42 @@
    },
    "solution": "STAGNANT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "STAGNANT",
     "definitions": [
      {
       "text": "Inactive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "false",
-      "for": "anagram",
-      "note": "What is false is not genuine, so tan is not in its real order."
-     }
-    ],
-    "linkWords": [
-     "wanting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "males only",
-      "gives": "STAG",
-      "note": "a stag party or stag night is for men only"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "standard abbreviation for new"
-     },
-     {
-      "clueFragment": "tan",
-      "gives": "ANT",
-      "note": "TAN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAG",
-      "N",
-      "ANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STAGNANT",
+     "indicators": [
       {
-       "fodder": "TAN",
-       "gives": "ANT"
+       "text": "false",
+       "note": "What is false is not genuine, so tan is not in its real order."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "males only",
+         "gives": "STAG",
+         "note": "a stag party or stag night is for men only"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "standard abbreviation for new"
+        },
+        {
+         "words": "tan",
+         "gives": "ANT",
+         "note": "TAN rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1644,40 +1443,31 @@
    },
    "solution": "TABOO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TABOO",
     "definitions": [
      {
       "text": "prohibited",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Being penetrated by",
-      "for": "container",
-      "note": "What is penetrated has something pushed into it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unduly",
-      "gives": "TOO",
-      "note": "unduly means excessively, too"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "AB",
-      "note": "an AB is an able seaman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AB",
-      "OO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Being penetrated by",
+       "note": "What is penetrated has something pushed into it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "unduly",
+       "gives": "TOO",
+       "note": "unduly means excessively, too"
+      },
+      {
+       "words": "sailor",
+       "gives": "AB",
+       "note": "an AB is an able seaman"
+      }
      ]
     },
     "explanation": {
@@ -1707,31 +1497,16 @@
    },
    "solution": "TIGHT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TIGHT",
     "definitions": [
      {
       "text": "Pissed",
-      "at": 0
+      "at": 0,
+      "meaning": "British slang for drunk"
      },
      {
       "text": "not likely to lash out",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pissed",
-      "note": "British slang for drunk"
-     },
-     {
-      "clueFragment": "not likely to lash out",
-      "note": "lash out here means spend freely, so this is someone mean with money"
+      "at": 11,
+      "meaning": "lash out here means spend freely, so this is someone mean with money"
      }
     ],
     "explanation": {
@@ -1761,48 +1536,41 @@
    },
    "solution": "SHAG",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SHAG",
     "definitions": [
      {
       "text": "Roger",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "note": "What holds something has it inside."
-     },
-     {
-      "text": "head",
-      "note": "The head of a word is its first letter."
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "droop",
-      "gives": "SAG",
-      "note": "to droop is to sag"
-     },
-     {
-      "clueFragment": "his head",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of his"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "AG"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "What holds something has it inside."
+      }
+     ],
+     "parts": [
+      {
+       "words": "droop",
+       "gives": "SAG",
+       "note": "to droop is to sag"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "The head of a word is its first letter."
+        }
+       ],
+       "parts": [
+        {
+         "words": "his head",
+         "note": "first letter of his"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1832,51 +1600,45 @@
    },
    "solution": "HAITI",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HAITI",
     "definitions": [
      {
       "text": "Republic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over"
-     },
-     {
-      "text": "getting"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "call for attention",
-      "gives": "HI",
-      "note": "hi is a greeting to catch someone's eye"
-     },
-     {
-      "clueFragment": "controversial technology",
-      "gives": "AI",
-      "note": "artificial intelligence"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "standard grammatical abbreviation for tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AI",
-      "T",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over"
+      }
+     ],
+     "parts": [
+      {
+       "words": "call for attention",
+       "gives": "HI",
+       "note": "hi is a greeting to catch someone's eye"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "getting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "controversial technology",
+         "gives": "AI",
+         "note": "artificial intelligence"
+        },
+        {
+         "words": "tense",
+         "gives": "T",
+         "note": "standard grammatical abbreviation for tense"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1905,50 +1667,46 @@
    },
    "solution": "FREIGHTER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FREIGHTER",
     "definitions": [
      {
       "text": "Crafty thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swallowing",
-      "note": "What is swallowed ends up inside."
-     },
-     {
-      "text": "after",
-      "note": "After means coming later, so ER comes after the rest."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scare",
-      "gives": "FRIGHT",
-      "note": "a scare is a fright"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is ecstasy"
-     },
-     {
-      "clueFragment": "er",
-      "gives": "ER",
-      "note": "the word itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "E",
-      "IGHT",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "note": "What is swallowed ends up inside."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "After means coming later, so ER comes after the rest."
+        }
+       ],
+       "parts": [
+        {
+         "words": "scare",
+         "gives": "FRIGHT",
+         "note": "a scare is a fright"
+        },
+        {
+         "words": "drug",
+         "gives": "E",
+         "note": "E is ecstasy"
+        }
+       ]
+      },
+      {
+       "words": "er",
+       "note": "the word itself"
+      }
      ]
     },
     "explanation": {
@@ -1992,49 +1750,48 @@
    },
    "solution": "STORED",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "charade"
-    ],
-    "answer": "STORED",
     "definitions": [
      {
       "text": "Saved",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flailing",
-      "note": "To flail is to thrash about wildly, so the letters thrash into a new order."
-     },
-     {
-      "text": "not",
-      "note": "Not means without, so one is taken out of Tories."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tories not one",
-      "gives": "TORES",
-      "note": "TORIES without I, one"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "D",
-      "note": "standard abbreviation for day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STORE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STORED",
+     "parts": [
       {
-       "fodder": "TORES",
-       "gives": "STORE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "flailing",
+         "note": "To flail is to thrash about wildly, so the letters thrash into a new order."
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "not",
+           "note": "Not means without, so one is taken out of Tories."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tories not one",
+           "gives": "TORES",
+           "note": "TORIES without I, one"
+          }
+         ]
+        },
+        {
+         "words": "day",
+         "gives": "D",
+         "note": "standard abbreviation for day"
+        }
+       ]
       }
      ]
     },

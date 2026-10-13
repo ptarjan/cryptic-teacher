@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29657",
  "number": 29657,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,657",
  "setter": "Ludvig",
  "date": "2025-04-01",
  "dimensions": {
@@ -38,12 +36,6 @@
    },
    "solution": "GOMORRAH",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "reversal"
-    ],
-    "answer": "GOMORRAH",
     "definitions": [
      {
       "text": "Dead see place",
@@ -51,42 +43,43 @@
       "note": "an April Fool sound-alike: read it as Dead Sea place"
      }
     ],
-    "indicators": [
-     {
-      "text": "tailless",
-      "for": "deletion",
-      "note": "without a tail, the school's name loses its final letter"
-     },
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down entry, climbing means the letters read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ancient school",
-      "gives": "HARROW",
-      "note": "Harrow is an old English public school, founded in 1572"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "MOG",
-      "note": "mog is British slang for a cat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOM",
-      "ORRAH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HARROMOG",
-       "to": "GOMORRAH"
+       "text": "climbing",
+       "note": "in a down entry, climbing means the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "note": "without a tail, the school's name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ancient school",
+           "gives": "HARROW",
+           "note": "Harrow is an old English public school, founded in 1572"
+          },
+          {
+           "words": "cat",
+           "gives": "MOG",
+           "note": "mog is British slang for a cat"
+          }
+         ]
+        },
+        {
+         "gives": "W"
+        }
+       ]
       }
      ]
     },
@@ -117,11 +110,6 @@
    },
    "solution": "BRAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BRAN",
     "definitions": [
      {
       "text": "serial",
@@ -129,30 +117,29 @@
       "note": "an April Fool sound-alike for cereal"
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its front, so only its opening letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beeb",
-      "gives": "B",
-      "select": "first",
-      "note": "the Beeb is a nickname for the BBC"
-     },
-     {
-      "clueFragment": "managed",
-      "gives": "RAN",
-      "note": "ran a business means managed it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "the head of a word is its front, so only its opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beeb",
+         "note": "the Beeb is a nickname for the BBC"
+        }
+       ]
+      },
+      {
+       "words": "managed",
+       "gives": "RAN",
+       "note": "ran a business means managed it"
+      }
      ]
     },
     "explanation": {
@@ -182,11 +169,6 @@
    },
    "solution": "HISSES",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "HISSES",
     "definitions": [
      {
       "text": "What goes with booze?",
@@ -194,35 +176,38 @@
       "note": "booze is an April Fool sound-alike for boos"
      }
     ],
-    "indicators": [
-     {
-      "text": "hiding",
-      "for": "container",
-      "note": "something hiding another thing keeps it tucked inside itself"
-     },
-     {
-      "text": "Not half",
-      "for": "deletion",
-      "note": "not half means only one half of the word survives, the rest being cut away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "That man's",
-      "gives": "HES",
-      "note": "that man is = he is, shortened to he's"
-     },
-     {
-      "clueFragment": "issues",
-      "gives": "ISSUES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ISS",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "note": "something hiding another thing keeps it tucked inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "That man's",
+       "gives": "HES",
+       "note": "that man is = he is, shortened to he's"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "note": "not half means only one half of the word survives, the rest being cut away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "issues",
+         "note": "taken as written"
+        },
+        {
+         "gives": "UES"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -252,45 +237,40 @@
    },
    "solution": "ECHIDNAS",
    "annotation": {
-    "type": [
-     "homophone",
-     "anagram"
-    ],
-    "answer": "ECHIDNAS",
     "definitions": [
      {
       "text": "Aussie natives",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bananas",
-      "for": "anagram",
-      "note": "going bananas means going crazy, so the letters are thrown into disorder"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dine",
-      "gives": "DINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cache",
-      "gives": "CASH",
-      "soundsLike": "CACHE",
-      "note": "the puzzle's April Fool swap: a hidden store word standing for the money word it is said like"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DINECASH",
-       "gives": "ECHIDNAS"
+       "text": "bananas",
+       "note": "going bananas means going crazy, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dine",
+         "note": "taken as written"
+        },
+        {
+         "op": "homophone",
+         "spelt": "CASH",
+         "parts": [
+          {
+           "words": "cache",
+           "gives": "CACHE",
+           "note": "the puzzle's April Fool swap: a hidden store word standing for the money word it is said like"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -321,29 +301,17 @@
    },
    "solution": "ROUNDABOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROUNDABOUT",
     "definitions": [
      {
       "text": "Tortuous",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: indirect, winding, not straight to the point"
      },
      {
       "text": "part of the fare",
       "at": 9,
-      "note": "fare is an April Fool sound-alike for fair"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tortuous",
-      "note": "first meaning: indirect, winding, not straight to the point"
-     },
-     {
-      "clueFragment": "part of the fare",
-      "note": "second meaning: a merry-go-round, a ride at a funfair"
+      "note": "fare is an April Fool sound-alike for fair",
+      "meaning": "second meaning: a merry-go-round, a ride at a funfair"
      }
     ],
     "explanation": {
@@ -373,10 +341,6 @@
    },
    "solution": "ARARAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARARAT",
     "definitions": [
      {
       "text": "arc's endpoint",
@@ -384,30 +348,24 @@
       "note": "arc is an April Fool sound-alike for ark"
      }
     ],
-    "indicators": [
-     {
-      "text": "drawn in",
-      "for": "container",
-      "note": "something drawn in is pulled inside whatever surrounds it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pair of artists",
-      "gives": "RARA",
-      "note": "RA, a Royal Academician, is a stock abbreviation for an artist; a pair gives it twice"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RARA",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drawn in",
+       "note": "something drawn in is pulled inside whatever surrounds it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "words": "Pair of artists",
+       "gives": "RARA",
+       "note": "RA, a Royal Academician, is a stock abbreviation for an artist; a pair gives it twice"
+      }
      ]
     },
     "explanation": {
@@ -437,12 +395,6 @@
    },
    "solution": "MOURNING",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "homophone"
-    ],
-    "answer": "MOURNING",
     "definitions": [
      {
       "text": "kind of dress",
@@ -450,39 +402,44 @@
       "note": "defines morning (dress), the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "Tatty",
-      "for": "anagram",
-      "note": "something tatty is tattered, so these letters may come in any jumbled order"
-     },
-     {
-      "text": "discarded",
-      "for": "deletion",
-      "note": "things discarded are thrown away, so their letters are removed"
-     },
-     {
-      "text": "anyhow",
-      "for": "anagram",
-      "note": "done anyhow means done in no particular order, so what is left gets rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tatty cardi's discarded, Morris dancing anyhow",
-      "gives": "MOURNING",
-      "soundsLike": "MORNING",
-      "note": "remove the letters of cardi's (a cardi is a cardigan) from Morris dancing, the English folk dance, and rearrange the rest"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MOURNING",
+     "indicators": [
       {
-       "fodder": "MORINNG",
-       "gives": "MORNING"
+       "text": "discarded",
+       "note": "things discarded are thrown away, so their letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "MOURNING",
+       "indicators": [
+        {
+         "text": "Tatty",
+         "note": "something tatty is tattered, so these letters may come in any jumbled order"
+        },
+        {
+         "text": "anyhow",
+         "note": "done anyhow means done in no particular order, so what is left gets rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "MOURNING",
+         "parts": [
+          {
+           "words": "Tatty cardi's discarded, Morris dancing anyhow",
+           "gives": "MORNING",
+           "note": "remove the letters of cardi's (a cardi is a cardigan) from Morris dancing, the English folk dance, and rearrange the rest"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -513,11 +470,6 @@
    },
    "solution": "GRAPPA",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "GRAPPA",
     "definitions": [
      {
       "text": "boos",
@@ -525,26 +477,33 @@
       "note": "boos is an April Fool sound-alike for booze"
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "what is heard is taken by its sound rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G is the abbreviation for German"
-     },
-     {
-      "clueFragment": "hiphopper",
-      "gives": "RAPPA",
-      "soundsLike": "RAPPER",
-      "note": "a hip-hop artist is a rapper, and in British speech the final r is silent"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German",
+       "gives": "G",
+       "note": "G is the abbreviation for German"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RAPPA",
+       "indicators": [
+        {
+         "text": "heard",
+         "note": "what is heard is taken by its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hiphopper",
+         "gives": "RAPPER",
+         "note": "a hip-hop artist is a rapper, and in British speech the final r is silent"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A German rap artist gets jeered.",
      "walkthrough": "Every down clue in this April Fool puzzle swaps one word for a sound-alike: 'boos' is really booze.",
@@ -572,11 +531,6 @@
    },
    "solution": "CHOIRS",
    "annotation": {
-    "type": [
-     "deletion",
-     "homophone"
-    ],
-    "answer": "CHOIRS",
     "definitions": [
      {
       "text": "Paper",
@@ -584,21 +538,30 @@
       "note": "defines quires, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "to be dropped",
-      "for": "deletion",
-      "note": "letters that are dropped are taken out of the word that needs them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "calls for bible study to be dropped",
-      "gives": "CHOIRS",
-      "soundsLike": "QUIRES",
-      "note": "calls for = REQUIRES; drop RE, religious education, the school subject"
-     }
-    ],
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHOIRS",
+     "indicators": [
+      {
+       "text": "to be dropped",
+       "note": "letters that are dropped are taken out of the word that needs them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "CHOIRS",
+       "parts": [
+        {
+         "words": "calls for bible study to be dropped",
+         "gives": "QUIRES",
+         "note": "calls for = REQUIRES; drop RE, religious education, the school subject"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A newspaper demands that Bible classes be scrapped.",
      "walkthrough": "In this April Fool puzzle each across clue leads to a word, and the grid holds a different word that sounds the same: the clue gives QUIRES, entered as CHOIRS.",
@@ -626,11 +589,6 @@
    },
    "solution": "LOAN",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "LOAN",
     "definitions": [
      {
       "text": "unmatched",
@@ -638,17 +596,17 @@
       "note": "defines lone, the sound-alike of the grid answer"
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Large individual",
-      "gives": "LOAN",
-      "soundsLike": "LONE",
-      "note": "L is the clothing-size abbreviation for large, and an individual is ONE"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LOAN",
+     "parts": [
+      {
+       "words": "Large individual",
+       "gives": "LONE",
+       "note": "L is the clothing-size abbreviation for large, and an individual is ONE"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A big person has no equal.",
      "walkthrough": "The across clues in this April Fool puzzle lead to words whose sound-alikes go in the grid: the clue makes LONE, entered as LOAN.",
@@ -675,12 +633,6 @@
    },
    "solution": "STATIONERY",
    "annotation": {
-    "type": [
-     "cycling",
-     "container",
-     "homophone"
-    ],
-    "answer": "STATIONERY",
     "definitions": [
      {
       "text": "going nowhere",
@@ -688,26 +640,43 @@
       "note": "defines stationary, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "cycling",
-      "note": "flipping the two-word phrase moves its front word round to the back"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One in railway station flipping",
-      "gives": "STATIONERY",
-      "soundsLike": "STATIONARY",
-      "note": "RY, the abbreviation for railway, and STATION swap places, and A (one) goes in between"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "STATIONERY",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "unchecked": true,
+       "gives": "STATIONERY",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "flipping the two-word phrase moves its front word round to the back"
+        }
+       ],
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "STATIONERY",
+         "parts": [
+          {
+           "words": "One in railway station flipping",
+           "gives": "STATIONARY",
+           "note": "RY, the abbreviation for railway, and STATION swap places, and A (one) goes in between"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A train sits in the station, going nowhere at all.",
      "walkthrough": "'Flipping' looks like a mild curse but swaps the two words round. In this April Fool puzzle the grid holds the sound-alike: the clue makes STATIONARY, entered as STATIONERY.",
@@ -734,11 +703,6 @@
    },
    "solution": "BREAKS",
    "annotation": {
-    "type": [
-     "container",
-     "homophone"
-    ],
-    "answer": "BREAKS",
     "definitions": [
      {
       "text": "Puts a stop to",
@@ -746,21 +710,30 @@
       "note": "defines brakes, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "something containing another holds it inside itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cakes perhaps containing drop of rum",
-      "gives": "BREAKS",
-      "soundsLike": "BRAKES",
-      "note": "cakes are one example of BAKES; inside goes R, the first drop of rum"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BREAKS",
+     "indicators": [
+      {
+       "text": "containing",
+       "note": "something containing another holds it inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BREAKS",
+       "parts": [
+        {
+         "words": "cakes perhaps containing drop of rum",
+         "gives": "BRAKES",
+         "note": "cakes are one example of BAKES; inside goes R, the first drop of rum"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone halts the baking session once a splash of rum goes in.",
      "walkthrough": "In this April Fool puzzle each across clue leads to a word, and its sound-alike fills the grid: the clue makes BRAKES, entered as BREAKS.",
@@ -787,45 +760,40 @@
    },
    "solution": "ADOLESCENT",
    "annotation": {
-    "type": [
-     "homophone",
-     "anagram"
-    ],
-    "answer": "ADOLESCENT",
     "definitions": [
      {
       "text": "Young",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone wrong or out of order, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "olden",
-      "gives": "OLDEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cast",
-      "gives": "CASTE",
-      "soundsLike": "CAST",
-      "note": "the puzzle's April Fool swap: the actors word stands for the social-class word it is said like"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OLDENCASTE",
-       "gives": "ADOLESCENT"
+       "text": "off",
+       "note": "off means gone wrong or out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "olden",
+         "note": "taken as written"
+        },
+        {
+         "op": "homophone",
+         "spelt": "CASTE",
+         "parts": [
+          {
+           "words": "cast",
+           "gives": "CAST",
+           "note": "the puzzle's April Fool swap: the actors word stands for the social-class word it is said like"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -855,11 +823,6 @@
    },
    "solution": "PENNANTS",
    "annotation": {
-    "type": [
-     "deletion",
-     "homophone"
-    ],
-    "answer": "PENNANTS",
     "definitions": [
      {
       "text": "making amends",
@@ -867,21 +830,30 @@
       "note": "defines penance, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion",
-      "note": "a word lacking something has that letter taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Operatic location lacking character in the end",
-      "gives": "PENNANTS",
-      "soundsLike": "PENANCE",
-      "note": "The Pirates of Penzance is a Gilbert and Sullivan operetta set in the Cornish town; drop Z, the character at the end of the alphabet"
-     }
-    ],
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PENNANTS",
+     "indicators": [
+      {
+       "text": "lacking",
+       "note": "a word lacking something has that letter taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PENNANTS",
+       "parts": [
+        {
+         "words": "Operatic location lacking character in the end",
+         "gives": "PENANCE",
+         "note": "The Pirates of Penzance is a Gilbert and Sullivan operetta set in the Cornish town; drop Z, the character at the end of the alphabet"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An opera setting loses a character in its finale as the cast makes amends.",
      "walkthrough": "The across clues in this April Fool puzzle lead to words whose sound-alikes fill the grid: the clue makes PENANCE, entered as PENNANTS.",
@@ -908,12 +880,6 @@
    },
    "solution": "THROUGH",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "homophone"
-    ],
-    "answer": "THROUGH",
     "definitions": [
      {
       "text": "shed",
@@ -921,24 +887,30 @@
       "note": "defines threw, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something means being placed inside it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Run into the wife",
-      "gives": "THROUGH",
-      "soundsLike": "THREW",
-      "note": "R, the cricket abbreviation for a run, goes into THE, then W for wife follows"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "THROUGH",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "going into something means being placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "THROUGH",
+       "parts": [
+        {
+         "words": "Run into the wife",
+         "gives": "THREW",
+         "note": "R, the cricket abbreviation for a run, goes into THE, then W for wife follows"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A husband bursts in on his wife in the garden shed.",
      "walkthrough": "R goes inside THE, then W follows. In this April Fool puzzle the grid takes the sound-alike: the clue makes THREW, entered as THROUGH.",
@@ -965,42 +937,40 @@
    },
    "solution": "GUILDERS",
    "annotation": {
-    "type": [
-     "homophone",
-     "anagram"
-    ],
-    "answer": "GUILDERS",
     "definitions": [
      {
       "text": "Dutch old money",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "fake",
-      "for": "anagram",
-      "note": "a fake is a counterfeit made up from something else, so the letters are reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drug",
-      "gives": "DRUG",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I'll",
-      "gives": "ISLE",
-      "soundsLike": "ILL",
-      "note": "the puzzle's April Fool swap: I'll stands for the island word it is said like"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRUGISLE",
-       "gives": "GUILDERS"
+       "text": "fake",
+       "note": "a fake is a counterfeit made up from something else, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Drug",
+         "note": "taken as written"
+        },
+        {
+         "op": "homophone",
+         "spelt": "ISLE",
+         "parts": [
+          {
+           "words": "I'll",
+           "gives": "ILL",
+           "note": "the puzzle's April Fool swap: I'll stands for the island word it is said like"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1030,11 +1000,6 @@
    },
    "solution": "OSBORNE",
    "annotation": {
-    "type": [
-     "anagram",
-     "homophone"
-    ],
-    "answer": "OSBORNE",
     "definitions": [
      {
       "text": "Rocker Ozzy",
@@ -1042,26 +1007,27 @@
       "note": "defines Osbourne, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "rattled",
-      "for": "anagram",
-      "note": "rattled means shaken about, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rattled our bones",
-      "gives": "OSBORNE",
-      "soundsLike": "OSBOURNE",
-      "note": "the letters of our bones, shaken up, spell the rocker's surname"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OSBORNE",
+     "indicators": [
       {
-       "fodder": "OURBONES",
-       "gives": "OSBOURNE"
+       "text": "rattled",
+       "note": "rattled means shaken about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "OSBORNE",
+       "parts": [
+        {
+         "words": "rattled our bones",
+         "gives": "OSBOURNE",
+         "note": "the letters of our bones, shaken up, spell the rocker's surname"
+        }
+       ]
       }
      ]
     },
@@ -1091,45 +1057,40 @@
    },
    "solution": "NEEDIEST",
    "annotation": {
-    "type": [
-     "homophone",
-     "anagram"
-    ],
-    "answer": "NEEDIEST",
     "definitions": [
      {
       "text": "most demanding",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Tricky",
-      "for": "anagram",
-      "note": "tricky suggests something devious and twisted, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scene",
-      "gives": "SEEN",
-      "soundsLike": "SCENE",
-      "note": "the puzzle's April Fool swap: scene stands for the past participle of see, said the same"
-     },
-     {
-      "clueFragment": "diet",
-      "gives": "DIET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEENDIET",
-       "gives": "NEEDIEST"
+       "text": "Tricky",
+       "note": "tricky suggests something devious and twisted, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "SEEN",
+         "parts": [
+          {
+           "words": "scene",
+           "gives": "SCENE",
+           "note": "the puzzle's April Fool swap: scene stands for the past participle of see, said the same"
+          }
+         ]
+        },
+        {
+         "words": "diet",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1159,37 +1120,44 @@
    },
    "solution": "UGANDA",
    "annotation": {
-    "type": [
-     "homophone",
-     "hidden_word"
-    ],
-    "answer": "UGANDA",
     "definitions": [
      {
       "text": "a state",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "bottles",
-      "for": "hidden_word",
-      "note": "a phrase that bottles something holds it inside, so the letters lie within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Litterbug and",
-      "gives": "UGAND",
-      "note": "the end of litterbug and the word after it"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "A",
-      "soundsLike": "OR",
-      "note": "the puzzle's April Fool swap: in British speech or is said like awe, whose opening letter ends the run"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "bottles",
+         "note": "a phrase that bottles something holds it inside, so the letters lie within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Litterbug and",
+         "gives": "UGAND",
+         "note": "the end of litterbug and the word after it"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "A",
+       "parts": [
+        {
+         "words": "or",
+         "gives": "OR",
+         "note": "the puzzle's April Fool swap: in British speech or is said like awe, whose opening letter ends the run"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A litter lout, or a bottle bank, gets national status.",
      "walkthrough": "Each down clue in this April Fool puzzle swaps one word for a sound-alike: read 'and/or' as 'and awe', and the answer runs through litterbUG AND Awe.",
@@ -1216,11 +1184,6 @@
    },
    "solution": "SHEERING",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "SHEERING",
     "definitions": [
      {
       "text": "Cutting",
@@ -1228,14 +1191,17 @@
       "note": "defines shearing, the sound-alike of the grid answer"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "short — at the outset — trial",
-      "gives": "SHEERING",
-      "soundsLike": "SHEARING",
-      "note": "S, the first letter of short, then HEARING, a trial in court"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHEERING",
+     "parts": [
+      {
+       "words": "short — at the outset — trial",
+       "gives": "SHEARING",
+       "note": "S, the first letter of short, then HEARING, a trial in court"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A court case is cut short right at the start.",
      "walkthrough": "In this April Fool puzzle each across clue leads to a word whose sound-alike fills the grid: the clue makes SHEARING, entered as SHEERING.",
@@ -1262,63 +1228,83 @@
    },
    "solution": "HERBAL",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection"
-    ],
-    "answer": "HERBAL",
     "definitions": [
      {
       "text": "Like some tea?",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "For starters",
-      "for": "letter_selection",
-      "note": "starters come first, so the opening letter of each following word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "our",
-      "gives": "H",
-      "select": "first",
-      "soundsLike": "OUR",
-      "note": "the puzzle's April Fool swap: our stands for hour, said the same, whose silent opening letter is kept"
-     },
-     {
-      "clueFragment": "extremely",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of extremely"
-     },
-     {
-      "clueFragment": "ripe",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of ripe"
-     },
-     {
-      "clueFragment": "brie's",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of brie's"
-     },
-     {
-      "clueFragment": "almost",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of almost"
-     },
-     {
-      "clueFragment": "lethal",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of lethal"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "HERBAL",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "our",
+         "gives": "H",
+         "select": "first",
+         "soundsLike": "OUR",
+         "note": "the puzzle's April Fool swap: our stands for hour, said the same, whose silent opening letter is kept"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "For starters",
+           "note": "starters come first, so the opening letter of each following word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "extremely",
+           "note": "first letter of extremely"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "ripe",
+           "note": "first letter of ripe"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "brie's",
+           "note": "first letter of brie's"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "almost",
+           "note": "first letter of almost"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "lethal",
+           "note": "first letter of lethal"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A warning that a very ripe cheese is nearly deadly, followed by a question about tea.",
      "walkthrough": "Each down clue in this April Fool puzzle has one sound-alike swap: 'our' stands for hour, so the initials begin with H, not O.",
@@ -1345,12 +1331,6 @@
    },
    "solution": "PETREL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "homophone"
-    ],
-    "answer": "PETREL",
     "definitions": [
      {
       "text": "what fuels you",
@@ -1358,21 +1338,30 @@
       "note": "defines petrol, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the last letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Favourite kind of sandwich mostly",
-      "gives": "PETREL",
-      "soundsLike": "PETROL",
-      "note": "PET is a favourite, and a ROLL, a kind of sandwich, loses its last letter"
-     }
-    ],
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PETREL",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means not quite all, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PETREL",
+       "parts": [
+        {
+         "words": "Favourite kind of sandwich mostly",
+         "gives": "PETROL",
+         "note": "PET is a favourite, and a ROLL, a kind of sandwich, loses its last letter"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A favourite sandwich is what keeps you going.",
      "walkthrough": "The across clues in this April Fool puzzle lead to words whose sound-alikes fill the grid: the clue makes PETROL, entered as PETREL, a seabird.",
@@ -1405,37 +1394,44 @@
    },
    "solution": "POSING",
    "annotation": {
-    "type": [
-     "homophone",
-     "hidden_word"
-    ],
-    "answer": "POSING",
     "definitions": [
      {
       "text": "Doing model's work",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "clothes",
-      "for": "hidden_word",
-      "note": "to clothe is to cover up, so the words wrap the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "apropos in",
-      "gives": "POSIN",
-      "note": "the end of apropos and the word after it"
-     },
-     {
-      "clueFragment": "nice",
-      "gives": "G",
-      "soundsLike": "NICE",
-      "note": "the puzzle's April Fool swap: nice stands for gneiss, a rock said the same, whose silent opening letter ends the run"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "clothes",
+         "note": "to clothe is to cover up, so the words wrap the answer inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apropos in",
+         "gives": "POSIN",
+         "note": "the end of apropos and the word after it"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "G",
+       "parts": [
+        {
+         "words": "nice",
+         "gives": "NICE",
+         "note": "the puzzle's April Fool swap: nice stands for gneiss, a rock said the same, whose silent opening letter ends the run"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A model is working, aptly dressed in smart clothes.",
      "walkthrough": "Each down clue in this April Fool puzzle has one sound-alike swap: read 'nice' as gneiss, and the answer runs through aproPOS IN Gneiss.",
@@ -1463,12 +1459,6 @@
    },
    "solution": "PRECEDENTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "homophone"
-    ],
-    "answer": "PRECEDENTS",
     "definitions": [
      {
       "text": "Priority",
@@ -1476,34 +1466,40 @@
       "note": "defines precedence, the sound-alike of the grid answer"
      }
     ],
-    "indicators": [
-     {
-      "text": "dodgy",
-      "for": "anagram",
-      "note": "dodgy means unreliable or bent out of shape, so the letters are reworked"
-     },
-     {
-      "text": "coming into",
-      "for": "container",
-      "note": "coming into something means entering it, ending up inside"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dodgy creed coming into money",
-      "gives": "PRECEDENTS",
-      "soundsLike": "PRECEDENCE",
-      "note": "the letters of creed, rearranged, go into PENCE, British money"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PRECEDENTS",
+     "indicators": [
       {
-       "fodder": "CREED",
-       "gives": "RECED"
+       "text": "coming into",
+       "note": "coming into something means entering it, ending up inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "PRECEDENTS",
+       "indicators": [
+        {
+         "text": "dodgy",
+         "note": "dodgy means unreliable or bent out of shape, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "PRECEDENTS",
+         "parts": [
+          {
+           "words": "dodgy creed coming into money",
+           "gives": "PRECEDENCE",
+           "note": "the letters of creed, rearranged, go into PENCE, British money"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1533,11 +1529,6 @@
    },
    "solution": "VEIL",
    "annotation": {
-    "type": [
-     "double_definition",
-     "homophone"
-    ],
-    "answer": "VEIL",
     "definitions": [
      {
       "text": "Farewell",
@@ -1550,20 +1541,35 @@
       "note": "defines vale, the sound-alike of the grid answer"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Farewell",
-      "gives": "VEIL",
-      "soundsLike": "VALE",
-      "note": "first meaning: vale is a Latin goodbye, used in English"
-     },
-     {
-      "clueFragment": "depression",
-      "gives": "VEIL",
-      "soundsLike": "VALE",
-      "note": "second meaning: a vale is a valley, a low hollow between hills"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "VEIL",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "VEIL",
+       "parts": [
+        {
+         "words": "Farewell",
+         "gives": "VALE",
+         "note": "first meaning: vale is a Latin goodbye, used in English"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "VEIL",
+       "parts": [
+        {
+         "words": "depression",
+         "gives": "VALE",
+         "note": "second meaning: a vale is a valley, a low hollow between hills"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The across clues in this April Fool puzzle lead to words whose sound-alikes fill the grid: both meanings give VALE, entered as VEIL.",
      "definitionFit": "Vale is the Latin goodbye used in English, and also a poetic word for a valley, a dip in the land."
@@ -1590,45 +1596,52 @@
    },
    "solution": "VILE",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "VILE",
     "definitions": [
      {
       "text": "Disgusting",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last points to the final position, so only the closing letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sick's",
-      "gives": "VI",
-      "soundsLike": "SIX",
-      "note": "the puzzle's April Fool swap: sick's is said like six, VI in Roman numerals"
-     },
-     {
-      "clueFragment": "all",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of all"
-     },
-     {
-      "clueFragment": "gone",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of gone"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "VI",
+       "parts": [
+        {
+         "words": "sick's",
+         "gives": "SIX",
+         "note": "the puzzle's April Fool swap: sick's is said like six, VI in Roman numerals"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last points to the final position, so only the closing letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "note": "last letter of all"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "gone",
+         "note": "last letter of gone"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone felt revolting until the nausea finally passed.",
      "walkthrough": "Each down clue in this April Fool puzzle has one sound-alike swap: 'sick's' stands for six, written as the Roman numeral.",
@@ -1656,31 +1669,29 @@
    },
    "solution": "MANNER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MANNER",
     "definitions": [
      {
       "text": "style",
       "at": 6
      }
     ],
-    "indicators": [
-     {
-      "text": "announced",
-      "for": "homophone",
-      "note": "announced means spoken out, so the word counts by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House",
-      "gives": "MANNER",
-      "soundsLike": "MANOR",
-      "note": "a manor is a large country house"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MANNER",
+     "indicators": [
+      {
+       "text": "announced",
+       "note": "announced means spoken out, so the word counts by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "House",
+       "gives": "MANOR",
+       "note": "a manor is a large country house"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A publisher declares its house style.",
      "walkthrough": "Every other across clue in this April Fool puzzle enters a sound-alike unannounced; this one plays the same game openly, with 'announced' marking the swap from manor.",
@@ -1707,11 +1718,6 @@
    },
    "solution": "ANNALIST",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ANNALIST",
     "definitions": [
      {
       "text": "Number-cruncher",
@@ -1719,14 +1725,17 @@
       "note": "defines analyst, the sound-alike of the grid answer"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "obsessive, quintessentially — retypes second time",
-      "gives": "ANNALIST",
-      "soundsLike": "ANALYST",
-      "note": "ANAL is obsessively fussy, then Y, the central letter of retypes, then S for second and T for time"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ANNALIST",
+     "parts": [
+      {
+       "words": "obsessive, quintessentially — retypes second time",
+       "gives": "ANALYST",
+       "note": "ANAL is obsessively fussy, then Y, the central letter of retypes, then S for second and T for time"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An obsessive data cruncher retypes a figure a second time.",
      "walkthrough": "This April Fool puzzle enters a sound-alike for each across answer: the clue makes ANALYST, entered as ANNALIST, a writer of annals.",

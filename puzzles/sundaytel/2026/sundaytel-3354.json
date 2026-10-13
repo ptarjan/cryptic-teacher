@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3354",
  "number": 3354,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,354",
  "date": "2026-02-01",
  "dimensions": {
   "cols": 15,
@@ -37,31 +35,29 @@
    },
    "solution": "CHEF",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "and_lit"
-    ],
-    "answer": "CHEF",
     "definitions": [
      {
       "text": "Might one make a little lunch efficiently?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a little",
-      "for": "hidden_word",
-      "note": "only a small part of the words is taken, a little of them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lunch efficiently",
-      "gives": "CHEF",
-      "note": "the letters straddle the gap between the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a little",
+       "note": "only a small part of the words is taken, a little of them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lunch efficiently",
+       "gives": "CHEF",
+       "note": "the letters straddle the gap between the two words"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "A question about who could knock up a quick lunch without fuss.",
      "walkthrough": "The whole clue does double duty: read straight, it asks who might make lunch efficiently, and the professional cook is the natural reply.",
@@ -88,54 +84,52 @@
    },
    "solution": "DOMINO",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DOMINO",
     "definitions": [
      {
       "text": "Tile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "floor in",
-      "for": "letter_selection",
-      "note": "in a down entry the floor of a word is its bottom letter"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "the other pieces stand outside, wrapping round the floor letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "accomplishin'",
-      "gives": "DOIN",
-      "note": "doing, with the G dropped as the apostrophe shows"
-     },
-     {
-      "clueFragment": "floor in bathroom",
-      "gives": "M",
-      "select": "last",
-      "note": "the bottom letter of bathroom"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O = zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "M",
-      "IN",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "the other pieces stand outside, wrapping round the floor letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accomplishin'",
+         "gives": "DOIN",
+         "note": "doing, with the G dropped as the apostrophe shows"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "floor in",
+           "note": "in a down entry the floor of a word is its bottom letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "floor in bathroom",
+           "gives": "BATHROOM",
+           "note": "the bottom letter of bathroom"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O = zero"
+      }
      ]
     },
     "explanation": {
@@ -164,43 +158,33 @@
    },
    "solution": "TANGIEST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TANGIEST",
     "definitions": [
      {
       "text": "most sharp",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Special",
-      "for": "anagram",
-      "note": "something special is out of the ordinary, so the letters leave their ordinary order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "agents",
-      "gives": "AGENTS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "anagram fodder, added on"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AGENTS IT",
-       "gives": "TANGIEST"
+       "text": "Special",
+       "note": "something special is out of the ordinary, so the letters leave their ordinary order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "agents",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "it",
+         "note": "anagram fodder, added on"
+        }
+       ]
       }
      ]
     },
@@ -236,52 +220,54 @@
    },
    "solution": "BOOHOO",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "deletion"
-    ],
-    "answer": "BOO-HOO",
     "definitions": [
      {
       "text": "alas and alack!",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the exclamation and love are put in, inside the shortened novel"
-     },
-     {
-      "text": "abridged",
-      "for": "deletion",
-      "note": "an abridged book is cut short, so its last letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I see",
-      "gives": "OH",
-      "note": "the exclamation of sudden understanding"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love = zero in tennis"
-     },
-     {
-      "clueFragment": "abridged novel",
-      "gives": "BOO",
-      "note": "BOOK cut short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "OHO",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BOOHOO",
+     "indicators": [
+      {
+       "text": "abridged",
+       "note": "an abridged book is cut short, so its last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the exclamation and love are put in, inside the shortened novel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abridged novel",
+         "gives": "BOO",
+         "note": "BOOK cut short"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I see",
+           "gives": "OH",
+           "note": "the exclamation of sudden understanding"
+          },
+          {
+           "words": "love",
+           "gives": "O",
+           "note": "love = zero in tennis"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -310,32 +296,25 @@
    },
    "solution": "FLAPJACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLAPJACK",
     "definitions": [
      {
       "text": "thick biscuit",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fold",
-      "gives": "FLAP",
-      "note": "a folded-over piece, as on an envelope"
-     },
-     {
-      "clueFragment": "lift up",
-      "gives": "JACK",
-      "note": "as you raise a car to change a wheel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLAP",
-      "JACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fold",
+       "gives": "FLAP",
+       "note": "a folded-over piece, as on an envelope"
+      },
+      {
+       "words": "lift up",
+       "gives": "JACK",
+       "note": "as you raise a car to change a wheel"
+      }
      ]
     },
     "explanation": {
@@ -364,41 +343,36 @@
    },
    "solution": "BORNEO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BORNEO",
     "definitions": [
      {
       "text": "Island",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "the origin of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "endured",
-      "gives": "BORNE",
-      "note": "as in hardship borne bravely"
-     },
-     {
-      "clueFragment": "occupation originally",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of occupation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BORNE",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "endured",
+       "gives": "BORNE",
+       "note": "as in hardship borne bravely"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "the origin of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "occupation originally",
+         "gives": "OCCUPATION",
+         "note": "first letter of occupation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -427,32 +401,25 @@
    },
    "solution": "MESH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MESH",
     "definitions": [
      {
       "text": "Network",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "ME",
-      "note": "the speaker, as object"
-     },
-     {
-      "clueFragment": "mustn't tell!",
-      "gives": "SH",
-      "note": "the call for silence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "SH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "gives": "ME",
+       "note": "the speaker, as object"
+      },
+      {
+       "words": "mustn't tell!",
+       "gives": "SH",
+       "note": "the call for silence"
+      }
      ]
     },
     "explanation": {
@@ -487,40 +454,38 @@
    },
    "solution": "HOTPOTATO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HOT POTATO",
     "definitions": [
      {
       "text": "It's tricky to handle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfinished",
-      "for": "deletion",
-      "note": "a word left unfinished loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this stew",
-      "gives": "HOTPOT",
-      "note": "a Lancashire stew of meat baked under sliced potatoes"
-     },
-     {
-      "clueFragment": "small amount unfinished",
-      "gives": "ATO",
-      "note": "ATOM without its M"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOTPOT",
-      "ATO"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOTPOTATO",
+     "indicators": [
+      {
+       "text": "unfinished",
+       "note": "a word left unfinished loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "this stew",
+         "gives": "HOTPOT",
+         "note": "a Lancashire stew of meat baked under sliced potatoes"
+        },
+        {
+         "words": "small amount unfinished",
+         "gives": "ATO",
+         "note": "ATOM without its M"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -550,48 +515,37 @@
    },
    "solution": "THEOREM",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "THEOREM",
     "definitions": [
      {
       "text": "proposition",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "fanciful",
-      "for": "anagram",
-      "note": "a fanciful version is an imaginative reworking, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Article",
-      "gives": "THE",
-      "note": "the definite article"
-     },
-     {
-      "clueFragment": "more fanciful",
-      "gives": "OREM",
-      "note": "MORE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "OREM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "THEOREM",
+     "indicators": [
       {
-       "fodder": "MORE",
-       "gives": "OREM"
+       "text": "fanciful",
+       "note": "a fanciful version is an imaginative reworking, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Article",
+         "gives": "THE",
+         "note": "the definite article"
+        },
+        {
+         "words": "more fanciful",
+         "gives": "OREM",
+         "note": "MORE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -621,41 +575,36 @@
    },
    "solution": "LOOSE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "LOOSE",
     "definitions": [
      {
       "text": "Wanton",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "the final letter of chaste"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ladies and gentlemen",
-      "gives": "LOOS",
-      "note": "the Ladies and the Gents are both public toilets"
-     },
-     {
-      "clueFragment": "chaste finally",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of chaste"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOOS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ladies and gentlemen",
+       "gives": "LOOS",
+       "note": "the Ladies and the Gents are both public toilets"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "the final letter of chaste"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chaste finally",
+         "gives": "CHASTE",
+         "note": "last letter of chaste"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -695,30 +644,16 @@
    },
    "solution": "FEELINGTHEPINCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FEELING THE PINCH",
     "definitions": [
      {
       "text": "A bit short",
-      "at": 0
+      "at": 0,
+      "meaning": "short of money, hard up"
      },
      {
       "text": "being tweaked?",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A bit short",
-      "gives": "FEELINGTHEPINCH",
-      "note": "short of money, hard up"
-     },
-     {
-      "clueFragment": "being tweaked?",
-      "gives": "FEELINGTHEPINCH",
-      "note": "literally, having your skin squeezed between finger and thumb"
+      "at": 17,
+      "meaning": "literally, having your skin squeezed between finger and thumb"
      }
     ],
     "explanation": {
@@ -748,48 +683,37 @@
    },
    "solution": "BARCODE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BARCODE",
     "definitions": [
      {
       "text": "Lines read",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "called back, so the word runs backwards"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nipper recalled",
-      "gives": "BARC",
-      "note": "a crab nips with its claws; CRAB turned round"
-     },
-     {
-      "clueFragment": "poem",
-      "gives": "ODE",
-      "note": "a lyric poem"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARC",
-      "ODE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "BARCODE",
+     "indicators": [
       {
-       "from": "CRAB",
-       "to": "BARC"
+       "text": "recalled",
+       "note": "called back, so the word runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nipper recalled",
+         "gives": "BARC",
+         "note": "a crab nips with its claws; CRAB turned round"
+        },
+        {
+         "words": "poem",
+         "gives": "ODE",
+         "note": "a lyric poem"
+        }
+       ]
       }
      ]
     },
@@ -820,30 +744,16 @@
    },
    "solution": "BUCKS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUCKS",
     "definitions": [
      {
       "text": "County",
-      "at": 0
+      "at": 0,
+      "meaning": "the usual short name for Buckinghamshire, an English county"
      },
      {
       "text": "revenue earned abroad",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "County",
-      "gives": "BUCKS",
-      "note": "the usual short name for Buckinghamshire, an English county"
-     },
-     {
-      "clueFragment": "revenue earned abroad",
-      "gives": "BUCKS",
-      "note": "American slang for dollars; abroad points overseas"
+      "at": 7,
+      "meaning": "American slang for dollars; abroad points overseas"
      }
     ],
     "explanation": {
@@ -882,30 +792,16 @@
    },
    "solution": "ONAROLL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON A ROLL",
     "definitions": [
      {
       "text": "In the zone",
-      "at": 0
+      "at": 0,
+      "meaning": "having a run of success"
      },
      {
       "text": "where margarine might go?",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In the zone",
-      "gives": "ONAROLL",
-      "note": "having a run of success"
-     },
-     {
-      "clueFragment": "where margarine might go?",
-      "gives": "ONAROLL",
-      "note": "spread on a small bread bun"
+      "at": 12,
+      "meaning": "spread on a small bread bun"
      }
     ],
     "explanation": {
@@ -935,33 +831,28 @@
    },
    "solution": "LATTE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LATTE",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfinished",
-      "for": "deletion",
-      "note": "a word left unfinished loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second of the two unfinished",
-      "gives": "LATTE",
-      "note": "the word for the second of two things, without its R"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATTE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LATTE",
+     "indicators": [
+      {
+       "text": "unfinished",
+       "note": "a word left unfinished loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second of the two unfinished",
+       "gives": "LATTE",
+       "note": "the word for the second of two things, without its R"
+      }
      ]
     },
     "explanation": {
@@ -1008,45 +899,37 @@
    },
    "solution": "COMETOTHINKOFIT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "COME TO THINK OF IT",
     "definitions": [
      {
       "text": "by the way",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "rocks",
-      "for": "anagram",
-      "note": "to rock something is to shake it about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Celestial body",
-      "gives": "COMET",
-      "note": "a heavenly body with a tail"
-     },
-     {
-      "clueFragment": "if not OK, hit",
-      "gives": "OTHINKOFIT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMET",
-      "OTHINKOFIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "COMETOTHINKOFIT",
+     "indicators": [
       {
-       "fodder": "IFNOTOKHIT",
-       "gives": "OTHINKOFIT"
+       "text": "rocks",
+       "note": "to rock something is to shake it about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Celestial body",
+         "gives": "COMET",
+         "note": "a heavenly body with a tail"
+        },
+        {
+         "words": "if not OK, hit",
+         "gives": "OTHINKOFIT",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1076,49 +959,41 @@
    },
    "solution": "TANGIBLE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "TANGIBLE",
     "definitions": [
      {
       "text": "Real",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned up",
-      "note": "in a down entry, turned up means read upwards"
-     },
-     {
-      "text": "in",
-      "note": "the reversed pair goes inside the jumble word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "book, one",
-      "gives": "IB",
-      "note": "B for book and I for one, turned upward"
-     },
-     {
-      "clueFragment": "jumble",
-      "gives": "TANGLE",
-      "note": "a knotted mess"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TANG",
-      "IB",
-      "LE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TANGIBLE",
+     "parts": [
       {
-       "from": "BI",
-       "to": "IB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "turned up",
+         "note": "in a down entry, turned up means read upwards"
+        },
+        {
+         "text": "in",
+         "note": "the reversed pair goes inside the jumble word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jumble",
+         "gives": "TANGLE",
+         "note": "a knotted mess"
+        },
+        {
+         "words": "book, one",
+         "gives": "IB",
+         "note": "B for book and I for one, turned upward"
+        }
+       ]
       }
      ]
     },
@@ -1148,38 +1023,24 @@
    },
    "solution": "INSTANCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INSTANCE",
     "definitions": [
      {
       "text": "example",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "treated",
-      "for": "anagram",
-      "note": "something treated is processed and changed, so the letters change order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acne isn't",
-      "gives": "ACNEISNT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACNE ISNT",
-       "gives": "INSTANCE"
+       "text": "treated",
+       "note": "something treated is processed and changed, so the letters change order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Acne isn't",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1209,32 +1070,25 @@
    },
    "solution": "FORTUNE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORTUNE",
     "definitions": [
      {
       "text": "King's ransom",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "assigned to",
-      "gives": "FOR",
-      "note": "designated to, as in a job for someone"
-     },
-     {
-      "clueFragment": "music",
-      "gives": "TUNE",
-      "note": "a melody"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "TUNE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "assigned to",
+       "gives": "FOR",
+       "note": "designated to, as in a job for someone"
+      },
+      {
+       "words": "music",
+       "gives": "TUNE",
+       "note": "a melody"
+      }
      ]
     },
     "explanation": {
@@ -1263,35 +1117,24 @@
    },
    "solution": "SEMINAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SEMINAR",
     "definitions": [
      {
       "text": "Conference",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a shambles",
-      "for": "anagram",
-      "note": "a shambles is a mess, so the letters are messed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remains",
-      "gives": "REMAINS",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REMAINS",
-       "gives": "SEMINAR"
+       "text": "a shambles",
+       "note": "a shambles is a mess, so the letters are messed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remains",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1327,30 +1170,16 @@
    },
    "solution": "MAKEIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MAKE IT",
     "definitions": [
      {
       "text": "Triumph",
-      "at": 0
+      "at": 0,
+      "meaning": "succeed, get there"
      },
      {
       "text": "manufacture that thing",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Triumph",
-      "gives": "MAKEIT",
-      "note": "succeed, get there"
-     },
-     {
-      "clueFragment": "manufacture that thing",
-      "gives": "MAKEIT",
-      "note": "literally, produce the object named by 'that thing'"
+      "at": 9,
+      "meaning": "literally, produce the object named by 'that thing'"
      }
     ],
     "explanation": {
@@ -1380,30 +1209,16 @@
    },
    "solution": "RETIRE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RETIRE",
     "definitions": [
      {
       "text": "Step down",
-      "at": 0
+      "at": 0,
+      "meaning": "leave a job or post"
      },
      {
       "text": "go upstairs?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Step down",
-      "gives": "RETIRE",
-      "note": "leave a job or post"
-     },
-     {
-      "clueFragment": "go upstairs?",
-      "gives": "RETIRE",
-      "note": "head up to bed for the night"
+      "at": 14,
+      "meaning": "head up to bed for the night"
      }
     ],
     "explanation": {
@@ -1439,47 +1254,41 @@
    },
    "solution": "SETFREE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SET FREE",
     "definitions": [
      {
       "text": "Deliver",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the payment goes round right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "collection",
-      "gives": "SET",
-      "note": "a group of things that belong together"
-     },
-     {
-      "clueFragment": "payment",
-      "gives": "FEE",
-      "note": "a charge paid"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SET",
-      "F",
-      "R",
-      "EE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "collection",
+       "gives": "SET",
+       "note": "a group of things that belong together"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the payment goes round right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "payment",
+         "gives": "FEE",
+         "note": "a charge paid"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R = right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1508,35 +1317,24 @@
    },
    "solution": "TUCSON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TUCSON",
     "definitions": [
      {
       "text": "US city",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Wrong",
-      "for": "anagram",
-      "note": "the letters are in the wrong order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "counts",
-      "gives": "COUNTS",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COUNTS",
-       "gives": "TUCSON"
+       "text": "Wrong",
+       "note": "the letters are in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "counts",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1576,30 +1374,16 @@
    },
    "solution": "TAKEINTOACCOUNT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAKE INTO ACCOUNT",
     "definitions": [
      {
       "text": "Consider",
-      "at": 0
+      "at": 0,
+      "meaning": "bear in mind"
      },
      {
       "text": "deposit?",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Consider",
-      "gives": "TAKEINTOACCOUNT",
-      "note": "bear in mind"
-     },
-     {
-      "clueFragment": "deposit?",
-      "gives": "TAKEINTOACCOUNT",
-      "note": "literally, what a bank does with money paid in"
+      "at": 9,
+      "meaning": "literally, what a bank does with money paid in"
      }
     ],
     "explanation": {
@@ -1629,26 +1413,25 @@
    },
    "solution": "TIDE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TIDE",
     "definitions": [
      {
       "text": "Turner in watercolours?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Turner",
-      "note": "not the painter but anything that turns"
-     },
-     {
-      "clueFragment": "in watercolours?",
-      "note": "not paintings but the coloured waters of the sea"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Turner",
+       "note": "not the painter but anything that turns"
+      },
+      {
+       "words": "in watercolours?",
+       "note": "not paintings but the coloured waters of the sea"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A note on the painter J. M. W. Turner's watercolours.",
      "walkthrough": "Turner is the English painter famous for seascapes and watercolours; read literally, the turner in the sea's waters is the ebb and flow that turns twice a day.",
@@ -1676,30 +1459,28 @@
    },
    "solution": "TEAT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TEAT",
     "definitions": [
      {
       "text": "Feeder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer lies inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fact eating",
-      "gives": "TEAT",
-      "note": "the last letter of fact and the first three of eating"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer lies inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fact eating",
+       "gives": "TEAT",
+       "note": "the last letter of fact and the first three of eating"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An exclamation about a feeder actually eating.",
      "walkthrough": "Feeder sounds like a creature eating; it is the thing a young animal feeds from.",
@@ -1726,30 +1507,16 @@
    },
    "solution": "DRILL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DRILL",
     "definitions": [
      {
       "text": "Exercise",
-      "at": 0
+      "at": 0,
+      "meaning": "repeated practice, as soldiers do"
      },
      {
       "text": "bit required with that?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exercise",
-      "gives": "DRILL",
-      "note": "repeated practice, as soldiers do"
-     },
-     {
-      "clueFragment": "bit required with that?",
-      "gives": "DRILL",
-      "note": "the boring tool needs a bit fitted to work"
+      "at": 11,
+      "meaning": "the boring tool needs a bit fitted to work"
      }
     ],
     "explanation": {
@@ -1785,56 +1552,59 @@
    },
    "solution": "ROCKOPERA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ROCK OPERA",
     "definitions": [
      {
       "text": "musical show",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word loses its insides"
-     },
-     {
-      "text": "read through",
-      "note": "one thing through another is set inside it"
-     },
-     {
-      "text": "review of",
-      "note": "a review reworks and reconsiders, so the letters are reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vacuous clerk",
-      "gives": "CK",
-      "select": "outer",
-      "note": "clerk without its middle"
-     },
-     {
-      "clueFragment": "a poorer",
-      "gives": "ROOPERA",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "CK",
-      "OPERA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ROCKOPERA",
+     "parts": [
       {
-       "fodder": "APOORER",
-       "gives": "ROOPERA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "read through",
+         "note": "one thing through another is set inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "review of",
+           "note": "a review reworks and reconsiders, so the letters are reworked"
+          }
+         ],
+         "parts": [
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "Vacuous",
+             "note": "vacuous means empty, so the word loses its insides"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Vacuous clerk",
+             "gives": "CLERK",
+             "note": "clerk without its middle"
+            }
+           ]
+          },
+          {
+           "words": "a poorer",
+           "gives": "ROOPERA",
+           "note": "anagram fodder"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

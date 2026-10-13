@@ -1,8 +1,6 @@
 {
  "id": "toughie-3226",
  "number": 3226,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,226",
  "setter": "Hudson",
  "date": "2024-02-28",
  "dimensions": {
@@ -38,47 +36,49 @@
    },
    "solution": "BOLERO",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BOLERO",
     "definitions": [
      {
       "text": "jacket",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Wicketless",
-      "for": "deletion",
-      "note": "without a wicket means the cricket scorer's abbreviation for wicket is taken out"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter, so only that is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seamer possibly",
-      "gives": "BOWLER",
-      "note": "a seamer is one kind of bowler in cricket, hence 'possibly'"
-     },
-     {
-      "clueFragment": "open",
-      "gives": "O",
-      "select": "first",
-      "note": "the first letter of open"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOLER",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Wicketless",
+       "note": "without a wicket means the cricket scorer's abbreviation for wicket is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "seamer possibly",
+         "gives": "BOWLER",
+         "note": "a seamer is one kind of bowler in cricket, hence 'possibly'"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "note": "the beginning of a word is its first letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "open",
+           "note": "the first letter of open"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "W"
+      }
      ]
     },
     "explanation": {
@@ -107,30 +107,28 @@
    },
    "solution": "FAIRLY",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FAIRLY",
     "definitions": [
      {
       "text": "Quite",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "possesses",
-      "for": "hidden_word",
-      "note": "the run of words is said to hold the answer within it, as an owner possesses a thing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aloof air Lysander",
-      "gives": "FAIRLY",
-      "note": "spans the last letter of aloof, all of air and the start of Lysander"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "possesses",
+       "note": "the run of words is said to hold the answer within it, as an owner possesses a thing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "aloof air Lysander",
+       "gives": "FAIRLY",
+       "note": "spans the last letter of aloof, all of air and the start of Lysander"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Lysander, a haughty character, carries himself with a rather standoffish air.",
      "definitionFit": "Quite and fairly are synonyms as adverbs of moderate degree, as in 'quite good' or 'fairly good'."
@@ -170,26 +168,25 @@
    },
    "solution": "WISHYOUWEREHERE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WISH YOU WERE HERE",
     "definitions": [
      {
       "text": "Inscription on note from missing person?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Inscription on note from missing person?",
-      "note": "surface reading: a message left behind by someone who has disappeared, like a ransom or farewell note"
-     },
-     {
-      "clueFragment": "missing person",
-      "note": "setter's reading: a holidaymaker misses the people at home, and the note is a postcard bearing the stock line holidaymakers write"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Inscription on note from missing person?",
+       "note": "surface reading: a message left behind by someone who has disappeared, like a ransom or farewell note"
+      },
+      {
+       "words": "missing person",
+       "note": "setter's reading: a holidaymaker misses the people at home, and the note is a postcard bearing the stock line holidaymakers write"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Missing person' suggests a police inquiry; here the sender is simply missing the recipient while away. It links with the postcard at 21.",
      "definitionFit": "The phrase is the cliché written on holiday postcards, telling the reader the sender longs for their company."
@@ -222,44 +219,34 @@
    },
    "solution": "MADEHAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MADE HAY",
     "definitions": [
      {
       "text": "seized the opportunity",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crazy",
-      "gives": "MAD",
-      "note": "mad means crazy"
-     },
-     {
-      "clueFragment": "what",
-      "gives": "EH",
-      "note": "eh? is a way of saying what?"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y is the standard abbreviation for year"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAD",
-      "EH",
-      "A",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crazy",
+       "gives": "MAD",
+       "note": "mad means crazy"
+      },
+      {
+       "words": "what",
+       "gives": "EH",
+       "note": "eh? is a way of saying what?"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "year",
+       "gives": "Y",
+       "note": "Y is the standard abbreviation for year"
+      }
      ]
     },
     "explanation": {
@@ -297,35 +284,24 @@
    },
    "solution": "BUBBLEANDSQUEAK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BUBBLE AND SQUEAK",
     "definitions": [
      {
       "text": "something to eat",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Organising",
-      "for": "anagram",
-      "note": "organising means arranging things into a new order, so the letters that follow are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a UK BBQ: sunbed, ale",
-      "gives": "AUKBBQSUNBEDALE",
-      "note": "all fifteen letters used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AUKBBQSUNBEDALE",
-       "gives": "BUBBLEANDSQUEAK"
+       "text": "Organising",
+       "note": "organising means arranging things into a new order, so the letters that follow are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a UK BBQ: sunbed, ale",
+       "note": "all fifteen letters used"
       }
      ]
     },
@@ -361,47 +337,41 @@
    },
    "solution": "ABOVEPAR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ABOVE PAR",
     "definitions": [
      {
       "text": "Better than average",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container",
-      "note": "to embrace is to hold in one's arms, so one word wraps around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sailor",
-      "gives": "AB",
-      "note": "AB, able seaman, is a sailor"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "OVER",
-      "note": "over means finished"
-     },
-     {
-      "clueFragment": "dad",
-      "gives": "PA",
-      "note": "pa is a familiar word for father"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "OVE",
-      "PA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sailor",
+       "gives": "AB",
+       "note": "AB, able seaman, is a sailor"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embracing",
+         "note": "to embrace is to hold in one's arms, so one word wraps around another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finished",
+         "gives": "OVER",
+         "note": "over means finished"
+        },
+        {
+         "words": "dad",
+         "gives": "PA",
+         "note": "pa is a familiar word for father"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -429,40 +399,31 @@
    },
    "solution": "ENSNARED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ENSNARED",
     "definitions": [
      {
       "text": "Caught",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "during",
-      "for": "container",
-      "note": "something happening during another thing occurs within it, so one word sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "finale",
-      "gives": "END",
-      "note": "the finale is the end"
-     },
-     {
-      "clueFragment": "drum",
-      "gives": "SNARE",
-      "note": "a snare is a type of drum"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "SNARE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "something happening during another thing occurs within it, so one word sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "finale",
+       "gives": "END",
+       "note": "the finale is the end"
+      },
+      {
+       "words": "drum",
+       "gives": "SNARE",
+       "note": "a snare is a type of drum"
+      }
      ]
     },
     "explanation": {
@@ -496,50 +457,50 @@
    },
    "solution": "MONALISA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MONA LISA",
     "definitions": [
      {
       "text": "global icon",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Lacking",
-      "for": "deletion",
-      "note": "lacking means going without, so the letters standing for the next two words are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy, one of the letters removed"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English, the other letter removed"
-     },
-     {
-      "clueFragment": "Test spinner's",
-      "gives": "MOEENALIS",
-      "note": "Moeen Ali, England's off-spin bowler in Test cricket, with the possessive S"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MON",
-      "ALIS",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Lacking",
+         "note": "lacking means going without, so the letters standing for the next two words are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Test spinner's",
+         "gives": "MOEENALIS",
+         "note": "Moeen Ali, England's off-spin bowler in Test cricket, with the possessive S"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "energy",
+           "gives": "E",
+           "note": "E is the physics symbol for energy, one of the letters removed"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E is the abbreviation for English, the other letter removed"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -568,33 +529,28 @@
    },
    "solution": "URBANE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "URBANE",
     "definitions": [
      {
       "text": "looking sophisticated",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "with edges trimmed",
-      "for": "deletion",
-      "note": "trimming the edges cuts off both ends, so the first and last letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wearing Sikh headdress",
-      "gives": "TURBANED",
-      "note": "turbaned means wearing a turban, the headwear of Sikh men"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "URBANE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "URBANE",
+     "indicators": [
+      {
+       "text": "with edges trimmed",
+       "note": "trimming the edges cuts off both ends, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wearing Sikh headdress",
+       "gives": "TURBANED",
+       "note": "turbaned means wearing a turban, the headwear of Sikh men"
+      }
      ]
     },
     "explanation": {
@@ -622,41 +578,25 @@
    },
    "solution": "DUB",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DUB",
     "definitions": [
      {
       "text": "Name",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting knocked back",
-      "for": "reversal",
-      "note": "knocked back means sent backwards, so the word is read from end to start"
-     }
-    ],
-    "linkWords": [
-     "which is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US beer",
-      "gives": "BUD",
-      "note": "Bud, Budweiser, is an American beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BUD",
-       "to": "DUB"
+       "text": "getting knocked back",
+       "note": "knocked back means sent backwards, so the word is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US beer",
+       "gives": "BUD",
+       "note": "Bud, Budweiser, is an American beer"
       }
      ]
     },
@@ -693,46 +633,44 @@
    },
    "solution": "SEARCHME",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SEARCH ME",
     "definitions": [
      {
       "text": "I've absolutely no idea",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaving",
-      "for": "deletion",
-      "note": "leaving means departing, so the letters named before it go out of the name that follows"
-     },
-     {
-      "text": "baffled",
-      "for": "anagram",
-      "note": "baffled means confused, so the remaining letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1D",
-      "gives": "ID",
-      "note": "read as the letter I and the letter D, not as a reference to another clue"
-     },
-     {
-      "clueFragment": "Archimedes",
-      "gives": "ARCHIMEDES",
-      "note": "the Greek mathematician, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SEARCHME",
+     "indicators": [
       {
-       "fodder": "ARCHMEES",
-       "gives": "SEARCHME"
+       "text": "baffled",
+       "note": "baffled means confused, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "SEARCHME",
+       "indicators": [
+        {
+         "text": "Leaving",
+         "note": "leaving means departing, so the letters named before it go out of the name that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "1D",
+         "gives": "ID",
+         "note": "read as the letter I and the letter D, not as a reference to another clue"
+        },
+        {
+         "words": "Archimedes",
+         "note": "the Greek mathematician, taken as written"
+        }
+       ]
       }
      ]
     },
@@ -763,47 +701,41 @@
    },
    "solution": "BOVINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BOVINE",
     "definitions": [
      {
       "text": "Stupid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders of",
-      "for": "letter_selection",
-      "note": "the leaders of words are their front letters, so each of the next words gives its first"
-     },
-     {
-      "text": "guzzling",
-      "for": "container",
-      "note": "guzzling means swallowing greedily, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bank of England",
-      "gives": "BOE",
-      "select": "first",
-      "note": "the first letters of Bank, of and England"
-     },
-     {
-      "clueFragment": "French wine",
-      "gives": "VIN",
-      "note": "vin is French for wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "VIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "guzzling",
+       "note": "guzzling means swallowing greedily, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders of",
+         "note": "the leaders of words are their front letters, so each of the next words gives its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bank of England",
+         "note": "the first letters of Bank, of and England"
+        }
+       ]
+      },
+      {
+       "words": "French wine",
+       "gives": "VIN",
+       "note": "vin is French for wine"
+      }
      ]
     },
     "explanation": {
@@ -841,41 +773,39 @@
    },
    "solution": "HOLYROMANEMPIRE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "HOLY ROMAN EMPIRE",
     "definitions": [
      {
       "text": "former European power",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Timeless",
-      "for": "deletion",
-      "note": "without time: T stands for time, and every such letter is taken out"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about suggests turning around and moving letters into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "metropolitan rhyme",
-      "gives": "METROPOLITANRHYME",
-      "note": "both words taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "HOLYROMANEMPIRE",
+     "indicators": [
       {
-       "fodder": "MEROPOLIANRHYME",
-       "gives": "HOLYROMANEMPIRE"
+       "text": "about",
+       "note": "about suggests turning around and moving letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "HOLYROMANEMPIRE",
+       "indicators": [
+        {
+         "text": "Timeless",
+         "note": "without time: T stands for time, and every such letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "metropolitan rhyme",
+         "note": "both words taken as written"
+        }
+       ]
       }
      ]
     },
@@ -905,32 +835,25 @@
    },
    "solution": "LIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIE",
     "definitions": [
      {
       "text": "whopper",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Large",
-      "gives": "L",
-      "note": "L is the standard abbreviation for large, as on clothing labels"
-     },
-     {
-      "clueFragment": "That is",
-      "gives": "IE",
-      "note": "i.e. is the abbreviation of id est, that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Large",
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
+      },
+      {
+       "words": "That is",
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, that is"
+      }
      ]
     },
     "explanation": {
@@ -966,50 +889,41 @@
    },
    "solution": "TIEDOWN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TIE DOWN",
     "definitions": [
      {
       "text": "hamper",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at fixed intervals, so every second letter is taken"
-     },
-     {
-      "text": "packed inside",
-      "for": "container",
-      "note": "packed inside means placed within, so these letters go into another word"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sandwich, perhaps",
-      "gives": "TOWN",
-      "note": "Sandwich in Kent is an example of a town, hence 'perhaps'"
-     },
-     {
-      "clueFragment": "limeade",
-      "gives": "IED",
-      "select": "alternate",
-      "note": "the second, fourth and sixth letters of limeade"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "IED",
-      "OWN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "packed inside",
+       "note": "packed inside means placed within, so these letters go into another word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sandwich, perhaps",
+       "gives": "TOWN",
+       "note": "Sandwich in Kent is an example of a town, hence 'perhaps'"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at fixed intervals, so every second letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "limeade",
+         "note": "the second, fourth and sixth letters of limeade"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1045,49 +959,38 @@
    },
    "solution": "IRISHSEA",
    "annotation": {
-    "type": [
-     "cycling",
-     "charade"
-    ],
-    "answer": "IRISH SEA",
     "definitions": [
      {
       "text": "location of controversial border",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "concluding I must go first",
-      "for": "cycling",
-      "note": "the final I of the name is moved from the end to the front"
-     }
-    ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM",
-      "gives": "RISHI",
-      "note": "Rishi Sunak, a former UK Prime Minister"
-     },
-     {
-      "clueFragment": "home counties",
-      "gives": "SE",
-      "note": "the Home Counties surround London in the south-east of England"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A is the standard abbreviation for area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IRISH",
-      "SE",
-      "A"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "IRISHSEA",
+     "indicators": [
+      {
+       "text": "concluding I must go first",
+       "note": "the final I of the name is moved from the end to the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "PM",
+       "gives": "RISHI",
+       "note": "Rishi Sunak, a former UK Prime Minister"
+      },
+      {
+       "words": "home counties",
+       "gives": "SE",
+       "note": "the Home Counties surround London in the south-east of England"
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "A is the standard abbreviation for area"
+      }
      ]
     },
     "explanation": {
@@ -1122,53 +1025,55 @@
    },
    "solution": "DOTEUPON",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "container"
-    ],
-    "answer": "DOTE UPON",
     "definitions": [
      {
       "text": "Completely adore",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "endlessly means without its end, so the last letter is cut off"
-     },
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "carrying means holding, so the shortened name holds the next pieces inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lorna",
-      "gives": "DOONE",
-      "note": "Lorna Doone is the heroine of R. D. Blackmore's novel"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "TE",
-      "note": "te is a note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "aloft",
-      "gives": "UP",
-      "note": "aloft means up high"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "TE",
-      "UP",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "carrying means holding, so the shortened name holds the next pieces inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "endlessly means without its end, so the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lorna",
+         "gives": "DOONE",
+         "note": "Lorna Doone is the heroine of R. D. Blackmore's novel"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "note",
+         "gives": "TE",
+         "note": "te is a note of the sol-fa scale"
+        },
+        {
+         "words": "aloft",
+         "gives": "UP",
+         "note": "aloft means up high"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1197,38 +1102,31 @@
    },
    "solution": "INTRUDE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INTRUDE",
     "definitions": [
      {
       "text": "Rudely disturb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so the pause sound named next is removed from the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hesitation",
-      "gives": "ERM",
-      "note": "erm is the sound of someone hesitating, the letters removed"
-     },
-     {
-      "clueFragment": "cow on the tube",
-      "gives": "ERMINTRUDE",
-      "note": "Ermintrude is the cow in the British children's TV show The Magic Roundabout"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTRUDE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without means lacking, so the pause sound named next is removed from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cow on the tube",
+       "gives": "ERMINTRUDE",
+       "note": "Ermintrude is the cow in the British children's TV show The Magic Roundabout"
+      },
+      {
+       "words": "hesitation",
+       "gives": "ERM",
+       "note": "erm is the sound of someone hesitating, the letters removed"
+      }
      ]
     },
     "explanation": {
@@ -1258,28 +1156,16 @@
    },
    "solution": "UVA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UVA",
     "definitions": [
      {
       "text": "Grape",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the Latin and botanical word for a grape"
      },
      {
       "text": "skin might be damaged by these rays",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grape",
-      "note": "first meaning: the Latin and botanical word for a grape"
-     },
-     {
-      "clueFragment": "skin might be damaged by these rays",
-      "note": "second meaning: ultraviolet A radiation from the sun, which ages skin"
+      "at": 6,
+      "meaning": "second meaning: ultraviolet A radiation from the sun, which ages skin"
      }
     ],
     "explanation": {
@@ -1315,35 +1201,24 @@
    },
    "solution": "SPABATH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPA BATH",
     "definitions": [
      {
       "text": "jacuzzi?",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "anagram",
-      "note": "breaking something smashes its form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bash tap",
-      "gives": "BASHTAP",
-      "note": "both words taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BASHTAP",
-       "gives": "SPABATH"
+       "text": "breaking",
+       "note": "breaking something smashes its form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bash tap",
+       "note": "both words taken as written"
       }
      ]
     },
@@ -1378,35 +1253,24 @@
    },
    "solution": "PICTUREPOSTCARD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PICTURE POSTCARD",
     "definitions": [
      {
       "text": "dispatch from traveller",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminally",
-      "for": "anagram",
-      "note": "acting criminally means going wrong, so the letters are bent into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "corrupt CID tapes",
-      "gives": "CORRUPTCIDTAPES",
-      "note": "all fifteen letters used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CORRUPTCIDTAPES",
-       "gives": "PICTUREPOSTCARD"
+       "text": "Criminally",
+       "note": "acting criminally means going wrong, so the letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corrupt CID tapes",
+       "note": "all fifteen letters used"
       }
      ]
     },
@@ -1436,42 +1300,30 @@
    },
    "solution": "COFFEE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COFFEE",
     "definitions": [
      {
       "text": "For the Yankees, Joe",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is",
-     "touching"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caught before",
-      "gives": "C",
-      "note": "c is the cricket scorecard abbreviation for caught, placed first"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OFF",
-      "note": "off means out, as of a light or an absent player"
-     },
-     {
-      "clueFragment": "bases",
-      "gives": "EE",
-      "note": "e is the base of natural logarithms, so two bases give two of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OFF",
-      "EE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught before",
+       "gives": "C",
+       "note": "c is the cricket scorecard abbreviation for caught, placed first"
+      },
+      {
+       "words": "out",
+       "gives": "OFF",
+       "note": "off means out, as of a light or an absent player"
+      },
+      {
+       "words": "bases",
+       "gives": "EE",
+       "note": "e is the base of natural logarithms, so two bases give two of it"
+      }
      ]
     },
     "explanation": {
@@ -1501,40 +1353,31 @@
    },
    "solution": "REAGAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REAGAN",
     "definitions": [
      {
       "text": "president",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "throttles",
-      "for": "container",
-      "note": "throttling grips something round the neck, so one piece is enclosed by another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tragic middle child",
-      "gives": "REGAN",
-      "note": "Regan is King Lear's second of three daughters in Shakespeare's tragedy"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is a standard abbreviation for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "A",
-      "GAN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "throttles",
+       "note": "throttling grips something round the neck, so one piece is enclosed by another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tragic middle child",
+       "gives": "REGAN",
+       "note": "Regan is King Lear's second of three daughters in Shakespeare's tragedy"
+      },
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A is a standard abbreviation for American"
+      }
      ]
     },
     "explanation": {
@@ -1563,43 +1406,31 @@
    },
    "solution": "CHOUGH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHOUGH",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swallowing",
-      "for": "container",
-      "note": "swallowing takes something inside, so one piece goes into the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a frog in the throat",
-      "gives": "COUGH",
-      "note": "a frog in the throat is a hoarseness that makes one clear the throat"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H is the abbreviation for hard, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "H",
-      "OUGH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "note": "swallowing takes something inside, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a frog in the throat",
+       "gives": "COUGH",
+       "note": "a frog in the throat is a hoarseness that makes one clear the throat"
+      },
+      {
+       "words": "hard",
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
      ]
     },
     "explanation": {
@@ -1635,32 +1466,25 @@
    },
    "solution": "BLUEFLAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUE FLAG",
     "definitions": [
      {
       "text": "Sight rarely seen on British beaches nowadays",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "depressed",
-      "gives": "BLUE",
-      "note": "blue means sad or low"
-     },
-     {
-      "clueFragment": "Jack",
-      "gives": "FLAG",
-      "note": "a jack is a flag flown at a ship's bow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "FLAG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "depressed",
+       "gives": "BLUE",
+       "note": "blue means sad or low"
+      },
+      {
+       "words": "Jack",
+       "gives": "FLAG",
+       "note": "a jack is a flag flown at a ship's bow"
+      }
      ]
     },
     "explanation": {
@@ -1689,36 +1513,41 @@
    },
    "solution": "ERA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ERA",
     "definitions": [
      {
       "text": "Age",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "from means taken out of, so the letters lie within the answer of the clue named"
-     },
-     {
-      "text": "upwards",
-      "for": "reversal",
-      "note": "going upwards in a down entry means reading from the bottom back to the top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "7",
-      "gives": "ARE",
-      "note": "the answer to 7 Down, whose last letters but one are taken"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "ERA",
+     "indicators": [
+      {
+       "text": "from",
+       "note": "from means taken out of, so the letters lie within the answer of the clue named"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upwards",
+         "note": "going upwards in a down entry means reading from the bottom back to the top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "7",
+         "gives": "ARE",
+         "note": "the answer to 7 Down, whose last letters but one are taken"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A child's age bracket: seven and older.",
      "walkthrough": "'7 upwards' sounds like an age range on a toy box; 7 means the answer at 7 Down, read up the grid.",
@@ -1746,48 +1575,38 @@
    },
    "solution": "DETOUR",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "DETOUR",
     "definitions": [
      {
       "text": "diversion",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "being",
-      "for": "substitution",
-      "note": "being here means turning into, so one letter is swapped for the word that follows"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disagree",
-      "gives": "DEMUR",
-      "note": "to demur is to raise an objection"
-     },
-     {
-      "clueFragment": "motorway",
-      "gives": "M",
-      "note": "M is the prefix of British motorway names, like the M1"
-     },
-     {
-      "clueFragment": "closed",
-      "gives": "TO",
-      "note": "a door pushed to is closed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "TO",
-      "UR"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "DETOUR",
+     "indicators": [
+      {
+       "text": "being",
+       "note": "being here means turning into, so one letter is swapped for the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Disagree",
+       "gives": "DEMUR",
+       "note": "to demur is to raise an objection"
+      },
+      {
+       "words": "motorway",
+       "gives": "M",
+       "note": "M is the prefix of British motorway names, like the M1"
+      },
+      {
+       "words": "closed",
+       "gives": "TO",
+       "note": "a door pushed to is closed"
+      }
      ]
     },
     "explanation": {
@@ -1822,36 +1641,39 @@
    },
    "solution": "TRADEGAP",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TRADE GAP",
     "definitions": [
      {
       "text": "balance of payments data",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "heading west",
-      "for": "reversal",
-      "note": "west is leftwards in an across entry, so the letters are read right to left"
-     },
-     {
-      "text": "hampering",
-      "for": "hidden_word",
-      "note": "hampering means holding back within, so the letters are caught inside the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stop aged artefacts",
-      "gives": "PAGEDART",
-      "note": "spans the end of Stop, all of aged and the start of artefacts"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "heading west",
+       "note": "west is leftwards in an across entry, so the letters are read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "hampering",
+         "note": "hampering means holding back within, so the letters are caught inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stop aged artefacts",
+         "gives": "PAGEDART",
+         "note": "spans the end of Stop, all of aged and the start of artefacts"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Halt old antiques going abroad, which harms the national accounts.",
      "definitionFit": "A trade gap is the shortfall of exports against imports, a figure in balance of payments statistics."

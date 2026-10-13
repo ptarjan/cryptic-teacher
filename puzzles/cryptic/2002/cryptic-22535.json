@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22535",
  "number": 22535,
- "series": "cryptic",
- "name": "Prize crossword No 22,535",
+ "prize": true,
  "setter": "Paul",
  "date": "2002-06-01",
  "dimensions": {
@@ -38,26 +37,25 @@
    },
    "solution": "ICON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ICON",
     "definitions": [
      {
       "text": "You have faith in me, though you shouldn't!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "You have faith in me",
-      "note": "surface reading: a trickster boasting that the victim trusts them"
-     },
-     {
-      "clueFragment": "though you shouldn't!",
-      "note": "setter's reading: a venerated image speaks, warning against worshipping a mere picture"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "You have faith in me",
+       "note": "surface reading: a trickster boasting that the victim trusts them"
+      },
+      {
+       "words": "though you shouldn't!",
+       "note": "setter's reading: a venerated image speaks, warning against worshipping a mere picture"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A confidence trickster gloats that the mark trusts them when they really should not.",
      "walkthrough": "The answer splits as I + CON, a con being a trick that relies on misplaced faith; whole, it is a holy image that believers revere, which some would call idolatry.",
@@ -85,45 +83,37 @@
    },
    "solution": "PROPOSAL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "PROPOSAL",
     "definitions": [
      {
       "text": "Offer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bananas",
-      "for": "anagram",
-      "note": "going bananas means going crazy, so the word before it is scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "support",
-      "gives": "PROP",
-      "note": "a prop holds something up"
-     },
-     {
-      "clueFragment": "also",
-      "gives": "OSAL",
-      "note": "its letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROP",
-      "OSAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PROPOSAL",
+     "indicators": [
       {
-       "fodder": "ALSO",
-       "gives": "OSAL"
+       "text": "bananas",
+       "note": "going bananas means going crazy, so the word before it is scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "support",
+         "gives": "PROP",
+         "note": "a prop holds something up"
+        },
+        {
+         "words": "also",
+         "gives": "OSAL",
+         "note": "its letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -153,30 +143,28 @@
    },
    "solution": "TSAR",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TSAR",
     "definitions": [
      {
       "text": "ruler",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Of",
-      "for": "hidden_word",
-      "note": "the answer is made of letters belonging to the next words, read straight through"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "despots, a ruler",
-      "gives": "TSAR",
-      "note": "the end of despots, then a, then the start of ruler"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Of",
+       "note": "the answer is made of letters belonging to the next words, read straight through"
+      }
+     ],
+     "parts": [
+      {
+       "words": "despots, a ruler",
+       "gives": "TSAR",
+       "note": "the end of despots, then a, then the start of ruler"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that one particular ruler belongs among the despots.",
      "walkthrough": "The answer is also a despot, so the clue nearly reads as a whole.",
@@ -203,33 +191,29 @@
    },
    "solution": "RESIDENT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RESIDENT",
     "definitions": [
      {
       "text": "that's staying",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leader",
-      "gives": "PRESIDENT",
-      "note": "a president leads a country or organisation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESIDENT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leader",
+       "gives": "PRESIDENT",
+       "note": "a president leads a country or organisation"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -258,48 +242,35 @@
    },
    "solution": "NUGGET",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NUGGET",
     "definitions": [
      {
       "text": "something precious",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "brought up",
-      "for": "reversal",
-      "note": "in a down entry, bringing a word up means writing it from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reporter",
-      "gives": "GUN",
-      "note": "a gun makes a report, the bang of a shot"
-     },
-     {
-      "clueFragment": "grab",
-      "gives": "GET",
-      "note": "to get is to seize"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUG",
-      "GET"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GUN",
-       "to": "NUG"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "note": "in a down entry, bringing a word up means writing it from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Reporter",
+         "gives": "GUN",
+         "note": "a gun makes a report, the bang of a shot"
+        }
+       ]
+      },
+      {
+       "words": "grab",
+       "gives": "GET",
+       "note": "to get is to seize"
       }
      ]
     },
@@ -330,41 +301,30 @@
    },
    "solution": "ELECTRICAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELECTRICAL",
     "definitions": [
      {
       "text": "charged",
       "at": 43
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In waiting",
-      "gives": "ELECT",
-      "note": "a president-elect is one in waiting to take office"
-     },
-     {
-      "clueFragment": "instruction",
-      "gives": "RI",
-      "note": "RI is religious instruction, a school subject"
-     },
-     {
-      "clueFragment": "American state",
-      "gives": "CAL",
-      "note": "Cal is an abbreviation for California"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELECT",
-      "RI",
-      "CAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In waiting",
+       "gives": "ELECT",
+       "note": "a president-elect is one in waiting to take office"
+      },
+      {
+       "words": "instruction",
+       "gives": "RI",
+       "note": "RI is religious instruction, a school subject"
+      },
+      {
+       "words": "American state",
+       "gives": "CAL",
+       "note": "Cal is an abbreviation for California"
+      }
      ]
     },
     "explanation": {
@@ -392,38 +352,24 @@
    },
    "solution": "BERTHA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BERTHA",
     "definitions": [
      {
       "text": "Girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drunk",
-      "for": "anagram",
-      "note": "drunk letters stagger out of order and need rearranging"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the bar",
-      "gives": "THEBAR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THEBAR",
-       "gives": "BERTHA"
+       "text": "drunk",
+       "note": "drunk letters stagger out of order and need rearranging"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the bar",
+       "note": "taken as written"
       }
      ]
     },
@@ -452,34 +398,25 @@
    },
    "solution": "STYE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "STYE",
     "definitions": [
      {
       "text": "Minor infection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at regular intervals",
-      "for": "letter_selection",
-      "note": "taking letters at even steps means every other one from the following phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set by me",
-      "gives": "STYE",
-      "select": "alternate",
-      "note": "first, third, fifth and seventh letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STYE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "at regular intervals",
+       "note": "taking letters at even steps means every other one from the following phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set by me",
+       "note": "first, third, fifth and seventh letters"
+      }
      ]
     },
     "explanation": {
@@ -507,36 +444,29 @@
    },
    "solution": "CYRUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CYRUS",
     "definitions": [
      {
       "text": "Persian king",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mediterranean island",
-      "gives": "CYPRUS",
-      "note": "an island in the eastern Mediterranean"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CYRUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mediterranean island",
+       "gives": "CYPRUS",
+       "note": "an island in the eastern Mediterranean"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -564,63 +494,56 @@
    },
    "solution": "EBULLIENT",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "EBULLIENT",
     "definitions": [
      {
       "text": "bubbly",
       "at": 64
      }
     ],
-    "indicators": [
-     {
-      "text": "entertained by",
-      "for": "container",
-      "note": "guests are entertained inside a host's home, so these letters sit within the host"
-     },
-     {
-      "text": "knocked back",
-      "for": "reversal",
-      "note": "knocking back sends everything the other way, so the whole result is read in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "London",
-      "gives": "T",
-      "note": "first part of the outer word"
-     },
-     {
-      "clueFragment": "Kinnock",
-      "gives": "NEIL",
-      "note": "Neil Kinnock led the Labour Party in the 1980s"
-     },
-     {
-      "clueFragment": "Labour",
-      "gives": "L",
-      "note": "standard abbreviation for the Labour party"
-     },
-     {
-      "clueFragment": "Transport",
-      "gives": "UBE",
-      "note": "London Transport as a whole is the Tube, the London Underground; its first letter is held above"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EBU",
-      "L",
-      "L",
-      "IEN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TNEILLUBE",
-       "to": "EBULLIENT"
+       "text": "knocked back",
+       "note": "knocking back sends everything the other way, so the whole result is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "London",
+         "gives": "T",
+         "note": "first part of the outer word"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "entertained by",
+           "note": "guests are entertained inside a host's home, so these letters sit within the host"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Kinnock",
+           "gives": "NEIL",
+           "note": "Neil Kinnock led the Labour Party in the 1980s"
+          },
+          {
+           "words": "Labour",
+           "gives": "L",
+           "note": "standard abbreviation for the Labour party"
+          }
+         ]
+        },
+        {
+         "words": "Transport",
+         "gives": "UBE",
+         "note": "London Transport as a whole is the Tube, the London Underground; its first letter is held above"
+        }
+       ]
       }
      ]
     },
@@ -657,43 +580,31 @@
    },
    "solution": "NOPARKING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NO PARKING",
     "definitions": [
      {
       "text": "Space isn't available",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stuffed with",
-      "for": "container",
-      "note": "something stuffed has filling pushed inside it, so one word goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "NOG",
-      "note": "nog is eggnog, or a strong ale"
-     },
-     {
-      "clueFragment": "cake",
-      "gives": "PARKIN",
-      "note": "parkin is a sticky Yorkshire gingerbread made with oatmeal and treacle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "PARKIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffed with",
+       "note": "something stuffed has filling pushed inside it, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "NOG",
+       "note": "nog is eggnog, or a strong ale"
+      },
+      {
+       "words": "cake",
+       "gives": "PARKIN",
+       "note": "parkin is a sticky Yorkshire gingerbread made with oatmeal and treacle"
+      }
      ]
     },
     "explanation": {
@@ -722,36 +633,29 @@
    },
    "solution": "CUTIE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CUTIE",
     "definitions": [
      {
       "text": "darling",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "There's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one-off event",
-      "gives": "CUPTIE",
-      "note": "a cup tie is a single knockout match in a football cup competition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUTIE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one-off event",
+       "gives": "CUPTIE",
+       "note": "a cup tie is a single knockout match in a football cup competition"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -780,36 +684,29 @@
    },
    "solution": "RESERVE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RESERVE",
     "definitions": [
      {
       "text": "Reticence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when there's 11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "must be shown in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jam",
-      "gives": "PRESERVE",
-      "note": "jam is a fruit preserve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESERVE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "when there's 11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jam",
+       "gives": "PRESERVE",
+       "note": "jam is a fruit preserve"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -839,40 +736,31 @@
    },
    "solution": "REBEL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REBEL",
     "definitions": [
      {
       "text": "one's revolting",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "one item is placed in the middle of the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pitch",
-      "gives": "REEL",
-      "note": "to pitch is to lurch or reel"
-     },
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "B is the abbreviation for black, as on pencils"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "B",
-      "EL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "one item is placed in the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pitch",
+       "gives": "REEL",
+       "note": "to pitch is to lurch or reel"
+      },
+      {
+       "words": "black",
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      }
      ]
     },
     "explanation": {
@@ -902,49 +790,44 @@
    },
    "solution": "REHEARSALS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "REHEARSALS",
     "definitions": [
      {
       "text": "practice sessions",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end means the last letter is cut off"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Once more",
-      "gives": "RE",
-      "note": "re- is the prefix meaning again"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "HEAR",
-      "note": "a judge tries or hears a case"
-     },
-     {
-      "clueFragment": "to dance",
-      "gives": "SALSA",
-      "note": "salsa is a Latin American dance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HEAR",
-      "SALS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "without an end means the last letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Once more",
+         "gives": "RE",
+         "note": "re- is the prefix meaning again"
+        },
+        {
+         "words": "try",
+         "gives": "HEAR",
+         "note": "a judge tries or hears a case"
+        },
+        {
+         "words": "to dance",
+         "gives": "SALSA",
+         "note": "salsa is a Latin American dance"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -972,36 +855,29 @@
    },
    "solution": "TERRAIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TERRAIN",
     "definitions": [
      {
       "text": "Earth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "provided"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reptile",
-      "gives": "TERRAPIN",
-      "note": "a terrapin is a small freshwater turtle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TERRAIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reptile",
+       "gives": "TERRAPIN",
+       "note": "a terrapin is a small freshwater turtle"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1029,26 +905,25 @@
    },
    "solution": "NOSES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NOSES",
     "definitions": [
      {
       "text": "Runners that get picked?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Runners that get picked?",
-      "note": "surface reading: athletes or horses chosen for a team or race"
-     },
-     {
-      "clueFragment": "Runners",
-      "note": "setter's reading: parts of the face that run with a cold and are picked by children"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Runners that get picked?",
+       "note": "surface reading: athletes or horses chosen for a team or race"
+      },
+      {
+       "words": "Runners",
+       "note": "setter's reading: parts of the face that run with a cold and are picked by children"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Runners suggests athletes being selected; the question mark flags the facial sense.",
      "definitionFit": "A nose runs during a cold and gets picked, so noses fit both halves of the description."
@@ -1075,28 +950,16 @@
    },
    "solution": "BELCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BELCH",
     "definitions": [
      {
       "text": "Shakespearean",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Sir Toby, the carousing knight in Twelfth Night"
      },
      {
       "text": "performance delivered when fully satisfied?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shakespearean",
-      "note": "first meaning: Sir Toby, the carousing knight in Twelfth Night"
-     },
-     {
-      "clueFragment": "performance delivered when fully satisfied?",
-      "note": "second meaning: a burp after a big meal"
+      "at": 14,
+      "meaning": "second meaning: a burp after a big meal"
      }
     ],
     "explanation": {
@@ -1126,38 +989,25 @@
    },
    "solution": "TAB",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TAB",
     "definitions": [
      {
       "text": "Bill",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means reading the word from its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hit",
-      "gives": "BAT",
-      "note": "to bat is to strike"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BAT",
-       "to": "TAB"
+       "text": "back",
+       "note": "going back means reading the word from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hit",
+       "gives": "BAT",
+       "note": "to bat is to strike"
       }
      ]
     },
@@ -1187,28 +1037,16 @@
    },
    "solution": "BADMOUTH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BADMOUTH",
     "definitions": [
      {
       "text": "Cast aspersions",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to criticise someone unfairly"
      },
      {
       "text": "having halitosis?",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cast aspersions",
-      "note": "first meaning: to criticise someone unfairly"
-     },
-     {
-      "clueFragment": "having halitosis?",
-      "note": "second meaning, read as two words: suffering from bad breath"
+      "at": 17,
+      "meaning": "second meaning, read as two words: suffering from bad breath"
      }
     ],
     "explanation": {
@@ -1237,36 +1075,29 @@
    },
    "solution": "CAMUS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CAMUS",
     "definitions": [
      {
       "text": "Novelist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "there's 11 in",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "area for students",
-      "gives": "CAMPUS",
-      "note": "a campus is the grounds of a university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAMUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "there's 11 in",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "area for students",
+       "gives": "CAMPUS",
+       "note": "a campus is the grounds of a university"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1294,53 +1125,47 @@
    },
    "solution": "MARINATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "MARINATE",
     "definitions": [
      {
       "text": "steep",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Not hard",
-      "for": "deletion",
-      "note": "hard is abbreviated to a single letter on pencils, and not means that letter is removed"
-     },
-     {
-      "text": "design",
-      "for": "anagram",
-      "note": "a design rearranges the material into a new pattern"
-     }
-    ],
-    "linkWords": [
-     "for",
-     "to appear"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Armani",
-      "gives": "ARMANI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARINATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEARMANI",
-       "gives": "MARINATE"
+       "text": "design",
+       "note": "a design rearranges the material into a new pattern"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not hard",
+         "note": "hard is abbreviated to a single letter on pencils, and not means that letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the",
+           "note": "taken as written"
+          },
+          {
+           "words": "Armani",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
@@ -1370,36 +1195,29 @@
    },
    "solution": "LUMBAGO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LUMBAGO",
     "definitions": [
      {
       "text": "Complaint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when there's 11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "made"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plant",
-      "gives": "PLUMBAGO",
-      "note": "plumbago, or leadwort, is a flowering shrub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUMBAGO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "when there's 11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plant",
+       "gives": "PLUMBAGO",
+       "note": "plumbago, or leadwort, is a flowering shrub"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1428,36 +1246,29 @@
    },
    "solution": "MANTRA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MANTRA",
     "definitions": [
      {
       "text": "Word of praise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with 11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "camouflaged pit",
-      "gives": "MANTRAP",
-      "note": "a mantrap is a hidden pit or snare for catching people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MANTRA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with 11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "camouflaged pit",
+       "gives": "MANTRAP",
+       "note": "a mantrap is a hidden pit or snare for catching people"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1485,36 +1296,29 @@
    },
    "solution": "OODLES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OODLES",
     "definitions": [
      {
       "text": "Plenty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "but 11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lackeys",
-      "gives": "POODLES",
-      "note": "a poodle is a servile follower"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OODLES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but 11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lackeys",
+       "gives": "POODLES",
+       "note": "a poodle is a servile follower"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1542,33 +1346,29 @@
    },
    "solution": "DELORES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DELORES",
     "definitions": [
      {
       "text": "Continental girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having 11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hates",
-      "gives": "DEPLORES",
-      "note": "to deplore is to condemn or hate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DELORES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having 11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hates",
+       "gives": "DEPLORES",
+       "note": "to deplore is to condemn or hate"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1595,33 +1395,29 @@
    },
    "solution": "SINES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SINES",
     "definitions": [
      {
       "text": "Functions",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with 11 in",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "columns",
-      "gives": "SPINES",
-      "note": "a spine is the backbone or vertebral column"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SINES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with 11 in",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "columns",
+       "gives": "SPINES",
+       "note": "a spine is the backbone or vertebral column"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1650,33 +1446,29 @@
    },
    "solution": "SEED",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SEED",
     "definitions": [
      {
       "text": "Issue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "11",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "type of road restriction",
-      "gives": "SPEED",
-      "note": "a speed limit restricts traffic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEED"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "type of road restriction",
+       "gives": "SPEED",
+       "note": "a speed limit restricts traffic"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1705,38 +1497,24 @@
    },
    "solution": "DROPPINGS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DROPPINGS",
     "definitions": [
      {
       "text": "\"Woodland Movement\"",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Disorder",
-      "for": "anagram",
-      "note": "disorder means the letters are thrown into a muddle"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grips pond",
-      "gives": "GRIPSPOND",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GRIPSPOND",
-       "gives": "DROPPINGS"
+       "text": "Disorder",
+       "note": "disorder means the letters are thrown into a muddle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grips pond",
+       "note": "taken as written"
       }
      ]
     },
@@ -1767,34 +1545,29 @@
    },
    "solution": "PALL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PALL",
     "definitions": [
      {
       "text": "Become tiresome",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say asks us to pronounce the setter's own name"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "me",
-      "gives": "PALL",
-      "soundsLike": "PAUL",
-      "note": "the setter of this puzzle is Paul"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PALL",
+     "indicators": [
+      {
+       "text": "say",
+       "note": "say asks us to pronounce the setter's own name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "me",
+       "gives": "PAUL",
+       "note": "the setter of this puzzle is Paul"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A speaker admits something is starting to bore them.",
      "walkthrough": "Me refers to the setter, who signs himself Paul.",
@@ -1822,33 +1595,29 @@
    },
    "solution": "SARK",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SARK",
     "definitions": [
      {
       "text": "island",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flash",
-      "gives": "SPARK",
-      "note": "a spark is a flash of light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SARK"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flash",
+       "gives": "SPARK",
+       "note": "a spark is a flash of light"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1877,60 +1646,51 @@
    },
    "solution": "ENROLMENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENROLMENT",
     "definitions": [
      {
       "text": "Admission",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "a voice part that is wrong must be rearranged"
-     },
-     {
-      "text": "to include",
-      "for": "container",
-      "note": "including something puts it inside"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tenor's",
-      "gives": "TENOR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large, as on clothing"
-     },
-     {
-      "clueFragment": "pieces",
-      "gives": "MEN",
-      "note": "chessmen are pieces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENRO",
-      "L",
-      "MEN",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TENOR",
-       "gives": "ENROT"
+       "text": "to include",
+       "note": "including something puts it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "note": "a voice part that is wrong must be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "tenor's",
+           "gives": "TENOR",
+           "note": "taken as written"
+          },
+          {
+           "words": "large",
+           "gives": "L",
+           "note": "L is the abbreviation for large, as on clothing"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "pieces",
+       "gives": "MEN",
+       "note": "chessmen are pieces"
       }
      ]
     },
@@ -1960,33 +1720,29 @@
    },
    "solution": "LATER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LATER",
     "definitions": [
      {
       "text": "in the future",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "11 for",
-      "for": "deletion",
-      "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one applying armour",
-      "gives": "PLATER",
-      "note": "a plater fits metal plating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "11 for",
+       "note": "entry 11 reads no parking, so the letter standing for parking on road signs must go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one applying armour",
+       "gives": "PLATER",
+       "note": "a plater fits metal plating"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-4597",
  "number": 4597,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 4,597",
  "setter": "Tim Moorey",
  "date": "2014-07-06",
  "dimensions": {
@@ -42,32 +40,25 @@
    },
    "solution": "NOWT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOWT",
     "definitions": [
      {
       "text": "Duck",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "present",
-      "gives": "NOW",
-      "note": "the present moment is now"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T is the grammar abbreviation for tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOW",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "present",
+       "gives": "NOW",
+       "note": "the present moment is now"
+      },
+      {
+       "words": "tense",
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
+      }
      ]
     },
     "explanation": {
@@ -97,36 +88,39 @@
    },
    "solution": "OHM",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "OHM",
     "definitions": [
      {
       "text": "A little resistance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the letters sit inside the next word of the clue"
-     },
-     {
-      "text": "put up",
-      "for": "reversal",
-      "note": "in a down clue, putting something up means writing it bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "farmhouse",
-      "gives": "MHO",
-      "note": "letters three to five"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "put up",
+       "note": "in a down clue, putting something up means writing it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the letters sit inside the next word of the clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "farmhouse",
+         "gives": "MHO",
+         "note": "letters three to five"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A farmhouse family offers some mild opposition.",
      "walkthrough": "The ohm is the unit of electrical resistance, so one ohm is a little of it.",
@@ -153,41 +147,25 @@
    },
    "solution": "TRAMS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TRAMS",
     "definitions": [
      {
       "text": "public transport",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Set up",
-      "for": "reversal",
-      "note": "in a down clue, setting something up raises it so it reads bottom to top"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "modern sort of TV",
-      "gives": "SMART",
-      "note": "a smart TV connects to the internet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAMS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SMART",
-       "to": "TRAMS"
+       "text": "Set up",
+       "note": "in a down clue, setting something up raises it so it reads bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modern sort of TV",
+       "gives": "SMART",
+       "note": "a smart TV connects to the internet"
       }
      ]
     },
@@ -222,37 +200,39 @@
    },
    "solution": "BASSFIDDLE",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "BASS FIDDLE",
     "definitions": [
      {
       "text": "musical instrument",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Picked up",
-      "for": "homophone",
-      "note": "picked up as in heard, so the next word counts by its sound rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wretched",
-      "gives": "BASS",
-      "soundsLike": "BASE",
-      "note": "base means low and wretched; the musical word is said the same"
-     },
-     {
-      "clueFragment": "mess around",
-      "gives": "FIDDLE",
-      "note": "to fiddle is to fidget or tinker"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BASS",
+       "indicators": [
+        {
+         "text": "Picked up",
+         "note": "picked up as in heard, so the next word counts by its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wretched",
+         "gives": "BASE",
+         "note": "base means low and wretched; the musical word is said the same"
+        }
+       ]
+      },
+      {
+       "words": "mess around",
+       "gives": "FIDDLE",
+       "note": "to fiddle is to fidget or tinker"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone hears about a miserable bit of tinkering with an instrument.",
      "definitionFit": "The double bass is often called the bass fiddle, the largest bowed string instrument in an orchestra."
@@ -278,59 +258,49 @@
    },
    "solution": "BARMIER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BARMIER",
     "definitions": [
      {
       "text": "more out to lunch",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "processed",
-      "for": "anagram",
-      "note": "processed cheese is broken down and reformed, so the cheese's letters are rearranged"
-     },
-     {
-      "text": "boring",
-      "for": "container",
-      "note": "boring into something means going inside it"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "jolly",
-      "gives": "RM",
-      "note": "a jolly is old slang for a Royal Marine"
-     },
-     {
-      "clueFragment": "Brie",
-      "gives": "BRIE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ARM",
-      "IER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BRIE",
-       "gives": "BIER"
+       "text": "boring",
+       "note": "boring into something means going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "processed",
+         "note": "processed cheese is broken down and reformed, so the cheese's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "jolly",
+           "gives": "RM",
+           "note": "a jolly is old slang for a Royal Marine"
+          },
+          {
+           "words": "Brie",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "A",
+       "note": "taken as written"
       }
      ]
     },
@@ -366,26 +336,25 @@
    },
    "solution": "STICKINGPLASTER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "STICKING PLASTER",
     "definitions": [
      {
       "text": "Cuts in NHS may be bound up with this",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cuts in NHS",
-      "note": "surface reading: budget reductions in Britain's National Health Service"
-     },
-     {
-      "clueFragment": "may be bound up with this",
-      "note": "setter's reading: wounds treated in hospital get covered with an adhesive dressing, which is also a phrase for a stopgap fix"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cuts in NHS",
+       "note": "surface reading: budget reductions in Britain's National Health Service"
+      },
+      {
+       "words": "may be bound up with this",
+       "note": "setter's reading: wounds treated in hospital get covered with an adhesive dressing, which is also a phrase for a stopgap fix"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The NHS is Britain's state health service. Cuts read as spending cuts, but they are wounds; the answer also means a quick fix that hides a problem.",
      "definitionFit": "This adhesive dressing covers small cuts, and figuratively names a temporary fix that does not cure the problem."
@@ -418,35 +387,25 @@
    },
    "solution": "FAIRDOS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FAIR DOS",
     "definitions": [
      {
       "text": "The same treatment for all",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moderately good",
-      "gives": "FAIR",
-      "note": "fair means middling, neither good nor bad"
-     },
-     {
-      "clueFragment": "parties",
-      "gives": "DOS",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAIR",
-      "DOS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "moderately good",
+       "gives": "FAIR",
+       "note": "fair means middling, neither good nor bad"
+      },
+      {
+       "words": "parties",
+       "gives": "DOS",
+       "note": "a do is a party"
+      }
      ]
     },
     "explanation": {
@@ -473,58 +432,50 @@
    },
    "solution": "DEHISCENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DEHISCENT",
     "definitions": [
      {
       "text": "bursting open",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "hybrid",
-      "for": "anagram",
-      "note": "a hybrid is a mixed creation, so the nationality's letters are mixed"
-     },
-     {
-      "text": "empty",
-      "for": "letter_selection",
-      "note": "emptying a word leaves only its outside letters"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "desert",
-      "gives": "DT",
-      "select": "outer",
-      "note": "first and last letters"
-     },
-     {
-      "clueFragment": "Chinese",
-      "gives": "CHINESE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "EHISCEN",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CHINESE",
-       "gives": "EHISCEN"
+       "text": "in",
+       "note": "something placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "emptying a word leaves only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desert",
+         "note": "first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hybrid",
+         "note": "a hybrid is a mixed creation, so the nationality's letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chinese",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -567,41 +518,30 @@
    },
    "solution": "LEAVEITTOME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEAVE IT TO ME",
     "definitions": [
      {
       "text": "I can cope with that",
       "at": 34
      }
     ],
-    "linkWords": [
-     "about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Holiday",
-      "gives": "LEAVE",
-      "note": "time off work is leave"
-     },
-     {
-      "clueFragment": "computers etc",
-      "gives": "IT",
-      "note": "information technology"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "TOME",
-      "note": "a large heavy book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEAVE",
-      "IT",
-      "TOME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Holiday",
+       "gives": "LEAVE",
+       "note": "time off work is leave"
+      },
+      {
+       "words": "computers etc",
+       "gives": "IT",
+       "note": "information technology"
+      },
+      {
+       "words": "book",
+       "gives": "TOME",
+       "note": "a large heavy book"
+      }
      ]
     },
     "explanation": {
@@ -630,41 +570,30 @@
    },
    "solution": "IMPAIR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPAIR",
     "definitions": [
      {
       "text": "damage",
       "at": 39
      }
     ],
-    "linkWords": [
-     "causing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Current",
-      "gives": "I",
-      "note": "I is the physics symbol for electric current"
-     },
-     {
-      "clueFragment": "politician's",
-      "gives": "MP",
-      "note": "a Member of Parliament"
-     },
-     {
-      "clueFragment": "broadcast",
-      "gives": "AIR",
-      "note": "to air a programme is to broadcast it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP",
-      "AIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Current",
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      },
+      {
+       "words": "politician's",
+       "gives": "MP",
+       "note": "a Member of Parliament"
+      },
+      {
+       "words": "broadcast",
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
+      }
      ]
     },
     "explanation": {
@@ -693,11 +622,6 @@
    },
    "solution": "IRISHMAN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IRISHMAN",
     "definitions": [
      {
       "text": "I'm European",
@@ -705,45 +629,47 @@
       "note": "the answer is the noun naming the speaker"
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "something keeping a thing holds it inside, so the hush goes within the self-reference"
-     },
-     {
-      "text": "in",
-      "for": "charade",
-      "note": "placed in the country name, so the country's letters surround the rest"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a Middle Eastern country",
-      "gives": "IRAN",
-      "note": "the country formerly called Persia"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "SH",
-      "note": "the sound for asking for silence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IR",
-      "I",
-      "SH",
-      "M",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "unchecked": true,
+     "gives": "IRISHMAN",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in the country name, so the country's letters surround the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "note": "something keeping a thing holds it inside, so the hush goes within the self-reference"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a Middle Eastern country",
+         "gives": "IRAN",
+         "note": "the country formerly called Persia"
+        },
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "I'm",
+           "note": "taken as written, apostrophe dropped"
+          },
+          {
+           "words": "quiet",
+           "gives": "SH",
+           "note": "the sound for asking for silence"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -772,31 +698,16 @@
    },
    "solution": "DIPSTICK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DIPSTICK",
     "definitions": [
      {
       "text": "Rod",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the measuring rod for a car's oil level"
      },
      {
       "text": "idiot",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "'s an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rod",
-      "note": "first meaning: the measuring rod for a car's oil level"
-     },
-     {
-      "clueFragment": "idiot",
-      "note": "second meaning: slang for a fool"
+      "at": 9,
+      "meaning": "second meaning: slang for a fool"
      }
     ],
     "explanation": {
@@ -832,11 +743,6 @@
    },
    "solution": "INFLAGRANTE",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "IN FLAGRANTE",
     "definitions": [
      {
       "text": "embarrassing situation",
@@ -844,31 +750,22 @@
       "note": "the answer is a Latin phrase meaning caught in the act"
      }
     ],
-    "indicators": [
-     {
-      "text": "preposterous",
-      "for": "anagram",
-      "note": "a preposterous thing is absurdly topsy-turvy, so the letters are thrown out of order"
-     }
-    ],
-    "linkWords": [
-     "For this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grannie flat",
-      "gives": "GRANNIEFLAT",
-      "note": "taken as written; a granny flat is an annexe for an elderly relative"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GRANNIEFLAT",
-       "gives": "INFLAGRANTE"
+       "text": "preposterous",
+       "note": "a preposterous thing is absurdly topsy-turvy, so the letters are thrown out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grannie flat",
+       "note": "taken as written; a granny flat is an annexe for an elderly relative"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone is caught in an awkward moment in the annexe where Gran lives.",
      "walkthrough": "A granny flat is a self-contained annexe for an older relative; being caught there by Gran would be awkward indeed.",
@@ -896,40 +793,31 @@
    },
    "solution": "DASHED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DASHED",
     "definitions": [
      {
       "text": "Frustrated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grabs",
-      "for": "container",
-      "note": "whatever grabs something holds it, so the father figure wraps round the woman"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parent",
-      "gives": "DAD",
-      "note": "an everyday word for father"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "SHE",
-      "note": "the female pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DA",
-      "SHE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabs",
+       "note": "whatever grabs something holds it, so the father figure wraps round the woman"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parent",
+       "gives": "DAD",
+       "note": "an everyday word for father"
+      },
+      {
+       "words": "female",
+       "gives": "SHE",
+       "note": "the female pronoun"
+      }
      ]
     },
     "explanation": {
@@ -957,35 +845,25 @@
    },
    "solution": "OFFSPRINGS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OFFSPRINGS",
     "definitions": [
      {
       "text": "More than one issue",
       "at": 0
      }
     ],
-    "linkWords": [
-     "coming from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "temporarily unavailable",
-      "gives": "OFF",
-      "note": "a dish that is off the menu cannot be had today"
-     },
-     {
-      "clueFragment": "vaults",
-      "gives": "SPRINGS",
-      "note": "to vault is to leap or spring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "SPRINGS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "temporarily unavailable",
+       "gives": "OFF",
+       "note": "a dish that is off the menu cannot be had today"
+      },
+      {
+       "words": "vaults",
+       "gives": "SPRINGS",
+       "note": "to vault is to leap or spring"
+      }
      ]
     },
     "explanation": {
@@ -1014,57 +892,50 @@
    },
    "solution": "STRATFORD",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "STRATFORD",
     "definitions": [
      {
       "text": "tourist town",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "turning something over flips it end to end"
-     },
-     {
-      "text": "entering",
-      "for": "container",
-      "note": "letters entering go inside the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "board game",
-      "gives": "DARTS",
-      "note": "darts is played by throwing at a board"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "the usual abbreviation for time"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRA",
-      "T",
-      "FOR",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "DARTS",
-       "to": "STRAD"
+       "text": "entering",
+       "note": "letters entering go inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "turning something over flips it end to end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "board game",
+           "gives": "DARTS",
+           "note": "darts is played by throwing at a board"
+          },
+          {
+           "words": "Time",
+           "gives": "T",
+           "note": "the usual abbreviation for time"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "for",
+       "note": "taken as written"
       }
      ]
     },
@@ -1094,33 +965,29 @@
    },
    "solution": "EATS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EATS",
     "definitions": [
      {
       "text": "food",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Cockney",
-      "for": "deletion",
-      "note": "a Cockney accent famously drops the aitch at the start of words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "makes hot",
-      "gives": "HEATS",
-      "note": "to heat is to make hot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EATS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Cockney",
+       "note": "a Cockney accent famously drops the aitch at the start of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "makes hot",
+       "gives": "HEATS",
+       "note": "to heat is to make hot"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -1149,43 +1016,31 @@
    },
    "solution": "PARR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PARR",
     "definitions": [
      {
       "text": "salmon",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "container",
-      "note": "a box holds things, so the norm encloses the extra letter"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Standard",
-      "gives": "PAR",
-      "note": "par is the expected or normal level"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "the usual abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "R",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxes",
+       "note": "a box holds things, so the norm encloses the extra letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Standard",
+       "gives": "PAR",
+       "note": "par is the expected or normal level"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "the usual abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -1213,35 +1068,25 @@
    },
    "solution": "EXPOSITION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXPOSITION",
     "definitions": [
      {
       "text": "large show",
       "at": 17
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Without",
-      "gives": "EX",
-      "note": "ex means without, as in shares sold ex dividend"
-     },
-     {
-      "clueFragment": "a job",
-      "gives": "POSITION",
-      "note": "a post or position is a job"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "POSITION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Without",
+       "gives": "EX",
+       "note": "ex means without, as in shares sold ex dividend"
+      },
+      {
+       "words": "a job",
+       "gives": "POSITION",
+       "note": "a post or position is a job"
+      }
      ]
     },
     "explanation": {
@@ -1269,38 +1114,31 @@
    },
    "solution": "EARLESS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EARLESS",
     "definitions": [
      {
       "text": "without lugs",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "gone",
-      "for": "deletion",
-      "note": "when something is gone it has been removed, so the man's abbreviation leaves"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brave",
-      "gives": "FEARLESS",
-      "note": "brave means without fear"
-     },
-     {
-      "clueFragment": "fellow's",
-      "gives": "F",
-      "note": "F is the abbreviation for fellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARLESS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "gone",
+       "note": "when something is gone it has been removed, so the man's abbreviation leaves"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Brave",
+       "gives": "FEARLESS",
+       "note": "brave means without fear"
+      },
+      {
+       "words": "fellow's",
+       "gives": "F",
+       "note": "F is the abbreviation for fellow"
+      }
      ]
     },
     "explanation": {
@@ -1330,32 +1168,25 @@
    },
    "solution": "SOLICIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOLICIT",
     "definitions": [
      {
       "text": "request",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Very",
-      "gives": "SO",
-      "note": "so means very, as in so good"
-     },
-     {
-      "clueFragment": "legitimate",
-      "gives": "LICIT",
-      "note": "licit means lawful"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "LICIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very",
+       "gives": "SO",
+       "note": "so means very, as in so good"
+      },
+      {
+       "words": "legitimate",
+       "gives": "LICIT",
+       "note": "licit means lawful"
+      }
      ]
     },
     "explanation": {
@@ -1384,31 +1215,29 @@
    },
    "solution": "GRATER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GRATER",
     "definitions": [
      {
       "text": "kitchen instrument",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "By the sound of it",
-      "for": "homophone",
-      "note": "the phrase asks us to judge the next words by how they are spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "comparatively large",
-      "gives": "GRATER",
-      "soundsLike": "GREATER",
-      "note": "the comparative of great"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GRATER",
+     "indicators": [
+      {
+       "text": "By the sound of it",
+       "note": "the phrase asks us to judge the next words by how they are spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "comparatively large",
+       "gives": "GREATER",
+       "note": "the comparative of great"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something in the kitchen sounds rather bigger than you'd expect.",
      "definitionFit": "A grater is the kitchen tool with sharp holes used to shred cheese or vegetables."
@@ -1434,38 +1263,30 @@
    },
    "solution": "AFLUTTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AFLUTTER",
     "definitions": [
      {
       "text": "in a state!",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "US state",
-      "gives": "FL",
-      "note": "the postal code for Florida"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "UTTER",
-      "note": "to utter is to say"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "FL",
-      "UTTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "A",
+       "note": "a means one"
+      },
+      {
+       "words": "US state",
+       "gives": "FL",
+       "note": "the postal code for Florida"
+      },
+      {
+       "words": "say",
+       "gives": "UTTER",
+       "note": "to utter is to say"
+      }
      ]
     },
     "explanation": {
@@ -1495,38 +1316,24 @@
    },
    "solution": "TURPS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TURPS",
     "definitions": [
      {
       "text": "paint additive",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Unusual",
-      "for": "anagram",
-      "note": "something unusual is out of the ordinary, so the letters are out of their usual order"
-     }
-    ],
-    "linkWords": [
-     "coming from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spurt",
-      "gives": "SPURT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SPURT",
-       "gives": "TURPS"
+       "text": "Unusual",
+       "note": "something unusual is out of the ordinary, so the letters are out of their usual order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spurt",
+       "note": "taken as written"
       }
      ]
     },
@@ -1554,35 +1361,25 @@
    },
    "solution": "INSOLENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INSOLENT",
     "definitions": [
      {
       "text": "fresh",
       "at": 5
      }
     ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "down by",
-      "gives": "IN",
-      "note": "being down by somewhere is being in it"
-     },
-     {
-      "clueFragment": "the Hampshire coast",
-      "gives": "SOLENT",
-      "note": "the Solent is the strait between Hampshire and the Isle of Wight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SOLENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "down by",
+       "gives": "IN",
+       "note": "being down by somewhere is being in it"
+      },
+      {
+       "words": "the Hampshire coast",
+       "gives": "SOLENT",
+       "note": "the Solent is the strait between Hampshire and the Isle of Wight"
+      }
      ]
     },
     "explanation": {
@@ -1612,40 +1409,31 @@
    },
    "solution": "CORPSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CORPSE",
     "definitions": [
      {
       "text": "Stiff",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sitting in another is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "central part",
-      "gives": "CORE",
-      "note": "the core is the heart of something"
-     },
-     {
-      "clueFragment": "private secretary",
-      "gives": "PS",
-      "note": "the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "PS",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing sitting in another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "central part",
+       "gives": "CORE",
+       "note": "the core is the heart of something"
+      },
+      {
+       "words": "private secretary",
+       "gives": "PS",
+       "note": "the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1675,36 +1463,39 @@
    },
    "solution": "SEA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SEA",
     "definitions": [
      {
       "text": "The main",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part of",
-      "for": "hidden_word",
-      "note": "only a portion of the long word is used"
-     },
-     {
-      "text": "taken up",
-      "for": "reversal",
-      "note": "in a down clue, taking something up lifts it so it reads bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "anaesthetics",
-      "gives": "AES",
-      "note": "letters three to five"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "taken up",
+       "note": "in a down clue, taking something up lifts it so it reads bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part of",
+         "note": "only a portion of the long word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anaesthetics",
+         "gives": "AES",
+         "note": "letters three to five"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "The chief portion of the anaesthetic has been administered.",
      "walkthrough": "'The main' reads as 'the chief', but the main is an old poetic name for the open ocean.",
@@ -1737,73 +1528,70 @@
    },
    "solution": "JEUDESPRIT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "JEU DESPRIT",
     "definitions": [
      {
       "text": "witty display",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "a touring party goes round a place, so the continent's letters go round the river's"
-     },
-     {
-      "text": "first in",
-      "for": "charade",
-      "note": "the opening letter of the French capital's name is taken"
-     },
-     {
-      "text": "improvised",
-      "for": "anagram",
-      "note": "something improvised is made up on the spot, so the letters are rearranged freely"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jack",
-      "gives": "J",
-      "note": "J is jack in a pack of cards"
-     },
-     {
-      "clueFragment": "Europe",
-      "gives": "EU",
-      "note": "the European Union"
-     },
-     {
-      "clueFragment": "Dee",
-      "gives": "D",
-      "note": "dee is the spelt name of the letter D"
-     },
-     {
-      "clueFragment": "Paris",
-      "gives": "P",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "tries",
-      "gives": "TRIES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "EUDESPRIT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "EDUPTRIES",
-       "gives": "EUDESPRIT"
+       "text": "first in",
+       "note": "the opening letter of the French capital's name is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jack",
+       "gives": "J",
+       "note": "J is jack in a pack of cards"
+      },
+      {
+       "words": "Europe",
+       "gives": "EU",
+       "note": "the European Union"
+      },
+      {
+       "words": "Dee",
+       "gives": "D",
+       "note": "dee is the spelt name of the letter D"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring",
+         "note": "a touring party goes round a place, so the continent's letters go round the river's"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "improvised",
+           "note": "something improvised is made up on the spot, so the letters are rearranged freely"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tries",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Paris",
+           "note": "its opening letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1833,37 +1621,28 @@
    },
    "solution": "SEAN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SEAN",
     "definitions": [
      {
       "text": "the guy at Number 10",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Heartless",
-      "for": "deletion",
-      "note": "without a heart means the middle letters are taken out"
-     }
-    ],
-    "linkWords": [
-     "could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "person from Belgrade",
-      "gives": "SERBIAN",
-      "note": "Belgrade is the capital of Serbia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "AN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SEAN",
+     "indicators": [
+      {
+       "text": "Heartless",
+       "note": "without a heart means the middle letters are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "person from Belgrade",
+       "gives": "SERBIAN",
+       "note": "Belgrade is the capital of Serbia"
+      }
      ]
     },
     "explanation": {

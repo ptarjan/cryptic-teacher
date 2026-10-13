@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22559",
  "number": 22559,
- "series": "cryptic",
- "name": "Prize crossword No 22,559",
+ "prize": true,
  "setter": "Enigmatist",
  "date": "2002-06-29",
  "dimensions": {
@@ -58,51 +57,48 @@
    },
    "solution": "WATERLOO",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "WATERLOO",
     "definitions": [
      {
       "text": "Final defeat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "adjusted",
-      "for": "anagram",
-      "note": "something adjusted has been altered, so the letters of the word before it are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the rearranged letters are placed inside the word for wooing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "later",
-      "gives": "ATERL",
-      "note": "the word later, its letters rearranged"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court someone is to woo them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ATERL",
-      "OO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "WATERLOO",
+     "indicators": [
       {
-       "fodder": "LATER",
-       "gives": "ATERL"
+       "text": "in",
+       "note": "the rearranged letters are placed inside the word for wooing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "adjusted",
+         "note": "something adjusted has been altered, so the letters of the word before it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "later",
+           "gives": "ATERL",
+           "note": "the word later, its letters rearranged"
+          },
+          {
+           "words": "court",
+           "gives": "WOO",
+           "note": "to court someone is to woo them"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -141,26 +137,25 @@
     "21-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TOILET HUMOUR",
     "definitions": [
      {
       "text": "W.C. Fields's output?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "W.C. Fields's output?",
-      "note": "surface reading: the films and gags produced by the American comedian W.C. Fields"
-     },
-     {
-      "clueFragment": "W.C.",
-      "note": "setter's reading: W.C. is a water closet, so the comedy belongs to the lavatory field"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "W.C. Fields's output?",
+       "note": "surface reading: the films and gags produced by the American comedian W.C. Fields"
+      },
+      {
+       "words": "W.C.",
+       "note": "setter's reading: W.C. is a water closet, so the comedy belongs to the lavatory field"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "W.C. Fields was a famous American film comic; read his initials as the lavatory abbreviation and his comic output becomes jokes about bodily functions.",
      "definitionFit": "Crude comedy about lavatories and bodily functions is what a comic from the water-closet field would naturally produce."
@@ -187,51 +182,41 @@
    },
    "solution": "WHITENED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "WHITENED",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Gone",
-      "for": "anagram",
-      "note": "gone suggests the film title has been wrecked and its letters scattered into a new order"
-     },
-     {
-      "text": "shot with",
-      "for": "container",
-      "note": "fabric shot with a thread has it woven through, so a letter is set inside the jumble"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Wind",
-      "gives": "WHITEND",
-      "note": "the words the and wind, their letters rearranged"
-     },
-     {
-      "clueFragment": "extra energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHIT",
-      "E",
-      "NED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "THEWIND",
-       "gives": "WHITEND"
+       "text": "shot with",
+       "note": "fabric shot with a thread has it woven through, so a letter is set inside the jumble"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Gone",
+         "note": "gone suggests the film title has been wrecked and its letters scattered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Wind",
+         "gives": "WHITEND",
+         "note": "the words the and wind, their letters rearranged"
+        }
+       ]
+      },
+      {
+       "words": "extra energy",
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
@@ -261,29 +246,17 @@
    },
    "solution": "AMBLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AMBLER",
     "definitions": [
      {
       "text": "Slow moving",
       "at": 0,
-      "note": "read as a noun: one who moves slowly"
+      "note": "read as a noun: one who moves slowly",
+      "meaning": "first meaning: someone who strolls at a leisurely pace"
      },
      {
       "text": "thriller-writer",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Slow moving",
-      "note": "first meaning: someone who strolls at a leisurely pace"
-     },
-     {
-      "clueFragment": "thriller-writer",
-      "note": "second meaning: Eric ..., the English author of spy thrillers"
+      "at": 12,
+      "meaning": "second meaning: Eric ..., the English author of spy thrillers"
      }
     ],
     "explanation": {
@@ -327,48 +300,36 @@
     "1-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JOBS FOR THE BOYS",
     "definitions": [
      {
       "text": "nepotism",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following tells us the society abbreviation comes straight after the man of faith"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Showing faith",
-      "gives": "JOB",
-      "note": "Job, the biblical figure whose faith survived every trial"
-     },
-     {
-      "clueFragment": "society's",
-      "gives": "S",
-      "note": "S is the standard abbreviation for society"
-     },
-     {
-      "clueFragment": "that could be hers, too",
-      "gives": "FORTHEBOYS",
-      "note": "a playful hint: the favours are labelled as going to men, though women could get them as well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOB",
-      "S",
-      "FORTHEBOYS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following tells us the society abbreviation comes straight after the man of faith"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Showing faith",
+       "gives": "JOB",
+       "note": "Job, the biblical figure whose faith survived every trial"
+      },
+      {
+       "words": "society's",
+       "gives": "S",
+       "note": "S is the standard abbreviation for society"
+      },
+      {
+       "words": "that could be hers, too",
+       "gives": "FORTHEBOYS",
+       "note": "a playful hint: the favours are labelled as going to men, though women could get them as well"
+      }
      ]
     },
     "explanation": {
@@ -403,26 +364,25 @@
    },
    "solution": "CHEATON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CHEAT ON",
     "definitions": [
      {
       "text": "Be unfaithful to",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Be unfaithful to wife No. 3",
-      "note": "surface reading: a husband straying from his third marriage"
-     },
-     {
-      "clueFragment": "what she may then turn!",
-      "note": "setter's reading: once betrayed, the wife may turn on her husband, echoing the second word of the phrase"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Be unfaithful to wife No. 3",
+       "note": "surface reading: a husband straying from his third marriage"
+      },
+      {
+       "words": "what she may then turn!",
+       "note": "setter's reading: once betrayed, the wife may turn on her husband, echoing the second word of the phrase"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A thrice-married man strays, and his latest wife may well round on him.",
      "walkthrough": "The definition is the plain opening; the exclamation suggests the wronged wife will turn on him, supplying the little word that closes the phrase.",
@@ -450,46 +410,40 @@
    },
    "solution": "SHAMPOO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHAMPOO",
     "definitions": [
      {
       "text": "Lock cleaner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "engrosses",
-      "for": "container",
-      "note": "to engross is to absorb wholly, so one word swallows the others inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so",
-      "gives": "SO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "overacting",
-      "gives": "HAM",
-      "note": "a ham is an actor who overacts"
-     },
-     {
-      "clueFragment": "Teletubby",
-      "gives": "PO",
-      "note": "Po is the smallest, red Teletubby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HAM",
-      "PO",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engrosses",
+       "note": "to engross is to absorb wholly, so one word swallows the others inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "so",
+         "note": "taken as written"
+        },
+        {
+         "words": "overacting",
+         "gives": "HAM",
+         "note": "a ham is an actor who overacts"
+        }
+       ]
+      },
+      {
+       "words": "Teletubby",
+       "gives": "PO",
+       "note": "Po is the smallest, red Teletubby"
+      }
      ]
     },
     "explanation": {
@@ -519,54 +473,43 @@
    },
    "solution": "UNTREASURED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "UNTREASURED",
     "definitions": [
      {
       "text": "took the loot with no value?",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "Casually",
-      "for": "anagram",
-      "note": "doing something casually means in a loose, haphazard way, so the letters fall out of order"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the jumbled letters wrap about the patriarch's city"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sauntered",
-      "gives": "UNTREASED",
-      "note": "the word sauntered, its letters rearranged"
-     },
-     {
-      "clueFragment": "Abraham''s home",
-      "gives": "UR",
-      "note": "Ur of the Chaldees, Abraham's birthplace in Genesis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNTREAS",
-      "UR",
-      "ED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNTREASURED",
+     "indicators": [
       {
-       "fodder": "SAUNTERED",
-       "gives": "UNTREASED"
+       "text": "Casually",
+       "note": "doing something casually means in a loose, haphazard way, so the letters fall out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around says the jumbled letters wrap about the patriarch's city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sauntered",
+         "gives": "UNTREASED",
+         "note": "the word sauntered, its letters rearranged"
+        },
+        {
+         "words": "Abraham''s home",
+         "gives": "UR",
+         "note": "Ur of the Chaldees, Abraham's birthplace in Genesis"
+        }
+       ]
       }
      ]
     },
@@ -597,26 +540,25 @@
    },
    "solution": "ABSEIL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ABSEIL",
     "definitions": [
      {
       "text": "Go down while on-line",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Go down while on-line",
-      "note": "surface reading: a computer or website crashing while connected to the internet"
-     },
-     {
-      "clueFragment": "on-line",
-      "note": "setter's reading: hanging on a rope, so descending a cliff with one"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Go down while on-line",
+       "note": "surface reading: a computer or website crashing while connected to the internet"
+      },
+      {
+       "words": "on-line",
+       "note": "setter's reading: hanging on a rope, so descending a cliff with one"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "On-line suggests the internet, but the line is a climbing rope.",
      "definitionFit": "Climbers descend a rock face by sliding down a doubled rope, which is exactly going down while on a line."
@@ -643,28 +585,16 @@
    },
    "solution": "NOTELESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOTELESS",
     "definitions": [
      {
       "text": "Broke",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: without any banknotes, penniless"
      },
      {
       "text": "off key?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broke",
-      "note": "first meaning: without any banknotes, penniless"
-     },
-     {
-      "clueFragment": "off key?",
-      "note": "second meaning: without musical notes, so no tune at all"
+      "at": 6,
+      "meaning": "second meaning: without musical notes, so no tune at all"
      }
     ],
     "explanation": {
@@ -693,31 +623,29 @@
    },
    "solution": "RYAL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "and_lit"
-    ],
-    "answer": "RYAL",
     "definitions": [
      {
       "text": "Contribution to a paltry allowance?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Contribution to",
-      "for": "hidden_word",
-      "note": "a contribution is a part of the whole, so the answer is a part of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paltry allowance",
-      "gives": "RYAL",
-      "note": "the tail of the first word joined to the head of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Contribution to",
+       "note": "a contribution is a part of the whole, so the answer is a part of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paltry allowance",
+       "gives": "RYAL",
+       "note": "the tail of the first word joined to the head of the second"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "Someone chips a small coin into a meagre pocket-money fund.",
      "walkthrough": "A ryal (or rial) is an old English gold coin, so the whole clue also describes one being added to a meagre sum.",
@@ -749,26 +677,25 @@
    },
    "solution": "THRONEROOM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THRONE-ROOM",
     "definitions": [
      {
       "text": "King 22''s convenience",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "King 22''s convenience",
-      "note": "surface reading: the private lavatory of King John, as 22 is the word for a lavatory"
-     },
-     {
-      "clueFragment": "convenience",
-      "note": "setter's reading: a royal room, the chamber where a monarch sits in state"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "King 22''s convenience",
+       "note": "surface reading: the private lavatory of King John, as 22 is the word for a lavatory"
+      },
+      {
+       "words": "convenience",
+       "note": "setter's reading: a royal room, the chamber where a monarch sits in state"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A convenience is a public toilet and a john is a lavatory, while a throne is slang for one too; so the king's state chamber doubles as his loo.",
      "definitionFit": "A monarch's ceremonial chamber holds the royal seat, and that seat is also jokey slang for a lavatory."
@@ -801,26 +728,25 @@
    },
    "solution": "BOGSTANDARD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BOG STANDARD",
     "definitions": [
      {
       "text": "par",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "would be above this par",
-      "note": "surface reading: the royal room would rise above an ordinary level"
-     },
-     {
-      "clueFragment": "par",
-      "note": "setter's reading: a royal lavatory is better than the merely basic level, which is named after a lavatory too"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "would be above this par",
+       "note": "surface reading: the royal room would rise above an ordinary level"
+      },
+      {
+       "words": "par",
+       "note": "setter's reading: a royal lavatory is better than the merely basic level, which is named after a lavatory too"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Continues from the previous clue; bog is British slang for toilet, so a king's lavatory sits above the ordinary lavatory grade.",
      "definitionFit": "Par is the normal or average level, and the British idiom for something entirely ordinary and unremarkable names that level."
@@ -847,56 +773,45 @@
    },
    "solution": "SOFTBALL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SOFTBALL",
     "definitions": [
      {
       "text": "A game",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of the next word counts"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like this",
-      "gives": "SO",
-      "note": "so can mean in this way"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "F",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "consumption",
-      "gives": "TB",
-      "note": "consumption is the old name for tuberculosis, abbreviated TB"
-     },
-     {
-      "clueFragment": "everybody",
-      "gives": "ALL",
-      "note": "all means every person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "F",
-      "TB",
-      "ALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like this",
+       "gives": "SO",
+       "note": "so can mean in this way"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letter of the next word counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for",
+         "note": "the opening letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "consumption",
+       "gives": "TB",
+       "note": "consumption is the old name for tuberculosis, abbreviated TB"
+      },
+      {
+       "words": "everybody",
+       "gives": "ALL",
+       "note": "all means every person"
+      }
      ]
     },
     "explanation": {
@@ -925,47 +840,41 @@
    },
    "solution": "RAJASHIP",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RAJASHIP",
     "definitions": [
      {
       "text": "princely Indian state",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "described by",
-      "for": "container",
-      "note": "to describe a shape is to draw around it, so the tombstone inscription surrounds the other pieces"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cronin''s",
-      "gives": "AJ",
-      "note": "the novelist A.J. Cronin, by his initials"
-     },
-     {
-      "clueFragment": "remains",
-      "gives": "ASH",
-      "note": "ash is what remains after cremation"
-     },
-     {
-      "clueFragment": "epitaph",
-      "gives": "RIP",
-      "note": "rest in peace, the stock gravestone inscription"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AJ",
-      "ASH",
-      "IP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "described by",
+       "note": "to describe a shape is to draw around it, so the tombstone inscription surrounds the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "epitaph",
+       "gives": "RIP",
+       "note": "rest in peace, the stock gravestone inscription"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Cronin''s",
+         "gives": "AJ",
+         "note": "the novelist A.J. Cronin, by his initials"
+        },
+        {
+         "words": "remains",
+         "gives": "ASH",
+         "note": "ash is what remains after cremation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1009,35 +918,25 @@
     "18-down"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GO ROUND THE BEND",
     "definitions": [
      {
       "text": "Lose it",
       "at": 0
      }
     ],
-    "linkWords": [
-     "ie the clue to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "departmental",
-      "gives": "GO",
-      "note": "the first part of the word, depart, means leave"
-     },
-     {
-      "clueFragment": "departmental",
-      "gives": "ROUNDTHEBEND",
-      "note": "the second part, mental, is slang for crazy, which a British idiom also expresses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "ROUNDTHEBEND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "departmental",
+       "gives": "GO",
+       "note": "the first part of the word, depart, means leave"
+      },
+      {
+       "words": "departmental",
+       "gives": "ROUNDTHEBEND",
+       "note": "the second part, mental, is slang for crazy, which a British idiom also expresses"
+      }
      ]
     },
     "explanation": {
@@ -1090,33 +989,18 @@
    },
    "solution": "ROYALFLUSH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROYAL FLUSH",
     "definitions": [
      {
       "text": "suitable embarrassment",
       "at": 7,
-      "note": "a noun phrase: a blush fit for a king"
+      "note": "a noun phrase: a blush fit for a king",
+      "meaning": "first meaning: a red face fit for a monarch, a regal blush"
      },
      {
       "text": "on the cards?",
       "at": 30,
-      "note": "a phrase pointing to something held in a card game"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "suitable embarrassment",
-      "note": "first meaning: a red face fit for a monarch, a regal blush"
-     },
-     {
-      "clueFragment": "on the cards?",
-      "note": "second meaning: the top poker hand, ace to ten all in one suit"
+      "note": "a phrase pointing to something held in a card game",
+      "meaning": "second meaning: the top poker hand, ace to ten all in one suit"
      }
     ],
     "explanation": {
@@ -1145,50 +1029,54 @@
    },
    "solution": "AWEARY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "AWEARY",
     "definitions": [
      {
       "text": "tired of old",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "nearly",
-      "for": "deletion",
-      "note": "nearly means not quite complete, so the final letter of the phrase is dropped"
-     },
-     {
-      "text": "going about",
-      "for": "container",
-      "note": "going about means travelling around something, so one word encircles the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "always",
-      "gives": "AY",
-      "note": "ay (or aye) is an old word for always, as in for ay"
-     },
-     {
-      "clueFragment": "We are",
-      "gives": "WEARE",
-      "note": "taken as written, the two words run together"
-     },
-     {
-      "clueFragment": "people",
-      "note": "surface padding: the folk who used the archaic word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "WEAR",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going about",
+         "note": "going about means travelling around something, so one word encircles the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "gives": "AY",
+         "note": "ay (or aye) is an old word for always, as in for ay"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "note": "nearly means not quite complete, so the final letter of the phrase is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "We are",
+           "note": "taken as written, the two words run together"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "people",
+       "note": "surface padding: the folk who used the archaic word"
+      }
      ]
     },
     "explanation": {
@@ -1230,10 +1118,6 @@
    },
    "solution": "JOHN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "JOHN",
     "definitions": [
      {
       "text": "3",
@@ -1241,16 +1125,17 @@
       "note": "cross-reference to the first word of the 3-down answer"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "writer of \"Biggle\"",
-      "gives": "JOHNS",
-      "note": "Captain W.E. Johns wrote the Biggles books; one Biggle needs one less letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOHN"
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "writer of \"Biggle\"",
+       "gives": "JOHNS",
+       "note": "Captain W.E. Johns wrote the Biggles books; one Biggle needs one less letter"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1286,63 +1171,56 @@
    },
    "solution": "HONEYBEE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "HONEY BEE",
     "definitions": [
      {
       "text": "Worker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming back",
-      "for": "reversal",
-      "note": "coming back means returning, so the farewell is read from its end"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the returned farewell inside the number word"
-     },
-     {
-      "text": "admitted",
-      "for": "container",
-      "note": "admitted means let inside, so the combination goes within the pronoun"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "he's",
-      "gives": "HE",
-      "note": "the pronoun taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "so long",
-      "gives": "BYE",
-      "note": "so long is a casual farewell, like bye"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ON",
-      "EYB",
-      "E",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "BYE",
-       "to": "EYB"
+       "text": "in",
+       "note": "in places the returned farewell inside the number word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he's",
+       "gives": "HE",
+       "note": "the pronoun taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admitted",
+         "note": "admitted means let inside, so the combination goes within the pronoun"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "note": "taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "coming back",
+           "note": "coming back means returning, so the farewell is read from its end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "so long",
+           "gives": "BYE",
+           "note": "so long is a casual farewell, like bye"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1378,41 +1256,42 @@
    },
    "solution": "MUSTBE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "MUST-BE",
     "definitions": [
      {
       "text": "Racing certainty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from Spooner",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner swapped the opening sounds of words, so the start sounds trade places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bankrupted",
-      "gives": "MUST",
-      "soundsLike": "BUST",
-      "note": "bust means bankrupted, its opening sound swapped"
-     },
-     {
-      "clueFragment": "the writer",
-      "gives": "BE",
-      "soundsLike": "ME",
-      "note": "the writer is the setter, so me, its opening sound swapped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUST",
-      "BE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "MUSTBE",
+     "indicators": [
+      {
+       "text": "from Spooner",
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the start sounds trade places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "bankrupted",
+         "gives": "MUST",
+         "soundsLike": "BUST",
+         "note": "bust means bankrupted, its opening sound swapped"
+        },
+        {
+         "unchecked": true,
+         "words": "the writer",
+         "gives": "BE",
+         "soundsLike": "ME",
+         "note": "the writer is the setter, so me, its opening sound swapped"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1451,29 +1330,17 @@
    },
    "solution": "ONAROLL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ON A ROLL",
     "definitions": [
      {
       "text": "Winning repeatedly",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: enjoying a run of successes"
      },
      {
       "text": "in lists?",
       "at": 19,
-      "note": "read as entered on a register"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Winning repeatedly",
-      "note": "first meaning: enjoying a run of successes"
-     },
-     {
-      "clueFragment": "in lists?",
-      "note": "second meaning: entered ..., a register of names"
+      "note": "read as entered on a register",
+      "meaning": "second meaning: entered ..., a register of names"
      }
     ],
     "explanation": {
@@ -1502,50 +1369,45 @@
    },
    "solution": "JULIANA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "JULIANA",
     "definitions": [
      {
       "text": "Queen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means moving backwards, so the two abbreviations are read in reverse order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U is the standard abbreviation for university"
-     },
-     {
-      "clueFragment": "journal",
-      "gives": "J",
-      "note": "J is an abbreviation for journal"
-     },
-     {
-      "clueFragment": "a climber",
-      "gives": "LIANA",
-      "note": "a liana is a woody climbing vine of tropical forests"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JU",
-      "LIANA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "UJ",
-       "to": "JU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "backing means moving backwards, so the two abbreviations are read in reverse order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "University",
+           "gives": "U",
+           "note": "U is the standard abbreviation for university"
+          },
+          {
+           "words": "journal",
+           "gives": "J",
+           "note": "J is an abbreviation for journal"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a climber",
+       "gives": "LIANA",
+       "note": "a liana is a woody climbing vine of tropical forests"
       }
      ]
     },

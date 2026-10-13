@@ -1,8 +1,7 @@
 {
  "id": "canberra-901209",
  "number": 901209,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Sunday 9 December 1990 (English cryptic)",
+ "label": "English cryptic",
  "date": "1990-12-09",
  "dimensions": {
   "cols": 15,
@@ -40,47 +39,41 @@
    },
    "solution": "CREASE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CREASE",
     "definitions": [
      {
       "text": "Double up",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a word is the letter it opens with"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it, between its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Redcar's",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of Redcar"
-     },
-     {
-      "clueFragment": "finish",
-      "gives": "CEASE",
-      "note": "to finish is to cease"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "R",
-      "EASE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed in another sits inside it, between its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "finish",
+       "gives": "CEASE",
+       "note": "to finish is to cease"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "the first of a word is the letter it opens with"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Redcar's",
+         "note": "the opening letter of Redcar"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -109,35 +102,25 @@
    },
    "solution": "CANTATA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CANTATA",
     "definitions": [
      {
       "text": "Choral work",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tin",
-      "gives": "CAN",
-      "note": "a can is a tin"
-     },
-     {
-      "clueFragment": "soldiers at the double",
-      "gives": "TATA",
-      "note": "TA, the Territorial Army, written twice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "TATA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tin",
+       "gives": "CAN",
+       "note": "a can is a tin"
+      },
+      {
+       "words": "soldiers at the double",
+       "gives": "TATA",
+       "note": "TA, the Territorial Army, written twice"
+      }
      ]
     },
     "explanation": {
@@ -166,30 +149,28 @@
    },
    "solution": "ELEMI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELEMI",
     "definitions": [
      {
       "text": "Fragrant resin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "only part of the following words is taken, a run of letters inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fennel emits",
-      "gives": "ELEMI",
-      "note": "the letters straddle the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only part of the following words is taken, a run of letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fennel emits",
+       "gives": "ELEMI",
+       "note": "the letters straddle the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The aromatic gum given off by a fennel plant.",
      "definitionFit": "Elemi is a sweet-smelling gum resin from tropical trees, used in varnishes and perfumes."
@@ -215,26 +196,25 @@
    },
    "solution": "SATCHEL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SATCHEL",
     "definitions": [
      {
       "text": "Cave-caller's case?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cave-caller's case?",
-      "note": "surface reading: someone shouting into a cavern, or the grammatical case such a call takes"
-     },
-     {
-      "clueFragment": "Cave-caller's case?",
-      "note": "setter's reading: the bag carried by a schoolboy, the one who shouts the Latin warning 'cave!' when a master approaches"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cave-caller's case?",
+       "note": "surface reading: someone shouting into a cavern, or the grammatical case such a call takes"
+      },
+      {
+       "words": "Cave-caller's case?",
+       "note": "setter's reading: the bag carried by a schoolboy, the one who shouts the Latin warning 'cave!' when a master approaches"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Cave' is Latin for beware, pronounced KAY-vee, the British schoolboy's lookout cry; 'case' is a bag, not a grammatical case.",
      "definitionFit": "A satchel is a shoulder bag for books, the classic school case of the pupil keeping watch."
@@ -261,31 +241,16 @@
    },
    "solution": "ATOMIC",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ATOMIC",
     "definitions": [
      {
       "text": "Sort of clock",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a highly accurate timekeeper run by ... vibrations"
      },
      {
       "text": "minute",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sort of clock",
-      "note": "first meaning: a highly accurate timekeeper run by ... vibrations"
-     },
-     {
-      "clueFragment": "minute",
-      "note": "second meaning: minute pronounced my-NEWT, extremely small"
+      "at": 21,
+      "meaning": "second meaning: minute pronounced my-NEWT, extremely small"
      }
     ],
     "explanation": {
@@ -315,26 +280,25 @@
    },
    "solution": "TROWELS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TROWELS",
     "definitions": [
      {
       "text": "Handled masonic devices",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Handled masonic devices",
-      "note": "surface reading: the secret signs and tokens dealt with by Freemasons"
-     },
-     {
-      "clueFragment": "Handled masonic devices",
-      "note": "setter's reading: tools with handles used by working masons laying bricks and stone"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Handled masonic devices",
+       "note": "surface reading: the secret signs and tokens dealt with by Freemasons"
+      },
+      {
+       "words": "Handled masonic devices",
+       "note": "setter's reading: tools with handles used by working masons laying bricks and stone"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Masonic' suggests Freemasonry, whose emblems include this tool; read plainly it is a stonemason's implement that has a handle.",
      "definitionFit": "A trowel is the flat-bladed hand tool a mason uses to spread mortar, and it is also a Masonic emblem."
@@ -361,39 +325,28 @@
    },
    "solution": "MASOCHIST",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "MASOCHIST",
     "definitions": [
      {
       "text": "Is stomach upset pleasurable to him?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is knocked over and disordered, so these letters fall into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is stomach",
-      "gives": "ISSTOMACH",
-      "note": "every letter of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISSTOMACH",
-       "gives": "MASOCHIST"
+       "text": "upset",
+       "note": "something upset is knocked over and disordered, so these letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is stomach",
+       "note": "every letter of these two words"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Asking whether someone enjoys an upset stomach.",
      "walkthrough": "The whole clue is the definition: the person who would enjoy a gut ache is one who takes pleasure in pain.",
@@ -421,47 +374,40 @@
    },
    "solution": "CRIMSON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CRIMSON",
     "definitions": [
      {
       "text": "how I blush",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader of a word is the letter at its front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cheer",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of cheer"
-     },
-     {
-      "clueFragment": "edges",
-      "gives": "RIMS",
-      "note": "rims are edges"
-     },
-     {
-      "clueFragment": "forward",
-      "gives": "ON",
-      "note": "on means forward, as in 'move on'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RIMS",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader of a word is the letter at its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cheer",
+         "note": "the first letter of cheer"
+        }
+       ]
+      },
+      {
+       "words": "edges",
+       "gives": "RIMS",
+       "note": "rims are edges"
+      },
+      {
+       "words": "forward",
+       "gives": "ON",
+       "note": "on means forward, as in 'move on'"
+      }
      ]
     },
     "explanation": {
@@ -490,28 +436,16 @@
    },
    "solution": "ARROWS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ARROWS",
     "definitions": [
      {
       "text": "Quarrels",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: quarrels are the bolts shot from a crossbow"
      },
      {
       "text": "mentioned by Hamlet",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quarrels",
-      "note": "first meaning: quarrels are the bolts shot from a crossbow"
-     },
-     {
-      "clueFragment": "mentioned by Hamlet",
-      "note": "second meaning: Hamlet speaks of 'the slings and ... of outrageous fortune'"
+      "at": 9,
+      "meaning": "second meaning: Hamlet speaks of 'the slings and ... of outrageous fortune'"
      }
     ],
     "explanation": {
@@ -547,38 +481,24 @@
    },
    "solution": "ANCESTORWORSHIP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANCESTOR-WORSHIP",
     "definitions": [
      {
       "text": "devotion to the line",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "things involved are tangled up together, so these letters are knotted into a new order"
-     }
-    ],
-    "linkWords": [
-     "in this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I show procreant's",
-      "gives": "ISHOWPROCREANTS",
-      "note": "every letter of these words, the apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISHOWPROCREANTS",
-       "gives": "ANCESTORWORSHIP"
+       "text": "involved",
+       "note": "things involved are tangled up together, so these letters are knotted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I show procreant's",
+       "note": "every letter of these words, the apostrophe ignored"
       }
      ]
     },
@@ -608,26 +528,25 @@
    },
    "solution": "RADISH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RADISH",
     "definitions": [
      {
       "text": "Root cause of repeats",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Root cause of repeats",
-      "note": "surface reading: the underlying reason something keeps happening again"
-     },
-     {
-      "clueFragment": "Root cause of repeats",
-      "note": "setter's reading: a root vegetable that makes you burp afterwards, 'repeat' being slang for a food coming back up the throat"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Root cause of repeats",
+       "note": "surface reading: the underlying reason something keeps happening again"
+      },
+      {
+       "words": "Root cause of repeats",
+       "note": "setter's reading: a root vegetable that makes you burp afterwards, 'repeat' being slang for a food coming back up the throat"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Root cause' is the stock phrase for an underlying reason; read literally it is a root, a vegetable, causing repeats, food that repeats on you.",
      "definitionFit": "The radish is an edible root notorious for making people burp after eating it."
@@ -654,32 +573,25 @@
    },
    "solution": "OVERCAST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERCAST",
     "definitions": [
      {
       "text": "Threatening",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "done",
-      "gives": "OVER",
-      "note": "done means finished, over"
-     },
-     {
-      "clueFragment": "by players",
-      "gives": "CAST",
-      "note": "the players in a show are its cast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "CAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "done",
+       "gives": "OVER",
+       "note": "done means finished, over"
+      },
+      {
+       "words": "by players",
+       "gives": "CAST",
+       "note": "the players in a show are its cast"
+      }
      ]
     },
     "explanation": {
@@ -708,28 +620,16 @@
    },
    "solution": "CALCULUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CALCULUS",
     "definitions": [
      {
       "text": "Painful stone",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a hard mineral concretion in the body, such as a kidney stone"
      },
      {
       "text": "difficult to work out",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Painful stone",
-      "note": "first meaning: a hard mineral concretion in the body, such as a kidney stone"
-     },
-     {
-      "clueFragment": "difficult to work out",
-      "note": "second meaning: the branch of mathematics many students find hard"
+      "at": 14,
+      "meaning": "second meaning: the branch of mathematics many students find hard"
      }
     ],
     "explanation": {
@@ -758,26 +658,25 @@
    },
    "solution": "CARTESIAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CARTESIAN",
     "definitions": [
      {
       "text": "Describing the philosopher he thought he was?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Describing the philosopher he thought he was?",
-      "note": "surface reading: an adjective for a man who imagined himself to be a great thinker"
-     },
-     {
-      "clueFragment": "Describing the philosopher he thought he was?",
-      "note": "setter's reading: relating to Descartes, the thinker who argued 'I think, therefore I am'"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Describing the philosopher he thought he was?",
+       "note": "surface reading: an adjective for a man who imagined himself to be a great thinker"
+      },
+      {
+       "words": "Describing the philosopher he thought he was?",
+       "note": "setter's reading: relating to Descartes, the thinker who argued 'I think, therefore I am'"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'He thought he was' is a play on cogito ergo sum: Descartes held that he existed because he thought.",
      "definitionFit": "Cartesian is the adjective formed from Descartes's Latin name, Cartesius, describing his ideas."
@@ -804,43 +703,31 @@
    },
    "solution": "SKINNY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SKINNY",
     "definitions": [
      {
       "text": "thin",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "one word sits around the other, wrapping it on both sides"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Atmosphere",
-      "gives": "SKY",
-      "note": "the sky is the atmosphere above us"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SK",
-      "INN",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "one word sits around the other, wrapping it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Atmosphere",
+       "gives": "SKY",
+       "note": "the sky is the atmosphere above us"
+      },
+      {
+       "words": "pub",
+       "gives": "INN",
+       "note": "an inn is a pub"
+      }
      ]
     },
     "explanation": {
@@ -868,26 +755,25 @@
    },
    "solution": "HEARTH",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HEARTH",
     "definitions": [
      {
       "text": "Place for cricket at home",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Place for cricket at home",
-      "note": "surface reading: a home ground where the game of cricket is played"
-     },
-     {
-      "clueFragment": "Place for cricket at home",
-      "note": "setter's reading: where the insect, the house cricket, chirps by the warm fireside"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Place for cricket at home",
+       "note": "surface reading: a home ground where the game of cricket is played"
+      },
+      {
+       "words": "Place for cricket at home",
+       "note": "setter's reading: where the insect, the house cricket, chirps by the warm fireside"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Cricket' is the insect, not the sport; Dickens's story 'The Cricket on the Hearth' made the household spot famous.",
      "definitionFit": "The hearth is the floor of a fireplace, the warm spot in a house where crickets traditionally sing."
@@ -914,50 +800,47 @@
    },
    "solution": "EPIGRAM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EPIGRAM",
     "definitions": [
      {
       "text": "Saying",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mince",
-      "for": "anagram",
-      "note": "to mince is to chop finely, so the letters are cut up and rearranged"
-     },
-     {
-      "text": "carries",
-      "for": "container",
-      "note": "carrying something means holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pie",
-      "gives": "PIE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "little weight",
-      "gives": "GRAM",
-      "note": "a gram is a small unit of weight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPI",
-      "GRAM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EPIGRAM",
+     "indicators": [
       {
-       "fodder": "PIE",
-       "gives": "EPI"
+       "text": "carries",
+       "note": "carrying something means holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mince",
+         "note": "to mince is to chop finely, so the letters are cut up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pie",
+           "note": "taken as written"
+          },
+          {
+           "words": "little weight",
+           "gives": "GRAM",
+           "note": "a gram is a small unit of weight"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -993,35 +876,24 @@
    },
    "solution": "HOTLINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HOT LINE",
     "definitions": [
      {
       "text": "Emergency link",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disconnected",
-      "for": "anagram",
-      "note": "disconnected parts come apart and can be rejoined in any order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in hotel",
-      "gives": "INHOTEL",
-      "note": "every letter of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INHOTEL",
-       "gives": "HOTLINE"
+       "text": "disconnected",
+       "note": "disconnected parts come apart and can be rejoined in any order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in hotel",
+       "note": "every letter of these two words"
       }
      ]
     },
@@ -1050,35 +922,24 @@
    },
    "solution": "CENOTAPH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CENOTAPH",
     "definitions": [
      {
       "text": "Monument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to restore",
-      "for": "anagram",
-      "note": "restoring something means rebuilding it, so the letters are put back together differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not cheap",
-      "gives": "NOTCHEAP",
-      "note": "every letter of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTCHEAP",
-       "gives": "CENOTAPH"
+       "text": "to restore",
+       "note": "restoring something means rebuilding it, so the letters are put back together differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not cheap",
+       "note": "every letter of these two words"
       }
      ]
     },
@@ -1107,40 +968,32 @@
    },
    "solution": "CURTSY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CURTSY",
     "definitions": [
      {
       "text": "Sign of respect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "left out of",
-      "for": "deletion",
-      "note": "what is left out is dropped from the longer word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old English",
-      "gives": "OE",
-      "note": "OE is the standard abbreviation for Old English"
-     },
-     {
-      "clueFragment": "courtesy",
-      "gives": "COURTESY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "URT",
-      "SY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CURTSY",
+     "indicators": [
+      {
+       "text": "left out of",
+       "note": "what is left out is dropped from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old English",
+       "gives": "OE",
+       "note": "OE is the standard abbreviation for Old English"
+      },
+      {
+       "words": "courtesy",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1169,31 +1022,29 @@
    },
    "solution": "NOTCHES",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NOTCHES",
     "definitions": [
      {
       "text": "Scores",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is the spoken form, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "\"Night in Spain\"",
-      "gives": "NOTCHES",
-      "soundsLike": "NOCHES",
-      "note": "noches is Spanish for nights"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NOTCHES",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "what we hear is the spoken form, not the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "\"Night in Spain\"",
+       "gives": "NOCHES",
+       "note": "noches is Spanish for nights"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The musical scores for a piece called 'Night in Spain'.",
      "walkthrough": "'Scores' looks musical, fed by a title like Falla's 'Nights in the Gardens of Spain'; it means tallies cut as marks.",
@@ -1221,54 +1072,47 @@
    },
    "solution": "PIONEER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "PIONEER",
     "definitions": [
      {
       "text": "Innovator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "development",
-      "for": "anagram",
-      "note": "a development changes the form of something, so the letters change order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "—"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "ONE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ripe",
-      "gives": "PIER",
-      "note": "the letters of ripe, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "ONE",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "PIONEER",
+     "indicators": [
       {
-       "fodder": "RIPE",
-       "gives": "PIER"
+       "text": "in",
+       "note": "one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "development",
+         "note": "a development changes the form of something, so the letters change order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "note": "taken as written"
+          },
+          {
+           "words": "ripe",
+           "gives": "PIER",
+           "note": "the letters of ripe, rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1303,40 +1147,31 @@
    },
    "solution": "FIVESTAR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FIVE-STAR",
     "definitions": [
      {
       "text": "Luxury-standard",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "casing",
-      "for": "container",
-      "note": "a casing is an outer shell, so one word wraps another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "matchwood",
-      "gives": "FIR",
-      "note": "the wood half of the word: fir is a wood"
-     },
-     {
-      "clueFragment": "matchwood",
-      "gives": "VESTA",
-      "note": "the match half: a vesta is an old word for a match, as in Swan Vestas"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "VESTA",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "casing",
+       "note": "a casing is an outer shell, so one word wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "matchwood",
+       "gives": "FIR",
+       "note": "the wood half of the word: fir is a wood"
+      },
+      {
+       "words": "matchwood",
+       "gives": "VESTA",
+       "note": "the match half: a vesta is an old word for a match, as in Swan Vestas"
+      }
      ]
     },
     "explanation": {
@@ -1371,52 +1206,35 @@
    },
    "solution": "TOMTOM",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TOM-TOM",
     "definitions": [
      {
       "text": "Means of sending message",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "comes back",
-      "for": "reversal",
-      "note": "a word that comes back travels the other way, read from right to left"
-     }
-    ],
-    "linkWords": [
-     "so that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "word",
-      "gives": "MOT",
-      "note": "mot is French for word, as in bon mot"
-     },
-     {
-      "clueFragment": "twice",
-      "gives": "MOT",
-      "note": "the same piece again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOM",
-      "TOM"
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "comes back",
+       "note": "a word that comes back travels the other way, read from right to left"
+      }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "MOT",
-       "to": "TOM"
-      },
-      {
-       "from": "MOT",
-       "to": "TOM"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "word",
+         "gives": "MOT",
+         "note": "mot is French for word, as in bon mot"
+        },
+        {
+         "words": "twice",
+         "gives": "MOT",
+         "note": "the same piece again"
+        }
+       ]
       }
      ]
     },
@@ -1446,41 +1264,40 @@
    },
    "solution": "MOOCH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MOOCH",
     "definitions": [
      {
       "text": "behave apathetically",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "leaders are the letters at the front of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Low",
-      "gives": "MOO",
-      "note": "to low is to moo like a cow"
-     },
-     {
-      "clueFragment": "Church",
-      "gives": "CH",
-      "select": "first",
-      "note": "the first two letters of Church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOO",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Low",
+       "gives": "MOO",
+       "note": "to low is to moo like a cow"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CH",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "leaders are the letters at the front of each word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Church",
+         "gives": "CH",
+         "select": "first",
+         "note": "the first two letters of Church"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1515,10 +1332,6 @@
    },
    "solution": "PRAIRIESCHOONER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRAIRIE-SCHOONER",
     "definitions": [
      {
       "text": "in 20's wagon",
@@ -1526,22 +1339,19 @@
       "note": "the definition is 20's wagon, with in as a joining word"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Plain",
-      "gives": "PRAIRIE",
-      "note": "a prairie is a grassy plain"
-     },
-     {
-      "clueFragment": "glass, perhaps",
-      "gives": "SCHOONER",
-      "note": "a schooner is a tall glass for sherry or beer, one sort of glass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRAIRIE",
-      "SCHOONER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plain",
+       "gives": "PRAIRIE",
+       "note": "a prairie is a grassy plain"
+      },
+      {
+       "words": "glass, perhaps",
+       "gives": "SCHOONER",
+       "note": "a schooner is a tall glass for sherry or beer, one sort of glass"
+      }
      ]
     },
     "explanation": {
@@ -1570,43 +1380,31 @@
    },
    "solution": "MONKEY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MONKEY",
     "definitions": [
      {
       "text": "half of it",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item goes inside the other, held within it"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cash",
-      "gives": "MONEY",
-      "note": "cash is money"
-     },
-     {
-      "clueFragment": "One thousand",
-      "gives": "K",
-      "note": "K stands for a thousand, as in 10K"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MON",
-      "K",
-      "EY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item goes inside the other, held within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cash",
+       "gives": "MONEY",
+       "note": "cash is money"
+      },
+      {
+       "words": "One thousand",
+       "gives": "K",
+       "note": "K stands for a thousand, as in 10K"
+      }
      ]
     },
     "explanation": {
@@ -1635,38 +1433,24 @@
    },
    "solution": "ESTHER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESTHER",
     "definitions": [
      {
       "text": "Book",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Revised Version",
-      "for": "anagram",
-      "note": "a revised version of a text is reworked, so the letters are changed round"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Three's",
-      "gives": "THREES",
-      "note": "every letter, the apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THREES",
-       "gives": "ESTHER"
+       "text": "Revised Version",
+       "note": "a revised version of a text is reworked, so the letters are changed round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Three's",
+       "note": "every letter, the apostrophe ignored"
       }
      ]
     },

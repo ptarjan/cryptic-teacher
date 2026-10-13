@@ -1,8 +1,6 @@
 {
  "id": "toughie-3310",
  "number": 3310,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,310",
  "setter": "Hudson",
  "date": "2024-07-24",
  "dimensions": {
@@ -44,56 +42,54 @@
    },
    "solution": "CHILDPRODIGY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "CHILD PRODIGY",
     "definitions": [
      {
       "text": "whizz kid",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something gone off has spoiled, so these letters are not in their proper state and must be rearranged"
-     },
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without its end, so the final letter of the word for cool is cut away"
-     },
-     {
-      "text": "dogging",
-      "for": "charade",
-      "note": "to dog someone is to follow close behind, so the jumbled letters trail after the shortened word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cool",
-      "gives": "CHILL",
-      "note": "to chill is to cool"
-     },
-     {
-      "clueFragment": "Dodgy rip",
-      "gives": "DODGYRIP",
-      "note": "the fodder, taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIL",
-      "DPRODIGY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "DODGYRIP",
-       "gives": "DPRODIGY"
+       "text": "dogging",
+       "note": "to dog someone is to follow close behind, so the jumbled letters trail after the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "note": "without its end, so the final letter of the word for cool is cut away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cool",
+         "gives": "CHILL",
+         "note": "to chill is to cool"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something gone off has spoiled, so these letters are not in their proper state and must be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dodgy rip",
+         "note": "the fodder, taken as written"
+        }
+       ]
       }
      ]
     },
@@ -123,58 +119,50 @@
    },
    "solution": "COTERIE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "COTERIE",
     "definitions": [
      {
       "text": "Group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue, something upset is turned upside down, so the country's name reads from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "standard abbreviation for company"
-     },
-     {
-      "clueFragment": "Taxation",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of Taxation"
-     },
-     {
-      "clueFragment": "Ireland",
-      "gives": "EIRE",
-      "note": "Eire is the Irish-language name for Ireland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "T",
-      "ERIE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EIRE",
-       "to": "ERIE"
+       "words": "company",
+       "gives": "CO",
+       "note": "standard abbreviation for company"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "the head of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Taxation",
+         "note": "the opening letter of Taxation"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "note": "in a down clue, something upset is turned upside down, so the country's name reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ireland",
+         "gives": "EIRE",
+         "note": "Eire is the Irish-language name for Ireland"
+        }
+       ]
       }
      ]
     },
@@ -203,45 +191,36 @@
    },
    "solution": "IMPREST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPREST",
     "definitions": [
      {
       "text": "Government cash advance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "deposited on",
-      "for": "charade",
-      "note": "in a down entry, items deposited on something sit above it, so these come first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "Member of Parliament"
-     },
-     {
-      "clueFragment": "holiday",
-      "gives": "REST",
-      "note": "a rest is a break or holiday"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MP",
-      "REST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "deposited on",
+       "note": "in a down entry, items deposited on something sit above it, so these come first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "Member of Parliament"
+      },
+      {
+       "words": "holiday",
+       "gives": "REST",
+       "note": "a rest is a break or holiday"
+      }
      ]
     },
     "explanation": {
@@ -276,32 +255,25 @@
    },
    "solution": "DIRTYBOMB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIRTY BOMB",
     "definitions": [
      {
       "text": "one's made, in part, from toxic waste",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Obscene",
-      "gives": "DIRTY",
-      "note": "obscene language is dirty"
-     },
-     {
-      "clueFragment": "fortune",
-      "gives": "BOMB",
-      "note": "to cost a bomb is to cost a fortune, in British slang"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIRTY",
-      "BOMB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Obscene",
+       "gives": "DIRTY",
+       "note": "obscene language is dirty"
+      },
+      {
+       "words": "fortune",
+       "gives": "BOMB",
+       "note": "to cost a bomb is to cost a fortune, in British slang"
+      }
      ]
     },
     "explanation": {
@@ -330,54 +302,41 @@
    },
    "solution": "RECAP",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "RECAP",
     "definitions": [
      {
       "text": "summary",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "bored",
-      "for": "container",
-      "note": "something bored has had a hole drilled into it, so it takes another word inside"
-     },
-     {
-      "text": "Up-and-coming",
-      "for": "reversal",
-      "note": "in a down clue, coming up means the letters are read from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "public relations",
-      "gives": "PR",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ACE",
-      "note": "an ace is an expert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ECA",
-      "P"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PACER",
-       "to": "RECAP"
+       "text": "Up-and-coming",
+       "note": "in a down clue, coming up means the letters are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bored",
+         "note": "something bored has had a hole drilled into it, so it takes another word inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "public relations",
+         "gives": "PR",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "expert",
+         "gives": "ACE",
+         "note": "an ace is an expert"
+        }
+       ]
       }
      ]
     },
@@ -407,29 +366,17 @@
    },
    "solution": "DIRECTS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DIRECTS",
     "definitions": [
      {
       "text": "Orders",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: gives instructions to"
      },
      {
       "text": "shooting",
       "at": 7,
-      "note": "a gerund for what a film-maker oversees; the answer is a verb meaning oversees that"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Orders",
-      "note": "first meaning: gives instructions to"
-     },
-     {
-      "clueFragment": "shooting?",
-      "note": "second meaning: is in charge of filming, as a film director is"
+      "note": "a gerund for what a film-maker oversees; the answer is a verb meaning oversees that",
+      "meaning": "second meaning: is in charge of filming, as a film director is"
      }
     ],
     "explanation": {
@@ -458,51 +405,44 @@
    },
    "solution": "GONDOLA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "GONDOLA",
     "definitions": [
      {
       "text": "Craft",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surprisingly",
-      "for": "anagram",
-      "note": "something that turns out surprisingly is not as expected, so the letters come out in an unexpected order"
-     },
-     {
-      "text": "first in",
-      "for": "container",
-      "note": "the first letter of the race name is put in among the other letters"
-     }
-    ],
-    "linkWords": [
-     "shown by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old nag",
-      "gives": "OLDNAG",
-      "note": "the fodder, taken as written"
-     },
-     {
-      "clueFragment": "Oaks Stakes",
-      "gives": "O",
-      "select": "first",
-      "note": "the opening letter of the race name"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OLDNAGO",
-       "gives": "GONDOLA"
+       "text": "first in",
+       "note": "the first letter of the race name is put in among the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "note": "something that turns out surprisingly is not as expected, so the letters come out in an unexpected order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old nag",
+         "note": "the fodder, taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Oaks Stakes",
+         "note": "the opening letter of the race name"
+        }
+       ]
       }
      ]
     },
@@ -538,28 +478,16 @@
    },
    "solution": "BUILDINGPLOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUILDING PLOT",
     "definitions": [
      {
       "text": "Developing story when writing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: constructing the storyline of a novel or script"
      },
      {
       "text": "pad's sat here",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Developing story when writing",
-      "note": "first meaning: constructing the storyline of a novel or script"
-     },
-     {
-      "clueFragment": "pad's sat here",
-      "note": "second meaning: a site where a pad, slang for a home, is built"
+      "at": 30,
+      "meaning": "second meaning: a site where a pad, slang for a home, is built"
      }
     ],
     "explanation": {
@@ -598,34 +526,28 @@
    },
    "solution": "UPTOPAR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UP TO PAR",
     "definitions": [
      {
       "text": "of the required standard",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "twice falling short",
-      "for": "deletion",
-      "note": "falling short of the end happens to both words of the name, so each loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former London stadium",
-      "gives": "UPTONPARK",
-      "note": "Upton Park was West Ham United's football ground until 2016"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UPTO",
-      "PAR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UPTOPAR",
+     "indicators": [
+      {
+       "text": "twice falling short",
+       "note": "falling short of the end happens to both words of the name, so each loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Former London stadium",
+       "gives": "UPTONPARK",
+       "note": "Upton Park was West Ham United's football ground until 2016"
+      }
      ]
     },
     "explanation": {
@@ -654,41 +576,39 @@
    },
    "solution": "CORONER",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "CORONER",
     "definitions": [
      {
       "text": "Official",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "late",
-      "for": "container",
-      "note": "late means coming later, so that letter is taken out and put back further along"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crosby?",
-      "gives": "CROONER",
-      "note": "Bing Crosby is the classic example of a crooner; the question mark flags the example"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "R is the cricket abbreviation for runs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "R",
-      "ONER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "late",
+       "note": "late means coming later, so that letter is taken out and put back further along"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Crosby?",
+         "gives": "CROONER",
+         "note": "Bing Crosby is the classic example of a crooner; the question mark flags the example"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
      ]
     },
     "explanation": {
@@ -727,51 +647,51 @@
    },
    "solution": "RIODEJANEIRO",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "RIO DE JANEIRO",
     "definitions": [
      {
       "text": "city",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "a tour goes around a place, so the wine goes around the single letter"
-     },
-     {
-      "text": "tangling",
-      "for": "anagram",
-      "note": "things tangled are twisted together and knotted, so all these letters get mixed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A-list actor",
-      "gives": "DENIRO",
-      "note": "Robert De Niro, a Hollywood star"
-     },
-     {
-      "clueFragment": "Spanish wine",
-      "gives": "RIOJA",
-      "note": "Rioja is a Spanish red wine"
-     },
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DENIRORIOJEA",
-       "gives": "RIODEJANEIRO"
+       "text": "touring",
+       "note": "a tour goes around a place, so the wine goes around the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tangling",
+         "note": "things tangled are twisted together and knotted, so all these letters get mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A-list actor",
+           "gives": "DENIRO",
+           "note": "Robert De Niro, a Hollywood star"
+          },
+          {
+           "words": "Spanish wine",
+           "gives": "RIOJA",
+           "note": "Rioja is a Spanish red wine"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "gives": "E",
+       "note": "standard abbreviation"
       }
      ]
     },
@@ -800,35 +720,24 @@
    },
    "solution": "LARGELY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LARGELY",
     "definitions": [
      {
       "text": "Mostly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stormy",
-      "for": "anagram",
-      "note": "stormy weather blows things about, so the letters that follow are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all grey",
-      "gives": "ALLGREY",
-      "note": "the fodder, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALLGREY",
-       "gives": "LARGELY"
+       "text": "stormy",
+       "note": "stormy weather blows things about, so the letters that follow are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all grey",
+       "note": "the fodder, taken as written"
       }
      ]
     },
@@ -857,41 +766,30 @@
    },
    "solution": "PICCOLO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PICCOLO",
     "definitions": [
      {
       "text": "sort of blowpipe",
       "at": 29
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shot",
-      "gives": "PIC",
-      "note": "a pic is a photograph, or shot"
-     },
-     {
-      "clueFragment": "senior officer",
-      "gives": "COL",
-      "note": "Col is the abbreviation for colonel"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIC",
-      "COL",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shot",
+       "gives": "PIC",
+       "note": "a pic is a photograph, or shot"
+      },
+      {
+       "words": "senior officer",
+       "gives": "COL",
+       "note": "Col is the abbreviation for colonel"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -921,37 +819,25 @@
    },
    "solution": "INEPT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "INEPT",
     "definitions": [
      {
       "text": "awkward",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly getting dropped",
-      "for": "letter_selection",
-      "note": "dropping at regular intervals means every other letter of the name is discarded"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ian Redpath",
-      "gives": "INEPT",
-      "select": "alternate",
-      "note": "the first, third, fifth, seventh and ninth letters of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INEPT"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly getting dropped",
+       "note": "dropping at regular intervals means every other letter of the name is discarded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ian Redpath",
+       "note": "the first, third, fifth, seventh and ninth letters of the name"
+      }
      ]
     },
     "explanation": {
@@ -979,46 +865,43 @@
    },
    "solution": "OBFUSCATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "OBFUSCATE",
     "definitions": [
      {
       "text": "cloud",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "out means removed, so the letters of the last word are taken away from the scale"
-     },
-     {
-      "text": "winds churning",
-      "for": "anagram",
-      "note": "churning winds whip things around, so the remaining letters are stirred into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beaufort scale",
-      "gives": "BEAUFORTSCALE",
-      "note": "the fodder, taken as written"
-     },
-     {
-      "clueFragment": "real",
-      "gives": "REAL",
-      "note": "the letters to remove, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OBFUSCATE",
+     "indicators": [
       {
-       "fodder": "BUFOTSCAE",
-       "gives": "OBFUSCATE"
+       "text": "winds churning",
+       "note": "churning winds whip things around, so the remaining letters are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "OBFUSCATE",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out means removed, so the letters of the last word are taken away from the scale"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beaufort scale",
+         "note": "the fodder, taken as written"
+        },
+        {
+         "words": "real",
+         "note": "the letters to remove, taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1054,26 +937,25 @@
    },
    "solution": "FRYINGPAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FRYING PAN",
     "definitions": [
      {
       "text": "One gets well oiled after bringing home the bacon!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One gets well oiled after bringing home the bacon!",
-      "note": "surface reading: a breadwinner who goes out drinking after earning the family's money"
-     },
-     {
-      "clueFragment": "well oiled",
-      "note": "setter's reading: a kitchen utensil greased before the bacon brought home is cooked in it"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One gets well oiled after bringing home the bacon!",
+       "note": "surface reading: a breadwinner who goes out drinking after earning the family's money"
+      },
+      {
+       "words": "well oiled",
+       "note": "setter's reading: a kitchen utensil greased before the bacon brought home is cooked in it"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Bringing home the bacon' is the idiom for earning a living and 'well oiled' slang for drunk, but both are meant literally here.",
      "definitionFit": "The answer is a shallow kitchen pan that is oiled before rashers of bacon are fried in it."
@@ -1106,62 +988,59 @@
    },
    "solution": "GALWAYBAY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "charade"
-    ],
-    "answer": "GALWAY BAY",
     "definitions": [
      {
       "text": "to see the sun go down here?",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter of the word for constantly is dropped"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the shortened word is placed inside the abbreviation for the island"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this island",
-      "gives": "GB",
-      "note": "Great Britain, home of the newspaper"
-     },
-     {
-      "clueFragment": "constantly",
-      "gives": "ALWAYS",
-      "note": "always means constantly"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "yen",
-      "gives": "Y",
-      "note": "Y is the abbreviation for the Japanese yen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ALWAY",
-      "B",
-      "A",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the shortened word is placed inside the abbreviation for the island"
+        }
+       ],
+       "parts": [
+        {
+         "words": "this island",
+         "gives": "GB",
+         "note": "Great Britain, home of the newspaper"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Almost",
+           "note": "almost means not quite all, so the final letter of the word for constantly is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "constantly",
+           "gives": "ALWAYS",
+           "note": "always means constantly"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "yen",
+       "gives": "Y",
+       "note": "Y is the abbreviation for the Japanese yen"
+      }
      ]
     },
     "explanation": {
@@ -1190,51 +1069,49 @@
    },
    "solution": "LEMPIRA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LEMPIRA",
     "definitions": [
      {
       "text": "currency",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "dumping",
-      "for": "deletion",
-      "note": "dumping means getting rid of, so one letter is thrown out of the realm word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Large",
-      "gives": "L",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "dominion",
-      "gives": "EMPIRE",
-      "note": "an empire is a dominion"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "standard abbreviation, the letter removed"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EMPIR",
-      "A"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dumping",
+       "note": "dumping means getting rid of, so one letter is thrown out of the realm word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Large",
+         "gives": "L",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "dominion",
+         "gives": "EMPIRE",
+         "note": "an empire is a dominion"
+        },
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "standard abbreviation, the letter removed"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "standard abbreviation"
+        }
+       ]
+      },
+      {
+       "gives": "EE"
+      }
      ]
     },
     "explanation": {
@@ -1263,26 +1140,25 @@
    },
    "solution": "AFGHANI",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AFGHANI",
     "definitions": [
      {
       "text": "Ready for Trott's team?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Ready for Trott's team?",
-      "note": "surface reading: whether a cricket side is prepared to play"
-     },
-     {
-      "clueFragment": "Ready",
-      "note": "setter's reading: ready is British slang for cash, here the money used by the country whose team Jonathan Trott coaches"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ready for Trott's team?",
+       "note": "surface reading: whether a cricket side is prepared to play"
+      },
+      {
+       "words": "Ready",
+       "note": "setter's reading: ready is British slang for cash, here the money used by the country whose team Jonathan Trott coaches"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Jonathan Trott, the former England batsman, became head coach of Afghanistan's cricket team. 'Ready', short for ready money, is British slang for cash.",
      "definitionFit": "The answer is the currency of Afghanistan, so it is the cash, or ready, of that country."
@@ -1315,45 +1191,43 @@
    },
    "solution": "ATSEA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AT SEA",
     "definitions": [
      {
       "text": "Befuddled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "visits",
-      "for": "container",
-      "note": "a visitor goes inside someone's home, so these letters go inside the group's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "addiction help group",
-      "gives": "A",
-      "note": "first half of AA, Alcoholics Anonymous"
-     },
-     {
-      "clueFragment": "Modernist poet initially",
-      "gives": "TSE",
-      "note": "the initials of T. S. Eliot, a leading Modernist poet"
-     },
-     {
-      "clueFragment": "addiction help group",
-      "gives": "A",
-      "note": "second half of AA, Alcoholics Anonymous"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TSE",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ATSEA",
+     "indicators": [
+      {
+       "text": "visits",
+       "note": "a visitor goes inside someone's home, so these letters go inside the group's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "addiction help group",
+         "gives": "A",
+         "note": "first half of AA, Alcoholics Anonymous"
+        },
+        {
+         "words": "Modernist poet initially",
+         "gives": "TSE",
+         "note": "the initials of T. S. Eliot, a leading Modernist poet"
+        },
+        {
+         "words": "addiction help group",
+         "gives": "A",
+         "note": "second half of AA, Alcoholics Anonymous"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1382,52 +1256,48 @@
    },
    "solution": "AMPHORA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AMPHORA",
     "definitions": [
      {
       "text": "container",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "capturing means taking prisoner, so the dish is held inside the letters around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "soup",
-      "gives": "PHO",
-      "note": "pho is a Vietnamese noodle soup"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "Royal Academician"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "M",
-      "PHO",
-      "RA"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "AMPHORA",
+     "indicators": [
+      {
+       "text": "capturing",
+       "note": "capturing means taking prisoner, so the dish is held inside the letters around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "male",
+         "gives": "M",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "soup",
+         "gives": "PHO",
+         "note": "pho is a Vietnamese noodle soup"
+        },
+        {
+         "words": "artist",
+         "gives": "RA",
+         "note": "Royal Academician"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1456,39 +1326,31 @@
    },
    "solution": "SQUELCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SQUELCH",
     "definitions": [
      {
       "text": "Crush",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down entry, one item on another sits above it, so the single letter comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "master from Greyfriars",
-      "gives": "QUELCH",
-      "note": "Mr Quelch is a schoolmaster at Greyfriars in the Billy Bunter stories"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "QUELCH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down entry, one item on another sits above it, so the single letter comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "master from Greyfriars",
+       "gives": "QUELCH",
+       "note": "Mr Quelch is a schoolmaster at Greyfriars in the Billy Bunter stories"
+      }
      ]
     },
     "explanation": {
@@ -1518,40 +1380,31 @@
    },
    "solution": "LIMOGES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIMOGES",
     "definitions": [
      {
       "text": "French city",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breached by",
-      "for": "container",
-      "note": "a wall breached by an enemy has something break into it, so the blunder goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boundary once",
-      "gives": "LIMES",
-      "note": "limes was the fortified frontier of the Roman Empire, hence 'once'"
-     },
-     {
-      "clueFragment": "defensive blunder",
-      "gives": "OG",
-      "note": "OG is an own goal in football"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIM",
-      "OG",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breached by",
+       "note": "a wall breached by an enemy has something break into it, so the blunder goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boundary once",
+       "gives": "LIMES",
+       "note": "limes was the fortified frontier of the Roman Empire, hence 'once'"
+      },
+      {
+       "words": "defensive blunder",
+       "gives": "OG",
+       "note": "OG is an own goal in football"
+      }
      ]
     },
     "explanation": {
@@ -1579,48 +1432,36 @@
    },
    "solution": "SHRUG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHRUG",
     "definitions": [
      {
       "text": "Expression of indifference",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "in a down entry, items put on another sit above it, so they come first"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "wig",
-      "gives": "RUG",
-      "note": "rug is slang for a toupee or wig"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "RUG"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "in a down entry, items put on another sit above it, so they come first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "wig",
+       "gives": "RUG",
+       "note": "rug is slang for a toupee or wig"
+      }
      ]
     },
     "explanation": {
@@ -1649,30 +1490,30 @@
    },
    "solution": "NEPTUNE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NEPTUNE",
     "definitions": [
      {
       "text": "Roman god",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "entertaining",
-      "for": "hidden_word",
-      "note": "to entertain is to hold or host, so the words hold the answer within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13 unexpectedly",
-      "gives": "NEPTUNE",
-      "note": "13 stands for the answer to 13 across, written in front of the next word, and the letters run across the join"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "NEPTUNE",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "note": "to entertain is to hold or host, so the words hold the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "13 unexpectedly",
+       "gives": "NEPTUNE",
+       "note": "13 stands for the answer to 13 across, written in front of the next word, and the letters run across the join"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something awkward unexpectedly entertaining a Roman god.",
      "walkthrough": "Write INEPT, the answer to 13, before 'unexpectedly': iNEPT UNExpectedly.",
@@ -1705,28 +1546,16 @@
    },
    "solution": "THINAIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THIN AIR",
     "definitions": [
      {
       "text": "Rarefied atmosphere",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: air with low density, as at altitude"
      },
      {
       "text": "in which Lord Lucan blended?",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rarefied atmosphere",
-      "note": "first meaning: air with low density, as at altitude"
-     },
-     {
-      "clueFragment": "in which Lord Lucan blended?",
-      "note": "second meaning: Lord Lucan, a British peer, vanished in 1974 and was never found"
+      "at": 20,
+      "meaning": "second meaning: Lord Lucan, a British peer, vanished in 1974 and was never found"
      }
     ],
     "explanation": {
@@ -1755,54 +1584,51 @@
    },
    "solution": "PROWLER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PROWLER",
     "definitions": [
      {
       "text": "He creeps around",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "two hands holding something grip it between them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "front of ship",
-      "gives": "PROW",
-      "note": "the prow is the bow of a ship"
-     },
-     {
-      "clueFragment": "both hands",
-      "gives": "LR",
-      "note": "left and right"
-     },
-     {
-      "clueFragment": "rope",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of rope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROW",
-      "L",
-      "E",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "front of ship",
+       "gives": "PROW",
+       "note": "the prow is the bow of a ship"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "two hands holding something grip it between them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "both hands",
+         "gives": "LR",
+         "note": "left and right"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "note": "the end of a word is its final letter, so only that one is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rope",
+           "note": "the final letter of rope"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1840,35 +1666,24 @@
    },
    "solution": "TAKINGANOATH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TAKING AN OATH",
     "definitions": [
      {
       "text": "Promising faithfully",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fans",
-      "for": "anagram",
-      "note": "to fan something is to spread it out, so the letters are spread into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "again to thank",
-      "gives": "AGAINTOTHANK",
-      "note": "the fodder, taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AGAINTOTHANK",
-       "gives": "TAKINGANOATH"
+       "text": "fans",
+       "note": "to fan something is to spread it out, so the letters are spread into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "again to thank",
+       "note": "the fodder, taken as written"
       }
      ]
     },

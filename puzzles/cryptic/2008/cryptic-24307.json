@@ -1,8 +1,7 @@
 {
  "id": "cryptic-24307",
  "number": 24307,
- "series": "cryptic",
- "name": "Prize crossword No 24,307",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2008-02-09",
  "preamble": "Solve the clues and fit the solutions in the diagram jigsaw-wise, wherever they will go.",
@@ -44,58 +43,48 @@
     "1-down"
    ],
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CRI DU CHAT SYNDROME",
     "definitions": [
      {
       "text": "you just get mews",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "use",
-      "for": "anagram",
-      "note": "to use something is to work it, and worked material gets rearranged into a new order"
-     },
-     {
-      "text": "holding",
-      "for": "anagram",
-      "note": "holding means gripping from both sides, so the jumbled letters close around another piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like the RAs in A",
-      "gives": "CRIME",
-      "note": "the RAs (Royal Academicians) are artists, and the answer at 8 across puts artists 'in crime', so this phrase supplies the last word"
-     },
-     {
-      "clueFragment": "no ruddy",
-      "gives": "NORUDDY",
-      "note": "taken as written, ready to be jumbled"
-     },
-     {
-      "clueFragment": "informal talks",
-      "gives": "CHATS",
-      "note": "chats are casual conversations"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRI",
-      "DU",
-      "CHATS",
-      "YNDRO",
-      "ME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "parts": [
       {
-       "fodder": "NORUDDY",
-       "gives": "DUYNDRO"
+       "words": "Like the RAs in A",
+       "gives": "CRIME",
+       "note": "the RAs (Royal Academicians) are artists, and the answer at 8 across puts artists 'in crime', so this phrase supplies the last word"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "use",
+         "note": "to use something is to work it, and worked material gets rearranged into a new order"
+        },
+        {
+         "text": "holding",
+         "note": "holding means gripping from both sides, so the jumbled letters close around another piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "no ruddy",
+           "note": "taken as written, ready to be jumbled"
+          },
+          {
+           "words": "informal talks",
+           "gives": "CHATS",
+           "note": "chats are casual conversations"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -140,50 +129,41 @@
    },
    "solution": "INTIMATED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "INTIMATED",
     "definitions": [
      {
       "text": "told",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Among",
-      "for": "container",
-      "note": "something among others is surrounded by them, so one piece sits inside another"
-     }
-    ],
-    "linkWords": [
-     "I'm"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two",
-      "gives": "II",
-      "note": "two in Roman numerals, split to hold the books"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "NT",
-      "note": "the New Testament, the usual crossword books"
-     },
-     {
-      "clueFragment": "concluded game",
-      "gives": "MATED",
-      "note": "a chess game ends when the king is mated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NT",
-      "I",
-      "MATED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Among",
+         "note": "something among others is surrounded by them, so one piece sits inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two",
+         "gives": "II",
+         "note": "two in Roman numerals, split to hold the books"
+        },
+        {
+         "words": "books",
+         "gives": "NT",
+         "note": "the New Testament, the usual crossword books"
+        }
+       ]
+      },
+      {
+       "words": "concluded game",
+       "gives": "MATED",
+       "note": "a chess game ends when the king is mated"
+      }
      ]
     },
     "explanation": {
@@ -212,40 +192,21 @@
    },
    "solution": "UPSET",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "UPSET",
     "definitions": [
      {
       "text": "Surprise",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an unexpected result, as when an underdog wins"
      },
      {
       "text": "distressed",
-      "at": 17
+      "at": 17,
+      "meaning": "second meaning: troubled and unhappy"
      },
      {
       "text": "knocked over",
-      "at": 29
-     }
-    ],
-    "linkWords": [
-     "has one",
-     "too"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surprise",
-      "note": "first meaning: an unexpected result, as when an underdog wins"
-     },
-     {
-      "clueFragment": "distressed",
-      "note": "second meaning: troubled and unhappy"
-     },
-     {
-      "clueFragment": "knocked over",
-      "note": "third meaning: tipped onto its side"
+      "at": 29,
+      "meaning": "third meaning: tipped onto its side"
      }
     ],
     "explanation": {
@@ -273,35 +234,33 @@
    },
    "solution": "JOHNBULL",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "JOHN BULL",
     "definitions": [
      {
       "text": "type of Brit",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's slur",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner famously slurred words by swapping their opening sounds"
-     }
-    ],
-    "linkWords": [
-     "'ll be",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "\"Bonjour\" 'll",
-      "gives": "JOHNBULL",
-      "soundsLike": "BONJOUR'LL",
-      "note": "swap the opening B and J sounds of the French greeting with its contracted 'will'"
-     }
-    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "JOHNBULL",
+     "indicators": [
+      {
+       "text": "Spooner's slur",
+       "note": "the Reverend Spooner famously slurred words by swapping their opening sounds"
+      }
+     ],
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "\"Bonjour\" 'll",
+       "gives": "JOHNBULL",
+       "soundsLike": "BONJOUR'LL",
+       "note": "swap the opening B and J sounds of the French greeting with its contracted 'will'"
+      }
+     ]
+    },
+    "spelling": "JOHN BULL",
     "explanation": {
      "surface": "A sneer that the Frenchman's greeting is a dig at the typical Englishman.",
      "walkthrough": "'Bonjour'll' said aloud is roughly BON-JOOR-L; swapping B and J gives JON-BOOL. The blogger who solved it thought the swap a stretch.",
@@ -329,38 +288,28 @@
    },
    "solution": "JOSSSTICK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JOSS STICK",
     "definitions": [
      {
       "text": "perfume comes from it",
       "at": 21
      }
     ],
-    "linkWords": [
-     "has",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ackland",
-      "gives": "JOSS",
-      "note": "Joss Ackland was an English stage and film actor"
-     },
-     {
-      "clueFragment": "cane",
-      "gives": "STICK",
-      "note": "a cane is a walking stick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JOSS",
-      "STICK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ackland",
+       "gives": "JOSS",
+       "note": "Joss Ackland was an English stage and film actor"
+      },
+      {
+       "words": "cane",
+       "gives": "STICK",
+       "note": "a cane is a walking stick"
+      }
      ]
     },
+    "spelling": "JOSS STICK",
     "explanation": {
      "surface": "An actor carries a walking cane, and scent wafts from it.",
      "walkthrough": "The surname leads to the first name of the actor, a British stage and screen veteran.",
@@ -387,26 +336,25 @@
    },
    "solution": "HAND",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "HAND",
     "definitions": [
      {
       "text": "The helping part",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The helping part",
-      "note": "surface: the bit of the body that lends help, as in a helping limb"
-     },
-     {
-      "clueFragment": "complete with C (for cold)",
-      "note": "setter's reading: the answer is read as two letter-and-word chunks which, finished off with C, form the familiar hot-and-cold marking on taps"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The helping part",
+       "note": "surface: the bit of the body that lends help, as in a helping limb"
+      },
+      {
+       "words": "complete with C (for cold)",
+       "note": "setter's reading: the answer is read as two letter-and-word chunks which, finished off with C, form the familiar hot-and-cold marking on taps"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A riddle about which body part helps, with a hint about a letter for chilliness.",
      "walkthrough": "Read as 'H and', the answer waits for C to make 'H and C', the hot and cold labels on British taps.",
@@ -434,50 +382,46 @@
    },
    "solution": "BARRICOES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BARRICOES",
     "definitions": [
      {
       "text": "Casks",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "letter_selection",
-      "note": "some of a thing is only a portion, so just the opening letters are kept"
-     },
-     {
-      "text": "entertained",
-      "for": "container",
-      "note": "a host who entertains takes guests in, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "with which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "playwright's",
-      "gives": "BARRIES",
-      "note": "J. M. Barrie, Scottish author of Peter Pan, with the possessive S"
-     },
-     {
-      "clueFragment": "cooks",
-      "gives": "CO",
-      "select": "first",
-      "note": "only some of the word is wanted: its first two letters, a selection rather than an abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARRI",
-      "CO",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertained",
+       "note": "a host who entertains takes guests in, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "playwright's",
+       "gives": "BARRIES",
+       "note": "J. M. Barrie, Scottish author of Peter Pan, with the possessive S"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CO",
+       "indicators": [
+        {
+         "text": "some",
+         "note": "some of a thing is only a portion, so just the opening letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "cooks",
+         "gives": "CO",
+         "select": "first",
+         "note": "only some of the word is wanted: its first two letters, a selection rather than an abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -506,26 +450,25 @@
    },
    "solution": "LEMON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "LEMON",
     "definitions": [
      {
       "text": "This answer, if you're sharp, you will have guessed",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "if you're sharp",
-      "note": "surface: if you are quick-witted, the solution should come easily"
-     },
-     {
-      "clueFragment": "This answer",
-      "note": "setter's reading: sharp means sour-tasting, and the old catchphrase says the answer is a certain sour citrus fruit"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "if you're sharp",
+       "note": "surface: if you are quick-witted, the solution should come easily"
+      },
+      {
+       "words": "This answer",
+       "note": "setter's reading: sharp means sour-tasting, and the old catchphrase says the answer is a certain sour citrus fruit"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The setter teases that any clever solver will already know this one.",
      "walkthrough": "'The answer's a lemon' is a dismissive British phrase meaning there is no good answer; a lemon is also sharp in flavour.",
@@ -553,10 +496,6 @@
    },
    "solution": "ARTISTSINCRIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARTISTS IN CRIME",
     "definitions": [
      {
       "text": "Marsh work",
@@ -567,43 +506,40 @@
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "makes",
-      "for": "anagram",
-      "note": "to make is to construct, so the letters are built into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sic",
-      "gives": "SIC",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "train",
-      "gives": "TRAIN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time's",
-      "gives": "TIMES",
-      "note": "taken as written without the apostrophe"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SICTRAINTIMESR",
-       "gives": "ARTISTSINCRIME"
+       "text": "makes",
+       "note": "to make is to construct, so the letters are built into something new"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sic",
+         "note": "taken as written"
+        },
+        {
+         "words": "train",
+         "note": "taken as written"
+        },
+        {
+         "words": "time's",
+         "note": "taken as written without the apostrophe"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
       }
      ]
     },
+    "spelling": "ARTISTS IN CRIME",
     "explanation": {
      "surface": "A note on a work about wetlands, with a railway timetable aside, turned into a tale of stylish villains.",
      "walkthrough": "'Marsh' is Ngaio Marsh, the New Zealand detective novelist, not a bog; Artists in Crime is one of her Inspector Alleyn novels. The bracketed 'sic' looks editorial but is fodder.",
@@ -630,49 +566,43 @@
    },
    "solution": "WASTINGWATER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WASTING WATER",
     "definitions": [
      {
       "text": "Conduct ungreen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is enclosed by it, so a piece is placed inside a larger one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "key",
-      "gives": "G",
-      "note": "G is a musical key"
-     },
-     {
-      "clueFragment": "English lake",
-      "gives": "WASTWATER",
-      "note": "Wast Water is the deepest lake in England, in the Lake District"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAST",
-      "IN",
-      "G",
-      "WATER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is enclosed by it, so a piece is placed inside a larger one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English lake",
+       "gives": "WASTWATER",
+       "note": "Wast Water is the deepest lake in England, in the Lake District"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "key",
+         "gives": "G",
+         "note": "G is a musical key"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "WASTING WATER",
     "explanation": {
      "surface": "Environmentally careless behaviour in a musical key, set by an English lake.",
      "walkthrough": "'English lake' tempts you to look for a lake as the answer; it only supplies the outer letters, and the answer is the behaviour.",
@@ -699,44 +629,34 @@
    },
    "solution": "SEMITISM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEMITISM",
     "definitions": [
      {
       "text": "thus do Hebrews think",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Half",
-      "gives": "SEMI",
-      "note": "the prefix for half"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "M",
-      "note": "M is short for money, as in the economists' M1"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEMI",
-      "T",
-      "IS",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Half",
+       "gives": "SEMI",
+       "note": "the prefix for half"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "money",
+       "gives": "M",
+       "note": "M is short for money, as in the economists' M1"
+      }
      ]
     },
     "explanation": {
@@ -765,48 +685,35 @@
    },
    "solution": "VIENNA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "VIENNA",
     "definitions": [
      {
       "text": "where the river's blue",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning round faces the other way, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl",
-      "gives": "VI",
-      "note": "Vi, short for Violet"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "ANNE",
-      "note": "a girl's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VI",
-      "ENNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ANNE",
-       "to": "ENNA"
+       "words": "Girl",
+       "gives": "VI",
+       "note": "Vi, short for Violet"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "turning round faces the other way, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "gives": "ANNE",
+         "note": "a girl's name"
+        }
+       ]
       }
      ]
     },
@@ -836,43 +743,33 @@
    },
    "solution": "NATTERING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NATTERING",
     "definitions": [
      {
       "text": "Talking",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perplexed",
-      "for": "anagram",
-      "note": "a perplexed mind is muddled, so the letters are mixed up"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I grant",
-      "gives": "IGRANT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "net",
-      "gives": "NET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IGRANTNET",
-       "gives": "NATTERING"
+       "text": "perplexed",
+       "note": "a perplexed mind is muddled, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I grant",
+         "note": "taken as written"
+        },
+        {
+         "words": "net",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -903,54 +800,48 @@
    },
    "solution": "EROGENOUS",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "EROGENOUS",
     "definitions": [
      {
       "text": "Exciting!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "topped",
-      "for": "deletion",
-      "note": "topping something cuts off its head, so the opening letter goes"
-     },
-     {
-      "text": "Poor",
-      "for": "anagram",
-      "note": "poor means in bad shape, so the letters are disordered"
-     }
-    ],
-    "linkWords": [
-     "wants"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "George",
-      "gives": "EORGE",
-      "note": "the name without its first letter"
-     },
-     {
-      "clueFragment": "common sense",
-      "gives": "NOUS",
-      "note": "nous is British slang for practical good sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EROGE",
-      "NOUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EROGENOUS",
+     "indicators": [
       {
-       "fodder": "EORGE",
-       "gives": "EROGE"
+       "text": "topped",
+       "note": "topping something cuts off its head, so the opening letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Poor",
+           "note": "poor means in bad shape, so the letters are disordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "George",
+           "gives": "EORGE",
+           "note": "the name without its first letter"
+          }
+         ]
+        },
+        {
+         "words": "common sense",
+         "gives": "NOUS",
+         "note": "nous is British slang for practical good sense"
+        }
+       ]
       }
      ]
     },
@@ -980,35 +871,25 @@
    },
    "solution": "GUNRUNNER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GUNRUNNER",
     "definitions": [
      {
       "text": "Dealer in death",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "starter",
-      "gives": "GUN",
-      "note": "a race starter fires a pistol"
-     },
-     {
-      "clueFragment": "one for tape",
-      "gives": "RUNNER",
-      "note": "an athlete heads for the finishing tape"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUN",
-      "RUNNER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "starter",
+       "gives": "GUN",
+       "note": "a race starter fires a pistol"
+      },
+      {
+       "words": "one for tape",
+       "gives": "RUNNER",
+       "note": "an athlete heads for the finishing tape"
+      }
      ]
     },
     "explanation": {
@@ -1037,54 +918,40 @@
    },
    "solution": "OCTET",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "OCTET",
     "definitions": [
      {
       "text": "set",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding something means gripping it, so one piece sits inside another"
-     },
-     {
-      "text": "Return",
-      "for": "reversal",
-      "note": "returning means going back the way you came, so the letters are read backwards"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written, split to hold the next piece"
-     },
-     {
-      "clueFragment": "and the rest",
-      "gives": "ETC",
-      "note": "etc. is short for et cetera, and the rest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "CTE",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TETCO",
-       "to": "OCTET"
+       "text": "Return",
+       "note": "returning means going back the way you came, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "holding something means gripping it, so one piece sits inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "note": "taken as written, split to hold the next piece"
+        },
+        {
+         "words": "and the rest",
+         "gives": "ETC",
+         "note": "etc. is short for et cetera, and the rest"
+        }
+       ]
       }
      ]
     },
@@ -1114,64 +981,58 @@
    },
    "solution": "TOOTHMARK",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "TOOTH MARK",
     "definitions": [
      {
       "text": "Bite's proof",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caused",
-      "for": "anagram",
-      "note": "something caused is brought about, read loosely as letters worked into a new order"
-     },
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "the final part of a word is its end, so only the last letter is kept"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sound horn",
-      "gives": "TOOT",
-      "note": "a toot is the sound a horn makes"
-     },
-     {
-      "clueFragment": "Harm",
-      "gives": "HARM",
-      "note": "taken as written, ready to be jumbled"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "K",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOOT",
-      "HMAR",
-      "K"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "HARM",
-       "gives": "HMAR"
+       "words": "sound horn",
+       "gives": "TOOT",
+       "note": "a toot is the sound a horn makes"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "caused",
+         "note": "something caused is brought about, read loosely as letters worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Harm",
+           "note": "taken as written, ready to be jumbled"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "final",
+             "note": "the final part of a word is its end, so only the last letter is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "drink",
+             "note": "the last letter of the word"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "spelling": "TOOTH MARK",
     "explanation": {
      "surface": "A warning about a bite: hoot the horn, since a last drink caused harm.",
      "walkthrough": "The blogger thought 'caused' an unjustifiable anagram signal; it is the weakest link in the clue.",
@@ -1198,26 +1059,25 @@
    },
    "solution": "RODEO",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RODEO",
     "definitions": [
      {
       "text": "Here cowboys were to Shanks's mare confined?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Here cowboys",
-      "note": "surface: a place where cowboys perform, riding broncos"
-     },
-     {
-      "clueFragment": "were to Shanks's mare confined?",
-      "note": "setter's reading: walking everywhere means riding no horse at all, so the cowboys rode zero"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Here cowboys",
+       "note": "surface: a place where cowboys perform, riding broncos"
+      },
+      {
+       "words": "were to Shanks's mare confined?",
+       "note": "setter's reading: walking everywhere means riding no horse at all, so the cowboys rode zero"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A wry picture of cowboys forced to walk because they had no horses.",
      "walkthrough": "Split it RODE O: rode nothing. Shanks's mare (or pony) is a British idiom for your own legs, travelling on foot.",
@@ -1245,40 +1105,35 @@
    },
    "solution": "KINGSTOWN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "KINGSTOWN",
     "definitions": [
      {
       "text": "St Vincent's city",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "like one",
-      "gives": "KIN",
-      "note": "kin are relatives, alike in family"
-     },
-     {
-      "clueFragment": "dressed",
-      "gives": "GOWN",
-      "note": "dressed means wearing clothing, so a garment wraps the next piece"
-     },
-     {
-      "clueFragment": "like him",
-      "gives": "ST",
-      "note": "Vincent was a saint, so one like him is a St"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIN",
-      "G",
-      "ST",
-      "OWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like one",
+       "gives": "KIN",
+       "note": "kin are relatives, alike in family"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "dressed",
+         "gives": "GOWN",
+         "note": "dressed means wearing clothing, so a garment wraps the next piece"
+        },
+        {
+         "words": "like him",
+         "gives": "ST",
+         "note": "Vincent was a saint, so one like him is a St"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1307,38 +1162,30 @@
    },
    "solution": "MIFFED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MIFFED",
     "definitions": [
      {
       "text": "vexed",
       "at": 31
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Many",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand, a crossword 'many'"
-     },
-     {
-      "clueFragment": "provided",
-      "gives": "IF",
-      "note": "provided that means if"
-     },
-     {
-      "clueFragment": "with provisions",
-      "gives": "FED",
-      "note": "given food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IF",
-      "FED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Many",
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand, a crossword 'many'"
+      },
+      {
+       "words": "provided",
+       "gives": "IF",
+       "note": "provided that means if"
+      },
+      {
+       "words": "with provisions",
+       "gives": "FED",
+       "note": "given food"
+      }
      ]
     },
     "explanation": {
@@ -1367,31 +1214,16 @@
    },
    "solution": "FRERE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FRERE",
     "definitions": [
      {
       "text": "Brother",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the French word for a male sibling, also used for a friar"
      },
      {
       "text": "Bartle, governor of the Cape",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brother",
-      "note": "first meaning: the French word for a male sibling, also used for a friar"
-     },
-     {
-      "clueFragment": "Bartle, governor of the Cape",
-      "note": "second meaning: surname of the Victorian colonial administrator Sir Bartle, who governed Cape Colony"
+      "at": 11,
+      "meaning": "second meaning: surname of the Victorian colonial administrator Sir Bartle, who governed Cape Colony"
      }
     ],
     "explanation": {
@@ -1419,51 +1251,43 @@
    },
    "solution": "QUIZSHOW",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUIZ SHOW",
     "definitions": [
      {
       "text": "Mastermind",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "gives",
-      "for": "anagram",
-      "note": "something that gives yields under pressure and changes shape, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Last",
-      "gives": "Z",
-      "note": "the last letter of the alphabet"
-     },
-     {
-      "clueFragment": "wish",
-      "gives": "WISH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "\"status _\"",
-      "gives": "QUO",
-      "note": "the missing word in the Latin phrase status quo"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ZWISHQUO",
-       "gives": "QUIZSHOW"
+       "text": "gives",
+       "note": "something that gives yields under pressure and changes shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Last",
+         "gives": "Z",
+         "note": "the last letter of the alphabet"
+        },
+        {
+         "words": "wish",
+         "note": "taken as written"
+        },
+        {
+         "words": "\"status _\"",
+         "gives": "QUO",
+         "note": "the missing word in the Latin phrase status quo"
+        }
+       ]
       }
      ]
     },
+    "spelling": "QUIZ SHOW",
     "explanation": {
      "surface": "A dying wish, together with keeping things as they are, produces a criminal genius.",
      "walkthrough": "'Last wish' looks like a phrase, but 'Last' is Z on its own. Mastermind is a long-running BBC quiz programme with a famous black chair.",
@@ -1490,43 +1314,33 @@
    },
    "solution": "ZIPUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ZIP UP",
     "definitions": [
      {
       "text": "fasten tight",
       "at": 33
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Last",
-      "gives": "Z",
-      "note": "the last letter of the alphabet"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "I",
-      "note": "I as a figure 1, first"
-     },
-     {
-      "clueFragment": "little beast",
-      "gives": "PUP",
-      "note": "a young dog"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Z",
-      "I",
-      "PUP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Last",
+       "gives": "Z",
+       "note": "the last letter of the alphabet"
+      },
+      {
+       "words": "first",
+       "gives": "I",
+       "note": "I as a figure 1, first"
+      },
+      {
+       "words": "little beast",
+       "gives": "PUP",
+       "note": "a young dog"
+      }
      ]
     },
+    "spelling": "ZIP UP",
     "explanation": {
      "surface": "An odd order that the last comes first, with a small animal to tie down.",
      "walkthrough": "'Last first' looks like a reordering instruction; it is two separate letters, the end of the alphabet and the number one.",
@@ -1553,34 +1367,19 @@
    },
    "solution": "DRAY",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DRAY",
     "definitions": [
      {
       "text": "I'm only here for beer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "NIMBY ends",
-      "gives": "YARD",
-      "note": "NIMBY stands for Not In My Back Yard, so the phrase ends in this word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRAY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "parts": [
       {
-       "from": "YARD",
-       "to": "DRAY"
+       "words": "NIMBY ends",
+       "gives": "YARD",
+       "note": "NIMBY stands for Not In My Back Yard, so the phrase ends in this word"
       }
      ]
     },
@@ -1611,43 +1410,33 @@
    },
    "solution": "XENOTRANSPLANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "XENOTRANSPLANT",
     "definitions": [
      {
       "text": "it may not take",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "shows",
-      "for": "anagram",
-      "note": "a show is a performance, so the letters put on a new display in a fresh order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Next port",
-      "gives": "NEXTPORT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "annals",
-      "gives": "ANNALS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NEXTPORTANNALS",
-       "gives": "XENOTRANSPLANT"
+       "text": "shows",
+       "note": "a show is a performance, so the letters put on a new display in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Next port",
+         "note": "taken as written"
+        },
+        {
+         "words": "annals",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1677,46 +1466,37 @@
    },
    "solution": "YEASAYER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "YEA-SAYER",
     "definitions": [
      {
       "text": "Conformist",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "customers",
-      "gives": "YE",
-      "note": "an old word for you, the paper's readers and so its customers"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "AYE",
-      "note": "aye is a poetic word for ever"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YE",
-      "AS",
-      "AYE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "customers",
+       "gives": "YE",
+       "note": "an old word for you, the paper's readers and so its customers"
+      },
+      {
+       "words": "as",
+       "note": "taken as written"
+      },
+      {
+       "words": "always",
+       "gives": "AYE",
+       "note": "aye is a poetic word for ever"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
      ]
     },
+    "spelling": "YEA-SAYER",
     "explanation": {
      "surface": "A shopkeeper's motto that the customer is always right, made into a description of a conformist.",
      "walkthrough": "The surface echoes 'the customer is always right'. Customers as YE is a stretch: the setter is addressing the solvers who buy the paper.",
@@ -1743,28 +1523,16 @@
    },
    "solution": "POKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POKER",
     "definitions": [
      {
       "text": "Beside traditional fire",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the iron rod kept by an open hearth for stirring coals"
      },
      {
       "text": "a chance to bet",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beside traditional fire",
-      "note": "first meaning: the iron rod kept by an open hearth for stirring coals"
-     },
-     {
-      "clueFragment": "a chance to bet",
-      "note": "second meaning: a card game played for stakes"
+      "at": 24,
+      "meaning": "second meaning: a card game played for stakes"
      }
     ],
     "explanation": {

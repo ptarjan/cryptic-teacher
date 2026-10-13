@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3272",
  "number": 3272,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,272",
  "setter": "City",
  "date": "2026-04-10",
  "dimensions": {
@@ -45,10 +43,6 @@
    },
    "solution": "FACTOID",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FACTOID",
     "definitions": [
      {
       "text": "It's probably not true",
@@ -56,30 +50,27 @@
       "note": "a clause describing the noun: a factoid is something that is probably not true"
      }
     ],
-    "indicators": [
-     {
-      "text": "playing with",
-      "for": "anagram",
-      "note": "playing about with things moves them around, so the letters get rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fido",
-      "gives": "FIDO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cat",
-      "gives": "CAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FIDOCAT",
-       "gives": "FACTOID"
+       "text": "playing with",
+       "note": "playing about with things moves them around, so the letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fido",
+         "note": "taken as written"
+        },
+        {
+         "words": "cat",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -109,45 +100,34 @@
    },
    "solution": "FOX",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "FOX",
     "definitions": [
      {
       "text": "Puzzle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overturned",
-      "for": "reversal",
-      "note": "something overturned is flipped end over end, so the word is read back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of",
-      "gives": "OF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "vote",
-      "gives": "X",
-      "note": "a cross marked on a ballot paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "X"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OF",
-       "to": "FO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "note": "something overturned is flipped end over end, so the word is read back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "vote",
+       "gives": "X",
+       "note": "a cross marked on a ballot paper"
       }
      ]
     },
@@ -177,35 +157,24 @@
    },
    "solution": "CHINESE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHINESE",
     "definitions": [
      {
       "text": "Asian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "converted",
-      "for": "anagram",
-      "note": "something converted has been changed into another form, so the letters are remade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "since he",
-      "gives": "SINCEHE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SINCEHE",
-       "gives": "CHINESE"
+       "text": "converted",
+       "note": "something converted has been changed into another form, so the letters are remade"
+      }
+     ],
+     "parts": [
+      {
+       "words": "since he",
+       "note": "taken as written"
       }
      ]
     },
@@ -235,39 +204,28 @@
    },
    "solution": "OCEAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "OCEAN",
     "definitions": [
      {
       "text": "Canoe tossed around here?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tossed",
-      "for": "anagram",
-      "note": "a tossed salad or boat is thrown about, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Canoe",
-      "gives": "CANOE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CANOE",
-       "gives": "OCEAN"
+       "text": "tossed",
+       "note": "a tossed salad or boat is thrown about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Canoe",
+       "note": "taken as written"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A small boat being thrown about on rough water.",
      "walkthrough": "The whole clue is both wordplay and definition: the word is rearranged, and the place a canoe gets tossed about is the open sea.",
@@ -293,28 +251,16 @@
    },
    "solution": "DIAMOND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DIAMOND",
     "definitions": [
      {
       "text": "Where sport is played",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the infield of a baseball park"
      },
      {
       "text": "it might be in a ring",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where sport is played",
-      "note": "first meaning: the infield of a baseball park"
-     },
-     {
-      "clueFragment": "it might be in a ring",
-      "note": "second meaning: a precious stone set in jewellery"
+      "at": 24,
+      "meaning": "second meaning: a precious stone set in jewellery"
      }
     ],
     "explanation": {
@@ -343,35 +289,25 @@
    },
    "solution": "SNAP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SNAP",
     "definitions": [
      {
       "text": "Card game",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the standard abbreviation for second"
-     },
-     {
-      "clueFragment": "card game",
-      "gives": "NAP",
-      "note": "nap (Napoleon) is a trick-taking card game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "NAP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S is the standard abbreviation for second"
+      },
+      {
+       "words": "card game",
+       "gives": "NAP",
+       "note": "nap (Napoleon) is a trick-taking card game"
+      }
      ]
     },
     "explanation": {
@@ -400,40 +336,31 @@
    },
    "solution": "SPRAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPRAT",
     "definitions": [
      {
       "text": "fish",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quarrel",
-      "gives": "SPAT",
-      "note": "a spat is a petty quarrel"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R is the map abbreviation for river"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "R",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Quarrel",
+       "gives": "SPAT",
+       "note": "a spat is a petty quarrel"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
+      }
      ]
     },
     "explanation": {
@@ -462,35 +389,24 @@
    },
    "solution": "APPREHEND",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APPREHEND",
     "definitions": [
      {
       "text": "arrest",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Criminal",
-      "for": "anagram",
-      "note": "criminal means crooked or bent out of true, so the letters are twisted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "had pen, per",
-      "gives": "HADPENPER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HADPENPER",
-       "gives": "APPREHEND"
+       "text": "Criminal",
+       "note": "criminal means crooked or bent out of true, so the letters are twisted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "had pen, per",
+       "note": "taken as written"
       }
      ]
     },
@@ -520,39 +436,31 @@
    },
    "solution": "EXCISE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EXCISE",
     "definitions": [
      {
       "text": "tax",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "abandons",
-      "for": "deletion",
-      "note": "whatever abandons a place leaves it, so those letters drop out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the usual crossword queen"
-     },
-     {
-      "clueFragment": "train",
-      "gives": "EXERCISE",
-      "note": "to train is to exercise, as athletes do"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "CISE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "abandons",
+       "note": "whatever abandons a place leaves it, so those letters drop out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "train",
+       "gives": "EXERCISE",
+       "note": "to train is to exercise, as athletes do"
+      },
+      {
+       "words": "Queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the usual crossword queen"
+      }
      ]
     },
     "explanation": {
@@ -581,41 +489,35 @@
    },
    "solution": "ABRUPT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ABRUPT",
     "definitions": [
      {
       "text": "Unexpected",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to begin with",
-      "for": "letter_selection",
-      "note": "to begin with points at the start of each word, so only opening letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A is the standard abbreviation for answer"
-     },
-     {
-      "clueFragment": "brought round, using past tense",
-      "gives": "BRUPT",
-      "select": "first",
-      "note": "opening letters of these five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BRUPT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "answer",
+       "gives": "A",
+       "note": "A is the standard abbreviation for answer"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "note": "to begin with points at the start of each word, so only opening letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brought round, using past tense",
+         "note": "opening letters of these five words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -650,52 +552,44 @@
    },
    "solution": "KLEINBOTTLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "KLEIN BOTTLE",
     "definitions": [
      {
       "text": "Mathematical figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so only the closing letter of the word is kept"
-     },
-     {
-      "text": "corrupt",
-      "for": "anagram",
-      "note": "to corrupt something is to spoil its proper form, so the letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "struck",
-      "gives": "K",
-      "select": "last",
-      "note": "last letter of the word"
-     },
-     {
-      "clueFragment": "Nobel title",
-      "gives": "NOBELTITLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "LEINBOTTLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NOBELTITLE",
-       "gives": "LEINBOTTLE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally means at the end, so only the closing letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "struck",
+         "note": "last letter of the word"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "note": "to corrupt something is to spoil its proper form, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nobel title",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -725,41 +619,37 @@
    },
    "solution": "KNOTGRASS",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "KNOTGRASS",
     "definitions": [
      {
       "text": "Weed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pronounced",
-      "for": "homophone",
-      "note": "pronounced means spoken, so a word is taken by its sound and not its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not",
-      "gives": "KNOT",
-      "soundsLike": "NOT",
-      "note": "the silent K makes the two words sound identical"
-     },
-     {
-      "clueFragment": "weed",
-      "gives": "GRASS",
-      "note": "grass is slang for marijuana, known as weed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KNOT",
-      "GRASS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "KNOT",
+       "indicators": [
+        {
+         "text": "pronounced",
+         "note": "pronounced means spoken, so a word is taken by its sound and not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "gives": "NOT",
+         "note": "the silent K makes the two words sound identical"
+        }
+       ]
+      },
+      {
+       "words": "weed",
+       "gives": "GRASS",
+       "note": "grass is slang for marijuana, known as weed"
+      }
      ]
     },
     "explanation": {
@@ -789,29 +679,17 @@
    },
    "solution": "BOXERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOXERS",
     "definitions": [
      {
       "text": "Dog's",
       "at": 0,
-      "note": "read as a plural: boxers are a breed of dog"
+      "note": "read as a plural: boxers are a breed of dog",
+      "meaning": "first meaning: more than one of a muscular German dog breed"
      },
      {
       "text": "underwear",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dog's",
-      "note": "first meaning: more than one of a muscular German dog breed"
-     },
-     {
-      "clueFragment": "underwear",
-      "note": "second meaning: loose shorts worn by men"
+      "at": 6,
+      "meaning": "second meaning: loose shorts worn by men"
      }
     ],
     "explanation": {
@@ -840,43 +718,31 @@
    },
    "solution": "STERNUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STERNUM",
     "definitions": [
      {
       "text": "bone",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "swallowing",
-      "for": "container",
-      "note": "to swallow is to take something inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Problem",
-      "gives": "SUM",
-      "note": "a sum is an arithmetic problem"
-     },
-     {
-      "clueFragment": "seabird",
-      "gives": "TERN",
-      "note": "a tern is a slender seabird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TERN",
-      "UM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "note": "to swallow is to take something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Problem",
+       "gives": "SUM",
+       "note": "a sum is an arithmetic problem"
+      },
+      {
+       "words": "seabird",
+       "gives": "TERN",
+       "note": "a tern is a slender seabird"
+      }
      ]
     },
     "explanation": {
@@ -905,30 +771,28 @@
    },
    "solution": "DEGREE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DEGREE",
     "definitions": [
      {
       "text": "Stage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covered in",
-      "for": "hidden_word",
-      "note": "something covered in other material sits inside it, so the letters lie within the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "man-made greenery",
-      "gives": "DEGREE",
-      "note": "spans the end of one word and start of the next"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "covered in",
+       "note": "something covered in other material sits inside it, so the letters lie within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "man-made greenery",
+       "gives": "DEGREE",
+       "note": "spans the end of one word and start of the next"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A theatre set covered in artificial plants.",
      "walkthrough": "'Stage' suggests a theatre, but it means a step or level.",
@@ -961,43 +825,39 @@
    },
    "solution": "GEEGEES",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GEE GEES",
     "definitions": [
      {
       "text": "horses",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all, so the final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wow!",
-      "gives": "GEE",
-      "note": "an exclamation of surprise"
-     },
-     {
-      "clueFragment": "birds",
-      "gives": "GEESE",
-      "note": "geese are birds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEE",
-      "GEES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Mostly",
+       "note": "mostly means most but not all, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Wow!",
+         "gives": "GEE",
+         "note": "an exclamation of surprise"
+        },
+        {
+         "words": "birds",
+         "gives": "GEESE",
+         "note": "geese are birds"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1026,43 +886,33 @@
    },
    "solution": "GINGERBREAD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GINGERBREAD",
     "definitions": [
      {
       "text": "cake",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means tangled up or complicated, so the letters are mixed"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gardener",
-      "gives": "GARDENER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "big",
-      "gives": "BIG",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GARDENERBIG",
-       "gives": "GINGERBREAD"
+       "text": "involved",
+       "note": "involved means tangled up or complicated, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Gardener",
+         "note": "taken as written"
+        },
+        {
+         "words": "big",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1092,41 +942,25 @@
    },
    "solution": "NUDGE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "NUDGE",
     "definitions": [
      {
       "text": "Reminder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so each word gives up its final letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "when you would hug me",
-      "gives": "NUDGE",
-      "select": "last",
-      "note": "closing letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "U",
-      "D",
-      "G",
-      "E"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "ultimately means in the end, so each word gives up its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when you would hug me",
+       "note": "closing letters of the five words"
+      }
      ]
     },
     "explanation": {
@@ -1155,11 +989,6 @@
    },
    "solution": "BIPED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BIPED",
     "definitions": [
      {
       "text": "ostrich?",
@@ -1167,36 +996,35 @@
       "note": "an example indicated by the question mark: an ostrich is one kind of two-legged creature"
      }
     ],
-    "indicators": [
-     {
-      "text": "wings of",
-      "for": "letter_selection",
-      "note": "wings are the two sides, so only the outer letters are kept"
-     },
-     {
-      "text": "to grab",
-      "for": "container",
-      "note": "to grab is to hold tightly, so one piece holds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Attempt",
-      "gives": "BID",
-      "note": "a bid is an attempt"
-     },
-     {
-      "clueFragment": "pedigree",
-      "gives": "PE",
-      "select": "outer",
-      "note": "first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "PE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to grab",
+       "note": "to grab is to hold tightly, so one piece holds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attempt",
+       "gives": "BID",
+       "note": "a bid is an attempt"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "wings of",
+         "note": "wings are the two sides, so only the outer letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pedigree",
+         "note": "first and last letters of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1225,40 +1053,30 @@
    },
    "solution": "MAIDEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MAIDEN",
     "definitions": [
      {
       "text": "First",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed by",
-      "for": "container",
-      "note": "a guest welcomed by hosts is taken in among them, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "aid",
-      "gives": "AID",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "soldiers",
-      "gives": "MEN",
-      "note": "soldiers are men in crossword shorthand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "AID",
-      "EN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "note": "a guest welcomed by hosts is taken in among them, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "gives": "MEN",
+       "note": "soldiers are men in crossword shorthand"
+      },
+      {
+       "words": "aid",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1287,32 +1105,25 @@
    },
    "solution": "POETRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POETRY",
     "definitions": [
      {
       "text": "verse",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "US writer",
-      "gives": "POE",
-      "note": "Edgar Allan Poe, the American author"
-     },
-     {
-      "clueFragment": "to attempt",
-      "gives": "TRY",
-      "note": "to try is to attempt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POE",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US writer",
+       "gives": "POE",
+       "note": "Edgar Allan Poe, the American author"
+      },
+      {
+       "words": "to attempt",
+       "gives": "TRY",
+       "note": "to try is to attempt"
+      }
      ]
     },
     "explanation": {
@@ -1340,28 +1151,16 @@
    },
    "solution": "RAY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAY",
     "definitions": [
      {
       "text": "Fish",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a flat sea fish with wide fins"
      },
      {
       "text": "bar that provides illumination",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fish",
-      "note": "first meaning: a flat sea fish with wide fins"
-     },
-     {
-      "clueFragment": "bar that provides illumination",
-      "note": "second meaning: a narrow beam of light"
+      "at": 5,
+      "meaning": "second meaning: a narrow beam of light"
      }
     ],
     "explanation": {
@@ -1390,33 +1189,27 @@
    },
    "solution": "ISLE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ISLE",
     "definitions": [
      {
       "text": "key?",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "losing exterior",
-      "for": "deletion",
-      "note": "to lose the exterior is to strip off the outside, so the end letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Misled",
-      "gives": "MISLED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ISLE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ISLE",
+     "indicators": [
+      {
+       "text": "losing exterior",
+       "note": "to lose the exterior is to strip off the outside, so the end letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Misled",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1445,43 +1238,38 @@
    },
    "solution": "MODESTY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "MODESTY",
     "definitions": [
      {
       "text": "Decorum",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "60 per cent of",
-      "for": "deletion",
-      "note": "sixty per cent of a five-letter word is three letters, so the rest are dropped"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "style",
-      "gives": "MODE",
-      "note": "a mode is a style or fashion"
-     },
-     {
-      "clueFragment": "style",
-      "gives": "STY",
-      "note": "a deletion: keep three of the five letters and drop the last two"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MODE",
-      "STY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MODESTY",
+     "indicators": [
+      {
+       "text": "60 per cent of",
+       "note": "sixty per cent of a five-letter word is three letters, so the rest are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "style",
+         "gives": "MODE",
+         "note": "a mode is a style or fashion"
+        },
+        {
+         "words": "style",
+         "gives": "STY",
+         "note": "a deletion: keep three of the five letters and drop the last two"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

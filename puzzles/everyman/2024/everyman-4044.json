@@ -1,8 +1,6 @@
 {
  "id": "everyman-4044",
  "number": 4044,
- "series": "everyman",
- "name": "Everyman crossword No 4,044",
  "setter": "Everyman",
  "date": "2024-04-21",
  "dimensions": {
@@ -38,47 +36,41 @@
    },
    "solution": "GYRATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GYRATE",
     "definitions": [
      {
       "text": "turn",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "takes only the final letter of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G = good, the usual abbreviation"
-     },
-     {
-      "clueFragment": "Finally enjoy",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of enjoY"
-     },
-     {
-      "clueFragment": "prize",
-      "gives": "RATE",
-      "note": "to prize something is to rate it highly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "Y",
-      "RATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G = good, the usual abbreviation"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "note": "takes only the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Finally enjoy",
+         "gives": "ENJOY",
+         "note": "last letter of enjoY"
+        }
+       ]
+      },
+      {
+       "words": "prize",
+       "gives": "RATE",
+       "note": "to prize something is to rate it highly"
+      }
      ]
     },
     "explanation": {
@@ -113,10 +105,6 @@
    },
    "solution": "GOINGAPE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOING APE",
     "definitions": [
      {
       "text": "off the deep end",
@@ -124,31 +112,23 @@
       "note": "'Going ape' is a verb phrase; 'finding yourself off the deep end' is the sense it replaces."
      }
     ],
-    "linkWords": [
-     "finding yourself"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leave",
-      "gives": "GOING",
-      "note": "a going is a leaving, a departure"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "fitness class",
-      "gives": "PE",
-      "note": "PE = physical education, the school gym lesson"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOING",
-      "A",
-      "PE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leave",
+       "gives": "GOING",
+       "note": "a going is a leaving, a departure"
+      },
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "words": "fitness class",
+       "gives": "PE",
+       "note": "PE = physical education, the school gym lesson"
+      }
      ]
     },
     "explanation": {
@@ -177,30 +157,16 @@
    },
    "solution": "RAMBLER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAMBLER",
     "definitions": [
      {
       "text": "One with a compass",
-      "at": 0
+      "at": 0,
+      "meaning": "a hiker navigating the countryside by compass"
      },
      {
       "text": "point's lost by him?",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One with a compass",
-      "gives": "RAMBLER",
-      "note": "a hiker navigating the countryside by compass"
-     },
-     {
-      "clueFragment": "point's lost by him?",
-      "gives": "RAMBLER",
-      "note": "not a compass point but the point of a story, which a long-winded talker loses"
+      "at": 21,
+      "meaning": "not a compass point but the point of a story, which a long-winded talker loses"
      }
     ],
     "explanation": {
@@ -230,45 +196,37 @@
    },
    "solution": "TOTEM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TOTEM",
     "definitions": [
      {
       "text": "it honours a family",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, lifting a word upward writes it bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "TOT",
-      "note": "a tot is a small measure of spirits"
-     },
-     {
-      "clueFragment": "the writer raised",
-      "gives": "EM",
-      "note": "the writer = ME, the setter talking about himself; turned upward it is EM"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOT",
-      "EM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "TOTEM",
+     "indicators": [
       {
-       "from": "ME",
-       "to": "EM"
+       "text": "raised",
+       "note": "in a down clue, lifting a word upward writes it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Drink",
+         "gives": "TOT",
+         "note": "a tot is a small measure of spirits"
+        },
+        {
+         "words": "the writer raised",
+         "gives": "EM",
+         "note": "the writer = ME, the setter talking about himself; turned upward it is EM"
+        }
+       ]
       }
      ]
     },
@@ -298,40 +256,31 @@
    },
    "solution": "ARMRESTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ARMRESTS",
     "definitions": [
      {
       "text": "hands seen at ends of these?",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "the first word holds the second inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perhaps clubs",
-      "gives": "ARMS",
-      "note": "clubs are an example of arms, weapons; 'perhaps' flags the example"
-     },
-     {
-      "clueFragment": "all that remains",
-      "gives": "REST",
-      "note": "the rest = all that remains"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARM",
-      "REST",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "the first word holds the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Perhaps clubs",
+       "gives": "ARMS",
+       "note": "clubs are an example of arms, weapons; 'perhaps' flags the example"
+      },
+      {
+       "words": "all that remains",
+       "gives": "REST",
+       "note": "the rest = all that remains"
+      }
      ]
     },
     "explanation": {
@@ -361,32 +310,25 @@
    },
    "solution": "RECOLLECTED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RECOLLECTED",
     "definitions": [
      {
       "text": "Looked back on",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "scripture lessons",
-      "gives": "RE",
-      "note": "RE = religious education, the school subject"
-     },
-     {
-      "clueFragment": "cool",
-      "gives": "COLLECTED",
-      "note": "cool and collected, calm"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "COLLECTED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scripture lessons",
+       "gives": "RE",
+       "note": "RE = religious education, the school subject"
+      },
+      {
+       "words": "cool",
+       "gives": "COLLECTED",
+       "note": "cool and collected, calm"
+      }
      ]
     },
     "explanation": {
@@ -415,35 +357,24 @@
    },
    "solution": "REPRODUCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REPRODUCE",
     "definitions": [
      {
       "text": "Copy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly executed",
-      "for": "anagram",
-      "note": "something carried out badly comes out jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "procedure",
-      "gives": "PROCEDURE",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PROCEDURE",
-       "gives": "REPRODUCE"
+       "text": "badly executed",
+       "note": "something carried out badly comes out jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "procedure",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -479,32 +410,25 @@
    },
    "solution": "SPLITUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPLIT UP",
     "definitions": [
      {
       "text": "Part",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Croatian city",
-      "gives": "SPLIT",
-      "note": "Split is a port on the Croatian coast"
-     },
-     {
-      "clueFragment": "on high",
-      "gives": "UP",
-      "note": "up = on high"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPLIT",
-      "UP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Croatian city",
+       "gives": "SPLIT",
+       "note": "Split is a port on the Croatian coast"
+      },
+      {
+       "words": "on high",
+       "gives": "UP",
+       "note": "up = on high"
+      }
      ]
     },
     "explanation": {
@@ -533,33 +457,16 @@
    },
    "solution": "SCOURS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SCOURS",
     "definitions": [
      {
       "text": "Hunts",
-      "at": 0
+      "at": 0,
+      "meaning": "to scour an area is to search it thoroughly"
      },
      {
       "text": "scrubs",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hunts",
-      "gives": "SCOURS",
-      "note": "to scour an area is to search it thoroughly"
-     },
-     {
-      "clueFragment": "scrubs",
-      "gives": "SCOURS",
-      "note": "to scour a pan is to scrub it"
+      "at": 10,
+      "meaning": "to scour a pan is to scrub it"
      }
     ],
     "explanation": {
@@ -589,30 +496,28 @@
    },
    "solution": "INMATE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INMATE",
     "definitions": [
      {
       "text": "one may wish to escape",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Section of",
-      "for": "hidden_word",
-      "note": "the answer is a section cut from the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "certain material",
-      "gives": "INMATE",
-      "note": "certaIN MATErial"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Section of",
+       "note": "the answer is a section cut from the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certain material",
+       "gives": "INMATE",
+       "note": "certaIN MATErial"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some cloth or text you would rather get away from.",
      "walkthrough": "'One may wish to escape' reads as describing the material; it is a person who wants to break out.",
@@ -639,54 +544,41 @@
    },
    "solution": "ACAPULCO",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ACAPULCO",
     "definitions": [
      {
       "text": "Somewhere in Mexico",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trembling",
-      "for": "anagram",
-      "note": "letters that tremble are shaken into a new order"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "Catholic",
-      "gives": "C",
-      "note": "C = Catholic"
-     },
-     {
-      "clueFragment": "cupola",
-      "gives": "APULCO",
-      "note": "CUPOLA rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "APULCO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ACAPULCO",
+     "indicators": [
       {
-       "fodder": "CUPOLA",
-       "gives": "APULCO"
+       "text": "trembling",
+       "note": "letters that tremble are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as it stands"
+        },
+        {
+         "words": "Catholic",
+         "gives": "C",
+         "note": "C = Catholic"
+        },
+        {
+         "words": "cupola",
+         "gives": "APULCO",
+         "note": "CUPOLA rearranged"
+        }
+       ]
       }
      ]
     },
@@ -722,60 +614,46 @@
    },
    "solution": "GOLDMEDAL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GOLD MEDAL",
     "definitions": [
      {
       "text": "top award",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "a word flipped over reads backwards"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G = good"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "OLD",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "crossword setter",
-      "gives": "ME",
-      "note": "the setter refers to himself as ME"
-     },
-     {
-      "clueFragment": "lad's flipping",
-      "gives": "DAL",
-      "note": "LAD backwards; the 's is 'is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "OLD",
-      "ME",
-      "DAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "GOLDMEDAL",
+     "indicators": [
       {
-       "from": "LAD",
-       "to": "DAL"
+       "text": "flipping",
+       "note": "a word flipped over reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "gives": "G",
+         "note": "G = good"
+        },
+        {
+         "words": "old",
+         "note": "used as it stands"
+        },
+        {
+         "words": "crossword setter",
+         "gives": "ME",
+         "note": "the setter refers to himself as ME"
+        },
+        {
+         "words": "lad's flipping",
+         "gives": "DAL",
+         "note": "LAD backwards; the 's is 'is'"
+        }
+       ]
       }
      ]
     },
@@ -805,43 +683,33 @@
    },
    "solution": "DEUTERONOMY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEUTERONOMY",
     "definitions": [
      {
       "text": "Book",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Casting",
-      "for": "anagram",
-      "note": "casting metal reshapes it, so the letters are remoulded"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out money",
-      "gives": "OUTMONEY",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Red",
-      "gives": "RED",
-      "note": "anagram fodder, added on by 'and'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OUT MONEY RED",
-       "gives": "DEUTERONOMY"
+       "text": "Casting",
+       "note": "casting metal reshapes it, so the letters are remoulded"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "out money",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "Red",
+         "note": "anagram fodder, added on by 'and'"
+        }
+       ]
       }
      ]
     },
@@ -871,37 +739,39 @@
    },
    "solution": "OTTER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OTTER",
     "definitions": [
      {
       "text": "River creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Cockney's",
-      "for": "deletion",
-      "note": "Cockneys drop their H's, so the H goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "getting closer in",
-      "gives": "HOTTER",
-      "note": "in the children's hiding game, a seeker getting closer is told 'getting hotter'"
-     },
-     {
-      "clueFragment": "game",
-      "note": "names the hiding game where the seeker hears this; contributes no letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OTTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney's",
+         "note": "Cockneys drop their H's, so the H goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "getting closer in",
+         "gives": "HOTTER",
+         "note": "in the children's hiding game, a seeker getting closer is told 'getting hotter'"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "game",
+       "note": "names the hiding game where the seeker hears this; contributes no letters"
+      }
      ]
     },
     "explanation": {
@@ -936,26 +806,25 @@
    },
    "solution": "PARACHUTEJUMP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PARACHUTE JUMP",
     "definitions": [
      {
       "text": "Leisure activity from which you may hope to be dropped?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Leisure activity",
-      "note": "a hobby or pastime, taken at face value"
-     },
-     {
-      "clueFragment": "from which you may hope to be dropped?",
-      "note": "surface: a hobby so dull you want to be thrown out of it; setter: something you are literally dropped from, an aircraft"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Leisure activity",
+       "note": "a hobby or pastime, taken at face value"
+      },
+      {
+       "words": "from which you may hope to be dropped?",
+       "note": "surface: a hobby so dull you want to be thrown out of it; setter: something you are literally dropped from, an aircraft"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hobby so dull you would rather be kicked out of it.",
      "walkthrough": "'Dropped' suggests being thrown out of a group or team; skydivers are dropped from the plane, and they very much hope to be.",
@@ -983,47 +852,34 @@
    },
    "solution": "CHINATOWN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHINATOWN",
     "definitions": [
      {
       "text": "area with many restaurants",
       "at": 35
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Punch",
-      "gives": "CHIN",
-      "note": "to chin someone is to punch them on the jaw"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "tenor",
-      "gives": "T",
-      "note": "T = tenor, as in SATB choir parts"
-     },
-     {
-      "clueFragment": "getting personal",
-      "gives": "OWN",
-      "note": "your own = personal to you; 'getting' just adds it on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIN",
-      "A",
-      "T",
-      "OWN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Punch",
+       "gives": "CHIN",
+       "note": "to chin someone is to punch them on the jaw"
+      },
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "words": "tenor",
+       "gives": "T",
+       "note": "T = tenor, as in SATB choir parts"
+      },
+      {
+       "words": "getting personal",
+       "gives": "OWN",
+       "note": "your own = personal to you; 'getting' just adds it on"
+      }
      ]
     },
     "explanation": {
@@ -1052,26 +908,25 @@
    },
    "solution": "SPELLERS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPELLERS",
     "definitions": [
      {
       "text": "Those intoning M-A-G-I-C?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Those intoning",
-      "note": "people chanting, as a wizard chants an incantation"
-     },
-     {
-      "clueFragment": "M-A-G-I-C?",
-      "note": "the hyphens show the word said letter by letter; 'magic' tempts you towards casting spells"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Those intoning",
+       "note": "people chanting, as a wizard chants an incantation"
+      },
+      {
+       "words": "M-A-G-I-C?",
+       "note": "the hyphens show the word said letter by letter; 'magic' tempts you towards casting spells"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wizards chanting magic words.",
      "walkthrough": "'Intoning magic' suggests wizards chanting spells; the hyphens show someone simply spelling out a word letter by letter.",
@@ -1109,49 +964,54 @@
    },
    "solution": "PRIMESTHEPUMP",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "PRIMES THE PUMP",
     "definitions": [
      {
       "text": "makes timely investment",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "shortly",
-      "note": "cut short, so the last letter goes"
-     },
-     {
-      "text": "dons",
-      "note": "the footwear puts on Esther like clothing, around her"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "formal",
-      "gives": "PRIM",
-      "note": "prim = stiffly formal"
-     },
-     {
-      "clueFragment": "Esther shortly",
-      "gives": "ESTHE",
-      "note": "ESTHER without its last letter"
-     },
-     {
-      "clueFragment": "footwear",
-      "gives": "PUMP",
-      "note": "a pump is a light shoe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRIM",
-      "ESTHE",
-      "PUMP"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PRIMESTHEPUMP",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "PRIMESTHEPUMP",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "shortly",
+           "note": "cut short, so the last letter goes"
+          },
+          {
+           "text": "dons",
+           "note": "the footwear puts on Esther like clothing, around her"
+          }
+         ],
+         "parts": [
+          {
+           "words": "formal",
+           "gives": "PRIM",
+           "note": "prim = stiffly formal"
+          },
+          {
+           "words": "Esther shortly",
+           "gives": "ESTHE",
+           "note": "ESTHER without its last letter"
+          },
+          {
+           "words": "footwear",
+           "gives": "PUMP",
+           "note": "a pump is a light shoe"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1180,54 +1040,42 @@
    },
    "solution": "POMPEII",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "POMPEII",
     "definitions": [
      {
       "text": "a tragic relic of former times",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "retrograde",
-      "for": "reversal",
-      "note": "going backwards, so the letters run in reverse"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grandeur",
-      "gives": "POMP",
-      "note": "pomp = grandeur"
-     },
-     {
-      "clueFragment": "that is retrograde",
-      "gives": "EI",
-      "note": "that is = IE (id est), written backwards"
-     },
-     {
-      "clueFragment": "Everyman",
-      "gives": "I",
-      "note": "the setter, Everyman, speaking of himself is I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POMP",
-      "EI",
-      "I"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "POMPEII",
+     "indicators": [
       {
-       "from": "IE",
-       "to": "EI"
+       "text": "retrograde",
+       "note": "going backwards, so the letters run in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Grandeur",
+         "gives": "POMP",
+         "note": "pomp = grandeur"
+        },
+        {
+         "words": "that is retrograde",
+         "gives": "EI",
+         "note": "that is = IE (id est), written backwards"
+        },
+        {
+         "words": "Everyman",
+         "gives": "I",
+         "note": "the setter, Everyman, speaking of himself is I"
+        }
+       ]
       }
      ]
     },
@@ -1257,35 +1105,24 @@
    },
    "solution": "UTOPIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UTOPIAN",
     "definitions": [
      {
       "text": "Perfect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "letters put to work are moved into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out pain",
-      "gives": "OUTPAIN",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OUT PAIN",
-       "gives": "UTOPIAN"
+       "text": "working",
+       "note": "letters put to work are moved into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out pain",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -1315,67 +1152,58 @@
    },
    "solution": "AGATES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "AGATES",
     "definitions": [
      {
       "text": "Ancient Greece's artisanal trinkets' expensive stones, primarily?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "take the primary, first, letter of each word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ancient",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "Greece's",
-      "gives": "G",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "artisanal",
-      "gives": "A",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "trinkets'",
-      "gives": "T",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "expensive",
-      "gives": "E",
-      "note": "first letter"
-     },
-     {
-      "clueFragment": "stones",
-      "gives": "S",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "G",
-      "A",
-      "T",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "take the primary, first, letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ancient",
+         "note": "first letter"
+        }
+       ]
+      },
+      {
+       "words": "Greece's",
+       "gives": "G",
+       "note": "first letter"
+      },
+      {
+       "words": "artisanal",
+       "gives": "A",
+       "note": "first letter"
+      },
+      {
+       "words": "trinkets'",
+       "gives": "T",
+       "note": "first letter"
+      },
+      {
+       "words": "expensive",
+       "gives": "E",
+       "note": "first letter"
+      },
+      {
+       "words": "stones",
+       "gives": "S",
+       "note": "first letter"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A museum label on the precious stones in ancient Greek craftwork.",
      "walkthrough": "The whole clue does both jobs: its initials spell the answer, and agates were indeed used in ancient Greek jewellery.",
@@ -1401,54 +1229,45 @@
    },
    "solution": "GAMMA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GAMMA",
     "definitions": [
      {
       "text": "letter from Athens",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "After",
-      "note": "the publication is written after the month"
-     },
-     {
-      "text": "rejected",
-      "note": "sent back, so the whole thing reads backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "month",
-      "gives": "M",
-      "note": "M = month"
-     },
-     {
-      "clueFragment": "publication",
-      "gives": "MAG",
-      "note": "a mag is a magazine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAM",
-      "M",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AMMAG",
-       "to": "GAMMA"
+       "text": "After",
+       "note": "the publication is written after the month"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "sent back, so the whole thing reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "note": "used as it stands"
+        },
+        {
+         "words": "month",
+         "gives": "M",
+         "note": "M = month"
+        },
+        {
+         "words": "publication",
+         "gives": "MAG",
+         "note": "a mag is a magazine"
+        }
+       ]
       }
      ]
     },
@@ -1485,55 +1304,49 @@
    },
    "solution": "OLDSCHOOL",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "OLD SCHOOL",
     "definitions": [
      {
       "text": "Traditionalists",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "letters that are out are out of order"
-     },
-     {
-      "text": "in the end",
-      "for": "letter_selection",
-      "note": "takes only the end letter of beliefs"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hold",
-      "gives": "HOLD",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "loco",
-      "gives": "LOCO",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "beliefs in the end",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of beliefS"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOLD LOCO S",
-       "gives": "OLDSCHOOL"
+       "text": "out",
+       "note": "letters that are out are out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hold",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "loco",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in the end",
+           "note": "takes only the end letter of beliefs"
+          }
+         ],
+         "parts": [
+          {
+           "words": "beliefs in the end",
+           "gives": "BELIEFS",
+           "note": "last letter of beliefS"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1563,33 +1376,16 @@
    },
    "solution": "CRANE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CRANE",
     "definitions": [
      {
       "text": "Bird",
-      "at": 0
+      "at": 0,
+      "meaning": "a long-legged wading bird"
      },
      {
       "text": "seen on building site",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bird",
-      "gives": "CRANE",
-      "note": "a long-legged wading bird"
-     },
-     {
-      "clueFragment": "seen on building site",
-      "gives": "CRANE",
-      "note": "a lifting machine"
+      "at": 12,
+      "meaning": "a lifting machine"
      }
     ],
     "explanation": {
@@ -1628,53 +1424,50 @@
    },
    "solution": "TOETOTOE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TOE-TO-TOE",
     "definitions": [
      {
       "text": "in confrontation",
       "at": 56
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "note": "sent back, so written backwards"
-     },
-     {
-      "text": "embroiling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "books thrice",
-      "gives": "OTOTOT",
-      "note": "OT = Old Testament books, three times"
-     },
-     {
-      "clueFragment": "English again",
-      "gives": "E",
-      "note": "another E, inserted after TO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "E",
-      "TOTOE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EOTOTOT",
-       "to": "TOTOTOE"
+       "text": "rejected",
+       "note": "sent back, so written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "embroiling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        },
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "books thrice",
+           "gives": "OTOTOT",
+           "note": "OT = Old Testament books, three times"
+          },
+          {
+           "words": "English again",
+           "gives": "E",
+           "note": "another E, inserted after TO"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1704,30 +1497,16 @@
    },
    "solution": "CANINE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CANINE",
     "definitions": [
      {
       "text": "Dog",
-      "at": 0
+      "at": 0,
+      "meaning": "the adjective for dogs, also used as a noun for one"
      },
      {
       "text": "tooth",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dog",
-      "gives": "CANINE",
-      "note": "the adjective for dogs, also used as a noun for one"
-     },
-     {
-      "clueFragment": "tooth",
-      "gives": "CANINE",
-      "note": "the pointed eye tooth"
+      "at": 4,
+      "meaning": "the pointed eye tooth"
      }
     ],
     "explanation": {
@@ -1754,10 +1533,6 @@
    },
    "solution": "SPINNEYS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPINNEYS",
     "definitions": [
      {
       "text": "woodland",
@@ -1765,39 +1540,35 @@
       "note": "The answer is plural; 'woodland' is a mass noun covering several spinneys."
      }
     ],
-    "indicators": [
-     {
-      "text": "drinking",
-      "for": "container",
-      "note": "the agent takes the pub and earl inside, as if swallowing them"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Secret agent's",
-      "gives": "SPYS",
-      "note": "SPY plus the S of the possessive"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     },
-     {
-      "clueFragment": "Earl",
-      "gives": "E",
-      "note": "E = Earl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "INN",
-      "E",
-      "YS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "note": "the agent takes the pub and earl inside, as if swallowing them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Secret agent's",
+         "gives": "SPYS",
+         "note": "SPY plus the S of the possessive"
+        },
+        {
+         "words": "pub",
+         "gives": "INN",
+         "note": "an inn is a pub"
+        }
+       ]
+      },
+      {
+       "words": "Earl",
+       "gives": "E",
+       "note": "E = Earl"
+      }
      ]
     },
     "explanation": {
@@ -1826,30 +1597,28 @@
    },
    "solution": "FEINTS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FEINTS",
     "definitions": [
      {
       "text": "Plays",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to some extent",
-      "for": "hidden_word",
-      "note": "only part of the words is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "safe in t-shirts",
-      "gives": "FEINTS",
-      "note": "saFE IN T-Shirts"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to some extent",
+       "note": "only part of the words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "safe in t-shirts",
+       "gives": "FEINTS",
+       "note": "saFE IN T-Shirts"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone takes no risks by staying in t-shirts.",
      "walkthrough": "'Plays safe' reads as one phrase, but 'Plays' alone is the definition, in the sense of a feint or dummy move in sport.",

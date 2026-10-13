@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29661",
  "number": 29661,
- "series": "cryptic",
- "name": "Prize crossword No 29,661",
+ "prize": true,
  "setter": "Tramp",
  "date": "2025-04-05",
  "dimensions": {
@@ -54,52 +53,48 @@
     "15-down"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DENTAL HYGIENIST",
     "definitions": [
      {
       "text": "I might need to work on calculus",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "term in",
-      "for": "letter_selection",
-      "note": "a term is an end or limit, so only the closing letter of the next word is kept"
-     },
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "letters that come out wrong are in the wrong order and must be put right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'd easily get",
-      "gives": "IDEASILYGET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "nth",
-      "gives": "NTH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "integration",
-      "gives": "N",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IDEASILYGETNTHN",
-       "gives": "DENTALHYGIENIST"
+       "text": "wrong",
+       "note": "letters that come out wrong are in the wrong order and must be put right"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I'd easily get",
+         "note": "taken as written"
+        },
+        {
+         "words": "nth",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "term in",
+           "note": "a term is an end or limit, so only the closing letter of the next word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "integration",
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -130,52 +125,53 @@
    },
    "solution": "EXAM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "EXAM",
     "definitions": [
      {
       "text": "paper",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "Letter at back of",
-      "for": "letter_selection",
-      "note": "the letter standing at the back of a word is its last one"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece sits within the other, so it is put inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of the word"
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "X",
-      "note": "the multiplication sign, read 'times'"
-     },
-     {
-      "clueFragment": "the morning",
-      "gives": "AM",
-      "note": "a.m. marks the morning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "X",
-      "AM"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "EXAM",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece sits within the other, so it is put inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Letter at back of",
+           "note": "the letter standing at the back of a word is its last one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "The",
+           "note": "last letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "Times",
+         "gives": "X",
+         "note": "the multiplication sign, read 'times'"
+        },
+        {
+         "words": "the morning",
+         "gives": "AM",
+         "note": "a.m. marks the morning"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -210,28 +206,16 @@
    },
    "solution": "TAKESTOCK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAKE STOCK",
     "definitions": [
      {
       "text": "Review",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: assess a situation"
      },
      {
       "text": "what rustler might do?",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Review",
-      "note": "first meaning: assess a situation"
-     },
-     {
-      "clueFragment": "what rustler might do?",
-      "note": "second meaning, read literally: a cattle thief carries off livestock"
+      "at": 7,
+      "meaning": "second meaning, read literally: a cattle thief carries off livestock"
      }
     ],
     "explanation": {
@@ -259,40 +243,31 @@
    },
    "solution": "LATELY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LATELY",
     "definitions": [
      {
       "text": "around this time",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "container",
-      "note": "something placed between two others is enclosed by them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tense",
-      "gives": "T",
-      "note": "grammatical abbreviation for tense"
-     },
-     {
-      "clueFragment": "two cities",
-      "gives": "LAELY",
-      "note": "LA, Los Angeles, and Ely, a cathedral city in Cambridgeshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "T",
-      "ELY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "something placed between two others is enclosed by them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two cities",
+       "gives": "LAELY",
+       "note": "LA, Los Angeles, and Ely, a cathedral city in Cambridgeshire"
+      },
+      {
+       "words": "Tense",
+       "gives": "T",
+       "note": "grammatical abbreviation for tense"
+      }
      ]
     },
     "explanation": {
@@ -321,54 +296,40 @@
    },
    "solution": "POSTMARK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "POSTMARK",
     "definitions": [
      {
       "text": "Frank",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after getting lost",
-      "for": "anagram",
-      "note": "something that has got lost has gone astray, so the letters wander into a new order"
-     },
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one piece goes around the outside of the other"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pull up",
-      "gives": "PARK",
-      "note": "to pull up a car is to stop and park it"
-     },
-     {
-      "clueFragment": "Tom's",
-      "gives": "TOMS",
-      "note": "taken as written, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "OSTM",
-      "ARK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TOMS",
-       "gives": "OSTM"
+       "text": "outside",
+       "note": "one piece goes around the outside of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pull up",
+       "gives": "PARK",
+       "note": "to pull up a car is to stop and park it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "after getting lost",
+         "note": "something that has got lost has gone astray, so the letters wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tom's",
+         "note": "taken as written, apostrophe dropped"
+        }
+       ]
       }
      ]
     },
@@ -404,36 +365,25 @@
    },
    "solution": "PUBLICRELATIONS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PUBLIC RELATIONS",
     "definitions": [
      {
       "text": "spin",
       "at": 20
      }
     ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Out",
-      "gives": "PUBLIC",
-      "note": "news that is out is known to everyone"
-     },
-     {
-      "clueFragment": "family",
-      "gives": "RELATIONS",
-      "note": "one's relatives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUBLIC",
-      "RELATIONS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Out",
+       "gives": "PUBLIC",
+       "note": "news that is out is known to everyone"
+      },
+      {
+       "words": "family",
+       "gives": "RELATIONS",
+       "note": "one's relatives"
+      }
      ]
     },
     "explanation": {
@@ -462,50 +412,41 @@
    },
    "solution": "SLEIGHTS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SLEIGHTS",
     "definitions": [
      {
       "text": "Tricks",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals, so every other letter of the word is taken"
-     },
-     {
-      "text": "seen during",
-      "for": "container",
-      "note": "something seen during an event appears within it, so it goes inside"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blues",
-      "gives": "LE",
-      "select": "alternate",
-      "note": "second and fourth letters"
-     },
-     {
-      "clueFragment": "shows",
-      "gives": "SIGHTS",
-      "note": "sights are spectacles, things on show"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LE",
-      "IGHTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen during",
+       "note": "something seen during an event appears within it, so it goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shows",
+       "gives": "SIGHTS",
+       "note": "sights are spectacles, things on show"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals, so every other letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blues",
+         "note": "second and fourth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -534,51 +475,41 @@
    },
    "solution": "MACHO",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MACHO",
     "definitions": [
      {
       "text": "virile",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "bedding",
-      "for": "container",
-      "note": "to bed something is to tuck it in, so one piece is enclosed"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mum",
-      "gives": "MA",
-      "note": "familiar word for mother"
-     },
-     {
-      "clueFragment": "the others",
-      "gives": "CO",
-      "note": "as in 'and Co', meaning and the rest"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "C",
-      "H",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mum",
+       "gives": "MA",
+       "note": "familiar word for mother"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bedding",
+         "note": "to bed something is to tuck it in, so one piece is enclosed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the others",
+         "gives": "CO",
+         "note": "as in 'and Co', meaning and the rest"
+        },
+        {
+         "words": "husband",
+         "gives": "H",
+         "note": "standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -606,40 +537,33 @@
    },
    "solution": "RESONATING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESONATING",
     "definitions": [
      {
       "text": "Vibrating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going off",
-      "for": "anagram",
-      "note": "something going off is exploding or going bad, so the letters are scattered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as",
-      "gives": "AS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ringtone",
-      "gives": "RINGTONE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASRINGTONE",
-       "gives": "RESONATING"
+       "text": "going off",
+       "note": "something going off is exploding or going bad, so the letters are scattered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "as",
+         "note": "taken as written"
+        },
+        {
+         "words": "ringtone",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -667,56 +591,44 @@
    },
    "solution": "BACKSTAB",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BACKSTAB",
     "definitions": [
      {
       "text": "Rubbish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at the front",
-      "for": "letter_selection",
-      "note": "only the letter standing at the front of the word is used"
-     }
-    ],
-    "linkWords": [
-     "across"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "out of sight behind",
-      "gives": "BACK",
-      "note": "behind one's back, where one cannot see"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bin",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACK",
-      "ST",
-      "A",
-      "B"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "out of sight behind",
+       "gives": "BACK",
+       "note": "behind one's back, where one cannot see"
+      },
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the front",
+         "note": "only the letter standing at the front of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bin",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -745,35 +657,25 @@
    },
    "solution": "ENCASE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENCASE",
     "definitions": [
      {
       "text": "Provide cover for",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nurse",
-      "gives": "EN",
-      "note": "Enrolled Nurse, a former British nursing grade"
-     },
-     {
-      "clueFragment": "patient",
-      "gives": "CASE",
-      "note": "doctors speak of a patient as a case"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "CASE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nurse",
+       "gives": "EN",
+       "note": "Enrolled Nurse, a former British nursing grade"
+      },
+      {
+       "words": "patient",
+       "gives": "CASE",
+       "note": "doctors speak of a patient as a case"
+      }
      ]
     },
     "explanation": {
@@ -808,38 +710,24 @@
    },
    "solution": "SELLINGPOINT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SELLING POINT",
     "definitions": [
      {
       "text": "good thing for customers",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "when busy",
-      "for": "anagram",
-      "note": "a busy scene is all bustle and disorder, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Opening tills",
-      "gives": "OPENINGTILLS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OPENINGTILLS",
-       "gives": "SELLINGPOINT"
+       "text": "when busy",
+       "note": "a busy scene is all bustle and disorder, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Opening tills",
+       "note": "taken as written"
       }
      ]
     },
@@ -873,58 +761,58 @@
    },
    "solution": "TAXIDRIVER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TAXI DRIVER",
     "definitions": [
      {
       "text": "worker on street?",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "back for",
-      "for": "letter_selection",
-      "note": "the back of a word is its last letter, so only that is used"
-     },
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "the outer pieces cover the inner one by sitting on either side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "You shouldn't have",
-      "gives": "TA",
-      "note": "ta is British slang for thanks, as said on receiving a gift"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "X",
-      "select": "last",
-      "note": "last letter"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "club",
-      "gives": "DRIVER",
-      "note": "a driver is a golf club"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "X",
-      "I",
-      "DRIVER"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "TAXIDRIVER",
+     "indicators": [
+      {
+       "text": "covering",
+       "note": "the outer pieces cover the inner one by sitting on either side"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "You shouldn't have",
+         "gives": "TA",
+         "note": "ta is British slang for thanks, as said on receiving a gift"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back for",
+           "note": "the back of a word is its last letter, so only that is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sex",
+           "note": "last letter"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral"
+        },
+        {
+         "words": "club",
+         "gives": "DRIVER",
+         "note": "a driver is a golf club"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -954,46 +842,40 @@
    },
    "solution": "HALO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HALO",
     "definitions": [
      {
       "text": "circular light",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "provides wall for",
-      "for": "container",
-      "note": "a wall encloses what is inside, so one piece goes around the others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House",
-      "gives": "HO",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "clothing size abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "A",
-      "L",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "provides wall for",
+       "note": "a wall encloses what is inside, so one piece goes around the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "House",
+         "gives": "HO",
+         "note": "standard abbreviation"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "clothing size abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1021,54 +903,40 @@
    },
    "solution": "RATCHETS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RATCHETS",
     "definitions": [
      {
       "text": "Turning devices",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something that is off is wrong or spoiled, so the letters are rearranged"
-     },
-     {
-      "text": "getting overwhelmed by",
-      "for": "container",
-      "note": "to be overwhelmed is to be swamped and surrounded, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tech",
-      "gives": "TECH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "crap",
-      "gives": "RATS",
-      "note": "both are exclamations of annoyance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "TCHE",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TECH",
-       "gives": "TCHE"
+       "text": "getting overwhelmed by",
+       "note": "to be overwhelmed is to be swamped and surrounded, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crap",
+       "gives": "RATS",
+       "note": "both are exclamations of annoyance"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something that is off is wrong or spoiled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tech",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1111,35 +979,25 @@
    },
    "solution": "CALDWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CALDWELL",
     "definitions": [
      {
       "text": "US novelist",
       "at": 0
      }
     ],
-    "linkWords": [
-     "south of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "California",
-      "gives": "CAL",
-      "note": "abbreviation for the state"
-     },
-     {
-      "clueFragment": "to live in place",
-      "gives": "DWELL",
-      "note": "to dwell is to reside somewhere"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAL",
-      "DWELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "California",
+       "gives": "CAL",
+       "note": "abbreviation for the state"
+      },
+      {
+       "words": "to live in place",
+       "gives": "DWELL",
+       "note": "to dwell is to reside somewhere"
+      }
      ]
     },
     "explanation": {
@@ -1167,35 +1025,25 @@
    },
    "solution": "KICKBALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KICKBALL",
     "definitions": [
      {
       "text": "Children's game",
       "at": 0
      }
     ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a bit of fun",
-      "gives": "KICK",
-      "note": "a kick is a thrill, as in doing something for kicks"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "BALL",
-      "note": "a formal dance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KICK",
-      "BALL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a bit of fun",
+       "gives": "KICK",
+       "note": "a kick is a thrill, as in doing something for kicks"
+      },
+      {
+       "words": "party",
+       "gives": "BALL",
+       "note": "a formal dance"
+      }
      ]
     },
     "explanation": {
@@ -1222,40 +1070,31 @@
    },
    "solution": "GANG",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GANG",
     "definitions": [
      {
       "text": "crowd",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "to entertain a guest is to take them in, so one piece holds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Joke",
-      "gives": "GAG",
-      "note": "a gag is a joke"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "N",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "note": "to entertain a guest is to take them in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Joke",
+       "gives": "GAG",
+       "note": "a gag is a joke"
+      },
+      {
+       "words": "northern",
+       "gives": "N",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1283,43 +1122,31 @@
    },
    "solution": "COPING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COPING",
     "definitions": [
      {
       "text": "Surviving",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bites",
-      "for": "container",
-      "note": "teeth that bite close around something, holding it inside"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tooth",
-      "gives": "COG",
-      "note": "a cog is a tooth on a gear wheel"
-     },
-     {
-      "clueFragment": "leg",
-      "gives": "PIN",
-      "note": "pins is slang for legs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "PIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bites",
+       "note": "teeth that bite close around something, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tooth",
+       "gives": "COG",
+       "note": "a cog is a tooth on a gear wheel"
+      },
+      {
+       "words": "leg",
+       "gives": "PIN",
+       "note": "pins is slang for legs"
+      }
      ]
     },
     "explanation": {
@@ -1354,41 +1181,30 @@
    },
    "solution": "GROUNDSTROKE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GROUNDSTROKE",
     "definitions": [
      {
       "text": "Tennis shot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "to go past",
-      "gives": "ROUND",
-      "note": "to round a corner is to go past it"
-     },
-     {
-      "clueFragment": "Pat",
-      "gives": "STROKE",
-      "note": "to pat an animal is to stroke it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ROUND",
-      "STROKE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "to go past",
+       "gives": "ROUND",
+       "note": "to round a corner is to go past it"
+      },
+      {
+       "words": "Pat",
+       "gives": "STROKE",
+       "note": "to pat an animal is to stroke it"
+      }
      ]
     },
     "explanation": {
@@ -1417,51 +1233,40 @@
    },
    "solution": "UNAPT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNAPT",
     "definitions": [
      {
       "text": "Inappropriate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter is used"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "text-speak for you"
-     },
-     {
-      "clueFragment": "to sleep",
-      "gives": "NAP",
-      "note": "a nap is a short sleep"
-     },
-     {
-      "clueFragment": "escort",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NAP",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "you",
+       "gives": "U",
+       "note": "text-speak for you"
+      },
+      {
+       "words": "to sleep",
+       "gives": "NAP",
+       "note": "a nap is a short sleep"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "escort",
+         "note": "last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1489,41 +1294,35 @@
    },
    "solution": "CAVA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CAVA",
     "definitions": [
      {
       "text": "Drink",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on vacation",
-      "for": "letter_selection",
-      "note": "vacated means emptied, so the inside of the word is cleared out leaving its ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "around",
-      "gives": "CA",
-      "note": "circa, about"
-     },
-     {
-      "clueFragment": "villa",
-      "gives": "VA",
-      "select": "outer",
-      "note": "outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "VA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "around",
+       "gives": "CA",
+       "note": "circa, about"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "note": "vacated means emptied, so the inside of the word is cleared out leaving its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "villa",
+         "note": "outer letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1552,49 +1351,44 @@
    },
    "solution": "AVIATE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "AVIATE",
     "definitions": [
      {
       "text": "Fly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that's not opened",
-      "for": "deletion",
-      "note": "a word that is not opened has lost its opening, its first letter"
-     },
-     {
-      "text": "cuts",
-      "for": "container",
-      "note": "something that cuts into another is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gate",
-      "gives": "ATE",
-      "note": "the word without its first letter"
-     },
-     {
-      "clueFragment": "through",
-      "gives": "VIA",
-      "note": "via means by way of"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VIA",
-      "TE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "AVIATE",
+     "indicators": [
+      {
+       "text": "that's not opened",
+       "note": "a word that is not opened has lost its opening, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "note": "something that cuts into another is placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gate",
+         "gives": "ATE",
+         "note": "the word without its first letter"
+        },
+        {
+         "words": "through",
+         "gives": "VIA",
+         "note": "via means by way of"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1623,41 +1417,38 @@
    },
    "solution": "ORIGINAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ORIGINAL",
     "definitions": [
      {
       "text": "Genuine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with front cut out",
-      "for": "deletion",
-      "note": "cutting out the front removes the first letter of the word"
-     },
-     {
-      "text": "needing alteration",
-      "for": "anagram",
-      "note": "something needing alteration must be changed, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tailoring",
-      "gives": "AILORING",
-      "note": "the word without its first letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ORIGINAL",
+     "indicators": [
       {
-       "fodder": "AILORING",
-       "gives": "ORIGINAL"
+       "text": "with front cut out",
+       "note": "cutting out the front removes the first letter of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "needing alteration",
+         "note": "something needing alteration must be changed, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tailoring",
+         "gives": "AILORING",
+         "note": "the word without its first letter"
+        }
+       ]
       }
      ]
     },
@@ -1687,35 +1478,25 @@
    },
    "solution": "PRATTLES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRATTLES",
     "definitions": [
      {
       "text": "talks nonsense",
       "at": 18
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prince",
-      "gives": "P",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "shakes",
-      "gives": "RATTLES",
-      "note": "to rattle is to shake noisily"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RATTLES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prince",
+       "gives": "P",
+       "note": "standard abbreviation"
+      },
+      {
+       "words": "shakes",
+       "gives": "RATTLES",
+       "note": "to rattle is to shake noisily"
+      }
      ]
     },
     "explanation": {
@@ -1742,56 +1523,50 @@
    },
    "solution": "GATEAU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "GATEAU",
     "definitions": [
      {
       "text": "cake",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Middle of",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle letters only"
-     },
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "to take something in is to hold it within, so one piece goes inside"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "August",
-      "gives": "GU",
-      "select": "middle",
-      "note": "the two middle letters"
-     },
-     {
-      "clueFragment": "afternoon",
-      "gives": "A",
-      "note": "an abbreviation for afternoon"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "TEA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ATEA",
-      "U"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "to take something in is to hold it within, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Middle of",
+         "note": "the centre of a word is its middle letters only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "August",
+         "note": "the two middle letters"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "afternoon",
+         "gives": "A",
+         "note": "an abbreviation for afternoon"
+        },
+        {
+         "words": "tea",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29195",
  "number": 29195,
- "series": "cryptic",
- "name": "Prize crossword No 29,195",
+ "prize": true,
  "setter": "Paul",
  "date": "2023-10-07",
  "dimensions": {
@@ -38,45 +37,46 @@
    },
    "solution": "DIRECT",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "DIRECT",
     "definitions": [
      {
       "text": "Frank",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "announced",
-      "for": "homophone",
-      "note": "something announced is spoken out, so the phrase built here is judged by how it is said"
-     }
-    ],
-    "linkWords": [
-     "'s result of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Welsh",
-      "gives": "DAI",
-      "note": "Dai is a stereotypical Welsh man's name"
-     },
-     {
-      "clueFragment": "pub crawl",
-      "gives": "WRECKED",
-      "note": "after a long pub crawl you end up wrecked, very drunk"
-     },
-     {
-      "clueFragment": "Welsh pub crawl",
-      "gives": "DIRECT",
-      "soundsLike": "DAI WRECKED",
-      "note": "the Welshman's name and his state said together run into one word"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "DIRECT",
+     "indicators": [
+      {
+       "text": "announced",
+       "note": "something announced is spoken out, so the phrase built here is judged by how it is said"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Welsh",
+       "gives": "DAI",
+       "note": "Dai is a stereotypical Welsh man's name"
+      },
+      {
+       "words": "pub crawl",
+       "gives": "WRECKED",
+       "note": "after a long pub crawl you end up wrecked, very drunk"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DIRECT",
+       "parts": [
+        {
+         "words": "Welsh pub crawl",
+         "gives": "DAIWRECKED",
+         "note": "the Welshman's name and his state said together run into one word"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone asks, frankly, what happens when a Welshman goes on a pub crawl.",
      "walkthrough": "Dai is the stock Welsh name in British jokes; 'Dai wrecked' spoken quickly matches the answer. The 's is a link: Frank is the result.",
@@ -104,58 +104,50 @@
    },
    "solution": "DEVOLVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "DEVOLVE",
     "definitions": [
      {
       "text": "Transfer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in conclusion",
-      "for": "letter_selection",
-      "note": "in conclusion means at the end, so only the final letter is used"
-     },
-     {
-      "text": "when raised",
-      "for": "reversal",
-      "note": "in a down entry raised means lifted upward, read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fee",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of the word"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the standard abbreviation for very"
-     },
-     {
-      "clueFragment": "very much appreciated",
-      "gives": "LOVED",
-      "note": "something very much appreciated is loved"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEVOL",
-      "V",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EVLOVED",
-       "to": "DEVOLVE"
+       "text": "when raised",
+       "note": "in a down entry raised means lifted upward, read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "in conclusion",
+           "note": "in conclusion means at the end, so only the final letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fee",
+           "note": "the final letter of the word"
+          }
+         ]
+        },
+        {
+         "words": "very",
+         "gives": "V",
+         "note": "V is the standard abbreviation for very"
+        },
+        {
+         "words": "very much appreciated",
+         "gives": "LOVED",
+         "note": "something very much appreciated is loved"
+        }
+       ]
       }
      ]
     },
@@ -185,28 +177,16 @@
    },
    "solution": "RIDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RIDER",
     "definitions": [
      {
       "text": "Qualification",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a condition or clause added to something"
      },
      {
       "text": "cowboy, say",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Qualification",
-      "note": "first meaning: a condition or clause added to something"
-     },
-     {
-      "clueFragment": "cowboy, say",
-      "note": "second meaning: one who rides a horse, a cowboy being an example"
+      "at": 17,
+      "meaning": "second meaning: one who rides a horse, a cowboy being an example"
      }
     ],
     "explanation": {
@@ -235,35 +215,24 @@
    },
    "solution": "CARLYLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARLYLE",
     "definitions": [
      {
       "text": "Influential Victorian author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "red-pencilled",
-      "for": "anagram",
-      "note": "red-pencilled means edited or corrected, so the word before is reworked"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clearly",
-      "gives": "CLEARLY",
-      "note": "the seven letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLEARLY",
-       "gives": "CARLYLE"
+       "text": "red-pencilled",
+       "note": "red-pencilled means edited or corrected, so the word before is reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clearly",
+       "note": "the seven letters to be rearranged"
       }
      ]
     },
@@ -298,35 +267,25 @@
    },
    "solution": "BOWWOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOW-WOW",
     "definitions": [
      {
       "text": "hound",
       "at": 23
      }
     ],
-    "linkWords": [
-     "before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Show respect",
-      "gives": "BOW",
-      "note": "to bow is to show respect"
-     },
-     {
-      "clueFragment": "my",
-      "gives": "WOW",
-      "note": "'My!' and 'Wow!' are both exclamations of surprise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOW",
-      "WOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Show respect",
+       "gives": "BOW",
+       "note": "to bow is to show respect"
+      },
+      {
+       "words": "my",
+       "gives": "WOW",
+       "note": "'My!' and 'Wow!' are both exclamations of surprise"
+      }
      ]
     },
     "explanation": {
@@ -354,32 +313,25 @@
    },
    "solution": "OFFEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OFFEND",
     "definitions": [
      {
       "text": "Outrage",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Beyond",
-      "gives": "OFF",
-      "note": "off means away from, beyond the limit"
-     },
-     {
-      "clueFragment": "the Fringe",
-      "gives": "END",
-      "note": "the end is the edge, the fringe of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beyond",
+       "gives": "OFF",
+       "note": "off means away from, beyond the limit"
+      },
+      {
+       "words": "the Fringe",
+       "gives": "END",
+       "note": "the end is the edge, the fringe of something"
+      }
      ]
     },
     "explanation": {
@@ -409,50 +361,41 @@
    },
    "solution": "WORDSMITH",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WORDSMITH",
     "definitions": [
      {
       "text": "One skilled in communication",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bagging",
-      "for": "container",
-      "note": "bagging means putting into a bag, so the word for and holds the others inside"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and",
-      "gives": "WITH",
-      "note": "with and and both join one thing to another"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "medal",
-      "gives": "DSM",
-      "note": "the DSM is the Distinguished Service Medal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OR",
-      "DSM",
-      "ITH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bagging",
+       "note": "bagging means putting into a bag, so the word for and holds the others inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "and",
+       "gives": "WITH",
+       "note": "with and and both join one thing to another"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "gives": "OR",
+         "note": "or is gold in heraldry"
+        },
+        {
+         "words": "medal",
+         "gives": "DSM",
+         "note": "the DSM is the Distinguished Service Medal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -513,52 +456,46 @@
    },
    "solution": "HIGHMUCKAMUCK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HIGH-MUCK-A-MUCK",
     "definitions": [
      {
       "text": "big gun",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "done over",
-      "for": "charade",
-      "note": "done over means done again, so the word for scum appears twice in a row"
-     },
-     {
-      "text": "taken apart by",
-      "for": "container",
-      "note": "taken apart by means split open by a letter set in between"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rotten",
-      "gives": "HIGH",
-      "note": "meat or game that is high has begun to go off"
-     },
-     {
-      "clueFragment": "scum",
-      "gives": "MUCKMUCK",
-      "note": "muck is filth, scum, here written twice"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HIGH",
-      "MUCK",
-      "A",
-      "MUCK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "done over",
+       "note": "done over means done again, so the word for scum appears twice in a row"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rotten",
+       "gives": "HIGH",
+       "note": "meat or game that is high has begun to go off"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken apart by",
+         "note": "taken apart by means split open by a letter set in between"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scum",
+         "gives": "MUCKMUCK",
+         "note": "muck is filth, scum, here written twice"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -587,40 +524,38 @@
    },
    "solution": "AVID",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "AVID",
     "definitions": [
      {
       "text": "full of energy",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "short means the word for a film is cut down, losing its tail"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "film",
-      "gives": "VIDEO",
-      "note": "a video is a filmed recording"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VID"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "short means the word for a film is cut down, losing its tail"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "film",
+         "gives": "VIDEO",
+         "note": "a video is a filmed recording"
+        }
+       ]
+      },
+      {
+       "gives": "EO"
+      }
      ]
     },
     "explanation": {
@@ -655,66 +590,52 @@
    },
    "solution": "RAINFOREST",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "RAIN-FOREST",
     "definitions": [
      {
       "text": "Biodiverse area",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "ground means crushed and broken up, so the two words that follow are rearranged"
-     },
-     {
-      "text": "right-leaning",
-      "for": "reversal",
-      "note": "a word leaning away from the right in a row of across text runs leftwards, read backwards"
-     },
-     {
-      "text": "cover-up by",
-      "for": "container",
-      "note": "a cover-up wraps around something, so the ruler's title encloses the rearranged letters"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "despot",
-      "gives": "TSAR",
-      "note": "a tsar was an absolute Russian ruler"
-     },
-     {
-      "clueFragment": "on fire",
-      "gives": "INFORE",
-      "note": "the six letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "INFORE",
-      "ST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "ONFIRE",
-       "gives": "INFORE"
+       "text": "right-leaning",
+       "note": "a word leaning away from the right in a row of across text runs leftwards, read backwards"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "TSAR",
-       "to": "RAST"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cover-up by",
+         "note": "a cover-up wraps around something, so the ruler's title encloses the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "despot",
+         "gives": "TSAR",
+         "note": "a tsar was an absolute Russian ruler"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "ground",
+           "note": "ground means crushed and broken up, so the two words that follow are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "on fire",
+           "gives": "INFORE",
+           "note": "the six letters rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -744,28 +665,16 @@
    },
    "solution": "SLURRY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SLURRY",
     "definitions": [
      {
       "text": "Waste",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: liquid manure or watery waste matter"
      },
      {
       "text": "speaking when wasted",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Waste",
-      "note": "first meaning: liquid manure or watery waste matter"
-     },
-     {
-      "clueFragment": "speaking when wasted",
-      "note": "second meaning, read playfully: given to slurring, as a drunk talks"
+      "at": 7,
+      "meaning": "second meaning, read playfully: given to slurring, as a drunk talks"
      }
     ],
     "explanation": {
@@ -800,47 +709,41 @@
    },
    "solution": "HANDSOFF",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "HANDS OFF",
     "definitions": [
      {
       "text": "Don't touch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the German man's name wraps about the country's abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German",
-      "gives": "HANS",
-      "note": "Hans is a typical German man's name"
-     },
-     {
-      "clueFragment": "Germany",
-      "gives": "D",
-      "note": "D is the international vehicle code for Germany (Deutschland)"
-     },
-     {
-      "clueFragment": "on his way",
-      "gives": "OFF",
-      "note": "someone off is leaving, on their way"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAN",
-      "D",
-      "S",
-      "OFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around says the German man's name wraps about the country's abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German",
+         "gives": "HANS",
+         "note": "Hans is a typical German man's name"
+        },
+        {
+         "words": "Germany",
+         "gives": "D",
+         "note": "D is the international vehicle code for Germany (Deutschland)"
+        }
+       ]
+      },
+      {
+       "words": "on his way",
+       "gives": "OFF",
+       "note": "someone off is leaving, on their way"
+      }
      ]
     },
     "explanation": {
@@ -883,35 +786,24 @@
     "7-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BE CAREFUL WHAT YOU WISH FOR",
     "definitions": [
      {
       "text": "guarded response to ambitions",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone bad or wrong, so the preceding words are spoiled into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "White House club wary of far",
-      "gives": "WHITEHOUSECLUBWARYOFFAR",
-      "note": "all twenty-three letters are used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WHITEHOUSECLUBWARYOFFAR",
-       "gives": "BECAREFULWHATYOUWISHFOR"
+       "text": "off",
+       "note": "off means gone bad or wrong, so the preceding words are spoiled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "White House club wary of far",
+       "note": "all twenty-three letters are used"
       }
      ]
     },
@@ -941,48 +833,37 @@
    },
    "solution": "AIRSTREAM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "AIRSTREAM",
     "definitions": [
      {
       "text": "Current",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "designed",
-      "for": "anagram",
-      "note": "designed means planned and arranged, so the two words before are laid out anew"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "art is",
-      "gives": "AIRST",
-      "note": "the five letters rearranged"
-     },
-     {
-      "clueFragment": "paper",
-      "gives": "REAM",
-      "note": "a ream is a quantity of paper, 500 sheets"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIRST",
-      "REAM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "AIRSTREAM",
+     "indicators": [
       {
-       "fodder": "ARTIS",
-       "gives": "AIRST"
+       "text": "designed",
+       "note": "designed means planned and arranged, so the two words before are laid out anew"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "art is",
+         "gives": "AIRST",
+         "note": "the five letters rearranged"
+        },
+        {
+         "words": "paper",
+         "gives": "REAM",
+         "note": "a ream is a quantity of paper, 500 sheets"
+        }
+       ]
       }
      ]
     },
@@ -1012,41 +893,36 @@
    },
    "solution": "TIER",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TIER",
     "definitions": [
      {
       "text": "Class",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "somewhat means only part of the phrase before it is wanted, a run of its letters"
-     },
-     {
-      "text": "regressive",
-      "for": "reversal",
-      "note": "regressive means going back, so the letters run right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "warfare, I think",
-      "gives": "REIT",
-      "note": "the letters straddle the end of warfare and the start of think"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REIT",
-       "to": "TIER"
+       "text": "regressive",
+       "note": "regressive means going back, so the letters run right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "note": "somewhat means only part of the phrase before it is wanted, a run of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "warfare, I think",
+         "gives": "REIT",
+         "note": "the letters straddle the end of warfare and the start of think"
+        }
+       ]
       }
      ]
     },
@@ -1075,31 +951,29 @@
    },
    "solution": "SORE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SORE",
     "definitions": [
      {
       "text": "Ulcer or boil",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by one's ear",
-      "for": "homophone",
-      "note": "judged by one's ear means taken by its spoken form rather than its spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "observed",
-      "gives": "SORE",
-      "soundsLike": "SAW",
-      "note": "observed means saw, which in standard British speech rhymes exactly"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SORE",
+     "indicators": [
+      {
+       "text": "by one's ear",
+       "note": "judged by one's ear means taken by its spoken form rather than its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "observed",
+       "gives": "SAW",
+       "note": "observed means saw, which in standard British speech rhymes exactly"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doctor notices a skin lesion with the ear rather than the eye.",
      "walkthrough": "In non-rhotic British English, where the R is silent, saw and the answer are said the same.",
@@ -1126,40 +1000,31 @@
    },
    "solution": "SPECIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPECIES",
     "definitions": [
      {
       "text": "Organism",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that is four-eyed",
-      "for": "container",
-      "note": "a four-eyed person wears glasses, so the abbreviation is placed inside the spectacles"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "four-eyed",
-      "gives": "SPECS",
-      "note": "specs is short for spectacles, worn by the four-eyed"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. abbreviates id est, Latin for that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPEC",
-      "IE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that is four-eyed",
+       "note": "a four-eyed person wears glasses, so the abbreviation is placed inside the spectacles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "four-eyed",
+       "gives": "SPECS",
+       "note": "specs is short for spectacles, worn by the four-eyed"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. abbreviates id est, Latin for that is"
+      }
      ]
     },
     "explanation": {
@@ -1194,38 +1059,29 @@
    },
    "solution": "SKEWWHIFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SKEW-WHIFF",
     "definitions": [
      {
       "text": "Slightly off",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "s-",
-      "gives": "S",
-      "note": "the stammered opening letter is taken as written"
-     },
-     {
-      "clueFragment": "gardens",
-      "gives": "KEW",
-      "note": "Kew Gardens is the Royal Botanic Gardens in west London"
-     },
-     {
-      "clueFragment": "scent",
-      "gives": "WHIFF",
-      "note": "a whiff is a faint smell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KEW",
-      "WHIFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "s-",
+       "note": "the stammered opening letter is taken as written"
+      },
+      {
+       "words": "gardens",
+       "gives": "KEW",
+       "note": "Kew Gardens is the Royal Botanic Gardens in west London"
+      },
+      {
+       "words": "scent",
+       "gives": "WHIFF",
+       "note": "a whiff is a faint smell"
+      }
      ]
     },
     "explanation": {
@@ -1278,28 +1134,16 @@
    },
    "solution": "FRITTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FRITTER",
     "definitions": [
      {
       "text": "Blow",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to waste or squander money, to blow it"
      },
      {
       "text": "hot dish",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blow",
-      "note": "first meaning: to waste or squander money, to blow it"
-     },
-     {
-      "clueFragment": "hot dish",
-      "note": "second meaning: a piece of food fried in batter"
+      "at": 5,
+      "meaning": "second meaning: a piece of food fried in batter"
      }
     ],
     "explanation": {
@@ -1327,38 +1171,24 @@
    },
    "solution": "SIGNAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SIGNAL",
     "definitions": [
      {
       "text": "Cue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "screwed up",
-      "for": "anagram",
-      "note": "screwed up means crumpled and mangled, so the letters lose their order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slang I",
-      "gives": "SLANGI",
-      "note": "the six letters to be rearranged; that they also run backwards across these words is a coincidence"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SLANGI",
-       "gives": "SIGNAL"
+       "text": "screwed up",
+       "note": "screwed up means crumpled and mangled, so the letters lose their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slang I",
+       "note": "the six letters to be rearranged; that they also run backwards across these words is a coincidence"
       }
      ]
     },
@@ -1387,57 +1217,51 @@
    },
    "solution": "CENTRISM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "CENTRISM",
     "definitions": [
      {
       "text": "moderate policy",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "premier",
-      "for": "letter_selection",
-      "note": "premier means first, so only the leading letter of the next word is used"
-     },
-     {
-      "text": "to inspire",
-      "for": "container",
-      "note": "to inspire is to breathe in, so the boundary word takes a letter inside it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Money",
-      "gives": "CENT",
-      "note": "a cent is a small coin"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "RIM",
-      "note": "a rim is a boundary or edge"
-     },
-     {
-      "clueFragment": "surprisingly",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CENT",
-      "RI",
-      "S",
-      "M"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Money",
+       "gives": "CENT",
+       "note": "a cent is a small coin"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to inspire",
+         "note": "to inspire is to breathe in, so the boundary word takes a letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bound",
+         "gives": "RIM",
+         "note": "a rim is a boundary or edge"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "premier",
+           "note": "premier means first, so only the leading letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "surprisingly",
+           "note": "the opening letter of the word"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1466,42 +1290,45 @@
    },
    "solution": "AFFAIR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "AFFAIR",
     "definitions": [
      {
       "text": "thing",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Overheard",
-      "for": "homophone",
-      "note": "overheard means caught by listening, so the words are taken by their sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "beautiful",
-      "gives": "FAIR",
-      "note": "fair is an old word for beautiful"
-     },
-     {
-      "clueFragment": "a beautiful",
-      "gives": "AFFAIR",
-      "soundsLike": "A FAIR",
-      "note": "the two words said together"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "AFFAIR",
+     "indicators": [
+      {
+       "text": "Overheard",
+       "note": "overheard means caught by listening, so the words are taken by their sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "beautiful",
+       "gives": "FAIR",
+       "note": "fair is an old word for beautiful"
+      },
+      {
+       "op": "homophone",
+       "spelt": "AFFAIR",
+       "parts": [
+        {
+         "words": "a beautiful",
+         "gives": "AFAIR",
+         "note": "the two words said together"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone eavesdropping hears a lovely object described.",
      "walkthrough": "'a beautiful thing' looks like the whole description, but thing is the definition alone.",
@@ -1538,51 +1365,41 @@
     "25-across"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "FIRST-RATE",
     "definitions": [
      {
       "text": "Great",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after a turnover",
-      "for": "reversal",
-      "note": "a turnover flips something, so the word for sweets is read backwards"
-     },
-     {
-      "text": "consuming",
-      "for": "container",
-      "note": "consuming means eating up, so the emotion holds the other piece inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "passion",
-      "gives": "FIRE",
-      "note": "fire is ardour, passion"
-     },
-     {
-      "clueFragment": "sweets",
-      "gives": "TARTS",
-      "note": "tarts are sweet pastries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIR",
-      "STRAT",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "TARTS",
-       "to": "STRAT"
+       "text": "consuming",
+       "note": "consuming means eating up, so the emotion holds the other piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "passion",
+       "gives": "FIRE",
+       "note": "fire is ardour, passion"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after a turnover",
+         "note": "a turnover flips something, so the word for sweets is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sweets",
+         "gives": "TARTS",
+         "note": "tarts are sweet pastries"
+        }
+       ]
       }
      ]
     },
@@ -1619,57 +1436,51 @@
    },
    "solution": "NICEYNICEY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NICEY-NICEY",
     "definitions": [
      {
       "text": "Sycophantic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the letter for the phonetic code word inside the French term"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the end, so only the final letter is used"
-     }
-    ],
-    "linkWords": [
-     "backing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jolie",
-      "gives": "NICENICE",
-      "note": "jolie is French for nice, which said in the city of Nice gives Nice nice"
-     },
-     {
-      "clueFragment": "Yankee",
-      "gives": "Y",
-      "note": "Yankee is Y in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "luvvy",
-      "gives": "Y",
-      "select": "last",
-      "note": "the final letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NICE",
-      "Y",
-      "NICE",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the letter for the phonetic code word inside the French term"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jolie",
+         "gives": "NICENICE",
+         "note": "jolie is French for nice, which said in the city of Nice gives Nice nice"
+        },
+        {
+         "words": "Yankee",
+         "gives": "Y",
+         "note": "Yankee is Y in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means at the end, so only the final letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "luvvy",
+         "note": "the final letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1712,40 +1523,31 @@
    },
    "solution": "SIMPLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SIMPLY",
     "definitions": [
      {
       "text": "Just",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught by",
-      "for": "container",
-      "note": "something caught by another is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "foxy",
-      "gives": "SLY",
-      "note": "foxy means cunning, sly"
-     },
-     {
-      "clueFragment": "monkey",
-      "gives": "IMP",
-      "note": "a mischievous child is a monkey, or an imp"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "IMP",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught by",
+       "note": "something caught by another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foxy",
+       "gives": "SLY",
+       "note": "foxy means cunning, sly"
+      },
+      {
+       "words": "monkey",
+       "gives": "IMP",
+       "note": "a mischievous child is a monkey, or an imp"
+      }
      ]
     },
     "explanation": {
@@ -1773,41 +1575,35 @@
    },
    "solution": "CUTTER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CUTTER",
     "definitions": [
      {
       "text": "sailing ship",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Originally",
-      "for": "letter_selection",
-      "note": "originally means at the start, so only the opening letter is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clinker-built",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "UTTER",
-      "note": "to utter is to say"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "UTTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Originally",
+         "note": "originally means at the start, so only the opening letter is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clinker-built",
+         "note": "the opening letter"
+        }
+       ]
+      },
+      {
+       "words": "say",
+       "gives": "UTTER",
+       "note": "to utter is to say"
+      }
      ]
     },
     "explanation": {

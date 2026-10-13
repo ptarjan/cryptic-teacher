@@ -1,8 +1,7 @@
 {
  "id": "cryptic-24243",
  "number": 24243,
- "series": "cryptic",
- "name": "Prize crossword No 24,243",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2007-11-24",
  "preamble": "Method: Solve the clues and fit the solutions in the diagram wherever they will go.",
@@ -39,26 +38,26 @@
    },
    "solution": "THEJOKEISONME",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE JOKE IS ON ME",
     "definitions": [
      {
       "text": "Trickster's admission of being tricked",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Trickster's admission of being tricked",
-      "note": "surface reading: a prankster owning up that a prank has backfired"
-     },
-     {
-      "clueFragment": "making John see to Mike",
-      "note": "setter's reading: a playful picture of one person being made the butt, the laugh landing on the speaker"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Trickster's admission of being tricked",
+       "note": "surface reading: a prankster owning up that a prank has backfired"
+      },
+      {
+       "words": "making John see to Mike",
+       "note": "setter's reading: a playful picture of one person being made the butt, the laugh landing on the speaker"
+      }
+     ]
+    },
+    "spelling": "THE JOKE IS ON ME",
     "explanation": {
      "surface": "A prankster confesses to being caught out while getting John to look after Mike.",
      "walkthrough": "The phrase is what a trickster says when a trick rebounds; the rest of the clue is Araucaria's whimsical scene of a prank that ends up landing on its maker.",
@@ -84,54 +83,48 @@
    },
    "solution": "HALFCASTE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "HALF-CASTE",
     "definitions": [
      {
       "text": "Mixed race",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supplies",
-      "for": "anagram",
-      "note": "read as 'supple' things, the letters are bent into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy",
-      "gives": "HAL",
-      "note": "Hal is a boy's name, short for Henry"
-     },
-     {
-      "clueFragment": "football club",
-      "gives": "FC",
-      "note": "standard abbreviation, as in Arsenal FC"
-     },
-     {
-      "clueFragment": "teas",
-      "gives": "TEAS",
-      "note": "taken as written, then rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAL",
-      "FC",
-      "ASTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TEAS",
-       "gives": "ASTE"
+       "words": "boy",
+       "gives": "HAL",
+       "note": "Hal is a boy's name, short for Henry"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "supplies",
+         "note": "read as 'supple' things, the letters are bent into a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "football club",
+           "gives": "FC",
+           "note": "standard abbreviation, as in Arsenal FC"
+          },
+          {
+           "words": "teas",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "spelling": "HALF-CASTE",
     "explanation": {
      "surface": "A young lad of mixed background lays on the refreshments for a football club.",
      "walkthrough": "The term is dated and now considered offensive, but it is what the grid needs. Hal is a common crossword boy.",
@@ -158,28 +151,16 @@
    },
    "solution": "JOINT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "JOINT",
     "definitions": [
      {
       "text": "Smoked",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a rolled cannabis cigarette, something that gets smoked"
      },
      {
       "text": "food?",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smoked",
-      "note": "first meaning: a rolled cannabis cigarette, something that gets smoked"
-     },
-     {
-      "clueFragment": "food?",
-      "note": "second meaning: a large cut of meat for roasting"
+      "at": 7,
+      "meaning": "second meaning: a large cut of meat for roasting"
      }
     ],
     "explanation": {
@@ -208,49 +189,40 @@
    },
    "solution": "KOTOW",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "KOTOW",
     "definitions": [
      {
       "text": "humble greeting",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it on all sides"
-     },
-     {
-      "text": "to return",
-      "for": "reversal",
-      "note": "returning means going back the way you came, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cooker",
-      "gives": "WOK",
-      "note": "a wok is a Chinese cooking pan"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KOTOW"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "WOTOK",
-       "to": "KOTOW"
+       "text": "to return",
+       "note": "returning means going back the way you came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "to be about something is to surround it on all sides"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cooker",
+         "gives": "WOK",
+         "note": "a wok is a Chinese cooking pan"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -280,56 +252,44 @@
    },
    "solution": "INVENTORS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "INVENTORS",
     "definitions": [
      {
       "text": "patentees",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "an opening is the start of something, so only the initial letter is kept"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Popular",
-      "gives": "IN",
-      "note": "in means fashionable or popular"
-     },
-     {
-      "clueFragment": "opening",
-      "gives": "VENT",
-      "note": "a vent is an opening or outlet"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "select",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "VENT",
-      "OR",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "words": "opening",
+       "gives": "VENT",
+       "note": "a vent is an opening or outlet"
+      },
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "note": "an opening is the start of something, so only the initial letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "select",
+         "note": "first letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -358,43 +318,38 @@
    },
    "solution": "OLDSAILOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OLD SAILOR",
     "definitions": [
      {
       "text": "Coleridge's narrator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "made",
-      "for": "anagram",
-      "note": "making something means forming it from raw material into a new shape"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ten",
-      "gives": "IO",
-      "note": "10 written as the figures one and zero, looking like I and O"
-     },
-     {
-      "clueFragment": "dollars",
-      "gives": "DOLLARS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IODOLLARS",
-       "gives": "OLDSAILOR"
+       "text": "made",
+       "note": "making something means forming it from raw material into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ten",
+         "gives": "IO",
+         "note": "10 written as the figures one and zero, looking like I and O"
+        },
+        {
+         "words": "dollars",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
+    "spelling": "OLD SAILOR",
     "explanation": {
      "surface": "The storyteller in a Coleridge poem earned a modest ten dollars.",
      "walkthrough": "Ten is turned into the look-alike letters IO, a common crossword trick with digits.",
@@ -421,40 +376,31 @@
    },
    "solution": "MOTET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MOTET",
     "definitions": [
      {
       "text": "Piece of music",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "one thing sitting outside another wraps around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "encountered",
-      "gives": "MET",
-      "note": "met means came across"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "OT",
-      "note": "OT is the Old Testament, a collection of books"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "OT",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "one thing sitting outside another wraps around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "encountered",
+       "gives": "MET",
+       "note": "met means came across"
+      },
+      {
+       "words": "books",
+       "gives": "OT",
+       "note": "OT is the Old Testament, a collection of books"
+      }
      ]
     },
     "explanation": {
@@ -483,26 +429,26 @@
    },
    "solution": "XPLUSYEQUALSZ",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "X PLUS Y EQUALS Z",
     "definitions": [
      {
       "text": "Equation",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Equation: solution (if Roman and atomic numbers) Z = F",
-      "note": "surface reading: a piece of algebra with its solution set out"
-     },
-     {
-      "clueFragment": "(if Roman and atomic numbers) Z = F",
-      "note": "setter's reading: X as a Roman numeral is ten and Y has atomic number 39, so the third letter stands for forty-nine, the entry beginning with F"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Equation: solution (if Roman and atomic numbers) Z = F",
+       "note": "surface reading: a piece of algebra with its solution set out"
+      },
+      {
+       "words": "(if Roman and atomic numbers) Z = F",
+       "note": "setter's reading: X as a Roman numeral is ten and Y has atomic number 39, so the third letter stands for forty-nine, the entry beginning with F"
+      }
+     ]
+    },
+    "spelling": "X PLUS Y EQUALS Z",
     "explanation": {
      "surface": "A maths problem with its working shown and a final value given.",
      "walkthrough": "X is 10 in Roman numerals and Y is yttrium, element 39; their sum is 49, the answer to the F clue (FORTY-NINE) elsewhere in this grid.",
@@ -528,26 +474,26 @@
    },
    "solution": "ZEBRACROSSING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ZEBRA CROSSING",
     "definitions": [
      {
       "text": "Walkover here?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Walkover here?",
-      "note": "surface reading: an easy win; setter's reading: a place where pedestrians walk over the road"
-     },
-     {
-      "clueFragment": "If with donkey, remove all but centre of part 2",
-      "note": "a striped animal crossed with a donkey is a zebrass: keep only the middle two letters of the second word and you get that hybrid"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Walkover here?",
+       "note": "surface reading: an easy win; setter's reading: a place where pedestrians walk over the road"
+      },
+      {
+       "words": "If with donkey, remove all but centre of part 2",
+       "note": "a striped animal crossed with a donkey is a zebrass: keep only the middle two letters of the second word and you get that hybrid"
+      }
+     ]
+    },
+    "spelling": "ZEBRA CROSSING",
     "explanation": {
      "surface": "Asking where a one-sided contest took place, with a puzzling instruction about a donkey.",
      "walkthrough": "A zebra crossing is the British term for a striped pedestrian crossing. The second half is a joke: crossing a zebra with a donkey gives a zebrass, which is ZEBRA plus the central SS of CROSSING.",
@@ -575,35 +521,25 @@
    },
    "solution": "PALMIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PALMIST",
     "definitions": [
      {
       "text": "to work on the hand?",
       "at": 18
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Friend",
-      "gives": "PAL",
-      "note": "a pal is a friend"
-     },
-     {
-      "clueFragment": "spray",
-      "gives": "MIST",
-      "note": "a mist is a fine spray"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAL",
-      "MIST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Friend",
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "words": "spray",
+       "gives": "MIST",
+       "note": "a mist is a fine spray"
+      }
      ]
     },
     "explanation": {
@@ -632,33 +568,25 @@
    },
    "solution": "VEDETTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VEDETTE",
     "definitions": [
      {
       "text": "Patrol boat",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "see",
-      "gives": "V",
-      "note": "v. abbreviates Latin vide, meaning see"
-     },
-     {
-      "clueFragment": "minieditor",
-      "gives": "EDETTE",
-      "note": "ED for editor plus the diminutive ending -ETTE, as in kitchenette, makes a mini one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ED",
-      "ETTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "see",
+       "gives": "V",
+       "note": "v. abbreviates Latin vide, meaning see"
+      },
+      {
+       "words": "minieditor",
+       "gives": "EDETTE",
+       "note": "ED for editor plus the diminutive ending -ETTE, as in kitchenette, makes a mini one"
+      }
      ]
     },
     "explanation": {
@@ -688,34 +616,28 @@
    },
    "solution": "UNCUT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "UNCUT",
     "definitions": [
      {
       "text": "Full length",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with next to last letter",
-      "for": "substitution",
-      "note": "the final letter gives way to its neighbour further along the alphabet"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hook",
-      "gives": "UNCUS",
-      "note": "uncus is Latin for a hook, also used in anatomy for hooked structures"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNCU",
-      "T"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "UNCUT",
+     "indicators": [
+      {
+       "text": "with next to last letter",
+       "note": "the final letter gives way to its neighbour further along the alphabet"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hook",
+       "gives": "UNCUS",
+       "note": "uncus is Latin for a hook, also used in anatomy for hooked structures"
+      }
      ]
     },
     "explanation": {
@@ -744,33 +666,19 @@
    },
    "solution": "WENTAFTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WENT AFTER",
     "definitions": [
      {
       "text": "Pursued",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: chased"
      },
      {
       "text": "succeeded",
-      "at": 12
+      "at": 12,
+      "meaning": "second meaning: followed someone in sequence, came next"
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pursued",
-      "note": "first meaning: chased"
-     },
-     {
-      "clueFragment": "succeeded",
-      "note": "second meaning: followed someone in sequence, came next"
-     }
-    ],
+    "spelling": "WENT AFTER",
     "explanation": {
      "walkthrough": "'Succeeded' tempts as 'triumphed', but here it means followed, as one monarch succeeds another.",
      "definitionFit": "The phrase covers both chasing a quarry and following a predecessor in time or office."
@@ -796,31 +704,29 @@
    },
    "solution": "YUSUF",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "YUSUF",
     "definitions": [
      {
       "text": "Joe in Arabic",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "something said is spoken, so it is the sound of the words that counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "You suffer a bit",
-      "gives": "YUSUF",
-      "soundsLike": "YOU SUFF",
-      "note": "only a bit of the phrase is used, cutting the last syllable"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "YUSUF",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "something said is spoken, so it is the sound of the words that counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "You suffer a bit",
+       "gives": "YOUSUFF",
+       "note": "only a bit of the phrase is used, cutting the last syllable"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone sympathises with a sufferer, then translates a name into Arabic.",
      "walkthrough": "Say 'you suff(er)' with the end chopped off and you hear the Arabic name. Joe is short for Joseph, whose Arabic form is Yusuf.",
@@ -848,52 +754,42 @@
    },
    "solution": "FORTYNINE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FORTY-NINE",
     "definitions": [
      {
       "text": "Square",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "kept in",
-      "for": "container",
-      "note": "something kept in is held inside an enclosure"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "TYNE",
-      "note": "the Tyne is the river of Newcastle in north-east England"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "TYN",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kept in",
+         "note": "something kept in is held inside an enclosure"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "gives": "TYNE",
+         "note": "the Tyne is the river of Newcastle in north-east England"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "FORTY-NINE",
     "explanation": {
      "surface": "A town square named for a river, with something kept inside.",
      "walkthrough": "'in' does double duty in the surface but here it is the very letters held inside the river. It is also the Z of 8 down: 10 + 39.",
@@ -920,50 +816,41 @@
    },
    "solution": "CHOPLOGIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CHOPLOGIC",
     "definitions": [
      {
       "text": "Sophist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "being about something means going round it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smart",
-      "gives": "CHIC",
-      "note": "chic means stylish or smart"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is the abbreviation for opus, a work"
-     },
-     {
-      "clueFragment": "record",
-      "gives": "LOG",
-      "note": "a log is a written record"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "OP",
-      "LOG",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "being about something means going round it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smart",
+       "gives": "CHIC",
+       "note": "chic means stylish or smart"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "work",
+         "gives": "OP",
+         "note": "op. is the abbreviation for opus, a work"
+        },
+        {
+         "words": "record",
+         "gives": "LOG",
+         "note": "a log is a written record"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -992,40 +879,31 @@
    },
    "solution": "CHEMOSTAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHEMOSTAT",
     "definitions": [
      {
       "text": "culture grower",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "to hold something is to keep it within your grasp"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trickster",
-      "gives": "CHEAT",
-      "note": "a cheat is a trickster"
-     },
-     {
-      "clueFragment": "greater part",
-      "gives": "MOST",
-      "note": "most is the greater part of anything"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHE",
-      "MOST",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "to hold something is to keep it within your grasp"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trickster",
+       "gives": "CHEAT",
+       "note": "a cheat is a trickster"
+      },
+      {
+       "words": "greater part",
+       "gives": "MOST",
+       "note": "most is the greater part of anything"
+      }
      ]
     },
     "explanation": {
@@ -1054,40 +932,31 @@
    },
    "solution": "GODLINESS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GODLINESS",
     "definitions": [
      {
       "text": "near to being clean?",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "a thing placed in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Actor's part",
-      "gives": "LINES",
-      "note": "an actor's lines are the speech they must learn"
-     },
-     {
-      "clueFragment": "gallery",
-      "gives": "GODS",
-      "note": "the gods is the highest theatre gallery"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOD",
-      "LINES",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "a thing placed in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gallery",
+       "gives": "GODS",
+       "note": "the gods is the highest theatre gallery"
+      },
+      {
+       "words": "Actor's part",
+       "gives": "LINES",
+       "note": "an actor's lines are the speech they must learn"
+      }
      ]
     },
     "explanation": {
@@ -1117,40 +986,33 @@
    },
    "solution": "QUEERNESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "QUEERNESS",
     "definitions": [
      {
       "text": "rum quality",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "show",
-      "for": "anagram",
-      "note": "a show is a display put on, here a new arrangement put on for display"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen's",
-      "gives": "QUEENS",
-      "note": "taken as written, apostrophe ignored"
-     },
-     {
-      "clueFragment": "ER's",
-      "gives": "ERS",
-      "note": "taken as written, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "QUEENSERS",
-       "gives": "QUEERNESS"
+       "text": "show",
+       "note": "a show is a display put on, here a new arrangement put on for display"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Queen's",
+         "note": "taken as written, apostrophe ignored"
+        },
+        {
+         "words": "ER's",
+         "note": "taken as written, apostrophe ignored"
+        }
+       ]
       }
      ]
     },
@@ -1180,35 +1042,25 @@
    },
    "solution": "RODEO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RODEO",
     "definitions": [
      {
       "text": "cowboy show?",
       "at": 20
      }
     ],
-    "linkWords": [
-     "part in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Took",
-      "gives": "RODE",
-      "note": "took a ride, as in took the bus"
-     },
-     {
-      "clueFragment": "no",
-      "gives": "O",
-      "note": "O is zero, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RODE",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Took",
+       "gives": "RODE",
+       "note": "took a ride, as in took the bus"
+      },
+      {
+       "words": "no",
+       "gives": "O",
+       "note": "O is zero, nothing"
+      }
      ]
     },
     "explanation": {
@@ -1237,45 +1089,34 @@
    },
    "solution": "ABBEYROAD",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ABBEY ROAD",
     "definitions": [
      {
       "text": "Beatles' address",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in something means set inside it"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Turk",
-      "gives": "BEY",
-      "note": "a bey was a Turkish governor or title of rank"
-     },
-     {
-      "clueFragment": "foreign parts",
-      "gives": "ABROAD",
-      "note": "abroad means in foreign parts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "BEY",
-      "ROAD"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in something means set inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foreign parts",
+       "gives": "ABROAD",
+       "note": "abroad means in foreign parts"
+      },
+      {
+       "words": "Turk",
+       "gives": "BEY",
+       "note": "a bey was a Turkish governor or title of rank"
+      }
      ]
     },
+    "spelling": "ABBEY ROAD",
     "explanation": {
      "surface": "The Beatles send a message to a Turkish man living overseas.",
      "walkthrough": "'Address' suggests a speech, but it is a street address: the London road where the Beatles recorded.",
@@ -1303,10 +1144,6 @@
    },
    "solution": "BRONX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRONX",
     "definitions": [
      {
       "text": "in New York",
@@ -1314,31 +1151,24 @@
       "note": "a place in New York rather than a phrase meaning 'in'"
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Relative",
-      "gives": "BRO",
-      "note": "bro is short for brother"
-     },
-     {
-      "clueFragment": "Pole",
-      "gives": "N",
-      "note": "N for the North Pole"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "X",
-      "note": "X is the standard algebraic unknown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRO",
-      "N",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Relative",
+       "gives": "BRO",
+       "note": "bro is short for brother"
+      },
+      {
+       "words": "Pole",
+       "gives": "N",
+       "note": "N for the North Pole"
+      },
+      {
+       "words": "unknown",
+       "gives": "X",
+       "note": "X is the standard algebraic unknown"
+      }
      ]
     },
     "explanation": {
@@ -1367,39 +1197,31 @@
    },
    "solution": "DELHI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "DELHI",
     "definitions": [
      {
       "text": "Capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing from",
-      "for": "deletion",
-      "note": "something missing from a whole has been taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scene of oracle",
-      "gives": "DELPHI",
-      "note": "Delphi in Greece was home to the famous oracle of Apollo"
-     },
-     {
-      "clueFragment": "letter",
-      "gives": "P",
-      "note": "one letter, which turns out to be P"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEL",
-      "HI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing from",
+       "note": "something missing from a whole has been taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scene of oracle",
+       "gives": "DELPHI",
+       "note": "Delphi in Greece was home to the famous oracle of Apollo"
+      },
+      {
+       "words": "letter",
+       "gives": "P",
+       "note": "one letter, which turns out to be P"
+      }
      ]
     },
     "explanation": {
@@ -1428,26 +1250,25 @@
    },
    "solution": "NAILS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NAILS",
     "definitions": [
      {
       "text": "They are hard on the hand",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They are hard on the hand",
-      "note": "surface reading: things that are rough or harsh on your hands, like heavy work"
-     },
-     {
-      "clueFragment": "They are hard on the hand",
-      "note": "setter's reading: tough things that literally sit on the fingers, and are proverbially hard"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They are hard on the hand",
+       "note": "surface reading: things that are rough or harsh on your hands, like heavy work"
+      },
+      {
+       "words": "They are hard on the hand",
+       "note": "setter's reading: tough things that literally sit on the fingers, and are proverbially hard"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Hard on' means harsh to, but here it is literal: hard things located on the hand, and 'hard as nails' seals it.",
      "definitionFit": "Fingernails are tough keratin plates growing at the tips of the fingers, and the idiom says something tough is 'hard as' them."
@@ -1474,28 +1295,16 @@
    },
    "solution": "NOMEN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOMEN",
     "definitions": [
      {
       "text": "Roman family name",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the clan name, the middle of a Roman's three names"
      },
      {
       "text": "for women only?",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roman family name",
-      "note": "first meaning: the clan name, the middle of a Roman's three names"
-     },
-     {
-      "clueFragment": "for women only?",
-      "note": "second meaning, split into two words: no males admitted"
+      "at": 18,
+      "meaning": "second meaning, split into two words: no males admitted"
      }
     ],
     "explanation": {
@@ -1524,40 +1333,30 @@
    },
    "solution": "SCOTIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SCOTIST",
     "definitions": [
      {
       "text": "Duns' advocate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is confined by",
-      "for": "container",
-      "note": "something confined is shut inside a boundary"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "great man",
-      "gives": "SCOTT",
-      "note": "Scott, the Antarctic explorer or Sir Walter the novelist, a famous figure"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCOT",
-      "IS",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is confined by",
+       "note": "something confined is shut inside a boundary"
+      }
+     ],
+     "parts": [
+      {
+       "words": "great man",
+       "gives": "SCOTT",
+       "note": "Scott, the Antarctic explorer or Sir Walter the novelist, a famous figure"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1586,38 +1385,30 @@
    },
    "solution": "LAMPERN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LAMPERN",
     "definitions": [
      {
       "text": "which can draw blood",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Strike",
-      "gives": "LAM",
-      "note": "to lam is to thrash or beat"
-     },
-     {
-      "clueFragment": "by",
-      "gives": "PER",
-      "note": "per means by, as in per post"
-     },
-     {
-      "clueFragment": "Pole",
-      "gives": "N",
-      "note": "N for the North Pole"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAM",
-      "PER",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Strike",
+       "gives": "LAM",
+       "note": "to lam is to thrash or beat"
+      },
+      {
+       "words": "by",
+       "gives": "PER",
+       "note": "per means by, as in per post"
+      },
+      {
+       "words": "Pole",
+       "gives": "N",
+       "note": "N for the North Pole"
+      }
      ]
     },
     "explanation": {
@@ -1646,38 +1437,28 @@
    },
    "solution": "EXPERTWITNESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EXPERT WITNESS",
     "definitions": [
      {
       "text": "that should stand up in court",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Spurious",
-      "for": "anagram",
-      "note": "something spurious is false, not the genuine article, so the letters are not in their true order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretext is news",
-      "gives": "PRETEXTISNEWS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRETEXTISNEWS",
-       "gives": "EXPERTWITNESS"
+       "text": "Spurious",
+       "note": "something spurious is false, not the genuine article, so the letters are not in their true order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pretext is news",
+       "note": "taken as written"
       }
      ]
     },
+    "spelling": "EXPERT WITNESS",
     "explanation": {
      "surface": "A fake excuse is presented as news that should hold up in a legal case.",
      "walkthrough": "'Stand up in court' sounds like evidence holding up; it is literal, a person who stands in the witness box.",

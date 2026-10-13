@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3005",
  "number": 3005,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,005",
  "date": "2019-05-26",
  "dimensions": {
   "cols": 15,
@@ -51,28 +49,16 @@
    },
    "solution": "TAKEITFROMME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TAKE IT FROM ME",
     "definitions": [
      {
       "text": "I want you to have this",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: said when handing over a gift"
      },
      {
       "text": "you'd better believe it",
-      "at": 25
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I want you to have this",
-      "note": "first meaning: said when handing over a gift"
-     },
-     {
-      "clueFragment": "you'd better believe it",
-      "note": "second meaning: said to vouch for what you are telling someone"
+      "at": 25,
+      "meaning": "second meaning: said to vouch for what you are telling someone"
      }
     ],
     "explanation": {
@@ -101,28 +87,16 @@
    },
    "solution": "TRAILER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRAILER",
     "definitions": [
      {
       "text": "Picture commercial",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a short advertisement for a forthcoming film"
      },
      {
       "text": "vehicle drawn along",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Picture commercial",
-      "note": "first meaning: a short advertisement for a forthcoming film"
-     },
-     {
-      "clueFragment": "vehicle drawn along",
-      "note": "second meaning: an unpowered wagon towed behind a car or lorry"
+      "at": 19,
+      "meaning": "second meaning: an unpowered wagon towed behind a car or lorry"
      }
     ],
     "explanation": {
@@ -151,35 +125,25 @@
    },
    "solution": "KINDRED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KINDRED",
     "definitions": [
      {
       "text": "related",
       "at": 16
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Race",
-      "gives": "KIND",
-      "note": "a kind is a sort or race of beings, as in humankind"
-     },
-     {
-      "clueFragment": "colour",
-      "gives": "RED",
-      "note": "red is a colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIND",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Race",
+       "gives": "KIND",
+       "note": "a kind is a sort or race of beings, as in humankind"
+      },
+      {
+       "words": "colour",
+       "gives": "RED",
+       "note": "red is a colour"
+      }
      ]
     },
     "explanation": {
@@ -217,28 +181,16 @@
    },
    "solution": "INTHEMAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN THE MAIN",
     "definitions": [
      {
       "text": "Where cod and haddock may be found",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: out in the open sea, the main being an old word for the ocean"
      },
      {
       "text": "generally",
-      "at": 36
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where cod and haddock may be found",
-      "note": "first meaning: out in the open sea, the main being an old word for the ocean"
-     },
-     {
-      "clueFragment": "generally",
-      "note": "second meaning: on the whole, for the most part"
+      "at": 36,
+      "meaning": "second meaning: on the whole, for the most part"
      }
     ],
     "explanation": {
@@ -267,43 +219,47 @@
    },
    "solution": "FLORA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "FLORA",
     "definitions": [
      {
       "text": "Plant life",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the phrase before it loses its final letter"
-     },
-     {
-      "text": "entirely destroyed",
-      "for": "anagram",
-      "note": "something entirely destroyed is wrecked to pieces, so the remaining letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for all",
-      "gives": "FORAL",
-      "select": "first",
-      "note": "the two words run together, minus their final letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FLORA",
+     "indicators": [
       {
-       "fodder": "FORAL",
-       "gives": "FLORA"
+       "text": "almost",
+       "note": "almost means not quite all, so the phrase before it loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "entirely destroyed",
+         "note": "something entirely destroyed is wrecked to pieces, so the remaining letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "FORAL",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "for all",
+           "gives": "FORAL",
+           "select": "first",
+           "note": "the two words run together, minus their final letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -333,35 +289,24 @@
    },
    "solution": "OUTPOST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OUTPOST",
     "definitions": [
      {
       "text": "settlement far off",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "rogue",
-      "for": "anagram",
-      "note": "rogue as an adjective means wayward or out of control, so the letters stray from their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oust top",
-      "gives": "OUSTTOP",
-      "note": "the letters as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OUSTTOP",
-       "gives": "OUTPOST"
+       "text": "rogue",
+       "note": "rogue as an adjective means wayward or out of control, so the letters stray from their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oust top",
+       "note": "the letters as printed"
       }
      ]
     },
@@ -391,28 +336,16 @@
    },
    "solution": "MOORAGE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MOORAGE",
     "definitions": [
      {
       "text": "Fee for securing boat",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the charge for tying up a vessel at a berth"
      },
      {
       "text": "what might make lower charge?",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fee for securing boat",
-      "note": "first meaning: the charge for tying up a vessel at a berth"
-     },
-     {
-      "clueFragment": "what might make lower charge?",
-      "note": "second meaning, read as two parts: a lower is a cow that lows, and its fury, a moo plus rage, might make it charge"
+      "at": 24,
+      "meaning": "second meaning, read as two parts: a lower is a cow that lows, and its fury, a moo plus rage, might make it charge"
      }
     ],
     "explanation": {
@@ -451,31 +384,16 @@
    },
    "solution": "RAISETHEROOF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAISE THE ROOF",
     "definitions": [
      {
       "text": "Make a lot of noise",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to cheer or shout very loudly"
      },
      {
       "text": "work on loft extension?",
-      "at": 25
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Make a lot of noise",
-      "note": "first meaning: to cheer or shout very loudly"
-     },
-     {
-      "clueFragment": "work on loft extension?",
-      "note": "second meaning, taken literally: building upward to enlarge an attic"
+      "at": 25,
+      "meaning": "second meaning, taken literally: building upward to enlarge an attic"
      }
     ],
     "explanation": {
@@ -504,38 +422,29 @@
    },
    "solution": "AGAINST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGAINST",
     "definitions": [
      {
       "text": "In competition with",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "range",
-      "gives": "AGA",
-      "note": "an Aga is a brand of cooking range, a heavy stove"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "St is the abbreviation for street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGA",
-      "IN",
-      "ST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "range",
+       "gives": "AGA",
+       "note": "an Aga is a brand of cooking range, a heavy stove"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "street",
+       "gives": "ST",
+       "note": "St is the abbreviation for street"
+      }
      ]
     },
     "explanation": {
@@ -564,35 +473,25 @@
    },
    "solution": "OUTLOOK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTLOOK",
     "definitions": [
      {
       "text": "point of view",
       "at": 39
      }
     ],
-    "linkWords": [
-     "that's a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No longer fashionable",
-      "gives": "OUT",
-      "note": "something out is no longer in fashion"
-     },
-     {
-      "clueFragment": "style",
-      "gives": "LOOK",
-      "note": "a look is a style, as in a new look"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "LOOK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No longer fashionable",
+       "gives": "OUT",
+       "note": "something out is no longer in fashion"
+      },
+      {
+       "words": "style",
+       "gives": "LOOK",
+       "note": "a look is a style, as in a new look"
+      }
      ]
     },
     "explanation": {
@@ -629,28 +528,16 @@
    },
    "solution": "KNOWTHESCORE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNOW THE SCORE",
     "definitions": [
      {
       "text": "Understand",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: be aware of the real situation"
      },
      {
       "text": "as should a conductor?",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Understand",
-      "note": "first meaning: be aware of the real situation"
-     },
-     {
-      "clueFragment": "as should a conductor?",
-      "note": "second meaning, taken literally: an orchestra conductor ought to be familiar with the written music"
+      "at": 13,
+      "meaning": "second meaning, taken literally: an orchestra conductor ought to be familiar with the written music"
      }
     ],
     "explanation": {
@@ -679,40 +566,31 @@
    },
    "solution": "SPLURGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPLURGE",
     "definitions": [
      {
       "text": "Spend a lot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "investing",
-      "for": "container",
-      "note": "to invest originally means to clothe or envelop, so one piece is wrapped inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fifty",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     },
-     {
-      "clueFragment": "poisonous plant",
-      "gives": "SPURGE",
-      "note": "spurge is a plant with toxic milky sap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "L",
-      "URGE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "investing",
+       "note": "to invest originally means to clothe or envelop, so one piece is wrapped inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poisonous plant",
+       "gives": "SPURGE",
+       "note": "spurge is a plant with toxic milky sap"
+      },
+      {
+       "words": "fifty",
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
      ]
     },
     "explanation": {
@@ -741,59 +619,49 @@
    },
    "solution": "AVOCADO",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AVOCADO",
     "definitions": [
      {
       "text": "salad ingredient",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Send back",
-      "for": "reversal",
-      "note": "sending something back returns it the way it came, so the words that follow are read from right to left"
-     }
-    ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold, as on a tap"
-     },
-     {
-      "clueFragment": "eggs",
-      "gives": "OVA",
-      "note": "ova is the Latin plural for eggs"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cook",
-      "gives": "DO",
-      "note": "to do food is to cook it, as in meat done well"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVOC",
-      "A",
-      "DO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "COVA",
-       "to": "AVOC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Send back",
+         "note": "sending something back returns it the way it came, so the words that follow are read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "cold",
+           "gives": "C",
+           "note": "C is the abbreviation for cold, as on a tap"
+          },
+          {
+           "words": "eggs",
+           "gives": "OVA",
+           "note": "ova is the Latin plural for eggs"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "cook",
+       "gives": "DO",
+       "note": "to do food is to cook it, as in meat done well"
       }
      ]
     },
@@ -822,45 +690,34 @@
    },
    "solution": "TIRED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TIRED",
     "definitions": [
      {
       "text": "Ready to drop",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after revolution",
-      "for": "reversal",
-      "note": "a revolution turns something round, so the little word before it is flipped end to end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "communist",
-      "gives": "RED",
-      "note": "red is a familiar label for a communist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "RED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IT",
-       "to": "TI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after revolution",
+         "note": "a revolution turns something round, so the little word before it is flipped end to end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "communist",
+       "gives": "RED",
+       "note": "red is a familiar label for a communist"
       }
      ]
     },
@@ -890,46 +747,40 @@
    },
    "solution": "APARTMENT",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "APARTMENT",
     "definitions": [
      {
       "text": "Flat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the abbreviation for the time period among the other letters before they are mixed"
-     },
-     {
-      "text": "that's unusual",
-      "for": "anagram",
-      "note": "unusual means out of the normal order, so the combined letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "month",
-      "gives": "M",
-      "note": "M is the abbreviation for month"
-     },
-     {
-      "clueFragment": "a pattern",
-      "gives": "APATTERN",
-      "note": "the letters as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "APATTERNM",
-       "gives": "APARTMENT"
+       "text": "in",
+       "note": "in places the abbreviation for the time period among the other letters before they are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "that's unusual",
+         "note": "unusual means out of the normal order, so the combined letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a pattern",
+         "note": "the letters as printed"
+        }
+       ]
+      },
+      {
+       "words": "month",
+       "gives": "M",
+       "note": "M is the abbreviation for month"
       }
      ]
     },
@@ -959,35 +810,24 @@
    },
    "solution": "ADORATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADORATION",
     "definitions": [
      {
       "text": "Love",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for cooking",
-      "for": "anagram",
-      "note": "cooking mixes and transforms ingredients, so the letters of the dish are stirred into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a tandoori",
-      "gives": "ATANDOORI",
-      "note": "the letters as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ATANDOORI",
-       "gives": "ADORATION"
+       "text": "for cooking",
+       "note": "cooking mixes and transforms ingredients, so the letters of the dish are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a tandoori",
+       "note": "the letters as printed"
       }
      ]
     },
@@ -1017,38 +857,24 @@
    },
    "solution": "ESPERANTO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESPERANTO",
     "definitions": [
      {
       "text": "largely unknown language",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "composed",
-      "for": "anagram",
-      "note": "composed means put together or arranged, so the letters are assembled into a fresh order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ten operas",
-      "gives": "TENOPERAS",
-      "note": "the letters as printed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TENOPERAS",
-       "gives": "ESPERANTO"
+       "text": "composed",
+       "note": "composed means put together or arranged, so the letters are assembled into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ten operas",
+       "note": "the letters as printed"
       }
      ]
     },
@@ -1077,28 +903,16 @@
    },
    "solution": "PONTOON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PONTOON",
     "definitions": [
      {
       "text": "Bridge",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a floating bridge supported on boats"
      },
      {
       "text": "game",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bridge",
-      "note": "first meaning: a floating bridge supported on boats"
-     },
-     {
-      "clueFragment": "game",
-      "note": "second meaning: a card game, also called twenty-one or blackjack"
+      "at": 7,
+      "meaning": "second meaning: a card game, also called twenty-one or blackjack"
      }
     ],
     "explanation": {
@@ -1127,47 +941,41 @@
    },
    "solution": "RUBBISH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "RUBBISH",
     "definitions": [
      {
       "text": "Awful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders",
-      "for": "letter_selection",
-      "note": "leaders are the ones at the front, so only the opening letter of each word is kept"
-     },
-     {
-      "text": "to rescue",
-      "for": "container",
-      "note": "a rescuer gathers someone up and holds them safe, so one piece is held inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hurry",
-      "gives": "RUSH",
-      "note": "to rush is to hurry"
-     },
-     {
-      "clueFragment": "British banking industry",
-      "gives": "BBI",
-      "select": "first",
-      "note": "the opening letters of these three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "BBI",
-      "SH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to rescue",
+       "note": "a rescuer gathers someone up and holds them safe, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hurry",
+       "gives": "RUSH",
+       "note": "to rush is to hurry"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "leaders are the ones at the front, so only the opening letter of each word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "British banking industry",
+         "note": "the opening letters of these three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1196,45 +1004,47 @@
    },
    "solution": "VENUE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "VENUE",
     "definitions": [
      {
       "text": "locale",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "without an end means the final letter of the following word is dropped"
-     }
-    ],
-    "linkWords": [
-     "approaching"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beauty",
-      "gives": "VENU",
-      "select": "first",
-      "note": "Venus is the goddess of beauty, cut short of her last letter"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VENU",
-      "E"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "VENUE",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "without an end means the final letter of the following word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "VENU",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beauty",
+           "gives": "VENU",
+           "select": "first",
+           "note": "Venus is the goddess of beauty, cut short of her last letter"
+          }
+         ]
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1262,43 +1072,30 @@
    },
    "solution": "VISITOR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VISITOR",
     "definitions": [
      {
       "text": "Person turning up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covered",
-      "for": "container",
-      "note": "having something covered means enclosing it, so the short word sits inside the face covering"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mask",
-      "gives": "VISOR",
-      "note": "a visor is a mask or face shield on a helmet"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIS",
-      "IT",
-      "OR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered",
+       "note": "having something covered means enclosing it, so the short word sits inside the face covering"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mask",
+       "gives": "VISOR",
+       "note": "a visor is a mask or face shield on a helmet"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1326,43 +1123,31 @@
    },
    "solution": "NONAGON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NONAGON",
     "definitions": [
      {
       "text": "Figure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to catch",
-      "for": "container",
-      "note": "catching something means holding it, so the animal is held inside the time of day"
-     }
-    ],
-    "linkWords": [
-     "required"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twelve",
-      "gives": "NOON",
-      "note": "noon is twelve o'clock midday"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "NAG",
-      "note": "a nag is an old horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "NAG",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "note": "catching something means holding it, so the animal is held inside the time of day"
+      }
+     ],
+     "parts": [
+      {
+       "words": "twelve",
+       "gives": "NOON",
+       "note": "noon is twelve o'clock midday"
+      },
+      {
+       "words": "horse",
+       "gives": "NAG",
+       "note": "a nag is an old horse"
+      }
      ]
     },
     "explanation": {
@@ -1391,28 +1176,16 @@
    },
    "solution": "OMNIBUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OMNIBUS",
     "definitions": [
      {
       "text": "Book",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a volume collecting several works"
      },
      {
       "text": "passenger vehicle",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Book",
-      "note": "first meaning: a volume collecting several works"
-     },
-     {
-      "clueFragment": "passenger vehicle",
-      "note": "second meaning: the full old name for a bus"
+      "at": 5,
+      "meaning": "second meaning: the full old name for a bus"
      }
     ],
     "explanation": {
@@ -1441,28 +1214,16 @@
    },
    "solution": "STALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STALL",
     "definitions": [
      {
       "text": "Hold up",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to delay or stop progress"
      },
      {
       "text": "seat in church",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hold up",
-      "note": "first meaning: to delay or stop progress"
-     },
-     {
-      "clueFragment": "seat in church",
-      "note": "second meaning: a fixed seat for clergy or choir in a chancel"
+      "at": 8,
+      "meaning": "second meaning: a fixed seat for clergy or choir in a chancel"
      }
     ],
     "explanation": {
@@ -1490,41 +1251,36 @@
    },
    "solution": "ARSENIC",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ARSENIC",
     "definitions": [
      {
       "text": "Poisonous element",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in says the letters are found within the words that follow, spanning them"
-     },
-     {
-      "text": "on the counter",
-      "for": "reversal",
-      "note": "counter means running in the opposite direction, so the found letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "medicines, rarely",
-      "gives": "CINESRA",
-      "note": "the run of letters spanning the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CINESRA",
-       "to": "ARSENIC"
+       "text": "on the counter",
+       "note": "counter means running in the opposite direction, so the found letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in says the letters are found within the words that follow, spanning them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "medicines, rarely",
+         "gives": "CINESRA",
+         "note": "the run of letters spanning the two words"
+        }
+       ]
       }
      ]
     },
@@ -1554,51 +1310,40 @@
    },
    "solution": "FLORIDA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FLORIDA",
     "definitions": [
      {
       "text": "state",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Use",
-      "for": "anagram",
-      "note": "to use material is to work it into something new, so the letters are refashioned"
-     },
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "touring means going all round a place, so the rearranged letters go around the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loaf",
-      "gives": "LOAF",
-      "note": "the letters as printed"
-     },
-     {
-      "clueFragment": "free",
-      "gives": "RID",
-      "note": "to rid is to free, as in rid of pests"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLO",
-      "RID",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LOAF",
-       "gives": "FLOA"
+       "text": "touring",
+       "note": "touring means going all round a place, so the rearranged letters go around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Use",
+         "note": "to use material is to work it into something new, so the letters are refashioned"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loaf",
+         "note": "the letters as printed"
+        }
+       ]
+      },
+      {
+       "words": "free",
+       "gives": "RID",
+       "note": "to rid is to free, as in rid of pests"
       }
      ]
     },
@@ -1628,45 +1373,34 @@
    },
    "solution": "INTEGER",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "INTEGER",
     "definitions": [
      {
       "text": "Number",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surprisingly",
-      "for": "anagram",
-      "note": "surprisingly hints at things turning out unexpectedly, so the letters of the title come out in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "regent",
-      "gives": "REGENT",
-      "note": "the letters as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NTEGER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "REGENT",
-       "gives": "NTEGER"
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "note": "surprisingly hints at things turning out unexpectedly, so the letters of the title come out in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regent",
+         "note": "the letters as printed"
+        }
+       ]
       }
      ]
     },
@@ -1709,28 +1443,16 @@
    },
    "solution": "INTHELONGRUN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN THE LONG RUN",
     "definitions": [
      {
       "text": "Where marathon racers compete",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning, taken literally: in a race of great distance"
      },
      {
       "text": "some time later",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where marathon racers compete",
-      "note": "first meaning, taken literally: in a race of great distance"
-     },
-     {
-      "clueFragment": "some time later",
-      "note": "second meaning: eventually, over an extended period"
+      "at": 30,
+      "meaning": "second meaning: eventually, over an extended period"
      }
     ],
     "explanation": {

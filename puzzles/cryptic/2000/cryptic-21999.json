@@ -1,8 +1,7 @@
 {
  "id": "cryptic-21999",
  "number": 21999,
- "series": "cryptic",
- "name": "Prize crossword No 21,999",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2000-09-09",
  "preamble": "The first line of a limerick (1,7,3,4,2,9) is to be written in the numbered squares, 1 to 26, in order. The words of the remaining four lines of the limerick may be found, in order, in the first nine clues. The other clues are listed in alphabetical order of their solutions and are numbered for reference only. All solutions must be fitted into the diagram jigsaw-wise. Because of the symmetry there are two possible ways of doing this, so please check that your limerick starts at 1 and not 7!",
@@ -39,62 +38,63 @@
    },
    "solution": "ACTIVITY",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "ACTIVITY",
     "definitions": [
      {
       "text": "Content of a hive with model at its centre in a town",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Content of",
-      "for": "letter_selection",
-      "note": "the content of something is what sits inside it, so only the inner letters of hive are kept"
-     },
-     {
-      "text": "at its centre",
-      "for": "container",
-      "note": "something placed at the centre of the town sits inside that word's letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the article taken as written"
-     },
-     {
-      "clueFragment": "town",
-      "gives": "CITY",
-      "note": "a city is a large town"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "T",
-      "note": "the Model T was Ford's famous car"
-     },
-     {
-      "clueFragment": "hive",
-      "gives": "IV",
-      "select": "middle",
-      "note": "the two inner letters of hive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "TIV",
-      "ITY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "at its centre",
+       "note": "something placed at the centre of the town sits inside that word's letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "the article taken as written"
+        },
+        {
+         "words": "town",
+         "gives": "CITY",
+         "note": "a city is a large town"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "model",
+         "gives": "T",
+         "note": "the Model T was Ford's famous car"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Content of",
+           "note": "the content of something is what sits inside it, so only the inner letters of hive are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hive",
+           "note": "the two inner letters of hive"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A busy hive of bees sits in the middle of a town, with a model on display.",
      "walkthrough": "The whole clue doubles as the definition: a hive is full of busy work. Model T is Ford's famous early car.",
@@ -121,32 +121,25 @@
    },
    "solution": "CASK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CASK",
     "definitions": [
      {
       "text": "can I hold my liquor?",
       "at": 18
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Numbered",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred, so a numbered letter"
-     },
-     {
-      "clueFragment": "request",
-      "gives": "ASK",
-      "note": "to ask is to request"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ASK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Numbered",
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, so a numbered letter"
+      },
+      {
+       "words": "request",
+       "gives": "ASK",
+       "note": "to ask is to request"
+      }
      ]
     },
     "explanation": {
@@ -176,43 +169,38 @@
    },
    "solution": "ERODED",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ERODED",
     "definitions": [
      {
       "text": "worn away",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "not quite",
-      "for": "deletion",
-      "note": "not quite whole means the word falls a letter short of complete"
-     }
-    ],
-    "linkWords": [
-     "just"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'E was a brave man",
-      "gives": "ERO",
-      "note": "a brave man is a hero; the dropped H of 'E tells us to drop it here too, Cockney style"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "DED",
-      "note": "dead with its A removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERO",
-      "DED"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ERODED",
+     "indicators": [
+      {
+       "text": "not quite",
+       "note": "not quite whole means the word falls a letter short of complete"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "'E was a brave man",
+         "gives": "ERO",
+         "note": "a brave man is a hero; the dropped H of 'E tells us to drop it here too, Cockney style"
+        },
+        {
+         "words": "dead",
+         "gives": "DED",
+         "note": "dead with its A removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -241,41 +229,39 @@
    },
    "solution": "ROMANCER",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ROMANCER",
     "definitions": [
      {
       "text": "writer of novels",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say means as spoken, so the reply is taken by its sound rather than its spelling"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "to the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Read only memory",
-      "gives": "ROM",
-      "note": "ROM is the abbreviation for read-only memory"
-     },
-     {
-      "clueFragment": "reply",
-      "gives": "ANCER",
-      "soundsLike": "ANSWER",
-      "note": "a reply is an answer, spoken in the southern English way"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Read only memory",
+       "gives": "ROM",
+       "note": "ROM is the abbreviation for read-only memory"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ANCER",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "say means as spoken, so the reply is taken by its sound rather than its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reply",
+         "gives": "ANSWER",
+         "note": "a reply is an answer, spoken in the southern English way"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A computer's memory is asked to talk back to a novelist.",
      "walkthrough": "In southern British speech 'answer' rhymes with the end of ROMANCER, so ROM plus that sound gives the answer.",
@@ -302,48 +288,37 @@
    },
    "solution": "TWEEDLEDUM",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TWEEDLEDUM",
     "definitions": [
      {
       "text": "Badly rattled battler",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "something awful is a mess, so the letters are left in disorder"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretty affected",
-      "gives": "TWEE",
-      "note": "twee means affectedly pretty or quaint"
-     },
-     {
-      "clueFragment": "muddle",
-      "gives": "DLEDUM",
-      "note": "the letters of muddle rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE",
-      "DLEDUM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TWEEDLEDUM",
+     "indicators": [
       {
-       "fodder": "MUDDLE",
-       "gives": "DLEDUM"
+       "text": "awful",
+       "note": "something awful is a mess, so the letters are left in disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pretty affected",
+         "gives": "TWEE",
+         "note": "twee means affectedly pretty or quaint"
+        },
+        {
+         "words": "muddle",
+         "gives": "DLEDUM",
+         "note": "the letters of muddle rearranged"
+        }
+       ]
       }
      ]
     },
@@ -373,49 +348,43 @@
    },
    "solution": "ALCUIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ALCUIN",
     "definitions": [
      {
       "text": "Charlemagne's mentor",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "almost means nearly but not wholly, so the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "every",
-      "gives": "AL",
-      "note": "every is all, cut short by a letter"
-     },
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "someone at home is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "CU",
-      "IN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ALCUIN",
+     "indicators": [
+      {
+       "text": "Almost",
+       "note": "almost means nearly but not wholly, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "every",
+         "gives": "AL",
+         "note": "every is all, cut short by a letter"
+        },
+        {
+         "words": "copper",
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        },
+        {
+         "words": "at home",
+         "gives": "IN",
+         "note": "someone at home is in"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -444,54 +413,47 @@
    },
    "solution": "ICEAPRON",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ICE-APRON",
     "definitions": [
      {
       "text": "protection for bridge in winter",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "pear-shaped",
-      "for": "anagram",
-      "note": "in British slang a plan that goes pear-shaped goes wrong, so these letters end up out of order"
-     },
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "containing means the first word wraps around the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Image",
-      "gives": "ICON",
-      "note": "an icon is an image"
-     },
-     {
-      "clueFragment": "pear",
-      "gives": "EAPR",
-      "note": "the letters of pear rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IC",
-      "EAPR",
-      "ON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ICEAPRON",
+     "indicators": [
       {
-       "fodder": "PEAR",
-       "gives": "EAPR"
+       "text": "pear-shaped",
+       "note": "in British slang a plan that goes pear-shaped goes wrong, so these letters end up out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "note": "containing means the first word wraps around the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Image",
+         "gives": "ICON",
+         "note": "an icon is an image"
+        },
+        {
+         "words": "pear",
+         "gives": "EAPR",
+         "note": "the letters of pear rearranged"
+        }
+       ]
       }
      ]
     },
+    "spelling": "ICE-APRON",
     "explanation": {
      "surface": "A picture holds a pear-shaped object, which turns out to shield a bridge in winter.",
      "walkthrough": "'Pear-shaped' reads as a description of the protection; its job is to scramble pear.",
@@ -518,11 +480,6 @@
    },
    "solution": "NOSIDE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "NO-SIDE",
     "definitions": [
      {
       "text": "to finish a game",
@@ -530,31 +487,29 @@
       "note": "the answer is a noun, the call that ends a game"
      }
     ],
-    "indicators": [
-     {
-      "text": "partly",
-      "for": "deletion",
-      "note": "partly means only part of the next word survives, with letters cut from both its ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Number",
-      "gives": "NO",
-      "note": "No. is the abbreviation for number"
-     },
-     {
-      "clueFragment": "considered",
-      "gives": "CONSIDERED",
-      "note": "taken as written, then trimmed of CON and RED"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "SIDE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NOSIDE",
+     "indicators": [
+      {
+       "text": "partly",
+       "note": "partly means only part of the next word survives, with letters cut from both its ends"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Number",
+       "gives": "NO",
+       "note": "No. is the abbreviation for number"
+      },
+      {
+       "words": "considered",
+       "note": "taken as written, then trimmed of CON and RED"
+      }
      ]
     },
+    "spelling": "NO-SIDE",
     "explanation": {
      "surface": "A number is mulled over in deciding how to end a game.",
      "walkthrough": "No-side is the referee's call ending a rugby match.",
@@ -581,35 +536,25 @@
    },
    "solution": "ORWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORWELL",
     "definitions": [
      {
       "text": "Author",
       "at": 0
      }
     ],
-    "linkWords": [
-     "wins the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "spring",
-      "gives": "WELL",
-      "note": "a well is a spring of water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "spring",
+       "gives": "WELL",
+       "note": "a well is a spring of water"
+      }
      ]
     },
     "explanation": {
@@ -638,28 +583,16 @@
    },
    "solution": "LINK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LINK",
     "definitions": [
      {
       "text": "Singular course",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a golf course is called ..., so one of them is the singular"
      },
      {
       "text": "off the cuff?",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Singular course",
-      "note": "first meaning: a golf course is called ..., so one of them is the singular"
-     },
-     {
-      "clueFragment": "off the cuff?",
-      "note": "second meaning: what a cufflink is, read as coming off the cuff"
+      "at": 16,
+      "meaning": "second meaning: what a cufflink is, read as coming off the cuff"
      }
     ],
     "explanation": {
@@ -688,41 +621,27 @@
    },
    "solution": "DISEASEFUL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISEASEFUL",
     "definitions": [
      {
       "text": "Infected",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "various",
-      "for": "anagram",
-      "note": "various suggests different arrangements, so the following letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "uses failed",
-      "gives": "DISEASEFUL",
-      "note": "all ten letters of the two words rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISEASEFUL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DISEASEFUL",
+     "indicators": [
       {
-       "fodder": "USESFAILED",
-       "gives": "DISEASEFUL"
+       "text": "various",
+       "note": "various suggests different arrangements, so the following letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "uses failed",
+       "gives": "DISEASEFUL",
+       "note": "all ten letters of the two words rearranged"
       }
      ]
     },
@@ -751,33 +670,33 @@
    },
    "solution": "LIZARD",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LIZARD",
     "definitions": [
      {
       "text": "could be a monitor",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "'Urley",
-      "gives": "LIZ",
-      "note": "Liz Hurley is the British actress and model; her first name stands for her"
-     },
-     {
-      "clueFragment": "uneasy",
-      "gives": "HARD",
-      "note": "un-easy is hard, and the dropped H of 'Urley says to drop the H here too"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIZ",
-      "ARD"
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "'Urley",
+         "gives": "LIZ",
+         "note": "Liz Hurley is the British actress and model; her first name stands for her"
+        },
+        {
+         "words": "uneasy",
+         "gives": "HARD",
+         "note": "un-easy is hard, and the dropped H of 'Urley says to drop the H here too"
+        }
+       ]
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -807,41 +726,39 @@
    },
    "solution": "ALLIGATORS",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ALLIGATORS",
     "definitions": [
      {
       "text": "the beasts one sees afterwards",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "audible",
-      "for": "homophone",
-      "note": "audible means as heard, so the word for spats is taken by its sound"
-     }
-    ],
-    "linkWords": [
-     "first has",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyone",
-      "gives": "ALL",
-      "note": "everyone is all"
-     },
-     {
-      "clueFragment": "spats",
-      "gives": "IGATORS",
-      "soundsLike": "GAITERS",
-      "note": "spats are short gaiters covering the ankle"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everyone",
+       "gives": "ALL",
+       "note": "everyone is all"
+      },
+      {
+       "op": "homophone",
+       "spelt": "IGATORS",
+       "indicators": [
+        {
+         "text": "audible",
+         "note": "audible means as heard, so the word for spats is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spats",
+         "gives": "GAITERS",
+         "note": "spats are short gaiters covering the ankle"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Everybody arrives in noisy footwear, alongside animals seen at a later time.",
      "walkthrough": "Said aloud, 'all gaiters' sounds like ALLIGATORS. The definition rests on the parting phrase 'See you later, alligator'.",
@@ -869,35 +786,25 @@
    },
    "solution": "DOCKLAND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DOCKLAND",
     "definitions": [
      {
       "text": "by modern light railway?",
       "at": 40
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Link up in space",
-      "gives": "DOCK",
-      "note": "spacecraft dock when they join up in orbit"
-     },
-     {
-      "clueFragment": "come down to earth",
-      "gives": "LAND",
-      "note": "to land is to come down to the ground"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOCK",
-      "LAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Link up in space",
+       "gives": "DOCK",
+       "note": "spacecraft dock when they join up in orbit"
+      },
+      {
+       "words": "come down to earth",
+       "gives": "LAND",
+       "note": "to land is to come down to the ground"
+      }
      ]
     },
     "explanation": {
@@ -926,29 +833,17 @@
    },
    "solution": "YELLOW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "YELLOW",
     "definitions": [
      {
       "text": "Craven",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: cowardly"
      },
      {
       "text": "ribbon?",
       "at": 7,
-      "note": "an example: the colour of a famous ribbon"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Craven",
-      "note": "first meaning: cowardly"
-     },
-     {
-      "clueFragment": "ribbon?",
-      "note": "second meaning: the colour of the ribbon of song, tied as a sign of welcome home"
+      "note": "an example: the colour of a famous ribbon",
+      "meaning": "second meaning: the colour of the ribbon of song, tied as a sign of welcome home"
      }
     ],
     "explanation": {
@@ -975,41 +870,30 @@
    },
    "solution": "ORATRESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORATRESS",
     "definitions": [
      {
       "text": "Betty Boothroyd (will there ever be another?)",
       "at": 0
      }
     ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "golden",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "some",
-      "gives": "A",
-      "note": "a, as in a certain amount"
-     },
-     {
-      "clueFragment": "hair",
-      "gives": "TRESS",
-      "note": "a tress is a lock of hair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "A",
-      "TRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "golden",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "some",
+       "gives": "A",
+       "note": "a, as in a certain amount"
+      },
+      {
+       "words": "hair",
+       "gives": "TRESS",
+       "note": "a tress is a lock of hair"
+      }
      ]
     },
     "explanation": {
@@ -1039,38 +923,31 @@
    },
    "solution": "FRIDGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FRIDGE",
     "definitions": [
      {
       "text": "Domestic appliance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "can't quite",
-      "for": "deletion",
-      "note": "the shop cannot have the word, and not quite all of it, so a shortened form is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "London shop",
-      "gives": "SELFRIDGE",
-      "note": "Selfridges is the big Oxford Street department store in London"
-     },
-     {
-      "clueFragment": "sell",
-      "gives": "SEL",
-      "note": "sell short of its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRIDGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "can't quite",
+       "note": "the shop cannot have the word, and not quite all of it, so a shortened form is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London shop",
+       "gives": "SELFRIDGE",
+       "note": "Selfridges is the big Oxford Street department store in London"
+      },
+      {
+       "words": "sell",
+       "gives": "SEL",
+       "note": "sell short of its last letter"
+      }
      ]
     },
     "explanation": {
@@ -1100,41 +977,30 @@
    },
    "solution": "EINSTEIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EINSTEIN",
     "definitions": [
      {
       "text": "thinker",
       "at": 28
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A German",
-      "gives": "EIN",
-      "note": "ein is German for a"
-     },
-     {
-      "clueFragment": "saint",
-      "gives": "ST",
-      "note": "St is the abbreviation for saint"
-     },
-     {
-      "clueFragment": "a German",
-      "gives": "EIN",
-      "note": "the German word for a once more"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EIN",
-      "ST",
-      "EIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A German",
+       "gives": "EIN",
+       "note": "ein is German for a"
+      },
+      {
+       "words": "saint",
+       "gives": "ST",
+       "note": "St is the abbreviation for saint"
+      },
+      {
+       "words": "a German",
+       "gives": "EIN",
+       "note": "the German word for a once more"
+      }
      ]
     },
     "explanation": {
@@ -1163,46 +1029,42 @@
    },
    "solution": "ATTACH",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ATTACH",
     "definitions": [
      {
       "text": "Add",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put in",
-      "for": "container",
-      "note": "put in means placed inside, so the thanks go within the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a thanksgiving",
-      "gives": "TA",
-      "note": "ta is British informal for thanks"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AT",
-      "TA",
-      "CH"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ATTACH",
+     "indicators": [
+      {
+       "text": "put in",
+       "note": "put in means placed inside, so the thanks go within the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "note": "taken as written"
+        },
+        {
+         "words": "a thanksgiving",
+         "gives": "TA",
+         "note": "ta is British informal for thanks"
+        },
+        {
+         "words": "church",
+         "gives": "CH",
+         "note": "CH is the abbreviation for church"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1231,42 +1093,30 @@
    },
    "solution": "STAGNANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAGNANT",
     "definitions": [
      {
       "text": "making no progress",
       "at": 40
      }
     ],
-    "linkWords": [
-     "has",
-     "and is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Male",
-      "gives": "STAG",
-      "note": "a stag is a male deer"
-     },
-     {
-      "clueFragment": "grandparent",
-      "gives": "NAN",
-      "note": "nan is a familiar name for a grandmother"
-     },
-     {
-      "clueFragment": "little time",
-      "gives": "T",
-      "note": "t is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAG",
-      "NAN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Male",
+       "gives": "STAG",
+       "note": "a stag is a male deer"
+      },
+      {
+       "words": "grandparent",
+       "gives": "NAN",
+       "note": "nan is a familiar name for a grandmother"
+      },
+      {
+       "words": "little time",
+       "gives": "T",
+       "note": "t is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1294,48 +1144,37 @@
    },
    "solution": "TEDIUM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TEDIUM",
     "definitions": [
      {
       "text": "What's caused by a bore?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "anagram",
-      "note": "something turning changes its position, so these letters are moved about"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tide",
-      "gives": "TEDI",
-      "note": "the letters of tide rearranged"
-     },
-     {
-      "clueFragment": "let me think",
-      "gives": "UM",
-      "note": "um is the noise of someone pausing to think"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEDI",
-      "UM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TEDIUM",
+     "indicators": [
       {
-       "fodder": "TIDE",
-       "gives": "TEDI"
+       "text": "turning",
+       "note": "something turning changes its position, so these letters are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tide",
+         "gives": "TEDI",
+         "note": "the letters of tide rearranged"
+        },
+        {
+         "words": "let me think",
+         "gives": "UM",
+         "note": "um is the noise of someone pausing to think"
+        }
+       ]
       }
      ]
     },
@@ -1366,41 +1205,25 @@
    },
    "solution": "LAMINA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LAMINA",
     "definitions": [
      {
       "text": "A plate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means going the other way, so the word is read from its end"
-     }
-    ],
-    "linkWords": [
-     "for my"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beastly",
-      "gives": "ANIMAL",
-      "note": "beastly as an adjective means animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAMINA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ANIMAL",
-       "to": "LAMINA"
+       "text": "back",
+       "note": "back means going the other way, so the word is read from its end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beastly",
+       "gives": "ANIMAL",
+       "note": "beastly as an adjective means animal"
       }
      ]
     },
@@ -1429,43 +1252,30 @@
    },
    "solution": "LASHED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LASHED",
     "definitions": [
      {
       "text": "severely criticised",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "is embraced by",
-      "for": "container",
-      "note": "being embraced means being held inside someone's arms, so one word goes within the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy",
-      "gives": "LAD",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "She",
-      "gives": "SHE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LA",
-      "SHE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is embraced by",
+       "note": "being embraced means being held inside someone's arms, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy",
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "words": "She",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1493,43 +1303,33 @@
    },
    "solution": "EDITORIALS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EDITORIALS",
     "definitions": [
      {
       "text": "Leaders",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a new arrangement",
-      "for": "anagram",
-      "note": "a new arrangement of the words means their letters are placed in a different order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lead",
-      "gives": "LEAD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "or is it",
-      "gives": "ORISIT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEADORISIT",
-       "gives": "EDITORIALS"
+       "text": "a new arrangement",
+       "note": "a new arrangement of the words means their letters are placed in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lead",
+         "note": "taken as written"
+        },
+        {
+         "words": "or is it",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1559,29 +1359,17 @@
    },
    "solution": "IOTA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IOTA",
     "definitions": [
      {
       "text": "Small",
       "at": 0,
-      "note": "adjective; the answer is a noun for a very small amount"
+      "note": "adjective; the answer is a noun for a very small amount",
+      "meaning": "first meaning: a tiny amount"
      },
      {
       "text": "letter",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "note": "first meaning: a tiny amount"
-     },
-     {
-      "clueFragment": "letter",
-      "note": "second meaning: a character of the Greek alphabet"
+      "at": 6,
+      "meaning": "second meaning: a character of the Greek alphabet"
      }
     ],
     "explanation": {
@@ -1610,36 +1398,25 @@
    },
    "solution": "IVAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IVAN",
     "definitions": [
      {
       "text": "Boy",
       "at": 0
      }
     ],
-    "linkWords": [
-     "goes",
-     "to the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first",
-      "gives": "I",
-      "note": "I is one in Roman numerals, the first number"
-     },
-     {
-      "clueFragment": "front",
-      "gives": "VAN",
-      "note": "the van is the front of an army or procession"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "VAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "first",
+       "gives": "I",
+       "note": "I is one in Roman numerals, the first number"
+      },
+      {
+       "words": "front",
+       "gives": "VAN",
+       "note": "the van is the front of an army or procession"
+      }
      ]
     },
     "explanation": {
@@ -1667,26 +1444,25 @@
    },
    "solution": "GUARDS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GUARDS",
     "definitions": [
      {
       "text": "Changeable regiments?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Changeable",
-      "note": "surface reading: fickle, unreliable soldiers"
-     },
-     {
-      "clueFragment": "regiments?",
-      "note": "setter's reading: the household troops whose daily changing at Buckingham Palace is a ceremony"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Changeable",
+       "note": "surface reading: fickle, unreliable soldiers"
+      },
+      {
+       "words": "regiments?",
+       "note": "setter's reading: the household troops whose daily changing at Buckingham Palace is a ceremony"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Changeable' suggests inconstant; it means able to be changed, as in the Changing of the Guard at Buckingham Palace.",
      "definitionFit": "The Guards are the British Army's household regiments, famous for their sentry handover ceremony in London."
@@ -1713,10 +1489,6 @@
    },
    "solution": "HIERATIC",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HIERATIC",
     "definitions": [
      {
       "text": "Priestley",
@@ -1724,25 +1496,23 @@
       "note": "read as priestly, an adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "Sounds",
-      "for": "homophone",
-      "note": "sounds means the phrase that follows is heard, not spelt"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the upper room",
-      "gives": "HIERATIC",
-      "soundsLike": "HIGHER ATTIC",
-      "note": "an attic is the room at the top of a house, and the upper one is higher"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HIERATIC",
+     "indicators": [
+      {
+       "text": "Sounds",
+       "note": "sounds means the phrase that follows is heard, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the upper room",
+       "gives": "HIGHERATTIC",
+       "note": "an attic is the room at the top of a house, and the upper one is higher"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Noises from the writer J. B. Priestley come down from a room upstairs.",
      "walkthrough": "'Priestley' looks like the playwright's name but is to be read as the adjective priestly.",

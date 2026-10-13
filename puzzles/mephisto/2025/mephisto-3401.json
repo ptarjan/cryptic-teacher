@@ -1,8 +1,6 @@
 {
  "id": "mephisto-3401",
  "number": 3401,
- "series": "mephisto",
- "name": "Sunday Times mephisto crossword No 3,401",
  "setter": "John Grimshaw",
  "date": "2025-11-02",
  "dimensions": {
@@ -56,35 +54,24 @@
    },
    "solution": "SCIUROPTERUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SCIUROPTERUS",
     "definitions": [
      {
       "text": "Former genus",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs putting in a new order",
-      "for": "anagram",
-      "note": "rearranging into a fresh sequence is exactly what the letters must undergo"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "use is corrupt",
-      "gives": "USEISCORRUPT",
-      "note": "twelve letters taken as written, all three words of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "USEISCORRUPT",
-       "gives": "SCIUROPTERUS"
+       "text": "needs putting in a new order",
+       "note": "rearranging into a fresh sequence is exactly what the letters must undergo"
+      }
+     ],
+     "parts": [
+      {
+       "words": "use is corrupt",
+       "note": "twelve letters taken as written, all three words of fodder"
       }
      ]
     },
@@ -114,57 +101,45 @@
    },
    "solution": "STREPTOSOLEN",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "STREPTOSOLEN",
     "definitions": [
      {
       "text": "shrub",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "going back the way they came, so the letters run in the opposite direction"
-     },
-     {
-      "text": "vandalised",
-      "for": "anagram",
-      "note": "something vandalised has been smashed up and its parts thrown about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Impudent people",
-      "gives": "PERTS",
-      "note": "perts are cheeky, saucy persons"
-     },
-     {
-      "clueFragment": "one lost",
-      "gives": "ONELOST",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STREP",
-      "TOSOLEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ONELOST",
-       "gives": "TOSOLEN"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "note": "going back the way they came, so the letters run in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Impudent people",
+         "gives": "PERTS",
+         "note": "perts are cheeky, saucy persons"
+        }
+       ]
+      },
       {
-       "from": "PERTS",
-       "to": "STREP"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "vandalised",
+         "note": "something vandalised has been smashed up and its parts thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one lost",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -194,50 +169,49 @@
    },
    "solution": "CANG",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CANG",
     "definitions": [
      {
       "text": "punishment there",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "decapitated",
-      "for": "deletion",
-      "note": "losing its head means the first letter is cut off"
-     },
-     {
-      "text": "capital",
-      "for": "letter_selection",
-      "note": "a capital is the head or top, so just the opening letter is kept"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "China's",
-      "gives": "C",
-      "select": "first",
-      "note": "the initial of the word"
-     },
-     {
-      "clueFragment": "Dynasty",
-      "gives": "TANG",
-      "note": "the Tang dynasty ruled China 618-907"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ANG"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "decapitated",
+       "note": "losing its head means the first letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital",
+           "note": "a capital is the head or top, so just the opening letter is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "China's",
+           "note": "the initial of the word"
+          }
+         ]
+        },
+        {
+         "words": "Dynasty",
+         "gives": "TANG",
+         "note": "the Tang dynasty ruled China 618-907"
+        }
+       ]
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -267,38 +241,30 @@
    },
    "solution": "INFERIOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFERIOR",
     "definitions": [
      {
       "text": "between earth and sun?",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Deduce",
-      "gives": "INFER",
-      "note": "to infer is to deduce"
-     },
-     {
-      "clueFragment": "moon's",
-      "gives": "IO",
-      "note": "Io is a moon of Jupiter"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the usual abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INFER",
-      "IO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deduce",
+       "gives": "INFER",
+       "note": "to infer is to deduce"
+      },
+      {
+       "words": "moon's",
+       "gives": "IO",
+       "note": "Io is a moon of Jupiter"
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the usual abbreviation for right"
+      }
      ]
     },
     "explanation": {
@@ -327,46 +293,43 @@
    },
    "solution": "ROBINIA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ROBINIA",
     "definitions": [
      {
       "text": "locust",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "what eats takes something inside itself, so letters go within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bird",
-      "gives": "ROBIN",
-      "note": "a common garden bird"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "A",
-      "note": "in Chambers 'a' is an old dialect pronoun meaning he, she or it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROBIN",
-      "I",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ROBINIA",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "what eats takes something inside itself, so letters go within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bird",
+         "gives": "ROBIN",
+         "note": "a common garden bird"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "it",
+         "gives": "A",
+         "note": "in Chambers 'a' is an old dialect pronoun meaning he, she or it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -396,44 +359,38 @@
    },
    "solution": "PARTHIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "and_lit"
-    ],
-    "answer": "PARTHIA",
     "definitions": [
      {
       "text": "Region, primarily historical Iranian area",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means in the first place, so only initial letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Region",
-      "gives": "PART",
-      "note": "a part, as in 'these parts', is a region"
-     },
-     {
-      "clueFragment": "historical Iranian area",
-      "gives": "HIA",
-      "select": "first",
-      "note": "the initials of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PART",
-      "HIA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Region",
+       "gives": "PART",
+       "note": "a part, as in 'these parts', is a region"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means in the first place, so only initial letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "historical Iranian area",
+         "note": "the initials of the three words"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A gazetteer entry for an ancient land in what is now Iran.",
      "walkthrough": "The whole clue defines while also giving the wordplay: a word for region, then the initials of the last three words.",
@@ -460,31 +417,29 @@
    },
    "solution": "TUBAE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TUBAE",
     "definitions": [
      {
       "text": "Trumpets",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding",
-      "for": "homophone",
-      "note": "sounding means as heard, so the spoken form counts rather than the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "introduction to speech of Hamlet",
-      "gives": "TUBAE",
-      "soundsLike": "TO BE",
-      "note": "the famous soliloquy opens 'To be, or not to be'"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TUBAE",
+     "indicators": [
+      {
+       "text": "sounding",
+       "note": "sounding means as heard, so the spoken form counts rather than the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "introduction to speech of Hamlet",
+       "gives": "TOBE",
+       "note": "the famous soliloquy opens 'To be, or not to be'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Fanfares blaring as the Prince of Denmark begins his great speech.",
      "walkthrough": "The opening two words of Hamlet's soliloquy, said quickly, match the Latin plural. The question mark flags the playful route.",
@@ -518,35 +473,24 @@
    },
    "solution": "EVENAS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EVEN AS",
     "definitions": [
      {
       "text": "At the very moment when",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is thrown",
-      "for": "anagram",
-      "note": "things thrown land jumbled up, like dice tossed on a table"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a seven",
-      "gives": "ASEVEN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASEVEN",
-       "gives": "EVENAS"
+       "text": "is thrown",
+       "note": "things thrown land jumbled up, like dice tossed on a table"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a seven",
+       "note": "taken as written"
       }
      ]
     },
@@ -576,41 +520,36 @@
    },
    "solution": "URUSES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "URUSES",
     "definitions": [
      {
       "text": "wild cattle",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Third of",
-      "for": "letter_selection",
-      "note": "asks for the letter in position three of the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gauchos",
-      "gives": "U",
-      "select": 3,
-      "note": "g-a-u, the third letter"
-     },
-     {
-      "clueFragment": "dodges",
-      "gives": "RUSES",
-      "note": "dodges are tricks or ruses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "RUSES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "Third of",
+         "note": "asks for the letter in position three of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gauchos",
+         "note": "g-a-u, the third letter"
+        }
+       ]
+      },
+      {
+       "words": "dodges",
+       "gives": "RUSES",
+       "note": "dodges are tricks or ruses"
+      }
      ]
     },
     "explanation": {
@@ -639,44 +578,34 @@
    },
    "solution": "STERNUTATORY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STERNUTATORY",
     "definitions": [
      {
       "text": "causing irritation leading to expulsion?",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Inflexible",
-      "gives": "STERN",
-      "note": "stern means rigid, unbending"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "UT",
-      "note": "ut is Latin for as"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "TORY",
-      "note": "a Tory is a member of the UK Conservative Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STERN",
-      "UT",
-      "A",
-      "TORY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Inflexible",
+       "gives": "STERN",
+       "note": "stern means rigid, unbending"
+      },
+      {
+       "words": "as",
+       "gives": "UT",
+       "note": "ut is Latin for as"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Conservative",
+       "gives": "TORY",
+       "note": "a Tory is a member of the UK Conservative Party"
+      }
      ]
     },
     "explanation": {
@@ -706,41 +635,35 @@
    },
    "solution": "TANNOY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TANNOY",
     "definitions": [
      {
       "text": "Publicly announce",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "onset of",
-      "for": "letter_selection",
-      "note": "an onset is a beginning, so only the first letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terrible",
-      "gives": "T",
-      "select": "first",
-      "note": "initial letter"
-     },
-     {
-      "clueFragment": "plague",
-      "gives": "ANNOY",
-      "note": "to plague someone is to annoy them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ANNOY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "onset of",
+         "note": "an onset is a beginning, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "terrible",
+         "note": "initial letter"
+        }
+       ]
+      },
+      {
+       "words": "plague",
+       "gives": "ANNOY",
+       "note": "to plague someone is to annoy them"
+      }
      ]
     },
     "explanation": {
@@ -769,33 +692,29 @@
    },
    "solution": "VERT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "VERT",
     "definitions": [
      {
       "text": "skatepark extension",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Failing to start",
-      "for": "deletion",
-      "note": "not getting going means the opening letter is missing"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "public",
-      "gives": "OVERT",
-      "note": "overt means open, public"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VERT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Failing to start",
+       "note": "not getting going means the opening letter is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "public",
+       "gives": "OVERT",
+       "note": "overt means open, public"
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -824,43 +743,39 @@
    },
    "solution": "VRIL",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "VRIL",
     "definitions": [
      {
       "text": "Bulwer-Lytton's invention",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "most but not all, so the last letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "his queen",
-      "gives": "VR",
-      "note": "Victoria Regina; Bulwer-Lytton was a Victorian writer"
-     },
-     {
-      "clueFragment": "hurtful",
-      "gives": "ILL",
-      "note": "ill as in ill effects, harmful"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VR",
-      "IL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most but not all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "his queen",
+         "gives": "VR",
+         "note": "Victoria Regina; Bulwer-Lytton was a Victorian writer"
+        },
+        {
+         "words": "hurtful",
+         "gives": "ILL",
+         "note": "ill as in ill effects, harmful"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -889,41 +804,39 @@
    },
    "solution": "BARBEQUE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BARBEQUE",
     "definitions": [
      {
       "text": "Roast whole",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not popular",
-      "for": "deletion",
-      "note": "popular is a common stand-in for a short word, and 'not' says take it away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old pigeon",
-      "gives": "BARB",
-      "note": "the barb is an old fancy breed of pigeon"
-     },
-     {
-      "clueFragment": "like a horse",
-      "gives": "EQUINE",
-      "note": "equine means horselike"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARB",
-      "EQU",
-      "E"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not popular",
+       "note": "popular is a common stand-in for a short word, and 'not' says take it away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old pigeon",
+         "gives": "BARB",
+         "note": "the barb is an old fancy breed of pigeon"
+        },
+        {
+         "words": "like a horse",
+         "gives": "EQUINE",
+         "note": "equine means horselike"
+        }
+       ]
+      },
+      {
+       "gives": "IN"
+      }
      ]
     },
     "explanation": {
@@ -952,38 +865,24 @@
    },
    "solution": "EGERIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EGERIA",
     "definitions": [
      {
       "text": "adviser",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "engineering",
-      "for": "anagram",
-      "note": "to engineer is to build or contrive, so the letters are constructed anew"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I agree",
-      "gives": "IAGREE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IAGREE",
-       "gives": "EGERIA"
+       "text": "engineering",
+       "note": "to engineer is to build or contrive, so the letters are constructed anew"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I agree",
+       "note": "taken as written"
       }
      ]
     },
@@ -1013,34 +912,25 @@
    },
    "solution": "TANH",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "TANH",
     "definitions": [
      {
       "text": "Function",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "only just started",
-      "for": "letter_selection",
-      "note": "barely begun means just the very beginning is shown, so initial letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taking all night has",
-      "gives": "TANH",
-      "select": "first",
-      "note": "initials of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TANH"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "only just started",
+       "note": "barely begun means just the very beginning is shown, so initial letters are kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "taking all night has",
+       "note": "initials of the four words"
+      }
      ]
     },
     "explanation": {
@@ -1070,47 +960,41 @@
    },
    "solution": "PURIN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PURIN",
     "definitions": [
      {
       "text": "It's in my DNA",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "container",
-      "note": "being involved in something means being wrapped up inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wordplay",
-      "gives": "PUN",
-      "note": "a pun is a piece of wordplay"
-     },
-     {
-      "clueFragment": "Take",
-      "gives": "R",
-      "note": "R stands for recipe, Latin for take, on prescriptions"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "R",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "being involved in something means being wrapped up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wordplay",
+       "gives": "PUN",
+       "note": "a pun is a piece of wordplay"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Take",
+         "gives": "R",
+         "note": "R stands for recipe, Latin for take, on prescriptions"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1140,51 +1024,40 @@
    },
    "solution": "WHEATEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "WHEATEN",
     "definitions": [
      {
       "text": "wholemeal",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sits inside another"
-     },
-     {
-      "text": "cooking",
-      "for": "anagram",
-      "note": "cooking transforms ingredients, so the letters are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Apply warmth",
-      "gives": "HEAT",
-      "note": "to heat is to apply warmth"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "NEW",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HEAT",
-      "EN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NEW",
-       "gives": "WEN"
+       "text": "in",
+       "note": "one thing sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooking",
+         "note": "cooking transforms ingredients, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "new",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Apply warmth",
+       "gives": "HEAT",
+       "note": "to heat is to apply warmth"
       }
      ]
     },
@@ -1214,47 +1087,41 @@
    },
    "solution": "TENEBRIO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TENEBRIO",
     "definitions": [
      {
       "text": "Group of beetles",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "discovered inside something, so placed within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a number",
-      "gives": "TEN",
-      "note": "ten is a number"
-     },
-     {
-      "clueFragment": "Spanish river",
-      "gives": "EBRO",
-      "note": "the Ebro flows through north-east Spain"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEN",
-      "EBR",
-      "I",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a number",
+       "gives": "TEN",
+       "note": "ten is a number"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "note": "discovered inside something, so placed within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spanish river",
+         "gives": "EBRO",
+         "note": "the Ebro flows through north-east Spain"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1282,47 +1149,44 @@
    },
    "solution": "TBILISI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TBILISI",
     "definitions": [
      {
       "text": "capital",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "anagram",
-      "note": "touring means moving around, so the letters travel into new places"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "3:50",
-      "gives": "IIIL",
-      "note": "in Roman numerals, as 'in old Rome' says: three is III and fifty is L"
-     },
-     {
-      "clueFragment": "BST",
-      "gives": "BST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in old Rome",
-      "note": "tells us to write the numbers as Romans did"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "IIILBST",
-       "gives": "TBILISI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "touring",
+         "note": "touring means moving around, so the letters travel into new places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "3:50",
+           "gives": "IIIL",
+           "note": "in Roman numerals, as 'in old Rome' says: three is III and fifty is L"
+          },
+          {
+           "words": "BST",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "in old Rome",
+       "note": "tells us to write the numbers as Romans did"
       }
      ]
     },
@@ -1352,40 +1216,31 @@
    },
    "solution": "SHIPLAP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHIPLAP",
     "definitions": [
      {
       "text": "board arrangement",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reprimand",
-      "gives": "SLAP",
-      "note": "a slap is a rebuke"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "HIP",
-      "note": "the hip is a joint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HIP",
-      "LAP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reprimand",
+       "gives": "SLAP",
+       "note": "a slap is a rebuke"
+      },
+      {
+       "words": "joint",
+       "gives": "HIP",
+       "note": "the hip is a joint"
+      }
      ]
     },
     "explanation": {
@@ -1414,41 +1269,38 @@
    },
    "solution": "VAQUERO",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "VAQUERO",
     "definitions": [
      {
       "text": "cowboy",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "More than half",
-      "for": "deletion",
-      "note": "only the larger front portion is kept and the remainder dropped"
-     },
-     {
-      "text": "trained",
-      "for": "anagram",
-      "note": "something trained is shaped into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "overqualified",
-      "gives": "OVERQUALIFIED",
-      "note": "thirteen letters, of which the first seven are used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OVERQUA",
-       "gives": "VAQUERO"
+       "text": "trained",
+       "note": "something trained is shaped into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "More than half",
+         "note": "only the larger front portion is kept and the remainder dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overqualified",
+         "note": "thirteen letters, of which the first seven are used"
+        },
+        {
+         "gives": "LIFIED"
+        }
+       ]
       }
      ]
     },
@@ -1478,40 +1330,31 @@
    },
    "solution": "SOPITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SOPITE",
     "definitions": [
      {
       "text": "Rarely dull",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "employed in",
-      "for": "container",
-      "note": "put to use inside, so it goes within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "station",
-      "gives": "SITE",
-      "note": "a station or post is a site"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op is short for opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "OP",
-      "ITE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "employed in",
+       "note": "put to use inside, so it goes within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "station",
+       "gives": "SITE",
+       "note": "a station or post is a site"
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      }
      ]
     },
     "explanation": {
@@ -1540,52 +1383,47 @@
    },
    "solution": "COHEIR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "COHEIR",
     "definitions": [
      {
       "text": "One who'll inherit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "invested in",
-      "for": "container",
-      "note": "money invested goes inside a business, so it is placed within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "the standard abbreviation"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "I",
-      "note": "i' is a Scots and dialect form of in"
-     },
-     {
-      "clueFragment": "rupees",
-      "gives": "R",
-      "note": "R is the abbreviation for rupee"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "HE",
-      "I",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "COHEIR",
+     "indicators": [
+      {
+       "text": "invested in",
+       "note": "money invested goes inside a business, so it is placed within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "company",
+         "gives": "CO",
+         "note": "the standard abbreviation"
+        },
+        {
+         "words": "he",
+         "note": "taken as written"
+        },
+        {
+         "words": "in",
+         "gives": "I",
+         "note": "i' is a Scots and dialect form of in"
+        },
+        {
+         "words": "rupees",
+         "gives": "R",
+         "note": "R is the abbreviation for rupee"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1614,47 +1452,41 @@
    },
    "solution": "HAAFNET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HAAFNET",
     "definitions": [
      {
       "text": "What may catch salmon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sits inside another, used twice here"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Balmoral",
-      "gives": "HAT",
-      "note": "a balmoral is a Scottish flat bonnet, so a kind of hat"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F for fine, as on pencils"
-     },
-     {
-      "clueFragment": "one locally",
-      "gives": "ANE",
-      "note": "ane is the Scots word for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "A",
-      "F",
-      "NE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing sits inside another, used twice here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Balmoral",
+       "gives": "HAT",
+       "note": "a balmoral is a Scottish flat bonnet, so a kind of hat"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "one locally",
+         "gives": "ANE",
+         "note": "ane is the Scots word for one"
+        },
+        {
+         "words": "fine",
+         "gives": "F",
+         "note": "F for fine, as on pencils"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1683,49 +1515,44 @@
    },
    "solution": "FUMS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "and_lit"
-    ],
-    "answer": "FUMS",
     "definitions": [
      {
       "text": "Eastern, initially disappearing in smoke? That's them!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "at the start, so just the opening letter"
-     },
-     {
-      "text": "disappearing in",
-      "for": "deletion",
-      "note": "vanishing from within means a letter is taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Eastern",
-      "gives": "E",
-      "select": "first",
-      "note": "initial letter"
-     },
-     {
-      "clueFragment": "smoke",
-      "gives": "FUMES",
-      "note": "fumes are smoke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FUM",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "disappearing in",
+       "note": "vanishing from within means a letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "smoke",
+       "gives": "FUMES",
+       "note": "fumes are smoke"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "at the start, so just the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eastern",
+         "note": "initial letter"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An exclamation on seeing oriental creatures vanishing into smoke.",
      "walkthrough": "The whole clue defines too: fums are mythical Chinese phoenixes, birds famously linked with fire and smoke.",
@@ -1751,28 +1578,16 @@
    },
    "solution": "SOROSIS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SOROSIS",
     "definitions": [
      {
       "text": "What's fleshy",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a fleshy multiple fruit, like a pineapple or mulberry"
      },
      {
       "text": "women's club in US",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's fleshy",
-      "note": "first meaning: a fleshy multiple fruit, like a pineapple or mulberry"
-     },
-     {
-      "clueFragment": "women's club in US",
-      "note": "second meaning: an American women's society, after the first such club"
+      "at": 14,
+      "meaning": "second meaning: an American women's society, after the first such club"
      }
     ],
     "explanation": {
@@ -1800,47 +1615,41 @@
    },
    "solution": "SULKY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SULKY",
     "definitions": [
      {
       "text": "vehicle for one",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "protecting",
-      "for": "container",
-      "note": "to protect is to cover or surround, so one piece wraps another"
-     },
-     {
-      "text": "sides of",
-      "for": "letter_selection",
-      "note": "the sides are the two edges, so only end letters are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Canopy",
-      "gives": "SKY",
-      "note": "the sky is the canopy of heaven"
-     },
-     {
-      "clueFragment": "unusual",
-      "gives": "UL",
-      "select": "outer",
-      "note": "the end letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "UL",
-      "KY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "note": "to protect is to cover or surround, so one piece wraps another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Canopy",
+       "gives": "SKY",
+       "note": "the sky is the canopy of heaven"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "sides of",
+         "note": "the sides are the two edges, so only end letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unusual",
+         "note": "the end letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1869,31 +1678,29 @@
    },
    "solution": "QUENA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "QUENA",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reported speech is something heard, so sound beats spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one involved in corporal punishment",
-      "gives": "QUENA",
-      "soundsLike": "CANER",
-      "note": "a caner is one who canes"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "QUENA",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "reported speech is something heard, so sound beats spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one involved in corporal punishment",
+       "gives": "CANER",
+       "note": "a caner is one who canes"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An implement said to have been used for beating offenders.",
      "walkthrough": "The instrument of punishment is a red herring: it is a musical instrument, pronounced KAY-na.",
@@ -1921,35 +1728,25 @@
    },
    "solution": "WHUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHUP",
     "definitions": [
      {
       "text": "Soundly beat",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Welsh",
-      "gives": "W",
-      "note": "the standard abbreviation"
-     },
-     {
-      "clueFragment": "go forward",
-      "gives": "HUP",
-      "note": "hup is a call urging a horse on, and as a verb to go on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HUP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Welsh",
+       "gives": "W",
+       "note": "the standard abbreviation"
+      },
+      {
+       "words": "go forward",
+       "gives": "HUP",
+       "note": "hup is a call urging a horse on, and as a verb to go on"
+      }
      ]
     },
     "explanation": {
@@ -1978,52 +1775,51 @@
    },
    "solution": "NUMBAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "NUMBAT",
     "definitions": [
      {
       "text": "marsupial",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "to capture is to hold inside, so one piece encloses others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Enthusiast",
-      "gives": "NUT",
-      "note": "a nut is a fan or enthusiast"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "B for black, as on pencils"
-     },
-     {
-      "clueFragment": "Australian",
-      "gives": "A",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "M",
-      "B",
-      "A",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "note": "to capture is to hold inside, so one piece encloses others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Enthusiast",
+           "gives": "NUT",
+           "note": "a nut is a fan or enthusiast"
+          },
+          {
+           "words": "male",
+           "gives": "M",
+           "note": "standard abbreviation"
+          }
+         ]
+        },
+        {
+         "words": "black",
+         "gives": "B",
+         "note": "B for black, as on pencils"
+        }
+       ]
+      },
+      {
+       "words": "Australian",
+       "gives": "A",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -2052,49 +1848,44 @@
    },
    "solution": "AREG",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AREG",
     "definitions": [
      {
       "text": "Sandy expanses",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "got put up",
-      "for": "reversal",
-      "note": "in a down entry, raising something turns it upside down"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tent",
-      "gives": "GER",
-      "note": "a ger is a Mongolian felt tent, a yurt"
-     },
-     {
-      "clueFragment": "here?",
-      "note": "surface padding, suggesting a desert camping spot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "REG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GER",
-       "to": "REG"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "got put up",
+           "note": "in a down entry, raising something turns it upside down"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tent",
+           "gives": "GER",
+           "note": "a ger is a Mongolian felt tent, a yurt"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "here?",
+       "note": "surface padding, suggesting a desert camping spot"
       }
      ]
     },
@@ -2124,43 +1915,34 @@
    },
    "solution": "LIBELLEE",
    "annotation": {
-    "type": [
-     "container",
-     "and_lit"
-    ],
-    "answer": "LIBELLEE",
     "definitions": [
      {
       "text": "Fine woman beset by falsehood? Could be",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beset by",
-      "for": "container",
-      "note": "to be beset is to be surrounded on all sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "falsehood",
-      "gives": "LIE",
-      "note": "a lie is a falsehood"
-     },
-     {
-      "clueFragment": "Fine woman",
-      "gives": "BELLE",
-      "note": "a belle is a beautiful woman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "BELLE",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "note": "to be beset is to be surrounded on all sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "falsehood",
+       "gives": "LIE",
+       "note": "a lie is a falsehood"
+      },
+      {
+       "words": "Fine woman",
+       "gives": "BELLE",
+       "note": "a belle is a beautiful woman"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A lovely woman surrounded by lies, perhaps.",
      "walkthrough": "The whole clue describes someone defamed, while its parts build the word: a beauty enclosed by an untruth.",
@@ -2186,30 +1968,28 @@
    },
    "solution": "ETUI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ETUI",
     "definitions": [
      {
       "text": "Case",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "existing in",
-      "for": "hidden_word",
-      "note": "something existing within lies there already, waiting to be spotted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "perpetuity",
-      "gives": "ETUI",
-      "note": "the middle letters of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "existing in",
+       "note": "something existing within lies there already, waiting to be spotted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "perpetuity",
+       "gives": "ETUI",
+       "note": "the middle letters of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A legal case that will last forever.",
      "walkthrough": "'Case' reads as a legal matter, but it is a small container.",
@@ -2236,33 +2016,29 @@
    },
    "solution": "ARTIER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARTIER",
     "definitions": [
      {
       "text": "Increasingly affected",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not opening",
-      "for": "deletion",
-      "note": "without its beginning, so the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jewellers",
-      "gives": "CARTIER",
-      "note": "Cartier is a famous firm of jewellers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARTIER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not opening",
+       "note": "without its beginning, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jewellers",
+       "gives": "CARTIER",
+       "note": "Cartier is a famous firm of jewellers"
+      },
+      {
+       "gives": "C"
+      }
      ]
     },
     "explanation": {
@@ -2291,35 +2067,24 @@
    },
    "solution": "NEURYPNOLOGY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEURYPNOLOGY",
     "definitions": [
      {
       "text": "this could have him asleep",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "awkwardly",
-      "for": "anagram",
-      "note": "clumsy placement leaves things out of their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only guy prone",
-      "gives": "ONLYGUYPRONE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONLYGUYPRONE",
-       "gives": "NEURYPNOLOGY"
+       "text": "awkwardly",
+       "note": "clumsy placement leaves things out of their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Only guy prone",
+       "note": "taken as written"
       }
      ]
     },

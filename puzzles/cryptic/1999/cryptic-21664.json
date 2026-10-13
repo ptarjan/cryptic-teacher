@@ -1,8 +1,7 @@
 {
  "id": "cryptic-21664",
  "number": 21664,
- "series": "cryptic",
- "name": "Prize crossword No 21,664",
+ "prize": true,
  "setter": "Araucaria",
  "date": "1999-08-14",
  "dimensions": {
@@ -38,28 +37,16 @@
    },
    "solution": "SECOND",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SECOND",
     "definitions": [
      {
       "text": "Not much time",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a very brief moment, a sixtieth of a minute"
      },
      {
       "text": "back",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not much time",
-      "note": "first meaning: a very brief moment, a sixtieth of a minute"
-     },
-     {
-      "clueFragment": "back",
-      "note": "to support a proposal or motion"
+      "at": 14,
+      "meaning": "to support a proposal or motion"
      }
     ],
     "explanation": {
@@ -87,32 +74,17 @@
    },
    "solution": "SAGACITY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SAGACITY",
     "definitions": [
      {
       "text": "Intelligence",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: wisdom, shrewd judgement"
      },
      {
       "text": "where the Forsyte tales took place?",
       "at": 19,
-      "note": "a punning description, read as two words"
-     }
-    ],
-    "linkWords": [
-     "as to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Intelligence",
-      "note": "first meaning: wisdom, shrewd judgement"
-     },
-     {
-      "clueFragment": "where the Forsyte tales took place?",
-      "note": "second meaning, split in two: Galsworthy's Forsyte novels form a famous family saga, so their home town would be the city of that saga"
+      "note": "a punning description, read as two words",
+      "meaning": "second meaning, split in two: Galsworthy's Forsyte novels form a famous family saga, so their home town would be the city of that saga"
      }
     ],
     "explanation": {
@@ -141,12 +113,6 @@
    },
    "solution": "CALABRIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "CALABRIA",
     "definitions": [
      {
       "text": "Broccoli's place?",
@@ -154,45 +120,45 @@
       "note": "a place-name answer for a possessive phrase, fair because the question mark flags a whimsical description of the vegetable's home"
      }
     ],
-    "indicators": [
-     {
-      "text": "opening of",
-      "for": "letter_selection",
-      "note": "the opening of a word is its first letter, so only that is kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sitting in another means it is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cubby",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Cubby"
-     },
-     {
-      "clueFragment": "song",
-      "gives": "ARIA",
-      "note": "an aria is a song in an opera"
-     },
-     {
-      "clueFragment": "Party",
-      "gives": "LAB",
-      "note": "short for the Labour Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "LAB",
-      "RIA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "note": "the opening of a word is its first letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cubby",
+         "note": "first letter of Cubby"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing sitting in another means it is placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "gives": "ARIA",
+         "note": "an aria is a song in an opera"
+        },
+        {
+         "words": "Party",
+         "gives": "LAB",
+         "note": "short for the Labour Party"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -222,48 +188,35 @@
    },
    "solution": "NIGEL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NIGEL",
     "definitions": [
      {
       "text": "Small black boy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "climber",
-      "for": "reversal",
-      "note": "in a down clue a climber goes upwards, so the letters are read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "French masculine word for 'the'"
-     },
-     {
-      "clueFragment": "spirit",
-      "gives": "GIN",
-      "note": "gin is a spirit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIG",
-      "EL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LEGIN",
-       "to": "NIGEL"
+       "text": "climber",
+       "note": "in a down clue a climber goes upwards, so the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the French",
+         "gives": "LE",
+         "note": "French masculine word for 'the'"
+        },
+        {
+         "words": "spirit",
+         "gives": "GIN",
+         "note": "gin is a spirit"
+        }
+       ]
       }
      ]
     },
@@ -299,49 +252,40 @@
    },
    "solution": "ADAMBEDE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ADAM BEDE",
     "definitions": [
      {
       "text": "novel",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so these letters wrap around the others"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lady",
-      "gives": "DAME",
-      "note": "a dame is a lady"
-     },
-     {
-      "clueFragment": "anywhere to sleep",
-      "gives": "BED",
-      "note": "a bed is a place to sleep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "DAM",
-      "BED",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without in its old sense of outside, so these letters wrap around the others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "gives": "DAME",
+         "note": "a dame is a lady"
+        },
+        {
+         "words": "anywhere to sleep",
+         "gives": "BED",
+         "note": "a bed is a place to sleep"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -377,51 +321,55 @@
    },
    "solution": "DOCTORFAUSTUS",
    "annotation": {
-    "type": [
-     "container",
-     "homophone",
-     "charade"
-    ],
-    "answer": "DOCTOR FAUSTUS",
     "definitions": [
      {
       "text": "he went to the devil",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being caught in something means being held inside it"
-     },
-     {
-      "text": "to say",
-      "for": "homophone",
-      "note": "so to say signals that the words are spoken and the sound is what counts"
-     }
-    ],
-    "linkWords": [
-     "Being caught"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Being caught",
-      "gives": "CT",
-      "note": "CT is used as a short form of caught, as a cricket scorer abbreviates a dismissal"
-     },
-     {
-      "clueFragment": "entrance",
-      "gives": "DOOR",
-      "note": "a door is an entrance"
-     },
-     {
-      "clueFragment": "obliged us",
-      "gives": "FAUSTUS",
-      "soundsLike": "FORCED US",
-      "note": "obliged us means made us do it, which spoken resembles the scholar's Latin name"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "being caught in something means being held inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entrance",
+         "gives": "DOOR",
+         "note": "a door is an entrance"
+        },
+        {
+         "words": "Being caught",
+         "gives": "CT",
+         "note": "CT is used as a short form of caught, as a cricket scorer abbreviates a dismissal"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "FAUSTUS",
+       "indicators": [
+        {
+         "text": "to say",
+         "note": "so to say signals that the words are spoken and the sound is what counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obliged us",
+         "gives": "FORCEDUS",
+         "note": "obliged us means made us do it, which spoken resembles the scholar's Latin name"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone stuck in a doorway forced the rest of us to go to the devil.",
      "walkthrough": "Marlowe's play tells of the scholar who sold his soul to Mephistopheles; the theme of the puzzle is Marlowe's plays.",
@@ -448,44 +396,33 @@
    },
    "solution": "MANGANESE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MANGANESE",
     "definitions": [
      {
       "text": "metal",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Play",
-      "for": "anagram",
-      "note": "to play with something is to fiddle about with it, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "to show"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "games",
-      "gives": "GAMES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Anne",
-      "gives": "ANNE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GAMES ANNE",
-       "gives": "MANGANESE"
+       "text": "Play",
+       "note": "to play with something is to fiddle about with it, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "games",
+         "note": "taken as written"
+        },
+        {
+         "words": "Anne",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -514,40 +451,31 @@
    },
    "solution": "ENCORE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ENCORE",
     "definitions": [
      {
       "text": "Repeat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "insertion",
-      "for": "container",
-      "note": "an insertion means one thing is put inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "before",
-      "gives": "ERE",
-      "note": "ere is an old word for before"
-     },
-     {
-      "clueFragment": "corporal",
-      "gives": "NCO",
-      "note": "a corporal is a non-commissioned officer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "NCO",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "insertion",
+       "note": "an insertion means one thing is put inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "before",
+       "gives": "ERE",
+       "note": "ere is an old word for before"
+      },
+      {
+       "words": "corporal",
+       "gives": "NCO",
+       "note": "a corporal is a non-commissioned officer"
+      }
      ]
     },
     "explanation": {
@@ -577,38 +505,24 @@
    },
    "solution": "ENLIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENLIST",
     "definitions": [
      {
       "text": "Take a shilling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "protest",
-      "for": "anagram",
-      "note": "a protest is a disturbance, and disturbed letters fall into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "silent",
-      "gives": "SILENT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SILENT",
-       "gives": "ENLIST"
+       "text": "protest",
+       "note": "a protest is a disturbance, and disturbed letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "silent",
+       "note": "taken as written"
       }
      ]
     },
@@ -638,11 +552,6 @@
    },
    "solution": "GULAG",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "GULAG",
     "definitions": [
      {
       "text": "Archipelago",
@@ -650,33 +559,33 @@
       "note": "the word that follows it in Solzhenitsyn's title"
      }
     ],
-    "indicators": [
-     {
-      "text": "partial",
-      "for": "deletion",
-      "note": "partial means not complete, so part of the word is lost"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "inlet",
-      "gives": "GULF",
-      "note": "a gulf is a large inlet of the sea"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUL",
-      "AG"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "partial",
+       "note": "partial means not complete, so part of the word is lost"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "inlet",
+         "gives": "GULF",
+         "note": "a gulf is a large inlet of the sea"
+        },
+        {
+         "words": "silver",
+         "gives": "AG",
+         "note": "chemical symbol for silver"
+        }
+       ]
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -705,11 +614,6 @@
    },
    "solution": "TECHNICAL",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "TECHNICAL",
     "definitions": [
      {
       "text": "Sort of hitch",
@@ -717,42 +621,42 @@
       "note": "the answer is an adjective describing the kind of hitch"
      }
     ],
-    "indicators": [
-     {
-      "text": "beheaded",
-      "for": "deletion",
-      "note": "losing a head means the first letter is dropped"
-     },
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly suggests a likely arrangement rather than the given one"
-     }
-    ],
-    "linkWords": [
-     "is",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "HITCH",
-      "note": "'one' points back to the hitch just mentioned"
-     },
-     {
-      "clueFragment": "lance",
-      "gives": "LANCE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TECHNICAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ITCHLANCE",
-       "gives": "TECHNICAL"
+       "text": "possibly",
+       "note": "possibly suggests a likely arrangement rather than the given one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "note": "losing a head means the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "gives": "HITCH",
+           "note": "'one' points back to the hitch just mentioned"
+          },
+          {
+           "words": "lance",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
@@ -796,53 +700,42 @@
    },
    "solution": "THEJEWOFMALTA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE JEW OF MALTA",
     "definitions": [
      {
       "text": "Like 5",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fruit",
-      "for": "anagram",
-      "note": "fruit here is the product or outcome, what the given letters turn into once worked over"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Financial Times",
-      "gives": "FT",
-      "note": "the newspaper's usual initials"
-     },
-     {
-      "clueFragment": "ate",
-      "gives": "ATE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "jam",
-      "gives": "JAM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "whole",
-      "gives": "WHOLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FT ATE JAM WHOLE",
-       "gives": "THEJEWOFMALTA"
+       "text": "fruit",
+       "note": "fruit here is the product or outcome, what the given letters turn into once worked over"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Financial Times",
+         "gives": "FT",
+         "note": "the newspaper's usual initials"
+        },
+        {
+         "words": "ate",
+         "note": "taken as written"
+        },
+        {
+         "words": "jam",
+         "note": "taken as written"
+        },
+        {
+         "words": "whole",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -872,67 +765,59 @@
    },
    "solution": "CABALLERO",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "charade"
-    ],
-    "answer": "CABALLERO",
     "definitions": [
      {
       "text": "Don",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "something in a building is placed within its walls"
-     },
-     {
-      "text": "otherwise",
-      "for": "anagram",
-      "note": "otherwise means differently, so the following little word is arranged another way"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "good time",
-      "gives": "BALL",
-      "note": "to have a ball is to have a good time"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "Church of England"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "BALL",
-      "E",
-      "RO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OR",
-       "gives": "RO"
+       "text": "in",
+       "note": "something in a building is placed within its walls"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "otherwise",
+         "note": "otherwise means differently, so the following little word is arranged another way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "church",
+           "gives": "CE",
+           "note": "Church of England"
+          },
+          {
+           "words": "or",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "good time",
+         "gives": "BALL",
+         "note": "to have a ball is to have a good time"
+        }
+       ]
       }
      ]
     },
@@ -962,33 +847,28 @@
    },
    "solution": "ARRAS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARRAS",
     "definitions": [
      {
       "text": "Where Hamlet smelt a rat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "hidden_word",
-      "note": "some of a word means only a part of its letters is taken"
-     }
-    ],
-    "linkWords": [
-     "causing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "embarrass-ment",
-      "gives": "ARRAS",
-      "note": "found inside the hyphenated word, after its first three letters"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "some of a word means only a part of its letters is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "embarrass-ment",
+       "gives": "ARRAS",
+       "note": "found inside the hyphenated word, after its first three letters"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Hamlet suspected foul play, which led to an awkward scene.",
      "walkthrough": "Hamlet hears someone behind the tapestry, cries 'How now! a rat?' and stabs Polonius through it.",
@@ -1022,35 +902,25 @@
    },
    "solution": "THIRTEENFEET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THIRTEEN FEET",
     "definitions": [
      {
       "text": "about four metres",
       "at": 35
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What's unlucky",
-      "gives": "THIRTEEN",
-      "note": "the number traditionally considered unlucky"
-     },
-     {
-      "clueFragment": "those that walk",
-      "gives": "FEET",
-      "note": "feet are what we walk with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THIRTEEN",
-      "FEET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What's unlucky",
+       "gives": "THIRTEEN",
+       "note": "the number traditionally considered unlucky"
+      },
+      {
+       "words": "those that walk",
+       "gives": "FEET",
+       "note": "feet are what we walk with"
+      }
      ]
     },
     "explanation": {
@@ -1079,56 +949,45 @@
    },
    "solution": "THEOSOPHY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "THEOSOPHY",
     "definitions": [
      {
       "text": "Blavatsky's system",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "embrace",
-      "for": "container",
-      "note": "to embrace something is to wrap your arms around it, holding it within"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "circle",
-      "gives": "O",
-      "note": "the letter shaped like a circle"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "short for opus, a work"
-     },
-     {
-      "clueFragment": "reluctant",
-      "gives": "SHY",
-      "note": "shy can mean reluctant or wary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "O",
-      "S",
-      "OP",
-      "HY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The",
+       "note": "taken as written"
+      },
+      {
+       "words": "circle",
+       "gives": "O",
+       "note": "the letter shaped like a circle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embrace",
+         "note": "to embrace something is to wrap your arms around it, holding it within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reluctant",
+         "gives": "SHY",
+         "note": "shy can mean reluctant or wary"
+        },
+        {
+         "words": "work",
+         "gives": "OP",
+         "note": "short for opus, a work"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1163,10 +1022,6 @@
    },
    "solution": "MEANWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MEAN WELL",
     "definitions": [
      {
       "text": "to pave hell?",
@@ -1174,22 +1029,19 @@
       "note": "a cryptic hint at the proverb"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Not a good",
-      "gives": "MEAN",
-      "note": "mean can describe something poor or shabby, not good"
-     },
-     {
-      "clueFragment": "spring",
-      "gives": "WELL",
-      "note": "a well is a spring of water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEAN",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not a good",
+       "gives": "MEAN",
+       "note": "mean can describe something poor or shabby, not good"
+      },
+      {
+       "words": "spring",
+       "gives": "WELL",
+       "note": "a well is a spring of water"
+      }
      ]
     },
     "explanation": {
@@ -1219,50 +1071,41 @@
    },
    "solution": "ISOLATED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ISOLATED",
     "definitions": [
      {
       "text": "all alone",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "put in",
-      "for": "container",
-      "note": "putting something in means placing it inside"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "LATE",
-      "note": "the late someone is someone who has died"
-     },
-     {
-      "clueFragment": "the ground",
-      "gives": "SOD",
-      "note": "sod is turf, the ground"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "SO",
-      "LATE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "put in",
+         "note": "putting something in means placing it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the ground",
+         "gives": "SOD",
+         "note": "sod is turf, the ground"
+        },
+        {
+         "words": "dead",
+         "gives": "LATE",
+         "note": "the late someone is someone who has died"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1290,43 +1133,30 @@
    },
    "solution": "RESOLUTENESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESOLUTENESS",
     "definitions": [
      {
       "text": "Strong will",
       "at": 0
      }
     ],
-    "linkWords": [
-     "put",
-     "on",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two notes",
-      "gives": "RESO",
-      "note": "re and so are two notes of the sol-fa scale"
-     },
-     {
-      "clueFragment": "instrument",
-      "gives": "LUTE",
-      "note": "a lute is a stringed instrument"
-     },
-     {
-      "clueFragment": "a head",
-      "gives": "NESS",
-      "note": "a ness is a headland, as in Loch Ness or Sheerness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RESO",
-      "LUTE",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two notes",
+       "gives": "RESO",
+       "note": "re and so are two notes of the sol-fa scale"
+      },
+      {
+       "words": "instrument",
+       "gives": "LUTE",
+       "note": "a lute is a stringed instrument"
+      },
+      {
+       "words": "a head",
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness or Sheerness"
+      }
      ]
     },
     "explanation": {
@@ -1356,11 +1186,6 @@
    },
    "solution": "EDWARD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "EDWARD",
     "definitions": [
      {
       "text": "The 1 across like 5",
@@ -1368,39 +1193,38 @@
       "note": "the title read with 1 across, Edward the Second, a play like 5 down"
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off means gone wrong or out of order, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Donald",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of Donald"
-     },
-     {
-      "clueFragment": "Dewar",
-      "gives": "DEWAR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "D DEWAR",
-       "gives": "EDWARD"
+       "text": "off",
+       "note": "off means gone wrong or out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Donald",
+           "note": "first letter of Donald"
+          }
+         ]
+        },
+        {
+         "words": "Dewar",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1431,50 +1255,41 @@
    },
    "solution": "BRUNEI",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BRUNEI",
     "definitions": [
      {
       "text": "sultanate",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "being outside means wrapping around the other piece"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Govern",
-      "gives": "RUN",
-      "note": "to run a country is to govern it"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live, exist"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "I",
-      "note": "abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RUN",
-      "E",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "being outside means wrapping around the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "live",
+         "gives": "BE",
+         "note": "to be is to live, exist"
+        },
+        {
+         "words": "Govern",
+         "gives": "RUN",
+         "note": "to run a country is to govern it"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "abbreviation for island"
+      }
      ]
     },
     "explanation": {
@@ -1502,10 +1317,6 @@
    },
    "solution": "DARTS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DARTS",
     "definitions": [
      {
       "text": "on board",
@@ -1513,28 +1324,19 @@
       "note": "a description of a game played at a board"
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the word the other way round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fiddleback",
-      "gives": "STRAD",
-      "note": "the word splits as fiddle, a Strad being a Stradivarius violin, followed by the direction word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DARTS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "STRAD",
-       "to": "DARTS"
+       "text": "back",
+       "note": "back tells us to read the word the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fiddleback",
+       "gives": "STRAD",
+       "note": "the word splits as fiddle, a Strad being a Stradivarius violin, followed by the direction word"
       }
      ]
     },
@@ -1565,53 +1367,45 @@
    },
    "solution": "MATUTINAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MATUTINAL",
     "definitions": [
      {
       "text": "before lunch",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "the first of a word is its opening letter only"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother",
-      "gives": "MA",
-      "note": "an informal word for mother"
-     },
-     {
-      "clueFragment": "Dorothy",
-      "gives": "TUTIN",
-      "note": "Dorothy Tutin was a celebrated British stage actress"
-     },
-     {
-      "clueFragment": "act-resses",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of the hyphenated word"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "TUTIN",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mother",
+       "gives": "MA",
+       "note": "an informal word for mother"
+      },
+      {
+       "words": "Dorothy",
+       "gives": "TUTIN",
+       "note": "Dorothy Tutin was a celebrated British stage actress"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "the first of a word is its opening letter only"
+        }
+       ],
+       "parts": [
+        {
+         "words": "act-resses",
+         "note": "first letter of the hyphenated word"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -1640,31 +1434,16 @@
    },
    "solution": "TIGHT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TIGHT",
     "definitions": [
      {
       "text": "Niggardly",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: stingy with money"
      },
      {
       "text": "owl-like",
-      "at": 14
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Niggardly",
-      "note": "first meaning: stingy with money"
-     },
-     {
-      "clueFragment": "owl-like",
-      "note": "second meaning: drunk, from the old phrase 'as drunk as an owl'"
+      "at": 14,
+      "meaning": "second meaning: drunk, from the old phrase 'as drunk as an owl'"
      }
     ],
     "explanation": {
@@ -1692,51 +1471,40 @@
    },
    "solution": "ANNAPOLIS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ANNAPOLIS",
     "definitions": [
      {
       "text": "on Severn",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "possibly",
-      "for": "anagram",
-      "note": "possibly means the letters could be in another arrangement"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "something happening during something else sits within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sleep",
-      "gives": "NAP",
-      "note": "a nap is a short sleep"
-     },
-     {
-      "clueFragment": "sail on",
-      "gives": "SAILON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "NAP",
-      "OLIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SAILON",
-       "gives": "ANOLIS"
+       "text": "during",
+       "note": "something happening during something else sits within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "note": "possibly means the letters could be in another arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sail on",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Sleep",
+       "gives": "NAP",
+       "note": "a nap is a short sleep"
       }
      ]
     },
@@ -1766,34 +1534,29 @@
    },
    "solution": "GREAT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GREAT",
     "definitions": [
      {
       "text": "important",
       "at": 5
      }
     ],
-    "indicators": [
-     {
-      "text": "you tell me",
-      "for": "homophone",
-      "note": "telling means saying out loud, so the sound of the phrase matters"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "where the fire is",
-      "gives": "GREAT",
-      "soundsLike": "GRATE",
-      "note": "a grate holds the fire in a fireplace"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GREAT",
+     "indicators": [
+      {
+       "text": "you tell me",
+       "note": "telling means saying out loud, so the sound of the phrase matters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "where the fire is",
+       "gives": "GRATE",
+       "note": "a grate holds the fire in a fireplace"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An urgent demand to be told where a fire is burning.",
      "walkthrough": "The clue reads like a panicked question about an emergency; the fire is the domestic one in the hearth.",
@@ -1821,54 +1584,49 @@
    },
    "solution": "DAIRYMAN",
    "annotation": {
-    "type": [
-     "substitution",
-     "anagram"
-    ],
-    "answer": "DAIRYMAN",
     "definitions": [
      {
       "text": "Milk producer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "substitution",
-      "note": "something taken off is removed, with the other piece put in its place"
-     },
-     {
-      "text": "from",
-      "for": "anagram",
-      "note": "made from signals that the answer is fashioned out of these letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "23's state",
-      "gives": "MARYLAND",
-      "note": "the US state of which 23 across is capital"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAIRYMAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DAIRYMAN",
+     "indicators": [
       {
-       "fodder": "MARYIAND",
-       "gives": "DAIRYMAN"
+       "text": "from",
+       "note": "made from signals that the answer is fashioned out of these letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "unchecked": true,
+       "gives": "DAIRYMAN",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something taken off is removed, with the other piece put in its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "23's state",
+         "gives": "MARYLAND",
+         "note": "the US state of which 23 across is capital"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "abbreviation for left"
+        }
+       ]
       }
      ]
     },
@@ -1898,43 +1656,30 @@
    },
    "solution": "STOLID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STOLID",
     "definitions": [
      {
       "text": "Hard to move",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round the other"
-     }
-    ],
-    "linkWords": [
-     "have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "moved effortlessly",
-      "gives": "SLID",
-      "note": "to slide is to move smoothly without effort"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TO",
-      "LID"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moved effortlessly",
+       "gives": "SLID",
+       "note": "to slide is to move smoothly without effort"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-215",
  "number": 215,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 215",
  "setter": "Beam",
  "date": "2026-03-08",
  "dimensions": {
@@ -38,34 +36,17 @@
    },
    "solution": "RESOLVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RESOLVE",
     "definitions": [
      {
       "text": "Do this again",
-      "at": 0
+      "at": 0,
+      "meaning": "'this' is the clue itself; working it out a second time puts RE- before the verb for working out"
      },
      {
       "text": "tenacity",
       "at": 22,
-      "note": "RESOLVE is the noun meaning tenacity; 'showing' links it to the first definition"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do this again",
-      "gives": "RESOLVE",
-      "note": "'this' is the clue itself; working it out a second time puts RE- before the verb for working out"
-     },
-     {
-      "clueFragment": "tenacity",
-      "gives": "RESOLVE",
-      "note": "determination, firmness of purpose, the noun"
+      "note": "RESOLVE is the noun meaning tenacity; 'showing' links it to the first definition",
+      "meaning": "determination, firmness of purpose, the noun"
      }
     ],
     "explanation": {
@@ -95,35 +76,25 @@
    },
    "solution": "REPLIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPLIES",
     "definitions": [
      {
       "text": "answers",
       "at": 35
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salesman",
-      "gives": "REP",
-      "note": "rep = sales representative"
-     },
-     {
-      "clueFragment": "Why you shouldn't trust",
-      "gives": "LIES",
-      "note": "the reason not to trust him: he lies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REP",
-      "LIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "salesman",
+       "gives": "REP",
+       "note": "rep = sales representative"
+      },
+      {
+       "words": "Why you shouldn't trust",
+       "gives": "LIES",
+       "note": "the reason not to trust him: he lies"
+      }
      ]
     },
     "explanation": {
@@ -153,43 +124,45 @@
    },
    "solution": "STOPPER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "STOPPER",
     "definitions": [
      {
       "text": "Possibly cork",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "note": "takes the final letter of 'pieces'"
-     },
-     {
-      "text": "on"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pieces finally",
-      "gives": "S",
-      "select": "last",
-      "note": "last letter of pieceS"
-     },
-     {
-      "clueFragment": "hat",
-      "gives": "TOPPER",
-      "note": "a topper is a top hat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TOPPER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "finally",
+       "note": "takes the final letter of 'pieces'"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "S",
+       "indicators": [
+        {
+         "text": "on"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "pieces finally",
+         "gives": "S",
+         "select": "last",
+         "note": "last letter of pieceS"
+        }
+       ]
+      },
+      {
+       "words": "hat",
+       "gives": "TOPPER",
+       "note": "a topper is a top hat"
+      }
      ]
     },
     "explanation": {
@@ -218,41 +191,25 @@
    },
    "solution": "LOOPS",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LOOPS",
     "definitions": [
      {
       "text": "circles",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "turns",
-      "for": "reversal",
-      "note": "a spool turned round reads backwards"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reel",
-      "gives": "SPOOL",
-      "note": "a reel = a spool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOOPS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SPOOL",
-       "to": "LOOPS"
+       "text": "turns",
+       "note": "a spool turned round reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reel",
+       "gives": "SPOOL",
+       "note": "a reel = a spool"
       }
      ]
     },
@@ -282,42 +239,30 @@
    },
    "solution": "EXECUTIVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EXECUTIVE",
     "definitions": [
      {
       "text": "Government",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "injection",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kill",
-      "gives": "EXECUTE",
-      "note": "execute = put to death"
-     },
-     {
-      "clueFragment": "intravenous",
-      "gives": "IV",
-      "note": "IV = intravenous"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXECUT",
-      "IV",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injection"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kill",
+       "gives": "EXECUTE",
+       "note": "execute = put to death"
+      },
+      {
+       "words": "intravenous",
+       "gives": "IV",
+       "note": "IV = intravenous"
+      }
      ]
     },
     "explanation": {
@@ -346,30 +291,16 @@
    },
    "solution": "LETTERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LETTERS",
     "definitions": [
      {
       "text": "Culture perhaps",
-      "at": 0
+      "at": 0,
+      "meaning": "literature and learning, a scholarly kind of culture"
      },
      {
       "text": "found in V&A",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Culture perhaps",
-      "gives": "LETTERS",
-      "note": "literature and learning, a scholarly kind of culture"
-     },
-     {
-      "clueFragment": "found in V&A",
-      "gives": "LETTERS",
-      "note": "V and A are both characters of the alphabet"
+      "at": 16,
+      "meaning": "V and A are both characters of the alphabet"
      }
     ],
     "explanation": {
@@ -399,32 +330,25 @@
    },
    "solution": "LEAVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEAVE",
     "definitions": [
      {
       "text": "time off",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The French",
-      "gives": "LE",
-      "note": "le = 'the' in French"
-     },
-     {
-      "clueFragment": "welcome",
-      "gives": "AVE",
-      "note": "ave = hail, a greeting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "AVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The French",
+       "gives": "LE",
+       "note": "le = 'the' in French"
+      },
+      {
+       "words": "welcome",
+       "gives": "AVE",
+       "note": "ave = hail, a greeting"
+      }
      ]
     },
     "explanation": {
@@ -452,34 +376,28 @@
    },
    "solution": "TRAPPINGS",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "TRAPPINGS",
     "definitions": [
      {
       "text": "Clothes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top to toe",
-      "for": "cycling",
-      "note": "the top letter of a down entry moves to the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stoutly made",
-      "gives": "STRAPPING",
-      "note": "strapping = sturdily built; its S then moves to the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAPPING",
-      "S"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "TRAPPINGS",
+     "indicators": [
+      {
+       "text": "top to toe",
+       "note": "the top letter of a down entry moves to the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stoutly made",
+       "gives": "STRAPPING",
+       "note": "strapping = sturdily built; its S then moves to the end"
+      }
      ]
     },
     "explanation": {
@@ -508,30 +426,28 @@
    },
    "solution": "ENTENTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENTENTE",
     "definitions": [
      {
       "text": "agreement",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "the answer is part of the letters that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "continent entering",
-      "gives": "ENTENTE",
-      "note": "the run starts at the tail of 'continent' and ends inside 'entering'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "the answer is part of the letters that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "continent entering",
+       "gives": "ENTENTE",
+       "note": "the run starts at the tail of 'continent' and ends inside 'entering'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A region of Europe signing up to a treaty.",
      "walkthrough": "The surface nods to the Entente Cordiale, the 1904 agreement between Britain and France on the continent.",
@@ -557,35 +473,25 @@
    },
    "solution": "SURFACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SURFACE",
     "definitions": [
      {
       "text": "Top spot",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "water sport",
-      "gives": "SURF",
-      "note": "surfing, riding waves"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ACE",
-      "note": "an ace = an expert"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SURF",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "water sport",
+       "gives": "SURF",
+       "note": "surfing, riding waves"
+      },
+      {
+       "words": "expert",
+       "gives": "ACE",
+       "note": "an ace = an expert"
+      }
      ]
     },
     "explanation": {
@@ -615,42 +521,30 @@
    },
    "solution": "PROPOSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PROPOSE",
     "definitions": [
      {
       "text": "Suggest",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dull speaking",
-      "gives": "PROSE",
-      "note": "prose = dull, commonplace talk, as in prosaic"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op = opus, a work"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PR",
-      "OP",
-      "OSE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dull speaking",
+       "gives": "PROSE",
+       "note": "prose = dull, commonplace talk, as in prosaic"
+      },
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op = opus, a work"
+      }
      ]
     },
     "explanation": {
@@ -679,35 +573,25 @@
    },
    "solution": "ADAPTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADAPTER",
     "definitions": [
      {
       "text": "electrical device",
       "at": 23
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plug",
-      "gives": "AD",
-      "note": "a plug = an advert, a piece of promotion"
-     },
-     {
-      "clueFragment": "more suitable",
-      "gives": "APTER",
-      "note": "apt = suitable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "APTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plug",
+       "gives": "AD",
+       "note": "a plug = an advert, a piece of promotion"
+      },
+      {
+       "words": "more suitable",
+       "gives": "APTER",
+       "note": "apt = suitable"
+      }
      ]
     },
     "explanation": {
@@ -737,49 +621,40 @@
    },
    "solution": "IMPOSTURE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "IMPOSTURE",
     "definitions": [
      {
       "text": "Fraud",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shameless",
-      "gives": "IMPURE",
-      "note": "impure = immoral, shameless"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "o = over, the cricket abbreviation"
-     },
-     {
-      "clueFragment": "street",
-      "gives": "ST",
-      "note": "St = street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMP",
-      "O",
-      "ST",
-      "URE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shameless",
+       "gives": "IMPURE",
+       "note": "impure = immoral, shameless"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "gives": "O",
+         "note": "o = over, the cricket abbreviation"
+        },
+        {
+         "words": "street",
+         "gives": "ST",
+         "note": "St = street"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -808,40 +683,31 @@
    },
    "solution": "PANDA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PANDA",
     "definitions": [
      {
       "text": "Animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carried by",
-      "for": "container",
-      "note": "what is carried by something is held within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "father",
-      "gives": "PA",
-      "note": "pa = father"
-     },
-     {
-      "clueFragment": "also",
-      "gives": "AND",
-      "note": "and = also"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "AND",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carried by",
+       "note": "what is carried by something is held within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "father",
+       "gives": "PA",
+       "note": "pa = father"
+      },
+      {
+       "words": "also",
+       "gives": "AND",
+       "note": "and = also"
+      }
      ]
     },
     "explanation": {
@@ -869,36 +735,25 @@
    },
    "solution": "SHRUB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHRUB",
     "definitions": [
      {
       "text": "broom",
       "at": 27
      }
     ],
-    "linkWords": [
-     "and",
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be quiet",
-      "gives": "SH",
-      "note": "sh! = be quiet"
-     },
-     {
-      "clueFragment": "clean",
-      "gives": "RUB",
-      "note": "rub = scrub, clean"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "RUB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Be quiet",
+       "gives": "SH",
+       "note": "sh! = be quiet"
+      },
+      {
+       "words": "clean",
+       "gives": "RUB",
+       "note": "rub = scrub, clean"
+      }
      ]
     },
     "explanation": {
@@ -928,36 +783,25 @@
    },
    "solution": "BRIMSTONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRIMSTONE",
     "definitions": [
      {
       "text": "Butterfly",
       "at": 0
      }
     ],
-    "linkWords": [
-     "following",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "borders",
-      "gives": "BRIMS",
-      "note": "brims = edges, borders"
-     },
-     {
-      "clueFragment": "colour",
-      "gives": "TONE",
-      "note": "tone = shade, colour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIMS",
-      "TONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "borders",
+       "gives": "BRIMS",
+       "note": "brims = edges, borders"
+      },
+      {
+       "words": "colour",
+       "gives": "TONE",
+       "note": "tone = shade, colour"
+      }
      ]
     },
     "explanation": {
@@ -986,42 +830,30 @@
    },
    "solution": "INSINCERE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INSINCERE",
     "definitions": [
      {
       "text": "false",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "to admit",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Concerning",
-      "gives": "INRE",
-      "note": "in re = concerning, the legal Latin"
-     },
-     {
-      "clueFragment": "past",
-      "gives": "SINCE",
-      "note": "since = ago, in the past, as in 'long since'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SINCE",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to admit"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Concerning",
+       "gives": "INRE",
+       "note": "in re = concerning, the legal Latin"
+      },
+      {
+       "words": "past",
+       "gives": "SINCE",
+       "note": "since = ago, in the past, as in 'long since'"
+      }
      ]
     },
     "explanation": {
@@ -1050,39 +882,30 @@
    },
    "solution": "SUSTAINED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUSTAINED",
     "definitions": [
      {
       "text": "Supported",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exterior",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tinted",
-      "gives": "STAINED",
-      "note": "stained = coloured, tinted"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "TAINED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "exterior"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tinted",
+       "gives": "STAINED",
+       "note": "stained = coloured, tinted"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -1110,48 +933,43 @@
    },
    "solution": "READINESS",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "READINESS",
     "definitions": [
      {
       "text": "Preparation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container"
-     },
-     {
-      "text": "uncovered",
-      "for": "deletion",
-      "note": "GREASY loses its outer letters, G and Y"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "uncovered fat",
-      "gives": "REAS",
-      "note": "GREASY without its outside letters"
-     },
-     {
-      "clueFragment": "feasts",
-      "gives": "DINES",
-      "note": "dines = feasts, eats"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REA",
-      "DINES",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "READINESS",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "GREASY loses its outer letters, G and Y"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "uncovered fat",
+         "gives": "REAS",
+         "note": "GREASY without its outside letters"
+        },
+        {
+         "words": "feasts",
+         "gives": "DINES",
+         "note": "dines = feasts, eats"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1180,33 +998,16 @@
    },
    "solution": "RETIRED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RETIRED",
     "definitions": [
      {
       "text": "Stopped working",
-      "at": 0
+      "at": 0,
+      "meaning": "gave up one's job for good, typically at pension age"
      },
      {
       "text": "went to bed",
-      "at": 20
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stopped working",
-      "gives": "RETIRED",
-      "note": "gave up one's job for good, typically at pension age"
-     },
-     {
-      "clueFragment": "went to bed",
-      "gives": "RETIRED",
-      "note": "retire = go to bed for the night"
+      "at": 20,
+      "meaning": "retire = go to bed for the night"
      }
     ],
     "explanation": {
@@ -1234,26 +1035,25 @@
    },
    "solution": "AGEISTS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AGEISTS",
     "definitions": [
      {
       "text": "They won't stand for old people!",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "won't stand for",
-      "note": "the surface reads this as refusing to get up and offer a seat; the setter means refusing to tolerate"
-     },
-     {
-      "clueFragment": "old people",
-      "note": "the elderly as the target of a prejudice, not as passengers needing a seat"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "won't stand for",
+       "note": "the surface reads this as refusing to get up and offer a seat; the setter means refusing to tolerate"
+      },
+      {
+       "words": "old people",
+       "note": "the elderly as the target of a prejudice, not as passengers needing a seat"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Young passengers refusing to give up a seat to the elderly.",
      "walkthrough": "'Won't stand for' reads as refusing to rise from a seat for the elderly; it means won't tolerate them.",
@@ -1281,40 +1081,31 @@
    },
    "solution": "SEPIA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEPIA",
     "definitions": [
      {
       "text": "colour",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "captured in",
-      "for": "container",
-      "note": "something captured in a thing is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "water",
-      "gives": "SEA",
-      "note": "the sea = water"
-     },
-     {
-      "clueFragment": "Greek character",
-      "gives": "PI",
-      "note": "pi, a Greek letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "PI",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured in",
+       "note": "something captured in a thing is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "water",
+       "gives": "SEA",
+       "note": "the sea = water"
+      },
+      {
+       "words": "Greek character",
+       "gives": "PI",
+       "note": "pi, a Greek letter"
+      }
      ]
     },
     "explanation": {
@@ -1343,42 +1134,30 @@
    },
    "solution": "PROVOKE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PROVOKE",
     "definitions": [
      {
       "text": "Tease",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "show",
-      "gives": "PROVE",
-      "note": "prove = show, demonstrate"
-     },
-     {
-      "clueFragment": "acceptable",
-      "gives": "OK",
-      "note": "OK = acceptable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PROV",
-      "OK",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "show",
+       "gives": "PROVE",
+       "note": "prove = show, demonstrate"
+      },
+      {
+       "words": "acceptable",
+       "gives": "OK",
+       "note": "OK = acceptable"
+      }
      ]
     },
     "explanation": {
@@ -1408,30 +1187,28 @@
    },
    "solution": "ARTISTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARTISTE",
     "definitions": [
      {
       "text": "performer",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "absorbing",
-      "for": "hidden_word",
-      "note": "the words hold the answer within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part is tempting",
-      "gives": "ARTISTE",
-      "note": "the run starts at the second letter of 'part' and ends two letters into 'tempting'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "absorbing",
+       "note": "the words hold the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Part is tempting",
+       "gives": "ARTISTE",
+       "note": "the run starts at the second letter of 'part' and ends two letters into 'tempting'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An actor drawn in by a juicy role.",
      "walkthrough": "The surface is theatrical throughout, a part tempting a performer, so it hides that the answer lies within the first three words.",
@@ -1458,48 +1235,40 @@
    },
    "solution": "TIERS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "TIERS",
     "definitions": [
      {
       "text": "Bands",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back"
-     },
-     {
-      "text": "covering",
-      "note": "what covers something wraps round it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "settle",
-      "gives": "SIT",
-      "note": "settle = sit down"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "ER",
-      "note": "ER = Elizabeth Regina"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TI",
-      "ER",
-      "S"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SIT",
-       "to": "TIS"
+       "text": "back"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "covering",
+         "note": "what covers something wraps round it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "settle",
+         "gives": "SIT",
+         "note": "settle = sit down"
+        }
+       ]
+      },
+      {
+       "words": "Queen",
+       "gives": "ER",
+       "note": "ER = Elizabeth Regina"
       }
      ]
     },
@@ -1529,50 +1298,41 @@
    },
    "solution": "TRANSPORT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TRANSPORT",
     "definitions": [
      {
       "text": "Rapture",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "takes the final letter of 'sunset'"
-     }
-    ],
-    "linkWords": [
-     "seeing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sunset's end",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of sunseT"
-     },
-     {
-      "clueFragment": "passed",
-      "gives": "RAN",
-      "note": "ran = went, passed"
-     },
-     {
-      "clueFragment": "pool",
-      "gives": "SPORT",
-      "note": "pool, the cue game, is an example of a sport"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RAN",
-      "SPORT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "note": "takes the final letter of 'sunset'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sunset's end",
+         "gives": "SUNSET",
+         "note": "last letter of sunseT"
+        }
+       ]
+      },
+      {
+       "words": "passed",
+       "gives": "RAN",
+       "note": "ran = went, passed"
+      },
+      {
+       "words": "pool",
+       "gives": "SPORT",
+       "note": "pool, the cue game, is an example of a sport"
+      }
      ]
     },
     "explanation": {
@@ -1601,46 +1361,45 @@
    },
    "solution": "TREAT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "TREAT",
     "definitions": [
      {
       "text": "Spoil",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "container",
-      "note": "the middle letter of 'sweet'"
-     },
-     {
-      "text": "in",
-      "for": "letter_selection"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Italian eatery",
-      "gives": "TRAT",
-      "note": "trat = trattoria, an Italian restaurant"
-     },
-     {
-      "clueFragment": "sweetheart",
-      "gives": "E",
-      "select": "middle",
-      "note": "the heart of swEet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "E",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "heart",
+       "note": "the middle letter of 'sweet'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Italian eatery",
+       "gives": "TRAT",
+       "note": "trat = trattoria, an Italian restaurant"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "E",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "sweetheart",
+         "gives": "E",
+         "select": "middle",
+         "note": "the heart of swEet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1669,45 +1428,46 @@
    },
    "solution": "STROP",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "STROP",
     "definitions": [
      {
       "text": "paddy",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "note": "a thing carrying something holds it within"
-     },
-     {
-      "text": "grain of",
-      "note": "a single grain, the first letter, of 'rice'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stem",
-      "gives": "STOP",
-      "note": "stem = stop, stanch"
-     },
-     {
-      "clueFragment": "grain of rice",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Rice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "R",
-      "OP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "note": "a thing carrying something holds it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stem",
+       "gives": "STOP",
+       "note": "stem = stop, stanch"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "R",
+       "indicators": [
+        {
+         "text": "grain of",
+         "note": "a single grain, the first letter, of 'rice'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "grain of rice",
+         "gives": "R",
+         "select": "first",
+         "note": "first letter of Rice"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1737,47 +1497,41 @@
    },
    "solution": "RISSOLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RISSOLE",
     "definitions": [
      {
       "text": "croquette",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "takes the first letter of 'roast'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to roast",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Roast"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IS",
-      "note": "one's = I's, I being one"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "SOLE",
-      "note": "sole, a flatfish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "IS",
-      "SOLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "takes the first letter of 'roast'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to roast",
+         "gives": "ROAST",
+         "note": "first letter of Roast"
+        }
+       ]
+      },
+      {
+       "words": "one's",
+       "gives": "IS",
+       "note": "one's = I's, I being one"
+      },
+      {
+       "words": "fish",
+       "gives": "SOLE",
+       "note": "sole, a flatfish"
+      }
      ]
     },
     "explanation": {
@@ -1805,35 +1559,25 @@
    },
    "solution": "NARROWS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NARROWS",
     "definitions": [
      {
       "text": "Tapers",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "point",
-      "gives": "N",
-      "note": "N = north, a compass point"
-     },
-     {
-      "clueFragment": "pointed missiles",
-      "gives": "ARROWS",
-      "note": "arrows, shot from bows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ARROWS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "point",
+       "gives": "N",
+       "note": "N = north, a compass point"
+      },
+      {
+       "words": "pointed missiles",
+       "gives": "ARROWS",
+       "note": "arrows, shot from bows"
+      }
      ]
     },
     "explanation": {
@@ -1862,44 +1606,41 @@
    },
    "solution": "DESCENT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "DESCENT",
     "definitions": [
      {
       "text": "decline",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "note": "the first letter of 'socialist'"
-     },
-     {
-      "text": "in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fitting",
-      "gives": "DECENT",
-      "note": "decent = proper, fitting"
-     },
-     {
-      "clueFragment": "Socialist's leader",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of Socialist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "S",
-      "CENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "leader",
+       "note": "the first letter of 'socialist'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fitting",
+       "gives": "DECENT",
+       "note": "decent = proper, fitting"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Socialist's leader",
+         "gives": "SOCIALISTLEADER",
+         "note": "first letter of Socialist"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1928,39 +1669,30 @@
    },
    "solution": "DEPLETE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DEPLETE",
     "definitions": [
      {
       "text": "drain",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "employing",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cut out",
-      "gives": "DELETE",
-      "note": "delete = cut out, remove"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P = power in physics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "P",
-      "LETE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "employing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cut out",
+       "gives": "DELETE",
+       "note": "delete = cut out, remove"
+      },
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P = power in physics"
+      }
      ]
     },
     "explanation": {

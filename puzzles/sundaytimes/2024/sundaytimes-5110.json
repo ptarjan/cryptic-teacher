@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5110",
  "number": 5110,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,110",
  "setter": "Robert Price",
  "date": "2024-05-05",
  "dimensions": {
@@ -42,30 +40,28 @@
    },
    "solution": "ERMINE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ERMINE",
     "definitions": [
      {
       "text": "Luxury material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extract",
-      "for": "hidden_word",
-      "note": "to extract is to draw something out from inside, so the letters come from within the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "silver miners",
-      "gives": "ERMINE",
-      "note": "running across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "extract",
+       "note": "to extract is to draw something out from inside, so the letters come from within the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "silver miners",
+       "gives": "ERMINE",
+       "note": "running across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Miners digging silver out of the ground to make luxury goods.",
      "walkthrough": "'Extract' reads as a verb for what miners do, but it signals letters taken from inside silvER MINErs.",
@@ -92,57 +88,53 @@
    },
    "solution": "RETAIN",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "RETAIN",
     "definitions": [
      {
       "text": "Keep",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down clue, turning upward makes the letters read from bottom to top"
-     },
-     {
-      "text": "disheartened",
-      "for": "deletion",
-      "note": "losing one's heart means losing the middle letter of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on, concerning"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "INN",
-      "note": "an inn is a pub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TA",
-      "IN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AT",
-       "to": "TA"
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on, concerning"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue, turning upward makes the letters read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "note": "losing one's heart means losing the middle letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pub",
+         "gives": "INN",
+         "note": "an inn is a pub"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
@@ -172,37 +164,25 @@
    },
    "solution": "ICE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ICE",
     "definitions": [
      {
       "text": "rocks",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "unevenly scratched",
-      "for": "letter_selection",
-      "note": "the uneven, odd-numbered positions are scratched out, so only the even-numbered ones survive"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Circles",
-      "gives": "ICE",
-      "select": "alternate",
-      "note": "second, fourth and sixth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "unevenly scratched",
+       "note": "the uneven, odd-numbered positions are scratched out, so only the even-numbered ones survive"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Circles",
+       "note": "second, fourth and sixth letters"
+      }
      ]
     },
     "explanation": {
@@ -232,44 +212,35 @@
    },
    "solution": "EASEL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EASEL",
     "definitions": [
      {
       "text": "support for art",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "centre",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle letter, so only that one is taken"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Leisure",
-      "gives": "EASE",
-      "note": "ease is leisure, freedom from work"
-     },
-     {
-      "clueFragment": "rally",
-      "gives": "L",
-      "select": "middle",
-      "note": "the middle of the five letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EASE",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leisure",
+       "gives": "EASE",
+       "note": "ease is leisure, freedom from work"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre",
+         "note": "the centre of a word is its middle letter, so only that one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rally",
+         "note": "the middle of the five letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -298,51 +269,55 @@
    },
    "solution": "MELVILLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "MELVILLE",
     "definitions": [
      {
       "text": "author",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Unending",
-      "for": "deletion",
-      "note": "without an ending, the last letter is dropped"
-     },
-     {
-      "text": "to save",
-      "for": "container",
-      "note": "to save something is to keep it safe inside, so one piece is held within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fight",
-      "gives": "MELEE",
-      "note": "a melee is a confused fight"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the abbreviation for very"
-     },
-     {
-      "clueFragment": "sick",
-      "gives": "ILL",
-      "note": "ill means sick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEL",
-      "VILL",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to save",
+       "note": "to save something is to keep it safe inside, so one piece is held within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Unending",
+           "note": "without an ending, the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fight",
+           "gives": "MELEE",
+           "note": "a melee is a confused fight"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "very",
+         "gives": "V",
+         "note": "V is the abbreviation for very"
+        }
+       ]
+      },
+      {
+       "words": "sick",
+       "gives": "ILL",
+       "note": "ill means sick"
+      }
      ]
     },
     "explanation": {
@@ -371,35 +346,24 @@
    },
    "solution": "MEDICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MEDICAL",
     "definitions": [
      {
       "text": "Examination",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be fixed",
-      "for": "anagram",
-      "note": "something that must be fixed is broken and needs putting back together in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "claimed",
-      "gives": "CLAIMED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CLAIMED",
-       "gives": "MEDICAL"
+       "text": "to be fixed",
+       "note": "something that must be fixed is broken and needs putting back together in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "claimed",
+       "note": "taken as written"
       }
      ]
     },
@@ -429,42 +393,31 @@
    },
    "solution": "LIMELIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIMELIGHT",
     "definitions": [
      {
       "text": "Prominent position",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bearing",
-      "for": "charade",
-      "note": "in a down clue, bearing something means carrying it on top, so that piece comes first"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fruit",
-      "gives": "LIME",
-      "note": "a lime is a citrus fruit"
-     },
-     {
-      "clueFragment": "land",
-      "gives": "LIGHT",
-      "note": "to light is to land, as a bird lights on a branch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIME",
-      "LIGHT"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "bearing",
+       "note": "in a down clue, bearing something means carrying it on top, so that piece comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "LIME",
+       "note": "a lime is a citrus fruit"
+      },
+      {
+       "words": "land",
+       "gives": "LIGHT",
+       "note": "to light is to land, as a bird lights on a branch"
+      }
      ]
     },
     "explanation": {
@@ -503,54 +456,43 @@
    },
    "solution": "INDUECOURSE",
    "annotation": {
-    "type": [
-     "substitution",
-     "charade"
-    ],
-    "answer": "IN DUE COURSE",
     "definitions": [
      {
       "text": "eventually",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "substitution",
-      "note": "turning into something means changing into it, so one letter becomes another"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "gives": "INDUS",
-      "note": "the Indus is a great river of Pakistan"
-     },
-     {
-      "clueFragment": "south",
-      "gives": "S",
-      "note": "S is the abbreviation for south"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "Channel",
-      "gives": "COURSE",
-      "note": "a course is a channel along which water flows"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INDU",
-      "E",
-      "COURSE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "INDUECOURSE",
+     "indicators": [
+      {
+       "text": "turning",
+       "note": "turning into something means changing into it, so one letter becomes another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "River",
+       "gives": "INDUS",
+       "note": "the Indus is a great river of Pakistan"
+      },
+      {
+       "words": "south",
+       "gives": "S",
+       "note": "S is the abbreviation for south"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "Channel",
+       "gives": "COURSE",
+       "note": "a course is a channel along which water flows"
+      }
      ]
     },
     "explanation": {
@@ -579,56 +521,46 @@
    },
    "solution": "LIAISONS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "LIAISONS",
     "definitions": [
      {
       "text": "affairs",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "turned over means flipped round, so the letters run backwards"
-     },
-     {
-      "text": "covering",
-      "for": "charade",
-      "note": "in a down clue, whatever covers another lies on top of it and comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble"
-     },
-     {
-      "clueFragment": "current",
-      "gives": "I",
-      "note": "I is the symbol for electric current"
-     },
-     {
-      "clueFragment": "children",
-      "gives": "SONS",
-      "note": "sons are children"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIA",
-      "I",
-      "SONS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "AIL",
-       "to": "LIA"
+       "text": "covering",
+       "note": "in a down clue, whatever covers another lies on top of it and comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "turned over means flipped round, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trouble",
+         "gives": "AIL",
+         "note": "to ail is to trouble"
+        }
+       ]
+      },
+      {
+       "words": "current",
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "words": "children",
+       "gives": "SONS",
+       "note": "sons are children"
       }
      ]
     },
@@ -658,38 +590,25 @@
    },
    "solution": "STRESSED",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "STRESSED",
     "definitions": [
      {
       "text": "under pressure",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "backtracking",
-      "for": "reversal",
-      "note": "going back over one's tracks means travelling in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fools, perhaps",
-      "gives": "DESSERTS",
-      "note": "a fool is a fruit-and-cream pudding, so fools are an example of puddings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRESSED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DESSERTS",
-       "to": "STRESSED"
+       "text": "backtracking",
+       "note": "going back over one's tracks means travelling in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fools, perhaps",
+       "gives": "DESSERTS",
+       "note": "a fool is a fruit-and-cream pudding, so fools are an example of puddings"
       }
      ]
     },
@@ -720,31 +639,29 @@
    },
    "solution": "MEDLAR",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "MEDLAR",
     "definitions": [
      {
       "text": "fruit",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding out",
-      "for": "homophone",
-      "note": "sounding something out means saying it aloud, so the word is judged by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Someone nosy",
-      "gives": "MEDLAR",
-      "soundsLike": "MEDDLER",
-      "note": "a meddler pokes a nose into other people's business"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MEDLAR",
+     "indicators": [
+      {
+       "text": "sounding out",
+       "note": "sounding something out means saying it aloud, so the word is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Someone nosy",
+       "gives": "MEDDLER",
+       "note": "a meddler pokes a nose into other people's business"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A busybody going round asking about fruit.",
      "walkthrough": "'Sounding out' looks like questioning someone, but here it means saying a word aloud.",
@@ -771,48 +688,37 @@
    },
    "solution": "DIABOLICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DIABOLICAL",
     "definitions": [
      {
       "text": "fiendish",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Mixing",
-      "for": "anagram",
-      "note": "mixing stirs things together so they end up in a new order"
-     }
-    ],
-    "linkWords": [
-     "could be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lab",
-      "gives": "LAB",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "acid",
-      "gives": "ACID",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "oil",
-      "gives": "OIL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LABACIDOIL",
-       "gives": "DIABOLICAL"
+       "text": "Mixing",
+       "note": "mixing stirs things together so they end up in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lab",
+         "note": "taken as written"
+        },
+        {
+         "words": "acid",
+         "note": "taken as written"
+        },
+        {
+         "words": "oil",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -842,26 +748,25 @@
    },
    "solution": "BABYSITTERS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BABYSITTERS",
     "definitions": [
      {
       "text": "Who minds small charges?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Who minds small charges?",
-      "note": "surface reading: who objects to paying minor fees or bank fees"
-     },
-     {
-      "clueFragment": "small charges",
-      "note": "setter's reading: to mind is to look after, and charges are the young children in someone's care"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Who minds small charges?",
+       "note": "surface reading: who objects to paying minor fees or bank fees"
+      },
+      {
+       "words": "small charges",
+       "note": "setter's reading: to mind is to look after, and charges are the young children in someone's care"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Minds' looks like 'objects to' and 'charges' like fees; both switch meaning, to looking after little ones placed in someone's care.",
      "definitionFit": "People paid to watch over youngsters while parents are out look after little wards, the children entrusted to them."
@@ -888,38 +793,31 @@
    },
    "solution": "ERSE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ERSE",
     "definitions": [
      {
       "text": "language",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "to avoid",
-      "for": "deletion",
-      "note": "to avoid something is to leave it out, so a letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "pithy",
-      "gives": "TERSE",
-      "note": "terse means pithy, brief"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERSE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to avoid",
+       "note": "to avoid something is to leave it out, so a letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pithy",
+       "gives": "TERSE",
+       "note": "terse means pithy, brief"
+      },
+      {
+       "words": "Time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -948,49 +846,44 @@
    },
    "solution": "BATTLEGROUND",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BATTLEGROUND",
     "definitions": [
      {
       "text": "war zone",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the last letter is cut"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     },
-     {
-      "clueFragment": "PM once",
-      "gives": "ATTLEE",
-      "note": "Clement Attlee was the postwar Labour Prime Minister"
-     },
-     {
-      "clueFragment": "crushed",
-      "gives": "GROUND",
-      "note": "crushed means ground, as coffee is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ATTLE",
-      "GROUND"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the last letter is cut"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "gives": "B",
+         "note": "B is the abbreviation for British"
+        },
+        {
+         "words": "PM once",
+         "gives": "ATTLEE",
+         "note": "Clement Attlee was the postwar Labour Prime Minister"
+        },
+        {
+         "words": "crushed",
+         "gives": "GROUND",
+         "note": "crushed means ground, as coffee is"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1019,58 +912,49 @@
    },
    "solution": "TRATTORIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TRATTORIA",
     "definitions": [
      {
       "text": "bistro",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down clue, sent upward means read from the bottom back to the top"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     },
-     {
-      "clueFragment": "rubbish",
-      "gives": "ROT",
-      "note": "rot means nonsense, rubbish"
-     },
-     {
-      "clueFragment": "bitter",
-      "gives": "TART",
-      "note": "tart means sharp-tasting, bitter"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRATTORI",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "IROTTART",
-       "to": "TRATTORI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "note": "in a down clue, sent upward means read from the bottom back to the top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One",
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "rubbish",
+           "gives": "ROT",
+           "note": "rot means nonsense, rubbish"
+          },
+          {
+           "words": "bitter",
+           "gives": "TART",
+           "note": "tart means sharp-tasting, bitter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
       }
      ]
     },
@@ -1100,43 +984,31 @@
    },
    "solution": "PANORAMA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PANORAMA",
     "definitions": [
      {
       "text": "Prospect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being found in",
-      "for": "container",
-      "note": "something found inside another thing is enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     },
-     {
-      "clueFragment": "a country",
-      "gives": "PANAMA",
-      "note": "Panama is a Central American country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAN",
-      "OR",
-      "AMA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being found in",
+       "note": "something found inside another thing is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a country",
+       "gives": "PANAMA",
+       "note": "Panama is a Central American country"
+      },
+      {
+       "words": "gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
      ]
     },
     "explanation": {
@@ -1166,35 +1038,25 @@
    },
    "solution": "MANSLAUGHTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANSLAUGHTER",
     "definitions": [
      {
       "text": "offence",
       "at": 25
      }
     ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Valet's",
-      "gives": "MANS",
-      "note": "a valet is a manservant, a man, and the apostrophe S is kept"
-     },
-     {
-      "clueFragment": "sniggering",
-      "gives": "LAUGHTER",
-      "note": "sniggering is a kind of laughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MANS",
-      "LAUGHTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Valet's",
+       "gives": "MANS",
+       "note": "a valet is a manservant, a man, and the apostrophe S is kept"
+      },
+      {
+       "words": "sniggering",
+       "gives": "LAUGHTER",
+       "note": "sniggering is a kind of laughter"
+      }
      ]
     },
     "explanation": {
@@ -1224,48 +1086,37 @@
    },
    "solution": "GAINFUL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GAINFUL",
     "definitions": [
      {
       "text": "Making money",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in supply",
-      "for": "anagram",
-      "note": "supply can be read as the adverb from supple, so the letters bend into new shapes"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gulf",
-      "gives": "GULF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AGULFIN",
-       "gives": "GAINFUL"
+       "text": "in supply",
+       "note": "supply can be read as the adverb from supple, so the letters bend into new shapes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "gulf",
+         "note": "taken as written"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1295,44 +1146,35 @@
    },
    "solution": "REMISS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REMISS",
     "definitions": [
      {
       "text": "Derelict",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cleaned out",
-      "for": "letter_selection",
-      "note": "cleaning out empties the inside, so only the outer letters stay"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roadhouse",
-      "gives": "RE",
-      "select": "outer",
-      "note": "first and last letters"
-     },
-     {
-      "clueFragment": "maid",
-      "gives": "MISS",
-      "note": "a maid is a young woman, a miss"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "MISS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cleaned out",
+         "note": "cleaning out empties the inside, so only the outer letters stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roadhouse",
+         "note": "first and last letters"
+        }
+       ]
+      },
+      {
+       "words": "maid",
+       "gives": "MISS",
+       "note": "a maid is a young woman, a miss"
+      }
      ]
     },
     "explanation": {
@@ -1361,41 +1203,25 @@
    },
    "solution": "LOOT",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "LOOT",
     "definitions": [
      {
       "text": "money",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "rolling",
-      "for": "reversal",
-      "note": "something rolling turns over, so the letters come round the other way"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Plane, for one",
-      "gives": "TOOL",
-      "note": "a plane is a woodworking tool, so an example of one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOOT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TOOL",
-       "to": "LOOT"
+       "text": "rolling",
+       "note": "something rolling turns over, so the letters come round the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Plane, for one",
+       "gives": "TOOL",
+       "note": "a plane is a woodworking tool, so an example of one"
       }
      ]
     },
@@ -1425,43 +1251,31 @@
    },
    "solution": "TAILPIECES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TAILPIECES",
     "definitions": [
      {
       "text": "Final items",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eaten by",
-      "for": "container",
-      "note": "whatever is eaten ends up inside the eater"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "PIECE",
-      "note": "a piece is a work, as of art or music"
-     },
-     {
-      "clueFragment": "dogs",
-      "gives": "TAILS",
-      "note": "to dog someone is to follow them closely, to tail them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAIL",
-      "PIECE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eaten by",
+       "note": "whatever is eaten ends up inside the eater"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dogs",
+       "gives": "TAILS",
+       "note": "to dog someone is to follow them closely, to tail them"
+      },
+      {
+       "words": "work",
+       "gives": "PIECE",
+       "note": "a piece is a work, as of art or music"
+      }
      ]
     },
     "explanation": {
@@ -1491,35 +1305,25 @@
    },
    "solution": "PLUMP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLUMP",
     "definitions": [
      {
       "text": "fleshy",
       "at": 16
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fruit",
-      "gives": "PLUM",
-      "note": "a plum is a fruit"
-     },
-     {
-      "clueFragment": "soft",
-      "gives": "P",
-      "note": "p (piano) means soft in music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLUM",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fruit",
+       "gives": "PLUM",
+       "note": "a plum is a fruit"
+      },
+      {
+       "words": "soft",
+       "gives": "P",
+       "note": "p (piano) means soft in music"
+      }
      ]
     },
     "explanation": {
@@ -1548,28 +1352,16 @@
    },
    "solution": "CAREER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAREER",
     "definitions": [
      {
       "text": "Rush",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to hurtle along out of control"
      },
      {
       "text": "job",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rush",
-      "note": "first meaning: to hurtle along out of control"
-     },
-     {
-      "clueFragment": "job",
-      "note": "second meaning: a lifelong profession or line of work"
+      "at": 5,
+      "meaning": "second meaning: a lifelong profession or line of work"
      }
     ],
     "explanation": {
@@ -1598,45 +1390,34 @@
    },
    "solution": "FOUNTAIN",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FOUNTAIN",
     "definitions": [
      {
       "text": "jet",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "camouflaged",
-      "for": "anagram",
-      "note": "camouflage disguises a thing's form, so the letters are rearranged to hide them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "F",
-      "note": "F is the abbreviation for female"
-     },
-     {
-      "clueFragment": "unit on a",
-      "gives": "UNITONA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "OUNTAIN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "UNITONA",
-       "gives": "OUNTAIN"
+       "words": "Female",
+       "gives": "F",
+       "note": "F is the abbreviation for female"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "camouflaged",
+         "note": "camouflage disguises a thing's form, so the letters are rearranged to hide them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unit on a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1666,34 +1447,29 @@
    },
    "solution": "TWO",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TWO",
     "definitions": [
      {
       "text": "A couple",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outspoken",
-      "for": "homophone",
-      "note": "spoken out means said aloud, so the word is judged by its sound"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "overly",
-      "gives": "TWO",
-      "soundsLike": "TOO",
-      "note": "too means overly, excessively"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TWO",
+     "indicators": [
+      {
+       "text": "outspoken",
+       "note": "spoken out means said aloud, so the word is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "overly",
+       "gives": "TOO",
+       "note": "too means overly, excessively"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pair of people who speak their minds far too freely.",
      "walkthrough": "'Overly outspoken' reads as one phrase, but overly supplies the sound.",
@@ -1720,39 +1496,31 @@
    },
    "solution": "MARSHALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARSHALL",
     "definitions": [
      {
       "text": "He planned reconstruction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across answer, one thing placed on another comes after it, so the earlier-named piece goes second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wetlands",
-      "gives": "MARSH",
-      "note": "a marsh is wetland"
-     },
-     {
-      "clueFragment": "entirely",
-      "gives": "ALL",
-      "note": "all means entirely, wholly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARSH",
-      "ALL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across answer, one thing placed on another comes after it, so the earlier-named piece goes second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wetlands",
+       "gives": "MARSH",
+       "note": "a marsh is wetland"
+      },
+      {
+       "words": "entirely",
+       "gives": "ALL",
+       "note": "all means entirely, wholly"
+      }
      ]
     },
     "explanation": {
@@ -1781,50 +1549,40 @@
    },
    "solution": "PROUST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PROUST",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader of anything is at the front, so only the first letter is taken"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro means for, in favour of"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for American"
-     },
-     {
-      "clueFragment": "trial",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "US",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PRO",
+       "note": "pro means for, in favour of"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US is short for American"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader of anything is at the front, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trial",
+         "note": "the opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

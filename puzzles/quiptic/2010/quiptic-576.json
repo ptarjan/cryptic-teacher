@@ -1,8 +1,6 @@
 {
  "id": "quiptic-576",
  "number": 576,
- "series": "quiptic",
- "name": "Quiptic crossword No 576",
  "setter": "Hectence",
  "date": "2010-11-29",
  "dimensions": {
@@ -44,70 +42,76 @@
    },
    "solution": "BATHINGCOSTUME",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BATHING COSTUME",
     "definitions": [
      {
       "text": "pool attire",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the object-and-price pair inside the symbol for gold"
-     },
-     {
-      "text": "semi",
-      "for": "letter_selection",
-      "note": "semi means half, so only half of the shiny fabric word is kept"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "black",
-      "gives": "B",
-      "note": "B is the abbreviation for black, as on pencils"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "AU",
-      "note": "Au is the chemical symbol for gold"
-     },
-     {
-      "clueFragment": "Object",
-      "gives": "THING",
-      "note": "an object is a thing"
-     },
-     {
-      "clueFragment": "price",
-      "gives": "COST",
-      "note": "a price is a cost"
-     },
-     {
-      "clueFragment": "lamé",
-      "gives": "ME",
-      "select": "last",
-      "note": "the second half of the four-letter fabric name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "A",
-      "THING",
-      "COST",
-      "U",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places the object-and-price pair inside the symbol for gold"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "black",
+           "gives": "B",
+           "note": "B is the abbreviation for black, as on pencils"
+          },
+          {
+           "words": "gold",
+           "gives": "AU",
+           "note": "Au is the chemical symbol for gold"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Object",
+           "gives": "THING",
+           "note": "an object is a thing"
+          },
+          {
+           "words": "price",
+           "gives": "COST",
+           "note": "a price is a cost"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "ME",
+       "indicators": [
+        {
+         "text": "semi",
+         "note": "semi means half, so only half of the shiny fabric word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "lamé",
+         "gives": "ME",
+         "select": "last",
+         "note": "the second half of the four-letter fabric name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -146,29 +150,17 @@
    },
    "solution": "BALLANDCHAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BALL AND CHAIN",
     "definitions": [
      {
       "text": "They restrain",
       "at": 0,
-      "note": "plural verb phrase for a singular noun; the ball and the chain are the things that restrain"
+      "note": "plural verb phrase for a singular noun; the ball and the chain are the things that restrain",
+      "meaning": "first meaning: the heavy ball chained to a convict's leg"
      },
      {
       "text": "prisoner's wife",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "They restrain",
-      "note": "first meaning: the heavy ball chained to a convict's leg"
-     },
-     {
-      "clueFragment": "prisoner's wife",
-      "note": "second meaning: jokey slang for a spouse, seen as a husband's jailer"
+      "at": 14,
+      "meaning": "second meaning: jokey slang for a spouse, seen as a husband's jailer"
      }
     ],
     "explanation": {
@@ -198,38 +190,24 @@
    },
    "solution": "TORSO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TORSO",
     "definitions": [
      {
       "text": "Trunk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "something broken is smashed apart, so its letters can be put back in another order"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roots",
-      "gives": "ROOTS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROOTS",
-       "gives": "TORSO"
+       "text": "broken",
+       "note": "something broken is smashed apart, so its letters can be put back in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "roots",
+       "note": "taken as written"
       }
      ]
     },
@@ -260,65 +238,69 @@
    },
    "solution": "IMAGINARY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "reversal"
-    ],
-    "answer": "IMAGINARY",
     "definitions": [
      {
       "text": "Fantastic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfinished",
-      "for": "deletion",
-      "note": "something unfinished is missing its end, so the last letter is dropped"
-     },
-     {
-      "text": "turns up",
-      "for": "reversal",
-      "note": "in a down entry, turning up means reading from the bottom upward, so the order flips"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "picture",
-      "gives": "IMAGE",
-      "note": "a picture is an image"
-     },
-     {
-      "clueFragment": "fashionable",
-      "gives": "IN",
-      "note": "in means in fashion"
-     },
-     {
-      "clueFragment": "young",
-      "gives": "Y",
-      "note": "Y is an abbreviation for young"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA is a Royal Academician, the crossword's usual artist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMAG",
-      "IN",
-      "ARY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "YRA",
-       "to": "ARY"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "note": "something unfinished is missing its end, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "picture",
+           "gives": "IMAGE",
+           "note": "a picture is an image"
+          },
+          {
+           "words": "fashionable",
+           "gives": "IN",
+           "note": "in means in fashion"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns up",
+         "note": "in a down entry, turning up means reading from the bottom upward, so the order flips"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "young",
+           "gives": "Y",
+           "note": "Y is an abbreviation for young"
+          },
+          {
+           "words": "artist",
+           "gives": "RA",
+           "note": "RA is a Royal Academician, the crossword's usual artist"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -353,32 +335,25 @@
    },
    "solution": "GETWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GET WELL",
     "definitions": [
      {
       "text": "Imperative to recover",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "secure",
-      "gives": "GET",
-      "note": "to secure something is to get it"
-     },
-     {
-      "clueFragment": "water supply",
-      "gives": "WELL",
-      "note": "a well supplies water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GET",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secure",
+       "gives": "GET",
+       "note": "to secure something is to get it"
+      },
+      {
+       "words": "water supply",
+       "gives": "WELL",
+       "note": "a well supplies water"
+      }
      ]
     },
     "explanation": {
@@ -408,51 +383,41 @@
    },
    "solution": "OVERAWE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OVERAWE",
     "definitions": [
      {
       "text": "Cow",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "second",
-      "for": "letter_selection",
-      "note": "second points to the letter in position two of the following word"
-     }
-    ],
-    "linkWords": [
-     "'s",
-     "'s with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remaining",
-      "gives": "OVER",
-      "note": "what is left over is remaining"
-     },
-     {
-      "clueFragment": "calf",
-      "gives": "A",
-      "select": 2,
-      "note": "the second letter of calf"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "WE",
-      "note": "us and we are the same pronoun in different cases"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "A",
-      "WE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "remaining",
+       "gives": "OVER",
+       "note": "what is left over is remaining"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "note": "second points to the letter in position two of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "calf",
+         "note": "the second letter of calf"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "gives": "WE",
+       "note": "us and we are the same pronoun in different cases"
+      }
      ]
     },
     "explanation": {
@@ -481,28 +446,16 @@
    },
    "solution": "TASTE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TASTE",
     "definitions": [
      {
       "text": "Choice",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: discernment, judgement in selecting what is good"
      },
      {
       "text": "sample",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Choice",
-      "note": "first meaning: discernment, judgement in selecting what is good"
-     },
-     {
-      "clueFragment": "sample",
-      "note": "second meaning: to try a little of food"
+      "at": 7,
+      "meaning": "second meaning: to try a little of food"
      }
     ],
     "explanation": {
@@ -530,47 +483,35 @@
    },
    "solution": "MARMALADE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARMALADE",
     "definitions": [
      {
       "text": "jam",
       "at": 31
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spoil",
-      "gives": "MAR",
-      "note": "to mar is to spoil"
-     },
-     {
-      "clueFragment": "mummy's",
-      "gives": "MA",
-      "note": "ma is a mother"
-     },
-     {
-      "clueFragment": "boy",
-      "gives": "LAD",
-      "note": "a lad is a boy"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAR",
-      "MA",
-      "LAD",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Spoil",
+       "gives": "MAR",
+       "note": "to mar is to spoil"
+      },
+      {
+       "words": "mummy's",
+       "gives": "MA",
+       "note": "ma is a mother"
+      },
+      {
+       "words": "boy",
+       "gives": "LAD",
+       "note": "a lad is a boy"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -598,49 +539,41 @@
    },
    "solution": "LARVA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LARVA",
     "definitions": [
      {
       "text": "grub",
       "at": 4
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the meeting letters inside the city's abbreviation"
-     }
-    ],
-    "linkWords": [
-     "Get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Los Angeles",
-      "gives": "LA",
-      "note": "LA is the usual short form of Los Angeles"
-     },
-     {
-      "clueFragment": "at a",
-      "gives": "A",
-      "note": "the word a taken as written"
-     },
-     {
-      "clueFragment": "rendezvous",
-      "gives": "RV",
-      "note": "RV is the abbreviation for rendezvous"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "A",
-      "RV",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places the meeting letters inside the city's abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Los Angeles",
+         "gives": "LA",
+         "note": "LA is the usual short form of Los Angeles"
+        },
+        {
+         "words": "at a",
+         "gives": "A",
+         "note": "the word a taken as written"
+        }
+       ]
+      },
+      {
+       "words": "rendezvous",
+       "gives": "RV",
+       "note": "RV is the abbreviation for rendezvous"
+      }
      ]
     },
     "explanation": {
@@ -670,51 +603,40 @@
    },
    "solution": "TREASURE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TREASURE",
     "definitions": [
      {
       "text": "Think highly of",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trip",
-      "for": "anagram",
-      "note": "a trip is a stumble, which throws the holiday word's letters into disorder"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "round means surrounding, so the shuffled letters go around the city"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Easter",
-      "gives": "EASTER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "ancient city",
-      "gives": "UR",
-      "note": "Ur is the ancient Sumerian city, a crossword staple"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TREAS",
-      "UR",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "EASTER",
-       "gives": "TREASE"
+       "text": "round",
+       "note": "round means surrounding, so the shuffled letters go around the city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trip",
+         "note": "a trip is a stumble, which throws the holiday word's letters into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Easter",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "ancient city",
+       "gives": "UR",
+       "note": "Ur is the ancient Sumerian city, a crossword staple"
       }
      ]
     },
@@ -749,40 +671,39 @@
    },
    "solution": "GENTLEBREEZE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "GENTLE BREEZE",
     "definitions": [
      {
       "text": "a bit of wind",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as heard said, so the word is taken by its sound"
-     }
-    ],
-    "linkWords": [
-     "cause"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mild",
-      "gives": "GENTLE",
-      "note": "mild means gentle"
-     },
-     {
-      "clueFragment": "French cheeses",
-      "gives": "BREEZE",
-      "soundsLike": "BRIES",
-      "note": "Brie is a soft French cheese; its plural is said the same as the spelt word"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mild",
+       "gives": "GENTLE",
+       "note": "mild means gentle"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BREEZE",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly means as heard said, so the word is taken by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French cheeses",
+         "gives": "BRIES",
+         "note": "Brie is a soft French cheese; its plural is said the same as the spelt word"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Mild French cheeses are said to cause flatulence.",
      "walkthrough": "The surface is a toilet joke about cheese and wind; the definition is a light breeze.",
@@ -810,42 +731,31 @@
    },
    "solution": "AGONISE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AGONISE",
     "definitions": [
      {
       "text": "worry",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "deletion",
-      "note": "off means removed, so the insect is taken away from the following word"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Insect's",
-      "gives": "ANT",
-      "note": "the ant is the insect"
-     },
-     {
-      "clueFragment": "offend",
-      "gives": "ANTAGONISE",
-      "note": "to offend or provoke hostility"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGONISE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "note": "off means removed, so the insect is taken away from the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "offend",
+       "gives": "ANTAGONISE",
+       "note": "to offend or provoke hostility"
+      },
+      {
+       "words": "Insect's",
+       "gives": "ANT",
+       "note": "the ant is the insect"
+      }
      ]
     },
     "explanation": {
@@ -874,32 +784,25 @@
    },
    "solution": "AVERAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AVERAGE",
     "definitions": [
      {
       "text": "Mean",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "to state",
-      "gives": "AVER",
-      "note": "to aver is to state firmly"
-     },
-     {
-      "clueFragment": "how old",
-      "gives": "AGE",
-      "note": "your age is how old you are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AVER",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to state",
+       "gives": "AVER",
+       "note": "to aver is to state firmly"
+      },
+      {
+       "words": "how old",
+       "gives": "AGE",
+       "note": "your age is how old you are"
+      }
      ]
     },
     "explanation": {
@@ -929,50 +832,40 @@
    },
    "solution": "DOGMA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "DOGMA",
     "definitions": [
      {
       "text": "principle",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "first asks for the opening letter of the word before it"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Party",
-      "gives": "DO",
-      "note": "a do is a party"
-     },
-     {
-      "clueFragment": "genetic modification",
-      "gives": "GM",
-      "note": "GM is the usual abbreviation"
-     },
-     {
-      "clueFragment": "as",
-      "gives": "A",
-      "select": "first",
-      "note": "the opening letter of as"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DO",
-      "GM",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "words": "genetic modification",
+       "gives": "GM",
+       "note": "GM is the usual abbreviation"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "first asks for the opening letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "as",
+         "note": "the opening letter of as"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1007,28 +900,16 @@
    },
    "solution": "GOLDMINER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GOLD MINER",
     "definitions": [
      {
       "text": "Metal detector",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: someone who finds a precious metal"
      },
      {
       "text": "digger",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Metal detector",
-      "note": "first meaning: someone who finds a precious metal"
-     },
-     {
-      "clueFragment": "digger",
-      "note": "second meaning: one who digs it out of the ground"
+      "at": 18,
+      "meaning": "second meaning: one who digs it out of the ground"
      }
     ],
     "explanation": {
@@ -1067,50 +948,49 @@
    },
    "solution": "LIEINWAIT",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "LIE IN WAIT",
     "definitions": [
      {
       "text": "Prepare an ambush",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say signals that the number is to be taken by its spoken sound"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "be",
-      "gives": "LIE",
-      "note": "to lie somewhere is to be situated there"
-     },
-     {
-      "clueFragment": "home",
-      "gives": "IN",
-      "note": "in means at home"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the abbreviation for wife"
-     },
-     {
-      "clueFragment": "8",
-      "gives": "AIT",
-      "soundsLike": "EIGHT",
-      "note": "an ait is a small river island, said like the number"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "be",
+       "gives": "LIE",
+       "note": "to lie somewhere is to be situated there"
+      },
+      {
+       "words": "home",
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "wife",
+       "gives": "W",
+       "note": "W is the abbreviation for wife"
+      },
+      {
+       "op": "homophone",
+       "spelt": "AIT",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "say signals that the number is to be taken by its spoken sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "8",
+         "gives": "EIGHT",
+         "note": "an ait is a small river island, said like the number"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone promises to be home with their wife by eight o'clock.",
      "walkthrough": "'By' just joins W to the sound-alike; AIT is a British word for an island in a river, as on the Thames.",
@@ -1137,59 +1017,49 @@
    },
    "solution": "NIGHTMARE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "NIGHTMARE",
     "definitions": [
      {
       "text": "a bad one",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion",
-      "note": "losing means giving up, so the daughter's letter is taken out"
-     },
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about means moved around, so the remaining letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "At the end of the day",
-      "gives": "NIGHT",
-      "note": "night comes when the day ends"
-     },
-     {
-      "clueFragment": "dream",
-      "gives": "DREAM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "daughter",
-      "gives": "D",
-      "note": "D is the abbreviation for daughter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIGHT",
-      "MARE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NIGHTMARE",
+     "indicators": [
       {
-       "fodder": "REAM",
-       "gives": "MARE"
+       "text": "about",
+       "note": "about means moved around, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "NIGHTMARE",
+       "indicators": [
+        {
+         "text": "losing",
+         "note": "losing means giving up, so the daughter's letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "At the end of the day",
+         "gives": "NIGHT",
+         "note": "night comes when the day ends"
+        },
+        {
+         "words": "dream",
+         "note": "taken as written"
+        },
+        {
+         "words": "daughter",
+         "gives": "D",
+         "note": "D is the abbreviation for daughter"
+        }
+       ]
       }
      ]
     },
@@ -1219,65 +1089,60 @@
    },
    "solution": "HOLLYWOOD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "HOLLYWOOD",
     "definitions": [
      {
       "text": "US film industry",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "First",
-      "for": "letter_selection",
-      "note": "First asks for the opening letter of the name that follows"
-     },
-     {
-      "text": "production",
-      "for": "anagram",
-      "note": "a production is something put together, so the surname is reassembled"
-     },
-     {
-      "text": "accepts",
-      "for": "container",
-      "note": "accepts means takes in, so the courting word goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Harold",
-      "gives": "H",
-      "select": "first",
-      "note": "the opening letter of Harold"
-     },
-     {
-      "clueFragment": "Lloyd",
-      "gives": "LLOYD",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court someone is to woo them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "OLLY",
-      "WOO",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LLOYD",
-       "gives": "OLLYD"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First",
+         "note": "First asks for the opening letter of the name that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harold",
+         "note": "the opening letter of Harold"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "note": "accepts means takes in, so the courting word goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "production",
+           "note": "a production is something put together, so the surname is reassembled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lloyd",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "court",
+         "gives": "WOO",
+         "note": "to court someone is to woo them"
+        }
+       ]
       }
      ]
     },
@@ -1313,48 +1178,34 @@
    },
    "solution": "OLDSALT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "OLD SALT",
     "definitions": [
      {
       "text": "Experienced sailor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "work",
-      "for": "anagram",
-      "note": "to work something is to knead or shape it, so the letters are reshaped"
-     }
-    ],
-    "linkWords": [
-     "on to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "loads",
-      "gives": "LOADS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "officer",
-      "gives": "LT",
-      "note": "Lt is the abbreviation for lieutenant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLDSA",
-      "LT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LOADS",
-       "gives": "OLDSA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "work",
+         "note": "to work something is to knead or shape it, so the letters are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loads",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "officer",
+       "gives": "LT",
+       "note": "Lt is the abbreviation for lieutenant"
       }
      ]
     },
@@ -1383,50 +1234,41 @@
    },
    "solution": "DEPLETE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "DEPLETE",
     "definitions": [
      {
       "text": "Run down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' puts the quiet-and-obstacle pair inside the river"
-     }
-    ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "DEE",
-      "note": "the Dee is a British river"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p is piano, the musical marking for quietly"
-     },
-     {
-      "clueFragment": "obstacle",
-      "gives": "LET",
-      "note": "a let is an obstacle, as in 'without let or hindrance'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "P",
-      "LET",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' puts the quiet-and-obstacle pair inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "DEE",
+       "note": "the Dee is a British river"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quietly",
+         "gives": "P",
+         "note": "p is piano, the musical marking for quietly"
+        },
+        {
+         "words": "obstacle",
+         "gives": "LET",
+         "note": "a let is an obstacle, as in 'without let or hindrance'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1455,41 +1297,30 @@
    },
    "solution": "GEESE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GEESE",
     "definitions": [
      {
       "text": "birds",
       "at": 45
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American sounding surprised",
-      "gives": "GEE",
-      "note": "gee is an American exclamation of surprise"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the abbreviation for small"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEE",
-      "S",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American sounding surprised",
+       "gives": "GEE",
+       "note": "gee is an American exclamation of surprise"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S is the abbreviation for small"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      }
      ]
     },
     "explanation": {
@@ -1518,54 +1349,44 @@
    },
    "solution": "IMMURED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "IMMURED",
     "definitions": [
      {
       "text": "imprisoned",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "agitated",
-      "for": "anagram",
-      "note": "agitated means stirred up, so the letters are shaken into a new order"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Single",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "mum",
-      "gives": "MUM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "RED",
-      "note": "a red is a revolutionary communist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "MMU",
-      "RED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MUM",
-       "gives": "MMU"
+       "words": "Single",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "agitated",
+         "note": "agitated means stirred up, so the letters are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mum",
+           "note": "taken as written"
+          },
+          {
+           "words": "revolutionary",
+           "gives": "RED",
+           "note": "a red is a revolutionary communist"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1594,51 +1415,40 @@
    },
    "solution": "RIOTS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RIOTS",
     "definitions": [
      {
       "text": "civil disturbances",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means reading from bottom to top"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the letter for old inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stir",
-      "gives": "STIR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "O",
-      "TS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "STIR",
-       "to": "RITS"
+       "text": "up",
+       "note": "in a down entry, up means reading from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places the letter for old inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stir",
+         "note": "taken as written"
+        },
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O is the abbreviation for old"
+        }
+       ]
       }
      ]
     },
@@ -1668,40 +1478,31 @@
    },
    "solution": "PITCHER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PITCHER",
     "definitions": [
      {
       "text": "baseball player",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "to stand in",
-      "for": "container",
-      "note": "to stand in something is to be inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "PER",
-      "note": "per means for each, as in 'per head'"
-     },
-     {
-      "clueFragment": "Longing",
-      "gives": "ITCH",
-      "note": "an itch is a longing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ITCH",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stand in",
+       "note": "to stand in something is to be inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for",
+       "gives": "PER",
+       "note": "per means for each, as in 'per head'"
+      },
+      {
+       "words": "Longing",
+       "gives": "ITCH",
+       "note": "an itch is a longing"
+      }
      ]
     },
     "explanation": {
@@ -1730,35 +1531,25 @@
    },
    "solution": "HAUNT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HAUNT",
     "definitions": [
      {
       "text": "Regularly visit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hospital",
-      "gives": "H",
-      "note": "H is the map abbreviation for hospital"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "AUNT",
-      "note": "an aunt is a relative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AUNT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hospital",
+       "gives": "H",
+       "note": "H is the map abbreviation for hospital"
+      },
+      {
+       "words": "relative",
+       "gives": "AUNT",
+       "note": "an aunt is a relative"
+      }
      ]
     },
     "explanation": {
@@ -1786,49 +1577,37 @@
    },
    "solution": "INNOVATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INNOVATE",
     "definitions": [
      {
       "text": "bring in new ideas",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "develop",
-      "for": "anagram",
-      "note": "to develop is to evolve into a new form, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vie",
-      "gives": "VIE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Ann",
-      "gives": "ANN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VIEANNTO",
-       "gives": "INNOVATE"
+       "text": "develop",
+       "note": "to develop is to evolve into a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Vie",
+         "note": "taken as written"
+        },
+        {
+         "words": "Ann",
+         "note": "taken as written"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1857,32 +1636,24 @@
    },
    "solution": "AMUSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AMUSE",
     "definitions": [
      {
       "text": "Entertain",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "goddess",
-      "gives": "MUSE",
-      "note": "the Muses were the nine Greek goddesses of the arts"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MUSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "goddess",
+       "gives": "MUSE",
+       "note": "the Muses were the nine Greek goddesses of the arts"
+      }
      ]
     },
     "explanation": {
@@ -1920,60 +1691,48 @@
    },
    "solution": "GRASPTHENETTLE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "GRASP THE NETTLE",
     "definitions": [
      {
       "text": "act boldly",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "criminal means crooked, so the letters are bent out of order"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ability to understand",
-      "gives": "GRASP",
-      "note": "a grasp is an understanding"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "web",
-      "gives": "NET",
-      "note": "a net is a web, and the Net is the web"
-     },
-     {
-      "clueFragment": "let",
-      "gives": "LET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRASP",
-      "THE",
-      "NET",
-      "TLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LET",
-       "gives": "TLE"
+       "words": "Ability to understand",
+       "gives": "GRASP",
+       "note": "a grasp is an understanding"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "note": "criminal means crooked, so the letters are bent out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "the",
+           "note": "taken as written"
+          },
+          {
+           "words": "web",
+           "gives": "NET",
+           "note": "a net is a web, and the Net is the web"
+          },
+          {
+           "words": "let",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "times-17205",
  "number": 17205,
- "series": "times",
- "name": "Times cryptic crossword No 17,205",
  "date": "1986-11-17",
  "dimensions": {
   "cols": 15,
@@ -46,26 +44,25 @@
    },
    "solution": "PARADEGROUND",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PARADE GROUND",
     "definitions": [
      {
       "text": "Drilling site",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Drilling site",
-      "note": "surface reading: a place where engineers bore for oil or water"
-     },
-     {
-      "clueFragment": "Drilling site",
-      "note": "setter's reading: the square where soldiers are drilled in marching"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Drilling site",
+       "note": "surface reading: a place where engineers bore for oil or water"
+      },
+      {
+       "words": "Drilling site",
+       "note": "setter's reading: the square where soldiers are drilled in marching"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Drilling suggests boring holes, but soldiers are drilled too: the answer is a PARADE GROUND.",
      "definitionFit": "Military drill, marching practice for troops, takes place on an open square set aside for that purpose."
@@ -92,47 +89,40 @@
    },
    "solution": "PLACATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PLACATE",
     "definitions": [
      {
       "text": "Win over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a horse-race",
-      "gives": "PLATE",
-      "note": "a plate is a race with a trophy as its prize"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hundred",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PL",
-      "A",
-      "C",
-      "ATE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a horse-race",
+       "gives": "PLATE",
+       "note": "a plate is a race with a trophy as its prize"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "hundred",
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -161,32 +151,25 @@
    },
    "solution": "REBEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REBEL",
     "definitions": [
      {
       "text": "Show resentment",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "level of noise",
-      "gives": "BEL",
-      "note": "the bel is a unit of sound intensity, ten decibels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BEL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerning",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "level of noise",
+       "gives": "BEL",
+       "note": "the bel is a unit of sound intensity, ten decibels"
+      }
      ]
     },
     "explanation": {
@@ -214,35 +197,27 @@
    },
    "solution": "DELEGATES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DELEGATES",
     "definitions": [
      {
       "text": "Representatives",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "orders",
-      "for": "anagram",
-      "note": "to order things is to arrange them, so these letters are put in a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get sealed",
-      "gives": "DELEGATES",
-      "note": "all nine letters of these two words rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DELEGATES",
+     "indicators": [
       {
-       "fodder": "GETSEALED",
-       "gives": "DELEGATES"
+       "text": "orders",
+       "note": "to order things is to arrange them, so these letters are put in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "get sealed",
+       "gives": "DELEGATES",
+       "note": "all nine letters of these two words rearranged"
       }
      ]
     },
@@ -272,31 +247,16 @@
    },
    "solution": "GANG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GANG",
     "definitions": [
      {
       "text": "The company",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a band of people, a crew"
      },
      {
       "text": "go",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "for the Scotch"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The company",
-      "note": "first meaning: a band of people, a crew"
-     },
-     {
-      "clueFragment": "go for the Scotch",
-      "note": "second meaning: the Scots dialect verb for go"
+      "at": 12,
+      "meaning": "second meaning: the Scots dialect verb for go"
      }
     ],
     "explanation": {
@@ -326,31 +286,16 @@
    },
    "solution": "OVERTURE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OVERTURE",
     "definitions": [
      {
       "text": "musical",
-      "at": 2
+      "at": 2,
+      "meaning": "first meaning: the orchestral piece opening an opera or show"
      },
      {
       "text": "proposal",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "A"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical",
-      "note": "first meaning: the orchestral piece opening an opera or show"
-     },
-     {
-      "clueFragment": "proposal",
-      "note": "second meaning: an opening approach or offer to begin talks"
+      "at": 10,
+      "meaning": "second meaning: an opening approach or offer to begin talks"
      }
     ],
     "explanation": {
@@ -379,48 +324,35 @@
    },
    "solution": "NAMED",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "NAMED",
     "definitions": [
      {
       "text": "baptized",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "turned over",
-      "for": "reversal",
-      "note": "something turned over is flipped end to end, so its letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Being",
-      "gives": "MAN",
-      "note": "a man is a being, a living person"
-     },
-     {
-      "clueFragment": "Edward",
-      "gives": "ED",
-      "note": "Ed is a short form of Edward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAM",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MAN",
-       "to": "NAM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned over",
+         "note": "something turned over is flipped end to end, so its letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Being",
+         "gives": "MAN",
+         "note": "a man is a being, a living person"
+        }
+       ]
+      },
+      {
+       "words": "Edward",
+       "gives": "ED",
+       "note": "Ed is a short form of Edward"
       }
      ]
     },
@@ -450,43 +382,33 @@
    },
    "solution": "ELONGATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELONGATE",
     "definitions": [
      {
       "text": "Stretch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outcome",
-      "for": "anagram",
-      "note": "an outcome is what something works out as, so these letters come out in a new form"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a leg",
-      "gives": "ALEG",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "NOTE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALEGNOTE",
-       "gives": "ELONGATE"
+       "text": "outcome",
+       "note": "an outcome is what something works out as, so these letters come out in a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a leg",
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "note",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -516,43 +438,31 @@
    },
    "solution": "LASSIE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LASSIE",
     "definitions": [
      {
       "text": "A little girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps round the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "story",
-      "gives": "LIE",
-      "note": "a lie is a made-up story"
-     },
-     {
-      "clueFragment": "a donkey",
-      "gives": "ASS",
-      "note": "an ass is a donkey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ASS",
-      "IE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece wraps round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "gives": "LIE",
+       "note": "a lie is a made-up story"
+      },
+      {
+       "words": "a donkey",
+       "gives": "ASS",
+       "note": "an ass is a donkey"
+      }
      ]
     },
     "explanation": {
@@ -581,26 +491,25 @@
    },
    "solution": "AMBULANCE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "AMBULANCE",
     "definitions": [
      {
       "text": "Sort of transport liable to ill usage",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "liable to ill usage",
-      "note": "surface reading: a vehicle likely to be mistreated or abused"
-     },
-     {
-      "clueFragment": "liable to ill usage",
-      "note": "setter's reading: a vehicle likely to be used by the ill"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "liable to ill usage",
+       "note": "surface reading: a vehicle likely to be mistreated or abused"
+      },
+      {
+       "words": "liable to ill usage",
+       "note": "setter's reading: a vehicle likely to be used by the ill"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A complaint that some kind of vehicle tends to be treated badly.",
      "walkthrough": "'Ill usage' sounds like abuse, but read it as use by ill people: the AMBULANCE.",
@@ -628,33 +537,28 @@
    },
    "solution": "MALTA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MALTA",
     "definitions": [
      {
       "text": "this country",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "By no means all",
-      "for": "hidden_word",
-      "note": "only part of the following words is used, so the answer sits inside a longer run of letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pay minimal tax",
-      "gives": "MALTA",
-      "note": "the letters straddle the end of minimal and the start of tax"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "By no means all",
+       "note": "only part of the following words is used, so the answer sits inside a longer run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pay minimal tax",
+       "gives": "MALTA",
+       "note": "the letters straddle the end of minimal and the start of tax"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that in some country not everybody gets away with paying little tax.",
      "walkthrough": "The surface reads 'by no means all' as 'not everyone'; it really says the answer is only part of 'pay minimal tax'.",
@@ -681,40 +585,31 @@
    },
    "solution": "ALLEGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALLEGE",
     "definitions": [
      {
       "text": "Maintain",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing being in another means it is placed inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "ALE",
-      "note": "ale is a type of beer, a drink"
-     },
-     {
-      "clueFragment": "a member",
-      "gives": "LEG",
-      "note": "a limb is a member of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "LEG",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing being in another means it is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "ALE",
+       "note": "ale is a type of beer, a drink"
+      },
+      {
+       "words": "a member",
+       "gives": "LEG",
+       "note": "a limb is a member of the body"
+      }
      ]
     },
     "explanation": {
@@ -743,45 +638,37 @@
    },
    "solution": "STUDENTS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "STUDENTS",
     "definitions": [
      {
       "text": "Apprentices",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on new course",
-      "for": "anagram",
-      "note": "setting off on a new course means changing direction, so these letters take a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the boss",
-      "gives": "STUD",
-      "note": "a boss is a raised knob or stud on a surface"
-     },
-     {
-      "clueFragment": "sent",
-      "gives": "ENTS",
-      "note": "the letters of sent rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STUD",
-      "ENTS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STUDENTS",
+     "indicators": [
       {
-       "fodder": "SENT",
-       "gives": "ENTS"
+       "text": "on new course",
+       "note": "setting off on a new course means changing direction, so these letters take a different order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the boss",
+         "gives": "STUD",
+         "note": "a boss is a raised knob or stud on a surface"
+        },
+        {
+         "words": "sent",
+         "gives": "ENTS",
+         "note": "the letters of sent rearranged"
+        }
+       ]
       }
      ]
     },
@@ -812,50 +699,40 @@
    },
    "solution": "EXCITE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EXCITE",
     "definitions": [
      {
       "text": "cause quite a stir",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Having caught",
-      "for": "container",
-      "note": "something that has caught another thing is holding it inside"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the river",
-      "gives": "EXE",
-      "note": "the Exe is a river in Devon, a crossword favourite"
-     },
-     {
-      "clueFragment": "caught",
-      "gives": "C",
-      "note": "c is the cricket scorecard abbreviation for caught"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "C",
-      "IT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Having caught",
+       "note": "something that has caught another thing is holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the river",
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, a crossword favourite"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "caught",
+         "gives": "C",
+         "note": "c is the cricket scorecard abbreviation for caught"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -884,50 +761,40 @@
    },
    "solution": "CALAMITY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CALAMITY",
     "definitions": [
      {
       "text": "disaster",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in something means placed inside it"
-     }
-    ],
-    "linkWords": [
-     "would be a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "strike",
-      "gives": "LAM",
-      "note": "to lam is to thrash or strike"
-     },
-     {
-      "clueFragment": "town",
-      "gives": "CITY",
-      "note": "a large town is a city"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "A",
-      "LAM",
-      "ITY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "being in something means placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "town",
+       "gives": "CITY",
+       "note": "a large town is a city"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "strike",
+         "gives": "LAM",
+         "note": "to lam is to thrash or strike"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -956,28 +823,16 @@
    },
    "solution": "GRADUATE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GRADUATE",
     "definitions": [
      {
       "text": "Get well-qualified",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to complete a degree and gain a qualification"
      },
      {
       "text": "group",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get well-qualified",
-      "note": "first meaning: to complete a degree and gain a qualification"
-     },
-     {
-      "clueFragment": "group",
-      "note": "second meaning: to arrange or sort into grades"
+      "at": 19,
+      "meaning": "second meaning: to arrange or sort into grades"
      }
     ],
     "explanation": {
@@ -1005,49 +860,34 @@
    },
    "solution": "DEFEATING",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DEFEATING",
     "definitions": [
      {
       "text": "frustrating",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the word is read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fed",
-      "gives": "FED",
-      "note": "taken as written, to be turned round"
-     },
-     {
-      "clueFragment": "being a consumer",
-      "gives": "EATING",
-      "note": "a consumer eats, so being one is eating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEF",
-      "EATING"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "FED",
-       "to": "DEF"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fed",
+         "note": "taken as written, to be turned round"
+        }
+       ]
+      },
+      {
+       "words": "being a consumer",
+       "gives": "EATING",
+       "note": "a consumer eats, so being one is eating"
       }
      ]
     },
@@ -1078,43 +918,31 @@
    },
    "solution": "FEELINGS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FEELINGS",
     "definitions": [
      {
       "text": "sympathies",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps round the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charges",
-      "gives": "FEES",
-      "note": "fees are charges for a service"
-     },
-     {
-      "clueFragment": "a swimmer",
-      "gives": "LING",
-      "note": "the ling is a sea fish related to the cod"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEE",
-      "LING",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece wraps round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charges",
+       "gives": "FEES",
+       "note": "fees are charges for a service"
+      },
+      {
+       "words": "a swimmer",
+       "gives": "LING",
+       "note": "the ling is a sea fish related to the cod"
+      }
      ]
     },
     "explanation": {
@@ -1143,41 +971,30 @@
    },
    "solution": "RELISHED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RELISHED",
     "definitions": [
      {
       "text": "smacked",
       "at": 29
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R is short for Rex, Latin for king"
-     },
-     {
-      "clueFragment": "has priest",
-      "gives": "ELI",
-      "note": "Eli is the priest who raised Samuel in the Bible"
-     },
-     {
-      "clueFragment": "cast off",
-      "gives": "SHED",
-      "note": "to shed is to cast off, like a skin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ELI",
-      "SHED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King",
+       "gives": "R",
+       "note": "R is short for Rex, Latin for king"
+      },
+      {
+       "words": "has priest",
+       "gives": "ELI",
+       "note": "Eli is the priest who raised Samuel in the Bible"
+      },
+      {
+       "words": "cast off",
+       "gives": "SHED",
+       "note": "to shed is to cast off, like a skin"
+      }
      ]
     },
     "explanation": {
@@ -1207,31 +1024,16 @@
    },
    "solution": "RECALL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RECALL",
     "definitions": [
      {
       "text": "Remember",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to bring back to mind"
      },
      {
       "text": "telephone again",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Remember",
-      "note": "first meaning: to bring back to mind"
-     },
-     {
-      "clueFragment": "telephone again",
-      "note": "second meaning: to call a second time"
+      "at": 12,
+      "meaning": "second meaning: to call a second time"
      }
     ],
     "explanation": {
@@ -1259,31 +1061,16 @@
    },
    "solution": "AFFECT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AFFECT",
     "definitions": [
      {
       "text": "Pretend",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to put on or feign, as with an accent"
      },
      {
       "text": "have some influence",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pretend",
-      "note": "first meaning: to put on or feign, as with an accent"
-     },
-     {
-      "clueFragment": "have some influence",
-      "note": "second meaning: to act upon or change something"
+      "at": 11,
+      "meaning": "second meaning: to act upon or change something"
      }
     ],
     "explanation": {
@@ -1310,38 +1097,27 @@
    },
    "solution": "TRAINER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRAINER",
     "definitions": [
      {
       "text": "The coach",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rough",
-      "for": "anagram",
-      "note": "something rough is roughed up or disordered, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terrain",
-      "gives": "TRAINER",
-      "note": "all seven letters rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TRAINER",
+     "indicators": [
       {
-       "fodder": "TERRAIN",
-       "gives": "TRAINER"
+       "text": "rough",
+       "note": "something rough is roughed up or disordered, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terrain",
+       "gives": "TRAINER",
+       "note": "all seven letters rearranged"
       }
      ]
     },
@@ -1372,52 +1148,46 @@
    },
    "solution": "COMMONLY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "COMMONLY",
     "definitions": [
      {
       "text": "Usually",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mid",
-      "for": "letter_selection",
-      "note": "mid points to the central part of the word it is attached to"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after says the word before it is placed behind the word that follows, not ahead of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "firm",
-      "gives": "CO",
-      "note": "Co. is the abbreviation for company, a firm"
-     },
-     {
-      "clueFragment": "midsummer",
-      "gives": "MM",
-      "select": "middle",
-      "note": "the two central letters of summer"
-     },
-     {
-      "clueFragment": "only",
-      "gives": "ONLY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "MM",
-      "ONLY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after says the word before it is placed behind the word that follows, not ahead of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "firm",
+       "gives": "CO",
+       "note": "Co. is the abbreviation for company, a firm"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "mid",
+         "note": "mid points to the central part of the word it is attached to"
+        }
+       ],
+       "parts": [
+        {
+         "words": "midsummer",
+         "gives": "SUMMER",
+         "note": "the two central letters of summer"
+        }
+       ]
+      },
+      {
+       "words": "only",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1446,26 +1216,25 @@
    },
    "solution": "OPERA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OPERA",
     "definitions": [
      {
       "text": "Noted play",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Noted play",
-      "note": "surface reading: a famous or celebrated drama"
-     },
-     {
-      "clueFragment": "Noted play",
-      "note": "setter's reading: a drama set to musical notes"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Noted play",
+       "note": "surface reading: a famous or celebrated drama"
+      },
+      {
+       "words": "Noted play",
+       "note": "setter's reading: a drama set to musical notes"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Noted' means famous on the surface; read it as full of musical notes and the play is sung.",
      "definitionFit": "An opera is a dramatic work in which the story is told through singing and orchestral music."
@@ -1492,26 +1261,25 @@
    },
    "solution": "CAMERA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CAMERA",
     "definitions": [
      {
       "text": "A shooting box",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A shooting box",
-      "note": "surface reading: a lodge used by people out hunting game"
-     },
-     {
-      "clueFragment": "A shooting box",
-      "note": "setter's reading: a box that takes shots, i.e. photographs"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A shooting box",
+       "note": "surface reading: a lodge used by people out hunting game"
+      },
+      {
+       "words": "A shooting box",
+       "note": "setter's reading: a box that takes shots, i.e. photographs"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A shooting box is a hunting lodge, but photographers shoot too, and the early CAMERA was literally a box.",
      "definitionFit": "Photographers speak of shooting pictures, and the device they use is a light-tight box with a lens."
@@ -1538,26 +1306,25 @@
    },
    "solution": "EXIST",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EXIST",
     "definitions": [
      {
       "text": "\"All we have willed or hoped or dreamed of good shall —\"",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "\"All we have willed or hoped or dreamed of good shall —\"",
-      "note": "a line from Robert Browning with its last word missing"
-     },
-     {
-      "clueFragment": "(Browning)",
-      "note": "the source: the poem Abt Vogler, about an organist improvising"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"All we have willed or hoped or dreamed of good shall —\"",
+       "note": "a line from Robert Browning with its last word missing"
+      },
+      {
+       "words": "(Browning)",
+       "note": "the source: the poem Abt Vogler, about an organist improvising"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A fill-in-the-blank quotation: the line from Browning's Abt Vogler ends 'shall exist'.",
      "definitionFit": "The missing verb completes the poet's promise that everything good that was wished for will truly be."
@@ -1582,12 +1349,6 @@
    },
    "solution": "ETNA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "ETNA",
     "definitions": [
      {
       "text": "may cause an eruption",
@@ -1595,40 +1356,39 @@
       "note": "a descriptive phrase for a volcano rather than a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     },
-     {
-      "text": "sending up",
-      "for": "reversal",
-      "note": "in a down clue, sending a word up makes it read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Egghead",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of egg"
-     },
-     {
-      "clueFragment": "worker",
-      "gives": "ANT",
-      "note": "the worker ant is a crossword staple"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "TNA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ANT",
-       "to": "TNA"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Egghead",
+         "note": "the first letter of egg"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sending up",
+         "note": "in a down clue, sending a word up makes it read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "worker",
+         "gives": "ANT",
+         "note": "the worker ant is a crossword staple"
+        }
+       ]
       }
      ]
     },
@@ -1659,49 +1419,42 @@
    },
    "solution": "LITHE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LITHE",
     "definitions": [
      {
       "text": "flexible",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "has it in",
-      "for": "container",
-      "note": "having something in means holding it inside, so one piece sits within the others"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trainee",
-      "gives": "L",
-      "note": "L is for learner, as on a learner driver's plates"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "(male)",
-      "gives": "HE",
-      "note": "he is the male pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IT",
-      "HE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "LITHE",
+     "indicators": [
+      {
+       "text": "has it in",
+       "note": "having something in means holding it inside, so one piece sits within the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Trainee",
+         "gives": "L",
+         "note": "L is for learner, as on a learner driver's plates"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        },
+        {
+         "words": "(male)",
+         "gives": "HE",
+         "note": "he is the male pronoun"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1730,35 +1483,27 @@
    },
    "solution": "NUTRITION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NUTRITION",
     "definitions": [
      {
       "text": "Food",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "diverted",
-      "for": "anagram",
-      "note": "something diverted is sent along a different route, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "into Turin",
-      "gives": "NUTRITION",
-      "note": "all nine letters of these two words rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NUTRITION",
+     "indicators": [
       {
-       "fodder": "INTOTURIN",
-       "gives": "NUTRITION"
+       "text": "diverted",
+       "note": "something diverted is sent along a different route, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "into Turin",
+       "gives": "NUTRITION",
+       "note": "all nine letters of these two words rearranged"
       }
      ]
     },
@@ -1787,26 +1532,25 @@
    },
    "solution": "MANSLAUGHTER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MANSLAUGHTER",
     "definitions": [
      {
       "text": "crime",
       "at": 42
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "But woman's hilarity is not occasioned by crime",
-      "note": "surface reading: a woman does not find crime funny"
-     },
-     {
-      "clueFragment": "But woman's hilarity is not occasioned by",
-      "note": "setter's reading: the crime is the male, not female, version of laughter, split as a man's mirth"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "But woman's hilarity is not occasioned by crime",
+       "note": "surface reading: a woman does not find crime funny"
+      },
+      {
+       "words": "But woman's hilarity is not occasioned by",
+       "note": "setter's reading: the crime is the male, not female, version of laughter, split as a man's mirth"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A woman is said not to be amused by lawbreaking.",
      "walkthrough": "Split the answer as MAN'S LAUGHTER: the hilarity belongs to a man, not a woman, and the whole is a killing without malice.",

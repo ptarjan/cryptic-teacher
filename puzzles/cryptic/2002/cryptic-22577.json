@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22577",
  "number": 22577,
- "series": "cryptic",
- "name": "Prize crossword No 22,577",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2002-07-20",
  "dimensions": {
@@ -38,58 +37,54 @@
    },
    "solution": "CANOODLING",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "CANOODLING",
     "definitions": [
      {
       "text": "way of showing love",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without here means outside, so the apple wraps around the other letters"
-     },
-     {
-      "text": "deranged",
-      "for": "anagram",
-      "note": "deranged means thrown out of order, so these letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Apple",
-      "gives": "CODLING",
-      "note": "a codling is a variety of cooking apple"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "orange",
-      "gives": "O",
-      "select": "first",
-      "note": "the opening letter of orange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ANO",
-      "ODLING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "OAN",
-       "gives": "ANO"
+       "text": "without",
+       "note": "without here means outside, so the apple wraps around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deranged",
+         "note": "deranged means thrown out of order, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Apple",
+           "gives": "CODLING",
+           "note": "a codling is a variety of cooking apple"
+          },
+          {
+           "words": "an",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "orange",
+         "note": "the opening letter of orange"
+        }
+       ]
       }
      ]
     },
@@ -125,32 +120,25 @@
    },
    "solution": "MATCHFIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MATCH FIT",
     "definitions": [
      {
       "text": "Ready to play",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "two suits",
-      "gives": "MATCH",
-      "note": "to match is to suit, the first of two words meaning suit"
-     },
-     {
-      "clueFragment": "two suits",
-      "gives": "FIT",
-      "note": "to fit is also to suit, the second word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MATCH",
-      "FIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two suits",
+       "gives": "MATCH",
+       "note": "to match is to suit, the first of two words meaning suit"
+      },
+      {
+       "words": "two suits",
+       "gives": "FIT",
+       "note": "to fit is also to suit, the second word"
+      }
      ]
     },
     "explanation": {
@@ -180,54 +168,48 @@
    },
    "solution": "BAZAAR",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BAZAAR",
     "definitions": [
      {
       "text": "market area",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "building",
-      "for": "anagram",
-      "note": "building suggests putting materials together in a new form, so these letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in tells us one set of letters sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremes",
-      "gives": "AZ",
-      "note": "A and Z are the extremes of the alphabet"
-     },
-     {
-      "clueFragment": "Arab",
-      "gives": "BAAR",
-      "note": "the letters of Arab rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "AZ",
-      "AAR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BAZAAR",
+     "indicators": [
       {
-       "fodder": "ARAB",
-       "gives": "BAAR"
+       "text": "in",
+       "note": "in tells us one set of letters sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "building",
+         "note": "building suggests putting materials together in a new form, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Extremes",
+           "gives": "AZ",
+           "note": "A and Z are the extremes of the alphabet"
+          },
+          {
+           "words": "Arab",
+           "gives": "BAAR",
+           "note": "the letters of Arab rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -257,28 +239,16 @@
    },
    "solution": "STUD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STUD",
     "definitions": [
      {
       "text": "Gamble with 10",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: ... is a variety of the card game at 10 across, ... poker"
      },
      {
       "text": "horses",
-      "at": 15
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gamble with 10",
-      "note": "first meaning: ... is a variety of the card game at 10 across, ... poker"
-     },
-     {
-      "clueFragment": "horses",
-      "note": "second meaning: an establishment of horses kept for breeding"
+      "at": 15,
+      "meaning": "second meaning: an establishment of horses kept for breeding"
      }
     ],
     "explanation": {
@@ -313,11 +283,6 @@
    },
    "solution": "WAGEEARNER",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WAGE-EARNER",
     "definitions": [
      {
       "text": "will keep the wolf from the door",
@@ -325,36 +290,34 @@
       "note": "a verb phrase defining a noun: the person who does this"
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "In shows that the horse goes inside the film company"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the film fraternity",
-      "gives": "WARNER",
-      "note": "Warner Brothers, the Hollywood studio founded by brothers"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "GEE",
-      "note": "gee or gee-gee is a childish word for a horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "A",
-      "GEE",
-      "ARNER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "In shows that the horse goes inside the film company"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the film fraternity",
+       "gives": "WARNER",
+       "note": "Warner Brothers, the Hollywood studio founded by brothers"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "horse",
+         "gives": "GEE",
+         "note": "gee or gee-gee is a childish word for a horse"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -383,10 +346,6 @@
    },
    "solution": "SPRINKLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPRINKLE",
     "definitions": [
      {
       "text": "to prevent fires?",
@@ -394,30 +353,28 @@
       "note": "a verb defined by its purpose; the question mark admits the looseness"
      }
     ],
-    "indicators": [
-     {
-      "text": "fabricated",
-      "for": "anagram",
-      "note": "fabricated means manufactured or made up, so the letters are assembled in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kilns",
-      "gives": "KILNS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "prefabricated",
-      "gives": "PRE",
-      "note": "the opening three letters of the printed word, split off from the anagram signal"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "KILNSPRE",
-       "gives": "SPRINKLE"
+       "text": "fabricated",
+       "note": "fabricated means manufactured or made up, so the letters are assembled in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Kilns",
+         "note": "taken as written"
+        },
+        {
+         "words": "prefabricated",
+         "gives": "PRE",
+         "note": "the opening three letters of the printed word, split off from the anagram signal"
+        }
+       ]
       }
      ]
     },
@@ -447,35 +404,24 @@
    },
    "solution": "SKOLIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SKOLIA",
     "definitions": [
      {
       "text": "Songs inspired by Bacchus",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disguised",
-      "for": "anagram",
-      "note": "something disguised has its appearance changed, so these letters take a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as Loki",
-      "gives": "ASLOKI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASLOKI",
-       "gives": "SKOLIA"
+       "text": "disguised",
+       "note": "something disguised has its appearance changed, so these letters take a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as Loki",
+       "note": "taken as written"
       }
      ]
     },
@@ -505,29 +451,17 @@
    },
    "solution": "WREN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WREN",
     "definitions": [
      {
       "text": "St Paul's",
       "at": 0,
-      "note": "the possessive names the cathedral's architect"
+      "note": "the possessive names the cathedral's architect",
+      "meaning": "first meaning: Sir Christopher ... designed St Paul's Cathedral in London"
      },
      {
       "text": "little bird",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "St Paul's",
-      "note": "first meaning: Sir Christopher ... designed St Paul's Cathedral in London"
-     },
-     {
-      "clueFragment": "little bird",
-      "note": "second meaning: a tiny brown songbird"
+      "at": 10,
+      "meaning": "second meaning: a tiny brown songbird"
      }
     ],
     "explanation": {
@@ -556,54 +490,41 @@
    },
    "solution": "AGALACTIA",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "AGALACTIA",
     "definitions": [
      {
       "text": "out of the Milky Way",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "missed",
-      "for": "anagram",
-      "note": "missed suggests the letters went astray, so they are not in their written order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "celebration",
-      "gives": "GALA",
-      "note": "a gala is a festive celebration"
-     },
-     {
-      "clueFragment": "act I",
-      "gives": "CTIA",
-      "note": "the letters of act I rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GALA",
-      "CTIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "AGALACTIA",
+     "indicators": [
       {
-       "fodder": "ACTI",
-       "gives": "CTIA"
+       "text": "missed",
+       "note": "missed suggests the letters went astray, so they are not in their written order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "celebration",
+         "gives": "GALA",
+         "note": "a gala is a festive celebration"
+        },
+        {
+         "words": "act I",
+         "gives": "CTIA",
+         "note": "the letters of act I rearranged"
+        }
+       ]
       }
      ]
     },
@@ -634,31 +555,16 @@
    },
    "solution": "POKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POKER",
     "definitions": [
      {
       "text": "Gamble",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a card game played for stakes"
      },
      {
       "text": "fire",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gamble",
-      "note": "first meaning: a card game played for stakes"
-     },
-     {
-      "clueFragment": "fire",
-      "note": "second meaning: the metal rod used to stir the coals of a fire"
+      "at": 12,
+      "meaning": "second meaning: the metal rod used to stir the coals of a fire"
      }
     ],
     "explanation": {
@@ -688,35 +594,25 @@
    },
    "solution": "ORCHARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORCHARD",
     "definitions": [
      {
       "text": "Where to find fruit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a whale",
-      "gives": "ORC",
-      "note": "an orc is a killer whale, the orca"
-     },
-     {
-      "clueFragment": "of a problem",
-      "gives": "HARD",
-      "note": "hard means difficult, a problem to solve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORC",
-      "HARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a whale",
+       "gives": "ORC",
+       "note": "an orc is a killer whale, the orca"
+      },
+      {
+       "words": "of a problem",
+       "gives": "HARD",
+       "note": "hard means difficult, a problem to solve"
+      }
      ]
     },
     "explanation": {
@@ -746,43 +642,39 @@
    },
    "solution": "ETIOLIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ETIOLIN",
     "definitions": [
      {
       "text": "yellow",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "not first",
-      "for": "deletion",
-      "note": "not first tells us to drop the opening letter of the following word"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alien's",
-      "gives": "ET",
-      "note": "ET is the alien of the Spielberg film"
-     },
-     {
-      "clueFragment": "fiddle",
-      "gives": "VIOLIN",
-      "note": "a fiddle is a violin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ET",
-      "IOLIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not first",
+       "note": "not first tells us to drop the opening letter of the following word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Alien's",
+         "gives": "ET",
+         "note": "ET is the alien of the Spielberg film"
+        },
+        {
+         "words": "fiddle",
+         "gives": "VIOLIN",
+         "note": "a fiddle is a violin"
+        }
+       ]
+      },
+      {
+       "gives": "V"
+      }
      ]
     },
     "explanation": {
@@ -831,31 +723,16 @@
    },
    "solution": "BLACKJACK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLACKJACK",
     "definitions": [
      {
       "text": "Gamble",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the card game also called pontoon or twenty-one"
      },
      {
       "text": "Jolly Roger, not the thief of tarts",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gamble",
-      "note": "first meaning: the card game also called pontoon or twenty-one"
-     },
-     {
-      "clueFragment": "Jolly Roger, not the thief of tarts",
-      "note": "second meaning: the pirate flag, a ..., unlike the red Knave of Hearts who stole the tarts"
+      "at": 12,
+      "meaning": "second meaning: the pirate flag, a ..., unlike the red Knave of Hearts who stole the tarts"
      }
     ],
     "explanation": {
@@ -891,52 +768,47 @@
    },
    "solution": "BEHINDTIME",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BEHIND TIME",
     "definitions": [
      {
       "text": "Late",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "container",
-      "note": "keeps means holds inside, so the buzzer surrounds the rest"
-     },
-     {
-      "text": "pursuing",
-      "for": "charade",
-      "note": "pursuing means following behind, so the boy comes after the deer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "buzzer",
-      "gives": "BEE",
-      "note": "a bee is an insect that buzzes"
-     },
-     {
-      "clueFragment": "deer",
-      "gives": "HIND",
-      "note": "a hind is a female deer"
-     },
-     {
-      "clueFragment": "little boy",
-      "gives": "TIM",
-      "note": "Tim, short for Timothy, as in Tiny Tim"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "HIND",
-      "TIM",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "keeps means holds inside, so the buzzer surrounds the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "buzzer",
+       "gives": "BEE",
+       "note": "a bee is an insect that buzzes"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "pursuing",
+         "note": "pursuing means following behind, so the boy comes after the deer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deer",
+         "gives": "HIND",
+         "note": "a hind is a female deer"
+        },
+        {
+         "words": "little boy",
+         "gives": "TIM",
+         "note": "Tim, short for Timothy, as in Tiny Tim"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -970,11 +842,6 @@
    },
    "solution": "KNEELENGTH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "KNEE-LENGTH",
     "definitions": [
      {
       "text": "Short of bags",
@@ -982,39 +849,39 @@
       "note": "describes trousers cut short, bags being trousers"
      }
     ],
-    "indicators": [
-     {
-      "text": "tail",
-      "for": "letter_selection",
-      "note": "a tail is the hindmost part, so take the final letter of that word"
-     },
-     {
-      "text": "wagging",
-      "for": "anagram",
-      "note": "wagging means moving to and fro, so these letters are shaken into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the kennel",
-      "gives": "THEKENNEL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "dog's",
-      "gives": "G",
-      "select": "last",
-      "note": "the closing letter of dog"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THEKENNELG",
-       "gives": "KNEELENGTH"
+       "text": "wagging",
+       "note": "wagging means moving to and fro, so these letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the kennel",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "tail",
+           "note": "a tail is the hindmost part, so take the final letter of that word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dog's",
+           "gives": "DOG",
+           "note": "the closing letter of dog"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1045,45 +912,37 @@
    },
    "solution": "INTERCHANGEABLE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "INTERCHANGEABLE",
     "definitions": [
      {
       "text": "Identical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests something put out of place, so those letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "junction",
-      "gives": "INTERCHANGE",
-      "note": "a road interchange is a motorway junction"
-     },
-     {
-      "clueFragment": "bale",
-      "gives": "ABLE",
-      "note": "the letters of bale rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTERCHANGE",
-      "ABLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INTERCHANGEABLE",
+     "indicators": [
       {
-       "fodder": "BALE",
-       "gives": "ABLE"
+       "text": "out",
+       "note": "out suggests something put out of place, so those letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "junction",
+         "gives": "INTERCHANGE",
+         "note": "a road interchange is a motorway junction"
+        },
+        {
+         "words": "bale",
+         "gives": "ABLE",
+         "note": "the letters of bale rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1113,43 +972,31 @@
    },
    "solution": "ROULETTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ROULETTE",
     "definitions": [
      {
       "text": "Gamble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in shows one word goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a way",
-      "gives": "ROUTE",
-      "note": "a route is a way"
-     },
-     {
-      "clueFragment": "suffer",
-      "gives": "LET",
-      "note": "to suffer in the old sense is to allow, to let"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROU",
-      "LET",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in shows one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a way",
+       "gives": "ROUTE",
+       "note": "a route is a way"
+      },
+      {
+       "words": "suffer",
+       "gives": "LET",
+       "note": "to suffer in the old sense is to allow, to let"
+      }
      ]
     },
     "explanation": {
@@ -1178,49 +1025,35 @@
    },
    "solution": "BACCARAT",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "BACCARAT",
     "definitions": [
      {
       "text": "Gamble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, raised means read upwards, so the word runs backwards"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vehicle",
-      "gives": "CAB",
-      "note": "a cab is a vehicle, a taxi"
-     },
-     {
-      "clueFragment": "the gold standard",
-      "gives": "CARAT",
-      "note": "the carat is the measure of gold purity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAC",
-      "CARAT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAB",
-       "to": "BAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down clue, raised means read upwards, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vehicle",
+         "gives": "CAB",
+         "note": "a cab is a vehicle, a taxi"
+        }
+       ]
+      },
+      {
+       "words": "the gold standard",
+       "gives": "CARAT",
+       "note": "the carat is the measure of gold purity"
       }
      ]
     },
@@ -1256,54 +1089,43 @@
    },
    "solution": "GASBURNER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "GAS BURNER",
     "definitions": [
      {
       "text": "Where fuel comes from",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being repaired",
-      "for": "anagram",
-      "note": "something being repaired is taken apart and put back, so these letters are reassembled"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in shows that these letters go inside the next word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "store",
-      "gives": "GARNER",
-      "note": "to garner is to store, as grain"
-     },
-     {
-      "clueFragment": "bus",
-      "gives": "SBU",
-      "note": "the letters of bus rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "SBU",
-      "RNER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GASBURNER",
+     "indicators": [
       {
-       "fodder": "BUS",
-       "gives": "SBU"
+       "text": "being repaired",
+       "note": "something being repaired is taken apart and put back, so these letters are reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in shows that these letters go inside the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "store",
+         "gives": "GARNER",
+         "note": "to garner is to store, as grain"
+        },
+        {
+         "words": "bus",
+         "gives": "SBU",
+         "note": "the letters of bus rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1333,32 +1155,25 @@
    },
    "solution": "SEXTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEXTON",
     "definitions": [
      {
       "text": "grave digger",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Male or female",
-      "gives": "SEX",
-      "note": "male or female is a person's sex"
-     },
-     {
-      "clueFragment": "heavyweight",
-      "gives": "TON",
-      "note": "a ton is a heavy weight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEX",
-      "TON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Male or female",
+       "gives": "SEX",
+       "note": "male or female is a person's sex"
+      },
+      {
+       "words": "heavyweight",
+       "gives": "TON",
+       "note": "a ton is a heavy weight"
+      }
      ]
     },
     "explanation": {
@@ -1387,48 +1202,35 @@
    },
    "solution": "CECIL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CECIL",
     "definitions": [
      {
       "text": "Salisbury",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "returned means sent back, so the letters are read from the end"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parasites",
-      "gives": "LICE",
-      "note": "lice are parasitic insects"
-     },
-     {
-      "clueFragment": "A number",
-      "gives": "C",
-      "note": "C is the Roman numeral for a hundred"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ECIL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LICEC",
-       "to": "CECIL"
+       "text": "returned",
+       "note": "returned means sent back, so the letters are read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "parasites",
+         "gives": "LICE",
+         "note": "lice are parasitic insects"
+        },
+        {
+         "words": "A number",
+         "gives": "C",
+         "note": "C is the Roman numeral for a hundred"
+        }
+       ]
       }
      ]
     },
@@ -1468,41 +1270,29 @@
     "13-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHEMIN-DE-FER",
     "definitions": [
      {
       "text": "Gamble",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "c-",
-      "gives": "C",
-      "note": "the stammered letter of the next word"
-     },
-     {
-      "clueFragment": "confine",
-      "gives": "HEMIN",
-      "note": "to hem in is to confine"
-     },
-     {
-      "clueFragment": "delay",
-      "gives": "DEFER",
-      "note": "to defer is to delay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HEMIN",
-      "DEFER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "c-",
+       "note": "the stammered letter of the next word"
+      },
+      {
+       "words": "confine",
+       "gives": "HEMIN",
+       "note": "to hem in is to confine"
+      },
+      {
+       "words": "delay",
+       "gives": "DEFER",
+       "note": "to defer is to delay"
+      }
      ]
     },
     "explanation": {
@@ -1537,35 +1327,25 @@
    },
    "solution": "BOXSEAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOX SEAT",
     "definitions": [
      {
       "text": "the coach-driver's place",
       "at": 24
      }
     ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shrub",
-      "gives": "BOX",
-      "note": "box is an evergreen shrub used for hedges"
-     },
-     {
-      "clueFragment": "country house",
-      "gives": "SEAT",
-      "note": "a country seat is a grand house on an estate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOX",
-      "SEAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shrub",
+       "gives": "BOX",
+       "note": "box is an evergreen shrub used for hedges"
+      },
+      {
+       "words": "country house",
+       "gives": "SEAT",
+       "note": "a country seat is a grand house on an estate"
+      }
      ]
     },
     "explanation": {
@@ -1593,31 +1373,16 @@
    },
    "solution": "BRAG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BRAG",
     "definitions": [
      {
       "text": "Gamble",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a British card game similar to poker"
      },
      {
       "text": "bluster",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gamble",
-      "note": "first meaning: a British card game similar to poker"
-     },
-     {
-      "clueFragment": "bluster",
-      "note": "second meaning: boastful talk"
+      "at": 11,
+      "meaning": "second meaning: boastful talk"
      }
     ],
     "explanation": {
@@ -1649,35 +1414,24 @@
    },
    "solution": "THEWAIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THE WAIN",
     "definitions": [
      {
       "text": "Stars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "concealed",
-      "for": "anagram",
-      "note": "concealed suggests the letters are muddled up so they cannot be seen as written"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in wheat",
-      "gives": "INWHEAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INWHEAT",
-       "gives": "THEWAIN"
+       "text": "concealed",
+       "note": "concealed suggests the letters are muddled up so they cannot be seen as written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in wheat",
+       "note": "taken as written"
       }
      ]
     },
@@ -1707,26 +1461,25 @@
    },
    "solution": "TONY",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TONY",
     "definitions": [
      {
       "text": "Premier traveller to America?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Premier traveller to America?",
-      "note": "surface reading: the first person to journey to the New World"
-     },
-     {
-      "clueFragment": "Premier traveller to America?",
-      "note": "setter's reading: the Prime Minister of 2002, forever flying over to see the US President"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Premier traveller to America?",
+       "note": "surface reading: the first person to journey to the New World"
+      },
+      {
+       "words": "Premier traveller to America?",
+       "note": "setter's reading: the Prime Minister of 2002, forever flying over to see the US President"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Premier looks like an adjective meaning first; it is a noun, the British Prime Minister, known by his first name.",
      "definitionFit": "In 2002 Britain's Prime Minister was Mr Blair, famous for frequent trips to Washington."
@@ -1753,32 +1506,24 @@
    },
    "solution": "ABOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABOUT",
     "definitions": [
      {
       "text": "more or less",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fight",
-      "gives": "BOUT",
-      "note": "a bout is a boxing match or fight"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BOUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "fight",
+       "gives": "BOUT",
+       "note": "a bout is a boxing match or fight"
+      }
      ]
     },
     "explanation": {
@@ -1806,32 +1551,25 @@
    },
    "solution": "MENDICANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MENDICANT",
     "definitions": [
      {
       "text": "Friar",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "to reform",
-      "gives": "MEND",
-      "note": "to mend one's ways is to reform"
-     },
-     {
-      "clueFragment": "I am unable",
-      "gives": "ICANT",
-      "note": "I am unable means I can't"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEND",
-      "ICANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to reform",
+       "gives": "MEND",
+       "note": "to mend one's ways is to reform"
+      },
+      {
+       "words": "I am unable",
+       "gives": "ICANT",
+       "note": "I am unable means I can't"
+      }
      ]
     },
     "explanation": {

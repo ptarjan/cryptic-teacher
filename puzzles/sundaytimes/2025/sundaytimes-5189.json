@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5189",
  "number": 5189,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,189",
  "setter": "Robert Price",
  "date": "2025-11-09",
  "dimensions": {
@@ -42,31 +40,29 @@
    },
    "solution": "GOPHER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GOPHER",
     "definitions": [
      {
       "text": "Rodent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by the sound of it",
-      "for": "homophone",
-      "note": "tells you to take the letters from how the phrase is said, not spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "attack",
-      "gives": "GOPHER",
-      "soundsLike": "GO FOR",
-      "note": "to go for someone is to attack them"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GOPHER",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "note": "tells you to take the letters from how the phrase is said, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attack",
+       "gives": "GOFOR",
+       "note": "to go for someone is to attack them"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A rodent turning on someone, or at least seeming to.",
      "walkthrough": "The two words GO FOR run together into one burrowing animal; a gopher is a North American ground squirrel.",
@@ -94,48 +90,37 @@
    },
    "solution": "GUMPTION",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "GUMPTION",
     "definitions": [
      {
       "text": "sharpness",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "shaped",
-      "for": "anagram",
-      "note": "the letters of POINT are formed into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stick",
-      "gives": "GUM",
-      "note": "to gum is to stick"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "PTION",
-      "note": "POINT rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUM",
-      "PTION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GUMPTION",
+     "indicators": [
       {
-       "fodder": "POINT",
-       "gives": "PTION"
+       "text": "shaped",
+       "note": "the letters of POINT are formed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Stick",
+         "gives": "GUM",
+         "note": "to gum is to stick"
+        },
+        {
+         "words": "point",
+         "gives": "PTION",
+         "note": "POINT rearranged"
+        }
+       ]
       }
      ]
     },
@@ -165,42 +150,40 @@
    },
    "solution": "PLAUDITS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLAUDITS",
     "definitions": [
      {
       "text": "praise",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Tails of",
-      "for": "letter_selection",
-      "note": "the tail of a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tails of sheep, all",
-      "gives": "PL",
-      "select": "last",
-      "note": "last letters of sheeP and alL"
-     },
-     {
-      "clueFragment": "vets",
-      "gives": "AUDITS",
-      "note": "to vet is to check over, to audit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "L",
-      "AUDITS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "PL",
+       "indicators": [
+        {
+         "text": "Tails of",
+         "note": "the tail of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Tails of sheep, all",
+         "gives": "PL",
+         "select": "last",
+         "note": "last letters of sheeP and alL"
+        }
+       ]
+      },
+      {
+       "words": "vets",
+       "gives": "AUDITS",
+       "note": "to vet is to check over, to audit"
+      }
      ]
     },
     "explanation": {
@@ -229,39 +212,48 @@
    },
    "solution": "EARLY",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "EARLY",
     "definitions": [
      {
       "text": "In advance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the leader's left",
-      "note": "the leader (first letter) has left, so it goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "close to",
-      "gives": "NEARLY",
-      "note": "close to = nearly"
-     },
-     {
-      "clueFragment": "the leader's left",
-      "gives": "EARLY",
-      "select": "first",
-      "note": "NEARLY loses its first letter N"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARLY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "the leader's left",
+       "note": "the leader (first letter) has left, so it goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "close to",
+         "gives": "NEARLY",
+         "note": "close to = nearly"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "EARLY",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "the leader's left",
+           "gives": "EARLY",
+           "select": "first",
+           "note": "NEARLY loses its first letter N"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "NEARLY"
+      }
      ]
     },
     "explanation": {
@@ -290,32 +282,25 @@
    },
    "solution": "MUSHROOM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MUSHROOM",
     "definitions": [
      {
       "text": "Snowball",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "something slushy",
-      "gives": "MUSH",
-      "note": "mush is soft, slushy stuff"
-     },
-     {
-      "clueFragment": "opportunity",
-      "gives": "ROOM",
-      "note": "room, as in room to manoeuvre"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MUSH",
-      "ROOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "something slushy",
+       "gives": "MUSH",
+       "note": "mush is soft, slushy stuff"
+      },
+      {
+       "words": "opportunity",
+       "gives": "ROOM",
+       "note": "room, as in room to manoeuvre"
+      }
      ]
     },
     "explanation": {
@@ -344,35 +329,25 @@
    },
    "solution": "UNDERCURRENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNDERCURRENT",
     "definitions": [
      {
       "text": "suggestion",
       "at": 23
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Subordinate",
-      "gives": "UNDER",
-      "note": "under someone = subordinate to them"
-     },
-     {
-      "clueFragment": "present",
-      "gives": "CURRENT",
-      "note": "present = current, of now"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNDER",
-      "CURRENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Subordinate",
+       "gives": "UNDER",
+       "note": "under someone = subordinate to them"
+      },
+      {
+       "words": "present",
+       "gives": "CURRENT",
+       "note": "present = current, of now"
+      }
      ]
     },
     "explanation": {
@@ -401,35 +376,25 @@
    },
    "solution": "HEADFIRST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEADFIRST",
     "definitions": [
      {
       "text": "recklessly",
       "at": 24
      }
     ],
-    "linkWords": [
-     "followed by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lead",
-      "gives": "HEAD",
-      "note": "to lead is to head"
-     },
-     {
-      "clueFragment": "maiden",
-      "gives": "FIRST",
-      "note": "a maiden voyage is the first one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAD",
-      "FIRST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lead",
+       "gives": "HEAD",
+       "note": "to lead is to head"
+      },
+      {
+       "words": "maiden",
+       "gives": "FIRST",
+       "note": "a maiden voyage is the first one"
+      }
      ]
     },
     "explanation": {
@@ -458,35 +423,25 @@
    },
    "solution": "OSIRIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSIRIS",
     "definitions": [
      {
       "text": "Underworld chief",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "huge",
-      "gives": "OS",
-      "note": "OS = outsize, a clothing size"
-     },
-     {
-      "clueFragment": "bloomer",
-      "gives": "IRIS",
-      "note": "a bloomer is a flower, here the iris"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OS",
-      "IRIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "huge",
+       "gives": "OS",
+       "note": "OS = outsize, a clothing size"
+      },
+      {
+       "words": "bloomer",
+       "gives": "IRIS",
+       "note": "a bloomer is a flower, here the iris"
+      }
      ]
     },
     "explanation": {
@@ -516,42 +471,30 @@
    },
    "solution": "MUTATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MUTATE",
     "definitions": [
      {
       "text": "Convert",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accepted in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "silence",
-      "gives": "MUTE",
-      "note": "to mute is to silence"
-     },
-     {
-      "clueFragment": "thanks",
-      "gives": "TA",
-      "note": "ta is British slang for thanks"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "TA",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "silence",
+       "gives": "MUTE",
+       "note": "to mute is to silence"
+      },
+      {
+       "words": "thanks",
+       "gives": "TA",
+       "note": "ta is British slang for thanks"
+      }
      ]
     },
     "explanation": {
@@ -580,39 +523,30 @@
    },
    "solution": "MEAGRE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MEAGRE",
     "definitions": [
      {
       "text": "Very small",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "blocks",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pure",
-      "gives": "MERE",
-      "note": "mere = pure, as in 'the mere thought'"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ME",
-      "AG",
-      "RE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocks"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pure",
+       "gives": "MERE",
+       "note": "mere = pure, as in 'the mere thought'"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      }
      ]
     },
     "explanation": {
@@ -641,32 +575,25 @@
    },
    "solution": "IDEALIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDEALIST",
     "definitions": [
      {
       "text": "Romantic",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "notions",
-      "gives": "IDEA",
-      "note": "notions are ideas, one of them read singly here"
-     },
-     {
-      "clueFragment": "as bullet points",
-      "gives": "LIST",
-      "note": "bullet points make a list"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IDEA",
-      "LIST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notions",
+       "gives": "IDEA",
+       "note": "notions are ideas, one of them read singly here"
+      },
+      {
+       "words": "as bullet points",
+       "gives": "LIST",
+       "note": "bullet points make a list"
+      }
      ]
     },
     "explanation": {
@@ -706,30 +633,16 @@
    },
    "solution": "BELOWTHEBELT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BELOW THE BELT",
     "definitions": [
      {
       "text": "Not sporting",
-      "at": 0
+      "at": 0,
+      "meaning": "from boxing, where a low punch breaks the rules"
      },
      {
       "text": "trousers here?",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not sporting",
-      "gives": "BELOWTHEBELT",
-      "note": "from boxing, where a low punch breaks the rules"
-     },
-     {
-      "clueFragment": "trousers here?",
-      "gives": "BELOWTHEBELT",
-      "note": "where are trousers worn? Under the waistband"
+      "at": 13,
+      "meaning": "where are trousers worn? Under the waistband"
      }
     ],
     "explanation": {
@@ -765,38 +678,24 @@
    },
    "solution": "TEDDYBEAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEDDY BEAR",
     "definitions": [
      {
       "text": "Sleeping companion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crackers",
-      "for": "anagram",
-      "note": "crackers = crazy, so the letters go wild"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed ate dry",
-      "gives": "BEDATEDRY",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEDATEDRY",
-       "gives": "TEDDYBEAR"
+       "text": "crackers",
+       "note": "crackers = crazy, so the letters go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed ate dry",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -826,31 +725,29 @@
    },
    "solution": "FEINT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FEINT",
     "definitions": [
      {
       "text": "ruse",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "A dictator's",
-      "for": "homophone",
-      "note": "one who dictates says words out loud, so his FAINT is heard, not spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "feeble",
-      "gives": "FEINT",
-      "soundsLike": "FAINT",
-      "note": "faint = feeble"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FEINT",
+     "indicators": [
+      {
+       "text": "A dictator's",
+       "note": "one who dictates says words out loud, so his FAINT is heard, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "feeble",
+       "gives": "FAINT",
+       "note": "faint = feeble"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tyrant's flimsy trick.",
      "walkthrough": "The dictator is not a tyrant but someone dictating, speaking so another writes: FAINT spoken is heard as FEINT.",
@@ -878,38 +775,30 @@
    },
    "solution": "OUTMANOEUVRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTMANOEUVRE",
     "definitions": [
      {
       "text": "best with guile",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Published",
-      "gives": "OUT",
-      "note": "a book that is out is published"
-     },
-     {
-      "clueFragment": "piece",
-      "gives": "MAN",
-      "note": "a chess piece is a man"
-     },
-     {
-      "clueFragment": "works",
-      "gives": "OEUVRE",
-      "note": "an oeuvre is an artist's body of works"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "MAN",
-      "OEUVRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Published",
+       "gives": "OUT",
+       "note": "a book that is out is published"
+      },
+      {
+       "words": "piece",
+       "gives": "MAN",
+       "note": "a chess piece is a man"
+      },
+      {
+       "words": "works",
+       "gives": "OEUVRE",
+       "note": "an oeuvre is an artist's body of works"
+      }
      ]
     },
     "explanation": {
@@ -938,55 +827,51 @@
    },
    "solution": "ARABESQUE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ARABESQUE",
     "definitions": [
      {
       "text": "Dancers' movement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "note": "to circle something is to go round it"
-     },
-     {
-      "text": "finally",
-      "note": "take the last letter of evoke"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "horses",
-      "gives": "ARABS",
-      "note": "Arabs are a breed of horse"
-     },
-     {
-      "clueFragment": "finally evoke",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of evokE"
-     },
-     {
-      "clueFragment": "what for Degas",
-      "gives": "QUE",
-      "note": "que is French for what, and Degas was French"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARAB",
-      "E",
-      "S",
-      "QUE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "circling",
+       "note": "to circle something is to go round it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "take the last letter of evoke"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horses",
+         "gives": "ARABS",
+         "note": "Arabs are a breed of horse"
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "finally evoke",
+           "note": "last letter of evokE"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "what for Degas",
+       "gives": "QUE",
+       "note": "que is French for what, and Degas was French"
+      }
      ]
     },
     "explanation": {
@@ -1015,40 +900,31 @@
    },
    "solution": "POMANDER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "POMANDER",
     "definitions": [
      {
       "text": "disease protection",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "brought in to",
-      "for": "container",
-      "note": "something brought in to a place ends up inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "study",
-      "gives": "PONDER",
-      "note": "to study is to ponder"
-     },
-     {
-      "clueFragment": "Graduate",
-      "gives": "MA",
-      "note": "MA = Master of Arts, a graduate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PO",
-      "MA",
-      "NDER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in to",
+       "note": "something brought in to a place ends up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "study",
+       "gives": "PONDER",
+       "note": "to study is to ponder"
+      },
+      {
+       "words": "Graduate",
+       "gives": "MA",
+       "note": "MA = Master of Arts, a graduate"
+      }
      ]
     },
     "explanation": {
@@ -1083,40 +959,36 @@
    },
    "solution": "SEAHORSE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "SEA HORSE",
     "definitions": [
      {
       "text": "swimmer",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "voiced",
-      "for": "homophone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Deep",
-      "gives": "SEA",
-      "note": "the deep = the sea"
-     },
-     {
-      "clueFragment": "gravelly",
-      "gives": "HORSE",
-      "soundsLike": "HOARSE",
-      "note": "a gravelly voice is hoarse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEA",
-      "HORSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deep",
+       "gives": "SEA",
+       "note": "the deep = the sea"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HORSE",
+       "indicators": [
+        {
+         "text": "voiced"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gravelly",
+         "gives": "HOARSE",
+         "note": "a gravelly voice is hoarse"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1145,35 +1017,25 @@
    },
    "solution": "MASTERSTROKE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MASTERSTROKE",
     "definitions": [
      {
       "text": "genius move",
       "at": 19
      }
     ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perfect",
-      "gives": "MASTER",
-      "note": "to perfect a skill is to master it"
-     },
-     {
-      "clueFragment": "pet",
-      "gives": "STROKE",
-      "note": "to pet an animal is to stroke it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MASTER",
-      "STROKE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perfect",
+       "gives": "MASTER",
+       "note": "to perfect a skill is to master it"
+      },
+      {
+       "words": "pet",
+       "gives": "STROKE",
+       "note": "to pet an animal is to stroke it"
+      }
      ]
     },
     "explanation": {
@@ -1202,39 +1064,36 @@
    },
    "solution": "FIGARO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "FIGARO",
     "definitions": [
      {
       "text": "baritone",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Uplifting",
-      "note": "in a down clue, lifting up means reading bottom to top, backwards"
-     },
-     {
-      "text": "part",
-      "note": "the answer is only part of the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for a gifted",
-      "gives": "ORAGIF",
-      "note": "fORA GIFted"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ORAGIF",
-       "to": "FIGARO"
+       "text": "Uplifting",
+       "note": "in a down clue, lifting up means reading bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part",
+         "note": "the answer is only part of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for a gifted",
+         "gives": "ORAGIF",
+         "note": "fORA GIFted"
+        }
+       ]
       }
      ]
     },
@@ -1264,49 +1123,41 @@
    },
    "solution": "CATTLE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "CATTLE",
     "definitions": [
      {
       "text": "lowers",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "replacing",
-      "for": "substitution",
-      "note": "one letter is swapped for another"
-     },
-     {
-      "text": "as",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Keep",
-      "gives": "CASTLE",
-      "note": "a keep is the main tower of a castle"
-     },
-     {
-      "clueFragment": "sulphur",
-      "gives": "S",
-      "note": "S is the chemical symbol for sulphur; it goes"
-     },
-     {
-      "clueFragment": "temperature",
-      "gives": "T",
-      "note": "T = temperature; it comes in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "T",
-      "TLE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "CATTLE",
+     "indicators": [
+      {
+       "text": "replacing",
+       "note": "one letter is swapped for another"
+      },
+      {
+       "text": "as"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Keep",
+       "gives": "CASTLE",
+       "note": "a keep is the main tower of a castle"
+      },
+      {
+       "words": "sulphur",
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur; it goes"
+      },
+      {
+       "words": "temperature",
+       "gives": "T",
+       "note": "T = temperature; it comes in"
+      }
      ]
     },
     "explanation": {
@@ -1336,30 +1187,28 @@
    },
    "solution": "INANE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INANE",
     "definitions": [
      {
       "text": "Empty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carries",
-      "for": "hidden_word",
-      "note": "the phrase carries the answer inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tin an engineer",
-      "gives": "INANE",
-      "note": "tIN AN Engineer"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "carries",
+       "note": "the phrase carries the answer inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tin an engineer",
+       "gives": "INANE",
+       "note": "tIN AN Engineer"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An engineer lugging an empty tin.",
      "walkthrough": "'Empty' seems to describe the tin, but it is the definition, as in an empty remark.",
@@ -1392,35 +1241,24 @@
    },
    "solution": "ERNSTMACH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ERNST MACH",
     "definitions": [
      {
       "text": "His unit measures speed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flying",
-      "for": "anagram",
-      "note": "the letters take off in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "merchants",
-      "gives": "MERCHANTS",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MERCHANTS",
-       "gives": "ERNSTMACH"
+       "text": "flying",
+       "note": "the letters take off in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "merchants",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1450,43 +1288,31 @@
    },
    "solution": "TWAIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TWAIN",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "appearing in",
-      "for": "container",
-      "note": "to appear in something is to be seen within it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "duplicate",
-      "gives": "TWIN",
-      "note": "a twin is a duplicate"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a is the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TW",
-      "A",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing in",
+       "note": "to appear in something is to be seen within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "duplicate",
+       "gives": "TWIN",
+       "note": "a twin is a duplicate"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -1515,53 +1341,54 @@
    },
    "solution": "ANTIQUES",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ANTIQUES",
     "definitions": [
      {
       "text": "Old stuff",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container"
-     },
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "SEARCH's synonym QUEST loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "an, as it stands"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "TI",
-      "note": "ti is a note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "endless search",
-      "gives": "QUES",
-      "note": "search = quest, without its end letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "TI",
-      "QUES"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ANTIQUES",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "SEARCH's synonym QUEST loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "ANTIQUES",
+       "indicators": [
+        {
+         "text": "found in"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "an",
+           "note": "an, as it stands"
+          },
+          {
+           "words": "note",
+           "gives": "TI",
+           "note": "ti is a note of the sol-fa scale"
+          },
+          {
+           "words": "endless search",
+           "gives": "QUES",
+           "note": "search = quest, without its end letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1590,41 +1417,36 @@
    },
    "solution": "LADDER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LADDER",
     "definitions": [
      {
       "text": "Run",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning in",
-      "for": "letter_selection",
-      "note": "take the first letter of late"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning in late",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of Late"
-     },
-     {
-      "clueFragment": "summer",
-      "gives": "ADDER",
-      "note": "one who sums, adds up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ADDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning in",
+         "note": "take the first letter of late"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning in late",
+         "gives": "LATE",
+         "note": "first letter of Late"
+        }
+       ]
+      },
+      {
+       "words": "summer",
+       "gives": "ADDER",
+       "note": "one who sums, adds up"
+      }
      ]
     },
     "explanation": {
@@ -1654,48 +1476,40 @@
    },
    "solution": "OMELETTE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "OMELETTE",
     "definitions": [
      {
       "text": "Dish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "must slice"
-     },
-     {
-      "text": "out",
-      "note": "the letters of TO METE are put out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to mete",
-      "gives": "OMETTE",
-      "note": "TO METE rearranged"
-     },
-     {
-      "clueFragment": "the Spanish",
-      "gives": "EL",
-      "note": "el is Spanish for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OM",
-      "EL",
-      "ETTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OMELETTE",
+     "parts": [
       {
-       "fodder": "TOMETE",
-       "gives": "OMETTE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "must slice"
+        },
+        {
+         "text": "out",
+         "note": "the letters of TO METE are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to mete",
+         "gives": "OMETTE",
+         "note": "TO METE rearranged"
+        },
+        {
+         "words": "the Spanish",
+         "gives": "EL",
+         "note": "el is Spanish for the"
+        }
+       ]
       }
      ]
     },
@@ -1725,44 +1539,43 @@
    },
    "solution": "ENTREE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ENTREE",
     "definitions": [
      {
       "text": "course",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "racecourse",
-      "gives": "AINTREE",
-      "note": "Aintree, near Liverpool, hosts the Grand National"
-     },
-     {
-      "clueFragment": "a current",
-      "gives": "NTREE",
-      "note": "lose A and I (the symbol for electric current)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "NTREE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E = English"
+        },
+        {
+         "words": "racecourse",
+         "gives": "AINTREE",
+         "note": "Aintree, near Liverpool, hosts the Grand National"
+        },
+        {
+         "words": "a current",
+         "gives": "NTREE",
+         "note": "lose A and I (the symbol for electric current)"
+        }
+       ]
+      },
+      {
+       "gives": "EAINTRE"
+      }
      ]
     },
     "explanation": {

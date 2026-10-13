@@ -1,8 +1,6 @@
 {
  "id": "independent-12346",
  "number": 12346,
- "series": "independent",
- "name": "Independent cryptic crossword No 12,346",
  "setter": "Bard",
  "date": "2026-05-04",
  "dimensions": {
@@ -38,30 +36,28 @@
    },
    "solution": "ENEMAS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ENEMAS",
     "definitions": [
      {
       "text": "cleansing processes",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "involves",
-      "for": "hidden_word",
-      "note": "to involve is to include or contain, so the two words together contain the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Serene massage",
-      "gives": "ENEMAS",
-      "note": "the letters run from the end of 'serene' into the start of 'massage'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involves",
+       "note": "to involve is to include or contain, so the two words together contain the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Serene massage",
+       "gives": "ENEMAS",
+       "note": "the letters run from the end of 'serene' into the start of 'massage'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A spa promises a massage so calming it counts as a detox.",
      "walkthrough": "The spa picture makes 'cleansing processes' read as wellness talk; the answer straddles the join of the first two words.",
@@ -89,32 +85,25 @@
    },
    "solution": "EXHUME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXHUME",
     "definitions": [
      {
       "text": "Bring up",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "former lover",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "Northern Irish politician",
-      "gives": "HUME",
-      "note": "John Hume, SDLP leader and Nobel peace laureate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "HUME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former lover",
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "Northern Irish politician",
+       "gives": "HUME",
+       "note": "John Hume, SDLP leader and Nobel peace laureate"
+      }
      ]
     },
     "explanation": {
@@ -144,62 +133,66 @@
    },
    "solution": "ENACTMENT",
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENACTMENT",
     "definitions": [
      {
       "text": "Law",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing back",
-      "note": "bringing something back returns it the way it came"
-     },
-     {
-      "text": "taken in by",
-      "note": "to be taken in is to be drawn inside"
-     },
-     {
-      "text": "empty",
-      "note": "an empty word has lost its contents, so 'threat' keeps only its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tool of corporal punishment",
-      "gives": "CANE",
-      "note": "the cane once used to beat pupils"
-     },
-     {
-      "clueFragment": "empty threat",
-      "gives": "TT",
-      "select": "outer",
-      "note": "T(hrea)T"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "MEN",
-      "note": "people = men"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENAC",
-      "T",
-      "MEN",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "CANE",
-       "to": "ENAC"
+       "text": "bringing back",
+       "note": "bringing something back returns it the way it came"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "taken in by",
+         "note": "to be taken in is to be drawn inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tool of corporal punishment",
+         "gives": "CANE",
+         "note": "the cane once used to beat pupils"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "an empty word has lost its contents, so 'threat' keeps only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "TT",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "empty threat",
+           "gives": "TT",
+           "select": "outer",
+           "note": "T(hrea)T"
+          }
+         ]
+        },
+        {
+         "words": "people",
+         "gives": "MEN",
+         "note": "people = men"
+        }
+       ]
       }
      ]
     },
@@ -229,30 +222,28 @@
    },
    "solution": "AZTEC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AZTEC",
     "definitions": [
      {
       "text": "Central American once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held in",
-      "for": "hidden_word",
-      "note": "a prisoner held in Alcatraz is inside it, and the answer is held inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alcatraz, technically",
-      "gives": "AZTEC",
-      "note": "the last two letters of 'Alcatraz' plus the first three of 'technically'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "held in",
+       "note": "a prisoner held in Alcatraz is inside it, and the answer is held inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alcatraz, technically",
+       "gives": "AZTEC",
+       "note": "the last two letters of 'Alcatraz' plus the first three of 'technically'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone notes that a Central American man was, strictly speaking, once an Alcatraz inmate.",
      "walkthrough": "'Once' belongs to the definition, not to the prison story: it marks a people of the past.",
@@ -279,32 +270,25 @@
    },
    "solution": "APPROACH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APPROACH",
     "definitions": [
      {
       "text": "Method",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "applied",
-      "gives": "APP",
-      "note": "app. is a dictionary abbreviation of applied"
-     },
-     {
-      "clueFragment": "swimmer",
-      "gives": "ROACH",
-      "note": "the roach is a freshwater fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APP",
-      "ROACH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "applied",
+       "gives": "APP",
+       "note": "app. is a dictionary abbreviation of applied"
+      },
+      {
+       "words": "swimmer",
+       "gives": "ROACH",
+       "note": "the roach is a freshwater fish"
+      }
      ]
     },
     "explanation": {
@@ -361,39 +345,30 @@
    },
    "solution": "REQUESTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REQUESTED",
     "definitions": [
      {
       "text": "Sought",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "amidst",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "long grass",
-      "gives": "REED",
-      "note": "a reed is a tall grass"
-     },
-     {
-      "clueFragment": "adventure",
-      "gives": "QUEST",
-      "note": "a quest is an adventurous journey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "QUEST",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amidst"
+      }
+     ],
+     "parts": [
+      {
+       "words": "long grass",
+       "gives": "REED",
+       "note": "a reed is a tall grass"
+      },
+      {
+       "words": "adventure",
+       "gives": "QUEST",
+       "note": "a quest is an adventurous journey"
+      }
      ]
     },
     "explanation": {
@@ -422,47 +397,41 @@
    },
    "solution": "AMAZE",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AMAZE",
     "definitions": [
      {
       "text": "wow",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "to take in a place is to include it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Athletic",
-      "gives": "A",
-      "note": "A for athletic, as in AAA, the Amateur Athletic Association"
-     },
-     {
-      "clueFragment": "Bard",
-      "gives": "ME",
-      "note": "Bard is this puzzle's setter, so his name stands for ME"
-     },
-     {
-      "clueFragment": "area around Grand Canyon",
-      "gives": "AZ",
-      "note": "AZ, the postal code of Arizona, the state containing the Grand Canyon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "M",
-      "AZ",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Athletic",
+       "gives": "A",
+       "note": "A for athletic, as in AAA, the Amateur Athletic Association"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking in",
+         "note": "to take in a place is to include it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bard",
+         "gives": "ME",
+         "note": "Bard is this puzzle's setter, so his name stands for ME"
+        },
+        {
+         "words": "area around Grand Canyon",
+         "gives": "AZ",
+         "note": "AZ, the postal code of Arizona, the state containing the Grand Canyon"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -491,43 +460,31 @@
    },
    "solution": "HILLSIDE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HILLSIDE",
     "definitions": [
      {
       "text": "sloping surface",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the problems are placed in the hut, inside its letters"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "birdwatching hut",
-      "gives": "HIDE",
-      "note": "a hide is a shelter for watching birds unseen"
-     },
-     {
-      "clueFragment": "Problems",
-      "gives": "ILLS",
-      "note": "ills are troubles"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ILLS",
-      "IDE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the problems are placed in the hut, inside its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "birdwatching hut",
+       "gives": "HIDE",
+       "note": "a hide is a shelter for watching birds unseen"
+      },
+      {
+       "words": "Problems",
+       "gives": "ILLS",
+       "note": "ills are troubles"
+      }
      ]
     },
     "explanation": {
@@ -578,35 +535,27 @@
     "5-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OUTOFTHEFRYINGPANINTOTHEFIRE",
     "definitions": [
      {
       "text": "as things go from bad to worse",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "indiscriminately",
-      "for": "anagram",
-      "note": "firing indiscriminately means at random, so the letters land in a random new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heat not off hero yet — Putin firing",
-      "gives": "OUTOFTHEFRYINGPANINTOTHEFIRE",
-      "note": "all 28 letters rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OUTOFTHEFRYINGPANINTOTHEFIRE",
+     "indicators": [
       {
-       "fodder": "HEATNOTOFFHEROYETPUTINFIRING",
-       "gives": "OUTOFTHEFRYINGPANINTOTHEFIRE"
+       "text": "indiscriminately",
+       "note": "firing indiscriminately means at random, so the letters land in a random new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Heat not off hero yet — Putin firing",
+       "gives": "OUTOFTHEFRYINGPANINTOTHEFIRE",
+       "note": "all 28 letters rearranged"
       }
      ]
     },
@@ -636,48 +585,36 @@
    },
    "solution": "HEARTBURN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HEARTBURN",
     "definitions": [
      {
       "text": "chest pain",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "one thing on another follows it, so the pieces are placed in sequence"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pick up",
-      "gives": "HEAR",
-      "note": "to pick up a sound is to hear it"
-     },
-     {
-      "clueFragment": "complaint",
-      "gives": "TB",
-      "note": "tuberculosis, a disease"
-     },
-     {
-      "clueFragment": "vessel",
-      "gives": "URN",
-      "note": "an urn is a container"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAR",
-      "TB",
-      "URN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "one thing on another follows it, so the pieces are placed in sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pick up",
+       "gives": "HEAR",
+       "note": "to pick up a sound is to hear it"
+      },
+      {
+       "words": "complaint",
+       "gives": "TB",
+       "note": "tuberculosis, a disease"
+      },
+      {
+       "words": "vessel",
+       "gives": "URN",
+       "note": "an urn is a container"
+      }
      ]
     },
     "explanation": {
@@ -706,35 +643,25 @@
    },
    "solution": "QUAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "QUAIL",
     "definitions": [
      {
       "text": "lose heart",
       "at": 25
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen",
-      "gives": "QU",
-      "note": "Qu. is an abbreviation of queen"
-     },
-     {
-      "clueFragment": "to feel poorly",
-      "gives": "AIL",
-      "note": "to ail is to be unwell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QU",
-      "AIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Queen",
+       "gives": "QU",
+       "note": "Qu. is an abbreviation of queen"
+      },
+      {
+       "words": "to feel poorly",
+       "gives": "AIL",
+       "note": "to ail is to be unwell"
+      }
      ]
     },
     "explanation": {
@@ -763,41 +690,36 @@
    },
    "solution": "MAT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MAT",
     "definitions": [
      {
       "text": "uniform paint finish",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally means at the end, so only the last letter of 'got' is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Art graduate",
-      "gives": "MA",
-      "note": "Master of Arts"
-     },
-     {
-      "clueFragment": "finally got",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of got"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Art graduate",
+       "gives": "MA",
+       "note": "Master of Arts"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally means at the end, so only the last letter of 'got' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finally got",
+         "gives": "GOT",
+         "note": "the last letter of got"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -830,53 +752,7 @@
      }
     ]
    },
-   "solution": "CROWNJEWELS",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CROWN JEWELS",
-    "definitions": [
-     {
-      "text": "national treasure",
-      "at": 9
-     },
-     {
-      "text": "privates",
-      "at": 29
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Show off",
-      "note": "surface padding: the regalia are on show to visitors"
-     },
-     {
-      "clueFragment": "national treasure",
-      "gives": "CROWNJEWELS",
-      "note": "the royal regalia kept in the Tower of London"
-     },
-     {
-      "clueFragment": "privates",
-      "gives": "CROWNJEWELS",
-      "note": "slang for a man's genitals"
-     }
-    ],
-    "explanation": {
-     "surface": "Someone flashes a much-loved celebrity's private parts.",
-     "walkthrough": "'National treasure' is British slang for a beloved public figure, which makes the flashing picture; literally it is the regalia displayed in the Tower of London.",
-     "definitionFit": "The first sense is literal, the regalia owned by the nation; the second is jokey slang for the male genitals."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "treasure"
-    }
-   }
+   "solution": "CROWNJEWELS"
   },
   {
    "number": 14,
@@ -892,47 +768,40 @@
    },
    "solution": "DEFEAT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DEFEAT",
     "definitions": [
      {
       "text": "Ruin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "gutted",
-      "for": "letter_selection",
-      "note": "a gutted fish has its insides removed, so each of the three words keeps only its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "découpage",
-      "gives": "DE",
-      "select": "outer",
-      "note": "D(écoupag)E"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "FE",
-      "note": "F(in)E"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "AT",
-      "note": "A(rtis)T"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "FE",
-      "AT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "note": "a gutted fish has its insides removed, so each of the three words keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "découpage",
+         "note": "D(écoupag)E"
+        }
+       ]
+      },
+      {
+       "words": "fine",
+       "gives": "FE",
+       "note": "F(in)E"
+      },
+      {
+       "words": "artist",
+       "gives": "AT",
+       "note": "A(rtis)T"
+      }
      ]
     },
     "explanation": {
@@ -962,38 +831,27 @@
    },
    "solution": "EAGERNESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EAGERNESS",
     "definitions": [
      {
       "text": "enthusiasm",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "somehow",
-      "for": "anagram",
-      "note": "somehow means in some unspecified way, so the letters are arranged some other way"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sees anger",
-      "gives": "EAGERNESS",
-      "note": "letters rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EAGERNESS",
+     "indicators": [
       {
-       "fodder": "SEESANGER",
-       "gives": "EAGERNESS"
+       "text": "somehow",
+       "note": "somehow means in some unspecified way, so the letters are arranged some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sees anger",
+       "gives": "EAGERNESS",
+       "note": "letters rearranged"
       }
      ]
     },
@@ -1023,43 +881,38 @@
    },
    "solution": "OUTWARD",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "OUTWARD",
     "definitions": [
      {
       "text": "obvious",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "when G leaves the word it is no longer in it, so GOUT loses its G"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good to leave swollen toe",
-      "gives": "OUT",
-      "note": "GOUT, painful swelling of the big toe, minus G for good"
-     },
-     {
-      "clueFragment": "unit",
-      "gives": "WARD",
-      "note": "a hospital unit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "WARD"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OUTWARD",
+     "indicators": [
+      {
+       "text": "to leave",
+       "note": "when G leaves the word it is no longer in it, so GOUT loses its G"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good to leave swollen toe",
+         "gives": "OUT",
+         "note": "GOUT, painful swelling of the big toe, minus G for good"
+        },
+        {
+         "words": "unit",
+         "gives": "WARD",
+         "note": "a hospital unit"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1088,53 +941,46 @@
    },
    "solution": "ANECDOTES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ANECDOTES",
     "definitions": [
      {
       "text": "Tales told",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dropped into",
-      "for": "container",
-      "note": "something dropped into a container ends up inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "A",
-      "note": "a. is an abbreviation of about"
-     },
-     {
-      "clueFragment": "Midlands conference venue",
-      "gives": "NEC",
-      "note": "the National Exhibition Centre near Birmingham"
-     },
-     {
-      "clueFragment": "…",
-      "gives": "DOTS",
-      "note": "an ellipsis is literally three dots"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NEC",
-      "DOT",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dropped into",
+       "note": "something dropped into a container ends up inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "gives": "A",
+         "note": "a. is an abbreviation of about"
+        },
+        {
+         "words": "Midlands conference venue",
+         "gives": "NEC",
+         "note": "the National Exhibition Centre near Birmingham"
+        },
+        {
+         "words": "…",
+         "gives": "DOTS",
+         "note": "an ellipsis is literally three dots"
+        }
+       ]
+      },
+      {
+       "words": "ecstasy",
+       "gives": "E",
+       "note": "E for the drug ecstasy"
+      }
      ]
     },
     "explanation": {
@@ -1164,41 +1010,35 @@
    },
    "solution": "EFFULGED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EFFULGED",
     "definitions": [
      {
       "text": "was beaming",
       "at": 69
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first means at the start, so each preceding word gives only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "… elderflower fizz for union leaders — giggling",
-      "gives": "EFFULG",
-      "select": "first",
-      "note": "first letters of elderflower, fizz, for, union, leaders, giggling"
-     },
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EFFULG",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first means at the start, so each preceding word gives only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "… elderflower fizz for union leaders — giggling",
+         "note": "first letters of elderflower, fizz, for, union, leaders, giggling"
+        }
+       ]
+      },
+      {
+       "words": "journalist",
+       "gives": "ED",
+       "note": "editor"
+      }
      ]
     },
     "explanation": {
@@ -1227,44 +1067,38 @@
    },
    "solution": "FATIGUE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "FATIGUE",
     "definitions": [
      {
       "text": "Weary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not having any",
-      "for": "deletion",
-      "note": "not having any of something means none are kept, so every S is removed"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "overweight",
-      "gives": "FAT",
-      "note": "fat = overweight"
-     },
-     {
-      "clueFragment": "I suppose not having any seconds",
-      "gives": "IGUE",
-      "note": "I GUESS with both its S's (s = second) removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAT",
-      "I",
-      "GUE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FATIGUE",
+     "indicators": [
+      {
+       "text": "not having any",
+       "note": "not having any of something means none are kept, so every S is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "overweight",
+         "gives": "FAT",
+         "note": "fat = overweight"
+        },
+        {
+         "words": "I suppose not having any seconds",
+         "gives": "IGUE",
+         "note": "I GUESS with both its S's (s = second) removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1294,40 +1128,38 @@
    },
    "solution": "HIDDEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "HIDDEN",
     "definitions": [
      {
       "text": "unseen",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "to leave",
-      "for": "deletion",
-      "note": "when the bachelor leaves, his letter B departs from BIDDEN"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hotel",
-      "gives": "H",
-      "note": "H in the NATO alphabet"
-     },
-     {
-      "clueFragment": "ordered bachelor to leave",
-      "gives": "IDDEN",
-      "note": "BIDDEN (ordered) minus B for bachelor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "IDDEN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HIDDEN",
+     "indicators": [
+      {
+       "text": "to leave",
+       "note": "when the bachelor leaves, his letter B departs from BIDDEN"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Hotel",
+         "gives": "H",
+         "note": "H in the NATO alphabet"
+        },
+        {
+         "words": "ordered bachelor to leave",
+         "gives": "IDDEN",
+         "note": "BIDDEN (ordered) minus B for bachelor"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1356,40 +1188,31 @@
    },
    "solution": "SPADES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPADES",
     "definitions": [
      {
       "text": "they help dig up dirt",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "accepted by",
-      "for": "container",
-      "note": "money accepted by someone goes into their hands"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "special advisors in Westminster",
-      "gives": "SPADS",
-      "note": "spads, the political nickname for special advisers"
-     },
-     {
-      "clueFragment": "Euros",
-      "gives": "E",
-      "note": "E for euro"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPAD",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "note": "money accepted by someone goes into their hands"
+      }
+     ],
+     "parts": [
+      {
+       "words": "special advisors in Westminster",
+       "gives": "SPADS",
+       "note": "spads, the political nickname for special advisers"
+      },
+      {
+       "words": "Euros",
+       "gives": "E",
+       "note": "E for euro"
+      }
      ]
     },
     "explanation": {
@@ -1419,35 +1242,27 @@
    },
    "solution": "UNDERCROFTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNDERCROFTS",
     "definitions": [
      {
       "text": "crypts",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "repaired",
-      "for": "anagram",
-      "note": "a repaired thing has been put back together, here in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rector's fund",
-      "gives": "UNDERCROFTS",
-      "note": "letters of RECTORS FUND rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNDERCROFTS",
+     "indicators": [
       {
-       "fodder": "RECTORSFUND",
-       "gives": "UNDERCROFTS"
+       "text": "repaired",
+       "note": "a repaired thing has been put back together, here in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rector's fund",
+       "gives": "UNDERCROFTS",
+       "note": "letters of RECTORS FUND rearranged"
       }
      ]
     },
@@ -1477,56 +1292,68 @@
    },
    "solution": "DRAKE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DRAKE",
     "definitions": [
      {
       "text": "Rapper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "latest",
-      "note": "the latest is the most recent, the one at the end, so the last letter of Dre"
-     },
-     {
-      "text": "featuring",
-      "note": "a track featuring a guest has him inside it"
-     },
-     {
-      "text": "not working",
-      "note": "ON means working, as a machine is on, so ON is taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dr",
-      "gives": "DR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Akon) not working",
-      "gives": "AK",
-      "note": "AKON with ON (working) removed"
-     },
-     {
-      "clueFragment": "Dre's latest",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of Dre"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "AK",
-      "E"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DRAKE",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "DRAKE",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "latest",
+           "note": "the latest is the most recent, the one at the end, so the last letter of Dre"
+          },
+          {
+           "text": "not working",
+           "note": "ON means working, as a machine is on, so ON is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dr",
+           "note": "taken as written"
+          },
+          {
+           "words": "Akon) not working",
+           "gives": "AK",
+           "note": "AKON with ON (working) removed"
+          },
+          {
+           "op": "last",
+           "unchecked": true,
+           "gives": "E",
+           "indicators": [
+            {
+             "text": "featuring",
+             "note": "a track featuring a guest has him inside it"
+            }
+           ],
+           "parts": [
+            {
+             "unchecked": true,
+             "words": "Dre's latest",
+             "gives": "E",
+             "select": "last",
+             "note": "the last letter of Dre"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1555,34 +1382,28 @@
    },
    "solution": "SIGHT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "SIGHT",
     "definitions": [
      {
       "text": "Attraction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "swapping partners",
-      "for": "substitution",
-      "note": "in bridge North and South are partners, so swapping one partner for the other turns N into S"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "evening",
-      "gives": "NIGHT",
-      "note": "night = evening; its N becomes S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "IGHT"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "SIGHT",
+     "indicators": [
+      {
+       "text": "swapping partners",
+       "note": "in bridge North and South are partners, so swapping one partner for the other turns N into S"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evening",
+       "gives": "NIGHT",
+       "note": "night = evening; its N becomes S"
+      }
      ]
     },
     "explanation": {
@@ -1612,41 +1433,41 @@
    },
    "solution": "DIP",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "DIP",
     "definitions": [
      {
       "text": "Reduction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "ultimately means in the end, so only the last letter of water, R, is meant"
-     },
-     {
-      "text": "drained",
-      "note": "a drained pipe has had its contents run out, so R runs out of DRIP"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leak from tap — water ultimately drained",
-      "gives": "DIP",
-      "select": "last",
-      "note": "DRIP (a leak from a tap) with R, the last letter of water, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIP"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DIP",
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "DIP",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the last letter of water, R, is meant"
+        },
+        {
+         "text": "drained",
+         "note": "a drained pipe has had its contents run out, so R runs out of DRIP"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "leak from tap — water ultimately drained",
+         "gives": "DIP",
+         "select": "last",
+         "note": "DRIP (a leak from a tap) with R, the last letter of water, removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1675,56 +1496,55 @@
    },
    "solution": "GRAVE",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GRAVE",
     "definitions": [
      {
       "text": "Severe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "overturned",
-      "note": "an overturned decision is reversed"
-     },
-     {
-      "text": "conclusion",
-      "note": "a conclusion is the end, so the last letter of referee"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G for German"
-     },
-     {
-      "clueFragment": "adjudicators",
-      "gives": "VAR",
-      "note": "VAR, the video assistant referee in football"
-     },
-     {
-      "clueFragment": "referee's conclusion",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of referee"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "RAV",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "VAR",
-       "to": "RAV"
+       "text": "overturned",
+       "note": "an overturned decision is reversed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German",
+       "gives": "G",
+       "note": "G for German"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "conclusion",
+         "note": "a conclusion is the end, so the last letter of referee"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adjudicators",
+         "gives": "VAR",
+         "note": "VAR, the video assistant referee in football"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "E",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "referee's conclusion",
+         "gives": "E",
+         "select": "last",
+         "note": "the last letter of referee"
+        }
+       ]
       }
      ]
     },
@@ -1754,49 +1574,41 @@
    },
    "solution": "IRRIGATED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "IRRIGATED",
     "definitions": [
      {
       "text": "flooded with water",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "unsuccessfully",
-      "note": "an attempt made unsuccessfully goes wrong, so TRIED comes out wrong, rearranged"
-     },
-     {
-      "text": "to go around",
-      "note": "to go around something is to encircle it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tried",
-      "gives": "IRTED",
-      "note": "TRIED rearranged"
-     },
-     {
-      "clueFragment": "Baltic city",
-      "gives": "RIGA",
-      "note": "the capital of Latvia"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IR",
-      "RIGA",
-      "TED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IRRIGATED",
+     "parts": [
       {
-       "fodder": "TRIED",
-       "gives": "IRTED"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "unsuccessfully",
+         "note": "an attempt made unsuccessfully goes wrong, so TRIED comes out wrong, rearranged"
+        },
+        {
+         "text": "to go around",
+         "note": "to go around something is to encircle it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tried",
+         "gives": "IRTED",
+         "note": "TRIED rearranged"
+        },
+        {
+         "words": "Baltic city",
+         "gives": "RIGA",
+         "note": "the capital of Latvia"
+        }
+       ]
       }
      ]
     },
@@ -1826,42 +1638,31 @@
    },
    "solution": "DRESSAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DRESSAGE",
     "definitions": [
      {
       "text": "event",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "one thing on another follows it"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ensemble",
-      "gives": "DRESS",
-      "note": "an outfit"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DRESS",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "one thing on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ensemble",
+       "gives": "DRESS",
+       "note": "an outfit"
+      },
+      {
+       "words": "time",
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -1890,44 +1691,35 @@
    },
    "solution": "STASIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STASIS",
     "definitions": [
      {
       "text": "balance in the Force?",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so each of the three words gives its opening letter"
-     }
-    ],
-    "linkWords": [
-     "gaining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Skywalker too arrogant",
-      "gives": "STA",
-      "select": "first",
-      "note": "first letters"
-     },
-     {
-      "clueFragment": "sister",
-      "gives": "SIS",
-      "note": "sis, short for sister"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STA",
-      "SIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so each of the three words gives its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Skywalker too arrogant",
+         "note": "first letters"
+        }
+       ]
+      },
+      {
+       "words": "sister",
+       "gives": "SIS",
+       "note": "sis, short for sister"
+      }
      ]
     },
     "explanation": {

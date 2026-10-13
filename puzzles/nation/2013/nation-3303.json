@@ -1,8 +1,6 @@
 {
  "id": "nation-3303",
  "number": 3303,
- "series": "nation",
- "name": "The Nation cryptic crossword No 3303",
  "setter": "Joshua Kosman and Henri Picciotto",
  "date": "2013-12-02",
  "dimensions": {
@@ -41,35 +39,25 @@
    },
    "solution": "PARROTED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PARROTED",
     "definitions": [
      {
       "text": "Imitated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "incorrectly",
-      "for": "anagram",
-      "note": "done incorrectly, the letters of the referenced entry end up in the wrong order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "12",
-      "gives": "PRORATED",
-      "note": "the answer to 12 across, which means allocated in proportion"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRORATED",
-       "gives": "PARROTED"
+       "text": "incorrectly",
+       "note": "done incorrectly, the letters of the referenced entry end up in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "12",
+       "gives": "PRORATED",
+       "note": "the answer to 12 across, which means allocated in proportion"
       }
      ]
     },
@@ -99,31 +87,16 @@
    },
    "solution": "PORT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PORT",
     "definitions": [
      {
       "text": "Wine",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a fortified wine from Portugal"
      },
      {
       "text": "left",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wine",
-      "note": "first meaning: a fortified wine from Portugal"
-     },
-     {
-      "clueFragment": "left",
-      "note": "second meaning: the left side of a ship"
+      "at": 8,
+      "meaning": "second meaning: the left side of a ship"
      }
     ],
     "explanation": {
@@ -152,49 +125,42 @@
    },
    "solution": "RIGOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RIGOR",
     "definitions": [
      {
       "text": "strictness",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "second",
-      "for": "letter_selection",
-      "note": "second points to the letter in position two of the name it follows"
-     },
-     {
-      "text": "overseeing",
-      "for": "charade",
-      "note": "in a down answer, a piece overseeing another sits above it, so it comes first"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Frankenstein's",
-      "gives": "R",
-      "select": 2,
-      "note": "its second letter"
-     },
-     {
-      "clueFragment": "his assistant",
-      "gives": "IGOR",
-      "note": "Igor is the doctor's hunchbacked assistant in Frankenstein films"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "IGOR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overseeing",
+       "note": "in a down answer, a piece overseeing another sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second",
+         "note": "second points to the letter in position two of the name it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Frankenstein's",
+         "note": "its second letter"
+        }
+       ]
+      },
+      {
+       "words": "his assistant",
+       "gives": "IGOR",
+       "note": "Igor is the doctor's hunchbacked assistant in Frankenstein films"
+      }
      ]
     },
     "explanation": {
@@ -223,49 +189,45 @@
    },
    "solution": "ONTARIO",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "ONTARIO",
     "definitions": [
      {
       "text": "northern province",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the last letter is dropped"
-     },
-     {
-      "text": "imprisons",
-      "for": "container",
-      "note": "to imprison is to shut something inside, so the second piece is placed within"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bermuda, for one",
-      "gives": "ONION",
-      "note": "the Bermuda onion is a mild variety of onion"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "tar is an old word for a sailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "TAR",
-      "IO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imprisons",
+       "note": "to imprison is to shut something inside, so the second piece is placed within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bermuda, for one",
+         "gives": "ONION",
+         "note": "the Bermuda onion is a mild variety of onion"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "sailor",
+       "gives": "TAR",
+       "note": "tar is an old word for a sailor"
+      }
      ]
     },
     "explanation": {
@@ -294,50 +256,41 @@
    },
    "solution": "EXIST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "EXIST",
     "definitions": [
      {
       "text": "Live",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeping",
-      "for": "container",
-      "note": "keeping something means holding it inside, so one piece goes within the other"
-     },
-     {
-      "text": "at the forefront",
-      "for": "letter_selection",
-      "note": "the forefront of a word is its opening letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "die",
-      "gives": "EXIT",
-      "note": "exit, as in to leave the stage of life"
-     },
-     {
-      "clueFragment": "secrecy",
-      "gives": "S",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXI",
-      "S",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "note": "keeping something means holding it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "die",
+       "gives": "EXIT",
+       "note": "exit, as in to leave the stage of life"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the forefront",
+         "note": "the forefront of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secrecy",
+         "note": "its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -366,51 +319,40 @@
    },
    "solution": "EROTIC",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "EROTIC",
     "definitions": [
      {
       "text": "blue",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "is in",
-      "for": "container",
-      "note": "one word sits inside the other, as the clue says it is in it"
-     },
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning round means the combined letters are then read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the center",
-      "gives": "CORE",
-      "note": "the core is the central part of anything"
-     },
-     {
-      "clueFragment": "It",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERO",
-      "TI",
-      "C"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CITORE",
-       "to": "EROTIC"
+       "text": "turning",
+       "note": "turning round means the combined letters are then read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is in",
+         "note": "one word sits inside the other, as the clue says it is in it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the center",
+         "gives": "CORE",
+         "note": "the core is the central part of anything"
+        },
+        {
+         "words": "It",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -441,11 +383,6 @@
    },
    "solution": "REGRETS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "REGRETS",
     "definitions": [
      {
       "text": "apology",
@@ -453,38 +390,42 @@
       "note": "the answer is plural, as in sending one's regrets"
      }
     ],
-    "indicators": [
-     {
-      "text": "covered by",
-      "for": "container",
-      "note": "something covered by another is wrapped inside it"
-     },
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Radiohead",
-      "gives": "R",
-      "select": "first",
-      "note": "read as Radio head: the first letter of radio"
-     },
-     {
-      "clueFragment": "Birds",
-      "gives": "EGRETS",
-      "note": "egrets are white wading birds of the heron family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EGRETS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "REGRETS",
+     "indicators": [
+      {
+       "text": "covered by",
+       "note": "something covered by another is wrapped inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Radiohead",
+           "note": "read as Radio head: the first letter of radio"
+          }
+         ]
+        },
+        {
+         "words": "Birds",
+         "gives": "EGRETS",
+         "note": "egrets are white wading birds of the heron family"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -514,56 +455,50 @@
    },
    "solution": "TELEGRAPH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TELEGRAPH",
     "definitions": [
      {
       "text": "Wire",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "remix of",
-      "for": "anagram",
-      "note": "a remix reworks a track into a new version, so the letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stage",
-      "gives": "LEG",
-      "note": "a leg is one stage of a journey or race"
-     },
-     {
-      "clueFragment": "The",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hip-hop",
-      "gives": "RAP",
-      "note": "rap is the vocal style of hip-hop music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TELEG",
-      "RAP",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LEGTHE",
-       "gives": "TELEGH"
+       "text": "in",
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "remix of",
+         "note": "a remix reworks a track into a new version, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Stage",
+           "gives": "LEG",
+           "note": "a leg is one stage of a journey or race"
+          },
+          {
+           "words": "The",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hip-hop",
+       "gives": "RAP",
+       "note": "rap is the vocal style of hip-hop music"
       }
      ]
     },
@@ -593,57 +528,48 @@
    },
    "solution": "CORONATION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CORONATION",
     "definitions": [
      {
       "text": "Installation of a sovereign",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "?",
-      "for": "letter_selection",
-      "note": "the question mark flags that each country is reduced to its initial, describing a nation by its first letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chad",
-      "gives": "C",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Oman",
-      "gives": "O",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "Chad or Oman?",
-      "gives": "NATION",
-      "note": "Chad and Oman are both countries"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OR",
-      "O",
-      "NATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "?",
+         "note": "the question mark flags that each country is reduced to its initial, describing a nation by its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chad",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Oman",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "Chad or Oman?",
+       "gives": "NATION",
+       "note": "Chad and Oman are both countries"
+      }
      ]
     },
     "explanation": {
@@ -673,35 +599,24 @@
    },
    "solution": "PREDICTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PREDICTS",
     "definitions": [
      {
       "text": "prophesies",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Poorly",
-      "for": "anagram",
-      "note": "something done poorly is badly made, so the letters come out in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scripted",
-      "gives": "SCRIPTED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SCRIPTED",
-       "gives": "PREDICTS"
+       "text": "Poorly",
+       "note": "something done poorly is badly made, so the letters come out in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scripted",
+       "note": "taken as written"
       }
      ]
     },
@@ -730,44 +645,37 @@
    },
    "solution": "ROGET",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "ROGET",
     "definitions": [
      {
       "text": "Where you find, e.g.: rot, corrupt!",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "corrupt",
-      "for": "anagram",
-      "note": "corrupted text has its letters garbled, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "e.g.",
-      "gives": "EG",
-      "note": "the two letters of the abbreviation, taken as written"
-     },
-     {
-      "clueFragment": "rot",
-      "gives": "ROT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EGROT",
-       "gives": "ROGET"
+       "text": "corrupt",
+       "note": "corrupted text has its letters garbled, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "e.g.",
+         "note": "the two letters of the abbreviation, taken as written"
+        },
+        {
+         "words": "rot",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An exasperated cry against decay and corruption.",
      "walkthrough": "The whole clue is the definition: Roget's Thesaurus is where you look up rot and find corrupt beside it, and the same clue scrambles 'e.g.' with 'rot'.",
@@ -794,41 +702,36 @@
    },
    "solution": "IRREGULAR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "IRREGULAR",
     "definitions": [
      {
       "text": "Unusual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "contents of",
-      "for": "hidden_word",
-      "note": "the contents of a run of words are the letters lying inside it, spanning word breaks"
-     },
-     {
-      "text": "backward",
-      "for": "reversal",
-      "note": "going backward, the concealed run of letters is read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "revolver (a Luger) ricocheting",
-      "gives": "RALUGERRI",
-      "note": "the last letter of revolver, all of a Luger, and the first two letters of ricocheting"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RALUGERRI",
-       "to": "IRREGULAR"
+       "text": "backward",
+       "note": "going backward, the concealed run of letters is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "contents of",
+         "note": "the contents of a run of words are the letters lying inside it, spanning word breaks"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revolver (a Luger) ricocheting",
+         "gives": "RALUGERRI",
+         "note": "the last letter of revolver, all of a Luger, and the first two letters of ricocheting"
+        }
+       ]
       }
      ]
     },
@@ -858,38 +761,25 @@
    },
    "solution": "PRORATED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PRORATED",
     "definitions": [
      {
       "text": "Allocated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "redistributed",
-      "for": "anagram",
-      "note": "redistributing hands things out again in a new arrangement, so the referenced letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "24",
-      "gives": "PREDATOR",
-      "note": "the answer to 24 across, a military drone"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PREDATOR",
-       "gives": "PRORATED"
+       "text": "redistributed",
+       "note": "redistributing hands things out again in a new arrangement, so the referenced letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "24",
+       "gives": "PREDATOR",
+       "note": "the answer to 24 across, a military drone"
       }
      ]
     },
@@ -924,53 +814,51 @@
    },
    "solution": "EGGON",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "EGG ON",
     "definitions": [
      {
       "text": "urge",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word it follows"
-     },
-     {
-      "text": "consumed by",
-      "for": "container",
-      "note": "something consumed is taken inside, so these letters go within the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "longtime",
-      "gives": "EON",
-      "note": "an eon is an extremely long time"
-     },
-     {
-      "clueFragment": "$1,000",
-      "gives": "G",
-      "note": "G, short for grand, is slang for a thousand dollars"
-     },
-     {
-      "clueFragment": "gain",
-      "gives": "G",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "GG",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consumed by",
+       "note": "something consumed is taken inside, so these letters go within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "longtime",
+       "gives": "EON",
+       "note": "an eon is an extremely long time"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "$1,000",
+         "gives": "G",
+         "note": "G, short for grand, is slang for a thousand dollars"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially points to the opening letter of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gain",
+           "note": "its first letter"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1005,35 +893,25 @@
    },
    "solution": "COMICSTRIP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COMIC STRIP",
     "definitions": [
      {
       "text": "a daily feature",
       "at": 22
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Entertainers'",
-      "gives": "COMICS",
-      "note": "comics are comedians, entertainers"
-     },
-     {
-      "clueFragment": "tour",
-      "gives": "TRIP",
-      "note": "a tour is a trip"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COMICS",
-      "TRIP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Entertainers'",
+       "gives": "COMICS",
+       "note": "comics are comedians, entertainers"
+      },
+      {
+       "words": "tour",
+       "gives": "TRIP",
+       "note": "a tour is a trip"
+      }
      ]
     },
     "explanation": {
@@ -1063,30 +941,28 @@
    },
    "solution": "OMINOUS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OMINOUS",
     "definitions": [
      {
       "text": "Threatening",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "property of",
-      "for": "hidden_word",
-      "note": "property is something held or owned, so the letters are held within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "domino users",
-      "gives": "OMINOUS",
-      "note": "runs from the second letter of domino into the start of users"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "property of",
+       "note": "property is something held or owned, so the letters are held within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "domino users",
+       "gives": "OMINOUS",
+       "note": "runs from the second letter of domino into the start of users"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Domino players have something menacing about them.",
      "walkthrough": "'Property' suggests a quality of the players, but it signals the answer is the property held inside the words.",
@@ -1123,28 +999,16 @@
    },
    "solution": "INTHEMAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN THE MAIN",
     "definitions": [
      {
       "text": "Largely",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: for the most part, generally"
      },
      {
       "text": "underwater?",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Largely",
-      "note": "first meaning: for the most part, generally"
-     },
-     {
-      "clueFragment": "underwater?",
-      "note": "second meaning: in the sea, the main being a poetic word for the ocean"
+      "at": 8,
+      "meaning": "second meaning: in the sea, the main being a poetic word for the ocean"
      }
     ],
     "explanation": {
@@ -1179,43 +1043,33 @@
    },
    "solution": "SAMSPADE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SAM SPADE",
     "definitions": [
      {
       "text": "Noir detective",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beat",
-      "for": "anagram",
-      "note": "beaten things are battered out of shape, so the letters are knocked into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dames",
-      "gives": "DAMES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sap",
-      "gives": "SAP",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DAMESSAP",
-       "gives": "SAMSPADE"
+       "text": "beat",
+       "note": "beaten things are battered out of shape, so the letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dames",
+         "note": "taken as written"
+        },
+        {
+         "words": "sap",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1245,40 +1099,31 @@
    },
    "solution": "CASSATT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CASSATT",
     "definitions": [
      {
       "text": "Artist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "among",
-      "for": "container",
-      "note": "something among a group is surrounded by it, so one word goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actors",
-      "gives": "CAST",
-      "note": "the cast is the set of actors in a production"
-     },
-     {
-      "clueFragment": "posed",
-      "gives": "SAT",
-      "note": "sat, as for a portrait"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAS",
-      "SAT",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "note": "something among a group is surrounded by it, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "actors",
+       "gives": "CAST",
+       "note": "the cast is the set of actors in a production"
+      },
+      {
+       "words": "posed",
+       "gives": "SAT",
+       "note": "sat, as for a portrait"
+      }
      ]
     },
     "explanation": {
@@ -1307,35 +1152,24 @@
    },
    "solution": "INTERIM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTERIM",
     "definitions": [
      {
       "text": "Temporary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "getting renovated",
-      "for": "anagram",
-      "note": "renovating something rebuilds it into a new form, so the letters are rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "termini",
-      "gives": "TERMINI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TERMINI",
-       "gives": "INTERIM"
+       "text": "getting renovated",
+       "note": "renovating something rebuilds it into a new form, so the letters are rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "termini",
+       "note": "taken as written"
       }
      ]
     },
@@ -1364,51 +1198,41 @@
    },
    "solution": "RIPOSTE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RIPOSTE",
     "definitions": [
      {
       "text": "Come back",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reversing",
-      "for": "reversal",
-      "note": "reversing means the letters of the small favour are read backwards"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in puts the first piece inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "minor concession",
-      "gives": "SOP",
-      "note": "a sop is a small concession made to placate someone"
-     },
-     {
-      "clueFragment": "religious observance",
-      "gives": "RITE",
-      "note": "a rite is a religious ceremony"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "POS",
-      "TE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SOP",
-       "to": "POS"
+       "text": "in",
+       "note": "in puts the first piece inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "religious observance",
+       "gives": "RITE",
+       "note": "a rite is a religious ceremony"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "note": "reversing means the letters of the small favour are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minor concession",
+         "gives": "SOP",
+         "note": "a sop is a small concession made to placate someone"
+        }
+       ]
       }
      ]
     },
@@ -1438,38 +1262,24 @@
    },
    "solution": "SATCHMO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SATCHMO",
     "definitions": [
      {
       "text": "Trumpeter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "upset means knocked over and disordered, so the letters are thrown into a new order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stomach",
-      "gives": "STOMACH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STOMACH",
-       "gives": "SATCHMO"
+       "text": "upset",
+       "note": "upset means knocked over and disordered, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stomach",
+       "note": "taken as written"
       }
      ]
     },
@@ -1500,40 +1310,31 @@
    },
    "solution": "TEACHER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TEACHER",
     "definitions": [
      {
       "text": "guru",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "to capture",
-      "for": "container",
-      "note": "to capture something is to hold it inside, so the second piece is placed within the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Move quickly",
-      "gives": "TEAR",
-      "note": "to tear is to rush along"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "CHE",
-      "note": "Che Guevara, the Argentine revolutionary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEA",
-      "CHE",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to capture",
+       "note": "to capture something is to hold it inside, so the second piece is placed within the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Move quickly",
+       "gives": "TEAR",
+       "note": "to tear is to rush along"
+      },
+      {
+       "words": "revolutionary",
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine revolutionary"
+      }
      ]
     },
     "explanation": {
@@ -1562,38 +1363,25 @@
    },
    "solution": "SLEEP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SLEEP",
     "definitions": [
      {
       "text": "REM, perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "westward",
-      "for": "reversal",
-      "note": "in an across entry, heading west means going right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "takes off",
-      "gives": "PEELS",
-      "note": "peels, as in removing a layer or a garment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLEEP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PEELS",
-       "to": "SLEEP"
+       "text": "westward",
+       "note": "in an across entry, heading west means going right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "takes off",
+       "gives": "PEELS",
+       "note": "peels, as in removing a layer or a garment"
       }
      ]
     },
@@ -1624,35 +1412,25 @@
    },
    "solution": "PREDATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PREDATOR",
     "definitions": [
      {
       "text": "Drone",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "destroying",
-      "for": "anagram",
-      "note": "destroying breaks something apart, letting its letters be put back in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "31",
-      "gives": "TEARDROP",
-      "note": "the answer to 31 across, a sign of sadness"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEARDROP",
-       "gives": "PREDATOR"
+       "text": "destroying",
+       "note": "destroying breaks something apart, letting its letters be put back in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "31",
+       "gives": "TEARDROP",
+       "note": "the answer to 31 across, a sign of sadness"
       }
      ]
     },
@@ -1682,62 +1460,66 @@
    },
    "solution": "EMCEE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "EMCEE",
     "definitions": [
      {
       "text": "host",
       "at": 58
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders in",
-      "for": "letter_selection",
-      "note": "the leaders of a group of words are the letters at the front of each"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "epidemiology",
-      "gives": "E",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "must",
-      "gives": "M",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "completely",
-      "gives": "C",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "eradicate",
-      "gives": "E",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "ebola's",
-      "gives": "E",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "M",
-      "C",
-      "E",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leaders in",
+         "note": "the leaders of a group of words are the letters at the front of each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "epidemiology",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "must",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "completely",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "eradicate",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "ebola's",
+         "note": "its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1767,38 +1549,24 @@
    },
    "solution": "OUTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OUTER",
     "definitions": [
      {
       "text": "far from the hub",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Alternative",
-      "for": "anagram",
-      "note": "an alternative version is a different form, so the letters take a different order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "route",
-      "gives": "ROUTE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROUTE",
-       "gives": "OUTER"
+       "text": "Alternative",
+       "note": "an alternative version is a different form, so the letters take a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "route",
+       "note": "taken as written"
       }
      ]
     },
@@ -1827,47 +1595,41 @@
    },
    "solution": "GLOP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GLOP",
     "definitions": [
      {
       "text": "slime",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "adopting",
-      "for": "container",
-      "note": "adopting something takes it in, so the second piece goes inside the first"
-     },
-     {
-      "text": "piece of",
-      "for": "letter_selection",
-      "note": "a piece of a word here is just its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Republicans",
-      "gives": "GOP",
-      "note": "the GOP, Grand Old Party, is the US Republican Party"
-     },
-     {
-      "clueFragment": "loathsome",
-      "gives": "L",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "L",
-      "OP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopting",
+       "note": "adopting something takes it in, so the second piece goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Republicans",
+       "gives": "GOP",
+       "note": "the GOP, Grand Old Party, is the US Republican Party"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "piece of",
+         "note": "a piece of a word here is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loathsome",
+         "note": "its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1896,35 +1658,24 @@
    },
    "solution": "RHAPSODIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RHAPSODIC",
     "definitions": [
      {
       "text": "Ecstatic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "all over the place",
-      "for": "anagram",
-      "note": "scattered all over the place means the letters are in disorder and must be regrouped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "choir pads",
-      "gives": "CHOIRPADS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHOIRPADS",
-       "gives": "RHAPSODIC"
+       "text": "all over the place",
+       "note": "scattered all over the place means the letters are in disorder and must be regrouped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "choir pads",
+       "note": "taken as written"
       }
      ]
     },
@@ -1953,41 +1704,35 @@
    },
    "solution": "HOTEL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HOTEL",
     "definitions": [
      {
       "text": "Where to stay",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "The middle of",
-      "for": "letter_selection",
-      "note": "the middle of a word is its central letters, leaving off the first and last"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very warm",
-      "gives": "HOT",
-      "note": "hot means very warm"
-     },
-     {
-      "clueFragment": "hell",
-      "gives": "EL",
-      "select": "middle",
-      "note": "its two central letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOT",
-      "EL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very warm",
+       "gives": "HOT",
+       "note": "hot means very warm"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "The middle of",
+         "note": "the middle of a word is its central letters, leaving off the first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hell",
+         "note": "its two central letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -2017,43 +1762,39 @@
    },
    "solution": "PINCER",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "PINCER",
     "definitions": [
      {
       "text": "Claw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "delayed",
-      "for": "deletion",
-      "note": "something delayed is taken from its slot and comes later, so a letter is lifted out and moved on"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heir to the throne",
-      "gives": "PRINCE",
-      "note": "a prince is typically heir to the throne"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R is the symbol for electrical resistance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PINCE",
-      "R"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "delayed",
+       "note": "something delayed is taken from its slot and comes later, so a letter is lifted out and moved on"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "heir to the throne",
+         "gives": "PRINCE",
+         "note": "a prince is typically heir to the throne"
+        },
+        {
+         "words": "resistance",
+         "gives": "R",
+         "note": "R is the symbol for electrical resistance"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -2082,38 +1823,25 @@
    },
    "solution": "TEARDROP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TEARDROP",
     "definitions": [
      {
       "text": "Sign of sadness",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "changing",
-      "for": "anagram",
-      "note": "changing the referenced word alters the order of its letters"
-     }
-    ],
-    "linkWords": [
-     "results from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "1 across",
-      "gives": "PARROTED",
-      "note": "the answer to 1 across, meaning imitated"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PARROTED",
-       "gives": "TEARDROP"
+       "text": "changing",
+       "note": "changing the referenced word alters the order of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "1 across",
+       "gives": "PARROTED",
+       "note": "the answer to 1 across, meaning imitated"
       }
      ]
     },

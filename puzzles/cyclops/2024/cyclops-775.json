@@ -1,8 +1,6 @@
 {
  "id": "cyclops-775",
  "number": 775,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 775",
  "setter": "Cyclops",
  "date": "2024-03-29",
  "dimensions": {
@@ -42,38 +40,30 @@
    },
    "solution": "CASHIERED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CASHIERED",
     "definitions": [
      {
       "text": "Sacked",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Eurosceptic",
-      "gives": "CASH",
-      "note": "Sir Bill Cash, veteran Tory Eurosceptic MP"
-     },
-     {
-      "clueFragment": "that is to say",
-      "gives": "IE",
-      "note": "i.e. = id est, that is"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "RED",
-      "note": "a red is a revolutionary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CASH",
-      "IE",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eurosceptic",
+       "gives": "CASH",
+       "note": "Sir Bill Cash, veteran Tory Eurosceptic MP"
+      },
+      {
+       "words": "that is to say",
+       "gives": "IE",
+       "note": "i.e. = id est, that is"
+      },
+      {
+       "words": "revolutionary",
+       "gives": "RED",
+       "note": "a red is a revolutionary"
+      }
      ]
     },
     "explanation": {
@@ -102,48 +92,45 @@
    },
    "solution": "SKEWED",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SKEWED",
     "definitions": [
      {
       "text": "biased",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "spent",
-      "note": "spent weeks are used up and broken apart, so the letters are rearranged"
-     },
-     {
-      "text": "debut",
-      "note": "a debut is a first appearance, so take the first letter"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weeks",
-      "gives": "WEEKS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Democrat's debut",
-      "gives": "D",
-      "select": "first",
-      "note": "first letter of Democrat"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WEEKSD",
-       "gives": "SKEWED"
+       "text": "spent",
+       "note": "spent weeks are used up and broken apart, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "debut",
+         "note": "a debut is a first appearance, so take the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weeks",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Democrat's debut",
+           "gives": "DEMOCRATDEBUT",
+           "note": "first letter of Democrat"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -173,51 +160,50 @@
    },
    "solution": "CURRENCY",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CURRENCY",
     "definitions": [
      {
       "text": "Tender",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "fringes",
-      "note": "the fringes of a word are its outside letters, like the fringe on a rug"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arse",
-      "gives": "CUR",
-      "note": "an arse, as an insult, is a contemptible person: a cur"
-     },
-     {
-      "clueFragment": "raunchy",
-      "gives": "RY",
-      "select": "outer",
-      "note": "the fringes of RaunchY"
-     },
-     {
-      "clueFragment": "enclosed",
-      "gives": "ENC",
-      "note": "enc. is the abbreviation for enclosed, as at the foot of a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUR",
-      "R",
-      "ENC",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arse",
+       "gives": "CUR",
+       "note": "an arse, as an insult, is a contemptible person: a cur"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "fringes",
+         "note": "the fringes of a word are its outside letters, like the fringe on a rug"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "parts": [
+          {
+           "words": "raunchy",
+           "note": "the fringes of RaunchY"
+          }
+         ]
+        },
+        {
+         "words": "enclosed",
+         "gives": "ENC",
+         "note": "enc. is the abbreviation for enclosed, as at the foot of a letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -247,29 +233,17 @@
    },
    "solution": "BYPASS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BYPASS",
     "definitions": [
      {
       "text": "A bloody",
       "at": 0,
-      "note": "'A bloody' stands for a bloody operation, a heart bypass"
+      "note": "'A bloody' stands for a bloody operation, a heart bypass",
+      "meaning": "a bloody one, that is, heart surgery that reroutes the blood"
      },
      {
       "text": "alternative route",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A bloody",
-      "note": "a bloody one, that is, heart surgery that reroutes the blood"
-     },
-     {
-      "clueFragment": "alternative route",
-      "note": "a road built to carry traffic around a town"
+      "at": 9,
+      "meaning": "a road built to carry traffic around a town"
      }
     ],
     "explanation": {
@@ -299,29 +273,17 @@
    },
    "solution": "ABSTRACT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ABSTRACT",
     "definitions": [
      {
       "text": "Modern art",
       "at": 0,
-      "note": "'Modern art' stands for a kind of modern art, the non-representational kind"
+      "note": "'Modern art' stands for a kind of modern art, the non-representational kind",
+      "meaning": "twentieth-century painting of shapes and colours rather than recognisable things"
      },
      {
       "text": "Remove",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Modern art",
-      "note": "twentieth-century painting of shapes and colours rather than recognisable things"
-     },
-     {
-      "clueFragment": "Remove",
-      "note": "a formal verb for taking something out"
+      "at": 12,
+      "meaning": "a formal verb for taking something out"
      }
     ],
     "explanation": {
@@ -350,44 +312,40 @@
    },
    "solution": "EDICT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "EDICT",
     "definitions": [
      {
       "text": "order",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "just started",
-      "note": "only the start of Conservatives is used, its first letter"
-     },
-     {
-      "text": "to get in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "correct",
-      "gives": "EDIT",
-      "note": "to edit is to correct"
-     },
-     {
-      "clueFragment": "Conservatives just started",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Conservatives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDI",
-      "C",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "just started",
+       "note": "only the start of Conservatives is used, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "correct",
+       "gives": "EDIT",
+       "note": "to edit is to correct"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to get in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Conservatives just started",
+         "note": "first letter of Conservatives"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -416,48 +374,49 @@
    },
    "solution": "BANKRUPTCY",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "BANKRUPTCY",
     "definitions": [
      {
       "text": "What some UK cities face",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reckless",
-      "note": "reckless letters behave wildly, so rearrange them"
-     },
-     {
-      "text": "extreme wings",
-      "note": "the extreme wings of a word are its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extreme wings of party",
-      "gives": "PY",
-      "select": "outer",
-      "note": "first and last letters of PartY"
-     },
-     {
-      "clueFragment": "turn back",
-      "gives": "TURNBACK",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PYTURNBACK",
-       "gives": "BANKRUPTCY"
+       "text": "reckless",
+       "note": "reckless letters behave wildly, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "extreme wings",
+         "note": "the extreme wings of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "PY",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "extreme wings of party",
+           "gives": "PY",
+           "select": "outer",
+           "note": "first and last letters of PartY"
+          }
+         ]
+        },
+        {
+         "words": "turn back",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -487,39 +446,38 @@
    },
    "solution": "TRENCH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "TRENCH",
     "definitions": [
      {
       "text": "depression",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "leader replaced with",
-      "for": "substitution",
-      "note": "the leader of a word is its first letter, and it is swapped out for another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "RENCH",
-      "note": "FRENCH with its leader F taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RENCH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "TRENCH",
+     "indicators": [
+      {
+       "text": "leader replaced with",
+       "note": "the leader of a word is its first letter, and it is swapped out for another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T = time"
+        },
+        {
+         "words": "European",
+         "gives": "RENCH",
+         "note": "FRENCH with its leader F taken out"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -548,38 +506,31 @@
    },
    "solution": "BIDE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BIDE",
     "definitions": [
      {
       "text": "Wait",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be taken off",
-      "for": "deletion",
-      "note": "a name taken off a list or ballot is removed, so the letter for name goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "presidential candidate",
-      "gives": "BIDEN",
-      "note": "the Democrat who stood aside as candidate in 2024"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N = name; this letter is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIDE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be taken off",
+       "note": "a name taken off a list or ballot is removed, so the letter for name goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "presidential candidate",
+       "gives": "BIDEN",
+       "note": "the Democrat who stood aside as candidate in 2024"
+      },
+      {
+       "words": "name",
+       "gives": "N",
+       "note": "N = name; this letter is removed"
+      }
      ]
     },
     "explanation": {
@@ -609,39 +560,30 @@
    },
    "solution": "SHOWER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHOWER",
     "definitions": [
      {
       "text": "One who reveals",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "takes",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "broadcaster",
-      "gives": "SOWER",
-      "note": "a sower broadcasts seed, scattering it by hand"
-     },
-     {
-      "clueFragment": "heroin",
-      "gives": "H",
-      "note": "H = heroin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "H",
-      "OWER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "broadcaster",
+       "gives": "SOWER",
+       "note": "a sower broadcasts seed, scattering it by hand"
+      },
+      {
+       "words": "heroin",
+       "gives": "H",
+       "note": "H = heroin"
+      }
      ]
     },
     "explanation": {
@@ -670,30 +612,28 @@
    },
    "solution": "ELASTIC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ELASTIC",
     "definitions": [
      {
       "text": "able to endure a stretch",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "hidden_word",
-      "note": "the answer lies inside the run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nigel (as Tice",
-      "gives": "ELASTIC",
-      "note": "nigEL AS TICe"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "the answer lies inside the run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nigel (as Tice",
+       "gives": "ELASTIC",
+       "note": "nigEL AS TICe"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Nigel Farage, standing in for Richard Tice, could survive a spell in prison.",
      "walkthrough": "Richard Tice is Farage's Reform UK deputy. 'A stretch' sounds like jail time, but here it is literal.",
@@ -725,43 +665,33 @@
     "22-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEAD WOOD",
     "definitions": [
      {
       "text": "Useless wanker",
       "at": 10
      }
     ],
-    "linkWords": [
-     "meeting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is late",
-      "gives": "DEAD",
-      "note": "the late X"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court is to woo"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D = date"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEAD",
-      "WOO",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is late",
+       "gives": "DEAD",
+       "note": "the late X"
+      },
+      {
+       "words": "court",
+       "gives": "WOO",
+       "note": "to court is to woo"
+      },
+      {
+       "words": "date",
+       "gives": "D",
+       "note": "D = date"
+      }
      ]
     },
+    "spelling": "DEAD WOOD",
     "explanation": {
      "surface": "A useless tosser turns up late for his day in court.",
      "walkthrough": "'Court' and 'date' look like a legal appointment, but court is the romantic verb and date is only its abbreviation. The answer runs on into 22 across.",
@@ -789,48 +719,40 @@
    },
    "solution": "NICOSIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NICOSIA",
     "definitions": [
      {
       "text": "Capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in a mess",
-      "note": "letters in a mess are jumbled"
-     },
-     {
-      "text": "needs to be incorporated"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is in a",
-      "gives": "NISIA",
-      "note": "IS IN A rearranged"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "Co. = company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "CO",
-      "SIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NICOSIA",
+     "parts": [
       {
-       "fodder": "ISINA",
-       "gives": "NISIA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in a mess",
+         "note": "letters in a mess are jumbled"
+        },
+        {
+         "text": "needs to be incorporated"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is in a",
+         "gives": "NISIA",
+         "note": "IS IN A rearranged"
+        },
+        {
+         "words": "company",
+         "gives": "CO",
+         "note": "Co. = company"
+        }
+       ]
       }
      ]
     },
@@ -860,32 +782,25 @@
    },
    "solution": "INFORMANT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFORMANT",
     "definitions": [
      {
       "text": "Grass",
       "at": 1
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "currently playing well",
-      "gives": "INFORM",
-      "note": "in form = playing well at the moment"
-     },
-     {
-      "clueFragment": "TV presenter",
-      "gives": "ANT",
-      "note": "Ant McPartlin, of the TV duo Ant and Dec"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN FORM",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "currently playing well",
+       "gives": "INFORM",
+       "note": "in form = playing well at the moment"
+      },
+      {
+       "words": "TV presenter",
+       "gives": "ANT",
+       "note": "Ant McPartlin, of the TV duo Ant and Dec"
+      }
      ]
     },
     "explanation": {
@@ -914,44 +829,35 @@
    },
    "solution": "BETRAYS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BETRAYS",
     "definitions": [
      {
       "text": "Gives away",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after means following in sequence, so the drawers follow the word for live"
-     },
-     {
-      "text": "introduction",
-      "for": "charade",
-      "note": "an introduction is what comes first, so the word for live opens the answer"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live"
-     },
-     {
-      "clueFragment": "drawers",
-      "gives": "TRAYS",
-      "note": "sliding drawers in a cabinet are trays"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "TRAYS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after means following in sequence, so the drawers follow the word for live"
+      },
+      {
+       "text": "introduction",
+       "note": "an introduction is what comes first, so the word for live opens the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to be is to live"
+      },
+      {
+       "words": "drawers",
+       "gives": "TRAYS",
+       "note": "sliding drawers in a cabinet are trays"
+      }
      ]
     },
     "explanation": {
@@ -980,48 +886,40 @@
    },
    "solution": "RESEARCH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "RESEARCH",
     "definitions": [
      {
       "text": "investigate",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "taken in by"
-     },
-     {
-      "text": "falsification",
-      "note": "falsifying the letters of ARCHERS rearranges them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Archer's",
-      "gives": "RESARCH",
-      "note": "ARCHERS rearranged"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "E",
-      "ARCH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ARCHERS",
-       "gives": "RESARCH"
+       "text": "taken in by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "falsification",
+         "note": "falsifying the letters of ARCHERS rearranges them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Archer's",
+         "gives": "RESARCH",
+         "note": "ARCHERS rearranged"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
       }
      ]
     },
@@ -1051,44 +949,40 @@
    },
    "solution": "FARTING",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "FARTING",
     "definitions": [
      {
       "text": "acting as a windbreaker",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Distant",
-      "gives": "FAR",
-      "note": "far = distant"
-     },
-     {
-      "clueFragment": "object",
-      "gives": "THING",
-      "note": "an object is a thing"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H = hard; removed from THING"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAR",
-      "TING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Distant",
+       "gives": "FAR",
+       "note": "far = distant"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not"
+        }
+       ],
+       "parts": [
+        {
+         "words": "object",
+         "gives": "THING",
+         "note": "an object is a thing"
+        },
+        {
+         "words": "hard",
+         "gives": "H",
+         "note": "H = hard; removed from THING"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1124,35 +1018,25 @@
    },
    "solution": "ALLRIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ALL RIGHT",
     "definitions": [
      {
       "text": "OK",
       "at": 64
      }
     ],
-    "linkWords": [
-     "associated with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everything",
-      "gives": "ALL",
-      "note": "all = everything"
-     },
-     {
-      "clueFragment": "Rees-Mogg's position in the party",
-      "gives": "RIGHT",
-      "note": "Jacob Rees-Mogg sits on the right of the Conservative Party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "RIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everything",
+       "gives": "ALL",
+       "note": "all = everything"
+      },
+      {
+       "words": "Rees-Mogg's position in the party",
+       "gives": "RIGHT",
+       "note": "Jacob Rees-Mogg sits on the right of the Conservative Party"
+      }
      ]
     },
     "explanation": {
@@ -1180,42 +1064,30 @@
    },
    "solution": "CRAYON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRAYON",
     "definitions": [
      {
       "text": "Draw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "harbouring",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "produces"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sunak supporter, say",
-      "gives": "CON",
-      "note": "a Conservative, Con for short"
-     },
-     {
-      "clueFragment": "glimmer (of hope?)",
-      "gives": "RAY",
-      "note": "a ray of hope is a glimmer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RAY",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "harbouring"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sunak supporter, say",
+       "gives": "CON",
+       "note": "a Conservative, Con for short"
+      },
+      {
+       "words": "glimmer (of hope?)",
+       "gives": "RAY",
+       "note": "a ray of hope is a glimmer"
+      }
      ]
     },
     "explanation": {
@@ -1244,35 +1116,25 @@
    },
    "solution": "SEVERAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEVERAL",
     "definitions": [
      {
       "text": "More than one",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cut",
-      "gives": "SEVER",
-      "note": "to sever is to cut"
-     },
-     {
-      "clueFragment": "the state",
-      "gives": "AL",
-      "note": "AL = Alabama, a US state"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEVER",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cut",
+       "gives": "SEVER",
+       "note": "to sever is to cut"
+      },
+      {
+       "words": "the state",
+       "gives": "AL",
+       "note": "AL = Alabama, a US state"
+      }
      ]
     },
     "explanation": {
@@ -1301,44 +1163,37 @@
    },
    "solution": "VIENNA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VIENNA",
     "definitions": [
      {
       "text": "capital",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "move",
-      "for": "anagram",
-      "note": "the letters of NAIVE move about"
-     },
-     {
-      "text": "to acquire",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Naive",
-      "gives": "NAIVE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NAIVEN",
-       "gives": "VIENNA"
+       "text": "move",
+       "note": "the letters of NAIVE move about"
+      },
+      {
+       "text": "to acquire"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Naive",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N = new"
+        }
+       ]
       }
      ]
     },
@@ -1382,29 +1237,17 @@
    },
    "solution": "WAFFLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WAFFLE",
     "definitions": [
      {
       "text": "Evasive politician's words",
       "at": 0,
-      "note": "'he might have to eat' stands for something one eats, a noun"
+      "note": "'he might have to eat' stands for something one eats, a noun",
+      "meaning": "long-winded talk that avoids saying anything definite"
      },
      {
       "text": "he might have to eat",
-      "at": 27
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Evasive politician's words",
-      "note": "long-winded talk that avoids saying anything definite"
-     },
-     {
-      "clueFragment": "he might have to eat",
-      "note": "a crisp gridded batter cake"
+      "at": 27,
+      "meaning": "a crisp gridded batter cake"
      }
     ],
     "explanation": {
@@ -1434,31 +1277,29 @@
    },
    "solution": "STYLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "STYLE",
     "definitions": [
      {
       "text": "Technique",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "it's said",
-      "for": "homophone",
-      "note": "what is said is heard rather than read, so the word only has to sound right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "offering an opportunity to get your leg over",
-      "gives": "STYLE",
-      "soundsLike": "STILE",
-      "note": "a stile is a step for climbing over a fence"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STYLE",
+     "indicators": [
+      {
+       "text": "it's said",
+       "note": "what is said is heard rather than read, so the word only has to sound right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "offering an opportunity to get your leg over",
+       "gives": "STILE",
+       "note": "a stile is a step for climbing over a fence"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A technique for getting lucky in bed.",
      "walkthrough": "'Get your leg over' is British slang for having sex; here it means swinging a leg over the steps set into a field fence.",
@@ -1486,35 +1327,24 @@
    },
    "solution": "TRAGEDY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRAGEDY",
     "definitions": [
      {
       "text": "Disaster",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "organised",
-      "for": "anagram",
-      "note": "the letters are organised into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get Yard",
-      "gives": "GETYARD",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GETYARD",
-       "gives": "TRAGEDY"
+       "text": "organised",
+       "note": "the letters are organised into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get Yard",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1544,49 +1374,48 @@
    },
    "solution": "INFAMY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "INFAMY",
     "definitions": [
      {
       "text": "shame",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "note": "INFO is cut short, losing its last letter"
-     },
-     {
-      "text": "dubious",
-      "note": "MAY's letters are dubious, so rearrange them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Intelligence reduced",
-      "gives": "INF",
-      "note": "INFO, information, without its last letter"
-     },
-     {
-      "clueFragment": "May's",
-      "gives": "AMY",
-      "note": "MAY rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INF",
-      "AMY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INFAMY",
+     "parts": [
       {
-       "fodder": "MAY",
-       "gives": "AMY"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "INFAMY",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "reduced",
+           "note": "INFO is cut short, losing its last letter"
+          },
+          {
+           "text": "dubious",
+           "note": "MAY's letters are dubious, so rearrange them"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Intelligence reduced",
+           "gives": "INF",
+           "note": "INFO, information, without its last letter"
+          },
+          {
+           "words": "May's",
+           "gives": "AMY",
+           "note": "MAY rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1616,42 +1445,34 @@
    },
    "solution": "BLOC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BLOC",
     "definitions": [
      {
       "text": "Political alliance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "deletion"
-     },
-     {
-      "text": "to go",
-      "for": "deletion",
-      "note": "to go means to leave, so that letter leaves the word for head"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "head",
-      "gives": "BLOCK",
-      "note": "block is slang for head, as in knock your block off"
-     },
-     {
-      "clueFragment": "Keir's first",
-      "gives": "K",
-      "note": "first letter of Keir; removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLOC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "first"
+      },
+      {
+       "text": "to go",
+       "note": "to go means to leave, so that letter leaves the word for head"
+      }
+     ],
+     "parts": [
+      {
+       "words": "head",
+       "gives": "BLOCK",
+       "note": "block is slang for head, as in knock your block off"
+      },
+      {
+       "words": "Keir's first",
+       "gives": "K",
+       "note": "first letter of Keir; removed"
+      }
      ]
     },
     "explanation": {
@@ -1680,46 +1501,40 @@
    },
    "solution": "NONCHALANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "NONCHALANT",
     "definitions": [
      {
       "text": "Offhand",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaks into",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Macron's negative",
-      "gives": "NON",
-      "note": "French for no"
-     },
-     {
-      "clueFragment": "song",
-      "gives": "CHANT",
-      "note": "a chant is a song"
-     },
-     {
-      "clueFragment": "election loser",
-      "gives": "AL",
-      "note": "Al Gore, who lost the 2000 US presidential election"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NON",
-      "CH",
-      "AL",
-      "ANT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Macron's negative",
+       "gives": "NON",
+       "note": "French for no"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "breaks into"
+        }
+       ],
+       "parts": [
+        {
+         "words": "song",
+         "gives": "CHANT",
+         "note": "a chant is a song"
+        },
+        {
+         "words": "election loser",
+         "gives": "AL",
+         "note": "Al Gore, who lost the 2000 US presidential election"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

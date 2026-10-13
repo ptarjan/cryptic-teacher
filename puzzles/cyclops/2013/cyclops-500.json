@@ -1,8 +1,6 @@
 {
  "id": "cyclops-500",
  "number": 500,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 500",
  "setter": "Cyclops",
  "date": "2013-07-26",
  "dimensions": {
@@ -42,13 +40,6 @@
    },
    "solution": "MURDOCH",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "MURDOCH",
     "definitions": [
      {
       "text": "Rebekeh's first affair getting considerable coverage",
@@ -56,44 +47,48 @@
       "note": "the whole clue points at the media owner whose papers Rebekah Brooks ran"
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the first of a name is its opening letter, so only the initial of Rebekeh is kept"
-     },
-     {
-      "text": "coverage",
-      "for": "container",
-      "note": "getting coverage means being wrapped up inside something else, so the earlier pieces sit within the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rebekeh",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of the name"
-     },
-     {
-      "clueFragment": "affair",
-      "gives": "DO",
-      "note": "a do is a party or social affair"
-     },
-     {
-      "clueFragment": "considerable",
-      "gives": "MUCH",
-      "note": "much means a considerable amount"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MU",
-      "R",
-      "DO",
-      "CH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coverage",
+       "note": "getting coverage means being wrapped up inside something else, so the earlier pieces sit within the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "considerable",
+       "gives": "MUCH",
+       "note": "much means a considerable amount"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first",
+           "note": "the first of a name is its opening letter, so only the initial of Rebekeh is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rebekeh",
+           "note": "the opening letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "affair",
+         "gives": "DO",
+         "note": "a do is a party or social affair"
+        }
+       ]
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A tabloid story about Rebekah Brooks's early love life getting wall-to-wall press.",
      "walkthrough": "This anniversary puzzle brings in names that Private Eye clues have used for years and gives them only loose definitions. Rebekah Brooks ran newspapers for Rupert Murdoch, so the whole clue describes him.",
@@ -121,52 +116,40 @@
    },
    "solution": "UKRAINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UKRAINE",
     "definitions": [
      {
       "text": "State",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so only the final letter of collapse is used"
-     }
-    ],
-    "linkWords": [
-     "of",
-     "close to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the country",
-      "gives": "UK",
-      "note": "for a British setter the country is the United Kingdom"
-     },
-     {
-      "clueFragment": "downfall",
-      "gives": "RAIN",
-      "note": "rain is a downfall from the sky"
-     },
-     {
-      "clueFragment": "collapse",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UK",
-      "RAIN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the country",
+       "gives": "UK",
+       "note": "for a British setter the country is the United Kingdom"
+      },
+      {
+       "words": "downfall",
+       "gives": "RAIN",
+       "note": "rain is a downfall from the sky"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so only the final letter of collapse is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "collapse",
+         "note": "the closing letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -196,11 +179,6 @@
    },
    "solution": "DIANA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion"
-    ],
-    "answer": "DIANA",
     "definitions": [
      {
       "text": "State \"Not elected\"",
@@ -208,30 +186,28 @@
       "note": "the whole clue: a figure of state whom nobody voted for"
      }
     ],
-    "indicators": [
-     {
-      "text": "Not",
-      "for": "deletion",
-      "note": "not marks what follows as missing, so that word's letters are taken out of the state's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "State",
-      "gives": "INDIANA",
-      "note": "Indiana is a US state"
-     },
-     {
-      "clueFragment": "elected",
-      "gives": "IN",
-      "note": "a politician who is elected is in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIANA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "note": "not marks what follows as missing, so that word's letters are taken out of the state's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "State",
+       "gives": "INDIANA",
+       "note": "Indiana is a US state"
+      },
+      {
+       "words": "elected",
+       "gives": "IN",
+       "note": "a politician who is elected is in"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A two-word verdict on a candidate: the state has declared them unelected.",
      "walkthrough": "Princess Diana is one of the themed names. A royal is a figure of state whom nobody elected, so the whole clue describes her.",
@@ -258,11 +234,6 @@
    },
    "solution": "CLINTON",
    "annotation": {
-    "type": [
-     "and_lit",
-     "container"
-    ],
-    "answer": "CLINTON",
     "definitions": [
      {
       "text": "Belittled Conservative draped round dressing material",
@@ -270,32 +241,28 @@
       "note": "the whole clue loosely evokes a disgraced politician"
      }
     ],
-    "indicators": [
-     {
-      "text": "draped round",
-      "for": "container",
-      "note": "something draped round another thing wraps it, so the outer letters surround the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Belittled Conservative",
-      "gives": "CON",
-      "note": "Con is the short form of Conservative, the word cut down"
-     },
-     {
-      "clueFragment": "dressing material",
-      "gives": "LINT",
-      "note": "lint is soft fabric used to dress wounds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LINT",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "draped round",
+       "note": "something draped round another thing wraps it, so the outer letters surround the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Belittled Conservative",
+       "gives": "CON",
+       "note": "Con is the short form of Conservative, the word cut down"
+      },
+      {
+       "words": "dressing material",
+       "gives": "LINT",
+       "note": "lint is soft fabric used to dress wounds"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A humiliated politician wrapped in bandages.",
      "walkthrough": "Bill Clinton is one of the themed names, defined only loosely; he was belittled by scandal, though not a Conservative.",
@@ -322,12 +289,6 @@
    },
    "solution": "MAJOR",
    "annotation": {
-    "type": [
-     "and_lit",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "MAJOR",
     "definitions": [
      {
       "text": "Bill's back from holiday venue",
@@ -335,41 +296,43 @@
       "note": "the whole clue loosely names the politician as wordplay only"
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means running the other way, so the bill's letters are read right to left"
-     },
-     {
-      "text": "from",
-      "for": "deletion",
-      "note": "taking something from a place removes it, so those letters come out of the holiday spot"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bill's",
-      "gives": "AC",
-      "note": "a bill is an account, AC for short"
-     },
-     {
-      "clueFragment": "holiday venue",
-      "gives": "MAJORCA",
-      "note": "Majorca is a Spanish island popular for British package holidays"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAJOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "MAJOR",
+     "indicators": [
       {
-       "from": "AC",
-       "to": "CA"
+       "text": "back",
+       "note": "going back means running the other way, so the bill's letters are read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "MAJOR",
+       "indicators": [
+        {
+         "text": "from",
+         "note": "taking something from a place removes it, so those letters come out of the holiday spot"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bill's",
+         "gives": "AC",
+         "note": "a bill is an account, AC for short"
+        },
+        {
+         "words": "holiday venue",
+         "gives": "MAJORCA",
+         "note": "Majorca is a Spanish island popular for British package holidays"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone called Bill has just come home from holiday.",
      "walkthrough": "John Major, Conservative Prime Minister in the 1990s, is one of the themed names, given only the wordplay as definition.",
@@ -396,11 +359,6 @@
    },
    "solution": "MADONNA",
    "annotation": {
-    "type": [
-     "and_lit",
-     "container"
-    ],
-    "answer": "MADONNA",
     "definitions": [
      {
       "text": "Divine gift, hogging the party",
@@ -408,32 +366,28 @@
       "note": "the whole clue: a divine star who steals the show"
      }
     ],
-    "indicators": [
-     {
-      "text": "hogging",
-      "for": "container",
-      "note": "to hog something is to grab and keep hold of it, so the gift's letters close around the party"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Divine gift",
-      "gives": "MANNA",
-      "note": "manna is the food God sent the Israelites in the desert"
-     },
-     {
-      "clueFragment": "the party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "DO",
-      "NNA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hogging",
+       "note": "to hog something is to grab and keep hold of it, so the gift's letters close around the party"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Divine gift",
+       "gives": "MANNA",
+       "note": "manna is the food God sent the Israelites in the desert"
+      },
+      {
+       "words": "the party",
+       "gives": "DO",
+       "note": "a do is a party"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A gift from heaven who takes over the whole party.",
      "walkthrough": "Madonna, the singer, is one of the themed names; her name means the Virgin Mary, hence 'Divine'.",
@@ -461,28 +415,16 @@
    },
    "solution": "JEFFERSON",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "JEFFERSON",
     "definitions": [
      {
       "text": "President",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Thomas ..., third President of the United States"
      },
      {
       "text": "4's second Monica, so it's said",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "President",
-      "note": "first meaning: Thomas ..., third President of the United States"
-     },
-     {
-      "clueFragment": "4's second Monica, so it's said",
-      "note": "second meaning: the middle name of 4 down, with Monica standing for its sound-alike moniker"
+      "at": 10,
+      "meaning": "second meaning: the middle name of 4 down, with Monica standing for its sound-alike moniker"
      }
     ],
     "explanation": {
@@ -511,47 +453,40 @@
    },
    "solution": "RECOVER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RECOVER",
     "definitions": [
      {
       "text": "get over it",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "lead",
-      "for": "letter_selection",
-      "note": "the lead is what goes in front, so only the opening letter of the name is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "Cameron's",
-      "gives": "C",
-      "select": "first",
-      "note": "the opening letter of the name"
-     },
-     {
-      "clueFragment": "finished",
-      "gives": "OVER",
-      "note": "something finished is over"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "C",
-      "OVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead",
+         "note": "the lead is what goes in front, so only the opening letter of the name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cameron's",
+         "note": "the opening letter of the name"
+        }
+       ]
+      },
+      {
+       "words": "finished",
+       "gives": "OVER",
+       "note": "something finished is over"
+      }
      ]
     },
     "explanation": {
@@ -579,67 +514,65 @@
    },
    "solution": "ORGANIC",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ORGANIC",
     "definitions": [
      {
       "text": "natural",
       "at": 79
      }
     ],
-    "indicators": [
-     {
-      "text": "head off",
-      "for": "deletion",
-      "note": "with its head off a word loses its first letter"
-     },
-     {
-      "text": "Screwed",
-      "for": "anagram",
-      "note": "something screwed is twisted out of shape, so the letters are rearranged"
-     },
-     {
-      "text": "starts",
-      "for": "letter_selection",
-      "note": "the starts of words are their opening letters, one from each"
-     },
-     {
-      "text": "break it up",
-      "for": "container",
-      "note": "breaking it up means pushing into the middle of it, so the new letters go inside the rearranged ones"
-     }
-    ],
-    "linkWords": [
-     "which is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Monica's",
-      "gives": "MONICA",
-      "note": "the name as written"
-     },
-     {
-      "clueFragment": "Republican grandee",
-      "gives": "RG",
-      "select": "first",
-      "note": "the opening letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RG",
-      "ANIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ONICA",
-       "gives": "OANIC"
+       "text": "break it up",
+       "note": "breaking it up means pushing into the middle of it, so the new letters go inside the rearranged ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Screwed",
+         "note": "something screwed is twisted out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "head off",
+           "note": "with its head off a word loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Monica's",
+           "gives": "MONICA",
+           "note": "the name as written"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "note": "the starts of words are their opening letters, one from each"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican grandee",
+         "note": "the opening letters of the two words"
+        }
+       ]
       }
      ]
     },
@@ -670,41 +603,30 @@
    },
    "solution": "EDIFICE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EDIFICE",
     "definitions": [
      {
       "text": "erection",
       "at": 33
      }
     ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Balls",
-      "gives": "ED",
-      "note": "Ed Balls was a Labour politician, Shadow Chancellor at the time"
-     },
-     {
-      "clueFragment": "provided",
-      "gives": "IF",
-      "note": "provided means on condition that, as if does"
-     },
-     {
-      "clueFragment": "hard stuff",
-      "gives": "ICE",
-      "note": "ice is frozen, hard water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ED",
-      "IF",
-      "ICE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Balls",
+       "gives": "ED",
+       "note": "Ed Balls was a Labour politician, Shadow Chancellor at the time"
+      },
+      {
+       "words": "provided",
+       "gives": "IF",
+       "note": "provided means on condition that, as if does"
+      },
+      {
+       "words": "hard stuff",
+       "gives": "ICE",
+       "note": "ice is frozen, hard water"
+      }
      ]
     },
     "explanation": {
@@ -734,54 +656,40 @@
    },
    "solution": "BIPARTISAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BIPARTISAN",
     "definitions": [
      {
       "text": "Coalition style",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "in a bad way",
-      "for": "anagram",
-      "note": "a thing in a bad way is in disorder, so its letters are muddled"
-     },
-     {
-      "text": "intervention",
-      "for": "container",
-      "note": "an intervention comes between parts, so the state's letters are placed inside the others"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Britain's",
-      "gives": "BRITAINS",
-      "note": "the word as written, without its apostrophe"
-     },
-     {
-      "clueFragment": "state",
-      "gives": "PA",
-      "note": "PA is the abbreviation for Pennsylvania"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "PA",
-      "RTISAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BRITAINS",
-       "gives": "BIRTISAN"
+       "text": "intervention",
+       "note": "an intervention comes between parts, so the state's letters are placed inside the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a bad way",
+         "note": "a thing in a bad way is in disorder, so its letters are muddled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Britain's",
+         "note": "the word as written, without its apostrophe"
+        }
+       ]
+      },
+      {
+       "words": "state",
+       "gives": "PA",
+       "note": "PA is the abbreviation for Pennsylvania"
       }
      ]
     },
@@ -811,67 +719,66 @@
    },
    "solution": "SURPLUS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "SURPLUS",
     "definitions": [
      {
       "text": "Remainder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half breaking",
-      "for": "container",
-      "note": "each half of the pair breaks into the next word, splitting it, so one of its letters sits on each side"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "being in a region means sitting inside its borders, so everything before goes between the outer letters"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Southern",
-      "gives": "S",
-      "note": "S is the abbreviation for southern"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "US",
-      "note": "the United States"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "U",
-      "R",
-      "P",
-      "L",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Southern",
+       "gives": "S",
+       "note": "S is the abbreviation for southern"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "half breaking",
+         "note": "each half of the pair breaks into the next word, splitting it, so one of its letters sits on each side"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "being in a region means sitting inside its borders, so everything before goes between the outer letters"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "up",
+             "note": "taken as written"
+            },
+            {
+             "words": "America",
+             "gives": "US",
+             "note": "the United States"
+            }
+           ]
+          },
+          {
+           "words": "Left",
+           "gives": "L",
+           "note": "L is the abbreviation for left"
+          }
+         ]
+        },
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -900,42 +807,31 @@
    },
    "solution": "ENVY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ENVY",
     "definitions": [
      {
       "text": "Resentment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fails to get",
-      "for": "deletion",
-      "note": "failing to get something in means it is left out, so that letter is missing"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "diplomat",
-      "gives": "ENVOY",
-      "note": "an envoy is a diplomat sent on a mission"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "O is a round letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENV",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "fails to get",
+       "note": "failing to get something in means it is left out, so that letter is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diplomat",
+       "gives": "ENVOY",
+       "note": "an envoy is a diplomat sent on a mission"
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "O is a round letter"
+      }
      ]
     },
     "explanation": {
@@ -965,28 +861,16 @@
    },
    "solution": "RETAINER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RETAINER",
     "definitions": [
      {
       "text": "Not one to give away",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: one who retains, holding on to things"
      },
      {
       "text": "what the lawyer pocketed",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not one to give away",
-      "note": "first meaning: one who retains, holding on to things"
-     },
-     {
-      "clueFragment": "what the lawyer pocketed",
-      "note": "second meaning: the advance fee paid to secure a lawyer's services"
+      "at": 21,
+      "meaning": "second meaning: the advance fee paid to secure a lawyer's services"
      }
     ],
     "explanation": {
@@ -1015,54 +899,49 @@
    },
    "solution": "ARHYTHMIA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "ARHYTHMIA",
     "definitions": [
      {
       "text": "ticker malfunction",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "involving means including, so the element's symbol joins the other letters"
-     },
-     {
-      "text": "battering",
-      "for": "anagram",
-      "note": "a battering knocks things out of shape, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Army hit",
-      "gives": "ARMYHIT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hydrogen",
-      "gives": "H",
-      "note": "H is the chemical symbol for hydrogen"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ARMYHITAH",
-       "gives": "ARHYTHMIA"
+       "text": "involving",
+       "note": "involving means including, so the element's symbol joins the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "battering",
+         "note": "a battering knocks things out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Army hit",
+           "note": "taken as written"
+          },
+          {
+           "words": "a",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hydrogen",
+       "gives": "H",
+       "note": "H is the chemical symbol for hydrogen"
       }
      ]
     },
@@ -1092,45 +971,41 @@
    },
    "solution": "ABSURD",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ABSURD",
     "definitions": [
      {
       "text": "stupid",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "deletion",
-      "note": "out means removed, so the letter for time is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Muscles",
-      "gives": "ABS",
-      "note": "abs are the abdominal muscles"
-     },
-     {
-      "clueFragment": "crap",
-      "gives": "TURD",
-      "note": "a crude word for a lump of excrement"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABS",
-      "URD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Muscles",
+       "gives": "ABS",
+       "note": "abs are the abdominal muscles"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out means removed, so the letter for time is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crap",
+         "gives": "TURD",
+         "note": "a crude word for a lump of excrement"
+        },
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1158,11 +1033,6 @@
    },
    "solution": "ARCHER",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion"
-    ],
-    "answer": "ARCHER",
     "definitions": [
      {
       "text": "Protestor's married off",
@@ -1170,30 +1040,28 @@
       "note": "the whole clue loosely names the novelist through wordplay only"
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "deletion",
-      "note": "off means taken away, so the letter for married goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Protestor's",
-      "gives": "MARCHER",
-      "note": "a marcher is a protestor on a demonstration"
-     },
-     {
-      "clueFragment": "married",
-      "gives": "M",
-      "note": "M is the abbreviation for married"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARCHER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "note": "off means taken away, so the letter for married goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Protestor's",
+       "gives": "MARCHER",
+       "note": "a marcher is a protestor on a demonstration"
+      },
+      {
+       "words": "married",
+       "gives": "M",
+       "note": "M is the abbreviation for married"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about whether a demonstrator has gone off and got married.",
      "walkthrough": "Jeffrey Archer, novelist and Conservative peer jailed for perjury, is one of the themed names, defined only through the wordplay.",
@@ -1220,28 +1088,16 @@
    },
    "solution": "RHUBARB",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RHUBARB",
     "definitions": [
      {
       "text": "Luvvie-style prattle",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the word extras mutter on stage to sound like a crowd talking"
      },
      {
       "text": "which is often forced",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Luvvie-style prattle",
-      "note": "first meaning: the word extras mutter on stage to sound like a crowd talking"
-     },
-     {
-      "clueFragment": "which is often forced",
-      "note": "second meaning: the plant whose stalks are grown early in the dark"
+      "at": 22,
+      "meaning": "second meaning: the plant whose stalks are grown early in the dark"
      }
     ],
     "explanation": {
@@ -1276,50 +1132,44 @@
    },
    "solution": "REDHAIR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "RED HAIR",
     "definitions": [
      {
       "text": "21's crowning glory",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "absolute end",
-      "for": "letter_selection",
-      "note": "the absolute end of a word is its very last letter, so only that is kept"
-     },
-     {
-      "text": "orchestrating",
-      "for": "anagram",
-      "note": "orchestrating means arranging, so the letters are put in a new order"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Keir",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of the name"
-     },
-     {
-      "clueFragment": "Hardie",
-      "gives": "HARDIE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RHARDIE",
-       "gives": "REDHAIR"
+       "text": "orchestrating",
+       "note": "orchestrating means arranging, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "absolute end",
+           "note": "the absolute end of a word is its very last letter, so only that is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Keir",
+           "note": "the final letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "Hardie",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1349,11 +1199,6 @@
    },
    "solution": "LEWINSKY",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion"
-    ],
-    "answer": "LEWINSKY",
     "definitions": [
      {
       "text": "Flew in Skytrain (not a low grade coach)",
@@ -1361,35 +1206,37 @@
       "note": "the whole clue loosely names the intern through wordplay only"
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not marks the bracketed words as removed, so those letters are taken out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flew in Skytrain",
-      "gives": "FLEWINSKYTRAIN",
-      "note": "taken as written; Skytrain was Freddie Laker's cheap transatlantic airline. The kept letters run on in order only because of the deletion, a coincidence of the method rather than a hidden word"
-     },
-     {
-      "clueFragment": "a low grade",
-      "gives": "F",
-      "note": "F is a failing grade in a school mark"
-     },
-     {
-      "clueFragment": "coach",
-      "gives": "TRAIN",
-      "note": "to coach someone is to train them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEWINSKY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "not marks the bracketed words as removed, so those letters are taken out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Flew in Skytrain",
+         "note": "taken as written; Skytrain was Freddie Laker's cheap transatlantic airline. The kept letters run on in order only because of the deletion, a coincidence of the method rather than a hidden word"
+        },
+        {
+         "words": "a low grade",
+         "gives": "F",
+         "note": "F is a failing grade in a school mark"
+        }
+       ]
+      },
+      {
+       "words": "coach",
+       "gives": "TRAIN",
+       "note": "to coach someone is to train them"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone flew on a budget airline, travelling in a better class than the cheapest seats.",
      "walkthrough": "'Coach' looks like economy class on a plane; it is the verb, train. Monica Lewinsky is one of the themed names, defined only through the wordplay.",
@@ -1423,51 +1270,41 @@
    },
    "solution": "WOODANT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WOOD ANT",
     "definitions": [
      {
       "text": "Sylvan creature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grab",
-      "for": "container",
-      "note": "to grab something is to close around it, so the desire's letters hold the next pieces"
-     }
-    ],
-    "linkWords": [
-     "has",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "desire",
-      "gives": "WANT",
-      "note": "to want is to desire"
-     },
-     {
-      "clueFragment": "balls",
-      "gives": "OO",
-      "note": "two round O letters look like balls"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D is the abbreviation for date"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OO",
-      "D",
-      "ANT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grab",
+       "note": "to grab something is to close around it, so the desire's letters hold the next pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "desire",
+       "gives": "WANT",
+       "note": "to want is to desire"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "balls",
+         "gives": "OO",
+         "note": "two round O letters look like balls"
+        },
+        {
+         "words": "date",
+         "gives": "D",
+         "note": "D is the abbreviation for date"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1497,11 +1334,6 @@
    },
    "solution": "KINNOCK",
    "annotation": {
-    "type": [
-     "and_lit",
-     "container"
-    ],
-    "answer": "KINNOCK",
     "definitions": [
      {
       "text": "Elected to penetrate slag",
@@ -1509,32 +1341,28 @@
       "note": "the whole clue loosely evokes a politician much mocked by the press"
      }
     ],
-    "indicators": [
-     {
-      "text": "to penetrate",
-      "for": "container",
-      "note": "to penetrate something is to go inside it, so these letters sit within the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elected",
-      "gives": "IN",
-      "note": "a politician who is elected is in"
-     },
-     {
-      "clueFragment": "slag",
-      "gives": "KNOCK",
-      "note": "to slag off is to criticise, as to knock is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "IN",
-      "NOCK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to penetrate",
+       "note": "to penetrate something is to go inside it, so these letters sit within the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slag",
+       "gives": "KNOCK",
+       "note": "to slag off is to criticise, as to knock is"
+      },
+      {
+       "words": "Elected",
+       "gives": "IN",
+       "note": "a politician who is elected is in"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A crude tabloid line about getting elected by bedding someone.",
      "walkthrough": "Slag is British slang for criticise, as in slag off. Neil Kinnock, Labour leader in the 1980s, was elected to Parliament and slagged off by the tabloids.",
@@ -1562,31 +1390,16 @@
    },
    "solution": "BUTT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BUTT",
     "definitions": [
      {
       "text": "Great capacity for wine",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a large cask for wine or beer"
      },
      {
       "text": "arsehole",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great capacity for wine",
-      "note": "first meaning: a large cask for wine or beer"
-     },
-     {
-      "clueFragment": "arsehole",
-      "note": "second meaning: the backside, in American slang"
+      "at": 30,
+      "meaning": "second meaning: the backside, in American slang"
      }
     ],
     "explanation": {
@@ -1615,32 +1428,25 @@
    },
    "solution": "DISCONTENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISCONTENT",
     "definitions": [
      {
       "text": "Pissed off",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "3's",
-      "gives": "DIS",
-      "note": "3 down is Diana, known for short as Di"
-     },
-     {
-      "clueFragment": "subject matter",
-      "gives": "CONTENT",
-      "note": "content is what something is about"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "CONTENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "3's",
+       "gives": "DIS",
+       "note": "3 down is Diana, known for short as Di"
+      },
+      {
+       "words": "subject matter",
+       "gives": "CONTENT",
+       "note": "content is what something is about"
+      }
      ]
     },
     "explanation": {
@@ -1669,43 +1475,31 @@
    },
    "solution": "TWEET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TWEET",
     "definitions": [
      {
       "text": "tell all and sundry about it",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first piece within the second, between its two letters"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "double time",
-      "gives": "TT",
-      "note": "T for time, twice"
-     },
-     {
-      "clueFragment": "Have a piss",
-      "gives": "WEE",
-      "note": "to wee is to urinate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WEE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first piece within the second, between its two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "double time",
+       "gives": "TT",
+       "note": "T for time, twice"
+      },
+      {
+       "words": "Have a piss",
+       "gives": "WEE",
+       "note": "to wee is to urinate"
+      }
      ]
     },
     "explanation": {
@@ -1741,67 +1535,59 @@
    },
    "solution": "RAWMEAT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "RAW MEAT",
     "definitions": [
      {
       "text": "due for a roasting",
       "at": 61
      }
     ],
-    "indicators": [
-     {
-      "text": "Ill-conceived",
-      "for": "anagram",
-      "note": "something ill-conceived is badly formed, so the letters are put together wrongly"
-     },
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a name is its first letter, so only that is used"
-     }
-    ],
-    "linkWords": [
-     "wants"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "war",
-      "gives": "WAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Middle East",
-      "gives": "ME",
-      "note": "ME is the abbreviation for the Middle East"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "a is the indefinite article"
-     },
-     {
-      "clueFragment": "Tony's",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAW",
-      "ME",
-      "A",
-      "T"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "WAR",
-       "gives": "RAW"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Ill-conceived",
+         "note": "something ill-conceived is badly formed, so the letters are put together wrongly"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "war",
+           "note": "taken as written"
+          },
+          {
+           "words": "Middle East",
+           "gives": "ME",
+           "note": "ME is the abbreviation for the Middle East"
+          },
+          {
+           "words": "article",
+           "gives": "A",
+           "note": "a is the indefinite article"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a name is its first letter, so only that is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tony's",
+         "note": "the opening letter of the name"
+        }
+       ]
       }
      ]
     },
@@ -1832,11 +1618,6 @@
    },
    "solution": "CAMERON",
    "annotation": {
-    "type": [
-     "and_lit",
-     "charade"
-    ],
-    "answer": "CAMERON",
     "definitions": [
      {
       "text": "Was responsible for ejaculating \"Right on!\"",
@@ -1844,30 +1625,26 @@
       "note": "the whole clue: a right-wing leader blurting a slogan"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Was responsible for ejaculating",
-      "gives": "CAME",
-      "note": "came is slang for reached orgasm"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAME",
-      "R",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Was responsible for ejaculating",
+       "gives": "CAME",
+       "note": "came is slang for reached orgasm"
+      },
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "on",
+       "note": "taken as written"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Someone blamed for shouting out the slogan of approval.",
      "walkthrough": "Ejaculating sounds like exclaiming, the old sense; it is the crude one. David Cameron led the right-of-centre Conservatives, so the whole clue describes him.",
@@ -1895,12 +1672,6 @@
    },
    "solution": "BLAIR",
    "annotation": {
-    "type": [
-     "and_lit",
-     "reversal",
-     "charade"
-    ],
-    "answer": "BLAIR",
     "definitions": [
      {
       "text": "Put weight about to secure broadcast",
@@ -1908,37 +1679,33 @@
       "note": "the whole clue: a leader who threw his weight around for airtime"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about means facing the other way, so the weight's letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "weight",
-      "gives": "LB",
-      "note": "lb is the abbreviation for a pound in weight"
-     },
-     {
-      "clueFragment": "broadcast",
-      "gives": "AIR",
-      "note": "to air a programme is to broadcast it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BL",
-      "AIR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LB",
-       "to": "BL"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about means facing the other way, so the weight's letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weight",
+         "gives": "LB",
+         "note": "lb is the abbreviation for a pound in weight"
+        }
+       ]
+      },
+      {
+       "words": "broadcast",
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Throwing your weight around to win airtime.",
      "walkthrough": "Tony Blair, Labour Prime Minister from 1997 to 2007, was known for managing the media, which the whole clue describes.",
@@ -1971,28 +1738,16 @@
    },
    "solution": "ATSTAKE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AT STAKE",
     "definitions": [
      {
       "text": "In danger",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: at risk"
      },
      {
       "text": "as a flaming heretic",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In danger",
-      "note": "first meaning: at risk"
-     },
-     {
-      "clueFragment": "as a flaming heretic",
-      "note": "second meaning: where heretics were tied to be burned"
+      "at": 10,
+      "meaning": "second meaning: where heretics were tied to be burned"
      }
     ],
     "explanation": {

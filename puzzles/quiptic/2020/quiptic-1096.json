@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1096",
  "number": 1096,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,096",
  "setter": "Matilda",
  "date": "2020-11-16",
  "dimensions": {
@@ -38,49 +36,40 @@
    },
    "solution": "ZEALOUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ZEALOUS",
     "definitions": [
      {
       "text": "Very keen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "'into' asks for the words before it to be put inside the word after it"
-     }
-    ],
-    "linkWords": [
-     "to have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "god",
-      "gives": "ZEUS",
-      "note": "Zeus is the king of the Greek gods"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "LO",
-      "note": "lo, as in 'lo and behold', is an old call to look"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ZE",
-      "A",
-      "LO",
-      "US"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "'into' asks for the words before it to be put inside the word after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "god",
+         "gives": "ZEUS",
+         "note": "Zeus is the king of the Greek gods"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "look",
+       "gives": "LO",
+       "note": "lo, as in 'lo and behold', is an old call to look"
+      }
      ]
     },
     "explanation": {
@@ -109,55 +98,44 @@
    },
    "solution": "ESTONIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ESTONIA",
     "definitions": [
      {
       "text": "this country",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "the start of",
-      "for": "letter_selection",
-      "note": "the start of a word is just its opening letter"
-     },
-     {
-      "text": "changing",
-      "for": "anagram",
-      "note": "letters that are changing are being rearranged into a new order"
-     }
-    ],
-    "linkWords": [
-     "After"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "expansion",
-      "gives": "E",
-      "select": "first",
-      "note": "opening letter of expansion"
-     },
-     {
-      "clueFragment": "Nato is",
-      "gives": "NATOIS",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "STONIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NATOIS",
-       "gives": "STONIA"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the start of",
+         "note": "the start of a word is just its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expansion",
+         "note": "opening letter of expansion"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changing",
+         "note": "letters that are changing are being rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nato is",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -187,47 +165,36 @@
    },
    "solution": "LEGAL",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "LEGAL",
     "definitions": [
      {
       "text": "valid",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "stuffing",
-      "for": "hidden_word",
-      "note": "stuffing is what sits inside, so the letters are found inside the phrase"
-     },
-     {
-      "text": "revolting",
-      "for": "reversal",
-      "note": "revolting here means turning over, so the letters are read backwards"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nigella gelatinised",
-      "gives": "LAGEL",
-      "note": "found across the end of Nigella and the start of gelatinised"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEGAL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LAGEL",
-       "to": "LEGAL"
+       "text": "revolting",
+       "note": "revolting here means turning over, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "stuffing",
+         "note": "stuffing is what sits inside, so the letters are found inside the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nigella gelatinised",
+         "gives": "LAGEL",
+         "note": "found across the end of Nigella and the start of gelatinised"
+        }
+       ]
       }
      ]
     },
@@ -258,51 +225,40 @@
    },
    "solution": "UNSEATS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "UNSEATS",
     "definitions": [
      {
       "text": "Dislodges",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mixed",
-      "for": "anagram",
-      "note": "letters that are mixed are jumbled into another order"
-     },
-     {
-      "text": "swallowing",
-      "for": "container",
-      "note": "swallowing means taking something in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nuts",
-      "gives": "NUTS",
-      "note": "the letters to be jumbled"
-     },
-     {
-      "clueFragment": "large amount of water",
-      "gives": "SEA",
-      "note": "a sea is a large body of water"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "SEA",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NUTS",
-       "gives": "UNTS"
+       "text": "swallowing",
+       "note": "swallowing means taking something in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "note": "letters that are mixed are jumbled into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nuts",
+         "note": "the letters to be jumbled"
+        }
+       ]
+      },
+      {
+       "words": "large amount of water",
+       "gives": "SEA",
+       "note": "a sea is a large body of water"
       }
      ]
     },
@@ -331,31 +287,29 @@
    },
    "solution": "CHEQUES",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHEQUES",
     "definitions": [
      {
       "text": "money orders",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "declared",
-      "for": "homophone",
-      "note": "something declared is spoken out, so we go by the sound of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Europeans",
-      "gives": "CHEQUES",
-      "soundsLike": "CZECHS",
-      "note": "Czechs are people from the Czech Republic"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHEQUES",
+     "indicators": [
+      {
+       "text": "declared",
+       "note": "something declared is spoken out, so we go by the sound of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Europeans",
+       "gives": "CZECHS",
+       "note": "Czechs are people from the Czech Republic"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Some Europeans announced their banking instructions.",
      "walkthrough": "'Declared' reads like a customs declaration but signals that the answer sounds like the people.",
@@ -383,51 +337,41 @@
    },
    "solution": "HEALED",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "HEALED",
     "definitions": [
      {
       "text": "Got better",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the word is read from right to left"
-     },
-     {
-      "text": "to hold",
-      "for": "container",
-      "note": "to hold something is to keep it inside, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chief",
-      "gives": "HEAD",
-      "note": "the head is the chief person"
-     },
-     {
-      "clueFragment": "the Spanish",
-      "gives": "EL",
-      "note": "el is Spanish for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEA",
-      "LE",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EL",
-       "to": "LE"
+       "text": "to hold",
+       "note": "to hold something is to keep it inside, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chief",
+       "gives": "HEAD",
+       "note": "the head is the chief person"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means the word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Spanish",
+         "gives": "EL",
+         "note": "el is Spanish for the"
+        }
+       ]
       }
      ]
     },
@@ -456,52 +400,47 @@
    },
    "solution": "QUIZZICAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "QUIZZICAL",
     "definitions": [
      {
       "text": "confused",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "largely",
-      "for": "deletion",
-      "note": "largely means most but not all, so the last letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French who",
-      "gives": "QUI",
-      "note": "qui is French for who"
-     },
-     {
-      "clueFragment": "sleep",
-      "gives": "ZZ",
-      "note": "the cartoon sound of snoring"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "call",
-      "gives": "CALL",
-      "note": "taken as written before trimming"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUI",
-      "ZZ",
-      "I",
-      "CAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "largely",
+       "note": "largely means most but not all, so the last letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "French who",
+         "gives": "QUI",
+         "note": "qui is French for who"
+        },
+        {
+         "words": "sleep",
+         "gives": "ZZ",
+         "note": "the cartoon sound of snoring"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        },
+        {
+         "words": "call",
+         "note": "taken as written before trimming"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -529,52 +468,43 @@
    },
    "solution": "EVEREST",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "EVEREST",
     "definitions": [
      {
       "text": "Highest point",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so those letters are taken away"
-     },
-     {
-      "text": "disintegrating",
-      "for": "anagram",
-      "note": "something disintegrating falls apart, so its letters are scattered into a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "serviette",
-      "gives": "SERVIETTE",
-      "note": "a serviette is a table napkin"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "the letters to remove"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVEREST"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EVEREST",
+     "indicators": [
       {
-       "fodder": "SERVETE",
-       "gives": "EVEREST"
+       "text": "disintegrating",
+       "note": "something disintegrating falls apart, so its letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "EVEREST",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so those letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "serviette",
+         "note": "a serviette is a table napkin"
+        },
+        {
+         "words": "it",
+         "note": "the letters to remove"
+        }
+       ]
       }
      ]
     },
@@ -610,47 +540,33 @@
    },
    "solution": "TRAFFICLIGHTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TRAFFIC LIGHTS",
     "definitions": [
      {
       "text": "a stop-go situation",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "get involved",
-      "for": "anagram",
-      "note": "letters that get involved become tangled together and come out in another order"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "it'll be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "If girls",
-      "gives": "IFGIRLS",
-      "note": "letters to be rearranged"
-     },
-     {
-      "clueFragment": "that FC",
-      "gives": "THATFC",
-      "note": "more letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAFFICLIGHTS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IFGIRLSTHATFC",
-       "gives": "TRAFFICLIGHTS"
+       "text": "get involved",
+       "note": "letters that get involved become tangled together and come out in another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "If girls",
+         "note": "letters to be rearranged"
+        },
+        {
+         "words": "that FC",
+         "note": "more letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -681,10 +597,6 @@
    },
    "solution": "STAG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAG",
     "definitions": [
      {
       "text": "for blokes",
@@ -692,22 +604,19 @@
       "note": "adjective: as in a stag party, for men only"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Street",
-      "gives": "ST",
-      "note": "standard abbreviation for street"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "AG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Street",
+       "gives": "ST",
+       "note": "standard abbreviation for street"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      }
      ]
     },
     "explanation": {
@@ -736,51 +645,40 @@
    },
    "solution": "SERIALISED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SERIALISED",
     "definitions": [
      {
       "text": "one bit at a time",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "prepared",
-      "for": "anagram",
-      "note": "prepared means worked into shape, so the letters are reworked into a new arrangement"
-     },
-     {
-      "text": "to tour",
-      "for": "container",
-      "note": "to tour a place is to go around it, so one piece wraps around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Disraeli",
-      "gives": "DISRAELI",
-      "note": "the letters to be rearranged"
-     },
-     {
-      "clueFragment": "Home Counties",
-      "gives": "SE",
-      "note": "the Home Counties lie in the South East of England, abbreviated SE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SERIALI",
-      "SE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DISRAELI",
-       "gives": "SERIALID"
+       "text": "to tour",
+       "note": "to tour a place is to go around it, so one piece wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "note": "prepared means worked into shape, so the letters are reworked into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Disraeli",
+         "note": "the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "Home Counties",
+       "gives": "SE",
+       "note": "the Home Counties lie in the South East of England, abbreviated SE"
       }
      ]
     },
@@ -810,38 +708,24 @@
    },
    "solution": "ANGLIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ANGLIA",
     "definitions": [
      {
       "text": "Olde England",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Fashion",
-      "for": "anagram",
-      "note": "to fashion something is to shape it, so the letters are shaped into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gala in",
-      "gives": "GALAIN",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANGLIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GALAIN",
-       "gives": "ANGLIA"
+       "text": "Fashion",
+       "note": "to fashion something is to shape it, so the letters are shaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gala in",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -871,54 +755,40 @@
    },
    "solution": "FRENZIED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FRENZIED",
     "definitions": [
      {
       "text": "its opposite",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints that the word is only one possible arrangement of its letters"
-     },
-     {
-      "text": "incorporating",
-      "for": "container",
-      "note": "incorporating means taking into the body, so one piece goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cooked",
-      "gives": "FRIED",
-      "note": "fried food has been cooked in fat"
-     },
-     {
-      "clueFragment": "Zen",
-      "gives": "ZEN",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FR",
-      "ENZ",
-      "IED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ZEN",
-       "gives": "ENZ"
+       "text": "incorporating",
+       "note": "incorporating means taking into the body, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cooked",
+       "gives": "FRIED",
+       "note": "fried food has been cooked in fat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "note": "perhaps hints that the word is only one possible arrangement of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Zen",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -948,41 +818,24 @@
    },
    "solution": "FANTASTIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FANTASTIC",
     "definitions": [
      {
       "text": "unbelievable",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "crash",
-      "for": "anagram",
-      "note": "in a crash things get smashed up, so the letters are wrecked into another order"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fiats can't",
-      "gives": "FIATSCANT",
-      "note": "the letters to be rearranged, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FANTASTIC"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FIATSCANT",
-       "gives": "FANTASTIC"
+       "text": "crash",
+       "note": "in a crash things get smashed up, so the letters are wrecked into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fiats can't",
+       "note": "the letters to be rearranged, apostrophe ignored"
       }
      ]
     },
@@ -1011,63 +864,60 @@
    },
    "solution": "TRADEMARK",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "TRADEMARK",
     "definitions": [
      {
       "text": "Label",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put up",
-      "for": "reversal",
-      "note": "in a down clue, putting something up means writing it bottom to top"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the last letter of the word"
-     },
-     {
-      "text": "out of",
-      "for": "deletion",
-      "note": "out of means removed from, so that letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paintings",
-      "gives": "ART",
-      "note": "paintings are works of art"
-     },
-     {
-      "clueFragment": "loan",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of loan"
-     },
-     {
-      "clueFragment": "Denmark",
-      "gives": "DENMARK",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRA",
-      "DEMARK"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ART",
-       "to": "TRA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put up",
+         "note": "in a down clue, putting something up means writing it bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paintings",
+         "gives": "ART",
+         "note": "paintings are works of art"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "note": "out of means removed from, so that letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Denmark",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the last letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "loan",
+           "note": "last letter of loan"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1097,32 +947,24 @@
    },
    "solution": "ACUTE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACUTE",
     "definitions": [
      {
       "text": "kind of accent",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "nice",
-      "gives": "CUTE",
-      "note": "cute means sweet or nice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CUTE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "nice",
+       "gives": "CUTE",
+       "note": "cute means sweet or nice"
+      }
      ]
     },
     "explanation": {
@@ -1152,35 +994,25 @@
    },
    "solution": "CUBAN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CUBAN",
     "definitions": [
      {
       "text": "Islander",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copper",
-      "gives": "CU",
-      "note": "Cu is the chemical symbol for copper"
-     },
-     {
-      "clueFragment": "prohibition",
-      "gives": "BAN",
-      "note": "a ban is a prohibition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CU",
-      "BAN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "copper",
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "words": "prohibition",
+       "gives": "BAN",
+       "note": "a ban is a prohibition"
+      }
      ]
     },
     "explanation": {
@@ -1209,44 +1041,35 @@
    },
    "solution": "UNHITCH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNHITCH",
     "definitions": [
      {
       "text": "free from attachment",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders of",
-      "for": "letter_selection",
-      "note": "the leaders of a group of words are their opening letters"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ukraine never had",
-      "gives": "UNH",
-      "select": "first",
-      "note": "first letters of the three words"
-     },
-     {
-      "clueFragment": "strong desire",
-      "gives": "ITCH",
-      "note": "an itch is a craving"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNH",
-      "ITCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leaders of",
+         "note": "the leaders of a group of words are their opening letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ukraine never had",
+         "note": "first letters of the three words"
+        }
+       ]
+      },
+      {
+       "words": "strong desire",
+       "gives": "ITCH",
+       "note": "an itch is a craving"
+      }
      ]
     },
     "explanation": {
@@ -1274,43 +1097,31 @@
    },
    "solution": "BLAMELESS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLAMELESS",
     "definitions": [
      {
       "text": "Innocent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so the first piece goes within the second"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "praise",
-      "gives": "BLESS",
-      "note": "to bless is to praise, especially God"
-     },
-     {
-      "clueFragment": "feeble",
-      "gives": "LAME",
-      "note": "a lame excuse is a feeble one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LAME",
-      "LESS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in means placed inside, so the first piece goes within the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "praise",
+       "gives": "BLESS",
+       "note": "to bless is to praise, especially God"
+      },
+      {
+       "words": "feeble",
+       "gives": "LAME",
+       "note": "a lame excuse is a feeble one"
+      }
      ]
     },
     "explanation": {
@@ -1338,30 +1149,28 @@
    },
    "solution": "MELANIN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MELANIN",
     "definitions": [
      {
       "text": "colour",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Found in",
-      "for": "hidden_word",
-      "note": "found in means the letters can be located inside the phrase that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "caramel, an incredible",
-      "gives": "MELANIN",
-      "note": "spans the end of caramel, all of an, and the start of incredible"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Found in",
+       "note": "found in means the letters can be located inside the phrase that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "caramel, an incredible",
+       "gives": "MELANIN",
+       "note": "spans the end of caramel, all of an, and the start of incredible"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cook marvels at the amazing shade of caramel.",
      "walkthrough": "The comma after caramel is ignored when reading through.",
@@ -1388,40 +1197,31 @@
    },
    "solution": "STERNUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STERNUM",
     "definitions": [
      {
       "text": "a breastbone",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "has",
-      "for": "container",
-      "note": "to have something is to hold it, so the first piece holds the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "In addition",
-      "gives": "SUM",
-      "note": "a sum is an addition"
-     },
-     {
-      "clueFragment": "bird",
-      "gives": "TERN",
-      "note": "a tern is a seabird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TERN",
-      "UM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has",
+       "note": "to have something is to hold it, so the first piece holds the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In addition",
+       "gives": "SUM",
+       "note": "a sum is an addition"
+      },
+      {
+       "words": "bird",
+       "gives": "TERN",
+       "note": "a tern is a seabird"
+      }
      ]
     },
     "explanation": {
@@ -1450,48 +1250,48 @@
    },
    "solution": "ADAGIO",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ADAGIO",
     "definitions": [
      {
       "text": "Slowly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "undressing",
-      "for": "letter_selection",
-      "note": "undressing strips off the outer layers, so each word loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lady",
-      "gives": "AD",
-      "select": "middle",
-      "note": "lady without its outer letters"
-     },
-     {
-      "clueFragment": "bags",
-      "gives": "AG",
-      "select": "middle",
-      "note": "bags without its outer letters"
-     },
-     {
-      "clueFragment": "Dior",
-      "gives": "IO",
-      "select": "middle",
-      "note": "Dior without its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "AG",
-      "IO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "undressing",
+         "note": "undressing strips off the outer layers, so each word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "note": "lady without its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "bags",
+         "note": "bags without its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Dior",
+         "note": "Dior without its outer letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1520,57 +1320,54 @@
    },
    "solution": "SHEEPDOG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SHEEPDOG",
     "definitions": [
      {
       "text": "Herder",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the first letter of each word"
-     },
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "terribly suggests something badly done, so the letters are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Say nothing",
-      "gives": "SH",
-      "note": "sh is what you say to ask for silence"
-     },
-     {
-      "clueFragment": "deep",
-      "gives": "DEEP",
-      "note": "letters to be rearranged"
-     },
-     {
-      "clueFragment": "or grand",
-      "gives": "OG",
-      "select": "first",
-      "note": "first letters of or and grand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "EEPDOG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEEPOG",
-       "gives": "EEPDOG"
+       "words": "Say nothing",
+       "gives": "SH",
+       "note": "sh is what you say to ask for silence"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "note": "terribly suggests something badly done, so the letters are thrown into disorder"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "deep",
+           "note": "letters to be rearranged"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "note": "initially points to the first letter of each word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "or grand",
+             "note": "first letters of or and grand"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1599,31 +1396,16 @@
    },
    "solution": "LITTER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LITTER",
     "definitions": [
      {
       "text": "Youngsters",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a brood of animals born together"
      },
      {
       "text": "rubbish",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Youngsters",
-      "note": "first meaning: a brood of animals born together"
-     },
-     {
-      "clueFragment": "rubbish",
-      "note": "second meaning: waste dropped in a public place"
+      "at": 21,
+      "meaning": "second meaning: waste dropped in a public place"
      }
     ],
     "explanation": {
@@ -1652,32 +1434,17 @@
    },
    "solution": "TROUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TROUT",
     "definitions": [
      {
       "text": "Quintet",
       "at": 0,
-      "note": "a proper name: Schubert's Quintet in A major"
+      "note": "a proper name: Schubert's Quintet in A major",
+      "meaning": "first meaning: the popular name of a Schubert chamber piece for five players"
      },
      {
       "text": "river dweller",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quintet",
-      "note": "first meaning: the popular name of a Schubert chamber piece for five players"
-     },
-     {
-      "clueFragment": "river dweller",
-      "note": "second meaning: a freshwater fish"
+      "at": 12,
+      "meaning": "second meaning: a freshwater fish"
      }
     ],
     "explanation": {
@@ -1705,38 +1472,24 @@
    },
    "solution": "STRAIGHTEN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STRAIGHTEN",
     "definitions": [
      {
       "text": "fix what's bent",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "are misleading",
-      "for": "anagram",
-      "note": "something misleading is twisted out of its true form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The ratings",
-      "gives": "THERATINGS",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAIGHTEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THERATINGS",
-       "gives": "STRAIGHTEN"
+       "text": "are misleading",
+       "note": "something misleading is twisted out of its true form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The ratings",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1767,38 +1520,31 @@
    },
    "solution": "OWNS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OWNS",
     "definitions": [
      {
       "text": "Acknowledges",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no",
-      "for": "deletion",
-      "note": "no means without, so that letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dresses",
-      "gives": "GOWNS",
-      "note": "gowns are dresses"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "standard abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OWNS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "note": "no means without, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dresses",
+       "gives": "GOWNS",
+       "note": "gowns are dresses"
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "standard abbreviation for good"
+      }
      ]
     },
     "explanation": {
@@ -1832,43 +1578,31 @@
    },
    "solution": "SHAKEON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHAKE ON",
     "definitions": [
      {
       "text": "Agree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "eating takes something inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy",
-      "gives": "SON",
-      "note": "a son is a boy child"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "HAKE",
-      "note": "hake is a sea fish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "HAKE",
-      "ON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "eating takes something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy",
+       "gives": "SON",
+       "note": "a son is a boy child"
+      },
+      {
+       "words": "fish",
+       "gives": "HAKE",
+       "note": "hake is a sea fish"
+      }
      ]
     },
     "explanation": {
@@ -1896,40 +1630,30 @@
    },
    "solution": "ANATOMY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ANATOMY",
     "definitions": [
      {
       "text": "field of study",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so the first piece goes within the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "any",
-      "gives": "ANY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Tiny part",
-      "gives": "ATOM",
-      "note": "an atom is a tiny particle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "ATOM",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in means placed inside, so the first piece goes within the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "any",
+       "note": "taken as written"
+      },
+      {
+       "words": "Tiny part",
+       "gives": "ATOM",
+       "note": "an atom is a tiny particle"
+      }
      ]
     },
     "explanation": {

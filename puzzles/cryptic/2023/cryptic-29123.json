@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29123",
  "number": 29123,
- "series": "cryptic",
- "name": "Prize crossword No 29,123",
+ "prize": true,
  "setter": "Arachne",
  "date": "2023-07-15",
  "preamble": "In memory of 5 (25 10), 1948-2023",
@@ -39,47 +38,41 @@
    },
    "solution": "PEERLESS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PEERLESS",
     "definitions": [
      {
       "text": "Incomparable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "at last points to the final letter of the word all and nothing else"
-     },
-     {
-      "text": "enthralling",
-      "for": "container",
-      "note": "to enthral is to hold captive, so the lady's word holds the other piece inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lady",
-      "gives": "PEERESS",
-      "note": "a peeress is a woman holding a title in the peerage"
-     },
-     {
-      "clueFragment": "all",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of all"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEER",
-      "L",
-      "ESS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthralling",
+       "note": "to enthral is to hold captive, so the lady's word holds the other piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lady",
+       "gives": "PEERESS",
+       "note": "a peeress is a woman holding a title in the peerage"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "at last points to the final letter of the word all and nothing else"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "note": "last letter of all"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -114,32 +107,25 @@
    },
    "solution": "PASTMASTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PAST MASTER",
     "definitions": [
      {
       "text": "Adept",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "former",
-      "gives": "PAST",
-      "note": "past means earlier or former"
-     },
-     {
-      "clueFragment": "schoolteacher",
-      "gives": "MASTER",
-      "note": "a master is a traditional term for a male schoolteacher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAST",
-      "MASTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former",
+       "gives": "PAST",
+       "note": "past means earlier or former"
+      },
+      {
+       "words": "schoolteacher",
+       "gives": "MASTER",
+       "note": "a master is a traditional term for a male schoolteacher"
+      }
      ]
     },
     "explanation": {
@@ -168,38 +154,24 @@
    },
    "solution": "ERUCTATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ERUCTATION",
     "definitions": [
      {
       "text": "Burp",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "unfortunately suggests things have gone wrong, so the letters before it come out in a bad order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "routine act",
-      "gives": "ROUTINEACT",
-      "note": "the ten letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROUTINEACT",
-       "gives": "ERUCTATION"
+       "text": "unfortunately",
+       "note": "unfortunately suggests things have gone wrong, so the letters before it come out in a bad order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "routine act",
+       "note": "the ten letters to be rearranged"
       }
      ]
     },
@@ -229,31 +201,29 @@
    },
    "solution": "LASSI",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LASSI",
     "definitions": [
      {
       "text": "drink",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "homophone",
-      "note": "picked up is used as in catching a radio signal, i.e. heard rather than seen"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Northern girl",
-      "gives": "LASSI",
-      "soundsLike": "LASSIE",
-      "note": "lassie is the Scottish and northern English word for a girl"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LASSI",
+     "indicators": [
+      {
+       "text": "picked up",
+       "note": "picked up is used as in catching a radio signal, i.e. heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Northern girl",
+       "gives": "LASSIE",
+       "note": "lassie is the Scottish and northern English word for a girl"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A girl from the north grabs something to drink.",
      "definitionFit": "Lassi is a yoghurt-based drink from the Indian subcontinent, sweet or salty."
@@ -285,26 +255,25 @@
    },
    "solution": "SOLARECLIPSE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SOLAR ECLIPSE",
     "definitions": [
      {
       "text": "Evanescence of our stellar setter",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Evanescence of our stellar setter",
-      "note": "surface reading: the passing of a brilliant crossword setter, the puzzle's dedicatee"
-     },
-     {
-      "clueFragment": "our stellar setter",
-      "note": "cryptic reading: our own star, the sun, which sets; its brief vanishing is the event"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Evanescence of our stellar setter",
+       "note": "surface reading: the passing of a brilliant crossword setter, the puzzle's dedicatee"
+      },
+      {
+       "words": "our stellar setter",
+       "note": "cryptic reading: our own star, the sun, which sets; its brief vanishing is the event"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tribute lamenting the loss of a brilliant crossword compiler.",
      "walkthrough": "The puzzle remembers the setter Nutmeg, so 'stellar setter' reads as praise; read literally it is our star, the sun, that sets and briefly vanishes.",
@@ -332,32 +301,25 @@
    },
    "solution": "NUTMEG",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NUTMEG",
     "definitions": [
      {
       "text": "Evergreen",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "head",
-      "gives": "NUT",
-      "note": "nut is slang for the head"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "MEG",
-      "note": "Meg is a girl's name, short for Margaret"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUT",
-      "MEG"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "head",
+       "gives": "NUT",
+       "note": "nut is slang for the head"
+      },
+      {
+       "words": "girl",
+       "gives": "MEG",
+       "note": "Meg is a girl's name, short for Margaret"
+      }
      ]
     },
     "explanation": {
@@ -387,47 +349,41 @@
    },
    "solution": "UNRULIEST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "UNRULIEST",
     "definitions": [
      {
       "text": "Most disorderly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stopped by",
-      "for": "container",
-      "note": "something stopped by another has that other plugged into it, as a bottle by a cork"
-     },
-     {
-      "text": "shedding clothes",
-      "for": "letter_selection",
-      "note": "taking off clothes strips the outer layer, so the outside letters of the name go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "disturbance",
-      "gives": "UNREST",
-      "note": "unrest is public disturbance or agitation"
-     },
-     {
-      "clueFragment": "Julie",
-      "gives": "ULI",
-      "select": "middle",
-      "note": "the name with its first and last letters removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNR",
-      "ULI",
-      "EST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopped by",
+       "note": "something stopped by another has that other plugged into it, as a bottle by a cork"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disturbance",
+       "gives": "UNREST",
+       "note": "unrest is public disturbance or agitation"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "shedding clothes",
+         "note": "taking off clothes strips the outer layer, so the outside letters of the name go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Julie",
+         "note": "the name with its first and last letters removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -457,32 +413,25 @@
    },
    "solution": "MOIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOIL",
     "definitions": [
      {
       "text": "local spot",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Nice crossword compiler",
-      "gives": "MOI",
-      "note": "the compiler refers to herself as me, which in French (as spoken in Nice) is moi"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOI",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Nice crossword compiler",
+       "gives": "MOI",
+       "note": "the compiler refers to herself as me, which in French (as spoken in Nice) is moi"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -511,45 +460,35 @@
    },
    "solution": "GLEE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "GLEE",
     "definitions": [
      {
       "text": "Joy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every second letter of the word is kept"
-     },
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "recalled means called back, so the kept letters are read back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "genealogy",
-      "gives": "EELG",
-      "select": "alternate",
-      "note": "the second, fourth, sixth and eighth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLEE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EELG",
-       "to": "GLEE"
+       "text": "recalled",
+       "note": "recalled means called back, so the kept letters are read back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every second letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "genealogy",
+         "note": "the second, fourth, sixth and eighth letters"
+        }
+       ]
       }
      ]
     },
@@ -584,49 +523,43 @@
    },
    "solution": "SPUNSILK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SPUN SILK",
     "definitions": [
      {
       "text": "Material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "full of",
-      "for": "container",
-      "note": "a thing full of something else has that something packed inside it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "singular",
-      "gives": "S",
-      "note": "S is the grammatical abbreviation for singular"
-     },
-     {
-      "clueFragment": "witticisms",
-      "gives": "PUNS",
-      "note": "puns are plays on words, a kind of witticism"
-     },
-     {
-      "clueFragment": "kind",
-      "gives": "ILK",
-      "note": "ilk means type or kind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PUNS",
-      "ILK"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SPUNSILK",
+     "indicators": [
+      {
+       "text": "full of",
+       "note": "a thing full of something else has that something packed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "singular",
+         "gives": "S",
+         "note": "S is the grammatical abbreviation for singular"
+        },
+        {
+         "words": "witticisms",
+         "gives": "PUNS",
+         "note": "puns are plays on words, a kind of witticism"
+        },
+        {
+         "words": "kind",
+         "gives": "ILK",
+         "note": "ilk means type or kind"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -655,35 +588,25 @@
    },
    "solution": "IRVINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IRVINE",
     "definitions": [
      {
       "text": "Scottish town",
       "at": 17
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irish",
-      "gives": "IR",
-      "note": "Ir is an abbreviation for Irish"
-     },
-     {
-      "clueFragment": "climber",
-      "gives": "VINE",
-      "note": "a vine is a climbing plant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IR",
-      "VINE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irish",
+       "gives": "IR",
+       "note": "Ir is an abbreviation for Irish"
+      },
+      {
+       "words": "climber",
+       "gives": "VINE",
+       "note": "a vine is a climbing plant"
+      }
      ]
     },
     "explanation": {
@@ -718,38 +641,24 @@
    },
    "solution": "CHERRYTOMATO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHERRY TOMATO",
     "definitions": [
      {
       "text": "fruit",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "dissolute",
-      "for": "anagram",
-      "note": "dissolute means loose-living, so the letters are loosened and recombined"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Actor to rhyme",
-      "gives": "ACTORTORHYME",
-      "note": "the twelve letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACTORTORHYME",
-       "gives": "CHERRYTOMATO"
+       "text": "dissolute",
+       "note": "dissolute means loose-living, so the letters are loosened and recombined"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Actor to rhyme",
+       "note": "the twelve letters to be rearranged"
       }
      ]
     },
@@ -780,47 +689,41 @@
    },
    "solution": "MATRIARCHAL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MATRIARCHAL",
     "definitions": [
      {
       "text": "of much-respected women",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece wraps around the next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mum",
-      "gives": "MA",
-      "note": "ma is an informal word for mother"
-     },
-     {
-      "clueFragment": "hearing",
-      "gives": "TRIAL",
-      "note": "a hearing in court is a trial"
-     },
-     {
-      "clueFragment": "cunning",
-      "gives": "ARCH",
-      "note": "arch means slyly knowing or cunning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "TRI",
-      "ARCH",
-      "AL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mum",
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so one piece wraps around the next"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hearing",
+         "gives": "TRIAL",
+         "note": "a hearing in court is a trial"
+        },
+        {
+         "words": "cunning",
+         "gives": "ARCH",
+         "note": "arch means slyly knowing or cunning"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -849,49 +752,47 @@
    },
    "solution": "SIGNATURES",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SIGNATURES",
     "definitions": [
      {
       "text": "autographs",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Abrupt",
-      "for": "deletion",
-      "note": "abrupt means cut short, so the country's name loses its end"
-     },
-     {
-      "text": "forged",
-      "for": "anagram",
-      "note": "forged means hammered into a new shape, so the letters are reshaped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Russian",
-      "gives": "RUSSIA",
-      "note": "the word with its final letter cut off"
-     },
-     {
-      "clueFragment": "gent",
-      "gives": "GENT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIGNATURES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SIGNATURES",
+     "indicators": [
       {
-       "fodder": "RUSSIAGENT",
-       "gives": "SIGNATURES"
+       "text": "Abrupt",
+       "note": "abrupt means cut short, so the country's name loses its end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "forged",
+         "note": "forged means hammered into a new shape, so the letters are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Russian",
+           "gives": "RUSSIA",
+           "note": "the word with its final letter cut off"
+          },
+          {
+           "words": "gent",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -921,40 +822,39 @@
    },
    "solution": "PROSELYTES",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "PROSELYTES",
     "definitions": [
      {
       "text": "neophytes",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "articulate",
-      "for": "homophone",
-      "note": "to articulate is to speak clearly, so the piece is given as it sounds"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writing",
-      "gives": "PROSE",
-      "note": "prose is ordinary written language"
-     },
-     {
-      "clueFragment": "solutions to clues",
-      "gives": "LYTES",
-      "soundsLike": "LIGHTS",
-      "note": "in crosswords, the answers entered in the grid are called lights"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Writing",
+       "gives": "PROSE",
+       "note": "prose is ordinary written language"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LYTES",
+       "indicators": [
+        {
+         "text": "articulate",
+         "note": "to articulate is to speak clearly, so the piece is given as it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "solutions to clues",
+         "gives": "LIGHTS",
+         "note": "in crosswords, the answers entered in the grid are called lights"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A guide to explaining crossword answers clearly for beginners.",
      "walkthrough": "'Lights' is crossword jargon for the answers written in the grid.",
@@ -981,36 +881,39 @@
    },
    "solution": "SITAR",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "SITAR",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "in tells us the letters sit inside the place name"
-     },
-     {
-      "text": "making comeback",
-      "for": "reversal",
-      "note": "a comeback is a return, so the letters run in the opposite direction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bratislava",
-      "gives": "RATIS",
-      "note": "letters two to six of the city's name"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "making comeback",
+       "note": "a comeback is a return, so the letters run in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in tells us the letters sit inside the place name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bratislava",
+         "gives": "RATIS",
+         "note": "letters two to six of the city's name"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A musical instrument returns to favour in Slovakia's capital.",
      "definitionFit": "The sitar is a long-necked plucked string instrument from the Indian subcontinent."
@@ -1036,52 +939,47 @@
    },
    "solution": "RAINPROOF",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "RAINPROOF",
     "definitions": [
      {
       "text": "Watertight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to trap",
-      "for": "container",
-      "note": "to trap something is to hold it within, so one piece goes inside the other"
-     },
-     {
-      "text": "at the top",
-      "for": "charade",
-      "note": "in a down answer, the top comes first, so this piece is placed above the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "proceeded",
-      "gives": "RAN",
-      "note": "ran means went or proceeded"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "evidence",
-      "gives": "PROOF",
-      "note": "proof is conclusive evidence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "I",
-      "N",
-      "PROOF"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the top",
+       "note": "in a down answer, the top comes first, so this piece is placed above the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to trap",
+         "note": "to trap something is to hold it within, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "proceeded",
+         "gives": "RAN",
+         "note": "ran means went or proceeded"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "words": "evidence",
+       "gives": "PROOF",
+       "note": "proof is conclusive evidence"
+      }
      ]
     },
     "explanation": {
@@ -1110,35 +1008,24 @@
    },
    "solution": "CORSETIER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CORSETIER",
     "definitions": [
      {
       "text": "Chap in ladies' underwear",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "worried",
-      "for": "anagram",
-      "note": "worried means shaken or troubled, so the letters are disturbed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rectories",
-      "gives": "RECTORIES",
-      "note": "the nine letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RECTORIES",
-       "gives": "CORSETIER"
+       "text": "worried",
+       "note": "worried means shaken or troubled, so the letters are disturbed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rectories",
+       "note": "the nine letters to be rearranged"
       }
      ]
     },
@@ -1169,64 +1056,55 @@
    },
    "solution": "EMOTIVITY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "EMOTIVITY",
     "definitions": [
      {
       "text": "capacity to inflame",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Rude",
-      "for": "anagram",
-      "note": "rude here means crude or roughly made, so the word's letters are left unrefined and jumbled"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the rearranged word goes round the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "movie",
-      "gives": "MOVIE",
-      "note": "the five letters to be rearranged"
-     },
-     {
-      "clueFragment": "tango",
-      "gives": "T",
-      "note": "T is tango in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "it is a coy word for sex or sex appeal"
-     },
-     {
-      "clueFragment": "variable",
-      "gives": "Y",
-      "note": "algebra uses x, y and z for unknowns or variables"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMO",
-      "T",
-      "IV",
-      "IT",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "MOVIE",
-       "gives": "EMOIV"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means surrounding, so the rearranged word goes round the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Rude",
+           "note": "rude here means crude or roughly made, so the word's letters are left unrefined and jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "movie",
+           "note": "the five letters to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "tango",
+         "gives": "T",
+         "note": "T is tango in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "words": "sex",
+       "gives": "IT",
+       "note": "it is a coy word for sex or sex appeal"
+      },
+      {
+       "words": "variable",
+       "gives": "Y",
+       "note": "algebra uses x, y and z for unknowns or variables"
       }
      ]
     },
@@ -1256,44 +1134,35 @@
    },
    "solution": "TUNIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TUNIS",
     "definitions": [
      {
       "text": "African capital",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "First of",
-      "for": "letter_selection",
-      "note": "first of picks out the opening letter of the word that follows"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of two"
-     },
-     {
-      "clueFragment": "educational establishments",
-      "gives": "UNIS",
-      "note": "unis is short for universities"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "UNIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First of",
+         "note": "first of picks out the opening letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two",
+         "note": "the opening letter of two"
+        }
+       ]
+      },
+      {
+       "words": "educational establishments",
+       "gives": "UNIS",
+       "note": "unis is short for universities"
+      }
      ]
     },
     "explanation": {
@@ -1321,46 +1190,40 @@
    },
    "solution": "POSTORBITAL",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "POSTORBITAL",
     "definitions": [
      {
       "text": "at back of socket",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "naughtily",
-      "for": "anagram",
-      "note": "naughtily suggests misbehaving, so the letters refuse to stay in their order"
-     },
-     {
-      "text": "hiding",
-      "for": "container",
-      "note": "to hide something is to keep it inside, so the letters take in the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spoilt brat",
-      "gives": "SPOILTBRAT",
-      "note": "ten letters to be rearranged"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "O is ring-shaped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SPOILTBRATO",
-       "gives": "POSTORBITAL"
+       "text": "hiding",
+       "note": "to hide something is to keep it inside, so the letters take in the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "naughtily",
+         "note": "naughtily suggests misbehaving, so the letters refuse to stay in their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spoilt brat",
+         "note": "ten letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "gives": "O",
+       "note": "O is ring-shaped"
       }
      ]
     },
@@ -1390,41 +1253,35 @@
    },
    "solution": "BOGUS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BOGUS",
     "definitions": [
      {
       "text": "Cod",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letters of the following words count"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can",
-      "gives": "BOG",
-      "note": "can and bog are both slang for a toilet"
-     },
-     {
-      "clueFragment": "upset stomachs",
-      "gives": "US",
-      "select": "first",
-      "note": "first letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOG",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "can",
+       "gives": "BOG",
+       "note": "can and bog are both slang for a toilet"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letters of the following words count"
+        }
+       ],
+       "parts": [
+        {
+         "words": "upset stomachs",
+         "note": "first letters of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1453,40 +1310,38 @@
    },
    "solution": "SAGO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SAGO",
     "definitions": [
      {
       "text": "Kind of pudding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unloved",
-      "for": "deletion",
-      "note": "unloved means without love, and love in tennis scoring is a zero-shaped letter, which is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so",
-      "gives": "SO",
-      "note": "the word with its love dropped"
-     },
-     {
-      "clueFragment": "in the past",
-      "gives": "AGO",
-      "note": "ago means in the past"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AGO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unloved",
+       "note": "unloved means without love, and love in tennis scoring is a zero-shaped letter, which is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "so",
+         "note": "the word with its love dropped"
+        },
+        {
+         "words": "in the past",
+         "gives": "AGO",
+         "note": "ago means in the past"
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -1515,26 +1370,25 @@
    },
    "solution": "MACE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "MACE",
     "definitions": [
      {
       "text": "5's covering ground",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "5's covering ground",
-      "note": "surface reading: the setter Nutmeg covering familiar territory"
-     },
-     {
-      "clueFragment": "5's covering",
-      "note": "cryptic reading: the lacy aril around the nutmeg seed, which is dried and ground into a spice"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "5's covering ground",
+       "note": "surface reading: the setter Nutmeg covering familiar territory"
+      },
+      {
+       "words": "5's covering",
+       "note": "cryptic reading: the lacy aril around the nutmeg seed, which is dried and ground into a spice"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Nutmeg the setter going over well-trodden territory.",
      "walkthrough": "Covering ground sounds like travel; read as covering, ground, it is the nutmeg's outer membrane turned into powder.",
@@ -1562,40 +1416,39 @@
    },
    "solution": "AMAZON",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "AMAZON",
     "definitions": [
      {
       "text": "strapping female",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "short means cut down, so the word loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surprise",
-      "gives": "AMAZE",
-      "note": "to amaze is to surprise; its final letter is cut"
-     },
-     {
-      "clueFragment": "leg",
-      "gives": "ON",
-      "note": "in cricket the leg side is also called the on side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AMAZ",
-      "ON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "short means cut down, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Surprise",
+         "gives": "AMAZE",
+         "note": "to amaze is to surprise; its final letter is cut"
+        },
+        {
+         "words": "leg",
+         "gives": "ON",
+         "note": "in cricket the leg side is also called the on side"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1624,46 +1477,45 @@
    },
    "solution": "MARGARET",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "MARGARET",
     "definitions": [
      {
       "text": "Princess",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most of means not all, so the resort's name loses its last letter"
-     },
-     {
-      "text": "to occupy",
-      "for": "container",
-      "note": "to occupy a place is to sit inside it, so this piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kent resort",
-      "gives": "MARGATE",
-      "note": "Margate is a seaside resort in Kent, a county in south-east England"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MARGA",
-      "RE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to occupy",
+       "note": "to occupy a place is to sit inside it, so this piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "note": "most of means not all, so the resort's name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kent resort",
+         "gives": "MARGATE",
+         "note": "Margate is a seaside resort in Kent, a county in south-east England"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
      ]
     },
     "explanation": {
@@ -1698,40 +1550,31 @@
    },
    "solution": "ONEOFF",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ONE-OFF",
     "definitions": [
      {
       "text": "Unique",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conserving",
-      "for": "container",
-      "note": "to conserve is to keep safe inside, so the switch holds the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kind of switch",
-      "gives": "ONOFF",
-      "note": "an on-off switch is a common kind of switch"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the symbol for energy in physics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "E",
-      "OFF"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conserving",
+       "note": "to conserve is to keep safe inside, so the switch holds the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kind of switch",
+       "gives": "ONOFF",
+       "note": "an on-off switch is a common kind of switch"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the symbol for energy in physics"
+      }
      ]
     },
     "explanation": {
@@ -1759,47 +1602,40 @@
    },
    "solution": "CONSISTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CONSISTS",
     "definitions": [
      {
       "text": "is made up",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "starts points to the opening letters of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bluff",
-      "gives": "CON",
-      "note": "to con is to bluff or deceive"
-     },
-     {
-      "clueFragment": "sibling",
-      "gives": "SIS",
-      "note": "sis is short for sister"
-     },
-     {
-      "clueFragment": "think story",
-      "gives": "TS",
-      "select": "first",
-      "note": "first letters of the two words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "SIS",
-      "TS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bluff",
+       "gives": "CON",
+       "note": "to con is to bluff or deceive"
+      },
+      {
+       "words": "sibling",
+       "gives": "SIS",
+       "note": "sis is short for sister"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "note": "starts points to the opening letters of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "think story",
+         "note": "first letters of the two words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

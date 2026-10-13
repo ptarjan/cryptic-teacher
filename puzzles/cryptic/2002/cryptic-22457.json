@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22457",
  "number": 22457,
- "series": "cryptic",
- "name": "Prize crossword No 22,457",
+ "prize": true,
  "setter": "Araucaria",
  "date": "2002-03-02",
  "dimensions": {
@@ -44,49 +43,44 @@
    },
    "solution": "SOBERUP",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "SOBER UP",
     "definitions": [
      {
       "text": "Shake off influence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no point in it",
-      "for": "deletion",
-      "note": "a point is a compass direction, and 'no point in it' asks for one such letter to be dropped from the drink"
-     },
-     {
-      "text": "including",
-      "for": "container",
-      "note": "the liquid includes, or holds inside it, the other piece"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "liquid",
-      "gives": "SOUP",
-      "note": "soup is a liquid food"
-     },
-     {
-      "clueFragment": "beer",
-      "gives": "BEER",
-      "note": "taken as written, before losing a compass point"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "BER",
-      "UP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "note": "the liquid includes, or holds inside it, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "liquid",
+       "gives": "SOUP",
+       "note": "soup is a liquid food"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no point in it",
+         "note": "a point is a compass direction, and 'no point in it' asks for one such letter to be dropped from the drink"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "note": "taken as written, before losing a compass point"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -115,35 +109,25 @@
    },
    "solution": "SACRA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SACRA",
     "definitions": [
      {
       "text": "bones",
       "at": 17
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bag",
-      "gives": "SAC",
-      "note": "a sac is a bag-like pouch in a body"
-     },
-     {
-      "clueFragment": "artist's",
-      "gives": "RA",
-      "note": "RA, Royal Academician, is the crossword artist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAC",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bag",
+       "gives": "SAC",
+       "note": "a sac is a bag-like pouch in a body"
+      },
+      {
+       "words": "artist's",
+       "gives": "RA",
+       "note": "RA, Royal Academician, is the crossword artist"
+      }
      ]
     },
     "explanation": {
@@ -171,12 +155,6 @@
    },
    "solution": "BETHNAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "BETHNAL",
     "definitions": [
      {
       "text": "Green",
@@ -184,38 +162,48 @@
       "note": "the answer is the first word of the place name it completes"
      }
     ],
-    "indicators": [
-     {
-      "text": "shortly",
-      "for": "deletion",
-      "note": "said shortly, the name is cut down to its familiar short form"
-     },
-     {
-      "text": "conclusion",
-      "for": "letter_selection",
-      "note": "the conclusion of a word is its tail end, so only its closing letters are kept"
-     }
-    ],
-    "linkWords": [
-     "reaching"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "25",
-      "gives": "ELIZABETH",
-      "note": "the answer to 25 across, a girl's name"
-     },
-     {
-      "clueFragment": "terminal",
-      "gives": "NAL",
-      "select": "last",
-      "note": "the last three letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BETH",
-      "NAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shortly",
+       "note": "said shortly, the name is cut down to its familiar short form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "25",
+         "gives": "ELIZABETH",
+         "note": "the answer to 25 across, a girl's name"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "NAL",
+         "indicators": [
+          {
+           "text": "conclusion",
+           "note": "the conclusion of a word is its tail end, so only its closing letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "terminal",
+           "gives": "NAL",
+           "select": "last",
+           "note": "the last three letters of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "ELIZA"
+      }
      ]
     },
     "explanation": {
@@ -244,31 +232,29 @@
    },
    "solution": "REEK",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "REEK",
     "definitions": [
      {
       "text": "Smell",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as heard said, so the word is matched by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "followed by vengeance?",
-      "gives": "REEK",
-      "soundsLike": "WREAK",
-      "note": "the verb that comes before vengeance in the set phrase to wreak vengeance"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REEK",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "reportedly means as heard said, so the word is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "followed by vengeance?",
+       "gives": "WREAK",
+       "note": "the verb that comes before vengeance in the set phrase to wreak vengeance"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A smell is said to be pursued by revenge.",
      "walkthrough": "One wreaks vengeance; the spoken word 'wreak' is identical to this word for a stink.",
@@ -302,11 +288,6 @@
    },
    "solution": "PRISONREFORMERS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PRISON REFORMERS",
     "definitions": [
      {
       "text": "the Howard League?",
@@ -314,45 +295,39 @@
       "note": "an example of the answer, hence the question mark"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the first three pieces go in among the letters of the coats"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Child",
-      "gives": "SON",
-      "note": "a son is a child"
-     },
-     {
-      "clueFragment": "arbitrator",
-      "gives": "REF",
-      "note": "a referee arbitrates"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "first coats",
-      "gives": "PRIMERS",
-      "note": "primers are the first coats of paint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRI",
-      "SON",
-      "REF",
-      "OR",
-      "MERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the first three pieces go in among the letters of the coats"
+      }
+     ],
+     "parts": [
+      {
+       "words": "first coats",
+       "gives": "PRIMERS",
+       "note": "primers are the first coats of paint"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Child",
+         "gives": "SON",
+         "note": "a son is a child"
+        },
+        {
+         "words": "arbitrator",
+         "gives": "REF",
+         "note": "a referee arbitrates"
+        },
+        {
+         "words": "or",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -381,50 +356,40 @@
    },
    "solution": "TOOLBAR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TOOLBAR",
     "definitions": [
      {
       "text": "Set of icons",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter, so just the opening one is taken"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "as well",
-      "gives": "TOO",
-      "note": "too means as well"
-     },
-     {
-      "clueFragment": "lawyers",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter of the word"
-     },
-     {
-      "clueFragment": "lawyers",
-      "gives": "BAR",
-      "note": "the Bar is the body of barristers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOO",
-      "L",
-      "BAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "as well",
+       "gives": "TOO",
+       "note": "too means as well"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter, so just the opening one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lawyers",
+         "note": "the opening letter of the word"
+        }
+       ]
+      },
+      {
+       "words": "lawyers",
+       "gives": "BAR",
+       "note": "the Bar is the body of barristers"
+      }
      ]
     },
     "explanation": {
@@ -453,35 +418,24 @@
    },
    "solution": "THEATRICALISING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "THEATRICALISING",
     "definitions": [
      {
       "text": "making a scene",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "for": "anagram",
-      "note": "'could be' suggests the letters might become something else if rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A legit Christian",
-      "gives": "ALEGITCHRISTIAN",
-      "note": "all fifteen letters of the phrase"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALEGITCHRISTIAN",
-       "gives": "THEATRICALISING"
+       "text": "could be",
+       "note": "'could be' suggests the letters might become something else if rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A legit Christian",
+       "note": "all fifteen letters of the phrase"
       }
      ]
     },
@@ -511,31 +465,16 @@
    },
    "solution": "OBJECTLESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OBJECTLESS",
     "definitions": [
      {
       "text": "Don't protest so much",
-      "at": 0
+      "at": 0,
+      "meaning": "first reading: an instruction to raise fewer objections, split as two words"
      },
      {
       "text": "there's no point",
-      "at": 23
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Don't protest so much",
-      "note": "first reading: an instruction to raise fewer objections, split as two words"
-     },
-     {
-      "clueFragment": "there's no point",
-      "note": "second reading: having no purpose or aim"
+      "at": 23,
+      "meaning": "second reading: having no purpose or aim"
      }
     ],
     "explanation": {
@@ -565,33 +504,28 @@
    },
    "solution": "BENARES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BENARES",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "brasen",
-      "gives": "BRASEN",
-      "note": "an old spelling of brazen"
-     },
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "the compass abbreviation"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
       {
-       "fodder": "BRASENE",
-       "gives": "BENARES"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "brasen",
+         "note": "an old spelling of brazen"
+        },
+        {
+         "words": "East",
+         "gives": "E",
+         "note": "the compass abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -621,54 +555,41 @@
    },
    "solution": "RESPOND",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RESPOND",
     "definitions": [
      {
       "text": "answer",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the word is read from bottom to top"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the tearing word goes about, or around, the other piece"
-     }
-    ],
-    "linkWords": [
-     "Having to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tear",
-      "gives": "REND",
-      "note": "to rend is to tear"
-     },
-     {
-      "clueFragment": "works",
-      "gives": "OPS",
-      "note": "ops, short for opera, are works"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SPO",
-      "ND"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "OPS",
-       "to": "SPO"
+       "text": "about",
+       "note": "the tearing word goes about, or around, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tear",
+       "gives": "REND",
+       "note": "to rend is to tear"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "works",
+         "gives": "OPS",
+         "note": "ops, short for opera, are works"
+        }
+       ]
       }
      ]
     },
@@ -698,47 +619,33 @@
    },
    "solution": "CATHERINE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CATHERINE",
     "definitions": [
      {
       "text": "2318 girl",
       "at": 0
      }
     ],
-    "linkWords": [
-     "takes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mog",
-      "gives": "CAT",
-      "note": "Mog is a common name for a cat, and mog is slang for one"
-     },
-     {
-      "clueFragment": "her",
-      "gives": "HER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAT",
-      "HER",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mog",
+       "gives": "CAT",
+       "note": "Mog is a common name for a cat, and mog is slang for one"
+      },
+      {
+       "words": "her",
+       "note": "taken as written"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "the standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -767,35 +674,25 @@
    },
    "solution": "JANUS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JANUS",
     "definitions": [
      {
       "text": "God",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "consent to German",
-      "gives": "JA",
-      "note": "ja is German for yes"
-     },
-     {
-      "clueFragment": "students",
-      "gives": "NUS",
-      "note": "the National Union of Students"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JA",
-      "NUS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "consent to German",
+       "gives": "JA",
+       "note": "ja is German for yes"
+      },
+      {
+       "words": "students",
+       "gives": "NUS",
+       "note": "the National Union of Students"
+      }
      ]
     },
     "explanation": {
@@ -823,30 +720,28 @@
    },
    "solution": "ANNE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ANNE",
     "definitions": [
      {
       "text": "23 18 girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "of",
-      "for": "hidden_word",
-      "note": "the name is taken out of, made of part of, the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gentle manners",
-      "gives": "ANNE",
-      "note": "found inside the second word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "note": "the name is taken out of, made of part of, the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gentle manners",
+       "gives": "ANNE",
+       "note": "found inside the second word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A girl from one of the novels is described as well-mannered.",
      "walkthrough": "Anne Elliot is the heroine of Austen's Persuasion, and is indeed a gentle character.",
@@ -879,48 +774,55 @@
    },
    "solution": "MONTECARLO",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone",
-     "container"
-    ],
-    "answer": "MONTE CARLO",
     "definitions": [
      {
       "text": "in the Riviera",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "retained by",
-      "for": "container",
-      "note": "something retained is held within the next piece"
-     },
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "reported means heard said, so the name is spelt as it sounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acting",
-      "gives": "ON",
-      "note": "an actor who is on is performing"
-     },
-     {
-      "clueFragment": "detective",
-      "gives": "TEC",
-      "note": "short for detective"
-     },
-     {
-      "clueFragment": "Chandler's",
-      "gives": "MARLO",
-      "soundsLike": "MARLOWE",
-      "note": "Philip Marlowe is Raymond Chandler's private eye"
-     }
-    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retained by",
+       "note": "something retained is held within the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MARLO",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "reported means heard said, so the name is spelt as it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chandler's",
+         "gives": "MARLOWE",
+         "note": "Philip Marlowe is Raymond Chandler's private eye"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Acting",
+         "gives": "ON",
+         "note": "an actor who is on is performing"
+        },
+        {
+         "words": "detective",
+         "gives": "TEC",
+         "note": "short for detective"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A crime story: a working detective is kept on by Chandler's agency on the Riviera.",
      "walkthrough": "Raymond Chandler's detective is Philip Marlowe; only the sound of his surname is wanted, so the final -WE spelling drops away.",
@@ -947,34 +849,29 @@
    },
    "solution": "UNDISMAYED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "UNDISMAYED",
     "definitions": [
      {
       "text": "still resolute",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken out, so the phrase is matched by its sound"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lingerie for girl",
-      "gives": "UNDISMAYED",
-      "soundsLike": "UNDIES MAID",
-      "note": "undies are lingerie and a maid is a girl"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "UNDISMAYED",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "said means spoken out, so the phrase is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lingerie for girl",
+       "gives": "UNDIESMAID",
+       "note": "undies are lingerie and a maid is a girl"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Underwear bought for a girl, who stays determined.",
      "definitionFit": "Someone undismayed is not discouraged, so remains firm and unshaken in purpose."
@@ -1001,34 +898,28 @@
    },
    "solution": "ELINOR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ELINOR",
     "definitions": [
      {
       "text": "23 18 girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with characters for",
-      "for": "deletion",
-      "note": "the name plus the outside characters of the next word make the place, so taking them away from it leaves the name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scene in Hamlet",
-      "gives": "ELSINORE",
-      "note": "the castle where Shakespeare's play is set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "INOR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ELINOR",
+     "indicators": [
+      {
+       "text": "with characters for",
+       "note": "the name plus the outside characters of the next word make the place, so taking them away from it leaves the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scene in Hamlet",
+       "gives": "ELSINORE",
+       "note": "the castle where Shakespeare's play is set"
+      }
      ]
     },
     "explanation": {
@@ -1063,32 +954,25 @@
    },
    "solution": "ILLUSED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ILL-USED",
     "definitions": [
      {
       "text": "given rough treatment",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "with pictures",
-      "gives": "ILLUS",
-      "note": "the bibliographers' abbreviation for illustrated"
-     },
-     {
-      "clueFragment": "Part of edition",
-      "gives": "ED",
-      "note": "the short form of the word, a part of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILLUS",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with pictures",
+       "gives": "ILLUS",
+       "note": "the bibliographers' abbreviation for illustrated"
+      },
+      {
+       "words": "Part of edition",
+       "gives": "ED",
+       "note": "the short form of the word, a part of it"
+      }
      ]
     },
     "explanation": {
@@ -1117,32 +1001,24 @@
    },
    "solution": "MASTIFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MASTIFF",
     "definitions": [
      {
       "text": "Dog",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "ma",
-      "gives": "MA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rigid",
-      "gives": "STIFF",
-      "note": "stiff means rigid"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "STIFF"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ma",
+       "note": "taken as written"
+      },
+      {
+       "words": "rigid",
+       "gives": "STIFF",
+       "note": "stiff means rigid"
+      }
      ]
     },
     "explanation": {
@@ -1172,47 +1048,40 @@
    },
    "solution": "MALEFIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MALEFIC",
     "definitions": [
      {
       "text": "Injurious",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "a letter found in something sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellow",
-      "gives": "MALE",
-      "note": "a male is a fellow"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "football club",
-      "gives": "FC",
-      "note": "the standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MALE",
-      "F",
-      "I",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fellow",
+       "gives": "MALE",
+       "note": "a male is a fellow"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "found in",
+         "note": "a letter found in something sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "football club",
+         "gives": "FC",
+         "note": "the standard abbreviation"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1246,39 +1115,32 @@
    },
    "solution": "SYRINGA",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SYR INGA",
     "definitions": [
      {
       "text": "Shrub",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pruned",
-      "for": "deletion",
-      "note": "pruning cuts something back, so the end is trimmed off"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gray's Inn",
-      "gives": "GRAYSINN",
-      "note": "one of London's Inns of Court"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
       {
-       "fodder": "GRAYSIN",
-       "gives": "SYRINGA"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pruned",
+         "note": "pruning cuts something back, so the end is trimmed off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gray's Inn",
+         "note": "one of London's Inns of Court"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
@@ -1322,41 +1184,34 @@
    },
    "solution": "ELMLEAF",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ELM LEAF",
     "definitions": [
      {
       "text": "coming out in the spring",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "maybe",
-      "for": "anagram",
-      "note": "maybe suggests the letters might be arranged some other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "FEMALE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L, the learner plate, stands for a student"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FEMALEL",
-       "gives": "ELMLEAF"
+       "text": "maybe",
+       "note": "maybe suggests the letters might be arranged some other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Female",
+         "note": "taken as written"
+        },
+        {
+         "words": "student",
+         "gives": "L",
+         "note": "L, the learner plate, stands for a student"
+        }
+       ]
       }
      ]
     },
@@ -1392,35 +1247,25 @@
    },
    "solution": "LORDMERLIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LORD MERLIN",
     "definitions": [
      {
       "text": "from \"The Pursuit of Love\"",
       "at": 31
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cricket groundsman",
-      "gives": "LORD",
-      "note": "Thomas Lord founded Lord's, the London cricket ground"
-     },
-     {
-      "clueFragment": "falcon",
-      "gives": "MERLIN",
-      "note": "a merlin is a small falcon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LORD",
-      "MERLIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cricket groundsman",
+       "gives": "LORD",
+       "note": "Thomas Lord founded Lord's, the London cricket ground"
+      },
+      {
+       "words": "falcon",
+       "gives": "MERLIN",
+       "note": "a merlin is a small falcon"
+      }
      ]
     },
     "explanation": {
@@ -1449,33 +1294,29 @@
    },
    "solution": "EMMA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EMMA",
     "definitions": [
      {
       "text": "23 18 girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking us from",
-      "for": "deletion",
-      "note": "taking a word away from another removes those letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New Testament village",
-      "gives": "EMMAUS",
-      "note": "the village on the road to which the risen Christ appeared"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMMA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking us from",
+       "note": "taking a word away from another removes those letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New Testament village",
+       "gives": "EMMAUS",
+       "note": "the village on the road to which the risen Christ appeared"
+      },
+      {
+       "gives": "US"
+      }
      ]
     },
     "explanation": {
@@ -1504,41 +1345,30 @@
    },
    "solution": "ABHOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABHOR",
     "definitions": [
      {
       "text": "Not like",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to have"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a sailor",
-      "gives": "AB",
-      "note": "AB, able seaman, is a sailor"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "HO",
-      "note": "the abbreviation for house"
-     },
-     {
-      "clueFragment": "on river",
-      "gives": "R",
-      "note": "R for river, placed after, on, the other pieces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "HO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a sailor",
+       "gives": "AB",
+       "note": "AB, able seaman, is a sailor"
+      },
+      {
+       "words": "house",
+       "gives": "HO",
+       "note": "the abbreviation for house"
+      },
+      {
+       "words": "on river",
+       "gives": "R",
+       "note": "R for river, placed after, on, the other pieces"
+      }
      ]
     },
     "explanation": {
@@ -1578,56 +1408,51 @@
     "18-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "JANE AUSTEN",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the two letters go in, inside, the first number's answer"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "East",
-      "gives": "E",
-      "note": "the compass abbreviation"
-     },
-     {
-      "clueFragment": "Africa",
-      "gives": "A",
-      "note": "the abbreviation for Africa"
-     },
-     {
-      "clueFragment": "10",
-      "gives": "JANUS",
-      "note": "the answer to 10 across"
-     },
-     {
-      "clueFragment": "10 10",
-      "gives": "TEN",
-      "note": "the second 10 is taken as the number itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JAN",
-      "E",
-      "A",
-      "US",
-      "TEN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the two letters go in, inside, the first number's answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "10",
+         "gives": "JANUS",
+         "note": "the answer to 10 across"
+        },
+        {
+         "words": "10 10",
+         "gives": "TEN",
+         "note": "the second 10 is taken as the number itself"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East",
+         "gives": "E",
+         "note": "the compass abbreviation"
+        },
+        {
+         "words": "Africa",
+         "gives": "A",
+         "note": "the abbreviation for Africa"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1656,43 +1481,31 @@
    },
    "solution": "FANNY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FANNY",
     "definitions": [
      {
       "text": "23 18 girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense of outside, so the fairy goes around the other piece"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a fairy",
-      "gives": "FAY",
-      "note": "fay is a poetic word for a fairy"
-     },
-     {
-      "clueFragment": "names",
-      "gives": "NN",
-      "note": "N for name, twice for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FA",
-      "NN",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "without in its old sense of outside, so the fairy goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a fairy",
+       "gives": "FAY",
+       "note": "fay is a poetic word for a fairy"
+      },
+      {
+       "words": "names",
+       "gives": "NN",
+       "note": "N for name, twice for the plural"
+      }
      ]
     },
     "explanation": {
@@ -1721,50 +1534,49 @@
    },
    "solution": "ELIZABETH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ELIZABETH",
     "definitions": [
      {
       "text": "23 18 girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first, third and last of",
-      "for": "letter_selection",
-      "note": "names three positions in a word, so only the letters in those places are kept"
-     },
-     {
-      "text": "involvement",
-      "for": "anagram",
-      "note": "involvement suggests things tangled together, so the letters are mixed up"
-     }
-    ],
-    "linkWords": [
-     "reveals"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ashcroft's",
-      "gives": "AHT",
-      "select": "first",
-      "note": "the letters in positions one, three and the end"
-     },
-     {
-      "clueFragment": "Belize",
-      "gives": "BELIZE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AHTBELIZE",
-       "gives": "ELIZABETH"
+       "text": "involvement",
+       "note": "involvement suggests things tangled together, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "AHT",
+         "indicators": [
+          {
+           "text": "first, third and last of",
+           "note": "names three positions in a word, so only the letters in those places are kept"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Ashcroft's",
+           "gives": "AHT",
+           "select": "first",
+           "note": "the letters in positions one, three and the end"
+          }
+         ]
+        },
+        {
+         "words": "Belize",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1794,40 +1606,31 @@
    },
    "solution": "CHANDOS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHANDOS",
     "definitions": [
      {
       "text": "taken over by Lyttelton",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the worker goes in, inside, the companies"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Worker",
-      "gives": "HAND",
-      "note": "a hand is a worker"
-     },
-     {
-      "clueFragment": "companies",
-      "gives": "COS",
-      "note": "CO for company, plus S for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HAND",
-      "OS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the worker goes in, inside, the companies"
+      }
+     ],
+     "parts": [
+      {
+       "words": "companies",
+       "gives": "COS",
+       "note": "CO for company, plus S for the plural"
+      },
+      {
+       "words": "Worker",
+       "gives": "HAND",
+       "note": "a hand is a worker"
+      }
      ]
     },
     "explanation": {
@@ -1863,38 +1666,24 @@
    },
    "solution": "GOESFAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GOES FAR",
     "definitions": [
      {
       "text": "makes a lot of progress",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Working",
-      "for": "anagram",
-      "note": "working suggests material being worked over into a new form"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for ages",
-      "gives": "FORAGES",
-      "note": "all seven letters of the phrase"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FORAGES",
-       "gives": "GOESFAR"
+       "text": "Working",
+       "note": "working suggests material being worked over into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for ages",
+       "note": "all seven letters of the phrase"
       }
      ]
     },

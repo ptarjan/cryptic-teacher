@@ -1,8 +1,6 @@
 {
  "id": "quiptic-666",
  "number": 666,
- "series": "quiptic",
- "name": "Quiptic crossword No 666",
  "setter": "Pan",
  "date": "2012-08-20",
  "dimensions": {
@@ -38,45 +36,41 @@
    },
    "solution": "OODLES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "OODLES",
     "definitions": [
      {
       "text": "Loads",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "'without' tells the solver to take something away from the word before it"
-     },
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "'at last' points to the final letter of the word it follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of pasta",
-      "gives": "NOODLES",
-      "note": "noodles are a kind of pasta"
-     },
-     {
-      "clueFragment": "parmesan",
-      "gives": "N",
-      "select": "last",
-      "note": "the closing letter of parmesan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OODLES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "note": "'without' tells the solver to take something away from the word before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of pasta",
+       "gives": "NOODLES",
+       "note": "noodles are a kind of pasta"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "'at last' points to the final letter of the word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parmesan",
+         "note": "the closing letter of parmesan"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -105,59 +99,49 @@
    },
    "solution": "MAINTAIN",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "MAINTAIN",
     "definitions": [
      {
       "text": "Support",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "battered",
-      "for": "anagram",
-      "note": "something battered is knocked out of shape, so these letters are rearranged"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "one word holding others means it wraps around them"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cardinal",
-      "gives": "MAIN",
-      "note": "cardinal in the sense of chief or principal"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tin",
-      "gives": "TIN",
-      "note": "taken as written; with the A it is rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAI",
-      "NTAI",
-      "N"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ATIN",
-       "gives": "NTAI"
+       "text": "holding",
+       "note": "one word holding others means it wraps around them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cardinal",
+       "gives": "MAIN",
+       "note": "cardinal in the sense of chief or principal"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "battered",
+         "note": "something battered is knocked out of shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "tin",
+           "note": "taken as written; with the A it is rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -187,54 +171,43 @@
    },
    "solution": "FIDDLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FIDDLE",
     "definitions": [
      {
       "text": "Instrument",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "troubled",
-      "for": "anagram",
-      "note": "something troubled is disturbed, so these letters are thrown into a new order"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "one thing happening during another sits inside it"
-     }
-    ],
-    "linkWords": [
-     "made by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "life",
-      "gives": "FILE",
-      "note": "the letters of life rearranged"
-     },
-     {
-      "clueFragment": "theologian",
-      "gives": "DD",
-      "note": "DD is Doctor of Divinity, a theology degree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "DD",
-      "LE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FIDDLE",
+     "indicators": [
       {
-       "fodder": "LIFE",
-       "gives": "FILE"
+       "text": "troubled",
+       "note": "something troubled is disturbed, so these letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "note": "one thing happening during another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "life",
+         "gives": "FILE",
+         "note": "the letters of life rearranged"
+        },
+        {
+         "words": "theologian",
+         "gives": "DD",
+         "note": "DD is Doctor of Divinity, a theology degree"
+        }
+       ]
       }
      ]
     },
@@ -269,48 +242,35 @@
    },
    "solution": "BEDTIME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BED TIME",
     "definitions": [
      {
       "text": "occasion of retirement",
       "at": 48
      }
     ],
-    "linkWords": [
-     "given to",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Second-rate",
-      "gives": "B",
-      "note": "B grade is second-rate"
-     },
-     {
-      "clueFragment": "editor",
-      "gives": "ED",
-      "note": "standard abbreviation for editor"
-     },
-     {
-      "clueFragment": "with note",
-      "gives": "TI",
-      "note": "ti is a note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "setter",
-      "gives": "ME",
-      "note": "the setter refers to themself as me"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ED",
-      "TI",
-      "ME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second-rate",
+       "gives": "B",
+       "note": "B grade is second-rate"
+      },
+      {
+       "words": "editor",
+       "gives": "ED",
+       "note": "standard abbreviation for editor"
+      },
+      {
+       "words": "with note",
+       "gives": "TI",
+       "note": "ti is a note of the sol-fa scale"
+      },
+      {
+       "words": "setter",
+       "gives": "ME",
+       "note": "the setter refers to themself as me"
+      }
      ]
     },
     "explanation": {
@@ -346,48 +306,35 @@
    },
    "solution": "TOSSUP",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TOSS-UP",
     "definitions": [
      {
       "text": "an even chance",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "turning up",
-      "for": "reversal",
-      "note": "in a down clue, turning up makes the word read from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "It's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drunk",
-      "gives": "SOT",
-      "note": "a sot is a drunkard"
-     },
-     {
-      "clueFragment": "with drink",
-      "gives": "SUP",
-      "note": "to sup is to drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOS",
-      "SUP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SOT",
-       "to": "TOS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "note": "in a down clue, turning up makes the word read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drunk",
+         "gives": "SOT",
+         "note": "a sot is a drunkard"
+        }
+       ]
+      },
+      {
+       "words": "with drink",
+       "gives": "SUP",
+       "note": "to sup is to drink"
       }
      ]
     },
@@ -417,41 +364,30 @@
    },
    "solution": "MARIGOLD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARIGOLD",
     "definitions": [
      {
       "text": "plant",
       "at": 24
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother",
-      "gives": "MA",
-      "note": "an informal word for mother"
-     },
-     {
-      "clueFragment": "set up",
-      "gives": "RIG",
-      "note": "to rig is to set up or fix"
-     },
-     {
-      "clueFragment": "mature",
-      "gives": "OLD",
-      "note": "old as in grown up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "RIG",
-      "OLD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mother",
+       "gives": "MA",
+       "note": "an informal word for mother"
+      },
+      {
+       "words": "set up",
+       "gives": "RIG",
+       "note": "to rig is to set up or fix"
+      },
+      {
+       "words": "mature",
+       "gives": "OLD",
+       "note": "old as in grown up"
+      }
      ]
     },
     "explanation": {
@@ -479,48 +415,40 @@
    },
    "solution": "WOMANISER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WOMANISER",
     "definitions": [
      {
       "text": "a philanderer",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "admit",
-      "for": "container",
-      "note": "to admit is to let in, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "More sensible",
-      "gives": "WISER",
-      "note": "comparative of wise"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "standard abbreviation for old"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "MAN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "OMAN",
-      "ISER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admit",
+       "note": "to admit is to let in, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "More sensible",
+         "gives": "WISER",
+         "note": "comparative of wise"
+        },
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "standard abbreviation for old"
+        }
+       ]
+      },
+      {
+       "words": "man",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -554,35 +482,25 @@
    },
    "solution": "SOFAR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SO FAR",
     "definitions": [
      {
       "text": "up to now",
       "at": 32
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something to sit on",
-      "gives": "SOFA",
-      "note": "a sofa is a seat"
-     },
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SOFA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "something to sit on",
+       "gives": "SOFA",
+       "note": "a sofa is a seat"
+      },
+      {
+       "words": "King",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      }
      ]
     },
     "explanation": {
@@ -616,66 +534,55 @@
    },
    "solution": "BLINDDATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BLIND DATE",
     "definitions": [
      {
       "text": "possible romantic encounter",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Fixed",
-      "for": "anagram",
-      "note": "fixed in the sense of rigged or rearranged"
-     },
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "involving means taking something inside"
-     },
-     {
-      "text": "bedding",
-      "for": "container",
-      "note": "bedding means taking someone to bed, so one piece lies within another"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bet",
-      "gives": "BTE",
-      "note": "the letters of bet rearranged, then split around the rest"
-     },
-     {
-      "clueFragment": "woman",
-      "gives": "LINDA",
-      "note": "a woman's name"
-     },
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "standard abbreviation for duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LIND",
-      "D",
-      "A",
-      "TE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BET",
-       "gives": "BTE"
+       "text": "involving",
+       "note": "involving means taking something inside"
+      },
+      {
+       "text": "bedding",
+       "note": "bedding means taking someone to bed, so one piece lies within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bet",
+       "gives": "BTE",
+       "note": "the letters of bet rearranged, then split around the rest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Fixed",
+         "note": "fixed in the sense of rigged or rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "woman",
+           "gives": "LINDA",
+           "note": "a woman's name"
+          },
+          {
+           "words": "duke",
+           "gives": "D",
+           "note": "standard abbreviation for duke"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -705,35 +612,25 @@
    },
    "solution": "ASPIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASPIC",
     "definitions": [
      {
       "text": "jelly",
       "at": 19
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Snake",
-      "gives": "ASP",
-      "note": "an asp is a venomous snake"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "IC is the standard abbreviation for in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASP",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Snake",
+       "gives": "ASP",
+       "note": "an asp is a venomous snake"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "IC is the standard abbreviation for in charge"
+      }
      ]
     },
     "explanation": {
@@ -761,30 +658,28 @@
    },
    "solution": "STAR",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "STAR",
     "definitions": [
      {
       "text": "Celebrity",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hiding in",
-      "for": "hidden_word",
-      "note": "something hiding in words is concealed within their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor's Tardis",
-      "gives": "STAR",
-      "note": "runs across the possessive ending and the start of the next word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hiding in",
+       "note": "something hiding in words is concealed within their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doctor's Tardis",
+       "gives": "STAR",
+       "note": "runs across the possessive ending and the start of the next word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A famous person tucked away in Doctor Who's time machine.",
      "walkthrough": "The Tardis is the time machine in the British TV series Doctor Who.",
@@ -811,48 +706,37 @@
    },
    "solution": "ESCAPE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ESCAPE",
     "definitions": [
      {
       "text": "Flight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for a change",
-      "for": "anagram",
-      "note": "making a change to the word reorders its letters"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earth",
-      "gives": "E",
-      "note": "E is the abbreviation for earth"
-     },
-     {
-      "clueFragment": "space",
-      "gives": "SCAPE",
-      "note": "the letters of space rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "SCAPE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ESCAPE",
+     "indicators": [
       {
-       "fodder": "SPACE",
-       "gives": "SCAPE"
+       "text": "for a change",
+       "note": "making a change to the word reorders its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "earth",
+         "gives": "E",
+         "note": "E is the abbreviation for earth"
+        },
+        {
+         "words": "space",
+         "gives": "SCAPE",
+         "note": "the letters of space rearranged"
+        }
+       ]
       }
      ]
     },
@@ -882,38 +766,24 @@
    },
    "solution": "METAPHOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "METAPHOR",
     "definitions": [
      {
       "text": "symbol",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Redesigned",
-      "for": "anagram",
-      "note": "something redesigned is made again in a new form"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "other map",
-      "gives": "OTHERMAP",
-      "note": "taken as written, ready for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OTHERMAP",
-       "gives": "METAPHOR"
+       "text": "Redesigned",
+       "note": "something redesigned is made again in a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "other map",
+       "note": "taken as written, ready for rearranging"
       }
      ]
     },
@@ -942,35 +812,25 @@
    },
    "solution": "SPANGLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPANGLE",
     "definitions": [
      {
       "text": "small shiny decoration",
       "at": 19
      }
     ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Special",
-      "gives": "SP",
-      "note": "SP is an abbreviation for special"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "ANGLE",
-      "note": "to angle is to fish with a rod"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SP",
-      "ANGLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Special",
+       "gives": "SP",
+       "note": "SP is an abbreviation for special"
+      },
+      {
+       "words": "fish",
+       "gives": "ANGLE",
+       "note": "to angle is to fish with a rod"
+      }
      ]
     },
     "explanation": {
@@ -999,43 +859,31 @@
    },
    "solution": "PLANTAIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLANTAIN",
     "definitions": [
      {
       "text": "banana",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "dwelling",
-      "for": "container",
-      "note": "something dwelling in a place lives inside it"
-     }
-    ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Prairie",
-      "gives": "PLAIN",
-      "note": "a prairie is a grassy plain"
-     },
-     {
-      "clueFragment": "insect",
-      "gives": "ANT",
-      "note": "an ant is an insect"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PL",
-      "ANT",
-      "AIN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dwelling",
+       "note": "something dwelling in a place lives inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prairie",
+       "gives": "PLAIN",
+       "note": "a prairie is a grassy plain"
+      },
+      {
+       "words": "insect",
+       "gives": "ANT",
+       "note": "an ant is an insect"
+      }
      ]
     },
     "explanation": {
@@ -1064,31 +912,29 @@
    },
    "solution": "LONE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LONE",
     "definitions": [
      {
       "text": "unaccompanied",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Listened to",
-      "for": "homophone",
-      "note": "what is listened to is heard, so the word is judged by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "advance",
-      "gives": "LONE",
-      "soundsLike": "LOAN",
-      "note": "an advance of money is a loan"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LONE",
+     "indicators": [
+      {
+       "text": "Listened to",
+       "note": "what is listened to is heard, so the word is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advance",
+       "gives": "LOAN",
+       "note": "an advance of money is a loan"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone heeded advice to go forward alone.",
      "definitionFit": "Lone describes someone on their own, without companions."
@@ -1114,40 +960,31 @@
    },
    "solution": "CRUSADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRUSADE",
     "definitions": [
      {
       "text": "campaign",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tasteless",
-      "gives": "CRUDE",
-      "note": "crude as in vulgar"
-     },
-     {
-      "clueFragment": "South Africa",
-      "gives": "SA",
-      "note": "standard abbreviation for South Africa"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRU",
-      "SA",
-      "DE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tasteless",
+       "gives": "CRUDE",
+       "note": "crude as in vulgar"
+      },
+      {
+       "words": "South Africa",
+       "gives": "SA",
+       "note": "standard abbreviation for South Africa"
+      }
      ]
     },
     "explanation": {
@@ -1174,43 +1011,33 @@
    },
    "solution": "SHOUTING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SHOUTING",
     "definitions": [
      {
       "text": "making lots of noise",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "is beaten",
-      "for": "anagram",
-      "note": "something beaten is knocked about and out of its shape"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No thug",
-      "gives": "NOTHUG",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written; it doubles as part of the indicator"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTHUGIS",
-       "gives": "SHOUTING"
+       "text": "is beaten",
+       "note": "something beaten is knocked about and out of its shape"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No thug",
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "note": "taken as written; it doubles as part of the indicator"
+        }
+       ]
       }
      ]
     },
@@ -1240,30 +1067,28 @@
    },
    "solution": "RAMADAN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RAMADAN",
     "definitions": [
      {
       "text": "a period of fasting",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to accept",
-      "for": "hidden_word",
-      "note": "the words accept the answer, holding it within their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pester a mad antipodean",
-      "gives": "RAMADAN",
-      "note": "runs from the end of the first word into the last"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to accept",
+       "note": "the words accept the answer, holding it within their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pester a mad antipodean",
+       "gives": "RAMADAN",
+       "note": "runs from the end of the first word into the last"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Nagging a crazy Australian to go along with a diet.",
      "definitionFit": "Ramadan is the Islamic month during which Muslims fast in daylight hours."
@@ -1289,35 +1114,25 @@
    },
    "solution": "BANDANNA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANDANNA",
     "definitions": [
      {
       "text": "neckwear",
       "at": 14
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strip",
-      "gives": "BAND",
-      "note": "a band is a strip of material"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "ANNA",
-      "note": "a girl's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAND",
-      "ANNA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Strip",
+       "gives": "BAND",
+       "note": "a band is a strip of material"
+      },
+      {
+       "words": "girl",
+       "gives": "ANNA",
+       "note": "a girl's name"
+      }
      ]
     },
     "explanation": {
@@ -1347,38 +1162,24 @@
    },
    "solution": "DRAGON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DRAGON",
     "definitions": [
      {
       "text": "intimidating woman",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "After training",
-      "for": "anagram",
-      "note": "training reshapes something, so these letters are put into a new order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog ran",
-      "gives": "DOGRAN",
-      "note": "taken as written, ready for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOGRAN",
-       "gives": "DRAGON"
+       "text": "After training",
+       "note": "training reshapes something, so these letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dog ran",
+       "note": "taken as written, ready for rearranging"
       }
      ]
     },
@@ -1407,10 +1208,6 @@
    },
    "solution": "SPONGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SPONGE",
     "definitions": [
      {
       "text": "With which to clean up",
@@ -1418,30 +1215,25 @@
       "note": "describes the object, a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Home Counties",
-      "gives": "SE",
-      "note": "the Home Counties surround London in the south-east of England"
-     },
-     {
-      "clueFragment": "nasty smell",
-      "gives": "PONG",
-      "note": "pong is British slang for a stink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PONG",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Home Counties",
+       "gives": "SE",
+       "note": "the Home Counties surround London in the south-east of England"
+      },
+      {
+       "words": "nasty smell",
+       "gives": "PONG",
+       "note": "pong is British slang for a stink"
+      }
      ]
     },
     "explanation": {
@@ -1470,58 +1262,53 @@
    },
    "solution": "STEADY",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STEADY",
     "definitions": [
      {
       "text": "Fixed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dodgy",
-      "for": "anagram",
-      "note": "something dodgy is unreliable or crooked, so the letters are mixed"
-     },
-     {
-      "text": "deserted",
-      "for": "letter_selection",
-      "note": "a deserted word has been emptied of its inside, leaving only its edges"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "subway",
-      "gives": "SY",
-      "select": "outer",
-      "note": "the first and last letters of subway"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "TEAD",
-      "note": "the letters of date rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEAD",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "STEADY",
+     "indicators": [
       {
-       "fodder": "DATE",
-       "gives": "TEAD"
+       "text": "dodgy",
+       "note": "something dodgy is unreliable or crooked, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one thing in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "deserted",
+           "note": "a deserted word has been emptied of its inside, leaving only its edges"
+          }
+         ],
+         "parts": [
+          {
+           "words": "subway",
+           "note": "the first and last letters of subway"
+          }
+         ]
+        },
+        {
+         "words": "date",
+         "gives": "TEAD",
+         "note": "the letters of date rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1551,43 +1338,31 @@
    },
    "solution": "GANGES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GANGES",
     "definitions": [
      {
       "text": "River",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conceal",
-      "for": "container",
-      "note": "to conceal something is to keep it inside, out of view"
-     }
-    ],
-    "linkWords": [
-     "in which"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bands of criminals",
-      "gives": "GANGS",
-      "note": "gangs are groups of criminals"
-     },
-     {
-      "clueFragment": "drug",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GANG",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conceal",
+       "note": "to conceal something is to keep it inside, out of view"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bands of criminals",
+       "gives": "GANGS",
+       "note": "gangs are groups of criminals"
+      },
+      {
+       "words": "drug",
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
      ]
     },
     "explanation": {
@@ -1614,34 +1389,29 @@
    },
    "solution": "STEAK",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "STEAK",
     "definitions": [
      {
       "text": "piece of meat",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "So-called",
-      "for": "homophone",
-      "note": "so-called refers to what something is called, its spoken name"
-     }
-    ],
-    "linkWords": [
-     "constituted by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hazard",
-      "gives": "STEAK",
-      "soundsLike": "STAKE",
-      "note": "to hazard is to stake or wager"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "STEAK",
+     "indicators": [
+      {
+       "text": "So-called",
+       "note": "so-called refers to what something is called, its spoken name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hazard",
+       "gives": "STAKE",
+       "note": "to hazard is to stake or wager"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A supposed danger posed by a chunk of meat.",
      "walkthrough": "'Hazard' looks like a noun meaning danger, but as a verb it means to stake.",
@@ -1668,35 +1438,25 @@
    },
    "solution": "PARENTING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARENTING",
     "definitions": [
      {
       "text": "bringing up the kids",
       "at": 39
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "PA",
-      "note": "an informal word for father"
-     },
-     {
-      "clueFragment": "making payments for housing",
-      "gives": "RENTING",
-      "note": "renting is paying for a place to live"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "RENTING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Father",
+       "gives": "PA",
+       "note": "an informal word for father"
+      },
+      {
+       "words": "making payments for housing",
+       "gives": "RENTING",
+       "note": "renting is paying for a place to live"
+      }
      ]
     },
     "explanation": {
@@ -1723,35 +1483,25 @@
    },
    "solution": "BISON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BISON",
     "definitions": [
      {
       "text": "an animal",
       "at": 43
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Attracted to males and females",
-      "gives": "BI",
-      "note": "short for bisexual"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "SON",
-      "note": "a son is a relative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "SON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Attracted to males and females",
+       "gives": "BI",
+       "note": "short for bisexual"
+      },
+      {
+       "words": "relative",
+       "gives": "SON",
+       "note": "a son is a relative"
+      }
      ]
     },
     "explanation": {
@@ -1785,54 +1535,43 @@
    },
    "solution": "LAPDANCER",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "LAP DANCER",
     "definitions": [
      {
       "text": "provider of sexy entertainment",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "exotic",
-      "for": "anagram",
-      "note": "exotic means strange or foreign, so the letters take an unfamiliar order"
-     },
-     {
-      "text": "maintaining",
-      "for": "container",
-      "note": "maintaining means holding, so one piece is kept inside another"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Soldier",
-      "gives": "LANCER",
-      "note": "a lancer is a cavalry soldier"
-     },
-     {
-      "clueFragment": "pad",
-      "gives": "APD",
-      "note": "the letters of pad rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "APD",
-      "ANCER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LAPDANCER",
+     "indicators": [
       {
-       "fodder": "PAD",
-       "gives": "APD"
+       "text": "exotic",
+       "note": "exotic means strange or foreign, so the letters take an unfamiliar order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "maintaining",
+         "note": "maintaining means holding, so one piece is kept inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Soldier",
+         "gives": "LANCER",
+         "note": "a lancer is a cavalry soldier"
+        },
+        {
+         "words": "pad",
+         "gives": "APD",
+         "note": "the letters of pad rearranged"
+        }
+       ]
       }
      ]
     },

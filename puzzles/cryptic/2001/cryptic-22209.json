@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22209",
  "number": 22209,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,209",
  "setter": "Rover",
  "date": "2001-05-15",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "ANAGRAM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ANAGRAM",
     "definitions": [
      {
       "text": "Harvester is one of the ravers",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Harvester is one of the ravers",
-      "note": "surface reading: a farm worker who belongs to a crowd of partygoers"
-     },
-     {
-      "clueFragment": "one of the ravers",
-      "note": "setter's reading: the word Harvester is one rearrangement of the letters in 'the ravers', so the answer is the name for such a rearrangement"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Harvester is one of the ravers",
+       "note": "surface reading: a farm worker who belongs to a crowd of partygoers"
+      },
+      {
+       "words": "one of the ravers",
+       "note": "setter's reading: the word Harvester is one rearrangement of the letters in 'the ravers', so the answer is the name for such a rearrangement"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A farmhand who spends weekends at all-night dance parties.",
      "walkthrough": "Count the letters: 'Harvester' and 'the ravers' use exactly the same nine, so the clue is describing itself as a piece of wordplay.",
@@ -85,47 +82,41 @@
    },
    "solution": "HOMICIDE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HOMICIDE",
     "definitions": [
      {
       "text": "murder",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places the preceding words inside the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "domestic",
-      "gives": "HOME",
-      "note": "domestic matters are home matters"
-     },
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "hero",
-      "gives": "CID",
-      "note": "El Cid, the Spanish national hero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOM",
-      "I",
-      "CID",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places the preceding words inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "domestic",
+       "gives": "HOME",
+       "note": "domestic matters are home matters"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        },
+        {
+         "words": "hero",
+         "gives": "CID",
+         "note": "El Cid, the Spanish national hero"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -154,35 +145,25 @@
    },
    "solution": "CELTIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CELTIC",
     "definitions": [
      {
       "text": "Scottish club",
       "at": 22
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irishman",
-      "gives": "CELT",
-      "note": "the Irish are one of the ancient peoples of western Europe's Gaelic fringe"
-     },
-     {
-      "clueFragment": "in charge",
-      "gives": "IC",
-      "note": "the standard abbreviation i/c for in charge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CELT",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Irishman",
+       "gives": "CELT",
+       "note": "the Irish are one of the ancient peoples of western Europe's Gaelic fringe"
+      },
+      {
+       "words": "in charge",
+       "gives": "IC",
+       "note": "the standard abbreviation i/c for in charge"
+      }
      ]
     },
     "explanation": {
@@ -211,48 +192,42 @@
    },
    "solution": "CLARINET",
    "annotation": {
-    "type": [
-     "and_lit",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CLARINET",
     "definitions": [
      {
       "text": "I am almost certainly played",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the last letter of the next word is dropped"
-     },
-     {
-      "text": "played",
-      "for": "anagram",
-      "note": "letters that are played with are moved about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "certainly",
-      "gives": "CERTAINLY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLARINET"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CERTAINL",
-       "gives": "CLARINET"
+       "text": "played",
+       "note": "letters that are played with are moved about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "almost means not quite all, so the last letter of the next word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "certainly",
+         "note": "taken as written"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "An object speaking up to say it will very likely be performed on.",
      "walkthrough": "Drop the Y of 'certainly' and rearrange the rest. Read whole, the clue is the instrument speaking: 'I am' certainly something that gets played.",
@@ -279,48 +254,40 @@
    },
    "solution": "MYOPIC",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MYOPIC",
     "definitions": [
      {
       "text": "short-sighted",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Wasting",
-      "for": "deletion",
-      "note": "wasting means losing something, so the following letter is lost from the word before"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "My",
-      "gives": "MY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "subject",
-      "gives": "TOPIC",
-      "note": "a subject of discussion is a topic"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MY",
-      "OPIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "My",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Wasting",
+         "note": "wasting means losing something, so the following letter is lost from the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subject",
+         "gives": "TOPIC",
+         "note": "a subject of discussion is a topic"
+        },
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -349,26 +316,25 @@
    },
    "solution": "CRICKET",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CRICKET",
     "definitions": [
      {
       "text": "Game played by heartless Greig?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Game played by heartless Greig?",
-      "note": "surface reading: a sport taken up by a cold, unfeeling man named Greig"
-     },
-     {
-      "clueFragment": "heartless Greig",
-      "note": "setter's reading: Tony Greig, England captain who defected to Kerry Packer's breakaway series and was called heartless by critics, played this bat-and-ball sport"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Game played by heartless Greig?",
+       "note": "surface reading: a sport taken up by a cold, unfeeling man named Greig"
+      },
+      {
+       "words": "heartless Greig",
+       "note": "setter's reading: Tony Greig, England captain who defected to Kerry Packer's breakaway series and was called heartless by critics, played this bat-and-ball sport"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sport favoured by a callous man called Greig.",
      "walkthrough": "Tony Greig captained England at the bat-and-ball game in the 1970s. There is a bonus: Greig with its heart (the E) removed is GRIG, a dialect word for the chirping insect of the same name.",
@@ -395,54 +361,44 @@
    },
    "solution": "SNOOKER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SNOOKER",
     "definitions": [
      {
       "text": "Game",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "something involved is tangled up, so the word before is jumbled"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soon",
-      "gives": "SOON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "K",
-      "note": "K is the chess abbreviation for king"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNOO",
-      "K",
-      "ER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SOON",
-       "gives": "SNOO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "involved",
+         "note": "something involved is tangled up, so the word before is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "soon",
+           "note": "taken as written"
+          },
+          {
+           "words": "king",
+           "gives": "K",
+           "note": "K is the chess abbreviation for king"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the Queen"
       }
      ]
     },
@@ -471,39 +427,30 @@
    },
    "solution": "PLAYERS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "PLAYERS",
     "definitions": [
      {
       "text": "They bet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drop",
-      "for": "deletion",
-      "note": "to drop something is to let it fall out, so the next word is removed from the one before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plate-layers",
-      "gives": "PLATELAYERS",
-      "note": "taken as written; platelayers are railway track workers"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "LATE",
-      "note": "the late So-and-so is someone dead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LAYERS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "drop",
+       "note": "to drop something is to let it fall out, so the next word is removed from the one before"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plate-layers",
+       "note": "taken as written; platelayers are railway track workers"
+      },
+      {
+       "words": "dead",
+       "gives": "LATE",
+       "note": "the late So-and-so is someone dead"
+      }
      ]
     },
     "explanation": {
@@ -532,32 +479,25 @@
    },
    "solution": "FAIRGROUNDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FAIRGROUNDS",
     "definitions": [
      {
       "text": "places for shy and painted horses",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Lovely",
-      "gives": "FAIR",
-      "note": "fair in its old sense of beautiful"
-     },
-     {
-      "clueFragment": "parks",
-      "gives": "GROUNDS",
-      "note": "grounds are parkland around a big house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAIR",
-      "GROUNDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lovely",
+       "gives": "FAIR",
+       "note": "fair in its old sense of beautiful"
+      },
+      {
+       "words": "parks",
+       "gives": "GROUNDS",
+       "note": "grounds are parkland around a big house"
+      }
      ]
     },
     "explanation": {
@@ -587,43 +527,33 @@
    },
    "solution": "EGOIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EGOIST",
     "definitions": [
      {
       "text": "self-centred person",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "goes pear-shaped",
-      "for": "anagram",
-      "note": "something that goes pear-shaped goes wrong and out of shape, so the letters are reshaped"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "It",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "goes",
-      "gives": "GOES",
-      "note": "taken as written, doing double duty with the indicator"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ITGOES",
-       "gives": "EGOIST"
+       "text": "goes pear-shaped",
+       "note": "something that goes pear-shaped goes wrong and out of shape, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "It",
+         "note": "taken as written"
+        },
+        {
+         "words": "goes",
+         "note": "taken as written, doing double duty with the indicator"
+        }
+       ]
       }
      ]
     },
@@ -653,38 +583,29 @@
    },
    "solution": "AIRSPACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIRSPACE",
     "definitions": [
      {
       "text": "The territory above",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "taxman's",
-      "gives": "IR",
-      "note": "IR, the Inland Revenue, Britain's former tax authority"
-     },
-     {
-      "clueFragment": "scope",
-      "gives": "SPACE",
-      "note": "scope and space both mean room to act"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "IR",
-      "SPACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "taxman's",
+       "gives": "IR",
+       "note": "IR, the Inland Revenue, Britain's former tax authority"
+      },
+      {
+       "words": "scope",
+       "gives": "SPACE",
+       "note": "scope and space both mean room to act"
+      }
      ]
     },
     "explanation": {
@@ -713,33 +634,28 @@
    },
    "solution": "PALI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "PALI",
     "definitions": [
      {
       "text": "a sacred language",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "in says the letters lie inside the words that follow, across the gap"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nepal, it",
-      "gives": "PALI",
-      "note": "the letters run from the end of Nepal into it"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "in says the letters lie inside the words that follow, across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nepal, it",
+       "gives": "PALI",
+       "note": "the letters run from the end of Nepal into it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A holy tongue spoken in the Himalayan kingdom.",
      "definitionFit": "The ancient Indian tongue in which the Theravada Buddhist scriptures are written, hence holy."
@@ -764,28 +680,16 @@
    },
    "solution": "CHRONICLES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHRONICLES",
     "definitions": [
      {
       "text": "Records",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: historical accounts"
      },
      {
       "text": "found before Ezra",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Records",
-      "note": "first meaning: historical accounts"
-     },
-     {
-      "clueFragment": "found before Ezra",
-      "note": "second meaning: the books of the Old Testament placed just ahead of the Book of Ezra"
+      "at": 8,
+      "meaning": "second meaning: the books of the Old Testament placed just ahead of the Book of Ezra"
      }
     ],
     "explanation": {
@@ -814,38 +718,24 @@
    },
    "solution": "CELEBRITIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CELEBRITIES",
     "definitions": [
      {
       "text": "Big names",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in disarray",
-      "for": "anagram",
-      "note": "disarray is disorder, so the following letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     ":"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I cite rebels",
-      "gives": "ICITEREBELS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ICITEREBELS",
-       "gives": "CELEBRITIES"
+       "text": "in disarray",
+       "note": "disarray is disorder, so the following letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I cite rebels",
+       "note": "taken as written"
       }
      ]
     },
@@ -874,35 +764,24 @@
    },
    "solution": "ELEPHANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELEPHANT",
     "definitions": [
      {
       "text": "One big in the game",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "other",
-      "for": "anagram",
-      "note": "other suggests a different form, so the words that follow are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "than Pele",
-      "gives": "THANPELE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THANPELE",
-       "gives": "ELEPHANT"
+       "text": "other",
+       "note": "other suggests a different form, so the words that follow are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "than Pele",
+       "note": "taken as written"
       }
      ]
     },
@@ -933,28 +812,16 @@
    },
    "solution": "EGGSHELL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "EGGSHELL",
     "definitions": [
      {
       "text": "Thin",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: delicate and fragile like a bird's shell"
      },
      {
       "text": "paint",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thin",
-      "note": "first meaning: delicate and fragile like a bird's shell"
-     },
-     {
-      "clueFragment": "paint",
-      "note": "second meaning: a type of paint finish with a slight sheen"
+      "at": 5,
+      "meaning": "second meaning: a type of paint finish with a slight sheen"
      }
     ],
     "explanation": {
@@ -982,28 +849,16 @@
    },
    "solution": "ARSENAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ARSENAL",
     "definitions": [
      {
       "text": "Club",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the London football team"
      },
      {
       "text": "magazine",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Club",
-      "note": "first meaning: the London football team"
-     },
-     {
-      "clueFragment": "magazine",
-      "note": "second meaning: a store of weapons and ammunition"
+      "at": 5,
+      "meaning": "second meaning: a store of weapons and ammunition"
      }
     ],
     "explanation": {
@@ -1031,32 +886,25 @@
    },
    "solution": "REVIEWS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REVIEWS",
     "definitions": [
      {
       "text": "Surveys",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means concerning"
-     },
-     {
-      "clueFragment": "attitudes",
-      "gives": "VIEWS",
-      "note": "attitudes are opinions or views"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "VIEWS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means concerning"
+      },
+      {
+       "words": "attitudes",
+       "gives": "VIEWS",
+       "note": "attitudes are opinions or views"
+      }
      ]
     },
     "explanation": {
@@ -1083,26 +931,25 @@
    },
    "solution": "ARBORETUMS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ARBORETUMS",
     "definitions": [
      {
       "text": "Where they might bring back the birch?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Where they might bring back the birch?",
-      "note": "surface reading: a place keen to restore flogging with a birch rod as punishment"
-     },
-     {
-      "clueFragment": "bring back the birch",
-      "note": "setter's reading: places that reintroduce or replant birch trees, as tree collections do"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where they might bring back the birch?",
+       "note": "surface reading: a place keen to restore flogging with a birch rod as punishment"
+      },
+      {
+       "words": "bring back the birch",
+       "note": "setter's reading: places that reintroduce or replant birch trees, as tree collections do"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hardline place that would restore corporal punishment.",
      "walkthrough": "'Bring back the birch' is a British rallying cry for reviving flogging; here the birch is simply a tree being replanted.",
@@ -1130,10 +977,6 @@
    },
    "solution": "OPAQUE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OPAQUE",
     "definitions": [
      {
       "text": "isn't clear",
@@ -1141,23 +984,22 @@
       "note": "a verb phrase; the answer is the adjective meaning not clear"
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "hidden_word",
-      "note": "in says the letters sit inside the words that follow"
-     }
-    ],
-    "linkWords": [
-     "chess, when to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "swop a queen",
-      "gives": "OPAQUE",
-      "note": "the letters run from the end of swop through a into queen"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "in says the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "swop a queen",
+       "gives": "OPAQUE",
+       "note": "the letters run from the end of swop through a into queen"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A chess player unsure when to trade off a queen.",
      "walkthrough": "The chess setting is camouflage; the letters lie in plain sight across three words.",
@@ -1184,45 +1026,34 @@
    },
    "solution": "STEWED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "STEWED",
     "definitions": [
      {
       "text": "drunk",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out suggests disorder or being put wrong, so the word before is rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Set",
-      "gives": "SET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to marry",
-      "gives": "WED",
-      "note": "to wed is to marry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STE",
-      "WED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SET",
-       "gives": "STE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out suggests disorder or being put wrong, so the word before is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Set",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "to marry",
+       "gives": "WED",
+       "note": "to wed is to marry"
       }
      ]
     },
@@ -1251,50 +1082,48 @@
    },
    "solution": "GREY",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GREY",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all, so the word's tail end is removed"
-     },
-     {
-      "text": "a hint of",
-      "for": "letter_selection",
-      "note": "a hint is a tiny trace, so just the first letter of the next word is used"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "green",
-      "gives": "GREEN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "yellow",
-      "gives": "Y",
-      "select": "first",
-      "note": "the opening letter of yellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRE",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means most but not all, so the word's tail end is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "green",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a hint of",
+           "note": "a hint is a tiny trace, so just the first letter of the next word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yellow",
+           "note": "the opening letter of yellow"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "EN"
+      }
      ]
     },
     "explanation": {
@@ -1323,28 +1152,16 @@
    },
    "solution": "DETACHED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DETACHED",
     "definitions": [
      {
       "text": "Free",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: unattached, separated"
      },
      {
       "text": "kind of house",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Free",
-      "note": "first meaning: unattached, separated"
-     },
-     {
-      "clueFragment": "kind of house",
-      "note": "second meaning: a house standing alone, not joined to its neighbours"
+      "at": 5,
+      "meaning": "second meaning: a house standing alone, not joined to its neighbours"
      }
     ],
     "explanation": {
@@ -1372,35 +1189,24 @@
    },
    "solution": "ECHOIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ECHOIC",
     "definitions": [
      {
       "text": "of imitation",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Exercising",
-      "for": "anagram",
-      "note": "exercising works something hard, putting the following letters through their paces into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "choice",
-      "gives": "CHOICE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHOICE",
-       "gives": "ECHOIC"
+       "text": "Exercising",
+       "note": "exercising works something hard, putting the following letters through their paces into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "choice",
+       "note": "taken as written"
       }
      ]
     },
@@ -1429,51 +1235,40 @@
    },
    "solution": "CALUMNY",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CALUMNY",
     "definitions": [
      {
       "text": "Slander",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "silly",
-      "for": "anagram",
-      "note": "silly means foolish and muddled, so the word after is jumbled"
-     },
-     {
-      "text": "trapped in",
-      "for": "container",
-      "note": "something trapped in another is held inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lunacy",
-      "gives": "LUNACY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the standard abbreviation for male"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CALU",
-      "M",
-      "NY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LUNACY",
-       "gives": "CALUNY"
+       "text": "trapped in",
+       "note": "something trapped in another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "silly",
+         "note": "silly means foolish and muddled, so the word after is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lunacy",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M is the standard abbreviation for male"
       }
      ]
     },
@@ -1502,51 +1297,40 @@
    },
    "solution": "YELLOWS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "YELLOWS",
     "definitions": [
      {
       "text": "Colours",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moving",
-      "for": "anagram",
-      "note": "moving means shifting position, so the word after is rearranged"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the jumbled letters surround what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slowly",
-      "gives": "SLOWLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Spain",
-      "gives": "E",
-      "note": "E is the international vehicle code for Spain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "E",
-      "LLOWS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SLOWLY",
-       "gives": "YLLOWS"
+       "text": "around",
+       "note": "around says the jumbled letters surround what follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "note": "moving means shifting position, so the word after is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slowly",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Spain",
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
       }
      ]
     },

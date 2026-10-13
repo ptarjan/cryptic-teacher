@@ -1,8 +1,7 @@
 {
  "id": "cryptic-21682",
  "number": 21682,
- "series": "cryptic",
- "name": "Prize crossword No 21,682",
+ "prize": true,
  "setter": "Paul",
  "date": "1999-09-04",
  "dimensions": {
@@ -36,41 +35,7 @@
     "text": "19 carriage",
     "enumeration": "6"
    },
-   "solution": "BERLIN",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BERLIN",
-    "definitions": [
-     {
-      "text": "19",
-      "at": 0
-     },
-     {
-      "text": "carriage",
-      "at": 3
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "19",
-      "note": "first meaning: the answer to 19 is a capital city, and this one is Germany's"
-     },
-     {
-      "clueFragment": "carriage",
-      "note": "second meaning: a four-wheeled covered carriage with a hooded seat behind"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "The clue is just a cross-reference and a noun; 19 is CAPITAL, so the first meaning is a capital city.",
-     "definitionFit": "The German capital shares its name with a type of horse-drawn travelling coach first built in that city."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false
-    }
-   }
+   "solution": "BERLIN"
   },
   {
    "number": 1,
@@ -86,51 +51,40 @@
    },
    "solution": "BOORISH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BOORISH",
     "definitions": [
      {
       "text": "Uncivilised",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so the nonsense word wraps the other letters"
-     },
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints that the city name is only one possible arrangement of its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nonsense",
-      "gives": "BOSH",
-      "note": "bosh is an old word for nonsense"
-     },
-     {
-      "clueFragment": "Rio",
-      "gives": "RIO",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "ORI",
-      "SH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RIO",
-       "gives": "ORI"
+       "text": "about",
+       "note": "about means going around, so the nonsense word wraps the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nonsense",
+       "gives": "BOSH",
+       "note": "bosh is an old word for nonsense"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perhaps",
+         "note": "perhaps hints that the city name is only one possible arrangement of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rio",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -159,43 +113,39 @@
    },
    "solution": "RUBIK",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "RUBIK",
     "definitions": [
      {
       "text": "Exasperating cubist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "endless means losing the last letter, so the word for cycle is cut short"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "game",
-      "gives": "RU",
-      "note": "RU is rugby union, a game"
-     },
-     {
-      "clueFragment": "cycle",
-      "gives": "BIKE",
-      "note": "a bike is a cycle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "BIK"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "endless means losing the last letter, so the word for cycle is cut short"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "game",
+         "gives": "RU",
+         "note": "RU is rugby union, a game"
+        },
+        {
+         "words": "cycle",
+         "gives": "BIKE",
+         "note": "a bike is a cycle"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -225,43 +175,31 @@
    },
    "solution": "INSPECT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "INSPECT",
     "definitions": [
      {
       "text": "Vet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "injects",
-      "for": "container",
-      "note": "to inject is to put something inside, so one piece goes into the other"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "phosphorus",
-      "gives": "P",
-      "note": "P is the chemical symbol for phosphorus"
-     },
-     {
-      "clueFragment": "little beast",
-      "gives": "INSECT",
-      "note": "an insect is a small creature"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INS",
-      "P",
-      "ECT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injects",
+       "note": "to inject is to put something inside, so one piece goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little beast",
+       "gives": "INSECT",
+       "note": "an insect is a small creature"
+      },
+      {
+       "words": "phosphorus",
+       "gives": "P",
+       "note": "P is the chemical symbol for phosphorus"
+      }
      ]
     },
     "explanation": {
@@ -304,53 +242,46 @@
     "11-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RIP VAN WINKLE",
     "definitions": [
      {
       "text": "24 5",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "secured by",
-      "for": "container",
-      "note": "something secured by another is held fast inside it, so the victory word sits within the joint"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Split",
-      "gives": "RIP",
-      "note": "to rip is to split or tear"
-     },
-     {
-      "clueFragment": "victory",
-      "gives": "V",
-      "note": "V is the standard abbreviation for victory, as in V-sign"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "ANKLE",
-      "note": "the ankle is the joint between leg and foot"
-     },
-     {
-      "clueFragment": "victory",
-      "gives": "WIN",
-      "note": "a win is a victory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIP",
-      "V",
-      "AN",
-      "WIN",
-      "KLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secured by",
+       "note": "something secured by another is held fast inside it, so the victory word sits within the joint"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Split",
+         "gives": "RIP",
+         "note": "to rip is to split or tear"
+        },
+        {
+         "words": "victory",
+         "gives": "V",
+         "note": "V is the standard abbreviation for victory, as in V-sign"
+        },
+        {
+         "words": "joint",
+         "gives": "ANKLE",
+         "note": "the ankle is the joint between leg and foot"
+        }
+       ]
+      },
+      {
+       "words": "victory",
+       "gives": "WIN",
+       "note": "a win is a victory"
+      }
      ]
     },
     "explanation": {
@@ -377,49 +308,7 @@
     "text": "Writer and composer on opposite sides of 24 and 1 across",
     "enumeration": "6"
    },
-   "solution": "IRVING",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IRVING",
-    "definitions": [
-     {
-      "text": "Writer",
-      "at": 0
-     },
-     {
-      "text": "composer",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "note": "first meaning: the American author whose first name is the answer to 24"
-     },
-     {
-      "clueFragment": "composer",
-      "note": "second meaning: the American songwriter whose surname is the answer to 1 across"
-     },
-     {
-      "clueFragment": "on opposite sides of 24 and 1 across",
-      "note": "surface padding that confirms the answer: it follows one cross-reference and precedes the other in the two full names"
-     }
-    ],
-    "explanation": {
-     "surface": "A puzzle about one creative figure who both writes and composes.",
-     "walkthrough": "'On opposite sides of 24 and 1 across' says where the shared name sits: after WASHINGTON in the author's name, before BERLIN in the songwriter's.",
-     "definitionFit": "Washington Irving wrote Rip Van Winkle and Irving Berlin wrote White Christmas, so the shared name serves both."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": true
-    }
-   }
+   "solution": "IRVING"
   },
   {
    "number": 6,
@@ -435,65 +324,51 @@
    },
    "solution": "VULCANITE",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "VULCANITE",
     "definitions": [
      {
       "text": "Rubber",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "in a down entry, turned up means read from bottom to top"
-     },
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around suggests the letters of the phrase are moved about"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after places the rearranged letters following the light"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "light",
-      "gives": "UV",
-      "note": "UV is ultraviolet light"
-     },
-     {
-      "clueFragment": "can't lie",
-      "gives": "CANTLIE",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VU",
-      "LCANITE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "CANTLIE",
-       "gives": "LCANITE"
+       "text": "after",
+       "note": "after places the rearranged letters following the light"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "UV",
-       "to": "VU"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "note": "in a down entry, turned up means read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "light",
+         "gives": "UV",
+         "note": "UV is ultraviolet light"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around suggests the letters of the phrase are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can't lie",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -523,26 +398,25 @@
    },
    "solution": "NEEDLES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NEEDLES",
     "definitions": [
      {
       "text": "They're sharp eyes too",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They're sharp eyes too",
-      "note": "surface reading: people with keen eyesight, who also notice things"
-     },
-     {
-      "clueFragment": "sharp eyes too",
-      "note": "setter's reading: sewing tools that are pointed and also each have an eye for the thread"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They're sharp eyes too",
+       "note": "surface reading: people with keen eyesight, who also notice things"
+      },
+      {
+       "words": "sharp eyes too",
+       "note": "setter's reading: sewing tools that are pointed and also each have an eye for the thread"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Sharp eyes' looks like keen vision; it is a pointed tip plus the hole the thread passes through.",
      "definitionFit": "Sewing implements have a point at one end and a hole called an eye at the other."
@@ -579,31 +453,16 @@
    },
    "solution": "NORTHANDSOUTH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NORTH AND SOUTH",
     "definitions": [
      {
       "text": "Dakotas",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the two US states named Dakota, distinguished by compass points"
      },
      {
       "text": "East End trap",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dakotas",
-      "note": "first meaning: the two US states named Dakota, distinguished by compass points"
-     },
-     {
-      "clueFragment": "East End trap",
-      "note": "second meaning: Cockney rhyming slang for mouth, which trap also means"
+      "at": 11,
+      "meaning": "second meaning: Cockney rhyming slang for mouth, which trap also means"
      }
     ],
     "explanation": {
@@ -632,28 +491,16 @@
    },
    "solution": "BOOB",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BOOB",
     "definitions": [
      {
       "text": "Blunder",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a silly mistake"
      },
      {
       "text": "in the cup",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Blunder",
-      "note": "first meaning: a silly mistake"
-     },
-     {
-      "clueFragment": "in the cup",
-      "note": "second meaning: slang for a breast, which sits in the cup of a bra"
+      "at": 8,
+      "meaning": "second meaning: slang for a breast, which sits in the cup of a bra"
      }
     ],
     "explanation": {
@@ -688,48 +535,34 @@
    },
    "solution": "STOPVOLLEY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "STOP VOLLEY",
     "definitions": [
      {
       "text": "Tennis shot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "smash",
-      "for": "anagram",
-      "note": "to smash something is to break it into pieces, so these letters are broken up and rearranged"
-     }
-    ],
-    "linkWords": [
-     "needs"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to prevent",
-      "gives": "STOP",
-      "note": "to stop something is to prevent it"
-     },
-     {
-      "clueFragment": "lovely",
-      "gives": "LOVELY",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOP",
-      "VOLLEY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LOVELY",
-       "gives": "VOLLEY"
+       "words": "to prevent",
+       "gives": "STOP",
+       "note": "to stop something is to prevent it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "smash",
+         "note": "to smash something is to break it into pieces, so these letters are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lovely",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -772,51 +605,40 @@
    },
    "solution": "TENTACLE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TENTACLE",
     "definitions": [
      {
       "text": "arm",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "retrieved",
-      "for": "reversal",
-      "note": "retrieved is read here as brought back, so the whole string runs the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Spanish",
-      "gives": "EL",
-      "note": "el is the Spanish for the"
-     },
-     {
-      "clueFragment": "burglar",
-      "gives": "CAT",
-      "note": "a cat burglar climbs into buildings, so cat stands for a burglar"
-     },
-     {
-      "clueFragment": "catcher",
-      "gives": "NET",
-      "note": "a net is something that catches"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEN",
-      "TAC",
-      "LE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ELCATNET",
-       "to": "TENTACLE"
+       "text": "retrieved",
+       "note": "retrieved is read here as brought back, so the whole string runs the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The Spanish",
+         "gives": "EL",
+         "note": "el is the Spanish for the"
+        },
+        {
+         "words": "burglar",
+         "gives": "CAT",
+         "note": "a cat burglar climbs into buildings, so cat stands for a burglar"
+        },
+        {
+         "words": "catcher",
+         "gives": "NET",
+         "note": "a net is something that catches"
+        }
+       ]
       }
      ]
     },
@@ -858,35 +680,25 @@
    },
    "solution": "IMPEACHES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPEACHES",
     "definitions": [
      {
       "text": "Charges",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setter's",
-      "gives": "IM",
-      "note": "the setter refers to himself as I, and setter's is read as setter is, so I'M"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "PEACHES",
-      "note": "peaches are a fruit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "PEACHES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setter's",
+       "gives": "IM",
+       "note": "the setter refers to himself as I, and setter's is read as setter is, so I'M"
+      },
+      {
+       "words": "fruit",
+       "gives": "PEACHES",
+       "note": "peaches are a fruit"
+      }
      ]
     },
     "explanation": {
@@ -938,55 +750,44 @@
     "15-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "POPE PIUS",
     "definitions": [
      {
       "text": "a Vicar of Christ",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "converted",
-      "for": "anagram",
-      "note": "something converted is changed into another form, so these letters are put in a new order"
-     }
-    ],
-    "linkWords": [
-     "taking",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "POP",
-      "note": "pop is an informal word for father"
-     },
-     {
-      "clueFragment": "point",
-      "gives": "E",
-      "note": "E for east, a compass point"
-     },
-     {
-      "clueFragment": "up is",
-      "gives": "UPIS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POP",
-      "E",
-      "PIUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "UPIS",
-       "gives": "PIUS"
+       "words": "Father",
+       "gives": "POP",
+       "note": "pop is an informal word for father"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "converted",
+         "note": "something converted is changed into another form, so these letters are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "point",
+           "gives": "E",
+           "note": "E for east, a compass point"
+          },
+          {
+           "words": "up is",
+           "note": "taken as written, to be rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1016,38 +817,24 @@
    },
    "solution": "PIEBALD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PIEBALD",
     "definitions": [
      {
       "text": "quadruped",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "Legless",
-      "for": "anagram",
-      "note": "legless is British slang for very drunk, and drunken letters stagger into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bipedal",
-      "gives": "BIPEDAL",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIEBALD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BIPEDAL",
-       "gives": "PIEBALD"
+       "text": "Legless",
+       "note": "legless is British slang for very drunk, and drunken letters stagger into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bipedal",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1078,41 +865,24 @@
    },
    "solution": "ADHERENCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADHERENCE",
     "definitions": [
      {
       "text": "loyalty",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "operative",
-      "for": "anagram",
-      "note": "operative suggests something being worked on or operated, so the letters before it are reworked"
-     }
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cheered an",
-      "gives": "CHEEREDAN",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADHERENCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHEEREDAN",
-       "gives": "ADHERENCE"
+       "text": "operative",
+       "note": "operative suggests something being worked on or operated, so the letters before it are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cheered an",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1141,54 +911,41 @@
    },
    "solution": "EQUINUS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "EQUINUS",
     "definitions": [
      {
       "text": "for example, in Latin",
       "at": 2
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means the name is read from the bottom"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the name wraps the baby"
-     }
-    ],
-    "linkWords": [
-     "called"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Susan",
-      "gives": "SUE",
-      "note": "Sue is short for Susan"
-     },
-     {
-      "clueFragment": "one of five babies",
-      "gives": "QUIN",
-      "note": "a quin is one of quintuplets"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "QUIN",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SUE",
-       "to": "EUS"
+       "text": "about",
+       "note": "about means surrounding, so the name wraps the baby"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, up means the name is read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Susan",
+         "gives": "SUE",
+         "note": "Sue is short for Susan"
+        }
+       ]
+      },
+      {
+       "words": "one of five babies",
+       "gives": "QUIN",
+       "note": "a quin is one of quintuplets"
       }
      ]
     },
@@ -1218,28 +975,16 @@
    },
    "solution": "CAPITAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CAPITAL",
     "definitions": [
      {
       "text": "Sterling",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: excellent, first-rate, as in an old-fashioned cry of approval"
      },
      {
       "text": "funds",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sterling",
-      "note": "first meaning: excellent, first-rate, as in an old-fashioned cry of approval"
-     },
-     {
-      "clueFragment": "funds",
-      "note": "second meaning: money available for investment"
+      "at": 9,
+      "meaning": "second meaning: money available for investment"
      }
     ],
     "explanation": {
@@ -1268,61 +1013,64 @@
    },
    "solution": "GLINKA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GLINKA",
     "definitions": [
      {
       "text": "Russian compser",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "First",
-      "for": "letter_selection",
-      "note": "First picks out the opening letter of the named composer"
-     },
-     {
-      "text": "Third",
-      "for": "letter_selection",
-      "note": "Third picks out the letter in position three of the same name"
-     },
-     {
-      "text": "between",
-      "for": "container",
-      "note": "between places the connection inside the two picked letters"
-     }
-    ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Glazunof's",
-      "gives": "G",
-      "select": "first",
-      "note": "the opening letter of the name"
-     },
-     {
-      "clueFragment": "connection",
-      "gives": "LINK",
-      "note": "a link is a connection"
-     },
-     {
-      "clueFragment": "Glazunof's",
-      "gives": "A",
-      "select": 3,
-      "note": "the letter in third place of the name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LINK",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "GLINKA",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "between places the connection inside the two picked letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "First",
+           "note": "First picks out the opening letter of the named composer"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Glazunof's",
+           "note": "the opening letter of the name"
+          }
+         ]
+        },
+        {
+         "words": "connection",
+         "gives": "LINK",
+         "note": "a link is a connection"
+        },
+        {
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "Third",
+           "note": "Third picks out the letter in position three of the same name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Glazunof's",
+           "note": "the letter in third place of the name"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1350,57 +1098,51 @@
    },
    "solution": "SERAGLIO",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SERAGLIO",
     "definitions": [
      {
       "text": "Harem",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the word for lubricates from right to left"
-     },
-     {
-      "text": "involved",
-      "for": "container",
-      "note": "involved means drawn inside something, so the bracketed letters go into the middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lubricates",
-      "gives": "OILS",
-      "note": "oils is a verb meaning lubricates"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the usual abbreviation for English"
-     },
-     {
-      "clueFragment": "newspaper",
-      "gives": "RAG",
-      "note": "a rag is a disparaging word for a newspaper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "E",
-      "RAG",
-      "LIO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "OILS",
-       "to": "SLIO"
+       "text": "involved",
+       "note": "involved means drawn inside something, so the bracketed letters go into the middle"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "back tells us to read the word for lubricates from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "lubricates",
+           "gives": "OILS",
+           "note": "oils is a verb meaning lubricates"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E is the usual abbreviation for English"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "newspaper",
+       "gives": "RAG",
+       "note": "a rag is a disparaging word for a newspaper"
       }
      ]
     },
@@ -1429,38 +1171,24 @@
    },
    "solution": "UNWEPT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNWEPT",
     "definitions": [
      {
       "text": "With no regrets",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be slaughtered",
-      "for": "anagram",
-      "note": "something slaughtered is cut to pieces, so these letters are broken and remade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "went up",
-      "gives": "WENTUP",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNWEPT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WENTUP",
-       "gives": "UNWEPT"
+       "text": "to be slaughtered",
+       "note": "something slaughtered is cut to pieces, so these letters are broken and remade"
+      }
+     ],
+     "parts": [
+      {
+       "words": "went up",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1499,41 +1227,24 @@
     "13-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WHITE CHRISTMAS",
     "definitions": [
      {
       "text": "by 5 1 across",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "for": "anagram",
-      "note": "novel means new, so these letters are given a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scream with this",
-      "gives": "SCREAMWITHTHIS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHITECHRISTMAS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SCREAMWITHTHIS",
-       "gives": "WHITECHRISTMAS"
+       "text": "novel",
+       "note": "novel means new, so these letters are given a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scream with this",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1561,43 +1272,7 @@
     "text": "19, by George!",
     "enumeration": "10"
    },
-   "solution": "WASHINGTON",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WASHINGTON",
-    "definitions": [
-     {
-      "text": "19",
-      "at": 0
-     },
-     {
-      "text": "by George",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "19",
-      "note": "first meaning: 19 is CAPITAL, and this is the capital of the United States"
-     },
-     {
-      "clueFragment": "by George",
-      "note": "second meaning: the city is named after the first US president, whose first name was George"
-     }
-    ],
-    "explanation": {
-     "walkthrough": "'By George!' is an old exclamation of surprise; here it means the place is called after a man named George.",
-     "definitionFit": "The American capital city takes its name from George, the first president of the United States."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "George"
-    }
-   }
+   "solution": "WASHINGTON"
   },
   {
    "number": 25,
@@ -1613,38 +1288,24 @@
    },
    "solution": "INTO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTO",
     "definitions": [
      {
       "text": "Enthusiastic about",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cooking",
-      "for": "anagram",
-      "note": "cooking mixes ingredients together, so the words after it are stirred and rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not I",
-      "gives": "NOTI",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INTO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTI",
-       "gives": "INTO"
+       "text": "cooking",
+       "note": "cooking mixes ingredients together, so the words after it are stirred and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not I",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1673,32 +1334,25 @@
    },
    "solution": "DISMAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISMAY",
     "definitions": [
      {
       "text": "cause consternation",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Pluto",
-      "gives": "DIS",
-      "note": "Dis is another Roman name for Pluto, god of the underworld"
-     },
-     {
-      "clueFragment": "might",
-      "gives": "MAY",
-      "note": "may and might both express possibility"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "MAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pluto",
+       "gives": "DIS",
+       "note": "Dis is another Roman name for Pluto, god of the underworld"
+      },
+      {
+       "words": "might",
+       "gives": "MAY",
+       "note": "may and might both express possibility"
+      }
      ]
     },
     "explanation": {
@@ -1727,35 +1381,25 @@
    },
    "solution": "OSTEAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSTEAL",
     "definitions": [
      {
       "text": "Bony",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero, so it stands for nothing"
-     },
-     {
-      "clueFragment": "to pinch",
-      "gives": "STEAL",
-      "note": "to pinch is slang for to steal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "STEAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O looks like zero, so it stands for nothing"
+      },
+      {
+       "words": "to pinch",
+       "gives": "STEAL",
+       "note": "to pinch is slang for to steal"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "nation-3305",
  "number": 3305,
- "series": "nation",
- "name": "The Nation cryptic crossword No 3305",
  "setter": "Joshua Kosman and Henri Picciotto",
  "date": "2013-12-16",
  "dimensions": {
@@ -41,30 +39,28 @@
    },
    "solution": "CHIDE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CHIDE",
     "definitions": [
      {
       "text": "rebuke",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "hidden_word",
-      "note": "the phrase before it involves, or contains within its run of letters, the word wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broach ideas",
-      "gives": "CHIDE",
-      "note": "found inside, spanning the join between the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "the phrase before it involves, or contains within its run of letters, the word wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Broach ideas",
+       "gives": "CHIDE",
+       "note": "found inside, spanning the join between the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone raising ideas while scolding a colleague for them.",
      "walkthrough": "The answer runs across broaCH IDEas.",
@@ -97,38 +93,45 @@
    },
    "solution": "COLONELMUSTARD",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "COLONEL MUSTARD",
     "definitions": [
      {
       "text": "Suspect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in an ear",
-      "for": "homophone",
-      "note": "something taken in by an ear is heard rather than read, so go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "piece of corn",
-      "gives": "COLONEL",
-      "soundsLike": "KERNEL",
-      "note": "a kernel is one grain of corn, and the military rank is said the same way"
-     },
-     {
-      "clueFragment": "gathered",
-      "gives": "MUSTARD",
-      "soundsLike": "MUSTERED",
-      "note": "troops mustered are gathered, and the condiment sounds much the same"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "COLONEL",
+       "indicators": [
+        {
+         "text": "in an ear",
+         "note": "something taken in by an ear is heard rather than read, so go by sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piece of corn",
+         "gives": "KERNEL",
+         "note": "a kernel is one grain of corn, and the military rank is said the same way"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MUSTARD",
+       "parts": [
+        {
+         "words": "gathered",
+         "gives": "MUSTERED",
+         "note": "troops mustered are gathered, and the condiment sounds much the same"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A dubious grain of corn found collected inside a cob.",
      "walkthrough": "Colonel Mustard is one of the suspects in the board game Clue (Cluedo in Britain). 'Ear' looks like an ear of corn but is the hearing organ.",
@@ -162,47 +165,41 @@
    },
    "solution": "INRUINS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "IN RUINS",
     "definitions": [
      {
       "text": "Dilapidated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "peeled",
-      "for": "letter_selection",
-      "note": "peeling removes the skin, so the outer letters go and the core stays"
-     },
-     {
-      "text": "stocking",
-      "for": "container",
-      "note": "stocking means holding goods inside, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hotels",
-      "gives": "INNS",
-      "note": "inns are small hotels"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "RUI",
-      "select": "middle",
-      "note": "fruit without its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "RUI",
-      "NS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stocking",
+       "note": "stocking means holding goods inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotels",
+       "gives": "INNS",
+       "note": "inns are small hotels"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "peeled",
+         "note": "peeling removes the skin, so the outer letters go and the core stays"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "note": "fruit without its first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -231,35 +228,24 @@
    },
    "solution": "ELEPHANT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELEPHANT",
     "definitions": [
      {
       "text": "Beast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "disrupted",
-      "for": "anagram",
-      "note": "disrupted means thrown into disorder, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the panel",
-      "gives": "THEPANEL",
-      "note": "the eight letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THEPANEL",
-       "gives": "ELEPHANT"
+       "text": "disrupted",
+       "note": "disrupted means thrown into disorder, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the panel",
+       "note": "the eight letters to rearrange"
       }
      ]
     },
@@ -288,43 +274,31 @@
    },
    "solution": "BARBADOS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BARBADOS",
     "definitions": [
      {
       "text": "Nation",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so one piece wraps the other"
-     }
-    ],
-    "linkWords": [
-     "in The"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pointed comments",
-      "gives": "BARBS",
-      "note": "barbs are sharp, wounding remarks"
-     },
-     {
-      "clueFragment": "kerfuffle",
-      "gives": "ADO",
-      "note": "ado is fuss or commotion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARB",
-      "ADO",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pointed comments",
+       "gives": "BARBS",
+       "note": "barbs are sharp, wounding remarks"
+      },
+      {
+       "words": "kerfuffle",
+       "gives": "ADO",
+       "note": "ado is fuss or commotion"
+      }
      ]
     },
     "explanation": {
@@ -354,45 +328,37 @@
    },
    "solution": "BIOSPHERE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "BIOSPHERE",
     "definitions": [
      {
       "text": "the whole of life on Earth",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "converted",
-      "for": "anagram",
-      "note": "converted means changed into another form, so the letters take a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bishop",
-      "gives": "BIOSPH",
-      "note": "the word bishop, rearranged"
-     },
-     {
-      "clueFragment": "before",
-      "gives": "ERE",
-      "note": "ere is an old word for before"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIOSPH",
-      "ERE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BIOSPHERE",
+     "indicators": [
       {
-       "fodder": "BISHOP",
-       "gives": "BIOSPH"
+       "text": "converted",
+       "note": "converted means changed into another form, so the letters take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bishop",
+         "gives": "BIOSPH",
+         "note": "the word bishop, rearranged"
+        },
+        {
+         "words": "before",
+         "gives": "ERE",
+         "note": "ere is an old word for before"
+        }
+       ]
       }
      ]
     },
@@ -422,34 +388,25 @@
    },
    "solution": "RISER",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "RISER",
     "definitions": [
      {
       "text": "part of a staircase",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Oddly",
-      "for": "letter_selection",
-      "note": "oddly means take the letters in odd-numbered positions only"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rail's near",
-      "gives": "RISER",
-      "select": "alternate",
-      "note": "first, third, fifth, seventh and ninth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RISER"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Oddly",
+       "note": "oddly means take the letters in odd-numbered positions only"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rail's near",
+       "note": "first, third, fifth, seventh and ninth letters"
+      }
      ]
     },
     "explanation": {
@@ -477,45 +434,37 @@
    },
    "solution": "ALLEYS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ALLEYS",
     "definitions": [
      {
       "text": "Back streets",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Unfortunately",
-      "for": "anagram",
-      "note": "something gone wrong is out of order, so the word after it is jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "everything there is",
-      "gives": "ALL",
-      "note": "all means everything"
-     },
-     {
-      "clueFragment": "yes",
-      "gives": "EYS",
-      "note": "the word yes, jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "EYS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ALLEYS",
+     "indicators": [
       {
-       "fodder": "YES",
-       "gives": "EYS"
+       "text": "Unfortunately",
+       "note": "something gone wrong is out of order, so the word after it is jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "everything there is",
+         "gives": "ALL",
+         "note": "all means everything"
+        },
+        {
+         "words": "yes",
+         "gives": "EYS",
+         "note": "the word yes, jumbled"
+        }
+       ]
       }
      ]
     },
@@ -544,42 +493,31 @@
    },
    "solution": "OUTCOME",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTCOME",
     "definitions": [
      {
       "text": "result",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "taking the opposite in reverse order",
-      "for": "charade",
-      "note": "each word is swapped for its opposite and the pair is then put in the other order"
-     }
-    ],
-    "linkWords": [
-     "to obtain"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "OUT",
-      "note": "the opposite of in"
-     },
-     {
-      "clueFragment": "Go",
-      "gives": "COME",
-      "note": "the opposite of go"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "COME"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking the opposite in reverse order",
+       "note": "each word is swapped for its opposite and the pair is then put in the other order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "gives": "OUT",
+       "note": "the opposite of in"
+      },
+      {
+       "words": "Go",
+       "gives": "COME",
+       "note": "the opposite of go"
+      }
      ]
     },
     "explanation": {
@@ -618,26 +556,25 @@
    },
    "solution": "SECONDSTORYMAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SECOND-STORY MAN",
     "definitions": [
      {
       "text": "Burglar",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Burglar",
-      "note": "the plain sense: a thief who climbs to an upper floor to break in"
-     },
-     {
-      "clueFragment": "penning a literary sequel?",
-      "note": "the joke sense: a writer producing a follow-up tale"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Burglar",
+       "note": "the plain sense: a thief who climbs to an upper floor to break in"
+      },
+      {
+       "words": "penning a literary sequel?",
+       "note": "the joke sense: a writer producing a follow-up tale"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A burglar who also writes a follow-up novel.",
      "walkthrough": "In American usage the second story is the floor above the ground floor, where this thief climbs in; read as a writer's second story it becomes a sequel.",
@@ -665,11 +602,6 @@
    },
    "solution": "LARCENOUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LARCENOUS",
     "definitions": [
      {
       "text": "is likely to steal",
@@ -677,34 +609,31 @@
       "note": "the answer is an adjective; 'is likely to steal' describes a thieving nature"
      }
     ],
-    "indicators": [
-     {
-      "text": "Astonishingly",
-      "for": "anagram",
-      "note": "something done astonishingly is done in a startling, unexpected way, so the letters land in a surprising order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clear: no",
-      "gives": "LARCENO",
-      "note": "the letters of these two words, to be rearranged"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is short for American, as in US citizen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LARCENO",
-      "US"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LARCENOUS",
+     "indicators": [
       {
-       "fodder": "CLEARNO",
-       "gives": "LARCENO"
+       "text": "Astonishingly",
+       "note": "something done astonishingly is done in a startling, unexpected way, so the letters land in a surprising order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "clear: no",
+         "gives": "LARCENO",
+         "note": "the letters of these two words, to be rearranged"
+        },
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US is short for American, as in US citizen"
+        }
+       ]
       }
      ]
     },
@@ -733,33 +662,29 @@
    },
    "solution": "LATTE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LATTE",
     "definitions": [
      {
       "text": "hot drink",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Most of",
-      "for": "deletion",
-      "note": "most of a word means all but its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the second",
-      "gives": "LATTER",
-      "note": "of two things named, the second is the latter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATTE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Most of",
+       "note": "most of a word means all but its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the second",
+       "gives": "LATTER",
+       "note": "of two things named, the second is the latter"
+      },
+      {
+       "gives": "R"
+      }
      ]
     },
     "explanation": {
@@ -788,10 +713,6 @@
    },
    "solution": "NEIGH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NEIGH",
     "definitions": [
      {
       "text": "music to a jockey's ears?",
@@ -799,23 +720,22 @@
       "note": "playful: the sound a horse makes"
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "deletion",
-      "note": "the answer sits in the middle of the spoken form of the fraction, its ends cut away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "7/8",
-      "gives": "SEVENEIGHTHS",
-      "note": "the fraction written out in words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEIGH"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NEIGH",
+     "indicators": [
+      {
+       "text": "In",
+       "note": "the answer sits in the middle of the spoken form of the fraction, its ends cut away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "7/8",
+       "gives": "SEVENEIGHTHS",
+       "note": "the fraction written out in words"
+      }
      ]
     },
     "explanation": {
@@ -851,61 +771,51 @@
    },
    "solution": "PERRYCOMO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PERRY COMO",
     "definitions": [
      {
       "text": "Singer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the word before it"
-     },
-     {
-      "text": "in Mexico",
-      "for": "charade",
-      "note": "in Mexico tells us to use Spanish words for the English ones that follow"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a pop",
-      "gives": "PER",
-      "note": "'a pop' means each, as in five dollars a pop, which is per"
-     },
-     {
-      "clueFragment": "record",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of record"
-     },
-     {
-      "clueFragment": "and",
-      "gives": "Y",
-      "note": "y is Spanish for and"
-     },
-     {
-      "clueFragment": "how",
-      "gives": "COMO",
-      "note": "como is Spanish for how"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "R",
-      "Y",
-      "COMO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in Mexico",
+       "note": "in Mexico tells us to use Spanish words for the English ones that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a pop",
+       "gives": "PER",
+       "note": "'a pop' means each, as in five dollars a pop, which is per"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "record",
+         "note": "first letter of record"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "gives": "Y",
+       "note": "y is Spanish for and"
+      },
+      {
+       "words": "how",
+       "gives": "COMO",
+       "note": "como is Spanish for how"
+      }
      ]
     },
     "explanation": {
@@ -940,35 +850,24 @@
    },
    "solution": "LOSANGELES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LOS ANGELES",
     "definitions": [
      {
       "text": "Western city",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "rocking",
-      "for": "anagram",
-      "note": "rocking means shaking about, so the letters are tossed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Glee salons",
-      "gives": "GLEESALONS",
-      "note": "the ten letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GLEESALONS",
-       "gives": "LOSANGELES"
+       "text": "rocking",
+       "note": "rocking means shaking about, so the letters are tossed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Glee salons",
+       "note": "the ten letters to rearrange"
       }
      ]
     },
@@ -997,35 +896,24 @@
    },
    "solution": "ESPERANTO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ESPERANTO",
     "definitions": [
      {
       "text": "Artificial language",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in a different way",
-      "for": "anagram",
-      "note": "a different way of arranging means the letters are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "repeats \"no\"",
-      "gives": "REPEATSNO",
-      "note": "nine letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REPEATSNO",
-       "gives": "ESPERANTO"
+       "text": "in a different way",
+       "note": "a different way of arranging means the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "repeats \"no\"",
+       "note": "nine letters of fodder"
       }
      ]
     },
@@ -1054,32 +942,25 @@
    },
    "solution": "SEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SEND",
     "definitions": [
      {
       "text": "Dispatch",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Senate",
-      "gives": "SEN",
-      "note": "Sen. is the standard abbreviation"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D labels a Democrat, as in D-NY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Senate",
+       "gives": "SEN",
+       "note": "Sen. is the standard abbreviation"
+      },
+      {
+       "words": "Democrat",
+       "gives": "D",
+       "note": "D labels a Democrat, as in D-NY"
+      }
      ]
     },
     "explanation": {
@@ -1107,28 +988,16 @@
    },
    "solution": "CROUPIER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CROUPIER",
     "definitions": [
      {
       "text": "Casino employee",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the person running a gaming table"
      },
      {
       "text": "with a more persistent cough",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Casino employee",
-      "note": "first meaning: the person running a gaming table"
-     },
-     {
-      "clueFragment": "with a more persistent cough",
-      "note": "second meaning: the comparative of croupy, suffering from croup"
+      "at": 16,
+      "meaning": "second meaning: the comparative of croupy, suffering from croup"
      }
     ],
     "explanation": {
@@ -1157,45 +1026,37 @@
    },
    "solution": "UNTO",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "UNTO",
     "definitions": [
      {
       "text": "in the direction of",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "surprisingly",
-      "for": "anagram",
-      "note": "surprisingly suggests an unexpected arrangement, so the word before it is jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the usual abbreviation for university"
-     },
-     {
-      "clueFragment": "not",
-      "gives": "NTO",
-      "note": "the word not, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NTO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNTO",
+     "indicators": [
       {
-       "fodder": "NOT",
-       "gives": "NTO"
+       "text": "surprisingly",
+       "note": "surprisingly suggests an unexpected arrangement, so the word before it is jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "U is the usual abbreviation for university"
+        },
+        {
+         "words": "not",
+         "gives": "NTO",
+         "note": "the word not, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1225,41 +1086,31 @@
    },
    "solution": "TOPICAL",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TOPICAL",
     "definitions": [
      {
       "text": "meant for use on the skin",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "drops",
-      "for": "deletion",
-      "note": "drops means lets go of, so the following letter is removed"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Warm",
-      "gives": "TROPICAL",
-      "note": "tropical describes hot, warm climates"
-     },
-     {
-      "clueFragment": "red",
-      "gives": "R",
-      "note": "R is short for red"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOPICAL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "drops",
+       "note": "drops means lets go of, so the following letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Warm",
+       "gives": "TROPICAL",
+       "note": "tropical describes hot, warm climates"
+      },
+      {
+       "words": "red",
+       "gives": "R",
+       "note": "R is short for red"
+      }
      ]
     },
     "explanation": {
@@ -1288,47 +1139,34 @@
    },
    "solution": "PEPPERMINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PEPPERMINT",
     "definitions": [
      {
       "text": "tea",
       "at": 28
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Energize",
-      "gives": "PEP",
-      "note": "to pep up is to energize"
-     },
-     {
-      "clueFragment": "hairdo",
-      "gives": "PERM",
-      "note": "a perm is a permanent-wave hairstyle"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEP",
-      "PERM",
-      "IN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Energize",
+       "gives": "PEP",
+       "note": "to pep up is to energize"
+      },
+      {
+       "words": "hairdo",
+       "gives": "PERM",
+       "note": "a perm is a permanent-wave hairstyle"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1357,38 +1195,24 @@
    },
    "solution": "IMPIOUS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IMPIOUS",
     "definitions": [
      {
       "text": "unholy",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "treacherous",
-      "for": "anagram",
-      "note": "treacherous suggests betrayal and disorder, so the letters are turned around"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Opium is",
-      "gives": "OPIUMIS",
-      "note": "seven letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OPIUMIS",
-       "gives": "IMPIOUS"
+       "text": "treacherous",
+       "note": "treacherous suggests betrayal and disorder, so the letters are turned around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Opium is",
+       "note": "seven letters of fodder"
       }
      ]
     },
@@ -1417,42 +1241,31 @@
    },
    "solution": "COLDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COLDER",
     "definitions": [
      {
       "text": "not so hot",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "under",
-      "for": "charade",
-      "note": "in a down entry, under means placed below, so it comes after"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "100",
-      "gives": "C",
-      "note": "C is the Roman numeral for 100"
-     },
-     {
-      "clueFragment": "Senior",
-      "gives": "OLDER",
-      "note": "senior means older"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OLDER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "note": "in a down entry, under means placed below, so it comes after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "100",
+       "gives": "C",
+       "note": "C is the Roman numeral for 100"
+      },
+      {
+       "words": "Senior",
+       "gives": "OLDER",
+       "note": "senior means older"
+      }
      ]
     },
     "explanation": {
@@ -1487,41 +1300,38 @@
    },
    "solution": "TOPDOLLAR",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TOP DOLLAR",
     "definitions": [
      {
       "text": "maximum price",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "nearly",
-      "for": "deletion",
-      "note": "nearly means not quite all, so the word before it loses its end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Two traditional toys",
-      "gives": "TOPDOLL",
-      "note": "a spinning top and a doll"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "ARE",
-      "note": "taken as written, before trimming"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOP",
-      "DOLL",
-      "AR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "nearly",
+       "note": "nearly means not quite all, so the word before it loses its end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Two traditional toys",
+         "gives": "TOPDOLL",
+         "note": "a spinning top and a doll"
+        },
+        {
+         "words": "are",
+         "note": "taken as written, before trimming"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1549,31 +1359,29 @@
    },
    "solution": "LACKS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "LACKS",
     "definitions": [
      {
       "text": "misses",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "sounding",
-      "for": "homophone",
-      "note": "sounding means as heard spoken, so go by pronunciation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Liberal",
-      "gives": "LACKS",
-      "soundsLike": "LAX",
-      "note": "lax means permissive or loose"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LACKS",
+     "indicators": [
+      {
+       "text": "sounding",
+       "note": "sounding means as heard spoken, so go by pronunciation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Liberal",
+       "gives": "LAX",
+       "note": "lax means permissive or loose"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Political misses that sound liberal.",
      "definitionFit": "To lack something is to be without it, so lacks matches misses as a verb."
@@ -1599,41 +1407,33 @@
    },
    "solution": "UPPER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UPPER",
     "definitions": [
      {
       "text": "stimulant",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Start",
-      "for": "deletion",
-      "note": "start ... late means begin one letter in, so the first letter goes"
-     },
-     {
-      "text": "late",
-      "for": "deletion",
-      "note": "with Start, a word that starts late has its opening letter cut"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dinner",
-      "gives": "SUPPER",
-      "note": "supper is an evening meal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UPPER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Start",
+       "note": "start ... late means begin one letter in, so the first letter goes"
+      },
+      {
+       "text": "late",
+       "note": "with Start, a word that starts late has its opening letter cut"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dinner",
+       "gives": "SUPPER",
+       "note": "supper is an evening meal"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1662,53 +1462,39 @@
    },
    "solution": "RACED",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "RACED",
     "definitions": [
      {
       "text": "Went swiftly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "setting",
-      "for": "reversal",
-      "note": "setting a vehicle in gear here means putting it into backward motion, paired with the words after"
-     },
-     {
-      "text": "in reverse",
-      "for": "reversal",
-      "note": "setting something in reverse means running it backward, so the letters are read the other way"
-     }
-    ],
-    "linkWords": [
-     "ahead of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wheels",
-      "gives": "CAR",
-      "note": "wheels is slang for a car"
-     },
-     {
-      "clueFragment": "vanden Heuvel",
-      "gives": "ED",
-      "note": "Katrina vanden Heuvel was The Nation's editor, so she is ED"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAC",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CAR",
-       "to": "RAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "setting",
+         "note": "setting a vehicle in gear here means putting it into backward motion, paired with the words after"
+        },
+        {
+         "text": "in reverse",
+         "note": "setting something in reverse means running it backward, so the letters are read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wheels",
+         "gives": "CAR",
+         "note": "wheels is slang for a car"
+        }
+       ]
+      },
+      {
+       "words": "vanden Heuvel",
+       "gives": "ED",
+       "note": "Katrina vanden Heuvel was The Nation's editor, so she is ED"
       }
      ]
     },
@@ -1738,40 +1524,33 @@
    },
    "solution": "CUNEIFORM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CUNEIFORM",
     "definitions": [
      {
       "text": "writing from the ancient world",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Blend",
-      "for": "anagram",
-      "note": "a blend mixes ingredients together, so these letters are stirred into new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "numeric",
-      "gives": "NUMERIC",
-      "note": "seven letters of the fodder"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "OF",
-      "note": "two letters of the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NUMERICOF",
-       "gives": "CUNEIFORM"
+       "text": "Blend",
+       "note": "a blend mixes ingredients together, so these letters are stirred into new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "numeric",
+         "note": "seven letters of the fodder"
+        },
+        {
+         "words": "of",
+         "note": "two letters of the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1801,45 +1580,41 @@
    },
    "solution": "ALFRESCO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ALFRESCO",
     "definitions": [
      {
       "text": "outside",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "deletion",
-      "note": "lost means gone missing, so a piece is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hitchcock's",
-      "gives": "ALFREDS",
-      "note": "the director's first name is Alfred, here possessive"
-     },
-     {
-      "clueFragment": "500",
-      "gives": "D",
-      "note": "D is the Roman numeral for 500"
-     },
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "Co. is the abbreviation for company"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALFRES",
-      "CO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "note": "lost means gone missing, so a piece is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hitchcock's",
+         "gives": "ALFREDS",
+         "note": "the director's first name is Alfred, here possessive"
+        },
+        {
+         "words": "500",
+         "gives": "D",
+         "note": "D is the Roman numeral for 500"
+        }
+       ]
+      },
+      {
+       "words": "company",
+       "gives": "CO",
+       "note": "Co. is the abbreviation for company"
+      }
      ]
     },
     "explanation": {
@@ -1868,32 +1643,25 @@
    },
    "solution": "RESIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESIN",
     "definitions": [
      {
       "text": "Amber, e.g.",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "again",
-      "gives": "RE",
-      "note": "re- is the prefix meaning again"
-     },
-     {
-      "clueFragment": "to transgress",
-      "gives": "SIN",
-      "note": "to sin is to transgress a moral law"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "again",
+       "gives": "RE",
+       "note": "re- is the prefix meaning again"
+      },
+      {
+       "words": "to transgress",
+       "gives": "SIN",
+       "note": "to sin is to transgress a moral law"
+      }
      ]
     },
     "explanation": {

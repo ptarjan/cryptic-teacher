@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3288",
  "number": 3288,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,288",
  "setter": "Mara",
  "date": "2026-04-29",
  "dimensions": {
@@ -51,47 +49,40 @@
    },
    "solution": "BRANDYSNAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BRANDY SNAP",
     "definitions": [
      {
       "text": "sweet thing",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the end of a word, so only its closing letter is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kind",
-      "gives": "BRAND",
-      "note": "a brand is a kind or make of product"
-     },
-     {
-      "clueFragment": "lady",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of lady"
-     },
-     {
-      "clueFragment": "shot",
-      "gives": "SNAP",
-      "note": "a snap is a photograph, a shot"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAND",
-      "Y",
-      "SNAP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kind",
+       "gives": "BRAND",
+       "note": "a brand is a kind or make of product"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the end of a word, so only its closing letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "note": "the last letter of lady"
+        }
+       ]
+      },
+      {
+       "words": "shot",
+       "gives": "SNAP",
+       "note": "a snap is a photograph, a shot"
+      }
      ]
     },
     "explanation": {
@@ -120,61 +111,53 @@
    },
    "solution": "BROOMSTICK",
    "annotation": {
-    "type": [
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "BROOMSTICK",
     "definitions": [
      {
       "text": "Sweeper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "things going unfortunately go awry, so these letters are thrown out of order"
-     },
-     {
-      "text": "bagging",
-      "for": "container",
-      "note": "to bag something is to put it inside a sack, so one piece holds the rest"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "block",
-      "gives": "BRICK",
-      "note": "a brick is a building block"
-     },
-     {
-      "clueFragment": "duck",
-      "gives": "O",
-      "note": "a duck is a score of nothing in cricket, the shape of O"
-     },
-     {
-      "clueFragment": "most",
-      "gives": "OMST",
-      "note": "the letters of most, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "O",
-      "OMST",
-      "ICK"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BROOMSTICK",
+     "indicators": [
       {
-       "fodder": "MOST",
-       "gives": "OMST"
+       "text": "unfortunately",
+       "note": "things going unfortunately go awry, so these letters are thrown out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bagging",
+         "note": "to bag something is to put it inside a sack, so one piece holds the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "block",
+         "gives": "BRICK",
+         "note": "a brick is a building block"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "duck",
+           "gives": "O",
+           "note": "a duck is a score of nothing in cricket, the shape of O"
+          },
+          {
+           "words": "most",
+           "gives": "OMST",
+           "note": "the letters of most, rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -204,33 +187,29 @@
    },
    "solution": "AID",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AID",
     "definitions": [
      {
       "text": "Help",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having lost head",
-      "for": "deletion",
-      "note": "a word that has lost its head is missing its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "MAID",
-      "note": "maid is an old word for a girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AID"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having lost head",
+       "note": "a word that has lost its head is missing its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl",
+       "gives": "MAID",
+       "note": "maid is an old word for a girl"
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -259,55 +238,43 @@
    },
    "solution": "DIRECTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DIRECTS",
     "definitions": [
      {
       "text": "Points",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "something ground is crushed and broken up, so its letters are rearranged"
-     },
-     {
-      "text": "buried",
-      "for": "container",
-      "note": "something buried sits inside something else, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "driest",
-      "gives": "DIRETS",
-      "note": "the letters of driest, rearranged"
-     },
-     {
-      "clueFragment": "100",
-      "gives": "C",
-      "note": "C is the Roman numeral for 100"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIRE",
-      "C",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DIRECTS",
+     "indicators": [
       {
-       "fodder": "DRIEST",
-       "gives": "DIRETS"
+       "text": "ground",
+       "note": "something ground is crushed and broken up, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "buried",
+         "note": "something buried sits inside something else, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "driest",
+         "gives": "DIRETS",
+         "note": "the letters of driest, rearranged"
+        },
+        {
+         "words": "100",
+         "gives": "C",
+         "note": "C is the Roman numeral for 100"
+        }
+       ]
       }
      ]
     },
@@ -337,47 +304,41 @@
    },
    "solution": "SCRUFF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCRUFF",
     "definitions": [
      {
       "text": "Unkempt individual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter is kept"
-     },
-     {
-      "text": "getting into",
-      "for": "container",
-      "note": "getting into something means going inside it, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rapscallion",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of rapscallion"
-     },
-     {
-      "clueFragment": "scrape",
-      "gives": "SCUFF",
-      "note": "a scuff is a scrape or graze mark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "R",
-      "UFF"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting into",
+       "note": "getting into something means going inside it, so one piece sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scrape",
+       "gives": "SCUFF",
+       "note": "a scuff is a scrape or graze mark"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rapscallion",
+         "note": "the first letter of rapscallion"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -405,32 +366,24 @@
    },
    "solution": "APART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APART",
     "definitions": [
      {
       "text": "away from others",
       "at": 6
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bit",
-      "gives": "PART",
-      "note": "a part is a bit or portion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "PART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "bit",
+       "gives": "PART",
+       "note": "a part is a bit or portion"
+      }
      ]
     },
     "explanation": {
@@ -459,40 +412,31 @@
    },
    "solution": "GOURMAND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GOURMAND",
     "definitions": [
      {
       "text": "Epicure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cutting",
-      "for": "container",
-      "note": "a knife cutting something goes into it, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellow",
-      "gives": "MAN",
-      "note": "a fellow is a man"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "GOURD",
-      "note": "a gourd is a fleshy fruit of the squash family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOUR",
-      "MAN",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "note": "a knife cutting something goes into it, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "GOURD",
+       "note": "a gourd is a fleshy fruit of the squash family"
+      },
+      {
+       "words": "fellow",
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      }
      ]
     },
     "explanation": {
@@ -521,38 +465,31 @@
    },
    "solution": "ORDER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ORDER",
     "definitions": [
      {
       "text": "Send off for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "deletion",
-      "note": "something taken out of a word is removed from it, leaving the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skirt",
-      "gives": "BORDER",
-      "note": "to skirt is to edge or border something"
-     },
-     {
-      "clueFragment": "book",
-      "gives": "B",
-      "note": "B is the abbreviation for book"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORDER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "something taken out of a word is removed from it, leaving the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skirt",
+       "gives": "BORDER",
+       "note": "to skirt is to edge or border something"
+      },
+      {
+       "words": "book",
+       "gives": "B",
+       "note": "B is the abbreviation for book"
+      }
      ]
     },
     "explanation": {
@@ -587,41 +524,29 @@
    },
    "solution": "REASON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REASON",
     "definitions": [
      {
       "text": "Motive",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Boy",
-      "gives": "SON",
-      "note": "a son is a boy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "A",
-      "SON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "About",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "Boy",
+       "gives": "SON",
+       "note": "a son is a boy"
+      }
      ]
     },
     "explanation": {
@@ -650,26 +575,25 @@
    },
    "solution": "PALINDROME",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PALINDROME",
     "definitions": [
      {
       "text": "10 or 19, the same either way?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "10 or 19",
-      "note": "surface reading: two numbers, perhaps looking the same upside down or in some sum"
-     },
-     {
-      "clueFragment": "the same either way?",
-      "note": "setter's reading: the answers to 10 and 19 across, a mother and a father word, read identically forwards and backwards"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "10 or 19",
+       "note": "surface reading: two numbers, perhaps looking the same upside down or in some sum"
+      },
+      {
+       "words": "the same either way?",
+       "note": "setter's reading: the answers to 10 and 19 across, a mother and a father word, read identically forwards and backwards"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The numbers are cross-references to the answers MUM and DAD, both of which read the same backwards.",
      "definitionFit": "A palindrome is a word spelled identically in both directions, which MUM and DAD each are."
@@ -695,48 +619,43 @@
    },
    "solution": "MUM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MUM",
     "definitions": [
      {
       "text": "parent",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "charging",
-      "for": "container",
-      "note": "to charge is to rush into, so one piece drives in among the others"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "M is the abbreviation for million"
-     },
-     {
-      "clueFragment": "University",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     },
-     {
-      "clueFragment": "millions",
-      "gives": "M",
-      "note": "M again for million"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "U",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "MUM",
+     "indicators": [
+      {
+       "text": "charging",
+       "note": "to charge is to rush into, so one piece drives in among the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "millions",
+         "gives": "M",
+         "note": "M is the abbreviation for million"
+        },
+        {
+         "words": "University",
+         "gives": "U",
+         "note": "U is the abbreviation for university"
+        },
+        {
+         "words": "millions",
+         "gives": "M",
+         "note": "M again for million"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -765,38 +684,24 @@
    },
    "solution": "MARGINAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MARGINAL",
     "definitions": [
      {
       "text": "minor",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "changes",
-      "for": "anagram",
-      "note": "a word that changes becomes different, so its letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alarming",
-      "gives": "ALARMING",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALARMING",
-       "gives": "MARGINAL"
+       "text": "changes",
+       "note": "a word that changes becomes different, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alarming",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -826,58 +731,58 @@
    },
    "solution": "CAFETERIA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "CAFETERIA",
     "definitions": [
      {
       "text": "eatery",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the opening letter is kept"
-     },
-     {
-      "text": "fishy",
-      "for": "anagram",
-      "note": "something fishy is suspect and not straight, so the letters are rearranged"
-     },
-     {
-      "text": "Importing",
-      "for": "container",
-      "note": "to import is to bring in, so one piece is taken inside the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "F",
-      "select": "first",
-      "note": "the first letter of fish"
-     },
-     {
-      "clueFragment": "I create a",
-      "gives": "CAETERIA",
-      "note": "the letters of I create a, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "F",
-      "ETERIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CAFETERIA",
+     "indicators": [
       {
-       "fodder": "ICREATEA",
-       "gives": "CAETERIA"
+       "text": "Importing",
+       "note": "to import is to bring in, so one piece is taken inside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fishy",
+         "note": "something fishy is suspect and not straight, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "primarily",
+             "note": "primarily means first of all, so only the opening letter is kept"
+            }
+           ],
+           "parts": [
+            {
+             "words": "fish",
+             "note": "the first letter of fish"
+            }
+           ]
+          },
+          {
+           "words": "I create a",
+           "gives": "CAETERIA",
+           "note": "the letters of I create a, rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -908,47 +813,41 @@
    },
    "solution": "THRASH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "THRASH",
     "definitions": [
      {
       "text": "Flog",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so only that is kept"
-     },
-     {
-      "text": "banking",
-      "for": "container",
-      "note": "banking something puts it away inside a store, so one piece holds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rubbish",
-      "gives": "TRASH",
-      "note": "trash is rubbish"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "H",
-      "select": "last",
-      "note": "the last letter of cash"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "H",
-      "RASH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "banking",
+       "note": "banking something puts it away inside a store, so one piece holds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rubbish",
+       "gives": "TRASH",
+       "note": "trash is rubbish"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "the last of a word is its final letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cash",
+         "note": "the last letter of cash"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -977,33 +876,30 @@
    },
    "solution": "NEPALI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "NEPALI",
     "definitions": [
      {
       "text": "Asian",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Resident in",
-      "for": "hidden_word",
-      "note": "something resident in a place lives inside it, so the letters sit within the words that follow"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pune, pal",
-      "gives": "NEPALI",
-      "note": "the letters run across the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "NEPALI",
+     "indicators": [
+      {
+       "text": "Resident in",
+       "note": "something resident in a place lives inside it, so the letters sit within the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pune, pal",
+       "gives": "NEPALI",
+       "note": "the letters run across the words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A friend living in the Indian city of Pune is from Asia.",
      "walkthrough": "The letters run across puNE PAL Is. Pune is a city in India.",
@@ -1030,47 +926,41 @@
    },
    "solution": "EYEBROW",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EYEBROW",
     "definitions": [
      {
       "text": "hairy thing",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "stuck in",
-      "for": "container",
-      "note": "something stuck in something else is lodged inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "YEW",
-      "note": "the yew is an evergreen tree"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "BRO",
-      "note": "bro is short for brother, a relative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "YE",
-      "BRO",
-      "W"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stuck in",
+         "note": "something stuck in something else is lodged inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "gives": "YEW",
+         "note": "the yew is an evergreen tree"
+        },
+        {
+         "words": "relative",
+         "gives": "BRO",
+         "note": "bro is short for brother, a relative"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1100,35 +990,24 @@
    },
    "solution": "DANISH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DANISH",
     "definitions": [
      {
       "text": "European",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shaken",
-      "for": "anagram",
-      "note": "something shaken is jumbled up, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hand is",
-      "gives": "HANDIS",
-      "note": "taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HANDIS",
-       "gives": "DANISH"
+       "text": "shaken",
+       "note": "something shaken is jumbled up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hand is",
+       "note": "taken as written, to be rearranged"
       }
      ]
     },
@@ -1158,35 +1037,25 @@
    },
    "solution": "CHINAWARE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHINAWARE",
     "definitions": [
      {
       "text": "Delicate items",
       "at": 0
      }
     ],
-    "linkWords": [
-     "seemingly"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "feature",
-      "gives": "CHIN",
-      "note": "the chin is a facial feature"
-     },
-     {
-      "clueFragment": "with knowledge of",
-      "gives": "AWARE",
-      "note": "aware means having knowledge of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIN",
-      "AWARE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "feature",
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      },
+      {
+       "words": "with knowledge of",
+       "gives": "AWARE",
+       "note": "aware means having knowledge of something"
+      }
      ]
     },
     "explanation": {
@@ -1216,40 +1085,39 @@
    },
    "solution": "AGAIN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "AGAIN",
     "definitions": [
      {
       "text": "encore",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "needing no introduction",
-      "for": "deletion",
-      "note": "with no introduction a word lacks its opening, so its first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Story",
-      "gives": "SAGA",
-      "note": "a saga is a long story"
-     },
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "in means fashionable or popular"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AGA",
-      "IN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "needing no introduction",
+       "note": "with no introduction a word lacks its opening, so its first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Story",
+         "gives": "SAGA",
+         "note": "a saga is a long story"
+        },
+        {
+         "words": "popular",
+         "gives": "IN",
+         "note": "in means fashionable or popular"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1278,30 +1146,28 @@
    },
    "solution": "DAD",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DAD",
     "definitions": [
      {
       "text": "Pop",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "hidden_word",
-      "note": "the answer goes into the phrase that follows, lying inside its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "orchard, a delight",
-      "gives": "DAD",
-      "note": "the letters run across the words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "the answer goes into the phrase that follows, lying inside its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "orchard, a delight",
+       "gives": "DAD",
+       "note": "the letters run across the words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An invitation to drop in to a lovely orchard.",
      "walkthrough": "'Pop into' reads as 'visit', but 'Pop' is the definition and the answer sits in orcharD A Delight.",
@@ -1328,44 +1194,35 @@
    },
    "solution": "SALAMI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SALAMI",
     "definitions": [
      {
       "text": "Meat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "to return is to go back the way you came, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I am",
-      "gives": "IM",
-      "note": "I am contracts to I'm, written without the apostrophe"
-     },
-     {
-      "clueFragment": "sadly",
-      "gives": "ALAS",
-      "note": "alas is a cry of sorrow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SALAMI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "IMALAS",
-       "to": "SALAMI"
+       "text": "returning",
+       "note": "to return is to go back the way you came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I am",
+         "gives": "IM",
+         "note": "I am contracts to I'm, written without the apostrophe"
+        },
+        {
+         "words": "sadly",
+         "gives": "ALAS",
+         "note": "alas is a cry of sorrow"
+        }
+       ]
       }
      ]
     },
@@ -1395,35 +1252,25 @@
    },
    "solution": "ROMEO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROMEO",
     "definitions": [
      {
       "text": "lover",
       "at": 31
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European city",
-      "gives": "ROME",
-      "note": "Rome is the Italian capital"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O is zero, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROME",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European city",
+       "gives": "ROME",
+       "note": "Rome is the Italian capital"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O is zero, nothing"
+      }
      ]
     },
     "explanation": {
@@ -1451,33 +1298,29 @@
    },
    "solution": "MOO",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "MOO",
     "definitions": [
      {
       "text": "Low",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally disappearing",
-      "for": "deletion",
-      "note": "something whose end disappears loses its closing letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "satellite",
-      "gives": "MOON",
-      "note": "Earth's natural satellite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOO"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "finally disappearing",
+       "note": "something whose end disappears loses its closing letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "satellite",
+       "gives": "MOON",
+       "note": "Earth's natural satellite"
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -1516,45 +1359,34 @@
    },
    "solution": "ONTHEWHOLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ON THE WHOLE",
     "definitions": [
      {
       "text": "generally",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "reviewed",
-      "for": "anagram",
-      "note": "to review is to look over and rework, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Town he",
-      "gives": "TOWNHE",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "dump",
-      "gives": "HOLE",
-      "note": "a hole is a squalid place, a dump"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONTHEW",
-      "HOLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TOWNHE",
-       "gives": "ONTHEW"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reviewed",
+         "note": "to review is to look over and rework, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Town he",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "dump",
+       "gives": "HOLE",
+       "note": "a hole is a squalid place, a dump"
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5126",
  "number": 5126,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,126",
  "setter": "David McLean",
  "date": "2024-08-25",
  "dimensions": {
@@ -42,47 +40,41 @@
    },
    "solution": "POLISHED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "POLISHED",
     "definitions": [
      {
       "text": "Refined",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so each of the next two words gives only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Europeans",
-      "gives": "POLISH",
-      "note": "the Polish = people of Poland"
-     },
-     {
-      "clueFragment": "earl initially",
-      "gives": "E",
-      "select": "first",
-      "note": "first letter of earl"
-     },
-     {
-      "clueFragment": "dismissed",
-      "gives": "D",
-      "note": "first letter of dismissed, also governed by 'initially'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POLISH",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Europeans",
+       "gives": "POLISH",
+       "note": "the Polish = people of Poland"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially means at the start, so each of the next two words gives only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "earl initially",
+         "gives": "EARL",
+         "note": "first letter of earl"
+        }
+       ]
+      },
+      {
+       "words": "dismissed",
+       "gives": "D",
+       "note": "first letter of dismissed, also governed by 'initially'"
+      }
      ]
     },
     "explanation": {
@@ -111,48 +103,53 @@
    },
    "solution": "OARSMEN",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "OARSMEN",
     "definitions": [
      {
       "text": "Two in eight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accepted"
-     },
-     {
-      "text": "topless",
-      "note": "topless means without a top, so the word loses its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "o = old"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "MEN",
-      "note": "men = people"
-     },
-     {
-      "clueFragment": "topless bars",
-      "gives": "ARS",
-      "note": "BARS without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ARS",
-      "MEN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OARSMEN",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepted"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "topless",
+           "note": "topless means without a top, so the word loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "old",
+           "gives": "O",
+           "note": "o = old"
+          },
+          {
+           "words": "people",
+           "gives": "MEN",
+           "note": "men = people"
+          }
+         ]
+        },
+        {
+         "words": "topless bars",
+         "gives": "ARS",
+         "note": "BARS without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -182,38 +179,31 @@
    },
    "solution": "ICE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ICE",
     "definitions": [
      {
       "text": "Diamonds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "have no need of",
-      "for": "deletion",
-      "note": "people who have no need of something do without it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spotty types",
-      "gives": "DICE",
-      "note": "dice are covered in spots"
-     },
-     {
-      "clueFragment": "them",
-      "gives": "D",
-      "note": "'them' points back to Diamonds, d in card notation; removed from DICE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "have no need of",
+       "note": "people who have no need of something do without it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spotty types",
+       "gives": "DICE",
+       "note": "dice are covered in spots"
+      },
+      {
+       "words": "them",
+       "gives": "D",
+       "note": "'them' points back to Diamonds, d in card notation; removed from DICE"
+      }
      ]
     },
     "explanation": {
@@ -253,43 +243,33 @@
    },
    "solution": "HALLOFRESIDENCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HALL OF RESIDENCE",
     "definitions": [
      {
       "text": "Fresher dwelling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "renovated",
-      "for": "anagram",
-      "note": "a renovated building is rebuilt inside, so the letters are rebuilt into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is clean",
-      "gives": "ISCLEAN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "freehold",
-      "gives": "FREEHOLD",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IS CLEAN FREEHOLD",
-       "gives": "HALLOFRESIDENCE"
+       "text": "renovated",
+       "note": "a renovated building is rebuilt inside, so the letters are rebuilt into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is clean",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "freehold",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -319,44 +299,44 @@
    },
    "solution": "DREAM",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DREAM",
     "definitions": [
      {
       "text": "Fancy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "missing header",
-      "for": "deletion",
-      "note": "a header is the top of a page or column; missing it, the word loses its first letter"
-     },
-     {
-      "text": "in lead",
-      "note": "to be in the lead is to be at the front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Germany",
-      "gives": "D",
-      "note": "D = Germany, the international vehicle code"
-     },
-     {
-      "clueFragment": "Best missing header",
-      "gives": "REAM",
-      "note": "CREAM (the best) without its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "REAM"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "DREAM",
+     "indicators": [
+      {
+       "text": "missing header",
+       "note": "a header is the top of a page or column; missing it, the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in lead",
+         "note": "to be in the lead is to be at the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Germany",
+         "gives": "D",
+         "note": "D = Germany, the international vehicle code"
+        },
+        {
+         "words": "Best missing header",
+         "gives": "REAM",
+         "note": "CREAM (the best) without its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -385,50 +365,40 @@
    },
    "solution": "ALBION",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "ALBION",
     "definitions": [
      {
       "text": "Britain",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "a touring side travels round a country"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "rugby player",
-      "gives": "LION",
-      "note": "a Lion plays for the British and Irish Lions"
-     },
-     {
-      "clueFragment": "Belgium",
-      "gives": "B",
-      "note": "B = Belgium, the vehicle code"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "L",
-      "B",
-      "ION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as printed"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring",
+         "note": "a touring side travels round a country"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rugby player",
+         "gives": "LION",
+         "note": "a Lion plays for the British and Irish Lions"
+        },
+        {
+         "words": "Belgium",
+         "gives": "B",
+         "note": "B = Belgium, the vehicle code"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -463,58 +433,49 @@
    },
    "solution": "ABERDEENTERRIER",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "ABERDEEN TERRIER",
     "definitions": [
      {
       "text": "Breeder and trainer mad about one ultimately?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mad",
-      "for": "anagram",
-      "note": "mad means crazed and disordered, so the letters lose their sensible order"
-     },
-     {
-      "text": "about",
-      "for": "anagram"
-     },
-     {
-      "text": "ultimately",
-      "for": "anagram",
-      "note": "ultimately means in the end, so only the last letter of one is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Breeder",
-      "gives": "BREEDER",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "trainer",
-      "gives": "TRAINER",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "one ultimately",
-      "gives": "E",
-      "note": "last letter of one, surrounded by the jumble"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BREEDER TRAINER E",
-       "gives": "ABERDEENTERRIER"
+       "text": "mad",
+       "note": "mad means crazed and disordered, so the letters lose their sensible order"
+      },
+      {
+       "text": "about"
+      },
+      {
+       "text": "ultimately",
+       "note": "ultimately means in the end, so only the last letter of one is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Breeder",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "trainer",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "one ultimately",
+         "gives": "E",
+         "note": "last letter of one, surrounded by the jumble"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A dog breeder and trainer who dote on one particular animal.",
      "walkthrough": "The whole clue is the definition: the dog a devoted breeder and trainer might be mad about. 'And' joins the two words of fodder rather than acting as a link.",
@@ -547,43 +508,33 @@
    },
    "solution": "BOILEDSWEET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BOILED SWEET",
     "definitions": [
      {
       "text": "Sucker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of doing",
-      "for": "anagram",
-      "note": "something in need of doing needs working over, so the letters are worked into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I see",
-      "gives": "ISEE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "low debt",
-      "gives": "LOWDEBT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "I SEE LOW DEBT",
-       "gives": "BOILEDSWEET"
+       "text": "in need of doing",
+       "note": "something in need of doing needs working over, so the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I see",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "low debt",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -614,53 +565,46 @@
    },
    "solution": "ONTARIO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ONTARIO",
     "definitions": [
      {
       "text": "lake",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "heading to",
-      "for": "letter_selection",
-      "note": "the heading of a word is its top, so the first letter of oxbow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Working",
-      "gives": "ON",
-      "note": "on = working, switched on"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "tar = sailor"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     },
-     {
-      "clueFragment": "heading to oxbow",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of oxbow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "TAR",
-      "I",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Working",
+       "gives": "ON",
+       "note": "on = working, switched on"
+      },
+      {
+       "words": "sailor",
+       "gives": "TAR",
+       "note": "tar = sailor"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading to",
+         "note": "the heading of a word is its top, so the first letter of oxbow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heading to oxbow",
+         "gives": "OXBOW",
+         "note": "first letter of oxbow"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -689,51 +633,41 @@
    },
    "solution": "ORDEAL",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ORDEAL",
     "definitions": [
      {
       "text": "trial",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader goes in front, so the first letter of Republican"
-     }
-    ],
-    "linkWords": [
-     "to get",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ring",
-      "gives": "O",
-      "note": "O is ring-shaped"
-     },
-     {
-      "clueFragment": "Republican leader",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Republican"
-     },
-     {
-      "clueFragment": "Dole out",
-      "gives": "DEAL",
-      "note": "to dole out cards is to hand them round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "DEAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ring",
+       "gives": "O",
+       "note": "O is ring-shaped"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader goes in front, so the first letter of Republican"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Republican leader",
+         "gives": "REPUBLICAN",
+         "note": "first letter of Republican"
+        }
+       ]
+      },
+      {
+       "words": "Dole out",
+       "gives": "DEAL",
+       "note": "to dole out cards is to hand them round"
+      }
      ]
     },
     "explanation": {
@@ -763,44 +697,39 @@
    },
    "solution": "ELEGISTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ELEGISTS",
     "definitions": [
      {
       "text": "Linesmen who lament",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "note": "upset means knocked over, so the letters fall into a new order"
-     },
-     {
-      "text": "admitted",
-      "note": "admitted means let in, so I is let in among the jumbled letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "get less",
-      "gives": "GETLESS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "as printed, placed inside"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "GET LESS I",
-       "gives": "ELEGISTS"
+       "text": "upset",
+       "note": "upset means knocked over, so the letters fall into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "admitted",
+         "note": "admitted means let in, so I is let in among the jumbled letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get less",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "note": "as printed, placed inside"
       }
      ]
     },
@@ -831,50 +760,41 @@
    },
    "solution": "MALFORMED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "MALFORMED",
     "definitions": [
      {
       "text": "Crooked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "detention",
-      "for": "container",
-      "note": "detention means being kept in, so the class is kept inside the other word"
-     }
-    ],
-    "linkWords": [
-     "to give"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "master",
-      "gives": "MA",
-      "note": "MA = Master of Arts"
-     },
-     {
-      "clueFragment": "was first",
-      "gives": "LED",
-      "note": "led = was in front"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "FORM",
-      "note": "a form is a school class"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "L",
-      "FORM",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "master",
+       "gives": "MA",
+       "note": "MA = Master of Arts"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "detention",
+         "note": "detention means being kept in, so the class is kept inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was first",
+         "gives": "LED",
+         "note": "led = was in front"
+        },
+        {
+         "words": "class",
+         "gives": "FORM",
+         "note": "a form is a school class"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -909,35 +829,25 @@
    },
    "solution": "LIGHTHEADED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIGHT-HEADED",
     "definitions": [
      {
       "text": "vertiginous",
       "at": 25
      }
     ],
-    "linkWords": [
-     "to make you"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Window",
-      "gives": "LIGHT",
-      "note": "a light is a window pane or opening"
-     },
-     {
-      "clueFragment": "bound",
-      "gives": "HEADED",
-      "note": "bound for = headed for"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIGHT",
-      "HEADED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Window",
+       "gives": "LIGHT",
+       "note": "a light is a window pane or opening"
+      },
+      {
+       "words": "bound",
+       "gives": "HEADED",
+       "note": "bound for = headed for"
+      }
      ]
     },
     "explanation": {
@@ -966,43 +876,41 @@
    },
    "solution": "EARN",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "EARN",
     "definitions": [
      {
       "text": "Rake in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shed",
-      "note": "to shed is to cast off, as a tree sheds leaves, so a letter is cast off"
-     },
-     {
-      "text": "close to",
-      "note": "the close of a word is its end, so the last letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pine",
-      "gives": "YEARN",
-      "note": "to pine = to long for"
-     },
-     {
-      "clueFragment": "close to conservatory",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of conservatory, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EARN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shed",
+       "note": "to shed is to cast off, as a tree sheds leaves, so a letter is cast off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pine",
+       "gives": "YEARN",
+       "note": "to pine = to long for"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its end, so the last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to conservatory",
+         "note": "last letter of conservatory, removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1031,41 +939,25 @@
    },
    "solution": "SNUG",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SNUG",
     "definitions": [
      {
       "text": "Cozy and secure",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "of a revolutionary type",
-      "for": "reversal",
-      "note": "a revolution is a full turn, so the arms are turned round"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arms",
-      "gives": "GUNS",
-      "note": "arms = weapons; turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNUG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "GUNS",
-       "to": "SNUG"
+       "text": "of a revolutionary type",
+       "note": "a revolution is a full turn, so the arms are turned round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arms",
+       "gives": "GUNS",
+       "note": "arms = weapons; turned round"
       }
      ]
     },
@@ -1095,48 +987,41 @@
    },
    "solution": "REPRESSION",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "REPRESSION",
     "definitions": [
      {
       "text": "Crushing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making",
-      "for": "substitution",
-      "note": "making here means turning into, so the crisis word is changed"
-     },
-     {
-      "text": "run",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "economic crisis",
-      "gives": "DEPRESSION",
-      "note": "a depression is an economic slump"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D = Democrat, replaced"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "r = run in cricket scoring, put in D's place"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EPRESSION"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "REPRESSION",
+     "indicators": [
+      {
+       "text": "making",
+       "note": "making here means turning into, so the crisis word is changed"
+      },
+      {
+       "text": "run"
+      }
+     ],
+     "parts": [
+      {
+       "words": "economic crisis",
+       "gives": "DEPRESSION",
+       "note": "a depression is an economic slump"
+      },
+      {
+       "words": "Democrat",
+       "gives": "D",
+       "note": "D = Democrat, replaced"
+      },
+      {
+       "words": "run",
+       "gives": "R",
+       "note": "r = run in cricket scoring, put in D's place"
+      }
      ]
     },
     "explanation": {
@@ -1165,32 +1050,40 @@
    },
    "solution": "PEA",
    "annotation": {
-    "type": [
-     "homophone",
-     "letter_selection"
-    ],
-    "answer": "PEA",
     "definitions": [
      {
       "text": "Seed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "allegedly",
-      "note": "allegedly means according to what is said, so the letter is taken as spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of hope, allegedly",
-      "gives": "PEA",
-      "select": 3,
-      "soundsLike": "P",
-      "note": "the letter P taken from hope and spoken as a word. The same letters also run on unbroken across neighbouring clue words, a coincidence of the pieces sitting side by side; the setter gives no hidden-word signal."
-     }
-    ],
+    "wordplay": {
+     "op": "first",
+     "unchecked": true,
+     "gives": "PEA",
+     "parts": [
+      {
+       "op": "homophone",
+       "unchecked": true,
+       "gives": "PEA",
+       "indicators": [
+        {
+         "text": "allegedly",
+         "note": "allegedly means according to what is said, so the letter is taken as spoken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "of hope, allegedly",
+         "gives": "PEA",
+         "select": 3,
+         "soundsLike": "P",
+         "note": "the letter P taken from hope and spoken as a word. The same letters also run on unbroken across neighbouring clue words, a coincidence of the pieces sitting side by side; the setter gives no hidden-word signal."
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A seed of hope, supposedly, in a gloomy time.",
      "walkthrough": "'Seed of hope' reads as a stock phrase; the seed is the definition, and the P from hope, said aloud, gives the answer.",
@@ -1217,46 +1110,43 @@
    },
    "solution": "CONTESTANT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CONTESTANT",
     "definitions": [
      {
       "text": "nominee",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "put off",
-      "for": "deletion",
-      "note": "to put someone off a bus is to get rid of them, so the C is got rid of"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tory",
-      "gives": "CON",
-      "note": "Con = Conservative, the Tory party"
-     },
-     {
-      "clueFragment": "tax",
-      "gives": "TEST",
-      "note": "to tax = to strain or try"
-     },
-     {
-      "clueFragment": "can't put off conservative",
-      "gives": "ANT",
-      "note": "CANT without C (conservative)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "TEST",
-      "ANT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CONTESTANT",
+     "indicators": [
+      {
+       "text": "put off",
+       "note": "to put someone off a bus is to get rid of them, so the C is got rid of"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tory",
+         "gives": "CON",
+         "note": "Con = Conservative, the Tory party"
+        },
+        {
+         "words": "tax",
+         "gives": "TEST",
+         "note": "to tax = to strain or try"
+        },
+        {
+         "words": "can't put off conservative",
+         "gives": "ANT",
+         "note": "CANT without C (conservative)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1285,44 +1175,36 @@
    },
    "solution": "OPERATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OPERATE",
     "definitions": [
      {
       "text": "Work",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "extremely means at the extremes, so the first and last letters"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "musical drama",
-      "gives": "OPERA",
-      "note": "a staged drama set to music"
-     },
-     {
-      "clueFragment": "extremely tiresome",
-      "gives": "TE",
-      "select": "outer",
-      "note": "outer letters of tiresome"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPERA",
-      "TE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "musical drama",
+       "gives": "OPERA",
+       "note": "a staged drama set to music"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "extremely means at the extremes, so the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely tiresome",
+         "gives": "TIRESOME",
+         "note": "outer letters of tiresome"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1351,46 +1233,46 @@
    },
    "solution": "EDGE",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "EDGE",
     "definitions": [
      {
       "text": "advantage",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing off",
-      "note": "bringing a player off substitutes them, so one letter leaves the word"
-     },
-     {
-      "text": "up front",
-      "note": "up front means at the front, so the first letter is the one removed"
-     }
-    ],
-    "linkWords": [
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Club",
-      "gives": "WEDGE",
-      "note": "a wedge is a golf club"
-     },
-     {
-      "clueFragment": "one up front",
-      "gives": "W",
-      "select": "first",
-      "note": "the first letter of WEDGE, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDGE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bringing off",
+       "note": "bringing a player off substitutes them, so one letter leaves the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Club",
+       "gives": "WEDGE",
+       "note": "a wedge is a golf club"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "W",
+       "indicators": [
+        {
+         "text": "up front",
+         "note": "up front means at the front, so the first letter is the one removed"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "one up front",
+         "gives": "W",
+         "select": "first",
+         "note": "the first letter of WEDGE, removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1419,35 +1301,25 @@
    },
    "solution": "GERMANE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GERMANE",
     "definitions": [
      {
       "text": "Closely related",
       "at": 0
      }
     ],
-    "linkWords": [
-     "but"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "different types of European",
-      "gives": "GERMAN",
-      "note": "a German is one type of European"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E = European, the other type"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GERMAN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "different types of European",
+       "gives": "GERMAN",
+       "note": "a German is one type of European"
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E = European, the other type"
+      }
      ]
     },
     "explanation": {
@@ -1476,48 +1348,42 @@
    },
    "solution": "FETE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "FETE",
     "definitions": [
      {
       "text": "fair",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "to cross",
-      "note": "to cross a border is to go over it"
-     },
-     {
-      "text": "frontier",
-      "note": "a frontier is a front edge, so the first letter of Thailand"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charge",
-      "gives": "FEE",
-      "note": "a fee is a charge"
-     },
-     {
-      "clueFragment": "Thailand's frontier",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of Thailand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FE",
-      "T",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cross",
+       "note": "to cross a border is to go over it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charge",
+       "gives": "FEE",
+       "note": "a fee is a charge"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "frontier",
+         "note": "a frontier is a front edge, so the first letter of Thailand"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Thailand's frontier",
+         "gives": "THAILANDFRONTIER",
+         "note": "first letter of Thailand"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1546,38 +1412,24 @@
    },
    "solution": "DECORATOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DECORATOR",
     "definitions": [
      {
       "text": "One who'll have brush",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "poor means in bad condition, so the letters are in a battered order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ear doctor",
-      "gives": "EARDOCTOR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EAR DOCTOR",
-       "gives": "DECORATOR"
+       "text": "poor",
+       "note": "poor means in bad condition, so the letters are in a battered order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ear doctor",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1608,33 +1460,16 @@
    },
    "solution": "CASES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CASES",
     "definitions": [
      {
       "text": "Suits",
-      "at": 0
+      "at": 0,
+      "meaning": "lawsuits, matters brought before a court"
      },
      {
       "text": "trunks",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Suits",
-      "gives": "CASES",
-      "note": "lawsuits, matters brought before a court"
-     },
-     {
-      "clueFragment": "trunks",
-      "gives": "CASES",
-      "note": "large boxes for luggage"
+      "at": 10,
+      "meaning": "large boxes for luggage"
      }
     ],
     "explanation": {
@@ -1663,33 +1498,16 @@
    },
    "solution": "SARDINES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SARDINES",
     "definitions": [
      {
       "text": "Fish",
-      "at": 0
+      "at": 0,
+      "meaning": "small oily fish, often tinned"
      },
      {
       "text": "game",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fish",
-      "gives": "SARDINES",
-      "note": "small oily fish, often tinned"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "SARDINES",
-      "note": "a party game, reverse hide-and-seek in which seekers pack into the hider's spot"
+      "at": 9,
+      "meaning": "a party game, reverse hide-and-seek in which seekers pack into the hider's spot"
      }
     ],
     "explanation": {
@@ -1724,33 +1542,16 @@
    },
    "solution": "INGEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN GEAR",
     "definitions": [
      {
       "text": "Dressed",
-      "at": 0
+      "at": 0,
+      "meaning": "wearing one's kit, gear being clothes"
      },
      {
       "text": "ready to roll",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dressed",
-      "gives": "INGEAR",
-      "note": "wearing one's kit, gear being clothes"
-     },
-     {
-      "clueFragment": "ready to roll",
-      "gives": "INGEAR",
-      "note": "of a vehicle, with the transmission engaged"
+      "at": 12,
+      "meaning": "of a vehicle, with the transmission engaged"
      }
     ],
     "explanation": {
@@ -1780,30 +1581,16 @@
    },
    "solution": "GIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GIN",
     "definitions": [
      {
       "text": "Trap",
-      "at": 0
+      "at": 0,
+      "meaning": "a snare for catching game"
      },
      {
       "text": "in which a mother might find ruin",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trap",
-      "gives": "GIN",
-      "note": "a snare for catching game"
-     },
-     {
-      "clueFragment": "in which a mother might find ruin",
-      "gives": "GIN",
-      "note": "points to a spirit's old British nickname, mother's ruin"
+      "at": 5,
+      "meaning": "points to a spirit's old British nickname, mother's ruin"
      }
     ],
     "explanation": {
@@ -1833,34 +1620,29 @@
    },
    "solution": "PEDDLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PEDDLE",
     "definitions": [
      {
       "text": "traffic",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "caught",
-      "for": "homophone",
-      "note": "to catch words is to hear them, as in 'I didn't catch that'"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bicycle caught",
-      "gives": "PEDDLE",
-      "soundsLike": "PEDAL",
-      "note": "to bicycle is to pedal; caught = heard, so the same sound spelt another way"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEDDLE",
+     "indicators": [
+      {
+       "text": "caught",
+       "note": "to catch words is to hear them, as in 'I didn't catch that'"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bicycle caught",
+       "gives": "PEDAL",
+       "note": "to bicycle is to pedal; caught = heard, so the same sound spelt another way"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cyclist stuck in a traffic jam.",
      "walkthrough": "Traffic is the verb, to deal illicitly, and 'caught' means heard rather than trapped.",
@@ -1888,60 +1670,60 @@
    },
    "solution": "SPRINTER",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SPRINTER",
     "definitions": [
      {
       "text": "One runs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "plays",
-      "note": "plays means moves freely, as light plays on water, so the letters shift about"
-     },
-     {
-      "text": "in",
-      "for": "letter_selection"
-     },
-     {
-      "text": "at front",
-      "note": "at front means at the start, so the first letter of rep"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "select": "first",
-      "note": "s = small"
-     },
-     {
-      "clueFragment": "Pinter plays",
-      "gives": "PRINTE",
-      "note": "anagram of PINTER"
-     },
-     {
-      "clueFragment": "rep at front",
-      "gives": "R",
-      "note": "first letter of rep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PRINTE",
-      "R"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PINTER",
-       "gives": "PRINTE"
+       "text": "plays",
+       "note": "plays means moves freely, as light plays on water, so the letters shift about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at front",
+         "note": "at front means at the start, so the first letter of rep"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "in"
+            }
+           ],
+           "parts": [
+            {
+             "words": "small",
+             "note": "s = small"
+            }
+           ]
+          },
+          {
+           "words": "Pinter plays",
+           "gives": "PRINTE",
+           "note": "anagram of PINTER"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "rep at front",
+       "gives": "R",
+       "note": "first letter of rep"
       }
      ]
     },

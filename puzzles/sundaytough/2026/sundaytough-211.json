@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-211",
  "number": 211,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 211",
  "setter": "Light",
  "date": "2026-02-08",
  "dimensions": {
@@ -52,45 +50,37 @@
    },
    "solution": "ROOMATTHETOP",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "ROOM AT THE TOP",
     "definitions": [
      {
       "text": "Book",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "edited",
-      "for": "anagram",
-      "note": "an editor rearranges a text, so the letters of THAT POET are reworked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "volume",
-      "gives": "ROOM",
-      "note": "volume in the sense of space"
-     },
-     {
-      "clueFragment": "that poet",
-      "gives": "ATTHETOP",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROOM",
-      "ATTHETOP"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ROOMATTHETOP",
+     "indicators": [
       {
-       "fodder": "THATPOET",
-       "gives": "ATTHETOP"
+       "text": "edited",
+       "note": "an editor rearranges a text, so the letters of THAT POET are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "volume",
+         "gives": "ROOM",
+         "note": "volume in the sense of space"
+        },
+        {
+         "words": "that poet",
+         "gives": "ATTHETOP",
+         "note": "anagram fodder, 8 letters"
+        }
+       ]
       }
      ]
     },
@@ -120,52 +110,56 @@
    },
    "solution": "RICOTTA",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "RICOTTA",
     "definitions": [
      {
       "text": "Cheese",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "starts to",
-      "for": "letter_selection",
-      "note": "the starts of the next three words are their first letters"
-     },
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "something inside is held within, so firm and dry sit within those first letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "starts to ripen in August",
-      "gives": "RIA",
-      "select": "first",
-      "note": "first letters of Ripen, In, August"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "CO",
-      "note": "CO = company, a firm"
-     },
-     {
-      "clueFragment": "dry",
-      "gives": "TT",
-      "note": "TT = teetotal, dry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "COTT",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "something inside is held within, so firm and dry sit within those first letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "RIA",
+         "indicators": [
+          {
+           "text": "starts to",
+           "note": "the starts of the next three words are their first letters"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "starts to ripen in August",
+           "gives": "RIA",
+           "select": "first",
+           "note": "first letters of Ripen, In, August"
+          }
+         ]
+        },
+        {
+         "words": "firm",
+         "gives": "CO",
+         "note": "CO = company, a firm"
+        }
+       ]
+      },
+      {
+       "words": "dry",
+       "gives": "TT",
+       "note": "TT = teetotal, dry"
+      }
      ]
     },
     "explanation": {
@@ -194,44 +188,46 @@
    },
    "solution": "ORATION",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ORATION",
     "definitions": [
      {
       "text": "Speech",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to support",
-      "note": "in a down clue the lower piece holds up the upper"
-     },
-     {
-      "text": "head of",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "head of organisation",
-      "gives": "O",
-      "select": "first",
-      "note": "first letter of organisation"
-     },
-     {
-      "clueFragment": "helping",
-      "gives": "RATION",
-      "note": "a helping or portion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RATION"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "note": "in a down clue the lower piece holds up the upper"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "O",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "head of organisation",
+         "gives": "O",
+         "select": "first",
+         "note": "first letter of organisation"
+        }
+       ]
+      },
+      {
+       "words": "helping",
+       "gives": "RATION",
+       "note": "a helping or portion"
+      }
      ]
     },
     "explanation": {
@@ -260,49 +256,47 @@
    },
    "solution": "ASPARAGUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "ASPARAGUS",
     "definitions": [
      {
       "text": "veg",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Taking lid off",
-      "for": "deletion",
-      "note": "in a down clue the lid is the top letter, so burps loses its B"
-     },
-     {
-      "text": "cooks",
-      "for": "anagram",
-      "note": "cooking changes the ingredients, so the letters are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taking lid off, burps",
-      "gives": "URPS",
-      "note": "BURPS without its first letter"
-     },
-     {
-      "clueFragment": "as Aga",
-      "gives": "ASAGA",
-      "note": "anagram fodder, taken as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASPARAGUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ASPARAGUS",
+     "indicators": [
       {
-       "fodder": "URPSASAGA",
-       "gives": "ASPARAGUS"
+       "text": "Taking lid off",
+       "note": "in a down clue the lid is the top letter, so burps loses its B"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooks",
+         "note": "cooking changes the ingredients, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Taking lid off, burps",
+           "gives": "URPS",
+           "note": "BURPS without its first letter"
+          },
+          {
+           "words": "as Aga",
+           "note": "anagram fodder, taken as printed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -333,30 +327,16 @@
    },
    "solution": "THROW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THROW",
     "definitions": [
      {
       "text": "Put",
-      "at": 0
+      "at": 0,
+      "meaning": "the athletics sense, as in putting the shot"
      },
      {
       "text": "cover on sofa, maybe",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Put",
-      "gives": "THROW",
-      "note": "the athletics sense, as in putting the shot"
-     },
-     {
-      "clueFragment": "cover on sofa, maybe",
-      "gives": "THROW",
-      "note": "a light blanket draped over furniture"
+      "at": 4,
+      "meaning": "a light blanket draped over furniture"
      }
     ],
     "explanation": {
@@ -386,49 +366,41 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "Prohibition",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boosted",
-      "note": "in a down clue raising a word turns it upside down"
-     },
-     {
-      "text": "in",
-      "note": "'in' puts one thing within another, so the raised word goes within the genre"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hardcore rock genre",
-      "gives": "EMO",
-      "note": "the genre grew out of 'emotional hardcore' punk"
-     },
-     {
-      "clueFragment": "interest",
-      "gives": "GRAB",
-      "note": "to interest someone: how does that grab you?"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EM",
-      "BARG",
-      "O"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "GRAB",
-       "to": "BARG"
+       "text": "boosted",
+       "note": "in a down clue raising a word turns it upside down"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hardcore rock genre",
+       "gives": "EMO",
+       "note": "the genre grew out of 'emotional hardcore' punk"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' puts one thing within another, so the raised word goes within the genre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "interest",
+         "gives": "GRAB",
+         "note": "to interest someone: how does that grab you?"
+        }
+       ]
       }
      ]
     },
@@ -458,32 +430,25 @@
    },
    "solution": "OUTPLAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTPLAY",
     "definitions": [
      {
       "text": "In match, perform better than",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "away",
-      "gives": "OUT",
-      "note": "away from home"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "PLAY",
-      "note": "a game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "PLAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "away",
+       "gives": "OUT",
+       "note": "away from home"
+      },
+      {
+       "words": "game",
+       "gives": "PLAY",
+       "note": "a game"
+      }
      ]
     },
     "explanation": {
@@ -512,39 +477,31 @@
    },
    "solution": "QUARRYMASTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "QUARRYMASTER",
     "definitions": [
      {
       "text": "boss of mine",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "heralding",
-      "for": "charade",
-      "note": "a herald arrives first to announce what follows, so the goal goes before the defeat"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Goal",
-      "gives": "QUARRY",
-      "note": "the goal of a hunt"
-     },
-     {
-      "clueFragment": "defeat",
-      "gives": "MASTER",
-      "note": "to overcome"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUARRY",
-      "MASTER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "heralding",
+       "note": "a herald arrives first to announce what follows, so the goal goes before the defeat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Goal",
+       "gives": "QUARRY",
+       "note": "the goal of a hunt"
+      },
+      {
+       "words": "defeat",
+       "gives": "MASTER",
+       "note": "to overcome"
+      }
      ]
     },
     "explanation": {
@@ -574,50 +531,49 @@
    },
    "solution": "UNCLASP",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "UNCLASP",
     "definitions": [
      {
       "text": "Release clutch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "behind",
-      "note": "a car parked behind another comes after it"
-     },
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cut short, so UNCLE loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "relative briefly",
-      "gives": "UNCL",
-      "note": "UNCLE without its last letter"
-     },
-     {
-      "clueFragment": "when",
-      "gives": "AS",
-      "note": "as = when"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P = parking, as on road signs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNCL",
-      "AS",
-      "P"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNCLASP",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "cut short, so UNCLE loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "behind",
+         "note": "a car parked behind another comes after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relative briefly",
+         "gives": "UNCL",
+         "note": "UNCLE without its last letter"
+        },
+        {
+         "words": "when",
+         "gives": "AS",
+         "note": "as = when"
+        },
+        {
+         "words": "parking",
+         "gives": "P",
+         "note": "P = parking, as on road signs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -647,40 +603,38 @@
    },
    "solution": "ROBOTIC",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ROBOTIC",
     "definitions": [
      {
       "text": "Automatic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shell",
-      "for": "deletion",
-      "note": "to shell is to strip the outer casing, so NOTICE loses its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rifle",
-      "gives": "ROB",
-      "note": "to rifle a drawer is to steal from it"
-     },
-     {
-      "clueFragment": "shell warning",
-      "gives": "OTIC",
-      "note": "warning = NOTICE, minus its outer letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROB",
-      "OTIC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ROBOTIC",
+     "indicators": [
+      {
+       "text": "shell",
+       "note": "to shell is to strip the outer casing, so NOTICE loses its first and last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rifle",
+         "gives": "ROB",
+         "note": "to rifle a drawer is to steal from it"
+        },
+        {
+         "words": "shell warning",
+         "gives": "OTIC",
+         "note": "warning = NOTICE, minus its outer letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -715,38 +669,30 @@
    },
    "solution": "CIRCULARSAWS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CIRCULAR SAWS",
     "definitions": [
      {
       "text": "Cutting Tools",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Leaflet",
-      "gives": "CIRCULAR",
-      "note": "a handbill sent round"
-     },
-     {
-      "clueFragment": "saying",
-      "gives": "SAW",
-      "note": "an old saying or proverb"
-     },
-     {
-      "clueFragment": "Spades",
-      "gives": "S",
-      "note": "S = spades, the card suit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CIRCULAR",
-      "SAW",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leaflet",
+       "gives": "CIRCULAR",
+       "note": "a handbill sent round"
+      },
+      {
+       "words": "saying",
+       "gives": "SAW",
+       "note": "an old saying or proverb"
+      },
+      {
+       "words": "Spades",
+       "gives": "S",
+       "note": "S = spades, the card suit"
+      }
      ]
     },
     "explanation": {
@@ -775,10 +721,6 @@
    },
    "solution": "RATTIER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RATTIER",
     "definitions": [
      {
       "text": "More and more cross",
@@ -786,22 +728,19 @@
       "note": "'More and more cross' means crosser, the comparative"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "grass",
-      "gives": "RAT",
-      "note": "to grass on someone is to inform on them"
-     },
-     {
-      "clueFragment": "bank",
-      "gives": "TIER",
-      "note": "a bank or row"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAT",
-      "TIER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "grass",
+       "gives": "RAT",
+       "note": "to grass on someone is to inform on them"
+      },
+      {
+       "words": "bank",
+       "gives": "TIER",
+       "note": "a bank or row"
+      }
      ]
     },
     "explanation": {
@@ -830,50 +769,45 @@
    },
    "solution": "WARBLER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "WARBLER",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "note": "turning something round reverses it"
-     },
-     {
-      "text": "now and then",
-      "note": "only some of the letters show up, every other one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "biting",
-      "gives": "RAW",
-      "note": "a biting wind"
-     },
-     {
-      "clueFragment": "bilberry",
-      "gives": "BLER",
-      "select": "alternate",
-      "note": "B-i-L-b-E-r-R-y, odd letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR",
-      "BLER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "RAW",
-       "to": "WAR"
+       "text": "round",
+       "note": "turning something round reverses it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "now and then",
+         "note": "only some of the letters show up, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "biting",
+         "gives": "RAW",
+         "note": "a biting wind"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "parts": [
+        {
+         "words": "bilberry",
+         "note": "B-i-L-b-E-r-R-y, odd letters"
+        }
+       ]
       }
      ]
     },
@@ -903,45 +837,46 @@
    },
    "solution": "YEARN",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "YEARN",
     "definitions": [
      {
       "text": "pine",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "terms of",
-      "note": "a term is an end, so take the last letters"
-     },
-     {
-      "text": "fences",
-      "note": "a fence encloses a field, so the two letters enclose the heed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "terms of Forestry Commission",
-      "gives": "YN",
-      "select": "last",
-      "note": "last letters of ForestrY and CommissioN"
-     },
-     {
-      "clueFragment": "Heed",
-      "gives": "EAR",
-      "note": "to give ear is to heed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "Y",
-      "EAR",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "terms of",
+       "note": "a term is an end, so take the last letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "YN",
+       "indicators": [
+        {
+         "text": "fences",
+         "note": "a fence encloses a field, so the two letters enclose the heed"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "terms of Forestry Commission",
+         "gives": "YN",
+         "select": "last",
+         "note": "last letters of ForestrY and CommissioN"
+        }
+       ]
+      },
+      {
+       "words": "Heed",
+       "gives": "EAR",
+       "note": "to give ear is to heed"
+      }
      ]
     },
     "explanation": {
@@ -981,60 +916,62 @@
    },
    "solution": "GOODONYOU",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GOOD ON YOU",
     "definitions": [
      {
       "text": "Congrats",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "note": "the university letter comes after the rest"
-     },
-     {
-      "text": "beset by",
-      "note": "to be beset is to be surrounded, so the stickiness wraps around the old academic year"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some stickiness",
-      "gives": "GOO",
-      "note": "a sticky substance"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old"
-     },
-     {
-      "clueFragment": "academic",
-      "gives": "DON",
-      "note": "a university teacher"
-     },
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y = year"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U = university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "ODONY",
-      "O",
-      "U"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the university letter comes after the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "beset by",
+         "note": "to be beset is to be surrounded, so the stickiness wraps around the old academic year"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some stickiness",
+         "gives": "GOO",
+         "note": "a sticky substance"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "gives": "O",
+           "note": "O = old"
+          },
+          {
+           "words": "academic",
+           "gives": "DON",
+           "note": "a university teacher"
+          },
+          {
+           "words": "year",
+           "gives": "Y",
+           "note": "Y = year"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U = university"
+      }
      ]
     },
     "explanation": {
@@ -1063,47 +1000,41 @@
    },
    "solution": "OVERDRAWN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OVERDRAWN",
     "definitions": [
      {
       "text": "showing a loss",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "ending in",
-      "for": "letter_selection",
-      "note": "the end of Everton is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Completed",
-      "gives": "OVER",
-      "note": "finished"
-     },
-     {
-      "clueFragment": "tie",
-      "gives": "DRAW",
-      "note": "a tied match"
-     },
-     {
-      "clueFragment": "ending in Everton",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of Everton"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "DRAW",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Completed",
+       "gives": "OVER",
+       "note": "finished"
+      },
+      {
+       "words": "tie",
+       "gives": "DRAW",
+       "note": "a tied match"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "note": "the end of Everton is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ending in Everton",
+         "gives": "EVERTON",
+         "note": "last letter of Everton"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1132,26 +1063,25 @@
    },
    "solution": "ADDRESSEE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ADDRESSEE",
     "definitions": [
      {
       "text": "Handle on post?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Handle",
-      "note": "the surface wants a grip; the setter means slang for a name"
-     },
-     {
-      "clueFragment": "on post?",
-      "note": "the surface wants a gatepost; the setter means written on mail, so: whose name is on the envelope?"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Handle",
+       "note": "the surface wants a grip; the setter means slang for a name"
+      },
+      {
+       "words": "on post?",
+       "note": "the surface wants a gatepost; the setter means written on mail, so: whose name is on the envelope?"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something to grip fixed on top of a gatepost.",
      "walkthrough": "A handle is slang for a name, and post is mail, so the clue asks for the person named on a letter.",
@@ -1179,40 +1109,31 @@
    },
    "solution": "DIORAMA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIORAMA",
     "definitions": [
      {
       "text": "Small scene",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' places one thing within another, so the moon sits within the play"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one revolving around Jupiter",
-      "gives": "IO",
-      "note": "one of Jupiter's moons"
-     },
-     {
-      "clueFragment": "Cymbeline?",
-      "gives": "DRAMA",
-      "note": "Cymbeline is a Shakespeare play, an example of a play"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IO",
-      "RAMA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' places one thing within another, so the moon sits within the play"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cymbeline?",
+       "gives": "DRAMA",
+       "note": "Cymbeline is a Shakespeare play, an example of a play"
+      },
+      {
+       "words": "one revolving around Jupiter",
+       "gives": "IO",
+       "note": "one of Jupiter's moons"
+      }
      ]
     },
     "explanation": {
@@ -1242,50 +1163,45 @@
    },
    "solution": "ENGLISH",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "ENGLISH",
     "definitions": [
      {
       "text": "tongue",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "take only the final letter of foal"
-     },
-     {
-      "text": "wiggling",
-      "for": "anagram",
-      "note": "the letters squirm into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finally, foal",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of foal"
-     },
-     {
-      "clueFragment": "neighs",
-      "gives": "NEIGHS",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENGLISH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LNEIGHS",
-       "gives": "ENGLISH"
+       "text": "wiggling",
+       "note": "the letters squirm into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Finally",
+           "note": "take only the final letter of foal"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Finally, foal",
+           "gives": "FOAL",
+           "note": "last letter of foal"
+          }
+         ]
+        },
+        {
+         "words": "neighs",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1316,42 +1232,36 @@
    },
    "solution": "GENOA",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "GENOA",
     "definitions": [
      {
       "text": "Port",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "note": "only part of the phrase is used"
-     },
-     {
-      "text": "knocked back",
-      "note": "a drink knocked back goes down the hatch; here the letters go backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "curaçao negligently",
-      "gives": "AONEG",
-      "note": "the letters spanning curaçAO NEGligently"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GENOA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AONEG",
-       "to": "GENOA"
+       "text": "some",
+       "note": "only part of the phrase is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "knocked back",
+         "note": "a drink knocked back goes down the hatch; here the letters go backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curaçao negligently",
+         "gives": "AONEG",
+         "note": "the letters spanning curaçAO NEGligently"
+        }
+       ]
       }
      ]
     },
@@ -1382,12 +1292,6 @@
    },
    "solution": "GASTRIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "GASTRIC",
     "definitions": [
      {
       "text": "stomach",
@@ -1395,44 +1299,51 @@
       "note": "'stomach' is used as a modifier, as in stomach ache; the answer is the adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "leads to",
-      "note": "the fuel comes first and leads on to the rest"
-     },
-     {
-      "text": "around",
-      "note": "'around' means surrounding, so the spasm wraps round the letter from tender"
-     },
-     {
-      "text": "base of",
-      "note": "in a down clue the base is the bottom, the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Juice in US",
-      "gives": "GAS",
-      "note": "juice is slang for fuel; Americans call petrol gas"
-     },
-     {
-      "clueFragment": "spasm",
-      "gives": "TIC",
-      "note": "a muscle twitch"
-     },
-     {
-      "clueFragment": "base of tender",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of tender"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAS",
-      "T",
-      "R",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leads to",
+       "note": "the fuel comes first and leads on to the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Juice in US",
+       "gives": "GAS",
+       "note": "juice is slang for fuel; Americans call petrol gas"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "'around' means surrounding, so the spasm wraps round the letter from tender"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spasm",
+         "gives": "TIC",
+         "note": "a muscle twitch"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "base of",
+           "note": "in a down clue the base is the bottom, the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "base of tender",
+           "note": "last letter of tender"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1461,57 +1372,51 @@
    },
    "solution": "NAUGHTY",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "NAUGHTY",
     "definitions": [
      {
       "text": "defiant",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Held in",
-      "for": "container",
-      "note": "someone held in a city is detained within it"
-     },
-     {
-      "text": "angrily",
-      "for": "anagram",
-      "note": "an angry thug is shaken up, so the letters are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New York",
-      "gives": "NY",
-      "note": "the standard abbreviation"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "thug",
-      "gives": "UGHT",
-      "note": "anagram of THUG"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "A",
-      "UGHT",
-      "Y"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "THUG",
-       "gives": "UGHT"
+       "text": "Held in",
+       "note": "someone held in a city is detained within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "angrily",
+         "note": "an angry thug is shaken up, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "New York",
+           "gives": "NY",
+           "note": "the standard abbreviation"
+          },
+          {
+           "words": "American",
+           "gives": "A",
+           "note": "A = American"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "thug",
+       "gives": "UGHT",
+       "note": "anagram of THUG"
       }
      ]
     },
@@ -1541,53 +1446,52 @@
    },
    "solution": "THOUGHT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "THOUGHT",
     "definitions": [
      {
       "text": "Study",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cutting",
-      "for": "container",
-      "note": "a knife cutting meat goes into it, so the husband goes into the gristly meat"
-     },
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "take the last letter of meat"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gristly",
-      "gives": "TOUGH",
-      "note": "hard to chew"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "H = husband"
-     },
-     {
-      "clueFragment": "meat at last",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of meat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "H",
-      "OUGH",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cutting",
+         "note": "a knife cutting meat goes into it, so the husband goes into the gristly meat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gristly",
+         "gives": "TOUGH",
+         "note": "hard to chew"
+        },
+        {
+         "words": "husband",
+         "gives": "H",
+         "note": "H = husband"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "note": "take the last letter of meat"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat at last",
+         "gives": "MEAT",
+         "note": "last letter of meat"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1616,44 +1520,35 @@
    },
    "solution": "TIGER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TIGER",
     "definitions": [
      {
       "text": "Wild animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue, upsetting turns the letters upside down"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "concerning",
-      "gives": "RE",
-      "note": "re = about"
-     },
-     {
-      "clueFragment": "ass",
-      "gives": "GIT",
-      "note": "a fool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIGER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REGIT",
-       "to": "TIGER"
+       "text": "upset",
+       "note": "in a down clue, upsetting turns the letters upside down"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "concerning",
+         "gives": "RE",
+         "note": "re = about"
+        },
+        {
+         "words": "ass",
+         "gives": "GIT",
+         "note": "a fool"
+        }
+       ]
       }
      ]
     },
@@ -1689,38 +1584,30 @@
    },
    "solution": "DUSTUPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DUST-UPS",
     "definitions": [
      {
       "text": "quarrels",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Remains",
-      "gives": "DUST",
-      "note": "what is left of a body"
-     },
-     {
-      "clueFragment": "in court",
-      "gives": "UP",
-      "note": "to be up before a court is to be on trial"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S = son"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUST",
-      "UP",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Remains",
+       "gives": "DUST",
+       "note": "what is left of a body"
+      },
+      {
+       "words": "in court",
+       "gives": "UP",
+       "note": "to be up before a court is to be on trial"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S = son"
+      }
      ]
     },
     "explanation": {
@@ -1749,38 +1636,24 @@
    },
    "solution": "READING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "READING",
     "definitions": [
      {
       "text": "settlement on the Thames",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "fragments",
-      "for": "anagram",
-      "note": "to fragment is to break into pieces, which can be reassembled in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dig near",
-      "gives": "DIGNEAR",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "READING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DIGNEAR",
-       "gives": "READING"
+       "text": "fragments",
+       "note": "to fragment is to break into pieces, which can be reassembled in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dig near",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1810,32 +1683,25 @@
    },
    "solution": "AIRSHOW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AIRSHOW",
     "definitions": [
      {
       "text": "Hurricane possibly seen here",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "two broadcasts",
-      "gives": "AIR",
-      "note": "the first broadcast: to put on the airwaves"
-     },
-     {
-      "clueFragment": "broadcasts",
-      "gives": "SHOW",
-      "note": "the second broadcast: to screen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIR",
-      "SHOW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two broadcasts",
+       "gives": "AIR",
+       "note": "the first broadcast: to put on the airwaves"
+      },
+      {
+       "words": "broadcasts",
+       "gives": "SHOW",
+       "note": "the second broadcast: to screen"
+      }
      ]
     },
     "explanation": {
@@ -1871,32 +1737,25 @@
    },
    "solution": "GATHERINGCRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GATHERING-CRY",
     "definitions": [
      {
       "text": "that precedes the big fight?",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Meet",
-      "gives": "GATHERING",
-      "note": "a meet is an assembly"
-     },
-     {
-      "clueFragment": "greet\" in Glasgow",
-      "gives": "CRY",
-      "note": "in Scots, to greet is to weep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GATHERING",
-      "CRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Meet",
+       "gives": "GATHERING",
+       "note": "a meet is an assembly"
+      },
+      {
+       "words": "greet\" in Glasgow",
+       "gives": "CRY",
+       "note": "in Scots, to greet is to weep"
+      }
      ]
     },
     "explanation": {

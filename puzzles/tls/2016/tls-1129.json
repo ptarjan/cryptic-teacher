@@ -1,8 +1,6 @@
 {
  "id": "tls-1129",
  "number": 1129,
- "series": "tls",
- "name": "Times Literary Supplement cryptic crossword No 1,129",
  "setter": "Praxiteles",
  "date": "2016-06-10",
  "dimensions": {
@@ -48,47 +46,41 @@
    },
    "solution": "SEVENSEALS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SEVEN SEALS",
     "definitions": [
      {
       "text": "Lamb opens these",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "the start of a word is just its opening letter"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it, so one piece wraps round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kipling poems",
-      "gives": "SEVENSEAS",
-      "note": "The Seven Seas is Kipling's 1896 collection of poems"
-     },
-     {
-      "clueFragment": "Lammas",
-      "gives": "L",
-      "select": "first",
-      "note": "Lammas is the August 1st harvest festival; its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEVENSEA",
-      "L",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to surround it, so one piece wraps round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kipling poems",
+       "gives": "SEVENSEAS",
+       "note": "The Seven Seas is Kipling's 1896 collection of poems"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "note": "the start of a word is just its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lammas",
+         "note": "Lammas is the August 1st harvest festival; its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -124,45 +116,34 @@
    },
    "solution": "SHUTSOFF",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "SHUTS OFF",
     "definitions": [
      {
       "text": "Closes 17A, say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "something put out of order is disarranged, so these letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shouts",
-      "gives": "SHOUTS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "very loudlly",
-      "gives": "FF",
-      "note": "ff, fortissimo, is the musical marking for very loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHUTSO",
-      "FF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SHOUTS",
-       "gives": "SHUTSO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "something put out of order is disarranged, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shouts",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "very loudlly",
+       "gives": "FF",
+       "note": "ff, fortissimo, is the musical marking for very loud"
       }
      ]
     },
@@ -192,58 +173,49 @@
    },
    "solution": "VIDENDUM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "anagram"
-    ],
-    "answer": "VIDENDUM",
     "definitions": [
      {
       "text": "one to be seen",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "convoluted",
-      "for": "anagram",
-      "note": "something convoluted is twisted and tangled, so the letters are rearranged"
-     },
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "saying a thing is not there means it is taken away"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dud movie",
-      "gives": "DUDMOVIE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "O",
-      "note": "O resembles the figure for one; it is the letter removed"
-     },
-     {
-      "clueFragment": "Too too much",
-      "gives": "N",
-      "note": "n stands for an indefinitely large number, more than enough"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VIDENDUM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "VIDENDUM",
+     "indicators": [
       {
-       "fodder": "DUDMVIEN",
-       "gives": "VIDENDUM"
+       "text": "convoluted",
+       "note": "something convoluted is twisted and tangled, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "VIDENDUM",
+       "indicators": [
+        {
+         "text": "not",
+         "note": "saying a thing is not there means it is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dud movie",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "gives": "O",
+         "note": "O resembles the figure for one; it is the letter removed"
+        },
+        {
+         "words": "Too too much",
+         "gives": "N",
+         "note": "n stands for an indefinitely large number, more than enough"
+        }
+       ]
       }
      ]
     },
@@ -274,28 +246,16 @@
    },
    "solution": "STRUGGLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRUGGLE",
     "definitions": [
      {
       "text": "Strive",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to make a great effort against difficulty"
      },
      {
       "text": "like little Malcolm",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strive",
-      "note": "first meaning: to make a great effort against difficulty"
-     },
-     {
-      "clueFragment": "like little Malcolm",
-      "note": "second meaning: from David Halliwell's play title about Little Malcolm and his fight against the eunuchs"
+      "at": 7,
+      "meaning": "second meaning: from David Halliwell's play title about Little Malcolm and his fight against the eunuchs"
      }
     ],
     "explanation": {
@@ -323,31 +283,16 @@
    },
    "solution": "ANTHONY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ANTHONY",
     "definitions": [
      {
       "text": "Hope",
-      "at": 0
+      "at": 0,
+      "meaning": "first sense: the forename of the author of 'The Prisoner of Zenda'"
      },
      {
       "text": "Burgess",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "like"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hope",
-      "note": "first sense: the forename of the author of 'The Prisoner of Zenda'"
-     },
-     {
-      "clueFragment": "Burgess",
-      "note": "second sense: the forename of the author of 'A Clockwork Orange'"
+      "at": 10,
+      "meaning": "second sense: the forename of the author of 'A Clockwork Orange'"
      }
     ],
     "explanation": {
@@ -376,28 +321,16 @@
    },
    "solution": "STORMS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STORMS",
     "definitions": [
      {
       "text": "Jameson's",
-      "at": 0
+      "at": 0,
+      "meaning": "first sense: the novelist Jameson's forename with a possessive"
      },
      {
       "text": "may have ruined \"The Lovely Ship\"",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jameson's",
-      "note": "first sense: the novelist Jameson's forename with a possessive"
-     },
-     {
-      "clueFragment": "may have ruined \"The Lovely Ship\"",
-      "note": "second sense: violent weather that wrecks vessels"
+      "at": 10,
+      "meaning": "second sense: violent weather that wrecks vessels"
      }
     ],
     "explanation": {
@@ -433,53 +366,51 @@
    },
    "solution": "FINEARTS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FINE ARTS",
     "definitions": [
      {
       "text": "Are they suitable to encompass new appreciation of music by soprano?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "encompass",
-      "for": "container",
-      "note": "to encompass is to surround, so one piece goes round others"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "suitable",
-      "gives": "FIT",
-      "note": "fit means suitable"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "appreciation of music",
-      "gives": "EAR",
-      "note": "an ear for music is an appreciation of it"
-     },
-     {
-      "clueFragment": "soprano",
-      "gives": "S",
-      "note": "S is the abbreviation for soprano"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "N",
-      "EAR",
-      "T",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "encompass",
+         "note": "to encompass is to surround, so one piece goes round others"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suitable",
+         "gives": "FIT",
+         "note": "fit means suitable"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "new",
+           "gives": "N",
+           "note": "N is the abbreviation for new"
+          },
+          {
+           "words": "appreciation of music",
+           "gives": "EAR",
+           "note": "an ear for music is an appreciation of it"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "soprano",
+       "gives": "S",
+       "note": "S is the abbreviation for soprano"
+      }
      ]
     },
     "explanation": {
@@ -508,32 +439,25 @@
    },
    "solution": "BRANDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRANDO",
     "definitions": [
      {
       "text": "method actor",
       "at": 8
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Sort",
-      "gives": "BRAND",
-      "note": "a brand is a sort or kind"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "O",
-      "note": "o' is the clipped form of 'of', as in o'clock"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRAND",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sort",
+       "gives": "BRAND",
+       "note": "a brand is a sort or kind"
+      },
+      {
+       "words": "of",
+       "gives": "O",
+       "note": "o' is the clipped form of 'of', as in o'clock"
+      }
      ]
     },
     "explanation": {
@@ -562,53 +486,45 @@
    },
    "solution": "TAILOR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "TAILOR",
     "definitions": [
      {
       "text": "One of nine rings",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "letter_selection",
-      "note": "without its ends, only the inside of the word is kept"
-     },
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means tangled up, so the letters are mixed together"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mortals",
-      "gives": "ORTAL",
-      "select": "middle",
-      "note": "the word with its first and last letters lopped"
-     },
-     {
-      "clueFragment": "just one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAILOR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORTALI",
-       "gives": "TAILOR"
+       "text": "involved",
+       "note": "involved means tangled up, so the letters are mixed together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "note": "without its ends, only the inside of the word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mortals",
+           "note": "the word with its first and last letters lopped"
+          }
+         ]
+        },
+        {
+         "words": "just one",
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
@@ -657,26 +573,25 @@
     "24-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE FOUR HORSEMEN OF THE APOCALYPSE",
     "definitions": [
      {
       "text": "Riders to end all races",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Riders to end all races",
-      "note": "surface reading: jockeys in some final, decisive horse race"
-     },
-     {
-      "clueFragment": "Riders to end all races",
-      "note": "setter's reading: mounted figures who bring the end of all peoples of the world"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Riders to end all races",
+       "note": "surface reading: jockeys in some final, decisive horse race"
+      },
+      {
+       "words": "Riders to end all races",
+       "note": "setter's reading: mounted figures who bring the end of all peoples of the world"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Races means peoples, not contests. The four riders of Revelation bring conquest, war, famine and death; Blasco Ibáñez also used the title for a novel.",
      "definitionFit": "The four mounted figures of Revelation herald the end times, destroying the nations of mankind."
@@ -709,26 +624,25 @@
    },
    "solution": "OLDLAG",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OLD LAG",
     "definitions": [
      {
       "text": "\"Yes, sir — fourth spell of penal. You'd think an — like him would have more sense by now.\" (John Galsworthy)",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "fourth spell of penal",
-      "note": "surface reading: a quotation with a gap to be filled"
-     },
-     {
-      "clueFragment": "would have more sense by now",
-      "note": "setter's reading: a habitual criminal serving his fourth stretch of penal servitude"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "fourth spell of penal",
+       "note": "surface reading: a quotation with a gap to be filled"
+      },
+      {
+       "words": "would have more sense by now",
+       "note": "setter's reading: a habitual criminal serving his fourth stretch of penal servitude"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The quotation is from Galsworthy's play 'Escape'; the gap is filled by British slang for a convict who keeps returning to prison.",
      "definitionFit": "A man on his fourth spell of penal servitude is a hardened repeat offender, a veteran prisoner."
@@ -753,31 +667,16 @@
    },
    "solution": "NOSTROMO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOSTROMO",
     "definitions": [
      {
       "text": "A tale of the seaboard",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the subtitle of Joseph Conrad's 1904 novel"
      },
      {
       "text": "Italian bosun",
-      "at": 33
-     }
-    ],
-    "linkWords": [
-     "featuring"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A tale of the seaboard",
-      "note": "first meaning: the subtitle of Joseph Conrad's 1904 novel"
-     },
-     {
-      "clueFragment": "Italian bosun",
-      "note": "second meaning: its title character, an Italian boatswain in the port of Sulaco"
+      "at": 33,
+      "meaning": "second meaning: its title character, an Italian boatswain in the port of Sulaco"
      }
     ],
     "explanation": {
@@ -804,30 +703,28 @@
    },
    "solution": "MNA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MNA",
     "definitions": [
      {
       "text": "Greek ready",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be found in",
-      "for": "hidden_word",
-      "note": "something found in a word is sitting inside it, ready to be lifted out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Remnants",
-      "gives": "MNA",
-      "note": "the middle letters of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to be found in",
+       "note": "something found in a word is sitting inside it, ready to be lifted out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Remnants",
+       "gives": "MNA",
+       "note": "the middle letters of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something Greek is waiting among the remnants.",
      "walkthrough": "Ready here is a noun: 'the ready' is British slang for cash, not the adjective meaning prepared.",
@@ -854,28 +751,16 @@
    },
    "solution": "LAY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LAY",
     "definitions": [
      {
       "text": "Put down",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to place something down"
      },
      {
       "text": "Hergesheimer's romance with 4",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Put down",
-      "note": "first meaning: to place something down"
-     },
-     {
-      "clueFragment": "Hergesheimer's romance with 4",
-      "note": "second meaning: the first word of Joseph Hergesheimer's 1914 romance, completed by 4's answer"
+      "at": 9,
+      "meaning": "second meaning: the first word of Joseph Hergesheimer's 1914 romance, completed by 4's answer"
      }
     ],
     "explanation": {
@@ -902,12 +787,6 @@
    },
    "solution": "FAMINE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "FAMINE",
     "definitions": [
      {
       "text": "Preventing which Joseph achieved",
@@ -915,41 +794,46 @@
       "note": "the answer replaces 'which': Joseph achieved preventing this"
      }
     ],
-    "indicators": [
-     {
-      "text": "brief",
-      "for": "deletion",
-      "note": "kept brief means cut short, so the last letter is lost"
-     },
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "what comes at first is the opening letter only"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "renown",
-      "gives": "FAM",
-      "note": "fame, with its tail docked"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Egypt",
-      "gives": "E",
-      "select": "first",
-      "note": "the opening letter of the country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAM",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FAMINE",
+     "indicators": [
+      {
+       "text": "brief",
+       "note": "kept brief means cut short, so the last letter is lost"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "renown",
+         "gives": "FAM",
+         "note": "fame, with its tail docked"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "note": "what comes at first is the opening letter only"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Egypt",
+           "note": "the opening letter of the country"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -978,38 +862,25 @@
    },
    "solution": "ANA",
    "annotation": {
-    "type": [
-     "palindrome"
-    ],
-    "answer": "ANA",
     "definitions": [
      {
       "text": "Literary anecdotes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no change there then?",
-      "for": "palindrome",
-      "note": "nothing changes when the word is turned about, so it reads alike both ways"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doing the rounds",
-      "gives": "ANA",
-      "note": "turned round, the word is still the same"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
       {
-       "from": "ANA",
-       "to": "ANA"
+       "text": "no change there then?",
+       "note": "nothing changes when the word is turned about, so it reads alike both ways"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doing the rounds",
+       "gives": "ANA",
+       "note": "turned round, the word is still the same"
       }
      ]
     },
@@ -1040,47 +911,41 @@
    },
    "solution": "IANTHINE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "IANTHINE",
     "definitions": [
      {
       "text": "Like the last part of \"The Rainbow\"",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it, so one piece wraps the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that's",
-      "gives": "IE",
-      "note": "i.e. is short for id est, Latin for 'that is'"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "AN",
-      "note": "an is the indefinite article, meaning one"
-     },
-     {
-      "clueFragment": "that's poor",
-      "gives": "THIN",
-      "note": "thin means meagre or poor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "AN",
-      "THIN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to surround it, so one piece wraps the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that's",
+       "gives": "IE",
+       "note": "i.e. is short for id est, Latin for 'that is'"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "AN",
+         "note": "an is the indefinite article, meaning one"
+        },
+        {
+         "words": "that's poor",
+         "gives": "THIN",
+         "note": "thin means meagre or poor"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1116,26 +981,25 @@
    },
    "solution": "GASTAP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GAS TAP",
     "definitions": [
      {
       "text": "With which to start laughing in Wodehouse?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "With which to start laughing in Wodehouse?",
-      "note": "surface reading: what sets a reader of Wodehouse's comedy giggling"
-     },
-     {
-      "clueFragment": "laughing in Wodehouse",
-      "note": "setter's reading: 'Laughing Gas' is a Wodehouse novel, and you turn on the gas with a fitting on the supply pipe"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "With which to start laughing in Wodehouse?",
+       "note": "surface reading: what sets a reader of Wodehouse's comedy giggling"
+      },
+      {
+       "words": "laughing in Wodehouse",
+       "note": "setter's reading: 'Laughing Gas' is a Wodehouse novel, and you turn on the gas with a fitting on the supply pipe"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Wodehouse wrote a 1936 novel called 'Laughing Gas'; the device that starts any gas flowing is the answer.",
      "definitionFit": "A valve on a supply pipe is turned to release the gas, so it starts the laughing gas."
@@ -1162,32 +1026,25 @@
    },
    "solution": "GRIMALDI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIMALDI",
     "definitions": [
      {
       "text": "he'll have cheered him up",
       "at": 17
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Stern",
-      "gives": "GRIM",
-      "note": "grim means stern"
-     },
-     {
-      "clueFragment": "retailer",
-      "gives": "ALDI",
-      "note": "Aldi is a discount supermarket chain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRIM",
-      "ALDI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stern",
+       "gives": "GRIM",
+       "note": "grim means stern"
+      },
+      {
+       "words": "retailer",
+       "gives": "ALDI",
+       "note": "Aldi is a discount supermarket chain"
+      }
      ]
     },
     "explanation": {
@@ -1216,55 +1073,48 @@
    },
    "solution": "THESPIAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "THESPIAN",
     "definitions": [
      {
       "text": "I might",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "the start of a word is just its opening letter"
-     },
-     {
-      "text": "performing",
-      "for": "anagram",
-      "note": "letters that perform are put through their paces into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shine",
-      "gives": "SHINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "play",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THESPIAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHINEATP",
-       "gives": "THESPIAN"
+       "text": "performing",
+       "note": "letters that perform are put through their paces into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Shine",
+         "note": "taken as written"
+        },
+        {
+         "words": "at",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "the start of a word is just its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "play",
+           "note": "the first letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1294,26 +1144,25 @@
    },
    "solution": "PATIENCE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PATIENCE",
     "definitions": [
      {
       "text": "Was she worthy of Pearl Curran?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Was she worthy of Pearl Curran?",
-      "note": "surface reading: was some woman deserving of Mrs Curran?"
-     },
-     {
-      "clueFragment": "worthy of Pearl Curran",
-      "note": "setter's reading: 'worthy' points to the surname Worth of the spirit the St Louis medium claimed to channel"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Was she worthy of Pearl Curran?",
+       "note": "surface reading: was some woman deserving of Mrs Curran?"
+      },
+      {
+       "words": "worthy of Pearl Curran",
+       "note": "setter's reading: 'worthy' points to the surname Worth of the spirit the St Louis medium claimed to channel"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Pearl Curran, an American medium, said her books were dictated by a 17th-century spirit called Patience Worth; 'worthy' hides that surname.",
      "definitionFit": "The spirit author's given name, the woman whose surname was Worth, is the one Curran channelled."
@@ -1340,38 +1189,25 @@
    },
    "solution": "WAR",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "WAR",
     "definitions": [
      {
       "text": "Where minstrel boy went",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to return",
-      "for": "reversal",
-      "note": "to return is to go back the way you came, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unprepared",
-      "gives": "RAW",
-      "note": "raw means unprepared, as of untrained recruits or uncooked food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RAW",
-       "to": "WAR"
+       "text": "to return",
+       "note": "to return is to go back the way you came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unprepared",
+       "gives": "RAW",
+       "note": "raw means unprepared, as of untrained recruits or uncooked food"
       }
      ]
     },
@@ -1401,11 +1237,6 @@
    },
    "solution": "WABOOMS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WABOOMS",
     "definitions": [
      {
       "text": "used by \"The Waggoner\"",
@@ -1413,40 +1244,34 @@
       "note": "a description of the trees by their use, not a synonym"
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "to be about something is to surround it, so one piece is split round the rest"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Was",
-      "gives": "WAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "disapprove",
-      "gives": "BOO",
-      "note": "to boo is to jeer in disapproval"
-     },
-     {
-      "clueFragment": "medium",
-      "gives": "M",
-      "note": "M is the abbreviation for medium, as on clothes labels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WA",
-      "BOO",
-      "M",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "to be about something is to surround it, so one piece is split round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "disapprove",
+         "gives": "BOO",
+         "note": "to boo is to jeer in disapproval"
+        },
+        {
+         "words": "medium",
+         "gives": "M",
+         "note": "M is the abbreviation for medium, as on clothes labels"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1475,48 +1300,37 @@
    },
    "solution": "MAGNESIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MAGNESIA",
     "definitions": [
      {
       "text": "to Jonson's \"Alchemist\", like marchesite or tutie",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "alternative",
-      "for": "anagram",
-      "note": "an alternative is another version, so the letters take another form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mage",
-      "gives": "MAGE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAGNESIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MAGEISAN",
-       "gives": "MAGNESIA"
+       "text": "alternative",
+       "note": "an alternative is another version, so the letters take another form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mage",
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "words": "an",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1546,38 +1360,29 @@
    },
    "solution": "MOOING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOOING",
     "definitions": [
      {
       "text": "sounding bovine",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Jane Smiley novel",
-      "gives": "MOO",
-      "note": "'Moo' is Jane Smiley's 1995 campus novel"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "German",
-      "gives": "G",
-      "note": "G is the abbreviation for German"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOO",
-      "IN",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jane Smiley novel",
+       "gives": "MOO",
+       "note": "'Moo' is Jane Smiley's 1995 campus novel"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "German",
+       "gives": "G",
+       "note": "G is the abbreviation for German"
+      }
      ]
     },
     "explanation": {
@@ -1613,26 +1418,25 @@
    },
    "solution": "SEACAP",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SEA-CAP",
     "definitions": [
      {
       "text": "\"Now you have no — on your head\" (Twelfth Night)",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on your head",
-      "note": "surface reading: a quotation with a gap to be filled"
-     },
-     {
-      "clueFragment": "(Twelfth Night)",
-      "note": "setter's reading: Antonio, a ship's master, is told his mariner's headgear is missing as he is arrested"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "on your head",
+       "note": "surface reading: a quotation with a gap to be filled"
+      },
+      {
+       "words": "(Twelfth Night)",
+       "note": "setter's reading: Antonio, a ship's master, is told his mariner's headgear is missing as he is arrested"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "In Act 3 an officer arresting Antonio, a ship's captain, says he is known 'though now you have no' sailor's hat on.",
      "definitionFit": "A seaman's cap identified Antonio as a mariner; the officer recognises him even without it."
@@ -1657,39 +1461,30 @@
    },
    "solution": "IDLEST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IDLEST",
     "definitions": [
      {
       "text": "Acting most like Jerome",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "come first",
-      "for": "charade",
-      "note": "what comes first is placed at the front of the sequence"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'd",
-      "gives": "ID",
-      "note": "the contraction without its apostrophe"
-     },
-     {
-      "clueFragment": "for fear that",
-      "gives": "LEST",
-      "note": "lest means for fear that"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ID",
-      "LEST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "come first",
+       "note": "what comes first is placed at the front of the sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'd",
+       "note": "the contraction without its apostrophe"
+      },
+      {
+       "words": "for fear that",
+       "gives": "LEST",
+       "note": "lest means for fear that"
+      }
      ]
     },
     "explanation": {
@@ -1741,49 +1536,39 @@
    },
    "solution": "NARNIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NARNIA",
     "definitions": [
      {
       "text": "Fictional land",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reflecting",
-      "for": "reversal",
-      "note": "a reflection shows things mirrored, the wrong way round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a means one"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Kurosawa film",
-      "gives": "RAN",
-      "note": "'Ran' is Kurosawa's 1985 version of King Lear"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NARNIA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AINRAN",
-       "to": "NARNIA"
+       "text": "reflecting",
+       "note": "a reflection shows things mirrored, the wrong way round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "gives": "A",
+         "note": "a means one"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "Kurosawa film",
+         "gives": "RAN",
+         "note": "'Ran' is Kurosawa's 1985 version of King Lear"
+        }
+       ]
       }
      ]
     },
@@ -1813,50 +1598,44 @@
    },
    "solution": "PESTILENCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "PESTILENCE",
     "definitions": [
      {
       "text": "Plague",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means tangled up, so the letters are mixed together"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the beginning, so only the first letter counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Celestine",
-      "gives": "CELESTINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Prophecy",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PESTILENCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CELESTINEP",
-       "gives": "PESTILENCE"
+       "text": "involved",
+       "note": "involved means tangled up, so the letters are mixed together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Celestine",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially means at the beginning, so only the first letter counts"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Prophecy",
+           "note": "the first letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "toughie-111",
  "number": 111,
- "series": "toughie",
- "name": "Telegraph toughie crossword No 111",
  "setter": "Citrus",
  "date": "2009-03-13",
  "dimensions": {
@@ -42,36 +40,39 @@
    },
    "solution": "AIDE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "AIDE",
     "definitions": [
      {
       "text": "Assistant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shows",
-      "for": "hidden_word",
-      "note": "the word shows its letters openly, sitting inside the longer medical word"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, 'up' means the run of letters is read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paediatrician",
-      "gives": "EDIA",
-      "note": "four consecutive letters inside the word, starting at its third letter"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "note": "in a down clue, 'up' means the run of letters is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "shows",
+         "note": "the word shows its letters openly, sitting inside the longer medical word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paediatrician",
+         "gives": "EDIA",
+         "note": "four consecutive letters inside the word, starting at its third letter"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A doctor's helper in a children's clinic turns up for work.",
      "walkthrough": "EDIA sits in paEDIAtrician; read upwards it gives AIDE.",
@@ -98,35 +99,25 @@
    },
    "solution": "GEMINI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GEMINI",
     "definitions": [
      {
       "text": "twins",
       "at": 20
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Goddess",
-      "gives": "GE",
-      "note": "Ge, also Gaia, is the Greek goddess of the earth"
-     },
-     {
-      "clueFragment": "little",
-      "gives": "MINI",
-      "note": "mini means small"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GE",
-      "MINI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Goddess",
+       "gives": "GE",
+       "note": "Ge, also Gaia, is the Greek goddess of the earth"
+      },
+      {
+       "words": "little",
+       "gives": "MINI",
+       "note": "mini means small"
+      }
      ]
     },
     "explanation": {
@@ -154,41 +145,35 @@
    },
    "solution": "MEWS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "MEWS",
     "definitions": [
      {
       "text": "Gulls",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at start of",
-      "for": "letter_selection",
-      "note": "only the very first letter of the following month's name is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shed feathers",
-      "gives": "MEW",
-      "note": "to mew is an old word for a bird moulting"
-     },
-     {
-      "clueFragment": "September",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of the month"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MEW",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shed feathers",
+       "gives": "MEW",
+       "note": "to mew is an old word for a bird moulting"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at start of",
+         "note": "only the very first letter of the following month's name is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "September",
+         "note": "the opening letter of the month"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -217,43 +202,31 @@
    },
    "solution": "VARIED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VARIED",
     "definitions": [
      {
       "text": "changed",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "the gambling verb wraps around the outside of the short word for the Arab"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "staked",
-      "gives": "VIED",
-      "note": "vied means competed or gambled, as when staking a bet in old card games"
-     },
-     {
-      "clueFragment": "Arab",
-      "gives": "AR",
-      "note": "Ar. is the abbreviation for Arab or Arabic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "AR",
-      "IED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "note": "the gambling verb wraps around the outside of the short word for the Arab"
+      }
+     ],
+     "parts": [
+      {
+       "words": "staked",
+       "gives": "VIED",
+       "note": "vied means competed or gambled, as when staking a bet in old card games"
+      },
+      {
+       "words": "Arab",
+       "gives": "AR",
+       "note": "Ar. is the abbreviation for Arab or Arabic"
+      }
      ]
     },
     "explanation": {
@@ -282,60 +255,55 @@
    },
    "solution": "ALARMIST",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ALARMIST",
     "definitions": [
      {
       "text": "one easily scared",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "installed",
-      "for": "container",
-      "note": "the French article is set into the weapon word, as a fitting is put inside something"
-     },
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "only the first letter of the following word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weapon",
-      "gives": "ARM",
-      "note": "an arm is a weapon, as in firearm"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LA",
-      "note": "la is French for 'the' before a feminine noun"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "terrify",
-      "gives": "T",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LA",
-      "RM",
-      "IS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "installed",
+         "note": "the French article is set into the weapon word, as a fitting is put inside something"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Weapon",
+         "gives": "ARM",
+         "note": "an arm is a weapon, as in firearm"
+        },
+        {
+         "words": "the French",
+         "gives": "LA",
+         "note": "la is French for 'the' before a feminine noun"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "only the first letter of the following word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "terrify",
+         "note": "the first letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -364,47 +332,44 @@
    },
    "solution": "ALLARGANDO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ALLARGANDO",
     "definitions": [
      {
       "text": "becoming largo",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "a bit of",
-      "for": "letter_selection",
-      "note": "a small bit of the tempo word, its first letter, is all that is used"
-     },
-     {
-      "text": "modified",
-      "for": "anagram",
-      "note": "the letters are altered in order, so they are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Largo and a",
-      "gives": "LARGOANDA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lento",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LARGOANDAL",
-       "gives": "ALLARGANDO"
+       "text": "modified",
+       "note": "the letters are altered in order, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Largo and a",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a bit of",
+           "note": "a small bit of the tempo word, its first letter, is all that is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lento",
+           "note": "the opening letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -434,45 +399,34 @@
    },
    "solution": "AIREDALE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "AIREDALE",
     "definitions": [
      {
       "text": "terrier",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "trained",
-      "for": "anagram",
-      "note": "something trained has been reshaped and drilled into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "First class",
-      "gives": "AI",
-      "note": "A1 means first class, written with I for the figure one"
-     },
-     {
-      "clueFragment": "dealer",
-      "gives": "DEALER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AI",
-      "REDALE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "DEALER",
-       "gives": "REDALE"
+       "words": "First class",
+       "gives": "AI",
+       "note": "A1 means first class, written with I for the figure one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trained",
+         "note": "something trained has been reshaped and drilled into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dealer",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -501,51 +455,40 @@
    },
    "solution": "AGELESS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AGELESS",
     "definitions": [
      {
       "text": "like Peter Pan",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "brought up",
-      "for": "reversal",
-      "note": "in a down entry, raising letters up means reading them from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Adult",
-      "gives": "A",
-      "note": "A is the film certificate for adult"
-     },
-     {
-      "clueFragment": "for example",
-      "gives": "EG",
-      "note": "e.g. is the abbreviation for 'for example'"
-     },
-     {
-      "clueFragment": "minor",
-      "gives": "LESS",
-      "note": "lesser or smaller, as in minor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GE",
-      "LESS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EG",
-       "to": "GE"
+       "words": "Adult",
+       "gives": "A",
+       "note": "A is the film certificate for adult"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought up",
+         "note": "in a down entry, raising letters up means reading them from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for example",
+         "gives": "EG",
+         "note": "e.g. is the abbreviation for 'for example'"
+        }
+       ]
+      },
+      {
+       "words": "minor",
+       "gives": "LESS",
+       "note": "lesser or smaller, as in minor"
       }
      ]
     },
@@ -575,40 +518,38 @@
    },
    "solution": "ALLELE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ALLELE",
     "definitions": [
      {
       "text": "Gene",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has lost",
-      "for": "deletion",
-      "note": "the word has lost the 's that stands for has, the clitic contraction"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "everybody",
-      "gives": "ALL",
-      "note": "all means everyone"
-     },
-     {
-      "clueFragment": "else",
-      "gives": "ELSE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALL",
-      "ELE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "has lost",
+       "note": "the word has lost the 's that stands for has, the clitic contraction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "everybody",
+         "gives": "ALL",
+         "note": "all means everyone"
+        },
+        {
+         "words": "else",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -637,32 +578,25 @@
    },
    "solution": "RESIDE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RESIDE",
     "definitions": [
      {
       "text": "Make one's home",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re means on or concerning"
-     },
-     {
-      "clueFragment": "border",
-      "gives": "SIDE",
-      "note": "a side is an edge or border"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "SIDE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "words": "border",
+       "gives": "SIDE",
+       "note": "a side is an edge or border"
+      }
      ]
     },
     "explanation": {
@@ -696,44 +630,38 @@
    },
    "solution": "SLIPROAD",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SLIP ROAD",
     "definitions": [
      {
       "text": "approach to motorway",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Foolish",
-      "for": "anagram",
-      "note": "foolish behaviour is muddled, so the letters are jumbled"
-     },
-     {
-      "text": "drop their sixth",
-      "for": "deletion",
-      "note": "the sixth letter of the spendthrifts' word is let fall"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prodigals",
-      "gives": "PRODIGALS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SLIPROAD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRODIALS",
-       "gives": "SLIPROAD"
+       "text": "Foolish",
+       "note": "foolish behaviour is muddled, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drop their sixth",
+         "note": "the sixth letter of the spendthrifts' word is let fall"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prodigals",
+         "note": "taken as written"
+        },
+        {
+         "gives": "G"
+        }
+       ]
       }
      ]
     },
@@ -769,26 +697,25 @@
    },
    "solution": "CABINETPUDDING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CABINET PUDDING",
     "definitions": [
      {
       "text": "Afters at No. 10",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Afters at No. 10",
-      "note": "surface: the dessert served at the Prime Minister's residence"
-     },
-     {
-      "clueFragment": "No. 10",
-      "note": "setter's reading: the government's senior ministers meet at No. 10, and their name is also that of a steamed sponge dessert"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Afters at No. 10",
+       "note": "surface: the dessert served at the Prime Minister's residence"
+      },
+      {
+       "words": "No. 10",
+       "note": "setter's reading: the government's senior ministers meet at No. 10, and their name is also that of a steamed sponge dessert"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "No. 10 Downing Street is the British Prime Minister's home, where the Cabinet meets. Afters is British slang for dessert.",
      "definitionFit": "Cabinet pudding is a traditional British steamed dessert of sponge, dried fruit and custard, punningly the ministers' sweet course."
@@ -815,48 +742,34 @@
    },
    "solution": "AZERBAIJAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "AZERBAIJAN",
     "definitions": [
      {
       "text": "Asian state",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "shot means ruined or wrecked, so the animal's letters are broken up"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A zebra",
-      "gives": "AZEBRA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "New Year's Day",
-      "gives": "IJAN",
-      "note": "1 January, written as I for one and JAN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AZERBA",
-      "IJAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "AZEBRA",
-       "gives": "AZERBA"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "note": "shot means ruined or wrecked, so the animal's letters are broken up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A zebra",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "New Year's Day",
+       "gives": "IJAN",
+       "note": "1 January, written as I for one and JAN"
       }
      ]
     },
@@ -886,40 +799,31 @@
    },
    "solution": "PURIM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PURIM",
     "definitions": [
      {
       "text": "Jewish feast",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another means the first sits inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stiffly formal",
-      "gives": "PRIM",
-      "note": "prim means stiffly correct"
-     },
-     {
-      "clueFragment": "Acceptable",
-      "gives": "U",
-      "note": "U means upper-class and so socially acceptable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "U",
-      "RIM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one item placed in another means the first sits inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stiffly formal",
+       "gives": "PRIM",
+       "note": "prim means stiffly correct"
+      },
+      {
+       "words": "Acceptable",
+       "gives": "U",
+       "note": "U means upper-class and so socially acceptable"
+      }
      ]
     },
     "explanation": {
@@ -948,33 +852,29 @@
    },
    "solution": "BENE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BENE",
     "definitions": [
      {
       "text": "prayer for Wordsworth",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "forgetting his last",
-      "for": "deletion",
-      "note": "the cleric forgets his final letter, which is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Exorcist",
-      "gives": "BENET",
-      "note": "a benet is an exorcist, the third of the minor orders of the Church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BENE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "forgetting his last",
+       "note": "the cleric forgets his final letter, which is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exorcist",
+       "gives": "BENET",
+       "note": "a benet is an exorcist, the third of the minor orders of the Church"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1003,48 +903,34 @@
    },
    "solution": "EXPIRANT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "EXPIRANT",
     "definitions": [
      {
       "text": "Someone dying",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "doctor",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so the letters are altered"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "examined",
-      "gives": "EX",
-      "note": "ex. is a dictionary abbreviation for examined"
-     },
-     {
-      "clueFragment": "in part",
-      "gives": "INPART",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "PIRANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "INPART",
-       "gives": "PIRANT"
+       "words": "examined",
+       "gives": "EX",
+       "note": "ex. is a dictionary abbreviation for examined"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "note": "to doctor something is to tamper with it, so the letters are altered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in part",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1074,41 +960,35 @@
    },
    "solution": "SARKS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SARKS",
     "definitions": [
      {
       "text": "Scots shirts",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "starting to",
-      "for": "letter_selection",
-      "note": "only the starting letter of the next word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Island",
-      "gives": "SARK",
-      "note": "Sark is one of the Channel Islands"
-     },
-     {
-      "clueFragment": "sell",
-      "gives": "S",
-      "select": "first",
-      "note": "the first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SARK",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Island",
+       "gives": "SARK",
+       "note": "Sark is one of the Channel Islands"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starting to",
+         "note": "only the starting letter of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sell",
+         "note": "the first letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1136,54 +1016,40 @@
    },
    "solution": "SAFFRON",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SAFFRON",
     "definitions": [
      {
       "text": "Colour",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dressing",
-      "for": "anagram",
-      "note": "dressing arranges things anew, as a window is dressed, so the name's letters are rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the loud marking goes in, placed inside the rearranged name"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nora's",
-      "gives": "NORAS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "very loud",
-      "gives": "FF",
-      "note": "ff, fortissimo, is the musical direction for very loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "FF",
-      "RON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NORAS",
-       "gives": "SARON"
+       "text": "in",
+       "note": "the loud marking goes in, placed inside the rearranged name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dressing",
+         "note": "dressing arranges things anew, as a window is dressed, so the name's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nora's",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "very loud",
+       "gives": "FF",
+       "note": "ff, fortissimo, is the musical direction for very loud"
       }
      ]
     },
@@ -1213,35 +1079,25 @@
    },
    "solution": "TEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TEND",
     "definitions": [
      {
       "text": "Wait",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "close",
-      "gives": "END",
-      "note": "the close of something is its end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "close",
+       "gives": "END",
+       "note": "the close of something is its end"
+      }
      ]
     },
     "explanation": {
@@ -1280,26 +1136,25 @@
    },
    "solution": "BAPTISMOFBLOOD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BAPTISM OF BLOOD",
     "definitions": [
      {
       "text": "Christening in Transylvania",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Christening",
-      "note": "surface: a baptism ceremony held in a Romanian region"
-     },
-     {
-      "clueFragment": "in Transylvania",
-      "note": "setter's reading: Transylvania is Dracula's home, so a vampire's initiation would involve gore rather than water"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Christening",
+       "note": "surface: a baptism ceremony held in a Romanian region"
+      },
+      {
+       "words": "in Transylvania",
+       "note": "setter's reading: Transylvania is Dracula's home, so a vampire's initiation would involve gore rather than water"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The phrase really means martyrdom of an unbaptised believer, counted as baptism; the clue plays on Transylvanian vampire lore.",
      "definitionFit": "The phrase names martyrdom treated as a christening, which literal-minded vampires of Dracula's homeland would relish."
@@ -1326,32 +1181,24 @@
    },
    "solution": "INTENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INTENT",
     "definitions": [
      {
       "text": "Diligently applied",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "camp",
-      "gives": "TENT",
-      "note": "a tent is the shelter of a camp, so being in camp is being in a tent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "TENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "camp",
+       "gives": "TENT",
+       "note": "a tent is the shelter of a camp, so being in camp is being in a tent"
+      }
      ]
     },
     "explanation": {
@@ -1379,43 +1226,31 @@
    },
    "solution": "LARKED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LARKED",
     "definitions": [
      {
       "text": "had fun",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "one element is placed inside the other, enclosed by it"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Conducted",
-      "gives": "LED",
-      "note": "led means guided or conducted"
-     },
-     {
-      "clueFragment": "vessel",
-      "gives": "ARK",
-      "note": "an ark is a vessel, like Noah's"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ARK",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "one element is placed inside the other, enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Conducted",
+       "gives": "LED",
+       "note": "led means guided or conducted"
+      },
+      {
+       "words": "vessel",
+       "gives": "ARK",
+       "note": "an ark is a vessel, like Noah's"
+      }
      ]
     },
     "explanation": {
@@ -1444,35 +1279,24 @@
    },
    "solution": "AIGRETTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AIGRETTE",
     "definitions": [
      {
       "text": "feathery ornament",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "complex",
-      "for": "anagram",
-      "note": "complex means intricate, tangled, so the letters are intertwined in another order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tie great",
-      "gives": "TIEGREAT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TIEGREAT",
-       "gives": "AIGRETTE"
+       "text": "complex",
+       "note": "complex means intricate, tangled, so the letters are intertwined in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tie great",
+       "note": "taken as written"
       }
      ]
     },
@@ -1501,33 +1325,29 @@
    },
    "solution": "EACH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EACH",
     "definitions": [
      {
       "text": "for every one individually",
       "at": 10
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "the fruit is cut, losing its head letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fruit",
-      "gives": "PEACH",
-      "note": "a peach is a fruit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EACH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "the fruit is cut, losing its head letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fruit",
+       "gives": "PEACH",
+       "note": "a peach is a fruit"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1556,45 +1376,41 @@
    },
    "solution": "RARELY",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "RARELY",
     "definitions": [
      {
       "text": "seldom",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "the nobleman departs, so his letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Earl",
-      "gives": "E",
-      "note": "E is the abbreviation for earl"
-     },
-     {
-      "clueFragment": "position behind",
-      "gives": "REAR",
-      "note": "the rear is the position at the back"
-     },
-     {
-      "clueFragment": "City",
-      "gives": "ELY",
-      "note": "Ely is a cathedral city in Cambridgeshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAR",
-      "ELY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "the nobleman departs, so his letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "position behind",
+         "gives": "REAR",
+         "note": "the rear is the position at the back"
+        },
+        {
+         "words": "Earl",
+         "gives": "E",
+         "note": "E is the abbreviation for earl"
+        }
+       ]
+      },
+      {
+       "words": "City",
+       "gives": "ELY",
+       "note": "Ely is a cathedral city in Cambridgeshire"
+      }
      ]
     },
     "explanation": {
@@ -1623,28 +1439,16 @@
    },
    "solution": "LIVE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LIVE",
     "definitions": [
      {
       "text": "Escape death",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to survive, to stay alive"
      },
      {
       "text": "in operation",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Escape death",
-      "note": "first meaning: to survive, to stay alive"
-     },
-     {
-      "clueFragment": "in operation",
-      "note": "second meaning: switched on and working, as a wire carrying current"
+      "at": 13,
+      "meaning": "second meaning: switched on and working, as a wire carrying current"
      }
     ],
     "explanation": {
@@ -1673,40 +1477,31 @@
    },
    "solution": "CANNON",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CANNON",
     "definitions": [
      {
       "text": "ordnance",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the regulation wraps round the other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rule",
-      "gives": "CANON",
-      "note": "a canon is a rule or law, especially of the church"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "N",
-      "NON"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the regulation wraps round the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rule",
+       "gives": "CANON",
+       "note": "a canon is a rule or law, especially of the church"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      }
      ]
     },
     "explanation": {
@@ -1735,32 +1530,25 @@
    },
    "solution": "CONSERVE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONSERVE",
     "definitions": [
      {
       "text": "Keep",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "prisoner",
-      "gives": "CON",
-      "note": "a con is a convict"
-     },
-     {
-      "clueFragment": "to wait at table",
-      "gives": "SERVE",
-      "note": "to serve food to diners"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "SERVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "prisoner",
+       "gives": "CON",
+       "note": "a con is a convict"
+      },
+      {
+       "words": "to wait at table",
+       "gives": "SERVE",
+       "note": "to serve food to diners"
+      }
      ]
     },
     "explanation": {

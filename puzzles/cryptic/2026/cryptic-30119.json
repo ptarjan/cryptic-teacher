@@ -1,8 +1,6 @@
 {
  "id": "cryptic-30119",
  "number": 30119,
- "series": "cryptic",
- "name": "Cryptic crossword No 30,119",
  "setter": "Paul",
  "date": "2026-09-23",
  "dimensions": {
@@ -48,35 +46,25 @@
     "5-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHOOPEE CUSHION",
     "definitions": [
      {
       "text": "children's 'entertainer'?",
       "at": 19
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Terrific",
-      "gives": "WHOOPEE",
-      "note": "a gleeful exclamation meaning 'terrific!', the kind shouted at a party"
-     },
-     {
-      "clueFragment": "temper",
-      "gives": "CUSHION",
-      "note": "to temper a blow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHOOPEE",
-      "CUSHION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Terrific",
+       "gives": "WHOOPEE",
+       "note": "a gleeful exclamation meaning 'terrific!', the kind shouted at a party"
+      },
+      {
+       "words": "temper",
+       "gives": "CUSHION",
+       "note": "to temper a blow"
+      }
      ]
     },
     "explanation": {
@@ -106,54 +94,58 @@
    },
    "solution": "HENDRIX",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "HENDRIX",
     "definitions": [
      {
       "text": "Musician, 'experienced' performer ultimately, one inspired by voodoo?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "takes the final letter of each of the words before it"
-     },
-     {
-      "text": "inspired by",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "voodoo",
-      "gives": "HEX",
-      "note": "a hex is a voodoo curse; it goes round the rest"
-     },
-     {
-      "clueFragment": "Musician, 'experienced' performer ultimately",
-      "gives": "NDR",
-      "select": "last",
-      "note": "last letters of musiciaN, experienceD, performeR"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "NDRI",
-      "X"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspired by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "voodoo",
+         "gives": "HEX",
+         "note": "a hex is a voodoo curse; it goes round the rest"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "NDR",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "takes the final letter of each of the words before it"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Musician, 'experienced' performer ultimately",
+           "gives": "NDR",
+           "select": "last",
+           "note": "last letters of musiciaN, experienceD, performeR"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A description of a guitarist whose music drew on the supernatural.",
      "walkthrough": "The whole clue is both wordplay and definition: Jimi Hendrix led The Jimi Hendrix Experience and recorded 'Voodoo Child', hence the quoted 'experienced' and the voodoo.",
@@ -180,42 +172,38 @@
    },
    "solution": "ORGAN",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "ORGAN",
     "definitions": [
      {
       "text": "One's stopped",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "promotion"
-     }
-    ],
-    "linkWords": [
-     "achieving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "primate",
-      "gives": "ORANG",
-      "note": "an orang is an orangutan; its G comes off the end"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "g = good, promoted to sit inside OR_AN"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "G",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "promotion"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "primate",
+         "gives": "ORANG",
+         "note": "an orang is an orangutan; its G comes off the end"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "g = good, promoted to sit inside OR_AN"
+      }
      ]
     },
     "explanation": {
@@ -245,44 +233,37 @@
    },
    "solution": "EXPOSED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EXPOSED",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wound",
-      "for": "anagram",
-      "note": "wound as in twisted, so the letters are rearranged"
-     },
-     {
-      "text": "cuts",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "so deep",
-      "gives": "SODEEP",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "ten",
-      "gives": "X",
-      "note": "X is the Roman ten"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SO DEEP X",
-       "gives": "EXPOSED"
+       "text": "wound",
+       "note": "wound as in twisted, so the letters are rearranged"
+      },
+      {
+       "text": "cuts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "so deep",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "ten",
+         "gives": "X",
+         "note": "X is the Roman ten"
+        }
+       ]
       }
      ]
     },
@@ -325,48 +306,35 @@
    },
    "solution": "UNISON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "UNISON",
     "definitions": [
      {
       "text": "concert",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "to turn up",
-      "for": "reversal",
-      "note": "in a down clue, turning up lifts the letters so they read bottom to top"
-     }
-    ],
-    "linkWords": [
-     "required",
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only good",
-      "gives": "NOSIN",
-      "note": "only good = with NO SIN"
-     },
-     {
-      "clueFragment": "uniform",
-      "gives": "U",
-      "note": "U is uniform in the phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNISON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NOSINU",
-       "to": "UNISON"
+       "text": "to turn up",
+       "note": "in a down clue, turning up lifts the letters so they read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Only good",
+         "gives": "NOSIN",
+         "note": "only good = with NO SIN"
+        },
+        {
+         "words": "uniform",
+         "gives": "U",
+         "note": "U is uniform in the phonetic alphabet"
+        }
+       ]
       }
      ]
     },
@@ -396,45 +364,38 @@
    },
    "solution": "HORRIFIED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HORRIFIED",
     "definitions": [
      {
       "text": "In shock",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off as in gone bad, so the letters are spoilt into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "if I'd",
-      "gives": "IFID",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "run",
-      "gives": "R",
-      "note": "r = run, from cricket scoring"
-     },
-     {
-      "clueFragment": "hero",
-      "gives": "HERO",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IF ID R HERO",
-       "gives": "HORRIFIED"
+       "text": "off",
+       "note": "off as in gone bad, so the letters are spoilt into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "if I'd",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "run",
+         "gives": "R",
+         "note": "r = run, from cricket scoring"
+        },
+        {
+         "words": "hero",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -474,49 +435,48 @@
    },
    "solution": "OOHLALA",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal",
-     "charade"
-    ],
-    "answer": "OOH LA LA",
     "definitions": [
      {
       "text": "well!",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Short",
-      "note": "HOOK is cut short, losing its last letter"
-     },
-     {
-      "text": "arising",
-      "note": "in a down clue, the letters rise and read upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Short catchy phrase",
-      "gives": "HOO",
-      "note": "a hook is a catchy phrase in a song; HOOK is cut to HOO"
-     },
-     {
-      "clueFragment": "singing",
-      "gives": "LALA",
-      "note": "la-la is wordless singing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OOH",
-      "LALA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OOHLALA",
+     "parts": [
       {
-       "from": "HOO",
-       "to": "OOH"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Short",
+         "note": "HOOK is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "arising",
+           "note": "in a down clue, the letters rise and read upwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Short catchy phrase",
+           "gives": "HOO",
+           "note": "a hook is a catchy phrase in a song; HOOK is cut to HOO"
+          }
+         ]
+        },
+        {
+         "words": "singing",
+         "gives": "LALA",
+         "note": "la-la is wordless singing"
+        }
+       ]
       }
      ]
     },
@@ -552,35 +512,25 @@
    },
    "solution": "ITCHINGPOWDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ITCHING POWDER",
     "definitions": [
      {
       "text": "children's 'entertainer'?",
       "at": 20
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Keen",
-      "gives": "ITCHING",
-      "note": "itching to do something = keen"
-     },
-     {
-      "clueFragment": "with crush",
-      "gives": "POWDER",
-      "note": "to powder is to crush; 'with' just adds it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ITCHING",
-      "POWDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Keen",
+       "gives": "ITCHING",
+       "note": "itching to do something = keen"
+      },
+      {
+       "words": "with crush",
+       "gives": "POWDER",
+       "note": "to powder is to crush; 'with' just adds it"
+      }
      ]
     },
     "explanation": {
@@ -610,33 +560,26 @@
    },
    "solution": "SNOG",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SNOG",
     "definitions": [
      {
       "text": "show of affection",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Somewhat",
-      "for": "hidden_word",
-      "note": "only some of the words' letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "passionless, no great",
-      "gives": "SNOG",
-      "note": "inside passionleSS NO Great"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SNOG"
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Somewhat",
+       "note": "only some of the words' letters are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "passionless, no great",
+       "gives": "SNOG",
+       "note": "inside passionleSS NO Great"
+      }
      ]
     },
     "explanation": {
@@ -665,54 +608,51 @@
    },
    "solution": "PATRIARCHY",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "PATRIARCHY",
     "definitions": [
      {
       "text": "arrangement favouring men",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "the wrong way",
-      "note": "the letters run backwards"
-     },
-     {
-      "text": "in",
-      "note": "'in' places one thing inside another, so the reversed letters sit inside the word for incoherent"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "manner",
-      "gives": "AIR",
-      "note": "an air is a manner"
-     },
-     {
-      "clueFragment": "incoherent",
-      "gives": "PATCHY",
-      "note": "patchy = uneven, not coherent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAT",
-      "RIAR",
-      "CHY"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "RAIR",
-       "to": "RIAR"
+       "text": "the wrong way",
+       "note": "the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "'in' places one thing inside another, so the reversed letters sit inside the word for incoherent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "incoherent",
+         "gives": "PATCHY",
+         "note": "patchy = uneven, not coherent"
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "manner",
+           "gives": "AIR",
+           "note": "an air is a manner"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Right",
+       "gives": "R",
+       "note": "standard abbreviation"
       }
      ]
     },
@@ -742,31 +682,29 @@
    },
    "solution": "URANUS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "URANUS",
     "definitions": [
      {
       "text": "God",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "according to rumour",
-      "for": "homophone",
-      "note": "rumour is what is heard said, so the words are taken by their sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you are, but",
-      "gives": "URANUS",
-      "soundsLike": "YOUR ANUS",
-      "note": "you are = you're; but, heard as butt, is the backside"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "URANUS",
+     "indicators": [
+      {
+       "text": "according to rumour",
+       "note": "rumour is what is heard said, so the words are taken by their sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you are, but",
+       "gives": "YOURANUS",
+       "note": "you are = you're; but, heard as butt, is the backside"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An insult: you may be a god, but people talk.",
      "walkthrough": "The joke is the old schoolyard one: said aloud, Uranus sounds like 'your anus'. Uranus was the Greek god of the sky.",
@@ -794,62 +732,55 @@
    },
    "solution": "HOOLIGAN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "reversal"
-    ],
-    "answer": "HOOLIGAN",
     "definitions": [
      {
       "text": "Tough",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "note": "takes the first letter of hope"
-     },
-     {
-      "text": "to recover",
-      "note": "to re-cover the ground is to go back over it, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bug",
-      "gives": "NAG",
-      "note": "to bug someone is to nag them"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "select": "first",
-      "note": "used as printed"
-     },
-     {
-      "clueFragment": "can",
-      "gives": "LOO",
-      "note": "can is slang for the toilet, the loo"
-     },
-     {
-      "clueFragment": "hope initially",
-      "gives": "H",
-      "note": "the first letter of hope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOLIGAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NAGILOOH",
-       "to": "HOOLIGAN"
+       "text": "initially",
+       "note": "takes the first letter of hope"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "to recover",
+         "note": "to re-cover the ground is to go back over it, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bug",
+         "gives": "NAG",
+         "note": "to bug someone is to nag them"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "I",
+           "note": "used as printed"
+          }
+         ]
+        },
+        {
+         "words": "can",
+         "gives": "LOO",
+         "note": "can is slang for the toilet, the loo"
+        },
+        {
+         "words": "hope initially",
+         "gives": "H",
+         "note": "the first letter of hope"
+        }
+       ]
       }
      ]
     },
@@ -889,48 +820,34 @@
     "16-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "EXPLODING CIGAR",
     "definitions": [
      {
       "text": "Smoke bomb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "the letters are sent all around, rearranged"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "EX",
-      "note": "ex = former, old"
-     },
-     {
-      "clueFragment": "old pig racing",
-      "gives": "OLDPIGRACING",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "PLODINGCIGAR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OLDPIGRACING",
-       "gives": "PLODINGCIGAR"
+       "words": "old",
+       "gives": "EX",
+       "note": "ex = former, old"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "the letters are sent all around, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old pig racing",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -961,45 +878,34 @@
    },
    "solution": "LARCENOUS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LARCENOUS",
     "definitions": [
      {
       "text": "Crooked",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "skewed",
-      "for": "anagram",
-      "note": "bent out of shape, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clear",
-      "gives": "CLEAR",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "sense",
-      "gives": "NOUS",
-      "note": "nous = common sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LARCE",
-      "NOUS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "CLEAR",
-       "gives": "LARCE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "skewed",
+         "note": "bent out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clear",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "sense",
+       "gives": "NOUS",
+       "note": "nous = common sense"
       }
      ]
     },
@@ -1055,43 +961,44 @@
    },
    "solution": "ETERNAL",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "ETERNAL",
     "definitions": [
      {
       "text": "Constant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "protection of"
-     },
-     {
-      "text": "the first flying away",
-      "note": "a bird flying away departs, so the first letter departs from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "another",
-      "gives": "TEAL",
-      "note": "a teal is a duck; it goes round the tern, then loses its T"
-     },
-     {
-      "clueFragment": "one aquatic bird",
-      "gives": "TERN",
-      "note": "a tern is a seabird"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "TERN",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protection of"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the first flying away",
+         "note": "a bird flying away departs, so the first letter departs from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "another",
+         "gives": "TEAL",
+         "note": "a teal is a duck; it goes round the tern, then loses its T"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "one aquatic bird",
+       "gives": "TERN",
+       "note": "a tern is a seabird"
+      }
      ]
     },
     "explanation": {
@@ -1120,41 +1027,30 @@
    },
    "solution": "APPENDAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "APPENDAGE",
     "definitions": [
      {
       "text": "add-on",
       "at": 30
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Program",
-      "gives": "APP",
-      "note": "an app is a program"
-     },
-     {
-      "clueFragment": "termination",
-      "gives": "END",
-      "note": "end = termination"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "AGE",
-      "note": "an age is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "APP",
-      "END",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Program",
+       "gives": "APP",
+       "note": "an app is a program"
+      },
+      {
+       "words": "termination",
+       "gives": "END",
+       "note": "end = termination"
+      },
+      {
+       "words": "time",
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -1183,51 +1079,42 @@
    },
    "solution": "ESTONIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ESTONIA",
     "definitions": [
      {
       "text": "land",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "in waves",
-      "for": "container",
-      "note": "the letters roll about like waves"
-     },
-     {
-      "text": "within which",
-      "for": "anagram",
-      "note": "TO goes within the rearranged letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sea, in",
-      "gives": "ESNIA",
-      "note": "SEA + IN rearranged"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "used as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "TO",
-      "NIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ESTONIA",
+     "indicators": [
       {
-       "fodder": "SEAIN",
-       "gives": "ESNIA"
+       "text": "within which",
+       "note": "TO goes within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in waves",
+         "note": "the letters roll about like waves"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sea, in",
+         "gives": "ESNIA",
+         "note": "SEA + IN rearranged"
+        },
+        {
+         "words": "to",
+         "note": "used as printed"
+        }
+       ]
       }
      ]
     },
@@ -1267,50 +1154,39 @@
     "28-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GROUCHO GLASSES",
     "definitions": [
      {
       "text": "Children's entertainer faced",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rebuffed",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "misery",
-      "gives": "GROUCH",
-      "note": "a misery is a grumpy person, a grouch"
-     },
-     {
-      "clueFragment": "advance",
-      "gives": "GO",
-      "note": "to go = to advance"
-     },
-     {
-      "clueFragment": "young ladies",
-      "gives": "LASSES",
-      "note": "lasses = girls, young ladies"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GROUCH",
-      "OG",
-      "LASSES"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GO",
-       "to": "OG"
+       "words": "misery",
+       "gives": "GROUCH",
+       "note": "a misery is a grumpy person, a grouch"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rebuffed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advance",
+         "gives": "GO",
+         "note": "to go = to advance"
+        }
+       ]
+      },
+      {
+       "words": "young ladies",
+       "gives": "LASSES",
+       "note": "lasses = girls, young ladies"
       }
      ]
     },
@@ -1340,47 +1216,41 @@
    },
    "solution": "EFFETE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EFFETE",
     "definitions": [
      {
       "text": "Feeble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the end",
-      "for": "letter_selection",
-      "note": "only the final letter of grade is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "grade in the end",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of gradE"
-     },
-     {
-      "clueFragment": "fail",
-      "gives": "F",
-      "note": "F is the fail grade"
-     },
-     {
-      "clueFragment": "with honour",
-      "gives": "FETE",
-      "note": "to fete is to honour; 'with' adds it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "F",
-      "FETE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "note": "only the final letter of grade is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grade in the end",
+         "gives": "GRADE",
+         "note": "the last letter of gradE"
+        }
+       ]
+      },
+      {
+       "words": "fail",
+       "gives": "F",
+       "note": "F is the fail grade"
+      },
+      {
+       "words": "with honour",
+       "gives": "FETE",
+       "note": "to fete is to honour; 'with' adds it"
+      }
      ]
     },
     "explanation": {
@@ -1409,35 +1279,25 @@
    },
    "solution": "FEVERFEW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FEVERFEW",
     "definitions": [
      {
       "text": "herb",
       "at": 33
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Temperature",
-      "gives": "FEVER",
-      "note": "to run a temperature is to have a fever"
-     },
-     {
-      "clueFragment": "only two or three",
-      "gives": "FEW",
-      "note": "a few = two or three"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FEVER",
-      "FEW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Temperature",
+       "gives": "FEVER",
+       "note": "to run a temperature is to have a fever"
+      },
+      {
+       "words": "only two or three",
+       "gives": "FEW",
+       "note": "a few = two or three"
+      }
      ]
     },
     "explanation": {
@@ -1465,48 +1325,34 @@
    },
    "solution": "TEFLON",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TEFLON",
     "definitions": [
      {
       "text": "Film panned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "liberal",
-      "for": "anagram",
-      "note": "free with the letters, so they are rearranged"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "LEFT",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "now showing",
-      "gives": "ON",
-      "note": "a film now showing is on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEFL",
-      "ON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LEFT",
-       "gives": "TEFL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "liberal",
+         "note": "free with the letters, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "now showing",
+       "gives": "ON",
+       "note": "a film now showing is on"
       }
      ]
     },
@@ -1547,35 +1393,24 @@
     "17-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FALSE BEARD",
     "definitions": [
      {
       "text": "Dubious hair faced",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "anyhow",
-      "for": "anagram",
-      "note": "the letters are put in any old order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "safe balder",
-      "gives": "SAFEBALDER",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAFE BALDER",
-       "gives": "FALSEBEARD"
+       "text": "anyhow",
+       "note": "the letters are put in any old order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "safe balder",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1605,51 +1440,44 @@
    },
    "solution": "UNFORESEEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "UNFORESEEN",
     "definitions": [
      {
       "text": "surprising",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "anagram",
-      "note": "FUN is broken up, so its letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fun",
-      "gives": "FUN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "rocks",
-      "gives": "ORES",
-      "note": "ores are metal-bearing rocks"
-     },
-     {
-      "clueFragment": "even",
-      "gives": "EEN",
-      "note": "e'en is the poetic contraction of even"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNF",
-      "ORES",
-      "EEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "FUN",
-       "gives": "UNF"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaking",
+         "note": "FUN is broken up, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Fun",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "rocks",
+           "gives": "ORES",
+           "note": "ores are metal-bearing rocks"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "even",
+       "gives": "EEN",
+       "note": "e'en is the poetic contraction of even"
       }
      ]
     },
@@ -1679,30 +1507,16 @@
    },
    "solution": "LICK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LICK",
     "definitions": [
      {
       "text": "Wet",
-      "at": 0
+      "at": 0,
+      "meaning": "a verb: to moisten with the tongue"
      },
      {
       "text": "bit",
-      "at": 4
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wet",
-      "gives": "LICK",
-      "note": "a verb: to moisten with the tongue"
-     },
-     {
-      "clueFragment": "bit",
-      "gives": "LICK",
-      "note": "a small amount, as of paint"
+      "at": 4,
+      "meaning": "a small amount, as of paint"
      }
     ],
     "explanation": {
@@ -1749,47 +1563,47 @@
    },
    "solution": "FAKEPOO",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "FAKE POO",
     "definitions": [
      {
       "text": "Children's 'entertainer'",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not entirely",
-      "note": "FOR loses its last letter"
-     },
-     {
-      "text": "crappy",
-      "note": "shoddy, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a poke",
-      "gives": "APOKE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "for not entirely",
-      "gives": "FO",
-      "note": "FOR without its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FAKEPOO",
+     "parts": [
       {
-       "fodder": "A POKE FO",
-       "gives": "FAKEPOO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "note": "FOR loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "crappy",
+           "note": "shoddy, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "a poke",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "for not entirely",
+           "gives": "FO",
+           "note": "FOR without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },

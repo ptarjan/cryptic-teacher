@@ -1,8 +1,6 @@
 {
  "id": "quiptic-688",
  "number": 688,
- "series": "quiptic",
- "name": "Quiptic crossword No 688",
  "setter": "Pan",
  "date": "2013-01-21",
  "dimensions": {
@@ -38,40 +36,28 @@
    },
    "solution": "SABOTEUR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SABOTEUR",
     "definitions": [
      {
       "text": "Wrecker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cast",
-      "for": "anagram",
-      "note": "cast can mean thrown about or moulded afresh, so the letters take a new shape"
-     },
-     {
-      "text": "adrift",
-      "for": "anagram",
-      "note": "something adrift has come loose and wanders, so these letters float out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boat user",
-      "gives": "BOATUSER",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BOATUSER",
-       "gives": "SABOTEUR"
+       "text": "cast",
+       "note": "cast can mean thrown about or moulded afresh, so the letters take a new shape"
+      },
+      {
+       "text": "adrift",
+       "note": "something adrift has come loose and wanders, so these letters float out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boat user",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -100,31 +86,29 @@
    },
    "solution": "TYRE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TYRE",
     "definitions": [
      {
       "text": "Part of vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is a word spoken, so the spelling of the answer may differ from the word meant"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to wear out",
-      "gives": "TYRE",
-      "soundsLike": "TIRE",
-      "note": "to tire is to wear out"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TYRE",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "what we hear is a word spoken, so the spelling of the answer may differ from the word meant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to wear out",
+       "gives": "TIRE",
+       "note": "to tire is to wear out"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A vehicle part that wears out, so people say.",
      "walkthrough": "TYRE is the British spelling of the American 'tire'; the two sound identical.",
@@ -150,43 +134,39 @@
    },
    "solution": "WAGGON",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "WAGGON",
     "definitions": [
      {
       "text": "cart",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter of the word is dropped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Comic",
-      "gives": "WAG",
-      "note": "a wag is a joker"
-     },
-     {
-      "clueFragment": "dead",
-      "gives": "GONE",
-      "note": "gone means dead"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAG",
-      "GON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the final letter of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Comic",
+         "gives": "WAG",
+         "note": "a wag is a joker"
+        },
+        {
+         "words": "dead",
+         "gives": "GONE",
+         "note": "gone means dead"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -215,51 +195,40 @@
    },
    "solution": "FABERGE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "FABERGE",
     "definitions": [
      {
       "text": "Russian goldsmith",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going backwards, so the abbreviation for 'say' is read in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great",
-      "gives": "FAB",
-      "note": "fab is slang for great"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. means for example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAB",
-      "ER",
-      "GE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EG",
-       "to": "GE"
+       "words": "Great",
+       "gives": "FAB",
+       "note": "fab is slang for great"
+      },
+      {
+       "words": "queen",
+       "gives": "ER",
+       "note": "Elizabeth Regina"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "backing means going backwards, so the abbreviation for 'say' is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "gives": "EG",
+         "note": "e.g. means for example"
+        }
+       ]
       }
      ]
     },
@@ -288,45 +257,37 @@
    },
    "solution": "SPANIARD",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SPANIARD",
     "definitions": [
      {
       "text": "European",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "organised",
-      "for": "anagram",
-      "note": "something organised has been arranged afresh, so these letters are put in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bridge",
-      "gives": "SPAN",
-      "note": "a span is a bridge, or the stretch it crosses"
-     },
-     {
-      "clueFragment": "raid",
-      "gives": "IARD",
-      "note": "the letters of raid rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPAN",
-      "IARD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "SPANIARD",
+     "indicators": [
       {
-       "fodder": "RAID",
-       "gives": "IARD"
+       "text": "organised",
+       "note": "something organised has been arranged afresh, so these letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bridge",
+         "gives": "SPAN",
+         "note": "a span is a bridge, or the stretch it crosses"
+        },
+        {
+         "words": "raid",
+         "gives": "IARD",
+         "note": "the letters of raid rearranged"
+        }
+       ]
       }
      ]
     },
@@ -361,35 +322,25 @@
    },
    "solution": "PARTYPIECE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARTY PIECE",
     "definitions": [
      {
       "text": "Special performance",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "group",
-      "gives": "PARTY",
-      "note": "a party is a group of people"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "PIECE",
-      "note": "a piece is a work of art or music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARTY",
-      "PIECE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "group",
+       "gives": "PARTY",
+       "note": "a party is a group of people"
+      },
+      {
+       "words": "work",
+       "gives": "PIECE",
+       "note": "a piece is a work of art or music"
+      }
      ]
     },
     "explanation": {
@@ -417,44 +368,38 @@
    },
    "solution": "QUICHE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "QUICHE",
     "definitions": [
      {
       "text": "something to eat",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "endless means without its end, so the last letter is cut off"
-     }
-    ],
-    "linkWords": [
-     "before",
-     "finds"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fast",
-      "gives": "QUICK",
-      "note": "quick means fast"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUIC",
-      "HE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "endless means without its end, so the last letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fast",
+         "gives": "QUICK",
+         "note": "quick means fast"
+        },
+        {
+         "words": "he",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -489,68 +434,56 @@
    },
    "solution": "LADYGAGA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "LADY GAGA",
     "definitions": [
      {
       "text": "pop star",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of the name, so only its closing letter is used"
-     },
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "off suggests gone wrong or out of order, so the letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "given",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paul",
-      "gives": "L",
-      "select": "last",
-      "note": "last letter of Paul"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "ADY",
-      "note": "day rearranged"
-     },
-     {
-      "clueFragment": "silence",
-      "gives": "GAG",
-      "note": "to gag is to silence"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ADY",
-      "GAG",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LADYGAGA",
+     "indicators": [
       {
-       "fodder": "DAY",
-       "gives": "ADY"
+       "text": "off",
+       "note": "off suggests gone wrong or out of order, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very end of the name, so only its closing letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Paul",
+           "note": "last letter of Paul"
+          }
+         ]
+        },
+        {
+         "words": "day",
+         "gives": "ADY",
+         "note": "day rearranged"
+        },
+        {
+         "words": "silence",
+         "gives": "GAG",
+         "note": "to gag is to silence"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -579,38 +512,28 @@
    },
    "solution": "PLAGUE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "PLAGUE",
     "definitions": [
      {
       "text": "Pestilence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "that's changed hands",
-      "for": "substitution",
-      "note": "hands are right and left, so the letter for one hand is swapped for the letter for the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "city",
-      "gives": "PRAGUE",
-      "note": "the Czech capital"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "L",
-      "AGUE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "PLAGUE",
+     "indicators": [
+      {
+       "text": "that's changed hands",
+       "note": "hands are right and left, so the letter for one hand is swapped for the letter for the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "city",
+       "gives": "PRAGUE",
+       "note": "the Czech capital"
+      }
      ]
     },
     "explanation": {
@@ -640,33 +563,29 @@
    },
    "solution": "HONE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HONE",
     "definitions": [
      {
       "text": "Polish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "who's not all there",
-      "for": "deletion",
-      "note": "not all there means incomplete, so the word is missing its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sweetheart",
-      "gives": "HONEY",
-      "note": "honey is a term of endearment"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HONE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "who's not all there",
+       "note": "not all there means incomplete, so the word is missing its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sweetheart",
+       "gives": "HONEY",
+       "note": "honey is a term of endearment"
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -696,38 +615,24 @@
    },
    "solution": "GREENSTICK",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GREENSTICK",
     "definitions": [
      {
       "text": "Type of fracture",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broken",
-      "for": "anagram",
-      "note": "broken things lie in pieces, so these letters are reassembled in another order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tiger's neck",
-      "gives": "TIGERSNECK",
-      "note": "the letters to be rearranged, the apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TIGERSNECK",
-       "gives": "GREENSTICK"
+       "text": "broken",
+       "note": "broken things lie in pieces, so these letters are reassembled in another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tiger's neck",
+       "note": "the letters to be rearranged, the apostrophe ignored"
       }
      ]
     },
@@ -756,45 +661,37 @@
    },
    "solution": "TEHRAN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "TEHRAN",
     "definitions": [
      {
       "text": "Iranian city",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "anagram",
-      "note": "broadcast also means scattered, as seed is sown, so the letters are spread into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The",
-      "gives": "TEH",
-      "note": "the letters of the rearranged"
-     },
-     {
-      "clueFragment": "featured",
-      "gives": "RAN",
-      "note": "a paper that ran a story featured it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEH",
-      "RAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "TEHRAN",
+     "indicators": [
       {
-       "fodder": "THE",
-       "gives": "TEH"
+       "text": "broadcast",
+       "note": "broadcast also means scattered, as seed is sown, so the letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The",
+         "gives": "TEH",
+         "note": "the letters of the rearranged"
+        },
+        {
+         "words": "featured",
+         "gives": "RAN",
+         "note": "a paper that ran a story featured it"
+        }
+       ]
       }
      ]
     },
@@ -824,36 +721,25 @@
    },
    "solution": "RAMSHACKLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RAMSHACKLE",
     "definitions": [
      {
       "text": "badly constructed",
       "at": 44
      }
     ],
-    "linkWords": [
-     "overcoming",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Animal",
-      "gives": "RAM",
-      "note": "a ram is a male sheep"
-     },
-     {
-      "clueFragment": "restraining device",
-      "gives": "SHACKLE",
-      "note": "a shackle is a fetter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAM",
-      "SHACKLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Animal",
+       "gives": "RAM",
+       "note": "a ram is a male sheep"
+      },
+      {
+       "words": "restraining device",
+       "gives": "SHACKLE",
+       "note": "a shackle is a fetter"
+      }
      ]
     },
     "explanation": {
@@ -882,35 +768,25 @@
    },
    "solution": "GRAPPLES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRAPPLES",
     "definitions": [
      {
       "text": "Struggles",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gross",
-      "gives": "GR",
-      "note": "abbreviation for gross"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "APPLES",
-      "note": "apples are fruit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "APPLES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gross",
+       "gives": "GR",
+       "note": "abbreviation for gross"
+      },
+      {
+       "words": "fruit",
+       "gives": "APPLES",
+       "note": "apples are fruit"
+      }
      ]
     },
     "explanation": {
@@ -939,35 +815,25 @@
    },
    "solution": "GRIMACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIMACE",
     "definitions": [
      {
       "text": "look of disgust",
       "at": 27
      }
     ],
-    "linkWords": [
-     "exhibits"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Formidable",
-      "gives": "GRIM",
-      "note": "grim means stern or forbidding"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ACE",
-      "note": "an ace is a highly skilled person"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRIM",
-      "ACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Formidable",
+       "gives": "GRIM",
+       "note": "grim means stern or forbidding"
+      },
+      {
+       "words": "expert",
+       "gives": "ACE",
+       "note": "an ace is a highly skilled person"
+      }
      ]
     },
     "explanation": {
@@ -994,49 +860,34 @@
    },
    "solution": "COMMANDO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COMMANDO",
     "definitions": [
      {
       "text": "Soldier",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in",
-     "with",
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "abbreviation for company"
-     },
-     {
-      "clueFragment": "married",
-      "gives": "M",
-      "note": "abbreviation for married"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "MAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "DO",
-      "note": "a do is a party"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "M",
-      "MAN",
-      "DO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "gives": "CO",
+       "note": "abbreviation for company"
+      },
+      {
+       "words": "married",
+       "gives": "M",
+       "note": "abbreviation for married"
+      },
+      {
+       "words": "man",
+       "note": "taken as written"
+      },
+      {
+       "words": "party",
+       "gives": "DO",
+       "note": "a do is a party"
+      }
      ]
     },
     "explanation": {
@@ -1064,38 +915,30 @@
    },
    "solution": "ADVERSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADVERSE",
     "definitions": [
      {
       "text": "Hostile",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "commercial",
-      "gives": "AD",
-      "note": "an ad is a commercial"
-     },
-     {
-      "clueFragment": "against",
-      "gives": "V",
-      "note": "v for versus"
-     },
-     {
-      "clueFragment": "Gaelic",
-      "gives": "ERSE",
-      "note": "Erse is an old name for Scottish or Irish Gaelic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "V",
-      "ERSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "commercial",
+       "gives": "AD",
+       "note": "an ad is a commercial"
+      },
+      {
+       "words": "against",
+       "gives": "V",
+       "note": "v for versus"
+      },
+      {
+       "words": "Gaelic",
+       "gives": "ERSE",
+       "note": "Erse is an old name for Scottish or Irish Gaelic"
+      }
      ]
     },
     "explanation": {
@@ -1123,49 +966,43 @@
    },
    "solution": "SANGUINE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SANGUINE",
     "definitions": [
      {
       "text": "optimistic",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "endlessly means without an end, so the place name loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South Australia",
-      "gives": "SA",
-      "note": "abbreviation for the Australian state"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "abbreviation for new"
-     },
-     {
-      "clueFragment": "Guinea",
-      "gives": "GUINEA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "N",
-      "GUINE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "endlessly means without an end, so the place name loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "South Australia",
+         "gives": "SA",
+         "note": "abbreviation for the Australian state"
+        },
+        {
+         "words": "New",
+         "gives": "N",
+         "note": "abbreviation for new"
+        },
+        {
+         "words": "Guinea",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "A"
+      }
      ]
     },
     "explanation": {
@@ -1192,47 +1029,44 @@
    },
    "solution": "ADMIRAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ADMIRAL",
     "definitions": [
      {
       "text": "sailor",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "heartless",
-      "for": "letter_selection",
-      "note": "heartless means its inside is removed, so only the outermost letters of the word stay"
-     },
-     {
-      "text": "mistreated",
-      "for": "anagram",
-      "note": "mistreated means handled badly, so the letters are knocked out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maria",
-      "gives": "MARIA",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "damsel",
-      "gives": "DL",
-      "select": "outer",
-      "note": "first and last letters of damsel"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MARIADL",
-       "gives": "ADMIRAL"
+       "text": "mistreated",
+       "note": "mistreated means handled badly, so the letters are knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Maria",
+         "note": "taken as written"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "heartless",
+           "note": "heartless means its inside is removed, so only the outermost letters of the word stay"
+          }
+         ],
+         "parts": [
+          {
+           "words": "damsel",
+           "note": "first and last letters of damsel"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1261,35 +1095,24 @@
    },
    "solution": "FATHOMED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FATHOMED",
     "definitions": [
      {
       "text": "Measured",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cuckoo",
-      "for": "anagram",
-      "note": "cuckoo means crazy, so the letters go wild and rearrange"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ham fed to",
-      "gives": "HAMFEDTO",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HAMFEDTO",
-       "gives": "FATHOMED"
+       "text": "cuckoo",
+       "note": "cuckoo means crazy, so the letters go wild and rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ham fed to",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1320,48 +1143,34 @@
    },
    "solution": "ARARAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARARAT",
     "definitions": [
      {
       "text": "Turkish mountain",
       "at": 38
      }
     ],
-    "linkWords": [
-     "on",
-     "found on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rector's",
-      "gives": "R",
-      "note": "abbreviation for rector"
-     },
-     {
-      "clueFragment": "article",
-      "gives": "A",
-      "note": "the indefinite article"
-     },
-     {
-      "clueFragment": "rodent",
-      "gives": "RAT",
-      "note": "a rat is a rodent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "R",
-      "A",
-      "RAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "rector's",
+       "gives": "R",
+       "note": "abbreviation for rector"
+      },
+      {
+       "words": "article",
+       "gives": "A",
+       "note": "the indefinite article"
+      },
+      {
+       "words": "rodent",
+       "gives": "RAT",
+       "note": "a rat is a rodent"
+      }
      ]
     },
     "explanation": {
@@ -1390,47 +1199,42 @@
    },
    "solution": "GLEANS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GLEANS",
     "definitions": [
      {
       "text": "Gathers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "second part of",
-      "for": "letter_selection",
-      "note": "second part picks out the letter in position two of the word that follows"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one piece inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "valleys",
-      "gives": "GLENS",
-      "note": "glens are narrow valleys, especially in Scotland"
-     },
-     {
-      "clueFragment": "harvest",
-      "gives": "A",
-      "select": 2,
-      "note": "second letter of harvest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLE",
-      "A",
-      "NS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "valleys",
+       "gives": "GLENS",
+       "note": "glens are narrow valleys, especially in Scotland"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second part of",
+         "note": "second part picks out the letter in position two of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "harvest",
+         "note": "second letter of harvest"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1458,35 +1262,25 @@
    },
    "solution": "GREASY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GREASY",
     "definitions": [
      {
       "text": "Oily",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek",
-      "gives": "GR",
-      "note": "abbreviation for Greek"
-     },
-     {
-      "clueFragment": "sexually available",
-      "gives": "EASY",
-      "note": "easy is slang for promiscuous"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "EASY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek",
+       "gives": "GR",
+       "note": "abbreviation for Greek"
+      },
+      {
+       "words": "sexually available",
+       "gives": "EASY",
+       "note": "easy is slang for promiscuous"
+      }
      ]
     },
     "explanation": {
@@ -1514,35 +1308,24 @@
    },
    "solution": "SACCHARINE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SACCHARINE",
     "definitions": [
      {
       "text": "sweet stuff",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "about means turned around or here and there, so the letters move into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "China cares",
-      "gives": "CHINACARES",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CHINACARES",
-       "gives": "SACCHARINE"
+       "text": "about",
+       "note": "about means turned around or here and there, so the letters move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China cares",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1571,34 +1354,28 @@
    },
    "solution": "GOUT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GOUT",
     "definitions": [
      {
       "text": "condition",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "without heart",
-      "for": "deletion",
-      "note": "without heart means the middle is taken away, so the central letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go out",
-      "gives": "GOOUT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GO",
-      "UT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without heart",
+       "note": "without heart means the middle is taken away, so the central letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Go out",
+       "note": "taken as written"
+      },
+      {
+       "gives": "O"
+      }
      ]
     },
     "explanation": {
@@ -1626,50 +1403,42 @@
    },
    "solution": "GOAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "GOAL",
     "definitions": [
      {
       "text": "Aim",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle, so only the central letter is kept"
-     },
-     {
-      "text": "to capture",
-      "for": "container",
-      "note": "capturing means holding something inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lass",
-      "gives": "GAL",
-      "note": "gal is a girl"
-     },
-     {
-      "clueFragment": "boy's",
-      "gives": "O",
-      "select": "middle",
-      "note": "middle letter of boy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "O",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to capture",
+       "note": "capturing means holding something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lass",
+       "gives": "GAL",
+       "note": "gal is a girl"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart of a word is its middle, so only the central letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy's",
+         "gives": "BOY",
+         "note": "middle letter of boy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1697,32 +1466,25 @@
    },
    "solution": "JAILED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JAILED",
     "definitions": [
      {
       "text": "locked up",
       "at": 21
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Judge",
-      "gives": "J",
-      "note": "abbreviation for judge"
-     },
-     {
-      "clueFragment": "became unwell",
-      "gives": "AILED",
-      "note": "ailed means fell ill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "J",
-      "AILED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Judge",
+       "gives": "J",
+       "note": "abbreviation for judge"
+      },
+      {
+       "words": "became unwell",
+       "gives": "AILED",
+       "note": "ailed means fell ill"
+      }
      ]
     },
     "explanation": {
@@ -1749,35 +1511,25 @@
    },
    "solution": "ABSTAINS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABSTAINS",
     "definitions": [
      {
       "text": "chooses not to vote",
       "at": 18
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sailor",
-      "gives": "AB",
-      "note": "AB is an able seaman"
-     },
-     {
-      "clueFragment": "spots",
-      "gives": "STAINS",
-      "note": "stains are marks or spots"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "STAINS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "gives": "AB",
+       "note": "AB is an able seaman"
+      },
+      {
+       "words": "spots",
+       "gives": "STAINS",
+       "note": "stains are marks or spots"
+      }
      ]
     },
     "explanation": {

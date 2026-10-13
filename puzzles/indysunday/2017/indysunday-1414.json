@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1414",
  "number": 1414,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,414",
  "setter": "Hoskins",
  "date": "2017-04-02",
  "dimensions": {
@@ -38,47 +36,35 @@
    },
    "solution": "BURMA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BURMA",
     "definitions": [
      {
       "text": "A state once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought about",
-      "for": "reversal",
-      "note": "something brought about is turned round, so the two words that follow are read from the end"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "morning",
-      "gives": "AM",
-      "note": "AM is the usual abbreviation for morning"
-     },
-     {
-      "clueFragment": "massage",
-      "gives": "RUB",
-      "note": "to massage is to rub"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BURMA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AMRUB",
-       "to": "BURMA"
+       "text": "brought about",
+       "note": "something brought about is turned round, so the two words that follow are read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "morning",
+         "gives": "AM",
+         "note": "AM is the usual abbreviation for morning"
+        },
+        {
+         "words": "massage",
+         "gives": "RUB",
+         "note": "to massage is to rub"
+        }
+       ]
       }
      ]
     },
@@ -108,66 +94,73 @@
    },
    "solution": "BARTENDER",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BARTENDER",
     "definitions": [
      {
       "text": "A source of rum and bit of tequila during binge?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "source of",
-      "for": "letter_selection",
-      "note": "a source is where something starts, so only the opening letter of the next word is used"
-     },
-     {
-      "text": "bit of",
-      "for": "letter_selection",
-      "note": "just a small bit, here the first letter of the following word"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "something happening during another event sits inside it, so these letters go within the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rum",
-      "gives": "R",
-      "select": "first",
-      "note": "the opening letter of rum"
-     },
-     {
-      "clueFragment": "tequila",
-      "gives": "T",
-      "select": "first",
-      "note": "the opening letter of tequila"
-     },
-     {
-      "clueFragment": "binge",
-      "gives": "BENDER",
-      "note": "a bender is a drinking spree"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ART",
-      "ENDER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "something happening during another event sits inside it, so these letters go within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "binge",
+           "gives": "BENDER",
+           "note": "a bender is a drinking spree"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "source of",
+             "note": "a source is where something starts, so only the opening letter of the next word is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "tequila",
+             "note": "the opening letter of tequila"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "note": "just a small bit, here the first letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rum",
+           "note": "the opening letter of rum"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "A",
+       "note": "taken as written"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A boozy night out where the rum and tequila keep flowing.",
      "walkthrough": "The whole clue doubles as the definition: the person serving rum and tequila during a drinking spree. A bender is British slang for a heavy drinking session.",
@@ -194,40 +187,31 @@
    },
    "solution": "RANGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RANGE",
     "definitions": [
      {
       "text": "group of peaks",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "coming across",
-      "for": "container",
-      "note": "the outer word stretches across the other, holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Storm",
-      "gives": "RAGE",
-      "note": "to storm is to rage"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the abbreviation for northern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "N",
-      "GE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming across",
+       "note": "the outer word stretches across the other, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Storm",
+       "gives": "RAGE",
+       "note": "to storm is to rage"
+      },
+      {
+       "words": "northern",
+       "gives": "N",
+       "note": "N is the abbreviation for northern"
+      }
      ]
     },
     "explanation": {
@@ -269,48 +253,35 @@
    },
    "solution": "ASISEEIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AS I SEE IT",
     "definitions": [
      {
       "text": "IMO",
       "at": 34
      }
     ],
-    "linkWords": [
-     "to have",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "When",
-      "gives": "AS",
-      "note": "as can mean when, as in 'as I left'"
-     },
-     {
-      "clueFragment": "one's",
-      "gives": "IS",
-      "note": "one is: I plus 's"
-     },
-     {
-      "clueFragment": "drugs",
-      "gives": "EE",
-      "note": "E is ecstasy, so two of them are drugs"
-     },
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "it is a coy word for sex"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "IS",
-      "EE",
-      "IT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "When",
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      },
+      {
+       "words": "one's",
+       "gives": "IS",
+       "note": "one is: I plus 's"
+      },
+      {
+       "words": "drugs",
+       "gives": "EE",
+       "note": "E is ecstasy, so two of them are drugs"
+      },
+      {
+       "words": "sex",
+       "gives": "IT",
+       "note": "it is a coy word for sex"
+      }
      ]
     },
     "explanation": {
@@ -346,42 +317,30 @@
    },
    "solution": "CARRIEDON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CARRIED ON",
     "definitions": [
      {
       "text": "Kept talking",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by",
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bore",
-      "gives": "CARRIED",
-      "note": "bore as the past tense of bear, to carry"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "zero looks like the letter O"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARRIED",
-      "O",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bore",
+       "gives": "CARRIED",
+       "note": "bore as the past tense of bear, to carry"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "zero looks like the letter O"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      }
      ]
     },
     "explanation": {
@@ -411,36 +370,29 @@
    },
    "solution": "CREW",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CREW",
     "definitions": [
      {
       "text": "a group of folk rowing",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Don't start",
-      "for": "deletion",
-      "note": "telling a word not to start means its opening letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prison guard",
-      "gives": "SCREW",
-      "note": "screw is British slang for a prison officer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREW"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Don't start",
+       "note": "telling a word not to start means its opening letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison guard",
+       "gives": "SCREW",
+       "note": "screw is British slang for a prison officer"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -469,55 +421,48 @@
    },
    "solution": "RESOLUTION",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "RESOLUTION",
     "definitions": [
      {
       "text": "Determination",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "a leader comes first, so only the opening letter of that word counts"
-     },
-     {
-      "text": "replacing",
-      "for": "substitution",
-      "note": "one letter takes the place of another within the word"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coup",
-      "gives": "REVOLUTION",
-      "note": "a coup overthrows a government, as a revolution does"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S is the abbreviation for son"
-     },
-     {
-      "clueFragment": "vile",
-      "gives": "V",
-      "select": "first",
-      "note": "the opening letter of vile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "S",
-      "OLUTION"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "RESOLUTION",
+     "indicators": [
+      {
+       "text": "replacing",
+       "note": "one letter takes the place of another within the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coup",
+       "gives": "REVOLUTION",
+       "note": "a coup overthrows a government, as a revolution does"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S is the abbreviation for son"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "a leader comes first, so only the opening letter of that word counts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vile",
+         "note": "the opening letter of vile"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -546,45 +491,35 @@
    },
    "solution": "ISSUES",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ISSUES",
     "definitions": [
      {
       "text": "Problems",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means firstly, so only the first letter of the word before it is used"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kids",
-      "gives": "ISSUE",
-      "note": "issue means offspring, a formal word for children"
-     },
-     {
-      "clueFragment": "spouses",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of spouses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ISSUE",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "kids",
+       "gives": "ISSUE",
+       "note": "issue means offspring, a formal word for children"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means firstly, so only the first letter of the word before it is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spouses",
+         "note": "the opening letter of spouses"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -613,55 +548,47 @@
    },
    "solution": "DIRTINESS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIRTINESS",
     "definitions": [
      {
       "text": "filth",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "put on",
-      "for": "container",
-      "note": "putting on a garment means being inside it, so the setter goes within the clothing"
-     },
-     {
-      "text": "filled with",
-      "for": "container",
-      "note": "the garment is filled, so another word is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hoskins",
-      "gives": "I",
-      "note": "the setter refers to himself, so I"
-     },
-     {
-      "clueFragment": "frock",
-      "gives": "DRESS",
-      "note": "a frock is a dress"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "TIN",
-      "note": "tin is old slang for money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "I",
-      "R",
-      "TIN",
-      "ESS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "putting on a garment means being inside it, so the setter goes within the clothing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filled with",
+         "note": "the garment is filled, so another word is placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frock",
+         "gives": "DRESS",
+         "note": "a frock is a dress"
+        },
+        {
+         "words": "money",
+         "gives": "TIN",
+         "note": "tin is old slang for money"
+        }
+       ]
+      },
+      {
+       "words": "Hoskins",
+       "gives": "I",
+       "note": "the setter refers to himself, so I"
+      }
      ]
     },
     "explanation": {
@@ -691,58 +618,51 @@
    },
    "solution": "NEPAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NEPAL",
     "definitions": [
      {
       "text": "country",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about, so the word for monkey runs backwards"
-     },
-     {
-      "text": "the borders of",
-      "for": "letter_selection",
-      "note": "the borders are the edges, so only the outside letters of the next word are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one part sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "neutral",
-      "gives": "NL",
-      "select": "outer",
-      "note": "the outside letters of neutral"
-     },
-     {
-      "clueFragment": "Monkey",
-      "gives": "APE",
-      "note": "an ape is a primate, loosely a monkey"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "EPA",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "APE",
-       "to": "EPA"
+       "text": "in",
+       "note": "one part sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "the borders of",
+         "note": "the borders are the edges, so only the outside letters of the next word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neutral",
+         "note": "the outside letters of neutral"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about, so the word for monkey runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Monkey",
+         "gives": "APE",
+         "note": "an ape is a primate, loosely a monkey"
+        }
+       ]
       }
      ]
     },
@@ -771,38 +691,24 @@
    },
    "solution": "RUNTINESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RUNTINESS",
     "definitions": [
      {
       "text": "Little quality",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awful",
-      "for": "anagram",
-      "note": "something awful is a mess, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "shown by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "US interns",
-      "gives": "USINTERNS",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "USINTERNS",
-       "gives": "RUNTINESS"
+       "text": "awful",
+       "note": "something awful is a mess, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US interns",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -831,47 +737,41 @@
    },
    "solution": "SCRAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCRAP",
     "definitions": [
      {
       "text": "fight",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the inside of the word is removed and only its outside letters stay"
-     },
-     {
-      "text": "to take on",
-      "for": "container",
-      "note": "taking something on means holding it, so the fool word encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fool",
-      "gives": "SAP",
-      "note": "a sap is a gullible fool"
-     },
-     {
-      "clueFragment": "codger",
-      "gives": "CR",
-      "select": "outer",
-      "note": "the outside letters of codger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CR",
-      "AP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take on",
+       "note": "taking something on means holding it, so the fool word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fool",
+       "gives": "SAP",
+       "note": "a sap is a gullible fool"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacuous",
+         "note": "vacuous means empty, so the inside of the word is removed and only its outside letters stay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "codger",
+         "note": "the outside letters of codger"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -900,43 +800,38 @@
    },
    "solution": "ELEVEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "ELEVEN",
     "definitions": [
      {
       "text": "This clue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "some",
-      "for": "deletion",
-      "note": "only some of the word is kept, so its tail is dropped"
-     }
-    ],
-    "linkWords": [
-     "Start it with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "élan",
-      "gives": "ELAN",
-      "note": "élan is flair or verve"
-     },
-     {
-      "clueFragment": "flat",
-      "gives": "EVEN",
-      "note": "flat and even both describe a level surface"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "EVEN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "some",
+       "note": "only some of the word is kept, so its tail is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "élan",
+         "note": "élan is flair or verve"
+        },
+        {
+         "words": "flat",
+         "gives": "EVEN",
+         "note": "flat and even both describe a level surface"
+        }
+       ]
+      },
+      {
+       "gives": "AN"
+      }
      ]
     },
     "explanation": {
@@ -966,41 +861,30 @@
    },
    "solution": "BLUEBILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUEBILL",
     "definitions": [
      {
       "text": "Duck",
       "at": 29
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unhappy",
-      "gives": "BLUE",
-      "note": "feeling blue is feeling sad"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "B",
-      "note": "B is the chess abbreviation for bishop"
-     },
-     {
-      "clueFragment": "sick",
-      "gives": "ILL",
-      "note": "ill means sick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "B",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unhappy",
+       "gives": "BLUE",
+       "note": "feeling blue is feeling sad"
+      },
+      {
+       "words": "bishop",
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "sick",
+       "gives": "ILL",
+       "note": "ill means sick"
+      }
      ]
     },
     "explanation": {
@@ -1036,35 +920,24 @@
    },
    "solution": "OLDENGLISH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OLD ENGLISH",
     "definitions": [
      {
       "text": "Anglo-Saxon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of restoration",
-      "for": "anagram",
-      "note": "something needing restoration is damaged, so its letters must be rebuilt in a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shield long",
-      "gives": "SHIELDLONG",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SHIELDLONG",
-       "gives": "OLDENGLISH"
+       "text": "in need of restoration",
+       "note": "something needing restoration is damaged, so its letters must be rebuilt in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shield long",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1093,48 +966,34 @@
    },
    "solution": "DISTILLATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DISTILLATE",
     "definitions": [
      {
       "text": "spirit?",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "shaken up",
-      "for": "anagram",
-      "note": "shaken things get mixed, so these letters are scrambled"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "underworld",
-      "gives": "DIS",
-      "note": "Dis is the Roman god of the underworld, and his realm"
-     },
-     {
-      "clueFragment": "A little",
-      "gives": "ALITTLE",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "TILLATE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ALITTLE",
-       "gives": "TILLATE"
+       "words": "underworld",
+       "gives": "DIS",
+       "note": "Dis is the Roman god of the underworld, and his realm"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shaken up",
+         "note": "shaken things get mixed, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A little",
+         "note": "the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -1165,35 +1024,24 @@
    },
    "solution": "SOMETIMES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SOMETIMES",
     "definitions": [
      {
       "text": "on occasion",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "dishevelled",
-      "for": "anagram",
-      "note": "dishevelled means untidy, so these letters are messed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I seem most",
-      "gives": "ISEEMMOST",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISEEMMOST",
-       "gives": "SOMETIMES"
+       "text": "dishevelled",
+       "note": "dishevelled means untidy, so these letters are messed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I seem most",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1222,40 +1070,30 @@
    },
    "solution": "SEAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SEAT",
     "definitions": [
      {
       "text": "backside",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "pinching",
-      "for": "container",
-      "note": "pinching means grasping something within, so one word holds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Group of people",
-      "gives": "SET",
-      "note": "a set is a social group"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "A",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "note": "pinching means grasping something within, so one word holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Group of people",
+       "gives": "SET",
+       "note": "a set is a social group"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1285,51 +1123,40 @@
    },
    "solution": "TESTAMENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "TESTAMENT",
     "definitions": [
      {
       "text": "Will",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "let loose",
-      "for": "anagram",
-      "note": "letting something loose sets it free to move around, so these letters are scrambled"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the scrambled letters sit inside the shelter word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "temporary accommodation",
-      "gives": "TENT",
-      "note": "a tent is a temporary shelter"
-     },
-     {
-      "clueFragment": "mates",
-      "gives": "MATES",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "ESTAM",
-      "ENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MATES",
-       "gives": "ESTAM"
+       "text": "in",
+       "note": "the scrambled letters sit inside the shelter word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "temporary accommodation",
+       "gives": "TENT",
+       "note": "a tent is a temporary shelter"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "let loose",
+         "note": "letting something loose sets it free to move around, so these letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mates",
+         "note": "the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -1359,35 +1186,25 @@
    },
    "solution": "PROTRACT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROTRACT",
     "definitions": [
      {
       "text": "Drag out",
       "at": 0
      }
     ],
-    "linkWords": [
-     "written by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an expert",
-      "gives": "PRO",
-      "note": "a pro is a professional, an expert"
-     },
-     {
-      "clueFragment": "religious pamphlet",
-      "gives": "TRACT",
-      "note": "a tract is a short religious treatise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "TRACT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "an expert",
+       "gives": "PRO",
+       "note": "a pro is a professional, an expert"
+      },
+      {
+       "words": "religious pamphlet",
+       "gives": "TRACT",
+       "note": "a tract is a short religious treatise"
+      }
      ]
     },
     "explanation": {
@@ -1415,33 +1232,29 @@
    },
    "solution": "RUMP",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RUMP",
     "definitions": [
      {
       "text": "Cut",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs his head shaved",
-      "for": "deletion",
-      "note": "shaving off the head removes the top, so the first letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Donald",
-      "gives": "TRUMP",
-      "note": "The Donald is a nickname for Donald Trump"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUMP"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "needs his head shaved",
+       "note": "shaving off the head removes the top, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The Donald",
+       "gives": "TRUMP",
+       "note": "The Donald is a nickname for Donald Trump"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1481,43 +1294,33 @@
    },
    "solution": "BEDOFROSES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BED OF ROSES",
     "definitions": [
      {
       "text": "Easy street",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Free",
-      "for": "anagram",
-      "note": "set free, the letters can move into a new order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beers",
-      "gives": "BEERS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "foods",
-      "gives": "FOODS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEERSFOODS",
-       "gives": "BEDOFROSES"
+       "text": "Free",
+       "note": "set free, the letters can move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "beers",
+         "note": "taken as written"
+        },
+        {
+         "words": "foods",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1547,51 +1350,41 @@
    },
    "solution": "DIWALI",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "DIWALI",
     "definitions": [
      {
       "text": "festival",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about, so the women's group abbreviation runs backwards"
-     },
-     {
-      "text": "to open",
-      "for": "container",
-      "note": "opening something means going into it, so these letters enter the painter's name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "surrealist",
-      "gives": "DALI",
-      "note": "Salvador Dali was a famous surrealist painter"
-     },
-     {
-      "clueFragment": "Women's group",
-      "gives": "WI",
-      "note": "the WI is the Women's Institute, a British community organisation for women"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IW",
-      "ALI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "WI",
-       "to": "IW"
+       "text": "to open",
+       "note": "opening something means going into it, so these letters enter the painter's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "surrealist",
+       "gives": "DALI",
+       "note": "Salvador Dali was a famous surrealist painter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about, so the women's group abbreviation runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Women's group",
+         "gives": "WI",
+         "note": "the WI is the Women's Institute, a British community organisation for women"
+        }
+       ]
       }
      ]
     },
@@ -1626,28 +1419,16 @@
    },
    "solution": "GSTRINGS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "G-STRINGS",
     "definitions": [
      {
       "text": "Excessive fiddlers might break these",
-      "at": 0
+      "at": 0,
+      "meaning": "violinists who play too hard may snap the lowest string on their instrument"
      },
      {
       "text": "undies",
-      "at": 37
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Excessive fiddlers might break these",
-      "note": "violinists who play too hard may snap the lowest string on their instrument"
-     },
-     {
-      "clueFragment": "undies",
-      "note": "skimpy underwear held up by a thin cord"
+      "at": 37,
+      "meaning": "skimpy underwear held up by a thin cord"
      }
     ],
     "explanation": {
@@ -1683,31 +1464,16 @@
    },
    "solution": "GETUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GET-UP",
     "definitions": [
      {
       "text": "Outfit",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a set of clothes, often eccentric"
      },
      {
       "text": "an order to abandon pit?",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Outfit",
-      "note": "first meaning: a set of clothes, often eccentric"
-     },
-     {
-      "clueFragment": "an order to abandon pit?",
-      "note": "second meaning: a command to leave one's bed, pit being slang for bed"
+      "at": 12,
+      "meaning": "second meaning: a command to leave one's bed, pit being slang for bed"
      }
     ],
     "explanation": {
@@ -1737,54 +1503,45 @@
    },
    "solution": "UTOPIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "UTOPIA",
     "definitions": [
      {
       "text": "paradise",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Rolling",
-      "for": "reversal",
-      "note": "rolling over turns something round, so these words run backwards"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "U sounds like you in text-speak"
-     },
-     {
-      "clueFragment": "first-class",
-      "gives": "AI",
-      "note": "A1 means first-class, with the 1 written as I"
-     },
-     {
-      "clueFragment": "weed",
-      "gives": "POT",
-      "note": "pot is slang for cannabis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "TOPIA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "AIPOT",
-       "to": "TOPIA"
+       "words": "you",
+       "gives": "U",
+       "note": "U sounds like you in text-speak"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rolling",
+         "note": "rolling over turns something round, so these words run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "first-class",
+           "gives": "AI",
+           "note": "A1 means first-class, with the 1 written as I"
+          },
+          {
+           "words": "weed",
+           "gives": "POT",
+           "note": "pot is slang for cannabis"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1815,43 +1572,39 @@
    },
    "solution": "PASTE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PASTE",
     "definitions": [
      {
       "text": "stick",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "cut short, so the last letter of the word after is lost"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old man",
-      "gives": "PA",
-      "note": "pa is an informal word for father"
-     },
-     {
-      "clueFragment": "stride",
-      "gives": "STEP",
-      "note": "a stride is a step"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "STE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "cut short, so the last letter of the word after is lost"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old man",
+         "gives": "PA",
+         "note": "pa is an informal word for father"
+        },
+        {
+         "words": "stride",
+         "gives": "STEP",
+         "note": "a stride is a step"
+        }
+       ]
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1880,48 +1633,35 @@
    },
    "solution": "IBIS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "IBIS",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "turned around, so the word before it is read backwards"
-     }
-    ],
-    "linkWords": [
-     "above"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "swinging",
-      "gives": "BI",
-      "note": "swinging is slang for bisexual, shortened to bi"
-     },
-     {
-      "clueFragment": "island",
-      "gives": "IS",
-      "note": "Is is the abbreviation for island"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IB",
-      "IS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BI",
-       "to": "IB"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "turned around, so the word before it is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "swinging",
+         "gives": "BI",
+         "note": "swinging is slang for bisexual, shortened to bi"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "gives": "IS",
+       "note": "Is is the abbreviation for island"
       }
      ]
     },
@@ -1951,54 +1691,53 @@
    },
    "solution": "TAMPA",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "TAMPA",
     "definitions": [
      {
       "text": "port",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "half-done",
-      "for": "deletion",
-      "note": "only half finished, so the second half of the food word is dropped"
-     },
-     {
-      "text": "tucking into",
-      "for": "container",
-      "note": "tucking into food means going inside it, so these letters enter the other word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "taco",
-      "gives": "TACO",
-      "note": "a taco is a Mexican folded tortilla"
-     },
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "an MP is a Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AMP",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "note": "tucking into food means going inside it, so these letters enter the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-done",
+           "note": "only half finished, so the second half of the food word is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "taco",
+           "note": "a taco is a Mexican folded tortilla"
+          },
+          {
+           "gives": "CO"
+          }
+         ]
+        },
+        {
+         "words": "A",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "an MP is a Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -2037,28 +1776,16 @@
    },
    "solution": "ITBEATSME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IT BEATS ME",
     "definitions": [
      {
       "text": "I dunno",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a casual admission of being baffled"
      },
      {
       "text": "what my Hoskins flagellating device does",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I dunno",
-      "note": "first meaning: a casual admission of being baffled"
-     },
-     {
-      "clueFragment": "what my Hoskins flagellating device does",
-      "note": "second meaning: the setter's whip does exactly what it is for, to the setter"
+      "at": 8,
+      "meaning": "second meaning: the setter's whip does exactly what it is for, to the setter"
      }
     ],
     "explanation": {
@@ -2088,43 +1815,31 @@
    },
    "solution": "PASTICHES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PASTICHES",
     "definitions": [
      {
       "text": "Jumbled mixtures",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put in",
-      "for": "container",
-      "note": "something put in another is placed inside it"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cornish pies",
-      "gives": "PASTIES",
-      "note": "a pasty is a Cornish pastry with a savoury filling"
-     },
-     {
-      "clueFragment": "children",
-      "gives": "CH",
-      "note": "CH is the abbreviation for children"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PASTI",
-      "CH",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "note": "something put in another is placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cornish pies",
+       "gives": "PASTIES",
+       "note": "a pasty is a Cornish pastry with a savoury filling"
+      },
+      {
+       "words": "children",
+       "gives": "CH",
+       "note": "CH is the abbreviation for children"
+      }
      ]
     },
     "explanation": {
@@ -2153,30 +1868,28 @@
    },
    "solution": "TREAT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TREAT",
     "definitions": [
      {
       "text": "Pay for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "part",
-      "for": "hidden_word",
-      "note": "only part of the following words is used, a run of consecutive letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "consultant re-attached",
-      "gives": "TREAT",
-      "note": "the letters sit across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part",
+       "note": "only part of the following words is used, a run of consecutive letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "consultant re-attached",
+       "gives": "TREAT",
+       "note": "the letters sit across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A patient pays for a surgeon to reattach a body part.",
      "walkthrough": "'Part' looks like a body part, but it signals a run of letters inside the words after it.",

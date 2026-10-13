@@ -1,8 +1,6 @@
 {
  "id": "cyclops-442",
  "number": 442,
- "series": "cyclops",
- "name": "Private Eye Cyclops crossword No 442",
  "setter": "Cyclops",
  "date": "2011-04-29",
  "dimensions": {
@@ -42,63 +40,59 @@
    },
    "solution": "ABILITY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "ABILITY",
     "definitions": [
      {
       "text": "Skill",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "failing to climax",
-      "for": "deletion",
-      "note": "not reaching the climax means the word stops short of its final letter"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very last letter of the surname it follows"
-     }
-    ],
-    "linkWords": [
-     "requires",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ace",
-      "gives": "A",
-      "note": "A is the card abbreviation for ace"
-     },
-     {
-      "clueFragment": "Clinton",
-      "gives": "BILL",
-      "note": "Bill Clinton, the former US president"
-     },
-     {
-      "clueFragment": "having sex",
-      "gives": "IT",
-      "note": "'it' is a coy word for sex"
-     },
-     {
-      "clueFragment": "Lewinsky",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of Lewinsky"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BIL",
-      "IT",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "failing to climax",
+       "note": "not reaching the climax means the word stops short of its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ace",
+         "gives": "A",
+         "note": "A is the card abbreviation for ace"
+        },
+        {
+         "words": "Clinton",
+         "gives": "BILL",
+         "note": "Bill Clinton, the former US president"
+        },
+        {
+         "words": "having sex",
+         "gives": "IT",
+         "note": "'it' is a coy word for sex"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very last letter of the surname it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lewinsky",
+           "note": "the last letter of Lewinsky"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -134,28 +128,16 @@
    },
    "solution": "GETKNOTTED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GET KNOTTED",
     "definitions": [
      {
       "text": "Do a Kate and Wills?",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to marry, i.e. tie the knot, as Prince William and Kate Middleton did in 2011"
      },
      {
       "text": "Piss off!",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do a Kate and Wills?",
-      "note": "first meaning: to marry, i.e. tie the knot, as Prince William and Kate Middleton did in 2011"
-     },
-     {
-      "clueFragment": "Piss off!",
-      "note": "second meaning: a British dismissive exclamation telling someone to go away"
+      "at": 21,
+      "meaning": "second meaning: a British dismissive exclamation telling someone to go away"
      }
     ],
     "explanation": {
@@ -184,63 +166,51 @@
    },
    "solution": "MEGASTAR",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "container"
-    ],
-    "answer": "MEGASTAR",
     "definitions": [
      {
       "text": "\"I'm adored by millions!\"",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "anagram",
-      "note": "something breaking falls apart, so the name's letters are scattered and reset"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something means being placed inside it"
-     },
-     {
-      "text": "on the up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top, backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "computer chips",
-      "gives": "RAM",
-      "note": "RAM, random access memory, is held on computer chips"
-     },
-     {
-      "clueFragment": "Gates",
-      "gives": "GATES",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "EGAST",
-      "AR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "GATES",
-       "gives": "EGAST"
+       "text": "on the up",
+       "note": "in a down clue, going up means reading from bottom to top, backwards"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "RAM",
-       "to": "MAR"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "note": "going into something means being placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "computer chips",
+         "gives": "RAM",
+         "note": "RAM, random access memory, is held on computer chips"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "breaking",
+           "note": "something breaking falls apart, so the name's letters are scattered and reset"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Gates",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -270,56 +240,45 @@
    },
    "solution": "ITCHY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ITCHY",
     "definitions": [
      {
       "text": "Feeling an urge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Not",
-      "for": "deletion",
-      "note": "'Not' tells us to take the following idea out of the neighbouring word"
-     }
-    ],
-    "linkWords": [
-     "to have",
-     "with",
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sex",
-      "gives": "IT",
-      "note": "'it' is a coy word for sex"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the abbreviation for Conservative"
-     },
-     {
-      "clueFragment": "hotty",
-      "gives": "HOTTY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "excessively",
-      "gives": "OTT",
-      "note": "OTT, over the top, means excessively"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IT",
-      "C",
-      "HY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Not",
+       "note": "'Not' tells us to take the following idea out of the neighbouring word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sex",
+         "gives": "IT",
+         "note": "'it' is a coy word for sex"
+        },
+        {
+         "words": "Conservative",
+         "gives": "C",
+         "note": "C is the abbreviation for Conservative"
+        },
+        {
+         "words": "hotty",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "excessively",
+       "gives": "OTT",
+       "note": "OTT, over the top, means excessively"
+      }
      ]
     },
     "explanation": {
@@ -349,47 +308,44 @@
    },
    "solution": "MORTGAGEE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "MORTGAGEE",
     "definitions": [
      {
       "text": "Banker possibly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "screwed",
-      "for": "anagram",
-      "note": "something screwed up is twisted and messed about, so the letters are rearranged"
-     },
-     {
-      "text": "last bit of",
-      "for": "letter_selection",
-      "note": "the last bit of a word is its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "met aggro",
-      "gives": "METAGGRO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "'incentive'",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of incentive"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "METAGGROE",
-       "gives": "MORTGAGEE"
+       "text": "screwed",
+       "note": "something screwed up is twisted and messed about, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "met aggro",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last bit of",
+           "note": "the last bit of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "'incentive'",
+           "note": "the final letter of incentive"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -422,29 +378,17 @@
     "19-across"
    ],
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BLOWPIPE",
     "definitions": [
      {
       "text": "Weapon",
-      "at": 10
+      "at": 10,
+      "meaning": "first meaning: a tube through which darts are ..."
      },
      {
       "text": "used by cannabis smoker?",
       "at": 17,
-      "note": "descriptive phrase, not a strict noun"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weapon",
-      "note": "first meaning: a tube through which darts are ..."
-     },
-     {
-      "clueFragment": "used by cannabis smoker?",
-      "note": "second meaning, read whimsically"
+      "note": "descriptive phrase, not a strict noun",
+      "meaning": "second meaning, read whimsically"
      }
     ],
     "explanation": {
@@ -477,26 +421,26 @@
     "26-across"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WEDDING BELLS",
     "definitions": [
      {
       "text": "Union strikers? They'll get a hearing by Kate and Wills, etc.",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Union strikers?",
-      "note": "surface reading: trade union members walking out"
-     },
-     {
-      "clueFragment": "They'll get a hearing by Kate and Wills, etc.",
-      "note": "setter's reading: things that strike to mark a marriage union and are heard by the royal couple"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Union strikers?",
+       "note": "surface reading: trade union members walking out"
+      },
+      {
+       "words": "They'll get a hearing by Kate and Wills, etc.",
+       "note": "setter's reading: things that strike to mark a marriage union and are heard by the royal couple"
+      }
+     ]
+    },
+    "spelling": "WEDDING BELLS",
     "explanation": {
      "walkthrough": "'Union strikers' suggests industrial action, but the union is a marriage and the strikers are things that ring out.",
      "definitionFit": "Church chimes rung at a marriage ceremony are struck and heard by the couple, as at the 2011 royal wedding."
@@ -529,51 +473,48 @@
    },
    "solution": "BYELECTION",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "BY-ELECTION",
     "definitions": [
      {
       "text": "another opportunity to humiliate the Lib Dems?",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Wavering",
-      "for": "anagram",
-      "note": "something wavering is unsteady and moves about, so the letters shift order"
-     },
-     {
-      "text": "deserts",
-      "for": "deletion",
-      "note": "deserting means leaving, so that letter goes out of the fodder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "celebrity",
-      "gives": "CELEBRITY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BYELECTION",
+     "indicators": [
       {
-       "fodder": "CELEBITYON",
-       "gives": "BYELECTION"
+       "text": "Wavering",
+       "note": "something wavering is unsteady and moves about, so the letters shift order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "BYELECTION",
+       "indicators": [
+        {
+         "text": "deserts",
+         "note": "deserting means leaving, so that letter goes out of the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "celebrity",
+         "note": "taken as written"
+        },
+        {
+         "words": "on",
+         "note": "taken as written"
+        },
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
       }
      ]
     },
@@ -607,26 +548,25 @@
     "27-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CLUELESS",
     "definitions": [
      {
       "text": "Geddit?",
       "at": 11
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "[Geddit?]",
-      "note": "surface reading: a mocking 'do you get it?' aimed at someone slow on the uptake"
-     },
-     {
-      "clueFragment": "Geddit?",
-      "note": "setter's reading: this entry has no actual wording in its brackets, so it literally lacks its hint"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "[Geddit?]",
+       "note": "surface reading: a mocking 'do you get it?' aimed at someone slow on the uptake"
+      },
+      {
+       "words": "Geddit?",
+       "note": "setter's reading: this entry has no actual wording in its brackets, so it literally lacks its hint"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The brackets are empty of any real wording: the entry comes without a hint, and the answer also describes someone who doesn't get it.",
      "definitionFit": "Clueless means ignorant or baffled, the person being asked 'geddit?', and also literally lacking a hint."
@@ -652,47 +592,51 @@
    },
    "solution": "TREK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TREK",
     "definitions": [
      {
       "text": "journey",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Right of",
-      "for": "letter_selection",
-      "note": "the right-hand portion of a word means its back half"
-     },
-     {
-      "text": "final",
-      "for": "letter_selection",
-      "note": "final points to the last letter of the name before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre",
-      "gives": "TRE",
-      "select": "last",
-      "note": "the right half, the last three letters, of centre"
-     },
-     {
-      "clueFragment": "Nick's",
-      "gives": "K",
-      "select": "last",
-      "note": "the final letter of Nick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRE",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "TRE",
+       "indicators": [
+        {
+         "text": "Right of",
+         "note": "the right-hand portion of a word means its back half"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "centre",
+         "gives": "TRE",
+         "select": "last",
+         "note": "the right half, the last three letters, of centre"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final",
+         "note": "final points to the last letter of the name before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nick's",
+         "gives": "NICK",
+         "note": "the final letter of Nick"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -731,38 +675,29 @@
    },
    "solution": "LIKEASHOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIKE A SHOT",
     "definitions": [
      {
       "text": "Willingly!",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fancy",
-      "gives": "LIKE",
-      "note": "to fancy something is to like it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "drop of whisky",
-      "gives": "SHOT",
-      "note": "a shot is a single measure of spirits"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIKE",
-      "A",
-      "SHOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fancy",
+       "gives": "LIKE",
+       "note": "to fancy something is to like it"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "drop of whisky",
+       "gives": "SHOT",
+       "note": "a shot is a single measure of spirits"
+      }
      ]
     },
     "explanation": {
@@ -790,59 +725,60 @@
    },
    "solution": "ROWED",
    "annotation": {
-    "type": [
-     "reversal",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ROWED",
     "definitions": [
      {
       "text": "fell out",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "missing means lacking, so those letters are taken away from the word"
-     },
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "flipping something turns it over, so the word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Royal",
-      "gives": "ROYAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "shag",
-      "gives": "LAY",
-      "note": "a lay is a slang word for a sexual partner or encounter"
-     },
-     {
-      "clueFragment": "tied knot",
-      "gives": "WED",
-      "note": "to tie the knot is to marry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "WED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ROWED",
+     "indicators": [
       {
-       "from": "LAY",
-       "to": "YAL"
+       "text": "flipping",
+       "note": "flipping something turns it over, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "missing",
+           "note": "missing means lacking, so those letters are taken away from the word"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Royal",
+             "note": "taken as written"
+            },
+            {
+             "words": "shag",
+             "gives": "LAY",
+             "note": "a lay is a slang word for a sexual partner or encounter"
+            }
+           ]
+          },
+          {
+           "gives": "YALLAY"
+          }
+         ]
+        },
+        {
+         "words": "tied knot",
+         "gives": "WED",
+         "note": "to tie the knot is to marry"
+        }
+       ]
       }
      ]
     },
@@ -873,41 +809,35 @@
    },
    "solution": "TROUT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TROUT",
     "definitions": [
      {
       "text": "interfering old woman!",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "ends",
-      "for": "letter_selection",
-      "note": "the ends of the two names are their final letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Margaret Thatcher",
-      "gives": "TR",
-      "select": "last",
-      "note": "the last letter of each name"
-     },
-     {
-      "clueFragment": "rather outmoded",
-      "gives": "OUT",
-      "note": "out means out of fashion, outmoded"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ends",
+         "note": "the ends of the two names are their final letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Margaret Thatcher",
+         "note": "the last letter of each name"
+        }
+       ]
+      },
+      {
+       "words": "rather outmoded",
+       "gives": "OUT",
+       "note": "out means out of fashion, outmoded"
+      }
      ]
     },
     "explanation": {
@@ -946,50 +876,41 @@
     "24-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WALK DOWN THE AISLE",
     "definitions": [
      {
       "text": "What's Kate to do",
       "at": 10
      }
     ],
-    "indicators": [
-     {
-      "text": "explodes",
-      "for": "anagram",
-      "note": "an explosion blows things apart, so the letters are scattered and reassembled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "swallow",
-      "gives": "SWALLOW",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "He",
-      "gives": "HE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "naked",
-      "gives": "NAKED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SWALLOWITHENAKED",
-       "gives": "WALKDOWNTHEAISLE"
+       "text": "explodes",
+       "note": "an explosion blows things apart, so the letters are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "swallow",
+         "note": "taken as written"
+        },
+        {
+         "words": "it",
+         "note": "taken as written"
+        },
+        {
+         "words": "He",
+         "note": "taken as written"
+        },
+        {
+         "words": "naked",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1020,10 +941,6 @@
    },
    "solution": "OPPOSITION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPPOSITION",
     "definitions": [
      {
       "text": "Miliband & co",
@@ -1031,25 +948,19 @@
       "note": "the definition is the party, read with the 's"
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "much reduced work",
-      "gives": "OP",
-      "note": "OP, short for opus, a musical work, is the word heavily cut down"
-     },
-     {
-      "clueFragment": "situation",
-      "gives": "POSITION",
-      "note": "a position is a situation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "POSITION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "much reduced work",
+       "gives": "OP",
+       "note": "OP, short for opus, a musical work, is the word heavily cut down"
+      },
+      {
+       "words": "situation",
+       "gives": "POSITION",
+       "note": "a position is a situation"
+      }
      ]
     },
     "explanation": {
@@ -1084,49 +995,43 @@
    },
    "solution": "STORYBOOK",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "STORY-BOOK",
     "definitions": [
      {
       "text": "Idyllically perfect?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be in",
-      "for": "container",
-      "note": "being in something means sitting inside it"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second"
-     },
-     {
-      "clueFragment": "One like Hague",
-      "gives": "TORY",
-      "note": "William Hague is a Conservative politician, a Tory"
-     },
-     {
-      "clueFragment": "reserve",
-      "gives": "BOOK",
-      "note": "to book is to reserve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TORY",
-      "BOOK"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "STORYBOOK",
+     "indicators": [
+      {
+       "text": "to be in",
+       "note": "being in something means sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "gives": "S",
+         "note": "S is the abbreviation for second"
+        },
+        {
+         "words": "One like Hague",
+         "gives": "TORY",
+         "note": "William Hague is a Conservative politician, a Tory"
+        },
+        {
+         "words": "reserve",
+         "gives": "BOOK",
+         "note": "to book is to reserve"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1159,48 +1064,35 @@
     "25-down"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "STARBUCKS",
     "definitions": [
      {
       "text": "Global brand",
       "at": 10
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means reading the word in the opposite direction"
-     }
-    ],
-    "linkWords": [
-     "takes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "arses'",
-      "gives": "RATS",
-      "note": "rats, like arses, are contemptible people"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "BUCKS",
-      "note": "bucks is slang for dollars, money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAR",
-      "BUCKS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RATS",
-       "to": "STAR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means reading the word in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arses'",
+         "gives": "RATS",
+         "note": "rats, like arses, are contemptible people"
+        }
+       ]
+      },
+      {
+       "words": "money",
+       "gives": "BUCKS",
+       "note": "bucks is slang for dollars, money"
       }
      ]
     },
@@ -1264,41 +1156,30 @@
    },
    "solution": "PLAYPENS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLAY-PENS",
     "definitions": [
      {
       "text": "they should restrict the activities of brats",
       "at": 29
      }
     ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Power",
-      "gives": "P",
-      "note": "P is the abbreviation for power"
-     },
-     {
-      "clueFragment": "shag",
-      "gives": "LAY",
-      "note": "a lay is slang for sex"
-     },
-     {
-      "clueFragment": "dashes off",
-      "gives": "PENS",
-      "note": "to pen is to write, and dashing off is writing quickly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LAY",
-      "PENS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Power",
+       "gives": "P",
+       "note": "P is the abbreviation for power"
+      },
+      {
+       "words": "shag",
+       "gives": "LAY",
+       "note": "a lay is slang for sex"
+      },
+      {
+       "words": "dashes off",
+       "gives": "PENS",
+       "note": "to pen is to write, and dashing off is writing quickly"
+      }
      ]
     },
     "explanation": {
@@ -1326,47 +1207,41 @@
    },
    "solution": "BOMBAST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BOMBAST",
     "definitions": [
      {
       "text": "rant",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "last",
-      "for": "letter_selection",
-      "note": "the last of the name means its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flop",
-      "gives": "BOMB",
-      "note": "to bomb is to flop, to fail"
-     },
-     {
-      "clueFragment": "like",
-      "gives": "AS",
-      "note": "as means like"
-     },
-     {
-      "clueFragment": "Harriet's",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter of Harriet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOMB",
-      "AS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Flop",
+       "gives": "BOMB",
+       "note": "to bomb is to flop, to fail"
+      },
+      {
+       "words": "like",
+       "gives": "AS",
+       "note": "as means like"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "note": "the last of the name means its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harriet's",
+         "gives": "HARRIET",
+         "note": "the final letter of Harriet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1395,41 +1270,35 @@
    },
    "solution": "REGRETS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REGRETS",
     "definitions": [
      {
       "text": "Wills (and Kate) might come to have?",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Ultimate in",
-      "for": "letter_selection",
-      "note": "the ultimate in a word is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'goer'",
-      "gives": "R",
-      "select": "last",
-      "note": "the last letter of goer"
-     },
-     {
-      "clueFragment": "birds",
-      "gives": "EGRETS",
-      "note": "egrets are birds of the heron family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EGRETS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ultimate in",
+         "note": "the ultimate in a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "'goer'",
+         "note": "the last letter of goer"
+        }
+       ]
+      },
+      {
+       "words": "birds",
+       "gives": "EGRETS",
+       "note": "egrets are birds of the heron family"
+      }
      ]
     },
     "explanation": {
@@ -1459,64 +1328,64 @@
    },
    "solution": "ORDINARY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "ORDINARY",
     "definitions": [
      {
       "text": "everyday",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "stifled by",
-      "for": "container",
-      "note": "being stifled by something means being smothered inside it"
-     },
-     {
-      "text": "excited",
-      "for": "anagram",
-      "note": "excited means agitated, so the letters are stirred up"
-     },
-     {
-      "text": "getting end away",
-      "for": "deletion",
-      "note": "the end going away means the final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "noise",
-      "gives": "DIN",
-      "note": "a din is a loud noise"
-     },
-     {
-      "clueFragment": "royal",
-      "gives": "ROYAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "DIN",
-      "ARY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ROYA",
-       "gives": "OARY"
+       "text": "stifled by",
+       "note": "being stifled by something means being smothered inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "excited",
+         "note": "excited means agitated, so the letters are stirred up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "getting end away",
+           "note": "the end going away means the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "royal",
+           "note": "taken as written"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        },
+        {
+         "words": "noise",
+         "gives": "DIN",
+         "note": "a din is a loud noise"
+        }
+       ]
       }
      ]
     },
@@ -1547,41 +1416,30 @@
    },
    "solution": "NOSH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "NOSH",
     "definitions": [
      {
       "text": "Food",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "away",
-      "for": "deletion",
-      "note": "giving something away means letting it go, so those letters leave"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "you amaze me",
-      "gives": "NOSHIT",
-      "note": "'no shit' is a sarcastic exclamation of feigned amazement"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOSH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "note": "giving something away means letting it go, so those letters leave"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you amaze me",
+       "gives": "NOSHIT",
+       "note": "'no shit' is a sarcastic exclamation of feigned amazement"
+      },
+      {
+       "words": "it",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1673,32 +1531,25 @@
    },
    "solution": "BLUEPETER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLUE PETER",
     "definitions": [
      {
       "text": "flag?",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Oxygen-deprived",
-      "gives": "BLUE",
-      "note": "skin starved of oxygen turns blue"
-     },
-     {
-      "clueFragment": "penis",
-      "gives": "PETER",
-      "note": "peter is slang for penis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "PETER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oxygen-deprived",
+       "gives": "BLUE",
+       "note": "skin starved of oxygen turns blue"
+      },
+      {
+       "words": "penis",
+       "gives": "PETER",
+       "note": "peter is slang for penis"
+      }
      ]
     },
     "explanation": {
@@ -1734,45 +1585,35 @@
    },
    "solution": "SOSO",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SO-SO",
     "definitions": [
      {
       "text": "Mediocre",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning around makes the abbreviation read the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra large",
-      "gives": "OS",
-      "note": "OS, outsize, is the clothing abbreviation for extra large"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "SO",
-      "note": "so means very, as in 'so good'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "SO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OS",
-       "to": "SO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "turning around makes the abbreviation read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra large",
+         "gives": "OS",
+         "note": "OS, outsize, is the clothing abbreviation for extra large"
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "gives": "SO",
+       "note": "so means very, as in 'so good'"
       }
      ]
     },
@@ -1807,61 +1648,56 @@
    },
    "solution": "WORKINGOUT",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "WORKING OUT",
     "definitions": [
      {
       "text": "calculating",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Not",
-      "for": "deletion",
-      "note": "'Not' means without, so the following letters are taken out"
-     },
-     {
-      "text": "eccentric",
-      "for": "anagram",
-      "note": "eccentric means off-centre and odd, so the letters are disordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "an",
-      "gives": "AN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Gok Wan",
-      "gives": "GOKWAN",
-      "note": "Gok Wan is a British TV fashion presenter"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "our",
-      "gives": "OUR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "WORKINGOUT",
+     "indicators": [
       {
-       "fodder": "GOKWINOURT",
-       "gives": "WORKINGOUT"
+       "text": "eccentric",
+       "note": "eccentric means off-centre and odd, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "WORKINGOUT",
+       "indicators": [
+        {
+         "text": "Not",
+         "note": "'Not' means without, so the following letters are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "note": "taken as written"
+        },
+        {
+         "words": "Gok Wan",
+         "note": "Gok Wan is a British TV fashion presenter"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "our",
+         "note": "taken as written"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
       }
      ]
     },

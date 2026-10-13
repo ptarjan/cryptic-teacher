@@ -1,8 +1,6 @@
 {
  "id": "timesquick-10",
  "number": 10,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 10",
  "date": "2014-03-21",
  "dimensions": {
   "cols": 13,
@@ -37,28 +35,16 @@
    },
    "solution": "TOSS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOSS",
     "definitions": [
      {
       "text": "Cast",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: throw, fling"
      },
      {
       "text": "raising a bit of money before start of play",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cast",
-      "note": "first meaning: throw, fling"
-     },
-     {
-      "clueFragment": "raising a bit of money before start of play",
-      "note": "second meaning: flipping a coin into the air before a cricket or football match begins"
+      "at": 5,
+      "meaning": "second meaning: flipping a coin into the air before a cricket or football match begins"
      }
     ],
     "explanation": {
@@ -87,26 +73,25 @@
    },
    "solution": "SPELLING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SPELLING",
     "definitions": [
      {
       "text": "Language skill not evident in two of the three R's?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Language skill not evident in two of the three R's?",
-      "note": "surface reading: a skill missing from basic schooling"
-     },
-     {
-      "clueFragment": "two of the three R's",
-      "note": "setter's reading: the three R's are reading, writing and arithmetic, and two of those words do not actually begin with R, so whoever named them could not get the letters right"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Language skill not evident in two of the three R's?",
+       "note": "surface reading: a skill missing from basic schooling"
+      },
+      {
+       "words": "two of the three R's",
+       "note": "setter's reading: the three R's are reading, writing and arithmetic, and two of those words do not actually begin with R, so whoever named them could not get the letters right"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A complaint that schools neglect one language skill while teaching the basics.",
      "walkthrough": "The three R's is a jokey name for reading, writing and arithmetic; only reading starts with R, so the skill absent from 'wRiting' and 'aRithmetic' is getting letters right.",
@@ -134,47 +119,41 @@
    },
    "solution": "PROSPER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "PROSPER",
     "definitions": [
      {
       "text": "Get on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "front of",
-      "for": "letter_selection",
-      "note": "the front of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "entering",
-      "for": "container",
-      "note": "a letter entering a word goes in through it and ends up inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "PROPER",
-      "note": "proper means right, correct"
-     },
-     {
-      "clueFragment": "stage",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "S",
-      "PER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "note": "a letter entering a word goes in through it and ends up inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "gives": "PROPER",
+       "note": "proper means right, correct"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "front of",
+         "note": "the front of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stage",
+         "note": "the opening letter of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -203,35 +182,25 @@
    },
    "solution": "BULLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BULLY",
     "definitions": [
      {
       "text": "cow",
       "at": 46
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One in herd attracted by female",
-      "gives": "BULL",
-      "note": "the male of the cattle herd, drawn to the cows"
-     },
-     {
-      "clueFragment": "yen",
-      "gives": "Y",
-      "note": "Y is the abbreviation for the Japanese yen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BULL",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One in herd attracted by female",
+       "gives": "BULL",
+       "note": "the male of the cattle herd, drawn to the cows"
+      },
+      {
+       "words": "yen",
+       "gives": "Y",
+       "note": "Y is the abbreviation for the Japanese yen"
+      }
      ]
     },
     "explanation": {
@@ -261,63 +230,50 @@
    },
    "solution": "CAMARADERIE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CAMARADERIE",
     "definitions": [
      {
       "text": "Friendship",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unusually",
-      "for": "anagram",
-      "note": "something done unusually departs from its normal order, so these letters get rearranged"
-     },
-     {
-      "text": "oddly",
-      "for": "anagram",
-      "note": "acting oddly means behaving strangely, so the following place name is jumbled too"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one word sits in the other, so the first group is placed inside the second"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dear",
-      "gives": "DEAR",
-      "note": "taken as written, to be jumbled"
-     },
-     {
-      "clueFragment": "America",
-      "gives": "AMERICA",
-      "note": "taken as written, to be jumbled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAMAR",
-      "ADER",
-      "IE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DEAR",
-       "gives": "ADER"
+       "text": "in",
+       "note": "one word sits in the other, so the first group is placed inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "note": "something done unusually departs from its normal order, so these letters get rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America",
+         "note": "taken as written, to be jumbled"
+        }
+       ]
       },
       {
-       "fodder": "AMERICA",
-       "gives": "CAMARIE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "note": "acting oddly means behaving strangely, so the following place name is jumbled too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dear",
+         "note": "taken as written, to be jumbled"
+        }
+       ]
       }
      ]
     },
@@ -347,35 +303,24 @@
    },
    "solution": "SOLVER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SOLVER",
     "definitions": [
      {
       "text": "someone like you",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "disturbed",
-      "for": "anagram",
-      "note": "disturbed things are thrown out of place, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lovers",
-      "gives": "LOVERS",
-      "note": "taken as written, to be jumbled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOVERS",
-       "gives": "SOLVER"
+       "text": "disturbed",
+       "note": "disturbed things are thrown out of place, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lovers",
+       "note": "taken as written, to be jumbled"
       }
      ]
     },
@@ -405,34 +350,25 @@
    },
    "solution": "WATSON",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "WATSON",
     "definitions": [
      {
       "text": "Doctor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to the opening letter of each following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Who adds this sort of novelty",
-      "gives": "WATSON",
-      "select": "first",
-      "note": "initial letters of the six words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WATSON"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at first",
+       "note": "at first points to the opening letter of each following word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Who adds this sort of novelty",
+       "note": "initial letters of the six words"
+      }
      ]
     },
     "explanation": {
@@ -462,26 +398,26 @@
    },
    "solution": "WATERPISTOL",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "WATER PISTOL",
     "definitions": [
      {
       "text": "Weapon for shooting jets",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Weapon for shooting jets",
-      "note": "surface reading: an anti-aircraft gun for bringing down jet planes"
-     },
-     {
-      "clueFragment": "shooting jets",
-      "note": "setter's reading: a toy that squirts streams of liquid"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Weapon for shooting jets",
+       "note": "surface reading: an anti-aircraft gun for bringing down jet planes"
+      },
+      {
+       "words": "shooting jets",
+       "note": "setter's reading: a toy that squirts streams of liquid"
+      }
+     ]
+    },
+    "spelling": "WATER PISTOL",
     "explanation": {
      "surface": "Military hardware designed to bring down fast aircraft.",
      "walkthrough": "'Jets' suggests fighter planes; here they are spurts of water fired from a children's toy.",
@@ -509,40 +445,31 @@
    },
    "solution": "OWING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OWING",
     "definitions": [
      {
       "text": "Outstanding",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eclipsed by",
-      "for": "container",
-      "note": "something eclipsed is covered over by another body, so one part sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "defensive disaster, in short",
-      "gives": "OG",
-      "note": "OG is the short form of own goal, a defender's blunder in football"
-     },
-     {
-      "clueFragment": "victory",
-      "gives": "WIN",
-      "note": "a win is a victory"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "WIN",
-      "G"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eclipsed by",
+       "note": "something eclipsed is covered over by another body, so one part sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defensive disaster, in short",
+       "gives": "OG",
+       "note": "OG is the short form of own goal, a defender's blunder in football"
+      },
+      {
+       "words": "victory",
+       "gives": "WIN",
+       "note": "a win is a victory"
+      }
      ]
     },
     "explanation": {
@@ -571,33 +498,28 @@
    },
    "solution": "SINNING",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "SINNING",
     "definitions": [
      {
       "text": "Doing wrong",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking last piece first",
-      "for": "cycling",
-      "note": "the final letter is brought round to the front of the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of test",
-      "gives": "INNINGS",
-      "note": "a cricket Test match is divided into innings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SINNING"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "SINNING",
+     "indicators": [
+      {
+       "text": "taking last piece first",
+       "note": "the final letter is brought round to the front of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of test",
+       "gives": "INNINGS",
+       "note": "a cricket Test match is divided into innings"
+      }
      ]
     },
     "explanation": {
@@ -626,41 +548,30 @@
    },
    "solution": "OVERSEER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OVERSEER",
     "definitions": [
      {
       "text": "Person keeping an eye on",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, which looks like the letter O"
-     },
-     {
-      "clueFragment": "poetry",
-      "gives": "VERSE",
-      "note": "verse is poetry"
-     },
-     {
-      "clueFragment": "monarch",
-      "gives": "ER",
-      "note": "ER stands for Elizabeth Regina, the Queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "VERSE",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like the letter O"
+      },
+      {
+       "words": "poetry",
+       "gives": "VERSE",
+       "note": "verse is poetry"
+      },
+      {
+       "words": "monarch",
+       "gives": "ER",
+       "note": "ER stands for Elizabeth Regina, the Queen"
+      }
      ]
     },
     "explanation": {
@@ -688,34 +599,25 @@
    },
    "solution": "FLAT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "FLAT",
     "definitions": [
      {
       "text": "Uniform",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of each preceding word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for lieutenant as tailored",
-      "gives": "FLAT",
-      "select": "first",
-      "note": "initial letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLAT"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially points to the opening letter of each preceding word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for lieutenant as tailored",
+       "note": "initial letters of the four words"
+      }
      ]
     },
     "explanation": {
@@ -745,36 +647,35 @@
    },
    "solution": "TYPECAST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TYPECAST",
     "definitions": [
      {
       "text": "showing little variation as players",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Characters",
-      "gives": "TYPE",
-      "note": "type is printed characters"
-     },
-     {
-      "clueFragment": "on",
-      "note": "on joins the two halves, one placed after the other"
-     },
-     {
-      "clueFragment": "pitch",
-      "gives": "CAST",
-      "note": "to pitch is to throw, or cast"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TYPE",
-      "CAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Characters",
+         "gives": "TYPE",
+         "note": "type is printed characters"
+        },
+        {
+         "words": "pitch",
+         "gives": "CAST",
+         "note": "to pitch is to throw, or cast"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "on",
+       "note": "on joins the two halves, one placed after the other"
+      }
      ]
     },
     "explanation": {
@@ -803,30 +704,28 @@
    },
    "solution": "STORM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "STORM",
     "definitions": [
      {
       "text": "The former",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Part in",
-      "for": "hidden_word",
-      "note": "a part in the following words means a stretch of letters inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tempest or Macbeth",
-      "gives": "STORM",
-      "note": "spans the end of the first title and the start of 'or'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part in",
+       "note": "a part in the following words means a stretch of letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tempest or Macbeth",
+       "gives": "STORM",
+       "note": "spans the end of the first title and the start of 'or'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about casting an actor in one of two Shakespeare plays.",
      "walkthrough": "'Part' suggests an acting role. 'The former' refers back to Tempest, the first of the two plays named.",
@@ -853,40 +752,31 @@
    },
    "solution": "PARODY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PARODY",
     "definitions": [
      {
       "text": "Send up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "divided by",
-      "for": "container",
-      "note": "something divided by another has that other running through its middle"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wages",
-      "gives": "PAY",
-      "note": "pay is wages"
-     },
-     {
-      "clueFragment": "staff",
-      "gives": "ROD",
-      "note": "a rod is a staff or stick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "ROD",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "divided by",
+       "note": "something divided by another has that other running through its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wages",
+       "gives": "PAY",
+       "note": "pay is wages"
+      },
+      {
+       "words": "staff",
+       "gives": "ROD",
+       "note": "a rod is a staff or stick"
+      }
      ]
     },
     "explanation": {
@@ -915,40 +805,31 @@
    },
    "solution": "LIBERTARIAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIBERTARIAN",
     "definitions": [
      {
       "text": "opposed to government",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "interrupting means breaking into the middle of something else"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "African",
-      "gives": "LIBERIAN",
-      "note": "a person from Liberia in West Africa"
-     },
-     {
-      "clueFragment": "Man on board",
-      "gives": "TAR",
-      "note": "a tar is a sailor, a man on board ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIBER",
-      "TAR",
-      "IAN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "note": "interrupting means breaking into the middle of something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "African",
+       "gives": "LIBERIAN",
+       "note": "a person from Liberia in West Africa"
+      },
+      {
+       "words": "Man on board",
+       "gives": "TAR",
+       "note": "a tar is a sailor, a man on board ship"
+      }
      ]
     },
     "explanation": {
@@ -977,36 +858,35 @@
    },
    "solution": "ILLNESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ILLNESS",
     "definitions": [
      {
       "text": "Complaint",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "I will",
-      "gives": "ILL",
-      "note": "contracted to I'll"
-     },
-     {
-      "clueFragment": "put before",
-      "note": "places the first part ahead of the second"
-     },
-     {
-      "clueFragment": "head",
-      "gives": "NESS",
-      "note": "a ness is a headland, as in Loch Ness or Dungeness"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILL",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I will",
+         "gives": "ILL",
+         "note": "contracted to I'll"
+        },
+        {
+         "words": "head",
+         "gives": "NESS",
+         "note": "a ness is a headland, as in Loch Ness or Dungeness"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "put before",
+       "note": "places the first part ahead of the second"
+      }
      ]
     },
     "explanation": {
@@ -1036,34 +916,29 @@
    },
    "solution": "GUYS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GUYS",
     "definitions": [
      {
       "text": "Men",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in sound only",
-      "for": "homophone",
-      "note": "only in sound means the word matches when spoken, not when spelt"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "appearance",
-      "gives": "GUYS",
-      "soundsLike": "GUISE",
-      "note": "guise means outward appearance"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUYS",
+     "indicators": [
+      {
+       "text": "in sound only",
+       "note": "only in sound means the word matches when spoken, not when spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appearance",
+       "gives": "GUISE",
+       "note": "guise means outward appearance"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that men's looks are a matter of hearing, not sight.",
      "walkthrough": "'Men's' reads as possessive, but it is 'Men is', the definition followed by a link.",
@@ -1090,35 +965,24 @@
    },
    "solution": "PERCENTAGES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PERCENTAGES",
     "definitions": [
      {
       "text": "Relative amounts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "misrepresented",
-      "for": "anagram",
-      "note": "something misrepresented is given a false form, so the letters are put in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "centre pages",
-      "gives": "CENTREPAGES",
-      "note": "taken as written, to be jumbled"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CENTREPAGES",
-       "gives": "PERCENTAGES"
+       "text": "misrepresented",
+       "note": "something misrepresented is given a false form, so the letters are put in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "centre pages",
+       "note": "taken as written, to be jumbled"
       }
      ]
     },
@@ -1147,30 +1011,19 @@
    },
    "solution": "INFLIGHT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN-FLIGHT",
     "definitions": [
      {
       "text": "Running",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: fleeing, escaping"
      },
      {
       "text": "the kind of movie that's highly entertaining?",
-      "at": 8
+      "at": 8,
+      "meaning": "second meaning: a film shown on an aircraft, entertaining passengers high in the air"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Running",
-      "note": "first meaning: fleeing, escaping"
-     },
-     {
-      "clueFragment": "the kind of movie that's highly entertaining?",
-      "note": "second meaning: a film shown on an aircraft, entertaining passengers high in the air"
-     }
-    ],
+    "spelling": "IN-FLIGHT",
     "explanation": {
      "walkthrough": "'Highly entertaining' sounds like great praise; it literally means entertainment at altitude. Running here means fleeing.",
      "definitionFit": "Fugitives are said to be in flight when escaping, and airline films are screened during a flight."
@@ -1197,55 +1050,44 @@
    },
    "solution": "LOWLIFE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram",
-     "container"
-    ],
-    "answer": "LOWLIFE",
     "definitions": [
      {
       "text": "Crooked fellow, one to be put inside?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Crooked",
-      "for": "anagram",
-      "note": "crooked means bent out of shape, so the letters are twisted into a new order"
-     },
-     {
-      "text": "to be put inside",
-      "for": "container",
-      "note": "put inside says one piece goes into the middle of the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fellow",
-      "gives": "FELLOW",
-      "note": "taken as written, to be jumbled"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOWL",
-      "I",
-      "FE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "FELLOW",
-       "gives": "LOWLFE"
+       "text": "to be put inside",
+       "note": "put inside says one piece goes into the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Crooked",
+         "note": "crooked means bent out of shape, so the letters are twisted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellow",
+         "note": "taken as written, to be jumbled"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A dishonest man who deserves to be locked up in prison.",
      "walkthrough": "The whole clue defines a criminal heading for jail while also giving the wordplay; 'Crooked' does double duty as part of the picture and the anagram signal.",
@@ -1272,43 +1114,31 @@
    },
    "solution": "CRUSOE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRUSOE",
     "definitions": [
      {
       "text": "shipwrecked sailor",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing sits in another, so the first piece goes inside the second"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ancient vessel",
-      "gives": "CRUSE",
-      "note": "a cruse is an old earthenware jar for oil or water"
-     },
-     {
-      "clueFragment": "Nothing",
-      "gives": "O",
-      "note": "zero looks like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRUS",
-      "O",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing sits in another, so the first piece goes inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancient vessel",
+       "gives": "CRUSE",
+       "note": "a cruse is an old earthenware jar for oil or water"
+      },
+      {
+       "words": "Nothing",
+       "gives": "O",
+       "note": "zero looks like the letter O"
+      }
      ]
     },
     "explanation": {
@@ -1337,39 +1167,35 @@
    },
    "solution": "TWILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWILL",
     "definitions": [
      {
       "text": "woven fabric",
       "at": 34
      }
     ],
-    "linkWords": [
-     "needed for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "and",
-      "note": "joins the two parts"
-     },
-     {
-      "clueFragment": "determination",
-      "gives": "WILL",
-      "note": "will is determination"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        },
+        {
+         "words": "determination",
+         "gives": "WILL",
+         "note": "will is determination"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "and",
+       "note": "joins the two parts"
+      }
      ]
     },
     "explanation": {
@@ -1396,36 +1222,35 @@
    },
    "solution": "SOHO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SOHO",
     "definitions": [
      {
       "text": "Part of our capital",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "thus",
-      "gives": "SO",
-      "note": "so means thus"
-     },
-     {
-      "clueFragment": "goes on",
-      "note": "puts the next part after the first"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "HO",
-      "note": "HO is the abbreviation for house"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "HO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "thus",
+         "gives": "SO",
+         "note": "so means thus"
+        },
+        {
+         "words": "house",
+         "gives": "HO",
+         "note": "HO is the abbreviation for house"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "goes on",
+       "note": "puts the next part after the first"
+      }
      ]
     },
     "explanation": {

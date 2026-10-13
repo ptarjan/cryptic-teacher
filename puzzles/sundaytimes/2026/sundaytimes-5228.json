@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5228",
  "number": 5228,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,228",
  "setter": "Robert Price",
  "date": "2026-08-09",
  "dimensions": {
@@ -42,32 +40,25 @@
    },
    "solution": "FESTIVAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FESTIVAL",
     "definitions": [
      {
       "text": "gala",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "F",
-      "note": "F = fellow, a standard abbreviation"
-     },
-     {
-      "clueFragment": "American in the summer",
-      "gives": "ESTIVAL",
-      "note": "estival is the American spelling of aestival, 'of the summer'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ESTIVAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "F",
+       "note": "F = fellow, a standard abbreviation"
+      },
+      {
+       "words": "American in the summer",
+       "gives": "ESTIVAL",
+       "note": "estival is the American spelling of aestival, 'of the summer'"
+      }
      ]
     },
     "explanation": {
@@ -96,48 +87,46 @@
    },
    "solution": "FIFERS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "FIFERS",
     "definitions": [
      {
       "text": "musicians",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "losing"
-     },
-     {
-      "text": "without",
-      "note": "'without' in its old sense of outside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Notes",
-      "gives": "FIVERS",
-      "note": "fivers are five-pound notes"
-     },
-     {
-      "clueFragment": "volume",
-      "gives": "V",
-      "note": "V = volume, removed to leave FIERS"
-     },
-     {
-      "clueFragment": "loud",
-      "gives": "F",
-      "note": "f = forte, loud in music, placed inside FI…ERS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FI",
-      "F",
-      "ERS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "losing"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "'without' in its old sense of outside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Notes",
+         "gives": "FIVERS",
+         "note": "fivers are five-pound notes"
+        },
+        {
+         "words": "volume",
+         "gives": "V",
+         "note": "V = volume, removed to leave FIERS"
+        }
+       ]
+      },
+      {
+       "words": "loud",
+       "gives": "F",
+       "note": "f = forte, loud in music, placed inside FI…ERS"
+      }
      ]
     },
     "explanation": {
@@ -167,44 +156,40 @@
    },
    "solution": "STRING",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "STRING",
     "definitions": [
      {
       "text": "succession",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "protecting"
-     },
-     {
-      "text": "first in",
-      "note": "takes the first letter of 'royal'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hurt",
-      "gives": "STING",
-      "note": "to sting is to hurt"
-     },
-     {
-      "clueFragment": "royal",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of royal, placed inside ST…ING"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "R",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hurt",
+       "gives": "STING",
+       "note": "to sting is to hurt"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "note": "takes the first letter of 'royal'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "royal",
+         "note": "first letter of royal, placed inside ST…ING"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -239,36 +224,38 @@
    },
    "solution": "IRONHORSE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "IRON HORSE",
     "definitions": [
      {
       "text": "Locomotive, once",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sounded",
-      "for": "homophone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "smooth",
-      "gives": "IRON",
-      "note": "to iron is to smooth out creases"
-     },
-     {
-      "clueFragment": "sounded rough",
-      "gives": "HORSE",
-      "soundsLike": "HOARSE",
-      "note": "a rough voice is hoarse"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "smooth",
+       "gives": "IRON",
+       "note": "to iron is to smooth out creases"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HORSE",
+       "indicators": [
+        {
+         "text": "sounded"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sounded rough",
+         "gives": "HOARSE",
+         "note": "a rough voice is hoarse"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "An old steam engine that once ran smoothly now wheezes.",
      "walkthrough": "'Once' marks the definition as dated: iron horse was a nineteenth-century name for a steam locomotive.",
@@ -301,38 +288,24 @@
    },
    "solution": "ASTISPUMANTE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ASTI SPUMANTE",
     "definitions": [
      {
       "text": "wine",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "hopeless",
-      "for": "anagram",
-      "note": "the letters are a hopeless mess, so rearrange them"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pasta menu — it's",
-      "gives": "PASTAMENUITS",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PASTA MENU ITS",
-       "gives": "ASTISPUMANTE"
+       "text": "hopeless",
+       "note": "the letters are a hopeless mess, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pasta menu — it's",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -362,40 +335,31 @@
    },
    "solution": "STAGES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "STAGES",
     "definitions": [
      {
       "text": "legs",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'in' in its plain positional sense"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "powerful creature's",
-      "gives": "STAGS",
-      "note": "a stag's, the possessive supplying the S"
-     },
-     {
-      "clueFragment": "Energy",
-      "gives": "E",
-      "note": "E = energy, placed inside STAG…S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STAG",
-      "E",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'in' in its plain positional sense"
+      }
+     ],
+     "parts": [
+      {
+       "words": "powerful creature's",
+       "gives": "STAGS",
+       "note": "a stag's, the possessive supplying the S"
+      },
+      {
+       "words": "Energy",
+       "gives": "E",
+       "note": "E = energy, placed inside STAG…S"
+      }
      ]
     },
     "explanation": {
@@ -425,44 +389,41 @@
    },
    "solution": "THONG",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "THONG",
     "definitions": [
      {
       "text": "underwear",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "removing",
-      "note": "to remove is to take away, so the crowd word loses a letter"
-     },
-     {
-      "text": "last of",
-      "note": "that letter is the final one of 'their'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crowd",
-      "gives": "THRONG",
-      "note": "a throng is a crowd"
-     },
-     {
-      "clueFragment": "their",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of their, taken out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "ONG"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing",
+       "note": "to remove is to take away, so the crowd word loses a letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crowd",
+       "gives": "THRONG",
+       "note": "a throng is a crowd"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "that letter is the final one of 'their'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "their",
+         "note": "last letter of their, taken out"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -492,47 +453,40 @@
    },
    "solution": "GUMPTION",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "GUMPTION",
     "definitions": [
      {
       "text": "initiative",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoned by",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G = good"
-     },
-     {
-      "clueFragment": "hypothesis",
-      "gives": "ASSUMPTION",
-      "note": "an assumption is a hypothesis"
-     },
-     {
-      "clueFragment": "fool",
-      "gives": "ASS",
-      "note": "an ass is a fool, taken out to leave UMPTION"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "UMPTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "gives": "G",
+       "note": "G = good"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoned by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hypothesis",
+         "gives": "ASSUMPTION",
+         "note": "an assumption is a hypothesis"
+        },
+        {
+         "words": "fool",
+         "gives": "ASS",
+         "note": "an ass is a fool, taken out to leave UMPTION"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -561,35 +515,25 @@
    },
    "solution": "SUNDRIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUNDRIES",
     "definitions": [
      {
       "text": "other stuff",
       "at": 17
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paper",
-      "gives": "SUN",
-      "note": "The Sun is a British tabloid newspaper"
-     },
-     {
-      "clueFragment": "towels",
-      "gives": "DRIES",
-      "note": "towels as a verb: dries with a towel"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "DRIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Paper",
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "words": "towels",
+       "gives": "DRIES",
+       "note": "towels as a verb: dries with a towel"
+      }
      ]
     },
     "explanation": {
@@ -619,46 +563,41 @@
    },
    "solution": "FORSOOTH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FORSOOTH",
     "definitions": [
      {
       "text": "no doubt",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "banks",
-      "for": "container",
-      "note": "to bank something is to line its sides"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "FORTH",
-      "note": "the Forth, a Scottish river"
-     },
-     {
-      "clueFragment": "Really",
-      "gives": "SO",
-      "note": "so = really, as in 'so good'"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old, a standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "SO",
-      "O",
-      "TH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "banks",
+       "note": "to bank something is to line its sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "FORTH",
+       "note": "the Forth, a Scottish river"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Really",
+         "gives": "SO",
+         "note": "so = really, as in 'so good'"
+        },
+        {
+         "words": "old",
+         "gives": "O",
+         "note": "O = old, a standard abbreviation"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -687,48 +626,37 @@
    },
    "solution": "DOLMEN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "DOLMEN",
     "definitions": [
      {
       "text": "Awfully old tomb",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "awfully",
-      "for": "anagram",
-      "note": "the second 'awfully' scrambles OLD"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old",
-      "gives": "DOL",
-      "note": "the second 'old', scrambled by the 'awfully' before it"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "MEN",
-      "note": "men = people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DOL",
-      "MEN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DOLMEN",
+     "indicators": [
       {
-       "fodder": "OLD",
-       "gives": "DOL"
+       "text": "awfully",
+       "note": "the second 'awfully' scrambles OLD"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "gives": "DOL",
+         "note": "the second 'old', scrambled by the 'awfully' before it"
+        },
+        {
+         "words": "people",
+         "gives": "MEN",
+         "note": "men = people"
+        }
+       ]
       }
      ]
     },
@@ -765,35 +693,25 @@
    },
    "solution": "LANDINGSTAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LANDING STAGE",
     "definitions": [
      {
       "text": "pontoon",
       "at": 17
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Winning",
-      "gives": "LANDING",
-      "note": "landing a contract or a prize is winning it"
-     },
-     {
-      "clueFragment": "phase",
-      "gives": "STAGE",
-      "note": "a stage is a phase"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LANDING",
-      "STAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Winning",
+       "gives": "LANDING",
+       "note": "landing a contract or a prize is winning it"
+      },
+      {
+       "words": "phase",
+       "gives": "STAGE",
+       "note": "a stage is a phase"
+      }
      ]
     },
     "explanation": {
@@ -823,41 +741,35 @@
    },
    "solution": "RANCH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RANCH",
     "definitions": [
      {
       "text": "Farm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extremists",
-      "for": "letter_selection",
-      "note": "the extremes of 'Cornish' are its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "managed",
-      "gives": "RAN",
-      "note": "to run a business is to manage it"
-     },
-     {
-      "clueFragment": "Cornish",
-      "gives": "CH",
-      "select": "outer",
-      "note": "first and last letters of Cornish"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAN",
-      "CH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "managed",
+       "gives": "RAN",
+       "note": "to run a business is to manage it"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremists",
+         "note": "the extremes of 'Cornish' are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cornish",
+         "note": "first and last letters of Cornish"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -887,41 +799,35 @@
    },
    "solution": "SLAUGHTER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SLAUGHTER",
     "definitions": [
      {
       "text": "Butcher",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the source of",
-      "for": "letter_selection",
-      "note": "the source of a word is where it starts: its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of some"
-     },
-     {
-      "clueFragment": "amusement",
-      "gives": "LAUGHTER",
-      "note": "laughter = amusement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LAUGHTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the source of",
+         "note": "the source of a word is where it starts: its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some",
+         "note": "first letter of some"
+        }
+       ]
+      },
+      {
+       "words": "amusement",
+       "gives": "LAUGHTER",
+       "note": "laughter = amusement"
+      }
      ]
     },
     "explanation": {
@@ -956,32 +862,25 @@
    },
    "solution": "GROUNDSTROKE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GROUND STROKE",
     "definitions": [
      {
       "text": "Tennis shot",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "pulverized",
-      "gives": "GROUND",
-      "note": "ground = crushed to powder"
-     },
-     {
-      "clueFragment": "sudden attack",
-      "gives": "STROKE",
-      "note": "a stroke is a sudden seizure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GROUND",
-      "STROKE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pulverized",
+       "gives": "GROUND",
+       "note": "ground = crushed to powder"
+      },
+      {
+       "words": "sudden attack",
+       "gives": "STROKE",
+       "note": "a stroke is a sudden seizure"
+      }
      ]
     },
     "explanation": {
@@ -1010,35 +909,24 @@
    },
    "solution": "TREEHOUSE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TREEHOUSE",
     "definitions": [
      {
       "text": "Den put up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playfully",
-      "for": "anagram",
-      "note": "the letters are played with, so rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "here to use",
-      "gives": "HERETOUSE",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HERE TO USE",
-       "gives": "TREEHOUSE"
+       "text": "playfully",
+       "note": "the letters are played with, so rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "here to use",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1073,34 +961,29 @@
    },
    "solution": "CHECKOFF",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHECK OFF",
     "definitions": [
      {
       "text": "tick all the boxes",
       "at": 15
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "the writer's name is spoken"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Writer",
-      "gives": "CHECKOFF",
-      "soundsLike": "CHEKHOV",
-      "note": "Anton Chekhov, the Russian playwright"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHECKOFF",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "the writer's name is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Writer",
+       "gives": "CHEKHOV",
+       "note": "Anton Chekhov, the Russian playwright"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An author praised for doing everything expected of him.",
      "walkthrough": "'Tick all the boxes' sounds like the idiom for meeting every requirement; read literally, it is ticking items on a list.",
@@ -1128,47 +1011,47 @@
    },
    "solution": "KOHLRABI",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "KOHLRABI",
     "definitions": [
      {
       "text": "brassica",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "chopped",
-      "note": "hake has its end chopped off"
-     },
-     {
-      "text": "nuts",
-      "note": "crazy, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broil",
-      "gives": "BROIL",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "hake",
-      "gives": "HAK",
-      "note": "hake without its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "KOHLRABI",
+     "parts": [
       {
-       "fodder": "BROIL HAK",
-       "gives": "KOHLRABI"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "chopped",
+         "note": "hake has its end chopped off"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "nuts",
+           "note": "crazy, so the letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Broil",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "hake",
+           "gives": "HAK",
+           "note": "hake without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1198,43 +1081,39 @@
    },
    "solution": "HOOTENANNIES",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HOOTENANNIES",
     "definitions": [
      {
       "text": "Folk concerts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "most of the word, so its last letter goes"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jeered",
-      "gives": "HOOTED",
-      "note": "hooted = jeered; mostly, so HOOTE"
-     },
-     {
-      "clueFragment": "nurses",
-      "gives": "NANNIES",
-      "note": "nannies are children's nurses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOTE",
-      "NANNIES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most of the word, so its last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "jeered",
+         "gives": "HOOTED",
+         "note": "hooted = jeered; mostly, so HOOTE"
+        },
+        {
+         "words": "nurses",
+         "gives": "NANNIES",
+         "note": "nannies are children's nurses"
+        }
+       ]
+      },
+      {
+       "gives": "D"
+      }
      ]
     },
     "explanation": {
@@ -1264,38 +1143,31 @@
    },
    "solution": "SALAMI",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SALAMI",
     "definitions": [
      {
       "text": "sausage",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to take away the last",
-      "for": "deletion",
-      "note": "the final letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Battle",
-      "gives": "SALAMIS",
-      "note": "the sea battle of 480 BC in which the Greeks beat the Persians, named after an island"
-     },
-     {
-      "clueFragment": "the last",
-      "gives": "S",
-      "note": "last letter, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SALAMI"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to take away the last",
+       "note": "the final letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Battle",
+       "gives": "SALAMIS",
+       "note": "the sea battle of 480 BC in which the Greeks beat the Persians, named after an island"
+      },
+      {
+       "words": "the last",
+       "gives": "S",
+       "note": "last letter, removed"
+      }
      ]
     },
     "explanation": {
@@ -1325,47 +1197,40 @@
    },
    "solution": "ATHENS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ATHENS",
     "definitions": [
      {
       "text": "Capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to end",
-      "for": "letter_selection",
-      "note": "the letters that end 'stanzas'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letters",
-      "gives": "A",
-      "note": "the first of the two letters ending stanzAS"
-     },
-     {
-      "clueFragment": "in order",
-      "gives": "THEN",
-      "note": "'in order' = next, afterwards; it goes between the two letters"
-     },
-     {
-      "clueFragment": "stanzas",
-      "gives": "S",
-      "select": "last",
-      "note": "the last letter of stanzas"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "THEN",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "letters",
+       "gives": "A",
+       "note": "the first of the two letters ending stanzAS"
+      },
+      {
+       "words": "in order",
+       "gives": "THEN",
+       "note": "'in order' = next, afterwards; it goes between the two letters"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "to end",
+         "note": "the letters that end 'stanzas'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stanzas",
+         "note": "the last letter of stanzas"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1395,45 +1260,37 @@
    },
    "solution": "CELIBATES",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CELIBATES",
     "definitions": [
      {
       "text": "Nuns say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wonky",
-      "for": "anagram",
-      "note": "askew, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE = Church of England"
-     },
-     {
-      "clueFragment": "table is",
-      "gives": "LIBATES",
-      "note": "TABLE IS rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CE",
-      "LIBATES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CELIBATES",
+     "indicators": [
       {
-       "fodder": "TABLEIS",
-       "gives": "LIBATES"
+       "text": "wonky",
+       "note": "askew, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "CE = Church of England"
+        },
+        {
+         "words": "table is",
+         "gives": "LIBATES",
+         "note": "TABLE IS rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1463,41 +1320,31 @@
    },
    "solution": "BLING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BLING",
     "definitions": [
      {
       "text": "jewellery",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "the school leaves the word"
-     }
-    ],
-    "linkWords": [
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Taking a risk",
-      "gives": "GAMBLING",
-      "note": "gambling = taking a risk"
-     },
-     {
-      "clueFragment": "school",
-      "gives": "GAM",
-      "note": "a gam is a school of whales, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "the school leaves the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Taking a risk",
+       "gives": "GAMBLING",
+       "note": "gambling = taking a risk"
+      },
+      {
+       "words": "school",
+       "gives": "GAM",
+       "note": "a gam is a school of whales, removed"
+      }
      ]
     },
     "explanation": {
@@ -1527,30 +1374,28 @@
    },
    "solution": "HEART",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HEART",
     "definitions": [
      {
       "text": "Courage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shown by",
-      "for": "hidden_word",
-      "note": "the answer is on show inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the artillery",
-      "gives": "HEART",
-      "note": "tHE ARTillery"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "shown by",
+       "note": "the answer is on show inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the artillery",
+       "gives": "HEART",
+       "note": "tHE ARTillery"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The gunners displayed bravery.",
      "walkthrough": "The surface reads as a report of gunners' bravery; the answer sits in plain view across the break between two words.",
@@ -1577,54 +1422,39 @@
    },
    "solution": "OKAPIS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OKAPIS",
     "definitions": [
      {
       "text": "wild animals",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "reversal",
-      "note": "the drink is turned around"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Agree",
-      "gives": "OK",
-      "note": "to OK something is to agree to it"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as it stands"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SIP",
-      "note": "a sip is a small drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OK",
-      "A",
-      "PIS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SIP",
-       "to": "PIS"
+       "words": "Agree",
+       "gives": "OK",
+       "note": "to OK something is to agree to it"
+      },
+      {
+       "words": "a",
+       "note": "as it stands"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "the drink is turned around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "SIP",
+         "note": "a sip is a small drink"
+        }
+       ]
       }
      ]
     },
@@ -1654,44 +1484,39 @@
    },
    "solution": "SATURATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SATURATE",
     "definitions": [
      {
       "text": "swamp",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "note": "treated badly, so the letters are jumbled"
-     },
-     {
-      "text": "crossing",
-      "note": "the jumbled letters go across A, around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Treat us",
-      "gives": "TREATUS",
-      "note": "anagram fodder, 7 letters"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as it stands, placed inside"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TREAT US A",
-       "gives": "SATURATE"
+       "text": "badly",
+       "note": "treated badly, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crossing",
+         "note": "the jumbled letters go across A, around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Treat us",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "as it stands, placed inside"
       }
      ]
     },
@@ -1721,43 +1546,31 @@
    },
    "solution": "FRINGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FRINGE",
     "definitions": [
      {
       "text": "Edge",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coated with",
-      "for": "container",
-      "note": "the hoop is coated with iron on both sides"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hoop",
-      "gives": "RING",
-      "note": "a ring is a hoop"
-     },
-     {
-      "clueFragment": "iron",
-      "gives": "FE",
-      "note": "Fe, the chemical symbol for iron, wrapped around RING"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RING",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coated with",
+       "note": "the hoop is coated with iron on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "iron",
+       "gives": "FE",
+       "note": "Fe, the chemical symbol for iron, wrapped around RING"
+      },
+      {
+       "words": "hoop",
+       "gives": "RING",
+       "note": "a ring is a hoop"
+      }
      ]
     },
     "explanation": {
@@ -1786,44 +1599,39 @@
    },
    "solution": "BENEFITS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BENEFITS",
     "definitions": [
      {
       "text": "advantages",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "retains",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meat",
-      "gives": "BEEF",
-      "note": "beef = meat"
-     },
-     {
-      "clueFragment": "Northern",
-      "gives": "N",
-      "note": "N = northern, held inside BE…EF"
-     },
-     {
-      "clueFragment": "its",
-      "gives": "ITS",
-      "note": "as it stands"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BENEF",
-      "ITS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat",
+         "gives": "BEEF",
+         "note": "beef = meat"
+        },
+        {
+         "words": "Northern",
+         "gives": "N",
+         "note": "N = northern, held inside BE…EF"
+        }
+       ]
+      },
+      {
+       "words": "its",
+       "note": "as it stands"
+      }
      ]
     },
     "explanation": {

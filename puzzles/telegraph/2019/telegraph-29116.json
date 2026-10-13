@@ -1,8 +1,6 @@
 {
  "id": "telegraph-29116",
  "number": 29116,
- "series": "telegraph",
- "name": "Telegraph cryptic crossword No 29,116",
  "date": "2019-07-30",
  "dimensions": {
   "cols": 15,
@@ -37,30 +35,16 @@
    },
    "solution": "GEORGIA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GEORGIA",
     "definitions": [
      {
       "text": "Nation",
-      "at": 0
+      "at": 0,
+      "meaning": "the country in the Caucasus"
      },
      {
       "text": "state",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nation",
-      "gives": "GEORGIA",
-      "note": "the country in the Caucasus"
-     },
-     {
-      "clueFragment": "state",
-      "gives": "GEORGIA",
-      "note": "the US state"
+      "at": 7,
+      "meaning": "the US state"
      }
     ],
     "explanation": {
@@ -98,30 +82,16 @@
    },
    "solution": "GOTOPOT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GO TO POT",
     "definitions": [
      {
       "text": "Rot",
-      "at": 0
+      "at": 0,
+      "meaning": "a slang phrase meaning to deteriorate, decay"
      },
      {
       "text": "as may cooking ingredients?",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rot",
-      "gives": "GOTOPOT",
-      "note": "a slang phrase meaning to deteriorate, decay"
-     },
-     {
-      "clueFragment": "as may cooking ingredients?",
-      "gives": "GOTOPOT",
-      "note": "literally, what raw ingredients do on their way into a cooking vessel"
+      "at": 6,
+      "meaning": "literally, what raw ingredients do on their way into a cooking vessel"
      }
     ],
     "explanation": {
@@ -150,51 +120,55 @@
    },
    "solution": "OCEAN",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "OCEAN",
     "definitions": [
      {
       "text": "a lot of water",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "ripped apart by"
-     },
-     {
-      "text": "finally",
-      "note": "take the last letter of wave"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O = old, a standard abbreviation"
-     },
-     {
-      "clueFragment": "vessel",
-      "gives": "CAN",
-      "note": "a can is a container"
-     },
-     {
-      "clueFragment": "wave finally",
-      "gives": "E",
-      "select": "last",
-      "note": "the last letter of wavE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "C",
-      "E",
-      "AN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ripped apart by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O = old, a standard abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "take the last letter of wave"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vessel",
+         "gives": "CAN",
+         "note": "a can is a container"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "E",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "wave finally",
+           "gives": "E",
+           "select": "last",
+           "note": "the last letter of wavE"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -229,45 +203,34 @@
    },
    "solution": "GETON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GET ON",
     "definitions": [
      {
       "text": "Hit it off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "vertically",
-      "for": "reversal",
-      "note": "in a down clue, reading upwards turns NOTEG round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not",
-      "gives": "NOT",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. = say, for example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GE",
-      "TON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NOTEG",
-       "to": "GETON"
+       "text": "vertically",
+       "note": "in a down clue, reading upwards turns NOTEG round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "not",
+         "note": "the word itself"
+        },
+        {
+         "words": "say",
+         "gives": "EG",
+         "note": "e.g. = say, for example"
+        }
+       ]
       }
      ]
     },
@@ -302,35 +265,24 @@
    },
    "solution": "ARTDECO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ART DECO",
     "definitions": [
      {
       "text": "style",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "hideous",
-      "for": "anagram",
-      "note": "RED COAT made ugly, its letters deformed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Red coat",
-      "gives": "REDCOAT",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RED COAT",
-       "gives": "ARTDECO"
+       "text": "hideous",
+       "note": "RED COAT made ugly, its letters deformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Red coat",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -360,41 +312,30 @@
    },
    "solution": "KITCHEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KITCHEN",
     "definitions": [
      {
       "text": "galley",
       "at": 28
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gear",
-      "gives": "KIT",
-      "note": "kit = gear, equipment"
-     },
-     {
-      "clueFragment": "revolutionary",
-      "gives": "CHE",
-      "note": "Che Guevara, the crossword's standard revolutionary"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N = new"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KIT",
-      "CHE",
-      "N"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gear",
+       "gives": "KIT",
+       "note": "kit = gear, equipment"
+      },
+      {
+       "words": "revolutionary",
+       "gives": "CHE",
+       "note": "Che Guevara, the crossword's standard revolutionary"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N = new"
+      }
      ]
     },
     "explanation": {
@@ -423,53 +364,51 @@
    },
    "solution": "KNOBBLY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "KNOBBLY",
     "definitions": [
      {
       "text": "not so smooth?",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "Introduction to",
-      "for": "letter_selection",
-      "note": "take the first letter of baron"
-     },
-     {
-      "text": "admits",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "king",
-      "gives": "K",
-      "note": "K = king, as in chess"
-     },
-     {
-      "clueFragment": "graciously",
-      "gives": "NOBLY",
-      "note": "to act nobly is to act graciously"
-     },
-     {
-      "clueFragment": "Introduction to baron",
-      "gives": "B",
-      "select": "first",
-      "note": "the first letter of Baron"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "NOB",
-      "B",
-      "LY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "king",
+       "gives": "K",
+       "note": "K = king, as in chess"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admits"
+        }
+       ],
+       "parts": [
+        {
+         "words": "graciously",
+         "gives": "NOBLY",
+         "note": "to act nobly is to act graciously"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Introduction to",
+           "note": "take the first letter of baron"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Introduction to baron",
+           "gives": "BARON",
+           "note": "the first letter of Baron"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -504,35 +443,25 @@
    },
    "solution": "TESTMATCH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TEST MATCH",
     "definitions": [
      {
       "text": "game",
       "at": 14
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pilot",
-      "gives": "TEST",
-      "note": "a pilot study is a test"
-     },
-     {
-      "clueFragment": "fit",
-      "gives": "MATCH",
-      "note": "to fit is to match"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEST",
-      "MATCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pilot",
+       "gives": "TEST",
+       "note": "a pilot study is a test"
+      },
+      {
+       "words": "fit",
+       "gives": "MATCH",
+       "note": "to fit is to match"
+      }
      ]
     },
     "explanation": {
@@ -561,46 +490,39 @@
    },
    "solution": "HEBRIDEAN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HEBRIDEAN",
     "definitions": [
      {
       "text": "Scottish islander",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "embracing",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "HEN",
-      "note": "a hen is a female bird"
-     },
-     {
-      "clueFragment": "woman who's marrying",
-      "gives": "BRIDE",
-      "note": "the bride is the woman getting married"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the word itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "BRIDE",
-      "A",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Female",
+       "gives": "HEN",
+       "note": "a hen is a female bird"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "woman who's marrying",
+         "gives": "BRIDE",
+         "note": "the bride is the woman getting married"
+        },
+        {
+         "words": "a",
+         "note": "the word itself"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -629,44 +551,45 @@
    },
    "solution": "NORFOLK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NORFOLK",
     "definitions": [
      {
       "text": "County",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "take the last letter of fair"
-     },
-     {
-      "text": "hosted by"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nobody",
-      "gives": "NOFOLK",
-      "note": "no folk = nobody"
-     },
-     {
-      "clueFragment": "fair ultimately",
-      "gives": "R",
-      "select": "last",
-      "note": "the last letter of faiR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "R",
-      "FOLK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "take the last letter of fair"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nobody",
+       "gives": "NOFOLK",
+       "note": "no folk = nobody"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "R",
+       "indicators": [
+        {
+         "text": "hosted by"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "fair ultimately",
+         "gives": "R",
+         "select": "last",
+         "note": "the last letter of faiR"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -701,43 +624,40 @@
    },
    "solution": "TWENTYTWO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TWENTY-TWO",
     "definitions": [
      {
       "text": "mark in rugby",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "take the first letter of each of the three words that follow: tries, win, one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Score",
-      "gives": "TWENTY",
-      "note": "a score is twenty"
-     },
-     {
-      "clueFragment": "first of tries and win one",
-      "gives": "TWO",
-      "select": "first",
-      "note": "the first letters of Tries, Win and One"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWENTY",
-      "T",
-      "W",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Score",
+       "gives": "TWENTY",
+       "note": "a score is twenty"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "TWO",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "take the first letter of each of the three words that follow: tries, win, one"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "first of tries and win one",
+         "gives": "TWO",
+         "select": "first",
+         "note": "the first letters of Tries, Win and One"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -766,50 +686,41 @@
    },
    "solution": "SOBER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SOBER",
     "definitions": [
      {
       "text": "serious",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning",
-      "for": "letter_selection",
-      "note": "take the first letter of recording"
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thus",
-      "gives": "SO",
-      "note": "so = thus"
-     },
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to be is to live, exist"
-     },
-     {
-      "clueFragment": "recording's beginning",
-      "gives": "R",
-      "select": "first",
-      "note": "the first letter of Recording"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "BE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Thus",
+       "gives": "SO",
+       "note": "so = thus"
+      },
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to be is to live, exist"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "note": "take the first letter of recording"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recording's beginning",
+         "gives": "RECORDINGS",
+         "note": "the first letter of Recording"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -838,42 +749,30 @@
    },
    "solution": "PENANCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PENANCE",
     "definitions": [
      {
       "text": "Punishment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "arrested by",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coppers",
-      "gives": "PENCE",
-      "note": "coppers are copper coins, pennies"
-     },
-     {
-      "clueFragment": "North American",
-      "gives": "NA",
-      "note": "NA = North American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "NA",
-      "NCE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "arrested by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coppers",
+       "gives": "PENCE",
+       "note": "coppers are copper coins, pennies"
+      },
+      {
+       "words": "North American",
+       "gives": "NA",
+       "note": "NA = North American"
+      }
      ]
     },
     "explanation": {
@@ -903,35 +802,25 @@
    },
    "solution": "BAMBINO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BAMBINO",
     "definitions": [
      {
       "text": "child",
       "at": 35
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Children's film",
-      "gives": "BAMBI",
-      "note": "the Disney film about a young deer"
-     },
-     {
-      "clueFragment": "absolutely not",
-      "gives": "NO",
-      "note": "no = absolutely not"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAMBI",
-      "NO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Children's film",
+       "gives": "BAMBI",
+       "note": "the Disney film about a young deer"
+      },
+      {
+       "words": "absolutely not",
+       "gives": "NO",
+       "note": "no = absolutely not"
+      }
      ]
     },
     "explanation": {
@@ -959,48 +848,40 @@
    },
    "solution": "TESTIMONY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TESTIMONY",
     "definitions": [
      {
       "text": "evidence",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Irritable",
-      "gives": "TESTY",
-      "note": "testy = irritable"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "MON",
-      "note": "MON is the abbreviation for Monday"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEST",
-      "I",
-      "MON",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Irritable",
+         "gives": "TESTY",
+         "note": "testy = irritable"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        }
+       ]
+      },
+      {
+       "words": "day",
+       "gives": "MON",
+       "note": "MON is the abbreviation for Monday"
+      }
      ]
     },
     "explanation": {
@@ -1028,35 +909,24 @@
    },
    "solution": "SPINNERET",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SPINNERET",
     "definitions": [
      {
       "text": "web-designing tool?",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Switch",
-      "for": "anagram",
-      "note": "switching round the letters of PRESENT IN"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "present in",
-      "gives": "PRESENTIN",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PRESENT IN",
-       "gives": "SPINNERET"
+       "text": "Switch",
+       "note": "switching round the letters of PRESENT IN"
+      }
+     ],
+     "parts": [
+      {
+       "words": "present in",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1093,40 +963,33 @@
    },
    "solution": "INGENERAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN GENERAL",
     "definitions": [
      {
       "text": "mainly",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "wrong",
-      "for": "anagram",
-      "note": "LINE and RANGE put together wrongly"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Line",
-      "gives": "LINE",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "range",
-      "gives": "RANGE",
-      "note": "anagram fodder, joined by 'and'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LINE RANGE",
-       "gives": "INGENERAL"
+       "text": "wrong",
+       "note": "LINE and RANGE put together wrongly"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Line",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "range",
+         "note": "anagram fodder, joined by 'and'"
+        }
+       ]
       }
      ]
     },
@@ -1156,43 +1019,40 @@
    },
    "solution": "TWEAK",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TWEAK",
     "definitions": [
      {
       "text": "tug",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "stern of",
-      "note": "the stern is the back of a boat, so take its last letter"
-     },
-     {
-      "text": "Attached to"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stern of boat",
-      "gives": "T",
-      "select": "last",
-      "note": "the last letter of boaT"
-     },
-     {
-      "clueFragment": "feeble",
-      "gives": "WEAK",
-      "note": "weak = feeble"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WEAK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "stern of",
+       "note": "the stern is the back of a boat, so take its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Attached to"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stern of boat",
+         "note": "the last letter of boaT"
+        }
+       ]
+      },
+      {
+       "words": "feeble",
+       "gives": "WEAK",
+       "note": "weak = feeble"
+      }
      ]
     },
     "explanation": {
@@ -1221,32 +1081,25 @@
    },
    "solution": "CLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CLING",
     "definitions": [
      {
       "text": "Hold",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C = cold, as on a tap"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "LING",
-      "note": "the ling is a sea fish of the cod family"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C = cold, as on a tap"
+      },
+      {
+       "words": "fish",
+       "gives": "LING",
+       "note": "the ling is a sea fish of the cod family"
+      }
      ]
     },
     "explanation": {
@@ -1275,39 +1128,30 @@
    },
    "solution": "CABARET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CABARET",
     "definitions": [
      {
       "text": "form of entertainment",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodating",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Persian perhaps",
-      "gives": "CAT",
-      "note": "a Persian is a breed of cat; 'perhaps' marks an example"
-     },
-     {
-      "clueFragment": "naked",
-      "gives": "BARE",
-      "note": "bare = naked"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "BARE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Persian perhaps",
+       "gives": "CAT",
+       "note": "a Persian is a breed of cat; 'perhaps' marks an example"
+      },
+      {
+       "words": "naked",
+       "gives": "BARE",
+       "note": "bare = naked"
+      }
      ]
     },
     "explanation": {
@@ -1336,30 +1180,16 @@
    },
    "solution": "FARTHINGS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FARTHINGS",
     "definitions": [
      {
       "text": "Old coins",
-      "at": 0
+      "at": 0,
+      "meaning": "the farthing was a quarter of an old British penny"
      },
      {
       "text": "items in the distance?",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old coins",
-      "gives": "FARTHINGS",
-      "note": "the farthing was a quarter of an old British penny"
-     },
-     {
-      "clueFragment": "items in the distance?",
-      "gives": "FARTHINGS",
-      "note": "read as two words: distant objects"
+      "at": 11,
+      "meaning": "read as two words: distant objects"
      }
     ],
     "explanation": {
@@ -1387,40 +1217,29 @@
    },
    "solution": "FISHERY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FISHERY",
     "definitions": [
      {
       "text": "Where salmon might be farmed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "feeding",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tiddler",
-      "gives": "FRY",
-      "note": "fry are young fish; a tiddler is a tiny fish"
-     },
-     {
-      "clueFragment": "is he",
-      "gives": "ISHE",
-      "note": "the words themselves"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "IS",
-      "HE",
-      "RY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "feeding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tiddler",
+       "gives": "FRY",
+       "note": "fry are young fish; a tiddler is a tiny fish"
+      },
+      {
+       "words": "is he",
+       "note": "the words themselves"
+      }
      ]
     },
     "explanation": {
@@ -1449,32 +1268,25 @@
    },
    "solution": "RECOUNT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RECOUNT",
     "definitions": [
      {
       "text": "Tell",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     },
-     {
-      "clueFragment": "aristocrat",
-      "gives": "COUNT",
-      "note": "a count is a nobleman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "COUNT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "gives": "RE",
+       "note": "re = on, concerning"
+      },
+      {
+       "words": "aristocrat",
+       "gives": "COUNT",
+       "note": "a count is a nobleman"
+      }
      ]
     },
     "explanation": {
@@ -1503,46 +1315,48 @@
    },
    "solution": "STRANGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "STRANGE",
     "definitions": [
      {
       "text": "funny",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "take the first letters of Gilbert and Sullivan"
-     },
-     {
-      "text": "terribly",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gilbert & Sullivan initially",
-      "gives": "GS",
-      "select": "first",
-      "note": "the initials of Gilbert and Sullivan"
-     },
-     {
-      "clueFragment": "aren't",
-      "gives": "ARENT",
-      "note": "anagram fodder, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GS ARENT",
-       "gives": "STRANGE"
+       "text": "terribly"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "GS",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "take the first letters of Gilbert and Sullivan"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Gilbert & Sullivan initially",
+           "gives": "GS",
+           "select": "first",
+           "note": "the initials of Gilbert and Sullivan"
+          }
+         ]
+        },
+        {
+         "words": "aren't",
+         "note": "anagram fodder, apostrophe dropped"
+        }
+       ]
       }
      ]
     },
@@ -1573,30 +1387,16 @@
    },
    "solution": "BANANAS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BANANAS",
     "definitions": [
      {
       "text": "Fruit",
-      "at": 0
+      "at": 0,
+      "meaning": "the yellow fruit"
      },
      {
       "text": "bats",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fruit",
-      "gives": "BANANAS",
-      "note": "the yellow fruit"
-     },
-     {
-      "clueFragment": "bats",
-      "gives": "BANANAS",
-      "note": "bats = crazy, mad (slang)"
+      "at": 6,
+      "meaning": "bats = crazy, mad (slang)"
      }
     ],
     "explanation": {
@@ -1626,30 +1426,16 @@
    },
    "solution": "CLOBBER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLOBBER",
     "definitions": [
      {
       "text": "Assault",
-      "at": 0
+      "at": 0,
+      "meaning": "to assault someone is to hit them hard"
      },
      {
       "text": "gear",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Assault",
-      "gives": "CLOBBER",
-      "note": "to assault someone is to hit them hard"
-     },
-     {
-      "clueFragment": "gear",
-      "gives": "CLOBBER",
-      "note": "British slang for clothes or belongings"
+      "at": 8,
+      "meaning": "British slang for clothes or belongings"
      }
     ],
     "explanation": {
@@ -1677,30 +1463,28 @@
    },
    "solution": "ORATE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ORATE",
     "definitions": [
      {
       "text": "Speak",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "a little",
-      "for": "hidden_word",
-      "note": "only a small piece of the next words is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for a tenner",
-      "gives": "ORATE",
-      "note": "fOR A TEnner"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a little",
+       "note": "only a small piece of the next words is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for a tenner",
+       "gives": "ORATE",
+       "note": "fOR A TEnner"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Offering to give a short talk for ten pounds.",
      "walkthrough": "'Speak a little' reads as a request for a brief talk; 'a little' is the instruction to take part of what follows. A tenner is a ten-pound note.",
@@ -1727,45 +1511,40 @@
    },
    "solution": "BUILT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BUILT",
     "definitions": [
      {
       "text": "made up",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Saving",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "still",
-      "gives": "BUT",
-      "note": "still = but, nevertheless"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "L",
-      "note": "L = pound, from the Latin libra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "I",
-      "L",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Saving"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "still",
+         "gives": "BUT",
+         "note": "still = but, nevertheless"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral"
+        }
+       ]
+      },
+      {
+       "words": "pound",
+       "gives": "L",
+       "note": "L = pound, from the Latin libra"
+      }
      ]
     },
     "explanation": {
@@ -1794,51 +1573,40 @@
    },
    "solution": "RARER",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RARER",
     "definitions": [
      {
       "text": "More unlikely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "looking back",
-      "note": "looking back means facing the other way"
-     },
-     {
-      "text": "about"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to come up",
-      "gives": "REAR",
-      "note": "to rear is to rise up"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "R",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REAR",
-       "to": "RAER"
+       "text": "looking back",
+       "note": "looking back means facing the other way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to come up",
+         "gives": "REAR",
+         "note": "to rear is to rise up"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R = right"
+        }
+       ]
       }
      ]
     },
@@ -1868,35 +1636,24 @@
    },
    "solution": "EDUCATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EDUCATION",
     "definitions": [
      {
       "text": "Teaching",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "distracted",
-      "for": "anagram",
-      "note": "the letters are thrown into confusion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a cutie, don",
-      "gives": "ACUTIEDON",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "A CUTIE DON",
-       "gives": "EDUCATION"
+       "text": "distracted",
+       "note": "the letters are thrown into confusion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a cutie, don",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -1926,39 +1683,30 @@
    },
    "solution": "TOTALLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOTALLY",
     "definitions": [
      {
       "text": "Absolutely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "play",
-      "gives": "TOY",
-      "note": "to toy with something is to play"
-     },
-     {
-      "clueFragment": "great",
-      "gives": "TALL",
-      "note": "great = tall, big in height"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "TALL",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "play",
+       "gives": "TOY",
+       "note": "to toy with something is to play"
+      },
+      {
+       "words": "great",
+       "gives": "TALL",
+       "note": "great = tall, big in height"
+      }
      ]
     },
     "explanation": {
@@ -1987,48 +1735,40 @@
    },
    "solution": "THEATRE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "THEATRE",
     "definitions": [
      {
       "text": "histrionics",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "faked",
-      "note": "TEAR is made false, its letters rearranged"
-     },
-     {
-      "text": "after",
-      "note": "the anagram comes after THE"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "the word itself"
-     },
-     {
-      "clueFragment": "Tear",
-      "gives": "ATRE",
-      "note": "TEAR rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THE",
-      "ATRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "THEATRE",
+     "parts": [
       {
-       "fodder": "TEAR",
-       "gives": "ATRE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "faked",
+         "note": "TEAR is made false, its letters rearranged"
+        },
+        {
+         "text": "after",
+         "note": "the anagram comes after THE"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "note": "the word itself"
+        },
+        {
+         "words": "Tear",
+         "gives": "ATRE",
+         "note": "TEAR rearranged"
+        }
+       ]
       }
      ]
     },

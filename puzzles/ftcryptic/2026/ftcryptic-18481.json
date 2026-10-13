@@ -1,8 +1,6 @@
 {
  "id": "ftcryptic-18481",
  "number": 18481,
- "series": "ftcryptic",
- "name": "Financial Times cryptic crossword No 18,481",
  "setter": "Bobcat",
  "date": "2026-09-16",
  "dimensions": {
@@ -42,30 +40,16 @@
    },
    "solution": "GOLF",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GOLF",
     "definitions": [
      {
       "text": "Striking play",
-      "at": 0
+      "at": 0,
+      "meaning": "a game in which players strike a ball"
      },
      {
       "text": "that's broadcast in front of hotel",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Striking play",
-      "gives": "GOLF",
-      "note": "a game in which players strike a ball"
-     },
-     {
-      "clueFragment": "that's broadcast in front of hotel",
-      "gives": "GOLF",
-      "note": "in the NATO radio alphabet, the code word just before Hotel (H)"
+      "at": 14,
+      "meaning": "in the NATO radio alphabet, the code word just before Hotel (H)"
      }
     ],
     "explanation": {
@@ -101,48 +85,38 @@
    },
    "solution": "OLIVEBRANCH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OLIVE BRANCH",
     "definitions": [
      {
       "text": "symbol of peace",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "extremely",
-      "for": "anagram",
-      "note": "the extremes of a word are its first and last letters"
-     },
-     {
-      "text": "not exactly",
-      "for": "anagram",
-      "note": "the letters are not in exactly their original order"
-     }
-    ],
-    "linkWords": [
-     "bringing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lochinvar",
-      "gives": "LOCHINVAR",
-      "note": "anagram fodder, taken as written"
-     },
-     {
-      "clueFragment": "extremely brave",
-      "gives": "BE",
-      "note": "the outer letters of BRAVE"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LOCHINVAR BE",
-       "gives": "OLIVEBRANCH"
+       "text": "extremely",
+       "note": "the extremes of a word are its first and last letters"
+      },
+      {
+       "text": "not exactly",
+       "note": "the letters are not in exactly their original order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Lochinvar",
+         "note": "anagram fodder, taken as written"
+        },
+        {
+         "words": "extremely brave",
+         "gives": "BE",
+         "note": "the outer letters of BRAVE"
+        }
+       ]
       }
      ]
     },
@@ -172,30 +146,28 @@
    },
    "solution": "FIELDFARE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FIELDFARE",
     "definitions": [
      {
       "text": "Singer possibly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flying from",
-      "for": "hidden_word",
-      "note": "the answer comes flying out of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cranfield far earlier",
-      "gives": "FIELDFARE",
-      "note": "starts after CRAN and ends after the first letter of 'earlier'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "flying from",
+       "note": "the answer comes flying out of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cranfield far earlier",
+       "gives": "FIELDFARE",
+       "note": "starts after CRAN and ends after the first letter of 'earlier'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pop star who left Cranfield by plane some time ago.",
      "walkthrough": "Cranfield is a town with an airfield, so 'flying' fits the surface neatly. The fieldfare is a thrush, a songbird, hence 'Singer possibly'.",
@@ -222,57 +194,59 @@
    },
    "solution": "TRIPLICATE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "container"
-    ],
-    "answer": "TRIPLICATE",
     "definitions": [
      {
       "text": "Make a few copies",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "a short word has lost its last letter"
-     },
-     {
-      "text": "gripping",
-      "for": "container",
-      "note": "one word holds another inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tense",
-      "gives": "T",
-      "note": "t = tense, the grammar abbreviation"
-     },
-     {
-      "clueFragment": "fully developed short",
-      "gives": "RIP",
-      "note": "RIPE minus its last letter"
-     },
-     {
-      "clueFragment": "story",
-      "gives": "LIE",
-      "note": "a lie is a story, a fib"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "CAT",
-      "note": "a queen is a female cat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "RIP",
-      "LICATE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TRIPLICATE",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "a short word has lost its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripping",
+         "note": "one word holds another inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Tense",
+           "gives": "T",
+           "note": "t = tense, the grammar abbreviation"
+          },
+          {
+           "words": "fully developed short",
+           "gives": "RIP",
+           "note": "RIPE minus its last letter"
+          },
+          {
+           "words": "story",
+           "gives": "LIE",
+           "note": "a lie is a story, a fib"
+          }
+         ]
+        },
+        {
+         "words": "queen",
+         "gives": "CAT",
+         "note": "a queen is a female cat"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -301,40 +275,37 @@
    },
    "solution": "TOASTER",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "TOASTER",
     "definitions": [
      {
       "text": "One taking part in preparing soldiers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without a leader",
-      "for": "deletion",
-      "note": "the word loses its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "manage without a leader",
-      "gives": "ASTER",
-      "note": "MASTER (to manage) minus its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "ASTER"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TOASTER",
+     "indicators": [
+      {
+       "text": "without a leader",
+       "note": "the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to",
+         "note": "taken as written"
+        },
+        {
+         "words": "manage without a leader",
+         "gives": "ASTER",
+         "note": "MASTER (to manage) minus its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -378,35 +349,24 @@
    },
    "solution": "INTHESAMEBREATH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN THE SAME BREATH",
     "definitions": [
      {
       "text": "simultaneously",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "let loose",
-      "for": "anagram",
-      "note": "the letters are freed to take up a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Barmiest heathen",
-      "gives": "BARMIESTHEATHEN",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BARMIEST HEATHEN",
-       "gives": "INTHESAMEBREATH"
+       "text": "let loose",
+       "note": "the letters are freed to take up a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Barmiest heathen",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -437,61 +397,73 @@
    },
    "solution": "LENGTHY",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LENGTHY",
     "definitions": [
      {
       "text": "Long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "essentially",
-      "note": "the essence of a word is its central letter"
-     },
-     {
-      "text": "boring",
-      "note": "the letter bores into another word"
-     },
-     {
-      "text": "before",
-      "for": "letter_selection",
-      "note": "one piece comes ahead of the next"
-     },
-     {
-      "text": "spent inside",
-      "for": "letter_selection",
-      "note": "the word's inside is used up, leaving its ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time before Easter",
-      "gives": "LENT",
-      "note": "Lent is the season before Easter"
-     },
-     {
-      "clueFragment": "essentially languid",
-      "gives": "G",
-      "select": "middle",
-      "note": "the central letter of LANGUID, placed inside LENT"
-     },
-     {
-      "clueFragment": "holiday spent inside",
-      "gives": "HY",
-      "select": "outer",
-      "note": "HOLIDAY with its inside removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LENGT",
-      "HY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "essentially",
+       "note": "the essence of a word is its central letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boring",
+         "note": "the letter bores into another word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time before Easter",
+         "gives": "LENT",
+         "note": "Lent is the season before Easter"
+        },
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "G",
+         "indicators": [
+          {
+           "text": "before",
+           "note": "one piece comes ahead of the next"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "essentially languid",
+           "gives": "G",
+           "select": "middle",
+           "note": "the central letter of LANGUID, placed inside LENT"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "spent inside",
+         "note": "the word's inside is used up, leaving its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "holiday spent inside",
+         "gives": "HOLIDAY",
+         "note": "HOLIDAY with its inside removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -520,30 +492,16 @@
    },
    "solution": "ASIDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ASIDE",
     "definitions": [
      {
       "text": "Sotto voce utterance",
-      "at": 0
+      "at": 0,
+      "meaning": "sotto voce = under the breath; a stage remark to the audience"
      },
      {
       "text": "that could be right",
-      "at": 21
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sotto voce utterance",
-      "gives": "ASIDE",
-      "note": "sotto voce = under the breath; a stage remark to the audience"
-     },
-     {
-      "clueFragment": "that could be right",
-      "gives": "ASIDE",
-      "note": "right is one of two sides, so read the answer as two words"
+      "at": 21,
+      "meaning": "right is one of two sides, so read the answer as two words"
      }
     ],
     "explanation": {
@@ -573,44 +531,41 @@
    },
    "solution": "ESSAY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ESSAY",
     "definitions": [
      {
       "text": "Attempt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in support of",
-      "note": "in a down answer, the supporting piece sits beneath the other"
-     },
-     {
-      "text": "evacuated",
-      "note": "the word is emptied, leaving only its first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "evacuated Eritreans",
-      "gives": "ES",
-      "select": "outer",
-      "note": "ERITREANS emptied of its inside"
-     },
-     {
-      "clueFragment": "to speak",
-      "gives": "SAY",
-      "note": "to say = to speak"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "SAY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in support of",
+       "note": "in a down answer, the supporting piece sits beneath the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "evacuated",
+         "note": "the word is emptied, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evacuated Eritreans",
+         "note": "ERITREANS emptied of its inside"
+        }
+       ]
+      },
+      {
+       "words": "to speak",
+       "gives": "SAY",
+       "note": "to say = to speak"
+      }
      ]
     },
     "explanation": {
@@ -645,11 +600,6 @@
    },
    "solution": "PINEMARTEN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PINE MARTEN",
     "definitions": [
      {
       "text": "in woodland — it's wild",
@@ -657,42 +607,39 @@
       "note": "a description of the animal rather than a synonym: a wild creature of the woods"
      }
     ],
-    "indicators": [
-     {
-      "text": "running around",
-      "for": "reversal",
-      "note": "the letters run the other way round"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Long",
-      "gives": "PINE",
-      "note": "to pine = to long"
-     },
-     {
-      "clueFragment": "trap",
-      "gives": "NET",
-      "note": "a net is a trap"
-     },
-     {
-      "clueFragment": "sheep",
-      "gives": "RAM",
-      "note": "a ram is a male sheep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PINE",
-      "MARTEN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NETRAM",
-       "to": "MARTEN"
+       "words": "Long",
+       "gives": "PINE",
+       "note": "to pine = to long"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "running around",
+         "note": "the letters run the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "trap",
+           "gives": "NET",
+           "note": "a net is a trap"
+          },
+          {
+           "words": "sheep",
+           "gives": "RAM",
+           "note": "a ram is a male sheep"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -722,45 +669,53 @@
    },
    "solution": "BIAS",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BIAS",
     "definitions": [
      {
       "text": "influence",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "note": "one word is taken out of another"
-     },
-     {
-      "text": "being denied interior",
-      "note": "the word loses its interior, keeping its ends"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Biden, out of office",
-      "gives": "BI",
-      "note": "BIDEN with DEN (a study, an office) taken out"
-     },
-     {
-      "clueFragment": "accepts being denied interior",
-      "gives": "AS",
-      "select": "outer",
-      "note": "ACCEPTS stripped to its first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BI",
-      "AS"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BIAS",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "out of",
+         "note": "one word is taken out of another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Biden, out of office",
+         "gives": "BI",
+         "note": "BIDEN with DEN (a study, an office) taken out"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "AS",
+         "indicators": [
+          {
+           "text": "being denied interior",
+           "note": "the word loses its interior, keeping its ends"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "accepts being denied interior",
+           "gives": "AS",
+           "select": "outer",
+           "note": "ACCEPTS stripped to its first and last letters"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -790,45 +745,46 @@
    },
    "solution": "GEDDIT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "GEDDIT",
     "definitions": [
      {
       "text": "Can you understand that?",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "pinching",
-      "note": "one word pinches another, holding it inside"
-     },
-     {
-      "text": "stuffing from",
-      "note": "the stuffing of a word is its inner letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Despicable individual",
-      "gives": "GIT",
-      "note": "git is British slang for a contemptible person"
-     },
-     {
-      "clueFragment": "stuffing from cuddly toy",
-      "gives": "EDD",
-      "select": "middle",
-      "note": "the inside of TEDDY, the cuddly toy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "EDD",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "note": "one word pinches another, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Despicable individual",
+       "gives": "GIT",
+       "note": "git is British slang for a contemptible person"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "EDD",
+       "indicators": [
+        {
+         "text": "stuffing from",
+         "note": "the stuffing of a word is its inner letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "stuffing from cuddly toy",
+         "gives": "EDD",
+         "select": "middle",
+         "note": "the inside of TEDDY, the cuddly toy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -858,45 +814,36 @@
    },
    "solution": "ENTIRELY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENTIRELY",
     "definitions": [
      {
       "text": "Completely",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "attached to",
-      "for": "charade",
-      "note": "the pieces join end to end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hospital department",
-      "gives": "ENT",
-      "note": "ENT = ear, nose and throat department"
-     },
-     {
-      "clueFragment": "unit",
-      "gives": "I",
-      "note": "I is the Roman numeral for one, a unit"
-     },
-     {
-      "clueFragment": "depend on",
-      "gives": "RELY",
-      "note": "to rely on = to depend on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENT",
-      "I",
-      "RELY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attached to",
+       "note": "the pieces join end to end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital department",
+       "gives": "ENT",
+       "note": "ENT = ear, nose and throat department"
+      },
+      {
+       "words": "unit",
+       "gives": "I",
+       "note": "I is the Roman numeral for one, a unit"
+      },
+      {
+       "words": "depend on",
+       "gives": "RELY",
+       "note": "to rely on = to depend on"
+      }
      ]
     },
     "explanation": {
@@ -931,35 +878,24 @@
    },
    "solution": "LIEDETECTOR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LIE DETECTOR",
     "definitions": [
      {
       "text": "One notices fiction",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "all over the place",
-      "for": "anagram",
-      "note": "the letters are scattered into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "editor elect",
-      "gives": "EDITORELECT",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EDITOR ELECT",
-       "gives": "LIEDETECTOR"
+       "text": "all over the place",
+       "note": "the letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "editor elect",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -990,36 +926,28 @@
    },
    "solution": "ARIA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARIA",
     "definitions": [
      {
       "text": "song",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "exposed",
-      "for": "deletion",
-      "note": "the word is stripped of its outer letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hood's moll",
-      "gives": "MARIAN",
-      "note": "Maid Marian, Robin Hood's sweetheart"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARIA"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ARIA",
+     "indicators": [
+      {
+       "text": "exposed",
+       "note": "the word is stripped of its outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hood's moll",
+       "gives": "MARIAN",
+       "note": "Maid Marian, Robin Hood's sweetheart"
+      }
      ]
     },
     "explanation": {
@@ -1055,39 +983,28 @@
    },
    "solution": "READYMONEY",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "READY MONEY",
     "definitions": [
      {
       "text": "Might this help needy mayor in a pickle?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in a pickle",
-      "for": "anagram",
-      "note": "the letters are in a mess"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "needy mayor",
-      "gives": "NEEDYMAYOR",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NEEDY MAYOR",
-       "gives": "READYMONEY"
+       "text": "in a pickle",
+       "note": "the letters are in a mess"
+      }
+     ],
+     "parts": [
+      {
+       "words": "needy mayor",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A cash-strapped mayor in trouble wonders what would help.",
      "walkthrough": "The whole clue is the definition: a mayor short of funds in a fix would welcome cash in hand.",
@@ -1114,35 +1031,25 @@
    },
    "solution": "OUTNUMBER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OUTNUMBER",
     "definitions": [
      {
       "text": "prevail",
       "at": 30
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old-fashioned",
-      "gives": "OUT",
-      "note": "out of fashion = out"
-     },
-     {
-      "clueFragment": "anaesthetist",
-      "gives": "NUMBER",
-      "note": "one who numbs: a numb-er"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUT",
-      "NUMBER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old-fashioned",
+       "gives": "OUT",
+       "note": "out of fashion = out"
+      },
+      {
+       "words": "anaesthetist",
+       "gives": "NUMBER",
+       "note": "one who numbs: a numb-er"
+      }
      ]
     },
     "explanation": {
@@ -1172,47 +1079,44 @@
    },
    "solution": "INVESTMENT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "INVESTMENT",
     "definitions": [
      {
       "text": "profitable venture?",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "to secure",
-      "for": "letter_selection",
-      "note": "one word secures another inside it"
-     },
-     {
-      "text": "in prime locations",
-      "for": "letter_selection",
-      "note": "take the letters at prime-numbered positions: 2, 3, 5, 7"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Contrive",
-      "gives": "INVENT",
-      "select": "prime",
-      "note": "to invent = to contrive"
-     },
-     {
-      "clueFragment": "best times in prime locations",
-      "gives": "ESTM",
-      "note": "letters 2, 3, 5 and 7 of BESTTIMES, placed inside INV…ENT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INV",
-      "ESTM",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "INVENT",
+       "indicators": [
+        {
+         "text": "to secure",
+         "note": "one word secures another inside it"
+        },
+        {
+         "text": "in prime locations",
+         "note": "take the letters at prime-numbered positions: 2, 3, 5, 7"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Contrive",
+         "gives": "INVENT",
+         "select": "prime",
+         "note": "to invent = to contrive"
+        }
+       ]
+      },
+      {
+       "words": "best times in prime locations",
+       "gives": "ESTM",
+       "note": "letters 2, 3, 5 and 7 of BESTTIMES, placed inside INV…ENT"
+      }
      ]
     },
     "explanation": {
@@ -1242,48 +1146,47 @@
    },
    "solution": "TIDIEST",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "TIDIEST",
     "definitions": [
      {
       "text": "Most considerable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "must involve",
-      "note": "one word takes another into itself"
-     },
-     {
-      "text": "over",
-      "note": "in a down answer, a piece above another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "movements",
-      "gives": "TIDES",
-      "note": "tides are movements of the sea"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral, placed inside TIDES"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIDIES",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "must involve",
+       "note": "one word takes another into itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "in a down answer, a piece above another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "movements",
+         "gives": "TIDES",
+         "note": "tides are movements of the sea"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I = one, the Roman numeral, placed inside TIDES"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time"
+      }
      ]
     },
     "explanation": {
@@ -1318,40 +1221,31 @@
    },
    "solution": "TAILEND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TAIL END",
     "definitions": [
      {
       "text": "Where WAGs made",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crowding",
-      "for": "container",
-      "note": "one word crowds round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nurse",
-      "gives": "TEND",
-      "note": "to tend = to nurse"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail = to trouble, placed inside T…END"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "AIL",
-      "END"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crowding",
+       "note": "one word crowds round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse",
+       "gives": "TEND",
+       "note": "to tend = to nurse"
+      },
+      {
+       "words": "trouble",
+       "gives": "AIL",
+       "note": "to ail = to trouble, placed inside T…END"
+      }
      ]
     },
     "explanation": {
@@ -1381,41 +1275,25 @@
    },
    "solution": "TEEM",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TEEM",
     "definitions": [
      {
       "text": "rain",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "On the way back",
-      "for": "reversal",
-      "note": "the word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "run into",
-      "gives": "MEET",
-      "note": "to run into someone = to meet them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEEM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MEET",
-       "to": "TEEM"
+       "text": "On the way back",
+       "note": "the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "run into",
+       "gives": "MEET",
+       "note": "to run into someone = to meet them"
       }
      ]
     },
@@ -1445,30 +1323,16 @@
    },
    "solution": "SHOULDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SHOULDER",
     "definitions": [
      {
       "text": "Take responsibility for",
-      "at": 0
+      "at": 0,
+      "meaning": "to take on a burden, as if on your back"
      },
      {
       "text": "joint",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take responsibility for",
-      "gives": "SHOULDER",
-      "note": "to take on a burden, as if on your back"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "SHOULDER",
-      "note": "the joint where arm meets torso"
+      "at": 24,
+      "meaning": "the joint where arm meets torso"
      }
     ],
     "explanation": {
@@ -1497,39 +1361,31 @@
    },
    "solution": "STAFF",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STAFF",
     "definitions": [
      {
       "text": "pole",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "beneath",
-      "for": "charade",
-      "note": "in a down answer, one piece sits below the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "south",
-      "gives": "S",
-      "note": "s = south"
-     },
-     {
-      "clueFragment": "River",
-      "gives": "TAFF",
-      "note": "the Taff is a river in Wales, through Cardiff"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TAFF"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath",
+       "note": "in a down answer, one piece sits below the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "south",
+       "gives": "S",
+       "note": "s = south"
+      },
+      {
+       "words": "River",
+       "gives": "TAFF",
+       "note": "the Taff is a river in Wales, through Cardiff"
+      }
      ]
     },
     "explanation": {
@@ -1559,49 +1415,41 @@
    },
    "solution": "OSCAR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OSCAR",
     "definitions": [
      {
       "text": "award",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "cutting",
-      "for": "container",
-      "note": "the letters cut into another word"
-     }
-    ],
-    "linkWords": [
-     "wins"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blade",
-      "gives": "OAR",
-      "note": "an oar's flat end is its blade; blade stands for oar"
-     },
-     {
-      "clueFragment": "Special",
-      "gives": "S",
-      "note": "s = special"
-     },
-     {
-      "clueFragment": "carbon",
-      "gives": "C",
-      "note": "C is the symbol for carbon, and SC goes inside O…AR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "S",
-      "C",
-      "AR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "note": "the letters cut into another word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "blade",
+         "gives": "OAR",
+         "note": "an oar's flat end is its blade; blade stands for oar"
+        },
+        {
+         "words": "Special",
+         "gives": "S",
+         "note": "s = special"
+        }
+       ]
+      },
+      {
+       "words": "carbon",
+       "gives": "C",
+       "note": "C is the symbol for carbon, and SC goes inside O…AR"
+      }
      ]
     },
     "explanation": {
@@ -1630,53 +1478,65 @@
    },
    "solution": "INURED",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "INURED",
     "definitions": [
      {
       "text": "Seasoned",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put out by",
-      "note": "one letter is put out of the word"
-     },
-     {
-      "text": "being reduced",
-      "note": "the word is cut short at the end"
-     },
-     {
-      "text": "ultimately",
-      "note": "the last letter of a word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "damages being reduced",
-      "gives": "INJURE",
-      "note": "INJURES cut short"
-     },
-     {
-      "clueFragment": "ultimately dismissed",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of DISMISSED"
-     },
-     {
-      "clueFragment": "judge",
-      "note": "j = judge, the letter put out of the assembled word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "URED"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put out by",
+       "note": "one letter is put out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being reduced",
+         "note": "the word is cut short at the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "the last letter of a word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "damages being reduced",
+           "gives": "INJURE",
+           "note": "INJURES cut short"
+          },
+          {
+           "op": "last",
+           "parts": [
+            {
+             "words": "ultimately dismissed",
+             "note": "last letter of DISMISSED"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "gives": "J"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "judge",
+       "note": "j = judge, the letter put out of the assembled word"
+      }
      ]
     },
     "explanation": {
@@ -1705,33 +1565,29 @@
    },
    "solution": "ARCH",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARCH",
     "definitions": [
      {
       "text": "Cunning",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when denied opening",
-      "for": "deletion",
-      "note": "the word loses its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "way to demonstrate",
-      "gives": "MARCH",
-      "note": "a march is a way of demonstrating; lose the M"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARCH"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "when denied opening",
+       "note": "the word loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "way to demonstrate",
+       "gives": "MARCH",
+       "note": "a march is a way of demonstrating; lose the M"
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1760,50 +1616,40 @@
    },
    "solution": "EXACERBATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EXACERBATE",
     "definitions": [
      {
       "text": "worsen",
       "at": 69
      }
     ],
-    "indicators": [
-     {
-      "text": "merest traces of",
-      "for": "letter_selection",
-      "note": "only the smallest part of each word, its first letter"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old flame",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "tree",
-      "gives": "ACER",
-      "note": "acer is the maple genus"
-     },
-     {
-      "clueFragment": "blight around trunk expected",
-      "gives": "BATE",
-      "select": "first",
-      "note": "first letters of Blight Around Trunk Expected"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "ACER",
-      "BATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old flame",
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "tree",
+       "gives": "ACER",
+       "note": "acer is the maple genus"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "merest traces of",
+         "note": "only the smallest part of each word, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blight around trunk expected",
+         "note": "first letters of Blight Around Trunk Expected"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1838,35 +1684,24 @@
    },
    "solution": "FARFETCHED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FAR-FETCHED",
     "definitions": [
      {
       "text": "Unnatural",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to work out",
-      "for": "anagram",
-      "note": "the letters are worked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "effect, hard",
-      "gives": "EFFECTHARD",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EFFECT HARD",
-       "gives": "FARFETCHED"
+       "text": "to work out",
+       "note": "the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "effect, hard",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1896,42 +1731,32 @@
    },
    "solution": "RARE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "RARE",
     "definitions": [
      {
       "text": "unusual",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Second",
-      "for": "substitution",
-      "note": "the second letter is the one picked out"
-     },
-     {
-      "text": "moving to the end",
-      "for": "substitution",
-      "note": "that letter moves to the end of the word"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "back",
-      "gives": "REAR",
-      "note": "the rear is the back; its second letter E moves to the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAR",
-      "E"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "RARE",
+     "indicators": [
+      {
+       "text": "Second",
+       "note": "the second letter is the one picked out"
+      },
+      {
+       "text": "moving to the end",
+       "note": "that letter moves to the end of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "back",
+       "gives": "REAR",
+       "note": "the rear is the back; its second letter E moves to the end"
+      }
      ]
     },
     "explanation": {

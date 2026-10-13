@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1007",
  "number": 1007,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,007",
  "setter": "Matilda",
  "date": "2019-03-04",
  "dimensions": {
@@ -38,41 +36,35 @@
    },
    "solution": "ARSENAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ARSENAL",
     "definitions": [
      {
       "text": "Arms",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tops of",
-      "for": "letter_selection",
-      "note": "the top of a word written down is its first letter, so we keep the opening letter of each of the next three words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bottom",
-      "gives": "ARSE",
-      "note": "a blunt British word for the backside"
-     },
-     {
-      "clueFragment": "neck and legs",
-      "gives": "NAL",
-      "select": "first",
-      "note": "the first letters of these three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARSE",
-      "NAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bottom",
+       "gives": "ARSE",
+       "note": "a blunt British word for the backside"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tops of",
+         "note": "the top of a word written down is its first letter, so we keep the opening letter of each of the next three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neck and legs",
+         "note": "the first letters of these three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -102,32 +94,25 @@
    },
    "solution": "ACROSS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ACROSS",
     "definitions": [
      {
       "text": "sort of clue",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "An",
-      "gives": "A",
-      "note": "the indefinite article, a variant of 'an'"
-     },
-     {
-      "clueFragment": "angry",
-      "gives": "CROSS",
-      "note": "cross = angry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "CROSS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "An",
+       "gives": "A",
+       "note": "the indefinite article, a variant of 'an'"
+      },
+      {
+       "words": "angry",
+       "gives": "CROSS",
+       "note": "cross = angry"
+      }
      ]
     },
     "explanation": {
@@ -157,32 +142,25 @@
    },
    "solution": "SATIRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATIRE",
     "definitions": [
      {
       "text": "Humour",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "posed",
-      "gives": "SAT",
-      "note": "an artist's model sat, or posed, for a portrait"
-     },
-     {
-      "clueFragment": "fury",
-      "gives": "IRE",
-      "note": "ire = fury, a crossword favourite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "IRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "posed",
+       "gives": "SAT",
+       "note": "an artist's model sat, or posed, for a portrait"
+      },
+      {
+       "words": "fury",
+       "gives": "IRE",
+       "note": "ire = fury, a crossword favourite"
+      }
      ]
     },
     "explanation": {
@@ -211,59 +189,72 @@
    },
    "solution": "NARCISSISM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NARCISSISM",
     "definitions": [
      {
       "text": "self-admiration",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "50% reduction of",
-      "for": "letter_selection",
-      "note": "cutting each of the following words by half means keeping only its front half"
-     }
-    ],
-    "linkWords": [
-     "Achieving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "narcotic",
-      "gives": "NARC",
-      "select": "first",
-      "note": "the first half: four of its eight letters"
-     },
-     {
-      "clueFragment": "issues",
-      "gives": "ISS",
-      "select": "first",
-      "note": "the first half: three of its six letters"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "I",
-      "select": "first",
-      "note": "the first half: one of its two letters"
-     },
-     {
-      "clueFragment": "smug",
-      "gives": "SM",
-      "select": "first",
-      "note": "the first half: two of its four letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NARC",
-      "ISS",
-      "I",
-      "SM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "NARC",
+       "indicators": [
+        {
+         "text": "50% reduction of",
+         "note": "cutting each of the following words by half means keeping only its front half"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "narcotic",
+         "gives": "NARC",
+         "select": "first",
+         "note": "the first half: four of its eight letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "ISS",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "issues",
+         "gives": "ISS",
+         "select": "first",
+         "note": "the first half: three of its six letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "in",
+         "note": "the first half: one of its two letters"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "SM",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "smug",
+         "gives": "SM",
+         "select": "first",
+         "note": "the first half: two of its four letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -292,44 +283,35 @@
    },
    "solution": "LYMPH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LYMPH",
     "definitions": [
      {
       "text": "Fluid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drained",
-      "for": "letter_selection",
-      "note": "a container drained of its contents is left with only its outside, so only the edge letters survive"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "laboratory",
-      "gives": "LY",
-      "select": "outer",
-      "note": "the first and last letters, with the inside emptied"
-     },
-     {
-      "clueFragment": "speed",
-      "gives": "MPH",
-      "note": "miles per hour, the unit speed is measured in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LY",
-      "MPH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "drained",
+         "note": "a container drained of its contents is left with only its outside, so only the edge letters survive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laboratory",
+         "note": "the first and last letters, with the inside emptied"
+        }
+       ]
+      },
+      {
+       "words": "speed",
+       "gives": "MPH",
+       "note": "miles per hour, the unit speed is measured in"
+      }
      ]
     },
     "explanation": {
@@ -358,10 +340,6 @@
    },
    "solution": "INGENUE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INGENUE",
     "definitions": [
      {
       "text": "beginner",
@@ -369,28 +347,18 @@
       "note": "an ingenue is specifically an innocent young woman, often a novice actress"
      }
     ],
-    "indicators": [
-     {
-      "text": "training",
-      "for": "anagram",
-      "note": "training shapes and remoulds something, so the letters of the first word are reshaped"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Genuine",
-      "gives": "GENUINE",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GENUINE",
-       "gives": "INGENUE"
+       "text": "training",
+       "note": "training shapes and remoulds something, so the letters of the first word are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Genuine",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -420,51 +388,41 @@
    },
    "solution": "INNKEEPER",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "INNKEEPER",
     "definitions": [
      {
       "text": "host",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading the word from bottom to top"
-     },
-     {
-      "text": "interrupting",
-      "for": "container",
-      "note": "to interrupt is to break into the middle of something, so the reversed look sits inside the word for central"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "central",
-      "gives": "INNER",
-      "note": "inner = central, to be split open"
-     },
-     {
-      "clueFragment": "Look",
-      "gives": "PEEK",
-      "note": "a peek is a quick look; turned round it reads KEEP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INN",
-      "KEEP",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "PEEK",
-       "to": "KEEP"
+       "text": "interrupting",
+       "note": "to interrupt is to break into the middle of something, so the reversed look sits inside the word for central"
+      }
+     ],
+     "parts": [
+      {
+       "words": "central",
+       "gives": "INNER",
+       "note": "inner = central, to be split open"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, going up means reading the word from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Look",
+         "gives": "PEEK",
+         "note": "a peek is a quick look; turned round it reads KEEP"
+        }
+       ]
       }
      ]
     },
@@ -494,35 +452,25 @@
    },
    "solution": "GLEE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GLEE",
     "definitions": [
      {
       "text": "Delight",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the standard abbreviation for good"
-     },
-     {
-      "clueFragment": "shelter",
-      "gives": "LEE",
-      "note": "the lee is the sheltered side, away from the wind"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LEE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the standard abbreviation for good"
+      },
+      {
+       "words": "shelter",
+       "gives": "LEE",
+       "note": "the lee is the sheltered side, away from the wind"
+      }
      ]
     },
     "explanation": {
@@ -551,32 +499,25 @@
    },
    "solution": "NOVELIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOVELIST",
     "definitions": [
      {
       "text": "writer",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Original",
-      "gives": "NOVEL",
-      "note": "novel = new, original"
-     },
-     {
-      "clueFragment": "first",
-      "gives": "IST",
-      "note": "the ordinal 1st with the 1 read as I"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOVEL",
-      "IST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Original",
+       "gives": "NOVEL",
+       "note": "novel = new, original"
+      },
+      {
+       "words": "first",
+       "gives": "IST",
+       "note": "the ordinal 1st with the 1 read as I"
+      }
      ]
     },
     "explanation": {
@@ -605,55 +546,48 @@
    },
    "solution": "ENERGISE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ENERGISE",
     "definitions": [
      {
       "text": "invigorate",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means first of all, so only the opening letter of the word after is used"
-     },
-     {
-      "text": "salad",
-      "for": "anagram",
-      "note": "a salad is a tossed mix, so the colour word is tossed up with what follows"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Green",
-      "gives": "GREEN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as it stands"
-     },
-     {
-      "clueFragment": "eaten",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of this word"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GREEN IS E",
-       "gives": "ENERGISE"
+       "text": "salad",
+       "note": "a salad is a tossed mix, so the colour word is tossed up with what follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Green",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "is",
+         "note": "taken as it stands"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "note": "primarily means first of all, so only the opening letter of the word after is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "eaten",
+           "note": "the first letter of this word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -683,26 +617,25 @@
    },
    "solution": "ROTOR",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ROTOR",
     "definitions": [
      {
       "text": "What goes round and round and round",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What goes round and round",
-      "note": "surface reading: something that spins continuously"
-     },
-     {
-      "clueFragment": "and round",
-      "note": "setter's reading: the extra 'round' hints that the word itself reads the same either way round, a palindrome"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What goes round and round",
+       "note": "surface reading: something that spins continuously"
+      },
+      {
+       "words": "and round",
+       "note": "setter's reading: the extra 'round' hints that the word itself reads the same either way round, a palindrome"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The rotor of a helicopter or engine spins, and the word ROTOR is a palindrome, so it goes 'round' in both directions as well.",
      "definitionFit": "A rotor is the rotating part of a machine, such as helicopter blades turning continuously."
@@ -728,55 +661,44 @@
    },
    "solution": "MANOEUVRE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "MANOEUVRE",
     "definitions": [
      {
       "text": "plan",
       "at": 59
      }
     ],
-    "indicators": [
-     {
-      "text": "Leaders of",
-      "for": "letter_selection",
-      "note": "the leader of a word is its first letter, applied to each of the next three words"
-     },
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "something working is set in motion, so the two short words are moved around"
-     }
-    ],
-    "linkWords": [
-     "alongside"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Montenegro and Norway",
-      "gives": "MAN",
-      "select": "first",
-      "note": "first letters of the three words"
-     },
-     {
-      "clueFragment": "EU over",
-      "gives": "EUOVER",
-      "note": "anagram fodder, six letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "OEUVRE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "EU OVER",
-       "gives": "OEUVRE"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leaders of",
+         "note": "the leader of a word is its first letter, applied to each of the next three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Montenegro and Norway",
+         "note": "first letters of the three words"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "note": "something working is set in motion, so the two short words are moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "EU over",
+         "note": "anagram fodder, six letters"
+        }
+       ]
       }
      ]
     },
@@ -806,46 +728,47 @@
    },
    "solution": "STRAIGHTEN",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "STRAIGHTEN",
     "definitions": [
      {
       "text": "Tidy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means not quite all, so the conjunction before it loses its final letter"
-     },
-     {
-      "text": "mess",
-      "for": "anagram",
-      "note": "making a mess of something scrambles it, so the preceding letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and",
-      "gives": "AN",
-      "note": "the word without its last letter"
-     },
-     {
-      "clueFragment": "set right",
-      "gives": "SETRIGHT",
-      "note": "anagram fodder, eight letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "STRAIGHTEN",
+     "indicators": [
       {
-       "fodder": "AN SET RIGHT",
-       "gives": "STRAIGHTEN"
+       "text": "mostly",
+       "note": "mostly means not quite all, so the conjunction before it loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mess",
+         "note": "making a mess of something scrambles it, so the preceding letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "and",
+           "gives": "AN",
+           "note": "the word without its last letter"
+          },
+          {
+           "words": "set right",
+           "note": "anagram fodder, eight letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -875,28 +798,16 @@
    },
    "solution": "FLOG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FLOG",
     "definitions": [
      {
       "text": "Sell",
-      "at": 0
+      "at": 0,
+      "meaning": "British informal: to peddle goods, often pushily or cheaply"
      },
      {
       "text": "whip",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sell",
-      "note": "British informal: to peddle goods, often pushily or cheaply"
-     },
-     {
-      "clueFragment": "whip",
-      "note": "to beat with a whip or cane"
+      "at": 5,
+      "meaning": "to beat with a whip or cane"
      }
     ],
     "explanation": {
@@ -930,35 +841,24 @@
    },
    "solution": "ORANGETREE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ORANGE TREE",
     "definitions": [
      {
       "text": "source of citrus",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Concoct",
-      "for": "anagram",
-      "note": "to concoct is to mix ingredients together, so the following words are blended into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "or generate",
-      "gives": "ORGENERATE",
-      "note": "anagram fodder, ten letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OR GENERATE",
-       "gives": "ORANGETREE"
+       "text": "Concoct",
+       "note": "to concoct is to mix ingredients together, so the following words are blended into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "or generate",
+       "note": "anagram fodder, ten letters"
       }
      ]
     },
@@ -988,38 +888,24 @@
    },
    "solution": "OSTEOPOROSIS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OSTEOPOROSIS",
     "definitions": [
      {
       "text": "bodily weakness",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "affected",
-      "for": "anagram",
-      "note": "something affected has been altered, so the letters of the first three words are changed around"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Oops, Tories so",
-      "gives": "OOPSTORIESSO",
-      "note": "anagram fodder, twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OOPS TORIES SO",
-       "gives": "OSTEOPOROSIS"
+       "text": "affected",
+       "note": "something affected has been altered, so the letters of the first three words are changed around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oops, Tories so",
+       "note": "anagram fodder, twelve letters"
       }
      ]
     },
@@ -1050,40 +936,31 @@
    },
    "solution": "EXECUTIVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EXECUTIVE",
     "definitions": [
      {
       "text": "Person responsible",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the killing word wraps round the number"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "put to death",
-      "gives": "EXECUTE",
-      "note": "to execute is to put to death"
-     },
-     {
-      "clueFragment": "four",
-      "gives": "IV",
-      "note": "four in Roman numerals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EXECUT",
-      "IV",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the killing word wraps round the number"
+      }
+     ],
+     "parts": [
+      {
+       "words": "put to death",
+       "gives": "EXECUTE",
+       "note": "to execute is to put to death"
+      },
+      {
+       "words": "four",
+       "gives": "IV",
+       "note": "four in Roman numerals"
+      }
      ]
     },
     "explanation": {
@@ -1112,45 +989,38 @@
    },
    "solution": "ATTITUDE",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "ATTITUDE",
     "definitions": [
      {
       "text": "Bearing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having time for papa",
-      "for": "substitution",
-      "note": "one letter is swapped for another: the time symbol replaces the papa symbol"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gift",
-      "gives": "APTITUDE",
-      "note": "a gift is a natural aptitude"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     },
-     {
-      "clueFragment": "papa",
-      "gives": "P",
-      "note": "Papa is P in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "TITUDE"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "ATTITUDE",
+     "indicators": [
+      {
+       "text": "having time for papa",
+       "note": "one letter is swapped for another: the time symbol replaces the papa symbol"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gift",
+       "gives": "APTITUDE",
+       "note": "a gift is a natural aptitude"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the standard abbreviation for time"
+      },
+      {
+       "words": "papa",
+       "gives": "P",
+       "note": "Papa is P in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1185,46 +1055,49 @@
    },
    "solution": "TANKEDUP",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "TANKED UP",
     "definitions": [
      {
       "text": "drunk",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "left",
-      "for": "deletion",
-      "note": "left can mean departed, so the railway letters leave the word that follows"
-     },
-     {
-      "text": "over",
-      "for": "anagram",
-      "note": "over can mean knocked over, so the remaining letters are tumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British Rail",
-      "gives": "BR",
-      "note": "the old national rail operator's initials"
-     },
-     {
-      "clueFragment": "bankrupted",
-      "gives": "ANKUPTED",
-      "note": "the word with B and R removed, leaving eight letters of fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANKUPTED",
-       "gives": "TANKEDUP"
+       "text": "over",
+       "note": "over can mean knocked over, so the remaining letters are tumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "note": "left can mean departed, so the railway letters leave the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British Rail",
+           "gives": "BR",
+           "note": "the old national rail operator's initials"
+          },
+          {
+           "words": "bankrupted",
+           "gives": "ANKUPTED",
+           "note": "the word with B and R removed, leaving eight letters of fodder"
+          }
+         ]
+        },
+        {
+         "gives": "BR"
+        }
+       ]
       }
      ]
     },
@@ -1254,41 +1127,30 @@
    },
    "solution": "TRANSFERRING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TRANSFERRING",
     "definitions": [
      {
       "text": "moving on",
       "at": 43
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gender-bending",
-      "gives": "TRANS",
-      "note": "trans, relating to changing gender"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "F",
-      "note": "the usual abbreviation for female"
-     },
-     {
-      "clueFragment": "making a mistake",
-      "gives": "ERRING",
-      "note": "to err is to make a mistake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRANS",
-      "F",
-      "ERRING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gender-bending",
+       "gives": "TRANS",
+       "note": "trans, relating to changing gender"
+      },
+      {
+       "words": "female",
+       "gives": "F",
+       "note": "the usual abbreviation for female"
+      },
+      {
+       "words": "making a mistake",
+       "gives": "ERRING",
+       "note": "to err is to make a mistake"
+      }
      ]
     },
     "explanation": {
@@ -1317,28 +1179,16 @@
    },
    "solution": "STABLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STABLE",
     "definitions": [
      {
       "text": "Where Arabs may be",
-      "at": 0
+      "at": 0,
+      "meaning": "Arabs here are the horse breed, kept in a building for horses"
      },
      {
       "text": "steady",
-      "at": 19
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where Arabs may be",
-      "note": "Arabs here are the horse breed, kept in a building for horses"
-     },
-     {
-      "clueFragment": "steady",
-      "note": "firm and not likely to wobble"
+      "at": 19,
+      "meaning": "firm and not likely to wobble"
      }
     ],
     "explanation": {
@@ -1368,39 +1218,31 @@
    },
    "solution": "ORALLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORALLY",
     "definitions": [
      {
       "text": "by mouth",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "following means coming after, so the recovery word is placed after the zero"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nil",
-      "gives": "O",
-      "note": "nil is zero, shaped like the letter O"
-     },
-     {
-      "clueFragment": "Get well",
-      "gives": "RALLY",
-      "note": "a patient rallies when recovering"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "RALLY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "following means coming after, so the recovery word is placed after the zero"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nil",
+       "gives": "O",
+       "note": "nil is zero, shaped like the letter O"
+      },
+      {
+       "words": "Get well",
+       "gives": "RALLY",
+       "note": "a patient rallies when recovering"
+      }
      ]
     },
     "explanation": {
@@ -1430,36 +1272,29 @@
    },
    "solution": "ICKY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ICKY",
     "definitions": [
      {
       "text": "unpleasant",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Head off",
-      "for": "deletion",
-      "note": "the head of a word is its first letter, and taking it off chops that letter away from the fussy word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "being fussy",
-      "gives": "PICKY",
-      "note": "picky = fussy; its first letter is lost"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICKY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Head off",
+       "note": "the head of a word is its first letter, and taking it off chops that letter away from the fussy word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being fussy",
+       "gives": "PICKY",
+       "note": "picky = fussy; its first letter is lost"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1494,35 +1329,24 @@
    },
    "solution": "BUSSHELTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BUS SHELTER",
     "definitions": [
      {
       "text": "street furniture",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "arranging",
-      "for": "anagram",
-      "note": "arranging puts things into a new order, so the first two words are reordered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Be ruthless",
-      "gives": "BERUTHLESS",
-      "note": "anagram fodder, ten letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BE RUTHLESS",
-       "gives": "BUSSHELTER"
+       "text": "arranging",
+       "note": "arranging puts things into a new order, so the first two words are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be ruthless",
+       "note": "anagram fodder, ten letters"
       }
      ]
     },
@@ -1552,47 +1376,35 @@
    },
    "solution": "SPECS",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SPECS",
     "definitions": [
      {
       "text": "glasses",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down entry, up means reading from bottom to top, so the small letter and fungi are flipped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S is the abbreviation for small, as on clothes labels"
-     },
-     {
-      "clueFragment": "mushrooms",
-      "gives": "CEPS",
-      "note": "ceps are wild porcini mushrooms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPECS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "SCEPS",
-       "to": "SPECS"
+       "text": "served up",
+       "note": "in a down entry, up means reading from bottom to top, so the small letter and fungi are flipped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small",
+         "gives": "S",
+         "note": "S is the abbreviation for small, as on clothes labels"
+        },
+        {
+         "words": "mushrooms",
+         "gives": "CEPS",
+         "note": "ceps are wild porcini mushrooms"
+        }
+       ]
       }
      ]
     },
@@ -1622,33 +1434,28 @@
    },
    "solution": "IRON",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "IRON",
     "definitions": [
      {
       "text": "press",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Part of",
-      "for": "hidden_word",
-      "note": "part of the long word is taken, so the letters sit inside it"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "environmental",
-      "gives": "IRON",
-      "note": "found in envIRONmental"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part of",
+       "note": "part of the long word is taken, so the letters sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "environmental",
+       "gives": "IRON",
+       "note": "found in envIRONmental"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A section of the green-news media.",
      "walkthrough": "'press' looks like the newspapers, but it is a verb: to press clothes.",
@@ -1676,41 +1483,40 @@
    },
    "solution": "UNDERMINE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNDERMINE",
     "definitions": [
      {
       "text": "Weaken",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the heart of",
-      "for": "letter_selection",
-      "note": "the heart of anything is its centre, so only the middle letters of the injury word are kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wounded",
-      "gives": "UND",
-      "select": "middle",
-      "note": "the middle three of its seven letters"
-     },
-     {
-      "clueFragment": "stoat",
-      "gives": "ERMINE",
-      "note": "the ermine is a stoat in its white winter coat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UND",
-      "ERMINE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "UND",
+       "indicators": [
+        {
+         "text": "the heart of",
+         "note": "the heart of anything is its centre, so only the middle letters of the injury word are kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "wounded",
+         "gives": "UND",
+         "select": "middle",
+         "note": "the middle three of its seven letters"
+        }
+       ]
+      },
+      {
+       "words": "stoat",
+       "gives": "ERMINE",
+       "note": "the ermine is a stoat in its white winter coat"
+      }
      ]
     },
     "explanation": {
@@ -1739,48 +1545,34 @@
    },
    "solution": "REBEL",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "REBEL",
     "definitions": [
      {
       "text": "rise",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Frothy",
-      "for": "anagram",
-      "note": "froth is agitated and bubbling, so the drink's letters are churned"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beer",
-      "gives": "BEER",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "the usual abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REBE",
-      "L"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BEER",
-       "gives": "REBE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Frothy",
+         "note": "froth is agitated and bubbling, so the drink's letters are churned"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "the usual abbreviation for left"
       }
      ]
     },
@@ -1811,47 +1603,40 @@
    },
    "solution": "EXPENSE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EXPENSE",
     "definitions": [
      {
       "text": "price",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "the top of a word in a clue is its first letter, taken from the word before"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "EX",
-      "note": "ex = former, as in ex-wife"
-     },
-     {
-      "clueFragment": "writing implements",
-      "gives": "PENS",
-      "note": "pens are for writing"
-     },
-     {
-      "clueFragment": "exceed",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of this word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "PENS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "EX",
+       "note": "ex = former, as in ex-wife"
+      },
+      {
+       "words": "writing implements",
+       "gives": "PENS",
+       "note": "pens are for writing"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "the top of a word in a clue is its first letter, taken from the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exceed",
+         "note": "the first letter of this word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1880,41 +1665,38 @@
    },
    "solution": "SCENERY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "SCENERY",
     "definitions": [
      {
       "text": "background",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Not as",
-      "for": "deletion",
-      "note": "'not' tells us to strike out the two letters of 'as' from the word before"
-     },
-     {
-      "text": "Refurbishing",
-      "for": "anagram",
-      "note": "refurbishing reworks and reorganises, so the remaining letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "necessary",
-      "gives": "NECESRY",
-      "note": "the word with an A and an S taken out"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SCENERY",
+     "indicators": [
       {
-       "fodder": "NECESRY",
-       "gives": "SCENERY"
+       "text": "Not as",
+       "note": "'not' tells us to strike out the two letters of 'as' from the word before"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Refurbishing",
+         "note": "refurbishing reworks and reorganises, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "necessary",
+         "gives": "NECESRY",
+         "note": "the word with an A and an S taken out"
+        }
+       ]
       }
      ]
     },

@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5216",
  "number": 5216,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,216",
  "setter": "Robert Price",
  "date": "2026-05-17",
  "dimensions": {
@@ -42,49 +40,41 @@
    },
    "solution": "BIGFOOT",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "BIGFOOT",
     "definitions": [
      {
       "text": "legendary primate",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "receives",
-      "note": "the sexist takes the reversed word inside him"
-     },
-     {
-      "text": "backing",
-      "note": "backing means going in reverse, so the word it follows runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sexist",
-      "gives": "BIGOT",
-      "note": "a bigot is a sexist, among other prejudices"
-     },
-     {
-      "clueFragment": "of",
-      "gives": "FO",
-      "note": "OF backwards, placed inside BIG|OT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIG",
-      "FO",
-      "OT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "BIGFOOT",
+     "parts": [
       {
-       "from": "OF",
-       "to": "FO"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "receives",
+         "note": "the sexist takes the reversed word inside him"
+        },
+        {
+         "text": "backing",
+         "note": "backing means going in reverse, so the word it follows runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sexist",
+         "gives": "BIGOT",
+         "note": "a bigot is a sexist, among other prejudices"
+        },
+        {
+         "words": "of",
+         "gives": "FO",
+         "note": "OF backwards, placed inside BIG|OT"
+        }
+       ]
       }
      ]
     },
@@ -120,56 +110,60 @@
    },
    "solution": "BLUECHEESE",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "BLUE CHEESE",
     "definitions": [
      {
       "text": "comfort food",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "half-cut",
-      "for": "deletion",
-      "note": "only half of CASE is kept"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "the outer letters take the comfort inside"
-     },
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "CHEER loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sad",
-      "gives": "BLUE",
-      "note": "blue = sad"
-     },
-     {
-      "clueFragment": "mostly",
-      "gives": "CHEE",
-      "note": "CHEER (comfort) mostly = CHEE, eaten between BLUE and SE"
-     },
-     {
-      "clueFragment": "case, half-cut",
-      "gives": "SE",
-      "note": "the second half of CASE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLUE",
-      "CHEE",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BLUECHEESE",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "the outer letters take the comfort inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "BLUECHEESE",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "note": "only half of CASE is kept"
+        },
+        {
+         "text": "mostly",
+         "note": "CHEER loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Sad",
+           "gives": "BLUE",
+           "note": "blue = sad"
+          },
+          {
+           "words": "mostly",
+           "gives": "CHEE",
+           "note": "CHEER (comfort) mostly = CHEE, eaten between BLUE and SE"
+          },
+          {
+           "words": "case, half-cut",
+           "gives": "SE",
+           "note": "the second half of CASE"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -205,40 +199,38 @@
    },
    "solution": "GENERALELECTION",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "GENERAL ELECTION",
     "definitions": [
      {
       "text": "Voting process",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not taking sides",
-      "for": "deletion",
-      "note": "the letters at both sides of SELECTIONS are dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "officer",
-      "gives": "GENERAL",
-      "note": "a general is a senior army officer"
-     },
-     {
-      "clueFragment": "picks, not taking sides",
-      "gives": "ELECTION",
-      "note": "SELECTIONS (picks) without its first and last S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GENERAL",
-      "ELECTION"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GENERALELECTION",
+     "indicators": [
+      {
+       "text": "not taking sides",
+       "note": "the letters at both sides of SELECTIONS are dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "officer",
+         "gives": "GENERAL",
+         "note": "a general is a senior army officer"
+        },
+        {
+         "words": "picks, not taking sides",
+         "gives": "ELECTION",
+         "note": "SELECTIONS (picks) without its first and last S"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -268,26 +260,25 @@
    },
    "solution": "OMEGA",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OMEGA",
     "definitions": [
      {
       "text": "Final letter to the Corinthians",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Final letter",
-      "note": "the surface wants a last epistle; the setter means the last character of an alphabet"
-     },
-     {
-      "clueFragment": "to the Corinthians",
-      "note": "the surface wants a letter addressed to them; the setter means the alphabet they wrote in, Greek"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Final letter",
+       "note": "the surface wants a last epistle; the setter means the last character of an alphabet"
+      },
+      {
+       "words": "to the Corinthians",
+       "note": "the surface wants a letter addressed to them; the setter means the alphabet they wrote in, Greek"
+      }
+     ]
+    },
     "explanation": {
      "surface": "St Paul's last epistle to the church at Corinth.",
      "walkthrough": "The Bible has two Letters to the Corinthians, so 'final letter' points to an epistle; the letter meant is one of the alphabet the Greek city of Corinth wrote in.",
@@ -321,44 +312,37 @@
    },
    "solution": "TVDINNER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TV DINNER",
     "definitions": [
      {
       "text": "set meal?",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "forced",
-      "for": "anagram",
-      "note": "the letters of VINTNER are forced into a new order"
-     },
-     {
-      "text": "to accept",
-      "for": "anagram"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vintner",
-      "gives": "VINTNER",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "five hundred",
-      "gives": "D",
-      "note": "D = 500 in Roman numerals"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VINTNER D",
-       "gives": "TVDINNER"
+       "text": "forced",
+       "note": "the letters of VINTNER are forced into a new order"
+      },
+      {
+       "text": "to accept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Vintner",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "five hundred",
+         "gives": "D",
+         "note": "D = 500 in Roman numerals"
+        }
+       ]
       }
      ]
     },
@@ -389,58 +373,63 @@
    },
    "solution": "BAWLERS",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "BAWLERS",
     "definitions": [
      {
       "text": "We shout",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "every other letter of 'glee' is taken"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the letters go inside the pubs"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pubs",
-      "gives": "BA",
-      "note": "BARS = pubs, opened after BA"
-     },
-     {
-      "clueFragment": "with",
-      "gives": "W",
-      "select": "regular",
-      "note": "W = with, as in abbreviations like w/"
-     },
-     {
-      "clueFragment": "glee regularly",
-      "gives": "LE",
-      "note": "the 2nd and 4th letters of gLeE"
-     },
-     {
-      "clueFragment": "pubs",
-      "gives": "RS",
-      "note": "the rest of BARS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "W",
-      "LE",
-      "RS"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BAWLERS",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the letters go inside the pubs"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pubs",
+         "gives": "BA",
+         "note": "BARS = pubs, opened after BA"
+        },
+        {
+         "op": "regular",
+         "unchecked": true,
+         "gives": "W",
+         "indicators": [
+          {
+           "text": "regularly",
+           "note": "every other letter of 'glee' is taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "with",
+           "gives": "W",
+           "select": "regular",
+           "note": "W = with, as in abbreviations like w/"
+          }
+         ]
+        },
+        {
+         "words": "glee regularly",
+         "gives": "LE",
+         "note": "the 2nd and 4th letters of gLeE"
+        },
+        {
+         "words": "pubs",
+         "gives": "RS",
+         "note": "the rest of BARS"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -469,44 +458,36 @@
    },
    "solution": "BURSAR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BURSAR",
     "definitions": [
      {
       "text": "Treasurer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "only the first letter of 'role' is used"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of a joint",
-      "gives": "BURSA",
-      "note": "a bursa is the fluid-filled sac cushioning a joint"
-     },
-     {
-      "clueFragment": "role originally",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of role"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BURSA",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of a joint",
+       "gives": "BURSA",
+       "note": "a bursa is the fluid-filled sac cushioning a joint"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "only the first letter of 'role' is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "role originally",
+         "gives": "ROLE",
+         "note": "first letter of role"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -535,58 +516,50 @@
    },
    "solution": "WOLFSBANE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "WOLFSBANE",
     "definitions": [
      {
       "text": "Poison plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "raising",
-      "note": "in a down clue, lifting the letters reverses them"
-     },
-     {
-      "text": "seizes",
-      "for": "reversal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stream",
-      "gives": "FLOW",
-      "note": "flow = stream; comes last in the string and so first once reversed"
-     },
-     {
-      "clueFragment": "seizes",
-      "gives": "NABS",
-      "note": "nabs = seizes"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy, which heads the string before it is raised"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOLF",
-      "SBAN",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "FLOW",
-       "to": "WOLF"
+       "text": "raising",
+       "note": "in a down clue, lifting the letters reverses them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "seizes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stream",
+         "gives": "FLOW",
+         "note": "flow = stream; comes last in the string and so first once reversed"
+        }
+       ]
       },
       {
-       "from": "NABS",
-       "to": "SBAN"
+       "op": "reversal",
+       "parts": [
+        {
+         "words": "seizes",
+         "gives": "NABS",
+         "note": "nabs = seizes"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E = energy, which heads the string before it is raised"
       }
      ]
     },
@@ -626,38 +599,24 @@
    },
    "solution": "EDWARDTHEEIGHTH",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EDWARD THE EIGHTH",
     "definitions": [
      {
       "text": "Old king",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "redressed",
-      "for": "anagram",
-      "note": "the letters are dressed again in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with the hard edge",
-      "gives": "WITHTHEHARDEDGE",
-      "note": "anagram fodder, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WITH THE HARD EDGE",
-       "gives": "EDWARDTHEEIGHTH"
+       "text": "redressed",
+       "note": "the letters are dressed again in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "with the hard edge",
+       "note": "anagram fodder, 15 letters"
       }
      ]
     },
@@ -687,41 +646,25 @@
    },
    "solution": "SORE",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "SORE",
     "definitions": [
      {
       "text": "painful",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "the god is turned upside down"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "God",
-      "gives": "EROS",
-      "note": "Eros, Greek god of love, read upwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SORE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EROS",
-       "to": "SORE"
+       "text": "flipping",
+       "note": "the god is turned upside down"
+      }
+     ],
+     "parts": [
+      {
+       "words": "God",
+       "gives": "EROS",
+       "note": "Eros, Greek god of love, read upwards"
       }
      ]
     },
@@ -752,32 +695,25 @@
    },
    "solution": "URN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "URN",
     "definitions": [
      {
       "text": "vessel",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Uniform for Nato",
-      "gives": "U",
-      "note": "Uniform is U in the NATO phonetic alphabet"
-     },
-     {
-      "clueFragment": "service",
-      "gives": "RN",
-      "note": "the Royal Navy, one of the armed services"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "RN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Uniform for Nato",
+       "gives": "U",
+       "note": "Uniform is U in the NATO phonetic alphabet"
+      },
+      {
+       "words": "service",
+       "gives": "RN",
+       "note": "the Royal Navy, one of the armed services"
+      }
      ]
     },
     "explanation": {
@@ -807,41 +743,30 @@
    },
    "solution": "ELDERFLOWER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ELDERFLOWER",
     "definitions": [
      {
       "text": "winemaker?",
       "at": 33
      }
     ],
-    "linkWords": [
-     "found by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "senior",
-      "gives": "ELDER",
-      "note": "elder = senior"
-     },
-     {
-      "clueFragment": "Fine",
-      "gives": "F",
-      "note": "F = fine, as on pencils"
-     },
-     {
-      "clueFragment": "subordinate",
-      "gives": "LOWER",
-      "note": "lower = subordinate in rank"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELDER",
-      "F",
-      "LOWER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "senior",
+       "gives": "ELDER",
+       "note": "elder = senior"
+      },
+      {
+       "words": "Fine",
+       "gives": "F",
+       "note": "F = fine, as on pencils"
+      },
+      {
+       "words": "subordinate",
+       "gives": "LOWER",
+       "note": "lower = subordinate in rank"
+      }
      ]
     },
     "explanation": {
@@ -877,38 +802,24 @@
    },
    "solution": "CURTAINRAISERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CURTAIN RAISERS",
     "definitions": [
      {
       "text": "appetisers",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "prepared",
-      "for": "anagram",
-      "note": "the letters are prepared like ingredients into a new dish"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artisan curries",
-      "gives": "ARTISANCURRIES",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARTISAN CURRIES",
-       "gives": "CURTAINRAISERS"
+       "text": "prepared",
+       "note": "the letters are prepared like ingredients into a new dish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artisan curries",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -938,26 +849,25 @@
    },
    "solution": "ADDRESSEES",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ADDRESSEES",
     "definitions": [
      {
       "text": "They should get what's coming to them",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They should get",
-      "note": "the surface suggests people who deserve something; the setter means people who will receive something"
-     },
-     {
-      "clueFragment": "what's coming to them",
-      "note": "the surface idiom is punishment; read literally, it is post travelling towards them"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They should get",
+       "note": "the surface suggests people who deserve something; the setter means people who will receive something"
+      },
+      {
+       "words": "what's coming to them",
+       "note": "the surface idiom is punishment; read literally, it is post travelling towards them"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wrongdoers deserve their comeuppance.",
      "walkthrough": "'Get what's coming to them' is an idiom for deserved punishment; read literally, it is letters in the post.",
@@ -985,56 +895,51 @@
    },
    "solution": "ENLARGED",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "reversal"
-    ],
-    "answer": "ENLARGED",
     "definitions": [
      {
       "text": "Swollen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "note": "something turned round faces the other way, so its letters run backwards"
-     },
-     {
-      "text": "in",
-      "note": "the reversed letters go inside the grease"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nut",
-      "gives": "EN",
-      "note": "printers call an en space a nut"
-     },
-     {
-      "clueFragment": "grease",
-      "gives": "LARD",
-      "note": "lard is fat used for greasing, split LAR|D"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. = for example, say; turned to GE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "LAR",
-      "GE",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "EG",
-       "to": "GE"
+       "text": "turned",
+       "note": "something turned round faces the other way, so its letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nut",
+       "gives": "EN",
+       "note": "printers call an en space a nut"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the reversed letters go inside the grease"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grease",
+         "gives": "LARD",
+         "note": "lard is fat used for greasing, split LAR|D"
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "say",
+           "gives": "EG",
+           "note": "e.g. = for example, say; turned to GE"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1064,37 +969,39 @@
    },
    "solution": "RACKETEER",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "RACKETEER",
     "definitions": [
      {
       "text": "criminal",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "sounded",
-      "for": "homophone",
-      "note": "the organ is sounded, giving a spelling that sounds the same"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Noise",
-      "gives": "RACKET",
-      "note": "racket = din"
-     },
-     {
-      "clueFragment": "organ",
-      "gives": "EER",
-      "soundsLike": "EAR",
-      "note": "the ear is an organ; -EER is pronounced the same"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Noise",
+       "gives": "RACKET",
+       "note": "racket = din"
+      },
+      {
+       "op": "homophone",
+       "spelt": "EER",
+       "indicators": [
+        {
+         "text": "sounded",
+         "note": "the organ is sounded, giving a spelling that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organ",
+         "gives": "EAR",
+         "note": "the ear is an organ; -EER is pronounced the same"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone playing an organ badly makes a criminal din.",
      "walkthrough": "The organ reads as a musical instrument; it is the organ of hearing, which suits a clue about noise.",
@@ -1122,45 +1029,53 @@
    },
    "solution": "MATTED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "MATTED",
     "definitions": [
      {
       "text": "Knotty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "note": "MATTER loses its last letter"
-     },
-     {
-      "text": "ending in",
-      "note": "only the last letter of 'feud' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "subject almost",
-      "gives": "MATTE",
-      "note": "MATTER (subject) without its last letter"
-     },
-     {
-      "clueFragment": "ending in feud",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of feud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MATTE",
-      "D"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MATTED",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "almost",
+         "note": "MATTER loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "subject almost",
+         "gives": "MATTE",
+         "note": "MATTER (subject) without its last letter"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "D",
+         "indicators": [
+          {
+           "text": "ending in",
+           "note": "only the last letter of 'feud' is taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "ending in feud",
+           "gives": "D",
+           "select": "last",
+           "note": "last letter of feud"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1189,44 +1104,40 @@
    },
    "solution": "NIHILISM",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NIHILISM",
     "definitions": [
      {
       "text": "lack of belief",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "note": "the learner goes in among the letters"
-     },
-     {
-      "text": "suffering",
-      "note": "the letters of HIS MINI are damaged into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Learner",
-      "gives": "L",
-      "note": "L = learner, from L-plates"
-     },
-     {
-      "clueFragment": "his Mini",
-      "gives": "HISMINI",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "L HIS MINI",
-       "gives": "NIHILISM"
+       "text": "in",
+       "note": "the learner goes in among the letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suffering",
+         "note": "the letters of HIS MINI are damaged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his Mini",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "Learner",
+       "gives": "L",
+       "note": "L = learner, from L-plates"
       }
      ]
     },
@@ -1256,44 +1167,44 @@
    },
    "solution": "SPLICE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SPLICE",
     "definitions": [
      {
       "text": "Marry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "SPLIT loses its last letter"
-     },
-     {
-      "text": "after",
-      "note": "the church comes after it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "short divorce",
-      "gives": "SPLI",
-      "note": "SPLIT (divorce) cut short"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE = Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPLI",
-      "CE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SPLICE",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "SPLIT loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "the church comes after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "short divorce",
+         "gives": "SPLI",
+         "note": "SPLIT (divorce) cut short"
+        },
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "CE = Church of England"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1328,35 +1239,25 @@
    },
    "solution": "LIFEPEER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIFE PEER",
     "definitions": [
      {
       "text": "one's entitled",
       "at": 14
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Go",
-      "gives": "LIFE",
-      "note": "go = energy, as in full of go / full of life"
-     },
-     {
-      "clueFragment": "look",
-      "gives": "PEER",
-      "note": "peer = look closely"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIFE",
-      "PEER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Go",
+       "gives": "LIFE",
+       "note": "go = energy, as in full of go / full of life"
+      },
+      {
+       "words": "look",
+       "gives": "PEER",
+       "note": "peer = look closely"
+      }
      ]
     },
     "explanation": {
@@ -1386,10 +1287,6 @@
    },
    "solution": "ATRIAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ATRIAL",
     "definitions": [
      {
       "text": "by an upper chamber",
@@ -1397,22 +1294,18 @@
       "note": "atrial is an adjective, relating to an atrium; 'by an upper chamber' is read as 'of or caused by'"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "legal test",
-      "gives": "TRIAL",
-      "note": "a court hearing that tests the evidence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "TRIAL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "as printed"
+      },
+      {
+       "words": "legal test",
+       "gives": "TRIAL",
+       "note": "a court hearing that tests the evidence"
+      }
      ]
     },
     "explanation": {
@@ -1442,35 +1335,24 @@
    },
    "solution": "ECCENTRICITIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ECCENTRICITIES",
     "definitions": [
      {
       "text": "Odd habits",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to change",
-      "for": "anagram",
-      "note": "the cries are for change, and the letters before it must change their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "etc incite cries",
-      "gives": "ETCINCITECRIES",
-      "note": "anagram fodder, 14 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETC INCITE CRIES",
-       "gives": "ECCENTRICITIES"
+       "text": "to change",
+       "note": "the cries are for change, and the letters before it must change their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "etc incite cries",
+       "note": "anagram fodder, 14 letters"
       }
      ]
     },
@@ -1500,45 +1382,53 @@
    },
    "solution": "INGOT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "INGOT",
     "definitions": [
      {
       "text": "block",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "not started",
-      "note": "BINGO loses its first letter"
-     },
-     {
-      "text": "last of",
-      "note": "only the final letter of 'that' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House not started",
-      "gives": "INGO",
-      "note": "house is another name for bingo; drop the B"
-     },
-     {
-      "clueFragment": "last of that",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of that"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INGO",
-      "T"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INGOT",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "not started",
+         "note": "BINGO loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "House not started",
+         "gives": "INGO",
+         "note": "house is another name for bingo; drop the B"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "T",
+         "indicators": [
+          {
+           "text": "last of",
+           "note": "only the final letter of 'that' is taken"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "last of that",
+           "gives": "T",
+           "select": "last",
+           "note": "last letter of that"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1567,32 +1457,25 @@
    },
    "solution": "EPIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EPIC",
     "definitions": [
      {
       "text": "Saga",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "seen online",
-      "gives": "E",
-      "note": "E = electronic, as in e-mail"
-     },
-     {
-      "clueFragment": "still",
-      "gives": "PIC",
-      "note": "a still is a photograph, a pic"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "seen online",
+       "gives": "E",
+       "note": "E = electronic, as in e-mail"
+      },
+      {
+       "words": "still",
+       "gives": "PIC",
+       "note": "a still is a photograph, a pic"
+      }
      ]
     },
     "explanation": {
@@ -1628,39 +1511,31 @@
    },
    "solution": "PRICEFIXING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PRICE FIXING",
     "definitions": [
      {
       "text": "Action by cartels",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in an across clue, X on Y puts X after Y"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "damage",
-      "gives": "PRICE",
-      "note": "'what's the damage?' asks the price"
-     },
-     {
-      "clueFragment": "focusing",
-      "gives": "FIXING",
-      "note": "fixing = focusing, as fixing your eyes on something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRICE",
-      "FIXING"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in an across clue, X on Y puts X after Y"
+      }
+     ],
+     "parts": [
+      {
+       "words": "damage",
+       "gives": "PRICE",
+       "note": "'what's the damage?' asks the price"
+      },
+      {
+       "words": "focusing",
+       "gives": "FIXING",
+       "note": "fixing = focusing, as fixing your eyes on something"
+      }
      ]
     },
     "explanation": {
@@ -1689,34 +1564,37 @@
    },
    "solution": "HOE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "HOE",
     "definitions": [
      {
       "text": "Garden",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with scratched edges",
-      "note": "the first and last letters are scratched out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "footwear with scratched edges",
-      "gives": "HOE",
-      "select": "outer",
-      "note": "SHOES without its outer S and S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HOE",
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "HOE",
+       "indicators": [
+        {
+         "text": "with scratched edges",
+         "note": "the first and last letters are scratched out"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "footwear with scratched edges",
+         "gives": "HOE",
+         "select": "outer",
+         "note": "SHOES without its outer S and S"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1745,56 +1623,54 @@
    },
    "solution": "CONTROL",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "deletion"
-    ],
-    "answer": "CONTROL",
     "definitions": [
      {
       "text": "power",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "for": "container",
-      "note": "the queen is worn inside the ring"
-     },
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "TOLL loses its last letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fake",
-      "gives": "CON",
-      "note": "a con = a fake, a swindle"
-     },
-     {
-      "clueFragment": "ring, briefly",
-      "gives": "TOL",
-      "note": "TOLL (to ring a bell) cut short, split T|OL"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "R",
-      "note": "R = Regina, queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "T",
-      "R",
-      "OL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CONTROL",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "TOLL loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fake",
+         "gives": "CON",
+         "note": "a con = a fake, a swindle"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "wearing",
+           "note": "the queen is worn inside the ring"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ring, briefly",
+           "gives": "TOL",
+           "note": "TOLL (to ring a bell) cut short, split T|OL"
+          },
+          {
+           "words": "Queen",
+           "gives": "R",
+           "note": "R = Regina, queen"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1823,33 +1699,16 @@
    },
    "solution": "MATCHES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MATCHES",
     "definitions": [
      {
       "text": "Suits",
-      "at": 0
+      "at": 0,
+      "meaning": "the verb: goes well with, as a tie suits a shirt"
      },
      {
       "text": "ties",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Suits",
-      "gives": "MATCHES",
-      "note": "the verb: goes well with, as a tie suits a shirt"
-     },
-     {
-      "clueFragment": "ties",
-      "gives": "MATCHES",
-      "note": "ties = sporting fixtures, as in cup ties"
+      "at": 10,
+      "meaning": "ties = sporting fixtures, as in cup ties"
      }
     ],
     "explanation": {

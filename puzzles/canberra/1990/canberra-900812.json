@@ -1,8 +1,7 @@
 {
  "id": "canberra-900812",
  "number": 900812,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Sunday 12 August 1990 (English cryptic)",
+ "label": "English cryptic",
  "date": "1990-08-12",
  "dimensions": {
   "cols": 15,
@@ -40,46 +39,43 @@
    },
    "solution": "INFAMOUS",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "INFAMOUS",
     "definitions": [
      {
       "text": "Disgraceful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly",
-      "for": "deletion",
-      "note": "mostly means most but not all of the word, so its final letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "foot-soldiers",
-      "gives": "INF",
-      "note": "INF is the military abbreviation for infantry"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "pest",
-      "gives": "MOUSE",
-      "note": "a mouse is a household pest"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INF",
-      "A",
-      "MOUS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "mostly means most but not all of the word, so its final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "foot-soldiers",
+         "gives": "INF",
+         "note": "INF is the military abbreviation for infantry"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "pest",
+         "gives": "MOUSE",
+         "note": "a mouse is a household pest"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -107,55 +103,39 @@
    },
    "solution": "IMMURE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "IMMURE",
     "definitions": [
      {
       "text": "Shut up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being uplifted",
-      "for": "reversal",
-      "note": "in a down entry, being uplifted means raised so that it reads from bottom to top"
-     }
-    ],
-    "linkWords": [
-     "in need of",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written, apostrophe dropped"
-     },
-     {
-      "clueFragment": "spirit",
-      "gives": "RUM",
-      "note": "rum is a spirit"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the symbol for energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "MUR",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RUM",
-       "to": "MUR"
+       "words": "I'm",
+       "note": "taken as written, apostrophe dropped"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "being uplifted",
+         "note": "in a down entry, being uplifted means raised so that it reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spirit",
+         "gives": "RUM",
+         "note": "rum is a spirit"
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the symbol for energy"
       }
      ]
     },
@@ -186,31 +166,29 @@
    },
    "solution": "FATHER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FATHER",
     "definitions": [
      {
       "text": "Generator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear points to how the words sound when spoken rather than how they are spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "should be at a greater distance",
-      "gives": "FATHER",
-      "soundsLike": "FARTHER",
-      "note": "farther means at a greater distance, and in a non-rhotic accent it sounds like the parent"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FATHER",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "we hear points to how the words sound when spoken rather than how they are spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "should be at a greater distance",
+       "gives": "FARTHER",
+       "note": "farther means at a greater distance, and in a non-rhotic accent it sounds like the parent"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice that an electrical generator ought to be placed further away.",
      "walkthrough": "In British English the R in farther is silent, so the two words sound the same.",
@@ -244,41 +222,30 @@
    },
    "solution": "MARESTAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MARES-TAIL",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "linkWords": [
-     "that makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "master",
-      "gives": "MA",
-      "note": "MA is a Master of Arts degree"
-     },
-     {
-      "clueFragment": "the others",
-      "gives": "REST",
-      "note": "the rest means the others"
-     },
-     {
-      "clueFragment": "become sick",
-      "gives": "AIL",
-      "note": "to ail is to be unwell"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "REST",
-      "AIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "master",
+       "gives": "MA",
+       "note": "MA is a Master of Arts degree"
+      },
+      {
+       "words": "the others",
+       "gives": "REST",
+       "note": "the rest means the others"
+      },
+      {
+       "words": "become sick",
+       "gives": "AIL",
+       "note": "to ail is to be unwell"
+      }
      ]
     },
     "explanation": {
@@ -306,47 +273,41 @@
    },
    "solution": "UNSPORTINGLY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "UNSPORTINGLY",
     "definitions": [
      {
       "text": "without fairness",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "restricting",
-      "for": "container",
-      "note": "restricting means hemming in, so one word holds the other inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United Nations",
-      "gives": "UN",
-      "note": "UN is the abbreviation for the United Nations"
-     },
-     {
-      "clueFragment": "one by one",
-      "gives": "SINGLY",
-      "note": "singly means one at a time"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "PORT",
-      "note": "port is the left side of a ship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "S",
-      "PORT",
-      "INGLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "United Nations",
+       "gives": "UN",
+       "note": "UN is the abbreviation for the United Nations"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restricting",
+         "note": "restricting means hemming in, so one word holds the other inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one by one",
+         "gives": "SINGLY",
+         "note": "singly means one at a time"
+        },
+        {
+         "words": "Left",
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -375,50 +336,40 @@
    },
    "solution": "ASHRAM",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ASHRAM",
     "definitions": [
      {
       "text": "Religious retreat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so the fraud is wrapped around the letter for right"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fraud",
-      "gives": "SHAM",
-      "note": "a sham is a fraud or pretence"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the standard abbreviation for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SH",
-      "R",
-      "AM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means going around, so the fraud is wrapped around the letter for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fraud",
+         "gives": "SHAM",
+         "note": "a sham is a fraud or pretence"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the standard abbreviation for right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -447,55 +398,45 @@
    },
    "solution": "STENO",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STENO",
     "definitions": [
      {
       "text": "Writer in shorthand",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, up means the word reads from the bottom upwards"
-     },
-     {
-      "text": "very little of",
-      "for": "letter_selection",
-      "note": "very little of means taking only the smallest part, the opening letter"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "catches",
-      "gives": "NETS",
-      "note": "to net is to catch, as with a fish"
-     },
-     {
-      "clueFragment": "overtime",
-      "gives": "O",
-      "select": "first",
-      "note": "the first letter of overtime"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEN",
-      "O"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NETS",
-       "to": "STEN"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down entry, up means the word reads from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "catches",
+         "gives": "NETS",
+         "note": "to net is to catch, as with a fish"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "very little of",
+         "note": "very little of means taking only the smallest part, the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overtime",
+         "note": "the first letter of overtime"
+        }
+       ]
       }
      ]
     },
@@ -525,38 +466,24 @@
    },
    "solution": "RHINITIS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RHINITIS",
     "definitions": [
      {
       "text": "nasal inflammation",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "tussle",
-      "for": "anagram",
-      "note": "a tussle is a scuffle, so the letters are knocked about into a new order"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sir hit in",
-      "gives": "SIRHITIN",
-      "note": "the three words supply all eight letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SIRHITIN",
-       "gives": "RHINITIS"
+       "text": "tussle",
+       "note": "a tussle is a scuffle, so the letters are knocked about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sir hit in",
+       "note": "the three words supply all eight letters"
       }
      ]
     },
@@ -585,35 +512,25 @@
    },
    "solution": "MISSTATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MISSTATE",
     "definitions": [
      {
       "text": "Make false declaration",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "motorway's",
-      "gives": "MIS",
-      "note": "the M1 is Britain's main north-south motorway, written MI, plus the S of the possessive"
-     },
-     {
-      "clueFragment": "condition",
-      "gives": "STATE",
-      "note": "a state is a condition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIS",
-      "STATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "motorway's",
+       "gives": "MIS",
+       "note": "the M1 is Britain's main north-south motorway, written MI, plus the S of the possessive"
+      },
+      {
+       "words": "condition",
+       "gives": "STATE",
+       "note": "a state is a condition"
+      }
      ]
     },
     "explanation": {
@@ -642,50 +559,40 @@
    },
    "solution": "MOTORIST",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "MOTORIST",
     "definitions": [
      {
       "text": "Driver",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming in",
-      "for": "container",
-      "note": "coming in means entering, so these letters go inside the word for a wrong"
-     }
-    ],
-    "linkWords": [
-     "who"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "MO",
-      "note": "a mo is a moment, a second"
-     },
-     {
-      "clueFragment": "wrong",
-      "gives": "TORT",
-      "note": "a tort is a civil wrong in law"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MO",
-      "TOR",
-      "IS",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming in",
+         "note": "coming in means entering, so these letters go inside the word for a wrong"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrong",
+         "gives": "TORT",
+         "note": "a tort is a civil wrong in law"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -714,51 +621,41 @@
    },
    "solution": "DELIUS",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "DELIUS",
     "definitions": [
      {
       "text": "a composer",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the priest inside the French word for the south"
-     },
-     {
-      "text": "rebuffed",
-      "for": "reversal",
-      "note": "rebuffed suggests being pushed back, so the letters run the other way"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "South of France",
-      "gives": "SUD",
-      "note": "sud is French for south"
-     },
-     {
-      "clueFragment": "Priest",
-      "gives": "ELI",
-      "note": "Eli is the priest who raised Samuel in the Bible"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "ELI",
-      "US"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "SUD",
-       "to": "DUS"
+       "text": "in",
+       "note": "in places the priest inside the French word for the south"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rebuffed",
+         "note": "rebuffed suggests being pushed back, so the letters run the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "South of France",
+         "gives": "SUD",
+         "note": "sud is French for south"
+        }
+       ]
+      },
+      {
+       "words": "Priest",
+       "gives": "ELI",
+       "note": "Eli is the priest who raised Samuel in the Bible"
       }
      ]
     },
@@ -788,35 +685,24 @@
    },
    "solution": "CONGRATULATE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONGRATULATE",
     "definitions": [
      {
       "text": "Compliment",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dance",
-      "for": "anagram",
-      "note": "a dance moves its participants around, so the letters are moved into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Count at regal",
-      "gives": "COUNTATREGAL",
-      "note": "the three words supply all twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COUNTATREGAL",
-       "gives": "CONGRATULATE"
+       "text": "dance",
+       "note": "a dance moves its participants around, so the letters are moved into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Count at regal",
+       "note": "the three words supply all twelve letters"
       }
      ]
     },
@@ -845,31 +731,16 @@
    },
    "solution": "REEFS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "REEFS",
     "definitions": [
      {
       "text": "Banks",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: ridges of rock or sand just below the sea surface"
      },
      {
       "text": "strips for sails",
-      "at": 18
-     }
-    ],
-    "linkWords": [
-     "will supply"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Banks",
-      "note": "first meaning: ridges of rock or sand just below the sea surface"
-     },
-     {
-      "clueFragment": "strips for sails",
-      "note": "second meaning: the bands of a sail that can be rolled or tied in to shorten it"
+      "at": 18,
+      "meaning": "second meaning: the bands of a sail that can be rolled or tied in to shorten it"
      }
     ],
     "explanation": {
@@ -898,47 +769,34 @@
    },
    "solution": "OTOLOGIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OTOLOGIST",
     "definitions": [
      {
       "text": "Ear-specialist",
       "at": 0
      }
     ],
-    "linkWords": [
-     "uses"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "oxygen",
-      "gives": "O",
-      "note": "O is the chemical symbol for oxygen"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "see",
-      "gives": "LO",
-      "note": "lo is an old word meaning look or see"
-     },
-     {
-      "clueFragment": "the significance",
-      "gives": "GIST",
-      "note": "the gist of something is its essential meaning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "TO",
-      "LO",
-      "GIST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "oxygen",
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "see",
+       "gives": "LO",
+       "note": "lo is an old word meaning look or see"
+      },
+      {
+       "words": "the significance",
+       "gives": "GIST",
+       "note": "the gist of something is its essential meaning"
+      }
      ]
     },
     "explanation": {
@@ -973,35 +831,24 @@
    },
    "solution": "VANTAGEPOINT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VANTAGE-POINT",
     "definitions": [
      {
       "text": "commanding position",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Oddly enough",
-      "for": "anagram",
-      "note": "oddly suggests things done in a strange way, so the following letters come out in a strange order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pat not given a",
-      "gives": "PATNOTGIVENA",
-      "note": "the four words supply all twelve letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PATNOTGIVENA",
-       "gives": "VANTAGEPOINT"
+       "text": "Oddly enough",
+       "note": "oddly suggests things done in a strange way, so the following letters come out in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pat not given a",
+       "note": "the four words supply all twelve letters"
       }
      ]
     },
@@ -1031,54 +878,48 @@
    },
    "solution": "PRESBYTER",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "charade"
-    ],
-    "answer": "PRESBYTER",
     "definitions": [
      {
       "text": "church elder",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "Most of",
-      "for": "deletion",
-      "note": "most of means all but the final letter is kept"
-     },
-     {
-      "text": "misrepresented",
-      "for": "anagram",
-      "note": "misrepresented means presented wrongly, so the name's letters are given in a false order"
-     }
-    ],
-    "linkWords": [
-     "the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "newspapers",
-      "gives": "PRESS",
-      "note": "the press means newspapers collectively"
-     },
-     {
-      "clueFragment": "Berty",
-      "gives": "BERTY",
-      "note": "taken as written before rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRES",
-      "BYTER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "BERTY",
-       "gives": "BYTER"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Most of",
+         "note": "most of means all but the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "newspapers",
+         "gives": "PRESS",
+         "note": "the press means newspapers collectively"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misrepresented",
+         "note": "misrepresented means presented wrongly, so the name's letters are given in a false order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Berty",
+         "note": "taken as written before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1113,54 +954,40 @@
    },
    "solution": "USEDCARS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "USED CARS",
     "definitions": [
      {
       "text": "Bangers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "terribly suggests something badly done, so the letters are thrown out of order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the rearranged word inside the abbreviation for America"
-     }
-    ],
-    "linkWords": [
-     "They make one"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the States",
-      "gives": "US",
-      "note": "US is short for the United States"
-     },
-     {
-      "clueFragment": "scared",
-      "gives": "SCARED",
-      "note": "taken as written before rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "SEDCAR",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SCARED",
-       "gives": "SEDCAR"
+       "text": "in",
+       "note": "in places the rearranged word inside the abbreviation for America"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the States",
+       "gives": "US",
+       "note": "US is short for the United States"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "note": "terribly suggests something badly done, so the letters are thrown out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scared",
+         "note": "taken as written before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1197,35 +1024,25 @@
    },
    "solution": "HELLBENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HELL-BENT",
     "definitions": [
      {
       "text": "Determined",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to find"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gambling-place",
-      "gives": "HELL",
-      "note": "a gaming hell is an old term for a disreputable gambling den"
-     },
-     {
-      "clueFragment": "crooked",
-      "gives": "BENT",
-      "note": "bent means crooked, in both senses"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HELL",
-      "BENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gambling-place",
+       "gives": "HELL",
+       "note": "a gaming hell is an old term for a disreputable gambling den"
+      },
+      {
+       "words": "crooked",
+       "gives": "BENT",
+       "note": "bent means crooked, in both senses"
+      }
      ]
     },
     "explanation": {
@@ -1259,41 +1076,29 @@
    },
    "solution": "STERLINGAREA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STERLING AREA",
     "definitions": [
      {
       "text": "Countries dealing in pounds",
       "at": 0
      }
     ],
-    "linkWords": [
-     "connected with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "excellent",
-      "gives": "STERLING",
-      "note": "sterling means of excellent quality"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "ARE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "A",
-      "note": "a means one, as in a single item"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STERLING",
-      "ARE",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "excellent",
+       "gives": "STERLING",
+       "note": "sterling means of excellent quality"
+      },
+      {
+       "words": "are",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "gives": "A",
+       "note": "a means one, as in a single item"
+      }
      ]
     },
     "explanation": {
@@ -1323,40 +1128,31 @@
    },
    "solution": "QUAINT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "QUAINT",
     "definitions": [
      {
       "text": "Whimsical",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "enthralled by",
-      "for": "container",
-      "note": "enthralled by means held captive by, so the single letter is held inside the name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fashion designer",
-      "gives": "QUANT",
-      "note": "Mary Quant was the British fashion designer who popularised the miniskirt"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUA",
-      "I",
-      "NT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthralled by",
+       "note": "enthralled by means held captive by, so the single letter is held inside the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fashion designer",
+       "gives": "QUANT",
+       "note": "Mary Quant was the British fashion designer who popularised the miniskirt"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
      ]
     },
     "explanation": {
@@ -1384,32 +1180,25 @@
    },
    "solution": "PHONED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PHONED",
     "definitions": [
      {
       "text": "called",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Copper",
-      "gives": "P",
-      "note": "a copper is a penny coin, abbreviated p"
-     },
-     {
-      "clueFragment": "made keen",
-      "gives": "HONED",
-      "note": "to hone a blade is to sharpen it, making it keen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "HONED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Copper",
+       "gives": "P",
+       "note": "a copper is a penny coin, abbreviated p"
+      },
+      {
+       "words": "made keen",
+       "gives": "HONED",
+       "note": "to hone a blade is to sharpen it, making it keen"
+      }
      ]
     },
     "explanation": {
@@ -1438,35 +1227,24 @@
    },
    "solution": "DOLGELLAU",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOLGELLAU",
     "definitions": [
      {
       "text": "One finds it in Wales",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "jangling",
-      "for": "anagram",
-      "note": "jangling describes a jarring, discordant clash, so the letters are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "e.g. all loud",
-      "gives": "EGALLLOUD",
-      "note": "the abbreviation and two words supply the nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EGALLLOUD",
-       "gives": "DOLGELLAU"
+       "text": "jangling",
+       "note": "jangling describes a jarring, discordant clash, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "e.g. all loud",
+       "note": "the abbreviation and two words supply the nine letters"
       }
      ]
     },
@@ -1496,47 +1274,35 @@
    },
    "solution": "EIDER",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "EIDER",
     "definitions": [
      {
       "text": "sort of down",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "upset means turned over, which in a down entry makes the letters read upwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "About",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "to languish",
-      "gives": "DIE",
-      "note": "to die away is to languish or fade"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EIDER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REDIE",
-       "to": "EIDER"
+       "text": "upset",
+       "note": "upset means turned over, which in a down entry makes the letters read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "About",
+         "gives": "RE",
+         "note": "re means about or concerning"
+        },
+        {
+         "words": "to languish",
+         "gives": "DIE",
+         "note": "to die away is to languish or fade"
+        }
+       ]
       }
      ]
     },
@@ -1567,40 +1333,31 @@
    },
    "solution": "BLUSH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLUSH",
     "definitions": [
      {
       "text": "show confusion",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the letter for left within the word for wild country"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the wild",
-      "gives": "BUSH",
-      "note": "the bush is wild uncleared country, as in the Australian outback"
-     },
-     {
-      "clueFragment": "Left",
-      "gives": "L",
-      "note": "L is the standard abbreviation for left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "USH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the letter for left within the word for wild country"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the wild",
+       "gives": "BUSH",
+       "note": "the bush is wild uncleared country, as in the Australian outback"
+      },
+      {
+       "words": "Left",
+       "gives": "L",
+       "note": "L is the standard abbreviation for left"
+      }
      ]
     },
     "explanation": {
@@ -1628,40 +1385,31 @@
    },
    "solution": "AGENDA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AGENDA",
     "definitions": [
      {
       "text": "Program",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "comprehended by",
-      "for": "container",
-      "note": "comprehended by means taken in or held by, so one word sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a girl",
-      "gives": "ADA",
-      "note": "Ada is a girl's name"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "GEN",
-      "note": "gen is British slang for information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GEN",
-      "DA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "comprehended by",
+       "note": "comprehended by means taken in or held by, so one word sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a girl",
+       "gives": "ADA",
+       "note": "Ada is a girl's name"
+      },
+      {
+       "words": "information",
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      }
      ]
     },
     "explanation": {
@@ -1690,57 +1438,45 @@
    },
    "solution": "BACTRIAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "BACTRIAN",
     "definitions": [
      {
       "text": "Camel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reversing",
-      "for": "reversal",
-      "note": "reversing means going backwards, so the vehicle is read from its end"
-     },
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "damaged means broken up, so the letters of the railway word are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "transport",
-      "gives": "CAB",
-      "note": "a cab is a means of transport"
-     },
-     {
-      "clueFragment": "train",
-      "gives": "TRAIN",
-      "note": "taken as written before rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAC",
-      "TRIAN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TRAIN",
-       "gives": "TRIAN"
-      }
-     ],
-     "reversals": [
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "note": "reversing means going backwards, so the vehicle is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "transport",
+         "gives": "CAB",
+         "note": "a cab is a means of transport"
+        }
+       ]
+      },
       {
-       "from": "CAB",
-       "to": "BAC"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "note": "damaged means broken up, so the letters of the railway word are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "train",
+         "note": "taken as written before rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1770,35 +1506,25 @@
    },
    "solution": "SATIRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATIRE",
     "definitions": [
      {
       "text": "Form of ridicule",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "met",
-      "gives": "SAT",
-      "note": "a committee or court sat when it met"
-     },
-     {
-      "clueFragment": "anger",
-      "gives": "IRE",
-      "note": "ire is anger"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "IRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "met",
+       "gives": "SAT",
+       "note": "a committee or court sat when it met"
+      },
+      {
+       "words": "anger",
+       "gives": "IRE",
+       "note": "ire is anger"
+      }
      ]
     },
     "explanation": {
@@ -1826,43 +1552,31 @@
    },
    "solution": "FERRETED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FERRETED",
     "definitions": [
      {
       "text": "Searched out",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being without",
-      "for": "container",
-      "note": "being without here means standing outside, so the one word surrounds the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "made a fuss of",
-      "gives": "FETED",
-      "note": "to fete someone is to honour or make much of them"
-     },
-     {
-      "clueFragment": "sin",
-      "gives": "ERR",
-      "note": "to err is to go wrong or sin"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ERR",
-      "ETED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being without",
+       "note": "being without here means standing outside, so the one word surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "made a fuss of",
+       "gives": "FETED",
+       "note": "to fete someone is to honour or make much of them"
+      },
+      {
+       "words": "sin",
+       "gives": "ERR",
+       "note": "to err is to go wrong or sin"
+      }
      ]
     },
     "explanation": {

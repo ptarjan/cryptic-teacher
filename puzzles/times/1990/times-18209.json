@@ -1,8 +1,6 @@
 {
  "id": "times-18209",
  "number": 18209,
- "series": "times",
- "name": "Times cryptic crossword No 18,209",
  "date": "1990-02-05",
  "dimensions": {
   "cols": 15,
@@ -54,26 +52,25 @@
    },
    "solution": "KNIGHTS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "KNIGHTS",
     "definitions": [
      {
       "text": "Game horsemen",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Game horsemen",
-      "note": "surface reading: riders who are plucky or up for a contest"
-     },
-     {
-      "clueFragment": "Game horsemen",
-      "note": "setter's reading: the horse-headed pieces in the game of chess"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Game horsemen",
+       "note": "surface reading: riders who are plucky or up for a contest"
+      },
+      {
+       "words": "Game horsemen",
+       "note": "setter's reading: the horse-headed pieces in the game of chess"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Game' looks like an adjective meaning plucky; it names the game of chess, where these pieces are also mounted warriors of old.",
      "definitionFit": "Medieval knights were mounted warriors, and chess knights are the pieces shaped like horses' heads."
@@ -100,43 +97,31 @@
    },
    "solution": "KEENING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "KEENING",
     "definitions": [
      {
       "text": "Making complaint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the top man stands around the other word, enclosing it on both sides"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a top man",
-      "gives": "KING",
-      "note": "a king is the man at the top of a kingdom"
-     },
-     {
-      "clueFragment": "even",
-      "gives": "EEN",
-      "note": "e'en is the poetic contraction of even"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "EEN",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the top man stands around the other word, enclosing it on both sides"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a top man",
+       "gives": "KING",
+       "note": "a king is the man at the top of a kingdom"
+      },
+      {
+       "words": "even",
+       "gives": "EEN",
+       "note": "e'en is the poetic contraction of even"
+      }
      ]
     },
     "explanation": {
@@ -165,38 +150,25 @@
    },
    "solution": "INGESTION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INGESTION",
     "definitions": [
      {
       "text": "Drinking",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps says the letters may stand in some other arrangement than the one printed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one's gin and it",
-      "gives": "ONESGINIT",
-      "note": "the letters of one's, gin and it; 'and' only joins them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INGESTION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONESGINIT",
-       "gives": "INGESTION"
+       "text": "perhaps",
+       "note": "perhaps says the letters may stand in some other arrangement than the one printed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one's gin and it",
+       "gives": "ONESGINIT",
+       "note": "the letters of one's, gin and it; 'and' only joins them"
       }
      ]
     },
@@ -226,34 +198,38 @@
    },
    "solution": "HORDE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HORDE",
     "definitions": [
      {
       "text": "A lot of people",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "are to be seen in",
-      "for": "hidden_word",
-      "note": "the letters can be seen sitting inside the run of words that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no matter",
-      "note": "surface padding, read with 'which order' to make the phrase in any order"
-     },
-     {
-      "clueFragment": "which order",
-      "gives": "HORDE",
-      "note": "found across the end of which and the start of order"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "no matter",
+       "note": "surface padding, read with 'which order' to make the phrase in any order"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "are to be seen in",
+         "note": "the letters can be seen sitting inside the run of words that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "which order",
+         "gives": "HORDE",
+         "note": "found across the end of which and the start of order"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Crowds of people may be found in any order you like.",
      "walkthrough": "'No matter which order' suggests an anagram, but the letters are found unchanged inside 'which order'.",
@@ -280,35 +256,24 @@
    },
    "solution": "SIGHTSEER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SIGHTSEER",
     "definitions": [
      {
       "text": "He'll want to look around",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in need of repair",
-      "for": "anagram",
-      "note": "something in need of repair is broken, so these letters must be put together differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "these rigs",
-      "gives": "THESERIGS",
-      "note": "the letters of these and rigs"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THESERIGS",
-       "gives": "SIGHTSEER"
+       "text": "in need of repair",
+       "note": "something in need of repair is broken, so these letters must be put together differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "these rigs",
+       "note": "the letters of these and rigs"
       }
      ]
     },
@@ -337,26 +302,25 @@
    },
    "solution": "SANDMAN",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SANDMAN",
     "definitions": [
      {
       "text": "He's supposed to send youngsters off",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "He's supposed to send youngsters off",
-      "note": "surface reading: a referee or teacher meant to dismiss young players or pupils"
-     },
-     {
-      "clueFragment": "He's supposed to send youngsters off",
-      "note": "setter's reading: a figure of folklore who sends children off to sleep"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He's supposed to send youngsters off",
+       "note": "surface reading: a referee or teacher meant to dismiss young players or pupils"
+      },
+      {
+       "words": "He's supposed to send youngsters off",
+       "note": "setter's reading: a figure of folklore who sends children off to sleep"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Send off' sounds like a dismissal from the pitch; here it means sending children off to sleep, and 'supposed' hints the figure is only make-believe.",
      "definitionFit": "In folklore the Sandman sprinkles sand in children's eyes to make them drowsy at bedtime."
@@ -383,35 +347,25 @@
    },
    "solution": "SHEER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SHEER",
     "definitions": [
      {
       "text": "Downright",
       "at": 0
      }
     ],
-    "linkWords": [
-     "presented to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "woman",
-      "gives": "SHE",
-      "note": "the pronoun for a woman"
-     },
-     {
-      "clueFragment": "Her Majesty",
-      "gives": "ER",
-      "note": "Elizabeth Regina, the Queen's cipher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "woman",
+       "gives": "SHE",
+       "note": "the pronoun for a woman"
+      },
+      {
+       "words": "Her Majesty",
+       "gives": "ER",
+       "note": "Elizabeth Regina, the Queen's cipher"
+      }
      ]
     },
     "explanation": {
@@ -440,26 +394,25 @@
    },
    "solution": "NOTEPAPER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NOTEPAPER",
     "definitions": [
      {
       "text": "Basic material for 9 or Junius?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Basic material for 9 or Junius?",
-      "note": "surface reading: the raw stuff a composer and an anonymous pamphleteer work with"
-     },
-     {
-      "clueFragment": "Basic material for 9 or Junius?",
-      "note": "setter's reading: stationery suited to a writer of musical notes and to a writer of famous letters"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Basic material for 9 or Junius?",
+       "note": "surface reading: the raw stuff a composer and an anonymous pamphleteer work with"
+      },
+      {
+       "words": "Basic material for 9 or Junius?",
+       "note": "setter's reading: stationery suited to a writer of musical notes and to a writer of famous letters"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "9 is Elgar, who wrote music in notes; Junius was the pen name of an anonymous 18th-century writer of political letters. The answer splits as NOTE PAPER for both.",
      "definitionFit": "Writing paper for letters serves a correspondent, and its first part also suggests the musical marks a composer sets down."
@@ -486,32 +439,25 @@
    },
    "solution": "MOORE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MOORE",
     "definitions": [
      {
       "text": "poet",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Low",
-      "gives": "MOO",
-      "note": "to low is to make a cow's sound"
-     },
-     {
-      "clueFragment": "soldiers'",
-      "gives": "RE",
-      "note": "the Royal Engineers, a British army corps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOO",
-      "RE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Low",
+       "gives": "MOO",
+       "note": "to low is to make a cow's sound"
+      },
+      {
+       "words": "soldiers'",
+       "gives": "RE",
+       "note": "the Royal Engineers, a British army corps"
+      }
      ]
     },
     "explanation": {
@@ -540,45 +486,35 @@
    },
    "solution": "NITRATE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NITRATE",
     "definitions": [
      {
       "text": "A fertiliser",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "put up",
-      "for": "reversal",
-      "note": "in a down clue, put up means written going upwards, so the word runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can",
-      "gives": "TIN",
-      "note": "a tin is a can"
-     },
-     {
-      "clueFragment": "value",
-      "gives": "RATE",
-      "note": "to rate something is to value it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NIT",
-      "RATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TIN",
-       "to": "NIT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put up",
+         "note": "in a down clue, put up means written going upwards, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
+      },
+      {
+       "words": "value",
+       "gives": "RATE",
+       "note": "to rate something is to value it"
       }
      ]
     },
@@ -608,48 +544,35 @@
    },
    "solution": "ELGAR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ELGAR",
     "definitions": [
      {
       "text": "music-maker",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "for": "reversal",
-      "note": "turned means turned round, so the word is read from back to front"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Spanish",
-      "gives": "EL",
-      "note": "el is Spanish for the"
-     },
-     {
-      "clueFragment": "Harry",
-      "gives": "RAG",
-      "note": "to rag is to tease or harry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EL",
-      "GAR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RAG",
-       "to": "GAR"
+       "words": "the Spanish",
+       "gives": "EL",
+       "note": "el is Spanish for the"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "note": "turned means turned round, so the word is read from back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harry",
+         "gives": "RAG",
+         "note": "to rag is to tease or harry"
+        }
+       ]
       }
      ]
     },
@@ -679,35 +602,24 @@
    },
    "solution": "GREATCOAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GREATCOAT",
     "definitions": [
      {
       "text": "Protective wear",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in a bad state",
-      "for": "anagram",
-      "note": "something in a bad state has been knocked about, so these letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a crate got",
-      "gives": "ACRATEGOT",
-      "note": "the letters of a, crate and got"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACRATEGOT",
-       "gives": "GREATCOAT"
+       "text": "in a bad state",
+       "note": "something in a bad state has been knocked about, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a crate got",
+       "note": "the letters of a, crate and got"
       }
      ]
     },
@@ -736,47 +648,41 @@
    },
    "solution": "INSPECTOR",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "INSPECTOR",
     "definitions": [
      {
       "text": "The man investigating",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container",
-      "note": "the creature carries the money inside itself, holding it within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a painted lady, say",
-      "gives": "INSECT",
-      "note": "the painted lady is a butterfly, so an example of an insect"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "P",
-      "note": "p, pence, the abbreviation for British money"
-     },
-     {
-      "clueFragment": "gold",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INS",
-      "P",
-      "ECT",
-      "OR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "note": "the creature carries the money inside itself, holding it within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a painted lady, say",
+         "gives": "INSECT",
+         "note": "the painted lady is a butterfly, so an example of an insect"
+        },
+        {
+         "words": "money",
+         "gives": "P",
+         "note": "p, pence, the abbreviation for British money"
+        }
+       ]
+      },
+      {
+       "words": "gold",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
      ]
     },
     "explanation": {
@@ -806,30 +712,16 @@
    },
    "solution": "PIETA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PIETA",
     "definitions": [
      {
       "text": "Religious figure",
       "at": 0
      }
     ],
-    "linkWords": [
-     "writing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "letters to a Greek",
-      "gives": "PIETA",
-      "note": "pi and eta, two letters of the Greek alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIETA"
-     ]
+    "wordplay": {
+     "words": "letters to a Greek",
+     "gives": "PIETA",
+     "note": "pi and eta, two letters of the Greek alphabet"
     },
     "explanation": {
      "surface": "A holy statue writing letters to someone in Greece.",
@@ -856,35 +748,25 @@
    },
    "solution": "GRIST",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIST",
     "definitions": [
      {
       "text": "Grain ground",
       "at": 0
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "King George",
-      "gives": "GR",
-      "note": "GR, Georgius Rex, the royal cipher of King George"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "IST",
-      "note": "George I is George the First, and first is written 1st, with the Roman one standing in for the digit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GR",
-      "IST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King George",
+       "gives": "GR",
+       "note": "GR, Georgius Rex, the royal cipher of King George"
+      },
+      {
+       "words": "I",
+       "gives": "IST",
+       "note": "George I is George the First, and first is written 1st, with the Roman one standing in for the digit"
+      }
      ]
     },
     "explanation": {
@@ -913,26 +795,25 @@
    },
    "solution": "THORNLESS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THORNLESS",
     "definitions": [
      {
       "text": "Totally lacking point, botanically",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Totally lacking point",
-      "note": "surface reading: utterly pointless, without any purpose"
-     },
-     {
-      "clueFragment": "botanically",
-      "note": "setter's reading: in plant terms, a point is a prickle on a stem, and the plant has none"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Totally lacking point",
+       "note": "surface reading: utterly pointless, without any purpose"
+      },
+      {
+       "words": "botanically",
+       "note": "setter's reading: in plant terms, a point is a prickle on a stem, and the plant has none"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Lacking point' reads as pointless or futile; 'botanically' turns the point into a prickle on a rose stem.",
      "definitionFit": "A plant described this way has no prickles or spines along its stems, like certain rose varieties."
@@ -959,44 +840,35 @@
    },
    "solution": "EXOSPHERE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXOSPHERE",
     "definitions": [
      {
       "text": "Mundane outer covering",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "taken from",
-      "gives": "EX",
-      "note": "ex is Latin for out of or from"
-     },
-     {
-      "clueFragment": "big",
-      "gives": "OS",
-      "note": "OS, outsize, the clothing abbreviation for large"
-     },
-     {
-      "clueFragment": "soft",
-      "gives": "P",
-      "note": "p, piano, the musical direction for soft"
-     },
-     {
-      "clueFragment": "present",
-      "gives": "HERE",
-      "note": "here as in present and correct"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "OS",
-      "P",
-      "HERE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "taken from",
+       "gives": "EX",
+       "note": "ex is Latin for out of or from"
+      },
+      {
+       "words": "big",
+       "gives": "OS",
+       "note": "OS, outsize, the clothing abbreviation for large"
+      },
+      {
+       "words": "soft",
+       "gives": "P",
+       "note": "p, piano, the musical direction for soft"
+      },
+      {
+       "words": "present",
+       "gives": "HERE",
+       "note": "here as in present and correct"
+      }
      ]
     },
     "explanation": {
@@ -1025,38 +897,24 @@
    },
    "solution": "OVERSIGHT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OVERSIGHT",
     "definitions": [
      {
       "text": "error",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "to change the words is to alter the order of their letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give short",
-      "gives": "GIVESHORT",
-      "note": "the letters of give and short"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIVESHORT",
-       "gives": "OVERSIGHT"
+       "text": "change",
+       "note": "to change the words is to alter the order of their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Give short",
+       "note": "the letters of give and short"
       }
      ]
     },
@@ -1086,26 +944,25 @@
    },
    "solution": "EGLANTINE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "EGLANTINE",
     "definitions": [
      {
       "text": "\"With sweet musk-roses, and with _\" (M.N. Dream)",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "\"With sweet musk-roses, and with _\"",
-      "note": "surface reading: a line of verse with its last word missing"
-     },
-     {
-      "clueFragment": "(M.N. Dream)",
-      "note": "setter's reading: the source, Oberon's speech in A Midsummer Night's Dream, where a flower ends the line"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"With sweet musk-roses, and with _\"",
+       "note": "surface reading: a line of verse with its last word missing"
+      },
+      {
+       "words": "(M.N. Dream)",
+       "note": "setter's reading: the source, Oberon's speech in A Midsummer Night's Dream, where a flower ends the line"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "A fill-in-the-blank quotation: Oberon describes Titania's bower 'quite over-canopied with luscious woodbine, with sweet musk-roses and with' the missing flower.",
      "definitionFit": "Eglantine is the sweetbriar, a wild rose, which fits the floral list of Shakespeare's line."
@@ -1130,41 +987,29 @@
    },
    "solution": "CONCOURSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CONCOURSE",
     "definitions": [
      {
       "text": "25",
       "at": 25
      }
     ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Caught",
-      "gives": "C",
-      "note": "c, the cricket abbreviation for caught"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the way",
-      "gives": "COURSE",
-      "note": "a course is a way or route"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ON",
-      "COURSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Caught",
+       "gives": "C",
+       "note": "c, the cricket abbreviation for caught"
+      },
+      {
+       "words": "on",
+       "note": "taken as written"
+      },
+      {
+       "words": "the way",
+       "gives": "COURSE",
+       "note": "a course is a way or route"
+      }
      ]
     },
     "explanation": {
@@ -1193,31 +1038,16 @@
    },
    "solution": "CHARGER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHARGER",
     "definitions": [
      {
       "text": "One using a credit card",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: someone who charges purchases to an account"
      },
      {
       "text": "a horse",
-      "at": 31
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One using a credit card",
-      "note": "first meaning: someone who charges purchases to an account"
-     },
-     {
-      "clueFragment": "a horse",
-      "note": "second meaning: a cavalry or war horse"
+      "at": 31,
+      "meaning": "second meaning: a cavalry or war horse"
      }
     ],
     "explanation": {
@@ -1246,41 +1076,30 @@
    },
    "solution": "RILED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RILED",
     "definitions": [
      {
       "text": "with some irritation",
       "at": 33
      }
     ],
-    "linkWords": [
-     "Having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the right",
-      "gives": "R",
-      "note": "r, the abbreviation for right"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "went ahead",
-      "gives": "LED",
-      "note": "led as in went in front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "I",
-      "LED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the right",
+       "gives": "R",
+       "note": "r, the abbreviation for right"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "went ahead",
+       "gives": "LED",
+       "note": "led as in went in front"
+      }
      ]
     },
     "explanation": {
@@ -1309,35 +1128,25 @@
    },
    "solution": "DISSENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISSENT",
     "definitions": [
      {
       "text": "failure to agree",
       "at": 31
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Underworld boss",
-      "gives": "DIS",
-      "note": "Dis is the Roman god who rules the underworld"
-     },
-     {
-      "clueFragment": "dispatched",
-      "gives": "SENT",
-      "note": "dispatched as in sent off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "SENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Underworld boss",
+       "gives": "DIS",
+       "note": "Dis is the Roman god who rules the underworld"
+      },
+      {
+       "words": "dispatched",
+       "gives": "SENT",
+       "note": "dispatched as in sent off"
+      }
      ]
     },
     "explanation": {
@@ -1367,36 +1176,29 @@
    },
    "solution": "ARSON",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARSON",
     "definitions": [
      {
       "text": "offence",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "losing his head",
-      "for": "deletion",
-      "note": "losing the head means the opening letter is cut off"
-     }
-    ],
-    "linkWords": [
-     "and giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The minister",
-      "gives": "PARSON",
-      "note": "a parson is a minister of the church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARSON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing his head",
+       "note": "losing the head means the opening letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The minister",
+       "gives": "PARSON",
+       "note": "a parson is a minister of the church"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1430,28 +1232,16 @@
    },
    "solution": "SATUP",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SAT UP",
     "definitions": [
      {
       "text": "Took notice",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: became suddenly alert and attentive"
      },
      {
       "text": "didn't retire",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Took notice",
-      "note": "first meaning: became suddenly alert and attentive"
-     },
-     {
-      "clueFragment": "didn't retire",
-      "note": "second meaning: stayed awake instead of going to bed"
+      "at": 13,
+      "meaning": "second meaning: stayed awake instead of going to bed"
      }
     ],
     "explanation": {
@@ -1481,38 +1271,24 @@
    },
    "solution": "POSTPONES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POSTPONES",
     "definitions": [
      {
       "text": "holds off for the time being",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "trouble",
-      "for": "anagram",
-      "note": "to trouble is to disturb, so the preceding words are stirred into a new order"
-     }
-    ],
-    "linkWords": [
-     "or just"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stops open",
-      "gives": "STOPSOPEN",
-      "note": "the letters of stops and open"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STOPSOPEN",
-       "gives": "POSTPONES"
+       "text": "trouble",
+       "note": "to trouble is to disturb, so the preceding words are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stops open",
+       "note": "the letters of stops and open"
       }
      ]
     },
@@ -1542,49 +1318,41 @@
    },
    "solution": "PRIDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PRIDE",
     "definitions": [
      {
       "text": "arrogance",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "leader",
-      "for": "letter_selection",
-      "note": "the leader of a word is the letter at its front"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "one piece follows the other, so it is written after it"
-     }
-    ],
-    "linkWords": [
-     "displaying"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "political",
-      "gives": "P",
-      "select": "first",
-      "note": "the first letter of political"
-     },
-     {
-      "clueFragment": "Go on",
-      "gives": "RIDE",
-      "note": "to ride is to go on horseback or a vehicle"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RIDE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "note": "one piece follows the other, so it is written after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "the leader of a word is the letter at its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "political",
+         "note": "the first letter of political"
+        }
+       ]
+      },
+      {
+       "words": "Go on",
+       "gives": "RIDE",
+       "note": "to ride is to go on horseback or a vehicle"
+      }
      ]
     },
     "explanation": {
@@ -1612,48 +1380,35 @@
    },
    "solution": "PLAIN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PLAIN",
     "definitions": [
      {
       "text": "quite obvious",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down clue, climbing means the word goes upwards, so it reads bottom to top"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mountain",
-      "gives": "ALP",
-      "note": "an alp is a high mountain"
-     },
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "in as in fashionable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLA",
-      "IN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ALP",
-       "to": "PLA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "in a down clue, climbing means the word goes upwards, so it reads bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mountain",
+         "gives": "ALP",
+         "note": "an alp is a high mountain"
+        }
+       ]
+      },
+      {
+       "words": "popular",
+       "gives": "IN",
+       "note": "in as in fashionable"
       }
      ]
     },
@@ -1682,43 +1437,29 @@
    },
    "solution": "GATHERING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GATHERING",
     "definitions": [
      {
       "text": "18",
       "at": 32
      }
     ],
-    "linkWords": [
-     "Making",
-     "to",
-     "about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "notes",
-      "gives": "GA",
-      "note": "G and A, two notes of the musical scale"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "phone",
-      "gives": "RING",
-      "note": "to ring is to phone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "THE",
-      "RING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notes",
+       "gives": "GA",
+       "note": "G and A, two notes of the musical scale"
+      },
+      {
+       "words": "the",
+       "note": "taken as written"
+      },
+      {
+       "words": "phone",
+       "gives": "RING",
+       "note": "to ring is to phone"
+      }
      ]
     },
     "explanation": {
@@ -1747,43 +1488,31 @@
    },
    "solution": "ALIVE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALIVE",
     "definitions": [
      {
       "text": "quick",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece goes in the other, placed inside it"
-     }
-    ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "ALE",
-      "note": "ale is a drink, beer"
-     },
-     {
-      "clueFragment": "Few",
-      "gives": "IV",
-      "note": "four in Roman numerals, standing for a few"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "IV",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece goes in the other, placed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "ALE",
+       "note": "ale is a drink, beer"
+      },
+      {
+       "words": "Few",
+       "gives": "IV",
+       "note": "four in Roman numerals, standing for a few"
+      }
      ]
     },
     "explanation": {
@@ -1812,43 +1541,31 @@
    },
    "solution": "RIPOSTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RIPOSTE",
     "definitions": [
      {
       "text": "Answer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the officers inside the following word, enclosed by its letters"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the customary procedure",
-      "gives": "RITE",
-      "note": "a rite is a customary ceremony or established procedure"
-     },
-     {
-      "clueFragment": "ships' officers",
-      "gives": "POS",
-      "note": "POs, petty officers, the non-commissioned officers of a navy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RI",
-      "POS",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the officers inside the following word, enclosed by its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the customary procedure",
+       "gives": "RITE",
+       "note": "a rite is a customary ceremony or established procedure"
+      },
+      {
+       "words": "ships' officers",
+       "gives": "POS",
+       "note": "POs, petty officers, the non-commissioned officers of a navy"
+      }
      ]
     },
     "explanation": {
@@ -1877,26 +1594,25 @@
    },
    "solution": "TANGENT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TANGENT",
     "definitions": [
      {
       "text": "The touch-line",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "The touch-line",
-      "note": "surface reading: the sideline marking the edge of a football or rugby pitch"
-     },
-     {
-      "clueFragment": "The touch-line",
-      "note": "setter's reading: in geometry, the straight line that touches a curve at one point"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The touch-line",
+       "note": "surface reading: the sideline marking the edge of a football or rugby pitch"
+      },
+      {
+       "words": "The touch-line",
+       "note": "setter's reading: in geometry, the straight line that touches a curve at one point"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Touch-line' suggests the side of a sports pitch; read literally it is a line that touches.",
      "definitionFit": "In geometry a tangent is a straight line meeting a curve at a single point without crossing it."

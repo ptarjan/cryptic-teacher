@@ -1,8 +1,6 @@
 {
  "id": "everyman-3823",
  "number": 3823,
- "series": "everyman",
- "name": "Everyman crossword No 3,823",
  "setter": "Everyman",
  "date": "2020-01-19",
  "dimensions": {
@@ -38,31 +36,29 @@
    },
    "solution": "CHOIRS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHOIRS",
     "definitions": [
      {
       "text": "People seen in church",
       "at": 1
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "something reported is passed on by word of mouth, so we want a word that sounds like the paper term when spoken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "paper",
-      "gives": "CHOIRS",
-      "soundsLike": "QUIRES",
-      "note": "a quire is a measure of paper, traditionally 24 or 25 sheets"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHOIRS",
+     "indicators": [
+      {
+       "text": "reported",
+       "note": "something reported is passed on by word of mouth, so we want a word that sounds like the paper term when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paper",
+       "gives": "QUIRES",
+       "note": "a quire is a measure of paper, traditionally 24 or 25 sheets"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A newspaper's report on who turns up at church services.",
      "walkthrough": "The quotation marks fence off the definition, so 'paper reported' reads like a citation but is really the wordplay.",
@@ -95,52 +91,50 @@
    },
    "solution": "CAPEFEAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CAPE FEAR",
     "definitions": [
      {
       "text": "shocking movie",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word is emptied of its middle and only its outside letters remain"
-     },
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "involving means taking in, so one piece is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Romp",
-      "gives": "CAPER",
-      "note": "a caper is a playful escapade"
-     },
-     {
-      "clueFragment": "farce",
-      "gives": "FE",
-      "select": "outer",
-      "note": "outer letters of farce"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAPE",
-      "FEA",
-      "R"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "involving means taking in, so one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Romp",
+         "gives": "CAPER",
+         "note": "a caper is a playful escapade"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "vacuous",
+           "note": "vacuous means empty, so the word is emptied of its middle and only its outside letters remain"
+          }
+         ],
+         "parts": [
+          {
+           "words": "farce",
+           "note": "outer letters of farce"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -178,11 +172,6 @@
    },
    "solution": "ONAPLATE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ON A PLATE",
     "definitions": [
      {
       "text": "making no effort",
@@ -190,40 +179,45 @@
       "note": "the answer is an adverbial phrase meaning without any effort required"
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "container",
-      "note": "taking means holding something in, so one pair of pieces surrounds the rest"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the abbreviation for old"
-     },
-     {
-      "clueFragment": "earl",
-      "gives": "E",
-      "note": "E is the abbreviation for earl"
-     },
-     {
-      "clueFragment": "short sleep",
-      "gives": "NAP",
-      "note": "a nap is a brief sleep"
-     },
-     {
-      "clueFragment": "toilet",
-      "gives": "LAT",
-      "note": "lat is a shortening of latrine, a military toilet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "NAPLAT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "taking means holding something in, so one pair of pieces surrounds the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old",
+         "gives": "O",
+         "note": "O is the abbreviation for old"
+        },
+        {
+         "words": "earl",
+         "gives": "E",
+         "note": "E is the abbreviation for earl"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "short sleep",
+         "gives": "NAP",
+         "note": "a nap is a brief sleep"
+        },
+        {
+         "words": "toilet",
+         "gives": "LAT",
+         "note": "lat is a shortening of latrine, a military toilet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -259,44 +253,35 @@
    },
    "solution": "REDCURRANTJELLY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REDCURRANT JELLY",
     "definitions": [
      {
       "text": "that's seen next to lamb",
       "at": 35
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bloody",
-      "gives": "RED",
-      "note": "blood is red"
-     },
-     {
-      "clueFragment": "dog",
-      "gives": "CUR",
-      "note": "a cur is a mongrel dog"
-     },
-     {
-      "clueFragment": "shouting",
-      "gives": "RANT",
-      "note": "to rant is to shout angrily"
-     },
-     {
-      "clueFragment": "explosive",
-      "gives": "JELLY",
-      "note": "jelly is slang for gelignite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "CUR",
-      "RANT",
-      "JELLY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bloody",
+       "gives": "RED",
+       "note": "blood is red"
+      },
+      {
+       "words": "dog",
+       "gives": "CUR",
+       "note": "a cur is a mongrel dog"
+      },
+      {
+       "words": "shouting",
+       "gives": "RANT",
+       "note": "to rant is to shout angrily"
+      },
+      {
+       "words": "explosive",
+       "gives": "JELLY",
+       "note": "jelly is slang for gelignite"
+      }
      ]
     },
     "explanation": {
@@ -331,31 +316,16 @@
    },
    "solution": "THEGLOBE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THE GLOBE",
     "definitions": [
      {
       "text": "world",
-      "at": 2
+      "at": 2,
+      "meaning": "first meaning: our planet, the earth"
      },
      {
       "text": "a stage",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "world",
-      "note": "first meaning: our planet, the earth"
-     },
-     {
-      "clueFragment": "a stage",
-      "note": "second meaning: Shakespeare's playhouse on London's Bankside"
+      "at": 10,
+      "meaning": "second meaning: Shakespeare's playhouse on London's Bankside"
      }
     ],
     "explanation": {
@@ -390,37 +360,28 @@
    },
    "solution": "HEAT",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "HEAT",
     "definitions": [
      {
       "text": "Here, every athlete tussles — to begin with",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to begin with",
-      "for": "letter_selection",
-      "note": "to begin with points to the opening letter of each preceding word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Here, every athlete tussles",
-      "gives": "HEAT",
-      "select": "first",
-      "note": "the opening letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HEAT"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "to begin with",
+       "note": "to begin with points to the opening letter of each preceding word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Here, every athlete tussles",
+       "note": "the opening letters of the four words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A description of a preliminary race where all the runners jostle.",
      "walkthrough": "The whole clue defines too: a qualifying round is where every athlete competes, early on.",
@@ -460,54 +421,51 @@
    },
    "solution": "GIVEITSOMEWELLY",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "GIVE IT SOME WELLY",
     "definitions": [
      {
       "text": "get lively!",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Shivering",
-      "for": "anagram",
-      "note": "shivering means trembling and shaking, so the letters are shaken into a new order"
-     },
-     {
-      "text": "short of time",
-      "for": "deletion",
-      "note": "short of means lacking, and time is T, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "wet",
-      "gives": "WET",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "so get lively",
-      "gives": "SOGETLIVELY",
-      "note": "the first occurrence of these words, taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GIVEITSOMEWELLY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IMWESOGETLIVELY",
-       "gives": "GIVEITSOMEWELLY"
+       "text": "Shivering",
+       "note": "shivering means trembling and shaking, so the letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short of time",
+         "note": "short of means lacking, and time is T, so that letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I'm",
+           "note": "taken as written"
+          },
+          {
+           "words": "wet",
+           "note": "taken as written"
+          },
+          {
+           "words": "so get lively",
+           "note": "the first occurrence of these words, taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
@@ -537,38 +495,31 @@
    },
    "solution": "OODLES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OODLES",
     "definitions": [
      {
       "text": "Many",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "deletion",
-      "note": "taking here means taking away, so a letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dogs",
-      "gives": "POODLES",
-      "note": "poodles are a dog breed"
-     },
-     {
-      "clueFragment": "a pee",
-      "gives": "P",
-      "note": "pee is how the letter P is spelt out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OODLES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "taking here means taking away, so a letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dogs",
+       "gives": "POODLES",
+       "note": "poodles are a dog breed"
+      },
+      {
+       "words": "a pee",
+       "gives": "P",
+       "note": "pee is how the letter P is spelt out"
+      }
      ]
     },
     "explanation": {
@@ -598,31 +549,29 @@
    },
    "solution": "ESSAYS",
    "annotation": {
-    "type": [
-     "and_lit",
-     "hidden_word"
-    ],
-    "answer": "ESSAYS",
     "definitions": [
      {
       "text": "Some theses, say, specifically?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "for": "hidden_word",
-      "note": "some means a portion of, so only part of the following letters are used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "theses, say, specifically",
-      "gives": "ESSAYS",
-      "note": "found running through the end of theses, all of say and the start of specifically"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "note": "some means a portion of, so only part of the following letters are used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theses, say, specifically",
+       "gives": "ESSAYS",
+       "note": "found running through the end of theses, all of say and the start of specifically"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
      "surface": "Giving examples of particular dissertations.",
      "walkthrough": "The whole clue defines too: theses are, for example, long pieces of academic writing.",
@@ -648,40 +597,31 @@
    },
    "solution": "PRAVDA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRAVDA",
     "definitions": [
      {
       "text": "Foreign newspaper",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into says one item goes inside the other, placed within its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Milan fashion house",
-      "gives": "PRADA",
-      "note": "Prada is the luxury label founded in Milan"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "V",
-      "note": "V is the standard abbreviation for very"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRA",
-      "V",
-      "DA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "into says one item goes inside the other, placed within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Milan fashion house",
+       "gives": "PRADA",
+       "note": "Prada is the luxury label founded in Milan"
+      },
+      {
+       "words": "very",
+       "gives": "V",
+       "note": "V is the standard abbreviation for very"
+      }
      ]
     },
     "explanation": {
@@ -709,38 +649,24 @@
    },
    "solution": "CALVADOS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CALVADOS",
     "definitions": [
      {
       "text": "Gallic spirit",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "remixed",
-      "for": "anagram",
-      "note": "remixing a track rearranges its parts, so these letters are put in a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sad vocal",
-      "gives": "SADVOCAL",
-      "note": "the letters of both words are used as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SADVOCAL",
-       "gives": "CALVADOS"
+       "text": "remixed",
+       "note": "remixing a track rearranges its parts, so these letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sad vocal",
+       "note": "the letters of both words are used as fodder"
       }
      ]
     },
@@ -769,42 +695,30 @@
    },
    "solution": "CAPTCHA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CAPTCHA",
     "definitions": [
      {
       "text": "security protocol",
       "at": 35
      }
     ],
-    "linkWords": [
-     "and",
-     "briefly"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Captain",
-      "gives": "CAPT",
-      "note": "Capt is the short form of captain"
-     },
-     {
-      "clueFragment": "chief",
-      "gives": "CH",
-      "note": "Ch is a short form of chief"
-     },
-     {
-      "clueFragment": "advanced",
-      "gives": "A",
-      "note": "A is a short form of advanced"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAPT",
-      "CH",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Captain",
+       "gives": "CAPT",
+       "note": "Capt is the short form of captain"
+      },
+      {
+       "words": "chief",
+       "gives": "CH",
+       "note": "Ch is a short form of chief"
+      },
+      {
+       "words": "advanced",
+       "gives": "A",
+       "note": "A is a short form of advanced"
+      }
      ]
     },
     "explanation": {
@@ -833,50 +747,40 @@
    },
    "solution": "FALLUJAH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FALLUJAH",
     "definitions": [
      {
       "text": "place on the Euphrates",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "at first points to only the opening letter of the word before it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Collapse",
-      "gives": "FALL",
-      "note": "to collapse is to fall down"
-     },
-     {
-      "clueFragment": "ululating",
-      "gives": "U",
-      "select": "first",
-      "note": "opening letter of ululating"
-     },
-     {
-      "clueFragment": "god",
-      "gives": "JAH",
-      "note": "Jah is a name for God, notably in Rastafarianism"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FALL",
-      "U",
-      "JAH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Collapse",
+       "gives": "FALL",
+       "note": "to collapse is to fall down"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "note": "at first points to only the opening letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ululating",
+         "note": "opening letter of ululating"
+        }
+       ]
+      },
+      {
+       "words": "god",
+       "gives": "JAH",
+       "note": "Jah is a name for God, notably in Rastafarianism"
+      }
      ]
     },
     "explanation": {
@@ -905,45 +809,35 @@
    },
    "solution": "MISERY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MISERY",
     "definitions": [
      {
       "text": "Novel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in the end",
-      "for": "letter_selection",
-      "note": "in the end points to the final letter only of the word it follows"
-     }
-    ],
-    "linkWords": [
-     "where",
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scrooge",
-      "gives": "MISER",
-      "note": "Dickens's Scrooge is the archetypal skinflint"
-     },
-     {
-      "clueFragment": "jolly",
-      "gives": "Y",
-      "select": "last",
-      "note": "last letter of jolly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MISER",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scrooge",
+       "gives": "MISER",
+       "note": "Dickens's Scrooge is the archetypal skinflint"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "note": "in the end points to the final letter only of the word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jolly",
+         "note": "last letter of jolly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -978,10 +872,6 @@
    },
    "solution": "ICERINK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ICE RINK",
     "definitions": [
      {
       "text": "here, curling's seen",
@@ -989,25 +879,19 @@
       "note": "the definition describes a place; it stands for a noun phrase meaning where the sport is played"
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decorator",
-      "gives": "ICER",
-      "note": "an icer decorates cakes"
-     },
-     {
-      "clueFragment": "make a mark",
-      "gives": "INK",
-      "note": "to ink is to mark with ink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ICER",
-      "INK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Decorator",
+       "gives": "ICER",
+       "note": "an icer decorates cakes"
+      },
+      {
+       "words": "make a mark",
+       "gives": "INK",
+       "note": "to ink is to mark with ink"
+      }
      ]
     },
     "explanation": {
@@ -1049,32 +933,25 @@
    },
    "solution": "ARTCRITICISM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ART CRITICISM",
     "definitions": [
      {
       "text": "Study",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bright Eyes singer",
-      "gives": "ART",
-      "note": "Art Garfunkel had a UK number one with Bright Eyes, from the film Watership Down"
-     },
-     {
-      "clueFragment": "disparaging",
-      "gives": "CRITICISM",
-      "note": "disparaging remarks are criticism"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ART",
-      "CRITICISM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bright Eyes singer",
+       "gives": "ART",
+       "note": "Art Garfunkel had a UK number one with Bright Eyes, from the film Watership Down"
+      },
+      {
+       "words": "disparaging",
+       "gives": "CRITICISM",
+       "note": "disparaging remarks are criticism"
+      }
      ]
     },
     "explanation": {
@@ -1120,35 +997,25 @@
    },
    "solution": "DAYLEWIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DAY-LEWIS",
     "definitions": [
      {
       "text": "Actor",
       "at": 0
      }
     ],
-    "linkWords": [
-     "who starred in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Calamity Jane",
-      "gives": "DAY",
-      "note": "Doris Day played the title role in the 1953 musical"
-     },
-     {
-      "clueFragment": "Homeland",
-      "gives": "LEWIS",
-      "note": "Damian Lewis starred in the TV series Homeland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAY",
-      "LEWIS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Calamity Jane",
+       "gives": "DAY",
+       "note": "Doris Day played the title role in the 1953 musical"
+      },
+      {
+       "words": "Homeland",
+       "gives": "LEWIS",
+       "note": "Damian Lewis starred in the TV series Homeland"
+      }
      ]
     },
     "explanation": {
@@ -1183,40 +1050,31 @@
    },
    "solution": "FESSEDUP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FESSED UP",
     "definitions": [
      {
       "text": "Admitted",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so one piece wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "being frustrated",
-      "gives": "FEDUP",
-      "note": "fed up means frustrated and annoyed"
-     },
-     {
-      "clueFragment": "part of Superman costume",
-      "gives": "ESS",
-      "note": "the big S on the chest, spelt out as a word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "ESS",
-      "EDUP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being frustrated",
+       "gives": "FEDUP",
+       "note": "fed up means frustrated and annoyed"
+      },
+      {
+       "words": "part of Superman costume",
+       "gives": "ESS",
+       "note": "the big S on the chest, spelt out as a word"
+      }
      ]
     },
     "explanation": {
@@ -1256,35 +1114,24 @@
    },
    "solution": "ONTHERAMPAGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ON THE RAMPAGE",
     "definitions": [
      {
       "text": "Wild",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "letters that are about are scattered around, so they are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Met opera? Hang",
-      "gives": "METOPERAHANG",
-      "note": "all the letters of these three words form the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "METOPERAHANG",
-       "gives": "ONTHERAMPAGE"
+       "text": "about",
+       "note": "letters that are about are scattered around, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Met opera? Hang",
+       "note": "all the letters of these three words form the fodder"
       }
      ]
     },
@@ -1319,32 +1166,25 @@
    },
    "solution": "ASWELL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AS WELL",
     "definitions": [
      {
       "text": "in addition",
       "at": 24
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Top grade",
-      "gives": "A",
-      "note": "A is the highest exam grade"
-     },
-     {
-      "clueFragment": "excellent",
-      "gives": "SWELL",
-      "note": "swell is dated slang for excellent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SWELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Top grade",
+       "gives": "A",
+       "note": "A is the highest exam grade"
+      },
+      {
+       "words": "excellent",
+       "gives": "SWELL",
+       "note": "swell is dated slang for excellent"
+      }
      ]
     },
     "explanation": {
@@ -1371,35 +1211,25 @@
    },
    "solution": "GOTHIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOTHIC",
     "definitions": [
      {
       "text": "of moody teenager",
       "at": 25
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Baffled",
-      "gives": "GOT",
-      "note": "you've got me means you have baffled me"
-     },
-     {
-      "clueFragment": "drunken noise",
-      "gives": "HIC",
-      "note": "hic is a drunk's hiccup"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOT",
-      "HIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Baffled",
+       "gives": "GOT",
+       "note": "you've got me means you have baffled me"
+      },
+      {
+       "words": "drunken noise",
+       "gives": "HIC",
+       "note": "hic is a drunk's hiccup"
+      }
      ]
     },
     "explanation": {
@@ -1427,51 +1257,40 @@
    },
    "solution": "SKOPJE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "SKOPJE",
     "definitions": [
      {
       "text": "capital",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Funny",
-      "for": "anagram",
-      "note": "something funny is odd or peculiar, so the letters are made strange by rearranging"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one piece wraps around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "jokes",
-      "gives": "JOKES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "parking",
-      "gives": "P",
-      "note": "P is the road-sign abbreviation for parking"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKO",
-      "P",
-      "JE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "JOKES",
-       "gives": "SKOJE"
+       "text": "about",
+       "note": "about means surrounding, so one piece wraps around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Funny",
+         "note": "something funny is odd or peculiar, so the letters are made strange by rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jokes",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "parking",
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
@@ -1506,31 +1325,29 @@
    },
    "solution": "KNOWALLS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KNOW-ALLS",
     "definitions": [
      {
       "text": "Those who are smart",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "voiced",
-      "for": "homophone",
-      "note": "voiced means spoken out loud, so we want words heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opposition to Trump policy",
-      "gives": "KNOWALLS",
-      "soundsLike": "NO WALLS",
-      "note": "Trump's flagship policy was a border wall with Mexico; opponents would say no to it"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNOWALLS",
+     "indicators": [
+      {
+       "text": "voiced",
+       "note": "voiced means spoken out loud, so we want words heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opposition to Trump policy",
+       "gives": "NOWALLS",
+       "note": "Trump's flagship policy was a border wall with Mexico; opponents would say no to it"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Clever people speaking out against a US president's programme.",
      "definitionFit": "The term describes people who think they are clever and act as if they have every fact."
@@ -1557,37 +1374,25 @@
    },
    "solution": "SEMI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SEMI",
     "definitions": [
      {
       "text": "kind of pad",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly points to the letters in odd-numbered positions only"
-     }
-    ],
-    "linkWords": [
-     "seen in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sperm oil",
-      "gives": "SEMI",
-      "select": "alternate",
-      "note": "first, third, fifth and seventh letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEMI"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly",
+       "note": "oddly points to the letters in odd-numbered positions only"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sperm oil",
+       "note": "first, third, fifth and seventh letters"
+      }
      ]
     },
     "explanation": {
@@ -1616,44 +1421,38 @@
    },
    "solution": "ETHELRED",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "ETHELRED",
     "definitions": [
      {
       "text": "king",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Wanting leader",
-      "for": "deletion",
-      "note": "wanting means lacking, and the leader is the first letter, so that letter goes"
-     },
-     {
-      "text": "deposed",
-      "for": "anagram",
-      "note": "something deposed is overthrown, so the letters are tipped into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sheltered",
-      "gives": "SHELTERED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETHELRED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HELTERED",
-       "gives": "ETHELRED"
+       "text": "deposed",
+       "note": "something deposed is overthrown, so the letters are tipped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Wanting leader",
+         "note": "wanting means lacking, and the leader is the first letter, so that letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheltered",
+         "note": "taken as written"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
@@ -1683,31 +1482,29 @@
    },
    "solution": "CLAWED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CLAWED",
     "definitions": [
      {
       "text": "Scratched",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as it is said, so the word is judged by its spoken sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a Monet",
-      "gives": "CLAWED",
-      "soundsLike": "CLAUDE",
-      "note": "the Impressionist painter's first name was Claude"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CLAWED",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "reportedly means as it is said, so the word is judged by its spoken sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a Monet",
+       "gives": "CLAUDE",
+       "note": "the Impressionist painter's first name was Claude"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone damaged one of the Impressionist's paintings, so the story goes.",
      "walkthrough": "'a Monet' looks like a painting, but it means a person called Monet, giving the painter's first name.",
@@ -1741,39 +1538,28 @@
    },
    "solution": "LUCKYDIP",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "LUCKY DIP",
     "definitions": [
      {
       "text": "Duly pick playfully in this activity?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playfully",
-      "for": "anagram",
-      "note": "doing something playfully means messing about, so these letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Duly pick",
-      "gives": "DULYPICK",
-      "note": "all the letters of both words form the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DULYPICK",
-       "gives": "LUCKYDIP"
+       "text": "playfully",
+       "note": "doing something playfully means messing about, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Duly pick",
+       "note": "all the letters of both words form the fodder"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A fairground game where you properly choose something in fun.",
      "walkthrough": "The whole clue is both wordplay and definition: the activity is one where you pick at random, for fun.",
@@ -1805,40 +1591,39 @@
    },
    "solution": "EYESUP",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "EYES UP",
     "definitions": [
      {
       "text": "acts creepily",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "they say signals a word as it sounds when spoken, not as it is written"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Everyman",
-      "gives": "EYE",
-      "soundsLike": "I",
-      "note": "the setter Everyman would refer to himself as I"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup is to drink in sips"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "EYE",
+       "indicators": [
+        {
+         "text": "they say",
+         "note": "they say signals a word as it sounds when spoken, not as it is written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Everyman",
+         "gives": "I",
+         "note": "the setter Everyman would refer to himself as I"
+        }
+       ]
+      },
+      {
+       "words": "drink",
+       "gives": "SUP",
+       "note": "to sup is to drink in sips"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The setter, after a drink, behaves in a sinister way.",
      "walkthrough": "Setters often clue themselves as I or ME; here the setter's own name stands for that pronoun.",

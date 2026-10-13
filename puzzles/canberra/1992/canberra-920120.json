@@ -1,8 +1,7 @@
 {
  "id": "canberra-920120",
  "number": 920120,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Monday 20 January 1992 (English cryptic)",
+ "label": "English cryptic",
  "date": "1992-01-20",
  "dimensions": {
   "cols": 15,
@@ -46,45 +45,41 @@
    },
    "solution": "HALFMAST",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "HALF-MAST",
     "definitions": [
      {
       "text": "sadly let down",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says the word for speedy wraps itself about the abbreviation for mile"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Henry",
-      "gives": "HAL",
-      "note": "Hal is the familiar short form of Henry, as with Shakespeare's Prince Hal"
-     },
-     {
-      "clueFragment": "speedy",
-      "gives": "FAST",
-      "note": "a synonym for quick"
-     },
-     {
-      "clueFragment": "the mile",
-      "gives": "M",
-      "note": "M is the standard abbreviation for mile"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HAL",
-      "FMAST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Henry",
+       "gives": "HAL",
+       "note": "Hal is the familiar short form of Henry, as with Shakespeare's Prince Hal"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around says the word for speedy wraps itself about the abbreviation for mile"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speedy",
+         "gives": "FAST",
+         "note": "a synonym for quick"
+        },
+        {
+         "words": "the mile",
+         "gives": "M",
+         "note": "M is the standard abbreviation for mile"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -113,32 +108,25 @@
    },
    "solution": "HUGELY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HUGELY",
     "definitions": [
      {
       "text": "enormously",
       "at": 32
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Cherish",
-      "gives": "HUG",
-      "note": "to hug can mean to cling to or cherish"
-     },
-     {
-      "clueFragment": "town in Cam bridgeshire",
-      "gives": "ELY",
-      "note": "Ely is a cathedral city in Cambridgeshire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUG",
-      "ELY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cherish",
+       "gives": "HUG",
+       "note": "to hug can mean to cling to or cherish"
+      },
+      {
+       "words": "town in Cam bridgeshire",
+       "gives": "ELY",
+       "note": "Ely is a cathedral city in Cambridgeshire"
+      }
      ]
     },
     "explanation": {
@@ -167,63 +155,51 @@
    },
    "solution": "LAICAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "container"
-    ],
-    "answer": "LAICAL",
     "definitions": [
      {
       "text": "Non-professional",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reverse",
-      "for": "reversal",
-      "note": "reverse means turned back to front, so the spy agency's letters run backwards"
-     },
-     {
-      "text": "confused",
-      "for": "anagram",
-      "note": "confused means muddled, so these letters get jumbled"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the jumbled letters surround the agency's"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all",
-      "gives": "ALL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "spy network",
-      "gives": "CIA",
-      "note": "the CIA is the US intelligence agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "AIC",
-      "AL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "fodder": "ALL",
-       "gives": "LAL"
+       "text": "reverse",
+       "note": "reverse means turned back to front, so the spy agency's letters run backwards"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "CIA",
-       "to": "AIC"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the jumbled letters surround the agency's"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "confused",
+           "note": "confused means muddled, so these letters get jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "all",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "spy network",
+         "gives": "CIA",
+         "note": "the CIA is the US intelligence agency"
+        }
+       ]
       }
      ]
     },
@@ -253,38 +229,24 @@
    },
    "solution": "MAGNETRON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MAGNETRON",
     "definitions": [
      {
       "text": "Vacuum tube",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "will damage",
-      "for": "anagram",
-      "note": "damaging something knocks it out of shape, so the letters are bent into a new order"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no garment",
-      "gives": "NOGARMENT",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOGARMENT",
-       "gives": "MAGNETRON"
+       "text": "will damage",
+       "note": "damaging something knocks it out of shape, so the letters are bent into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "no garment",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -321,35 +283,25 @@
    },
    "solution": "SCOTLANDYARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCOTLAND YARD",
     "definitions": [
      {
       "text": "Police HQ",
       "at": 33
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Part of UK",
-      "gives": "SCOTLAND",
-      "note": "Scotland is one of the UK's four nations"
-     },
-     {
-      "clueFragment": "'s enclosed ground",
-      "gives": "YARD",
-      "note": "a yard is an enclosed patch of ground"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCOTLAND",
-      "YARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of UK",
+       "gives": "SCOTLAND",
+       "note": "Scotland is one of the UK's four nations"
+      },
+      {
+       "words": "'s enclosed ground",
+       "gives": "YARD",
+       "note": "a yard is an enclosed patch of ground"
+      }
      ]
     },
     "explanation": {
@@ -377,40 +329,31 @@
    },
    "solution": "PRELIM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRELIM",
     "definitions": [
      {
       "text": "introductory exam",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "must enter",
-      "for": "container",
-      "note": "to enter something is to go inside it, so the Spanish word goes within the word for very formal"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "very formal",
-      "gives": "PRIM",
-      "note": "prim means stiffly proper"
-     },
-     {
-      "clueFragment": "The Spanish",
-      "gives": "EL",
-      "note": "el is the Spanish for the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PR",
-      "EL",
-      "IM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must enter",
+       "note": "to enter something is to go inside it, so the Spanish word goes within the word for very formal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very formal",
+       "gives": "PRIM",
+       "note": "prim means stiffly proper"
+      },
+      {
+       "words": "The Spanish",
+       "gives": "EL",
+       "note": "el is the Spanish for the"
+      }
      ]
     },
     "explanation": {
@@ -439,31 +382,29 @@
    },
    "solution": "REITH",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "REITH",
     "definitions": [
      {
       "text": "former Lord of the air?",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear means as spoken aloud, so a word sounding the same is wanted"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Floral tribute",
-      "gives": "REITH",
-      "soundsLike": "WREATH",
-      "note": "a wreath is a ring of flowers laid at a funeral"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REITH",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "we hear means as spoken aloud, so a word sounding the same is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Floral tribute",
+       "gives": "WREATH",
+       "note": "a wreath is a ring of flowers laid at a funeral"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A funeral wreath for a late peer connected with the skies.",
      "walkthrough": "'Of the air' suggests an aviator, but means the airwaves: Lord Reith was the first Director-General of the BBC.",
@@ -497,46 +438,41 @@
    },
    "solution": "LOOKOVER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOOK OVER",
     "definitions": [
      {
       "text": "Inspect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "held by",
-      "for": "container",
-      "note": "something held by another is gripped inside it, so these letters go within the word for sweetheart"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sweetheart",
-      "gives": "LOVER",
-      "note": "a lover is a sweetheart"
-     },
-     {
-      "clueFragment": "ring",
-      "gives": "O",
-      "note": "O is ring-shaped"
-     },
-     {
-      "clueFragment": "all right",
-      "gives": "OK",
-      "note": "OK means all right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "O",
-      "OK",
-      "OVER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "note": "something held by another is gripped inside it, so these letters go within the word for sweetheart"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "sweetheart",
+         "gives": "LOVER",
+         "note": "a lover is a sweetheart"
+        },
+        {
+         "words": "ring",
+         "gives": "O",
+         "note": "O is ring-shaped"
+        }
+       ]
+      },
+      {
+       "words": "all right",
+       "gives": "OK",
+       "note": "OK means all right"
+      }
      ]
     },
     "explanation": {
@@ -564,46 +500,41 @@
    },
    "solution": "MISREADS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MISREADS",
     "definitions": [
      {
       "text": "Incorrectly interprets",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "grasped by",
-      "for": "container",
-      "note": "something grasped by another is held inside it, so the words go within the girl"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "MISS",
-      "note": "a miss is a girl"
-     },
-     {
-      "clueFragment": "touching",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "notice",
-      "gives": "AD",
-      "note": "an ad is a notice or advertisement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIS",
-      "RE",
-      "AD",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasped by",
+       "note": "something grasped by another is held inside it, so the words go within the girl"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "girl",
+         "gives": "MISS",
+         "note": "a miss is a girl"
+        },
+        {
+         "words": "touching",
+         "gives": "RE",
+         "note": "re means about or concerning"
+        }
+       ]
+      },
+      {
+       "words": "notice",
+       "gives": "AD",
+       "note": "an ad is a notice or advertisement"
+      }
      ]
     },
     "explanation": {
@@ -638,35 +569,25 @@
    },
    "solution": "GOINGSON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GOINGS-ON",
     "definitions": [
      {
       "text": "activities",
       "at": 19
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Journeying",
-      "gives": "GOING",
-      "note": "going means travelling"
-     },
-     {
-      "clueFragment": "child",
-      "gives": "SON",
-      "note": "a son is a male child"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GOING",
-      "SON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Journeying",
+       "gives": "GOING",
+       "note": "going means travelling"
+      },
+      {
+       "words": "child",
+       "gives": "SON",
+       "note": "a son is a male child"
+      }
      ]
     },
     "explanation": {
@@ -695,40 +616,31 @@
    },
    "solution": "DIVOTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DIVOTS",
     "definitions": [
      {
       "text": "pieces of displaced turf",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the word for spots is wrapped round the numeral"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spots",
-      "gives": "DOTS",
-      "note": "dots are small spots"
-     },
-     {
-      "clueFragment": "four",
-      "gives": "IV",
-      "note": "IV is four in Roman numerals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IV",
-      "OTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so the word for spots is wrapped round the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spots",
+       "gives": "DOTS",
+       "note": "dots are small spots"
+      },
+      {
+       "words": "four",
+       "gives": "IV",
+       "note": "IV is four in Roman numerals"
+      }
      ]
     },
     "explanation": {
@@ -756,38 +668,24 @@
    },
    "solution": "PANTECHNICON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PANTECHNICON",
     "definitions": [
      {
       "text": "furniture van",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "wandering",
-      "for": "anagram",
-      "note": "wandering means straying from a set path, so the letters roam into a new order"
-     }
-    ],
-    "linkWords": [
-     "about the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'E cannot pinch",
-      "gives": "ECANNOTPINCH",
-      "note": "the letters to rearrange, with the dropped-aitch E counted as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ECANNOTPINCH",
-       "gives": "PANTECHNICON"
+       "text": "wandering",
+       "note": "wandering means straying from a set path, so the letters roam into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'E cannot pinch",
+       "note": "the letters to rearrange, with the dropped-aitch E counted as written"
       }
      ]
     },
@@ -816,43 +714,31 @@
    },
    "solution": "LEASE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEASE",
     "definitions": [
      {
       "text": "Rent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "accommodated in",
-      "for": "container",
-      "note": "something accommodated in a place is housed inside it, so one word goes within the other"
-     }
-    ],
-    "linkWords": [
-     "needed"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shelter",
-      "gives": "LEE",
-      "note": "lee is shelter from the wind"
-     },
-     {
-      "clueFragment": "when",
-      "gives": "AS",
-      "note": "as can mean when, as in 'as I left'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "AS",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodated in",
+       "note": "something accommodated in a place is housed inside it, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shelter",
+       "gives": "LEE",
+       "note": "lee is shelter from the wind"
+      },
+      {
+       "words": "when",
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      }
      ]
     },
     "explanation": {
@@ -880,40 +766,33 @@
    },
    "solution": "LOATHSOME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LOATHSOME",
     "definitions": [
      {
       "text": "Vile",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs putting right",
-      "for": "anagram",
-      "note": "putting something right means rearranging it into proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "homes",
-      "gives": "HOMES",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a lot",
-      "gives": "ALOT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "HOMESALOT",
-       "gives": "LOATHSOME"
+       "text": "needs putting right",
+       "note": "putting something right means rearranging it into proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "homes",
+         "note": "taken as written"
+        },
+        {
+         "words": "a lot",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -957,53 +836,45 @@
    },
    "solution": "BRINGTOANEND",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BRING TO AN END",
     "definitions": [
      {
       "text": "stop",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "engaged in",
-      "for": "container",
-      "note": "engaged in means caught up inside, so the earlier words go within the word for twist"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "twist",
-      "gives": "BEND",
-      "note": "a bend is a twist or turn"
-     },
-     {
-      "clueFragment": "Phone",
-      "gives": "RING",
-      "note": "to ring is to phone"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "AN",
-      "note": "an is the indefinite article, meaning one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RING",
-      "TO",
-      "AN",
-      "END"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engaged in",
+       "note": "engaged in means caught up inside, so the earlier words go within the word for twist"
+      }
+     ],
+     "parts": [
+      {
+       "words": "twist",
+       "gives": "BEND",
+       "note": "a bend is a twist or turn"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Phone",
+         "gives": "RING",
+         "note": "to ring is to phone"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "gives": "AN",
+         "note": "an is the indefinite article, meaning one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1032,41 +903,29 @@
    },
    "solution": "AITCHBONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AITCHBONE",
     "definitions": [
      {
       "text": "cut of beef",
       "at": 17
      }
     ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "yen",
-      "gives": "ITCH",
-      "note": "a yen is a longing, an itch"
-     },
-     {
-      "clueFragment": "to steal",
-      "gives": "BONE",
-      "note": "bone is slang for steal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "ITCH",
-      "BONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "yen",
+       "gives": "ITCH",
+       "note": "a yen is a longing, an itch"
+      },
+      {
+       "words": "to steal",
+       "gives": "BONE",
+       "note": "bone is slang for steal"
+      }
      ]
     },
     "explanation": {
@@ -1095,35 +954,25 @@
    },
    "solution": "BRICKBAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRICKBAT",
     "definitions": [
      {
       "text": "uncomplimentary remark",
       "at": 29
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good chap",
-      "gives": "BRICK",
-      "note": "a brick is a dated term for a reliable, good-hearted person"
-     },
-     {
-      "clueFragment": "with the club",
-      "gives": "BAT",
-      "note": "a bat is a club"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRICK",
-      "BAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good chap",
+       "gives": "BRICK",
+       "note": "a brick is a dated term for a reliable, good-hearted person"
+      },
+      {
+       "words": "with the club",
+       "gives": "BAT",
+       "note": "a bat is a club"
+      }
      ]
     },
     "explanation": {
@@ -1152,51 +1001,39 @@
    },
    "solution": "SCATHING",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SCATHING",
     "definitions": [
      {
       "text": "very critical",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "raised",
-      "for": "reversal",
-      "note": "in a down clue, raising letters means reading them from the bottom up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Civil Service",
-      "gives": "CS",
-      "note": "CS is the abbreviation for the Civil Service"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "matter",
-      "gives": "THING",
-      "note": "a matter is a thing, as in 'a serious matter'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "A",
-      "THING"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CS",
-       "to": "SC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "note": "in a down clue, raising letters means reading them from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Civil Service",
+         "gives": "CS",
+         "note": "CS is the abbreviation for the Civil Service"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "matter",
+       "gives": "THING",
+       "note": "a matter is a thing, as in 'a serious matter'"
       }
      ]
     },
@@ -1232,38 +1069,24 @@
    },
    "solution": "RACINGYACHTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RACING-YACHTS",
     "definitions": [
      {
       "text": "Features of regattas",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "craftily",
-      "for": "anagram",
-      "note": "doing something craftily means with cunning, so the letters are slyly rearranged"
-     }
-    ],
-    "linkWords": [
-     "where you see"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cagy tars inch",
-      "gives": "CAGYTARSINCH",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CAGYTARSINCH",
-       "gives": "RACINGYACHTS"
+       "text": "craftily",
+       "note": "doing something craftily means with cunning, so the letters are slyly rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cagy tars inch",
+       "note": "the letters to rearrange"
       }
      ]
     },
@@ -1294,10 +1117,6 @@
    },
    "solution": "COSTAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COSTAL",
     "definitions": [
      {
       "text": "in the ribs",
@@ -1305,30 +1124,25 @@
       "note": "the answer is an adjective meaning of the ribs"
      }
     ],
-    "indicators": [
-     {
-      "text": "restrained by",
-      "for": "container",
-      "note": "something restrained by another is held within it, so the holy man goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something that's dug",
-      "gives": "COAL",
-      "note": "coal is mined from the ground"
-     },
-     {
-      "clueFragment": "Holy man",
-      "gives": "ST",
-      "note": "ST is the abbreviation for saint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "ST",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "restrained by",
+       "note": "something restrained by another is held within it, so the holy man goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something that's dug",
+       "gives": "COAL",
+       "note": "coal is mined from the ground"
+      },
+      {
+       "words": "Holy man",
+       "gives": "ST",
+       "note": "ST is the abbreviation for saint"
+      }
      ]
     },
     "explanation": {
@@ -1357,40 +1171,31 @@
    },
    "solution": "LANCED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LANCED",
     "definitions": [
      {
       "text": "opened with sharp instrument",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the church abbreviation inside the word for country"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the country",
-      "gives": "LAND",
-      "note": "a land is a country"
-     },
-     {
-      "clueFragment": "Church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAN",
-      "CE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the church abbreviation inside the word for country"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the country",
+       "gives": "LAND",
+       "note": "a land is a country"
+      },
+      {
+       "words": "Church",
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -1418,45 +1223,40 @@
    },
    "solution": "CATAMARAN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CATAMARAN",
     "definitions": [
      {
       "text": "Vessel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "seen around",
-      "for": "container",
-      "note": "seen around means placed about, so the second vessel wraps the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "CAN",
-      "note": "a can is a container"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "river in England",
-      "gives": "TAMAR",
-      "note": "the Tamar is the river dividing Devon and Cornwall"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ATAMAR",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen around",
+       "note": "seen around means placed about, so the second vessel wraps the following words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "vessel",
+         "gives": "CAN",
+         "note": "a can is a container"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "river in England",
+       "gives": "TAMAR",
+       "note": "the Tamar is the river dividing Devon and Cornwall"
+      }
      ]
     },
     "explanation": {
@@ -1485,35 +1285,39 @@
    },
    "solution": "MANGE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "letter_selection"
-    ],
-    "answer": "MANGE",
     "definitions": [
      {
       "text": "Skin trouble",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "noticeable in",
-      "for": "hidden_word",
-      "note": "noticeable in says the letters can be seen inside the words that follow"
-     }
-    ],
-    "linkWords": [
-     "a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seaman, generally",
-      "gives": "MANGE",
-      "select": "middle",
-      "note": "the letters run across the join of the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "unchecked": true,
+     "gives": "MANGE",
+     "indicators": [
+      {
+       "text": "noticeable in",
+       "note": "noticeable in says the letters can be seen inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "MANGE",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "seaman, generally",
+         "gives": "MANGE",
+         "select": "middle",
+         "note": "the letters run across the join of the two words"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Sailors tend to have a visible skin complaint.",
      "definitionFit": "Mange is a skin disease of animals caused by mites, giving itching and hair loss."
@@ -1545,47 +1349,50 @@
    },
    "solution": "HOOHA",
    "annotation": {
-    "type": [
-     "homophone",
-     "deletion",
-     "charade"
-    ],
-    "answer": "HOO-HA",
     "definitions": [
      {
       "text": "trouble",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "they say",
-      "for": "homophone",
-      "note": "they say means as spoken, so the word is taken by its sound"
-     },
-     {
-      "text": "endless",
-      "for": "deletion",
-      "note": "endless means losing the final letter of the word it follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Relative",
-      "gives": "HOO",
-      "soundsLike": "WHO",
-      "note": "who is a relative pronoun, and the first part of the answer is said the same way"
-     },
-     {
-      "clueFragment": "has",
-      "gives": "HAS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOO",
-      "HA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endless",
+       "note": "endless means losing the final letter of the word it follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "homophone",
+         "spelt": "HOO",
+         "indicators": [
+          {
+           "text": "they say",
+           "note": "they say means as spoken, so the word is taken by its sound"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Relative",
+           "gives": "WHO",
+           "note": "who is a relative pronoun, and the first part of the answer is said the same way"
+          }
+         ]
+        },
+        {
+         "words": "has",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1615,40 +1422,30 @@
    },
    "solution": "BAIRNS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BAIRNS",
     "definitions": [
      {
       "text": "Children",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "container",
-      "note": "found in means located inside, so the letter goes within the word for the stores"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rustic stores",
-      "gives": "BARNS",
-      "note": "barns are farm storehouses"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "I",
-      "RNS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "found in means located inside, so the letter goes within the word for the stores"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rustic stores",
+       "gives": "BARNS",
+       "note": "barns are farm storehouses"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1677,34 +1474,29 @@
    },
    "solution": "ACROSTIC",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ACROSTIC",
     "definitions": [
      {
       "text": "Puzzle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "by the sound of it",
-      "for": "homophone",
-      "note": "by the sound of it means judged by how the words are spoken, not spelt"
-     }
-    ],
-    "linkWords": [
-     "made by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a cranky blood-sucker",
-      "gives": "ACROSTIC",
-      "soundsLike": "A CROSS TICK",
-      "note": "cranky is cross and a tick is a parasite that feeds on blood"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ACROSTIC",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "note": "by the sound of it means judged by how the words are spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a cranky blood-sucker",
+       "gives": "ACROSSTICK",
+       "note": "cranky is cross and a tick is a parasite that feeds on blood"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A word game devised by a bad-tempered parasite.",
      "definitionFit": "An acrostic is a word puzzle or poem in which the initial letters of lines spell out a word."
@@ -1731,11 +1523,6 @@
    },
    "solution": "TOGGED",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "TOGGED",
     "definitions": [
      {
       "text": "getting dressed",
@@ -1743,38 +1530,35 @@
       "note": "the answer is a past participle, dressed, rather than an -ing form"
      }
     ],
-    "indicators": [
-     {
-      "text": "suppressing",
-      "for": "container",
-      "note": "suppressing means holding something down inside, so the name's short form encloses the other word"
-     },
-     {
-      "text": "to turn over",
-      "for": "reversal",
-      "note": "turning something over flips it, so the combined letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dorothy",
-      "gives": "DOT",
-      "note": "Dot is a pet form of Dorothy"
-     },
-     {
-      "clueFragment": "urge",
-      "gives": "EGG",
-      "note": "to egg on is to urge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOGGED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DEGGOT",
-       "to": "TOGGED"
+       "text": "to turn over",
+       "note": "turning something over flips it, so the combined letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "suppressing",
+         "note": "suppressing means holding something down inside, so the name's short form encloses the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dorothy",
+         "gives": "DOT",
+         "note": "Dot is a pet form of Dorothy"
+        },
+        {
+         "words": "urge",
+         "gives": "EGG",
+         "note": "to egg on is to urge"
+        }
+       ]
       }
      ]
     },
@@ -1804,40 +1588,30 @@
    },
    "solution": "UNSEALED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "UNSEALED",
     "definitions": [
      {
       "text": "Open",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going around",
-      "for": "container",
-      "note": "going around means surrounding, so the phrase for unguided wraps the word for sea"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "without a guide",
-      "gives": "UNLED",
-      "note": "unled means not led by anyone"
-     },
-     {
-      "clueFragment": "sea",
-      "gives": "SEA",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "SEA",
-      "LED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going around",
+       "note": "going around means surrounding, so the phrase for unguided wraps the word for sea"
+      }
+     ],
+     "parts": [
+      {
+       "words": "without a guide",
+       "gives": "UNLED",
+       "note": "unled means not led by anyone"
+      },
+      {
+       "words": "sea",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "independent-11767",
  "number": 11767,
- "series": "independent",
- "name": "Independent cryptic crossword No 11,767",
  "setter": "Rodriguez",
  "date": "2024-06-27",
  "dimensions": {
@@ -38,52 +36,53 @@
    },
    "solution": "ANDEAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ANDEAN",
     "definitions": [
      {
       "text": "from a certain range",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "Vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word drive loses its inside and keeps only its shell"
-     },
-     {
-      "text": "to plug",
-      "for": "container",
-      "note": "a plug is stuffed into a gap, so these letters go inside the pair of articles"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "identical articles",
-      "gives": "AN",
-      "note": "first of two identical indefinite articles"
-     },
-     {
-      "clueFragment": "drive",
-      "gives": "DE",
-      "select": "outer",
-      "note": "the first and last letters of drive"
-     },
-     {
-      "clueFragment": "identical articles",
-      "gives": "AN",
-      "note": "the second of the matching pair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "DE",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ANDEAN",
+     "indicators": [
+      {
+       "text": "to plug",
+       "note": "a plug is stuffed into a gap, so these letters go inside the pair of articles"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "identical articles",
+         "gives": "AN",
+         "note": "first of two identical indefinite articles"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "Vacuous",
+           "note": "vacuous means empty, so the word drive loses its inside and keeps only its shell"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drive",
+           "note": "the first and last letters of drive"
+          }
+         ]
+        },
+        {
+         "words": "identical articles",
+         "gives": "AN",
+         "note": "the second of the matching pair"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -112,31 +111,16 @@
    },
    "solution": "BEDE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BEDE",
     "definitions": [
      {
       "text": "Adam, as described by George",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the surname of the title hero of George Eliot's novel Adam ..."
      },
      {
       "text": "venerable fellow",
-      "at": 35
-     }
-    ],
-    "linkWords": [
-     "is a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Adam, as described by George",
-      "note": "first meaning: the surname of the title hero of George Eliot's novel Adam ..."
-     },
-     {
-      "clueFragment": "venerable fellow",
-      "note": "second meaning: the Anglo-Saxon monk and historian known as the Venerable"
+      "at": 35,
+      "meaning": "second meaning: the Anglo-Saxon monk and historian known as the Venerable"
      }
     ],
     "explanation": {
@@ -166,53 +150,67 @@
    },
    "solution": "BASTILLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BASTILLE",
     "definitions": [
      {
       "text": "jug in France",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly asks for the letters in odd-numbered positions of the word beside it"
-     },
-     {
-      "text": "to fill",
-      "for": "container",
-      "note": "filling a vessel means putting something inside it, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beaker",
-      "gives": "BA",
-      "select": "alternate",
-      "note": "first and third letters of beaker, the start of its odd letters"
-     },
-     {
-      "clueFragment": "Yet",
-      "gives": "STILL",
-      "note": "yet and still both mean nevertheless"
-     },
-     {
-      "clueFragment": "beaker",
-      "gives": "E",
-      "select": "alternate",
-      "note": "the fifth letter, last of the odd letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "STILL",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "BASTILLE",
+     "indicators": [
+      {
+       "text": "to fill",
+       "note": "filling a vessel means putting something inside it, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "BA",
+         "indicators": [
+          {
+           "text": "oddly",
+           "note": "oddly asks for the letters in odd-numbered positions of the word beside it"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beaker",
+           "gives": "BA",
+           "select": "alternate",
+           "note": "first and third letters of beaker, the start of its odd letters"
+          }
+         ]
+        },
+        {
+         "words": "Yet",
+         "gives": "STILL",
+         "note": "yet and still both mean nevertheless"
+        },
+        {
+         "op": "alternate",
+         "unchecked": true,
+         "gives": "E",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "beaker",
+           "gives": "E",
+           "select": "alternate",
+           "note": "the fifth letter, last of the odd letters"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -242,34 +240,29 @@
    },
    "solution": "PHRASE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PHRASE",
     "definitions": [
      {
       "text": "sentence",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as it is said or heard, so the sound of the word counts, not its spelling"
-     }
-    ],
-    "linkWords": [
-     "leading to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Breaches of the peace",
-      "gives": "PHRASE",
-      "soundsLike": "FRAYS",
-      "note": "frays are brawls or scuffles, breaches of the peace"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PHRASE",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "note": "reportedly means as it is said or heard, so the sound of the word counts, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Breaches of the peace",
+       "gives": "FRAYS",
+       "note": "frays are brawls or scuffles, breaches of the peace"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Public disorder offences end with a prison sentence being handed down.",
      "walkthrough": "'Sentence' looks like a court penalty but is the grammatical sense. Frays and PHRASE sound the same.",
@@ -303,51 +296,42 @@
    },
    "solution": "GETHITCHED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "GET HITCHED",
     "definitions": [
      {
       "text": "Say I do",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "something revolutionary turns right round, so the French word is read from end to start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "understand",
-      "gives": "GET",
-      "note": "to get something is to understand it"
-     },
-     {
-      "clueFragment": "problem",
-      "gives": "HITCH",
-      "note": "a hitch is a snag or problem"
-     },
-     {
-      "clueFragment": "of French",
-      "gives": "ED",
-      "note": "de is French for of, turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GET",
-      "HITCH",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "GETHITCHED",
+     "indicators": [
       {
-       "from": "DE",
-       "to": "ED"
+       "text": "revolutionary",
+       "note": "something revolutionary turns right round, so the French word is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "understand",
+         "gives": "GET",
+         "note": "to get something is to understand it"
+        },
+        {
+         "words": "problem",
+         "gives": "HITCH",
+         "note": "a hitch is a snag or problem"
+        },
+        {
+         "words": "of French",
+         "gives": "ED",
+         "note": "de is French for of, turned round"
+        }
+       ]
       }
      ]
     },
@@ -378,38 +362,24 @@
    },
    "solution": "REGIONAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REGIONAL",
     "definitions": [
      {
       "text": "local",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Supply",
-      "for": "anagram",
-      "note": "supply as an adverb means in a supple, bendy way, so the letters are flexed into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ale or gin",
-      "gives": "ALEORGIN",
-      "note": "the eight letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALEORGIN",
-       "gives": "REGIONAL"
+       "text": "Supply",
+       "note": "supply as an adverb means in a supple, bendy way, so the letters are flexed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ale or gin",
+       "note": "the eight letters to rearrange"
       }
      ]
     },
@@ -440,43 +410,31 @@
    },
    "solution": "WINCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "WINCE",
     "definitions": [
      {
       "text": "Pained look",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bored by",
-      "for": "container",
-      "note": "something bored by a drill has a hole made through its middle, so a letter goes inside"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "red maybe",
-      "gives": "WINE",
-      "note": "red is an example of a wine"
-     },
-     {
-      "clueFragment": "Conservative",
-      "gives": "C",
-      "note": "C is the standard abbreviation for Conservative"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WIN",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bored by",
+       "note": "something bored by a drill has a hole made through its middle, so a letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "red maybe",
+       "gives": "WINE",
+       "note": "red is an example of a wine"
+      },
+      {
+       "words": "Conservative",
+       "gives": "C",
+       "note": "C is the standard abbreviation for Conservative"
+      }
      ]
     },
     "explanation": {
@@ -505,50 +463,41 @@
    },
    "solution": "WOODCOCK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "WOODCOCK",
     "definitions": [
      {
       "text": "One with large bill",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is smuggling",
-      "for": "container",
-      "note": "a smuggler carries goods hidden inside, so the drug letter is tucked within the dock word"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "court",
-      "gives": "WOO",
-      "note": "to court someone is to woo them"
-     },
-     {
-      "clueFragment": "where defendant is",
-      "gives": "DOCK",
-      "note": "the dock is where the accused stands in a criminal court"
-     },
-     {
-      "clueFragment": "cocaine",
-      "gives": "C",
-      "note": "C is slang for cocaine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WOO",
-      "D",
-      "C",
-      "OCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "court",
+       "gives": "WOO",
+       "note": "to court someone is to woo them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is smuggling",
+         "note": "a smuggler carries goods hidden inside, so the drug letter is tucked within the dock word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "where defendant is",
+         "gives": "DOCK",
+         "note": "the dock is where the accused stands in a criminal court"
+        },
+        {
+         "words": "cocaine",
+         "gives": "C",
+         "note": "C is slang for cocaine"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -578,51 +527,55 @@
    },
    "solution": "ACHIEVERS",
    "annotation": {
-    "type": [
-     "container",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ACHIEVERS",
     "definitions": [
      {
       "text": "People with successful records",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to include",
-      "for": "container",
-      "note": "to include something is to take it inside, so a letter sits within the word for long"
-     },
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "short means cut off before the end, so the snippet loses its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "long",
-      "gives": "ACHE",
-      "note": "to ache for something is to long for it"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "snippet of song",
-      "gives": "VERSE",
-      "note": "a verse is a section of a song"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACHIE",
-      "VERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to include",
+         "note": "to include something is to take it inside, so a letter sits within the word for long"
+        }
+       ],
+       "parts": [
+        {
+         "words": "long",
+         "gives": "ACHE",
+         "note": "to ache for something is to long for it"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "note": "short means cut off before the end, so the snippet loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snippet of song",
+         "gives": "VERSE",
+         "note": "a verse is a section of a song"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -661,47 +614,41 @@
     "24-down"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SILK ROAD",
     "definitions": [
      {
       "text": "commercial channel",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "received by",
-      "for": "container",
-      "note": "something received by a holder is taken in, so the letter goes inside the word for staff"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brief",
-      "gives": "SILK",
-      "note": "a silk is a senior barrister, and a brief is slang for a lawyer"
-     },
-     {
-      "clueFragment": "staff",
-      "gives": "ROD",
-      "note": "a rod is a staff or stick"
-     },
-     {
-      "clueFragment": "answer",
-      "gives": "A",
-      "note": "A is the usual abbreviation for answer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SILK",
-      "RO",
-      "A",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brief",
+       "gives": "SILK",
+       "note": "a silk is a senior barrister, and a brief is slang for a lawyer"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "received by",
+         "note": "something received by a holder is taken in, so the letter goes inside the word for staff"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staff",
+         "gives": "ROD",
+         "note": "a rod is a staff or stick"
+        },
+        {
+         "words": "answer",
+         "gives": "A",
+         "note": "A is the usual abbreviation for answer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -731,52 +678,47 @@
    },
    "solution": "OVEREAT",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OVEREAT",
     "definitions": [
      {
       "text": "stuff",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "container",
-      "note": "to box something is to enclose it, so the next letters are put inside"
-     },
-     {
-      "text": "behind",
-      "for": "charade",
-      "note": "behind means coming after, so the word for are follows the electronic letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Open",
-      "gives": "OVERT",
-      "note": "overt means open, not hidden"
-     },
-     {
-      "clueFragment": "electronic",
-      "gives": "E",
-      "note": "E is the abbreviation for electronic, as in e-mail"
-     },
-     {
-      "clueFragment": "are",
-      "gives": "A",
-      "note": "an are is a metric unit of area, abbreviated A"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "E",
-      "A",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxes",
+       "note": "to box something is to enclose it, so the next letters are put inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Open",
+       "gives": "OVERT",
+       "note": "overt means open, not hidden"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "behind",
+         "note": "behind means coming after, so the word for are follows the electronic letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "electronic",
+         "gives": "E",
+         "note": "E is the abbreviation for electronic, as in e-mail"
+        },
+        {
+         "words": "are",
+         "gives": "A",
+         "note": "an are is a metric unit of area, abbreviated A"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -805,47 +747,40 @@
    },
    "solution": "ATHRILL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ATHRILL",
     "definitions": [
      {
       "text": "excited",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "container",
-      "note": "to keep something is to hold it inside, so the staff letters sit within the cash source"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "source of cash",
-      "gives": "TILL",
-      "note": "a till is a cash register, where money comes from in a shop"
-     },
-     {
-      "clueFragment": "personnel",
-      "gives": "HR",
-      "note": "HR is human resources, the personnel department"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "T",
-      "HR",
-      "ILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeps",
+         "note": "to keep something is to hold it inside, so the staff letters sit within the cash source"
+        }
+       ],
+       "parts": [
+        {
+         "words": "source of cash",
+         "gives": "TILL",
+         "note": "a till is a cash register, where money comes from in a shop"
+        },
+        {
+         "words": "personnel",
+         "gives": "HR",
+         "note": "HR is human resources, the personnel department"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -880,51 +815,40 @@
    },
    "solution": "CENTRALHEATING",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CENTRAL HEATING",
     "definitions": [
      {
       "text": "housing feature",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "dodgy",
-      "for": "anagram",
-      "note": "dodgy means unreliable or not right, so the letters are not in the right order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the word for dishonest wraps the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dishonest",
-      "gives": "CHEATING",
-      "note": "cheating means behaving dishonestly"
-     },
-     {
-      "clueFragment": "rental",
-      "gives": "RENTAL",
-      "note": "the letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ENTRAL",
-      "HEATING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RENTAL",
-       "gives": "ENTRAL"
+       "text": "about",
+       "note": "about means around, so the word for dishonest wraps the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dishonest",
+       "gives": "CHEATING",
+       "note": "cheating means behaving dishonestly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dodgy",
+         "note": "dodgy means unreliable or not right, so the letters are not in the right order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rental",
+         "note": "the letters to rearrange"
+        }
+       ]
       }
      ]
     },
@@ -954,38 +878,30 @@
    },
    "solution": "REAPPRAISE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REAPPRAISE",
     "definitions": [
      {
       "text": "rate again",
       "at": 31
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "On",
-      "gives": "RE",
-      "note": "re means on or concerning"
-     },
-     {
-      "clueFragment": "Spotify perhaps",
-      "gives": "APP",
-      "note": "Spotify is an example of an app, an application"
-     },
-     {
-      "clueFragment": "better pay",
-      "gives": "RAISE",
-      "note": "a raise is an increase in pay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "APP",
-      "RAISE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On",
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "words": "Spotify perhaps",
+       "gives": "APP",
+       "note": "Spotify is an example of an app, an application"
+      },
+      {
+       "words": "better pay",
+       "gives": "RAISE",
+       "note": "a raise is an increase in pay"
+      }
      ]
     },
     "explanation": {
@@ -1020,47 +936,41 @@
    },
    "solution": "BOOKCLUB",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BOOK CLUB",
     "definitions": [
      {
       "text": "Reading fans",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "the number 4 of",
-      "for": "letter_selection",
-      "note": "the number four of a word is its fourth letter, as a shirt number names one player in a team"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "heckle",
-      "gives": "BOO",
-      "note": "to boo is to jeer or heckle"
-     },
-     {
-      "clueFragment": "Stoke",
-      "gives": "K",
-      "select": 4,
-      "note": "the fourth letter of Stoke"
-     },
-     {
-      "clueFragment": "FC",
-      "gives": "CLUB",
-      "note": "FC stands for Football Club"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOO",
-      "K",
-      "CLUB"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "heckle",
+       "gives": "BOO",
+       "note": "to boo is to jeer or heckle"
+      },
+      {
+       "op": "nth",
+       "n": 4,
+       "indicators": [
+        {
+         "text": "the number 4 of",
+         "note": "the number four of a word is its fourth letter, as a shirt number names one player in a team"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stoke",
+         "note": "the fourth letter of Stoke"
+        }
+       ]
+      },
+      {
+       "words": "FC",
+       "gives": "CLUB",
+       "note": "FC stands for Football Club"
+      }
      ]
     },
     "explanation": {
@@ -1090,32 +1000,25 @@
    },
    "solution": "COURAGE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COURAGE",
     "definitions": [
      {
       "text": "Boldness",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c is short for circa, Latin for about"
-     },
-     {
-      "clueFragment": "the time we live in",
-      "gives": "OURAGE",
-      "note": "our age is the period we live in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "OURAGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "c is short for circa, Latin for about"
+      },
+      {
+       "words": "the time we live in",
+       "gives": "OURAGE",
+       "note": "our age is the period we live in"
+      }
      ]
     },
     "explanation": {
@@ -1144,40 +1047,31 @@
    },
    "solution": "UNHARMED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "UNHARMED",
     "definitions": [
      {
       "text": "safe",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "to protect",
-      "for": "container",
-      "note": "to protect something is to surround and shield it, so the letter is held inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wanting weapons",
-      "gives": "UNARMED",
-      "note": "lacking weapons is being unarmed"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H is hotel in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "H",
-      "ARMED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "note": "to protect something is to surround and shield it, so the letter is held inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wanting weapons",
+       "gives": "UNARMED",
+       "note": "lacking weapons is being unarmed"
+      },
+      {
+       "words": "hotel",
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1207,44 +1101,35 @@
    },
    "solution": "OTHELLO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "OTHELLO",
     "definitions": [
      {
       "text": "Moor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "regularly means at even intervals, so every other letter of the word is taken"
-     }
-    ],
-    "linkWords": [
-     "going"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boat",
-      "gives": "OT",
-      "select": "alternate",
-      "note": "the second and fourth letters of boat"
-     },
-     {
-      "clueFragment": "\"ahoy there!\"",
-      "gives": "HELLO",
-      "note": "ahoy there is a greeting, as hello is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OT",
-      "HELLO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "regularly means at even intervals, so every other letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boat",
+         "note": "the second and fourth letters of boat"
+        }
+       ]
+      },
+      {
+       "words": "\"ahoy there!\"",
+       "gives": "HELLO",
+       "note": "ahoy there is a greeting, as hello is"
+      }
      ]
     },
     "explanation": {
@@ -1274,50 +1159,42 @@
    },
    "solution": "OVULATES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OVULATES",
     "definitions": [
      {
       "text": "Prepares to reproduce",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy means elaborate or fanciful, so the letters are rearranged into something new"
-     },
-     {
-      "text": "to mould",
-      "for": "anagram",
-      "note": "moulding reshapes material, so these letters too are worked into the mix"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vase",
-      "gives": "VASE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "50",
-      "gives": "L",
-      "note": "L is the Roman numeral for fifty"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VASEOUTL",
-       "gives": "OVULATES"
+       "text": "fancy",
+       "note": "fancy means elaborate or fanciful, so the letters are rearranged into something new"
+      },
+      {
+       "text": "to mould",
+       "note": "moulding reshapes material, so these letters too are worked into the mix"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "vase",
+         "note": "taken as written"
+        },
+        {
+         "words": "out",
+         "note": "taken as written"
+        },
+        {
+         "words": "50",
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        }
+       ]
       }
      ]
     },
@@ -1348,55 +1225,48 @@
    },
    "solution": "CHAPPAQUIDDICK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CHAPPAQUIDDICK",
     "definitions": [
      {
       "text": "scandal for Kennedy",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "pocketing",
-      "for": "container",
-      "note": "to pocket something is to tuck it inside, so the money word goes into the pair around it"
-     }
-    ],
-    "linkWords": [
-     "to create"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Male",
-      "gives": "CHAP",
-      "note": "a chap is a man"
-     },
-     {
-      "clueFragment": "assistant",
-      "gives": "PA",
-      "note": "a PA is a personal assistant"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "QUID",
-      "note": "quid is British slang for a pound"
-     },
-     {
-      "clueFragment": "Nixon, say",
-      "gives": "DICK",
-      "note": "Richard Nixon was nicknamed Tricky Dick; Dick is short for Richard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHAP",
-      "PA",
-      "QUID",
-      "DICK"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CHAPPAQUIDDICK",
+     "indicators": [
+      {
+       "text": "pocketing",
+       "note": "to pocket something is to tuck it inside, so the money word goes into the pair around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "gives": "CHAP",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "assistant",
+         "gives": "PA",
+         "note": "a PA is a personal assistant"
+        },
+        {
+         "words": "cash",
+         "gives": "QUID",
+         "note": "quid is British slang for a pound"
+        },
+        {
+         "words": "Nixon, say",
+         "gives": "DICK",
+         "note": "Richard Nixon was nicknamed Tricky Dick; Dick is short for Richard"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1425,51 +1295,40 @@
    },
    "solution": "AXEMAN",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "AXEMAN",
     "definitions": [
      {
       "text": "feller",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Upset",
-      "for": "reversal",
-      "note": "upset means tipped over, and in a down clue that turns the letters to read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "handle",
-      "gives": "NAME",
-      "note": "a handle is slang for a name"
-     },
-     {
-      "clueFragment": "cross",
-      "gives": "X",
-      "note": "an X is a cross"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the abbreviation for American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "X",
-      "EMAN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NAMEXA",
-       "to": "AXEMAN"
+       "text": "Upset",
+       "note": "upset means tipped over, and in a down clue that turns the letters to read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "handle",
+         "gives": "NAME",
+         "note": "a handle is slang for a name"
+        },
+        {
+         "words": "cross",
+         "gives": "X",
+         "note": "an X is a cross"
+        },
+        {
+         "words": "American",
+         "gives": "A",
+         "note": "A is the abbreviation for American"
+        }
+       ]
       }
      ]
     },
@@ -1510,28 +1369,16 @@
    },
    "solution": "INAROW",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN A ROW",
     "definitions": [
      {
       "text": "Running",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: consecutively, as in three days running"
      },
      {
       "text": "quarrelling",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Running",
-      "note": "first meaning: consecutively, as in three days running"
-     },
-     {
-      "clueFragment": "quarrelling",
-      "note": "second meaning: engaged in an argument, a row"
+      "at": 11,
+      "meaning": "second meaning: engaged in an argument, a row"
      }
     ],
     "explanation": {
@@ -1560,45 +1407,35 @@
    },
    "solution": "WAND",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "WAND",
     "definitions": [
      {
       "text": "It may be used when charming",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "turned up",
-      "for": "reversal",
-      "note": "turned up in a down clue means flipped to read from the bottom upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "women",
-      "gives": "W",
-      "note": "W is the abbreviation for women"
-     },
-     {
-      "clueFragment": "make-up",
-      "gives": "DNA",
-      "note": "DNA is one's genetic make-up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "AND"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DNA",
-       "to": "AND"
+       "words": "women",
+       "gives": "W",
+       "note": "W is the abbreviation for women"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "note": "turned up in a down clue means flipped to read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "make-up",
+         "gives": "DNA",
+         "note": "DNA is one's genetic make-up"
+        }
+       ]
       }
      ]
     },
@@ -1629,40 +1466,31 @@
    },
    "solution": "AUREATE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AUREATE",
     "definitions": [
      {
       "text": "Decked in expensive material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the word for scoffed wraps the next one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scoffed",
-      "gives": "ATE",
-      "note": "to scoff is to eat greedily"
-     },
-     {
-      "clueFragment": "waste product",
-      "gives": "UREA",
-      "note": "urea is a waste compound excreted in urine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "UREA",
-      "TE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the word for scoffed wraps the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scoffed",
+       "gives": "ATE",
+       "note": "to scoff is to eat greedily"
+      },
+      {
+       "words": "waste product",
+       "gives": "UREA",
+       "note": "urea is a waste compound excreted in urine"
+      }
      ]
     },
     "explanation": {
@@ -1691,46 +1519,43 @@
    },
    "solution": "AIRMAIL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "AIRMAIL",
     "definitions": [
      {
       "text": "high-flying post",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "to conceal something is to hide it inside, so the marines go within the other letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great",
-      "gives": "AI",
-      "note": "A1 means first-rate, written AI in crosswords"
-     },
-     {
-      "clueFragment": "jollies",
-      "gives": "RM",
-      "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
-     },
-     {
-      "clueFragment": "trouble",
-      "gives": "AIL",
-      "note": "to ail is to trouble or afflict"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AI",
-      "RM",
-      "AIL"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "AIRMAIL",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "to conceal something is to hide it inside, so the marines go within the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Great",
+         "gives": "AI",
+         "note": "A1 means first-rate, written AI in crosswords"
+        },
+        {
+         "words": "jollies",
+         "gives": "RM",
+         "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
+        },
+        {
+         "words": "trouble",
+         "gives": "AIL",
+         "note": "to ail is to trouble or afflict"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1779,48 +1604,35 @@
    },
    "solution": "DEEPSPACE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DEEP SPACE",
     "definitions": [
      {
       "text": "Voyager's here",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going in different directions",
-      "for": "reversal",
-      "note": "two things heading different ways means one of them runs backwards against the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two velocities",
-      "gives": "SPEED",
-      "note": "speed is velocity, the first of the two"
-     },
-     {
-      "clueFragment": "two velocities",
-      "gives": "PACE",
-      "note": "pace is velocity, the second of the two, read forwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEEPS",
-      "PACE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SPEED",
-       "to": "DEEPS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going in different directions",
+         "note": "two things heading different ways means one of them runs backwards against the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "two velocities",
+         "gives": "SPEED",
+         "note": "speed is velocity, the first of the two"
+        }
+       ]
+      },
+      {
+       "words": "two velocities",
+       "gives": "PACE",
+       "note": "pace is velocity, the second of the two, read forwards"
       }
      ]
     },
@@ -1856,42 +1668,31 @@
    },
    "solution": "ABOMB",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "A-BOMB",
     "definitions": [
      {
       "text": "Scientific feat",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tracking",
-      "for": "charade",
-      "note": "tracking means following behind, so the medic comes after the other letters"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blood types",
-      "gives": "ABO",
-      "note": "A, B and O are blood groups, together the ABO system"
-     },
-     {
-      "clueFragment": "medic",
-      "gives": "MB",
-      "note": "MB is Bachelor of Medicine, a doctor's qualification"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ABO",
-      "MB"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "tracking",
+       "note": "tracking means following behind, so the medic comes after the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blood types",
+       "gives": "ABO",
+       "note": "A, B and O are blood groups, together the ABO system"
+      },
+      {
+       "words": "medic",
+       "gives": "MB",
+       "note": "MB is Bachelor of Medicine, a doctor's qualification"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-210",
  "number": 210,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 210",
  "setter": "proXimal",
  "date": "2026-02-01",
  "dimensions": {
@@ -44,41 +42,42 @@
    },
    "solution": "RUNNINGSHOE",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "RUNNING SHOE",
     "definitions": [
      {
       "text": "trainer",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "The Reverend Spooner swapped the opening sounds of words, so the two words produced here trade their fronts."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "avoiding",
-      "gives": "RUNNING",
-      "soundsLike": "SHUNNING",
-      "note": "Avoiding is shunning; it hands its SH to the next word and takes an R."
-     },
-     {
-      "clueFragment": "marsupial",
-      "gives": "SHOE",
-      "soundsLike": "ROO",
-      "note": "A roo is a kangaroo; it gives up its R, takes the SH, and is spelt SHOE."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUNNING",
-      "SHOE"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "RUNNINGSHOE",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "The Reverend Spooner swapped the opening sounds of words, so the two words produced here trade their fronts."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "avoiding",
+         "gives": "RUNNING",
+         "soundsLike": "SHUNNING",
+         "note": "Avoiding is shunning; it hands its SH to the next word and takes an R."
+        },
+        {
+         "unchecked": true,
+         "words": "marsupial",
+         "gives": "SHOE",
+         "soundsLike": "ROO",
+         "note": "A roo is a kangaroo; it gives up its R, takes the SH, and is spelt SHOE."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -108,54 +107,52 @@
    },
    "solution": "RENAULT",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RENAULT",
     "definitions": [
      {
       "text": "French firm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "houses",
-      "for": "container",
-      "note": "To house something is to hold it inside."
-     },
-     {
-      "text": "at last",
-      "for": "letter_selection",
-      "note": "Takes only the final letter of 'personnel'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "let out",
-      "gives": "RENT",
-      "note": "To let out a flat is to rent it."
-     },
-     {
-      "clueFragment": "in Lille to the",
-      "gives": "AU",
-      "note": "In French 'to the' is au, and Lille is a French city."
-     },
-     {
-      "clueFragment": "personnel at last",
-      "gives": "L",
-      "select": "last",
-      "note": "Last letter of personnel."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REN",
-      "AU",
-      "L",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "note": "To house something is to hold it inside."
+      }
+     ],
+     "parts": [
+      {
+       "words": "let out",
+       "gives": "RENT",
+       "note": "To let out a flat is to rent it."
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in Lille to the",
+         "gives": "AU",
+         "note": "In French 'to the' is au, and Lille is a French city."
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "note": "Takes only the final letter of 'personnel'."
+          }
+         ],
+         "parts": [
+          {
+           "words": "personnel at last",
+           "gives": "PERSONNEL",
+           "note": "Last letter of personnel."
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -184,40 +181,38 @@
    },
    "solution": "NUMBAT",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "NUMBAT",
     "definitions": [
      {
       "text": "insectivore",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "not filling",
-      "for": "deletion",
-      "note": "Tells you to leave out the middle of 'ant'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dead",
-      "gives": "NUMB",
-      "note": "A dead limb is numb."
-     },
-     {
-      "clueFragment": "ant — not filling",
-      "gives": "AT",
-      "note": "ANT with its middle letter N taken out."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NUMB",
-      "AT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NUMBAT",
+     "indicators": [
+      {
+       "text": "not filling",
+       "note": "Tells you to leave out the middle of 'ant'."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dead",
+         "gives": "NUMB",
+         "note": "A dead limb is numb."
+        },
+        {
+         "words": "ant — not filling",
+         "gives": "AT",
+         "note": "ANT with its middle letter N taken out."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -252,53 +247,52 @@
    },
    "solution": "IANFLEMING",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "deletion"
-    ],
-    "answer": "IAN FLEMING",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "note": "Novel means new, so the letters of 'meaningful' are made new."
-     },
-     {
-      "text": "reportedly",
-      "note": "'You' is heard as the letter U."
-     },
-     {
-      "text": "rejected",
-      "note": "The U is thrown out of the letters."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one."
-     },
-     {
-      "clueFragment": "meaningful novel, reportedly you rejected",
-      "gives": "ANFLEMING",
-      "note": "MEANINGFUL loses U, and the rest is rearranged."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "ANFLEMING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IANFLEMING",
+     "parts": [
       {
-       "fodder": "MEANINGFL",
-       "gives": "ANFLEMING"
+       "op": "anagram",
+       "unchecked": true,
+       "gives": "IANFLEMING",
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "novel",
+           "note": "Novel means new, so the letters of 'meaningful' are made new."
+          },
+          {
+           "text": "reportedly",
+           "note": "'You' is heard as the letter U."
+          },
+          {
+           "text": "rejected",
+           "note": "The U is thrown out of the letters."
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "Roman numeral one."
+          },
+          {
+           "words": "meaningful novel, reportedly you rejected",
+           "gives": "ANFLEMING",
+           "note": "MEANINGFUL loses U, and the rest is rearranged."
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -326,56 +320,7 @@
     "text": "Interest king in chat",
     "enumeration": "4"
    },
-   "solution": "GRAB",
-   "annotation": {
-    "type": [
-     "double_definition",
-     "container"
-    ],
-    "answer": "GRAB",
-    "definitions": [
-     {
-      "text": "Interest",
-      "at": 0
-     }
-    ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "Being in something means sitting inside it, so the king's letter sits inside the word for chat."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king."
-     },
-     {
-      "clueFragment": "chat",
-      "gives": "GAB",
-      "note": "To gab is to chat."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "R",
-      "AB"
-     ]
-    },
-    "explanation": {
-     "surface": "A king caught up in idle talk.",
-     "walkthrough": "'Interest' is a verb here: something that grabs you interests you.",
-     "definitionFit": "To grab someone is informally to interest them, as in 'how does that grab you?'"
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Interest"
-    }
-   }
+   "solution": "GRAB"
   },
   {
    "number": 5,
@@ -391,44 +336,35 @@
    },
    "solution": "HOLINESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOLINESS",
     "definitions": [
      {
       "text": "address for patriarch",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "neighbouring",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "House",
-      "gives": "HO",
-      "note": "HO is the abbreviation for house."
-     },
-     {
-      "clueFragment": "bar's",
-      "gives": "LINES",
-      "note": "A bar is a line or stripe; 'bar's' makes it LINE'S, written LINES."
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "S is the abbreviation for second."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HO",
-      "LINES",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "neighbouring"
+      }
+     ],
+     "parts": [
+      {
+       "words": "House",
+       "gives": "HO",
+       "note": "HO is the abbreviation for house."
+      },
+      {
+       "words": "bar's",
+       "gives": "LINES",
+       "note": "A bar is a line or stripe; 'bar's' makes it LINE'S, written LINES."
+      },
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "S is the abbreviation for second."
+      }
      ]
     },
     "explanation": {
@@ -457,48 +393,45 @@
    },
    "solution": "EARLIER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "EARLIER",
     "definitions": [
      {
       "text": "Sooner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having clashed",
-      "note": "Clashing things are jumbled together, so the letters of 'clear the air' are mixed."
-     },
-     {
-      "text": "wanting",
-      "note": "Wanting means lacking, so some letters are removed."
-     },
-     {
-      "text": "composed",
-      "note": "Composed means put together, so the letters of CHAT can go in any order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clear the air",
-      "gives": "CLEARTHEAIR",
-      "note": "Anagram fodder, 11 letters."
-     },
-     {
-      "clueFragment": "chat",
-      "gives": "CHAT",
-      "note": "These four letters are taken out, in whatever order they fall."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EARLIER",
+     "parts": [
       {
-       "fodder": "LEREAIR",
-       "gives": "EARLIER"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "EARLIER",
+       "indicators": [
+        {
+         "text": "having clashed",
+         "note": "Clashing things are jumbled together, so the letters of 'clear the air' are mixed."
+        },
+        {
+         "text": "wanting",
+         "note": "Wanting means lacking, so some letters are removed."
+        },
+        {
+         "text": "composed",
+         "note": "Composed means put together, so the letters of CHAT can go in any order."
+        }
+       ],
+       "parts": [
+        {
+         "words": "clear the air",
+         "note": "Anagram fodder, 11 letters."
+        },
+        {
+         "words": "chat",
+         "note": "These four letters are taken out, in whatever order they fall."
+        }
+       ]
       }
      ]
     },
@@ -528,44 +461,45 @@
    },
    "solution": "HANUMAN",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "HANUMAN",
     "definitions": [
      {
       "text": "deity",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "wins"
-     },
-     {
-      "text": "heart of",
-      "note": "Takes the middle letters of 'tyrannic'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mortal",
-      "gives": "HUMAN",
-      "note": "A mortal is a human."
-     },
-     {
-      "clueFragment": "heart of tyrannic",
-      "gives": "AN",
-      "select": "middle",
-      "note": "The middle two of TYRANNIC's eight letters."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AN",
-      "UMAN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wins"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mortal",
+       "gives": "HUMAN",
+       "note": "A mortal is a human."
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "AN",
+       "indicators": [
+        {
+         "text": "heart of",
+         "note": "Takes the middle letters of 'tyrannic'."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "heart of tyrannic",
+         "gives": "AN",
+         "select": "middle",
+         "note": "The middle two of TYRANNIC's eight letters."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -594,39 +528,30 @@
    },
    "solution": "HABITUATION",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HABITUATION",
     "definitions": [
      {
       "text": "Learning to get used to",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "residence",
-      "gives": "HABITATION",
-      "note": "A habitation is a place of residence."
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HABIT",
-      "U",
-      "ATION"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "residence",
+       "gives": "HABITATION",
+       "note": "A habitation is a place of residence."
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university."
+      }
      ]
     },
     "explanation": {
@@ -655,41 +580,36 @@
    },
    "solution": "ALLURED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ALLURED",
     "definitions": [
      {
       "text": "Enticed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to strip",
-      "for": "letter_selection",
-      "note": "Stripping peels off the outside, leaving the middle of 'Callum'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Callum to strip",
-      "gives": "ALLU",
-      "select": "middle",
-      "note": "CALLUM with its outer letters C and M removed."
-     },
-     {
-      "clueFragment": "visibly embarrassed",
-      "gives": "RED",
-      "note": "Someone visibly embarrassed goes red."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALLU",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "to strip",
+         "note": "Stripping peels off the outside, leaving the middle of 'Callum'."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Callum to strip",
+         "gives": "CALLUM",
+         "note": "CALLUM with its outer letters C and M removed."
+        }
+       ]
+      },
+      {
+       "words": "visibly embarrassed",
+       "gives": "RED",
+       "note": "Someone visibly embarrassed goes red."
+      }
      ]
     },
     "explanation": {
@@ -719,45 +639,49 @@
    },
    "solution": "DISCOGRAPHY",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "DISCOGRAPHY",
     "definitions": [
      {
       "text": "record of records",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Broadcast",
-      "note": "Broadcasting scatters things widely, so the letters are scattered."
-     },
-     {
-      "text": "extremely",
-      "note": "Takes the two end letters of 'groovy'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extremely groovy",
-      "gives": "GY",
-      "select": "outer",
-      "note": "First and last letters of GROOVY."
-     },
-     {
-      "clueFragment": "rhapsodic",
-      "gives": "RHAPSODIC",
-      "note": "Anagram fodder, used whole."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GYRHAPSODIC",
-       "gives": "DISCOGRAPHY"
+       "text": "Broadcast",
+       "note": "Broadcasting scatters things widely, so the letters are scattered."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "Takes the two end letters of 'groovy'."
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "GY",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "extremely groovy",
+           "gives": "GY",
+           "select": "outer",
+           "note": "First and last letters of GROOVY."
+          }
+         ]
+        },
+        {
+         "words": "rhapsodic",
+         "note": "Anagram fodder, used whole."
+        }
+       ]
       }
      ]
     },
@@ -788,50 +712,50 @@
    },
    "solution": "BRUTALLY",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BRUTALLY",
     "definitions": [
      {
       "text": "severely",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "Takes the last letter of 'January'."
-     },
-     {
-      "text": "restricts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dry",
-      "gives": "BRUT",
-      "note": "Brut is the word on a bottle of very dry champagne."
-     },
-     {
-      "clueFragment": "January ultimately",
-      "gives": "Y",
-      "select": "last",
-      "note": "Last letter of January."
-     },
-     {
-      "clueFragment": "everyone",
-      "gives": "ALL",
-      "note": "Everyone is all."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRUT",
-      "ALL",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "Takes the last letter of 'January'."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "restricts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dry",
+         "gives": "BRUT",
+         "note": "Brut is the word on a bottle of very dry champagne."
+        },
+        {
+         "op": "last",
+         "parts": [
+          {
+           "words": "January ultimately",
+           "note": "Last letter of January."
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "everyone",
+       "gives": "ALL",
+       "note": "Everyone is all."
+      }
      ]
     },
     "explanation": {
@@ -861,42 +785,30 @@
    },
    "solution": "ANTICS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ANTICS",
     "definitions": [
      {
       "text": "Escapades",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "carrying",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opponents",
-      "gives": "ANTIS",
-      "note": "Antis are people who are against something."
-     },
-     {
-      "clueFragment": "clubs",
-      "gives": "C",
-      "note": "C is the abbreviation for clubs in cards."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANTI",
-      "C",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opponents",
+       "gives": "ANTIS",
+       "note": "Antis are people who are against something."
+      },
+      {
+       "words": "clubs",
+       "gives": "C",
+       "note": "C is the abbreviation for clubs in cards."
+      }
      ]
     },
     "explanation": {
@@ -925,55 +837,50 @@
    },
    "solution": "FROLICSOME",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "charade"
-    ],
-    "answer": "FROLICSOME",
     "definitions": [
      {
       "text": "merry",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Uprising",
-      "note": "In a down clue, rising means reading bottom to top."
-     },
-     {
-      "text": "arrested by"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soldiers",
-      "gives": "OR",
-      "note": "OR stands for other ranks, ordinary soldiers."
-     },
-     {
-      "clueFragment": "gendarme",
-      "gives": "FLIC",
-      "note": "Flic is French slang for a police officer, and a gendarme is one."
-     },
-     {
-      "clueFragment": "several",
-      "gives": "SOME",
-      "note": "Several is some."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RO",
-      "LIC",
-      "SOME"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "OR",
-       "to": "RO"
+       "text": "Uprising",
+       "note": "In a down clue, rising means reading bottom to top."
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arrested by"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gendarme",
+         "gives": "FLIC",
+         "note": "Flic is French slang for a police officer, and a gendarme is one."
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "soldiers",
+           "gives": "OR",
+           "note": "OR stands for other ranks, ordinary soldiers."
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "several",
+       "gives": "SOME",
+       "note": "Several is some."
       }
      ]
     },
@@ -1003,36 +910,29 @@
    },
    "solution": "TOTE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "TOTE",
     "definitions": [
      {
       "text": "bear",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "tailless",
-      "for": "deletion",
-      "note": "Cuts off the last letter."
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Symbol of clan",
-      "gives": "TOTEM",
-      "note": "A totem is an emblem of a clan or tribe."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOTE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "tailless",
+       "note": "Cuts off the last letter."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Symbol of clan",
+       "gives": "TOTEM",
+       "note": "A totem is an emblem of a clan or tribe."
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1062,45 +962,38 @@
    },
    "solution": "IMPRESARIO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IMPRESARIO",
     "definitions": [
      {
       "text": "promoter",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "organised",
-      "for": "anagram",
-      "note": "Organising puts things in a new order, so the letters are rearranged."
-     },
-     {
-      "text": "having secured",
-      "for": "anagram",
-      "note": "The rearranged letters take in the I as well."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pair's more",
-      "gives": "PAIRSMORE",
-      "note": "Anagram fodder, apostrophe ignored."
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I is the abbreviation for international."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PAIRSMOREI",
-       "gives": "IMPRESARIO"
+       "text": "organised",
+       "note": "Organising puts things in a new order, so the letters are rearranged."
+      },
+      {
+       "text": "having secured",
+       "note": "The rearranged letters take in the I as well."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Pair's more",
+         "note": "Anagram fodder, apostrophe ignored."
+        },
+        {
+         "words": "international",
+         "gives": "I",
+         "note": "I is the abbreviation for international."
+        }
+       ]
       }
      ]
     },
@@ -1136,35 +1029,25 @@
    },
    "solution": "FRONTROW",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRONT ROW",
     "definitions": [
      {
       "text": "Rugby players",
       "at": 0
      }
     ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "impudence",
-      "gives": "FRONT",
-      "note": "Front means cheek or nerve."
-     },
-     {
-      "clueFragment": "fight",
-      "gives": "ROW",
-      "note": "A row is a quarrel."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRONT",
-      "ROW"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "impudence",
+       "gives": "FRONT",
+       "note": "Front means cheek or nerve."
+      },
+      {
+       "words": "fight",
+       "gives": "ROW",
+       "note": "A row is a quarrel."
+      }
      ]
     },
     "explanation": {
@@ -1193,30 +1076,28 @@
    },
    "solution": "APPARENTLY",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "APPARENTLY",
     "definitions": [
      {
       "text": "Seemingly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "hidden_word",
-      "note": "The answer is caught inside the words that follow."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "trap, parent lying",
-      "gives": "APPARENTLY",
-      "note": "The letters run from the end of 'trap' through 'parent' into the start of 'lying'."
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "caught in",
+       "note": "The answer is caught inside the words that follow."
+      }
+     ],
+     "parts": [
+      {
+       "words": "trap, parent lying",
+       "gives": "APPARENTLY",
+       "note": "The letters run from the end of 'trap' through 'parent' into the start of 'lying'."
+      }
+     ]
+    },
     "explanation": {
      "surface": "A parent, it seems, has been caught in a trap, lying there.",
      "walkthrough": "'Parent' shows almost the whole answer on its face.",
@@ -1243,39 +1124,30 @@
    },
    "solution": "PILOTED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PILOTED",
     "definitions": [
      {
       "text": "Trialled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "parts",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "set",
-      "gives": "LOT",
-      "note": "A lot at auction is a set of items."
-     },
-     {
-      "clueFragment": "of various colours",
-      "gives": "PIED",
-      "note": "Pied means patched with different colours."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PI",
-      "LOT",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "parts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of various colours",
+       "gives": "PIED",
+       "note": "Pied means patched with different colours."
+      },
+      {
+       "words": "set",
+       "gives": "LOT",
+       "note": "A lot at auction is a set of items."
+      }
      ]
     },
     "explanation": {
@@ -1304,30 +1176,16 @@
    },
    "solution": "CHAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHAR",
     "definitions": [
      {
       "text": "Brown",
-      "at": 0
+      "at": 0,
+      "meaning": "A verb here: to scorch the outside of food until it browns."
      },
      {
       "text": "fish",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brown",
-      "gives": "CHAR",
-      "note": "A verb here: to scorch the outside of food until it browns."
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "CHAR",
-      "note": "A cold-water fish of the trout and salmon family."
+      "at": 6,
+      "meaning": "A cold-water fish of the trout and salmon family."
      }
     ],
     "explanation": {
@@ -1356,47 +1214,40 @@
    },
    "solution": "HOGARTH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HOGARTH",
     "definitions": [
      {
       "text": "satirist",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "first for",
-      "for": "letter_selection",
-      "note": "Takes the first letter of 'humorous'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Selfishly keep",
-      "gives": "HOG",
-      "note": "To hog is to keep for yourself."
-     },
-     {
-      "clueFragment": "creative work",
-      "gives": "ART",
-      "note": "Creative work is art."
-     },
-     {
-      "clueFragment": "humorous",
-      "gives": "H",
-      "select": "first",
-      "note": "First letter of humorous."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOG",
-      "ART",
-      "H"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Selfishly keep",
+       "gives": "HOG",
+       "note": "To hog is to keep for yourself."
+      },
+      {
+       "words": "creative work",
+       "gives": "ART",
+       "note": "Creative work is art."
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first for",
+         "note": "Takes the first letter of 'humorous'."
+        }
+       ],
+       "parts": [
+        {
+         "words": "humorous",
+         "note": "First letter of humorous."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1425,48 +1276,45 @@
    },
    "solution": "BINDER",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "BINDER",
     "definitions": [
      {
       "text": "case",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "to move",
-      "note": "Moved letters change places."
-     },
-     {
-      "text": "dropping",
-      "note": "Some letters are removed."
-     },
-     {
-      "text": "wretched",
-      "note": "A wretched thing is in a sorry state, so the letters of 'gun' can come out in any order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Burdening",
-      "gives": "BURDENING",
-      "note": "Anagram fodder, 9 letters."
-     },
-     {
-      "clueFragment": "gun",
-      "gives": "GUN",
-      "note": "These three letters are taken out."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BINDER",
+     "parts": [
       {
-       "fodder": "BRDEIN",
-       "gives": "BINDER"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "BINDER",
+       "indicators": [
+        {
+         "text": "to move",
+         "note": "Moved letters change places."
+        },
+        {
+         "text": "dropping",
+         "note": "Some letters are removed."
+        },
+        {
+         "text": "wretched",
+         "note": "A wretched thing is in a sorry state, so the letters of 'gun' can come out in any order."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Burdening",
+         "note": "Anagram fodder, 9 letters."
+        },
+        {
+         "words": "gun",
+         "note": "These three letters are taken out."
+        }
+       ]
       }
      ]
     },
@@ -1496,44 +1344,41 @@
    },
    "solution": "IDLING",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "IDLING",
     "definitions": [
      {
       "text": "relaxing or being unoccupied",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "all over the place",
-      "note": "Scattered letters, so 'delivering' is rearranged."
-     },
-     {
-      "text": "not",
-      "note": "The letters of EVER are left out."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Delivering",
-      "gives": "DELIVERING",
-      "note": "Anagram fodder, 10 letters."
-     },
-     {
-      "clueFragment": "ever",
-      "gives": "EVER",
-      "note": "These four letters are taken out."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IDLING",
+     "parts": [
       {
-       "fodder": "DLIING",
-       "gives": "IDLING"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "IDLING",
+       "indicators": [
+        {
+         "text": "all over the place",
+         "note": "Scattered letters, so 'delivering' is rearranged."
+        },
+        {
+         "text": "not",
+         "note": "The letters of EVER are left out."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Delivering",
+         "note": "Anagram fodder, 10 letters."
+        },
+        {
+         "words": "ever",
+         "note": "These four letters are taken out."
+        }
+       ]
       }
      ]
     },
@@ -1569,51 +1414,52 @@
    },
    "solution": "ACTINGUP",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ACTING UP",
     "definitions": [
      {
       "text": "Misbehaving",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to bite"
-     },
-     {
-      "text": "from behind",
-      "note": "Read from the back, so the whole string is turned round."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dog",
-      "gives": "PUG",
-      "note": "A pug is a small dog."
-     },
-     {
-      "clueFragment": "fool",
-      "gives": "NIT",
-      "note": "A nit is a fool."
-     },
-     {
-      "clueFragment": "about",
-      "gives": "CA",
-      "note": "CA is short for circa, about."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACTINGUP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ACTINGUP",
+     "parts": [
       {
-       "from": "PUGNITCA",
-       "to": "ACTINGUP"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to bite"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "from behind",
+           "note": "Read from the back, so the whole string is turned round."
+          }
+         ],
+         "parts": [
+          {
+           "words": "dog",
+           "gives": "PUG",
+           "note": "A pug is a small dog."
+          },
+          {
+           "words": "fool",
+           "gives": "NIT",
+           "note": "A nit is a fool."
+          },
+          {
+           "words": "about",
+           "gives": "CA",
+           "note": "CA is short for circa, about."
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1643,43 +1489,41 @@
    },
    "solution": "CLOT",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "CLOT",
     "definitions": [
      {
       "text": "Idiot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bar",
-      "note": "To bar is to exclude, so the letter is kept out."
-     },
-     {
-      "text": "close to",
-      "note": "The last letter of 'you'."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "forcibly hit",
-      "gives": "CLOUT",
-      "note": "To clout someone is to hit them hard."
-     },
-     {
-      "clueFragment": "close to you",
-      "gives": "U",
-      "select": "last",
-      "note": "Last letter of you, taken out of CLOUT."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLOT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bar",
+       "note": "To bar is to exclude, so the letter is kept out."
+      }
+     ],
+     "parts": [
+      {
+       "words": "forcibly hit",
+       "gives": "CLOUT",
+       "note": "To clout someone is to hit them hard."
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "The last letter of 'you'."
+        }
+       ],
+       "parts": [
+        {
+         "words": "close to you",
+         "note": "Last letter of you, taken out of CLOUT."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1708,43 +1552,40 @@
    },
    "solution": "NATURAL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "NATURAL",
     "definitions": [
      {
       "text": "Normal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moulting",
-      "note": "A moulting creature sheds its outer skin, so the outer letters of 'tarantula' go."
-     },
-     {
-      "text": "changed",
-      "note": "The remaining letters are rearranged."
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "moulting, tarantula",
-      "gives": "ARANTUL",
-      "select": "middle",
-      "note": "TARANTULA without its outer letters T and A."
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARANTUL",
-       "gives": "NATURAL"
+       "text": "moulting",
+       "note": "A moulting creature sheds its outer skin, so the outer letters of 'tarantula' go."
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "ARANTUL",
+       "indicators": [
+        {
+         "text": "changed",
+         "note": "The remaining letters are rearranged."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "moulting, tarantula",
+         "gives": "ARANTUL",
+         "select": "middle",
+         "note": "TARANTULA without its outer letters T and A."
+        }
+       ]
       }
      ]
     },
@@ -1774,40 +1615,36 @@
    },
    "solution": "ORDERLY",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ORDERLY",
     "definitions": [
      {
       "text": "Soldier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "verbalised",
-      "for": "homophone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "command",
-      "gives": "ORDER",
-      "note": "A command is an order."
-     },
-     {
-      "clueFragment": "US General",
-      "gives": "LY",
-      "soundsLike": "LEE",
-      "note": "Robert E Lee was the Confederate general; the suffix -ly is said the same way."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ORDER",
-      "LY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "command",
+       "gives": "ORDER",
+       "note": "A command is an order."
+      },
+      {
+       "op": "homophone",
+       "spelt": "LY",
+       "indicators": [
+        {
+         "text": "verbalised"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US General",
+         "gives": "LEE",
+         "note": "Robert E Lee was the Confederate general; the suffix -ly is said the same way."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1846,30 +1683,16 @@
    },
    "solution": "DOWNTOEARTH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOWN-TO-EARTH",
     "definitions": [
      {
       "text": "Realistic",
-      "at": 0
+      "at": 0,
+      "meaning": "Describes a practical, sensible person without illusions."
      },
      {
       "text": "because of where we live",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Realistic",
-      "gives": "DOWNTOEARTH",
-      "note": "Describes a practical, sensible person without illusions."
-     },
-     {
-      "clueFragment": "because of where we live",
-      "gives": "DOWNTOEARTH",
-      "note": "'Down to' means because of, and Earth is where we live."
+      "at": 10,
+      "meaning": "'Down to' means because of, and Earth is where we live."
      }
     ],
     "explanation": {

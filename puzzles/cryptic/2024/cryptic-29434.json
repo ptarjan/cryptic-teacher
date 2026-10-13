@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29434",
  "number": 29434,
- "series": "cryptic",
- "name": "Prize crossword No 29,434",
+ "prize": true,
  "setter": "Picaroon",
  "date": "2024-07-13",
  "dimensions": {
@@ -38,33 +37,28 @@
    },
    "solution": "TYPO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TYPO",
     "definitions": [
      {
       "text": "13 downer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "hidden_word",
-      "note": "the answer sits inside the following words, running across the gap between them"
-     }
-    ],
-    "linkWords": [
-     "from writer"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pretty poem",
-      "gives": "TYPO",
-      "note": "the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the answer sits inside the following words, running across the gap between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pretty poem",
+       "gives": "TYPO",
+       "note": "the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A poet's lovely verse turns out to be a disappointment.",
      "walkthrough": "13 down is BLOOM, so a '13 downer' is a BLOOMER, the British word for a silly mistake; the theme plays on its other senses.",
@@ -98,51 +92,40 @@
    },
    "solution": "BUMSRUSH",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BUMS RUSH",
     "definitions": [
      {
       "text": "swift dismissal",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "drinking",
-      "for": "container",
-      "note": "someone drinking takes something in, so one piece swallows another"
-     },
-     {
-      "text": "bad",
-      "for": "anagram",
-      "note": "bad signals letters in a spoilt, disordered state"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ex-president",
-      "gives": "BUSH",
-      "note": "either George Bush, former US president"
-     },
-     {
-      "clueFragment": "rum's",
-      "gives": "RUMS",
-      "note": "the word with its 's taken as an S"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "MSRU",
-      "SH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RUMS",
-       "gives": "MSRU"
+       "text": "drinking",
+       "note": "someone drinking takes something in, so one piece swallows another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ex-president",
+       "gives": "BUSH",
+       "note": "either George Bush, former US president"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "note": "bad signals letters in a spoilt, disordered state"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rum's",
+         "note": "the word with its 's taken as an S"
+        }
+       ]
       }
      ]
     },
@@ -171,54 +154,51 @@
    },
    "solution": "AGRA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "AGRA",
     "definitions": [
      {
       "text": "Moguls' capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "banks",
-      "for": "letter_selection",
-      "note": "the banks of a river are its two edges, so only the outside letters of the next word count"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece goes inside the pair of edge letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "another",
-      "gives": "AR",
-      "select": "outer",
-      "note": "the first and last letters"
-     },
-     {
-      "clueFragment": "£1000",
-      "gives": "G",
-      "note": "G stands for a grand, a thousand pounds"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "standard abbreviation for area"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "G",
-      "R",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece goes inside the pair of edge letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "banks",
+           "note": "the banks of a river are its two edges, so only the outside letters of the next word count"
+          }
+         ],
+         "parts": [
+          {
+           "words": "another",
+           "note": "the first and last letters"
+          }
+         ]
+        },
+        {
+         "words": "£1000",
+         "gives": "G",
+         "note": "G stands for a grand, a thousand pounds"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "gives": "A",
+       "note": "standard abbreviation for area"
+      }
      ]
     },
     "explanation": {
@@ -246,32 +226,25 @@
    },
    "solution": "REPORTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REPORTER",
     "definitions": [
      {
       "text": "one seeks good story",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "On",
-      "gives": "RE",
-      "note": "re means on or concerning"
-     },
-     {
-      "clueFragment": "booze",
-      "gives": "PORTER",
-      "note": "porter is a dark beer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "PORTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "On",
+       "gives": "RE",
+       "note": "re means on or concerning"
+      },
+      {
+       "words": "booze",
+       "gives": "PORTER",
+       "note": "porter is a dark beer"
+      }
      ]
     },
     "explanation": {
@@ -299,45 +272,35 @@
    },
    "solution": "PISTIL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PISTIL",
     "definitions": [
      {
       "text": "Bit of a 13 down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the letters are read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drunk",
-      "gives": "LIT",
-      "note": "lit is slang for drunk"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SIP",
-      "note": "a small drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIS",
-      "TIL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LITSIP",
-       "to": "PISTIL"
+       "text": "up",
+       "note": "in a down clue, up means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "drunk",
+         "gives": "LIT",
+         "note": "lit is slang for drunk"
+        },
+        {
+         "words": "drink",
+         "gives": "SIP",
+         "note": "a small drink"
+        }
+       ]
       }
      ]
     },
@@ -367,38 +330,24 @@
    },
    "solution": "SENATORIAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SENATORIAL",
     "definitions": [
      {
       "text": "of politicians",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "reform",
-      "for": "anagram",
-      "note": "to reform something is to reshape it, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rationales",
-      "gives": "RATIONALES",
-      "note": "the fodder, all ten letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RATIONALES",
-       "gives": "SENATORIAL"
+       "text": "reform",
+       "note": "to reform something is to reshape it, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rationales",
+       "note": "the fodder, all ten letters"
       }
      ]
     },
@@ -427,35 +376,25 @@
    },
    "solution": "BONOBO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BONOBO",
     "definitions": [
      {
       "text": "Ape",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rock singer",
-      "gives": "BONO",
-      "note": "the lead singer of U2"
-     },
-     {
-      "clueFragment": "personal problem",
-      "gives": "BO",
-      "note": "BO is body odour"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BONO",
-      "BO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rock singer",
+       "gives": "BONO",
+       "note": "the lead singer of U2"
+      },
+      {
+       "words": "personal problem",
+       "gives": "BO",
+       "note": "BO is body odour"
+      }
      ]
     },
     "explanation": {
@@ -483,37 +422,25 @@
    },
    "solution": "BAKE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "BAKE",
     "definitions": [
      {
       "text": "Make a 13 downer, say",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "letter_selection",
-      "note": "oddly asks for the letters in odd-numbered positions only"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Black Sea",
-      "gives": "BAKE",
-      "select": "alternate",
-      "note": "first, third, fifth and seventh letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAKE"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly",
+       "note": "oddly asks for the letters in odd-numbered positions only"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Black Sea",
+       "note": "first, third, fifth and seventh letters"
+      }
      ]
     },
     "explanation": {
@@ -543,48 +470,37 @@
    },
    "solution": "YOUNG",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "YOUNG",
     "definitions": [
      {
       "text": "Issue",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shot",
-      "for": "anagram",
-      "note": "something shot is wrecked or ruined, so its letters are disordered"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American greeting",
-      "gives": "YO",
-      "note": "a US slang hello"
-     },
-     {
-      "clueFragment": "gunshot",
-      "gives": "UNG",
-      "note": "the first three letters of this word are the fodder, rearranged; its tail is the signal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YO",
-      "UNG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "YOUNG",
+     "indicators": [
       {
-       "fodder": "GUN",
-       "gives": "UNG"
+       "text": "shot",
+       "note": "something shot is wrecked or ruined, so its letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American greeting",
+         "gives": "YO",
+         "note": "a US slang hello"
+        },
+        {
+         "words": "gunshot",
+         "gives": "UNG",
+         "note": "the first three letters of this word are the fodder, rearranged; its tail is the signal"
+        }
+       ]
       }
      ]
     },
@@ -620,61 +536,51 @@
    },
    "solution": "EMILEZOLA",
    "annotation": {
-    "type": [
-     "container",
-     "charade",
-     "reversal"
-    ],
-    "answer": "EMILE ZOLA",
     "definitions": [
      {
       "text": "Writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sent over",
-      "for": "reversal",
-      "note": "something sent over is flipped across, so the whole string is read backwards"
-     },
-     {
-      "text": "touring",
-      "for": "container",
-      "note": "touring a place means going round it, so one piece wraps another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "ALE",
-      "note": "beer"
-     },
-     {
-      "clueFragment": "Australia",
-      "gives": "OZ",
-      "note": "informal name for Australia"
-     },
-     {
-      "clueFragment": "fruit",
-      "gives": "LIME",
-      "note": "a citrus fruit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMIL",
-      "E",
-      "ZO",
-      "LA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ALOZELIME",
-       "to": "EMILEZOLA"
+       "text": "sent over",
+       "note": "something sent over is flipped across, so the whole string is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "touring",
+           "note": "touring a place means going round it, so one piece wraps another"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drink",
+           "gives": "ALE",
+           "note": "beer"
+          },
+          {
+           "words": "Australia",
+           "gives": "OZ",
+           "note": "informal name for Australia"
+          }
+         ]
+        },
+        {
+         "words": "fruit",
+         "gives": "LIME",
+         "note": "a citrus fruit"
+        }
+       ]
       }
      ]
     },
@@ -722,32 +628,25 @@
    },
    "solution": "AROSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AROSE",
     "definitions": [
      {
       "text": "appeared",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Single",
-      "gives": "A",
-      "note": "one, an"
-     },
-     {
-      "clueFragment": "13 down",
-      "gives": "ROSE",
-      "note": "13 down is BLOOM, and a rose is an example of one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "ROSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Single",
+       "gives": "A",
+       "note": "one, an"
+      },
+      {
+       "words": "13 down",
+       "gives": "ROSE",
+       "note": "13 down is BLOOM, and a rose is an example of one"
+      }
      ]
     },
     "explanation": {
@@ -775,40 +674,31 @@
    },
    "solution": "BOUQUET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BOUQUET",
     "definitions": [
      {
       "text": "Group of 13 downs",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "one word sits around the other, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fit",
-      "gives": "BOUT",
-      "note": "a bout is a fit, as of illness"
-     },
-     {
-      "clueFragment": "that in Versailles",
-      "gives": "QUE",
-      "note": "French for that"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOU",
-      "QUE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "one word sits around the other, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fit",
+       "gives": "BOUT",
+       "note": "a bout is a fit, as of illness"
+      },
+      {
+       "words": "that in Versailles",
+       "gives": "QUE",
+       "note": "French for that"
+      }
      ]
     },
     "explanation": {
@@ -836,45 +726,35 @@
    },
    "solution": "BLOOM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BLOOM",
     "definitions": [
      {
       "text": "Maybe Violet's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rising",
-      "for": "reversal",
-      "note": "in a down clue, rising means the letters run upwards, so they are reversed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "low",
-      "gives": "MOO",
-      "note": "to low is to moo, as cattle do"
-     },
-     {
-      "clueFragment": "weight",
-      "gives": "LB",
-      "note": "abbreviation for pound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BL",
-      "OOM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MOOLB",
-       "to": "BLOOM"
+       "text": "rising",
+       "note": "in a down clue, rising means the letters run upwards, so they are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "low",
+         "gives": "MOO",
+         "note": "to low is to moo, as cattle do"
+        },
+        {
+         "words": "weight",
+         "gives": "LB",
+         "note": "abbreviation for pound"
+        }
+       ]
       }
      ]
     },
@@ -904,41 +784,30 @@
    },
    "solution": "UNDERPANTS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UNDERPANTS",
     "definitions": [
      {
       "text": "13 downers?",
       "at": 33
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Foreign articles",
-      "gives": "UNDER",
-      "note": "UN is French and DER German, both 'the' or 'a'"
-     },
-     {
-      "clueFragment": "long",
-      "gives": "PANT",
-      "note": "to pant for is to long for"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "standard abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNDER",
-      "PANT",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Foreign articles",
+       "gives": "UNDER",
+       "note": "UN is French and DER German, both 'the' or 'a'"
+      },
+      {
+       "words": "long",
+       "gives": "PANT",
+       "note": "to pant for is to long for"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "standard abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -968,38 +837,30 @@
    },
    "solution": "LEOPOLD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEOPOLD",
     "definitions": [
      {
       "text": "13 down in literature",
       "at": 20
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Stars",
-      "gives": "LEO",
-      "note": "the constellation Leo"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p for piano, quietly in music"
-     },
-     {
-      "clueFragment": "dated",
-      "gives": "OLD",
-      "note": "out of date"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEO",
-      "P",
-      "OLD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stars",
+       "gives": "LEO",
+       "note": "the constellation Leo"
+      },
+      {
+       "words": "quietly",
+       "gives": "P",
+       "note": "p for piano, quietly in music"
+      },
+      {
+       "words": "dated",
+       "gives": "OLD",
+       "note": "out of date"
+      }
      ]
     },
     "explanation": {
@@ -1027,43 +888,39 @@
    },
    "solution": "DITTO",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DITTO",
     "definitions": [
      {
       "text": "Repeat this",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brief",
-      "for": "deletion",
-      "note": "a brief version is cut short, so the last letter goes"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "song",
-      "gives": "DITTY",
-      "note": "a simple song"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "zero in tennis scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DITT",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "brief",
+       "note": "a brief version is cut short, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "song",
+         "gives": "DITTY",
+         "note": "a simple song"
+        },
+        {
+         "words": "love",
+         "gives": "O",
+         "note": "zero in tennis scoring"
+        }
+       ]
+      },
+      {
+       "gives": "Y"
+      }
      ]
     },
     "explanation": {
@@ -1091,54 +948,40 @@
    },
    "solution": "OOHED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "OOHED",
     "definitions": [
      {
       "text": "Showed delight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "turned about means facing the other way, so the letters are read backwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rings",
-      "gives": "OO",
-      "note": "two O shapes"
-     },
-     {
-      "clueFragment": "what",
-      "gives": "EH",
-      "note": "a questioning 'what?'"
-     },
-     {
-      "clueFragment": "diamonds",
-      "gives": "D",
-      "note": "card suit abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OO",
-      "HE",
-      "D"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EH",
-       "to": "HE"
+       "words": "rings",
+       "gives": "OO",
+       "note": "two O shapes"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about means facing the other way, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "what",
+         "gives": "EH",
+         "note": "a questioning 'what?'"
+        }
+       ]
+      },
+      {
+       "words": "diamonds",
+       "gives": "D",
+       "note": "card suit abbreviation"
       }
      ]
     },
@@ -1167,41 +1010,35 @@
    },
    "solution": "REF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "REF",
     "definitions": [
      {
       "text": "Whistleblower",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lead for",
-      "for": "letter_selection",
-      "note": "the lead of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "engineers",
-      "gives": "RE",
-      "note": "Royal Engineers"
-     },
-     {
-      "clueFragment": "Feds",
-      "gives": "F",
-      "select": "first",
-      "note": "first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "F"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "engineers",
+       "gives": "RE",
+       "note": "Royal Engineers"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead for",
+         "note": "the lead of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Feds",
+         "note": "first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1231,35 +1068,25 @@
    },
    "solution": "FLOURISH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FLOURISH",
     "definitions": [
      {
       "text": "13 down",
       "at": 25
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ground grain",
-      "gives": "FLOUR",
-      "note": "milled grain"
-     },
-     {
-      "clueFragment": "roughly",
-      "gives": "ISH",
-      "note": "the suffix meaning approximately"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLOUR",
-      "ISH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ground grain",
+       "gives": "FLOUR",
+       "note": "milled grain"
+      },
+      {
+       "words": "roughly",
+       "gives": "ISH",
+       "note": "the suffix meaning approximately"
+      }
      ]
     },
     "explanation": {
@@ -1287,40 +1114,31 @@
    },
    "solution": "ISLET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ISLET",
     "definitions": [
      {
       "text": "key",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "stealing",
-      "for": "container",
-      "note": "a thief takes something into their possession, so one piece goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Confession of compiler",
-      "gives": "ISET",
-      "note": "the setter admitting 'I set' the puzzle"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "clothing size abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "L",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stealing",
+       "note": "a thief takes something into their possession, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Confession of compiler",
+       "gives": "ISET",
+       "note": "the setter admitting 'I set' the puzzle"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "clothing size abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1349,49 +1167,44 @@
    },
    "solution": "LONESOME",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "LONESOME",
     "definitions": [
      {
       "text": "Solo",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing with something moves it around, so the letters are reordered"
-     },
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so a letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "melodeon's",
-      "gives": "MELODEONS",
-      "note": "the instrument's name with S for the 's"
-     },
-     {
-      "clueFragment": "middle note",
-      "gives": "D",
-      "note": "the central letter, a musical note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LONESOME"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LONESOME",
+     "indicators": [
       {
-       "fodder": "MELOEONS",
-       "gives": "LONESOME"
+       "text": "playing",
+       "note": "playing with something moves it around, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "LONESOME",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so a letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "melodeon's",
+         "note": "the instrument's name with S for the 's"
+        },
+        {
+         "words": "middle note",
+         "gives": "D",
+         "note": "the central letter, a musical note"
+        }
+       ]
       }
      ]
     },
@@ -1420,61 +1233,51 @@
    },
    "solution": "MUBARAK",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "MUBARAK",
     "definitions": [
      {
       "text": "Ex-president",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "going west",
-      "for": "reversal",
-      "note": "west is leftwards on a map, so the word runs right to left"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece placed inside another"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "abbreviation"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "ARAB",
-      "note": "a breed of horse"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "UK",
-      "note": "United Kingdom"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "U",
-      "BARA",
-      "K"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ARAB",
-       "to": "BARA"
+       "words": "male",
+       "gives": "M",
+       "note": "abbreviation"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece placed inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country",
+         "gives": "UK",
+         "note": "United Kingdom"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "going west",
+           "note": "west is leftwards on a map, so the word runs right to left"
+          }
+         ],
+         "parts": [
+          {
+           "words": "horse",
+           "gives": "ARAB",
+           "note": "a breed of horse"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1503,43 +1306,31 @@
    },
    "solution": "BUNGLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BUNGLE",
     "definitions": [
      {
       "text": "Make a 13 downer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding something means having it inside, so one piece encloses another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "instrument",
-      "gives": "BUGLE",
-      "note": "a brass instrument"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "N",
-      "note": "abbreviation for note"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "N",
-      "GLE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "holding something means having it inside, so one piece encloses another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instrument",
+       "gives": "BUGLE",
+       "note": "a brass instrument"
+      },
+      {
+       "words": "note",
+       "gives": "N",
+       "note": "abbreviation for note"
+      }
      ]
     },
     "explanation": {
@@ -1567,61 +1358,53 @@
    },
    "solution": "KARPOV",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "KARPOV",
     "definitions": [
      {
       "text": "Russian ace on board",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "something funny is peculiar or odd, so the letters come out of order"
-     },
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "one piece takes the others into itself"
-     }
-    ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big hit",
-      "gives": "KO",
-      "note": "a knockout"
-     },
-     {
-      "clueFragment": "rap",
-      "gives": "ARP",
-      "note": "the three letters rearranged"
-     },
-     {
-      "clueFragment": "verse",
-      "gives": "V",
-      "note": "abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "ARP",
-      "O",
-      "V"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "KARPOV",
+     "indicators": [
       {
-       "fodder": "RAP",
-       "gives": "ARP"
+       "text": "funny",
+       "note": "something funny is peculiar or odd, so the letters come out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "includes",
+           "note": "one piece takes the others into itself"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Big hit",
+           "gives": "KO",
+           "note": "a knockout"
+          },
+          {
+           "words": "rap",
+           "gives": "ARP",
+           "note": "the three letters rearranged"
+          }
+         ]
+        },
+        {
+         "words": "verse",
+         "gives": "V",
+         "note": "abbreviation"
+        }
+       ]
       }
      ]
     },
@@ -1650,28 +1433,16 @@
    },
    "solution": "ORLANDO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ORLANDO",
     "definitions": [
      {
       "text": "13 down in film",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the given name of the actor whose surname is Bloom"
      },
      {
       "text": "resort in America",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13 down in film",
-      "note": "first meaning: the given name of the actor whose surname is Bloom"
-     },
-     {
-      "clueFragment": "resort in America",
-      "note": "second meaning: the Florida city of theme parks"
+      "at": 16,
+      "meaning": "second meaning: the Florida city of theme parks"
      }
     ],
     "explanation": {
@@ -1699,59 +1470,51 @@
    },
    "solution": "LINDA",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "reversal"
-    ],
-    "answer": "LINDA",
     "definitions": [
      {
       "text": "Woman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "something cut has a part removed"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means the letters run the opposite way"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ate",
-      "gives": "HAD",
-      "note": "had a meal"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "abbreviation"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "NIL",
-      "note": "zero"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIN",
-      "DA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ADNIL",
-       "to": "LINDA"
+       "text": "back",
+       "note": "going back means the letters run the opposite way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "cut",
+           "note": "something cut has a part removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ate",
+           "gives": "HAD",
+           "note": "had a meal"
+          },
+          {
+           "words": "husband",
+           "gives": "H",
+           "note": "abbreviation"
+          }
+         ]
+        },
+        {
+         "words": "nothing",
+         "gives": "NIL",
+         "note": "zero"
+        }
+       ]
       }
      ]
     },
@@ -1791,43 +1554,33 @@
     "11-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LADY OF SHALOTT",
     "definitions": [
      {
       "text": "She saw the water-28 13 down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rum",
-      "for": "anagram",
-      "note": "rum means strange or odd, so the letters are put in an odd order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "totally",
-      "gives": "TOTALLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "dash of",
-      "gives": "DASHOF",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TOTALLYDASHOF",
-       "gives": "LADYOFSHALOTT"
+       "text": "rum",
+       "note": "rum means strange or odd, so the letters are put in an odd order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "totally",
+         "note": "taken as written"
+        },
+        {
+         "words": "dash of",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1857,52 +1610,47 @@
    },
    "solution": "RURALISED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RURALISED",
     "definitions": [
      {
       "text": "Made rustic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cases",
-      "for": "container",
-      "note": "to case something is to enclose it"
-     },
-     {
-      "text": "included in",
-      "for": "container",
-      "note": "one letter goes inside the following piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wine",
-      "gives": "RED",
-      "note": "red wine"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     },
-     {
-      "clueFragment": "range",
-      "gives": "URALS",
-      "note": "the mountain range"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "URAL",
-      "I",
-      "S",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cases",
+       "note": "to case something is to enclose it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wine",
+       "gives": "RED",
+       "note": "red wine"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included in",
+         "note": "one letter goes inside the following piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "range",
+         "gives": "URALS",
+         "note": "the mountain range"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1930,51 +1678,47 @@
    },
    "solution": "LILY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "LILY",
     "definitions": [
      {
       "text": "13 down",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "leaves",
-      "for": "deletion",
-      "note": "when someone leaves they are no longer there, so letters are removed"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "what is left holds another letter inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mrs 15 13 down",
-      "gives": "MOLLY",
-      "note": "Mrs Leopold Bloom is Molly Bloom"
-     },
-     {
-      "clueFragment": "Doctor",
-      "gives": "MO",
-      "note": "medical officer"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "I",
-      "LY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "what is left holds another letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaves",
+         "note": "when someone leaves they are no longer there, so letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mrs 15 13 down",
+         "gives": "MOLLY",
+         "note": "Mrs Leopold Bloom is Molly Bloom"
+        },
+        {
+         "words": "Doctor",
+         "gives": "MO",
+         "note": "medical officer"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral"
+      }
      ]
     },
     "explanation": {
@@ -2003,28 +1747,16 @@
    },
    "solution": "DARN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DARN",
     "definitions": [
      {
       "text": "13 downing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: blooming, a mild British curse word"
      },
      {
       "text": "sewers may do so",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "13 downing",
-      "note": "first meaning: blooming, a mild British curse word"
-     },
-     {
-      "clueFragment": "sewers may do so",
-      "note": "second meaning: needleworkers mend holes in socks"
+      "at": 11,
+      "meaning": "second meaning: needleworkers mend holes in socks"
      }
     ],
     "explanation": {
@@ -2053,38 +1785,24 @@
    },
    "solution": "DELETIONS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DELETIONS",
     "definitions": [
      {
       "text": "cuts",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Tailor",
-      "for": "anagram",
-      "note": "to tailor is to cut and reshape, so the letters are refashioned"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doesn't lie",
-      "gives": "DOESNTLIE",
-      "note": "the fodder, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOESNTLIE",
-       "gives": "DELETIONS"
+       "text": "Tailor",
+       "note": "to tailor is to cut and reshape, so the letters are refashioned"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doesn't lie",
+       "note": "the fodder, apostrophe dropped"
       }
      ]
     },
@@ -2113,28 +1831,16 @@
    },
    "solution": "LAMER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LAMER",
     "definitions": [
      {
       "text": "Feebler",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: more lame, weaker"
      },
      {
       "text": "French song",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Feebler",
-      "note": "first meaning: more lame, weaker"
-     },
-     {
-      "clueFragment": "French song",
-      "note": "second meaning: Charles Trenet's 1946 chanson about the sea"
+      "at": 8,
+      "meaning": "second meaning: Charles Trenet's 1946 chanson about the sea"
      }
     ],
     "explanation": {

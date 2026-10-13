@@ -1,8 +1,6 @@
 {
  "id": "times-29422",
  "number": 29422,
- "series": "times",
- "name": "Times cryptic crossword No 29,422",
  "date": "2025-12-25",
  "dimensions": {
   "cols": 15,
@@ -41,35 +39,25 @@
    },
    "solution": "BIOLOGICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BIOLOGICAL",
     "definitions": [
      {
       "text": "Organic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in conflict",
-      "for": "anagram",
-      "note": "letters at war with each other end up scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coal and Big Oil",
-      "gives": "COALBIGOIL",
-      "note": "anagram fodder, 10 letters; 'and' just joins the two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COALBIGOIL",
-       "gives": "BIOLOGICAL"
+       "text": "in conflict",
+       "note": "letters at war with each other end up scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coal and Big Oil",
+       "gives": "COALBIGOIL",
+       "note": "anagram fodder, 10 letters; 'and' just joins the two words"
       }
      ]
     },
@@ -105,30 +93,16 @@
    },
    "solution": "INORDERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "IN ORDERS",
     "definitions": [
      {
       "text": "Where takeaway choices may be",
-      "at": 0
+      "at": 0,
+      "meaning": "the dishes you pick from a takeaway menu are listed in your orders"
      },
      {
       "text": "ordained",
-      "at": 30
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where takeaway choices may be",
-      "gives": "INORDERS",
-      "note": "the dishes you pick from a takeaway menu are listed in your orders"
-     },
-     {
-      "clueFragment": "ordained",
-      "gives": "INORDERS",
-      "note": "a priest who has been ordained is in holy orders"
+      "at": 30,
+      "meaning": "a priest who has been ordained is in holy orders"
      }
     ],
     "explanation": {
@@ -158,30 +132,28 @@
    },
    "solution": "LEO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "LEO",
     "definitions": [
      {
       "text": "sign",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "hidden_word",
-      "note": "the phrase before it holds the answer inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Capable of",
-      "gives": "LEO",
-      "note": "the letters run across the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "the phrase before it holds the answer inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Capable of",
+       "gives": "LEO",
+       "note": "the letters run across the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone able to hide a signal or gesture.",
      "walkthrough": "The answer straddles the gap between the two words: capab(LE O)f.",
@@ -208,40 +180,31 @@
    },
    "solution": "GAUSS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GAUSS",
     "definitions": [
      {
       "text": "genius",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "one word goes around the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boasting",
-      "gives": "GAS",
-      "note": "gas = boastful talk"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US = American"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GA",
-      "US",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "one word goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boasting",
+       "gives": "GAS",
+       "note": "gas = boastful talk"
+      },
+      {
+       "words": "American",
+       "gives": "US",
+       "note": "US = American"
+      }
      ]
     },
     "explanation": {
@@ -270,44 +233,42 @@
    },
    "solution": "CRUMBLY",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "CRUMBLY",
     "definitions": [
      {
       "text": "likely to fall apart",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "harbours",
-      "note": "Cyprus holds the other word inside, as a harbour holds a ship"
-     },
-     {
-      "text": "endless",
-      "note": "the word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cyprus",
-      "gives": "CY",
-      "note": "CY is the international vehicle code for Cyprus"
-     },
-     {
-      "clueFragment": "grievance",
-      "gives": "RUMBL",
-      "note": "rumble = a complaint or grievance, minus its final E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RUMBL",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CRUMBLY",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "harbours",
+         "note": "Cyprus holds the other word inside, as a harbour holds a ship"
+        },
+        {
+         "text": "endless",
+         "note": "the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cyprus",
+         "gives": "CY",
+         "note": "CY is the international vehicle code for Cyprus"
+        },
+        {
+         "words": "grievance",
+         "gives": "RUMBL",
+         "note": "rumble = a complaint or grievance, minus its final E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -342,38 +303,30 @@
    },
    "solution": "LEFTCLICK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEFT-CLICK",
     "definitions": [
      {
       "text": "Deploy mouse",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "LEFT",
-      "note": "left over = remaining, so over = left"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C = cold, as on a tap"
-     },
-     {
-      "clueFragment": "stuff",
-      "gives": "LICK",
-      "note": "to stuff an opponent is to beat them soundly, to lick them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEFT",
-      "C",
-      "LICK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "over",
+       "gives": "LEFT",
+       "note": "left over = remaining, so over = left"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C = cold, as on a tap"
+      },
+      {
+       "words": "stuff",
+       "gives": "LICK",
+       "note": "to stuff an opponent is to beat them soundly, to lick them"
+      }
      ]
     },
     "explanation": {
@@ -408,39 +361,37 @@
    },
    "solution": "NONU",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "NON-U",
     "definitions": [
      {
       "text": "Possibly inappropriate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has moved",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of speech",
-      "gives": "NON",
-      "note": "NOUN with its U taken out"
-     },
-     {
-      "clueFragment": "you",
-      "gives": "U",
-      "note": "U sounds like 'you', in text-speak; here it moves to the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NON",
-      "U"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NONU",
+     "indicators": [
+      {
+       "text": "has moved"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "part of speech",
+         "gives": "NON",
+         "note": "NOUN with its U taken out"
+        },
+        {
+         "words": "you",
+         "gives": "U",
+         "note": "U sounds like 'you', in text-speak; here it moves to the end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -469,52 +420,47 @@
    },
    "solution": "NOISELESSLY",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "NOISELESSLY",
     "definitions": [
      {
       "text": "still",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "struggling",
-      "note": "the lionesses thrash about, their letters jumbled"
-     },
-     {
-      "text": "empty",
-      "note": "the word is emptied, keeping only its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lionesses",
-      "gives": "NOISELESS",
-      "note": "anagram fodder, 9 letters"
-     },
-     {
-      "clueFragment": "locality",
-      "gives": "LY",
-      "select": "outer",
-      "note": "L(ocalit)Y"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOISELESS",
-      "LY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NOISELESSLY",
+     "parts": [
       {
-       "fodder": "LIONESSESLY",
-       "gives": "NOISELESSLY"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "struggling",
+         "note": "the lionesses thrash about, their letters jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lionesses",
+         "gives": "NOISELESS",
+         "note": "anagram fodder, 9 letters"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "empty",
+           "note": "the word is emptied, keeping only its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "locality",
+           "note": "L(ocalit)Y"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -544,47 +490,42 @@
    },
    "solution": "NELSON",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "NELSON",
     "definitions": [
      {
       "text": "hold",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "to store",
-      "note": "the refusal keeps the other word inside it"
-     },
-     {
-      "text": "mostly",
-      "note": "most of the word, dropping its last letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Charles de Gaulle's refusal",
-      "gives": "NON",
-      "note": "non is French for no, as de Gaulle famously said to British entry into the Common Market"
-     },
-     {
-      "clueFragment": "more",
-      "gives": "ELS",
-      "note": "else = more, minus its last E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ELS",
-      "ON"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "NELSON",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to store",
+         "note": "the refusal keeps the other word inside it"
+        },
+        {
+         "text": "mostly",
+         "note": "most of the word, dropping its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Charles de Gaulle's refusal",
+         "gives": "NON",
+         "note": "non is French for no, as de Gaulle famously said to British entry into the Common Market"
+        },
+        {
+         "words": "more",
+         "gives": "ELS",
+         "note": "else = more, minus its last E"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -613,43 +554,42 @@
    },
    "solution": "HONOLULU",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "HONOLULU",
     "definitions": [
      {
       "text": "Capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "of America",
-      "note": "use the American spelling of the next word"
-     },
-     {
-      "text": "short",
-      "note": "a word that falls short of its full length is missing its end, so HONOR loses its R"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to celebrate",
-      "gives": "HONO",
-      "note": "to honor (American spelling) = to celebrate, cut short to HONO"
-     },
-     {
-      "clueFragment": "Scottish singer",
-      "gives": "LULU",
-      "note": "Lulu is the Scottish pop singer of 'Shout'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HONO",
-      "LULU"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HONOLULU",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "of America",
+         "note": "use the American spelling of the next word"
+        },
+        {
+         "text": "short",
+         "note": "a word that falls short of its full length is missing its end, so HONOR loses its R"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to celebrate",
+         "gives": "HONO",
+         "note": "to honor (American spelling) = to celebrate, cut short to HONO"
+        },
+        {
+         "words": "Scottish singer",
+         "gives": "LULU",
+         "note": "Lulu is the Scottish pop singer of 'Shout'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -678,40 +618,31 @@
    },
    "solution": "FAIRLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FAIRLY",
     "definitions": [
      {
       "text": "A bit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one letter goes inside the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sprite",
-      "gives": "FAIRY",
-      "note": "a sprite is a fairy"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FAIR",
-      "L",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one letter goes inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sprite",
+       "gives": "FAIRY",
+       "note": "a sprite is a fairy"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      }
      ]
     },
     "explanation": {
@@ -741,42 +672,40 @@
    },
    "solution": "ADAPTS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADAPTS",
     "definitions": [
      {
       "text": "Converts",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "plug",
-      "gives": "AD",
-      "note": "a plug is a piece of publicity, an ad"
-     },
-     {
-      "clueFragment": "by",
-      "note": "beside: the pieces sit next to each other"
-     },
-     {
-      "clueFragment": "fitting",
-      "gives": "APT",
-      "note": "apt = fitting"
-     },
-     {
-      "clueFragment": "sulphur",
-      "gives": "S",
-      "note": "S is the chemical symbol for sulphur"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "APT",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "plug",
+         "gives": "AD",
+         "note": "a plug is a piece of publicity, an ad"
+        },
+        {
+         "words": "fitting",
+         "gives": "APT",
+         "note": "apt = fitting"
+        },
+        {
+         "words": "sulphur",
+         "gives": "S",
+         "note": "S is the chemical symbol for sulphur"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "by",
+       "note": "beside: the pieces sit next to each other"
+      }
      ]
     },
     "explanation": {
@@ -805,53 +734,46 @@
    },
    "solution": "PREMEASURED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PREMEASURED",
     "definitions": [
      {
       "text": "determined in advance",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "getting into",
-      "for": "container",
-      "note": "one word enters the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pressure",
-      "gives": "P",
-      "note": "P = pressure, the physics symbol"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "RE",
-      "note": "re = on, concerning"
-     },
-     {
-      "clueFragment": "traditional drink",
-      "gives": "MEAD",
-      "note": "mead, the old honey wine"
-     },
-     {
-      "clueFragment": "firm",
-      "gives": "SURE",
-      "note": "firm = sure, certain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RE",
-      "MEA",
-      "SURE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting into",
+       "note": "one word enters the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Pressure",
+         "gives": "P",
+         "note": "P = pressure, the physics symbol"
+        },
+        {
+         "words": "on",
+         "gives": "RE",
+         "note": "re = on, concerning"
+        },
+        {
+         "words": "traditional drink",
+         "gives": "MEAD",
+         "note": "mead, the old honey wine"
+        }
+       ]
+      },
+      {
+       "words": "firm",
+       "gives": "SURE",
+       "note": "firm = sure, certain"
+      }
      ]
     },
     "explanation": {
@@ -880,49 +802,45 @@
    },
    "solution": "BACHELOR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BACHELOR",
     "definitions": [
      {
       "text": "Single",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "thrown back, so written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "composer",
-      "gives": "BACH",
-      "note": "J.S. Bach"
-     },
-     {
-      "clueFragment": "by",
-      "note": "beside: the part goes next to the composer"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "ROLE",
-      "note": "a part in a play is a role"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACH",
-      "ELOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ROLE",
-       "to": "ELOR"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "composer",
+         "gives": "BACH",
+         "note": "J.S. Bach"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rejected",
+           "note": "thrown back, so written backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "part",
+           "gives": "ROLE",
+           "note": "a part in a play is a role"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "by",
+       "note": "beside: the part goes next to the composer"
       }
      ]
     },
@@ -958,36 +876,35 @@
    },
    "solution": "FRIENDLYFIRE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRIENDLY FIRE",
     "definitions": [
      {
       "text": "Shooting the wrong way",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "football match, perhaps",
-      "gives": "FRIENDLY",
-      "note": "a friendly is a match with nothing at stake; 'perhaps' shows it is one example"
-     },
-     {
-      "clueFragment": "getting",
-      "note": "joins the two pieces"
-     },
-     {
-      "clueFragment": "sack",
-      "gives": "FIRE",
-      "note": "to sack is to fire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRIENDLY",
-      "FIRE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "football match, perhaps",
+         "gives": "FRIENDLY",
+         "note": "a friendly is a match with nothing at stake; 'perhaps' shows it is one example"
+        },
+        {
+         "words": "sack",
+         "gives": "FIRE",
+         "note": "to sack is to fire"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "getting",
+       "note": "joins the two pieces"
+      }
      ]
     },
     "explanation": {
@@ -1023,35 +940,25 @@
    },
    "solution": "DUSTCOVER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DUST COVER",
     "definitions": [
      {
       "text": "Defender of literature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "chewed",
-      "for": "anagram",
-      "note": "the letters are chewed over and mashed up"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cud with voters",
-      "gives": "CUDVOTERS",
-      "note": "anagram fodder, 9 letters; 'with' just joins them"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CUDVOTERS",
-       "gives": "DUSTCOVER"
+       "text": "chewed",
+       "note": "the letters are chewed over and mashed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cud with voters",
+       "gives": "CUDVOTERS",
+       "note": "anagram fodder, 9 letters; 'with' just joins them"
       }
      ]
     },
@@ -1082,32 +989,25 @@
    },
    "solution": "SALUTING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SALUTING",
     "definitions": [
      {
       "text": "Welcoming",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "South American",
-      "gives": "SA",
-      "note": "SA = South America(n)"
-     },
-     {
-      "clueFragment": "playing old instrument",
-      "gives": "LUTING",
-      "note": "luting = playing the lute, an old stringed instrument"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "LUTING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South American",
+       "gives": "SA",
+       "note": "SA = South America(n)"
+      },
+      {
+       "words": "playing old instrument",
+       "gives": "LUTING",
+       "note": "luting = playing the lute, an old stringed instrument"
+      }
      ]
     },
     "explanation": {
@@ -1142,35 +1042,24 @@
    },
    "solution": "EASTPAKISTAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EAST PAKISTAN",
     "definitions": [
      {
       "text": "Bangladesh before sovereignty",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "anagram",
-      "note": "the letters are moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A patient asks",
-      "gives": "APATIENTASKS",
-      "note": "anagram fodder, 12 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "APATIENTASKS",
-       "gives": "EASTPAKISTAN"
+       "text": "about",
+       "note": "the letters are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A patient asks",
+       "note": "anagram fodder, 12 letters"
       }
      ]
     },
@@ -1200,52 +1089,51 @@
    },
    "solution": "PENGUIN",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PENGUIN",
     "definitions": [
      {
       "text": "bird",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "snaring",
-      "note": "the trap catches the letter inside it"
-     },
-     {
-      "text": "head of",
-      "note": "take only the first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Swan",
-      "gives": "PEN",
-      "note": "a pen is a female swan"
-     },
-     {
-      "clueFragment": "trap",
-      "gives": "GIN",
-      "note": "a gin is a snare or trap"
-     },
-     {
-      "clueFragment": "unusual",
-      "gives": "U",
-      "select": "first",
-      "note": "first letter of unusual"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PEN",
-      "G",
-      "U",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "snaring",
+       "note": "the trap catches the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Swan",
+       "gives": "PEN",
+       "note": "a pen is a female swan"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "take only the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trap",
+         "gives": "GIN",
+         "note": "a gin is a snare or trap"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "unusual",
+           "note": "first letter of unusual"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1274,32 +1162,25 @@
    },
    "solution": "FORMBY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FORMBY",
     "definitions": [
      {
       "text": "comic from 1930s",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Produce",
-      "gives": "FORM",
-      "note": "to form is to produce or create"
-     },
-     {
-      "clueFragment": "Times",
-      "gives": "BY",
-      "note": "times = by, as in three by four"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FORM",
-      "BY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Produce",
+       "gives": "FORM",
+       "note": "to form is to produce or create"
+      },
+      {
+       "words": "Times",
+       "gives": "BY",
+       "note": "times = by, as in three by four"
+      }
      ]
     },
     "explanation": {
@@ -1328,53 +1209,61 @@
    },
    "solution": "CORSICAN",
    "annotation": {
-    "type": [
-     "substitution",
-     "container"
-    ],
-    "answer": "CORSICAN",
     "definitions": [
      {
       "text": "French",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "replacing",
-      "note": "one letter takes the place of another"
-     },
-     {
-      "text": "accepting",
-      "note": "the word takes another inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chapter",
-      "gives": "C",
-      "note": "C = chapter"
-     },
-     {
-      "clueFragment": "intro to",
-      "note": "the first letter of the holy book, K, is the one that goes"
-     },
-     {
-      "clueFragment": "holy book",
-      "gives": "KORAN",
-      "note": "the Koran, Islam's scripture"
-     },
-     {
-      "clueFragment": "that's how it was written",
-      "gives": "SIC",
-      "note": "sic, Latin 'thus', is put after a quoted error to say it was written that way"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COR",
-      "SIC",
-      "AN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "CORSICAN",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "replacing",
+         "note": "one letter takes the place of another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "substitution",
+         "unchecked": true,
+         "gives": "CORSICAN",
+         "indicators": [
+          {
+           "text": "accepting",
+           "note": "the word takes another inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chapter",
+           "gives": "C",
+           "note": "C = chapter"
+          },
+          {
+           "words": "holy book",
+           "gives": "KORAN",
+           "note": "the Koran, Islam's scripture"
+          },
+          {
+           "words": "that's how it was written",
+           "gives": "SIC",
+           "note": "sic, Latin 'thus', is put after a quoted error to say it was written that way"
+          }
+         ]
+        },
+        {
+         "unchecked": true,
+         "words": "intro to",
+         "note": "the first letter of the holy book, K, is the one that goes"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1409,25 +1298,15 @@
    },
    "solution": "PAYCUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PAY CUT",
     "definitions": [
      {
       "text": "What could give old man",
-      "at": 0
+      "at": 0,
+      "meaning": "read as an instruction, PAY with Y cut gives PA, the old man"
      },
      {
       "text": "wage reduction",
       "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What could give old man",
-      "gives": "PAYCUT",
-      "note": "read as an instruction, PAY with Y cut gives PA, the old man"
      }
     ],
     "explanation": {
@@ -1457,48 +1336,40 @@
    },
    "solution": "POACH",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "POACH",
     "definitions": [
      {
       "text": "Steal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "expending",
-      "for": "substitution"
-     },
-     {
-      "text": "for",
-      "for": "substitution"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fruit",
-      "gives": "PEACH",
-      "note": "a peach is a fruit"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy, the letter that goes"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O = nothing, zero, the letter that comes in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "O",
-      "ACH"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "POACH",
+     "indicators": [
+      {
+       "text": "expending"
+      },
+      {
+       "text": "for"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit",
+       "gives": "PEACH",
+       "note": "a peach is a fruit"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E = energy, the letter that goes"
+      },
+      {
+       "words": "nothing",
+       "gives": "O",
+       "note": "O = nothing, zero, the letter that comes in"
+      }
      ]
     },
     "explanation": {
@@ -1527,33 +1398,28 @@
    },
    "solution": "IMPROV",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IMPROV",
     "definitions": [
      {
       "text": "performance without rehearsal",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "to skip last",
-      "for": "deletion",
-      "note": "to skip something is to leave it out, so the word leaves out its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Better",
-      "gives": "IMPROV",
-      "note": "improve = better, losing its last letter E"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMPROV"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "IMPROV",
+     "indicators": [
+      {
+       "text": "to skip last",
+       "note": "to skip something is to leave it out, so the word leaves out its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Better",
+       "gives": "IMPROV",
+       "note": "improve = better, losing its last letter E"
+      }
      ]
     },
     "explanation": {
@@ -1582,51 +1448,40 @@
    },
    "solution": "UNAFRAID",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "UNAFRAID",
     "definitions": [
      {
       "text": "Confident",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "going backwards, so the word is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "United",
-      "gives": "U",
-      "note": "U = United, as in football team names"
-     },
-     {
-      "clueFragment": "supporter",
-      "gives": "FAN",
-      "note": "a supporter is a fan"
-     },
-     {
-      "clueFragment": "attack",
-      "gives": "RAID",
-      "note": "a raid is an attack"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NAF",
-      "RAID"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "FAN",
-       "to": "NAF"
+       "words": "United",
+       "gives": "U",
+       "note": "U = United, as in football team names"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "going backwards, so the word is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "supporter",
+         "gives": "FAN",
+         "note": "a supporter is a fan"
+        }
+       ]
+      },
+      {
+       "words": "attack",
+       "gives": "RAID",
+       "note": "a raid is an attack"
       }
      ]
     },
@@ -1656,26 +1511,25 @@
    },
    "solution": "RHO",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RHO",
     "definitions": [
      {
       "text": "P for Pythagoras?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "P",
-      "note": "the surface reading: the English letter P, as in an alphabet primer"
-     },
-     {
-      "clueFragment": "for Pythagoras?",
-      "note": "the setter's reading: Pythagoras was Greek, so ask what a Greek would call the letter shaped like P"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "P",
+       "note": "the surface reading: the English letter P, as in an alphabet primer"
+      },
+      {
+       "words": "for Pythagoras?",
+       "note": "the setter's reading: Pythagoras was Greek, so ask what a Greek would call the letter shaped like P"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A classroom label: P is for Pythagoras.",
      "walkthrough": "'P for Pythagoras' looks like an alphabet primer; Pythagoras was Greek, and in the Greek alphabet the letter written P is rho.",
@@ -1703,31 +1557,29 @@
    },
    "solution": "EYED",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "EYED",
     "definitions": [
      {
       "text": "Observed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "under discussion",
-      "for": "homophone",
-      "note": "being talked about, so spoken out loud"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "EYED",
-      "soundsLike": "IDE",
-      "note": "the ide is a freshwater fish"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYED",
+     "indicators": [
+      {
+       "text": "under discussion",
+       "note": "being talked about, so spoken out loud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A fish being watched while people talk about it.",
      "walkthrough": "The ide, a carp-like fish, is a crossword regular.",
@@ -1760,53 +1612,40 @@
    },
    "solution": "RUNTHROUGH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUN-THROUGH",
     "definitions": [
      {
       "text": "practice",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Doubly",
-      "for": "charade",
-      "note": "use 'hard' twice, in two different forms"
-     },
-     {
-      "text": "to follow",
-      "for": "charade",
-      "note": "what follows comes after, so the hard pieces go after the creature"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small creature",
-      "gives": "RUNT",
-      "note": "the runt is the smallest of a litter"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "H",
-      "note": "H = hard, as on pencils"
-     },
-     {
-      "clueFragment": "hard",
-      "gives": "ROUGH",
-      "note": "rough = hard, harsh"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUNT",
-      "H",
-      "ROUGH"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Doubly",
+       "note": "use 'hard' twice, in two different forms"
+      },
+      {
+       "text": "to follow",
+       "note": "what follows comes after, so the hard pieces go after the creature"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small creature",
+       "gives": "RUNT",
+       "note": "the runt is the smallest of a litter"
+      },
+      {
+       "words": "hard",
+       "gives": "H",
+       "note": "H = hard, as on pencils"
+      },
+      {
+       "words": "hard",
+       "gives": "ROUGH",
+       "note": "rough = hard, harsh"
+      }
      ]
     },
     "explanation": {

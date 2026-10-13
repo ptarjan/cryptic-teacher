@@ -1,8 +1,6 @@
 {
  "id": "quiptic-598",
  "number": 598,
- "series": "quiptic",
- "name": "Quiptic crossword No 598",
  "setter": "Arachne",
  "date": "2011-05-02",
  "dimensions": {
@@ -38,50 +36,43 @@
    },
    "solution": "USURER",
    "annotation": {
-    "type": [
-     "homophone",
-     "container"
-    ],
-    "answer": "USURER",
     "definitions": [
      {
       "text": "moneylender",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "'said' tells you to hear 'you are' spoken, which comes out as the letters U and R"
-     },
-     {
-      "text": "taken in by",
-      "for": "container",
-      "note": "the sound-alike is taken inside the word for the drug addict"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drug addict",
-      "gives": "USER",
-      "note": "a user takes drugs"
-     },
-     {
-      "clueFragment": "You are said",
-      "gives": "UR",
-      "soundsLike": "YOU ARE",
-      "note": "text-speak spelling of what you say"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "UR",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "note": "the sound-alike is taken inside the word for the drug addict"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drug addict",
+       "gives": "USER",
+       "note": "a user takes drugs"
+      },
+      {
+       "op": "homophone",
+       "spelt": "UR",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "'said' tells you to hear 'you are' spoken, which comes out as the letters U and R"
+        }
+       ],
+       "parts": [
+        {
+         "words": "You are said",
+         "gives": "YOUARE",
+         "note": "text-speak spelling of what you say"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -120,35 +111,24 @@
     "19-down"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MANCHESTER UNITED",
     "definitions": [
      {
       "text": "Football team",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in lively fashion",
-      "for": "anagram",
-      "note": "letters moving about in a lively way get jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "entertained chums",
-      "gives": "ENTERTAINEDCHUMS",
-      "note": "the sixteen letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ENTERTAINEDCHUMS",
-       "gives": "MANCHESTERUNITED"
+       "text": "in lively fashion",
+       "note": "letters moving about in a lively way get jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "entertained chums",
+       "note": "the sixteen letters to rearrange"
       }
      ]
     },
@@ -178,35 +158,24 @@
    },
    "solution": "CONFETTI",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CONFETTI",
     "definitions": [
      {
       "text": "It is widespread at weddings",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "controlled",
-      "for": "anagram",
-      "note": "the letters are taken in hand and put into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "etc, if not",
-      "gives": "ETCIFNOT",
-      "note": "the eight letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ETCIFNOT",
-       "gives": "CONFETTI"
+       "text": "controlled",
+       "note": "the letters are taken in hand and put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "etc, if not",
+       "note": "the eight letters to rearrange"
       }
      ]
     },
@@ -236,47 +205,40 @@
    },
    "solution": "ACCOST",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ACCOST",
     "definitions": [
      {
       "text": "Buttonhole",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Asda",
-      "gives": "A",
-      "select": "first",
-      "note": "first letter of Asda"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "C for circa, 'about'"
-     },
-     {
-      "clueFragment": "price",
-      "gives": "COST",
-      "note": "a price is what something costs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "COST"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Asda",
+         "note": "first letter of Asda"
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "gives": "C",
+       "note": "C for circa, 'about'"
+      },
+      {
+       "words": "price",
+       "gives": "COST",
+       "note": "a price is what something costs"
+      }
      ]
     },
     "explanation": {
@@ -305,10 +267,6 @@
    },
    "solution": "ASSASSIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASSASSIN",
     "definitions": [
      {
       "text": "She murders",
@@ -316,23 +274,19 @@
       "note": "a verb phrase standing for the noun: 'she (who) murders'"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "two fools",
-      "gives": "ASSASS",
-      "note": "two asses"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "to be at home is to be in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASS",
-      "ASS",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "two fools",
+       "gives": "ASSASS",
+       "note": "two asses"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "to be at home is to be in"
+      }
      ]
     },
     "explanation": {
@@ -361,35 +315,25 @@
    },
    "solution": "COUPLING",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COUPLING",
     "definitions": [
      {
       "text": "sex",
       "at": 22
      }
     ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Stroke",
-      "gives": "COUP",
-      "note": "a stroke, as in a masterstroke or clever move"
-     },
-     {
-      "clueFragment": "Heather",
-      "gives": "LING",
-      "note": "ling is common heather"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUP",
-      "LING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stroke",
+       "gives": "COUP",
+       "note": "a stroke, as in a masterstroke or clever move"
+      },
+      {
+       "words": "Heather",
+       "gives": "LING",
+       "note": "ling is common heather"
+      }
      ]
     },
     "explanation": {
@@ -424,40 +368,31 @@
    },
    "solution": "CANONLAW",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CANON LAW",
     "definitions": [
      {
       "text": "church rules",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "grasped",
-      "for": "container",
-      "note": "the nipper's claw holds the other word inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nipper",
-      "gives": "CLAW",
-      "note": "a crab's claw nips"
-     },
-     {
-      "clueFragment": "soon",
-      "gives": "ANON",
-      "note": "anon is an old word for soon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ANON",
-      "LAW"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasped",
+       "note": "the nipper's claw holds the other word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nipper",
+       "gives": "CLAW",
+       "note": "a crab's claw nips"
+      },
+      {
+       "words": "soon",
+       "gives": "ANON",
+       "note": "anon is an old word for soon"
+      }
      ]
     },
     "explanation": {
@@ -486,32 +421,25 @@
    },
    "solution": "LOOK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOOK",
     "definitions": [
      {
       "text": "manner",
       "at": 13
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "John's",
-      "gives": "LOO",
-      "note": "a john is a toilet, a loo; the 's reads as 'has'"
-     },
-     {
-      "clueFragment": "grand",
-      "gives": "K",
-      "note": "a grand is a thousand, K"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOO",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "John's",
+       "gives": "LOO",
+       "note": "a john is a toilet, a loo; the 's reads as 'has'"
+      },
+      {
+       "words": "grand",
+       "gives": "K",
+       "note": "a grand is a thousand, K"
+      }
      ]
     },
     "explanation": {
@@ -540,37 +468,25 @@
    },
    "solution": "WADE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "WADE",
     "definitions": [
      {
       "text": "walk through water",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "taking letters at regular intervals means every other one"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "We and he",
-      "gives": "WADE",
-      "select": "alternate",
-      "note": "the odd-numbered letters, ignoring the spaces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "A",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "taking letters at regular intervals means every other one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "We and he",
+       "note": "the odd-numbered letters, ignoring the spaces"
+      }
      ]
     },
     "explanation": {
@@ -599,31 +515,16 @@
    },
    "solution": "SQUARE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SQUARE",
     "definitions": [
      {
       "text": "Four, for example",
-      "at": 0
+      "at": 0,
+      "meaning": "four is two times two, a number of that kind"
      },
      {
       "text": "even",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Four, for example",
-      "note": "four is two times two, a number of that kind"
-     },
-     {
-      "clueFragment": "even",
-      "note": "level, with nothing owed either way"
+      "at": 22,
+      "meaning": "level, with nothing owed either way"
      }
     ],
     "explanation": {
@@ -652,41 +553,30 @@
    },
    "solution": "SCAFFOLD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SCAFFOLD",
     "definitions": [
      {
       "text": "place of execution",
       "at": 39
      }
     ],
-    "linkWords": [
-     "next to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Small",
-      "gives": "S",
-      "note": "S is the size abbreviation for small"
-     },
-     {
-      "clueFragment": "informal eaterie",
-      "gives": "CAFF",
-      "note": "a caff is British slang for a cheap café"
-     },
-     {
-      "clueFragment": "former",
-      "gives": "OLD",
-      "note": "former, as in old times"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "CAFF",
-      "OLD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "gives": "S",
+       "note": "S is the size abbreviation for small"
+      },
+      {
+       "words": "informal eaterie",
+       "gives": "CAFF",
+       "note": "a caff is British slang for a cheap café"
+      },
+      {
+       "words": "former",
+       "gives": "OLD",
+       "note": "former, as in old times"
+      }
      ]
     },
     "explanation": {
@@ -721,26 +611,25 @@
    },
    "solution": "SELFRESPECT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SELF-RESPECT",
     "definitions": [
      {
       "text": "amour propre",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Novelist Will's",
-      "note": "Will Self is a British novelist, so this is the regard belonging to him"
-     },
-     {
-      "clueFragment": "amour propre",
-      "note": "French for regard for oneself"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Novelist Will's",
+       "note": "Will Self is a British novelist, so this is the regard belonging to him"
+      },
+      {
+       "words": "amour propre",
+       "note": "French for regard for oneself"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Will Self is a British novelist, so the respect belonging to him is Self's respect.",
      "definitionFit": "A borrowed phrase: amour propre is French for love of oneself, a sense of one's own worth."
@@ -767,47 +656,33 @@
    },
    "solution": "SWEETHEART",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SWEETHEART",
     "definitions": [
      {
       "text": "Lover",
       "at": 0
      }
     ],
-    "linkWords": [
-     "but has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'s",
-      "gives": "S",
-      "note": "the S of the possessive"
-     },
-     {
-      "clueFragment": "little",
-      "gives": "WEE",
-      "note": "wee is Scottish for little"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "knack",
-      "gives": "ART",
-      "note": "a knack is an art"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEE",
-      "THE",
-      "ART"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "'s",
+       "note": "the S of the possessive"
+      },
+      {
+       "words": "little",
+       "gives": "WEE",
+       "note": "wee is Scottish for little"
+      },
+      {
+       "words": "the",
+       "note": "used as it stands"
+      },
+      {
+       "words": "knack",
+       "gives": "ART",
+       "note": "a knack is an art"
+      }
      ]
     },
     "explanation": {
@@ -836,28 +711,16 @@
    },
    "solution": "DISPLACE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DISPLACE",
     "definitions": [
      {
       "text": "Move",
-      "at": 0
+      "at": 0,
+      "meaning": "to shift something from where it was"
      },
      {
       "text": "Althorp once",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Move",
-      "note": "to shift something from where it was"
-     },
-     {
-      "clueFragment": "Althorp once",
-      "note": "the Spencer family estate where Princess Diana grew up; read the answer as three words"
+      "at": 5,
+      "meaning": "the Spencer family estate where Princess Diana grew up; read the answer as three words"
      }
     ],
     "explanation": {
@@ -886,35 +749,24 @@
    },
    "solution": "PLAYTIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PLAYTIME",
     "definitions": [
      {
       "text": "when others are having fun",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "bullied",
-      "for": "anagram",
-      "note": "the letters are pushed around into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pity male",
-      "gives": "PITYMALE",
-      "note": "the eight letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PITYMALE",
-       "gives": "PLAYTIME"
+       "text": "bullied",
+       "note": "the letters are pushed around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pity male",
+       "note": "the eight letters to rearrange"
       }
      ]
     },
@@ -944,45 +796,43 @@
    },
    "solution": "IGNOBLE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "IGNOBLE",
     "definitions": [
      {
       "text": "Despicable",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of the way",
-      "for": "deletion"
-     },
-     {
-      "text": "rogue",
-      "for": "anagram",
-      "note": "rogue letters stray from their proper order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elbowing",
-      "gives": "ELBOWING",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "wife",
-      "gives": "W",
-      "note": "W is the standard abbreviation for wife"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IGNOBLE",
+     "indicators": [
       {
-       "fodder": "ELBOING",
-       "gives": "IGNOBLE"
+       "text": "rogue",
+       "note": "rogue letters stray from their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "IGNOBLE",
+       "indicators": [
+        {
+         "text": "out of the way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elbowing",
+         "note": "used as it stands"
+        },
+        {
+         "words": "wife",
+         "gives": "W",
+         "note": "W is the standard abbreviation for wife"
+        }
+       ]
       }
      ]
     },
@@ -1012,41 +862,25 @@
    },
    "solution": "BOWSPRIT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "BOWSPRIT",
     "definitions": [
      {
       "text": "Spar",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "Leading",
-      "for": "letter_selection",
-      "note": "the leading letter of each word is its first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "brands offered with special price reductions in the",
-      "gives": "BOWSPRIT",
-      "select": "first",
-      "note": "first letters of the eight words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "O",
-      "W",
-      "S",
-      "P",
-      "R",
-      "I",
-      "T"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Leading",
+       "note": "the leading letter of each word is its first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brands offered with special price reductions in the",
+       "note": "first letters of the eight words"
+      }
      ]
     },
     "explanation": {
@@ -1076,40 +910,31 @@
    },
    "solution": "TRIVIAL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRIVIAL",
     "definitions": [
      {
       "text": "Minor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "enthrals",
-      "for": "container",
-      "note": "to enthral is to hold captive, so the trial holds the girl inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "court case",
-      "gives": "TRIAL",
-      "note": "a case heard in court"
-     },
-     {
-      "clueFragment": "little girl",
-      "gives": "VI",
-      "note": "Vi is short for Violet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRI",
-      "VI",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthrals",
+       "note": "to enthral is to hold captive, so the trial holds the girl inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "court case",
+       "gives": "TRIAL",
+       "note": "a case heard in court"
+      },
+      {
+       "words": "little girl",
+       "gives": "VI",
+       "note": "Vi is short for Violet"
+      }
      ]
     },
     "explanation": {
@@ -1144,35 +969,24 @@
    },
    "solution": "WATERSUPPLY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WATER SUPPLY",
     "definitions": [
      {
       "text": "source of liquid",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "pathetic",
-      "for": "anagram",
-      "note": "the letters are in a sorry state and must be put right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "We sup paltry",
-      "gives": "WESUPPALTRY",
-      "note": "the eleven letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "WESUPPALTRY",
-       "gives": "WATERSUPPLY"
+       "text": "pathetic",
+       "note": "the letters are in a sorry state and must be put right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "We sup paltry",
+       "note": "the eleven letters to rearrange"
       }
      ]
     },
@@ -1215,23 +1029,22 @@
    },
    "solution": "SCAM",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SCAM",
     "definitions": [
      {
       "text": "wicked scheme",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Suss Cameron",
-      "gives": "SCAM",
-      "note": "suS CAMeron"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "parts": [
+      {
+       "words": "Suss Cameron",
+       "gives": "SCAM",
+       "note": "suS CAMeron"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Seeing through a former Prime Minister's dodgy plan.",
      "walkthrough": "There is no signal word; the answer simply runs across 'Suss Cameron', and the 's is a link. Suss is British slang for work out.",
@@ -1258,38 +1071,25 @@
    },
    "solution": "TOOL",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TOOL",
     "definitions": [
      {
       "text": "Perhaps saw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "being raised",
-      "for": "reversal",
-      "note": "in a down clue, raising the word reads it bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money",
-      "gives": "LOOT",
-      "note": "loot is slang for money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOOL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LOOT",
-       "to": "TOOL"
+       "text": "being raised",
+       "note": "in a down clue, raising the word reads it bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "money",
+       "gives": "LOOT",
+       "note": "loot is slang for money"
       }
      ]
     },
@@ -1319,35 +1119,24 @@
    },
    "solution": "CROUPIER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CROUPIER",
     "definitions": [
      {
       "text": "Dealer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "manipulating",
-      "for": "anagram",
-      "note": "the letters are worked into a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "our price",
-      "gives": "OURPRICE",
-      "note": "the eight letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OURPRICE",
-       "gives": "CROUPIER"
+       "text": "manipulating",
+       "note": "the letters are worked into a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "our price",
+       "note": "the eight letters to rearrange"
       }
      ]
     },
@@ -1377,55 +1166,39 @@
    },
    "solution": "DIWALI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DIWALI",
     "definitions": [
      {
       "text": "festival",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "retrospectively",
-      "for": "reversal",
-      "note": "looking back means reading the word backwards"
-     }
-    ],
-    "linkWords": [
-     "applied",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Policeman",
-      "gives": "DI",
-      "note": "Detective Inspector"
-     },
-     {
-      "clueFragment": "law",
-      "gives": "LAW",
-      "note": "used as it stands, then reversed"
-     },
-     {
-      "clueFragment": "international",
-      "gives": "I",
-      "note": "I is the abbreviation for international"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "WAL",
-      "I"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LAW",
-       "to": "WAL"
+       "words": "Policeman",
+       "gives": "DI",
+       "note": "Detective Inspector"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retrospectively",
+         "note": "looking back means reading the word backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "law",
+         "note": "used as it stands, then reversed"
+        }
+       ]
+      },
+      {
+       "words": "international",
+       "gives": "I",
+       "note": "I is the abbreviation for international"
       }
      ]
     },
@@ -1455,50 +1228,39 @@
    },
    "solution": "MILLIARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MILLIARD",
     "definitions": [
      {
       "text": "big number",
       "at": 22
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "1000",
-      "gives": "M",
-      "note": "M is 1000 in Roman numerals"
-     },
-     {
-      "clueFragment": "49",
-      "gives": "IL",
-      "note": "IL is 49 in Roman numerals"
-     },
-     {
-      "clueFragment": "51",
-      "gives": "LI",
-      "note": "LI is 51 in Roman numerals"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "way",
-      "gives": "RD",
-      "note": "RD is the abbreviation for road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "IL",
-      "LI",
-      "A",
-      "RD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1000",
+       "gives": "M",
+       "note": "M is 1000 in Roman numerals"
+      },
+      {
+       "words": "49",
+       "gives": "IL",
+       "note": "IL is 49 in Roman numerals"
+      },
+      {
+       "words": "51",
+       "gives": "LI",
+       "note": "LI is 51 in Roman numerals"
+      },
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "words": "way",
+       "gives": "RD",
+       "note": "RD is the abbreviation for road"
+      }
      ]
     },
     "explanation": {
@@ -1527,30 +1289,28 @@
    },
    "solution": "REVERE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "REVERE",
     "definitions": [
      {
       "text": "honour",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "protecting",
-      "for": "hidden_word",
-      "note": "the words shield the answer inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Forever embrace",
-      "gives": "REVERE",
-      "note": "foREVER Embrace"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "protecting",
+       "note": "the words shield the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Forever embrace",
+       "gives": "REVERE",
+       "note": "foREVER Embrace"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A promise of an everlasting hug that keeps someone's good name safe.",
      "walkthrough": "The answer runs across the gap between 'Forever' and 'embrace'.",

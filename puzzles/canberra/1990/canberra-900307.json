@@ -1,8 +1,7 @@
 {
  "id": "canberra-900307",
  "number": 900307,
- "series": "canberra",
- "name": "Canberra Times cryptic crossword, Wednesday 7 March 1990 (English cryptic)",
+ "label": "English cryptic",
  "date": "1990-03-07",
  "dimensions": {
   "cols": 15,
@@ -40,50 +39,41 @@
    },
    "solution": "SCARCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCARCE",
     "definitions": [
      {
       "text": "rare",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Keeping",
-      "for": "container",
-      "note": "one word keeping another holds it inside itself, so one piece sits within the other"
-     },
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its front, so only its opening letter is used"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "panic",
-      "gives": "SCARE",
-      "note": "a scare is a sudden panic"
-     },
-     {
-      "clueFragment": "clear",
-      "gives": "C",
-      "select": "first",
-      "note": "the first letter of clear"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCAR",
-      "C",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Keeping",
+       "note": "one word keeping another holds it inside itself, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "panic",
+       "gives": "SCARE",
+       "note": "a scare is a sudden panic"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its front, so only its opening letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clear",
+         "note": "the first letter of clear"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -112,32 +102,25 @@
    },
    "solution": "SKIPPER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SKIPPER",
     "definitions": [
      {
       "text": "the man in charge",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Bound",
-      "gives": "SKIP",
-      "note": "to skip is to bound or leap"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "PER",
-      "note": "per means for, as in so much per head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKIP",
-      "PER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bound",
+       "gives": "SKIP",
+       "note": "to skip is to bound or leap"
+      },
+      {
+       "words": "for",
+       "gives": "PER",
+       "note": "per means for, as in so much per head"
+      }
      ]
     },
     "explanation": {
@@ -166,34 +149,38 @@
    },
    "solution": "AISLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "AISLE",
     "definitions": [
      {
       "text": "A passage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from",
-      "for": "hidden_word",
-      "note": "taken from the words that follow, so the answer is lifted out of their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Paisley",
-      "gives": "AISLE",
-      "note": "the letters run inside this word"
-     },
-     {
-      "clueFragment": "Girls",
-      "note": "surface padding: completes the title in quotes and gives no letters"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "from",
+         "note": "taken from the words that follow, so the answer is lifted out of their letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paisley",
+         "gives": "AISLE",
+         "note": "the letters run inside this word"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "Girls",
+       "note": "surface padding: completes the title in quotes and gives no letters"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Quoting an extract from a story or song about girls from Paisley.",
      "walkthrough": "Paisley is a Scottish town. 'Passage' looks like a quotation; it is a walkway.",
@@ -220,29 +207,17 @@
    },
    "solution": "CHRISTIAN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHRISTIAN",
     "definitions": [
      {
       "text": "Fletcher",
       "at": 0,
-      "note": "a first name pointing to a surname, Fletcher Christian"
+      "note": "a first name pointing to a surname, Fletcher Christian",
+      "meaning": "first meaning: Fletcher ..., leader of the 1789 mutiny on HMS Bounty"
      },
      {
       "text": "a person of high principles",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fletcher",
-      "note": "first meaning: Fletcher ..., leader of the 1789 mutiny on HMS Bounty"
-     },
-     {
-      "clueFragment": "a person of high principles",
-      "note": "second meaning: a decent, upright person"
+      "at": 11,
+      "meaning": "second meaning: a decent, upright person"
      }
     ],
     "explanation": {
@@ -270,43 +245,30 @@
    },
    "solution": "SHEARED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SHEARED",
     "definitions": [
      {
       "text": "cut",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "put into",
-      "for": "container",
-      "note": "putting one thing into another places it inside, so these letters go within the next word"
-     }
-    ],
-    "linkWords": [
-     "when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "store",
-      "gives": "SHED",
-      "note": "a shed is a place to store things"
-     },
-     {
-      "clueFragment": "Are",
-      "gives": "ARE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "ARE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put into",
+       "note": "putting one thing into another places it inside, so these letters go within the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "store",
+       "gives": "SHED",
+       "note": "a shed is a place to store things"
+      },
+      {
+       "words": "Are",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -335,35 +297,28 @@
    },
    "solution": "SEEDBED",
    "annotation": {
-    "type": [
-     "charade",
-     "and_lit"
-    ],
-    "answer": "SEEDBED",
     "definitions": [
      {
       "text": "Tennis star's place of retirement?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Tennis star's",
-      "gives": "SEED",
-      "note": "a top-ranked tennis player is a seed in a tournament draw"
-     },
-     {
-      "clueFragment": "place of retirement",
-      "gives": "BED",
-      "note": "a bed is where you go when you retire for the night"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SEED",
-      "BED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tennis star's",
+       "gives": "SEED",
+       "note": "a top-ranked tennis player is a seed in a tournament draw"
+      },
+      {
+       "words": "place of retirement",
+       "gives": "BED",
+       "note": "a bed is where you go when you retire for the night"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Where a tennis champion goes to live after quitting the circuit.",
      "walkthrough": "The whole clue is also the definition: a bed is where a seed is laid, and the question mark flags the pun on seeded players.",
@@ -391,40 +346,31 @@
    },
    "solution": "EVADE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EVADE",
     "definitions": [
      {
       "text": "Avoid",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in the next word, so one piece sits inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the evening",
-      "gives": "EVE",
-      "note": "eve is a poetic word for the evening"
-     },
-     {
-      "clueFragment": "notice",
-      "gives": "AD",
-      "note": "an ad is a notice in a paper"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EV",
-      "AD",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in the next word, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the evening",
+       "gives": "EVE",
+       "note": "eve is a poetic word for the evening"
+      },
+      {
+       "words": "notice",
+       "gives": "AD",
+       "note": "an ad is a notice in a paper"
+      }
      ]
     },
     "explanation": {
@@ -452,38 +398,24 @@
    },
    "solution": "RESILIENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESILIENT",
     "definitions": [
      {
       "text": "Hardy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "organisation",
-      "for": "anagram",
-      "note": "organising things arranges them, so these letters are put in a new order"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "inter-isle",
-      "gives": "INTERISLE",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INTERISLE",
-       "gives": "RESILIENT"
+       "text": "organisation",
+       "note": "organising things arranges them, so these letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "inter-isle",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -513,42 +445,31 @@
    },
    "solution": "DAMASK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DAMASK",
     "definitions": [
      {
       "text": "material",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "charade",
-      "note": "says the mother word comes before the other one in the answer"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the mother",
-      "gives": "DAM",
-      "note": "a dam is an animal's mother"
-     },
-     {
-      "clueFragment": "Question",
-      "gives": "ASK",
-      "note": "to ask is to question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DAM",
-      "ASK"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "note": "says the mother word comes before the other one in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the mother",
+       "gives": "DAM",
+       "note": "a dam is an animal's mother"
+      },
+      {
+       "words": "Question",
+       "gives": "ASK",
+       "note": "to ask is to question"
+      }
      ]
     },
     "explanation": {
@@ -577,48 +498,35 @@
    },
    "solution": "UNSUNG",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "UNSUNG",
     "definitions": [
      {
       "text": "not celebrated",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "comeback",
-      "for": "reversal",
-      "note": "a comeback is a return, so the word is read going back the other way"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A French",
-      "gives": "UN",
-      "note": "un is French for a"
-     },
-     {
-      "clueFragment": "beast's",
-      "gives": "GNUS",
-      "note": "the gnu, or wildebeest, with its possessive s"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "SUNG"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "GNUS",
-       "to": "SUNG"
+       "words": "A French",
+       "gives": "UN",
+       "note": "un is French for a"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comeback",
+         "note": "a comeback is a return, so the word is read going back the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beast's",
+         "gives": "GNUS",
+         "note": "the gnu, or wildebeest, with its possessive s"
+        }
+       ]
       }
      ]
     },
@@ -647,48 +555,34 @@
    },
    "solution": "INSURANCE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "INSURANCE",
     "definitions": [
      {
       "text": "cover",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "change",
-      "for": "anagram",
-      "note": "to change the letters is to rearrange them into a different order"
-     }
-    ],
-    "linkWords": [
-     "this"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "nurse can",
-      "gives": "NURSECAN",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "NSURANCE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NURSECAN",
-       "gives": "NSURANCE"
+       "words": "One",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "note": "to change the letters is to rearrange them into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nurse can",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -718,10 +612,6 @@
    },
    "solution": "ADSUM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADSUM",
     "definitions": [
      {
       "text": "present",
@@ -729,28 +619,23 @@
       "note": "adsum is the Latin roll-call reply 'I am present', so it stands for the word as said in answer to a register"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "large number",
-      "gives": "D",
-      "note": "D is the Roman numeral for 500"
-     },
-     {
-      "clueFragment": "all",
-      "gives": "SUM",
-      "note": "the sum is the whole amount, all of it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "D",
-      "SUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "large number",
+       "gives": "D",
+       "note": "D is the Roman numeral for 500"
+      },
+      {
+       "words": "all",
+       "gives": "SUM",
+       "note": "the sum is the whole amount, all of it"
+      }
      ]
     },
     "explanation": {
@@ -779,31 +664,16 @@
    },
    "solution": "PRESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PRESS",
     "definitions": [
      {
       "text": "Newsmen",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: journalists collectively"
      },
      {
       "text": "force",
-      "at": 11
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Newsmen",
-      "note": "first meaning: journalists collectively"
-     },
-     {
-      "clueFragment": "force",
-      "note": "second meaning: to push or compel"
+      "at": 11,
+      "meaning": "second meaning: to push or compel"
      }
     ],
     "explanation": {
@@ -832,26 +702,25 @@
    },
    "solution": "UMBRELLAS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "UMBRELLAS",
     "definitions": [
      {
       "text": "They're kept for that rainy day",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They're kept for that rainy day",
-      "note": "surface reading: savings put by for hard times, as in the idiom 'saving for a rainy day'"
-     },
-     {
-      "clueFragment": "They're kept for that rainy day",
-      "note": "setter's reading: items kept to be used literally when it rains"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They're kept for that rainy day",
+       "note": "surface reading: savings put by for hard times, as in the idiom 'saving for a rainy day'"
+      },
+      {
+       "words": "They're kept for that rainy day",
+       "note": "setter's reading: items kept to be used literally when it rains"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The idiom points to money saved for a crisis; the setter means something kept in the hall stand for actual wet weather.",
      "definitionFit": "Umbrellas are kept at home unused until a day of rain, when they come out to keep people dry."
@@ -878,32 +747,17 @@
    },
    "solution": "READING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "READING",
     "definitions": [
      {
       "text": "Studying",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: poring over books"
      },
      {
       "text": "university",
       "at": 13,
-      "note": "names one particular university, the University of Reading, by its town"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Studying",
-      "note": "first meaning: poring over books"
-     },
-     {
-      "clueFragment": "university",
-      "note": "second meaning: ..., an English town with a university, west of London"
+      "note": "names one particular university, the University of Reading, by its town",
+      "meaning": "second meaning: ..., an English town with a university, west of London"
      }
     ],
     "explanation": {
@@ -932,28 +786,16 @@
    },
    "solution": "ABANDONED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ABANDONED",
     "definitions": [
      {
       "text": "Left",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: deserted, walked out on"
      },
      {
       "text": "unrestrained",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left",
-      "note": "first meaning: deserted, walked out on"
-     },
-     {
-      "clueFragment": "unrestrained",
-      "note": "second meaning: wild, uninhibited"
+      "at": 5,
+      "meaning": "second meaning: wild, uninhibited"
      }
     ],
     "explanation": {
@@ -981,45 +823,35 @@
    },
    "solution": "DENSER",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "DENSER",
     "definitions": [
      {
       "text": "More dull",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "retirement",
-      "for": "reversal",
-      "note": "retiring means withdrawing or going back, so the short word just before is turned round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "resorts",
-      "gives": "DENS",
-      "note": "dens are haunts or places one resorts to"
-     },
-     {
-      "clueFragment": "concerned with",
-      "gives": "RE",
-      "note": "re means regarding or concerning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DENS",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RE",
-       "to": "ER"
+       "words": "resorts",
+       "gives": "DENS",
+       "note": "dens are haunts or places one resorts to"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retirement",
+         "note": "retiring means withdrawing or going back, so the short word just before is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concerned with",
+         "gives": "RE",
+         "note": "re means regarding or concerning"
+        }
+       ]
       }
      ]
     },
@@ -1049,35 +881,24 @@
    },
    "solution": "NIGHTMARE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NIGHTMARE",
     "definitions": [
      {
       "text": "An alarming experience",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "may be set",
-      "for": "anagram",
-      "note": "setting things in place arranges them, so these letters can be laid out differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men aright",
-      "gives": "MENARIGHT",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MENARIGHT",
-       "gives": "NIGHTMARE"
+       "text": "may be set",
+       "note": "setting things in place arranges them, so these letters can be laid out differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men aright",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1106,32 +927,25 @@
    },
    "solution": "GARNET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GARNET",
     "definitions": [
      {
       "text": "A stone",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "GAR",
-      "note": "the gar is a long-snouted fish"
-     },
-     {
-      "clueFragment": "trap",
-      "gives": "NET",
-      "note": "a net traps fish or birds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAR",
-      "NET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "GAR",
+       "note": "the gar is a long-snouted fish"
+      },
+      {
+       "words": "trap",
+       "gives": "NET",
+       "note": "a net traps fish or birds"
+      }
      ]
     },
     "explanation": {
@@ -1160,28 +974,16 @@
    },
    "solution": "TOTTERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TOTTERS",
     "definitions": [
      {
       "text": "Staggers",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: walks unsteadily"
      },
      {
       "text": "the salvage-collectors",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Staggers",
-      "note": "first meaning: walks unsteadily"
-     },
-     {
-      "clueFragment": "the salvage-collectors",
-      "note": "second meaning: ..., British slang for rag-and-bone men who collect scrap"
+      "at": 9,
+      "meaning": "second meaning: ..., British slang for rag-and-bone men who collect scrap"
      }
     ],
     "explanation": {
@@ -1209,35 +1011,24 @@
    },
    "solution": "LIGHTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LIGHTER",
     "definitions": [
      {
       "text": "slimmer",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "Model",
-      "for": "anagram",
-      "note": "to model something is to shape it, so these letters are moulded into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl — the",
-      "gives": "GIRLTHE",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "GIRLTHE",
-       "gives": "LIGHTER"
+       "text": "Model",
+       "note": "to model something is to shape it, so these letters are moulded into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl — the",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1267,35 +1058,25 @@
    },
    "solution": "LARDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LARDER",
     "definitions": [
      {
       "text": "Store",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fat",
-      "gives": "LARD",
-      "note": "lard is pig fat"
-     },
-     {
-      "clueFragment": "some hesitation",
-      "gives": "ER",
-      "note": "er is the sound of hesitating"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LARD",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fat",
+       "gives": "LARD",
+       "note": "lard is pig fat"
+      },
+      {
+       "words": "some hesitation",
+       "gives": "ER",
+       "note": "er is the sound of hesitating"
+      }
      ]
     },
     "explanation": {
@@ -1324,35 +1105,24 @@
    },
    "solution": "RETINUE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RETINUE",
     "definitions": [
      {
       "text": "followers",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "scattered",
-      "for": "anagram",
-      "note": "scattered things are strewn about, so these letters fall in a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Re-unite",
-      "gives": "REUNITE",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REUNITE",
-       "gives": "RETINUE"
+       "text": "scattered",
+       "note": "scattered things are strewn about, so these letters fall in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Re-unite",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1381,10 +1151,6 @@
    },
    "solution": "CRIMEA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CRIMEA",
     "definitions": [
      {
       "text": "in Russia",
@@ -1392,29 +1158,25 @@
       "note": "describes the answer as a place in Russia rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "on",
-      "for": "charade",
-      "note": "in a down clue, on means placed below, so the first word comes after the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lawbreaking",
-      "gives": "CRIME",
-      "note": "crime is lawbreaking"
-     },
-     {
-      "clueFragment": "Article",
-      "gives": "A",
-      "note": "a is the indefinite article"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRIME",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "note": "in a down clue, on means placed below, so the first word comes after the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lawbreaking",
+       "gives": "CRIME",
+       "note": "crime is lawbreaking"
+      },
+      {
+       "words": "Article",
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
      ]
     },
     "explanation": {
@@ -1449,32 +1211,25 @@
    },
    "solution": "REDLETTER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RED-LETTER",
     "definitions": [
      {
       "text": "Important",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Communist",
-      "gives": "RED",
-      "note": "red is the colour of communism"
-     },
-     {
-      "clueFragment": "character",
-      "gives": "LETTER",
-      "note": "a character can be a letter of the alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "LETTER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Communist",
+       "gives": "RED",
+       "note": "red is the colour of communism"
+      },
+      {
+       "words": "character",
+       "gives": "LETTER",
+       "note": "a character can be a letter of the alphabet"
+      }
      ]
     },
     "explanation": {
@@ -1503,40 +1258,31 @@
    },
    "solution": "EVOKE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EVOKE",
     "definitions": [
      {
       "text": "Call up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "receiving",
-      "for": "container",
-      "note": "receiving means taking in, so the woman's name holds the other piece inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a woman",
-      "gives": "EVE",
-      "note": "Eve, the first woman"
-     },
-     {
-      "clueFragment": "approval",
-      "gives": "OK",
-      "note": "OK signals approval"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EV",
-      "OK",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "note": "receiving means taking in, so the woman's name holds the other piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a woman",
+       "gives": "EVE",
+       "note": "Eve, the first woman"
+      },
+      {
+       "words": "approval",
+       "gives": "OK",
+       "note": "OK signals approval"
+      }
      ]
     },
     "explanation": {
@@ -1565,35 +1311,24 @@
    },
    "solution": "TOBIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOBIT",
     "definitions": [
      {
       "text": "An old book",
       "at": 0
      }
     ],
-    "linkWords": [
-     "together"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "piece",
-      "gives": "BIT",
-      "note": "a bit is a piece"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "BIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "piece",
+       "gives": "BIT",
+       "note": "a bit is a piece"
+      }
      ]
     },
     "explanation": {
@@ -1622,51 +1357,41 @@
    },
    "solution": "BEIGE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BEIGE",
     "definitions": [
      {
       "text": "Coloured",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means read in the opposite direction"
-     },
-     {
-      "text": "held",
-      "for": "container",
-      "note": "held by means gripped inside the other piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a worker",
-      "gives": "BEE",
-      "note": "a worker is a worker bee"
-     },
-     {
-      "clueFragment": "American soldier",
-      "gives": "GI",
-      "note": "a GI is a US soldier"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BE",
-      "IG",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "GI",
-       "to": "IG"
+       "text": "held",
+       "note": "held by means gripped inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a worker",
+       "gives": "BEE",
+       "note": "a worker is a worker bee"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American soldier",
+         "gives": "GI",
+         "note": "a GI is a US soldier"
+        }
+       ]
       }
      ]
     },
@@ -1696,35 +1421,25 @@
    },
    "solution": "MANGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANGO",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gives"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a guy",
-      "gives": "MAN",
-      "note": "a guy is a man"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "GO",
-      "note": "go means vigour or energy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a guy",
+       "gives": "MAN",
+       "note": "a guy is a man"
+      },
+      {
+       "words": "energy",
+       "gives": "GO",
+       "note": "go means vigour or energy"
+      }
      ]
     },
     "explanation": {
@@ -1752,10 +1467,6 @@
    },
    "solution": "ELEVATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ELEVATION",
     "definitions": [
      {
       "text": "being promoted",
@@ -1763,25 +1474,18 @@
       "note": "a gerund phrase standing for the noun, the act of being raised in rank"
      }
     ],
-    "indicators": [
-     {
-      "text": "Doctors",
-      "for": "anagram",
-      "note": "to doctor something is to tamper with it, so these letters are altered in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leave it on",
-      "gives": "LEAVEITON",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEAVEITON",
-       "gives": "ELEVATION"
+       "text": "Doctors",
+       "note": "to doctor something is to tamper with it, so these letters are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leave it on",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1811,41 +1515,29 @@
    },
    "solution": "ADDRESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADDRESS",
     "definitions": [
      {
       "text": "Send",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "D",
-      "note": "D is a musical note"
-     },
-     {
-      "clueFragment": "clothing",
-      "gives": "DRESS",
-      "note": "dress means clothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "D",
-      "DRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "note",
+       "gives": "D",
+       "note": "D is a musical note"
+      },
+      {
+       "words": "clothing",
+       "gives": "DRESS",
+       "note": "dress means clothing"
+      }
      ]
     },
     "explanation": {
@@ -1873,51 +1565,40 @@
    },
    "solution": "SEVERE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "SEVERE",
     "definitions": [
      {
       "text": "tough",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "turning",
-      "for": "reversal",
-      "note": "turning round sends the word back the other way, so it is read from its end"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the first word surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "SEE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the minister",
-      "gives": "REV",
-      "note": "Rev is the abbreviation for a reverend, a minister"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "VER",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "REV",
-       "to": "VER"
+       "text": "about",
+       "note": "about means around, so the first word surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "note": "turning round sends the word back the other way, so it is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the minister",
+         "gives": "REV",
+         "note": "Rev is the abbreviation for a reverend, a minister"
+        }
+       ]
       }
      ]
     },

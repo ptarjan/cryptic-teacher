@@ -1,8 +1,6 @@
 {
  "id": "toughie-3749",
  "number": 3749,
- "series": "toughie",
- "name": "Telegraph Toughie No 3,749",
  "setter": "Chalicea",
  "date": "2026-09-01",
  "dimensions": {
@@ -38,65 +36,55 @@
    },
    "solution": "ASSOCIATED",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ASSOCIATED",
     "definitions": [
      {
       "text": "mixed",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of anything is its final part, so only the closing letter of 'food' is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Since",
-      "gives": "AS",
-      "note": "as = since, because"
-     },
-     {
-      "clueFragment": "very",
-      "gives": "SO",
-      "note": "so = very"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C = cold, as on a tap"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "select": "last",
-      "note": "I as printed"
-     },
-     {
-      "clueFragment": "swallowed",
-      "gives": "ATE",
-      "note": "ate = swallowed"
-     },
-     {
-      "clueFragment": "last of food",
-      "gives": "D",
-      "note": "final letter of fooD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "SO",
-      "C",
-      "I",
-      "ATE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Since",
+       "gives": "AS",
+       "note": "as = since, because"
+      },
+      {
+       "words": "very",
+       "gives": "SO",
+       "note": "so = very"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C = cold, as on a tap"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "the last of anything is its final part, so only the closing letter of 'food' is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "note": "I as printed"
+        }
+       ]
+      },
+      {
+       "words": "swallowed",
+       "gives": "ATE",
+       "note": "ate = swallowed"
+      },
+      {
+       "words": "last of food",
+       "gives": "D",
+       "note": "final letter of fooD"
+      }
      ]
     },
     "explanation": {
@@ -125,48 +113,53 @@
    },
    "solution": "ALSO",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "ALSO",
     "definitions": [
      {
       "text": "too",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Endlessly",
-      "note": "without ends, so 'false' loses both its first and last letters"
-     },
-     {
-      "text": "at heart",
-      "note": "a thing's heart is its centre, so only the middle letter of 'wrong' is used"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Endlessly false",
-      "gives": "ALS",
-      "select": "middle",
-      "note": "fALSe without its first and last letters"
-     },
-     {
-      "clueFragment": "at heart wrong",
-      "gives": "O",
-      "note": "the middle letter of wrOng"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALS",
-      "O"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ALSO",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "note": "without ends, so 'false' loses both its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "unchecked": true,
+         "gives": "ALS",
+         "indicators": [
+          {
+           "text": "at heart",
+           "note": "a thing's heart is its centre, so only the middle letter of 'wrong' is used"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Endlessly false",
+           "gives": "ALS",
+           "select": "middle",
+           "note": "fALSe without its first and last letters"
+          }
+         ]
+        },
+        {
+         "words": "at heart wrong",
+         "gives": "O",
+         "note": "the middle letter of wrOng"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -195,32 +188,25 @@
    },
    "solution": "SELECTION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SELECTION",
     "definitions": [
      {
       "text": "choice",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Singular",
-      "gives": "S",
-      "note": "S = singular, the grammar abbreviation"
-     },
-     {
-      "clueFragment": "poll",
-      "gives": "ELECTION",
-      "note": "a poll is an election"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "ELECTION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Singular",
+       "gives": "S",
+       "note": "S = singular, the grammar abbreviation"
+      },
+      {
+       "words": "poll",
+       "gives": "ELECTION",
+       "note": "a poll is an election"
+      }
      ]
     },
     "explanation": {
@@ -249,26 +235,25 @@
    },
    "solution": "CIRCUMFERENCE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CIRCUMFERENCE",
     "definitions": [
      {
       "text": "Compass that goes around?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Compass",
-      "note": "read as the drawing instrument with a point and a pencil, and meant in its older sense of an extent or boundary"
-     },
-     {
-      "clueFragment": "that goes around?",
-      "note": "read as the compass swinging round to draw a circle, and meant as the boundary line itself, which runs all the way round"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Compass",
+       "note": "read as the drawing instrument with a point and a pencil, and meant in its older sense of an extent or boundary"
+      },
+      {
+       "words": "that goes around?",
+       "note": "read as the compass swinging round to draw a circle, and meant as the boundary line itself, which runs all the way round"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A drawing compass, the tool that swings round to draw a circle.",
      "walkthrough": "The question mark flags that the instrument is a red herring; the compass that goes around is the line a compass draws.",
@@ -296,47 +281,41 @@
    },
    "solution": "AWARDED",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "AWARDED",
     "definitions": [
      {
       "text": "Given",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to cover",
-      "for": "container",
-      "note": "a poster covers a wall; here the poster's letters cover, or go around, what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "poster",
-      "gives": "AD",
-      "note": "an ad is a poster, split A…D"
-     },
-     {
-      "clueFragment": "hospital room",
-      "gives": "WARD",
-      "note": "a ward is a room in a hospital"
-     },
-     {
-      "clueFragment": "no. 5",
-      "gives": "E",
-      "note": "E is letter number five of the alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "WARD",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to cover",
+       "note": "a poster covers a wall; here the poster's letters cover, or go around, what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poster",
+       "gives": "AD",
+       "note": "an ad is a poster, split A…D"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hospital room",
+         "gives": "WARD",
+         "note": "a ward is a room in a hospital"
+        },
+        {
+         "words": "no. 5",
+         "gives": "E",
+         "note": "E is letter number five of the alphabet"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -365,53 +344,52 @@
    },
    "solution": "EQUATOR",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "EQUATOR",
     "definitions": [
      {
       "text": "notional line",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "northwards",
-      "note": "in a down clue north is upward"
-     },
-     {
-      "text": "following",
-      "note": "to follow is to come after, so the reversed word is placed after the shortened one"
-     },
-     {
-      "text": "mostly",
-      "note": "most but not all, so 'equal' loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mostly uniform",
-      "gives": "EQUA",
-      "note": "EQUAL, uniform, minus its last letter"
-     },
-     {
-      "clueFragment": "Go off",
-      "gives": "ROT",
-      "note": "to rot is to go off, as food does; turned up to TOR"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EQUA",
-      "TOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "EQUATOR",
+     "parts": [
       {
-       "from": "ROT",
-       "to": "TOR"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "northwards",
+         "note": "in a down clue north is upward"
+        },
+        {
+         "text": "mostly",
+         "note": "most but not all, so 'equal' loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mostly uniform",
+         "gives": "EQUA",
+         "note": "EQUAL, uniform, minus its last letter"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "following",
+           "note": "to follow is to come after, so the reversed word is placed after the shortened one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Go off",
+           "gives": "ROT",
+           "note": "to rot is to go off, as food does; turned up to TOR"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -441,30 +419,28 @@
    },
    "solution": "SOFA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "SOFA",
     "definitions": [
      {
       "text": "Couch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in contents of",
-      "for": "hidden_word",
-      "note": "the contents of something are what it holds, so the answer is held inside the letters of the phrase"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "contents of attic",
-      "gives": "SOFA",
-      "note": "contentS OF Attic"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in contents of",
+       "note": "the contents of something are what it holds, so the answer is held inside the letters of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "contents of attic",
+       "gives": "SOFA",
+       "note": "contentS OF Attic"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An old couch turned up when clearing out the loft.",
      "walkthrough": "The indicator itself holds the answer, spanning three words including 'contents'.",
@@ -491,41 +467,30 @@
    },
    "solution": "OPERA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPERA",
     "definitions": [
      {
       "text": "Theatre",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op = opus, a work"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA = Royal Academician, a recognised artist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "E",
-      "RA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op = opus, a work"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      },
+      {
+       "words": "artist",
+       "gives": "RA",
+       "note": "RA = Royal Academician, a recognised artist"
+      }
      ]
     },
     "explanation": {
@@ -554,44 +519,34 @@
    },
    "solution": "ASTONISHED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ASTONISHED",
     "definitions": [
      {
       "text": "Amazed",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "for instance",
-      "gives": "AS",
-      "note": "as = for instance, like"
-     },
-     {
-      "clueFragment": "massive weight",
-      "gives": "TON",
-      "note": "a ton is a massive weight"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "I as printed"
-     },
-     {
-      "clueFragment": "cast off",
-      "gives": "SHED",
-      "note": "to shed is to cast off"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "TON",
-      "I",
-      "SHED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for instance",
+       "gives": "AS",
+       "note": "as = for instance, like"
+      },
+      {
+       "words": "massive weight",
+       "gives": "TON",
+       "note": "a ton is a massive weight"
+      },
+      {
+       "words": "I",
+       "note": "I as printed"
+      },
+      {
+       "words": "cast off",
+       "gives": "SHED",
+       "note": "to shed is to cast off"
+      }
      ]
     },
     "explanation": {
@@ -620,40 +575,31 @@
    },
    "solution": "SOLAR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SOLAR",
     "definitions": [
      {
       "text": "of the sun",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "circling",
-      "for": "container",
-      "note": "a bird circling a spot flies round it, so the word for flying goes round the letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Take flight",
-      "gives": "SOAR",
-      "note": "to soar is to take flight, split SO…AR"
-     },
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L = left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "L",
-      "AR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circling",
+       "note": "a bird circling a spot flies round it, so the word for flying goes round the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Take flight",
+       "gives": "SOAR",
+       "note": "to soar is to take flight, split SO…AR"
+      },
+      {
+       "words": "left",
+       "gives": "L",
+       "note": "L = left"
+      }
      ]
     },
     "explanation": {
@@ -682,38 +628,24 @@
    },
    "solution": "AMUSEMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMUSEMENT",
     "definitions": [
      {
       "text": "fun",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "Tampered with",
-      "for": "anagram",
-      "note": "something tampered with has been interfered with, so the letters no longer stand in their original order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mate's menu",
-      "gives": "MATESMENU",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MATES MENU",
-       "gives": "AMUSEMENT"
+       "text": "Tampered with",
+       "note": "something tampered with has been interfered with, so the letters no longer stand in their original order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mate's menu",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },
@@ -743,35 +675,24 @@
    },
    "solution": "ENCYCLOPAEDIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENCYCLOPAEDIA",
     "definitions": [
      {
       "text": "compendium of knowledge",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "flawed",
-      "for": "anagram",
-      "note": "a flawed thing is faulty or out of shape, so its letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decline a copy, a",
-      "gives": "DECLINEACOPYA",
-      "note": "anagram fodder, thirteen letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DECLINE A COPY A",
-       "gives": "ENCYCLOPAEDIA"
+       "text": "flawed",
+       "note": "a flawed thing is faulty or out of shape, so its letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Decline a copy, a",
+       "note": "anagram fodder, thirteen letters"
       }
      ]
     },
@@ -801,47 +722,49 @@
    },
    "solution": "COULDNT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "COULDN'T",
     "definitions": [
      {
       "text": "Wasn't able to",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "boxing",
-      "note": "to box something is to put it in a box, so one word encloses the other"
-     },
-     {
-      "text": "essentially",
-      "note": "the essence of a thing is its core, so only the central letters of 'wildly' are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "consider",
-      "gives": "COUNT",
-      "note": "to count someone lucky is to consider them so; split COU…NT"
-     },
-     {
-      "clueFragment": "essentially wildly",
-      "gives": "LD",
-      "select": "middle",
-      "note": "the middle two letters of wiLDly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COU",
-      "LD",
-      "NT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxing",
+       "note": "to box something is to put it in a box, so one word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "consider",
+       "gives": "COUNT",
+       "note": "to count someone lucky is to consider them so; split COU…NT"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "LD",
+       "indicators": [
+        {
+         "text": "essentially",
+         "note": "the essence of a thing is its core, so only the central letters of 'wildly' are taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "essentially wildly",
+         "gives": "LD",
+         "select": "middle",
+         "note": "the middle two letters of wiLDly"
+        }
+       ]
+      }
      ]
     },
+    "spelling": "COULDN'T",
     "explanation": {
      "surface": "Someone could not bring themselves to think about boxing wildly.",
      "walkthrough": "'Boxing' reads as the sport, and 'wildly' as an anagram signal, but neither is.",
@@ -868,32 +791,25 @@
    },
    "solution": "CHAIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CHAIN",
     "definitions": [
      {
       "text": "businesses under one ownership",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Drink",
-      "gives": "CHA",
-      "note": "cha (char) is tea"
-     },
-     {
-      "clueFragment": "belonging to",
-      "gives": "IN",
-      "note": "in = belonging to, as in 'in the club'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHA",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "gives": "CHA",
+       "note": "cha (char) is tea"
+      },
+      {
+       "words": "belonging to",
+       "gives": "IN",
+       "note": "in = belonging to, as in 'in the club'"
+      }
      ]
     },
     "explanation": {
@@ -922,68 +838,65 @@
    },
    "solution": "ASSISTANTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ASSISTANTS",
     "definitions": [
      {
       "text": "Helps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "pursued by",
-      "note": "to be pursued is to have something coming after you, so the later pieces follow the earlier"
-     },
-     {
-      "text": "extremes of",
-      "note": "the extremes of a thing are its two ends, so the first and last letters of 'slyest' are taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "A as printed"
-     },
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S = small, as in clothing sizes"
-     },
-     {
-      "clueFragment": "son",
-      "gives": "S",
-      "note": "S = son"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I = one, the Roman numeral"
-     },
-     {
-      "clueFragment": "extremes of slyest",
-      "gives": "ST",
-      "select": "outer",
-      "note": "the outside letters of SlyesT"
-     },
-     {
-      "clueFragment": "scavengers",
-      "gives": "ANTS",
-      "note": "ants are scavengers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "S",
-      "S",
-      "I",
-      "ST",
-      "ANTS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursued by",
+       "note": "to be pursued is to have something coming after you, so the later pieces follow the earlier"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "A as printed"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S = small, as in clothing sizes"
+      },
+      {
+       "words": "son",
+       "gives": "S",
+       "note": "S = son"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "I = one, the Roman numeral"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ST",
+       "indicators": [
+        {
+         "text": "extremes of",
+         "note": "the extremes of a thing are its two ends, so the first and last letters of 'slyest' are taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "extremes of slyest",
+         "gives": "ST",
+         "select": "outer",
+         "note": "the outside letters of SlyesT"
+        }
+       ]
+      },
+      {
+       "words": "scavengers",
+       "gives": "ANTS",
+       "note": "ants are scavengers"
+      }
      ]
     },
     "explanation": {
@@ -1012,46 +925,43 @@
    },
    "solution": "SNIFFED",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SNIFFED",
     "definitions": [
      {
       "text": "showed contempt",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Heartless",
-      "for": "deletion",
-      "note": "without a heart means without a centre, so 'son' loses its middle letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heartless son",
-      "gives": "SN",
-      "note": "SoN without its middle O"
-     },
-     {
-      "clueFragment": "even though",
-      "gives": "IF",
-      "note": "if = even though, as in 'pleasant, if dull'"
-     },
-     {
-      "clueFragment": "nourished",
-      "gives": "FED",
-      "note": "fed = nourished"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SN",
-      "IF",
-      "FED"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SNIFFED",
+     "indicators": [
+      {
+       "text": "Heartless",
+       "note": "without a heart means without a centre, so 'son' loses its middle letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Heartless son",
+         "gives": "SN",
+         "note": "SoN without its middle O"
+        },
+        {
+         "words": "even though",
+         "gives": "IF",
+         "note": "if = even though, as in 'pleasant, if dull'"
+        },
+        {
+         "words": "nourished",
+         "gives": "FED",
+         "note": "fed = nourished"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1080,28 +990,16 @@
    },
    "solution": "RACKETS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RACKETS",
     "definitions": [
      {
       "text": "Dodges",
-      "at": 0
+      "at": 0,
+      "meaning": "a dodge is a scam or fiddle, and so is a racket"
      },
      {
       "text": "ball game",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dodges",
-      "note": "a dodge is a scam or fiddle, and so is a racket"
-     },
-     {
-      "clueFragment": "ball game",
-      "note": "a fast indoor game for two, an ancestor of squash, played against walls with a hard ball"
+      "at": 7,
+      "meaning": "a fast indoor game for two, an ancestor of squash, played against walls with a hard ball"
      }
     ],
     "explanation": {
@@ -1130,35 +1028,24 @@
    },
    "solution": "EXISTENCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EXISTENCE",
     "definitions": [
      {
       "text": "Being",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "distraught",
-      "for": "anagram",
-      "note": "someone distraught is upset and in disorder, so the letters are thrown out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exit scene",
-      "gives": "EXITSCENE",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EXIT SCENE",
-       "gives": "EXISTENCE"
+       "text": "distraught",
+       "note": "someone distraught is upset and in disorder, so the letters are thrown out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exit scene",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },
@@ -1188,48 +1075,41 @@
    },
    "solution": "IGNORED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "IGNORED",
     "definitions": [
      {
       "text": "Disregarded",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "problematic",
-      "note": "a problematic region is in trouble, so its letters are disordered"
-     },
-     {
-      "text": "by",
-      "note": "one thing by another sits beside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "region",
-      "gives": "IGNORE",
-      "note": "REGION rearranged"
-     },
-     {
-      "clueFragment": "delta",
-      "gives": "D",
-      "note": "Delta is D in the NATO alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IGNORE",
-      "D"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "IGNORED",
+     "parts": [
       {
-       "fodder": "REGION",
-       "gives": "IGNORE"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "problematic",
+         "note": "a problematic region is in trouble, so its letters are disordered"
+        },
+        {
+         "text": "by",
+         "note": "one thing by another sits beside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "region",
+         "gives": "IGNORE",
+         "note": "REGION rearranged"
+        },
+        {
+         "words": "delta",
+         "gives": "D",
+         "note": "Delta is D in the NATO alphabet"
+        }
+       ]
       }
      ]
     },
@@ -1259,40 +1139,31 @@
    },
    "solution": "DESPITE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DESPITE",
     "definitions": [
      {
       "text": "Not affected by",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one thing in another is inside it, so the word for rain goes within the river"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "DEE",
-      "note": "the Dee is a river in Britain; split DE…E"
-     },
-     {
-      "clueFragment": "rain",
-      "gives": "SPIT",
-      "note": "to spit is to rain lightly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DE",
-      "SPIT",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one thing in another is inside it, so the word for rain goes within the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "DEE",
+       "note": "the Dee is a river in Britain; split DE…E"
+      },
+      {
+       "words": "rain",
+       "gives": "SPIT",
+       "note": "to spit is to rain lightly"
+      }
      ]
     },
     "explanation": {
@@ -1321,45 +1192,46 @@
    },
    "solution": "PROVIDE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "PROVIDE",
     "definitions": [
      {
       "text": "supply",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "devouring",
-      "note": "what is devoured ends up inside, so the lions' word swallows the letters"
-     },
-     {
-      "text": "first bits of",
-      "note": "the first bit of each word is its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Group of lions",
-      "gives": "PRIDE",
-      "note": "a pride is a group of lions; split PR…IDE"
-     },
-     {
-      "clueFragment": "first bits of our vegetable",
-      "gives": "OV",
-      "select": "first",
-      "note": "Our Vegetable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PR",
-      "OV",
-      "IDE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "devouring",
+       "note": "what is devoured ends up inside, so the lions' word swallows the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Group of lions",
+       "gives": "PRIDE",
+       "note": "a pride is a group of lions; split PR…IDE"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "OV",
+       "indicators": [
+        {
+         "text": "first bits of",
+         "note": "the first bit of each word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "first bits of our vegetable",
+         "gives": "OV",
+         "select": "first",
+         "note": "Our Vegetable"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1389,40 +1261,31 @@
    },
    "solution": "PHRASES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PHRASES",
     "definitions": [
      {
       "text": "Expressions",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involving",
-      "for": "container",
-      "note": "to involve something is to include it, so the stages take the letter within them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stages in growth",
-      "gives": "PHASES",
-      "note": "phases are stages of development; split PH…ASES"
-     },
-     {
-      "clueFragment": "resistance",
-      "gives": "R",
-      "note": "R = resistance, the physics symbol"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PH",
-      "R",
-      "ASES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "note": "to involve something is to include it, so the stages take the letter within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stages in growth",
+       "gives": "PHASES",
+       "note": "phases are stages of development; split PH…ASES"
+      },
+      {
+       "words": "resistance",
+       "gives": "R",
+       "note": "R = resistance, the physics symbol"
+      }
      ]
     },
     "explanation": {
@@ -1451,28 +1314,16 @@
    },
    "solution": "TRAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRAIN",
     "definitions": [
      {
       "text": "Whale oil",
-      "at": 0
+      "at": 0,
+      "meaning": "an archaic name for oil rendered from whale blubber, also called by the same word plus 'oil'"
      },
      {
       "text": "process",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Whale oil",
-      "note": "an archaic name for oil rendered from whale blubber, also called by the same word plus 'oil'"
-     },
-     {
-      "clueFragment": "process",
-      "note": "a series of connected steps, the word used for a sequence of thought or of events"
+      "at": 10,
+      "meaning": "a series of connected steps, the word used for a sequence of thought or of events"
      }
     ],
     "explanation": {
@@ -1501,40 +1352,31 @@
    },
    "solution": "AGREE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "AGREE",
     "definitions": [
      {
       "text": "Concur",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the years go around the school subject"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mature years",
-      "gives": "AGE",
-      "note": "age = mature years; split AG…E"
-     },
-     {
-      "clueFragment": "religious education",
-      "gives": "RE",
-      "note": "RE = religious education, a school subject"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AG",
-      "RE",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the years go around the school subject"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mature years",
+       "gives": "AGE",
+       "note": "age = mature years; split AG…E"
+      },
+      {
+       "words": "religious education",
+       "gives": "RE",
+       "note": "RE = religious education, a school subject"
+      }
      ]
     },
     "explanation": {
@@ -1563,45 +1405,46 @@
    },
    "solution": "SERVANT",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SERVANT",
     "definitions": [
      {
       "text": "attendant",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "round",
-      "note": "round means surrounding, so the word for 'told to go' goes round the letters"
-     },
-     {
-      "text": "originally",
-      "note": "at the origin of each word, so its opening letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Told to go",
-      "gives": "SENT",
-      "note": "someone told to go has been sent; split SE…NT"
-     },
-     {
-      "clueFragment": "originally really very annoying",
-      "gives": "RVA",
-      "select": "first",
-      "note": "Really Very Annoying"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SE",
-      "RVA",
-      "NT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "note": "round means surrounding, so the word for 'told to go' goes round the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Told to go",
+       "gives": "SENT",
+       "note": "someone told to go has been sent; split SE…NT"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "RVA",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "at the origin of each word, so its opening letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "originally really very annoying",
+         "gives": "RVA",
+         "select": "first",
+         "note": "Really Very Annoying"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1630,32 +1473,25 @@
    },
    "solution": "LESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LESS",
     "definitions": [
      {
       "text": "Without",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le = the in French"
-     },
-     {
-      "clueFragment": "ship propelled by steam",
-      "gives": "SS",
-      "note": "SS = steamship"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "SS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le = the in French"
+      },
+      {
+       "words": "ship propelled by steam",
+       "gives": "SS",
+       "note": "SS = steamship"
+      }
      ]
     },
     "explanation": {
@@ -1684,35 +1520,24 @@
    },
    "solution": "NURSERIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NURSERIES",
     "definitions": [
      {
       "text": "races for two-year-old horses",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Dubiously",
-      "for": "anagram",
-      "note": "done dubiously means done in a doubtful, irregular way, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reinsures",
-      "gives": "REINSURES",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REINSURES",
-       "gives": "NURSERIES"
+       "text": "Dubiously",
+       "note": "done dubiously means done in a doubtful, irregular way, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reinsures",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },
@@ -1742,43 +1567,31 @@
    },
    "solution": "DANCE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "DANCE",
     "definitions": [
      {
       "text": "Frolic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "the fish swims around, surrounding the letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "little fish",
-      "gives": "DACE",
-      "note": "a dace is a small freshwater fish; split DA…CE"
-     },
-     {
-      "clueFragment": "noon",
-      "gives": "N",
-      "note": "N = noon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DA",
-      "N",
-      "CE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "note": "the fish swims around, surrounding the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little fish",
+       "gives": "DACE",
+       "note": "a dace is a small freshwater fish; split DA…CE"
+      },
+      {
+       "words": "noon",
+       "gives": "N",
+       "note": "N = noon"
+      }
      ]
     },
     "explanation": {
@@ -1807,38 +1620,25 @@
    },
    "solution": "STEP",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "STEP",
     "definitions": [
      {
       "text": "Walk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in retirement",
-      "for": "reversal",
-      "note": "to retire is to withdraw or go back, so the word is written backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dogs, say",
-      "gives": "PETS",
-      "note": "dogs are an example of pets"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PETS",
-       "to": "STEP"
+       "text": "in retirement",
+       "note": "to retire is to withdraw or go back, so the word is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dogs, say",
+       "gives": "PETS",
+       "note": "dogs are an example of pets"
       }
      ]
     },
@@ -1868,55 +1668,63 @@
    },
    "solution": "NEWSPAPERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "NEWSPAPERS",
     "definitions": [
      {
       "text": "Rags",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "clumsily",
-      "note": "done clumsily means done in a muddle, so the letters are jumbled"
-     },
-     {
-      "text": "initially",
-      "note": "at the start, so only the first letter of 'hem' counts"
-     },
-     {
-      "text": "overlooked",
-      "note": "something overlooked is left out, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sewn",
-      "gives": "SEWN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "perhaps",
-      "gives": "PERAPS",
-      "note": "PERHAPS minus the H"
-     },
-     {
-      "clueFragment": "hem initially",
-      "gives": "H",
-      "select": "first",
-      "note": "the first letter of Hem, the letter removed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEWN PERAPS",
-       "gives": "NEWSPAPERS"
+       "text": "clumsily",
+       "note": "done clumsily means done in a muddle, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "at the start, so only the first letter of 'hem' counts"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "overlooked",
+           "note": "something overlooked is left out, so that letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sewn",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "perhaps",
+           "gives": "PERAPS",
+           "note": "PERHAPS minus the H"
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "hem initially",
+             "note": "the first letter of Hem, the letter removed"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },

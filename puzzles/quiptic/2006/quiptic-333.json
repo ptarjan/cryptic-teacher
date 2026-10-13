@@ -1,8 +1,6 @@
 {
  "id": "quiptic-333",
  "number": 333,
- "series": "quiptic",
- "name": "Quiptic crossword No 333",
  "setter": "Arachne",
  "date": "2006-04-03",
  "dimensions": {
@@ -38,44 +36,35 @@
    },
    "solution": "TWEEDS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TWEEDS",
     "definitions": [
      {
       "text": "woollen clothes",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "mostly cut",
-      "for": "letter_selection",
-      "note": "with most of the word cut away, only its opening letter survives"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tailor",
-      "gives": "T",
-      "select": "first",
-      "note": "the word with all but its first letter cut"
-     },
-     {
-      "clueFragment": "widow's garments",
-      "gives": "WEEDS",
-      "note": "widow's weeds are the black mourning clothes of a widow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WEEDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "mostly cut",
+         "note": "with most of the word cut away, only its opening letter survives"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tailor",
+         "note": "the word with all but its first letter cut"
+        }
+       ]
+      },
+      {
+       "words": "widow's garments",
+       "gives": "WEEDS",
+       "note": "widow's weeds are the black mourning clothes of a widow"
+      }
      ]
     },
     "explanation": {
@@ -103,46 +92,46 @@
    },
    "solution": "TORNADO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TORNADO",
     "definitions": [
      {
       "text": "Storm",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down clue, one piece sits over, i.e. above, the next"
-     },
-     {
-      "text": "part of",
-      "for": "letter_selection",
-      "note": "only a portion of the following word is wanted, its tail end here"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ripped",
-      "gives": "TORN",
-      "note": "ripped means torn"
-     },
-     {
-      "clueFragment": "Colorado",
-      "gives": "ADO",
-      "select": "last",
-      "note": "the last three letters of the state name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TORN",
-      "ADO"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "in a down clue, one piece sits over, i.e. above, the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ripped",
+       "gives": "TORN",
+       "note": "ripped means torn"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "ADO",
+       "indicators": [
+        {
+         "text": "part of",
+         "note": "only a portion of the following word is wanted, its tail end here"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Colorado",
+         "gives": "ADO",
+         "select": "last",
+         "note": "the last three letters of the state name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -170,33 +159,28 @@
    },
    "solution": "EVENS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EVENS",
     "definitions": [
      {
       "text": "Price",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "less than",
-      "for": "hidden_word",
-      "note": "what is wanted is less than the full phrase, a run of letters inside it"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seven shillings",
-      "gives": "EVENS",
-      "note": "sits inside letters 2-6 of 'seven shillings'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "less than",
+       "note": "what is wanted is less than the full phrase, a run of letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seven shillings",
+       "gives": "EVENS",
+       "note": "sits inside letters 2-6 of 'seven shillings'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Something costs under seven shillings, an old British sum of money.",
      "walkthrough": "Price here is a bookmaker's price, the betting odds on a horse.",
@@ -223,38 +207,24 @@
    },
    "solution": "DISEASE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISEASE",
     "definitions": [
      {
       "text": "illness",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "treated",
-      "for": "anagram",
-      "note": "something treated is processed and altered, so the letters are worked into a new order"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See AIDS",
-      "gives": "SEEAIDS",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SEEAIDS",
-       "gives": "DISEASE"
+       "text": "treated",
+       "note": "something treated is processed and altered, so the letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "See AIDS",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -283,58 +253,62 @@
    },
    "solution": "PUNNET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "PUNNET",
     "definitions": [
      {
       "text": "Basket",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heads of",
-      "for": "letter_selection",
-      "note": "the heads of words are their first letters"
-     },
-     {
-      "text": "beheaded",
-      "for": "deletion",
-      "note": "a word that is beheaded loses its first letter"
-     }
-    ],
-    "linkWords": [
-     "contains",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "political undesirables: nobs",
-      "gives": "PUN",
-      "select": "first",
-      "note": "first letters of these three words"
-     },
-     {
-      "clueFragment": "nobles",
-      "gives": "N",
-      "select": "first",
-      "note": "also its first letter"
-     },
-     {
-      "clueFragment": "get",
-      "gives": "ET",
-      "note": "the word with its head removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUN",
-      "N",
-      "ET"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PUNNET",
+     "indicators": [
+      {
+       "text": "beheaded",
+       "note": "a word that is beheaded loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "PUN",
+         "indicators": [
+          {
+           "text": "heads of",
+           "note": "the heads of words are their first letters"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "political undesirables: nobs",
+           "gives": "PUN",
+           "select": "first",
+           "note": "first letters of these three words"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "nobles",
+           "note": "also its first letter"
+          }
+         ]
+        },
+        {
+         "words": "get",
+         "gives": "ET",
+         "note": "the word with its head removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -364,32 +338,25 @@
    },
    "solution": "UPBEAT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPBEAT",
     "definitions": [
      {
       "text": "Cheerful",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "over",
-      "gives": "UP",
-      "note": "time is up when it is over"
-     },
-     {
-      "clueFragment": "strike",
-      "gives": "BEAT",
-      "note": "to strike is to beat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "BEAT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "over",
+       "gives": "UP",
+       "note": "time is up when it is over"
+      },
+      {
+       "words": "strike",
+       "gives": "BEAT",
+       "note": "to strike is to beat"
+      }
      ]
     },
     "explanation": {
@@ -417,41 +384,40 @@
    },
    "solution": "NEWMARKET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NEWMARKET",
     "definitions": [
      {
       "text": "game",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "the origin of each word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Non-union employees were",
-      "gives": "NEW",
-      "select": "first",
-      "note": "first letters of the three words, the hyphenated one counting once"
-     },
-     {
-      "clueFragment": "fair",
-      "gives": "MARKET",
-      "note": "a fair is a market"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "MARKET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "NEW",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "the origin of each word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Non-union employees were",
+         "gives": "NEW",
+         "select": "first",
+         "note": "first letters of the three words, the hyphenated one counting once"
+        }
+       ]
+      },
+      {
+       "words": "fair",
+       "gives": "MARKET",
+       "note": "a fair is a market"
+      }
      ]
     },
     "explanation": {
@@ -480,38 +446,24 @@
    },
    "solution": "TREMAIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TREMAIN",
     "definitions": [
      {
       "text": "novelist",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "letters put out of place are disordered and rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time ran",
-      "gives": "TIMERAN",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TIMERAN",
-       "gives": "TREMAIN"
+       "text": "out",
+       "note": "letters put out of place are disordered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Time ran",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -546,35 +498,25 @@
    },
    "solution": "VICTORIACROSS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VICTORIA CROSS",
     "definitions": [
      {
       "text": "Decoration",
       "at": 0
      }
     ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "woman",
-      "gives": "VICTORIA",
-      "note": "a woman's name"
-     },
-     {
-      "clueFragment": "angry",
-      "gives": "CROSS",
-      "note": "cross means angry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VICTORIA",
-      "CROSS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "woman",
+       "gives": "VICTORIA",
+       "note": "a woman's name"
+      },
+      {
+       "words": "angry",
+       "gives": "CROSS",
+       "note": "cross means angry"
+      }
      ]
     },
     "explanation": {
@@ -602,30 +544,28 @@
    },
    "solution": "TREE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TREE",
     "definitions": [
      {
       "text": "Box, maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "the letters are discovered lying inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "street",
-      "gives": "TREE",
-      "note": "sits inside letters 2-5 of 'street'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "the letters are discovered lying inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "street",
+       "gives": "TREE",
+       "note": "sits inside letters 2-5 of 'street'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cardboard box has been left lying in the road.",
      "walkthrough": "Box is not a container here but the evergreen shrub used for hedging; 'maybe' marks it as one example.",
@@ -659,35 +599,25 @@
    },
    "solution": "SPINBOWLER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPIN BOWLER",
     "definitions": [
      {
       "text": "Shane Warne, perhaps",
       "at": 21
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Produce silk",
-      "gives": "SPIN",
-      "note": "silkworms and spiders spin silk"
-     },
-     {
-      "clueFragment": "hat",
-      "gives": "BOWLER",
-      "note": "a bowler is a hard round felt hat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPIN",
-      "BOWLER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Produce silk",
+       "gives": "SPIN",
+       "note": "silkworms and spiders spin silk"
+      },
+      {
+       "words": "hat",
+       "gives": "BOWLER",
+       "note": "a bowler is a hard round felt hat"
+      }
      ]
     },
     "explanation": {
@@ -716,54 +646,40 @@
    },
    "solution": "NAUSEA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NAUSEA",
     "definitions": [
      {
       "text": "Revulsion",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "dodgy",
-      "for": "anagram",
-      "note": "something dodgy is unsound, so these letters are unreliable and get rearranged"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece is placed in the middle of another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sauna",
-      "gives": "SAUNA",
-      "note": "the letters to be rearranged"
-     },
-     {
-      "clueFragment": "ecstasy",
-      "gives": "E",
-      "note": "E is slang for the drug ecstasy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NAUS",
-      "E",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SAUNA",
-       "gives": "NAUSA"
+       "text": "in",
+       "note": "one piece is placed in the middle of another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dodgy",
+         "note": "something dodgy is unsound, so these letters are unreliable and get rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sauna",
+         "note": "the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "ecstasy",
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
@@ -792,35 +708,25 @@
    },
    "solution": "TEARAWAY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TEARAWAY",
     "definitions": [
      {
       "text": "Reckless youth",
       "at": 0
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "injury",
-      "gives": "TEAR",
-      "note": "a tear is a rip, as in a muscle"
-     },
-     {
-      "clueFragment": "on holiday",
-      "gives": "AWAY",
-      "note": "someone on holiday is away"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEAR",
-      "AWAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "injury",
+       "gives": "TEAR",
+       "note": "a tear is a rip, as in a muscle"
+      },
+      {
+       "words": "on holiday",
+       "gives": "AWAY",
+       "note": "someone on holiday is away"
+      }
      ]
     },
     "explanation": {
@@ -847,47 +753,39 @@
    },
    "solution": "FOREBEARS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "FOREBEARS",
     "definitions": [
      {
       "text": "Fathers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the word before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Justice",
-      "gives": "E",
-      "select": "last",
-      "note": "its last letter"
-     },
-     {
-      "clueFragment": "produces",
-      "gives": "BEARS",
-      "note": "to bear fruit or young is to produce it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "E",
-      "BEARS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the closing letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Justice",
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "words": "produces",
+       "gives": "BEARS",
+       "note": "to bear fruit or young is to produce it"
+      }
      ]
     },
     "explanation": {
@@ -916,47 +814,44 @@
    },
    "solution": "EUPHRATES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "EUPHRATES",
     "definitions": [
      {
       "text": "River",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "First of",
-      "for": "letter_selection",
-      "note": "the first letter of the following word is wanted"
-     },
-     {
-      "text": "Mobile",
-      "for": "anagram",
-      "note": "mobile letters move about freely into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "salmon",
-      "gives": "S",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "are up the",
-      "gives": "AREUPTHE",
-      "note": "letters to rearrange along with the one above"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SAREUPTHE",
-       "gives": "EUPHRATES"
+       "text": "Mobile",
+       "note": "mobile letters move about freely into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "First of",
+           "note": "the first letter of the following word is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "salmon",
+           "note": "its first letter"
+          }
+         ]
+        },
+        {
+         "words": "are up the",
+         "note": "letters to rearrange along with the one above"
+        }
+       ]
       }
      ]
     },
@@ -986,35 +881,25 @@
    },
    "solution": "AKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AKIN",
     "definitions": [
      {
       "text": "alike",
       "at": 23
      }
     ],
-    "linkWords": [
-     "are"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Alaska",
-      "gives": "AK",
-      "note": "the US postal abbreviation for Alaska"
-     },
-     {
-      "clueFragment": "Indiana",
-      "gives": "IN",
-      "note": "the US postal abbreviation for Indiana"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AK",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Alaska",
+       "gives": "AK",
+       "note": "the US postal abbreviation for Alaska"
+      },
+      {
+       "words": "Indiana",
+       "gives": "IN",
+       "note": "the US postal abbreviation for Indiana"
+      }
      ]
     },
     "explanation": {
@@ -1041,31 +926,16 @@
    },
    "solution": "RAPS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RAPS",
     "definitions": [
      {
       "text": "What Eminem does",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: performs rap music, as the American rapper does"
      },
      {
       "text": "hits",
-      "at": 24
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What Eminem does",
-      "note": "first meaning: performs rap music, as the American rapper does"
-     },
-     {
-      "clueFragment": "hits",
-      "note": "second meaning: sharp knocks or blows"
+      "at": 24,
+      "meaning": "second meaning: sharp knocks or blows"
      }
     ],
     "explanation": {
@@ -1095,36 +965,29 @@
    },
    "solution": "RIPPING",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RIPPING",
     "definitions": [
      {
       "text": "Excellent",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not initially",
-      "for": "deletion",
-      "note": "the word is used without its opening letter"
-     }
-    ],
-    "linkWords": [
-     "if"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exciting",
-      "gives": "GRIPPING",
-      "note": "a gripping story is exciting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIPPING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not initially",
+       "note": "the word is used without its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exciting",
+       "gives": "GRIPPING",
+       "note": "a gripping story is exciting"
+      },
+      {
+       "gives": "G"
+      }
      ]
     },
     "explanation": {
@@ -1151,10 +1014,6 @@
    },
    "solution": "MAIDSTONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAIDSTONE",
     "definitions": [
      {
       "text": "in Kent",
@@ -1162,22 +1021,19 @@
       "note": "the answer is a town in Kent rather than a synonym for the phrase"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Girls",
-      "gives": "MAIDS",
-      "note": "maids are girls or young women"
-     },
-     {
-      "clueFragment": "fit in well",
-      "gives": "TONE",
-      "note": "to tone in is to blend or harmonise"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAIDS",
-      "TONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girls",
+       "gives": "MAIDS",
+       "note": "maids are girls or young women"
+      },
+      {
+       "words": "fit in well",
+       "gives": "TONE",
+       "note": "to tone in is to blend or harmonise"
+      }
      ]
     },
     "explanation": {
@@ -1206,38 +1062,24 @@
    },
    "solution": "DREADED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DREADED",
     "definitions": [
      {
       "text": "feared",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "anagram",
-      "note": "a revolution turns things over, so the letters are turned into a new order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Red, dead",
-      "gives": "REDDEAD",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REDDEAD",
-       "gives": "DREADED"
+       "text": "revolutionary",
+       "note": "a revolution turns things over, so the letters are turned into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Red, dead",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1266,41 +1108,35 @@
    },
    "solution": "NARROWS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "NARROWS",
     "definitions": [
      {
       "text": "less broad stretches",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "the start of the following word, its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "navigate",
-      "gives": "N",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "Dart's",
-      "gives": "ARROWS",
-      "note": "darts are small arrows thrown at a board"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "ARROWS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "the start of the following word, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "navigate",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "Dart's",
+       "gives": "ARROWS",
+       "note": "darts are small arrows thrown at a board"
+      }
      ]
     },
     "explanation": {
@@ -1329,33 +1165,28 @@
    },
    "solution": "ATHENE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ATHENE",
     "definitions": [
      {
       "text": "goddess",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "private",
-      "for": "hidden_word",
-      "note": "what is private is kept within, so the letters lie inside the words"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heathen emperor",
-      "gives": "ATHENE",
-      "note": "sits inside letters 3-8 of 'Heathen emperor'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "private",
+       "note": "what is private is kept within, so the letters lie inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Heathen emperor",
+       "gives": "ATHENE",
+       "note": "sits inside letters 3-8 of 'Heathen emperor'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A pagan ruler worships his own personal deity.",
      "definitionFit": "Athene, or Athena, is the Greek goddess of wisdom and war."
@@ -1381,48 +1212,35 @@
    },
    "solution": "OPERATOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPERATOR",
     "definitions": [
      {
       "text": "A canny type",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "take on",
-      "for": "charade",
-      "note": "taking something on means adding it to the end of what is already there"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Macbeth perhaps",
-      "gives": "OPERA",
-      "note": "Verdi wrote an opera of Macbeth"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OPERA",
-      "TO",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "take on",
+       "note": "taking something on means adding it to the end of what is already there"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Macbeth perhaps",
+       "gives": "OPERA",
+       "note": "Verdi wrote an opera of Macbeth"
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      }
      ]
     },
     "explanation": {
@@ -1451,29 +1269,17 @@
    },
    "solution": "ELDERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ELDERS",
     "definitions": [
      {
       "text": "Bush's",
       "at": 0,
-      "note": "read as bushes, a plural noun"
+      "note": "read as bushes, a plural noun",
+      "meaning": "first meaning: shrubs of the genus bearing elderberries"
      },
      {
       "text": "authority figures",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bush's",
-      "note": "first meaning: shrubs of the genus bearing elderberries"
-     },
-     {
-      "clueFragment": "authority figures",
-      "note": "second meaning: senior members of a church or community"
+      "at": 7,
+      "meaning": "second meaning: senior members of a church or community"
      }
     ],
     "explanation": {
@@ -1503,50 +1309,44 @@
    },
    "solution": "DYLAN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "DYLAN",
     "definitions": [
      {
       "text": "a superstar",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the word before it"
-     },
-     {
-      "text": "managed",
-      "for": "anagram",
-      "note": "letters that are managed are handled and arranged differently"
-     }
-    ],
-    "linkWords": [
-     "to become"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Andy",
-      "gives": "ANDY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Warhol",
-      "gives": "L",
-      "select": "last",
-      "note": "its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANDYL",
-       "gives": "DYLAN"
+       "text": "managed",
+       "note": "letters that are managed are handled and arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Andy",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the closing letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Warhol",
+           "note": "its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1576,35 +1376,25 @@
    },
    "solution": "DISTRESSED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISTRESSED",
     "definitions": [
      {
       "text": "upset",
       "at": 23
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Girl",
-      "gives": "DI",
-      "note": "short for the girl's name Diana"
-     },
-     {
-      "clueFragment": "got worked up",
-      "gives": "STRESSED",
-      "note": "stressed means anxious, worked up"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "STRESSED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "gives": "DI",
+       "note": "short for the girl's name Diana"
+      },
+      {
+       "words": "got worked up",
+       "gives": "STRESSED",
+       "note": "stressed means anxious, worked up"
+      }
      ]
     },
     "explanation": {
@@ -1631,38 +1421,24 @@
    },
    "solution": "LYON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LYON",
     "definitions": [
      {
       "text": "French city",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "Nonconformist",
-      "for": "anagram",
-      "note": "a nonconformist refuses the usual order, so the letters break their arrangement"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Only",
-      "gives": "ONLY",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONLY",
-       "gives": "LYON"
+       "text": "Nonconformist",
+       "note": "a nonconformist refuses the usual order, so the letters break their arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Only",
+       "note": "the letters to be rearranged"
       }
      ]
     },
@@ -1692,28 +1468,16 @@
    },
    "solution": "GUSHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GUSHER",
     "definitions": [
      {
       "text": "Well",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an oil well whose oil spurts out unchecked"
      },
      {
       "text": "he does go over the top",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Well",
-      "note": "first meaning: an oil well whose oil spurts out unchecked"
-     },
-     {
-      "clueFragment": "he does go over the top",
-      "note": "second meaning: an effusive person who praises too much"
+      "at": 6,
+      "meaning": "second meaning: an effusive person who praises too much"
      }
     ],
     "explanation": {
@@ -1743,52 +1507,44 @@
    },
    "solution": "ADONIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADONIS",
     "definitions": [
      {
       "text": "beauty",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Vacuous",
-      "for": "letter_selection",
-      "note": "vacuous means empty, so the word is emptied of its middle letters"
-     },
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "things that go sadly go wrong, so the letters fall out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "airhead",
-      "gives": "AD",
-      "select": "outer",
-      "note": "its outer letters"
-     },
-     {
-      "clueFragment": "is no",
-      "gives": "ISNO",
-      "note": "letters to rearrange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AD",
-      "ONIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ISNO",
-       "gives": "ONIS"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Vacuous",
+         "note": "vacuous means empty, so the word is emptied of its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "airhead",
+         "note": "its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "note": "things that go sadly go wrong, so the letters fall out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is no",
+         "note": "letters to rearrange"
+        }
+       ]
       }
      ]
     },

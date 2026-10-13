@@ -1,8 +1,6 @@
 {
  "id": "sundaytimes-5063",
  "number": 5063,
- "series": "sundaytimes",
- "name": "Sunday Times cryptic crossword No 5,063",
  "setter": "David McLean",
  "date": "2023-06-11",
  "dimensions": {
@@ -42,26 +40,25 @@
    },
    "solution": "OYSTER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OYSTER",
     "definitions": [
      {
       "text": "One in bed that might get you going?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One in bed",
-      "note": "read as a bedfellow, and meant as a shellfish lying in a bed on the seabed"
-     },
-     {
-      "clueFragment": "that might get you going?",
-      "note": "read as a partner's charms, and meant as a food reputed to be an aphrodisiac"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One in bed",
+       "note": "read as a bedfellow, and meant as a shellfish lying in a bed on the seabed"
+      },
+      {
+       "words": "that might get you going?",
+       "note": "read as a partner's charms, and meant as a food reputed to be an aphrodisiac"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A cheeky question about a bedfellow who gets you in the mood.",
      "walkthrough": "'Bed' reads as the bedroom, but it is the seabed where oysters are farmed; 'get you going' is the old claim that oysters are an aphrodisiac.",
@@ -89,44 +86,40 @@
    },
    "solution": "OPERETTA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "OPERETTA",
     "definitions": [
      {
       "text": "Light work",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sorted",
-      "note": "sorted = rearranged into order, so the letters are reshuffled"
-     },
-     {
-      "text": "round",
-      "note": "the anagram goes round the extra letter, holding it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a potter",
-      "gives": "APOTTER",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "back of house",
-      "gives": "E",
-      "note": "last letter of housE"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "APOTTERE",
-       "gives": "OPERETTA"
+       "text": "sorted",
+       "note": "sorted = rearranged into order, so the letters are reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "the anagram goes round the extra letter, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a potter",
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "back of house",
+       "gives": "E",
+       "note": "last letter of housE"
       }
      ]
     },
@@ -156,39 +149,25 @@
    },
    "solution": "SAD",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "SAD",
     "definitions": [
      {
       "text": "deplorable",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Occasionally",
-      "for": "letter_selection",
-      "note": "occasionally = only now and then, so take letters at regular intervals"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "squalid",
-      "gives": "SAD",
-      "select": "regular",
-      "note": "every third letter: S(qu)A(li)D"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "D"
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "Occasionally",
+       "note": "occasionally = only now and then, so take letters at regular intervals"
+      }
+     ],
+     "parts": [
+      {
+       "words": "squalid",
+       "note": "every third letter: S(qu)A(li)D"
+      }
      ]
     },
     "explanation": {
@@ -217,50 +196,41 @@
    },
    "solution": "EMACIATED",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "EMACIATED",
     "definitions": [
      {
       "text": "Gaunt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking in",
-      "for": "container",
-      "note": "the spies break into the other word, landing inside it"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "earl",
-      "gives": "E",
-      "note": "E = earl"
-     },
-     {
-      "clueFragment": "had it",
-      "gives": "MATED",
-      "note": "had it = mated, slang for sex"
-     },
-     {
-      "clueFragment": "spies",
-      "gives": "CIA",
-      "note": "the CIA, the US spy agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MA",
-      "CIA",
-      "TED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "earl",
+       "gives": "E",
+       "note": "E = earl"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "breaking in",
+         "note": "the spies break into the other word, landing inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had it",
+         "gives": "MATED",
+         "note": "had it = mated, slang for sex"
+        },
+        {
+         "words": "spies",
+         "gives": "CIA",
+         "note": "the CIA, the US spy agency"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -289,10 +259,6 @@
    },
    "solution": "PROPOSER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROPOSER",
     "definitions": [
      {
       "text": "who takes the knee",
@@ -300,29 +266,25 @@
       "note": "'who takes the knee' is a relative clause standing for 'one who takes the knee'"
      }
     ],
-    "indicators": [
-     {
-      "text": "faced by",
-      "for": "charade",
-      "note": "faced by = with something in front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "professional",
-      "gives": "PRO",
-      "note": "pro = professional"
-     },
-     {
-      "clueFragment": "Problem",
-      "gives": "POSER",
-      "note": "a poser is a puzzling problem"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "POSER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "faced by",
+       "note": "faced by = with something in front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "professional",
+       "gives": "PRO",
+       "note": "pro = professional"
+      },
+      {
+       "words": "Problem",
+       "gives": "POSER",
+       "note": "a poser is a puzzling problem"
+      }
      ]
     },
     "explanation": {
@@ -352,63 +314,50 @@
    },
    "solution": "REGROUP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "REGROUP",
     "definitions": [
      {
       "text": "rally",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "turned",
-      "note": "turned = spun round, so the letters run backwards"
-     },
-     {
-      "text": "to support",
-      "note": "in a down entry the supporting piece sits below"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R = right"
-     },
-     {
-      "clueFragment": "say",
-      "gives": "EG",
-      "note": "e.g. = for example, say"
-     },
-     {
-      "clueFragment": "Men",
-      "gives": "OR",
-      "note": "OR = other ranks, soldiers who are not officers"
-     },
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "the word itself"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EG",
-      "RO",
-      "UP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "OR",
-       "to": "RO"
+       "text": "turned",
+       "note": "turned = spun round, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R = right"
+      },
+      {
+       "words": "say",
+       "gives": "EG",
+       "note": "e.g. = for example, say"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to support",
+         "note": "in a down entry the supporting piece sits below"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Men",
+         "gives": "OR",
+         "note": "OR = other ranks, soldiers who are not officers"
+        }
+       ]
+      },
+      {
+       "words": "up",
+       "note": "the word itself"
       }
      ]
     },
@@ -438,35 +387,25 @@
    },
    "solution": "PASSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PASSE",
     "definitions": [
      {
       "text": "out",
       "at": 47
      }
     ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Give the ball to another player",
-      "gives": "PASS",
-      "note": "to pass the ball"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PASS",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Give the ball to another player",
+       "gives": "PASS",
+       "note": "to pass the ball"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E = English"
+      }
      ]
     },
     "explanation": {
@@ -495,40 +434,31 @@
    },
    "solution": "SWEETHEARTS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SWEETHEARTS",
     "definitions": [
      {
       "text": "Lovers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "filled",
-      "for": "container",
-      "note": "the puddings are filled with the offal, which goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "puddings",
-      "gives": "SWEETS",
-      "note": "sweets = puddings, desserts"
-     },
-     {
-      "clueFragment": "offal",
-      "gives": "HEART",
-      "note": "heart is eaten as offal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWEET",
-      "HEART",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filled",
+       "note": "the puddings are filled with the offal, which goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "puddings",
+       "gives": "SWEETS",
+       "note": "sweets = puddings, desserts"
+      },
+      {
+       "words": "offal",
+       "gives": "HEART",
+       "note": "heart is eaten as offal"
+      }
      ]
     },
     "explanation": {
@@ -557,49 +487,40 @@
    },
    "solution": "REMAPS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "REMAPS",
     "definitions": [
      {
       "text": "charts again",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former American rock band",
-      "gives": "REM",
-      "note": "R.E.M., the US band that split in 2011"
-     },
-     {
-      "clueFragment": "when",
-      "gives": "AS",
-      "note": "as = when"
-     },
-     {
-      "clueFragment": "piano",
-      "gives": "P",
-      "note": "p = piano, soft in music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REM",
-      "A",
-      "P",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former American rock band",
+       "gives": "REM",
+       "note": "R.E.M., the US band that split in 2011"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including"
+        }
+       ],
+       "parts": [
+        {
+         "words": "when",
+         "gives": "AS",
+         "note": "as = when"
+        },
+        {
+         "words": "piano",
+         "gives": "P",
+         "note": "p = piano, soft in music"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -635,42 +556,31 @@
    },
    "solution": "DIGSIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIGS IN",
     "definitions": [
      {
       "text": "Starts scoffing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first-floor",
-      "for": "charade",
-      "note": "in a down entry the first floor is the top, so the lodgings go first"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lodgings",
-      "gives": "DIGS",
-      "note": "digs = rented lodgings"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "in = at home"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIGS",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first-floor",
+       "note": "in a down entry the first floor is the top, so the lodgings go first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lodgings",
+       "gives": "DIGS",
+       "note": "digs = rented lodgings"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "in = at home"
+      }
      ]
     },
     "explanation": {
@@ -699,40 +609,31 @@
    },
    "solution": "ENDEARING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ENDEARING",
     "definitions": [
      {
       "text": "Charming",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "enthrals",
-      "for": "container",
-      "note": "enthrals = holds captive, so the finale holds the listener inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "finale",
-      "gives": "ENDING",
-      "note": "an ending is a finale"
-     },
-     {
-      "clueFragment": "listener",
-      "gives": "EAR",
-      "note": "the ear listens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "END",
-      "EAR",
-      "ING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthrals",
+       "note": "enthrals = holds captive, so the finale holds the listener inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "finale",
+       "gives": "ENDING",
+       "note": "an ending is a finale"
+      },
+      {
+       "words": "listener",
+       "gives": "EAR",
+       "note": "the ear listens"
+      }
      ]
     },
     "explanation": {
@@ -761,41 +662,32 @@
    },
    "solution": "STEAM",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "STEAM",
     "definitions": [
      {
       "text": "energy",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Turning tail to male",
-      "for": "substitution"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "walk off",
-      "gives": "STEAL",
-      "note": "to walk off with something is to steal it"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M = male, replacing the final L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEA",
-      "M"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "STEAM",
+     "indicators": [
+      {
+       "text": "Turning tail to male"
+      }
+     ],
+     "parts": [
+      {
+       "words": "walk off",
+       "gives": "STEAL",
+       "note": "to walk off with something is to steal it"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M = male, replacing the final L"
+      }
      ]
     },
     "explanation": {
@@ -824,40 +716,30 @@
    },
    "solution": "ENTRIES",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ENTRIES",
     "definitions": [
      {
       "text": "minutes?",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "losing",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Watches",
-      "gives": "SENTRIES",
-      "note": "sentries keep watch; watches are guards"
-     },
-     {
-      "clueFragment": "a second",
-      "gives": "S",
-      "note": "s = second, removed from the front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENTRIES"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Watches",
+       "gives": "SENTRIES",
+       "note": "sentries keep watch; watches are guards"
+      },
+      {
+       "words": "a second",
+       "gives": "S",
+       "note": "s = second, removed from the front"
+      }
      ]
     },
     "explanation": {
@@ -887,45 +769,44 @@
    },
    "solution": "TABLESPOONS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "TABLESPOONS",
     "definitions": [
      {
       "text": "Servers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hacked into",
-      "note": "hacked into = chopped up, so the letters are broken and rearranged"
-     },
-     {
-      "text": "leaders",
-      "note": "leaders = the front letters of the words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "able snoop",
-      "gives": "ABLESNOOP",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "to surveil",
-      "gives": "TS",
-      "select": "first",
-      "note": "first letters of To Surveil"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ABLESNOOPTS",
-       "gives": "TABLESPOONS"
+       "text": "hacked into",
+       "note": "hacked into = chopped up, so the letters are broken and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "leaders = the front letters of the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "able snoop",
+         "note": "anagram fodder"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "to surveil",
+           "note": "first letters of To Surveil"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -962,45 +843,35 @@
    },
    "solution": "ONESTEP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ONE-STEP",
     "definitions": [
      {
       "text": "dance",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "flipping = turned over, so the word runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "My",
-      "gives": "ONES",
-      "note": "one's = my, in the formal 'one's own'"
-     },
-     {
-      "clueFragment": "favourite",
-      "gives": "PET",
-      "note": "pet = favourite"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONES",
-      "TEP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PET",
-       "to": "TEP"
+       "words": "My",
+       "gives": "ONES",
+       "note": "one's = my, in the formal 'one's own'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "flipping = turned over, so the word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "favourite",
+         "gives": "PET",
+         "note": "pet = favourite"
+        }
+       ]
       }
      ]
     },
@@ -1037,43 +908,33 @@
    },
    "solution": "TIBETANSPANIEL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "TIBETAN SPANIEL",
     "definitions": [
      {
       "text": "Dog",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "isn't right",
-      "for": "anagram",
-      "note": "isn't right = in the wrong order, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in a belt",
-      "gives": "INABELT",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "panties",
-      "gives": "PANTIES",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INABELTPANTIES",
-       "gives": "TIBETANSPANIEL"
+       "text": "isn't right",
+       "note": "isn't right = in the wrong order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in a belt",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "panties",
+         "note": "anagram fodder"
+        }
+       ]
       }
      ]
     },
@@ -1104,32 +965,25 @@
    },
    "solution": "NEWCASTLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEWCASTLE",
     "definitions": [
      {
       "text": "City",
       "at": 44
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Recent",
-      "gives": "NEW",
-      "note": "new = recent"
-     },
-     {
-      "clueFragment": "move to give stronger defence to Man",
-      "gives": "CASTLE",
-      "note": "castling in chess tucks the king, a chessman, behind a wall of pieces"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "CASTLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Recent",
+       "gives": "NEW",
+       "note": "new = recent"
+      },
+      {
+       "words": "move to give stronger defence to Man",
+       "gives": "CASTLE",
+       "note": "castling in chess tucks the king, a chessman, behind a wall of pieces"
+      }
      ]
     },
     "explanation": {
@@ -1158,32 +1012,25 @@
    },
    "solution": "ADVANCED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ADVANCED",
     "definitions": [
      {
       "text": "A",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "further",
-      "gives": "ADVANCE",
-      "note": "to further a cause is to advance it"
-     },
-     {
-      "clueFragment": "bit of data",
-      "gives": "D",
-      "note": "first letter of Data"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADVANCE",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "further",
+       "gives": "ADVANCE",
+       "note": "to further a cause is to advance it"
+      },
+      {
+       "words": "bit of data",
+       "gives": "D",
+       "note": "first letter of Data"
+      }
      ]
     },
     "explanation": {
@@ -1225,26 +1072,25 @@
    },
    "solution": "DEADTOTHEWORLD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "DEAD TO THE WORLD",
     "definitions": [
      {
       "text": "Completely out in the wilderness?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Completely out",
-      "note": "read as totally excluded, and meant as fast asleep or unconscious"
-     },
-     {
-      "clueFragment": "in the wilderness?",
-      "note": "the lost wanderer, and also the political exile cut off from everyone"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Completely out",
+       "note": "read as totally excluded, and meant as fast asleep or unconscious"
+      },
+      {
+       "words": "in the wilderness?",
+       "note": "the lost wanderer, and also the political exile cut off from everyone"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone utterly lost, far out in the wild.",
      "walkthrough": "'Completely out' is sleeping soundly; 'in the wilderness' adds the picture of someone cut off from the world, as a politician out of office is.",
@@ -1272,35 +1118,24 @@
    },
    "solution": "OPTICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OPTICAL",
     "definitions": [
      {
       "text": "of lamps",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "with a new layout",
-      "for": "anagram",
-      "note": "a new layout = the letters arranged differently"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Coalpit",
-      "gives": "COALPIT",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "COALPIT",
-       "gives": "OPTICAL"
+       "text": "with a new layout",
+       "note": "a new layout = the letters arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Coalpit",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1331,44 +1166,45 @@
    },
    "solution": "HADITH",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "HADITH",
     "definitions": [
      {
       "text": "guidance for Muslims?",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "nurses",
-      "note": "nurses = holds close, so the word takes another inside"
-     },
-     {
-      "text": "mostly",
-      "note": "mostly = all but the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Have old",
-      "gives": "HATH",
-      "note": "hath = the old form of has"
-     },
-     {
-      "clueFragment": "studied",
-      "gives": "DID",
-      "note": "as in 'she did history at university'; mostly gives DI"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HA",
-      "DI",
-      "TH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nurses",
+       "note": "nurses = holds close, so the word takes another inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Have old",
+       "gives": "HATH",
+       "note": "hath = the old form of has"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "mostly = all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "studied",
+         "gives": "DID",
+         "note": "as in 'she did history at university'; mostly gives DI"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1397,39 +1233,31 @@
    },
    "solution": "MAYHEM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MAYHEM",
     "definitions": [
      {
       "text": "Chaos",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "brought upon",
-      "for": "charade",
-      "note": "in a down entry, placed on top of the next piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old PM",
-      "gives": "MAY",
-      "note": "Theresa May, former UK Prime Minister"
-     },
-     {
-      "clueFragment": "border",
-      "gives": "HEM",
-      "note": "a hem is a border of cloth"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAY",
-      "HEM"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "brought upon",
+       "note": "in a down entry, placed on top of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old PM",
+       "gives": "MAY",
+       "note": "Theresa May, former UK Prime Minister"
+      },
+      {
+       "words": "border",
+       "gives": "HEM",
+       "note": "a hem is a border of cloth"
+      }
      ]
     },
     "explanation": {
@@ -1458,31 +1286,29 @@
    },
    "solution": "APPOINT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "APPOINT",
     "definitions": [
      {
       "text": "Name",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "you've heard on the radio",
-      "for": "homophone",
-      "note": "the radio is heard, not seen, so sound matters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a Mark",
-      "gives": "APPOINT",
-      "soundsLike": "A POINT",
-      "note": "a mark = a point, as in a score"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "APPOINT",
+     "indicators": [
+      {
+       "text": "you've heard on the radio",
+       "note": "the radio is heard, not seen, so sound matters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a Mark",
+       "gives": "APOINT",
+       "note": "a mark = a point, as in a score"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An appeal to identify a man called Mark whom you heard on the radio.",
      "walkthrough": "The capital M makes 'Mark' look like a man's name; it is a point scored.",
@@ -1509,33 +1335,16 @@
    },
    "solution": "ISSUE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ISSUE",
     "definitions": [
      {
       "text": "Flow",
-      "at": 0
+      "at": 0,
+      "meaning": "an outflow or discharge, as of blood from a wound"
      },
      {
       "text": "supply",
-      "at": 8
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flow",
-      "gives": "ISSUE",
-      "note": "an outflow or discharge, as of blood from a wound"
-     },
-     {
-      "clueFragment": "supply",
-      "gives": "ISSUE",
-      "note": "to hand out kit or rations, as an army quartermaster does"
+      "at": 8,
+      "meaning": "to hand out kit or rations, as an army quartermaster does"
      }
     ],
     "explanation": {
@@ -1569,40 +1378,39 @@
    },
    "solution": "DEADSEA",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DEAD SEA",
     "definitions": [
      {
       "text": "Lake",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving terminus",
-      "for": "deletion",
-      "note": "the line leaves its end behind, dropping the last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "passed on",
-      "gives": "DEAD",
-      "note": "passed on = died"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "SEAM",
-      "note": "a seam is a line of stitching; its final M goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEAD",
-      "SEA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving terminus",
+       "note": "the line leaves its end behind, dropping the last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "passed on",
+         "gives": "DEAD",
+         "note": "passed on = died"
+        },
+        {
+         "words": "line",
+         "gives": "SEAM",
+         "note": "a seam is a line of stitching; its final M goes"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1631,33 +1439,29 @@
    },
    "solution": "HOOTS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HOOTS",
     "definitions": [
      {
       "text": "amusing people",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Topless",
-      "for": "deletion",
-      "note": "topless = without its top, the first letter removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "photo sessions",
-      "gives": "SHOOTS",
-      "note": "photo shoots; the first letter goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOOTS"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Topless",
+       "note": "topless = without its top, the first letter removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "photo sessions",
+       "gives": "SHOOTS",
+       "note": "photo shoots; the first letter goes"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -1687,41 +1491,29 @@
    },
    "solution": "CATATONIC",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CATATONIC",
     "definitions": [
      {
       "text": "totally out of it",
       "at": 20
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dude",
-      "gives": "CAT",
-      "note": "cat = a cool dude, in jazz slang"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the letter itself"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "TONIC",
-      "note": "tonic water, a drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAT",
-      "A",
-      "TONIC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dude",
+       "gives": "CAT",
+       "note": "cat = a cool dude, in jazz slang"
+      },
+      {
+       "words": "a",
+       "note": "the letter itself"
+      },
+      {
+       "words": "drink",
+       "gives": "TONIC",
+       "note": "tonic water, a drink"
+      }
      ]
     },
     "explanation": {
@@ -1750,31 +1542,29 @@
    },
    "solution": "NUN",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NUN",
     "definitions": [
      {
       "text": "Woman with a habit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "listened to",
-      "for": "homophone",
-      "note": "what is listened to is heard, so go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nobody",
-      "gives": "NUN",
-      "soundsLike": "NONE",
-      "note": "none = nobody"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NUN",
+     "indicators": [
+      {
+       "text": "listened to",
+       "note": "what is listened to is heard, so go by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nobody",
+       "gives": "NONE",
+       "note": "none = nobody"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A woman with a bad habit whom nobody paid attention to.",
      "walkthrough": "'Habit' suggests a vice; it is the nun's robe.",
@@ -1802,35 +1592,24 @@
    },
    "solution": "MASTERLY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MASTERLY",
     "definitions": [
      {
       "text": "like the Boss",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "rocked",
-      "for": "anagram",
-      "note": "rocked = shaken about, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mr Astley",
-      "gives": "MRASTLEY",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MRASTLEY",
-       "gives": "MASTERLY"
+       "text": "rocked",
+       "note": "rocked = shaken about, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mr Astley",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1861,45 +1640,41 @@
    },
    "solution": "LEANED",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "LEANED",
     "definitions": [
      {
       "text": "Rested",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "note": "finally = the last letters of the words"
-     },
-     {
-      "text": "seen in",
-      "note": "the letters are seen inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "first place",
-      "gives": "LEAD",
-      "note": "in the lead = in first place"
-     },
-     {
-      "clueFragment": "American athlete",
-      "gives": "NE",
-      "select": "last",
-      "note": "last letters of americaN athletE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA",
-      "NE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "finally",
+       "note": "finally = the last letters of the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "first place",
+       "gives": "LEAD",
+       "note": "in the lead = in first place"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "seen in",
+         "note": "the letters are seen inside the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American athlete",
+         "note": "last letters of americaN athletE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

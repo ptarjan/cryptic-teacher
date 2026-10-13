@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29625",
  "number": 29625,
- "series": "cryptic",
- "name": "Prize crossword No 29,625",
+ "prize": true,
  "setter": "Enigmatist",
  "date": "2025-02-22",
  "dimensions": {
@@ -52,54 +51,50 @@
    },
    "solution": "SEEMEAFTERCLASS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "SEE ME AFTER CLASS",
     "definitions": [
      {
       "text": "teacher's \"invitation\"",
       "at": 54
      }
     ],
-    "indicators": [
-     {
-      "text": "Upper third of",
-      "for": "letter_selection",
-      "note": "in a down entry the upper part is the start, and a third of a six-letter word is its opening two letters"
-     },
-     {
-      "text": "which degrades",
-      "for": "anagram",
-      "note": "degrading something breaks it down, so the words before are broken up and rebuilt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "school",
-      "gives": "SC",
-      "select": "first",
-      "note": "the opening third of a six-letter word"
-     },
-     {
-      "clueFragment": "eats free meals",
-      "gives": "EEMEAFTERLASS",
-      "note": "thirteen letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "EEMEAFTER",
-      "C",
-      "LASS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SCEATSFREEMEALS",
-       "gives": "SEEMEAFTERCLASS"
+       "text": "which degrades",
+       "note": "degrading something breaks it down, so the words before are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "SC",
+         "indicators": [
+          {
+           "text": "Upper third of",
+           "note": "in a down entry the upper part is the start, and a third of a six-letter word is its opening two letters"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "school",
+           "gives": "SC",
+           "select": "first",
+           "note": "the opening third of a six-letter word"
+          }
+         ]
+        },
+        {
+         "words": "eats free meals",
+         "gives": "EEMEAFTERLASS",
+         "note": "thirteen letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -135,67 +130,65 @@
    },
    "solution": "FROGMORECOTTAGE",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "FROGMORE COTTAGE",
     "definitions": [
      {
       "text": "Royals, predominantly, come and go, revelling in sexual activity … none here now",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "predominantly",
-      "for": "letter_selection",
-      "note": "read as pre-dominant, the letter standing in front of all the others"
-     },
-     {
-      "text": "revelling",
-      "for": "anagram",
-      "note": "revellers cavort wildly, so the letters are thrown about into a new order"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the jumbled letters are placed inside the word that follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sexual activity",
-      "gives": "FROTTAGE",
-      "note": "rubbing against another person for sexual pleasure; it is split after its third letter"
-     },
-     {
-      "clueFragment": "Royals",
-      "gives": "R",
-      "select": "first",
-      "note": "leading letter"
-     },
-     {
-      "clueFragment": "come and go",
-      "gives": "COMEGO",
-      "note": "the two verbs as written, with the link word dropped"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRO",
-      "GMORECO",
-      "TTAGE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "RCOMEGO",
-       "gives": "GMORECO"
+       "text": "in",
+       "note": "the jumbled letters are placed inside the word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sexual activity",
+       "gives": "FROTTAGE",
+       "note": "rubbing against another person for sexual pleasure; it is split after its third letter"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revelling",
+         "note": "revellers cavort wildly, so the letters are thrown about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "predominantly",
+             "note": "read as pre-dominant, the letter standing in front of all the others"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Royals",
+             "note": "leading letter"
+            }
+           ]
+          },
+          {
+           "words": "come and go",
+           "gives": "COMEGO",
+           "note": "the two verbs as written, with the link word dropped"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A racy picture of royal comings and goings at a house that now stands empty.",
      "walkthrough": "The scrambled letters split the sexual activity after its third letter. The whole clue also describes the house, which Harry and Meghan left in 2023.",
@@ -234,48 +227,35 @@
    },
    "solution": "SAINTSAENS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SAINT-SAENS",
     "definitions": [
      {
       "text": "Carnival man",
       "at": 36
      }
     ],
-    "linkWords": [
-     "overlooked by",
-     "?"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "the abbreviation for second"
-     },
-     {
-      "clueFragment": "Isn't",
-      "gives": "AINT",
-      "note": "the colloquial contraction"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "SA",
-      "note": "it in the old sense of sex appeal, abbreviated"
-     },
-     {
-      "clueFragment": "being",
-      "gives": "ENS",
-      "note": "the philosopher's Latin term for an entity or existence"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "AINT",
-      "SA",
-      "ENS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "the abbreviation for second"
+      },
+      {
+       "words": "Isn't",
+       "gives": "AINT",
+       "note": "the colloquial contraction"
+      },
+      {
+       "words": "it",
+       "gives": "SA",
+       "note": "it in the old sense of sex appeal, abbreviated"
+      },
+      {
+       "words": "being",
+       "gives": "ENS",
+       "note": "the philosopher's Latin term for an entity or existence"
+      }
      ]
     },
     "explanation": {
@@ -310,40 +290,31 @@
    },
    "solution": "PHOTOOP",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PHOTO OP",
     "definitions": [
      {
       "text": "a chance for publicity",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "Staying",
-      "for": "container",
-      "note": "one part stays within the other, lodged in the middle of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "HOT",
-      "note": "in fashion, all the rage"
-     },
-     {
-      "clueFragment": "waste",
-      "gives": "POOP",
-      "note": "slang for excrement"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "HOT",
-      "OOP"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Staying",
+       "note": "one part stays within the other, lodged in the middle of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "waste",
+       "gives": "POOP",
+       "note": "slang for excrement"
+      },
+      {
+       "words": "in",
+       "gives": "HOT",
+       "note": "in fashion, all the rage"
+      }
      ]
     },
     "explanation": {
@@ -372,47 +343,41 @@
    },
    "solution": "ASAP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ASAP",
     "definitions": [
      {
       "text": "yesterday?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Terminally",
-      "for": "letter_selection",
-      "note": "the terminal letter is the final one of the name that follows"
-     },
-     {
-      "text": "bitten",
-      "for": "container",
-      "note": "something bitten is held between the jaws, so it ends up inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cleopatra",
-      "gives": "A",
-      "select": "last",
-      "note": "her final letter"
-     },
-     {
-      "clueFragment": "so",
-      "gives": "ASP",
-      "note": "'so bitten' means bitten in the way Cleopatra famously was, by the venomous snake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "A",
-      "P"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bitten",
+       "note": "something bitten is held between the jaws, so it ends up inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "so",
+       "gives": "ASP",
+       "note": "'so bitten' means bitten in the way Cleopatra famously was, by the venomous snake"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Terminally",
+         "note": "the terminal letter is the final one of the name that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cleopatra",
+         "note": "her final letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -448,50 +413,40 @@
    },
    "solution": "LUDOVICOEINAUDI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LUDOVICO EINAUDI",
     "definitions": [
      {
       "text": "he scores",
       "at": 38
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Game",
-      "gives": "LUDO",
-      "note": "the board game"
-     },
-     {
-      "clueFragment": "6",
-      "gives": "VI",
-      "note": "six in Roman numerals"
-     },
-     {
-      "clueFragment": "Olympian",
-      "gives": "COE",
-      "note": "Sebastian Coe, the British Olympic runner"
-     },
-     {
-      "clueFragment": "driving",
-      "gives": "IN",
-      "note": "someone driving is in the vehicle"
-     },
-     {
-      "clueFragment": "German car",
-      "gives": "AUDI",
-      "note": "the German car make"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LUDO",
-      "VI",
-      "COE",
-      "IN",
-      "AUDI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Game",
+       "gives": "LUDO",
+       "note": "the board game"
+      },
+      {
+       "words": "6",
+       "gives": "VI",
+       "note": "six in Roman numerals"
+      },
+      {
+       "words": "Olympian",
+       "gives": "COE",
+       "note": "Sebastian Coe, the British Olympic runner"
+      },
+      {
+       "words": "driving",
+       "gives": "IN",
+       "note": "someone driving is in the vehicle"
+      },
+      {
+       "words": "German car",
+       "gives": "AUDI",
+       "note": "the German car make"
+      }
      ]
     },
     "explanation": {
@@ -527,26 +482,25 @@
    },
    "solution": "PRIORENGAGEMENT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "PRIOR ENGAGEMENT",
     "definitions": [
      {
       "text": "A happy day in prospect at the Abbey?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "A happy day in prospect",
-      "note": "surface reading: a forthcoming celebration such as a wedding day"
-     },
-     {
-      "clueFragment": "at the Abbey?",
-      "note": "setter's reading: the betrothal of the monk who ranks next below an abbot"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A happy day in prospect",
+       "note": "surface reading: a forthcoming celebration such as a wedding day"
+      },
+      {
+       "words": "at the Abbey?",
+       "note": "setter's reading: the betrothal of the monk who ranks next below an abbot"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The phrase normally means an existing commitment used as an excuse; here it is read as a prior being engaged to marry.",
      "definitionFit": "A prior is a monastic official, so his engagement to be married would promise a happy wedding day at the abbey."
@@ -573,40 +527,31 @@
    },
    "solution": "REPROACH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REPROACH",
     "definitions": [
      {
       "text": "Blame",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cutting",
-      "for": "container",
-      "note": "something cutting into a word slices into its middle and sits there"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "argument for",
-      "gives": "PRO",
-      "note": "a pro is a point in favour"
-     },
-     {
-      "clueFragment": "hand",
-      "gives": "REACH",
-      "note": "to hand or pass something across"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "PRO",
-      "ACH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "note": "something cutting into a word slices into its middle and sits there"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hand",
+       "gives": "REACH",
+       "note": "to hand or pass something across"
+      },
+      {
+       "words": "argument for",
+       "gives": "PRO",
+       "note": "a pro is a point in favour"
+      }
      ]
     },
     "explanation": {
@@ -635,28 +580,16 @@
    },
    "solution": "SQUARE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SQUARE",
     "definitions": [
      {
       "text": "Old fogey",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a conventional, unfashionable person"
      },
      {
       "text": "just quits",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old fogey",
-      "note": "first meaning: a conventional, unfashionable person"
-     },
-     {
-      "clueFragment": "just quits",
-      "note": "second meaning: fair and even, with nothing owed either way"
+      "at": 10,
+      "meaning": "second meaning: fair and even, with nothing owed either way"
      }
     ],
     "explanation": {
@@ -684,32 +617,25 @@
    },
    "solution": "IMOGEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMOGEN",
     "definitions": [
      {
       "text": "m'colleague",
       "at": 30
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One's",
-      "gives": "IM",
-      "note": "one is, from the speaker's own point of view, contracted"
-     },
-     {
-      "clueFragment": "apparently not informed",
-      "gives": "OGEN",
-      "note": "zero gen: having nil information"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IM",
-      "OGEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One's",
+       "gives": "IM",
+       "note": "one is, from the speaker's own point of view, contracted"
+      },
+      {
+       "words": "apparently not informed",
+       "gives": "OGEN",
+       "note": "zero gen: having nil information"
+      }
      ]
     },
     "explanation": {
@@ -748,48 +674,43 @@
    },
    "solution": "TOPTOTOE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TOP-TO-TOE",
     "definitions": [
      {
       "text": "overall",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "In",
-      "for": "container",
-      "note": "the games letters go in among the repeated words"
-     }
-    ],
-    "linkWords": [
-     "appear"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "games",
-      "gives": "PE",
-      "note": "physical education, school games"
-     },
-     {
-      "clueFragment": "two out of",
-      "note": "says the two letters of games are spread out among the three words"
-     },
-     {
-      "clueFragment": "three forwards",
-      "gives": "TOTOTO",
-      "note": "to as in to and fro means forwards; three of them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "P",
-      "TOTO",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "unchecked": true,
+       "gives": "TOPTOTOE",
+       "indicators": [
+        {
+         "text": "In",
+         "note": "the games letters go in among the repeated words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "games",
+         "gives": "PE",
+         "note": "physical education, school games"
+        },
+        {
+         "words": "three forwards",
+         "gives": "TOTOTO",
+         "note": "to as in to and fro means forwards; three of them"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "two out of",
+       "note": "says the two letters of games are spread out among the three words"
+      }
      ]
     },
     "explanation": {
@@ -816,48 +737,7 @@
     "text": "Knock here — radio presenter dressing!",
     "enumeration": "4"
    },
-   "solution": "MAYO",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MAYO",
-    "definitions": [
-     {
-      "text": "Knock here",
-      "at": 0
-     },
-     {
-      "text": "dressing",
-      "at": 29
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Knock here",
-      "note": "first meaning: the Irish county where Knock and its Marian shrine are"
-     },
-     {
-      "clueFragment": "radio presenter",
-      "note": "second meaning: Simon ..., the BBC broadcaster"
-     },
-     {
-      "clueFragment": "dressing",
-      "note": "third meaning: short for mayonnaise"
-     }
-    ],
-    "explanation": {
-     "surface": "Someone knocking at a studio while a broadcaster gets dressed.",
-     "walkthrough": "Three meanings in one. Simon Mayo is a long-serving British radio presenter.",
-     "definitionFit": "County Mayo in western Ireland contains Knock, and the word is also the familiar shortening of the salad sauce mayonnaise."
-    },
-    "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "dressing"
-    }
-   }
+   "solution": "MAYO"
   },
   {
    "number": 13,
@@ -879,32 +759,25 @@
    },
    "solution": "STOCKRIDER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STOCK RIDER",
     "definitions": [
      {
       "text": "worker at Victoria Station?",
       "at": 33
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Standard",
-      "gives": "STOCK",
-      "note": "stock as an adjective: usual, standard"
-     },
-     {
-      "clueFragment": "supplement for contract",
-      "gives": "RIDER",
-      "note": "a clause added to a contract"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STOCK",
-      "RIDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Standard",
+       "gives": "STOCK",
+       "note": "stock as an adjective: usual, standard"
+      },
+      {
+       "words": "supplement for contract",
+       "gives": "RIDER",
+       "note": "a clause added to a contract"
+      }
      ]
     },
     "explanation": {
@@ -934,57 +807,54 @@
    },
    "solution": "KNOBKERRIE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "container"
-    ],
-    "answer": "KNOBKERRIE",
     "definitions": [
      {
       "text": "Club",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "something done badly is messed up, so the letters are scrambled"
-     },
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "cut short, the German word loses its final letter"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "something happening during a period falls within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "broken",
-      "gives": "BROKEN",
-      "note": "taken as written, then jumbled"
-     },
-     {
-      "clueFragment": "Hitler's short war",
-      "gives": "KRIEG",
-      "note": "the German word for war"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "NOBKER",
-      "RIE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "BROKEN",
-       "gives": "NOBKER"
+       "text": "during",
+       "note": "something happening during a period falls within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "note": "cut short, the German word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hitler's short war",
+         "gives": "KRIEG",
+         "note": "the German word for war"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "note": "something done badly is messed up, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broken",
+         "note": "taken as written, then jumbled"
+        }
+       ]
       }
      ]
     },
@@ -1014,50 +884,40 @@
    },
    "solution": "STEEPER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "STEEPER",
     "definitions": [
      {
       "text": "vessel for immersion",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "No 1",
-      "for": "letter_selection",
-      "note": "number one in the word is its leading letter"
-     }
-    ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Salon's",
-      "gives": "S",
-      "select": "first",
-      "note": "opening letter"
-     },
-     {
-      "clueFragment": "supporter",
-      "gives": "TEE",
-      "note": "a golf tee supports the ball"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "PER",
-      "note": "a as in so much a head"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEE",
-      "PER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "No 1",
+         "note": "number one in the word is its leading letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Salon's",
+         "note": "opening letter"
+        }
+       ]
+      },
+      {
+       "words": "supporter",
+       "gives": "TEE",
+       "note": "a golf tee supports the ball"
+      },
+      {
+       "words": "a",
+       "gives": "PER",
+       "note": "a as in so much a head"
+      }
      ]
     },
     "explanation": {
@@ -1086,40 +946,31 @@
    },
    "solution": "BOROUGH",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BOROUGH",
     "definitions": [
      {
       "text": "Town",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking delivery of",
-      "for": "container",
-      "note": "something that takes delivery receives it and holds it within"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "branch",
-      "gives": "BOUGH",
-      "note": "a large branch of a tree"
-     },
-     {
-      "clueFragment": "precious commodity",
-      "gives": "OR",
-      "note": "or is gold in heraldry"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "OR",
-      "OUGH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking delivery of",
+       "note": "something that takes delivery receives it and holds it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "branch",
+       "gives": "BOUGH",
+       "note": "a large branch of a tree"
+      },
+      {
+       "words": "precious commodity",
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
      ]
     },
     "explanation": {
@@ -1148,54 +999,48 @@
    },
    "solution": "DIGRESS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "substitution"
-    ],
-    "answer": "DIGRESS",
     "definitions": [
      {
       "text": "Wander",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the closing letter of the word before it"
-     },
-     {
-      "text": "becomes",
-      "for": "substitution",
-      "note": "one letter turns into another, swapping it out of the word"
-     }
-    ],
-    "linkWords": [
-     "here, when"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prowler",
-      "gives": "TIGRESS",
-      "note": "a big cat that prowls"
-     },
-     {
-      "clueFragment": "night",
-      "gives": "T",
-      "select": "last",
-      "note": "the final letter"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "D",
-      "note": "the abbreviation for day"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IGRESS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "DIGRESS",
+     "indicators": [
+      {
+       "text": "becomes",
+       "note": "one letter turns into another, swapping it out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prowler",
+       "gives": "TIGRESS",
+       "note": "a big cat that prowls"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the closing letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "night",
+         "note": "the final letter"
+        }
+       ]
+      },
+      {
+       "words": "day",
+       "gives": "D",
+       "note": "the abbreviation for day"
+      }
      ]
     },
     "explanation": {
@@ -1224,40 +1069,31 @@
    },
    "solution": "BROOMSTICK",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BROOMSTICK",
     "definitions": [
      {
       "text": "Means to get to Hogwarts",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the chambers sit in between the pair of seconds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "two seconds",
-      "gives": "BTICK",
-      "note": "B for second-class, and a tick, a moment"
-     },
-     {
-      "clueFragment": "chambers",
-      "gives": "ROOMS",
-      "note": "chambers are rooms"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ROOMS",
-      "TICK"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the chambers sit in between the pair of seconds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two seconds",
+       "gives": "BTICK",
+       "note": "B for second-class, and a tick, a moment"
+      },
+      {
+       "words": "chambers",
+       "gives": "ROOMS",
+       "note": "chambers are rooms"
+      }
      ]
     },
     "explanation": {
@@ -1286,33 +1122,28 @@
    },
    "solution": "INGE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INGE",
     "definitions": [
      {
       "text": "depressing clergyman",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Uncassocked",
-      "for": "deletion",
-      "note": "removing the cassock strips away the outer layer, so the outside letters go"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "choirboy maybe",
-      "gives": "SINGER",
-      "note": "a choirboy is an example of one who sings"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INGE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "INGE",
+     "indicators": [
+      {
+       "text": "Uncassocked",
+       "note": "removing the cassock strips away the outer layer, so the outside letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "choirboy maybe",
+       "gives": "SINGER",
+       "note": "a choirboy is an example of one who sings"
+      }
      ]
     },
     "explanation": {
@@ -1347,54 +1178,48 @@
    },
    "solution": "OLDTIMER",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "OLD-TIMER",
     "definitions": [
      {
       "text": "Veteran",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to be driven away",
-      "for": "deletion",
-      "note": "something driven away leaves, so those letters are dropped"
-     },
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "suspect here means dodgy, so the letters are not to be trusted in their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "car",
-      "gives": "CAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Model T, I",
-      "gives": "MODELTI",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "CA",
-      "note": "circa, abbreviated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OLDTIMER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OLDTIMER",
+     "indicators": [
       {
-       "fodder": "RMODELTI",
-       "gives": "OLDTIMER"
+       "text": "suspect",
+       "note": "suspect here means dodgy, so the letters are not to be trusted in their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "OLDTIMER",
+       "indicators": [
+        {
+         "text": "to be driven away",
+         "note": "something driven away leaves, so those letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "note": "taken as written"
+        },
+        {
+         "words": "Model T, I",
+         "note": "taken as written"
+        },
+        {
+         "words": "about",
+         "gives": "CA",
+         "note": "circa, abbreviated"
+        }
+       ]
       }
      ]
     },
@@ -1424,32 +1249,25 @@
    },
    "solution": "MANX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MANX",
     "definitions": [
      {
       "text": "from the people staging the Tourist Trophy",
       "at": 16
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Our race",
-      "gives": "MAN",
-      "note": "humankind, the human race"
-     },
-     {
-      "clueFragment": "times",
-      "gives": "X",
-      "note": "the multiplication sign"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAN",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Our race",
+       "gives": "MAN",
+       "note": "humankind, the human race"
+      },
+      {
+       "words": "times",
+       "gives": "X",
+       "note": "the multiplication sign"
+      }
      ]
     },
     "explanation": {
@@ -1478,39 +1296,31 @@
    },
    "solution": "REALMS",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "REALMS",
     "definitions": [
      {
       "text": "action arenas",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "no longer",
-      "for": "deletion",
-      "note": "what is no longer there has been taken out of the name"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Champion FC's",
-      "gives": "REALMADRIDS",
-      "note": "the Spanish football club, many times European champions, with its possessive"
-     },
-     {
-      "clueFragment": "ad-free",
-      "gives": "ADRID",
-      "note": "ad plus rid, a word for free"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REALM",
-      "S"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no longer",
+       "note": "what is no longer there has been taken out of the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Champion FC's",
+       "gives": "REALMADRIDS",
+       "note": "the Spanish football club, many times European champions, with its possessive"
+      },
+      {
+       "words": "ad-free",
+       "gives": "ADRID",
+       "note": "ad plus rid, a word for free"
+      }
      ]
     },
     "explanation": {
@@ -1539,45 +1349,34 @@
    },
    "solution": "ISOGON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ISOGON",
     "definitions": [
      {
       "text": "Perhaps 9",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on reflection",
-      "for": "reversal",
-      "note": "a mirror image runs the other way, so the word is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "impossible",
-      "gives": "NOGO",
-      "note": "a no-go is something that cannot happen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "OGON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "NOGO",
-       "to": "OGON"
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on reflection",
+         "note": "a mirror image runs the other way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "impossible",
+         "gives": "NOGO",
+         "note": "a no-go is something that cannot happen"
+        }
+       ]
       }
      ]
     },
@@ -1607,40 +1406,38 @@
    },
    "solution": "SKIDDING",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SKIDDING",
     "definitions": [
      {
       "text": "On the slide",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not one",
-      "for": "deletion",
-      "note": "not one means without one, so the letter for one is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written; I stands for one"
-     },
-     {
-      "clueFragment": "playful",
-      "gives": "KIDDING",
-      "note": "joking, teasing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "KIDDING"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not one",
+       "note": "not one means without one, so the letter for one is removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "is",
+         "note": "taken as written; I stands for one"
+        },
+        {
+         "words": "playful",
+         "gives": "KIDDING",
+         "note": "joking, teasing"
+        }
+       ]
+      },
+      {
+       "gives": "I"
+      }
      ]
     },
     "explanation": {

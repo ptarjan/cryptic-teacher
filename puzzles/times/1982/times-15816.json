@@ -1,8 +1,6 @@
 {
  "id": "times-15816",
  "number": 15816,
- "series": "times",
- "name": "Times cryptic crossword No 15,816",
  "date": "1982-04-27",
  "dimensions": {
   "cols": 15,
@@ -46,26 +44,25 @@
    },
    "solution": "GOLFCLUB",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "GOLF CLUB",
     "definitions": [
      {
       "text": "Where a member uses one, of course",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Where a member",
-      "note": "surface reading: the place a person who has joined something goes"
-     },
-     {
-      "clueFragment": "uses one, of course",
-      "note": "setter's reading: the same two words name both a members' club for the sport and the stick each player swings on the course"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Where a member",
+       "note": "surface reading: the place a person who has joined something goes"
+      },
+      {
+       "words": "uses one, of course",
+       "note": "setter's reading: the same two words name both a members' club for the sport and the stick each player swings on the course"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A puzzle about where a member of some society goes and what they use there.",
      "walkthrough": "The answer means both the clubhouse a member belongs to and the iron or wood they swing on the course.",
@@ -99,10 +96,6 @@
    },
    "solution": "GASLIT",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "GAS-LIT",
     "definitions": [
      {
       "text": "Fanny was",
@@ -110,20 +103,22 @@
       "note": "a clause describing how Fanny was seen, standing for the adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "Visible in",
-      "for": "hidden_word",
-      "note": "something visible in the next words can be seen sitting among their letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fog, as little",
-      "gives": "GASLIT",
-      "note": "the letters run across the end of fog, the whole of as and the start of little"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Visible in",
+       "note": "something visible in the next words can be seen sitting among their letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fog, as little",
+       "gives": "GASLIT",
+       "note": "the letters run across the end of fog, the whole of as and the start of little"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A little girl called Fanny glimpsed through a foggy Victorian street.",
      "walkthrough": "Fanny by Gaslight is a 1940s British film and novel set in Victorian London, where streets were lit by gas lamps.",
@@ -150,10 +145,6 @@
    },
    "solution": "LORDSHIPS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LORDSHIPS",
     "definitions": [
      {
       "text": "those hearing appeals",
@@ -161,25 +152,19 @@
       "note": "a form of address for judges, standing for the judges themselves"
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cricket ground",
-      "gives": "LORDS",
-      "note": "Lord's is the famous London cricket ground"
-     },
-     {
-      "clueFragment": "joints",
-      "gives": "HIPS",
-      "note": "hips are joints of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LORDS",
-      "HIPS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cricket ground",
+       "gives": "LORDS",
+       "note": "Lord's is the famous London cricket ground"
+      },
+      {
+       "words": "joints",
+       "gives": "HIPS",
+       "note": "hips are joints of the body"
+      }
      ]
     },
     "explanation": {
@@ -209,53 +194,50 @@
    },
    "solution": "CHINDIT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CHINDIT",
     "definitions": [
      {
       "text": "Jungle fighter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a word is its central letter, so only that one is kept"
-     },
-     {
-      "text": "bides",
-      "for": "container",
-      "note": "the note abides round the following letters, holding them as it stays in place"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "note",
-      "gives": "CHIT",
-      "note": "a chit is a short written note"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "hedge",
-      "gives": "D",
-      "select": "middle",
-      "note": "the central letter of hedge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "IN",
-      "D",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bides",
+       "note": "the note abides round the following letters, holding them as it stays in place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "note",
+         "gives": "CHIT",
+         "note": "a chit is a short written note"
+        },
+        {
+         "words": "in",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the middle of a word is its central letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hedge",
+         "note": "the central letter of hedge"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -284,30 +266,16 @@
    },
    "solution": "USHER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "USHER",
     "definitions": [
      {
       "text": "Assistant giving lessons",
       "at": 0
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pronouns",
-      "gives": "USHER",
-      "note": "two pronouns, the first person plural object and the third person feminine object, side by side"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USHER"
-     ]
+    "wordplay": {
+     "words": "pronouns",
+     "gives": "USHER",
+     "note": "two pronouns, the first person plural object and the third person feminine object, side by side"
     },
     "explanation": {
      "surface": "A teaching assistant giving lessons on grammar, specifically pronouns.",
@@ -335,34 +303,29 @@
    },
    "solution": "SOCCER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SOCCER",
     "definitions": [
      {
       "text": "this game",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said tells us to go by how the word for a striker is spoken, not spelt"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Striker",
-      "gives": "SOCCER",
-      "soundsLike": "SOCKER",
-      "note": "one who socks, or hits, someone is a striker"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SOCCER",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "said tells us to go by how the word for a striker is spoken, not spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Striker",
+       "gives": "SOCKER",
+       "note": "one who socks, or hits, someone is a striker"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A striker, the attacking footballer, speaking during a match.",
      "walkthrough": "'Striker' looks like the football position but means a person who socks or punches. The dots run on into the next clue.",
@@ -390,40 +353,30 @@
    },
    "solution": "OTRANTO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OTRANTO",
     "definitions": [
      {
       "text": "Italian castle",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "going into something puts these letters inside the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ran",
-      "gives": "RAN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Emperor",
-      "gives": "OTTO",
-      "note": "Otto was the name of several Holy Roman Emperors"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OT",
-      "RAN",
-      "TO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "going into something puts these letters inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Emperor",
+       "gives": "OTTO",
+       "note": "Otto was the name of several Holy Roman Emperors"
+      },
+      {
+       "words": "Ran",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -452,31 +405,16 @@
    },
    "solution": "CHAIR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHAIR",
     "definitions": [
      {
       "text": "National obstacle",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the tallest fence on the Grand National course at Aintree"
      },
      {
       "text": "preside over",
-      "at": 21
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "National obstacle",
-      "note": "first meaning: the tallest fence on the Grand National course at Aintree"
-     },
-     {
-      "clueFragment": "preside over",
-      "note": "second meaning: to run a meeting"
+      "at": 21,
+      "meaning": "second meaning: to run a meeting"
      }
     ],
     "explanation": {
@@ -506,29 +444,17 @@
    },
    "solution": "RIDDLING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RIDDLING",
     "definitions": [
      {
       "text": "Enigmatic",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: speaking in puzzles"
      },
      {
       "text": "way of shooting full of holes",
       "at": 10,
-      "note": "a verb form naming the act"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Enigmatic",
-      "note": "first meaning: speaking in puzzles"
-     },
-     {
-      "clueFragment": "way of shooting full of holes",
-      "note": "second meaning: perforating with bullets, like a sieve"
+      "note": "a verb form naming the act",
+      "meaning": "second meaning: perforating with bullets, like a sieve"
      }
     ],
     "explanation": {
@@ -563,32 +489,17 @@
    },
    "solution": "OFFGUARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OFF GUARD",
     "definitions": [
      {
       "text": "Not prepared",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: caught unready"
      },
      {
       "text": "how Alice met her fiance",
       "at": 20,
-      "note": "the second reading is a phrase describing circumstances"
-     }
-    ],
-    "linkWords": [
-     "to say"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not prepared",
-      "note": "first meaning: caught unready"
-     },
-     {
-      "clueFragment": "how Alice met her fiance",
-      "note": "second meaning: in A. A. Milne's poem, Alice is marrying one of the soldiers at Buckingham Palace, so she met him when he was not on duty"
+      "note": "the second reading is a phrase describing circumstances",
+      "meaning": "second meaning: in A. A. Milne's poem, Alice is marrying one of the soldiers at Buckingham Palace, so she met him when he was not on duty"
      }
     ],
     "explanation": {
@@ -618,35 +529,25 @@
    },
    "solution": "STRAIGHTFORWARD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STRAIGHTFORWARD",
     "definitions": [
      {
       "text": "without complications",
       "at": 25
      }
     ],
-    "linkWords": [
-     "to be an"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "honest",
-      "gives": "STRAIGHT",
-      "note": "a straight dealer is an honest one"
-     },
-     {
-      "clueFragment": "player",
-      "gives": "FORWARD",
-      "note": "a forward is an attacking player in football, continuing the game of the previous clue"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRAIGHT",
-      "FORWARD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "honest",
+       "gives": "STRAIGHT",
+       "note": "a straight dealer is an honest one"
+      },
+      {
+       "words": "player",
+       "gives": "FORWARD",
+       "note": "a forward is an attacking player in football, continuing the game of the previous clue"
+      }
      ]
     },
     "explanation": {
@@ -674,37 +575,38 @@
    },
    "solution": "INSIDER",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "INSIDER",
     "definitions": [
      {
       "text": "One who's joined group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say asks for a word that sounds right when spoken rather than spelt right"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SIDER",
-      "soundsLike": "CIDER",
-      "note": "cider is an apple drink"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SIDER",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "say asks for a word that sounds right when spoken rather than spelt right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drink",
+         "gives": "CIDER",
+         "note": "cider is an apple drink"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A new member of a group celebrates by having a drink.",
      "definitionFit": "A person admitted to a circle or organisation is on the inside of it, a member with privileged knowledge."
@@ -730,12 +632,6 @@
    },
    "solution": "GONERIL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "GONERIL",
     "definitions": [
      {
       "text": "Female played",
@@ -743,43 +639,39 @@
       "note": "names the character as a role that is performed"
      }
     ],
-    "indicators": [
-     {
-      "text": "end",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter, so only that is kept"
-     },
-     {
-      "text": "terrible",
-      "for": "anagram",
-      "note": "something terrible is in a dreadful state, so the following letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "king's",
-      "gives": "G",
-      "select": "last",
-      "note": "the final letter of king"
-     },
-     {
-      "clueFragment": "role in",
-      "gives": "ROLEIN",
-      "note": "taken as written, to be mixed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ONERIL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ROLEIN",
-       "gives": "ONERIL"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "note": "the end of a word is its last letter, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "king's",
+         "gives": "KING",
+         "note": "the final letter of king"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "note": "something terrible is in a dreadful state, so the following letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "role in",
+         "note": "taken as written, to be mixed"
+        }
+       ]
       }
      ]
     },
@@ -809,39 +701,21 @@
    },
    "solution": "VICTORIA",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VICTORIA",
     "definitions": [
      {
       "text": "Falls",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the great waterfall on the Zambezi"
      },
      {
       "text": "down under part",
-      "at": 6
+      "at": 6,
+      "meaning": "second meaning: a state of Australia, the land 'down under'"
      },
      {
       "text": "carriage",
-      "at": 25
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Falls",
-      "note": "first meaning: the great waterfall on the Zambezi"
-     },
-     {
-      "clueFragment": "down under part",
-      "note": "second meaning: a state of Australia, the land 'down under'"
-     },
-     {
-      "clueFragment": "carriage",
-      "note": "third meaning: a light four-wheeled horse-drawn carriage"
+      "at": 25,
+      "meaning": "third meaning: a light four-wheeled horse-drawn carriage"
      }
     ],
     "explanation": {
@@ -871,31 +745,16 @@
    },
    "solution": "ROUNDERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ROUNDERS",
     "definitions": [
      {
       "text": "Those who take corners",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: people who go round bends"
      },
      {
       "text": "this game",
-      "at": 26
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Those who take corners",
-      "note": "first meaning: people who go round bends"
-     },
-     {
-      "clueFragment": "this game",
-      "note": "second meaning: a bat-and-ball game where players run round bases"
+      "at": 26,
+      "meaning": "second meaning: a bat-and-ball game where players run round bases"
      }
     ],
     "explanation": {
@@ -925,32 +784,24 @@
    },
    "solution": "ORPEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORPEN",
     "definitions": [
      {
       "text": "Artist",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "PEN",
-      "note": "a pen is a writing instrument"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "PEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "words": "writer",
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      }
      ]
     },
     "explanation": {
@@ -979,45 +830,36 @@
    },
    "solution": "PROXIMATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PROXIMATE",
     "definitions": [
      {
       "text": "Closest",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "supports",
-      "for": "charade",
-      "note": "in a down clue what supports sits underneath, so the companion goes at the bottom"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "no amateur",
-      "gives": "PRO",
-      "note": "someone who is not an amateur is a professional"
-     },
-     {
-      "clueFragment": "team",
-      "gives": "XI",
-      "note": "a football or cricket team has eleven players, written XI"
-     },
-     {
-      "clueFragment": "companion",
-      "gives": "MATE",
-      "note": "a mate is a companion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PRO",
-      "XI",
-      "MATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "note": "in a down clue what supports sits underneath, so the companion goes at the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "no amateur",
+       "gives": "PRO",
+       "note": "someone who is not an amateur is a professional"
+      },
+      {
+       "words": "team",
+       "gives": "XI",
+       "note": "a football or cricket team has eleven players, written XI"
+      },
+      {
+       "words": "companion",
+       "gives": "MATE",
+       "note": "a mate is a companion"
+      }
      ]
     },
     "explanation": {
@@ -1045,44 +887,35 @@
    },
    "solution": "HALLOWED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "HALLOWED",
     "definitions": [
      {
       "text": "sanctified",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Last part of",
-      "for": "letter_selection",
-      "note": "the last part of a word is its final letter, which alone is taken"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "church",
-      "gives": "H",
-      "select": "last",
-      "note": "the final letter of church"
-     },
-     {
-      "clueFragment": "conceded",
-      "gives": "ALLOWED",
-      "note": "to concede a point is to allow it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ALLOWED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Last part of",
+         "note": "the last part of a word is its final letter, which alone is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church",
+         "note": "the final letter of church"
+        }
+       ]
+      },
+      {
+       "words": "conceded",
+       "gives": "ALLOWED",
+       "note": "to concede a point is to allow it"
+      }
      ]
     },
     "explanation": {
@@ -1110,31 +943,16 @@
    },
    "solution": "ASSES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ASSES",
     "definitions": [
      {
       "text": "Change for Romans",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the as was a Roman copper coin, so several are Roman loose change"
      },
      {
       "text": "such fools",
-      "at": 24
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Change for Romans",
-      "note": "first meaning: the as was a Roman copper coin, so several are Roman loose change"
-     },
-     {
-      "clueFragment": "such fools",
-      "note": "second meaning: stupid people, as donkeys are proverbially"
+      "at": 24,
+      "meaning": "second meaning: stupid people, as donkeys are proverbially"
      }
     ],
     "explanation": {
@@ -1164,28 +982,16 @@
    },
    "solution": "SMASHER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SMASHER",
     "definitions": [
      {
       "text": "Person who breaks",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: one who shatters things"
      },
      {
       "text": "dish",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Person who breaks",
-      "note": "first meaning: one who shatters things"
-     },
-     {
-      "clueFragment": "dish",
-      "note": "second meaning: an attractive person, informally"
+      "at": 18,
+      "meaning": "second meaning: an attractive person, informally"
      }
     ],
     "explanation": {
@@ -1215,44 +1021,35 @@
    },
    "solution": "UNDERDOG",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "UNDERDOG",
     "definitions": [
      {
       "text": "the likely loser",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "opening",
-      "for": "letter_selection",
-      "note": "the opening of a word is its first letter, which alone is kept"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Make rare",
-      "gives": "UNDERDO",
-      "note": "to cook meat lightly, leaving it rare, is to underdo it"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "select": "first",
-      "note": "the first letter of good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNDERDO",
-      "G"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Make rare",
+       "gives": "UNDERDO",
+       "note": "to cook meat lightly, leaving it rare, is to underdo it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "note": "the opening of a word is its first letter, which alone is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "good",
+         "note": "the first letter of good"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1281,31 +1078,29 @@
    },
    "solution": "RUSSELL",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RUSSELL",
     "definitions": [
      {
       "text": "Philosopher",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means the word is to be heard spoken, not seen spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take stock",
-      "gives": "RUSSELL",
-      "soundsLike": "RUSTLE",
-      "note": "to rustle is to steal livestock"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RUSSELL",
+     "indicators": [
+      {
+       "text": "said",
+       "note": "said means the word is to be heard spoken, not seen spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "take stock",
+       "gives": "RUSTLE",
+       "note": "to rustle is to steal livestock"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A thinker reportedly paused to take stock of things.",
      "walkthrough": "'Take stock' suggests reflecting; here stock means cattle, and taking them is rustling.",
@@ -1333,10 +1128,6 @@
    },
    "solution": "FESTAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FESTAL",
     "definitions": [
      {
       "text": "in holiday mood",
@@ -1344,25 +1135,18 @@
       "note": "an adjectival phrase for the adjective"
      }
     ],
-    "indicators": [
-     {
-      "text": "resort's",
-      "for": "anagram",
-      "note": "read as re-sort, meaning sort the letters again into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Left as",
-      "gives": "LEFTAS",
-      "note": "taken as written, to be mixed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LEFTAS",
-       "gives": "FESTAL"
+       "text": "resort's",
+       "note": "read as re-sort, meaning sort the letters again into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Left as",
+       "note": "taken as written, to be mixed"
       }
      ]
     },
@@ -1393,48 +1177,35 @@
    },
    "solution": "LAGGARD",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "LAGGARD",
     "definitions": [
      {
       "text": "He gets behind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the combined letters in the other direction"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pull",
-      "gives": "DRAG",
-      "note": "to drag is to pull"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "GAL",
-      "note": "gal is an informal word for a girl"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAG",
-      "GARD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DRAGGAL",
-       "to": "LAGGARD"
+       "text": "back",
+       "note": "back tells us to read the combined letters in the other direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pull",
+         "gives": "DRAG",
+         "note": "to drag is to pull"
+        },
+        {
+         "words": "girl",
+         "gives": "GAL",
+         "note": "gal is an informal word for a girl"
+        }
+       ]
       }
      ]
     },
@@ -1463,31 +1234,16 @@
    },
    "solution": "GRAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GRAIN",
     "definitions": [
      {
       "text": "Minimum quantity",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the smallest unit of weight, or a tiny amount"
      },
      {
       "text": "dye",
-      "at": 20
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Minimum quantity",
-      "note": "first meaning: the smallest unit of weight, or a tiny amount"
-     },
-     {
-      "clueFragment": "dye",
-      "note": "second meaning: an old name for the red cochineal or kermes dye"
+      "at": 20,
+      "meaning": "second meaning: an old name for the red cochineal or kermes dye"
      }
     ],
     "explanation": {
@@ -1515,28 +1271,16 @@
    },
    "solution": "PASTIME",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PASTIME",
     "definitions": [
      {
       "text": "Recreation",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a hobby"
      },
      {
       "text": "period of older generation",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Recreation",
-      "note": "first meaning: a hobby"
-     },
-     {
-      "clueFragment": "period of older generation",
-      "note": "second meaning, read punningly as two words: a bygone time"
+      "at": 11,
+      "meaning": "second meaning, read punningly as two words: a bygone time"
      }
     ],
     "explanation": {
@@ -1566,38 +1310,25 @@
    },
    "solution": "PRONE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PRONE",
     "definitions": [
      {
       "text": "Disposed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "composition",
-      "for": "anagram",
-      "note": "a composition is something put together, so the letters are arranged afresh"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "15",
-      "gives": "ORPEN",
-      "note": "the answer to clue 15, the painter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ORPEN",
-       "gives": "PRONE"
+       "text": "composition",
+       "note": "a composition is something put together, so the letters are arranged afresh"
+      }
+     ],
+     "parts": [
+      {
+       "words": "15",
+       "gives": "ORPEN",
+       "note": "the answer to clue 15, the painter"
       }
      ]
     },
@@ -1633,39 +1364,28 @@
    },
    "solution": "WEATHERFORECAST",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "WEATHER FORECAST",
     "definitions": [
      {
       "text": "A shower etc after this, perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps admits the letters could take another form, so they are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A shower etc after",
-      "gives": "ASHOWERETCAFTER",
-      "note": "every letter of these words, to be mixed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ASHOWERETCAFTER",
-       "gives": "WEATHERFORECAST"
+       "text": "perhaps",
+       "note": "perhaps admits the letters could take another form, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A shower etc after",
+       "note": "every letter of these words, to be mixed"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A rain shower, among other things, arriving after a bulletin predicting it.",
      "walkthrough": "The whole clue is both the definition and the fodder: a shower and so on may follow the broadcast.",
@@ -1692,10 +1412,6 @@
    },
    "solution": "DINARS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DINARS",
     "definitions": [
      {
       "text": "these",
@@ -1703,28 +1419,18 @@
       "note": "a pronoun standing for the plural currency units"
      }
     ],
-    "indicators": [
-     {
-      "text": "convertible",
-      "for": "anagram",
-      "note": "something convertible can be changed into another form, so the letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Is rand",
-      "gives": "ISRAND",
-      "note": "taken as written, to be mixed"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ISRAND",
-       "gives": "DINARS"
+       "text": "convertible",
+       "note": "something convertible can be changed into another form, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is rand",
+       "note": "taken as written, to be mixed"
       }
      ]
     },
@@ -1761,51 +1467,44 @@
    },
    "solution": "PELLMELL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PELL-MELL",
     "definitions": [
      {
       "text": "in confusion",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "separately",
-      "for": "container",
-      "note": "separately means the two letters are split apart, each taking its own insert"
-     },
-     {
-      "text": "introducing",
-      "for": "container",
-      "note": "introducing puts something in after each of the split letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM",
-      "gives": "PM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "measure",
-      "gives": "ELL",
-      "note": "an ell is an old measure of length for cloth"
-     },
-     {
-      "clueFragment": "same",
-      "gives": "ELL",
-      "note": "the same measure again"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ELL",
-      "M",
-      "ELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separately",
+         "note": "separately means the two letters are split apart, each taking its own insert"
+        },
+        {
+         "text": "introducing",
+         "note": "introducing puts something in after each of the split letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "PM",
+         "note": "taken as written"
+        },
+        {
+         "words": "measure",
+         "gives": "ELL",
+         "note": "an ell is an old measure of length for cloth"
+        }
+       ]
+      },
+      {
+       "words": "same",
+       "gives": "ELL",
+       "note": "the same measure again"
+      }
      ]
     },
     "explanation": {

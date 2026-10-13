@@ -1,8 +1,6 @@
 {
  "id": "sundaytel-3159",
  "number": 3159,
- "series": "sundaytel",
- "name": "Sunday Telegraph cryptic crossword No 3,159",
  "date": "2022-05-08",
  "dimensions": {
   "cols": 15,
@@ -37,47 +35,46 @@
    },
    "solution": "BLOTTO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BLOTTO",
     "definitions": [
      {
       "text": "Drunk",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half-cut",
-      "for": "letter_selection",
-      "note": "cut in half, so only the front half of the following word is kept"
-     },
-     {
-      "text": "imbibing",
-      "for": "container",
-      "note": "something imbibing a drink takes it inside, so one piece goes within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "blokes",
-      "gives": "BLO",
-      "select": "first",
-      "note": "the first three of the six letters"
-     },
-     {
-      "clueFragment": "too much",
-      "gives": "OTT",
-      "note": "OTT, over the top, means excessive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BL",
-      "OTT",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imbibing",
+       "note": "something imbibing a drink takes it inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "BLO",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "note": "cut in half, so only the front half of the following word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "blokes",
+         "gives": "BLO",
+         "select": "first",
+         "note": "the first three of the six letters"
+        }
+       ]
+      },
+      {
+       "words": "too much",
+       "gives": "OTT",
+       "note": "OTT, over the top, means excessive"
+      }
      ]
     },
     "explanation": {
@@ -107,35 +104,25 @@
    },
    "solution": "WALLOWED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WALLOWED",
     "definitions": [
      {
       "text": "rolled in the dirt",
       "at": 23
      }
     ],
-    "linkWords": [
-     "given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wife",
-      "gives": "W",
-      "note": "W is the standard abbreviation for wife"
-     },
-     {
-      "clueFragment": "permission",
-      "gives": "ALLOWED",
-      "note": "if you have permission you are allowed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ALLOWED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wife",
+       "gives": "W",
+       "note": "W is the standard abbreviation for wife"
+      },
+      {
+       "words": "permission",
+       "gives": "ALLOWED",
+       "note": "if you have permission you are allowed"
+      }
      ]
     },
     "explanation": {
@@ -177,35 +164,24 @@
    },
    "solution": "PAINTTHETOWNRED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PAINT THE TOWN RED",
     "definitions": [
      {
       "text": "5 down",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Running about",
-      "for": "anagram",
-      "note": "running about suggests scattering in all directions, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in the raw, pet, don't",
-      "gives": "INTHERAWPETDONT",
-      "note": "all fifteen letters are used as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "INTHERAWPETDONT",
-       "gives": "PAINTTHETOWNRED"
+       "text": "Running about",
+       "note": "running about suggests scattering in all directions, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in the raw, pet, don't",
+       "note": "all fifteen letters are used as fodder"
       }
      ]
     },
@@ -236,47 +212,41 @@
    },
    "solution": "BOOKISH",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "BOOKISH",
     "definitions": [
      {
       "text": "enjoying reading",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "gags",
-      "for": "container",
-      "note": "a gag goes over the mouth, so this word holds the following pieces inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nonsense",
-      "gives": "BOSH",
-      "note": "bosh is an old word for nonsense"
-     },
-     {
-      "clueFragment": "satisfactory",
-      "gives": "OK",
-      "note": "OK means acceptable"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BO",
-      "OK",
-      "I",
-      "SH"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gags",
+       "note": "a gag goes over the mouth, so this word holds the following pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nonsense",
+       "gives": "BOSH",
+       "note": "bosh is an old word for nonsense"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "satisfactory",
+         "gives": "OK",
+         "note": "OK means acceptable"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -324,31 +294,16 @@
    },
    "solution": "LETITALLHANGOUT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LET IT ALL HANG OUT",
     "definitions": [
      {
       "text": "Don't tuck your shirt in",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: literally, leave the shirt tails hanging loose"
      },
      {
       "text": "party",
-      "at": 29
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Don't tuck your shirt in",
-      "note": "first meaning: literally, leave the shirt tails hanging loose"
-     },
-     {
-      "clueFragment": "party",
-      "note": "second meaning: celebrate without any restraint"
+      "at": 29,
+      "meaning": "second meaning: celebrate without any restraint"
      }
     ],
     "explanation": {
@@ -377,40 +332,31 @@
    },
    "solution": "MARKED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MARKED",
     "definitions": [
      {
       "text": "Evident",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first item inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ship",
-      "gives": "ARK",
-      "note": "Noah's ark is the crossword's favourite ship"
-     },
-     {
-      "clueFragment": "sea",
-      "gives": "MED",
-      "note": "MED is short for the Mediterranean Sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ARK",
-      "ED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places the first item inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea",
+       "gives": "MED",
+       "note": "MED is short for the Mediterranean Sea"
+      },
+      {
+       "words": "ship",
+       "gives": "ARK",
+       "note": "Noah's ark is the crossword's favourite ship"
+      }
      ]
     },
     "explanation": {
@@ -437,28 +383,16 @@
    },
    "solution": "DEAR",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DEAR",
     "definitions": [
      {
       "text": "More than it's worth",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: expensive, overpriced"
      },
      {
       "text": "sweetheart",
-      "at": 22
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "More than it's worth",
-      "note": "first meaning: expensive, overpriced"
-     },
-     {
-      "clueFragment": "sweetheart",
-      "note": "second meaning: a term of endearment for a loved one"
+      "at": 22,
+      "meaning": "second meaning: a term of endearment for a loved one"
      }
     ],
     "explanation": {
@@ -486,31 +420,29 @@
    },
    "solution": "FLEA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FLEA",
     "definitions": [
      {
       "text": "Insect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is a spoken sound rather than a spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beat a hasty retreat",
-      "gives": "FLEA",
-      "soundsLike": "FLEE",
-      "note": "to run away quickly is to flee"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FLEA",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "what we hear is a spoken sound rather than a spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beat a hasty retreat",
+       "gives": "FLEE",
+       "note": "to run away quickly is to flee"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A bug scuttles off rapidly when disturbed.",
      "definitionFit": "This small wingless jumping parasite is a type of insect that lives on animals."
@@ -535,35 +467,24 @@
    },
    "solution": "AGO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AGO",
     "definitions": [
      {
       "text": "back",
       "at": 10
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "try",
-      "gives": "GO",
-      "note": "to have a go is to have a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "try",
+       "gives": "GO",
+       "note": "to have a go is to have a try"
+      }
      ]
     },
     "explanation": {
@@ -593,48 +514,35 @@
    },
    "solution": "ELATED",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ELATED",
     "definitions": [
      {
       "text": "Happy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "called back, so the word is read from the far end"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "story",
-      "gives": "TALE",
-      "note": "a tale is a story"
-     },
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "ED, editor, the crossword's usual journalist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELAT",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TALE",
-       "to": "ELAT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "note": "called back, so the word is read from the far end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "gives": "TALE",
+         "note": "a tale is a story"
+        }
+       ]
+      },
+      {
+       "words": "journalist",
+       "gives": "ED",
+       "note": "ED, editor, the crossword's usual journalist"
       }
      ]
     },
@@ -663,74 +571,70 @@
    },
    "solution": "STOLEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "STOLEN",
     "definitions": [
      {
       "text": "lifted",
       "at": 62
      }
     ],
-    "indicators": [
-     {
-      "text": "first of",
-      "for": "letter_selection",
-      "note": "first of means take only the opening letter of the following word"
-     },
-     {
-      "text": "changed",
-      "for": "anagram",
-      "note": "changed means the letters are put in a different order"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around means the reworked letters surround another piece"
-     },
-     {
-      "text": "capital in",
-      "for": "letter_selection",
-      "note": "the capital of a word is its opening letter, here of the country"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sanctions",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "Tone",
-      "gives": "TONE",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "Libya",
-      "gives": "L",
-      "select": "first",
-      "note": "the capital, or opening letter, of the country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TO",
-      "L",
-      "EN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TONE",
-       "gives": "TOEN"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "note": "first of means take only the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sanctions",
+         "note": "the opening letter"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around means the reworked letters surround another piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "changed",
+           "note": "changed means the letters are put in a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tone",
+           "note": "taken as written, then rearranged"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital in",
+           "note": "the capital of a word is its opening letter, here of the country"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Libya",
+           "note": "the capital, or opening letter, of the country"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -761,28 +665,16 @@
    },
    "solution": "KNICKERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "KNICKERS",
     "definitions": [
      {
       "text": "Darn that",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a British exclamation of annoyance, like drat or damn"
      },
      {
       "text": "item of underwear",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Darn that",
-      "note": "first meaning: a British exclamation of annoyance, like drat or damn"
-     },
-     {
-      "clueFragment": "item of underwear",
-      "note": "second meaning: women's underpants"
+      "at": 10,
+      "meaning": "second meaning: women's underpants"
      }
     ],
     "explanation": {
@@ -811,28 +703,16 @@
    },
    "solution": "NOTWITHSTANDING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOTWITHSTANDING",
     "definitions": [
      {
       "text": "Nevertheless",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in spite of that, however"
      },
      {
       "text": "only seating available?",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nevertheless",
-      "note": "first meaning: in spite of that, however"
-     },
-     {
-      "clueFragment": "only seating available?",
-      "note": "second meaning, cryptic: read as three words, no option to be on your feet"
+      "at": 14,
+      "meaning": "second meaning, cryptic: read as three words, no option to be on your feet"
      }
     ],
     "explanation": {
@@ -860,37 +740,28 @@
    },
    "solution": "NEE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "and_lit"
-    ],
-    "answer": "NEE",
     "definitions": [
      {
       "text": "Appellation before marriage, ultimately?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means at the end, so only the final letter of each word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Appellation before marriage",
-      "gives": "NEE",
-      "select": "last",
-      "note": "the final letter of each of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEE"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "ultimately means at the end, so only the final letter of each word is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Appellation before marriage",
+       "note": "the final letter of each of the three words"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about the name a woman carried before her wedding.",
      "walkthrough": "The whole clue is both the wordplay and the definition, which the question mark acknowledges.",
@@ -916,40 +787,33 @@
    },
    "solution": "READIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "READIES",
     "definitions": [
      {
       "text": "Cash",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "suspect",
-      "for": "anagram",
-      "note": "as an adjective, suspect means dodgy or not as it should be, so the letters are wrong"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "erased",
-      "gives": "ERASED",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ERASEDI",
-       "gives": "READIES"
+       "text": "suspect",
+       "note": "as an adjective, suspect means dodgy or not as it should be, so the letters are wrong"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "erased",
+         "note": "taken as written"
+        },
+        {
+         "words": "I",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -979,38 +843,25 @@
    },
    "solution": "ETA",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "ETA",
     "definitions": [
      {
       "text": "Greek letter",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "gobbled",
-      "gives": "ATE",
-      "note": "gobbled means ate greedily"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ATE",
-       "to": "ETA"
+       "text": "up",
+       "note": "in a down clue, going up means reading from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gobbled",
+       "gives": "ATE",
+       "note": "gobbled means ate greedily"
       }
      ]
     },
@@ -1040,28 +891,16 @@
    },
    "solution": "CLOBBER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CLOBBER",
     "definitions": [
      {
       "text": "Clothing",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: British slang for clothes and gear"
      },
      {
       "text": "hit hard",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clothing",
-      "note": "first meaning: British slang for clothes and gear"
-     },
-     {
-      "clueFragment": "hit hard",
-      "note": "second meaning: to strike heavily"
+      "at": 9,
+      "meaning": "second meaning: to strike heavily"
      }
     ],
     "explanation": {
@@ -1088,35 +927,25 @@
    },
    "solution": "BACKSIDE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BACKSIDE",
     "definitions": [
      {
       "text": "bottom",
       "at": 23
      }
     ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Get behind",
-      "gives": "BACK",
-      "note": "to get behind a cause is to back it"
-     },
-     {
-      "clueFragment": "team",
-      "gives": "SIDE",
-      "note": "a side is a team"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACK",
-      "SIDE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Get behind",
+       "gives": "BACK",
+       "note": "to get behind a cause is to back it"
+      },
+      {
+       "words": "team",
+       "gives": "SIDE",
+       "note": "a side is a team"
+      }
      ]
     },
     "explanation": {
@@ -1146,48 +975,38 @@
    },
    "solution": "EMBARGO",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EMBARGO",
     "definitions": [
      {
       "text": "Ban",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "otherwise",
-      "for": "anagram",
-      "note": "otherwise means in another way, so the letters are arranged differently"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is the abbreviation for British"
-     },
-     {
-      "clueFragment": "game",
-      "gives": "GAME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BGAMEOR",
-       "gives": "EMBARGO"
+       "text": "otherwise",
+       "note": "otherwise means in another way, so the letters are arranged differently"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "gives": "B",
+         "note": "B is the abbreviation for British"
+        },
+        {
+         "words": "game",
+         "note": "taken as written"
+        },
+        {
+         "words": "or",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1221,67 +1040,60 @@
    },
    "solution": "BALLROOMDANCING",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "BALLROOM DANCING",
     "definitions": [
      {
       "text": "Artistic steps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shifting",
-      "for": "anagram",
-      "note": "shifting means moving about, so the letters change places"
-     },
-     {
-      "text": "during",
-      "for": "container",
-      "note": "during means within, so these pieces sit inside the next word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left",
-      "gives": "L",
-      "note": "L is the abbreviation for left"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "mood",
-      "gives": "MOOD",
-      "note": "taken as written, then rearranged"
-     },
-     {
-      "clueFragment": "evening",
-      "gives": "BALANCING",
-      "note": "evening up a load is balancing it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAL",
-      "L",
-      "R",
-      "OOMD",
-      "ANCING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "MOOD",
-       "gives": "OOMD"
+       "text": "during",
+       "note": "during means within, so these pieces sit inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shifting",
+         "note": "shifting means moving about, so the letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mood",
+           "note": "taken as written, then rearranged"
+          },
+          {
+           "words": "evening",
+           "gives": "BALANCING",
+           "note": "evening up a load is balancing it"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "gives": "L",
+         "note": "L is the abbreviation for left"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
       }
      ]
     },
@@ -1312,41 +1124,35 @@
    },
    "solution": "LADDER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "LADDER",
     "definitions": [
      {
       "text": "run",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "Start of",
-      "for": "letter_selection",
-      "note": "start of means keep just the opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "long",
-      "gives": "L",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "summer",
-      "gives": "ADDER",
-      "note": "a summer is one who sums, an adder"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "ADDER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start of",
+         "note": "start of means keep just the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "long",
+         "note": "the opening letter"
+        }
+       ]
+      },
+      {
+       "words": "summer",
+       "gives": "ADDER",
+       "note": "a summer is one who sums, an adder"
+      }
      ]
     },
     "explanation": {
@@ -1376,43 +1182,38 @@
    },
    "solution": "NEEDLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "NEEDLE",
     "definitions": [
      {
       "text": "pointer",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced by half",
-      "for": "deletion",
-      "note": "reduced by half means losing the second half of the word's letters"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Request",
-      "gives": "NEED",
-      "note": "a need is a demand or requirement"
-     },
-     {
-      "clueFragment": "lead",
-      "gives": "LEAD",
-      "note": "taken as written before trimming"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEED",
-      "LE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "reduced by half",
+       "note": "reduced by half means losing the second half of the word's letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Request",
+         "gives": "NEED",
+         "note": "a need is a demand or requirement"
+        },
+        {
+         "words": "lead",
+         "note": "taken as written before trimming"
+        }
+       ]
+      },
+      {
+       "gives": "AD"
+      }
      ]
     },
     "explanation": {
@@ -1442,43 +1243,33 @@
    },
    "solution": "SARDINIA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SARDINIA",
     "definitions": [
      {
       "text": "Mediterranean location",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "to spread",
-      "for": "anagram",
-      "note": "to spread out is to scatter, so the letters move about"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rain",
-      "gives": "RAIN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "said",
-      "gives": "SAID",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RAINSAID",
-       "gives": "SARDINIA"
+       "text": "to spread",
+       "note": "to spread out is to scatter, so the letters move about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Rain",
+         "note": "taken as written"
+        },
+        {
+         "words": "said",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1508,36 +1299,29 @@
    },
    "solution": "AIRY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AIRY",
     "definitions": [
      {
       "text": "Light",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially extinguished",
-      "for": "deletion",
-      "note": "the opening letter is put out, so it disappears"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "spirit",
-      "gives": "FAIRY",
-      "note": "a fairy is a magical spirit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AIRY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "initially extinguished",
+       "note": "the opening letter is put out, so it disappears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spirit",
+       "gives": "FAIRY",
+       "note": "a fairy is a magical spirit"
+      },
+      {
+       "gives": "F"
+      }
      ]
     },
     "explanation": {
@@ -1567,41 +1351,35 @@
    },
    "solution": "GUSHER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GUSHER",
     "definitions": [
      {
       "text": "well",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Finally",
-      "for": "letter_selection",
-      "note": "finally means take only the closing letter of the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "directing",
-      "gives": "G",
-      "select": "last",
-      "note": "the closing letter"
-     },
-     {
-      "clueFragment": "guide",
-      "gives": "USHER",
-      "note": "an usher guides people to their seats"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "USHER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "note": "finally means take only the closing letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "directing",
+         "note": "the closing letter"
+        }
+       ]
+      },
+      {
+       "words": "guide",
+       "gives": "USHER",
+       "note": "an usher guides people to their seats"
+      }
      ]
     },
     "explanation": {
@@ -1631,28 +1409,16 @@
    },
    "solution": "BREEZE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BREEZE",
     "definitions": [
      {
       "text": "Minor blow",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a gentle wind"
      },
      {
       "text": "it's simple to deal with",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Minor blow",
-      "note": "first meaning: a gentle wind"
-     },
-     {
-      "clueFragment": "it's simple to deal with",
-      "note": "second meaning: an easy task"
+      "at": 12,
+      "meaning": "second meaning: an easy task"
      }
     ],
     "explanation": {
@@ -1681,41 +1447,36 @@
    },
    "solution": "GNU",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "GNU",
     "definitions": [
      {
       "text": "Animal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught by",
-      "for": "hidden_word",
-      "note": "caught by means held within the words that follow"
-     },
-     {
-      "text": "falling over",
-      "for": "reversal",
-      "note": "something falling over ends up the other way round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shotgun, gracelessly",
-      "gives": "UNG",
-      "note": "the letters straddling the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "UNG",
-       "to": "GNU"
+       "text": "falling over",
+       "note": "something falling over ends up the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "caught by",
+         "note": "caught by means held within the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shotgun, gracelessly",
+         "gives": "UNG",
+         "note": "the letters straddling the two words"
+        }
+       ]
       }
      ]
     },
@@ -1744,34 +1505,25 @@
    },
    "solution": "DALE",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "DALE",
     "definitions": [
      {
       "text": "Valley",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first of all",
-      "for": "letter_selection",
-      "note": "first of all means take the opening letter of every word listed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dropping away, largely empty",
-      "gives": "DALE",
-      "select": "first",
-      "note": "the opening letter of each of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DALE"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "first of all",
+       "note": "first of all means take the opening letter of every word listed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dropping away, largely empty",
+       "note": "the opening letter of each of the four words"
+      }
      ]
     },
     "explanation": {

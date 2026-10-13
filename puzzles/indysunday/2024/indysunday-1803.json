@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1803",
  "number": 1803,
- "series": "indysunday",
- "name": "Independent on Sunday cryptic crossword No 1,803",
  "setter": "Filbert",
  "date": "2024-09-15",
  "dimensions": {
@@ -44,47 +42,41 @@
    },
    "solution": "WARCHEST",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WAR CHEST",
     "definitions": [
      {
       "text": "ready for battle",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "takes the final letter of 'bent'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "With",
-      "gives": "W",
-      "note": "W is the standard abbreviation for with"
-     },
-     {
-      "clueFragment": "bows",
-      "gives": "ARCHES",
-      "note": "a bow is a curve, an arch"
-     },
-     {
-      "clueFragment": "bent, finally",
-      "gives": "T",
-      "select": "last",
-      "note": "last letter of bent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "ARCHES",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "With",
+       "gives": "W",
+       "note": "W is the standard abbreviation for with"
+      },
+      {
+       "words": "bows",
+       "gives": "ARCHES",
+       "note": "a bow is a curve, an arch"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "takes the final letter of 'bent'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bent, finally",
+         "gives": "BENT",
+         "note": "last letter of bent"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -124,30 +116,16 @@
    },
    "solution": "ATLONGLAST",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "AT LONG LAST",
     "definitions": [
      {
       "text": "Finally",
-      "at": 0
+      "at": 0,
+      "meaning": "plain adverb: in the end, after a long wait"
      },
      {
       "text": "working on size 15 shoes?",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Finally",
-      "gives": "ATLONGLAST",
-      "note": "plain adverb: in the end, after a long wait"
-     },
-     {
-      "clueFragment": "working on size 15 shoes?",
-      "gives": "ATLONGLAST",
-      "note": "a last is the foot-shaped block a cobbler builds a shoe on; enormous shoes need a long one, and 'at' is working on"
+      "at": 8,
+      "meaning": "a last is the foot-shaped block a cobbler builds a shoe on; enormous shoes need a long one, and 'at' is working on"
      }
     ],
     "explanation": {
@@ -183,48 +161,42 @@
    },
    "solution": "CATHERINEHOWARD",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CATHERINE HOWARD",
     "definitions": [
      {
       "text": "Queen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "roughly",
-      "for": "anagram"
-     },
-     {
-      "text": "treated",
-      "note": "the letters are processed, worked over into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "roughly",
-      "gives": "CA",
-      "note": "circa, abbreviated ca."
-     },
-     {
-      "clueFragment": "in tower, Henry heard",
-      "gives": "THERINEHOWARD",
-      "note": "IN TOWER + H (henry, the unit) + HEARD, rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "THERINEHOWARD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CATHERINEHOWARD",
+     "indicators": [
       {
-       "fodder": "INTOWERHHEARD",
-       "gives": "THERINEHOWARD"
+       "text": "roughly"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "treated",
+         "note": "the letters are processed, worked over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roughly",
+         "gives": "CA",
+         "note": "circa, abbreviated ca."
+        },
+        {
+         "words": "in tower, Henry heard",
+         "gives": "THERINEHOWARD",
+         "note": "IN TOWER + H (henry, the unit) + HEARD, rearranged"
+        }
+       ]
       }
      ]
     },
@@ -260,40 +232,31 @@
    },
    "solution": "ECOLI",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "E COLI",
     "definitions": [
      {
       "text": "that might make him sick",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "sandwiches",
-      "for": "container",
-      "note": "the egg holds the pass between its halves, like bread round a filling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "German egg",
-      "gives": "EI",
-      "note": "Ei is German for egg"
-     },
-     {
-      "clueFragment": "Pass",
-      "gives": "COL",
-      "note": "a col is a mountain pass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "COL",
-      "I"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "note": "the egg holds the pass between its halves, like bread round a filling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German egg",
+       "gives": "EI",
+       "note": "Ei is German for egg"
+      },
+      {
+       "words": "Pass",
+       "gives": "COL",
+       "note": "a col is a mountain pass"
+      }
      ]
     },
     "explanation": {
@@ -322,35 +285,25 @@
    },
    "solution": "TORNADO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TORNADO",
     "definitions": [
      {
       "text": "Fighter jet",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "broken",
-      "gives": "TORN",
-      "note": "torn = broken"
-     },
-     {
-      "clueFragment": "flap",
-      "gives": "ADO",
-      "note": "a flap is a fuss, an ado"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TORN",
-      "ADO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "broken",
+       "gives": "TORN",
+       "note": "torn = broken"
+      },
+      {
+       "words": "flap",
+       "gives": "ADO",
+       "note": "a flap is a fuss, an ado"
+      }
      ]
     },
     "explanation": {
@@ -380,32 +333,25 @@
    },
    "solution": "PALTRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PALTRY",
     "definitions": [
      {
       "text": "of poor quality",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Intimate",
-      "gives": "PAL",
-      "note": "an intimate is a close friend, a pal"
-     },
-     {
-      "clueFragment": "shot",
-      "gives": "TRY",
-      "note": "have a shot = have a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAL",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Intimate",
+       "gives": "PAL",
+       "note": "an intimate is a close friend, a pal"
+      },
+      {
+       "words": "shot",
+       "gives": "TRY",
+       "note": "have a shot = have a try"
+      }
      ]
     },
     "explanation": {
@@ -434,54 +380,51 @@
    },
    "solution": "PUBLISHER",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "PUBLISHER",
     "definitions": [
      {
       "text": "bookmaker?",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "note": "the dealer holds the other letters inside"
-     },
-     {
-      "text": "back",
-      "note": "the one-pound letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     },
-     {
-      "clueFragment": "pound",
-      "gives": "LB",
-      "note": "lb, the pound weight"
-     },
-     {
-      "clueFragment": "Drug dealer",
-      "gives": "PUSHER",
-      "note": "a pusher sells drugs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PU",
-      "BLI",
-      "SHER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "ILB",
-       "to": "BLI"
+       "text": "keeps",
+       "note": "the dealer holds the other letters inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "the one-pound letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drug dealer",
+         "gives": "PUSHER",
+         "note": "a pusher sells drugs"
+        },
+        {
+         "op": "reversal",
+         "parts": [
+          {
+           "words": "pound",
+           "gives": "LB",
+           "note": "lb, the pound weight"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
       }
      ]
     },
@@ -518,44 +461,35 @@
    },
    "solution": "LEARNINGSUPPORT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEARNING SUPPORT",
     "definitions": [
      {
       "text": "extra tuition",
       "at": 35
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Large",
-      "gives": "L",
-      "note": "L = large, as on clothing labels"
-     },
-     {
-      "clueFragment": "income",
-      "gives": "EARNINGS",
-      "note": "earnings = income"
-     },
-     {
-      "clueFragment": "more expensive",
-      "gives": "UP",
-      "note": "prices that are up are higher"
-     },
-     {
-      "clueFragment": "wine",
-      "gives": "PORT",
-      "note": "port, the fortified wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EARNINGS",
-      "UP",
-      "PORT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Large",
+       "gives": "L",
+       "note": "L = large, as on clothing labels"
+      },
+      {
+       "words": "income",
+       "gives": "EARNINGS",
+       "note": "earnings = income"
+      },
+      {
+       "words": "more expensive",
+       "gives": "UP",
+       "note": "prices that are up are higher"
+      },
+      {
+       "words": "wine",
+       "gives": "PORT",
+       "note": "port, the fortified wine"
+      }
      ]
     },
     "explanation": {
@@ -584,41 +518,36 @@
    },
    "solution": "RODE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RODE",
     "definitions": [
      {
       "text": "travelled on",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "back in",
-      "for": "letter_selection",
-      "note": "the back of Katowice is its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pole",
-      "gives": "ROD",
-      "note": "a pole is a rod"
-     },
-     {
-      "clueFragment": "back in Katowice",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of Katowice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROD",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pole",
+       "gives": "ROD",
+       "note": "a pole is a rod"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "note": "the back of Katowice is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "back in Katowice",
+         "gives": "KATOWICE",
+         "note": "last letter of Katowice"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -647,32 +576,25 @@
    },
    "solution": "BLOTTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BLOTTO",
     "definitions": [
      {
       "text": "plastered",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B = British"
-     },
-     {
-      "clueFragment": "house",
-      "gives": "LOTTO",
-      "note": "house (housey-housey) is the old name for bingo, a lotto game"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LOTTO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B = British"
+      },
+      {
+       "words": "house",
+       "gives": "LOTTO",
+       "note": "house (housey-housey) is the old name for bingo, a lotto game"
+      }
      ]
     },
     "explanation": {
@@ -702,40 +624,31 @@
    },
    "solution": "REBRANDS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REBRANDS",
     "definitions": [
      {
       "text": "markets in a fresh way",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "stocked by",
-      "for": "container",
-      "note": "the food is held in stock inside the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Liverpool",
-      "gives": "REDS",
-      "note": "the Reds is Liverpool Football Club's nickname"
-     },
-     {
-      "clueFragment": "Health food",
-      "gives": "BRAN",
-      "note": "bran, a fibre-rich health food"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "BRAN",
-      "DS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stocked by",
+       "note": "the food is held in stock inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Liverpool",
+       "gives": "REDS",
+       "note": "the Reds is Liverpool Football Club's nickname"
+      },
+      {
+       "words": "Health food",
+       "gives": "BRAN",
+       "note": "bran, a fibre-rich health food"
+      }
      ]
     },
     "explanation": {
@@ -764,26 +677,25 @@
    },
    "solution": "INSEMINATION",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "INSEMINATION",
     "definitions": [
      {
       "text": "Getting pregnant achievable by half of people?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Getting pregnant",
-      "note": "the surface reading: conception, and the act that brings it about"
-     },
-     {
-      "clueFragment": "achievable by half of people?",
-      "note": "only males can do the necessary, half of people; the word also splits as IN + SEMI (half) + NATION (people)"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Getting pregnant",
+       "note": "the surface reading: conception, and the act that brings it about"
+      },
+      {
+       "words": "achievable by half of people?",
+       "note": "only males can do the necessary, half of people; the word also splits as IN + SEMI (half) + NATION (people)"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark on who can make someone pregnant.",
      "walkthrough": "Read the answer as IN SEMI-NATION: half of a people is a semi-nation. The question mark flags that pun on top of the plain meaning.",
@@ -810,47 +722,41 @@
    },
    "solution": "WUNDERKIND",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "WUNDERKIND",
     "definitions": [
      {
       "text": "Talented child",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "take the first letter of work"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning to work",
-      "gives": "W",
-      "select": "first",
-      "note": "first letter of work"
-     },
-     {
-      "clueFragment": "less than",
-      "gives": "UNDER",
-      "note": "under = less than"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "KIND",
-      "note": "a class is a kind, a sort"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "UNDER",
-      "KIND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "take the first letter of work"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning to work",
+         "gives": "WORK",
+         "note": "first letter of work"
+        }
+       ]
+      },
+      {
+       "words": "less than",
+       "gives": "UNDER",
+       "note": "under = less than"
+      },
+      {
+       "words": "class",
+       "gives": "KIND",
+       "note": "a class is a kind, a sort"
+      }
      ]
     },
     "explanation": {
@@ -879,45 +785,37 @@
    },
    "solution": "LOINCLOTH",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LOINCLOTH",
     "definitions": [
      {
       "text": "Skimpy costume",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "modelled",
-      "for": "anagram",
-      "note": "the letters are shaped into a new form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Colin",
-      "gives": "LOINC",
-      "note": "COLIN rearranged"
-     },
-     {
-      "clueFragment": "with reluctance",
-      "gives": "LOTH",
-      "note": "loth = reluctant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOINC",
-      "LOTH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LOINCLOTH",
+     "indicators": [
       {
-       "fodder": "COLIN",
-       "gives": "LOINC"
+       "text": "modelled",
+       "note": "the letters are shaped into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Colin",
+         "gives": "LOINC",
+         "note": "COLIN rearranged"
+        },
+        {
+         "words": "with reluctance",
+         "gives": "LOTH",
+         "note": "loth = reluctant"
+        }
+       ]
       }
      ]
     },
@@ -948,45 +846,37 @@
    },
    "solution": "CUSTOMARY",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CUSTOMARY",
     "definitions": [
      {
       "text": "Conventional",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bizarrely",
-      "for": "anagram",
-      "note": "the letters of scout are put in a strange order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scout",
-      "gives": "CUSTO",
-      "note": "SCOUT rearranged"
-     },
-     {
-      "clueFragment": "worshipped mother",
-      "gives": "MARY",
-      "note": "Mary, mother of Jesus, venerated by Christians"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUSTO",
-      "MARY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CUSTOMARY",
+     "indicators": [
       {
-       "fodder": "SCOUT",
-       "gives": "CUSTO"
+       "text": "bizarrely",
+       "note": "the letters of scout are put in a strange order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "scout",
+         "gives": "CUSTO",
+         "note": "SCOUT rearranged"
+        },
+        {
+         "words": "worshipped mother",
+         "gives": "MARY",
+         "note": "Mary, mother of Jesus, venerated by Christians"
+        }
+       ]
       }
      ]
     },
@@ -1017,30 +907,16 @@
    },
    "solution": "NOUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOUS",
     "definitions": [
      {
       "text": "Common sense",
-      "at": 0
+      "at": 0,
+      "meaning": "practical wit, from the Greek word for mind"
      },
      {
       "text": "feature of Moscow Olympics?",
-      "at": 13
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Common sense",
-      "gives": "NOUS",
-      "note": "practical wit, from the Greek word for mind"
-     },
-     {
-      "clueFragment": "feature of Moscow Olympics?",
-      "gives": "NOUS",
-      "note": "the United States boycotted the 1980 Moscow Games, so its absence was the feature; read the answer as two words"
+      "at": 13,
+      "meaning": "the United States boycotted the 1980 Moscow Games, so its absence was the feature; read the answer as two words"
      }
     ],
     "explanation": {
@@ -1070,30 +946,28 @@
    },
    "solution": "ISLE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ISLE",
     "definitions": [
      {
       "text": "description of Lewis, say",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Somewhat",
-      "for": "hidden_word",
-      "note": "only some of the word is used"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "misleading",
-      "gives": "ISLE",
-      "note": "the letters sit in positions two to five of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Somewhat",
+       "note": "only some of the word is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "misleading",
+       "gives": "ISLE",
+       "note": "the letters sit in positions two to five of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A remark that calling Lewis something is a little misleading.",
      "walkthrough": "The surface is true: Lewis is not an island on its own but the northern part of Lewis and Harris in the Scottish Hebrides, so 'isle' is a somewhat misleading description.",
@@ -1127,38 +1001,30 @@
    },
    "solution": "SATIRISED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SATIRISED",
     "definitions": [
      {
       "text": "wrote for Private Eye, perhaps",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Day",
-      "gives": "SAT",
-      "note": "Sat., short for Saturday"
-     },
-     {
-      "clueFragment": "a Murdoch",
-      "gives": "IRIS",
-      "note": "Iris Murdoch, the novelist"
-     },
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "ed = editor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAT",
-      "IRIS",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Day",
+       "gives": "SAT",
+       "note": "Sat., short for Saturday"
+      },
+      {
+       "words": "a Murdoch",
+       "gives": "IRIS",
+       "note": "Iris Murdoch, the novelist"
+      },
+      {
+       "words": "journalist",
+       "gives": "ED",
+       "note": "ed = editor"
+      }
      ]
     },
     "explanation": {
@@ -1187,46 +1053,43 @@
    },
    "solution": "TREFOIL",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "TREFOIL",
     "definitions": [
      {
       "text": "club, perhaps",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Without",
-      "for": "deletion",
-      "note": "top loses the letters for work"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Without work, top",
-      "gives": "T",
-      "note": "TOP minus OP (opus, a work)"
-     },
-     {
-      "clueFragment": "referee",
-      "gives": "REF",
-      "note": "short for referee"
-     },
-     {
-      "clueFragment": "painting",
-      "gives": "OIL",
-      "note": "an oil is a painting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "REF",
-      "OIL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TREFOIL",
+     "indicators": [
+      {
+       "text": "Without",
+       "note": "top loses the letters for work"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Without work, top",
+         "gives": "T",
+         "note": "TOP minus OP (opus, a work)"
+        },
+        {
+         "words": "referee",
+         "gives": "REF",
+         "note": "short for referee"
+        },
+        {
+         "words": "painting",
+         "gives": "OIL",
+         "note": "an oil is a painting"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1265,53 +1128,49 @@
    },
    "solution": "ONONESUPPERS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "ON ONE'S UPPERS",
     "definitions": [
      {
       "text": "Broke",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "the letters go back the way they came"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E = English"
-     },
-     {
-      "clueFragment": "taboo",
-      "gives": "NONO",
-      "note": "a no-no is a taboo"
-     },
-     {
-      "clueFragment": "meals",
-      "gives": "SUPPERS",
-      "note": "suppers are meals"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ONONE",
-      "SUPPERS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ENONO",
-       "to": "ONONE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "note": "the letters go back the way they came"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E = English"
+          },
+          {
+           "words": "taboo",
+           "gives": "NONO",
+           "note": "a no-no is a taboo"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "meals",
+       "gives": "SUPPERS",
+       "note": "suppers are meals"
       }
      ]
     },
+    "spelling": "ON ONE'S UPPERS",
     "explanation": {
      "surface": "Someone who broke an English rule about eating.",
      "walkthrough": "'Broke' looks like the verb (broke a taboo); it is the adjective, meaning penniless. The uppers of a shoe are what is left when the soles wear through.",
@@ -1338,32 +1197,25 @@
    },
    "solution": "UPSET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPSET",
     "definitions": [
      {
       "text": "Defeat",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "leading",
-      "gives": "UP",
-      "note": "a team leading is up"
-     },
-     {
-      "clueFragment": "prearranged",
-      "gives": "SET",
-      "note": "set = fixed in advance"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "SET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "leading",
+       "gives": "UP",
+       "note": "a team leading is up"
+      },
+      {
+       "words": "prearranged",
+       "gives": "SET",
+       "note": "set = fixed in advance"
+      }
      ]
     },
     "explanation": {
@@ -1392,40 +1244,31 @@
    },
    "solution": "RAGU",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RAGU",
     "definitions": [
      {
       "text": "topping for Italian",
       "at": 16
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "silver goes inside the sport"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sport",
-      "gives": "RU",
-      "note": "RU = rugby union"
-     },
-     {
-      "clueFragment": "Silver",
-      "gives": "AG",
-      "note": "Ag, chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "AG",
-      "U"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "silver goes inside the sport"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sport",
+       "gives": "RU",
+       "note": "RU = rugby union"
+      },
+      {
+       "words": "Silver",
+       "gives": "AG",
+       "note": "Ag, chemical symbol for silver"
+      }
      ]
     },
     "explanation": {
@@ -1455,47 +1298,41 @@
    },
    "solution": "GALAPAGO",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GALAPAGO",
     "definitions": [
      {
       "text": "Eponymous tortoise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "take the first letter of gain"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "beginning to gain",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of gain"
-     },
-     {
-      "clueFragment": "400m",
-      "gives": "ALAP",
-      "note": "a lap of a standard running track is 400 metres"
-     },
-     {
-      "clueFragment": "back",
-      "gives": "AGO",
-      "note": "back, as in years back, is ago"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ALAP",
-      "AGO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "take the first letter of gain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beginning to gain",
+         "gives": "GAIN",
+         "note": "first letter of gain"
+        }
+       ]
+      },
+      {
+       "words": "400m",
+       "gives": "ALAP",
+       "note": "a lap of a standard running track is 400 metres"
+      },
+      {
+       "words": "back",
+       "gives": "AGO",
+       "note": "back, as in years back, is ago"
+      }
      ]
     },
     "explanation": {
@@ -1525,32 +1362,25 @@
    },
    "solution": "STOLID",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STOLID",
     "definitions": [
      {
       "text": "not fussed",
       "at": 29
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Good person",
-      "gives": "ST",
-      "note": "St = saint"
-     },
-     {
-      "clueFragment": "with awful smell",
-      "gives": "OLID",
-      "note": "olid = foul-smelling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ST",
-      "OLID"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good person",
+       "gives": "ST",
+       "note": "St = saint"
+      },
+      {
+       "words": "with awful smell",
+       "gives": "OLID",
+       "note": "olid = foul-smelling"
+      }
      ]
     },
     "explanation": {
@@ -1579,35 +1409,25 @@
    },
    "solution": "SUNDRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SUNDRY",
     "definitions": [
      {
       "text": "several",
       "at": 30
      }
     ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Star",
-      "gives": "SUN",
-      "note": "the Sun is a star"
-     },
-     {
-      "clueFragment": "in need of a drink",
-      "gives": "DRY",
-      "note": "dry = thirsty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUN",
-      "DRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Star",
+       "gives": "SUN",
+       "note": "the Sun is a star"
+      },
+      {
+       "words": "in need of a drink",
+       "gives": "DRY",
+       "note": "dry = thirsty"
+      }
      ]
     },
     "explanation": {
@@ -1636,45 +1456,49 @@
    },
    "solution": "LATITUDE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "LATITUDE",
     "definitions": [
      {
       "text": "range",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "limiting",
-      "note": "only the limits, the outer letters, of 'the' are used"
-     },
-     {
-      "text": "Faulty elements",
-      "note": "the component letters are faulty, out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "limiting the",
-      "gives": "TE",
-      "select": "outer",
-      "note": "outer letters of THE"
-     },
-     {
-      "clueFragment": "Dualit",
-      "gives": "DUALIT",
-      "note": "Dualit, a British toaster brand, used as it stands"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEDUALIT",
-       "gives": "LATITUDE"
+       "text": "limiting",
+       "note": "only the limits, the outer letters, of 'the' are used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Faulty elements",
+         "note": "the component letters are faulty, out of order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "TE",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "limiting the",
+           "gives": "TE",
+           "select": "outer",
+           "note": "outer letters of THE"
+          }
+         ]
+        },
+        {
+         "words": "Dualit",
+         "note": "Dualit, a British toaster brand, used as it stands"
+        }
+       ]
       }
      ]
     },

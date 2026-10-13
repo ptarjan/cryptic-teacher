@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1099",
  "number": 1099,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,099",
  "setter": "Pasquale",
  "date": "2020-12-07",
  "dimensions": {
@@ -38,50 +36,41 @@
    },
    "solution": "SCREAM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SCREAM",
     "definitions": [
      {
       "text": "Yell",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first sight of",
-      "for": "letter_selection",
-      "note": "the first sight of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "entering",
-      "for": "container",
-      "note": "something entering goes inside, so one piece is placed within the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'Get away!'",
-      "gives": "SCRAM",
-      "note": "scram is a curt order to go away"
-     },
-     {
-      "clueFragment": "enemy",
-      "gives": "E",
-      "select": "first",
-      "note": "the opening letter of enemy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCR",
-      "E",
-      "AM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "note": "something entering goes inside, so one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'Get away!'",
+       "gives": "SCRAM",
+       "note": "scram is a curt order to go away"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first sight of",
+         "note": "the first sight of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enemy",
+         "note": "the opening letter of enemy"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -109,54 +98,48 @@
    },
    "solution": "NOTICEABLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "NOTICEABLE",
     "definitions": [
      {
       "text": "Beacon lit, newly set on fire, finally becomes this?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "newly",
-      "for": "anagram",
-      "note": "newly suggests made over afresh, so the letters are rearranged into a new order"
-     },
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of the word beside it, keeping only its closing letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Beacon lit",
-      "gives": "BEACONLIT",
-      "note": "the nine letters taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "fire",
-      "gives": "E",
-      "select": "last",
-      "note": "the closing letter of fire"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOTICEABLE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEACONLITE",
-       "gives": "NOTICEABLE"
+       "text": "newly",
+       "note": "newly suggests made over afresh, so the letters are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Beacon lit",
+         "note": "the nine letters taken as written, to be rearranged"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "note": "finally points to the very end of the word beside it, keeping only its closing letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fire",
+           "note": "the closing letter of fire"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A signal fire on a hill, once ablaze, catches everyone's eye.",
      "walkthrough": "The whole clue is both the wordplay and the definition: a lit beacon is precisely something you cannot miss.",
@@ -183,36 +166,29 @@
    },
    "solution": "LIMOUSIN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LIMOUSIN",
     "definitions": [
      {
       "text": "French region",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "pulling up short",
-      "for": "deletion",
-      "note": "a car pulling up short stops before the end, so the word loses its final letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big car",
-      "gives": "LIMOUSINE",
-      "note": "a limousine is a large luxurious car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIMOUSIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "pulling up short",
+       "note": "a car pulling up short stops before the end, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Big car",
+       "gives": "LIMOUSINE",
+       "note": "a limousine is a large luxurious car"
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -240,42 +216,30 @@
    },
    "solution": "BODICE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BODICE",
     "definitions": [
      {
       "text": "tight garment",
       "at": 28
      }
     ],
-    "linkWords": [
-     "met at",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "BOD",
-      "note": "bod is informal British slang for a person or chap"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOD",
-      "I",
-      "CE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "gives": "BOD",
+       "note": "bod is informal British slang for a person or chap"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -309,26 +273,25 @@
    },
    "solution": "BABYBOOM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BABY BOOM",
     "definitions": [
      {
       "text": "Time for a lot of deliveries?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Time for a lot of deliveries?",
-      "note": "surface reading: a busy season for couriers and the post office, such as Christmas"
-     },
-     {
-      "clueFragment": "deliveries",
-      "note": "setter's reading: deliveries are births, so this is a period when many babies are born"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Time for a lot of deliveries?",
+       "note": "surface reading: a busy season for couriers and the post office, such as Christmas"
+      },
+      {
+       "words": "deliveries",
+       "note": "setter's reading: deliveries are births, so this is a period when many babies are born"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Deliveries suggests parcels; in a maternity ward it means childbirth.",
      "definitionFit": "The term names a period of sharply raised birth rate, as after the Second World War."
@@ -355,10 +318,6 @@
    },
    "solution": "DIRECTOR",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DIRECTOR",
     "definitions": [
      {
       "text": "who takes charge of things",
@@ -366,22 +325,19 @@
       "note": "the clue describes the person; the answer is a noun for that person"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "DI",
-      "note": "Di is a short woman's name, as for Diana"
-     },
-     {
-      "clueFragment": "priest",
-      "gives": "RECTOR",
-      "note": "a rector is a parish priest in the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DI",
-      "RECTOR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "gives": "DI",
+       "note": "Di is a short woman's name, as for Diana"
+      },
+      {
+       "words": "priest",
+       "gives": "RECTOR",
+       "note": "a rector is a parish priest in the Church of England"
+      }
      ]
     },
     "explanation": {
@@ -409,38 +365,30 @@
    },
    "solution": "BONIFACE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BONIFACE",
     "definitions": [
      {
       "text": "saint",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Good Parisian",
-      "gives": "BON",
-      "note": "bon is French for good, as a Parisian would say"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "brave",
-      "gives": "FACE",
-      "note": "to brave something is to face it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BON",
-      "I",
-      "FACE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good Parisian",
+       "gives": "BON",
+       "note": "bon is French for good, as a Parisian would say"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "the Roman numeral for one"
+      },
+      {
+       "words": "brave",
+       "gives": "FACE",
+       "note": "to brave something is to face it"
+      }
      ]
     },
     "explanation": {
@@ -468,45 +416,34 @@
    },
    "solution": "ARAB",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ARAB",
     "definitions": [
      {
       "text": "fellow in Bahrain, maybe",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns things round, so the words before it are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ban",
-      "gives": "BAR",
-      "note": "to bar is to ban"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RAB"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "BARA",
-       "to": "ARAB"
+       "text": "revolutionary",
+       "note": "a revolution turns things round, so the words before it are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ban",
+         "gives": "BAR",
+         "note": "to bar is to ban"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -535,36 +472,29 @@
    },
    "solution": "EAST",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EAST",
     "definitions": [
      {
       "text": "a particular direction",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "heading off",
-      "for": "deletion",
-      "note": "with its heading taken off, the word loses its opening letter"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Animal",
-      "gives": "BEAST",
-      "note": "a beast is an animal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EAST"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "note": "with its heading taken off, the word loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Animal",
+       "gives": "BEAST",
+       "note": "a beast is an animal"
+      },
+      {
+       "gives": "B"
+      }
      ]
     },
     "explanation": {
@@ -594,31 +524,16 @@
    },
    "solution": "BARKER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BARKER",
     "definitions": [
      {
       "text": "Ronnie maybe",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: Ronnie ..., the British comedian of The Two Ronnies TV show"
      },
      {
       "text": "a 23?",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ronnie maybe",
-      "note": "first meaning: Ronnie ..., the British comedian of The Two Ronnies TV show"
-     },
-     {
-      "clueFragment": "a 23?",
-      "note": "second meaning: 23 is the sheepdog answer, and a dog is something that barks"
+      "at": 16,
+      "meaning": "second meaning: 23 is the sheepdog answer, and a dog is something that barks"
      }
     ],
     "explanation": {
@@ -647,26 +562,25 @@
    },
    "solution": "BIFOCALS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BIFOCALS",
     "definitions": [
      {
       "text": "They offer more than one way of looking at things",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "They offer more than one way of looking at things",
-      "note": "surface reading: open-minded thinkers who give several perspectives on an issue"
-     },
-     {
-      "clueFragment": "looking at things",
-      "note": "setter's reading: literal eyesight, with lenses for near and far vision"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They offer more than one way of looking at things",
+       "note": "surface reading: open-minded thinkers who give several perspectives on an issue"
+      },
+      {
+       "words": "looking at things",
+       "note": "setter's reading: literal eyesight, with lenses for near and far vision"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The surface sounds like a debate about viewpoints; it is about spectacles.",
      "definitionFit": "Bifocal spectacles have lenses split into two parts for distant and close sight, giving two ways to see."
@@ -699,32 +613,25 @@
    },
    "solution": "BACKMARKERS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BACK MARKERS",
     "definitions": [
      {
       "text": "They finish after everyone else",
       "at": 33
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Support",
-      "gives": "BACK",
-      "note": "to back is to support"
-     },
-     {
-      "clueFragment": "teachers assessing work?",
-      "gives": "MARKERS",
-      "note": "teachers who grade work are markers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACK",
-      "MARKERS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Support",
+       "gives": "BACK",
+       "note": "to back is to support"
+      },
+      {
+       "words": "teachers assessing work?",
+       "gives": "MARKERS",
+       "note": "teachers who grade work are markers"
+      }
      ]
     },
     "explanation": {
@@ -752,41 +659,29 @@
    },
    "solution": "REDISCOVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REDISCOVER",
     "definitions": [
      {
       "text": "Once again find",
       "at": 0
      }
     ],
-    "linkWords": [
-     "getting"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "left-winger",
-      "gives": "RED",
-      "note": "a red is a socialist or communist"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "protection",
-      "gives": "COVER",
-      "note": "cover is shelter or protection"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RED",
-      "IS",
-      "COVER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left-winger",
+       "gives": "RED",
+       "note": "a red is a socialist or communist"
+      },
+      {
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "words": "protection",
+       "gives": "COVER",
+       "note": "cover is shelter or protection"
+      }
      ]
     },
     "explanation": {
@@ -814,43 +709,31 @@
    },
    "solution": "THRILLED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "THRILLED",
     "definitions": [
      {
       "text": "animated",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "going round",
-      "for": "container",
-      "note": "going round something means surrounding it, so one piece wraps the other"
-     }
-    ],
-    "linkWords": [
-     "becoming"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sang",
-      "gives": "TRILLED",
-      "note": "to trill is to sing with a warbling quaver"
-     },
-     {
-      "clueFragment": "hotel",
-      "gives": "H",
-      "note": "H is hotel in the NATO phonetic alphabet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "H",
-      "RILLED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "note": "going round something means surrounding it, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sang",
+       "gives": "TRILLED",
+       "note": "to trill is to sing with a warbling quaver"
+      },
+      {
+       "words": "hotel",
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      }
      ]
     },
     "explanation": {
@@ -878,40 +761,31 @@
    },
    "solution": "LEANNESS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEANNESS",
     "definitions": [
      {
       "text": "requirement for many a model?",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "on the outside",
-      "for": "container",
-      "note": "a piece on the outside wraps around the other, enclosing it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not so much",
-      "gives": "LESS",
-      "note": "less means not so much"
-     },
-     {
-      "clueFragment": "Girl",
-      "gives": "ANNE",
-      "note": "Anne is a girl's name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "ANNE",
-      "SS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on the outside",
+       "note": "a piece on the outside wraps around the other, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not so much",
+       "gives": "LESS",
+       "note": "less means not so much"
+      },
+      {
+       "words": "Girl",
+       "gives": "ANNE",
+       "note": "Anne is a girl's name"
+      }
      ]
     },
     "explanation": {
@@ -939,41 +813,24 @@
    },
    "solution": "OROTUND",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OROTUND",
     "definitions": [
      {
       "text": "Pompous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "funny",
-      "for": "anagram",
-      "note": "funny means odd or peculiar, so the letters come out in a peculiar order"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dour, not",
-      "gives": "DOURNOT",
-      "note": "the seven letters taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OROTUND"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DOURNOT",
-       "gives": "OROTUND"
+       "text": "funny",
+       "note": "funny means odd or peculiar, so the letters come out in a peculiar order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dour, not",
+       "note": "the seven letters taken as written, to be rearranged"
       }
      ]
     },
@@ -1002,48 +859,34 @@
    },
    "solution": "UNDERAGE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "UNDERAGE",
     "definitions": [
      {
       "text": "Immature",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "naughtily",
-      "for": "anagram",
-      "note": "behaving naughtily means misbehaving, so the letters will not stay in line"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nude",
-      "gives": "NUDE",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "rave",
-      "gives": "RAGE",
-      "note": "to rave is to rage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UNDE",
-      "RAGE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "NUDE",
-       "gives": "UNDE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "naughtily",
+         "note": "behaving naughtily means misbehaving, so the letters will not stay in line"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nude",
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "rave",
+       "gives": "RAGE",
+       "note": "to rave is to rage"
       }
      ]
     },
@@ -1073,40 +916,31 @@
    },
    "solution": "BANSHEE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BANSHEE",
     "definitions": [
      {
       "text": "the one who warns of death",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the first piece wraps the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Something distressing",
-      "gives": "BANE",
-      "note": "a bane is a cause of misery"
-     },
-     {
-      "clueFragment": "the female",
-      "gives": "SHE",
-      "note": "she is the female pronoun"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BAN",
-      "SHE",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the first piece wraps the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something distressing",
+       "gives": "BANE",
+       "note": "a bane is a cause of misery"
+      },
+      {
+       "words": "the female",
+       "gives": "SHE",
+       "note": "she is the female pronoun"
+      }
      ]
     },
     "explanation": {
@@ -1134,41 +968,24 @@
    },
    "solution": "DESPERATION",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DESPERATION",
     "definitions": [
      {
       "text": "torment",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "anagram",
-      "note": "around here means all over the place, so the letters are scattered and rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One traipsed",
-      "gives": "ONETRAIPSED",
-      "note": "the eleven letters taken as written, to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DESPERATION"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONETRAIPSED",
-       "gives": "DESPERATION"
+       "text": "around",
+       "note": "around here means all over the place, so the letters are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One traipsed",
+       "note": "the eleven letters taken as written, to be rearranged"
       }
      ]
     },
@@ -1197,34 +1014,29 @@
    },
    "solution": "ABOARD",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ABOARD",
     "definitions": [
      {
       "text": "on a train",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Reportedly",
-      "for": "homophone",
-      "note": "reportedly means as it is said, so we go by how a word is spoken"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "'ated",
-      "gives": "ABOARD",
-      "soundsLike": "ABORRED",
-      "note": "hated is abhorred; the apostrophe shows the H dropped, as in a Cockney accent, giving a'orred"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ABOARD",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "note": "reportedly means as it is said, so we go by how a word is spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "'ated",
+       "gives": "ABORRED",
+       "note": "hated is abhorred; the apostrophe shows the H dropped, as in a Cockney accent, giving a'orred"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A passenger is hated, perhaps for being on the train.",
      "walkthrough": "The apostrophe in 'ated shows a dropped H, so the synonym abhorred is also said without its H; in British speech, without the R sounds, it matches the answer.",
@@ -1252,43 +1064,31 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "Like something citrus maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is caught",
-      "for": "container",
-      "note": "something caught is held inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "giving"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "help",
-      "gives": "AID",
-      "note": "aid is help"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C is the abbreviation for cold, as on taps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "ID"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is caught",
+       "note": "something caught is held inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "help",
+       "gives": "AID",
+       "note": "aid is help"
+      },
+      {
+       "words": "cold",
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      }
      ]
     },
     "explanation": {
@@ -1317,31 +1117,16 @@
    },
    "solution": "RUNS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "RUNS",
     "definitions": [
      {
       "text": "Extras, perhaps",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: in cricket, extras are ... credited to a side without coming off the bat"
      },
      {
       "text": "theatrical sequences",
-      "at": 20
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extras, perhaps",
-      "note": "first meaning: in cricket, extras are ... credited to a side without coming off the bat"
-     },
-     {
-      "clueFragment": "theatrical sequences",
-      "note": "second meaning: a play's continuous series of performances"
+      "at": 20,
+      "meaning": "second meaning: a play's continuous series of performances"
      }
     ],
     "explanation": {
@@ -1370,43 +1155,38 @@
    },
    "solution": "CLUBROOM",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CLUBROOM",
     "definitions": [
      {
       "text": "place where members gather",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Not half",
-      "for": "deletion",
-      "note": "not half means half the word is missing, so its back half is dropped"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clumsy",
-      "gives": "CLUMSY",
-      "note": "taken as written, then cut in half"
-     },
-     {
-      "clueFragment": "cleaner",
-      "gives": "BROOM",
-      "note": "a broom is a cleaning tool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLU",
-      "BROOM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "note": "not half means half the word is missing, so its back half is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clumsy",
+         "note": "taken as written, then cut in half"
+        },
+        {
+         "gives": "MSY"
+        }
+       ]
+      },
+      {
+       "words": "cleaner",
+       "gives": "BROOM",
+       "note": "a broom is a cleaning tool"
+      }
      ]
     },
     "explanation": {
@@ -1434,35 +1214,25 @@
    },
    "solution": "COLLIE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COLLIE",
     "definitions": [
      {
       "text": "Sheepdog",
       "at": 0
      }
     ],
-    "linkWords": [
-     "found on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish island",
-      "gives": "COLL",
-      "note": "Coll is an island in the Inner Hebrides"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. abbreviates id est, Latin for that is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COLL",
-      "IE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scottish island",
+       "gives": "COLL",
+       "note": "Coll is an island in the Inner Hebrides"
+      },
+      {
+       "words": "that is",
+       "gives": "IE",
+       "note": "i.e. abbreviates id est, Latin for that is"
+      }
      ]
     },
     "explanation": {
@@ -1490,11 +1260,6 @@
    },
    "solution": "DISAGREE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "DISAGREE",
     "definitions": [
      {
       "text": "in dispute",
@@ -1502,41 +1267,41 @@
       "note": "the definition is a phrase meaning arguing; the answer is the verb to argue"
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "endlessly means without an end, so the last letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Daughter",
-      "gives": "D",
-      "note": "D is the standard abbreviation for daughter"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tree-hugger",
-      "gives": "GREEN",
-      "note": "a tree-hugger is an environmentalist, a Green"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "D",
-      "IS",
-      "A",
-      "GREE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "endlessly means without an end, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Daughter",
+         "gives": "D",
+         "note": "D is the standard abbreviation for daughter"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "tree-hugger",
+         "gives": "GREEN",
+         "note": "a tree-hugger is an environmentalist, a Green"
+        }
+       ]
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -1564,40 +1329,31 @@
    },
    "solution": "PRUDES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRUDES",
     "definitions": [
      {
       "text": "people who behave priggishly",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the first piece encloses the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Note",
-      "gives": "PS",
-      "note": "PS is a postscript, a note added to a letter"
-     },
-     {
-      "clueFragment": "inconsiderate",
-      "gives": "RUDE",
-      "note": "rude means impolite or inconsiderate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RUDE",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the first piece encloses the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Note",
+       "gives": "PS",
+       "note": "PS is a postscript, a note added to a letter"
+      },
+      {
+       "words": "inconsiderate",
+       "gives": "RUDE",
+       "note": "rude means impolite or inconsiderate"
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,6 @@
 {
  "id": "everyman-4083",
  "number": 4083,
- "series": "everyman",
- "name": "Everyman crossword No 4,083",
  "setter": "Everyman",
  "date": "2025-01-19",
  "dimensions": {
@@ -38,44 +36,46 @@
    },
    "solution": "EPIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EPIC",
     "definitions": [
      {
       "text": "overblown",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "note": "Ultimately means at the very end, so only the letter the word finishes on is wanted."
-     },
-     {
-      "text": "after",
-      "note": "What comes after a thing is written behind it, so the piece named first in the clue ends up second."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "selfie, ultimately",
-      "gives": "E",
-      "select": "last",
-      "note": "the letter the word selfie ends on"
-     },
-     {
-      "clueFragment": "Perhaps selfie",
-      "gives": "PIC",
-      "note": "a selfie is one kind of pic, the informal shortening of picture, and 'perhaps' flags it as an example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "PIC"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "note": "Ultimately means at the very end, so only the letter the word finishes on is wanted."
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "E",
+       "indicators": [
+        {
+         "text": "after",
+         "note": "What comes after a thing is written behind it, so the piece named first in the clue ends up second."
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "selfie, ultimately",
+         "gives": "E",
+         "select": "last",
+         "note": "the letter the word selfie ends on"
+        }
+       ]
+      },
+      {
+       "words": "Perhaps selfie",
+       "gives": "PIC",
+       "note": "a selfie is one kind of pic, the informal shortening of picture, and 'perhaps' flags it as an example"
+      }
      ]
     },
     "explanation": {
@@ -104,35 +104,24 @@
    },
    "solution": "PEKINGESE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PEKINGESE",
     "definitions": [
      {
       "text": "dog",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "barking",
-      "for": "anagram",
-      "note": "Barking is British slang for completely mad, and letters treated madly will not stay in the order they were given."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pink geese",
-      "gives": "PINKGEESE",
-      "note": "anagram fodder, nine letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PINK GEESE",
-       "gives": "PEKINGESE"
+       "text": "barking",
+       "note": "Barking is British slang for completely mad, and letters treated madly will not stay in the order they were given."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pink geese",
+       "note": "anagram fodder, nine letters"
       }
      ]
     },
@@ -163,35 +152,25 @@
    },
    "solution": "COUPLED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COUPLED",
     "definitions": [
      {
       "text": "Joined",
       "at": 0
      }
     ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "overthrow of government",
-      "gives": "COUP",
-      "note": "a coup is the sudden seizure of power from a sitting government"
-     },
-     {
-      "clueFragment": "governed",
-      "gives": "LED",
-      "note": "whoever led the country governed it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COUP",
-      "LED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "overthrow of government",
+       "gives": "COUP",
+       "note": "a coup is the sudden seizure of power from a sitting government"
+      },
+      {
+       "words": "governed",
+       "gives": "LED",
+       "note": "whoever led the country governed it"
+      }
      ]
     },
     "explanation": {
@@ -220,28 +199,16 @@
    },
    "solution": "PLUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLUS",
     "definitions": [
      {
       "text": "Also",
-      "at": 0
+      "at": 0,
+      "meaning": "the little word that adds one thing on to another, as in 'two and two'"
      },
      {
       "text": "one of Disney+'s characters",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Also",
-      "note": "the little word that adds one thing on to another, as in 'two and two'"
-     },
-     {
-      "clueFragment": "one of Disney+'s characters",
-      "note": "the symbol printed at the end of the streaming service's name, read as a piece of type rather than a cartoon"
+      "at": 5,
+      "meaning": "the symbol printed at the end of the streaming service's name, read as a piece of type rather than a cartoon"
      }
     ],
     "explanation": {
@@ -271,10 +238,6 @@
    },
    "solution": "POTTERY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "POTTERY",
     "definitions": [
      {
       "text": "bowls and plates",
@@ -282,22 +245,19 @@
       "note": "Pottery is a mass noun naming the whole class of fired clay ware, so a plural pair of examples is the natural way to point at it."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "young wizard's",
-      "gives": "POTTER",
-      "note": "Harry Potter, the schoolboy wizard of the novels; the possessive belongs to the surface only"
-     },
-     {
-      "clueFragment": "Like",
-      "gives": "Y",
-      "note": "the adjective ending -y means resembling, and it is a single letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POTTER",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "young wizard's",
+       "gives": "POTTER",
+       "note": "Harry Potter, the schoolboy wizard of the novels; the possessive belongs to the surface only"
+      },
+      {
+       "words": "Like",
+       "gives": "Y",
+       "note": "the adjective ending -y means resembling, and it is a single letter"
+      }
      ]
     },
     "explanation": {
@@ -327,10 +287,6 @@
    },
    "solution": "UTERI",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "UTERI",
     "definitions": [
      {
       "text": "we've all been there",
@@ -338,20 +294,22 @@
       "note": "The definition is a joke about the answer rather than a synonym for it: it names the place by the one visit every reader has made, and its plural matches the many of us."
      }
     ],
-    "indicators": [
-     {
-      "text": "Taking slices of",
-      "for": "hidden_word",
-      "note": "A slice is cut out of something bigger, so a piece of the word that follows is taken and the rest left behind."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charcuterie",
-      "gives": "UTERI",
-      "note": "five letters in an unbroken run, starting at the U in the middle of the word"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Taking slices of",
+       "note": "A slice is cut out of something bigger, so a piece of the word that follows is taken and the rest left behind."
+      }
+     ],
+     "parts": [
+      {
+       "words": "charcuterie",
+       "gives": "UTERI",
+       "note": "five letters in an unbroken run, starting at the U in the middle of the word"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Cutting slices off a platter of cold meats, something everyone has done.",
      "walkthrough": "Everyman likes a long imported word as a hiding place: charcuterie is read as a thing on a board, not as a row of letters. The run sits inside one word rather than across a join, which makes it harder to see.",
@@ -379,56 +337,46 @@
    },
    "solution": "USEFUL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "USEFUL",
     "definitions": [
      {
       "text": "advantageous",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "welcomed by",
-      "for": "container",
-      "note": "Somebody welcomed by a host is taken inside the house, so that letter sits within the pair that follows."
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US is the standard short form for American"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "e is the standard abbreviation for European"
-     },
-     {
-      "clueFragment": "Florida",
-      "gives": "FL",
-      "note": "FL is Florida's two-letter postal code"
-     },
-     {
-      "clueFragment": "union",
-      "gives": "U",
-      "note": "u is the standard abbreviation for union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "US",
-      "E",
-      "F",
-      "U",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "note": "Somebody welcomed by a host is taken inside the house, so that letter sits within the pair that follows."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US is the standard short form for American"
+        },
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "e is the standard abbreviation for European"
+        },
+        {
+         "words": "Florida",
+         "gives": "FL",
+         "note": "FL is Florida's two-letter postal code"
+        }
+       ]
+      },
+      {
+       "words": "union",
+       "gives": "U",
+       "note": "u is the standard abbreviation for union"
+      }
      ]
     },
     "explanation": {
@@ -457,45 +405,36 @@
    },
    "solution": "EDISON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "EDISON",
     "definitions": [
      {
       "text": "Inventor",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "facing the wrong way",
-      "for": "reversal",
-      "note": "Something facing the wrong way has been turned about, so its letters are read from the far end back."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "side",
-      "gives": "EDIS",
-      "note": "the four letters of SIDE written from the back"
-     },
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "the two letters stand exactly as printed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EDIS",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "EDISON",
+     "indicators": [
       {
-       "from": "SIDE",
-       "to": "EDIS"
+       "text": "facing the wrong way",
+       "note": "Something facing the wrong way has been turned about, so its letters are read from the far end back."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "side",
+         "gives": "EDIS",
+         "note": "the four letters of SIDE written from the back"
+        },
+        {
+         "words": "on",
+         "note": "the two letters stand exactly as printed"
+        }
+       ]
       }
      ]
     },
@@ -539,47 +478,47 @@
    },
    "solution": "STRIKEUPTHEBAND",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "STRIKE UP THE BAND",
     "definitions": [
      {
       "text": "Let's hear some music",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings change places."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to cycle",
-      "gives": "STRIKE",
-      "soundsLike": "BIKE",
-      "note": "To cycle is to bike. That word hands its B over to the other one and takes back the STR coming the other way."
-     },
-     {
-      "clueFragment": "past",
-      "gives": "UP",
-      "note": "to ride past a building on a London street is to go up the street it stands on"
-     },
-     {
-      "clueFragment": "Royal Courts of Justice",
-      "gives": "THEBAND",
-      "soundsLike": "THE STRAND",
-      "note": "The Royal Courts of Justice stand on the Strand in central London. The street name gives up its STR, collects the B, and keeps its 'the'."
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STRIKE",
-      "UP",
-      "THEBAND"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "STRIKEUPTHEBAND",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings change places."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "to cycle",
+         "gives": "STRIKE",
+         "soundsLike": "BIKE",
+         "note": "To cycle is to bike. That word hands its B over to the other one and takes back the STR coming the other way."
+        },
+        {
+         "words": "past",
+         "gives": "UP",
+         "note": "to ride past a building on a London street is to go up the street it stands on"
+        },
+        {
+         "unchecked": true,
+         "words": "Royal Courts of Justice",
+         "gives": "THEBAND",
+         "soundsLike": "THE STRAND",
+         "note": "The Royal Courts of Justice stand on the Strand in central London. The street name gives up its STR, collects the B, and keeps its 'the'."
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -615,10 +554,6 @@
    },
    "solution": "ROASTPOTATO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROAST POTATO",
     "definitions": [
      {
       "text": "having beef with this",
@@ -626,22 +561,19 @@
       "note": "The definition works by company rather than by synonym, and its participle stands where a noun would: the thing you have beef with is the thing named."
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Criticise",
-      "gives": "ROAST",
-      "note": "to roast somebody is to criticise them mercilessly"
-     },
-     {
-      "clueFragment": "King Edward for one",
-      "gives": "POTATO",
-      "note": "a King Edward is one of Britain's best-known varieties of the vegetable, and 'for one' flags it as an example"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROAST",
-      "POTATO"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Criticise",
+       "gives": "ROAST",
+       "note": "to roast somebody is to criticise them mercilessly"
+      },
+      {
+       "words": "King Edward for one",
+       "gives": "POTATO",
+       "note": "a King Edward is one of Britain's best-known varieties of the vegetable, and 'for one' flags it as an example"
+      }
      ]
     },
     "explanation": {
@@ -677,40 +609,33 @@
    },
    "solution": "ADRIATICSEA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ADRIATIC SEA",
     "definitions": [
      {
       "text": "part of the Med",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "represented",
-      "for": "anagram",
-      "note": "To re-present something is to set it out afresh, so the same letters are laid down again in a different arrangement."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Acid satire",
-      "gives": "ACIDSATIRE",
-      "note": "anagram fodder, ten letters"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the article joins the fodder and makes eleven"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACID SATIRE A",
-       "gives": "ADRIATICSEA"
+       "text": "represented",
+       "note": "To re-present something is to set it out afresh, so the same letters are laid down again in a different arrangement."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Acid satire",
+         "note": "anagram fodder, ten letters"
+        },
+        {
+         "words": "a",
+         "note": "the article joins the fodder and makes eleven"
+        }
+       ]
       }
      ]
     },
@@ -740,37 +665,28 @@
    },
    "solution": "FLANNEL",
    "annotation": {
-    "type": [
-     "and_lit",
-     "letter_selection"
-    ],
-    "answer": "FLANNEL",
     "definitions": [
      {
       "text": "Principally, facecloth (literally); alternatively, nicey nicey eulogising laudation?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Principally",
-      "for": "letter_selection",
-      "note": "Principally points at what comes first, so each word in the list gives up only the letter it opens with."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "facecloth (literally); alternatively, nicey nicey eulogising laudation",
-      "gives": "FLANNEL",
-      "select": "first",
-      "note": "seven words in the order printed, each handing over the letter it starts with"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLANNEL"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Principally",
+       "note": "Principally points at what comes first, so each word in the list gives up only the letter it opens with."
+      }
+     ],
+     "parts": [
+      {
+       "words": "facecloth (literally); alternatively, nicey nicey eulogising laudation",
+       "note": "seven words in the order printed, each handing over the letter it starts with"
+      }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A dictionary entry offering a word's plain meaning first and its sugary one second.",
      "walkthrough": "The clue is made of the very stuff it describes: a pile of words for empty praise is flannel itself. In Britain a flannel is the small cloth kept by the basin for washing your face.",
@@ -797,39 +713,28 @@
    },
    "solution": "EMIGRES",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "EMIGRES",
     "definitions": [
      {
       "text": "Result of rogue régimes?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rogue",
-      "for": "anagram",
-      "note": "A rogue thing has gone off on its own, out of the order it was put in, which is what happens to these letters."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "régimes",
-      "gives": "REGIMES",
-      "note": "seven letters to be rearranged; the French accent counts for nothing"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "REGIMES",
-       "gives": "EMIGRES"
+       "text": "rogue",
+       "note": "A rogue thing has gone off on its own, out of the order it was put in, which is what happens to these letters."
+      }
+     ],
+     "parts": [
+      {
+       "words": "régimes",
+       "note": "seven letters to be rearranged; the French accent counts for nothing"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A question about what lawless governments leave behind them.",
      "walkthrough": "Definition and wordplay are the same seven letters, so nothing is left over to point at the answer — the whole sentence does that job. Everyman keeps the French accents that both the fodder and the answer carry in print.",
@@ -861,54 +766,57 @@
    },
    "solution": "LATTERDAY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "LATTER-DAY",
     "definitions": [
      {
       "text": "modern",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "wearing",
-      "note": "What you wear goes round the outside of you, so the piece named before it ends up inside the piece named after it."
-     },
-     {
-      "text": "following",
-      "note": "To follow is to come along behind, so everything named before it lands second in the answer."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "frothy coffee",
-      "gives": "LATTE",
-      "note": "a latte is the milky coffee, frothed on top"
-     },
-     {
-      "clueFragment": "beam",
-      "gives": "RAY",
-      "note": "a beam of light is a ray"
-     },
-     {
-      "clueFragment": "Duke",
-      "gives": "D",
-      "note": "d is the standard abbreviation for duke"
-     },
-     {
-      "clueFragment": "how",
-      "note": "surface padding: the exclamation dresses the definition up as a remark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LATTE",
-      "R",
-      "D",
-      "AY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "wearing",
+       "note": "What you wear goes round the outside of you, so the piece named before it ends up inside the piece named after it."
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "To follow is to come along behind, so everything named before it lands second in the answer."
+        }
+       ],
+       "parts": [
+        {
+         "words": "frothy coffee",
+         "gives": "LATTE",
+         "note": "a latte is the milky coffee, frothed on top"
+        },
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "beam",
+           "gives": "RAY",
+           "note": "a beam of light is a ray"
+          },
+          {
+           "words": "Duke",
+           "gives": "D",
+           "note": "d is the standard abbreviation for duke"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "how",
+       "note": "surface padding: the exclamation dresses the definition up as a remark"
+      }
      ]
     },
     "explanation": {
@@ -937,31 +845,16 @@
    },
    "solution": "DRAWN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DRAWN",
     "definitions": [
      {
       "text": "Depicted",
-      "at": 0
+      "at": 0,
+      "meaning": "what a pencil or a pen has done to put a thing on paper"
      },
      {
       "text": "haggard",
-      "at": 12
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Depicted",
-      "note": "what a pencil or a pen has done to put a thing on paper"
-     },
-     {
-      "clueFragment": "haggard",
-      "note": "of a face: pulled tight and hollowed out by strain or illness"
+      "at": 12,
+      "meaning": "of a face: pulled tight and hollowed out by strain or illness"
      }
     ],
     "explanation": {
@@ -989,35 +882,24 @@
    },
    "solution": "DOUBLOONS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DOUBLOONS",
     "definitions": [
      {
       "text": "Old Spanish coins",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminally",
-      "for": "anagram",
-      "note": "To do a thing criminally is to do it wrongly, and letters put down wrongly are letters out of their proper order."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "unsold? Boo",
-      "gives": "UNSOLDBOO",
-      "note": "anagram fodder, nine letters, the jeer included"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UNSOLD BOO",
-       "gives": "DOUBLOONS"
+       "text": "criminally",
+       "note": "To do a thing criminally is to do it wrongly, and letters put down wrongly are letters out of their proper order."
+      }
+     ],
+     "parts": [
+      {
+       "words": "unsold? Boo",
+       "note": "anagram fodder, nine letters, the jeer included"
       }
      ]
     },
@@ -1047,28 +929,16 @@
    },
    "solution": "STOLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STOLE",
     "definitions": [
      {
       "text": "Thieved",
-      "at": 0
+      "at": 0,
+      "meaning": "the past tense of the verb to steal"
      },
      {
       "text": "a gown",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Thieved",
-      "note": "the past tense of the verb to steal"
-     },
-     {
-      "clueFragment": "a gown",
-      "note": "in its oldest sense a long robe reaching to the feet, later the wrap worn over the shoulders"
+      "at": 8,
+      "meaning": "in its oldest sense a long robe reaching to the feet, later the wrap worn over the shoulders"
      }
     ],
     "explanation": {
@@ -1097,31 +967,16 @@
    },
    "solution": "STARCH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STARCH",
     "definitions": [
      {
       "text": "Formality",
-      "at": 0
+      "at": 0,
+      "meaning": "stiffness of manner, the figurative use of a stiffened collar"
      },
      {
       "text": "found in toast",
-      "at": 17
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Formality",
-      "note": "stiffness of manner, the figurative use of a stiffened collar"
-     },
-     {
-      "clueFragment": "found in toast",
-      "note": "the carbohydrate that makes up most of a slice of bread"
+      "at": 17,
+      "meaning": "the carbohydrate that makes up most of a slice of bread"
      }
     ],
     "explanation": {
@@ -1151,44 +1006,48 @@
    },
    "solution": "MERCURIAL",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "MERCURIAL",
     "definitions": [
      {
       "text": "Describing silvery metal",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "irritated",
-      "note": "Somebody irritated is stirred up, and stirred-up letters come out in a different order."
-     },
-     {
-      "text": "twice cut off",
-      "note": "To cut a word off is to take away the letter at its end, and doing it twice takes the next one back as well."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Marie Curie",
-      "gives": "MARIECUR",
-      "note": "the ten letters of the name with the last two taken off the end"
-     },
-     {
-      "clueFragment": "lecturer",
-      "gives": "L",
-      "note": "l is the standard abbreviation for lecturer"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MERCURIAL",
+     "parts": [
       {
-       "fodder": "MARIECUR L",
-       "gives": "MERCURIAL"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "irritated",
+         "note": "Somebody irritated is stirred up, and stirred-up letters come out in a different order."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "twice cut off",
+           "note": "To cut a word off is to take away the letter at its end, and doing it twice takes the next one back as well."
+          }
+         ],
+         "parts": [
+          {
+           "words": "Marie Curie",
+           "gives": "MARIECUR",
+           "note": "the ten letters of the name with the last two taken off the end"
+          },
+          {
+           "words": "lecturer",
+           "gives": "L",
+           "note": "l is the standard abbreviation for lecturer"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1218,33 +1077,28 @@
    },
    "solution": "MARQUEE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MARQUEE",
     "definitions": [
      {
       "text": "exhibition venue",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "ignored to some extent",
-      "for": "hidden_word",
-      "note": "What is ignored is passed over, and only some of it — so letters drop off each end and the unbroken middle is what remains."
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grammar queen",
-      "gives": "MARQUEE",
-      "note": "seven letters in an unbroken row, picked up midway through the first word and stopping just short of the end of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "ignored to some extent",
+       "note": "What is ignored is passed over, and only some of it — so letters drop off each end and the unbroken middle is what remains."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grammar queen",
+       "gives": "MARQUEE",
+       "note": "seven letters in an unbroken row, picked up midway through the first word and stopping just short of the end of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A stickler for grammar being half-ignored at a trade fair.",
      "walkthrough": "The hiding place straddles the gap between the two words, which is where these runs are hardest to see. Everyman's usual signal is a word of quantity, and here the quantity is attached to 'ignored' instead.",
@@ -1271,38 +1125,24 @@
    },
    "solution": "RAMEKIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RAMEKIN",
     "definitions": [
      {
       "text": "little baking dish",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "madly",
-      "for": "anagram",
-      "note": "To do something madly is to do it with no order at all, so the letters arrive in none."
-     }
-    ],
-    "linkWords": [
-     "to get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mike ran",
-      "gives": "MIKERAN",
-      "note": "anagram fodder, seven letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MIKE RAN",
-       "gives": "RAMEKIN"
+       "text": "madly",
+       "note": "To do something madly is to do it with no order at all, so the letters arrive in none."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mike ran",
+       "note": "anagram fodder, seven letters"
       }
      ]
     },
@@ -1332,10 +1172,6 @@
    },
    "solution": "LIPIDS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIPIDS",
     "definitions": [
      {
       "text": "fatty",
@@ -1343,33 +1179,25 @@
       "note": "Lipids are fats rather than fatty things, so the adjective stands in for a plural noun, with 'they're' doing the agreeing."
      }
     ],
-    "indicators": [
-     {
-      "text": "tucked in",
-      "for": "container",
-      "note": "Something tucked in has been pushed down inside whatever surrounds it, so those letters go within the other piece."
-     }
-    ],
-    "linkWords": [
-     "They're"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "muscular flaps",
-      "gives": "LIPS",
-      "note": "the two muscular folds round the mouth"
-     },
-     {
-      "clueFragment": "Everyman had",
-      "gives": "ID",
-      "note": "Everyman speaks of himself as I, and 'had' contracts to 'd"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIP",
-      "ID",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucked in",
+       "note": "Something tucked in has been pushed down inside whatever surrounds it, so those letters go within the other piece."
+      }
+     ],
+     "parts": [
+      {
+       "words": "muscular flaps",
+       "gives": "LIPS",
+       "note": "the two muscular folds round the mouth"
+      },
+      {
+       "words": "Everyman had",
+       "gives": "ID",
+       "note": "Everyman speaks of himself as I, and 'had' contracts to 'd"
+      }
      ]
     },
     "explanation": {
@@ -1399,57 +1227,56 @@
    },
    "solution": "AMATEUR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "letter_selection"
-    ],
-    "answer": "AMATEUR",
     "definitions": [
      {
       "text": "unprofessional",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "The head of a word is the letter it begins with, so one letter is all that is taken."
-     },
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "To flip a thing is to turn it right over, so the letters it governs are read the other way about."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Head of Anatomy",
-      "gives": "A",
-      "select": "first",
-      "note": "the letter the word Anatomy starts with"
-     },
-     {
-      "clueFragment": "to regret",
-      "gives": "RUE",
-      "note": "to rue something is to regret it"
-     },
-     {
-      "clueFragment": "tartan cap",
-      "gives": "TAM",
-      "note": "a tam is the flat woollen Scottish bonnet, short for tam-o'-shanter and often woven in tartan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MATEUR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RUETAM",
-       "to": "MATEUR"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "The head of a word is the letter it begins with, so one letter is all that is taken."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Head of Anatomy",
+         "gives": "ANATOMY",
+         "note": "the letter the word Anatomy starts with"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "To flip a thing is to turn it right over, so the letters it governs are read the other way about."
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "to regret",
+           "gives": "RUE",
+           "note": "to rue something is to regret it"
+          },
+          {
+           "words": "tartan cap",
+           "gives": "TAM",
+           "note": "a tam is the flat woollen Scottish bonnet, short for tam-o'-shanter and often woven in tartan"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1480,28 +1307,16 @@
    },
    "solution": "ELDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ELDER",
     "definitions": [
      {
       "text": "Tree",
-      "at": 0
+      "at": 0,
+      "meaning": "the small white-flowered tree of British hedgerows, cropped for cordial and for wine"
      },
      {
       "text": "you might turn to for advice",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tree",
-      "note": "the small white-flowered tree of British hedgerows, cropped for cordial and for wine"
-     },
-     {
-      "clueFragment": "you might turn to for advice",
-      "note": "the senior member of a village, a church or a family, whose word carries weight"
+      "at": 5,
+      "meaning": "the senior member of a village, a church or a family, whose word carries weight"
      }
     ],
     "explanation": {
@@ -1530,38 +1345,30 @@
    },
    "solution": "MILKSOP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MILKSOP",
     "definitions": [
      {
       "text": "Namby-pamby",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "takes money from",
-      "gives": "MILKS",
-      "note": "to milk somebody is to draw money out of them steadily"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "o is the standard abbreviation for old"
-     },
-     {
-      "clueFragment": "prince",
-      "gives": "P",
-      "note": "p is the standard abbreviation for prince"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MILKS",
-      "O",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "takes money from",
+       "gives": "MILKS",
+       "note": "to milk somebody is to draw money out of them steadily"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "o is the standard abbreviation for old"
+      },
+      {
+       "words": "prince",
+       "gives": "P",
+       "note": "p is the standard abbreviation for prince"
+      }
      ]
     },
     "explanation": {
@@ -1610,39 +1417,31 @@
    },
    "solution": "CLOUDCUCKOOLAND",
    "annotation": {
-    "type": [
-     "and_lit",
-     "anagram"
-    ],
-    "answer": "CLOUD-CUCKOO-LAND",
     "definitions": [
      {
       "text": "Loud coo and cluck up here?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "anagram",
-      "note": "Something mixed up is out of its arrangement, and that is what has happened to the letters in front of it."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Loud coo and cluck",
-      "gives": "CLOUDCUCKOOLAND",
-      "note": "fifteen letters, every one of them used"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CLOUDCUCKOOLAND",
+     "indicators": [
       {
-       "fodder": "LOUD COO AND CLUCK",
-       "gives": "CLOUDCUCKOOLAND"
+       "text": "up",
+       "note": "Something mixed up is out of its arrangement, and that is what has happened to the letters in front of it."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Loud coo and cluck",
+       "gives": "CLOUDCUCKOOLAND",
+       "note": "fifteen letters, every one of them used"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "Birdsong from somewhere overhead, loud enough to be worth remarking on.",
      "walkthrough": "Aristophanes' birds built their city up in the clouds, which is where the phrase for a fool's paradise comes from. The italics do no work beyond marking the two bird noises.",
@@ -1670,33 +1469,28 @@
    },
    "solution": "BRIE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BRIE",
     "definitions": [
      {
       "text": "French cheese",
       "at": 12
      }
     ],
-    "indicators": [
-     {
-      "text": "cut",
-      "for": "deletion",
-      "note": "A word that is cut is shortened, and what comes off is the letter at its end."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Quick",
-      "gives": "BRIE",
-      "note": "the adjective meaning quick or hurried, minus the F it ends on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "BRIE",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "A word that is cut is shortened, and what comes off is the letter at its end."
+      }
+     ],
+     "parts": [
+      {
+       "words": "Quick",
+       "gives": "BRIE",
+       "note": "the adjective meaning quick or hurried, minus the F it ends on"
+      }
      ]
     },
     "explanation": {
@@ -1725,31 +1519,29 @@
    },
    "solution": "NOSE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "NOSE",
     "definitions": [
      {
       "text": "sensory organ",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "In hearing",
-      "for": "homophone",
-      "note": "What is in hearing has reached the ear, so the words are wanted for the sound they make and not for their spelling."
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is conscious of",
-      "gives": "NOSE",
-      "soundsLike": "KNOWS",
-      "note": "to be conscious of something is to know it, and that verb's third person carries a silent K at the front"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NOSE",
+     "indicators": [
+      {
+       "text": "In hearing",
+       "note": "What is in hearing has reached the ear, so the words are wanted for the sound they make and not for their spelling."
+      }
+     ],
+     "parts": [
+      {
+       "words": "is conscious of",
+       "gives": "KNOWS",
+       "note": "to be conscious of something is to know it, and that verb's third person carries a silent K at the front"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The silent K is the whole of it: said aloud, the verb for being aware and the organ are one noise. English keeps that K in writing only, a leftover from the Old English cnāwan.",
      "definitionFit": "The nose is the organ of smell, so 'sensory organ' names it by the sense it serves."

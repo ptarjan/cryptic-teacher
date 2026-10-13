@@ -1,8 +1,6 @@
 {
  "id": "sundaytough-151",
  "number": 151,
- "series": "sundaytough",
- "name": "Sunday Telegraph Toughie No 151",
  "setter": "proXimal",
  "date": "2024-12-15",
  "dimensions": {
@@ -38,41 +36,42 @@
    },
    "solution": "SPATCHCOCK",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "SPATCHCOCK",
     "definitions": [
      {
       "text": "flattened chicken",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "From Spooner",
-      "for": "spoonerism",
-      "note": "the Reverend Spooner famously swapped the opening sounds of words, so his name tells us to trade initial sounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hear",
-      "gives": "SPATCH",
-      "soundsLike": "CATCH",
-      "note": "to catch something is to hear it; it takes the SP sound from its partner"
-     },
-     {
-      "clueFragment": "Kirk's mate",
-      "gives": "COCK",
-      "soundsLike": "SPOCK",
-      "note": "Mr Spock is Captain Kirk's crewmate in Star Trek; he takes the C sound in exchange"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPATCH",
-      "COCK"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "SPATCHCOCK",
+     "indicators": [
+      {
+       "text": "From Spooner",
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so his name tells us to trade initial sounds"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "hear",
+         "gives": "SPATCH",
+         "soundsLike": "CATCH",
+         "note": "to catch something is to hear it; it takes the SP sound from its partner"
+        },
+        {
+         "unchecked": true,
+         "words": "Kirk's mate",
+         "gives": "COCK",
+         "soundsLike": "SPOCK",
+         "note": "Mr Spock is Captain Kirk's crewmate in Star Trek; he takes the C sound in exchange"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -102,48 +101,35 @@
    },
    "solution": "SAME",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "SAME",
     "definitions": [
      {
       "text": "not different",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "from south",
-      "for": "reversal",
-      "note": "in a down clue, starting from the south means reading from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Graduates",
-      "gives": "MAS",
-      "note": "MAs, Masters of Arts, are graduates"
-     },
-     {
-      "clueFragment": "east",
-      "gives": "E",
-      "note": "E is the compass abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SAM",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MAS",
-       "to": "SAM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "from south",
+         "note": "in a down clue, starting from the south means reading from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Graduates",
+         "gives": "MAS",
+         "note": "MAs, Masters of Arts, are graduates"
+        }
+       ]
+      },
+      {
+       "words": "east",
+       "gives": "E",
+       "note": "E is the compass abbreviation"
       }
      ]
     },
@@ -173,50 +159,44 @@
    },
    "solution": "ARROWROOT",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ARROWROOT",
     "definitions": [
      {
       "text": "plant",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "climbing",
-      "for": "reversal",
-      "note": "in a down clue, something climbing goes upward, so the letters read from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One pointing",
-      "gives": "ARROW",
-      "note": "an arrow is a sign that points the way"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "yellow",
-      "gives": "OR",
-      "note": "or is the heraldic word for gold or yellow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARROW",
-      "ROOT"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TOOR",
-       "to": "ROOT"
+       "words": "One pointing",
+       "gives": "ARROW",
+       "note": "an arrow is a sign that points the way"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "note": "in a down clue, something climbing goes upward, so the letters read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "to",
+           "note": "taken as written"
+          },
+          {
+           "words": "yellow",
+           "gives": "OR",
+           "note": "or is the heraldic word for gold or yellow"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -246,48 +226,34 @@
    },
    "solution": "CANCELLATIONS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "CANCELLATIONS",
     "definitions": [
      {
       "text": "Abandonments",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at sea",
-      "for": "anagram",
-      "note": "to be at sea is to be confused and all over the place, so these letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "CAN",
-      "note": "a can is a container, a vessel"
-     },
-     {
-      "clueFragment": "ocean still",
-      "gives": "OCEANSTILL",
-      "note": "the letters to be rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAN",
-      "CELLATIONS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OCEANSTILL",
-       "gives": "CELLATIONS"
+       "words": "vessel",
+       "gives": "CAN",
+       "note": "a can is a container, a vessel"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at sea",
+         "note": "to be at sea is to be confused and all over the place, so these letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ocean still",
+         "note": "the letters to be rearranged"
+        }
+       ]
       }
      ]
     },
@@ -317,43 +283,39 @@
    },
    "solution": "CAROLINE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "CAROLINE",
     "definitions": [
      {
       "text": "Woman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving centre",
-      "for": "deletion",
-      "note": "something leaving its centre loses the middle, so the central letter drops out"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "capital",
-      "gives": "CAIRO",
-      "note": "Cairo is the capital of Egypt; its middle letter I goes"
-     },
-     {
-      "clueFragment": "railway track",
-      "gives": "LINE",
-      "note": "a railway line is a track"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARO",
-      "LINE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving centre",
+       "note": "something leaving its centre loses the middle, so the central letter drops out"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "capital",
+         "gives": "CAIRO",
+         "note": "Cairo is the capital of Egypt; its middle letter I goes"
+        },
+        {
+         "words": "railway track",
+         "gives": "LINE",
+         "note": "a railway line is a track"
+        }
+       ]
+      },
+      {
+       "gives": "I"
+      }
      ]
     },
     "explanation": {
@@ -382,41 +344,35 @@
    },
    "solution": "CRIER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CRIER",
     "definitions": [
      {
       "text": "herald",
       "at": 46
      }
     ],
-    "indicators": [
-     {
-      "text": "occasionally avoided",
-      "for": "letter_selection",
-      "note": "if letters are avoided only now and then, every other one is skipped and the rest kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Corgis",
-      "gives": "CRI",
-      "select": "alternate",
-      "note": "the first, third and fifth letters"
-     },
-     {
-      "clueFragment": "Queen Elizabeth's",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, the royal cipher"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRI",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally avoided",
+         "note": "if letters are avoided only now and then, every other one is skipped and the rest kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Corgis",
+         "note": "the first, third and fifth letters"
+        }
+       ]
+      },
+      {
+       "words": "Queen Elizabeth's",
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the royal cipher"
+      }
      ]
     },
     "explanation": {
@@ -445,42 +401,31 @@
    },
    "solution": "SWAP",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "SWAP",
     "definitions": [
      {
       "text": "Exchange",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "shed",
-      "for": "deletion",
-      "note": "to shed something is to cast it off, so a letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shrek's home",
-      "gives": "SWAMP",
-      "note": "the ogre Shrek lives in a swamp in the films"
-     },
-     {
-      "clueFragment": "medium",
-      "gives": "M",
-      "note": "M is the clothing-size abbreviation for medium"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SWA",
-      "P"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shed",
+       "note": "to shed something is to cast it off, so a letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shrek's home",
+       "gives": "SWAMP",
+       "note": "the ogre Shrek lives in a swamp in the films"
+      },
+      {
+       "words": "medium",
+       "gives": "M",
+       "note": "M is the clothing-size abbreviation for medium"
+      }
      ]
     },
     "explanation": {
@@ -510,35 +455,25 @@
    },
    "solution": "WHORL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHORL",
     "definitions": [
      {
       "text": "Part of fingerprint",
       "at": 0
      }
     ],
-    "linkWords": [
-     "found on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "which person's",
-      "gives": "WHO",
-      "note": "'which person' is who"
-     },
-     {
-      "clueFragment": "both hands",
-      "gives": "RL",
-      "note": "R and L, right and left"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHO",
-      "RL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "which person's",
+       "gives": "WHO",
+       "note": "'which person' is who"
+      },
+      {
+       "words": "both hands",
+       "gives": "RL",
+       "note": "R and L, right and left"
+      }
      ]
     },
     "explanation": {
@@ -567,64 +502,56 @@
    },
    "solution": "POMERANIAN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "POMERANIAN",
     "definitions": [
      {
       "text": "dog",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the letters read from the bottom to the top"
-     },
-     {
-      "text": "restraining",
-      "for": "container",
-      "note": "to restrain is to hold in, so one piece is kept inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Clean",
-      "gives": "MOP",
-      "note": "to mop is to clean"
-     },
-     {
-      "clueFragment": "some time",
-      "gives": "ERA",
-      "note": "an era is a period of time"
-     },
-     {
-      "clueFragment": "relative",
-      "gives": "NAN",
-      "note": "a nan is a grandmother"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "POM",
-      "ERA",
-      "N",
-      "I",
-      "AN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "MOP",
-       "to": "POM"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, up means the letters read from the bottom to the top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clean",
+         "gives": "MOP",
+         "note": "to mop is to clean"
+        }
+       ]
+      },
+      {
+       "words": "some time",
+       "gives": "ERA",
+       "note": "an era is a period of time"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "restraining",
+         "note": "to restrain is to hold in, so one piece is kept inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relative",
+         "gives": "NAN",
+         "note": "a nan is a grandmother"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
       }
      ]
     },
@@ -654,45 +581,34 @@
    },
    "solution": "MIRIN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "MIRIN",
     "definitions": [
      {
       "text": "cooking liquid",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "reflected",
-      "for": "reversal",
-      "note": "a reflection in a mirror shows things back to front"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lip",
-      "gives": "RIM",
-      "note": "a lip is the rim of a vessel"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIR",
-      "IN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "RIM",
-       "to": "MIR"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflected",
+         "note": "a reflection in a mirror shows things back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lip",
+         "gives": "RIM",
+         "note": "a lip is the rim of a vessel"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
       }
      ]
     },
@@ -722,48 +638,37 @@
    },
    "solution": "RAINSTORM",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RAINSTORM",
     "definitions": [
      {
       "text": "meteorological event",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "anagram",
-      "note": "something upset is knocked over and disordered, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with this",
-     "might be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "remonstrating",
-      "gives": "REMONSTRATING",
-      "note": "the full set of letters that the combined anagram must make"
-     },
-     {
-      "clueFragment": "Gent",
-      "gives": "GENT",
-      "note": "these letters are taken out of the full set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAINSTORM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RAINSTORM",
+     "indicators": [
       {
-       "fodder": "RMOSRATIN",
-       "gives": "RAINSTORM"
+       "text": "upset",
+       "note": "something upset is knocked over and disordered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RAINSTORM",
+       "parts": [
+        {
+         "words": "remonstrating",
+         "note": "the full set of letters that the combined anagram must make"
+        },
+        {
+         "words": "Gent",
+         "note": "these letters are taken out of the full set"
+        }
+       ]
       }
      ]
     },
@@ -799,37 +704,45 @@
    },
    "solution": "SCENESTEALERS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SCENE-STEALERS",
     "definitions": [
      {
       "text": "players grabbing attention",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Reportedly",
-      "for": "homophone",
-      "note": "what is reported is spoken, so we go by how the words are said"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "noted",
-      "gives": "SCENE",
-      "soundsLike": "SEEN",
-      "note": "something noted has been seen"
-     },
-     {
-      "clueFragment": "Pittsburgh team",
-      "gives": "STEALERS",
-      "soundsLike": "STEELERS",
-      "note": "the Pittsburgh Steelers are an American football team"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SCENE",
+       "indicators": [
+        {
+         "text": "Reportedly",
+         "note": "what is reported is spoken, so we go by how the words are said"
+        }
+       ],
+       "parts": [
+        {
+         "words": "noted",
+         "gives": "SEEN",
+         "note": "something noted has been seen"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "STEALERS",
+       "parts": [
+        {
+         "words": "Pittsburgh team",
+         "gives": "STEELERS",
+         "note": "the Pittsburgh Steelers are an American football team"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "The Pittsburgh team's players have made a name for themselves, it's said.",
      "walkthrough": "SEEN and STEELERS, said together, sound like the phrase for actors who outshine the rest of the cast.",
@@ -863,35 +776,25 @@
    },
    "solution": "WHEELERDEALER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHEELER-DEALER",
     "definitions": [
      {
       "text": "shrewd trader",
       "at": 36
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cyclist",
-      "gives": "WHEELER",
-      "note": "a wheeler is one who wheels, a cyclist"
-     },
-     {
-      "clueFragment": "one distributing cards",
-      "gives": "DEALER",
-      "note": "the dealer hands out the cards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHEELER",
-      "DEALER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cyclist",
+       "gives": "WHEELER",
+       "note": "a wheeler is one who wheels, a cyclist"
+      },
+      {
+       "words": "one distributing cards",
+       "gives": "DEALER",
+       "note": "the dealer hands out the cards"
+      }
      ]
     },
     "explanation": {
@@ -920,45 +823,39 @@
    },
    "solution": "SCRAMBLING",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SCRAMBLING",
     "definitions": [
      {
       "text": "Dashing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "striking",
-      "for": "deletion",
-      "note": "striking something off a list removes it, so letters are taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scout",
-      "gives": "SCOUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "out",
-      "gives": "OUT",
-      "note": "the letters struck off"
-     },
-     {
-      "clueFragment": "on hike",
-      "gives": "RAMBLING",
-      "note": "someone out on a hike is rambling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SC",
-      "RAMBLING"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "striking",
+         "note": "striking something off a list removes it, so letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scout",
+         "note": "taken as written"
+        },
+        {
+         "words": "out",
+         "note": "the letters struck off"
+        }
+       ]
+      },
+      {
+       "words": "on hike",
+       "gives": "RAMBLING",
+       "note": "someone out on a hike is rambling"
+      }
      ]
     },
     "explanation": {
@@ -987,47 +884,41 @@
    },
    "solution": "CROPLAND",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CROPLAND",
     "definitions": [
      {
       "text": "farming area",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container",
-      "note": "to go around something is to surround it, so one piece encloses another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One hundred",
-      "gives": "C",
-      "note": "Roman numeral for 100"
-     },
-     {
-      "clueFragment": "staff",
-      "gives": "ROD",
-      "note": "a rod is a staff or stick"
-     },
-     {
-      "clueFragment": "plot",
-      "gives": "PLAN",
-      "note": "a plot is a plan"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RO",
-      "PLAN",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One hundred",
+       "gives": "C",
+       "note": "Roman numeral for 100"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "to go around something is to surround it, so one piece encloses another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "staff",
+         "gives": "ROD",
+         "note": "a rod is a staff or stick"
+        },
+        {
+         "words": "plot",
+         "gives": "PLAN",
+         "note": "a plot is a plan"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1056,47 +947,41 @@
    },
    "solution": "DEAFEN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DEAFEN",
     "definitions": [
      {
       "text": "Stun",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "depleted",
-      "for": "letter_selection",
-      "note": "something depleted has been emptied out, leaving only its shell"
-     },
-     {
-      "text": "describing",
-      "for": "container",
-      "note": "to describe a circle is to draw round, so one piece goes around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "college fellow",
-      "gives": "DEAN",
-      "note": "a dean is a senior fellow of a college"
-     },
-     {
-      "clueFragment": "finance",
-      "gives": "FE",
-      "select": "outer",
-      "note": "the first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEA",
-      "FE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describing",
+       "note": "to describe a circle is to draw round, so one piece goes around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "college fellow",
+       "gives": "DEAN",
+       "note": "a dean is a senior fellow of a college"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "depleted",
+         "note": "something depleted has been emptied out, leaving only its shell"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finance",
+         "note": "the first and last letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1125,58 +1010,50 @@
    },
    "solution": "FOREKNOWN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "FOREKNOWN",
     "definitions": [
      {
       "text": "Anticipated",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns things right round, so the letters are read backwards"
-     },
-     {
-      "text": "imprisoning",
-      "for": "container",
-      "note": "to imprison is to lock up inside, so one piece holds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of",
-      "gives": "OF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "RENOWN",
-      "note": "note means fame, as in a person of note"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "K",
-      "note": "K is the chess abbreviation for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FO",
-      "RE",
-      "K",
-      "NOWN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "OF",
-       "to": "FO"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "a revolution turns things right round, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "imprisoning",
+         "note": "to imprison is to lock up inside, so one piece holds another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "note",
+         "gives": "RENOWN",
+         "note": "note means fame, as in a person of note"
+        },
+        {
+         "words": "king",
+         "gives": "K",
+         "note": "K is the chess abbreviation for king"
+        }
+       ]
       }
      ]
     },
@@ -1206,46 +1083,44 @@
    },
    "solution": "GRASMERE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "GRASMERE",
     "definitions": [
      {
       "text": "lake",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning",
-      "for": "deletion",
-      "note": "to abandon something is to leave it behind, so a letter is dropped"
-     },
-     {
-      "text": "Aberrant",
-      "for": "anagram",
-      "note": "aberrant means straying from the normal course, so the letters wander out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "merganser",
-      "gives": "MERGANSER",
-      "note": "a merganser is a fish-eating duck"
-     },
-     {
-      "clueFragment": "northern",
-      "gives": "N",
-      "note": "N is the abbreviation for northern"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "GRASMERE",
+     "indicators": [
       {
-       "fodder": "MERGASER",
-       "gives": "GRASMERE"
+       "text": "Aberrant",
+       "note": "aberrant means straying from the normal course, so the letters wander out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "GRASMERE",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "note": "to abandon something is to leave it behind, so a letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "merganser",
+         "note": "a merganser is a fish-eating duck"
+        },
+        {
+         "words": "northern",
+         "gives": "N",
+         "note": "N is the abbreviation for northern"
+        }
+       ]
       }
      ]
     },
@@ -1275,40 +1150,39 @@
    },
    "solution": "ASTUTE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "ASTUTE",
     "definitions": [
      {
       "text": "Clever",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "endlessly",
-      "for": "deletion",
-      "note": "without an end means the final letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "like",
-      "gives": "AS",
-      "note": "as means like"
-     },
-     {
-      "clueFragment": "one being taught",
-      "gives": "TUTEE",
-      "note": "a tutee is someone receiving tuition"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AS",
-      "TUTE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "note": "without an end means the final letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "like",
+         "gives": "AS",
+         "note": "as means like"
+        },
+        {
+         "words": "one being taught",
+         "gives": "TUTEE",
+         "note": "a tutee is someone receiving tuition"
+        }
+       ]
+      },
+      {
+       "gives": "E"
+      }
      ]
     },
     "explanation": {
@@ -1337,50 +1211,41 @@
    },
    "solution": "CRITERIA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CRITERIA",
     "definitions": [
      {
       "text": "rules",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "must accept",
-      "for": "container",
-      "note": "to accept something is to take it in, so one piece goes inside another"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spies",
-      "gives": "CIA",
-      "note": "the CIA is the US intelligence agency"
-     },
-     {
-      "clueFragment": "service",
-      "gives": "RITE",
-      "note": "a religious service is a rite"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is short for right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RITE",
-      "R",
-      "IA"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must accept",
+       "note": "to accept something is to take it in, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spies",
+       "gives": "CIA",
+       "note": "the CIA is the US intelligence agency"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "service",
+         "gives": "RITE",
+         "note": "a religious service is a rite"
+        },
+        {
+         "words": "right",
+         "gives": "R",
+         "note": "R is short for right"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1419,65 +1284,59 @@
    },
    "solution": "BLOWONESSTACK",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BLOW ONE'S STACK",
     "definitions": [
      {
       "text": "hit the roof",
       "at": 51
      }
     ],
-    "indicators": [
-     {
-      "text": "squeezing",
-      "for": "container",
-      "note": "to squeeze something is to grip it tightly inside, so one piece holds another"
-     },
-     {
-      "text": "head of",
-      "for": "letter_selection",
-      "note": "the head is the top, so just the opening letter is used"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "gives": "BONES",
-      "note": "Bones is Dr McCoy's nickname in Star Trek"
-     },
-     {
-      "clueFragment": "down",
-      "gives": "LOW",
-      "note": "feeling down is feeling low"
-     },
-     {
-      "clueFragment": "spot",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter"
-     },
-     {
-      "clueFragment": "stickiness",
-      "gives": "TACK",
-      "note": "tack is the sticky quality of glue or paint"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "LOW",
-      "ONES",
-      "S",
-      "TACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "squeezing",
+         "note": "to squeeze something is to grip it tightly inside, so one piece holds another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Doctor",
+         "gives": "BONES",
+         "note": "Bones is Dr McCoy's nickname in Star Trek"
+        },
+        {
+         "words": "down",
+         "gives": "LOW",
+         "note": "feeling down is feeling low"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "note": "the head is the top, so just the opening letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spot",
+         "note": "the opening letter"
+        }
+       ]
+      },
+      {
+       "words": "stickiness",
+       "gives": "TACK",
+       "note": "tack is the sticky quality of glue or paint"
+      }
      ]
     },
+    "spelling": "BLOW ONE'S STACK",
     "explanation": {
      "surface": "A doctor squeezing a sticky spot makes the patient furious.",
      "walkthrough": "'Doctor' is not DR or MO but Bones, the Enterprise's medic, continuing the Star Trek theme of 1-across.",
@@ -1504,40 +1363,30 @@
    },
    "solution": "OATEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "OATEN",
     "definitions": [
      {
       "text": "made of grain",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "sandwiches",
-      "for": "container",
-      "note": "a sandwich holds a filling between two slices, so one piece is put inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on",
-      "gives": "ON",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Dined",
-      "gives": "ATE",
-      "note": "to dine is to eat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "ATE",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiches",
+       "note": "a sandwich holds a filling between two slices, so one piece is put inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on",
+       "note": "taken as written"
+      },
+      {
+       "words": "Dined",
+       "gives": "ATE",
+       "note": "to dine is to eat"
+      }
      ]
     },
     "explanation": {
@@ -1566,44 +1415,38 @@
    },
    "solution": "EDIFY",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "EDIFY",
     "definitions": [
      {
       "text": "Instruct",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to replace",
-      "for": "substitution",
-      "note": "replacing means one thing takes the place of another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E is the abbreviation for European"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "MO",
-      "note": "a mo is a moment, a second"
-     },
-     {
-      "clueFragment": "change",
-      "gives": "MODIFY",
-      "note": "to modify is to change"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "DIFY"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "EDIFY",
+     "indicators": [
+      {
+       "text": "to replace",
+       "note": "replacing means one thing takes the place of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
+      },
+      {
+       "words": "second",
+       "gives": "MO",
+       "note": "a mo is a moment, a second"
+      },
+      {
+       "words": "change",
+       "gives": "MODIFY",
+       "note": "to modify is to change"
+      }
      ]
     },
     "explanation": {
@@ -1632,33 +1475,29 @@
    },
    "solution": "CHIC",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CHIC",
     "definitions": [
      {
       "text": "with it",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "interminably",
-      "for": "deletion",
-      "note": "without termination means without an end, so the last letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One tweeting",
-      "gives": "CHICK",
-      "note": "a chick is a young bird, which tweets"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CHIC"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "interminably",
+       "note": "without termination means without an end, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One tweeting",
+       "gives": "CHICK",
+       "note": "a chick is a young bird, which tweets"
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -1688,30 +1527,28 @@
    },
    "solution": "INTESTINE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "INTESTINE",
     "definitions": [
      {
       "text": "Part of the body",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "involved in",
-      "for": "hidden_word",
-      "note": "something involved in a thing is wrapped up within it, so the answer is inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "skin test inevitably",
-      "gives": "INTESTINE",
-      "note": "running across the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "involved in",
+       "note": "something involved in a thing is wrapped up within it, so the answer is inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skin test inevitably",
+       "gives": "INTESTINE",
+       "note": "running across the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A medical note: which organ is affected when a skin test is done, as it inevitably is.",
      "walkthrough": "The answer runs from the end of 'skin' through 'test' into the start of 'inevitably'.",
@@ -1738,58 +1575,51 @@
    },
    "solution": "EPOCH",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "EPOCH",
     "definitions": [
      {
       "text": "date",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "returned",
-      "for": "reversal",
-      "note": "returned means sent back, so the letters run backwards"
-     },
-     {
-      "text": "heart of",
-      "for": "letter_selection",
-      "note": "the heart is the centre, so only the middle letter counts"
-     },
-     {
-      "text": "winning",
-      "for": "container",
-      "note": "to win something is to gain and hold it, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Confidence",
-      "gives": "HOPE",
-      "note": "hope is a confident expectation"
-     },
-     {
-      "clueFragment": "lucky",
-      "gives": "C",
-      "select": "middle",
-      "note": "the central letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EPO",
-      "C",
-      "H"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HOPE",
-       "to": "EPOH"
+       "text": "returned",
+       "note": "returned means sent back, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "winning",
+         "note": "to win something is to gain and hold it, so one piece goes inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Confidence",
+         "gives": "HOPE",
+         "note": "hope is a confident expectation"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "heart of",
+           "note": "the heart is the centre, so only the middle letter counts"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lucky",
+           "note": "the central letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1820,35 +1650,25 @@
    },
    "solution": "GONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GONE",
     "definitions": [
      {
       "text": "missing",
       "at": 33
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Possible guess in Battleships",
-      "gives": "G",
-      "note": "a shot is called as a column letter first"
-     },
-     {
-      "clueFragment": "Possible guess in Battleships",
-      "gives": "ONE",
-      "note": "then a row number, here 1"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ONE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Possible guess in Battleships",
+       "gives": "G",
+       "note": "a shot is called as a column letter first"
+      },
+      {
+       "words": "Possible guess in Battleships",
+       "gives": "ONE",
+       "note": "then a row number, here 1"
+      }
      ]
     },
     "explanation": {
@@ -1878,47 +1698,40 @@
    },
    "solution": "HYPERSONIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "HYPERSONIC",
     "definitions": [
      {
       "text": "Speedy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "for": "letter_selection",
-      "note": "at regular intervals means every other letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "promoters",
-      "gives": "HYPERS",
-      "note": "hypers are people who hype things up"
-     },
-     {
-      "clueFragment": "working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     },
-     {
-      "clueFragment": "pitch",
-      "gives": "IC",
-      "select": "alternate",
-      "note": "the second and fourth letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HYPERS",
-      "ON",
-      "IC"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "promoters",
+       "gives": "HYPERS",
+       "note": "hypers are people who hype things up"
+      },
+      {
+       "words": "working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "note": "at regular intervals means every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pitch",
+         "note": "the second and fourth letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

@@ -1,8 +1,7 @@
 {
  "id": "cryptic-29601",
  "number": 29601,
- "series": "cryptic",
- "name": "Prize crossword No 29,601",
+ "prize": true,
  "setter": "Vlad",
  "date": "2025-01-25",
  "dimensions": {
@@ -38,65 +37,60 @@
    },
    "solution": "ALLCOMERS",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "ALLCOMERS",
     "definitions": [
      {
       "text": "everyone there",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Crummy",
-      "for": "anagram",
-      "note": "crummy means shoddy or poorly made, so the pub word is knocked into a worse order"
-     },
-     {
-      "text": "barring",
-      "for": "container",
-      "note": "a bar blocks a way through, so the jumbled letters stand on either side of what they shut in"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of the next word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "local's",
-      "gives": "LOCALS",
-      "note": "the pub word with its apostrophe dropped"
-     },
-     {
-      "clueFragment": "Vlad",
-      "gives": "ME",
-      "note": "Vlad is the setter, who refers to himself as me"
-     },
-     {
-      "clueFragment": "reassuring",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ALLCO",
-      "ME",
-      "R",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LOCALS",
-       "gives": "ALLCOS"
+       "text": "barring",
+       "note": "a bar blocks a way through, so the jumbled letters stand on either side of what they shut in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Crummy",
+         "note": "crummy means shoddy or poorly made, so the pub word is knocked into a worse order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "local's",
+         "note": "the pub word with its apostrophe dropped"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Vlad",
+         "gives": "ME",
+         "note": "Vlad is the setter, who refers to himself as me"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially means at the start, so only the opening letter of the next word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reassuring",
+           "note": "first letter of the word"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -126,52 +120,46 @@
    },
    "solution": "AMPERAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AMPERAGE",
     "definitions": [
      {
       "text": "Current strength",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regulars'",
-      "for": "letter_selection",
-      "note": "regulars are letters taken at even intervals, here every other one of the army word"
-     },
-     {
-      "text": "over",
-      "for": "charade",
-      "note": "in a down entry the anger word sits on top of, and so after, the exercises abbreviation when read upward"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "army",
-      "gives": "AM",
-      "select": "alternate",
-      "note": "first and third letters"
-     },
-     {
-      "clueFragment": "exercises",
-      "gives": "PE",
-      "note": "PE is physical education"
-     },
-     {
-      "clueFragment": "anger",
-      "gives": "RAGE",
-      "note": "a synonym"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AM",
-      "PE",
-      "RAGE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "note": "in a down entry the anger word sits on top of, and so after, the exercises abbreviation when read upward"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regulars'",
+         "note": "regulars are letters taken at even intervals, here every other one of the army word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "army",
+         "note": "first and third letters"
+        }
+       ]
+      },
+      {
+       "words": "exercises",
+       "gives": "PE",
+       "note": "PE is physical education"
+      },
+      {
+       "words": "anger",
+       "gives": "RAGE",
+       "note": "a synonym"
+      }
      ]
     },
     "explanation": {
@@ -201,39 +189,33 @@
    },
    "solution": "LOINS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "LOINS",
     "definitions": [
      {
       "text": "Personal generator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upfront",
-      "for": "substitution",
-      "note": "upfront points to the very first letter of the money word as the one being swapped out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "50 per cent reduction",
-      "gives": "L",
-      "note": "halve 100, Roman C, and you get 50, Roman L"
-     },
-     {
-      "clueFragment": "cash",
-      "gives": "COINS",
-      "note": "cash in the form of coins"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "OINS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "LOINS",
+     "indicators": [
+      {
+       "text": "upfront",
+       "note": "upfront points to the very first letter of the money word as the one being swapped out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "50 per cent reduction",
+       "gives": "L",
+       "note": "halve 100, Roman C, and you get 50, Roman L"
+      },
+      {
+       "words": "cash",
+       "gives": "COINS",
+       "note": "cash in the form of coins"
+      }
      ]
     },
     "explanation": {
@@ -277,26 +259,25 @@
    },
    "solution": "OUTOFTHISWORLD",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "OUT OF THIS WORLD",
     "definitions": [
      {
       "text": "From here? Yes and no",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "From here?",
-      "note": "surface reading: a question about where something comes from"
-     },
-     {
-      "clueFragment": "Yes and no",
-      "note": "setter's reading: the phrase means both superb, an emphatic yes, and literally not from this planet, a no"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "From here?",
+       "note": "surface reading: a question about where something comes from"
+      },
+      {
+       "words": "Yes and no",
+       "note": "setter's reading: the phrase means both superb, an emphatic yes, and literally not from this planet, a no"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "The phrase answers both ways: as praise it says yes, wonderful; taken literally it says no, from somewhere beyond Earth.",
      "definitionFit": "Out of this world is an idiom for marvellous, while its literal sense is extraterrestrial, not belonging here."
@@ -323,54 +304,40 @@
    },
    "solution": "ENVELOP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ENVELOP",
     "definitions": [
      {
       "text": "blanket",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Rampant",
-      "for": "reversal",
-      "note": "rampant means rearing up on hind legs, so in a down entry the rod word stands upside down"
-     }
-    ],
-    "linkWords": [
-     "underneath"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nurse",
-      "gives": "EN",
-      "note": "EN is an enrolled nurse"
-     },
-     {
-      "clueFragment": "playing with",
-      "gives": "V",
-      "note": "v for versus, as in one team playing another"
-     },
-     {
-      "clueFragment": "Rod",
-      "gives": "POLE",
-      "note": "a rod or staff"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "V",
-      "ELOP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "POLE",
-       "to": "ELOP"
+       "words": "Nurse",
+       "gives": "EN",
+       "note": "EN is an enrolled nurse"
+      },
+      {
+       "words": "playing with",
+       "gives": "V",
+       "note": "v for versus, as in one team playing another"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rampant",
+         "note": "rampant means rearing up on hind legs, so in a down entry the rod word stands upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rod",
+         "gives": "POLE",
+         "note": "a rod or staff"
+        }
+       ]
       }
      ]
     },
@@ -401,56 +368,45 @@
    },
    "solution": "SAPPHIC",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SAPPHIC",
     "definitions": [
      {
       "text": "Lesbian",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so the no-mistake word wraps the little pub phrase"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "There's no mistake",
-      "gives": "SIC",
-      "note": "sic is printed to say a quoted error is genuine, not a mistake"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "quiet",
-      "gives": "P",
-      "note": "p for piano, quietly in music"
-     },
-     {
-      "clueFragment": "pub",
-      "gives": "PH",
-      "note": "PH, public house, as on maps"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "A",
-      "P",
-      "PH",
-      "IC"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so the no-mistake word wraps the little pub phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "There's no mistake",
+       "gives": "SIC",
+       "note": "sic is printed to say a quoted error is genuine, not a mistake"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "quiet",
+         "gives": "P",
+         "note": "p for piano, quietly in music"
+        },
+        {
+         "words": "pub",
+         "gives": "PH",
+         "note": "PH, public house, as on maps"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -479,38 +435,25 @@
    },
    "solution": "NARC",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "NARC",
     "definitions": [
      {
       "text": "police agent",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "On the way back",
-      "for": "reversal",
-      "note": "going back means travelling in the opposite direction, so the word is read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "catch",
-      "gives": "CRAN",
-      "note": "a cran is a measure of fresh herrings, a fishing catch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NARC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CRAN",
-       "to": "NARC"
+       "text": "On the way back",
+       "note": "going back means travelling in the opposite direction, so the word is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "catch",
+       "gives": "CRAN",
+       "note": "a cran is a measure of fresh herrings, a fishing catch"
       }
      ]
     },
@@ -540,49 +483,43 @@
    },
    "solution": "ANDROMEDA",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANDROMEDA",
     "definitions": [
      {
       "text": "Stars",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stopping",
-      "for": "container",
-      "note": "stopping here means plugging a gap, so the city sits inside the other words like a cork"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "with",
-      "gives": "AND",
-      "note": "with means and, joining things"
-     },
-     {
-      "clueFragment": "capital",
-      "gives": "ROME",
-      "note": "the Italian capital"
-     },
-     {
-      "clueFragment": "lawyer",
-      "gives": "DA",
-      "note": "DA is an American district attorney"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AND",
-      "ROME",
-      "DA"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ANDROMEDA",
+     "indicators": [
+      {
+       "text": "stopping",
+       "note": "stopping here means plugging a gap, so the city sits inside the other words like a cork"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "gives": "AND",
+         "note": "with means and, joining things"
+        },
+        {
+         "words": "capital",
+         "gives": "ROME",
+         "note": "the Italian capital"
+        },
+        {
+         "words": "lawyer",
+         "gives": "DA",
+         "note": "DA is an American district attorney"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -611,28 +548,16 @@
    },
    "solution": "CHEESE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CHEESE",
     "definitions": [
      {
       "text": "Maybe invoked when wanting to 14",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the word a photographer tells people to say to make them smile; 14 is the photography answer at 14-across"
      },
      {
       "text": "it can be big or hard",
-      "at": 34
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Maybe invoked when wanting to 14",
-      "note": "first meaning: the word a photographer tells people to say to make them smile; 14 is the photography answer at 14-across"
-     },
-     {
-      "clueFragment": "it can be big or hard",
-      "note": "second meaning: the word follows both big, an important person, and hard, tough luck"
+      "at": 34,
+      "meaning": "second meaning: the word follows both big, an important person, and hard, tough luck"
      }
     ],
     "explanation": {
@@ -661,38 +586,24 @@
    },
    "solution": "ARTICULATENESS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARTICULATENESS",
     "definitions": [
      {
       "text": "Ability to get through",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "improved",
-      "for": "anagram",
-      "note": "something improved has been reworked, so these letters are rebuilt into a better order"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ancestral suite",
-      "gives": "ANCESTRALSUITE",
-      "note": "the fourteen letters as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANCESTRALSUITE",
-       "gives": "ARTICULATENESS"
+       "text": "improved",
+       "note": "something improved has been reworked, so these letters are rebuilt into a better order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancestral suite",
+       "note": "the fourteen letters as written"
       }
      ]
     },
@@ -721,40 +632,31 @@
    },
    "solution": "POINT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "POINT",
     "definitions": [
      {
       "text": "place in field",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "container",
-      "note": "keeps means holds on to, so the drink word holds the old letter inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Local favourite",
-      "gives": "PINT",
-      "note": "a pint is the favourite order at the local pub"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O is a standard abbreviation for old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "O",
-      "INT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "keeps means holds on to, so the drink word holds the old letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Local favourite",
+       "gives": "PINT",
+       "note": "a pint is the favourite order at the local pub"
+      },
+      {
+       "words": "old",
+       "gives": "O",
+       "note": "O is a standard abbreviation for old"
+      }
      ]
     },
     "explanation": {
@@ -783,35 +685,24 @@
    },
    "solution": "VIPERIDAE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "VIPERIDAE",
     "definitions": [
      {
       "text": "family of biters",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Following assault",
-      "for": "anagram",
-      "note": "after an assault things are knocked about and scattered, so the letters are thrown into disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I've repaid",
-      "gives": "IVEREPAID",
-      "note": "the letters as written, apostrophe dropped"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IVEREPAID",
-       "gives": "VIPERIDAE"
+       "text": "Following assault",
+       "note": "after an assault things are knocked about and scattered, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I've repaid",
+       "note": "the letters as written, apostrophe dropped"
       }
      ]
     },
@@ -840,38 +731,24 @@
    },
    "solution": "RESTFUL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RESTFUL",
     "definitions": [
      {
       "text": "Still",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints the word could be some other version of itself, so its letters may be rearranged"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fluster",
-      "gives": "FLUSTER",
-      "note": "the letters as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FLUSTER",
-       "gives": "RESTFUL"
+       "text": "perhaps",
+       "note": "perhaps hints the word could be some other version of itself, so its letters may be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fluster",
+       "note": "the letters as written"
       }
      ]
     },
@@ -901,54 +778,40 @@
    },
    "solution": "HEINOUS",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "HEINOUS",
     "definitions": [
      {
       "text": "awful",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "reversal",
-      "note": "about means turned round, so the questioning word is read from right to left"
-     }
-    ],
-    "linkWords": [
-     "it's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "What",
-      "gives": "EH",
-      "note": "eh, said when you didn't catch something"
-     },
-     {
-      "clueFragment": "institute",
-      "gives": "I",
-      "note": "I is an abbreviation for institute"
-     },
-     {
-      "clueFragment": "Sense",
-      "gives": "NOUS",
-      "note": "nous is common sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "I",
-      "NOUS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "EH",
-       "to": "HE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means turned round, so the questioning word is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What",
+         "gives": "EH",
+         "note": "eh, said when you didn't catch something"
+        }
+       ]
+      },
+      {
+       "words": "institute",
+       "gives": "I",
+       "note": "I is an abbreviation for institute"
+      },
+      {
+       "words": "Sense",
+       "gives": "NOUS",
+       "note": "nous is common sense"
       }
      ]
     },
@@ -988,31 +851,16 @@
    },
    "solution": "GETTHEPICTURE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GET THE PICTURE",
     "definitions": [
      {
       "text": "See clearly",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: understand fully"
      },
      {
       "text": "shoot",
-      "at": 16
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "See clearly",
-      "note": "first meaning: understand fully"
-     },
-     {
-      "clueFragment": "shoot",
-      "note": "second meaning, taken literally: capture a photograph"
+      "at": 16,
+      "meaning": "second meaning, taken literally: capture a photograph"
      }
     ],
     "explanation": {
@@ -1041,34 +889,29 @@
    },
    "solution": "TOWCESTER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "TOWCESTER",
     "definitions": [
      {
       "text": "Northamptonshire town",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Picked up",
-      "for": "homophone",
-      "note": "picked up means heard, so we want a word that is spoken like the appliance"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "kitchen appliance",
-      "gives": "TOWCESTER",
-      "soundsLike": "TOASTER",
-      "note": "the bread-browning machine"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TOWCESTER",
+     "indicators": [
+      {
+       "text": "Picked up",
+       "note": "picked up means heard, so we want a word that is spoken like the appliance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kitchen appliance",
+       "gives": "TOASTER",
+       "note": "the bread-browning machine"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone collected a kitchen gadget while in a Midlands market town.",
      "walkthrough": "Towcester, a small town in Northamptonshire in the English Midlands, is pronounced like the appliance despite its spelling.",
@@ -1096,56 +939,46 @@
    },
    "solution": "FACTOTUM",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "FACTOTUM",
     "definitions": [
      {
       "text": "Handyman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "admitted",
-      "for": "container",
-      "note": "admitted means let in, so the Charlie letter goes inside the weight word"
-     }
-    ],
-    "linkWords": [
-     "carrying"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra weight",
-      "gives": "FAT",
-      "note": "excess body weight"
-     },
-     {
-      "clueFragment": "Charlie",
-      "gives": "C",
-      "note": "Charlie is C in the NATO alphabet"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "O",
-      "note": "a round shape"
-     },
-     {
-      "clueFragment": "middle",
-      "gives": "TUM",
-      "note": "tum is a casual word for the belly or midriff"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FA",
-      "C",
-      "T",
-      "O",
-      "TUM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admitted",
+         "note": "admitted means let in, so the Charlie letter goes inside the weight word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extra weight",
+         "gives": "FAT",
+         "note": "excess body weight"
+        },
+        {
+         "words": "Charlie",
+         "gives": "C",
+         "note": "Charlie is C in the NATO alphabet"
+        }
+       ]
+      },
+      {
+       "words": "round",
+       "gives": "O",
+       "note": "a round shape"
+      },
+      {
+       "words": "middle",
+       "gives": "TUM",
+       "note": "tum is a casual word for the belly or midriff"
+      }
      ]
     },
     "explanation": {
@@ -1180,35 +1013,24 @@
    },
    "solution": "WESTERNSAHARA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WESTERN SAHARA",
     "definitions": [
      {
       "text": "African territory",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "developing",
-      "for": "anagram",
-      "note": "developing means changing shape over time, so these letters are reformed into something new"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Trash new areas",
-      "gives": "TRASHNEWAREAS",
-      "note": "the thirteen letters as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRASHNEWAREAS",
-       "gives": "WESTERNSAHARA"
+       "text": "developing",
+       "note": "developing means changing shape over time, so these letters are reformed into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trash new areas",
+       "note": "the thirteen letters as written"
       }
      ]
     },
@@ -1237,55 +1059,42 @@
    },
    "solution": "ENLISTS",
    "annotation": {
-    "type": [
-     "cycling",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENLISTS",
     "definitions": [
      {
       "text": "recruits",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "cycling",
-      "for": "cycling",
-      "note": "cycling means going round in a loop, so letters at one end of the watch word move to the other end"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only the last letter of the sports word is kept"
-     }
-    ],
-    "linkWords": [
-     "Before"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "observe",
-      "gives": "LISTEN",
-      "note": "to observe or heed"
-     },
-     {
-      "clueFragment": "Games",
-      "gives": "S",
-      "select": "last",
-      "note": "its final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENLIST",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "ENLISTS",
+     "indicators": [
       {
-       "fodder": "LISTEN",
-       "gives": "ENLIST"
+       "text": "cycling",
+       "note": "cycling means going round in a loop, so letters at one end of the watch word move to the other end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "observe",
+       "gives": "LISTEN",
+       "note": "to observe or heed"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only the last letter of the sports word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Games",
+         "note": "its final letter"
+        }
+       ]
       }
      ]
     },
@@ -1315,56 +1124,50 @@
    },
    "solution": "NOMINAL",
    "annotation": {
-    "type": [
-     "container",
-     "reversal",
-     "charade"
-    ],
-    "answer": "NOMINAL",
     "definitions": [
      {
       "text": "Not in practice",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so the word for soon goes around the short phrase"
-     },
-     {
-      "text": "to climb",
-      "for": "reversal",
-      "note": "climbing in a down entry means going upward, so the combined letters are read bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "soon",
-      "gives": "ANON",
-      "note": "anon is an old word for soon"
-     },
-     {
-      "clueFragment": "I'm",
-      "gives": "IM",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "league",
-      "gives": "L",
-      "note": "L is an abbreviation for league"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOMINA",
-      "L"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ANIMON",
-       "to": "NOMINA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to climb",
+         "note": "climbing in a down entry means going upward, so the combined letters are read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "about",
+           "note": "about means surrounding, so the word for soon goes around the short phrase"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soon",
+           "gives": "ANON",
+           "note": "anon is an old word for soon"
+          },
+          {
+           "words": "I'm",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "league",
+       "gives": "L",
+       "note": "L is an abbreviation for league"
       }
      ]
     },
@@ -1393,35 +1196,25 @@
    },
    "solution": "STASIS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STASIS",
     "definitions": [
      {
       "text": "period of inactivity",
       "at": 23
      }
     ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Snoopers",
-      "gives": "STASI",
-      "note": "the Stasi were the East German secret police, notorious for spying on citizens"
-     },
-     {
-      "clueFragment": "second",
-      "gives": "S",
-      "note": "s is the abbreviation for second"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STASI",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Snoopers",
+       "gives": "STASI",
+       "note": "the Stasi were the East German secret police, notorious for spying on citizens"
+      },
+      {
+       "words": "second",
+       "gives": "S",
+       "note": "s is the abbreviation for second"
+      }
      ]
     },
     "explanation": {
@@ -1449,40 +1242,31 @@
    },
    "solution": "TREFOIL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TREFOIL",
     "definitions": [
      {
       "text": "Plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one word inside another, so the official sits within the labour word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "TOIL",
-      "note": "hard labour"
-     },
-     {
-      "clueFragment": "official",
-      "gives": "REF",
-      "note": "ref, the match official"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "REF",
-      "OIL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in places one word inside another, so the official sits within the labour word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work",
+       "gives": "TOIL",
+       "note": "hard labour"
+      },
+      {
+       "words": "official",
+       "gives": "REF",
+       "note": "ref, the match official"
+      }
      ]
     },
     "explanation": {
@@ -1517,46 +1301,42 @@
    },
    "solution": "MAEWEST",
    "annotation": {
-    "type": [
-     "palindrome",
-     "container"
-    ],
-    "answer": "MAE WEST",
     "definitions": [
      {
       "text": "Film star",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "either way",
-      "for": "palindrome",
-      "note": "either way means the word reads the same forwards and backwards"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the nuts word goes round the female word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nuts",
-      "gives": "MAST",
-      "note": "mast is the fallen nuts of beech and oak trees"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "EWE",
-      "note": "a female sheep"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "EWE",
-      "ST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so the nuts word goes round the female word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nuts",
+       "gives": "MAST",
+       "note": "mast is the fallen nuts of beech and oak trees"
+      },
+      {
+       "op": "palindrome",
+       "indicators": [
+        {
+         "text": "either way",
+         "note": "either way means the word reads the same forwards and backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "female",
+         "gives": "EWE",
+         "note": "a female sheep"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1585,41 +1365,36 @@
    },
    "solution": "ERATO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "ERATO",
     "definitions": [
      {
       "text": "one of 9",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "to show",
-      "for": "hidden_word",
-      "note": "to show means put on view, so the letters are already on display inside the phrase"
-     },
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "up in a down entry means going from bottom to top, so read the letters backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Not a reason",
-      "gives": "OTARE",
-      "note": "spanning the three words, starting in the first"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OTARE",
-       "to": "ERATO"
+       "text": "up",
+       "note": "up in a down entry means going from bottom to top, so read the letters backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to show",
+         "note": "to show means put on view, so the letters are already on display inside the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Not a reason",
+         "gives": "OTARE",
+         "note": "spanning the three words, starting in the first"
+        }
+       ]
       }
      ]
     },
@@ -1655,35 +1430,25 @@
    },
    "solution": "SETTLESIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SETTLES IN",
     "definitions": [
      {
       "text": "Starts to feel comfortable",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bench",
-      "gives": "SETTLE",
-      "note": "a settle is a long wooden bench with a high back"
-     },
-     {
-      "clueFragment": "Wrong",
-      "gives": "SIN",
-      "note": "a wrong or wicked act"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SETTLE",
-      "SIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bench",
+       "gives": "SETTLE",
+       "note": "a settle is a long wooden bench with a high back"
+      },
+      {
+       "words": "Wrong",
+       "gives": "SIN",
+       "note": "a wrong or wicked act"
+      }
      ]
     },
     "explanation": {
@@ -1711,52 +1476,45 @@
    },
    "solution": "ENACT",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ENACT",
     "definitions": [
      {
       "text": "Pass",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over means turned over, so the stick word is flipped and read from right to left"
-     },
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter, so only the start of the teacher word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stick",
-      "gives": "CANE",
-      "note": "a walking or punishing stick"
-     },
-     {
-      "clueFragment": "teacher's",
-      "gives": "T",
-      "select": "first",
-      "note": "its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENAC",
-      "T"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "CANE",
-       "to": "ENAC"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over means turned over, so the stick word is flipped and read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "gives": "CANE",
+         "note": "a walking or punishing stick"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "the head of a word is its first letter, so only the start of the teacher word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teacher's",
+         "note": "its first letter"
+        }
+       ]
       }
      ]
     },
@@ -1785,45 +1543,35 @@
    },
    "solution": "SURE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SURE",
     "definitions": [
      {
       "text": "Yes",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to keep",
-      "for": "container",
-      "note": "to keep means to hold, so the legal action word holds the party letter inside it"
-     },
-     {
-      "text": "in check",
-      "for": "container",
-      "note": "in check means held back or restrained, reinforcing that the party letter is held captive inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "take action",
-      "gives": "SUE",
-      "note": "take legal action"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "R for Republican"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "R",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "note": "to keep means to hold, so the legal action word holds the party letter inside it"
+      },
+      {
+       "text": "in check",
+       "note": "in check means held back or restrained, reinforcing that the party letter is held captive inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "take action",
+       "gives": "SUE",
+       "note": "take legal action"
+      },
+      {
+       "words": "Republican",
+       "gives": "R",
+       "note": "R for Republican"
+      }
      ]
     },
     "explanation": {
@@ -1857,43 +1605,34 @@
    },
    "solution": "SALESROOM",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SALES ROOM",
     "definitions": [
      {
       "text": "Lots here",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "jumping",
-      "for": "anagram",
-      "note": "jumping means leaping about, so these letters hop around into a new order"
-     }
-    ],
-    "linkWords": [
-     "over"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "also some",
-      "gives": "ALSOSOME",
-      "note": "the letters as written"
-     },
-     {
-      "clueFragment": "side",
-      "gives": "R",
-      "note": "R for right, one side"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ALSOSOMER",
-       "gives": "SALESROOM"
+       "text": "jumping",
+       "note": "jumping means leaping about, so these letters hop around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "also some",
+         "note": "the letters as written"
+        },
+        {
+         "words": "side",
+         "gives": "R",
+         "note": "R for right, one side"
+        }
+       ]
       }
      ]
     },

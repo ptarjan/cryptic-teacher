@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1305",
  "number": 1305,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,305",
  "setter": "Hectence",
  "date": "2024-11-24",
  "dimensions": {
@@ -38,30 +36,16 @@
    },
    "solution": "WANDERER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "WANDERER",
     "definitions": [
      {
       "text": "Wolves player",
-      "at": 0
+      "at": 0,
+      "meaning": "Wolves is the nickname of an English football club from Wolverhampton; the answer is its full name's second word, singular"
      },
      {
       "text": "who roams around aimlessly",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wolves player",
-      "gives": "WANDERER",
-      "note": "Wolves is the nickname of an English football club from Wolverhampton; the answer is its full name's second word, singular"
-     },
-     {
-      "clueFragment": "who roams around aimlessly",
-      "gives": "WANDERER",
-      "note": "one who wanders"
+      "at": 14,
+      "meaning": "one who wanders"
      }
     ],
     "explanation": {
@@ -91,41 +75,36 @@
    },
    "solution": "PINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "PINE",
     "definitions": [
      {
       "text": "Long",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "takes the final letter of the word before it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nail",
-      "gives": "PIN",
-      "note": "a pin is a small nail"
-     },
-     {
-      "clueFragment": "finally broke",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of brokE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PIN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nail",
+       "gives": "PIN",
+       "note": "a pin is a small nail"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "takes the final letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "finally broke",
+         "gives": "BROKE",
+         "note": "last letter of brokE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -154,36 +133,25 @@
    },
    "solution": "INMATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INMATE",
     "definitions": [
      {
       "text": "Person from institution",
       "at": 0
      }
     ],
-    "linkWords": [
-     "'s given",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "home",
-      "gives": "IN",
-      "note": "at home = in"
-     },
-     {
-      "clueFragment": "couple",
-      "gives": "MATE",
-      "note": "to mate is to couple"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "MATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "home",
+       "gives": "IN",
+       "note": "at home = in"
+      },
+      {
+       "words": "couple",
+       "gives": "MATE",
+       "note": "to mate is to couple"
+      }
      ]
     },
     "explanation": {
@@ -212,49 +180,55 @@
    },
    "solution": "CELLIST",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "CELLIST",
     "definitions": [
      {
       "text": "musician",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "includes"
-     },
-     {
-      "text": "top",
-      "note": "the top of a down entry's word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Church",
-      "gives": "CE",
-      "note": "CE = Church of England"
-     },
-     {
-      "clueFragment": "programme",
-      "gives": "LIST",
-      "note": "a list of items, as a programme is"
-     },
-     {
-      "clueFragment": "top lay",
-      "gives": "L",
-      "select": "first",
-      "note": "first letter of Lay"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CE",
-      "L",
-      "LIST"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "includes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Church",
+       "gives": "CE",
+       "note": "CE = Church of England"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "the top of a down entry's word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "programme",
+         "gives": "LIST",
+         "note": "a list of items, as a programme is"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "L",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "top lay",
+           "gives": "L",
+           "select": "first",
+           "note": "first letter of Lay"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -283,56 +257,56 @@
    },
    "solution": "QUANTITY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "QUANTITY",
     "definitions": [
      {
       "text": "size",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "the last of a word is its final letter, so the last of mini is its closing I"
-     },
-     {
-      "text": "skirts",
-      "for": "letter_selection",
-      "note": "the edges of a word, its first and last letters"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Designer",
-      "gives": "QUANT",
-      "note": "Mary Quant, the designer who popularised the miniskirt"
-     },
-     {
-      "clueFragment": "last of mini",
-      "gives": "I",
-      "select": "last",
-      "note": "last letter of minI"
-     },
-     {
-      "clueFragment": "skirts in Twiggy's",
-      "gives": "TY",
-      "select": "outer",
-      "note": "outer letters of TwiggY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "QUANT",
-      "I",
-      "TY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Designer",
+       "gives": "QUANT",
+       "note": "Mary Quant, the designer who popularised the miniskirt"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "the last of a word is its final letter, so the last of mini is its closing I"
+        }
+       ],
+       "parts": [
+        {
+         "words": "last of mini",
+         "gives": "MINI",
+         "note": "last letter of minI"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "TY",
+       "indicators": [
+        {
+         "text": "skirts",
+         "note": "the edges of a word, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "skirts in Twiggy's",
+         "gives": "TY",
+         "select": "outer",
+         "note": "outer letters of TwiggY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -367,46 +341,45 @@
    },
    "solution": "OFFLICENCE",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "OFF-LICENCE",
     "definitions": [
      {
       "text": "alcohol shop",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "Essentially",
-      "for": "letter_selection",
-      "note": "the essence of a word is its middle"
-     },
-     {
-      "text": "surrounding",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Essentially policed",
-      "gives": "LIC",
-      "select": "middle",
-      "note": "middle letters of poLICed"
-     },
-     {
-      "clueFragment": "crime",
-      "gives": "OFFENCE",
-      "note": "an offence is a crime"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OFF",
-      "LIC",
-      "ENCE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crime",
+       "gives": "OFFENCE",
+       "note": "an offence is a crime"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "LIC",
+       "indicators": [
+        {
+         "text": "Essentially",
+         "note": "the essence of a word is its middle"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Essentially policed",
+         "gives": "LIC",
+         "select": "middle",
+         "note": "middle letters of poLICed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -435,63 +408,60 @@
    },
    "solution": "KIOSKS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "anagram"
-    ],
-    "answer": "KIOSKS",
     "definitions": [
      {
       "text": "Stalls",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "note": "initially means at the start, so only the word's opening letter is used"
-     },
-     {
-      "text": "keeping"
-     },
-     {
-      "text": "new",
-      "note": "the letters of skis are made new, rearranged"
-     }
-    ],
-    "linkWords": [
-     "among"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kitzbuhel initially",
-      "gives": "K",
-      "select": "first",
-      "note": "first letter of Kitzbuhel"
-     },
-     {
-      "clueFragment": "new skis",
-      "gives": "ISKS",
-      "note": "SKIS rearranged"
-     },
-     {
-      "clueFragment": "old",
-      "gives": "O",
-      "note": "O = old"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "K",
-      "I",
-      "O",
-      "SKS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SKIS",
-       "gives": "ISKS"
+       "text": "initially",
+       "note": "initially means at the start, so only the word's opening letter is used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "keeping"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "the letters of skis are made new, rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "new skis",
+           "gives": "ISKS",
+           "note": "SKIS rearranged"
+          },
+          {
+           "words": "old",
+           "gives": "O",
+           "note": "O = old"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "Kitzbuhel initially",
+         "note": "first letter of Kitzbuhel"
+        }
+       ]
       }
      ]
     },
@@ -521,55 +491,56 @@
    },
    "solution": "RADIANCE",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "RADIANCE",
     "definitions": [
      {
       "text": "light",
       "at": 45
      }
     ],
-    "indicators": [
-     {
-      "text": "leader of",
-      "note": "the leader of a word is the letter at its front, here the I of innovation"
-     },
-     {
-      "text": "in",
-      "note": "in places one thing inside another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Artist",
-      "gives": "RA",
-      "note": "RA = Royal Academician"
-     },
-     {
-      "clueFragment": "movement",
-      "gives": "DANCE",
-      "note": "dance is movement"
-     },
-     {
-      "clueFragment": "leader of innovation",
-      "gives": "I",
-      "select": "first",
-      "note": "first letter of Innovation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RA",
-      "D",
-      "I",
-      "ANCE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leader of",
+       "note": "the leader of a word is the letter at its front, here the I of innovation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artist",
+       "gives": "RA",
+       "note": "RA = Royal Academician"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places one thing inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "movement",
+         "gives": "DANCE",
+         "note": "dance is movement"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "I",
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "leader of innovation",
+           "gives": "I",
+           "select": "first",
+           "note": "first letter of Innovation"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -598,40 +569,38 @@
    },
    "solution": "UNFAIR",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "UNFAIR",
     "definitions": [
      {
       "text": "not right",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "losing housing",
-      "for": "deletion",
-      "note": "the outside of AUNT, its first and last letters, is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aunt losing housing",
-      "gives": "UN",
-      "note": "AUNT without its outer A and T"
-     },
-     {
-      "clueFragment": "just",
-      "gives": "FAIR",
-      "note": "just = fair"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "FAIR"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UNFAIR",
+     "indicators": [
+      {
+       "text": "losing housing",
+       "note": "the outside of AUNT, its first and last letters, is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Aunt losing housing",
+         "gives": "UN",
+         "note": "AUNT without its outer A and T"
+        },
+        {
+         "words": "just",
+         "gives": "FAIR",
+         "note": "just = fair"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -660,41 +629,36 @@
    },
    "solution": "IDLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "IDLE",
     "definitions": [
      {
       "text": "Unemployed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "every now and then",
-      "for": "letter_selection",
-      "note": "something done every now and then happens at intervals, so the letters are taken at regular gaps: second, fourth"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "setter had",
-      "gives": "ID",
-      "note": "the setter is I, so the setter had = I'd"
-     },
-     {
-      "clueFragment": "clues every now and then",
-      "gives": "LE",
-      "select": "alternate",
-      "note": "alternate letters of cLuEs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ID",
-      "LE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setter had",
+       "gives": "ID",
+       "note": "the setter is I, so the setter had = I'd"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "every now and then",
+         "note": "something done every now and then happens at intervals, so the letters are taken at regular gaps: second, fourth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clues every now and then",
+         "gives": "CLUES",
+         "note": "alternate letters of cLuEs"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -733,44 +697,47 @@
    },
    "solution": "ATLONGLAST",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "AT LONG LAST",
     "definitions": [
      {
       "text": "Finally",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "corrected",
-      "note": "the letters are put right, rearranged"
-     },
-     {
-      "text": "with 75% off",
-      "note": "three of the four letters of toys go, leaving the first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "all tags on",
-      "gives": "ALLTAGSON",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "toys with 75% off",
-      "gives": "T",
-      "note": "TOYS losing three quarters of its letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ATLONGLAST",
+     "parts": [
       {
-       "fodder": "ALLTAGSON T",
-       "gives": "ATLONGLAST"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrected",
+         "note": "the letters are put right, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "with 75% off",
+           "note": "three of the four letters of toys go, leaving the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "all tags on",
+           "note": "anagram fodder"
+          },
+          {
+           "words": "toys with 75% off",
+           "gives": "T",
+           "note": "TOYS losing three quarters of its letters"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -800,42 +767,30 @@
    },
    "solution": "BROWSE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BROWSE",
     "definitions": [
      {
       "text": "Look online",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coverage of",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "live",
-      "gives": "BE",
-      "note": "to live is to be"
-     },
-     {
-      "clueFragment": "disputes",
-      "gives": "ROWS",
-      "note": "rows are quarrels"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "ROWS",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coverage of"
+      }
+     ],
+     "parts": [
+      {
+       "words": "live",
+       "gives": "BE",
+       "note": "to live is to be"
+      },
+      {
+       "words": "disputes",
+       "gives": "ROWS",
+       "note": "rows are quarrels"
+      }
      ]
     },
     "explanation": {
@@ -870,40 +825,34 @@
    },
    "solution": "WADINGBIRD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WADING BIRD",
     "definitions": [
      {
       "text": "curlew, maybe",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "twitching",
-      "for": "anagram",
-      "note": "twitching means jerking restlessly, so the letters cannot keep still in their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big draw in",
-      "gives": "BIGDRAWIN",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "day",
-      "gives": "D",
-      "note": "D = day, the abbreviation used in dates and diaries"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BIGDRAWIN D",
-       "gives": "WADINGBIRD"
+       "text": "twitching",
+       "note": "twitching means jerking restlessly, so the letters cannot keep still in their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Big draw in",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "day",
+         "gives": "D",
+         "note": "D = day, the abbreviation used in dates and diaries"
+        }
+       ]
       }
      ]
     },
@@ -934,26 +883,25 @@
    },
    "solution": "SUITCASE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SUITCASE",
     "definitions": [
      {
       "text": "Lawyer's bag?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Lawyer's",
-      "note": "the surface suggests a briefcase; a lawyer's actual business is a suit or a case in court"
-     },
-     {
-      "clueFragment": "bag?",
-      "note": "the question mark lets bag be an ordinary piece of luggage"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lawyer's",
+       "note": "the surface suggests a briefcase; a lawyer's actual business is a suit or a case in court"
+      },
+      {
+       "words": "bag?",
+       "note": "the question mark lets bag be an ordinary piece of luggage"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A briefcase belonging to a lawyer.",
      "walkthrough": "Suit and case both mean a lawsuit, so a lawyer's business is a suit-case; the question mark flags the pun.",
@@ -981,61 +929,57 @@
    },
    "solution": "GRADUAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion",
-     "letter_selection"
-    ],
-    "answer": "GRADUAL",
     "definitions": [
      {
       "text": "Even",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "note": "GRADE loses its last letter"
-     },
-     {
-      "text": "a first in",
-      "note": "the first in a word is its opening letter, borrowing the university grade the surface is about"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "exam mark reduced",
-      "gives": "GRAD",
-      "note": "GRADE shortened"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "select": "first",
-      "note": "U = university"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "as printed"
-     },
-     {
-      "clueFragment": "first in Linguistics",
-      "gives": "L",
-      "note": "first letter of Linguistics"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRAD",
-      "U",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "GRADUAL",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "reduced",
+         "note": "GRADE loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exam mark reduced",
+         "gives": "GRAD",
+         "note": "GRADE shortened"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a first in",
+           "note": "the first in a word is its opening letter, borrowing the university grade the surface is about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "university",
+           "note": "U = university"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "note": "as printed"
+        },
+        {
+         "words": "first in Linguistics",
+         "gives": "L",
+         "note": "first letter of Linguistics"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1064,53 +1008,42 @@
    },
    "solution": "ANACONDA",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "ANACONDA",
     "definitions": [
      {
       "text": "huge snake",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     },
-     {
-      "text": "startled",
-      "for": "anagram",
-      "note": "the letters of Canada jump about"
-     }
-    ],
-    "linkWords": [
-     "to see"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Canada, startled",
-      "gives": "ANACDA",
-      "note": "CANADA rearranged"
-     },
-     {
-      "clueFragment": "Working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANAC",
-      "ON",
-      "DA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ANACONDA",
+     "indicators": [
       {
-       "fodder": "CANADA",
-       "gives": "ANACDA"
+       "text": "startled",
+       "note": "the letters of Canada jump about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Canada, startled",
+         "gives": "ANACDA",
+         "note": "CANADA rearranged"
+        },
+        {
+         "words": "Working",
+         "gives": "ON",
+         "note": "a machine that is on is working"
+        }
+       ]
       }
      ]
     },
@@ -1141,38 +1074,24 @@
    },
    "solution": "CYANIDE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CYANIDE",
     "definitions": [
      {
       "text": "toxin",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "waste",
-      "for": "anagram",
-      "note": "the letters are laid waste, broken up"
-     }
-    ],
-    "linkWords": [
-     "producing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Decay in",
-      "gives": "DECAYIN",
-      "note": "anagram fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DECAYIN",
-       "gives": "CYANIDE"
+       "text": "waste",
+       "note": "the letters are laid waste, broken up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Decay in",
+       "note": "anagram fodder"
       }
      ]
     },
@@ -1202,42 +1121,41 @@
    },
    "solution": "DISGUISE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "DISGUISE",
     "definitions": [
      {
       "text": "cover",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly"
-     },
-     {
-      "text": "under"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Detective's",
-      "gives": "DIS",
-      "note": "DI = Detective Inspector, plus the 's"
-     },
-     {
-      "clueFragment": "men reportedly",
-      "gives": "GUISE",
-      "soundsLike": "GUYS",
-      "note": "men are guys"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DIS",
-      "GUISE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "reportedly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Detective's",
+       "gives": "DIS",
+       "note": "DI = Detective Inspector, plus the 's"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GUISE",
+       "indicators": [
+        {
+         "text": "under"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men reportedly",
+         "gives": "GUYS",
+         "note": "men are guys"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1266,32 +1184,25 @@
    },
    "solution": "ENCLOSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ENCLOSE",
     "definitions": [
      {
       "text": "Fence in",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "space",
-      "gives": "EN",
-      "note": "an en is a printer's unit of space"
-     },
-     {
-      "clueFragment": "nearby",
-      "gives": "CLOSE",
-      "note": "close = nearby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "CLOSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "space",
+       "gives": "EN",
+       "note": "an en is a printer's unit of space"
+      },
+      {
+       "words": "nearby",
+       "gives": "CLOSE",
+       "note": "close = nearby"
+      }
      ]
     },
     "explanation": {
@@ -1320,40 +1231,38 @@
    },
    "solution": "MAINTAIN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MAINTAIN",
     "definitions": [
      {
       "text": "Insist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "right leaving means the R departs from the word, so TRAIN drops it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "head",
-      "gives": "MAIN",
-      "note": "main = chief, head"
-     },
-     {
-      "clueFragment": "coach's right leaving",
-      "gives": "TAIN",
-      "note": "TRAIN without R (right)"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAIN",
-      "TAIN"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MAINTAIN",
+     "indicators": [
+      {
+       "text": "leaving",
+       "note": "right leaving means the R departs from the word, so TRAIN drops it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "head",
+         "gives": "MAIN",
+         "note": "main = chief, head"
+        },
+        {
+         "words": "coach's right leaving",
+         "gives": "TAIN",
+         "note": "TRAIN without R (right)"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1382,50 +1291,41 @@
    },
    "solution": "AVATAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "AVATAR",
     "definitions": [
      {
       "text": "Online image",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "centre's",
-      "for": "letter_selection",
-      "note": "the centre of a word is its middle, and with six letters that is the two in the middle"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "travel centre's",
-      "gives": "AV",
-      "select": "middle",
-      "note": "middle letters of trAVel"
-     },
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A = American"
-     },
-     {
-      "clueFragment": "sailor",
-      "gives": "TAR",
-      "note": "tar = sailor"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AV",
-      "A",
-      "TAR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre's",
+         "note": "the centre of a word is its middle, and with six letters that is the two in the middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "travel centre's",
+         "gives": "TRAVEL",
+         "note": "middle letters of trAVel"
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A = American"
+      },
+      {
+       "words": "sailor",
+       "gives": "TAR",
+       "note": "tar = sailor"
+      }
      ]
     },
     "explanation": {
@@ -1454,62 +1354,59 @@
    },
    "solution": "CREASE",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "reversal"
-    ],
-    "answer": "CREASE",
     "definitions": [
      {
       "text": "fold",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Special",
-      "note": "the letters of care are made special, rearranged"
-     },
-     {
-      "text": "lost",
-      "note": "ewes that have lost we no longer have those two letters, leaving ES"
-     },
-     {
-      "text": "returning",
-      "note": "the remaining ES goes back to front"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Special care",
-      "gives": "CREA",
-      "note": "CARE rearranged"
-     },
-     {
-      "clueFragment": "ewes we lost returning",
-      "gives": "SE",
-      "note": "EWES minus WE is ES, turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CREA",
-      "SE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CREASE",
+     "parts": [
       {
-       "fodder": "CARE",
-       "gives": "CREA"
-      }
-     ],
-     "reversals": [
-      {
-       "from": "ES",
-       "to": "SE"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Special",
+         "note": "the letters of care are made special, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "lost",
+           "note": "ewes that have lost we no longer have those two letters, leaving ES"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "indicators": [
+            {
+             "text": "returning",
+             "note": "the remaining ES goes back to front"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Special care",
+             "gives": "CREA",
+             "note": "CARE rearranged"
+            },
+            {
+             "words": "ewes we lost returning",
+             "gives": "SE",
+             "note": "EWES minus WE is ES, turned round"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1540,48 +1437,37 @@
    },
    "solution": "CUSTOM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "CUSTOM",
     "definitions": [
      {
       "text": "business",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "the letters are out of place"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scout out",
-      "gives": "CUSTO",
-      "note": "SCOUT rearranged"
-     },
-     {
-      "clueFragment": "money",
-      "gives": "M",
-      "note": "M = money"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CUSTO",
-      "M"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CUSTOM",
+     "indicators": [
       {
-       "fodder": "SCOUT",
-       "gives": "CUSTO"
+       "text": "out",
+       "note": "the letters are out of place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Scout out",
+         "gives": "CUSTO",
+         "note": "SCOUT rearranged"
+        },
+        {
+         "words": "money",
+         "gives": "M",
+         "note": "M = money"
+        }
+       ]
       }
      ]
     },
@@ -1611,53 +1497,46 @@
    },
    "solution": "BAMBOOZLES",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BAMBOOZLES",
     "definitions": [
      {
       "text": "cheats",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "admitting",
-      "for": "container",
-      "note": "admitting means letting in, as a door admits a visitor"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Graduate",
-      "gives": "BA",
-      "note": "BA = Bachelor of Arts"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MB",
-      "note": "MB = Bachelor of Medicine"
-     },
-     {
-      "clueFragment": "weeps",
-      "gives": "OOZES",
-      "note": "a wound weeps, oozes"
-     },
-     {
-      "clueFragment": "student",
-      "gives": "L",
-      "note": "L = learner"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BA",
-      "MB",
-      "OOZ",
-      "L",
-      "ES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "note": "admitting means letting in, as a door admits a visitor"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Graduate",
+         "gives": "BA",
+         "note": "BA = Bachelor of Arts"
+        },
+        {
+         "words": "doctor",
+         "gives": "MB",
+         "note": "MB = Bachelor of Medicine"
+        },
+        {
+         "words": "weeps",
+         "gives": "OOZES",
+         "note": "a wound weeps, oozes"
+        }
+       ]
+      },
+      {
+       "words": "student",
+       "gives": "L",
+       "note": "L = learner"
+      }
      ]
     },
     "explanation": {
@@ -1686,47 +1565,40 @@
    },
    "solution": "CRUX",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CRUX",
     "definitions": [
      {
       "text": "essential principle",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "retains",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "College",
-      "gives": "C",
-      "note": "C = college"
-     },
-     {
-      "clueFragment": "vote",
-      "gives": "X",
-      "note": "a cross on a ballot paper"
-     },
-     {
-      "clueFragment": "sport",
-      "gives": "RU",
-      "note": "RU = rugby union"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RU",
-      "X"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retains"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "College",
+         "gives": "C",
+         "note": "C = college"
+        },
+        {
+         "words": "vote",
+         "gives": "X",
+         "note": "a cross on a ballot paper"
+        }
+       ]
+      },
+      {
+       "words": "sport",
+       "gives": "RU",
+       "note": "RU = rugby union"
+      }
      ]
     },
     "explanation": {
@@ -1755,35 +1627,25 @@
    },
    "solution": "COLT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COLT",
     "definitions": [
      {
       "text": "young horse",
       "at": 15
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pass",
-      "gives": "COL",
-      "note": "a col is a mountain pass"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T = time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COL",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pass",
+       "gives": "COL",
+       "note": "a col is a mountain pass"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T = time"
+      }
      ]
     },
     "explanation": {
@@ -1812,35 +1674,25 @@
    },
    "solution": "JARRED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "JARRED",
     "definitions": [
      {
       "text": "Shook",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "container",
-      "gives": "JAR",
-      "note": "a jar is a container"
-     },
-     {
-      "clueFragment": "wine",
-      "gives": "RED",
-      "note": "red wine"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JAR",
-      "RED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "container",
+       "gives": "JAR",
+       "note": "a jar is a container"
+      },
+      {
+       "words": "wine",
+       "gives": "RED",
+       "note": "red wine"
+      }
      ]
     },
     "explanation": {
@@ -1869,32 +1721,25 @@
    },
    "solution": "SPOTLESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SPOTLESS",
     "definitions": [
      {
       "text": "without sin",
       "at": 10
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "See",
-      "gives": "SPOT",
-      "note": "to spot is to see"
-     },
-     {
-      "clueFragment": "fewer",
-      "gives": "LESS",
-      "note": "less = fewer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPOT",
-      "LESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "See",
+       "gives": "SPOT",
+       "note": "to spot is to see"
+      },
+      {
+       "words": "fewer",
+       "gives": "LESS",
+       "note": "less = fewer"
+      }
      ]
     },
     "explanation": {

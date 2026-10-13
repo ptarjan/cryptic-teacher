@@ -1,8 +1,6 @@
 {
  "id": "times-29229",
  "number": 29229,
- "series": "times",
- "name": "Times cryptic crossword No 29,229",
  "date": "2025-05-14",
  "dimensions": {
   "cols": 15,
@@ -41,45 +39,46 @@
    },
    "solution": "SPINET",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection"
-    ],
-    "answer": "SPINET",
     "definitions": [
      {
       "text": "instrument",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "case",
-      "note": "a word's case is its outside, so only the first and last letters of SAXOPHONIST are kept"
-     },
-     {
-      "text": "holds",
-      "note": "the outer letters hold the next piece inside them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saxophonist's case",
-      "gives": "S_T",
-      "select": "outer",
-      "note": "the outer letters of SAXOPHONIST"
-     },
-     {
-      "clueFragment": "long",
-      "gives": "PINE",
-      "note": "to pine is to long for"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PINE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "case",
+       "note": "a word's case is its outside, so only the first and last letters of SAXOPHONIST are kept"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ST",
+       "indicators": [
+        {
+         "text": "holds",
+         "note": "the outer letters hold the next piece inside them"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Saxophonist's case",
+         "gives": "ST",
+         "select": "outer",
+         "note": "the outer letters of SAXOPHONIST"
+        }
+       ]
+      },
+      {
+       "words": "long",
+       "gives": "PINE",
+       "note": "to pine is to long for"
+      }
      ]
     },
     "explanation": {
@@ -108,52 +107,48 @@
    },
    "solution": "PEIGNOIR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "PEIGNOIR",
     "definitions": [
      {
       "text": "lingerie",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "at first",
-      "for": "letter_selection",
-      "note": "take only the first letter of 'Perturbed'"
-     },
-     {
-      "text": "naughty",
-      "for": "anagram",
-      "note": "the letters of I IGNORE misbehave, landing out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Perturbed at first",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of Perturbed"
-     },
-     {
-      "clueFragment": "I ignore",
-      "gives": "EIGNOIR",
-      "note": "I IGNORE rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "EIGNOIR"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "PEIGNOIR",
+     "indicators": [
       {
-       "fodder": "IIGNORE",
-       "gives": "EIGNOIR"
+       "text": "naughty",
+       "note": "the letters of I IGNORE misbehave, landing out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "note": "take only the first letter of 'Perturbed'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Perturbed at first",
+           "gives": "PERTURBED",
+           "note": "first letter of Perturbed"
+          }
+         ]
+        },
+        {
+         "words": "I ignore",
+         "gives": "EIGNOIR",
+         "note": "I IGNORE rearranged"
+        }
+       ]
       }
      ]
     },
@@ -183,41 +178,40 @@
    },
    "solution": "NUTHATCH",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "NUTHATCH",
     "definitions": [
      {
       "text": "Bird",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "take the words at their origin: the first letter of each of 'nested' and 'under'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "originally nested under",
-      "gives": "NU",
-      "select": "first",
-      "note": "first letters of Nested and Under"
-     },
-     {
-      "clueFragment": "r*.oof",
-      "gives": "THATCH",
-      "note": "the clue word is 'roof', garbled in the scraped text; a thatch is a roof of straw"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NU",
-      "THATCH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "NU",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "take the words at their origin: the first letter of each of 'nested' and 'under'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "originally nested under",
+         "gives": "NU",
+         "select": "first",
+         "note": "first letters of Nested and Under"
+        }
+       ]
+      },
+      {
+       "words": "r*.oof",
+       "gives": "THATCH",
+       "note": "the clue word is 'roof', garbled in the scraped text; a thatch is a roof of straw"
+      }
      ]
     },
     "explanation": {
@@ -246,44 +240,46 @@
    },
    "solution": "TEMPERATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "TEMPERATE",
     "definitions": [
      {
       "text": "Clement",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "regularly",
-      "note": "take letters at regular intervals: A, T, E from ATTLEE"
-     },
-     {
-      "text": "supporting",
-      "note": "in a down clue the supporter sits underneath"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "constitution",
-      "gives": "TEMPER",
-      "note": "a person's temper is their constitution or temperament"
-     },
-     {
-      "clueFragment": "Attlee regularly",
-      "gives": "ATE",
-      "select": "alternate",
-      "note": "the 1st, 3rd and 5th letters of ATTLEE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEMPER",
-      "ATE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "regularly",
+       "note": "take letters at regular intervals: A, T, E from ATTLEE"
+      }
+     ],
+     "parts": [
+      {
+       "words": "constitution",
+       "gives": "TEMPER",
+       "note": "a person's temper is their constitution or temperament"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "ATE",
+       "indicators": [
+        {
+         "text": "supporting",
+         "note": "in a down clue the supporter sits underneath"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Attlee regularly",
+         "gives": "ATE",
+         "select": "alternate",
+         "note": "the 1st, 3rd and 5th letters of ATTLEE"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -313,40 +309,31 @@
    },
    "solution": "CONSIDER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CONSIDER",
     "definitions": [
      {
       "text": "Contemplate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "surrounded by",
-      "for": "container",
-      "note": "the statisticians go inside the booze"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "booze",
-      "gives": "C_IDER",
-      "note": "cider, an alcoholic drink, wrapped around the next piece"
-     },
-     {
-      "clueFragment": "statisticians",
-      "gives": "ONS",
-      "note": "the Office for National Statistics, the UK's statistics agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ONS",
-      "IDER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "note": "the statisticians go inside the booze"
+      }
+     ],
+     "parts": [
+      {
+       "words": "booze",
+       "gives": "CIDER",
+       "note": "cider, an alcoholic drink, wrapped around the next piece"
+      },
+      {
+       "words": "statisticians",
+       "gives": "ONS",
+       "note": "the Office for National Statistics, the UK's statistics agency"
+      }
      ]
     },
     "explanation": {
@@ -381,38 +368,27 @@
    },
    "solution": "CARNALKNOWLEDGE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CARNAL KNOWLEDGE",
     "definitions": [
      {
       "text": "it",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "rocks",
-      "for": "anagram",
-      "note": "the letters are rocked and shaken about"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ken crawled along",
-      "gives": "CARNALKNOWLEDGE",
-      "note": "KEN CRAWLED ALONG rearranged, 15 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CARNALKNOWLEDGE",
+     "indicators": [
       {
-       "fodder": "KENCRAWLEDALONG",
-       "gives": "CARNALKNOWLEDGE"
+       "text": "rocks",
+       "note": "the letters are rocked and shaken about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ken crawled along",
+       "gives": "CARNALKNOWLEDGE",
+       "note": "KEN CRAWLED ALONG rearranged, 15 letters"
       }
      ]
     },
@@ -443,50 +419,42 @@
    },
    "solution": "SAPIENT",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "SAPIENT",
     "definitions": [
      {
       "text": "Wise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exchanging",
-      "for": "substitution",
-      "note": "swap one letter for another"
-     },
-     {
-      "text": "for",
-      "for": "substitution",
-      "note": "gives the direction of the swap: the pounds go, the power comes in"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chief",
-      "gives": "SALIENT",
-      "note": "the salient point is the chief one"
-     },
-     {
-      "clueFragment": "pounds",
-      "gives": "L",
-      "note": "L, from the Latin libra, is the abbreviation for pounds; it is removed"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "P",
-      "note": "P is the symbol for power; it replaces the L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "P",
-      "IENT"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "SAPIENT",
+     "indicators": [
+      {
+       "text": "exchanging",
+       "note": "swap one letter for another"
+      },
+      {
+       "text": "for",
+       "note": "gives the direction of the swap: the pounds go, the power comes in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chief",
+       "gives": "SALIENT",
+       "note": "the salient point is the chief one"
+      },
+      {
+       "words": "pounds",
+       "gives": "L",
+       "note": "L, from the Latin libra, is the abbreviation for pounds; it is removed"
+      },
+      {
+       "words": "power",
+       "gives": "P",
+       "note": "P is the symbol for power; it replaces the L"
+      }
      ]
     },
     "explanation": {
@@ -515,38 +483,27 @@
    },
    "solution": "DEIGHTON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DEIGHTON",
     "definitions": [
      {
       "text": "Thriller writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "novel",
-      "for": "anagram",
-      "note": "novel means new, so the letters take a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "The Dingo",
-      "gives": "DEIGHTON",
-      "note": "THE DINGO rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DEIGHTON",
+     "indicators": [
       {
-       "fodder": "THEDINGO",
-       "gives": "DEIGHTON"
+       "text": "novel",
+       "note": "novel means new, so the letters take a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The Dingo",
+       "gives": "DEIGHTON",
+       "note": "THE DINGO rearranged"
       }
      ]
     },
@@ -577,43 +534,31 @@
    },
    "solution": "REGALITY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REGALITY",
     "definitions": [
      {
       "text": "State of royals",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "'In' in its sense of 'inside': the letter for good is placed in the middle of the word for truth"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "truth",
-      "gives": "RE_ALITY",
-      "note": "reality is truth, opened up to take the next letter"
-     },
-     {
-      "clueFragment": "good",
-      "gives": "G",
-      "note": "G is the standard abbreviation for good"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "G",
-      "ALITY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "'In' in its sense of 'inside': the letter for good is placed in the middle of the word for truth"
+      }
+     ],
+     "parts": [
+      {
+       "words": "truth",
+       "gives": "REALITY",
+       "note": "reality is truth, opened up to take the next letter"
+      },
+      {
+       "words": "good",
+       "gives": "G",
+       "note": "G is the standard abbreviation for good"
+      }
      ]
     },
     "explanation": {
@@ -648,26 +593,25 @@
    },
    "solution": "BIGTIMER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BIG-TIMER",
     "definitions": [
      {
       "text": "Somebody's grandfather clock?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Somebody's",
-      "note": "the surface asks whose clock it is, but a somebody is also a person of importance, a big shot"
-     },
-     {
-      "clueFragment": "grandfather clock?",
-      "note": "a tall longcase clock; taken literally, a large device for keeping time, and the question mark flags that literal reading"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Somebody's",
+       "note": "the surface asks whose clock it is, but a somebody is also a person of importance, a big shot"
+      },
+      {
+       "words": "grandfather clock?",
+       "note": "a tall longcase clock; taken literally, a large device for keeping time, and the question mark flags that literal reading"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking about the tall clock belonging to a notable person.",
      "walkthrough": "A somebody, an important person, is a BIG-TIMER; a grandfather clock, read literally, is a big timer, so the clock is what a somebody would be called.",
@@ -695,30 +639,16 @@
    },
    "solution": "SPRING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SPRING",
     "definitions": [
      {
       "text": "Water",
-      "at": 0
+      "at": 0,
+      "meaning": "a natural source where water wells up from underground"
      },
      {
       "text": "jump",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Water",
-      "gives": "SPRING",
-      "note": "a natural source where water wells up from underground"
-     },
-     {
-      "clueFragment": "jump",
-      "gives": "SPRING",
-      "note": "to leap suddenly upwards or forwards"
+      "at": 6,
+      "meaning": "to leap suddenly upwards or forwards"
      }
     ],
     "explanation": {
@@ -752,35 +682,27 @@
    },
    "solution": "INCAMERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN CAMERA",
     "definitions": [
      {
       "text": "Secretly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Brahms and Liszt",
-      "for": "anagram",
-      "note": "rhyming slang for pissed, i.e. drunk: the letters stagger about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "are manic",
-      "gives": "INCAMERA",
-      "note": "ARE MANIC rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "INCAMERA",
+     "indicators": [
       {
-       "fodder": "AREMANIC",
-       "gives": "INCAMERA"
+       "text": "Brahms and Liszt",
+       "note": "rhyming slang for pissed, i.e. drunk: the letters stagger about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "are manic",
+       "gives": "INCAMERA",
+       "note": "ARE MANIC rearranged"
       }
      ]
     },
@@ -811,54 +733,53 @@
    },
    "solution": "LETHAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "LETHAL",
     "definitions": [
      {
       "text": "Killing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with",
-      "note": "puts time and prince together"
-     },
-     {
-      "text": "on",
-      "note": "in an across clue, the first pair is placed on (after) the isle piece"
-     },
-     {
-      "text": "half-cut",
-      "for": "deletion",
-      "note": "cut the word in half and keep one half"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "isle, half-cut",
-      "gives": "LE",
-      "note": "the second half of ISLE"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "prince",
-      "gives": "HAL",
-      "note": "Prince Hal, the young Henry V in Shakespeare"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "T",
-      "HAL"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LETHAL",
+     "indicators": [
+      {
+       "text": "half-cut",
+       "note": "cut the word in half and keep one half"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "note": "puts time and prince together"
+        },
+        {
+         "text": "on",
+         "note": "in an across clue, the first pair is placed on (after) the isle piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isle, half-cut",
+         "gives": "LE",
+         "note": "the second half of ISLE"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        },
+        {
+         "words": "prince",
+         "gives": "HAL",
+         "note": "Prince Hal, the young Henry V in Shakespeare"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -888,35 +809,25 @@
    },
    "solution": "CRACKPOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "CRACKPOT",
     "definitions": [
      {
       "text": "fruitcake",
       "at": 22
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cocaine",
-      "gives": "CRACK",
-      "note": "crack is a form of cocaine"
-     },
-     {
-      "clueFragment": "cannabis",
-      "gives": "POT",
-      "note": "pot is slang for cannabis"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CRACK",
-      "POT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cocaine",
+       "gives": "CRACK",
+       "note": "crack is a form of cocaine"
+      },
+      {
+       "words": "cannabis",
+       "gives": "POT",
+       "note": "pot is slang for cannabis"
+      }
      ]
     },
     "explanation": {
@@ -946,46 +857,44 @@
    },
    "solution": "OMINOUSLY",
    "annotation": {
-    "type": [
-     "container",
-     "deletion"
-    ],
-    "answer": "OMINOUSLY",
     "definitions": [
      {
       "text": "Alarmingly",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hard-left",
-      "for": "deletion",
-      "note": "H (hard) has left, so it drops from HOMILY"
-     },
-     {
-      "text": "containing",
-      "for": "container",
-      "note": "what is left of the sermon holds common sense"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "hard-left sermon",
-      "gives": "OMI_LY",
-      "note": "HOMILY, a sermon, without H for hard"
-     },
-     {
-      "clueFragment": "common sense",
-      "gives": "NOUS",
-      "note": "nous is British slang for common sense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OMI",
-      "NOUS",
-      "LY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "OMINOUSLY",
+     "indicators": [
+      {
+       "text": "hard-left",
+       "note": "H (hard) has left, so it drops from HOMILY"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "note": "what is left of the sermon holds common sense"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hard-left sermon",
+         "gives": "OMILY",
+         "note": "HOMILY, a sermon, without H for hard"
+        },
+        {
+         "words": "common sense",
+         "gives": "NOUS",
+         "note": "nous is British slang for common sense"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1015,30 +924,28 @@
    },
    "solution": "ARCH",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ARCH",
     "definitions": [
      {
       "text": "Part of fingerprint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "the answer is found inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Star Chamber",
-      "gives": "ARCH",
-      "note": "stARCHamber"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found in",
+       "note": "the answer is found inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Star Chamber",
+       "gives": "ARCH",
+       "note": "stARCHamber"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Evidence turning up at the Star Chamber, the notorious old English court.",
      "walkthrough": "The Star Chamber was an English court of Tudor and Stuart times, famous for arbitrary judgments.",
@@ -1064,47 +971,42 @@
    },
    "solution": "AMBROSIA",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "AMBROSIA",
     "definitions": [
      {
       "text": "delicious food",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "homophone",
-      "note": "picked up by the ear, i.e. heard"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the standard abbreviation for American"
-     },
-     {
-      "clueFragment": "doctor",
-      "gives": "MB",
-      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
-     },
-     {
-      "clueFragment": "more fresh",
-      "gives": "ROSIA",
-      "soundsLike": "ROSIER",
-      "note": "rosier, with fresher, pinker cheeks, said in a non-rhotic British accent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "MB",
-      "ROSIA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A is the standard abbreviation for American"
+      },
+      {
+       "words": "doctor",
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ROSIA",
+       "indicators": [
+        {
+         "text": "picked up",
+         "note": "picked up by the ear, i.e. heard"
+        }
+       ],
+       "parts": [
+        {
+         "words": "more fresh",
+         "gives": "ROSIER",
+         "note": "rosier, with fresher, pinker cheeks, said in a non-rhotic British accent"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1133,40 +1035,31 @@
    },
    "solution": "COGNOMEN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COGNOMEN",
     "definitions": [
      {
       "text": "Nickname",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "caught in",
-      "for": "container",
-      "note": "the banker is trapped inside the scam"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scam",
-      "gives": "CO_N",
-      "note": "a con is a scam"
-     },
-     {
-      "clueFragment": "international banker",
-      "gives": "GNOME",
-      "note": "the gnomes of Zurich, a nickname for Swiss international bankers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "GNOME",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "caught in",
+       "note": "the banker is trapped inside the scam"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scam",
+       "gives": "CON",
+       "note": "a con is a scam"
+      },
+      {
+       "words": "international banker",
+       "gives": "GNOME",
+       "note": "the gnomes of Zurich, a nickname for Swiss international bankers"
+      }
      ]
     },
     "explanation": {
@@ -1195,42 +1088,31 @@
    },
    "solution": "ENVY",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ENVY",
     "definitions": [
      {
       "text": "desire",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "devoid of",
-      "for": "deletion",
-      "note": "the diplomat is emptied of the love letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Diplomat",
-      "gives": "ENVOY",
-      "note": "an envoy is a diplomat sent on a mission"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is O, a zero score in tennis; it is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ENV",
-      "Y"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "devoid of",
+       "note": "the diplomat is emptied of the love letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Diplomat",
+       "gives": "ENVOY",
+       "note": "an envoy is a diplomat sent on a mission"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is O, a zero score in tennis; it is removed"
+      }
      ]
     },
     "explanation": {
@@ -1265,58 +1147,65 @@
    },
    "solution": "ETCETERA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "deletion"
-    ],
-    "answer": "ET CETERA",
     "definitions": [
      {
       "text": "and the like",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "naked",
-      "note": "stripped of its outer letters"
-     },
-     {
-      "text": "lying around",
-      "note": "turned around so it reads backwards, going up the grid"
-     },
-     {
-      "text": "with",
-      "note": "'With' in its sense of 'together with': the artist is placed alongside, after the reversed piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Found naked",
-      "gives": "ETECTE",
-      "note": "DETECTED (found) without its first and last letters"
-     },
-     {
-      "clueFragment": "lying around",
-      "gives": "ETCETE",
-      "note": "ETECTE reversed"
-     },
-     {
-      "clueFragment": "artist",
-      "gives": "RA",
-      "note": "RA, a Royal Academician, stands for an artist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETCETE",
-      "RA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "ETECTE",
-       "to": "ETCETE"
+       "text": "naked",
+       "note": "stripped of its outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lying around",
+         "note": "turned around so it reads backwards, going up the grid"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Found naked",
+         "gives": "ETECTE",
+         "note": "DETECTED (found) without its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with",
+         "note": "'With' in its sense of 'together with': the artist is placed alongside, after the reversed piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "lying around",
+           "gives": "ETCETE",
+           "note": "ETECTE reversed"
+          },
+          {
+           "words": "artist",
+           "gives": "RA",
+           "note": "RA, a Royal Academician, stands for an artist"
+          }
+         ]
+        },
+        {
+         "gives": "ETCETE"
+        }
+       ]
       }
      ]
     },
@@ -1346,50 +1235,41 @@
    },
    "solution": "VEHEMENT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "VEHEMENT",
     "definitions": [
      {
       "text": "passionate",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "take the extremes, first and last letters, of 'virile'"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremely virile",
-      "gives": "VE",
-      "select": "outer",
-      "note": "first and last letters of VIRILE"
-     },
-     {
-      "clueFragment": "tough guys",
-      "gives": "HEMEN",
-      "note": "he-men are macho tough guys"
-     },
-     {
-      "clueFragment": "tense",
-      "gives": "T",
-      "note": "T is the grammatical abbreviation for tense"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VE",
-      "HEMEN",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "note": "take the extremes, first and last letters, of 'virile'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Extremely virile",
+         "gives": "VIRILE",
+         "note": "first and last letters of VIRILE"
+        }
+       ]
+      },
+      {
+       "words": "tough guys",
+       "gives": "HEMEN",
+       "note": "he-men are macho tough guys"
+      },
+      {
+       "words": "tense",
+       "gives": "T",
+       "note": "T is the grammatical abbreviation for tense"
+      }
      ]
     },
     "explanation": {
@@ -1418,40 +1298,31 @@
    },
    "solution": "HEDONIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HEDONIST",
     "definitions": [
      {
       "text": "Epicurean",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "stopping",
-      "for": "container",
-      "note": "the academic plugs the gap in the robbery, going inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "robbery",
-      "gives": "HE_IST",
-      "note": "a heist is a robbery"
-     },
-     {
-      "clueFragment": "academic",
-      "gives": "DON",
-      "note": "a don is a university teacher, especially at Oxford or Cambridge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HE",
-      "DON",
-      "IST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopping",
+       "note": "the academic plugs the gap in the robbery, going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "robbery",
+       "gives": "HEIST",
+       "note": "a heist is a robbery"
+      },
+      {
+       "words": "academic",
+       "gives": "DON",
+       "note": "a don is a university teacher, especially at Oxford or Cambridge"
+      }
      ]
     },
     "explanation": {
@@ -1480,39 +1351,37 @@
    },
    "solution": "HALTING",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "HALTING",
     "definitions": [
      {
       "text": "Hesitant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "becoming leader in",
-      "for": "deletion"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "H is the abbreviation for husband; it goes first"
-     },
-     {
-      "clueFragment": "Icelandic parliament",
-      "gives": "ALTING",
-      "note": "the ALTHING with its H taken out, to go up front"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "ALTING"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "HALTING",
+     "indicators": [
+      {
+       "text": "becoming leader in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "husband",
+         "gives": "H",
+         "note": "H is the abbreviation for husband; it goes first"
+        },
+        {
+         "words": "Icelandic parliament",
+         "gives": "ALTING",
+         "note": "the ALTHING with its H taken out, to go up front"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1541,44 +1410,36 @@
    },
    "solution": "RANKLE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "RANKLE",
     "definitions": [
      {
       "text": "cause annoyance",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "take the start, the first letter, of 'roll'"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to roll",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of ROLL"
-     },
-     {
-      "clueFragment": "joint",
-      "gives": "ANKLE",
-      "note": "the ankle is a joint of the body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "ANKLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "take the start, the first letter, of 'roll'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to roll",
+         "gives": "ROLL",
+         "note": "first letter of ROLL"
+        }
+       ]
+      },
+      {
+       "words": "joint",
+       "gives": "ANKLE",
+       "note": "the ankle is a joint of the body"
+      }
      ]
     },
     "explanation": {
@@ -1608,45 +1469,37 @@
    },
    "solution": "LOOSENED",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "LOOSENED",
     "definitions": [
      {
       "text": "Grown weaker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "exercises",
-      "for": "anagram",
-      "note": "the letters of NEED are exercised, worked about into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ladies perhaps",
-      "gives": "LOOS",
-      "note": "the ladies is a women's toilet, and toilets are loos; 'perhaps' marks the example"
-     },
-     {
-      "clueFragment": "need",
-      "gives": "ENED",
-      "note": "NEED rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOOS",
-      "ENED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LOOSENED",
+     "indicators": [
       {
-       "fodder": "NEED",
-       "gives": "ENED"
+       "text": "exercises",
+       "note": "the letters of NEED are exercised, worked about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ladies perhaps",
+         "gives": "LOOS",
+         "note": "the ladies is a women's toilet, and toilets are loos; 'perhaps' marks the example"
+        },
+        {
+         "words": "need",
+         "gives": "ENED",
+         "note": "NEED rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1676,40 +1529,31 @@
    },
    "solution": "SUMMIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SUMMIT",
     "definitions": [
      {
       "text": "Conference",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bringing in",
-      "for": "container",
-      "note": "the match takes the thousands inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "match",
-      "gives": "SU_IT",
-      "note": "to suit is to match"
-     },
-     {
-      "clueFragment": "two thousand",
-      "gives": "MM",
-      "note": "M is the Roman numeral for a thousand, so two of them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "MM",
-      "IT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "note": "the match takes the thousands inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "match",
+       "gives": "SUIT",
+       "note": "to suit is to match"
+      },
+      {
+       "words": "two thousand",
+       "gives": "MM",
+       "note": "M is the Roman numeral for a thousand, so two of them"
+      }
      ]
     },
     "explanation": {
@@ -1738,39 +1582,31 @@
    },
    "solution": "DISSEVER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DISSEVER",
     "definitions": [
      {
       "text": "Split",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "follows",
-      "for": "charade",
-      "note": "the 'always' piece comes after the 'scorn' piece"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scorn",
-      "gives": "DISS",
-      "note": "to diss is to scorn, show disrespect"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EVER",
-      "note": "ever means always"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DISS",
-      "EVER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "note": "the 'always' piece comes after the 'scorn' piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scorn",
+       "gives": "DISS",
+       "note": "to diss is to scorn, show disrespect"
+      },
+      {
+       "words": "always",
+       "gives": "EVER",
+       "note": "ever means always"
+      }
      ]
     },
     "explanation": {
@@ -1798,54 +1634,43 @@
    },
    "solution": "ABNEGATE",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "ABNEGATE",
     "definitions": [
      {
       "text": "refuse",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "smuggling",
-      "for": "container",
-      "note": "the dope is carried hidden inside"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "the dope is written backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Peter out",
-      "gives": "AB_ATE",
-      "note": "to abate is to peter out, diminish"
-     },
-     {
-      "clueFragment": "dope back",
-      "gives": "NEG",
-      "note": "GEN, slang for information or dope, reversed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "NEG",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "ABNEGATE",
+     "indicators": [
       {
-       "from": "GEN",
-       "to": "NEG"
+       "text": "back",
+       "note": "the dope is written backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "smuggling",
+         "note": "the dope is carried hidden inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Peter out",
+         "gives": "ABATE",
+         "note": "to abate is to peter out, diminish"
+        },
+        {
+         "words": "dope back",
+         "gives": "NEG",
+         "note": "GEN, slang for information or dope, reversed"
+        }
+       ]
       }
      ]
     },
@@ -1876,41 +1701,36 @@
    },
    "solution": "YEASTY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "YEASTY",
     "definitions": [
      {
       "text": "Frivolous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "vacuous",
-      "for": "letter_selection",
-      "note": "empty: the middle of TREATY is removed, leaving its outer letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "people voting for",
-      "gives": "YEAS",
-      "note": "yeas are the votes, or voters, in favour"
-     },
-     {
-      "clueFragment": "vacuous treaty",
-      "gives": "TY",
-      "select": "outer",
-      "note": "first and last letters of TREATY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "YEAS",
-      "TY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "people voting for",
+       "gives": "YEAS",
+       "note": "yeas are the votes, or voters, in favour"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacuous",
+         "note": "empty: the middle of TREATY is removed, leaving its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vacuous treaty",
+         "gives": "TREATY",
+         "note": "first and last letters of TREATY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {

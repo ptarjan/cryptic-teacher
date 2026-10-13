@@ -1,8 +1,6 @@
 {
  "id": "indysunday-1187",
  "number": 1187,
- "series": "indysunday",
- "name": "Independent sunday cryptic crossword No 1,187",
  "setter": "Noz",
  "date": "2012-11-25",
  "dimensions": {
@@ -42,47 +40,41 @@
    },
    "solution": "ACID",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ACID",
     "definitions": [
      {
       "text": "Keen",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "foremost",
-      "for": "letter_selection",
-      "note": "foremost picks out the first letter of the word it follows"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "charitable support",
-      "gives": "AID",
-      "note": "aid is help given charitably"
-     },
-     {
-      "clueFragment": "church's",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of church"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "ID"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "charitable support",
+       "gives": "AID",
+       "note": "aid is help given charitably"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "note": "foremost picks out the first letter of the word it follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "church's",
+         "note": "first letter of church"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -110,53 +102,55 @@
    },
    "solution": "GATEAU",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GATEAU",
     "definitions": [
      {
       "text": "Cake",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally picks the last letter of the word before it"
-     },
-     {
-      "text": "a couple of",
-      "for": "letter_selection",
-      "note": "a couple means two, so only the opening pair of letters is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "baking",
-      "gives": "G",
-      "select": "last",
-      "note": "last letter of baking"
-     },
-     {
-      "clueFragment": "worried",
-      "gives": "ATE",
-      "note": "ate, as in 'what's eating you?', means worried"
-     },
-     {
-      "clueFragment": "Australians",
-      "gives": "AU",
-      "select": "first",
-      "note": "the first two letters of Australians"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ATE",
-      "AU"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally picks the last letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "baking",
+         "note": "last letter of baking"
+        }
+       ]
+      },
+      {
+       "words": "worried",
+       "gives": "ATE",
+       "note": "ate, as in 'what's eating you?', means worried"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "AU",
+       "indicators": [
+        {
+         "text": "a couple of",
+         "note": "a couple means two, so only the opening pair of letters is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Australians",
+         "gives": "AU",
+         "select": "first",
+         "note": "the first two letters of Australians"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -184,56 +178,54 @@
    },
    "solution": "CLEMATIS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CLEMATIS",
     "definitions": [
      {
       "text": "flower",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "opening of",
-      "for": "letter_selection",
-      "note": "the opening of a word is its first letter"
-     },
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "something missing has been taken away from the rest"
-     },
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "things that go sadly go badly, so the letters end up in a bad order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "St Michael",
-      "gives": "STMICHAEL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "his",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of his, which is removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CLEMATIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CLEMATIS",
+     "indicators": [
       {
-       "fodder": "STMICAEL",
-       "gives": "CLEMATIS"
+       "text": "sadly",
+       "note": "things that go sadly go badly, so the letters end up in a bad order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "CLEMATIS",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "something missing has been taken away from the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "St Michael",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "opening of",
+           "note": "the opening of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "his",
+           "note": "first letter of his, which is removed"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -263,28 +255,16 @@
    },
    "solution": "ASKING",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ASKING",
     "definitions": [
      {
       "text": "Making enquiry",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: putting a question"
      },
      {
       "text": "taking monarch?s role?",
-      "at": 16
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Making enquiry",
-      "note": "first meaning: putting a question"
-     },
-     {
-      "clueFragment": "taking monarch?s role?",
-      "note": "second meaning, split into two words: playing the part of a king"
+      "at": 16,
+      "meaning": "second meaning, split into two words: playing the part of a king"
      }
     ],
     "explanation": {
@@ -313,40 +293,31 @@
    },
    "solution": "REVEREND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REVEREND",
     "definitions": [
      {
       "text": "Minister",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "intervening in",
-      "for": "container",
-      "note": "to intervene is to come between, so one word sits inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "split",
-      "gives": "REND",
-      "note": "to rend is to tear apart"
-     },
-     {
-      "clueFragment": "always",
-      "gives": "EVER",
-      "note": "ever means always"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "EVER",
-      "END"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervening in",
+       "note": "to intervene is to come between, so one word sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "split",
+       "gives": "REND",
+       "note": "to rend is to tear apart"
+      },
+      {
+       "words": "always",
+       "gives": "EVER",
+       "note": "ever means always"
+      }
      ]
     },
     "explanation": {
@@ -375,42 +346,30 @@
    },
    "solution": "HOWLER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "HOWLER",
     "definitions": [
      {
       "text": "5 in 9 29",
       "at": 0
      }
     ],
-    "linkWords": [
-     "having",
-     "given to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "question",
-      "gives": "HOW",
-      "note": "how is a question word"
-     },
-     {
-      "clueFragment": "the French",
-      "gives": "LE",
-      "note": "le is French for the"
-     },
-     {
-      "clueFragment": "King",
-      "gives": "R",
-      "note": "R is short for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HOW",
-      "LE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "question",
+       "gives": "HOW",
+       "note": "how is a question word"
+      },
+      {
+       "words": "the French",
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "King",
+       "gives": "R",
+       "note": "R is short for rex, Latin for king"
+      }
      ]
     },
     "explanation": {
@@ -439,50 +398,41 @@
    },
    "solution": "COSTELLO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "COSTELLO",
     "definitions": [
      {
       "text": "Rock singer's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going around, so one piece wraps the others"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "surprised comment",
-      "gives": "COO",
-      "note": "coo is an exclamation of surprise"
-     },
-     {
-      "clueFragment": "Saint",
-      "gives": "S",
-      "note": "S is the abbreviation for saint"
-     },
-     {
-      "clueFragment": "have effect",
-      "gives": "TELL",
-      "note": "to tell is to have a marked effect"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "S",
-      "TELL",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means going around, so one piece wraps the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "surprised comment",
+       "gives": "COO",
+       "note": "coo is an exclamation of surprise"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Saint",
+         "gives": "S",
+         "note": "S is the abbreviation for saint"
+        },
+        {
+         "words": "have effect",
+         "gives": "TELL",
+         "note": "to tell is to have a marked effect"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -511,35 +461,24 @@
    },
    "solution": "CRISPARKLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CRISPARKLE",
     "definitions": [
      {
       "text": "5 in 9 29",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Untidy",
-      "for": "anagram",
-      "note": "something untidy is in disorder, so the letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "parcel irks",
-      "gives": "PARCELIRKS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PARCELIRKS",
-       "gives": "CRISPARKLE"
+       "text": "Untidy",
+       "note": "something untidy is in disorder, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parcel irks",
+       "note": "taken as written"
       }
      ]
     },
@@ -579,38 +518,24 @@
     "29-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CHARLES DICKENS",
     "definitions": [
      {
       "text": "Author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entirely wrong",
-      "for": "anagram",
-      "note": "the words are wholly in the wrong order, so all their letters must be rearranged"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lacked richness",
-      "gives": "LACKEDRICHNESS",
-      "note": "fourteen letters taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LACKEDRICHNESS",
-       "gives": "CHARLESDICKENS"
+       "text": "entirely wrong",
+       "note": "the words are wholly in the wrong order, so all their letters must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lacked richness",
+       "note": "fourteen letters taken as written"
       }
      ]
     },
@@ -640,45 +565,34 @@
    },
    "solution": "ECOTOUR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ECOTOUR",
     "definitions": [
      {
       "text": "environmentally-sound trip",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Returning",
-      "for": "reversal",
-      "note": "returning means going back, so the words are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to church",
-      "gives": "TOCE",
-      "note": "to taken as written, and CE is the Church of England"
-     },
-     {
-      "clueFragment": "our",
-      "gives": "OUR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ECOT",
-      "OUR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TOCE",
-       "to": "ECOT"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Returning",
+         "note": "returning means going back, so the words are read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to church",
+         "gives": "TOCE",
+         "note": "to taken as written, and CE is the Church of England"
+        }
+       ]
+      },
+      {
+       "words": "our",
+       "note": "taken as written"
       }
      ]
     },
@@ -707,38 +621,24 @@
    },
    "solution": "DREAMTIME",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DREAMTIME",
     "definitions": [
      {
       "text": "Creation myth",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "represented",
-      "for": "anagram",
-      "note": "to represent is to present again in a new form, so the letters are recast"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "media term",
-      "gives": "MEDIATERM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MEDIATERM",
-       "gives": "DREAMTIME"
+       "text": "represented",
+       "note": "to represent is to present again in a new form, so the letters are recast"
+      }
+     ],
+     "parts": [
+      {
+       "words": "media term",
+       "note": "taken as written"
       }
      ]
     },
@@ -767,40 +667,31 @@
    },
    "solution": "LOTUS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LOTUS",
     "definitions": [
      {
       "text": "meditation position",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "adopting",
-      "for": "container",
-      "note": "to adopt is to take in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Many",
-      "gives": "LOTS",
-      "note": "lots means many"
-     },
-     {
-      "clueFragment": "universal",
-      "gives": "U",
-      "note": "U is the film classification for universal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOT",
-      "U",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopting",
+       "note": "to adopt is to take in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Many",
+       "gives": "LOTS",
+       "note": "lots means many"
+      },
+      {
+       "words": "universal",
+       "gives": "U",
+       "note": "U is the film classification for universal"
+      }
      ]
     },
     "explanation": {
@@ -829,43 +720,31 @@
    },
    "solution": "SQUAT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "SQUAT",
     "definitions": [
      {
       "text": "Refuse to move on",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "coming in",
-      "for": "container",
-      "note": "coming in means entering, so one piece goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "having"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "occupied throne",
-      "gives": "SAT",
-      "note": "one who occupied a throne sat on it"
-     },
-     {
-      "clueFragment": "Queen",
-      "gives": "QU",
-      "note": "QU is an abbreviation for queen"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "QU",
-      "AT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming in",
+       "note": "coming in means entering, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "occupied throne",
+       "gives": "SAT",
+       "note": "one who occupied a throne sat on it"
+      },
+      {
+       "words": "Queen",
+       "gives": "QU",
+       "note": "QU is an abbreviation for queen"
+      }
      ]
     },
     "explanation": {
@@ -894,35 +773,25 @@
    },
    "solution": "STEERFORTH",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "STEERFORTH",
     "definitions": [
      {
       "text": "By no means a 5 in 9 29",
       "at": 0
      }
     ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "direct",
-      "gives": "STEER",
-      "note": "to steer is to direct"
-     },
-     {
-      "clueFragment": "forward",
-      "gives": "FORTH",
-      "note": "forth means forward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STEER",
-      "FORTH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "direct",
+       "gives": "STEER",
+       "note": "to steer is to direct"
+      },
+      {
+       "words": "forward",
+       "gives": "FORTH",
+       "note": "forth means forward"
+      }
      ]
     },
     "explanation": {
@@ -951,63 +820,56 @@
    },
    "solution": "GUERRILLA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "GUERRILLA",
     "definitions": [
      {
       "text": "Soldier",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader of",
-      "for": "letter_selection",
-      "note": "the leader of a word is its first letter"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into means going inside, so the pieces sit within the other"
-     }
-    ],
-    "linkWords": [
-     "following"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Georgia",
-      "gives": "GA",
-      "note": "GA is the US state abbreviation for Georgia"
-     },
-     {
-      "clueFragment": "Union",
-      "gives": "U",
-      "select": "first",
-      "note": "first letter of Union"
-     },
-     {
-      "clueFragment": "go wrong",
-      "gives": "ERR",
-      "note": "to err is to go wrong"
-     },
-     {
-      "clueFragment": "badly",
-      "gives": "ILL",
-      "note": "ill means badly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "U",
-      "ERR",
-      "ILL",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "into means going inside, so the pieces sit within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Georgia",
+       "gives": "GA",
+       "note": "GA is the US state abbreviation for Georgia"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader of",
+           "note": "the leader of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Union",
+           "note": "first letter of Union"
+          }
+         ]
+        },
+        {
+         "words": "go wrong",
+         "gives": "ERR",
+         "note": "to err is to go wrong"
+        },
+        {
+         "words": "badly",
+         "gives": "ILL",
+         "note": "ill means badly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1036,47 +898,41 @@
    },
    "solution": "EXCUSES",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "EXCUSES",
     "definitions": [
      {
       "text": "Gives reasons for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one piece is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "City",
-      "gives": "EC",
-      "note": "EC is the postcode for the City of London"
-     },
-     {
-      "clueFragment": "times",
-      "gives": "X",
-      "note": "x is the multiplication sign"
-     },
-     {
-      "clueFragment": "employments",
-      "gives": "USES",
-      "note": "uses are employments of something"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "X",
-      "C",
-      "USES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one piece is placed inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "City",
+         "gives": "EC",
+         "note": "EC is the postcode for the City of London"
+        },
+        {
+         "words": "times",
+         "gives": "X",
+         "note": "x is the multiplication sign"
+        }
+       ]
+      },
+      {
+       "words": "employments",
+       "gives": "USES",
+       "note": "uses are employments of something"
+      }
      ]
     },
     "explanation": {
@@ -1105,57 +961,51 @@
    },
    "solution": "CHADBAND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "CHADBAND",
     "definitions": [
      {
       "text": "5 in 9 29",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "capital of",
-      "for": "letter_selection",
-      "note": "a capital here is the first letter of the word"
-     },
-     {
-      "text": "round",
-      "for": "container",
-      "note": "going round something encloses it"
-     }
-    ],
-    "linkWords": [
-     "leading"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a scoundrel",
-      "gives": "CAD",
-      "note": "a cad is a dishonourable man"
-     },
-     {
-      "clueFragment": "Hungary",
-      "gives": "H",
-      "select": "first",
-      "note": "first letter of Hungary"
-     },
-     {
-      "clueFragment": "people",
-      "gives": "BAND",
-      "note": "a band is a group of people"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "H",
-      "AD",
-      "BAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "note": "going round something encloses it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a scoundrel",
+         "gives": "CAD",
+         "note": "a cad is a dishonourable man"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital of",
+           "note": "a capital here is the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Hungary",
+           "note": "first letter of Hungary"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "people",
+       "gives": "BAND",
+       "note": "a band is a group of people"
+      }
      ]
     },
     "explanation": {
@@ -1184,48 +1034,41 @@
    },
    "solution": "STIGGINS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "STIGGINS",
     "definitions": [
      {
       "text": "5 in 9 29's",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not new",
-      "for": "deletion",
-      "note": "not means without, so the abbreviation for new is removed"
-     }
-    ],
-    "linkWords": [
-     "when given"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "painful sensation",
-      "gives": "STING",
-      "note": "a sting is a sharp pain"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "N abbreviates new and is taken out"
-     },
-     {
-      "clueFragment": "drinks",
-      "gives": "GINS",
-      "note": "gins are drinks"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STIG",
-      "GINS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not new",
+         "note": "not means without, so the abbreviation for new is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painful sensation",
+         "gives": "STING",
+         "note": "a sting is a sharp pain"
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "N abbreviates new and is taken out"
+        }
+       ]
+      },
+      {
+       "words": "drinks",
+       "gives": "GINS",
+       "note": "gins are drinks"
+      }
      ]
     },
     "explanation": {
@@ -1254,35 +1097,25 @@
    },
    "solution": "DEFROCK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "DEFROCK",
     "definitions": [
      {
       "text": "detract from religious role",
       "at": 34
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Excellent",
-      "gives": "DEF",
-      "note": "def is slang for excellent"
-     },
-     {
-      "clueFragment": "modern popular music",
-      "gives": "ROCK",
-      "note": "rock is a genre of modern popular music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEF",
-      "ROCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Excellent",
+       "gives": "DEF",
+       "note": "def is slang for excellent"
+      },
+      {
+       "words": "modern popular music",
+       "gives": "ROCK",
+       "note": "rock is a genre of modern popular music"
+      }
      ]
     },
     "explanation": {
@@ -1316,35 +1149,25 @@
    },
    "solution": "FACEPACK",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FACE PACK",
     "definitions": [
      {
       "text": "Cosmetic",
       "at": 0
      }
     ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "challenge",
-      "gives": "FACE",
-      "note": "to face is to confront or challenge"
-     },
-     {
-      "clueFragment": "the cards?",
-      "gives": "PACK",
-      "note": "a pack is a set of playing cards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FACE",
-      "PACK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "challenge",
+       "gives": "FACE",
+       "note": "to face is to confront or challenge"
+      },
+      {
+       "words": "the cards?",
+       "gives": "PACK",
+       "note": "a pack is a set of playing cards"
+      }
      ]
     },
     "explanation": {
@@ -1374,35 +1197,25 @@
    },
    "solution": "REAPPOINT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "REAPPOINT",
     "definitions": [
      {
       "text": "return to job",
       "at": 29
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gather",
-      "gives": "REAP",
-      "note": "to reap is to gather a harvest"
-     },
-     {
-      "clueFragment": "at critical moment",
-      "gives": "POINT",
-      "note": "a point is a crucial moment, as in 'at that point'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "REAP",
-      "POINT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gather",
+       "gives": "REAP",
+       "note": "to reap is to gather a harvest"
+      },
+      {
+       "words": "at critical moment",
+       "gives": "POINT",
+       "note": "a point is a crucial moment, as in 'at that point'"
+      }
      ]
     },
     "explanation": {
@@ -1430,46 +1243,39 @@
    },
    "solution": "PATOIS",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PATOIS",
     "definitions": [
      {
       "text": "local dialect",
       "at": 21
      }
     ],
-    "indicators": [
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means keeping inside, so one piece is enclosed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Father",
-      "gives": "PA",
-      "note": "pa is a familiar word for father"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PA",
-      "TO",
-      "IS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "note": "holding means keeping inside, so one piece is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Father",
+         "gives": "PA",
+         "note": "pa is a familiar word for father"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1497,51 +1303,40 @@
    },
    "solution": "TIRADE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TIRADE",
     "definitions": [
      {
       "text": "harangue",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "taking in",
-      "for": "container",
-      "note": "taking in means absorbing, so the pieces are placed inside"
-     }
-    ],
-    "linkWords": [
-     "after",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weary",
-      "gives": "TIRE",
-      "note": "to tire is to grow weary"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "duke",
-      "gives": "D",
-      "note": "D is the abbreviation for duke"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TIR",
-      "A",
-      "D",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "note": "taking in means absorbing, so the pieces are placed inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Weary",
+       "gives": "TIRE",
+       "note": "to tire is to grow weary"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "duke",
+         "gives": "D",
+         "note": "D is the abbreviation for duke"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1569,40 +1364,31 @@
    },
    "solution": "COMTE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COMTE",
     "definitions": [
      {
       "text": "French nobleman",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "About",
-      "for": "container",
-      "note": "about means around, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to turn up",
-      "gives": "COME",
-      "note": "to come is to arrive or appear"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COM",
-      "T",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "About",
+       "note": "about means around, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to turn up",
+       "gives": "COME",
+       "note": "to come is to arrive or appear"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -1630,46 +1416,45 @@
    },
    "solution": "MILVEY",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "MILVEY",
     "definitions": [
      {
       "text": "5 in 9 29",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not initially",
-      "for": "deletion",
-      "note": "not initially means the first letter is dropped"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece surrounds the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cheerful",
-      "gives": "SMILEY",
-      "note": "smiley means cheerful, and its first letter is dropped"
-     },
-     {
-      "clueFragment": "volume",
-      "gives": "V",
-      "note": "V is the abbreviation for volume"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MIL",
-      "V",
-      "EY"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece surrounds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not initially",
+         "note": "not initially means the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheerful",
+         "gives": "SMILEY",
+         "note": "smiley means cheerful, and its first letter is dropped"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "volume",
+       "gives": "V",
+       "note": "V is the abbreviation for volume"
+      }
      ]
     },
     "explanation": {
@@ -1698,40 +1483,31 @@
    },
    "solution": "ORBIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ORBIT",
     "definitions": [
      {
       "text": "Sphere of activity",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "included in",
-      "for": "container",
-      "note": "something included in another goes inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "words commemorating life",
-      "gives": "OBIT",
-      "note": "an obit is an obituary"
-     },
-     {
-      "clueFragment": "Rector",
-      "gives": "R",
-      "note": "R is the abbreviation for rector"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "R",
-      "BIT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included in",
+       "note": "something included in another goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "words commemorating life",
+       "gives": "OBIT",
+       "note": "an obit is an obituary"
+      },
+      {
+       "words": "Rector",
+       "gives": "R",
+       "note": "R is the abbreviation for rector"
+      }
      ]
     },
     "explanation": {
@@ -1759,61 +1535,53 @@
    },
    "solution": "GYROPILOT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "charade"
-    ],
-    "answer": "GYROPILOT",
     "definitions": [
      {
       "text": "Ship's compass",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning to",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter"
-     },
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "working means being put into action, with the letters reorganised"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "guide",
-      "gives": "G",
-      "select": "first",
-      "note": "first letter of guide"
-     },
-     {
-      "clueFragment": "poorly",
-      "gives": "POORLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "it",
-      "gives": "IT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "YROPILOT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "POORLYIT",
-       "gives": "YROPILOT"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guide",
+         "note": "first letter of guide"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "note": "working means being put into action, with the letters reorganised"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "poorly",
+           "note": "taken as written"
+          },
+          {
+           "words": "it",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1843,30 +1611,28 @@
    },
    "solution": "TEST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "TEST",
     "definitions": [
      {
       "text": "Sample",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "extract of",
-      "for": "hidden_word",
-      "note": "an extract is a part taken out of something larger, here a run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "prelate's theology",
-      "gives": "TEST",
-      "note": "the letters run across the end of one word into the next"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "extract of",
+       "note": "an extract is a part taken out of something larger, here a run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prelate's theology",
+       "gives": "TEST",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A sample passage taken from a bishop's religious writings.",
      "definitionFit": "As a verb, to sample something is to try it out, which is what a test does."
@@ -1892,51 +1658,39 @@
    },
    "solution": "TENSION",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TENSION",
     "definitions": [
      {
       "text": "anxious state",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "returning",
-      "for": "reversal",
-      "note": "returning means going back, so the words are read from right to left"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Refusal",
-      "gives": "NO",
-      "note": "no is a refusal"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "clear",
-      "gives": "NET",
-      "note": "net means clear, as in clear profit after deductions"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEN",
-      "SI",
-      "ON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NOISNET",
-       "to": "TENSION"
+       "text": "returning",
+       "note": "returning means going back, so the words are read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Refusal",
+         "gives": "NO",
+         "note": "no is a refusal"
+        },
+        {
+         "words": "is",
+         "note": "taken as written"
+        },
+        {
+         "words": "clear",
+         "gives": "NET",
+         "note": "net means clear, as in clear profit after deductions"
+        }
+       ]
       }
      ]
     },

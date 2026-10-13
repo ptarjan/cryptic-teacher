@@ -1,8 +1,7 @@
 {
  "id": "cryptic-27393",
  "number": 27393,
- "series": "cryptic",
- "name": "Prize crossword No 27,393",
+ "prize": true,
  "setter": "Paul",
  "date": "2017-12-30",
  "dimensions": {
@@ -38,12 +37,6 @@
    },
    "solution": "MONDALE",
    "annotation": {
-    "type": [
-     "deletion",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MONDALE",
     "definitions": [
      {
       "text": "24",
@@ -51,38 +44,42 @@
       "note": "24 is VICE, read here as vice-president"
      }
     ],
-    "indicators": [
-     {
-      "text": "of 20 hours?",
-      "for": "deletion",
-      "note": "twenty hours is only five-sixths of a full day, so the day word loses a sixth of its letters"
-     },
-     {
-      "text": "extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two ends, so only its outermost letters are kept"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "period",
-      "gives": "MONDA",
-      "note": "Monday is a day-long period; cut to five of its six letters it matches a 20-hour stretch"
-     },
-     {
-      "clueFragment": "late",
-      "gives": "LE",
-      "select": "outer",
-      "note": "the first and last letters of 'late'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MONDA",
-      "LE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "MONDALE",
+     "indicators": [
+      {
+       "text": "of 20 hours?",
+       "note": "twenty hours is only five-sixths of a full day, so the day word loses a sixth of its letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "period",
+         "gives": "MONDA",
+         "note": "Monday is a day-long period; cut to five of its six letters it matches a 20-hour stretch"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extremely",
+           "note": "the extremes of a word are its two ends, so only its outermost letters are kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "late",
+           "note": "the first and last letters of 'late'"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -112,47 +109,41 @@
    },
    "solution": "MALICE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "MALICE",
     "definitions": [
      {
       "text": "Venom",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "'initially' means at the start, so each word gives up only its opening letter"
-     },
-     {
-      "text": "collected by",
-      "for": "container",
-      "note": "whatever is collected is gathered up and held, so one piece ends up inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "boy, say",
-      "gives": "MALE",
-      "note": "a boy is an example of a male, hence 'say'"
-     },
-     {
-      "clueFragment": "in cobras",
-      "gives": "IC",
-      "select": "first",
-      "note": "first letters of 'in' and 'cobras'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAL",
-      "IC",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collected by",
+       "note": "whatever is collected is gathered up and held, so one piece ends up inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy, say",
+       "gives": "MALE",
+       "note": "a boy is an example of a male, hence 'say'"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "'initially' means at the start, so each word gives up only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in cobras",
+         "note": "first letters of 'in' and 'cobras'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -187,62 +178,57 @@
    },
    "solution": "NOMORE",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "reversal"
-    ],
-    "answer": "NO MORE",
     "definitions": [
      {
       "text": "departed",
       "at": 60
      }
     ],
-    "indicators": [
-     {
-      "text": "abandoning",
-      "for": "deletion",
-      "note": "to abandon something is to leave it behind, so those letters are dropped"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     },
-     {
-      "text": "on the rise",
-      "for": "reversal",
-      "note": "in a down entry, rising means reading from the bottom up, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "African country",
-      "gives": "CAMEROON",
-      "note": "the West African country"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "CAM",
-      "note": "the Cam is the river through Cambridge"
-     },
-     {
-      "clueFragment": "A thousand",
-      "gives": "M",
-      "note": "M is the Roman numeral for a thousand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "M",
-      "ORE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EROMON",
-       "to": "NOMORE"
+       "text": "on the rise",
+       "note": "in a down entry, rising means reading from the bottom up, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one item placed in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "abandoning",
+           "note": "to abandon something is to leave it behind, so those letters are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "African country",
+           "gives": "CAMEROON",
+           "note": "the West African country"
+          },
+          {
+           "words": "river",
+           "gives": "CAM",
+           "note": "the Cam is the river through Cambridge"
+          }
+         ]
+        },
+        {
+         "words": "A thousand",
+         "gives": "M",
+         "note": "M is the Roman numeral for a thousand"
+        }
+       ]
       }
      ]
     },
@@ -272,47 +258,44 @@
    },
    "solution": "ASTROLOGER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "ASTROLOGER",
     "definitions": [
      {
       "text": "Sign reader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "something lost has wandered from its proper place, so the letters are out of order"
-     },
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "'ultimately' means in the end, so only the final letter of the word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ergo a lost",
-      "gives": "ERGOALOST",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "traveller",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of 'traveller'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ERGOALOSTR",
-       "gives": "ASTROLOGER"
+       "text": "lost",
+       "note": "something lost has wandered from its proper place, so the letters are out of order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ergo a lost",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "note": "'ultimately' means in the end, so only the final letter of the word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "traveller",
+           "note": "last letter of 'traveller'"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -343,38 +326,25 @@
    },
    "solution": "ELFIN",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ELFIN",
     "definitions": [
      {
       "text": "Slight",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conclusions",
-      "for": "letter_selection",
-      "note": "a conclusion is an ending, so each word contributes just its closing letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mistake: all of Saudi Arabian",
-      "gives": "ELFIN",
-      "select": "last",
-      "note": "last letters of the five words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "L",
-      "F",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "conclusions",
+       "note": "a conclusion is an ending, so each word contributes just its closing letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mistake: all of Saudi Arabian",
+       "note": "last letters of the five words"
+      }
      ]
     },
     "explanation": {
@@ -403,40 +373,31 @@
    },
    "solution": "FAILING",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FAILING",
     "definitions": [
      {
       "text": "defect",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "to conceal is to hide something within, so one piece wraps around another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Project",
-      "gives": "FLING",
-      "note": "to fling is to project or hurl"
-     },
-     {
-      "clueFragment": "road",
-      "gives": "AI",
-      "note": "the A1 is Britain's longest numbered road, written AI in crosswords"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "AI",
-      "LING"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "note": "to conceal is to hide something within, so one piece wraps around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Project",
+       "gives": "FLING",
+       "note": "to fling is to project or hurl"
+      },
+      {
+       "words": "road",
+       "gives": "AI",
+       "note": "the A1 is Britain's longest numbered road, written AI in crosswords"
+      }
      ]
     },
     "explanation": {
@@ -471,35 +432,25 @@
    },
    "solution": "FIREDRILL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FIRE DRILL",
     "definitions": [
      {
       "text": "safety procedure",
       "at": 16
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shoot",
-      "gives": "FIRE",
-      "note": "to shoot a gun is to fire it"
-     },
-     {
-      "clueFragment": "monkey",
-      "gives": "DRILL",
-      "note": "the drill is a West African baboon, related to the mandrill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIRE",
-      "DRILL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shoot",
+       "gives": "FIRE",
+       "note": "to shoot a gun is to fire it"
+      },
+      {
+       "words": "monkey",
+       "gives": "DRILL",
+       "note": "the drill is a West African baboon, related to the mandrill"
+      }
      ]
     },
     "explanation": {
@@ -529,50 +480,46 @@
    },
    "solution": "IBIS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "IBIS",
     "definitions": [
      {
       "text": "bird",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "but not",
-      "for": "deletion",
-      "note": "'but not' excludes something, so the named letters are taken away"
-     },
-     {
-      "text": "put on",
-      "for": "charade",
-      "note": "in a down entry, what is put on something sits above it, so it comes first"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "gravy",
-      "gives": "BISTO",
-      "note": "Bisto is a long-established British brand of gravy granules"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "BIS"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "note": "in a down entry, what is put on something sits above it, so it comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "note": "'but not' excludes something, so the named letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gravy",
+         "gives": "BISTO",
+         "note": "Bisto is a long-established British brand of gravy granules"
+        },
+        {
+         "words": "to",
+         "note": "taken as written"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -601,65 +548,59 @@
    },
    "solution": "INDULGES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container",
-     "charade"
-    ],
-    "answer": "INDULGES",
     "definitions": [
      {
       "text": "Pampers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "emptied",
-      "for": "letter_selection",
-      "note": "an emptied word has lost its contents, so only its outer letters remain"
-     },
-     {
-      "text": "sticky",
-      "for": "anagram",
-      "note": "a sticky situation is an awkward mess, so these letters are messed about"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "a thing put in another sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written; it also places the mixed letters"
-     },
-     {
-      "clueFragment": "diapers",
-      "gives": "DS",
-      "select": "outer",
-      "note": "the first and last letters of 'diapers'"
-     },
-     {
-      "clueFragment": "glue",
-      "gives": "GLUE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "D",
-      "ULGE",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "GLUE",
-       "gives": "ULGE"
+       "words": "in",
+       "note": "taken as written; it also places the mixed letters"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "a thing put in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "emptied",
+           "note": "an emptied word has lost its contents, so only its outer letters remain"
+          }
+         ],
+         "parts": [
+          {
+           "words": "diapers",
+           "note": "the first and last letters of 'diapers'"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "sticky",
+           "note": "a sticky situation is an awkward mess, so these letters are messed about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "glue",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -690,41 +631,37 @@
    },
    "solution": "GANGWAYS",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "GANGWAYS",
     "definitions": [
      {
       "text": "Passages",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "recited",
-      "for": "homophone",
-      "note": "something recited is spoken out, so it is the pronunciation that counts, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "mob",
-      "gives": "GANG",
-      "note": "a mob is a gang"
-     },
-     {
-      "clueFragment": "considers",
-      "gives": "WAYS",
-      "soundsLike": "WEIGHS",
-      "note": "to weigh something up is to consider it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GANG",
-      "WAYS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "mob",
+       "gives": "GANG",
+       "note": "a mob is a gang"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WAYS",
+       "indicators": [
+        {
+         "text": "recited",
+         "note": "something recited is spoken out, so it is the pronunciation that counts, not the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "considers",
+         "gives": "WEIGHS",
+         "note": "to weigh something up is to consider it"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -753,40 +690,31 @@
    },
    "solution": "LIMIT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIMIT",
     "definitions": [
      {
       "text": "Bound",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "inside",
-      "for": "container",
-      "note": "'inside' places one thing within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "books",
-      "gives": "LIT",
-      "note": "LIT is short for literature, a body of books"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "MI",
-      "note": "mi is the third note of the sol-fa scale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LI",
-      "MI",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "note": "'inside' places one thing within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "books",
+       "gives": "LIT",
+       "note": "LIT is short for literature, a body of books"
+      },
+      {
+       "words": "note",
+       "gives": "MI",
+       "note": "mi is the third note of the sol-fa scale"
+      }
      ]
     },
     "explanation": {
@@ -815,50 +743,41 @@
    },
    "solution": "FORBIDDEN",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "FORBIDDEN",
     "definitions": [
      {
       "text": "out of bounds",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "one item placed in another sits inside it"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "backing",
-      "gives": "FOR",
-      "note": "to back a cause is to be for it"
-     },
-     {
-      "clueFragment": "24",
-      "gives": "BIDEN",
-      "note": "24 is VICE; Joe Biden was vice-president under Barack Obama"
-     },
-     {
-      "clueFragment": "Democrat",
-      "gives": "D",
-      "note": "D is the abbreviation for a US Democrat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FOR",
-      "BID",
-      "D",
-      "EN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "backing",
+       "gives": "FOR",
+       "note": "to back a cause is to be for it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "one item placed in another sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "24",
+         "gives": "BIDEN",
+         "note": "24 is VICE; Joe Biden was vice-president under Barack Obama"
+        },
+        {
+         "words": "Democrat",
+         "gives": "D",
+         "note": "D is the abbreviation for a US Democrat"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -887,51 +806,41 @@
    },
    "solution": "CARBONNADE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "CARBONNADE",
     "definitions": [
      {
       "text": "stew",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "encapsulated by",
-      "for": "container",
-      "note": "a capsule encloses its contents, so one piece is wrapped by the other"
-     },
-     {
-      "text": "combination of",
-      "for": "anagram",
-      "note": "a combination mixes things together, so the letters are blended into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "corn and bean",
-      "gives": "CORNBEAN",
-      "note": "the two words taken together; 'and' just joins them"
-     },
-     {
-      "clueFragment": "Bill",
-      "gives": "AD",
-      "note": "a bill is a poster or advertisement, AD for short"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CARBONN",
-      "AD",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "CORNBEAN",
-       "gives": "CARBONNE"
+       "text": "encapsulated by",
+       "note": "a capsule encloses its contents, so one piece is wrapped by the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "combination of",
+         "note": "a combination mixes things together, so the letters are blended into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corn and bean",
+         "gives": "CORNBEAN",
+         "note": "the two words taken together; 'and' just joins them"
+        }
+       ]
+      },
+      {
+       "words": "Bill",
+       "gives": "AD",
+       "note": "a bill is a poster or advertisement, AD for short"
       }
      ]
     },
@@ -961,10 +870,6 @@
    },
    "solution": "FLAW",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "FLAW",
     "definitions": [
      {
       "text": "5 across",
@@ -972,21 +877,23 @@
       "note": "5 across is FAILING, used as a noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "By the sound of it",
-      "for": "homophone",
-      "note": "the phrase asks the solver to judge by the ear, so pronunciation matters rather than spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "puzzle",
-      "gives": "FLAW",
-      "soundsLike": "FLOOR",
-      "note": "to floor someone is to baffle or puzzle them"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FLAW",
+     "indicators": [
+      {
+       "text": "By the sound of it",
+       "note": "the phrase asks the solver to judge by the ear, so pronunciation matters rather than spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "puzzle",
+       "gives": "FLOOR",
+       "note": "to floor someone is to baffle or puzzle them"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A puzzle judged by how it sounds reading 5 across.",
      "walkthrough": "In non-rhotic British speech FLOOR and the answer sound alike. 'puzzle' is a verb, as in to stump.",
@@ -1019,31 +926,29 @@
    },
    "solution": "HAIRRAISER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "HAIR-RAISER",
     "definitions": [
      {
       "text": "Terrifying thing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "did you say?",
-      "for": "homophone",
-      "note": "asking what was said points to speech, so only the sound of the words counts"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that may skin something like a rabbit",
-      "gives": "HAIRRAISER",
-      "soundsLike": "HARE RAZOR",
-      "note": "a razor for a hare, an animal much like a rabbit"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HAIRRAISER",
+     "indicators": [
+      {
+       "text": "did you say?",
+       "note": "asking what was said points to speech, so only the sound of the words counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that may skin something like a rabbit",
+       "gives": "HARERAZOR",
+       "note": "a razor for a hare, an animal much like a rabbit"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A frightening blade for skinning rabbits, as the listener seems to have heard.",
      "walkthrough": "A hare is a rabbit-like animal and a razor could skin it, so HARE RAZOR is what is said aloud.",
@@ -1071,35 +976,24 @@
    },
    "solution": "OBSTINATELY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OBSTINATELY",
     "definitions": [
      {
       "text": "in stubborn manner",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "developing",
-      "for": "anagram",
-      "note": "something developing is changing its form, so the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Noisy battle",
-      "gives": "NOISYBATTLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOISYBATTLE",
-       "gives": "OBSTINATELY"
+       "text": "developing",
+       "note": "something developing is changing its form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Noisy battle",
+       "note": "taken as written"
       }
      ]
     },
@@ -1129,40 +1023,33 @@
    },
    "solution": "STEGOSAUR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STEGOSAUR",
     "definitions": [
      {
       "text": "Old herbivore",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "wiggling",
-      "for": "anagram",
-      "note": "wiggling things are jiggled about, so their letters move into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ears",
-      "gives": "EARS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gusto",
-      "gives": "GUSTO",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "EARSGUSTO",
-       "gives": "STEGOSAUR"
+       "text": "wiggling",
+       "note": "wiggling things are jiggled about, so their letters move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ears",
+         "note": "taken as written"
+        },
+        {
+         "words": "gusto",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1198,47 +1085,40 @@
    },
    "solution": "GREENTEA",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "GREEN TEA",
     "definitions": [
      {
       "text": "drink",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "to feed",
-      "for": "container",
-      "note": "food fed to someone goes inside them, so one piece is put into another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "author",
-      "gives": "GREENE",
-      "note": "Graham Greene, the English novelist"
-     },
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "T",
-      "E",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to feed",
+         "note": "food fed to someone goes inside them, so one piece is put into another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "author",
+         "gives": "GREENE",
+         "note": "Graham Greene, the English novelist"
+        },
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -1267,10 +1147,6 @@
    },
    "solution": "ACCIDENT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ACCIDENT",
     "definitions": [
      {
       "text": "that's unfortunate",
@@ -1278,30 +1154,25 @@
       "note": "the phrase stands for a noun: something unfortunate"
      }
     ],
-    "indicators": [
-     {
-      "text": "hampered by",
-      "for": "container",
-      "note": "a hamper is a lidded basket, so one piece is packed inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stress",
-      "gives": "ACCENT",
-      "note": "an accent is stress on a syllable"
-     },
-     {
-      "clueFragment": "Part of the mind",
-      "gives": "ID",
-      "note": "in Freud's model the id is the instinctive part of the psyche"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ACC",
-      "ID",
-      "ENT"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hampered by",
+       "note": "a hamper is a lidded basket, so one piece is packed inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stress",
+       "gives": "ACCENT",
+       "note": "an accent is stress on a syllable"
+      },
+      {
+       "words": "Part of the mind",
+       "gives": "ID",
+       "note": "in Freud's model the id is the instinctive part of the psyche"
+      }
      ]
     },
     "explanation": {
@@ -1330,10 +1201,6 @@
    },
    "solution": "ROCKEFELLER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ROCKEFELLER",
     "definitions": [
      {
       "text": "24",
@@ -1341,31 +1208,24 @@
       "note": "24 is VICE, read here as vice-president"
      }
     ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pitch",
-      "gives": "ROCK",
-      "note": "a ship pitches and rocks at sea"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "FELLER",
-      "note": "feller is a colloquial spelling of fellow, a man"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ROCK",
-      "E",
-      "FELLER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pitch",
+       "gives": "ROCK",
+       "note": "a ship pitches and rocks at sea"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "man",
+       "gives": "FELLER",
+       "note": "feller is a colloquial spelling of fellow, a man"
+      }
      ]
     },
     "explanation": {
@@ -1394,10 +1254,6 @@
    },
    "solution": "QUAYLE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "QUAYLE",
     "definitions": [
      {
       "text": "24",
@@ -1405,21 +1261,23 @@
       "note": "24 is VICE, read here as vice-president"
      }
     ],
-    "indicators": [
-     {
-      "text": "listening to",
-      "for": "homophone",
-      "note": "listening attends to the ear, so the answer is found by sound, not spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shrink",
-      "gives": "QUAYLE",
-      "soundsLike": "QUAIL",
-      "note": "to quail is to shrink back in fear"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "QUAYLE",
+     "indicators": [
+      {
+       "text": "listening to",
+       "note": "listening attends to the ear, so the answer is found by sound, not spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shrink",
+       "gives": "QUAIL",
+       "note": "to quail is to shrink back in fear"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A vice-president in therapy, listening to his psychiatrist.",
      "walkthrough": "'shrink' suggests a psychiatrist, but it is the verb, to cower.",
@@ -1447,10 +1305,6 @@
    },
    "solution": "GALORE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GALORE",
     "definitions": [
      {
       "text": "Everywhere",
@@ -1458,33 +1312,25 @@
       "note": "adverb meaning in abundance; the answer follows its noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "pinching",
-      "for": "container",
-      "note": "to pinch is to grip between fingers, so one piece holds another"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "24",
-      "gives": "GORE",
-      "note": "24 is VICE; Al Gore was vice-president under Bill Clinton"
-     },
-     {
-      "clueFragment": "himself",
-      "gives": "AL",
-      "note": "the man himself is Al, Gore's first name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "AL",
-      "ORE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "note": "to pinch is to grip between fingers, so one piece holds another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "24",
+       "gives": "GORE",
+       "note": "24 is VICE; Al Gore was vice-president under Bill Clinton"
+      },
+      {
+       "words": "himself",
+       "gives": "AL",
+       "note": "the man himself is Al, Gore's first name"
+      }
      ]
     },
     "explanation": {
@@ -1514,10 +1360,6 @@
    },
    "solution": "EVIL",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "EVIL",
     "definitions": [
      {
       "text": "24",
@@ -1525,28 +1367,19 @@
       "note": "24 is VICE, read here as wickedness"
      }
     ],
-    "indicators": [
-     {
-      "text": "to return",
-      "for": "reversal",
-      "note": "returning goes back the way it came, so the letters run backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "last",
-      "gives": "LIVE",
-      "note": "to last is to live on or survive"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVIL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "LIVE",
-       "to": "EVIL"
+       "text": "to return",
+       "note": "returning goes back the way it came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "last",
+       "gives": "LIVE",
+       "note": "to last is to live on or survive"
       }
      ]
     },
@@ -1576,40 +1409,34 @@
    },
    "solution": "COLORATURA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "COLORATURA",
     "definitions": [
      {
       "text": "Embellished passage",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fanciful",
-      "for": "anagram",
-      "note": "fanciful means imaginative and fantastical, so the letters are freely reimagined"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "actual",
-      "gives": "ACTUAL",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "or doubly",
-      "gives": "OROR",
-      "note": "'or' taken twice, as 'doubly' says"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ACTUALOROR",
-       "gives": "COLORATURA"
+       "text": "fanciful",
+       "note": "fanciful means imaginative and fantastical, so the letters are freely reimagined"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "actual",
+         "note": "taken as written"
+        },
+        {
+         "words": "or doubly",
+         "gives": "OROR",
+         "note": "'or' taken twice, as 'doubly' says"
+        }
+       ]
       }
      ]
     },
@@ -1639,32 +1466,25 @@
    },
    "solution": "ONSET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ONSET",
     "definitions": [
      {
       "text": "beginning",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Working",
-      "gives": "ON",
-      "note": "a machine that is on is working"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "SET",
-      "note": "a set is a class or group, as in a school set"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ON",
-      "SET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Working",
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      },
+      {
+       "words": "class",
+       "gives": "SET",
+       "note": "a set is a class or group, as in a school set"
+      }
      ]
     },
     "explanation": {
@@ -1693,29 +1513,17 @@
    },
    "solution": "VICE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "VICE",
     "definitions": [
      {
       "text": "Tool",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a clamp for holding work steady on a bench"
      },
      {
       "text": "5 across",
       "at": 5,
-      "note": "5 across is FAILING, a noun"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tool",
-      "note": "first meaning: a clamp for holding work steady on a bench"
-     },
-     {
-      "clueFragment": "5 across",
-      "note": "second meaning: a moral weakness or bad habit"
+      "note": "5 across is FAILING, a noun",
+      "meaning": "second meaning: a moral weakness or bad habit"
      }
     ],
     "explanation": {
@@ -1748,69 +1556,70 @@
    },
    "solution": "THERIVALS",
    "annotation": {
-    "type": [
-     "deletion",
-     "container",
-     "reversal",
-     "charade"
-    ],
-    "answer": "THE RIVALS",
     "definitions": [
      {
       "text": "play",
       "at": 53
      }
     ],
-    "indicators": [
-     {
-      "text": "short",
-      "for": "deletion",
-      "note": "something cut short has lost its end, so the last letter goes"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "a thing placed in another sits inside it"
-     },
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns things round, so the letters are read backwards"
-     },
-     {
-      "text": "following",
-      "for": "charade",
-      "note": "what follows comes after, so this piece is placed at the end"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this",
-      "gives": "THI",
-      "note": "'this' with its last letter cut"
-     },
-     {
-      "clueFragment": "queen",
-      "gives": "ER",
-      "note": "ER, Elizabeth Regina, is the Queen"
-     },
-     {
-      "clueFragment": "European",
-      "gives": "SLAV",
-      "note": "a Slav is a European of Slavic stock"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TH",
-      "ER",
-      "I",
-      "VALS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "THERIVALS",
+     "indicators": [
       {
-       "from": "SLAV",
-       "to": "VALS"
+       "text": "short",
+       "note": "something cut short has lost its end, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "note": "what follows comes after, so this piece is placed at the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "note": "a thing placed in another sits inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "this",
+           "gives": "THI",
+           "note": "'this' with its last letter cut"
+          },
+          {
+           "words": "queen",
+           "gives": "ER",
+           "note": "ER, Elizabeth Regina, is the Queen"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "revolutionary",
+           "note": "a revolution turns things round, so the letters are read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "European",
+           "gives": "SLAV",
+           "note": "a Slav is a European of Slavic stock"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1846,28 +1655,16 @@
    },
    "solution": "SAYSO",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SAY-SO",
     "definitions": [
      {
       "text": "Authority",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the power to decide or permit"
      },
      {
       "text": "to get broadcast?",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Authority",
-      "note": "first meaning: the power to decide or permit"
-     },
-     {
-      "clueFragment": "to get broadcast?",
-      "note": "second meaning, read as two words: to put something into words publicly"
+      "at": 10,
+      "meaning": "second meaning, read as two words: to put something into words publicly"
      }
     ],
     "explanation": {
@@ -1896,67 +1693,67 @@
    },
    "solution": "ANTBEAR",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "ANTBEAR",
     "definitions": [
      {
       "text": "Aardvark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "'originally' means in the first place, so each word gives up its opening letter"
-     },
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter, which alone is kept"
-     },
-     {
-      "text": "coming in",
-      "for": "container",
-      "note": "arriving in something means ending up inside it"
-     },
-     {
-      "text": "behind",
-      "for": "charade",
-      "note": "what is behind comes after, so this piece is placed second"
-     }
-    ],
-    "linkWords": [
-     "—"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "alphabet",
-      "gives": "A",
-      "select": "first",
-      "note": "the first letter of 'alphabet'"
-     },
-     {
-      "clueFragment": "close",
-      "gives": "NEAR",
-      "note": "close by means near"
-     },
-     {
-      "clueFragment": "this beast",
-      "gives": "TB",
-      "select": "first",
-      "note": "first letters of 'this' and 'beast'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "TB",
-      "EAR"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind",
+       "note": "what is behind comes after, so this piece is placed second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "'originally' means in the first place, so each word gives up its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alphabet",
+         "note": "the first letter of 'alphabet'"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming in",
+         "note": "arriving in something means ending up inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close",
+         "gives": "NEAR",
+         "note": "close by means near"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "the start of a word is its first letter, which alone is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "this beast",
+           "note": "first letters of 'this' and 'beast'"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1985,41 +1782,36 @@
    },
    "solution": "TERRENE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "TERRENE",
     "definitions": [
      {
       "text": "Mundane",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "letters from",
-      "for": "hidden_word",
-      "note": "taking letters from a run of words means the answer is a stretch lifted out of them"
-     },
-     {
-      "text": "sent back",
-      "for": "reversal",
-      "note": "what is sent back travels the opposite way, so it is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "listener (retired)",
-      "gives": "ENERRET",
-      "note": "consecutive letters spanning the two words"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ENERRET",
-       "to": "TERRENE"
+       "text": "sent back",
+       "note": "what is sent back travels the opposite way, so it is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "letters from",
+         "note": "taking letters from a run of words means the answer is a stretch lifted out of them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "listener (retired)",
+         "gives": "ENERRET",
+         "note": "consecutive letters spanning the two words"
+        }
+       ]
       }
      ]
     },

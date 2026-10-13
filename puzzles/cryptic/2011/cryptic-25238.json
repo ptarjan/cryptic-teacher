@@ -1,8 +1,7 @@
 {
  "id": "cryptic-25238",
  "number": 25238,
- "series": "cryptic",
- "name": "Prize crossword No 25,238",
+ "prize": true,
  "setter": "Brummie",
  "date": "2011-02-05",
  "preamble": "Ten solutions have something in common; their clues lack a definition.",
@@ -39,33 +38,26 @@
    },
    "solution": "WEIR",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "WEIR",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "ditched",
-      "for": "deletion",
-      "note": "something ditched is thrown away, so a letter is dropped from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Strange",
-      "gives": "WEIRD",
-      "note": "strange means weird"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D is the standard abbreviation for date"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WEIR"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ditched",
+       "note": "something ditched is thrown away, so a letter is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Strange",
+       "gives": "WEIRD",
+       "note": "strange means weird"
+      },
+      {
+       "words": "date",
+       "gives": "D",
+       "note": "D is the standard abbreviation for date"
+      }
      ]
     },
     "explanation": {
@@ -94,51 +86,51 @@
    },
    "solution": "FREEHAND",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "FREEHAND",
     "definitions": [
      {
       "text": "executed naturally",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "I lost",
-      "for": "deletion",
-      "note": "a letter that is lost goes missing, so it is taken out of the fodder"
-     },
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "letters that are lost have wandered off their route, so they come back in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "friend",
-      "gives": "FRIEND",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "he",
-      "gives": "HE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "AFRENDHE",
-       "gives": "FREEHAND"
+       "text": "lost",
+       "note": "letters that are lost have wandered off their route, so they come back in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "I lost",
+         "note": "a letter that is lost goes missing, so it is taken out of the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "note": "taken as written"
+          },
+          {
+           "words": "friend",
+           "note": "taken as written"
+          },
+          {
+           "words": "he",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
@@ -169,44 +161,34 @@
    },
    "solution": "PISTON",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "PISTON",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down entry, going up means reading from bottom to top, so the string runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "No",
-      "gives": "NO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the usual abbreviation for time"
-     },
-     {
-      "clueFragment": "to drink",
-      "gives": "SIP",
-      "note": "to sip is to drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PISTON"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "NOTSIP",
-       "to": "PISTON"
+       "text": "up",
+       "note": "in a down entry, going up means reading from bottom to top, so the string runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No",
+         "note": "taken as written"
+        },
+        {
+         "words": "time",
+         "gives": "T",
+         "note": "T is the usual abbreviation for time"
+        },
+        {
+         "words": "to drink",
+         "gives": "SIP",
+         "note": "to sip is to drink"
+        }
+       ]
       }
      ]
     },
@@ -236,28 +218,16 @@
    },
    "solution": "SAWBONES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SAWBONES",
     "definitions": [
      {
       "text": "Doctor",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: slang for a surgeon or doctor"
      },
      {
       "text": "Richard Leakey's fossil hunters famously did in 1984",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Doctor",
-      "note": "first meaning: slang for a surgeon or doctor"
-     },
-     {
-      "clueFragment": "Richard Leakey's fossil hunters famously did in 1984",
-      "note": "second meaning, read as two words: Leakey's team spotted the skeleton of Turkana Boy in 1984"
+      "at": 7,
+      "meaning": "second meaning, read as two words: Leakey's team spotted the skeleton of Turkana Boy in 1984"
      }
     ],
     "explanation": {
@@ -287,40 +257,31 @@
    },
    "solution": "ALTAIR",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ALTAIR",
     "definitions": [
      {
       "text": "star",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece goes round the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Broadcast",
-      "gives": "AIR",
-      "note": "to air a programme is to broadcast it"
-     },
-     {
-      "clueFragment": "sports body",
-      "gives": "LTA",
-      "note": "the LTA is the Lawn Tennis Association, British tennis's governing body"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "LTA",
-      "IR"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Broadcast",
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
+      },
+      {
+       "words": "sports body",
+       "gives": "LTA",
+       "note": "the LTA is the Lawn Tennis Association, British tennis's governing body"
+      }
      ]
     },
     "explanation": {
@@ -349,10 +310,6 @@
    },
    "solution": "ACYL",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "ACYL",
     "definitions": [
      {
       "text": "As carboxylic acid is",
@@ -360,25 +317,20 @@
       "note": "a descriptive phrase for an adjective-like chemical term"
      }
     ],
-    "indicators": [
-     {
-      "text": "top to bottom",
-      "for": "cycling",
-      "note": "in a down entry the top letter is moved to the foot, rotating the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lacy",
-      "gives": "LACY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "ACYL",
+     "indicators": [
       {
-       "fodder": "LACY",
-       "gives": "ACYL"
+       "text": "top to bottom",
+       "note": "in a down entry the top letter is moved to the foot, rotating the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lacy",
+       "note": "taken as written"
       }
      ]
     },
@@ -409,46 +361,54 @@
    },
    "solution": "GEORDIE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "GEORDIE",
     "definitions": [
      {
       "text": "Northerner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "has no bounds",
-      "for": "deletion",
-      "note": "with no boundaries the outer edges are gone, so the first and last letters drop away"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "age",
-      "gives": "AGE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "diet",
-      "gives": "DIET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEORDIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "has no bounds",
+         "note": "with no boundaries the outer edges are gone, so the first and last letters drop away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "age",
+         "note": "taken as written"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "or",
+           "note": "taken as written"
+          },
+          {
+           "words": "diet",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -477,36 +437,32 @@
    },
    "solution": "WARLOCK",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "WARLOCK",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "said",
-      "for": "homophone",
-      "note": "said means spoken, so it is the sound that counts, not the spelling"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Say Evelyn",
-      "gives": "WAR",
-      "soundsLike": "WAUGH",
-      "note": "Evelyn Waugh the novelist, whose surname is pronounced like war"
-     },
-     {
-      "clueFragment": "Hank",
-      "gives": "LOCK",
-      "note": "a hank of hair is a lock"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WAR",
-      "LOCK"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "WAR",
+       "indicators": [
+        {
+         "text": "said",
+         "note": "said means spoken, so it is the sound that counts, not the spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Say Evelyn",
+         "gives": "WAUGH",
+         "note": "Evelyn Waugh the novelist, whose surname is pronounced like war"
+        }
+       ]
+      },
+      {
+       "words": "Hank",
+       "gives": "LOCK",
+       "note": "a hank of hair is a lock"
+      }
      ]
     },
     "explanation": {
@@ -540,68 +496,61 @@
     "17-across"
    ],
    "annotation": {
-    "type": [
-     "reversal",
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FREEBORN",
     "definitions": [
      {
       "text": "Having no master from the start",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back means backwards, so the word is read in reverse"
-     },
-     {
-      "text": "swallows",
-      "for": "container",
-      "note": "to swallow is to take inside, so one piece goes into another"
-     },
-     {
-      "text": "far edge",
-      "for": "letter_selection",
-      "note": "the far edge of a word is its end, so only the final letter is kept"
-     }
-    ],
-    "linkWords": [
-     "at"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pro",
-      "gives": "FOR",
-      "note": "to be pro something is to be for it"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "BEER",
-      "note": "beer is a drink"
-     },
-     {
-      "clueFragment": "green",
-      "gives": "N",
-      "select": "last",
-      "note": "the last letter of green"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "REEB",
-      "OR",
-      "N"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "BEER",
-       "to": "REEB"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "swallows",
+         "note": "to swallow is to take inside, so one piece goes into another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pro",
+         "gives": "FOR",
+         "note": "to be pro something is to be for it"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "back",
+           "note": "back means backwards, so the word is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "drink",
+           "gives": "BEER",
+           "note": "beer is a drink"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "far edge",
+         "note": "the far edge of a word is its end, so only the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "green",
+         "note": "the last letter of green"
+        }
+       ]
       }
      ]
     },
@@ -631,35 +580,25 @@
    },
    "solution": "THUMBNAIL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "THUMBNAIL",
     "definitions": [
      {
       "text": "Small sketch",
       "at": 0
      }
     ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tom",
-      "gives": "THUMB",
-      "note": "Tom Thumb, the tiny hero of folk tale"
-     },
-     {
-      "clueFragment": "Spike",
-      "gives": "NAIL",
-      "note": "a spike is a large nail"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "THUMB",
-      "NAIL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tom",
+       "gives": "THUMB",
+       "note": "Tom Thumb, the tiny hero of folk tale"
+      },
+      {
+       "words": "Spike",
+       "gives": "NAIL",
+       "note": "a spike is a large nail"
+      }
      ]
     },
     "explanation": {
@@ -689,35 +628,25 @@
    },
    "solution": "UPBRAIDED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "UPBRAIDED",
     "definitions": [
      {
       "text": "dressed down",
       "at": 37
      }
     ],
-    "linkWords": [
-     "so"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Out of bed",
-      "gives": "UP",
-      "note": "out of bed is up"
-     },
-     {
-      "clueFragment": "possibly dreadlocked",
-      "gives": "BRAIDED",
-      "note": "dreadlocks are one kind of braided hair, hence possibly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "BRAIDED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Out of bed",
+       "gives": "UP",
+       "note": "out of bed is up"
+      },
+      {
+       "words": "possibly dreadlocked",
+       "gives": "BRAIDED",
+       "note": "dreadlocks are one kind of braided hair, hence possibly"
+      }
      ]
     },
     "explanation": {
@@ -760,40 +689,35 @@
    },
    "solution": "BLISS",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "BLISS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "ousts",
-      "for": "deletion",
-      "note": "to oust is to throw out, so some letters are removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chablis",
-      "gives": "CHABLIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "CHA",
-      "note": "cha is British slang for tea"
-     },
-     {
-      "clueFragment": "Sunday",
-      "gives": "S",
-      "note": "S is the abbreviation for Sunday"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLIS",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ousts",
+         "note": "to oust is to throw out, so some letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chablis",
+         "note": "taken as written"
+        },
+        {
+         "words": "tea",
+         "gives": "CHA",
+         "note": "cha is British slang for tea"
+        }
+       ]
+      },
+      {
+       "words": "Sunday",
+       "gives": "S",
+       "note": "S is the abbreviation for Sunday"
+      }
      ]
     },
     "explanation": {
@@ -822,54 +746,44 @@
    },
    "solution": "BANKRUPT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "BANKRUPT",
     "definitions": [
      {
       "text": "bust",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "out",
-      "for": "anagram",
-      "note": "out can mean wrong or disordered, so the word is rearranged"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lean",
-      "gives": "BANK",
-      "note": "a plane or bike banks when it leans into a turn"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "put",
-      "gives": "PUT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BANK",
-      "R",
-      "UPT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "PUT",
-       "gives": "UPT"
+       "words": "Lean",
+       "gives": "BANK",
+       "note": "a plane or bike banks when it leans into a turn"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "note": "out can mean wrong or disordered, so the word is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "right",
+           "gives": "R",
+           "note": "R is the abbreviation for right"
+          },
+          {
+           "words": "put",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -899,27 +813,20 @@
    },
    "solution": "PARRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PARRY",
     "definedByPreamble": true,
-    "blocks": [
-     {
-      "clueFragment": "Catherine the Sixth",
-      "gives": "PARR",
-      "note": "Catherine Parr was the sixth wife of Henry VIII"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "Y",
-      "note": "Y is a mathematical unknown"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARR",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Catherine the Sixth",
+       "gives": "PARR",
+       "note": "Catherine Parr was the sixth wife of Henry VIII"
+      },
+      {
+       "words": "unknown",
+       "gives": "Y",
+       "note": "Y is a mathematical unknown"
+      }
      ]
     },
     "explanation": {
@@ -952,38 +859,30 @@
     "12-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BIRD BRAIN",
     "definitions": [
      {
       "text": "Charlie",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "1960s-style girl",
-      "gives": "BIRD",
-      "note": "British slang for a young woman, at its height in the 1960s"
-     },
-     {
-      "clueFragment": "underwear",
-      "gives": "BRA",
-      "note": "a bra is an item of underwear"
-     },
-     {
-      "clueFragment": "accepted",
-      "gives": "IN",
-      "note": "in means accepted or fashionable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BIRD",
-      "BRA",
-      "IN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1960s-style girl",
+       "gives": "BIRD",
+       "note": "British slang for a young woman, at its height in the 1960s"
+      },
+      {
+       "words": "underwear",
+       "gives": "BRA",
+       "note": "a bra is an item of underwear"
+      },
+      {
+       "words": "accepted",
+       "gives": "IN",
+       "note": "in means accepted or fashionable"
+      }
      ]
     },
     "explanation": {
@@ -1012,39 +911,30 @@
    },
    "solution": "GLASS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "GLASS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "eastern tip",
-      "for": "letter_selection",
-      "note": "with east to the right, the eastern tip of a word is its final letter"
-     }
-    ],
-    "linkWords": [
-     "going east of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Shandong",
-      "gives": "G",
-      "select": "last",
-      "note": "the last letter of Shandong"
-     },
-     {
-      "clueFragment": "Miss",
-      "gives": "LASS",
-      "note": "a miss is a girl or lass"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LASS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "eastern tip",
+         "note": "with east to the right, the eastern tip of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shandong",
+         "note": "the last letter of Shandong"
+        }
+       ]
+      },
+      {
+       "words": "Miss",
+       "gives": "LASS",
+       "note": "a miss is a girl or lass"
+      }
      ]
     },
     "explanation": {
@@ -1079,36 +969,25 @@
    },
    "solution": "GABLEEND",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GABLE END",
     "definitions": [
      {
       "text": "Side Wall",
       "at": 1
      }
     ],
-    "linkWords": [
-     "has",
-     "teamed with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old Hollywood heartthrob",
-      "gives": "GABLE",
-      "note": "Clark Gable, star of Gone with the Wind"
-     },
-     {
-      "clueFragment": "Close",
-      "gives": "END",
-      "note": "a close is an end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GABLE",
-      "END"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old Hollywood heartthrob",
+       "gives": "GABLE",
+       "note": "Clark Gable, star of Gone with the Wind"
+      },
+      {
+       "words": "Close",
+       "gives": "END",
+       "note": "a close is an end"
+      }
      ]
     },
     "explanation": {
@@ -1157,43 +1036,33 @@
    },
    "solution": "BATHCUBE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BATH CUBE",
     "definitions": [
      {
       "text": "a water softener",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "bum",
-      "for": "anagram",
-      "note": "bum is slang for bad or faulty, so the letters are in a poor arrangement"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "But",
-      "gives": "BUT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "beach",
-      "gives": "BEACH",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BUTBEACH",
-       "gives": "BATHCUBE"
+       "text": "bum",
+       "note": "bum is slang for bad or faulty, so the letters are in a poor arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "But",
+         "note": "taken as written"
+        },
+        {
+         "words": "beach",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1224,40 +1093,31 @@
    },
    "solution": "ASCRIBED",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "ASCRIBED",
     "definitions": [
      {
       "text": "Gave credit for",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so one piece wraps the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "publicity",
-      "gives": "AD",
-      "note": "an ad is publicity"
-     },
-     {
-      "clueFragment": "writer",
-      "gives": "SCRIBE",
-      "note": "a scribe is a writer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SCRIBE",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means around, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "publicity",
+       "gives": "AD",
+       "note": "an ad is publicity"
+      },
+      {
+       "words": "writer",
+       "gives": "SCRIBE",
+       "note": "a scribe is a writer"
+      }
      ]
     },
     "explanation": {
@@ -1285,54 +1145,40 @@
    },
    "solution": "ROOTLE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ROOTLE",
     "definitions": [
      {
       "text": "Act like a pig",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "anagram",
-      "note": "flipping can mean crazy or upset, so the letters get scrambled"
-     },
-     {
-      "text": "covering",
-      "for": "container",
-      "note": "a cover goes around something, so one piece wraps the other"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lot",
-      "gives": "LOT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "eggs",
-      "gives": "ROE",
-      "note": "roe is fish eggs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "OTL",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "LOT",
-       "gives": "OTL"
+       "text": "covering",
+       "note": "a cover goes around something, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eggs",
+       "gives": "ROE",
+       "note": "roe is fish eggs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "flipping can mean crazy or upset, so the letters get scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lot",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1363,45 +1209,34 @@
    },
    "solution": "MATEY",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MATEY",
     "definitions": [
      {
       "text": "Familiar",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unfamiliar",
-      "for": "anagram",
-      "note": "unfamiliar means strange, so the letters appear in an odd order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "state",
-      "gives": "MA",
-      "note": "MA is the abbreviation for Massachusetts"
-     },
-     {
-      "clueFragment": "yet",
-      "gives": "YET",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "TEY"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "YET",
-       "gives": "TEY"
+       "words": "state",
+       "gives": "MA",
+       "note": "MA is the abbreviation for Massachusetts"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfamiliar",
+         "note": "unfamiliar means strange, so the letters appear in an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yet",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1431,40 +1266,31 @@
    },
    "solution": "MARLIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "MARLIN",
     "definitions": [
      {
       "text": "Big fish",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "consumed by",
-      "for": "container",
-      "note": "what is consumed is taken inside, so one piece sits within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chief",
-      "gives": "MAIN",
-      "note": "main means chief"
-     },
-     {
-      "clueFragment": "both sides",
-      "gives": "RL",
-      "note": "right and left, R and L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MA",
-      "RL",
-      "IN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consumed by",
+       "note": "what is consumed is taken inside, so one piece sits within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chief",
+       "gives": "MAIN",
+       "note": "main means chief"
+      },
+      {
+       "words": "both sides",
+       "gives": "RL",
+       "note": "right and left, R and L"
+      }
      ]
     },
     "explanation": {
@@ -1493,50 +1319,41 @@
    },
    "solution": "PROVENDER",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "PROVENDER",
     "definitions": [
      {
       "text": "feed",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "hides",
-      "for": "container",
-      "note": "to hide something is to keep it inside, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "phosphorous",
-      "gives": "P",
-      "note": "P is the chemical symbol for phosphorus"
-     },
-     {
-      "clueFragment": "Dog",
-      "gives": "ROVER",
-      "note": "Rover is a stock name for a dog"
-     },
-     {
-      "clueFragment": "tail",
-      "gives": "END",
-      "note": "the tail is the end"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ROV",
-      "END",
-      "ER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "phosphorous",
+       "gives": "P",
+       "note": "P is the chemical symbol for phosphorus"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hides",
+         "note": "to hide something is to keep it inside, so one piece goes within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dog",
+         "gives": "ROVER",
+         "note": "Rover is a stock name for a dog"
+        },
+        {
+         "words": "tail",
+         "gives": "END",
+         "note": "the tail is the end"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1565,33 +1382,20 @@
    },
    "solution": "PART",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "PART",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "tipped over",
-      "for": "reversal",
-      "note": "something tipped over is upside down, so in a down entry the word reads upwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Gin",
-      "gives": "TRAP",
-      "note": "a gin is a snare or trap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PART"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "TRAP",
-       "to": "PART"
+       "text": "tipped over",
+       "note": "something tipped over is upside down, so in a down entry the word reads upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gin",
+       "gives": "TRAP",
+       "note": "a gin is a snare or trap"
       }
      ]
     },
@@ -1622,39 +1426,30 @@
    },
    "solution": "CAGE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CAGE",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "is rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so the string runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Say",
-      "gives": "EG",
-      "note": "eg, for example, means say"
-     },
-     {
-      "clueFragment": "Bill",
-      "gives": "AC",
-      "note": "AC is the abbreviation for account, a bill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CAGE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "EGAC",
-       "to": "CAGE"
+       "text": "is rejected",
+       "note": "something rejected is sent back, so the string runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Say",
+         "gives": "EG",
+         "note": "eg, for example, means say"
+        },
+        {
+         "words": "Bill",
+         "gives": "AC",
+         "note": "AC is the abbreviation for account, a bill"
+        }
+       ]
       }
      ]
     },
@@ -1684,28 +1479,16 @@
    },
    "solution": "GENE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GENE",
     "definitions": [
      {
       "text": "Kelly",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the forename of the dancer Kelly of Singin' in the Rain"
      },
      {
       "text": "one of many passed on",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Kelly",
-      "note": "first meaning: the forename of the dancer Kelly of Singin' in the Rain"
-     },
-     {
-      "clueFragment": "one of many passed on",
-      "note": "second meaning: a unit of heredity, one of thousands inherited"
+      "at": 7,
+      "meaning": "second meaning: a unit of heredity, one of thousands inherited"
      }
     ],
     "explanation": {
@@ -1735,39 +1518,30 @@
    },
    "solution": "IRELAND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "IRELAND",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "Flanks",
-      "for": "letter_selection",
-      "note": "flanks are the sides, so only the outside letters are kept"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "inferior",
-      "gives": "IR",
-      "select": "outer",
-      "note": "the first and last letters of inferior"
-     },
-     {
-      "clueFragment": "antelope",
-      "gives": "ELAND",
-      "note": "the eland is a large African antelope"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IR",
-      "ELAND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Flanks",
+         "note": "flanks are the sides, so only the outside letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inferior",
+         "note": "the first and last letters of inferior"
+        }
+       ]
+      },
+      {
+       "words": "antelope",
+       "gives": "ELAND",
+       "note": "the eland is a large African antelope"
+      }
      ]
     },
     "explanation": {
@@ -1796,35 +1570,26 @@
    },
    "solution": "GIBBONS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "GIBBONS",
     "definedByPreamble": true,
-    "indicators": [
-     {
-      "text": "is welcomed by",
-      "for": "container",
-      "note": "a guest who is welcomed is taken in, so one piece goes inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Bee Gees, family-wise",
-      "gives": "GIBBS",
-      "note": "the Bee Gees were the Gibb brothers, so as a family they are the Gibbs"
-     },
-     {
-      "clueFragment": "Performing",
-      "gives": "ON",
-      "note": "a performer is on stage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GIBB",
-      "ON",
-      "S"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is welcomed by",
+       "note": "a guest who is welcomed is taken in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Bee Gees, family-wise",
+       "gives": "GIBBS",
+       "note": "the Bee Gees were the Gibb brothers, so as a family they are the Gibbs"
+      },
+      {
+       "words": "Performing",
+       "gives": "ON",
+       "note": "a performer is on stage"
+      }
      ]
     },
     "explanation": {

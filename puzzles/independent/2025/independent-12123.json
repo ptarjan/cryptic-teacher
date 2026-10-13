@@ -1,8 +1,6 @@
 {
  "id": "independent-12123",
  "number": 12123,
- "series": "independent",
- "name": "Independent cryptic crossword No 12,123",
  "setter": "Coot",
  "date": "2025-08-16",
  "dimensions": {
@@ -38,42 +36,42 @@
    },
    "solution": "SLURS",
    "annotation": {
-    "type": [
-     "substitution",
-     "letter_selection"
-    ],
-    "answer": "SLURS",
     "definitions": [
      {
       "text": "Unfairly treats",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "switching",
-      "for": "substitution",
-      "note": "switching tells us to swap one letter for another, here exchanging the two opening letters named next"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Tottenham",
-      "gives": "SPURS",
-      "note": "Spurs is the nickname of Tottenham Hotspur, the north London football club"
-     },
-     {
-      "clueFragment": "kick-offs in Premier League",
-      "gives": "PL",
-      "select": "first",
-      "note": "the first letters of Premier and League; the P in the nickname becomes an L"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "L",
-      "URS"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "SLURS",
+     "indicators": [
+      {
+       "text": "switching",
+       "note": "switching tells us to swap one letter for another, here exchanging the two opening letters named next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tottenham",
+       "gives": "SPURS",
+       "note": "Spurs is the nickname of Tottenham Hotspur, the north London football club"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "PL",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "kick-offs in Premier League",
+         "gives": "PL",
+         "select": "first",
+         "note": "the first letters of Premier and League; the P in the nickname becomes an L"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -108,46 +106,43 @@
    },
    "solution": "SWEARSIN",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SWEARS IN",
     "definitions": [
      {
       "text": "Admits to office",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "hemming",
-      "for": "container",
-      "note": "a hem runs around the edge of cloth, so hemming means the outer letters enclose the next word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "small",
-      "gives": "S",
-      "note": "S is the standard abbreviation for small, as on clothing labels"
-     },
-     {
-      "clueFragment": "dress",
-      "gives": "WEAR",
-      "note": "to dress in clothes is to wear them"
-     },
-     {
-      "clueFragment": "error",
-      "gives": "SIN",
-      "note": "a sin is a moral error or wrongdoing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "WEAR",
-      "SIN"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "SWEARSIN",
+     "indicators": [
+      {
+       "text": "hemming",
+       "note": "a hem runs around the edge of cloth, so hemming means the outer letters enclose the next word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "gives": "S",
+         "note": "S is the standard abbreviation for small, as on clothing labels"
+        },
+        {
+         "words": "dress",
+         "gives": "WEAR",
+         "note": "to dress in clothes is to wear them"
+        },
+        {
+         "words": "error",
+         "gives": "SIN",
+         "note": "a sin is a moral error or wrongdoing"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -176,53 +171,55 @@
    },
    "solution": "UPEND",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "container"
-    ],
-    "answer": "UPEND",
     "definitions": [
      {
       "text": "Turn over",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "depleted",
-      "for": "letter_selection",
-      "note": "depleted means emptied, so only the shell of the club's name survives"
-     },
-     {
-      "text": "faceless",
-      "for": "deletion",
-      "note": "without a face, the word loses its front letter"
-     },
-     {
-      "text": "stuffing",
-      "for": "container",
-      "note": "stuffing is packed inside something, so the emptied club goes into the other word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Palace",
-      "gives": "PE",
-      "select": "outer",
-      "note": "Crystal Palace, the south London club, with its middle letters removed"
-     },
-     {
-      "clueFragment": "reserves",
-      "gives": "FUND",
-      "note": "a fund is money kept in reserve"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "PE",
-      "ND"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "note": "stuffing is packed inside something, so the emptied club goes into the other word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "faceless",
+         "note": "without a face, the word loses its front letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reserves",
+         "gives": "FUND",
+         "note": "a fund is money kept in reserve"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "depleted",
+         "note": "depleted means emptied, so only the shell of the club's name survives"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Palace",
+         "note": "Crystal Palace, the south London club, with its middle letters removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -251,31 +248,29 @@
    },
    "solution": "SETT",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "SETT",
     "definitions": [
      {
       "text": "Underground network",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "announced",
-      "for": "homophone",
-      "note": "what is announced is spoken out, so we want a word heard rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "station",
-      "gives": "SETT",
-      "soundsLike": "SET",
-      "note": "to station something is to set or place it in position"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SETT",
+     "indicators": [
+      {
+       "text": "announced",
+       "note": "what is announced is spoken out, so we want a word heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "station",
+       "gives": "SET",
+       "note": "to station something is to set or place it in position"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A tube station on the London Underground is announced over the speakers.",
      "walkthrough": "'Underground network' suggests the Tube, but it is a burrow system dug by badgers.",
@@ -303,52 +298,44 @@
    },
    "solution": "LANDLORD",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "LANDLORD",
     "definitions": [
      {
       "text": "letter",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "leaked",
-      "for": "deletion",
-      "note": "what has leaked has escaped, so the agency's letters are lost from the stadium name"
-     },
-     {
-      "text": "revamped",
-      "for": "anagram",
-      "note": "something revamped has been remade, so the remaining letters are rebuilt in a new order"
-     }
-    ],
-    "linkWords": [
-     "after"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Elland Road",
-      "gives": "ELLANDROAD",
-      "note": "taken as written: Elland Road is the home ground of Leeds United"
-     },
-     {
-      "clueFragment": "Environment Agency",
-      "gives": "EA",
-      "note": "the usual abbreviation for the Environment Agency, the English regulator"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LANDLORD"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LANDLORD",
+     "indicators": [
       {
-       "fodder": "LLNDROAD",
-       "gives": "LANDLORD"
+       "text": "revamped",
+       "note": "something revamped has been remade, so the remaining letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "LANDLORD",
+       "indicators": [
+        {
+         "text": "leaked",
+         "note": "what has leaked has escaped, so the agency's letters are lost from the stadium name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elland Road",
+         "note": "taken as written: Elland Road is the home ground of Leeds United"
+        },
+        {
+         "words": "Environment Agency",
+         "gives": "EA",
+         "note": "the usual abbreviation for the Environment Agency, the English regulator"
+        }
+       ]
       }
      ]
     },
@@ -379,54 +366,52 @@
    },
    "solution": "ARCHIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "ARCHIVE",
     "definitions": [
      {
       "text": "record collection",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "no.4's",
-      "for": "letter_selection",
-      "note": "the number four here means the fourth letter of the club's name"
-     },
-     {
-      "text": "holding",
-      "for": "container",
-      "note": "holding means keeping something inside, so the abbreviation wraps around the selected letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Vault",
-      "gives": "ARCH",
-      "note": "a vault is an arched roof, so an arch"
-     },
-     {
-      "clueFragment": "that is",
-      "gives": "IE",
-      "note": "i.e. is the abbreviation of id est, Latin for that is"
-     },
-     {
-      "clueFragment": "Wolves'",
-      "gives": "V",
-      "select": 4,
-      "note": "the fourth letter of Wolves, the nickname of Wolverhampton Wanderers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARCH",
-      "I",
-      "V",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vault",
+       "gives": "ARCH",
+       "note": "a vault is an arched roof, so an arch"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "note": "holding means keeping something inside, so the abbreviation wraps around the selected letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. is the abbreviation of id est, Latin for that is"
+        },
+        {
+         "op": "nth",
+         "n": 4,
+         "indicators": [
+          {
+           "text": "no.4's",
+           "note": "the number four here means the fourth letter of the club's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Wolves'",
+           "note": "the fourth letter of Wolves, the nickname of Wolverhampton Wanderers"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -455,30 +440,28 @@
    },
    "solution": "DATES",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "DATES",
     "definitions": [
      {
       "text": "occasions",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "Selection of",
-      "for": "hidden_word",
-      "note": "a selection is a run picked straight out of the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tweed at establishment",
-      "gives": "DATES",
-      "note": "the letters run across the end of tweed, all of at, and the start of establishment"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Selection of",
+       "note": "a selection is a run picked straight out of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tweed at establishment",
+       "gives": "DATES",
+       "note": "the letters run across the end of tweed, all of at, and the start of establishment"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A choice of tweed outfits at an upmarket shop for special events.",
      "definitionFit": "Dates are particular days fixed for events, so they are occasions in the sense of times when something happens."
@@ -504,53 +487,52 @@
    },
    "solution": "ORATORIAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade",
-     "container"
-    ],
-    "answer": "ORATORIAL",
     "definitions": [
      {
       "text": "of public speaking",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Rising",
-      "for": "reversal",
-      "note": "in a down entry, rising means read from bottom to top, so backwards"
-     },
-     {
-      "text": "slipped into",
-      "for": "container",
-      "note": "slipped into means put inside, so the reversed word and setter go within the exam"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "register",
-      "gives": "ROTA",
-      "note": "a rota is a list or register of duties"
-     },
-     {
-      "clueFragment": "Coot",
-      "gives": "I",
-      "note": "the setter, Coot, refers to themselves as I"
-     },
-     {
-      "clueFragment": "test",
-      "gives": "ORAL",
-      "note": "an oral is a spoken examination"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "ATOR",
-      "I",
-      "AL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "slipped into",
+       "note": "slipped into means put inside, so the reversed word and setter go within the exam"
+      }
+     ],
+     "parts": [
+      {
+       "words": "test",
+       "gives": "ORAL",
+       "note": "an oral is a spoken examination"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "Rising",
+           "note": "in a down entry, rising means read from bottom to top, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "register",
+           "gives": "ROTA",
+           "note": "a rota is a list or register of duties"
+          }
+         ]
+        },
+        {
+         "words": "Coot",
+         "gives": "I",
+         "note": "the setter, Coot, refers to themselves as I"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -579,40 +561,39 @@
    },
    "solution": "DREAMY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "DREAMY",
     "definitions": [
      {
       "text": "'Lovely'",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "removing top",
-      "for": "deletion",
-      "note": "in a down entry the top is the first letter, which is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "doctor",
-      "gives": "DR",
-      "note": "Dr is the abbreviation for doctor"
-     },
-     {
-      "clueFragment": "disreputable",
-      "gives": "SEAMY",
-      "note": "seamy means sordid or disreputable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DR",
-      "EAMY"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing top",
+       "note": "in a down entry the top is the first letter, which is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "doctor",
+         "gives": "DR",
+         "note": "Dr is the abbreviation for doctor"
+        },
+        {
+         "words": "disreputable",
+         "gives": "SEAMY",
+         "note": "seamy means sordid or disreputable"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -640,47 +621,41 @@
    },
    "solution": "ANORAK",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANORAK",
     "definitions": [
      {
       "text": "Waterproof",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to wear",
-      "for": "container",
-      "note": "what you wear goes around you, so the outer word clothes the gunners"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "article",
-      "gives": "AN",
-      "note": "an is the indefinite article"
-     },
-     {
-      "clueFragment": "fine",
-      "gives": "OK",
-      "note": "OK means fine or all right"
-     },
-     {
-      "clueFragment": "Gunners",
-      "gives": "RA",
-      "note": "the Royal Artillery; the Gunners is also Arsenal's nickname"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AN",
-      "O",
-      "RA",
-      "K"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "article",
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to wear",
+         "note": "what you wear goes around you, so the outer word clothes the gunners"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fine",
+         "gives": "OK",
+         "note": "OK means fine or all right"
+        },
+        {
+         "words": "Gunners",
+         "gives": "RA",
+         "note": "the Royal Artillery; the Gunners is also Arsenal's nickname"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -709,32 +684,25 @@
    },
    "solution": "EVERTON",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EVERTON",
     "definitions": [
      {
       "text": "Merseyside district",
       "at": 32
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Former court specialist",
-      "gives": "EVERT",
-      "note": "Chris Evert is a retired American tennis champion, renowned on clay courts"
-     },
-     {
-      "clueFragment": "running",
-      "gives": "ON",
-      "note": "a machine that is running is on"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVERT",
-      "ON"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former court specialist",
+       "gives": "EVERT",
+       "note": "Chris Evert is a retired American tennis champion, renowned on clay courts"
+      },
+      {
+       "words": "running",
+       "gives": "ON",
+       "note": "a machine that is running is on"
+      }
      ]
     },
     "explanation": {
@@ -763,10 +731,6 @@
    },
    "solution": "COTTAGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COTTAGE",
     "definitions": [
      {
       "text": "small home venue",
@@ -774,33 +738,25 @@
       "note": "a small house, and also Craven Cottage, the ground where Fulham play at home"
      }
     ],
-    "indicators": [
-     {
-      "text": "secures",
-      "for": "container",
-      "note": "to secure something is to hold it fast, so the French word wraps around the title"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "French side",
-      "gives": "COTE",
-      "note": "côté is the French word for side"
-     },
-     {
-      "clueFragment": "title",
-      "gives": "TAG",
-      "note": "a tag is a label or name, a title"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COT",
-      "TAG",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secures",
+       "note": "to secure something is to hold it fast, so the French word wraps around the title"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French side",
+       "gives": "COTE",
+       "note": "côté is the French word for side"
+      },
+      {
+       "words": "title",
+       "gives": "TAG",
+       "note": "a tag is a label or name, a title"
+      }
      ]
     },
     "explanation": {
@@ -828,47 +784,7 @@
     "text": "Premier League champions in 19 & 24?",
     "enumeration": "4"
    },
-   "solution": "REDS",
-   "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "REDS",
-    "definitions": [
-     {
-      "text": "Premier League champions",
-      "at": 0
-     },
-     {
-      "text": "19 & 24",
-      "at": 28
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Premier League champions",
-      "note": "first meaning: the nickname of Liverpool, champions in 2019-20 and 2024-25"
-     },
-     {
-      "clueFragment": "19 & 24",
-      "note": "second meaning: the answers at 19 down and 24 down, a cardinal colour and a wine, are both red"
-     }
-    ],
-    "explanation": {
-     "surface": "A quiz question about which club won the league in the 2019 and 2024 seasons.",
-     "walkthrough": "19 and 24 look like years, which fits Liverpool's two titles, but they also point to the grid entries CARDINAL and MALBEC.",
-     "definitionFit": "Liverpool's players and fans are known as the Reds, while cardinal and Malbec are each a kind of red, plural reds."
-    },
-    "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "19"
-    }
-   }
+   "solution": "REDS"
   },
   {
    "number": 13,
@@ -884,44 +800,35 @@
    },
    "solution": "BRAINSTORM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BRAINSTORM",
     "definitions": [
      {
       "text": "Inspiration",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of the club's name alone"
-     }
-    ],
-    "linkWords": [
-     "found by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Brentford",
-      "gives": "B",
-      "select": "first",
-      "note": "the first letter of the west London football club"
-     },
-     {
-      "clueFragment": "inclement weather",
-      "gives": "RAINSTORM",
-      "note": "a downpour with wind is bad weather"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RAINSTORM"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "initially points to the opening letter of the club's name alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brentford",
+         "note": "the first letter of the west London football club"
+        }
+       ]
+      },
+      {
+       "words": "inclement weather",
+       "gives": "RAINSTORM",
+       "note": "a downpour with wind is bad weather"
+      }
      ]
     },
     "explanation": {
@@ -949,37 +856,28 @@
    },
    "solution": "USER",
    "annotation": {
-    "type": [
-     "cycling"
-    ],
-    "answer": "USER",
     "definitions": [
      {
       "text": "Addict",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top to bottom",
-      "for": "cycling",
-      "note": "in a down entry, moving the top letter to the bottom shifts it from first to last"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "plan that's cunning",
-      "gives": "RUSE",
-      "note": "a ruse is a crafty scheme or trick"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USE",
-      "R"
+    "wordplay": {
+     "op": "cycling",
+     "unchecked": true,
+     "gives": "USER",
+     "indicators": [
+      {
+       "text": "top to bottom",
+       "note": "in a down entry, moving the top letter to the bottom shifts it from first to last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plan that's cunning",
+       "gives": "RUSE",
+       "note": "a ruse is a crafty scheme or trick"
+      }
      ]
     },
     "explanation": {
@@ -1007,56 +905,52 @@
    },
    "solution": "IRONS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "IRONS",
     "definitions": [
      {
       "text": "clubs",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Second to",
-      "for": "letter_selection",
-      "note": "second to means the second letter of the following word"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "backing means going backwards, so the word is read in reverse"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bid",
-      "gives": "I",
-      "select": 2,
-      "note": "the second letter of bid"
-     },
-     {
-      "clueFragment": "and not",
-      "gives": "NOR",
-      "note": "nor means and not"
-     },
-     {
-      "clueFragment": "spades",
-      "gives": "S",
-      "note": "S is the abbreviation for spades in card games"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "RON",
-      "S"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "Second to",
+         "note": "second to means the second letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bid",
+         "note": "the second letter of bid"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "note": "backing means going backwards, so the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and not",
+         "gives": "NOR",
+         "note": "nor means and not"
+        }
+       ]
+      },
+      {
+       "words": "spades",
+       "gives": "S",
+       "note": "S is the abbreviation for spades in card games"
+      }
      ]
     },
     "explanation": {
@@ -1092,45 +986,38 @@
    },
    "solution": "OPENSFIRE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "OPENS FIRE",
     "definitions": [
      {
       "text": "starts a fight",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Appalling",
-      "for": "anagram",
-      "note": "something appalling is a terrible mess, so the following letters are jumbled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "if",
-      "gives": "IF",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "person",
-      "gives": "PERSON",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IFEPERSON",
-       "gives": "OPENSFIRE"
+       "text": "Appalling",
+       "note": "something appalling is a terrible mess, so the following letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "if",
+         "note": "taken as written"
+        },
+        {
+         "words": "English",
+         "gives": "E",
+         "note": "E is the abbreviation for English"
+        },
+        {
+         "words": "person",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1169,35 +1056,25 @@
    },
    "solution": "KEEPATIT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KEEP AT IT",
     "definitions": [
      {
       "text": "Continue",
       "at": 0
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "provide for",
-      "gives": "KEEP",
-      "note": "to keep someone is to support them financially, to provide for them"
-     },
-     {
-      "clueFragment": "an idiot",
-      "gives": "ATIT",
-      "note": "a is an, and a tit is British slang for a fool"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEEP",
-      "ATIT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "provide for",
+       "gives": "KEEP",
+       "note": "to keep someone is to support them financially, to provide for them"
+      },
+      {
+       "words": "an idiot",
+       "gives": "ATIT",
+       "note": "a is an, and a tit is British slang for a fool"
+      }
      ]
     },
     "explanation": {
@@ -1226,48 +1103,36 @@
    },
    "solution": "ARVO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARVO",
     "definitions": [
      {
       "text": "Antipodean PM",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to the south of",
-      "for": "charade",
-      "note": "in a down entry, being south means coming lower, so these letters follow the country"
-     }
-    ],
-    "linkWords": [
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Australia",
-      "gives": "A",
-      "note": "A is a standard abbreviation for Australia"
-     },
-     {
-      "clueFragment": "motorhome",
-      "gives": "RV",
-      "note": "RV, recreational vehicle, is the North American term for a motorhome"
-     },
-     {
-      "clueFragment": "over",
-      "gives": "O",
-      "note": "O is the abbreviation for over in cricket scoring"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RV",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to the south of",
+       "note": "in a down entry, being south means coming lower, so these letters follow the country"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australia",
+       "gives": "A",
+       "note": "A is a standard abbreviation for Australia"
+      },
+      {
+       "words": "motorhome",
+       "gives": "RV",
+       "note": "RV, recreational vehicle, is the North American term for a motorhome"
+      },
+      {
+       "words": "over",
+       "gives": "O",
+       "note": "O is the abbreviation for over in cricket scoring"
+      }
      ]
     },
     "explanation": {
@@ -1297,28 +1162,16 @@
    },
    "solution": "CARDINAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "CARDINAL",
     "definitions": [
      {
       "text": "Number 1?",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a counting number such as one, as opposed to an ordinal like first"
      },
      {
       "text": "He's picked Pope!",
-      "at": 10
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Number 1?",
-      "note": "first meaning: a counting number such as one, as opposed to an ordinal like first"
-     },
-     {
-      "clueFragment": "He's picked Pope!",
-      "note": "second meaning: a senior churchman who votes in the conclave that elects the pontiff"
+      "at": 10,
+      "meaning": "second meaning: a senior churchman who votes in the conclave that elects the pontiff"
      }
     ],
     "explanation": {
@@ -1348,52 +1201,48 @@
    },
    "solution": "RETRONYM",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "RETRONYM",
     "definitions": [
      {
       "text": "Steam train maybe",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beating",
-      "for": "anagram",
-      "note": "beating means battering out of shape, so the letters are thrown into a new order"
-     },
-     {
-      "text": "back to",
-      "for": "letter_selection",
-      "note": "the back of a word is its end, so only the final letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "metro",
-      "gives": "METRO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Snyder",
-      "gives": "R",
-      "select": "last",
-      "note": "the final letter of Snyder"
-     },
-     {
-      "clueFragment": "NY",
-      "gives": "NY",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "METRORNY",
-       "gives": "RETRONYM"
+       "text": "beating",
+       "note": "beating means battering out of shape, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "metro",
+         "note": "taken as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back to",
+           "note": "the back of a word is its end, so only the final letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Snyder",
+           "note": "the final letter of Snyder"
+          }
+         ]
+        },
+        {
+         "words": "NY",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1422,48 +1271,35 @@
    },
    "solution": "NAIVETE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NAIVETE",
     "definitions": [
      {
       "text": "inexperience",
       "at": 44
      }
     ],
-    "linkWords": [
-     "joining",
-     "shows"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "New",
-      "gives": "N",
-      "note": "N is the abbreviation for new"
-     },
-     {
-      "clueFragment": "'first class'",
-      "gives": "AI",
-      "note": "A1 means first class, with the 1 written as the letter I"
-     },
-     {
-      "clueFragment": "medic",
-      "gives": "VET",
-      "note": "a vet is an animal doctor"
-     },
-     {
-      "clueFragment": "Spain",
-      "gives": "E",
-      "note": "E is the international vehicle code for Spain, España"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "N",
-      "AI",
-      "VET",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "words": "'first class'",
+       "gives": "AI",
+       "note": "A1 means first class, with the 1 written as the letter I"
+      },
+      {
+       "words": "medic",
+       "gives": "VET",
+       "note": "a vet is an animal doctor"
+      },
+      {
+       "words": "Spain",
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain, España"
+      }
      ]
     },
     "explanation": {
@@ -1491,55 +1327,49 @@
    },
    "solution": "MATURE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "MATURE",
     "definitions": [
      {
       "text": "season",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Angrily",
-      "for": "anagram",
-      "note": "acting angrily is acting wildly, so the letters are thrown about"
-     },
-     {
-      "text": "start of",
-      "for": "letter_selection",
-      "note": "start of points to the opening letter of the next word only"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rate",
-      "gives": "RATE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Man",
-      "gives": "M",
-      "select": "first",
-      "note": "the first letter of Man"
-     },
-     {
-      "clueFragment": "United",
-      "gives": "U",
-      "note": "U is the standard abbreviation for United in football team names"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RATEMU",
-       "gives": "MATURE"
+       "text": "Angrily",
+       "note": "acting angrily is acting wildly, so the letters are thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "rate",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "note": "start of points to the opening letter of the next word only"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Man",
+           "note": "the first letter of Man"
+          }
+         ]
+        },
+        {
+         "words": "United",
+         "gives": "U",
+         "note": "U is the standard abbreviation for United in football team names"
+        }
+       ]
       }
      ]
     },
@@ -1570,40 +1400,31 @@
    },
    "solution": "VILLA",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "VILLA",
     "definitions": [
      {
       "text": "holiday home",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "stuck in",
-      "for": "container",
-      "note": "stuck in means lodged inside, so one word sits within the abbreviation"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Virginia",
-      "gives": "VA",
-      "note": "VA is the postal abbreviation for the US state of Virginia"
-     },
-     {
-      "clueFragment": "sick",
-      "gives": "ILL",
-      "note": "sick means ill"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ILL",
-      "A"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuck in",
+       "note": "stuck in means lodged inside, so one word sits within the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Virginia",
+       "gives": "VA",
+       "note": "VA is the postal abbreviation for the US state of Virginia"
+      },
+      {
+       "words": "sick",
+       "gives": "ILL",
+       "note": "sick means ill"
+      }
      ]
     },
     "explanation": {
@@ -1631,38 +1452,24 @@
    },
    "solution": "MALBEC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MALBEC",
     "definitions": [
      {
       "text": "wine",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Give funny order to",
-      "for": "anagram",
-      "note": "putting things in a funny order rearranges them, so the quoted words are scrambled"
-     }
-    ],
-    "linkWords": [
-     "and get"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "be calm",
-      "gives": "BECALM",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BECALM",
-       "gives": "MALBEC"
+       "text": "Give funny order to",
+       "note": "putting things in a funny order rearranges them, so the quoted words are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "be calm",
+       "note": "taken as written"
       }
      ]
     },
@@ -1692,58 +1499,50 @@
    },
    "solution": "ABSURDISTS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram",
-     "container"
-    ],
-    "answer": "ABSURDISTS",
     "definitions": [
      {
       "text": "writers of farce",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Case of",
-      "for": "letter_selection",
-      "note": "the case of a word is its outer shell, its first and last letters"
-     },
-     {
-      "text": "going round",
-      "for": "container",
-      "note": "going round means surrounding, so the outer letters enclose the rest"
-     },
-     {
-      "text": "cast",
-      "for": "anagram",
-      "note": "to cast is to throw, so the next word's letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ales",
-      "gives": "AS",
-      "select": "outer",
-      "note": "the first and last letters of ales"
-     },
-     {
-      "clueFragment": "disturbs",
-      "gives": "DISTURBS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "BSURDIST",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "DISTURBS",
-       "gives": "BSURDIST"
+       "text": "going round",
+       "note": "going round means surrounding, so the outer letters enclose the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Case of",
+         "note": "the case of a word is its outer shell, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ales",
+         "note": "the first and last letters of ales"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cast",
+         "note": "to cast is to throw, so the next word's letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disturbs",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1773,52 +1572,46 @@
    },
    "solution": "RACER",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "reversal"
-    ],
-    "answer": "RACER",
     "definitions": [
      {
       "text": "One running",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "midfield",
-      "for": "letter_selection",
-      "note": "the midfield of a word is its middle, so the two central letters are taken"
-     },
-     {
-      "text": "round",
-      "for": "reversal",
-      "note": "turning round means facing the other way, so the joined letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Forest's",
-      "gives": "RE",
-      "select": "middle",
-      "note": "the middle two letters of Forest, as in Nottingham Forest"
-     },
-     {
-      "clueFragment": "wheels",
-      "gives": "CAR",
-      "note": "wheels is slang for a car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RAC",
-      "ER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "RECAR",
-       "to": "RACER"
+       "text": "round",
+       "note": "turning round means facing the other way, so the joined letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "midfield",
+           "note": "the midfield of a word is its middle, so the two central letters are taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Forest's",
+           "gives": "FOREST",
+           "note": "the middle two letters of Forest, as in Nottingham Forest"
+          }
+         ]
+        },
+        {
+         "words": "wheels",
+         "gives": "CAR",
+         "note": "wheels is slang for a car"
+        }
+       ]
       }
      ]
     },
@@ -1848,47 +1641,41 @@
    },
    "solution": "SPAD",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "SPAD",
     "definitions": [
      {
       "text": "danger sign missed",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "exhausted",
-      "for": "letter_selection",
-      "note": "exhausted means emptied out, leaving only the outside letters of the club's name"
-     },
-     {
-      "text": "admits",
-      "for": "container",
-      "note": "to admit is to let in, so the emptied word takes another inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sunderland",
-      "gives": "SD",
-      "select": "outer",
-      "note": "the first and last letters of the north-east football club"
-     },
-     {
-      "clueFragment": "assistant",
-      "gives": "PA",
-      "note": "a PA is a personal assistant"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "PA",
-      "D"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admits",
+       "note": "to admit is to let in, so the emptied word takes another inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "note": "exhausted means emptied out, leaving only the outside letters of the club's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sunderland",
+         "note": "the first and last letters of the north-east football club"
+        }
+       ]
+      },
+      {
+       "words": "assistant",
+       "gives": "PA",
+       "note": "a PA is a personal assistant"
+      }
      ]
     },
     "explanation": {
@@ -1917,11 +1704,6 @@
    },
    "solution": "PATIO",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PATIO",
     "definitions": [
      {
       "text": "that backs onto house",
@@ -1929,35 +1711,34 @@
       "note": "a descriptive phrase for the thing, rather than a single noun"
      }
     ],
-    "indicators": [
-     {
-      "text": "bathing in",
-      "for": "container",
-      "note": "someone bathing is immersed in water, so these letters go inside the river"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "At",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "PO",
-      "note": "the Po is Italy's longest river"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "ATI",
-      "O"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bathing in",
+       "note": "someone bathing is immersed in water, so these letters go inside the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "gives": "PO",
+       "note": "the Po is Italy's longest river"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "At",
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1999,45 +1780,35 @@
    },
    "solution": "LGBT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "L G B T",
     "definitions": [
      {
       "text": "Diverse group",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders in",
-      "for": "letter_selection",
-      "note": "leaders are those at the front, so the first letter of each following word"
-     },
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing about with things moves them around, so the letters are reordered"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Burnley's team get lads",
-      "gives": "BTGL",
-      "select": "first",
-      "note": "the opening letters of Burnley's, team, get and lads"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BTGL",
-       "gives": "LGBT"
+       "text": "playing",
+       "note": "playing about with things moves them around, so the letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders in",
+         "note": "leaders are those at the front, so the first letter of each following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Burnley's team get lads",
+         "note": "the opening letters of Burnley's, team, get and lads"
+        }
+       ]
       }
      ]
     },
@@ -2066,35 +1837,25 @@
    },
    "solution": "BRIOCHE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BRIOCHE",
     "definitions": [
      {
       "text": "continental fare",
       "at": 30
      }
     ],
-    "linkWords": [
-     "providing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Pep",
-      "gives": "BRIO",
-      "note": "brio is vigour or liveliness, pep"
-     },
-     {
-      "clueFragment": "a revolutionary",
-      "gives": "CHE",
-      "note": "Che Guevara is the stock revolutionary"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BRIO",
-      "CHE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pep",
+       "gives": "BRIO",
+       "note": "brio is vigour or liveliness, pep"
+      },
+      {
+       "words": "a revolutionary",
+       "gives": "CHE",
+       "note": "Che Guevara is the stock revolutionary"
+      }
      ]
     },
     "explanation": {
@@ -2130,38 +1891,31 @@
    },
    "solution": "RIGHTON",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RIGHT-ON",
     "definitions": [
      {
       "text": "Trendy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to the east of",
-      "for": "deletion",
-      "note": "on a map east is right, so we keep only what lies to the right of that letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "seaside resort",
-      "gives": "BRIGHTON",
-      "note": "Brighton is a resort on the English south coast, home of Brighton and Hove Albion"
-     },
-     {
-      "clueFragment": "Britain",
-      "gives": "B",
-      "note": "B is an abbreviation for Britain or British"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIGHTON"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to the east of",
+       "note": "on a map east is right, so we keep only what lies to the right of that letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seaside resort",
+       "gives": "BRIGHTON",
+       "note": "Brighton is a resort on the English south coast, home of Brighton and Hove Albion"
+      },
+      {
+       "words": "Britain",
+       "gives": "B",
+       "note": "B is an abbreviation for Britain or British"
+      }
      ]
     },
     "explanation": {
@@ -2190,40 +1944,31 @@
    },
    "solution": "CHERRIES",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "CHERRIES",
     "definitions": [
      {
       "text": "Fruit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "fed to",
-      "for": "container",
-      "note": "what is fed to something goes into it, so the pronoun goes inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "that woman",
-      "gives": "HER",
-      "note": "her is the pronoun for that woman"
-     },
-     {
-      "clueFragment": "hawks",
-      "gives": "CRIES",
-      "note": "to hawk goods is to cry them out for sale in the street"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HER",
-      "RIES"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "fed to",
+       "note": "what is fed to something goes into it, so the pronoun goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hawks",
+       "gives": "CRIES",
+       "note": "to hawk goods is to cry them out for sale in the street"
+      },
+      {
+       "words": "that woman",
+       "gives": "HER",
+       "note": "her is the pronoun for that woman"
+      }
      ]
     },
     "explanation": {
@@ -2253,28 +1998,16 @@
    },
    "solution": "TROLL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TROLL",
     "definitions": [
      {
       "text": "Aggressive opponent",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: someone who posts deliberately hostile messages online to provoke a fight"
      },
      {
       "text": "showing hunger at the Bridge?",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Aggressive opponent",
-      "note": "first meaning: someone who posts deliberately hostile messages online to provoke a fight"
-     },
-     {
-      "clueFragment": "showing hunger at the Bridge?",
-      "note": "second meaning: the fairy-tale monster under the bridge who wants to eat the Billy Goats Gruff"
+      "at": 20,
+      "meaning": "second meaning: the fairy-tale monster under the bridge who wants to eat the Billy Goats Gruff"
      }
     ],
     "explanation": {

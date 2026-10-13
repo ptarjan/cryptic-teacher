@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29549",
  "number": 29549,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,549",
  "setter": "Maskarade",
  "date": "2024-11-25",
  "dimensions": {
@@ -38,31 +36,29 @@
    },
    "solution": "PENSIVE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "PENSIVE",
     "definitions": [
      {
       "text": "Wistful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "broadcast",
-      "for": "homophone",
-      "note": "something broadcast goes out over the air, so we go by how the words are spoken rather than spelt"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "writer's riddle",
-      "gives": "PENSIVE",
-      "soundsLike": "PEN'S SIEVE",
-      "note": "a pen is a writer, and a riddle is a coarse sieve for soil or grain"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PENSIVE",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "note": "something broadcast goes out over the air, so we go by how the words are spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer's riddle",
+       "gives": "PENSSIEVE",
+       "note": "a pen is a writer, and a riddle is a coarse sieve for soil or grain"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An author's puzzling conundrum, read out on the radio, leaves listeners feeling wistful.",
      "walkthrough": "'Riddle' looks like a puzzle, but here it is the gardener's sieve; said aloud, PEN'S SIEVE runs together as PENSIVE.",
@@ -90,31 +86,16 @@
    },
    "solution": "ELEVENS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "ELEVENS",
     "definitions": [
      {
       "text": "Apparently singular snack",
-      "at": 0
+      "at": 0,
+      "meaning": "a mid-morning snack is '...', which looks like a plural, so its apparent singular drops the final -ES"
      },
      {
       "text": "teams",
-      "at": 30
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Apparently singular snack",
-      "note": "a mid-morning snack is '...', which looks like a plural, so its apparent singular drops the final -ES"
-     },
-     {
-      "clueFragment": "teams",
-      "note": "football and cricket sides have eleven players each"
+      "at": 30,
+      "meaning": "football and cricket sides have eleven players each"
      }
     ],
     "explanation": {
@@ -143,11 +124,6 @@
    },
    "solution": "SHOPFRONT",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "SHOPFRONT",
     "definitions": [
      {
       "text": "Facade's",
@@ -155,41 +131,42 @@
       "note": "read as 'Facade is', the possessive-looking 's joining definition to wordplay"
      }
     ],
-    "indicators": [
-     {
-      "text": "terribly",
-      "for": "anagram",
-      "note": "something done terribly is done badly, so the letters come out in a wrong, jumbled order"
-     },
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially means at the start, so only the opening letter of each word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "posh",
-      "gives": "POSH",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "New Town",
-      "gives": "NT",
-      "select": "first",
-      "note": "the first letters of New and Town"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "POSHFORNT",
-       "gives": "SHOPFRONT"
+       "text": "terribly",
+       "note": "something done terribly is done badly, so the letters come out in a wrong, jumbled order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "posh",
+         "note": "taken as written"
+        },
+        {
+         "words": "for",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "initially means at the start, so only the opening letter of each word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "New Town",
+           "note": "the first letters of New and Town"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -219,45 +196,35 @@
    },
    "solution": "VOYAGE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "VOYAGE",
     "definitions": [
      {
       "text": "Trip",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "principally",
-      "for": "letter_selection",
-      "note": "principally means first and foremost, so each word supplies only its leading letter"
-     }
-    ],
-    "linkWords": [
-     "finding",
-     "taking"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Venice on yacht",
-      "gives": "VOY",
-      "select": "first",
-      "note": "the first letters of Venice, on and yacht"
-     },
-     {
-      "clueFragment": "a time",
-      "gives": "AGE",
-      "note": "an age is a period of time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VOY",
-      "AGE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principally",
+         "note": "principally means first and foremost, so each word supplies only its leading letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Venice on yacht",
+         "note": "the first letters of Venice, on and yacht"
+        }
+       ]
+      },
+      {
+       "words": "a time",
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
      ]
     },
     "explanation": {
@@ -286,26 +253,25 @@
    },
    "solution": "TEAPOTS",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "TEAPOTS",
     "definitions": [
      {
       "text": "Leaves in hot water here?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Leaves in hot water",
-      "note": "surface reading: someone abandoned in trouble"
-     },
-     {
-      "clueFragment": "here?",
-      "note": "setter's reading: the place where tea leaves sit steeping in boiling water"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Leaves in hot water",
+       "note": "surface reading: someone abandoned in trouble"
+      },
+      {
+       "words": "here?",
+       "note": "setter's reading: the place where tea leaves sit steeping in boiling water"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'In hot water' suggests disgrace, and 'leaves' a verb of departure; really the leaves are tea leaves brewing.",
      "definitionFit": "Tea leaves are brewed by steeping them in boiling water inside a pot made for the purpose."
@@ -332,36 +298,39 @@
    },
    "solution": "EFFUSIVE",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "EFFUSIVE",
     "definitions": [
      {
       "text": "gushing",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "somewhat",
-      "for": "hidden_word",
-      "note": "somewhat means only part of something, so the answer is a stretch of letters inside the words"
-     },
-     {
-      "text": "on reflection",
-      "for": "reversal",
-      "note": "a reflection shows things the wrong way round, so the letters are read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Levi suffered",
-      "gives": "EFFUSIVE",
-      "note": "read right to left, these words contain the answer"
-     }
-    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on reflection",
+       "note": "a reflection shows things the wrong way round, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "note": "somewhat means only part of something, so the answer is a stretch of letters inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Levi suffered",
+         "gives": "EVISUFFE",
+         "note": "read right to left, these words contain the answer"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A man called Levi, thinking back on his hardships, becomes emotional and tearful.",
      "definitionFit": "Effusive describes expressing feelings in an unrestrained, overflowing way, just as gushing praise does."
@@ -387,34 +356,25 @@
    },
    "solution": "PARKA",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "PARKA",
     "definitions": [
      {
       "text": "Jacket",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "are their starters",
-      "for": "letter_selection",
-      "note": "starters are what comes first, so each word contributes only its opening letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "potato and red kale are",
-      "gives": "PARKA",
-      "select": "first",
-      "note": "the first letters of potato, and, red, kale and are"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PARKA"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "are their starters",
+       "note": "starters are what comes first, so each word contributes only its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "potato and red kale are",
+       "note": "the first letters of potato, and, red, kale and are"
+      }
      ]
     },
     "explanation": {
@@ -450,49 +410,35 @@
    },
    "solution": "TRADEIN",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "TRADE IN",
     "definitions": [
      {
       "text": "swap car?",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "over",
-      "for": "reversal",
-      "note": "over means turned over, so the word is read back to front"
-     }
-    ],
-    "linkWords": [
-     "to",
-     "meet"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dash",
-      "gives": "DART",
-      "note": "to dart is to dash"
-     },
-     {
-      "clueFragment": "a German",
-      "gives": "EIN",
-      "note": "ein is German for a"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRAD",
-      "EIN"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "DART",
-       "to": "TRAD"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "note": "over means turned over, so the word is read back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dash",
+         "gives": "DART",
+         "note": "to dart is to dash"
+        }
+       ]
+      },
+      {
+       "words": "a German",
+       "gives": "EIN",
+       "note": "ein is German for a"
       }
      ]
     },
@@ -527,41 +473,39 @@
    },
    "solution": "PIDGINENGLISH",
    "annotation": {
-    "type": [
-     "homophone",
-     "charade"
-    ],
-    "answer": "PIDGIN ENGLISH",
     "definitions": [
      {
       "text": "Jargon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heard",
-      "for": "homophone",
-      "note": "heard means we go by the word as it sounds when spoken, not its spelling"
-     }
-    ],
-    "linkWords": [
-     "from",
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flyer",
-      "gives": "PIDGIN",
-      "soundsLike": "PIGEON",
-      "note": "a pigeon is a bird, a flyer"
-     },
-     {
-      "clueFragment": "the Big Breakfast",
-      "gives": "ENGLISH",
-      "note": "a full English is a large British cooked breakfast of eggs, bacon, sausages and so on"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "PIDGIN",
+       "indicators": [
+        {
+         "text": "heard",
+         "note": "heard means we go by the word as it sounds when spoken, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flyer",
+         "gives": "PIGEON",
+         "note": "a pigeon is a bird, a flyer"
+        }
+       ]
+      },
+      {
+       "words": "the Big Breakfast",
+       "gives": "ENGLISH",
+       "note": "a full English is a large British cooked breakfast of eggs, bacon, sausages and so on"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Odd talk from a bird appearing on The Big Breakfast, a 1990s British morning TV show.",
      "walkthrough": "The Big Breakfast was a Channel 4 morning programme, but here it is the full English fry-up.",
@@ -589,47 +533,40 @@
    },
    "solution": "BETONY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BETONY",
     "definitions": [
      {
       "text": "Medicinal plant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "rear of",
-      "for": "letter_selection",
-      "note": "the rear is the back end, so only the closing letter of the word is kept"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "back",
-      "gives": "BET",
-      "note": "to back a horse is to bet on it"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "ON",
-      "note": "on and at both mean located by, as in 'on the coast'"
-     },
-     {
-      "clueFragment": "nursery",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of nursery"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BET",
-      "ON",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "back",
+       "gives": "BET",
+       "note": "to back a horse is to bet on it"
+      },
+      {
+       "words": "at",
+       "gives": "ON",
+       "note": "on and at both mean located by, as in 'on the coast'"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "note": "the rear is the back end, so only the closing letter of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nursery",
+         "note": "the last letter of nursery"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -657,47 +594,34 @@
    },
    "solution": "INFORMAL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INFORMAL",
     "definitions": [
      {
       "text": "Relaxed",
       "at": 0
      }
     ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "popular",
-      "gives": "IN",
-      "note": "something in is in fashion"
-     },
-     {
-      "clueFragment": "class",
-      "gives": "FORM",
-      "note": "a form is a school class in Britain"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "L is the map abbreviation for lake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "FORM",
-      "A",
-      "L"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "gives": "IN",
+       "note": "something in is in fashion"
+      },
+      {
+       "words": "class",
+       "gives": "FORM",
+       "note": "a form is a school class in Britain"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "lake",
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
+      }
      ]
     },
     "explanation": {
@@ -726,36 +650,29 @@
    },
    "solution": "AND",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "AND",
     "definitions": [
      {
       "text": "Joiner",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "topping",
-      "for": "deletion",
-      "note": "topping means cutting off the top, so the first letter of the word is removed"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "worker",
-      "gives": "HAND",
-      "note": "a hand is a labourer, as in farmhand"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AND"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topping",
+       "note": "topping means cutting off the top, so the first letter of the word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worker",
+       "gives": "HAND",
+       "note": "a hand is a labourer, as in farmhand"
+      },
+      {
+       "gives": "H"
+      }
      ]
     },
     "explanation": {
@@ -791,26 +708,25 @@
    },
    "solution": "SEAFOG",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "SEA-FOG",
     "definitions": [
      {
       "text": "It comes in banks in the main",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "It comes in banks",
-      "note": "surface reading: something deposited in high-street banks, such as money"
-     },
-     {
-      "clueFragment": "in the main",
-      "note": "setter's reading: 'the main' is the open ocean, where thick banks of mist roll in"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It comes in banks",
+       "note": "surface reading: something deposited in high-street banks, such as money"
+      },
+      {
+       "words": "in the main",
+       "note": "setter's reading: 'the main' is the open ocean, where thick banks of mist roll in"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "'Banks' suggests finance and 'in the main' means mostly; really they are fog banks out on the main, an old word for the sea.",
      "definitionFit": "Mist forming over the ocean drifts in dense banks, and the main is a poetic name for the sea."
@@ -837,38 +753,24 @@
    },
    "solution": "GOSSAMER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GOSSAMER",
     "definitions": [
      {
       "text": "Flimsy material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "made",
-      "for": "anagram",
-      "note": "made means fashioned or put together, so the letters are reworked into something new"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some rags",
-      "gives": "SOMERAGS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "SOMERAGS",
-       "gives": "GOSSAMER"
+       "text": "made",
+       "note": "made means fashioned or put together, so the letters are reworked into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some rags",
+       "note": "taken as written"
       }
      ]
     },
@@ -897,10 +799,6 @@
    },
    "solution": "ASTON",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ASTON",
     "definitions": [
      {
       "text": "the Villa",
@@ -908,27 +806,19 @@
       "note": "a first word of a name, supplied to complete it"
      }
     ],
-    "indicators": [
-     {
-      "text": "Even innards of",
-      "for": "letter_selection",
-      "note": "even means the second, fourth, sixth letters and so on, taken from inside the word"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "basset-hound",
-      "gives": "ASTON",
-      "select": "alternate",
-      "note": "the even-numbered letters of basset-hound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ASTON"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Even innards of",
+       "note": "even means the second, fourth, sixth letters and so on, taken from inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "basset-hound",
+       "note": "the even-numbered letters of basset-hound"
+      }
      ]
     },
     "explanation": {
@@ -958,35 +848,24 @@
    },
    "solution": "UNIVALENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "UNIVALENT",
     "definitions": [
      {
       "text": "Having just one connection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "travelling",
-      "for": "anagram",
-      "note": "things travelling are on the move, so the letters move into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "via tunnel",
-      "gives": "VIATUNNEL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "VIATUNNEL",
-       "gives": "UNIVALENT"
+       "text": "travelling",
+       "note": "things travelling are on the move, so the letters move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "via tunnel",
+       "note": "taken as written"
       }
      ]
     },
@@ -1015,52 +894,44 @@
    },
    "solution": "LAPHROAIG",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "LAPHROAIG",
     "definitions": [
      {
       "text": "Whisky",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "without",
-      "for": "deletion",
-      "note": "without means lacking, so those letters are taken away"
-     },
-     {
-      "text": "wild",
-      "for": "anagram",
-      "note": "something wild is unruly and out of order, so the remaining letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "archipelago",
-      "gives": "ARCHIPELAGO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "CE is the Church of England"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAPHROAIG"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "LAPHROAIG",
+     "indicators": [
       {
-       "fodder": "ARHIPLAGO",
-       "gives": "LAPHROAIG"
+       "text": "wild",
+       "note": "something wild is unruly and out of order, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "LAPHROAIG",
+       "indicators": [
+        {
+         "text": "without",
+         "note": "without means lacking, so those letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "archipelago",
+         "note": "taken as written"
+        },
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
       }
      ]
     },
@@ -1090,48 +961,34 @@
    },
    "solution": "SARAJEVO",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "SARAJEVO",
     "definitions": [
      {
       "text": "A capital",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "ripping",
-      "for": "anagram",
-      "note": "ripping tears something apart, so the letters are pulled into a new order"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "SARA",
-      "note": "a girl's name"
-     },
-     {
-      "clueFragment": "Jove",
-      "gives": "JOVE",
-      "note": "the Roman god's name, taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SARA",
-      "JEVO"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "JOVE",
-       "gives": "JEVO"
+       "words": "girl",
+       "gives": "SARA",
+       "note": "a girl's name"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ripping",
+         "note": "ripping tears something apart, so the letters are pulled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jove",
+         "note": "the Roman god's name, taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1162,43 +1019,31 @@
    },
    "solution": "RESTRAINT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RESTRAINT",
     "definitions": [
      {
       "text": "Controlling influence",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "during",
-      "for": "container",
-      "note": "during means in the middle of a period, so one word sits inside the other"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "time-off",
-      "gives": "REST",
-      "note": "rest is time off work"
-     },
-     {
-      "clueFragment": "coach",
-      "gives": "TRAIN",
-      "note": "to coach is to train"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RES",
-      "TRAIN",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "during means in the middle of a period, so one word sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time-off",
+       "gives": "REST",
+       "note": "rest is time off work"
+      },
+      {
+       "words": "coach",
+       "gives": "TRAIN",
+       "note": "to coach is to train"
+      }
      ]
     },
     "explanation": {
@@ -1227,11 +1072,6 @@
    },
    "solution": "EMOTIVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "EMOTIVE",
     "definitions": [
      {
       "text": "Touchy",
@@ -1239,33 +1079,29 @@
       "note": "emotive means arousing feeling, so 'touchy' in the sense of a sensitive subject"
      }
     ],
-    "indicators": [
-     {
-      "text": "leading",
-      "for": "letter_selection",
-      "note": "leading means coming first, so only the opening letter is kept"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "economist",
-      "gives": "E",
-      "select": "first",
-      "note": "the first letter of economist"
-     },
-     {
-      "clueFragment": "reason",
-      "gives": "MOTIVE",
-      "note": "a motive is a reason for acting"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "MOTIVE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "note": "leading means coming first, so only the opening letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "economist",
+         "note": "the first letter of economist"
+        }
+       ]
+      },
+      {
+       "words": "reason",
+       "gives": "MOTIVE",
+       "note": "a motive is a reason for acting"
+      }
      ]
     },
     "explanation": {
@@ -1293,38 +1129,31 @@
    },
    "solution": "UPPER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "UPPER",
     "definitions": [
      {
       "text": "Superior",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not required",
-      "for": "deletion",
-      "note": "something not required is left out, so that letter is dropped from the word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meal",
-      "gives": "SUPPER",
-      "note": "supper is an evening meal"
-     },
-     {
-      "clueFragment": "seconds",
-      "gives": "S",
-      "note": "s is the abbreviation for seconds"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UPPER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not required",
+       "note": "something not required is left out, so that letter is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal",
+       "gives": "SUPPER",
+       "note": "supper is an evening meal"
+      },
+      {
+       "words": "seconds",
+       "gives": "S",
+       "note": "s is the abbreviation for seconds"
+      }
      ]
     },
     "explanation": {
@@ -1354,54 +1183,40 @@
    },
    "solution": "ELEGANT",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ELEGANT",
     "definitions": [
      {
       "text": "Graceful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "oddly",
-      "for": "anagram",
-      "note": "oddly means strangely, so the letters are set out in an unusual order"
-     },
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "concealing means hiding something inside, so one piece goes within the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "neat",
-      "gives": "NEAT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "limb",
-      "gives": "LEG",
-      "note": "a leg is a limb"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "LEG",
-      "ANT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "NEAT",
-       "gives": "EANT"
+       "text": "concealing",
+       "note": "concealing means hiding something inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "note": "oddly means strangely, so the letters are set out in an unusual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "limb",
+       "gives": "LEG",
+       "note": "a leg is a limb"
       }
      ]
     },
@@ -1431,32 +1246,24 @@
    },
    "solution": "AVERSE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "AVERSE",
     "definitions": [
      {
       "text": "Opposed to",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bit from Keats, say",
-      "gives": "VERSE",
-      "note": "a verse is a stanza, a section of a poem by Keats or any poet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "VERSE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "bit from Keats, say",
+       "gives": "VERSE",
+       "note": "a verse is a stanza, a section of a poem by Keats or any poet"
+      }
      ]
     },
     "explanation": {
@@ -1495,38 +1302,29 @@
    },
    "solution": "NOTATALL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NOT AT ALL",
     "definitions": [
      {
       "text": "In no way",
       "at": 25
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "No",
-      "gives": "NO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "farewell",
-      "gives": "TATA",
-      "note": "ta-ta is a British informal goodbye"
-     },
-     {
-      "clueFragment": "learners",
-      "gives": "LL",
-      "note": "L is a learner, from the L-plates on British learner drivers' cars, doubled for the plural"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "TATA",
-      "LL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No",
+       "note": "taken as written"
+      },
+      {
+       "words": "farewell",
+       "gives": "TATA",
+       "note": "ta-ta is a British informal goodbye"
+      },
+      {
+       "words": "learners",
+       "gives": "LL",
+       "note": "L is a learner, from the L-plates on British learner drivers' cars, doubled for the plural"
+      }
      ]
     },
     "explanation": {
@@ -1555,32 +1353,25 @@
    },
    "solution": "ARGOT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ARGOT",
     "definitions": [
      {
       "text": "the vernacular",
       "at": 15
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Arab",
-      "gives": "AR",
-      "note": "AR is a standard abbreviation for Arab or Arabic"
-     },
-     {
-      "clueFragment": "picked up",
-      "gives": "GOT",
-      "note": "to pick something up is to get it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AR",
-      "GOT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Arab",
+       "gives": "AR",
+       "note": "AR is a standard abbreviation for Arab or Arabic"
+      },
+      {
+       "words": "picked up",
+       "gives": "GOT",
+       "note": "to pick something up is to get it"
+      }
      ]
     },
     "explanation": {
@@ -1609,35 +1400,24 @@
    },
    "solution": "VARIES",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "VARIES",
     "definitions": [
      {
       "text": "Differs",
       "at": 0
      }
     ],
-    "linkWords": [
-     "showing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "V",
-      "gives": "V",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "sign",
-      "gives": "ARIES",
-      "note": "Aries is a sign of the zodiac"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "V",
-      "ARIES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "V",
+       "note": "taken as written"
+      },
+      {
+       "words": "sign",
+       "gives": "ARIES",
+       "note": "Aries is a sign of the zodiac"
+      }
      ]
     },
     "explanation": {
@@ -1667,38 +1447,31 @@
    },
    "solution": "IKE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "IKE",
     "definitions": [
      {
       "text": "president",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "no longer has",
-      "for": "deletion",
-      "note": "no longer having something means it has been lost, so that letter is removed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Furniture company",
-      "gives": "IKEA",
-      "note": "the Swedish flat-pack furniture retailer"
-     },
-     {
-      "clueFragment": "active",
-      "gives": "A",
-      "note": "a is the grammatical abbreviation for active"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IKE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no longer has",
+       "note": "no longer having something means it has been lost, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Furniture company",
+       "gives": "IKEA",
+       "note": "the Swedish flat-pack furniture retailer"
+      },
+      {
+       "words": "active",
+       "gives": "A",
+       "note": "a is the grammatical abbreviation for active"
+      }
      ]
     },
     "explanation": {
@@ -1726,44 +1499,35 @@
    },
    "solution": "SINGLETS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SINGLETS",
     "definitions": [
      {
       "text": "Tops",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for starters",
-      "for": "letter_selection",
-      "note": "starters come first, so each word gives only its opening letter"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "just one",
-      "gives": "SINGLE",
-      "note": "single means only one"
-     },
-     {
-      "clueFragment": "t-shirt",
-      "gives": "TS",
-      "select": "first",
-      "note": "the first letters of t and shirt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SINGLE",
-      "TS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "just one",
+       "gives": "SINGLE",
+       "note": "single means only one"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for starters",
+         "note": "starters come first, so each word gives only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "t-shirt",
+         "note": "the first letters of t and shirt"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1792,30 +1556,28 @@
    },
    "solution": "REAGAN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "REAGAN",
     "definitions": [
      {
       "text": "president",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "is holding",
-      "for": "hidden_word",
-      "note": "holding means containing, so the answer sits whole within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Unsure a gangster",
-      "gives": "REAGAN",
-      "note": "letters running across the three words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is holding",
+       "note": "holding means containing, so the answer sits whole within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unsure a gangster",
+       "gives": "REAGAN",
+       "note": "letters running across the three words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A hesitant mobster has taken a head of state hostage.",
      "definitionFit": "Ronald Reagan was the fortieth president of the United States, serving through the 1980s."
@@ -1841,44 +1603,40 @@
    },
    "solution": "DESTROY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "DESTROY",
     "definitions": [
      {
       "text": "Ruin",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half of",
-      "for": "letter_selection",
-      "note": "half means only part, here the back portion of the word"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rhodes",
-      "gives": "DES",
-      "select": "last",
-      "note": "the last three of the six letters of Rhodes"
-     },
-     {
-      "clueFragment": "Ilium",
-      "gives": "TROY",
-      "note": "Ilium is the Latin name for ancient Troy"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DES",
-      "TROY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "DES",
+       "indicators": [
+        {
+         "text": "half of",
+         "note": "half means only part, here the back portion of the word"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Rhodes",
+         "gives": "DES",
+         "select": "last",
+         "note": "the last three of the six letters of Rhodes"
+        }
+       ]
+      },
+      {
+       "words": "Ilium",
+       "gives": "TROY",
+       "note": "Ilium is the Latin name for ancient Troy"
+      }
      ]
     },
     "explanation": {
@@ -1907,47 +1665,41 @@
    },
    "solution": "WEIGHTY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "WEIGHTY",
     "definitions": [
      {
       "text": "Massive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outskirts of",
-      "for": "letter_selection",
-      "note": "outskirts are the edges of a town, so only the first and last letters are kept"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means inside, so one piece is placed within the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Wallasey",
-      "gives": "WY",
-      "select": "outer",
-      "note": "the first and last letters of Wallasey"
-     },
-     {
-      "clueFragment": "group rowing",
-      "gives": "EIGHT",
-      "note": "an eight is a racing crew of eight rowers"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "EIGHT",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "in means inside, so one piece is placed within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "note": "outskirts are the edges of a town, so only the first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wallasey",
+         "note": "the first and last letters of Wallasey"
+        }
+       ]
+      },
+      {
+       "words": "group rowing",
+       "gives": "EIGHT",
+       "note": "an eight is a racing crew of eight rowers"
+      }
      ]
     },
     "explanation": {

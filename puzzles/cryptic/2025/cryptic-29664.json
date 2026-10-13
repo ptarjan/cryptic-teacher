@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29664",
  "number": 29664,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,664",
  "setter": "Paul",
  "date": "2025-04-09",
  "dimensions": {
@@ -38,26 +36,25 @@
    },
    "solution": "ANAGRAM",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ANAGRAM",
     "definitions": [
      {
       "text": "With this, what I may need becomes themed in a way",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "what I may need becomes themed in a way",
-      "note": "surface reading: someone's needs turning into a themed arrangement, like a party plan"
-     },
-     {
-      "clueFragment": "what I may need",
-      "note": "setter's reading: the twelve letters of these four words, rearranged, spell out the phrase themed in a way exactly"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "what I may need becomes themed in a way",
+       "note": "surface reading: someone's needs turning into a themed arrangement, like a party plan"
+      },
+      {
+       "words": "what I may need",
+       "note": "setter's reading: the twelve letters of these four words, rearranged, spell out the phrase themed in a way exactly"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone muses on a tool that turns their requirements into something with a theme.",
      "walkthrough": "The clue is self-demonstrating: the device it defines is the very device that turns 'what I may need' into 'themed in a way'.",
@@ -84,35 +81,24 @@
    },
    "solution": "NEUTRAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "NEUTRAL",
     "definitions": [
      {
       "text": "grey or beige?",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "coloured",
-      "for": "anagram",
-      "note": "something coloured has been altered in appearance, so the car name's letters are altered in order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Renault",
-      "gives": "RENAULT",
-      "note": "the French car maker, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RENAULT",
-       "gives": "NEUTRAL"
+       "text": "coloured",
+       "note": "something coloured has been altered in appearance, so the car name's letters are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Renault",
+       "note": "the French car maker, taken letter for letter"
       }
      ]
     },
@@ -141,41 +127,35 @@
    },
    "solution": "GUTSY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GUTSY",
     "definitions": [
      {
       "text": "Stout",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "empty",
-      "for": "letter_selection",
-      "note": "emptying a word takes out its insides, leaving only the outside pair of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "belly",
-      "gives": "GUT",
-      "note": "the belly or stomach"
-     },
-     {
-      "clueFragment": "surprisingly",
-      "gives": "SY",
-      "select": "outer",
-      "note": "first and last letters of surprisingly"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GUT",
-      "SY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "belly",
+       "gives": "GUT",
+       "note": "the belly or stomach"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "note": "emptying a word takes out its insides, leaving only the outside pair of letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "surprisingly",
+         "note": "first and last letters of surprisingly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -205,54 +185,50 @@
    },
    "solution": "ALBERTA",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "ALBERTA",
     "definitions": [
      {
       "text": "a Canadian province",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally points to how a word starts, so only its opening letter is used"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places one item inside the next one named in the clue"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Banff",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of Banff"
-     },
-     {
-      "clueFragment": "with it",
-      "gives": "ALERT",
-      "note": "being with it means being alert and switched on"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AL",
-      "B",
-      "ERT",
-      "A"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places one item inside the next one named in the clue"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with it",
+         "gives": "ALERT",
+         "note": "being with it means being alert and switched on"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "note": "originally points to how a word starts, so only its opening letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Banff",
+           "note": "first letter of Banff"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -319,47 +295,41 @@
    },
    "solution": "ROMANNOSE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ROMAN NOSE",
     "definitions": [
      {
       "text": "strong smeller?",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "into means the preceding items are put inside the flower word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flower",
-      "gives": "ROSE",
-      "note": "a rose is a flower"
-     },
-     {
-      "clueFragment": "Chap",
-      "gives": "MAN",
-      "note": "a chap is a man"
-     },
-     {
-      "clueFragment": "certainly not",
-      "gives": "NO",
-      "note": "an emphatic refusal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "MAN",
-      "NO",
-      "SE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "into means the preceding items are put inside the flower word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flower",
+       "gives": "ROSE",
+       "note": "a rose is a flower"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Chap",
+         "gives": "MAN",
+         "note": "a chap is a man"
+        },
+        {
+         "words": "certainly not",
+         "gives": "NO",
+         "note": "an emphatic refusal"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -389,30 +359,28 @@
    },
    "solution": "EERIEST",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "EERIEST",
     "definitions": [
      {
       "text": "most weird",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Piece from",
-      "for": "hidden_word",
-      "note": "a piece from a phrase is a stretch of consecutive letters cut out of it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "electioneer, I established",
-      "gives": "EERIEST",
-      "note": "found running across the end of electioneer, the I, and the start of established"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Piece from",
+       "note": "a piece from a phrase is a stretch of consecutive letters cut out of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "electioneer, I established",
+       "gives": "EERIEST",
+       "note": "found running across the end of electioneer, the I, and the start of established"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A newspaper item about a political campaigner and something rather strange.",
      "definitionFit": "Eerie means strange and unsettling, so the superlative form matches the weirdest, the most uncanny."
@@ -438,40 +406,31 @@
    },
    "solution": "COSMETOLOGIST",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "COSMETOLOGIST",
     "definitions": [
      {
       "text": "features editor",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "captures",
-      "for": "container",
-      "note": "capturing something means holding it inside, so one word encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Astronomer",
-      "gives": "COSMOLOGIST",
-      "note": "a scientist who studies the universe"
-     },
-     {
-      "clueFragment": "alien",
-      "gives": "ET",
-      "note": "the extraterrestrial of the Spielberg film"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COSM",
-      "ET",
-      "OLOGIST"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captures",
+       "note": "capturing something means holding it inside, so one word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Astronomer",
+       "gives": "COSMOLOGIST",
+       "note": "a scientist who studies the universe"
+      },
+      {
+       "words": "alien",
+       "gives": "ET",
+       "note": "the extraterrestrial of the Spielberg film"
+      }
      ]
     },
     "explanation": {
@@ -511,47 +470,41 @@
     "5-across"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "JUST MARRIED",
     "definitions": [
      {
       "text": "As newlyweds",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "trapped",
-      "for": "container",
-      "note": "something trapped is held inside, so the single letter sits within the word for damaged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slightly",
-      "gives": "JUST",
-      "note": "just as in only just, by a small margin"
-     },
-     {
-      "clueFragment": "damaged",
-      "gives": "MARRED",
-      "note": "marred means spoilt or damaged"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "the Roman numeral for one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "JUST",
-      "MARR",
-      "I",
-      "ED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "slightly",
+       "gives": "JUST",
+       "note": "just as in only just, by a small margin"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "trapped",
+         "note": "something trapped is held inside, so the single letter sits within the word for damaged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "damaged",
+         "gives": "MARRED",
+         "note": "marred means spoilt or damaged"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "the Roman numeral for one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -586,50 +539,41 @@
    },
    "solution": "BLOODYMARY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BLOODY MARY",
     "definitions": [
      {
       "text": "something alcoholic",
       "at": 52
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately means in the end, so just the final letter of that word is used"
-     },
-     {
-      "text": "being squeezed by",
-      "for": "container",
-      "note": "a thing squeezed by another is pressed inside it"
-     }
-    ],
-    "linkWords": [
-     "required"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wretched PM",
-      "gives": "BLOODYMAY",
-      "note": "Theresa May, the British Prime Minister 2016 to 2019, with bloody as a British word for wretched or damned"
-     },
-     {
-      "clueFragment": "Taxpayer",
-      "gives": "R",
-      "select": "last",
-      "note": "last letter of taxpayer"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLOODYMA",
-      "R",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being squeezed by",
+       "note": "a thing squeezed by another is pressed inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wretched PM",
+       "gives": "BLOODYMAY",
+       "note": "Theresa May, the British Prime Minister 2016 to 2019, with bloody as a British word for wretched or damned"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately means in the end, so just the final letter of that word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Taxpayer",
+         "note": "last letter of taxpayer"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -658,40 +602,31 @@
    },
    "solution": "PRAYER",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PRAYER",
     "definitions": [
      {
       "text": "Grace perhaps",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "catching",
-      "for": "container",
-      "note": "catching something means holding it within, so one word encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "through",
-      "gives": "PER",
-      "note": "per means through or by means of, as in per post"
-     },
-     {
-      "clueFragment": "some light",
-      "gives": "RAY",
-      "note": "a ray is a beam of light"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "RAY",
-      "ER"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "note": "catching something means holding it within, so one word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "through",
+       "gives": "PER",
+       "note": "per means through or by means of, as in per post"
+      },
+      {
+       "words": "some light",
+       "gives": "RAY",
+       "note": "a ray is a beam of light"
+      }
      ]
     },
     "explanation": {
@@ -721,58 +656,55 @@
    },
    "solution": "MALINGER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "deletion"
-    ],
-    "answer": "MALINGER",
     "definitions": [
      {
       "text": "avoid work",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "ending in",
-      "for": "letter_selection",
-      "note": "the ending of a word is its last letter, which is all that is taken"
-     },
-     {
-      "text": "leaving",
-      "for": "deletion",
-      "note": "when something is leaving, it goes out of the word that held it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Country",
-      "gives": "MALI",
-      "note": "the West African country"
-     },
-     {
-      "clueFragment": "recession",
-      "gives": "N",
-      "select": "last",
-      "note": "last letter of recession"
-     },
-     {
-      "clueFragment": "many",
-      "gives": "MANY",
-      "note": "taken as written, to be removed"
-     },
-     {
-      "clueFragment": "country",
-      "gives": "GERMANY",
-      "note": "the European country"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MALI",
-      "N",
-      "GER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Country",
+       "gives": "MALI",
+       "note": "the West African country"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending in",
+         "note": "the ending of a word is its last letter, which is all that is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "recession",
+         "note": "last letter of recession"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "note": "when something is leaving, it goes out of the word that held it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country",
+         "gives": "GERMANY",
+         "note": "the European country"
+        },
+        {
+         "words": "many",
+         "note": "taken as written, to be removed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -815,38 +747,24 @@
     "28-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FLAT EARTH SOCIETY",
     "definitions": [
      {
       "text": "conspiracy theorists",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Debunking of",
-      "for": "anagram",
-      "note": "debunking a story takes it apart, so the letters of the following words are broken up and rebuilt"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fairy tale the cost",
-      "gives": "FAIRYTALETHECOST",
-      "note": "all sixteen letters of these four words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FAIRYTALETHECOST",
-       "gives": "FLATEARTHSOCIETY"
+       "text": "Debunking of",
+       "note": "debunking a story takes it apart, so the letters of the following words are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fairy tale the cost",
+       "note": "all sixteen letters of these four words"
       }
      ]
     },
@@ -875,50 +793,41 @@
    },
    "solution": "TOSCANINI",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TOSCANINI",
     "definitions": [
      {
       "text": "Maestro",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at end of",
-      "for": "charade",
-      "note": "placing something at the end of another means it is attached after it"
-     },
-     {
-      "text": "lifted up",
-      "for": "reversal",
-      "note": "in a down entry, lifting letters up means reading them from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "opera",
-      "gives": "TOSCA",
-      "note": "the opera by Puccini"
-     },
-     {
-      "clueFragment": "in performing encore",
-      "gives": "ININ",
-      "note": "the word in, performing an encore, so given twice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TOSCA",
-      "NINI"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "from": "ININ",
-       "to": "NINI"
+       "text": "at end of",
+       "note": "placing something at the end of another means it is attached after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opera",
+       "gives": "TOSCA",
+       "note": "the opera by Puccini"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifted up",
+         "note": "in a down entry, lifting letters up means reading them from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in performing encore",
+         "gives": "ININ",
+         "note": "the word in, performing an encore, so given twice"
+        }
+       ]
       }
      ]
     },
@@ -958,26 +867,25 @@
     "6-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BOOTS AND ALL",
     "definitions": [
      {
       "text": "with everything one's got",
       "at": 27
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Two items of footwear left with everything",
-      "note": "surface reading: a pair of shoes plus all the rest of one's belongings left behind"
-     },
-     {
-      "clueFragment": "with everything one's got",
-      "note": "setter's reading: an idiom for total commitment, wholeheartedly, read literally as footwear together with everything else"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Two items of footwear left with everything",
+       "note": "surface reading: a pair of shoes plus all the rest of one's belongings left behind"
+      },
+      {
+       "words": "with everything one's got",
+       "note": "setter's reading: an idiom for total commitment, wholeheartedly, read literally as footwear together with everything else"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone departs leaving a pair of boots and every other possession.",
      "walkthrough": "The phrase is chiefly Australian and New Zealand, meaning wholeheartedly; read literally it is footwear plus the rest of one's stuff.",
@@ -1005,28 +913,16 @@
    },
    "solution": "FLUSH",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FLUSH",
     "definitions": [
      {
       "text": "Flat",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: level, even with a surface"
      },
      {
       "text": "hand",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Flat",
-      "note": "first meaning: level, even with a surface"
-     },
-     {
-      "clueFragment": "hand",
-      "note": "second meaning: in poker, five cards all of one suit"
+      "at": 5,
+      "meaning": "second meaning: in poker, five cards all of one suit"
      }
     ],
     "explanation": {
@@ -1055,47 +951,41 @@
    },
    "solution": "LEPANTO",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "LEPANTO",
     "definitions": [
      {
       "text": "Battle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "last of",
-      "for": "letter_selection",
-      "note": "last of a word means only its final letter is kept"
-     },
-     {
-      "text": "fitting",
-      "for": "container",
-      "note": "fitting something into a structure installs it inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shed",
-      "gives": "LEANTO",
-      "note": "a lean-to is a shed built against a wall"
-     },
-     {
-      "clueFragment": "scrap",
-      "gives": "P",
-      "select": "last",
-      "note": "last letter of scrap"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LE",
-      "P",
-      "ANTO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "fitting",
+       "note": "fitting something into a structure installs it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shed",
+       "gives": "LEANTO",
+       "note": "a lean-to is a shed built against a wall"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "note": "last of a word means only its final letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scrap",
+         "note": "last letter of scrap"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1124,67 +1014,60 @@
    },
    "solution": "ILLIBERAL",
    "annotation": {
-    "type": [
-     "reversal",
-     "anagram",
-     "charade"
-    ],
-    "answer": "ILLIBERAL",
     "definitions": [
      {
       "text": "undemocratic",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back, so these letters are read in the opposite direction"
-     },
-     {
-      "text": "jerks",
-      "for": "anagram",
-      "note": "jerking something jolts it about, so its letters are jumbled"
-     },
-     {
-      "text": "backing",
-      "for": "charade",
-      "note": "backing another item means standing behind it, so this piece is placed after"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "legal draft",
-      "gives": "BILL",
-      "note": "a bill is a draft law put before parliament"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Real",
-      "gives": "REAL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ILLIB",
-      "ERAL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "REAL",
-       "gives": "ERAL"
+       "text": "backing",
+       "note": "backing another item means standing behind it, so this piece is placed after"
       }
      ],
-     "reversals": [
+     "parts": [
       {
-       "from": "BILLI",
-       "to": "ILLIB"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "note": "something rejected is sent back, so these letters are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "legal draft",
+           "gives": "BILL",
+           "note": "a bill is a draft law put before parliament"
+          },
+          {
+           "words": "I",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jerks",
+         "note": "jerking something jolts it about, so its letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Real",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1213,45 +1096,35 @@
    },
    "solution": "IMPOSER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "IMPOSER",
     "definitions": [
      {
       "text": "unwelcome guest",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Visited by",
-      "for": "charade",
-      "note": "being visited by someone means having them come alongside, so the two pieces sit side by side"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M is the standard abbreviation for male"
-     },
-     {
-      "clueFragment": "question",
-      "gives": "POSER",
-      "note": "a poser is a puzzling question"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "I",
-      "M",
-      "POSER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Visited by",
+       "note": "being visited by someone means having them come alongside, so the two pieces sit side by side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "words": "male",
+       "gives": "M",
+       "note": "M is the standard abbreviation for male"
+      },
+      {
+       "words": "question",
+       "gives": "POSER",
+       "note": "a poser is a puzzling question"
+      }
      ]
     },
     "explanation": {
@@ -1280,35 +1153,24 @@
    },
    "solution": "ARIADNE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ARIADNE",
     "definitions": [
      {
       "text": "Princess",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "entwined",
-      "for": "anagram",
-      "note": "things entwined are twisted together, so these letters are intertwined into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "and I are",
-      "gives": "ANDIARE",
-      "note": "all the letters of these three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ANDIARE",
-       "gives": "ARIADNE"
+       "text": "entwined",
+       "note": "things entwined are twisted together, so these letters are intertwined into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "and I are",
+       "note": "all the letters of these three words"
       }
      ]
     },
@@ -1338,39 +1200,28 @@
    },
    "solution": "MISHIT",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "MISHIT",
     "definitions": [
      {
       "text": "With this I'm making a blunder?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "making a blunder",
-      "for": "anagram",
-      "note": "a blunder is a mess-up, so the preceding letters are botched into a different order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "this I'm",
-      "gives": "THISIM",
-      "note": "the letters of these two words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THISIM",
-       "gives": "MISHIT"
+       "text": "making a blunder",
+       "note": "a blunder is a mess-up, so the preceding letters are botched into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this I'm",
+       "note": "the letters of these two words"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A golfer or batsman asks whether this shot is going to be a mistake.",
      "walkthrough": "The whole clue is both the definition and the wordplay: a bad stroke is how a player blunders.",
@@ -1420,40 +1271,34 @@
     "23-across"
    ],
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PUBLIC SPEAKING",
     "definitions": [
      {
       "text": "giving Ted Talks etc?",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "an unfortunate turn of events goes wrong, so the letters go awry into a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pressure",
-      "gives": "P",
-      "note": "P is the symbol for pressure in physics"
-     },
-     {
-      "clueFragment": "Paul being sick",
-      "gives": "PAULBEINGSICK",
-      "note": "all the letters of these three words"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "PPAULBEINGSICK",
-       "gives": "PUBLICSPEAKING"
+       "text": "unfortunately",
+       "note": "an unfortunate turn of events goes wrong, so the letters go awry into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pressure",
+         "gives": "P",
+         "note": "P is the symbol for pressure in physics"
+        },
+        {
+         "words": "Paul being sick",
+         "note": "all the letters of these three words"
+        }
+       ]
       }
      ]
     },
@@ -1483,31 +1328,29 @@
    },
    "solution": "BACCA",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BACCA",
     "definitions": [
      {
       "text": "a quid, say?",
       "at": 22
      }
     ],
-    "indicators": [
-     {
-      "text": "picked up",
-      "for": "homophone",
-      "note": "picked up means heard or caught by the ear, so the word is judged by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sponsor",
-      "gives": "BACCA",
-      "soundsLike": "BACKER",
-      "note": "a backer is a sponsor, and in a non-rhotic British accent the two words are said the same"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BACCA",
+     "indicators": [
+      {
+       "text": "picked up",
+       "note": "picked up means heard or caught by the ear, so the word is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sponsor",
+       "gives": "BACKER",
+       "note": "a backer is a sponsor, and in a non-rhotic British accent the two words are said the same"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Asking whether a sponsor might be bought cheaply, for a pound.",
      "walkthrough": "A quid is British slang for a pound, but here it is a chewing lump of tobacco.",
@@ -1535,57 +1378,56 @@
    },
    "solution": "ANTITHESIS",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "ANTITHESIS",
     "definitions": [
      {
       "text": "foil",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "damaged",
-      "for": "anagram",
-      "note": "something damaged is knocked out of shape, so these letters are reshaped"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the preceding pieces wrap round what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "tin",
-      "gives": "TIN",
-      "note": "taken as written, to be rearranged"
-     },
-     {
-      "clueFragment": "report",
-      "gives": "THESIS",
-      "note": "a thesis is a written dissertation or report"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NTI",
-      "THESIS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "ANTITHESIS",
+     "indicators": [
       {
-       "fodder": "TIN",
-       "gives": "NTI"
+       "text": "about",
+       "note": "about means around, so the preceding pieces wrap round what follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "damaged",
+           "note": "something damaged is knocked out of shape, so these letters are reshaped"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "tin",
+             "note": "taken as written, to be rearranged"
+            },
+            {
+             "words": "report",
+             "gives": "THESIS",
+             "note": "a thesis is a written dissertation or report"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1620,52 +1462,46 @@
     "29-across"
    ],
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "CODEBREAKER",
     "definitions": [
      {
       "text": "cracker?",
       "at": 63
      }
     ],
-    "indicators": [
-     {
-      "text": "first found in",
-      "for": "letter_selection",
-      "note": "the first found in a word is its opening letter, which alone is taken"
-     },
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "one piece coming after another is placed behind it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Christmas",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of Christmas"
-     },
-     {
-      "clueFragment": "verses, perhaps",
-      "gives": "ODE",
-      "note": "an ode is a poem, made of verses"
-     },
-     {
-      "clueFragment": "One ripping up",
-      "gives": "BREAKER",
-      "note": "one who rips things up breaks them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "ODE",
-      "BREAKER"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "one piece coming after another is placed behind it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first found in",
+         "note": "the first found in a word is its opening letter, which alone is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Christmas",
+         "note": "first letter of Christmas"
+        }
+       ]
+      },
+      {
+       "words": "verses, perhaps",
+       "gives": "ODE",
+       "note": "an ode is a poem, made of verses"
+      },
+      {
+       "words": "One ripping up",
+       "gives": "BREAKER",
+       "note": "one who rips things up breaks them"
+      }
      ]
     },
     "explanation": {

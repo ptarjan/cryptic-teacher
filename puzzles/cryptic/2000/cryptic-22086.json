@@ -1,8 +1,6 @@
 {
  "id": "cryptic-22086",
  "number": 22086,
- "series": "cryptic",
- "name": "Cryptic crossword No 22,086",
  "setter": "Logodaedalus",
  "date": "2000-12-20",
  "dimensions": {
@@ -38,50 +36,45 @@
    },
    "solution": "CACHET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CACHET",
     "definitions": [
      {
       "text": "Prestige",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "half the",
-      "for": "letter_selection",
-      "note": "half of a word means only its first portion of letters is used"
-     },
-     {
-      "text": "having swallowed",
-      "for": "container",
-      "note": "something that swallows takes another thing inside its body"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cat",
-      "gives": "CAT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "cheese",
-      "gives": "CHE",
-      "select": "first",
-      "note": "the first three of its six letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "CHE",
-      "T"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having swallowed",
+       "note": "something that swallows takes another thing inside its body"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cat",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "CHE",
+       "indicators": [
+        {
+         "text": "half the",
+         "note": "half of a word means only its first portion of letters is used"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "cheese",
+         "gives": "CHE",
+         "select": "first",
+         "note": "the first three of its six letters"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -111,41 +104,39 @@
    },
    "solution": "COINCIDE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "COINCIDE",
     "definitions": [
      {
       "text": "Agree",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "what we hear is a spoken version, so the spelling follows the sound"
-     }
-    ],
-    "linkWords": [
-     "to give",
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "money",
-      "gives": "COIN",
-      "note": "a coin is a piece of money"
-     },
-     {
-      "clueFragment": "the party",
-      "gives": "CIDE",
-      "soundsLike": "SIDE",
-      "note": "a side is a party in a dispute or contest"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "money",
+       "gives": "COIN",
+       "note": "a coin is a piece of money"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CIDE",
+       "indicators": [
+        {
+         "text": "we hear",
+         "note": "what we hear is a spoken version, so the spelling follows the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the party",
+         "gives": "SIDE",
+         "note": "a side is a party in a dispute or contest"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone consents to donate cash to a political party.",
      "definitionFit": "To coincide is to correspond or be in accord, so two things that agree coincide."
@@ -171,54 +162,40 @@
    },
    "solution": "CREVASSE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "CREVASSE",
     "definitions": [
      {
       "text": "Crack",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "sent back",
-      "for": "reversal",
-      "note": "sending something back makes it go the opposite way, read right to left"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "C",
-      "note": "c. (circa) means about"
-     },
-     {
-      "clueFragment": "investor",
-      "gives": "SAVER",
-      "note": "a saver puts money aside, an investor of sorts"
-     },
-     {
-      "clueFragment": "the Home Counties",
-      "gives": "SE",
-      "note": "the Home Counties around London lie in the south-east, SE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "REVAS",
-      "SE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SAVER",
-       "to": "REVAS"
+       "words": "about",
+       "gives": "C",
+       "note": "c. (circa) means about"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent back",
+         "note": "sending something back makes it go the opposite way, read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "investor",
+         "gives": "SAVER",
+         "note": "a saver puts money aside, an investor of sorts"
+        }
+       ]
+      },
+      {
+       "words": "the Home Counties",
+       "gives": "SE",
+       "note": "the Home Counties around London lie in the south-east, SE"
       }
      ]
     },
@@ -248,32 +225,25 @@
    },
    "solution": "EATEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EATEN",
     "definitions": [
      {
       "text": "wasted away",
       "at": 28
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Each",
-      "gives": "EA",
-      "note": "ea. is the abbreviation for each"
-     },
-     {
-      "clueFragment": "depleted football team",
-      "gives": "TEN",
-      "note": "a football side has eleven players; one short leaves this number"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EA",
-      "TEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Each",
+       "gives": "EA",
+       "note": "ea. is the abbreviation for each"
+      },
+      {
+       "words": "depleted football team",
+       "gives": "TEN",
+       "note": "a football side has eleven players; one short leaves this number"
+      }
      ]
     },
     "explanation": {
@@ -302,35 +272,24 @@
    },
    "solution": "SKELETON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SKELETON",
     "definitions": [
      {
       "text": "Bones",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cooked",
-      "for": "anagram",
-      "note": "cooking changes ingredients, so the letters are mixed into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "not leeks",
-      "gives": "NOTLEEKS",
-      "note": "the fodder, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NOTLEEKS",
-       "gives": "SKELETON"
+       "text": "cooked",
+       "note": "cooking changes ingredients, so the letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not leeks",
+       "note": "the fodder, taken letter for letter"
       }
      ]
     },
@@ -365,43 +324,33 @@
    },
    "solution": "KATEGREENAWAY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "KATE GREENAWAY",
     "definitions": [
      {
       "text": "Illustrator",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "redraws",
-      "for": "anagram",
-      "note": "redrawing a picture lays its lines out afresh, so the letters are recomposed"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Yankee",
-      "gives": "YANKEE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a wet rag",
-      "gives": "AWETRAG",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "YANKEEAWETRAG",
-       "gives": "KATEGREENAWAY"
+       "text": "redraws",
+       "note": "redrawing a picture lays its lines out afresh, so the letters are recomposed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Yankee",
+         "note": "taken as written"
+        },
+        {
+         "words": "a wet rag",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -437,28 +386,16 @@
    },
    "solution": "LONGFACED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "LONG-FACED",
     "definitions": [
      {
       "text": "Dismal",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: gloomy, wearing a glum expression"
      },
      {
       "text": "as a crocodile",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dismal",
-      "note": "first meaning: gloomy, wearing a glum expression"
-     },
-     {
-      "clueFragment": "as a crocodile",
-      "note": "second meaning, taken literally: with an elongated snout"
+      "at": 7,
+      "meaning": "second meaning, taken literally: with an elongated snout"
      }
     ],
     "explanation": {
@@ -488,47 +425,41 @@
    },
    "solution": "TACKLE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "TACKLE",
     "definitions": [
      {
       "text": "Try",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tops",
-      "for": "letter_selection",
-      "note": "the tops of words are their initial letters"
-     },
-     {
-      "text": "made in",
-      "for": "container",
-      "note": "something made in another sits within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Calvin Klein",
-      "gives": "CK",
-      "select": "first",
-      "note": "the initial of each name"
-     },
-     {
-      "clueFragment": "yarn",
-      "gives": "TALE",
-      "note": "a yarn is a long story, a tale"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TA",
-      "CK",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "made in",
+       "note": "something made in another sits within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yarn",
+       "gives": "TALE",
+       "note": "a yarn is a long story, a tale"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tops",
+         "note": "the tops of words are their initial letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Calvin Klein",
+         "note": "the initial of each name"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -557,26 +488,25 @@
    },
    "solution": "NELSON",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "NELSON",
     "definitions": [
      {
       "text": "Lady Hamilton's hold?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Lady Hamilton's hold?",
-      "note": "surface reading: the grip Emma Hamilton had over her famous lover"
-     },
-     {
-      "clueFragment": "Lady Hamilton's hold?",
-      "note": "setter's reading: a wrestling hold named after the admiral who was her lover"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lady Hamilton's hold?",
+       "note": "surface reading: the grip Emma Hamilton had over her famous lover"
+      },
+      {
+       "words": "Lady Hamilton's hold?",
+       "note": "setter's reading: a wrestling hold named after the admiral who was her lover"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Emma, Lady Hamilton, was the mistress of Admiral Horatio Nelson; a full or half nelson is a wrestling grip.",
      "definitionFit": "A nelson is a wrestling hold applied from behind, and Nelson was the man Lady Hamilton held dear."
@@ -603,42 +533,29 @@
    },
    "solution": "INEPT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "INEPT",
     "definitions": [
      {
       "text": "awkward",
       "at": 4
      }
     ],
-    "linkWords": [
-     "I'm",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "record",
-      "gives": "EP",
-      "note": "an EP is an extended-play record"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the standard abbreviation for time"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "EP",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "words": "record",
+       "gives": "EP",
+       "note": "an EP is an extended-play record"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the standard abbreviation for time"
+      }
      ]
     },
     "explanation": {
@@ -667,43 +584,33 @@
    },
    "solution": "BOTANICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BOTANICAL",
     "definitions": [
      {
       "text": "of plant study",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Tatty",
-      "for": "anagram",
-      "note": "something tatty is worn and messed up, so the letters are put in disorder"
-     }
-    ],
-    "linkWords": [
-     "connected with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cabin",
-      "gives": "CABIN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "a lot",
-      "gives": "ALOT",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CABINALOT",
-       "gives": "BOTANICAL"
+       "text": "Tatty",
+       "note": "something tatty is worn and messed up, so the letters are put in disorder"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cabin",
+         "note": "taken as written"
+        },
+        {
+         "words": "a lot",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -739,47 +646,41 @@
    },
    "solution": "BOARDINGHOUSE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "BOARDING HOUSE",
     "definitions": [
      {
       "text": "For residents",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "being outside something means wrapping around it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "getting on",
-      "gives": "BOARDING",
-      "note": "boarding a train or ship is getting on it"
-     },
-     {
-      "clueFragment": "socks",
-      "gives": "HOSE",
-      "note": "hose is an old word for stockings or socks"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOARDING",
-      "HO",
-      "U",
-      "SE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "getting on",
+       "gives": "BOARDING",
+       "note": "boarding a train or ship is getting on it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "being outside something means wrapping around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "socks",
+         "gives": "HOSE",
+         "note": "hose is an old word for stockings or socks"
+        },
+        {
+         "words": "university",
+         "gives": "U",
+         "note": "U is the abbreviation for university"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -814,26 +715,25 @@
    },
    "solution": "CHAINGANG",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "CHAIN GANG",
     "definitions": [
      {
       "text": "Gregarious prisoners?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Gregarious prisoners?",
-      "note": "surface reading: sociable inmates who like company"
-     },
-     {
-      "clueFragment": "Gregarious prisoners?",
-      "note": "setter's reading: convicts literally linked together in a working group"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Gregarious prisoners?",
+       "note": "surface reading: sociable inmates who like company"
+      },
+      {
+       "words": "Gregarious prisoners?",
+       "note": "setter's reading: convicts literally linked together in a working group"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Gregarious means flocking together; these prisoners have no choice, being shackled to each other.",
      "definitionFit": "A chain gang is a team of convicts fettered together for outdoor labour, a group bound to keep company."
@@ -860,30 +760,28 @@
    },
    "solution": "FALDO",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "FALDO",
     "definitions": [
      {
       "text": "Golfer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "tucked into",
-      "for": "hidden_word",
-      "note": "something tucked into other words lies concealed inside their run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "offal doubtfully",
-      "gives": "FALDO",
-      "note": "letters running across the two words"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "tucked into",
+       "note": "something tucked into other words lies concealed inside their run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "offal doubtfully",
+       "gives": "FALDO",
+       "note": "letters running across the two words"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A golfer hesitantly digs into a plate of offal.",
      "walkthrough": "Nick Faldo is an English golfer who won six major championships.",
@@ -911,44 +809,33 @@
    },
    "solution": "DISOBEDIENCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISOBEDIENCE",
     "definitions": [
      {
       "text": "Naughtiness",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "remedied",
-      "for": "anagram",
-      "note": "remedying something puts it right, implying its letters are rearranged into proper order"
-     }
-    ],
-    "linkWords": [
-     "in",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bed is",
-      "gives": "BEDIS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "codeine",
-      "gives": "CODEINE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BEDISCODEINE",
-       "gives": "DISOBEDIENCE"
+       "text": "remedied",
+       "note": "remedying something puts it right, implying its letters are rearranged into proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bed is",
+         "note": "taken as written"
+        },
+        {
+         "words": "codeine",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -978,43 +865,31 @@
    },
    "solution": "BEVERIDGE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BEVERIDGE",
     "definitions": [
      {
       "text": "Noted economist",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cuts into",
-      "for": "container",
-      "note": "something that cuts into another lodges itself inside it"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "card-game",
-      "gives": "BRIDGE",
-      "note": "bridge is a card game"
-     },
-     {
-      "clueFragment": "a lady",
-      "gives": "EVE",
-      "note": "Eve is a woman's name, standing for a lady"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "EVE",
-      "RIDGE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts into",
+       "note": "something that cuts into another lodges itself inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "card-game",
+       "gives": "BRIDGE",
+       "note": "bridge is a card game"
+      },
+      {
+       "words": "a lady",
+       "gives": "EVE",
+       "note": "Eve is a woman's name, standing for a lady"
+      }
      ]
     },
     "explanation": {
@@ -1043,53 +918,50 @@
    },
    "solution": "DEGREASE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "DEGREASE",
     "definitions": [
      {
       "text": "Remove excess fat from",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "head",
-      "for": "letter_selection",
-      "note": "a word's head is its opening letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "placed in something means set inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "class",
-      "gives": "DEGREE",
-      "note": "a degree is a class or grade, as of a university award"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "salmon's",
-      "gives": "S",
-      "select": "first",
-      "note": "the opening letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEGRE",
-      "A",
-      "S",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "placed in something means set inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "class",
+         "gives": "DEGREE",
+         "note": "a degree is a class or grade, as of a university award"
+        },
+        {
+         "words": "a",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "note": "a word's head is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salmon's",
+         "note": "the opening letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1118,51 +990,39 @@
    },
    "solution": "ASSERTED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ASSERTED",
     "definitions": [
      {
       "text": "maintained",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, going up means reading from bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lock",
-      "gives": "TRESS",
-      "note": "a lock of hair is a tress"
-     },
-     {
-      "clueFragment": "Edward",
-      "gives": "ED",
-      "note": "Ed is short for Edward"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "SSERT",
-      "ED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "TRESS",
-       "to": "SSERT"
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "note": "in a down clue, going up means reading from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lock",
+         "gives": "TRESS",
+         "note": "a lock of hair is a tress"
+        }
+       ]
+      },
+      {
+       "words": "Edward",
+       "gives": "ED",
+       "note": "Ed is short for Edward"
       }
      ]
     },
@@ -1198,35 +1058,25 @@
    },
    "solution": "EVENINGDRESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EVENING DRESS",
     "definitions": [
      {
       "text": "formal wear",
       "at": 31
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Smoothing",
-      "gives": "EVENING",
-      "note": "evening a surface means making it level and smooth"
-     },
-     {
-      "clueFragment": "bodice and skirt",
-      "gives": "DRESS",
-      "note": "a dress is a garment combining a bodice with a skirt"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVENING",
-      "DRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Smoothing",
+       "gives": "EVENING",
+       "note": "evening a surface means making it level and smooth"
+      },
+      {
+       "words": "bodice and skirt",
+       "gives": "DRESS",
+       "note": "a dress is a garment combining a bodice with a skirt"
+      }
      ]
     },
     "explanation": {
@@ -1254,44 +1104,35 @@
    },
    "solution": "BOUGHT",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "BOUGHT",
     "definitions": [
      {
       "text": "Procured",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "top",
-      "for": "letter_selection",
-      "note": "the top of a word in a down clue is its first letter"
-     }
-    ],
-    "linkWords": [
-     "on"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "branch",
-      "gives": "BOUGH",
-      "note": "a bough is a large branch of a tree"
-     },
-     {
-      "clueFragment": "treetop",
-      "gives": "T",
-      "select": "first",
-      "note": "the top of a tree, its first letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOUGH",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "branch",
+       "gives": "BOUGH",
+       "note": "a bough is a large branch of a tree"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treetop",
+         "note": "the top of a tree, its first letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1320,28 +1161,16 @@
    },
    "solution": "STRAIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STRAIN",
     "definitions": [
      {
       "text": "Separate",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: filter liquid from solids, as through a sieve"
      },
      {
       "text": "tax",
-      "at": 9
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Separate",
-      "note": "first meaning: filter liquid from solids, as through a sieve"
-     },
-     {
-      "clueFragment": "tax",
-      "note": "second meaning: stretch to the limit, overburden"
+      "at": 9,
+      "meaning": "second meaning: stretch to the limit, overburden"
      }
     ],
     "explanation": {
@@ -1369,33 +1198,29 @@
    },
    "solution": "OUTER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "OUTER",
     "definitions": [
      {
       "text": "Exposed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "headless",
-      "for": "deletion",
-      "note": "without a head means the first letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pigeon",
-      "gives": "POUTER",
-      "note": "a pouter is a breed of pigeon that inflates its crop"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OUTER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "headless",
+       "note": "without a head means the first letter is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pigeon",
+       "gives": "POUTER",
+       "note": "a pouter is a breed of pigeon that inflates its crop"
+      },
+      {
+       "gives": "P"
+      }
      ]
     },
     "explanation": {
@@ -1424,35 +1249,24 @@
    },
    "solution": "HAWTHORNE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "HAWTHORNE",
     "definitions": [
      {
       "text": "US writer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "moved round",
-      "for": "anagram",
-      "note": "things moved round are shifted about, so the letters change places"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on her what",
-      "gives": "ONHERWHAT",
-      "note": "the fodder, taken letter for letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ONHERWHAT",
-       "gives": "HAWTHORNE"
+       "text": "moved round",
+       "note": "things moved round are shifted about, so the letters change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on her what",
+       "note": "the fodder, taken letter for letter"
       }
      ]
     },
@@ -1483,43 +1297,31 @@
    },
    "solution": "HAGUE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "HAGUE",
     "definitions": [
      {
       "text": "Tory politician",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "keeps",
-      "for": "container",
-      "note": "something that keeps another holds it within"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "shade",
-      "gives": "HUE",
-      "note": "a hue is a shade of colour"
-     },
-     {
-      "clueFragment": "silver",
-      "gives": "AG",
-      "note": "Ag is the chemical symbol for silver"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "H",
-      "AG",
-      "UE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "note": "something that keeps another holds it within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shade",
+       "gives": "HUE",
+       "note": "a hue is a shade of colour"
+      },
+      {
+       "words": "silver",
+       "gives": "AG",
+       "note": "Ag is the chemical symbol for silver"
+      }
      ]
     },
     "explanation": {
@@ -1554,43 +1356,33 @@
    },
    "solution": "GRANDJURY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "GRAND JURY",
     "definitions": [
      {
       "text": "Panel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "smash",
-      "for": "anagram",
-      "note": "smashing breaks a thing to pieces, so the letters are scattered and rebuilt"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dry jar",
-      "gives": "DRYJAR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "gun",
-      "gives": "GUN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DRYJARGUN",
-       "gives": "GRANDJURY"
+       "text": "smash",
+       "note": "smashing breaks a thing to pieces, so the letters are scattered and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dry jar",
+         "note": "taken as written"
+        },
+        {
+         "words": "gun",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1620,31 +1412,16 @@
    },
    "solution": "GRANT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GRANT",
     "definitions": [
      {
       "text": "Award",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a sum given, as by a funding body"
      },
      {
       "text": "Ulysses",
-      "at": 10
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Award",
-      "note": "first meaning: a sum given, as by a funding body"
-     },
-     {
-      "clueFragment": "Ulysses",
-      "note": "second meaning: the first name of a US general and president"
+      "at": 10,
+      "meaning": "second meaning: the first name of a US general and president"
      }
     ],
     "explanation": {
@@ -1673,28 +1450,16 @@
    },
    "solution": "TENDERER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TENDERER",
     "definitions": [
      {
       "text": "He makes an offer",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: one who submits a bid for a contract"
      },
      {
       "text": "more loving and gentle",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "He makes an offer",
-      "note": "first meaning: one who submits a bid for a contract"
-     },
-     {
-      "clueFragment": "more loving and gentle",
-      "note": "second meaning: comparative of an adjective for soft and affectionate"
+      "at": 18,
+      "meaning": "second meaning: comparative of an adjective for soft and affectionate"
      }
     ],
     "explanation": {
@@ -1722,43 +1487,31 @@
    },
    "solution": "LEGEND",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LEGEND",
     "definitions": [
      {
       "text": "Folk-tale",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "preserved",
-      "for": "container",
-      "note": "something preserved in another is held safe within it"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "advance",
-      "gives": "LEND",
-      "note": "to advance money is to lend it"
-     },
-     {
-      "clueFragment": "for example",
-      "gives": "EG",
-      "note": "e.g. is the abbreviation for 'for example'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "EG",
-      "END"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "preserved",
+       "note": "something preserved in another is held safe within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advance",
+       "gives": "LEND",
+       "note": "to advance money is to lend it"
+      },
+      {
+       "words": "for example",
+       "gives": "EG",
+       "note": "e.g. is the abbreviation for 'for example'"
+      }
      ]
     },
     "explanation": {

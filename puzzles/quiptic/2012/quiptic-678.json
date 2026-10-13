@@ -1,8 +1,6 @@
 {
  "id": "quiptic-678",
  "number": 678,
- "series": "quiptic",
- "name": "Quiptic crossword No 678",
  "setter": "Hectence",
  "date": "2012-11-12",
  "dimensions": {
@@ -38,48 +36,42 @@
    },
    "solution": "FUSSPOT",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "FUSSPOT",
     "definitions": [
      {
       "text": "Someone being pernickety",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "into",
-      "for": "container",
-      "note": "one thing put into another sits inside it, so the short word goes within the longer pair"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fine",
-      "gives": "F",
-      "note": "F is the pencil-grade abbreviation for fine"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mess",
-      "gives": "SPOT",
-      "note": "to be in a spot is to be in a mess or difficulty"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "US",
-      "SPOT"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "FUSSPOT",
+     "indicators": [
+      {
+       "text": "into",
+       "note": "one thing put into another sits inside it, so the short word goes within the longer pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "fine",
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        },
+        {
+         "words": "us",
+         "note": "taken as written"
+        },
+        {
+         "words": "mess",
+         "gives": "SPOT",
+         "note": "to be in a spot is to be in a mess or difficulty"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -108,31 +100,16 @@
    },
    "solution": "FIESTAS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FIESTAS",
     "definitions": [
      {
       "text": "Fun times",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: festive celebrations"
      },
      {
       "text": "cars",
-      "at": 13
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fun times",
-      "note": "first meaning: festive celebrations"
-     },
-     {
-      "clueFragment": "cars",
-      "note": "second meaning: the Ford Fiesta, a popular small car model"
+      "at": 13,
+      "meaning": "second meaning: the Ford Fiesta, a popular small car model"
      }
     ],
     "explanation": {
@@ -175,79 +152,74 @@
    },
    "solution": "STICKTOTHERULES",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STICK TO THE RULES",
     "definitions": [
      {
       "text": "Follow instructions",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "criminal",
-      "for": "anagram",
-      "note": "something criminal is crooked or bent, so these letters are twisted out of their order"
-     },
-     {
-      "text": "terminal",
-      "for": "letter_selection",
-      "note": "a terminal is an end point, so only the last letter of the vehicle word is wanted"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "putting one thing into another places it inside, here between two pieces"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bond",
-      "gives": "STICK",
-      "note": "to bond is to stick together"
-     },
-     {
-      "clueFragment": "to",
-      "gives": "TO",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "lure",
-      "gives": "RULE",
-      "note": "the four letters rearranged"
-     },
-     {
-      "clueFragment": "bus",
-      "gives": "S",
-      "select": "last",
-      "note": "the final letter of bus"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STICK",
-      "TO",
-      "THE",
-      "RULE",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LURE",
-       "gives": "RULE"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "note": "putting one thing into another places it inside, here between two pieces"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Bond",
+           "gives": "STICK",
+           "note": "to bond is to stick together"
+          },
+          {
+           "words": "to",
+           "note": "taken as written"
+          },
+          {
+           "words": "the",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "criminal",
+           "note": "something criminal is crooked or bent, so these letters are twisted out of their order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lure",
+           "gives": "RULE",
+           "note": "the four letters rearranged"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terminal",
+         "note": "a terminal is an end point, so only the last letter of the vehicle word is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bus",
+         "note": "the final letter of bus"
+        }
+       ]
       }
      ]
     },
@@ -277,35 +249,25 @@
    },
    "solution": "PLAINNESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PLAINNESS",
     "definitions": [
      {
       "text": "Lack of beauty",
       "at": 0
      }
     ],
-    "linkWords": [
-     "found by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "bare",
-      "gives": "PLAIN",
-      "note": "plain means bare or unadorned"
-     },
-     {
-      "clueFragment": "loch in Scotland",
-      "gives": "NESS",
-      "note": "Loch Ness, the famous Scottish lake"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PLAIN",
-      "NESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bare",
+       "gives": "PLAIN",
+       "note": "plain means bare or unadorned"
+      },
+      {
+       "words": "loch in Scotland",
+       "gives": "NESS",
+       "note": "Loch Ness, the famous Scottish lake"
+      }
      ]
     },
     "explanation": {
@@ -333,35 +295,25 @@
    },
    "solution": "TWEET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TWEET",
     "definitions": [
      {
       "text": "comment on Twitter",
       "at": 19
      }
     ],
-    "linkWords": [
-     "makes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cutesy",
-      "gives": "TWEE",
-      "note": "twee is British for sickly cute or quaint"
-     },
-     {
-      "clueFragment": "model",
-      "gives": "T",
-      "note": "the Model T, Ford's famous early car"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWEE",
-      "T"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cutesy",
+       "gives": "TWEE",
+       "note": "twee is British for sickly cute or quaint"
+      },
+      {
+       "words": "model",
+       "gives": "T",
+       "note": "the Model T, Ford's famous early car"
+      }
      ]
     },
     "explanation": {
@@ -390,60 +342,53 @@
    },
    "solution": "UPLIFTS",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion",
-     "container"
-    ],
-    "answer": "UPLIFTS",
     "definitions": [
      {
       "text": "Inspires",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "new",
-      "for": "anagram",
-      "note": "something new has been made afresh, so the letters before it are remade in a different order"
-     },
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "cut short in length, so the word loses its last letter"
-     },
-     {
-      "text": "into",
-      "for": "container",
-      "note": "one piece put into another lies inside it"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "puts",
-      "gives": "PUTS",
-      "note": "the four letters to be rearranged"
-     },
-     {
-      "clueFragment": "life",
-      "gives": "LIF",
-      "note": "life without its final letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UP",
-      "LIF",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "UPLIFTS",
+     "indicators": [
       {
-       "fodder": "PUTS",
-       "gives": "UPTS"
+       "text": "briefly",
+       "note": "cut short in length, so the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "note": "one piece put into another lies inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "note": "something new has been made afresh, so the letters before it are remade in a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "puts",
+           "note": "the four letters to be rearranged"
+          }
+         ]
+        },
+        {
+         "words": "life",
+         "gives": "LIF",
+         "note": "life without its final letter"
+        }
+       ]
       }
      ]
     },
@@ -479,54 +424,48 @@
    },
    "solution": "UNHEARDOF",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "anagram"
-    ],
-    "answer": "UNHEARD OF",
     "definitions": [
      {
       "text": "extraordinary",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "second",
-      "for": "letter_selection",
-      "note": "second points to the letter in position two of the name"
-     },
-     {
-      "text": "smash",
-      "for": "anagram",
-      "note": "smashing something breaks it up, so the shot's letters are scattered and rebuilt"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Murray",
-      "gives": "U",
-      "select": 2,
-      "note": "the second letter of Murray"
-     },
-     {
-      "clueFragment": "forehand",
-      "gives": "NHEARDOF",
-      "note": "all eight letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "NHEARDOF"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNHEARDOF",
+     "indicators": [
       {
-       "fodder": "FOREHAND",
-       "gives": "NHEARDOF"
+       "text": "smash",
+       "note": "smashing something breaks it up, so the shot's letters are scattered and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "nth",
+         "n": 2,
+         "indicators": [
+          {
+           "text": "second",
+           "note": "second points to the letter in position two of the name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Murray",
+           "note": "the second letter of Murray"
+          }
+         ]
+        },
+        {
+         "words": "forehand",
+         "gives": "NHEARDOF",
+         "note": "all eight letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -556,32 +495,25 @@
    },
    "solution": "LEAKS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LEAKS",
     "definitions": [
      {
       "text": "unauthorised press releases",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Field",
-      "gives": "LEA",
-      "note": "lea is a poetic word for a meadow or field"
-     },
-     {
-      "clueFragment": "thousands",
-      "gives": "KS",
-      "note": "K stands for a thousand, so two or more are KS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LEA",
-      "KS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Field",
+       "gives": "LEA",
+       "note": "lea is a poetic word for a meadow or field"
+      },
+      {
+       "words": "thousands",
+       "gives": "KS",
+       "note": "K stands for a thousand, so two or more are KS"
+      }
      ]
     },
     "explanation": {
@@ -616,57 +548,50 @@
    },
    "solution": "FELLOWTRAVELLER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "FELLOW TRAVELLER",
     "definitions": [
      {
       "text": "touring companion",
       "at": 57
      }
     ],
-    "indicators": [
-     {
-      "text": "heartily",
-      "for": "letter_selection",
-      "note": "from the heart means taking the central portion of the word that follows"
-     }
-    ],
-    "linkWords": [
-     "'s getting",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chap",
-      "gives": "FELLOW",
-      "note": "a fellow is a man or chap"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "T is the abbreviation for time"
-     },
-     {
-      "clueFragment": "party",
-      "gives": "RAVE",
-      "note": "a rave is a large dance party"
-     },
-     {
-      "clueFragment": "mullered",
-      "gives": "LLER",
-      "select": "middle",
-      "note": "the middle four of the eight letters of mullered"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FELLOW",
-      "T",
-      "RAVE",
-      "LLER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chap",
+       "gives": "FELLOW",
+       "note": "a fellow is a man or chap"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "T is the abbreviation for time"
+      },
+      {
+       "words": "party",
+       "gives": "RAVE",
+       "note": "a rave is a large dance party"
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "LLER",
+       "indicators": [
+        {
+         "text": "heartily",
+         "note": "from the heart means taking the central portion of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "mullered",
+         "gives": "LLER",
+         "select": "middle",
+         "note": "the middle four of the eight letters of mullered"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -695,45 +620,35 @@
    },
    "solution": "SCRUMPY",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SCRUMPY",
     "definitions": [
      {
       "text": "cider",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "the end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so just that one is taken"
-     }
-    ],
-    "linkWords": [
-     "before",
-     "to make"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Steal fruit",
-      "gives": "SCRUMP",
-      "note": "to scrump is British for stealing apples from an orchard"
-     },
-     {
-      "clueFragment": "July",
-      "gives": "Y",
-      "select": "last",
-      "note": "the last letter of July"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SCRUMP",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Steal fruit",
+       "gives": "SCRUMP",
+       "note": "to scrump is British for stealing apples from an orchard"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the end of",
+         "note": "the end of a word is its final letter, so just that one is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "July",
+         "note": "the last letter of July"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -767,40 +682,39 @@
    },
    "solution": "ELIZABETHTAYLOR",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "ELIZABETH TAYLOR",
     "definitions": [
      {
       "text": "star",
       "at": 36
      }
     ],
-    "indicators": [
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "what is reported is heard rather than seen, so a word is spelt to match its sound"
-     }
-    ],
-    "linkWords": [
-     "was a"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Queen",
-      "gives": "ELIZABETH",
-      "note": "Queen Elizabeth"
-     },
-     {
-      "clueFragment": "dressmaker",
-      "gives": "TAYLOR",
-      "soundsLike": "TAILOR",
-      "note": "a tailor makes clothes; the surname is said the same way"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Queen",
+       "gives": "ELIZABETH",
+       "note": "Queen Elizabeth"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TAYLOR",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "what is reported is heard rather than seen, so a word is spelt to match its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dressmaker",
+         "gives": "TAILOR",
+         "note": "a tailor makes clothes; the surname is said the same way"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "The royal seamstress was once a celebrity.",
      "walkthrough": "The Queen's tailor would be 'Elizabeth's tailor', which sounds just like the Hollywood actress's name.",
@@ -828,32 +742,25 @@
    },
    "solution": "TOKEN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "TOKEN",
     "definitions": [
      {
       "text": "Voucher",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "intended for",
-      "gives": "TO",
-      "note": "a gift labelled 'to' someone is intended for them"
-     },
-     {
-      "clueFragment": "Mr Livingstone",
-      "gives": "KEN",
-      "note": "Ken Livingstone, former Mayor of London"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TO",
-      "KEN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "intended for",
+       "gives": "TO",
+       "note": "a gift labelled 'to' someone is intended for them"
+      },
+      {
+       "words": "Mr Livingstone",
+       "gives": "KEN",
+       "note": "Ken Livingstone, former Mayor of London"
+      }
      ]
     },
     "explanation": {
@@ -882,46 +789,40 @@
    },
    "solution": "TRANSFORM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRANSFORM",
     "definitions": [
      {
       "text": "change",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "something that includes other things holds them within itself"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Light railway",
-      "gives": "TRAM",
-      "note": "a tramway is a light railway"
-     },
-     {
-      "clueFragment": "points",
-      "gives": "NS",
-      "note": "north and south, two compass points"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "FOR",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRA",
-      "NS",
-      "FOR",
-      "M"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "note": "something that includes other things holds them within itself"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Light railway",
+         "gives": "TRAM",
+         "note": "a tramway is a light railway"
+        },
+        {
+         "words": "points",
+         "gives": "NS",
+         "note": "north and south, two compass points"
+        }
+       ]
+      },
+      {
+       "words": "for",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -956,38 +857,24 @@
    },
    "solution": "STONECOLD",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STONE COLD",
     "definitions": [
      {
       "text": "lacking heat",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "building",
-      "for": "anagram",
-      "note": "a building is constructed, so these letters are put together into a new structure"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Don't close",
-      "gives": "DONTCLOSE",
-      "note": "the nine letters, apostrophe ignored"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DONTCLOSE",
-       "gives": "STONECOLD"
+       "text": "building",
+       "note": "a building is constructed, so these letters are put together into a new structure"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Don't close",
+       "note": "the nine letters, apostrophe ignored"
       }
      ]
     },
@@ -1017,28 +904,16 @@
    },
    "solution": "OVERRATES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "OVERRATES",
     "definitions": [
      {
       "text": "Attaches too much importance to",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: values something more than it deserves"
      },
      {
       "text": "bowling speeds",
-      "at": 32
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Attaches too much importance to",
-      "note": "first meaning: values something more than it deserves"
-     },
-     {
-      "clueFragment": "bowling speeds",
-      "note": "second meaning: in cricket, how quickly a side gets through its sets of six deliveries"
+      "at": 32,
+      "meaning": "second meaning: in cricket, how quickly a side gets through its sets of six deliveries"
      }
     ],
     "explanation": {
@@ -1067,32 +942,25 @@
    },
    "solution": "RETRY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RETRY",
     "definitions": [
      {
       "text": "Hear again",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "about",
-      "gives": "RE",
-      "note": "re means about or concerning"
-     },
-     {
-      "clueFragment": "rugby score",
-      "gives": "TRY",
-      "note": "a try is the touchdown worth points in rugby"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "TRY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "rugby score",
+       "gives": "TRY",
+       "note": "a try is the touchdown worth points in rugby"
+      }
      ]
     },
     "explanation": {
@@ -1121,56 +989,54 @@
    },
    "solution": "RELUCTANT",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "container"
-    ],
-    "answer": "RELUCTANT",
     "definitions": [
      {
       "text": "Unwilling",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "most of",
-      "for": "deletion",
-      "note": "most but not all, so the word loses its final letter"
-     },
-     {
-      "text": "to swallow",
-      "for": "container",
-      "note": "swallowing takes something inside, so the first piece wraps round the rest"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "house payment",
-      "gives": "RENT",
-      "note": "rent is paid for a house"
-     },
-     {
-      "clueFragment": "fortune",
-      "gives": "LUC",
-      "note": "luck is fortune; without its last letter"
-     },
-     {
-      "clueFragment": "reserves",
-      "gives": "TA",
-      "note": "the Territorial Army, Britain's military reserve force"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LUC",
-      "TA",
-      "NT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "RELUCTANT",
+     "indicators": [
+      {
+       "text": "most of",
+       "note": "most but not all, so the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to swallow",
+         "note": "swallowing takes something inside, so the first piece wraps round the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "house payment",
+         "gives": "RENT",
+         "note": "rent is paid for a house"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "fortune",
+           "gives": "LUC",
+           "note": "luck is fortune; without its last letter"
+          },
+          {
+           "words": "reserves",
+           "gives": "TA",
+           "note": "the Territorial Army, Britain's military reserve force"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1199,34 +1065,38 @@
    },
    "solution": "ETHOS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ETHOS",
     "definitions": [
      {
       "text": "Distinctive spirit",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found in",
-      "for": "hidden_word",
-      "note": "something found in a phrase is lying inside its letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Great Ormond",
-      "note": "surface padding naming the famous London children's hospital"
-     },
-     {
-      "clueFragment": "Street Hospital",
-      "gives": "ETHOS",
-      "note": "the end of Street and start of Hospital"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "Great Ormond",
+       "note": "surface padding naming the famous London children's hospital"
+      },
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "found in",
+         "note": "something found in a phrase is lying inside its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Street Hospital",
+         "gives": "ETHOS",
+         "note": "the end of Street and start of Hospital"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "The particular atmosphere of a famous London children's hospital.",
      "walkthrough": "Great Ormond Street is a celebrated children's hospital in London.",
@@ -1252,54 +1122,43 @@
    },
    "solution": "ENVELOP",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "ENVELOP",
     "definitions": [
      {
       "text": "Cover",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "design",
-      "for": "anagram",
-      "note": "a design is a fresh arrangement, so the preceding word's letters are laid out anew"
-     },
-     {
-      "text": "includes",
-      "for": "container",
-      "note": "something that includes another holds it inside"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "old record",
-      "gives": "EP",
-      "note": "an EP, extended play, is an old vinyl record format"
-     },
-     {
-      "clueFragment": "novel",
-      "gives": "NVELO",
-      "note": "the five letters rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "NVELO",
-      "P"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ENVELOP",
+     "indicators": [
       {
-       "fodder": "NOVEL",
-       "gives": "NVELO"
+       "text": "design",
+       "note": "a design is a fresh arrangement, so the preceding word's letters are laid out anew"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "note": "something that includes another holds it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old record",
+         "gives": "EP",
+         "note": "an EP, extended play, is an old vinyl record format"
+        },
+        {
+         "words": "novel",
+         "gives": "NVELO",
+         "note": "the five letters rearranged"
+        }
+       ]
       }
      ]
     },
@@ -1329,51 +1188,43 @@
    },
    "solution": "EXFOLIATE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "EXFOLIATE",
     "definitions": [
      {
       "text": "Scrub face",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "outside",
-      "for": "container",
-      "note": "being outside means wrapping around, so the waterway encloses the rest"
-     },
-     {
-      "text": "dispersing nasty",
-      "for": "anagram",
-      "note": "dispersing scatters things, so the letters of the unpleasant pair are broken up and regrouped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "river",
-      "gives": "EXE",
-      "note": "the River Exe in Devon"
-     },
-     {
-      "clueFragment": "fat and oil",
-      "gives": "FOLIAT",
-      "note": "the six letters of fat and oil, the joining and left out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "FOLIAT",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "EXFOLIATE",
+     "indicators": [
       {
-       "fodder": "FATOIL",
-       "gives": "FOLIAT"
+       "text": "dispersing nasty",
+       "note": "dispersing scatters things, so the letters of the unpleasant pair are broken up and regrouped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "note": "being outside means wrapping around, so the waterway encloses the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "gives": "EXE",
+         "note": "the River Exe in Devon"
+        },
+        {
+         "words": "fat and oil",
+         "gives": "FOLIAT",
+         "note": "the six letters of fat and oil, the joining and left out"
+        }
+       ]
       }
      ]
     },
@@ -1403,41 +1254,30 @@
    },
    "solution": "ESSAYED",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ESSAYED",
     "definitions": [
      {
       "text": "tried",
       "at": 51
      }
     ],
-    "linkWords": [
-     "be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Student's piece of work",
-      "gives": "ESSAY",
-      "note": "an essay is a piece of written coursework"
-     },
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E is the physics symbol for energy"
-     },
-     {
-      "clueFragment": "would shortly",
-      "gives": "D",
-      "note": "'d is the contracted form of would"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ESSAY",
-      "E",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Student's piece of work",
+       "gives": "ESSAY",
+       "note": "an essay is a piece of written coursework"
+      },
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      },
+      {
+       "words": "would shortly",
+       "gives": "D",
+       "note": "'d is the contracted form of would"
+      }
      ]
     },
     "explanation": {
@@ -1466,12 +1306,6 @@
    },
    "solution": "VERTEBRAE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade",
-     "anagram"
-    ],
-    "answer": "VERTEBRAE",
     "definitions": [
      {
       "text": "spine",
@@ -1479,49 +1313,49 @@
       "note": "plural answer for a singular whole: the spine is made of these bones"
      }
     ],
-    "indicators": [
-     {
-      "text": "detailed",
-      "for": "deletion",
-      "note": "read as de-tailed, with its tail removed, so the last letter goes"
-     },
-     {
-      "text": "injured",
-      "for": "anagram",
-      "note": "something injured is damaged out of shape, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "on",
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremely",
-      "gives": "VER",
-      "note": "very means extremely; losing its last letter"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "TE",
-      "note": "te is a note of the sol-fa scale"
-     },
-     {
-      "clueFragment": "bear",
-      "gives": "BRAE",
-      "note": "the letters of bear rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "VER",
-      "TE",
-      "BRAE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "VERTEBRAE",
+     "indicators": [
       {
-       "fodder": "BEAR",
-       "gives": "BRAE"
+       "text": "injured",
+       "note": "something injured is damaged out of shape, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "VERTEBRAE",
+       "indicators": [
+        {
+         "text": "detailed",
+         "note": "read as de-tailed, with its tail removed, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Extremely",
+           "gives": "VER",
+           "note": "very means extremely; losing its last letter"
+          },
+          {
+           "words": "note",
+           "gives": "TE",
+           "note": "te is a note of the sol-fa scale"
+          },
+          {
+           "words": "bear",
+           "gives": "BRAE",
+           "note": "the letters of bear rearranged"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1552,50 +1386,40 @@
    },
    "solution": "ERODE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "ERODE",
     "definitions": [
      {
       "text": "Wear down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, so only that one is kept"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E is the abbreviation for English"
-     },
-     {
-      "clueFragment": "staff",
-      "gives": "ROD",
-      "note": "a staff is a rod or stick"
-     },
-     {
-      "clueFragment": "course",
-      "gives": "E",
-      "select": "last",
-      "note": "the final letter of course"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "ROD",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "E is the abbreviation for English"
+      },
+      {
+       "words": "staff",
+       "gives": "ROD",
+       "note": "a staff is a rod or stick"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "course",
+         "note": "the final letter of course"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1624,32 +1448,25 @@
    },
    "solution": "ERECT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ERECT",
     "definitions": [
      {
       "text": "Put up",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "before",
-      "gives": "ERE",
-      "note": "ere is a poetic word for before"
-     },
-     {
-      "clueFragment": "court",
-      "gives": "CT",
-      "note": "CT is the abbreviation for court"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ERE",
-      "CT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "before",
+       "gives": "ERE",
+       "note": "ere is a poetic word for before"
+      },
+      {
+       "words": "court",
+       "gives": "CT",
+       "note": "CT is the abbreviation for court"
+      }
      ]
     },
     "explanation": {
@@ -1678,31 +1495,29 @@
    },
    "solution": "CHEWS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "CHEWS",
     "definitions": [
      {
       "text": "sticky sweets",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "Heard",
-      "for": "homophone",
-      "note": "what is heard is spoken, so the word is spelt to match a sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to pick",
-      "gives": "CHEWS",
-      "soundsLike": "CHOOSE",
-      "note": "to pick is to choose"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHEWS",
+     "indicators": [
+      {
+       "text": "Heard",
+       "note": "what is heard is spoken, so the word is spelt to match a sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to pick",
+       "gives": "CHOOSE",
+       "note": "to pick is to choose"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone overheard selecting gooey sweets.",
      "walkthrough": "Chews are a kind of soft, chewy British sweet.",
@@ -1744,35 +1559,25 @@
    },
    "solution": "LILYOFTHEVALLEY",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LILY OF THE VALLEY",
     "definitions": [
      {
       "text": "Bloomer",
       "at": 0
      }
     ],
-    "linkWords": [
-     "made by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl",
-      "gives": "LILY",
-      "note": "Lily is a girl's name"
-     },
-     {
-      "clueFragment": "from the bottom of the hill",
-      "gives": "OFTHEVALLEY",
-      "note": "a valley lies at the foot of hills, so its people come 'of the valley'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LILY",
-      "OFTHEVALLEY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "gives": "LILY",
+       "note": "Lily is a girl's name"
+      },
+      {
+       "words": "from the bottom of the hill",
+       "gives": "OFTHEVALLEY",
+       "note": "a valley lies at the foot of hills, so its people come 'of the valley'"
+      }
      ]
     },
     "explanation": {
@@ -1802,28 +1607,16 @@
    },
    "solution": "POSTERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "POSTERS",
     "definitions": [
      {
       "text": "Bills",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: printed notices stuck on walls"
      },
      {
       "text": "mailbox users",
-      "at": 6
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bills",
-      "note": "first meaning: printed notices stuck on walls"
-     },
-     {
-      "clueFragment": "mailbox users",
-      "note": "second meaning: people who post letters"
+      "at": 6,
+      "meaning": "second meaning: people who post letters"
      }
     ],
     "explanation": {
@@ -1852,57 +1645,54 @@
    },
    "solution": "TUTORED",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram",
-     "container"
-    ],
-    "answer": "TUTORED",
     "definitions": [
      {
       "text": "Taught",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "no end",
-      "for": "deletion",
-      "note": "with no end, the name loses its final letter"
-     },
-     {
-      "text": "jockey",
-      "for": "anagram",
-      "note": "to jockey is to manoeuvre about, so the letters are shifted into a new order"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means around, so the rearranged letters wrap round the class letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Dettori",
-      "gives": "DETTOR",
-      "note": "the surname without its last letter"
-     },
-     {
-      "clueFragment": "upper class",
-      "gives": "U",
-      "note": "U is the old label for upper-class usage"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "U",
-      "TORED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TUTORED",
+     "indicators": [
       {
-       "fodder": "DETTOR",
-       "gives": "TTORED"
+       "text": "no end",
+       "note": "with no end, the name loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "about means around, so the rearranged letters wrap round the class letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "jockey",
+           "note": "to jockey is to manoeuvre about, so the letters are shifted into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dettori",
+           "gives": "DETTOR",
+           "note": "the surname without its last letter"
+          }
+         ]
+        },
+        {
+         "words": "upper class",
+         "gives": "U",
+         "note": "U is the old label for upper-class usage"
+        }
+       ]
       }
      ]
     },

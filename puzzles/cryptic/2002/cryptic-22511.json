@@ -1,8 +1,7 @@
 {
  "id": "cryptic-22511",
  "number": 22511,
- "series": "cryptic",
- "name": "Prize crossword No 22,511",
+ "prize": true,
  "setter": "Bunthorne",
  "date": "2002-05-04",
  "dimensions": {
@@ -44,52 +43,43 @@
    },
    "solution": "RECEIVEDENGLISH",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "RECEIVED ENGLISH",
     "definitions": [
      {
       "text": "what's heard on the BBC",
       "at": 50
      }
     ],
-    "indicators": [
-     {
-      "text": "Abstract",
-      "for": "deletion",
-      "note": "to abstract is to draw out or take away, so the following word is removed from the fodder"
-     },
-     {
-      "text": "perhaps",
-      "for": "anagram",
-      "note": "perhaps hints that the preceding letters are only one possible arrangement, to be reworked"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "clever Reithean DG is",
-      "gives": "CLEVERREITHEANDGIS",
-      "note": "taken letter for letter as the raw material"
-     },
-     {
-      "clueFragment": "art",
-      "gives": "ART",
-      "note": "taken as written, the letters to be removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RECEIVEDENGLISH"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "RECEIVEDENGLISH",
+     "indicators": [
       {
-       "fodder": "CLEVEREIHENDGIS",
-       "gives": "RECEIVEDENGLISH"
+       "text": "perhaps",
+       "note": "perhaps hints that the preceding letters are only one possible arrangement, to be reworked"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "RECEIVEDENGLISH",
+       "indicators": [
+        {
+         "text": "Abstract",
+         "note": "to abstract is to draw out or take away, so the following word is removed from the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clever Reithean DG is",
+         "note": "taken letter for letter as the raw material"
+        },
+        {
+         "words": "art",
+         "note": "taken as written, the letters to be removed"
+        }
+       ]
       }
      ]
     },
@@ -129,35 +119,24 @@
    },
    "solution": "INTHEVERNACULAR",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN THE VERNACULAR",
     "definitions": [
      {
       "text": "how Joe Public tells it",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "something sadly done is done badly or wrongly, so the letters come out in disorder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "TV air channel. Rue",
-      "gives": "TVAIRCHANNELRUE",
-      "note": "every letter used as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TVAIRCHANNELRUE",
-       "gives": "INTHEVERNACULAR"
+       "text": "sadly",
+       "note": "something sadly done is done badly or wrongly, so the letters come out in disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "TV air channel. Rue",
+       "note": "every letter used as fodder"
       }
      ]
     },
@@ -197,12 +176,6 @@
    },
    "solution": "ISLEOFBUTE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "ISLE OF BUTE",
     "definitions": [
      {
       "text": "in Clydemouth",
@@ -210,50 +183,49 @@
       "note": "a locating description rather than a synonym"
      }
     ],
-    "indicators": [
-     {
-      "text": "wrecked",
-      "for": "anagram",
-      "note": "something wrecked is broken up, so the letters of the word before it are scrambled"
-     },
-     {
-      "text": "en",
-      "for": "container",
-      "note": "en is French for in, so one group of letters is placed inside the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sign",
-      "gives": "LEO",
-      "note": "Leo is a sign of the zodiac"
-     },
-     {
-      "clueFragment": "French",
-      "gives": "F",
-      "note": "F is the abbreviation for French"
-     },
-     {
-      "clueFragment": "Book",
-      "gives": "B",
-      "note": "B is the abbreviation for book"
-     },
-     {
-      "clueFragment": "suite",
-      "gives": "SUITE",
-      "note": "taken as written, then scrambled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "LEOFB",
-      "UTE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "SUITE",
-       "gives": "ISUTE"
+       "text": "en",
+       "note": "en is French for in, so one group of letters is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrecked",
+         "note": "something wrecked is broken up, so the letters of the word before it are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suite",
+         "note": "taken as written, then scrambled"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sign",
+         "gives": "LEO",
+         "note": "Leo is a sign of the zodiac"
+        },
+        {
+         "words": "French",
+         "gives": "F",
+         "note": "F is the abbreviation for French"
+        },
+        {
+         "words": "Book",
+         "gives": "B",
+         "note": "B is the abbreviation for book"
+        }
+       ]
       }
      ]
     },
@@ -289,31 +261,16 @@
    },
    "solution": "SNUFFIT",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SNUFF IT",
     "definitions": [
      {
       "text": "Put that light out",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: extinguish a candle by pinching the wick"
      },
      {
       "text": "die",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Put that light out",
-      "note": "first meaning: extinguish a candle by pinching the wick"
-     },
-     {
-      "clueFragment": "die",
-      "note": "second meaning: slang for expire"
+      "at": 22,
+      "meaning": "second meaning: slang for expire"
      }
     ],
     "explanation": {
@@ -342,28 +299,16 @@
    },
    "solution": "NOUS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOUS",
     "definitions": [
      {
       "text": "Le Roi's subjective",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the French royal we, as the subject of a sentence"
      },
      {
       "text": "intelligence",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Le Roi's subjective",
-      "note": "first meaning: the French royal we, as the subject of a sentence"
-     },
-     {
-      "clueFragment": "intelligence",
-      "note": "second meaning: practical common sense"
+      "at": 20,
+      "meaning": "second meaning: practical common sense"
      }
     ],
     "explanation": {
@@ -402,26 +347,25 @@
    },
    "solution": "THEMOTHERTONGUE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE MOTHER TONGUE",
     "definitions": [
      {
       "text": "What's spoken",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "What's spoken, paradoxically, in the Land of My Fathers",
-      "note": "surface reading: a riddle about language in a land named after fathers"
-     },
-     {
-      "clueFragment": "Land of My Fathers",
-      "note": "setter's reading: the Welsh anthem title for Wales, whose native language is named after a female parent"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What's spoken, paradoxically, in the Land of My Fathers",
+       "note": "surface reading: a riddle about language in a land named after fathers"
+      },
+      {
+       "words": "Land of My Fathers",
+       "note": "setter's reading: the Welsh anthem title for Wales, whose native language is named after a female parent"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A puzzle about which language is spoken in Wales, the land of one's fathers.",
      "walkthrough": "Land of My Fathers is the Welsh national anthem and a name for Wales; the paradox is that its native language is called after the other parent.",
@@ -467,26 +411,25 @@
    },
    "solution": "ITSALLGREEKTOME",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "ITS ALL GREEK TO ME",
     "definitions": [
      {
       "text": "expressed incomprehension",
       "at": 8
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Homer's expressed incomprehension of 1, 2 and 6",
-      "note": "surface reading: the ancient poet failing to understand three other answers"
-     },
-     {
-      "clueFragment": "Homer's",
-      "note": "setter's reading: Homer wrote in an ancient language, so a stock phrase for not understanding becomes literally true of him"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Homer's expressed incomprehension of 1, 2 and 6",
+       "note": "surface reading: the ancient poet failing to understand three other answers"
+      },
+      {
+       "words": "Homer's",
+       "note": "setter's reading: Homer wrote in an ancient language, so a stock phrase for not understanding becomes literally true of him"
+      }
+     ]
+    },
     "explanation": {
      "surface": "The epic poet Homer is baffled by three other answers in the grid, all about language.",
      "walkthrough": "The three referenced answers are all ways of describing speech; the phrase for 'I don't understand' names the language Homer actually spoke.",
@@ -514,52 +457,44 @@
    },
    "solution": "TENNYSON",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TENNYSON",
     "definitions": [
      {
       "text": "the poet",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "Sorry",
-      "for": "anagram",
-      "note": "sorry here means in a sorry state, wretched, so the letters that follow are in a mess"
-     }
-    ],
-    "linkWords": [
-     "it's with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do you want",
-      "note": "surface padding setting up the chat-up line"
-     },
-     {
-      "clueFragment": "Bo Derek's number",
-      "gives": "TEN",
-      "note": "Bo Derek starred in the film '10'"
-     },
-     {
-      "clueFragment": "sonny",
-      "gives": "SONNY",
-      "note": "taken as written, then scrambled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEN",
-      "NYSON"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "SONNY",
-       "gives": "NYSON"
+       "unchecked": true,
+       "words": "Do you want",
+       "note": "surface padding setting up the chat-up line"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bo Derek's number",
+         "gives": "TEN",
+         "note": "Bo Derek starred in the film '10'"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Sorry",
+           "note": "sorry here means in a sorry state, wretched, so the letters that follow are in a mess"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sonny",
+           "note": "taken as written, then scrambled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -590,35 +525,25 @@
    },
    "solution": "OPHITE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPHITE",
     "definitions": [
      {
       "text": "Snaky sectarian",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op. is short for opus, a work"
-     },
-     {
-      "clueFragment": "sex reporter",
-      "gives": "HITE",
-      "note": "Shere Hite wrote the Hite Report on sexuality"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "HITE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "op. is short for opus, a work"
+      },
+      {
+       "words": "sex reporter",
+       "gives": "HITE",
+       "note": "Shere Hite wrote the Hite Report on sexuality"
+      }
      ]
     },
     "explanation": {
@@ -653,44 +578,34 @@
    },
    "solution": "TEEHEE",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "TEE-HEE",
     "definitions": [
      {
       "text": "Derision",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "expressed",
-      "for": "anagram",
-      "note": "expressed in its sense of pressed out and reshaped, so the letters come out in a new form"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the",
-      "gives": "THE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "three English characters",
-      "gives": "EEE",
-      "note": "E for English, three letters of it"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "THEEEE",
-       "gives": "TEEHEE"
+       "text": "expressed",
+       "note": "expressed in its sense of pressed out and reshaped, so the letters come out in a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the",
+         "note": "taken as written"
+        },
+        {
+         "words": "three English characters",
+         "gives": "EEE",
+         "note": "E for English, three letters of it"
+        }
+       ]
       }
      ]
     },
@@ -726,28 +641,16 @@
    },
    "solution": "FISHMEAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FISH MEAL",
     "definitions": [
      {
       "text": "Fertiliser",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: ground dried fish used on the soil"
      },
      {
       "text": "spread by Rick Stein",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fertiliser",
-      "note": "first meaning: ground dried fish used on the soil"
-     },
-     {
-      "clueFragment": "spread by Rick Stein",
-      "note": "second meaning: a spread is a feast, and Rick Stein is a British TV chef known for seafood"
+      "at": 11,
+      "meaning": "second meaning: a spread is a feast, and Rick Stein is a British TV chef known for seafood"
      }
     ],
     "explanation": {
@@ -777,47 +680,41 @@
    },
    "solution": "LVOV",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "LVOV",
     "definitions": [
      {
       "text": "Ukrainian city",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first word's letters within the second's"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "see",
-      "gives": "LO",
-      "note": "lo! means look or see"
-     },
-     {
-      "clueFragment": "see",
-      "gives": "V",
-      "note": "v. is short for Latin vide, see"
-     },
-     {
-      "clueFragment": "See",
-      "gives": "V",
-      "note": "v. again, for vide"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "V",
-      "O",
-      "V"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in places the first word's letters within the second's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "see",
+         "gives": "LO",
+         "note": "lo! means look or see"
+        },
+        {
+         "words": "see",
+         "gives": "V",
+         "note": "v. is short for Latin vide, see"
+        }
+       ]
+      },
+      {
+       "words": "See",
+       "gives": "V",
+       "note": "v. again, for vide"
+      }
      ]
     },
     "explanation": {
@@ -852,49 +749,44 @@
    },
    "solution": "FRIARSTALE",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "FRIARS TALE",
     "definitions": [
      {
       "text": "yarn spun through Kent",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "unravelled",
-      "for": "anagram",
-      "note": "unravelled knitting comes apart, so these letters are pulled loose and rearranged"
-     },
-     {
-      "text": "missing",
-      "for": "deletion",
-      "note": "missing means lacking, so the following letter is dropped from the fodder"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fair Isle art",
-      "gives": "FAIRISLEART",
-      "note": "taken as written as fodder"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRIARSTALE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FRIARSTALE",
+     "indicators": [
       {
-       "fodder": "FARISLEART",
-       "gives": "FRIARSTALE"
+       "text": "unravelled",
+       "note": "unravelled knitting comes apart, so these letters are pulled loose and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "FRIARSTALE",
+       "indicators": [
+        {
+         "text": "missing",
+         "note": "missing means lacking, so the following letter is dropped from the fodder"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fair Isle art",
+         "note": "taken as written as fodder"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
       }
      ]
     },
@@ -925,26 +817,25 @@
    },
    "solution": "RINGLEADER",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "RINGLEADER",
     "definitions": [
      {
       "text": "agent provocateur",
       "at": 9
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Wotan as agent provocateur in Bayreuth",
-      "note": "surface reading: the chief god stirring up trouble at the Wagner festival"
-     },
-     {
-      "clueFragment": "Wotan",
-      "note": "setter's reading: Wotan heads the gods in Wagner's four-opera cycle performed at Bayreuth"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Wotan as agent provocateur in Bayreuth",
+       "note": "surface reading: the chief god stirring up trouble at the Wagner festival"
+      },
+      {
+       "words": "Wotan",
+       "note": "setter's reading: Wotan heads the gods in Wagner's four-opera cycle performed at Bayreuth"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Wagner's chief god cast as a troublemaker at the Bayreuth festival.",
      "walkthrough": "Wagner's cycle The Ring of the Nibelung is staged at Bayreuth, and Wotan is its leading god.",
@@ -972,58 +863,50 @@
    },
    "solution": "ODOROUS",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram",
-     "container"
-    ],
-    "answer": "ODOROUS",
     "definitions": [
      {
       "text": "High",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bits",
-      "for": "anagram",
-      "note": "broken into bits, so the word before it is in pieces and reassembled"
-     },
-     {
-      "text": "storing",
-      "for": "container",
-      "note": "storing means keeping inside, so one group holds another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "band",
-      "gives": "O",
-      "note": "a ring-shaped band looks like the letter O"
-     },
-     {
-      "clueFragment": "computer system",
-      "gives": "DOS",
-      "note": "DOS is a disk operating system"
-     },
-     {
-      "clueFragment": "our",
-      "gives": "OUR",
-      "note": "taken as written, then scrambled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "DO",
-      "ROU",
-      "S"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "OUR",
-       "gives": "ROU"
+       "words": "band",
+       "gives": "O",
+       "note": "a ring-shaped band looks like the letter O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "storing",
+         "note": "storing means keeping inside, so one group holds another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "computer system",
+         "gives": "DOS",
+         "note": "DOS is a disk operating system"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "bits",
+           "note": "broken into bits, so the word before it is in pieces and reassembled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "our",
+           "note": "taken as written, then scrambled"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1059,10 +942,6 @@
    },
    "solution": "INTEARS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IN TEARS",
     "definitions": [
      {
       "text": "Niobe's condition",
@@ -1070,25 +949,18 @@
       "note": "a noun phrase for a state, while the answer is an adverbial phrase describing it"
      }
     ],
-    "indicators": [
-     {
-      "text": "result of",
-      "for": "anagram",
-      "note": "a result is what something turns into, so this word becomes a new arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nastier",
-      "gives": "NASTIER",
-      "note": "taken as written as fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NASTIER",
-       "gives": "INTEARS"
+       "text": "result of",
+       "note": "a result is what something turns into, so this word becomes a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nastier",
+       "note": "taken as written as fodder"
       }
      ]
     },
@@ -1118,35 +990,25 @@
    },
    "solution": "GESTATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GESTATE",
     "definitions": [
      {
       "text": "carry a child",
       "at": 12
      }
     ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Good",
-      "gives": "G",
-      "note": "G is the abbreviation for good"
-     },
-     {
-      "clueFragment": "car",
-      "gives": "ESTATE",
-      "note": "an estate is a British name for a station wagon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "ESTATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "gives": "G",
+       "note": "G is the abbreviation for good"
+      },
+      {
+       "words": "car",
+       "gives": "ESTATE",
+       "note": "an estate is a British name for a station wagon"
+      }
      ]
     },
     "explanation": {
@@ -1182,54 +1044,51 @@
    },
    "solution": "ANNASEWELL",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ANNA SEWELL",
     "definitions": [
      {
       "text": "One-horse author",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container",
-      "note": "including means taking in, so one piece sits inside the phrase"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a double",
-      "note": "surface padding: the A ending the name also starts the next piece, doing double duty"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "ANN",
-      "note": "Ann is a girl's name"
-     },
-     {
-      "clueFragment": "also",
-      "gives": "ASWELL",
-      "note": "as well means also"
-     },
-     {
-      "clueFragment": "English",
-      "gives": "E",
-      "note": "E for English"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANN",
-      "AS",
-      "E",
-      "WELL"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "unchecked": true,
+       "words": "a double",
+       "note": "surface padding: the A ending the name also starts the next piece, doing double duty"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "name",
+         "gives": "ANN",
+         "note": "Ann is a girl's name"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "including",
+           "note": "including means taking in, so one piece sits inside the phrase"
+          }
+         ],
+         "parts": [
+          {
+           "words": "also",
+           "gives": "ASWELL",
+           "note": "as well means also"
+          },
+          {
+           "words": "English",
+           "gives": "E",
+           "note": "E for English"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1259,28 +1118,16 @@
    },
    "solution": "TEES",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TEES",
     "definitions": [
      {
       "text": "Middlesbrough's current",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the river flowing through Middlesbrough, a town in north-east England"
      },
      {
       "text": "supporters",
-      "at": 24
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Middlesbrough's current",
-      "note": "first meaning: the river flowing through Middlesbrough, a town in north-east England"
-     },
-     {
-      "clueFragment": "supporters",
-      "note": "second meaning: pegs holding up golf balls"
+      "at": 24,
+      "meaning": "second meaning: pegs holding up golf balls"
      }
     ],
     "explanation": {
@@ -1310,26 +1157,25 @@
    },
    "solution": "FLAUBERT",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "FLAUBERT",
     "definitions": [
      {
       "text": "One author",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "One author parroted by another",
-      "note": "surface reading: one writer copied or plagiarised by a second"
-     },
-     {
-      "clueFragment": "parroted",
-      "note": "setter's reading: Julian Barnes wrote a novel titled after this French novelist's parrot"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One author parroted by another",
+       "note": "surface reading: one writer copied or plagiarised by a second"
+      },
+      {
+       "words": "parroted",
+       "note": "setter's reading: Julian Barnes wrote a novel titled after this French novelist's parrot"
+      }
+     ]
+    },
     "explanation": {
      "surface": "One writer being slavishly copied by a rival.",
      "walkthrough": "Julian Barnes's 1984 novel is titled after this writer's stuffed parrot, so he is literally 'parroted' by another author.",
@@ -1357,38 +1203,31 @@
    },
    "solution": "ELLA",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ELLA",
     "definitions": [
      {
       "text": "Singer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "taking",
-      "for": "deletion",
-      "note": "taking something out of a word removes those letters from it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "pantomime",
-      "gives": "CINDERELLA",
-      "note": "Cinderella is a classic British Christmas pantomime"
-     },
-     {
-      "clueFragment": "the dross",
-      "gives": "CINDER",
-      "note": "cinders are the waste left after burning"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ELLA"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking",
+       "note": "taking something out of a word removes those letters from it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pantomime",
+       "gives": "CINDERELLA",
+       "note": "Cinderella is a classic British Christmas pantomime"
+      },
+      {
+       "words": "the dross",
+       "gives": "CINDER",
+       "note": "cinders are the waste left after burning"
+      }
      ]
     },
     "explanation": {
@@ -1417,51 +1256,39 @@
    },
    "solution": "AGNATE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "AGNATE",
     "definitions": [
      {
       "text": "From Dad's line",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its central part, so only its middle letter is kept"
-     }
-    ],
-    "linkWords": [
-     "there's",
-     "close to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "fly",
-      "gives": "GNAT",
-      "note": "a gnat is a small fly"
-     },
-     {
-      "clueFragment": "fisherman",
-      "gives": "E",
-      "select": "middle",
-      "note": "the central letter of this nine-letter word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "GNAT",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "fly",
+       "gives": "GNAT",
+       "note": "a gnat is a small fly"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "note": "the heart of a word is its central part, so only its middle letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fisherman",
+         "note": "the central letter of this nine-letter word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1490,45 +1317,34 @@
    },
    "solution": "ISRAEL",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "ISRAEL",
     "definitions": [
      {
       "text": "Republic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "return",
-      "for": "reversal",
-      "note": "a return goes back the way it came, so the word for the monarch runs backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "demanding king",
-      "gives": "LEAR",
-      "note": "Shakespeare's King Lear demanded professions of love from his daughters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IS",
-      "RAEL"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "LEAR",
-       "to": "RAEL"
+       "words": "is",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "note": "a return goes back the way it came, so the word for the monarch runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "demanding king",
+         "gives": "LEAR",
+         "note": "Shakespeare's King Lear demanded professions of love from his daughters"
+        }
+       ]
       }
      ]
     },
@@ -1565,29 +1381,17 @@
    },
    "solution": "THEDUMMY",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "THE DUMMY",
     "definitions": [
      {
       "text": "Surrogate mother's outlet",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a rubber teat given to a baby in place of the breast"
      },
      {
       "text": "sold to suckers",
       "at": 26,
-      "note": "a phrase describing the thing rather than naming it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surrogate mother's outlet",
-      "note": "first meaning: a rubber teat given to a baby in place of the breast"
-     },
-     {
-      "clueFragment": "sold to suckers",
-      "note": "second meaning: in rugby or football a player 'sells' a feint by this name to opponents fooled by it"
+      "note": "a phrase describing the thing rather than naming it",
+      "meaning": "second meaning: in rugby or football a player 'sells' a feint by this name to opponents fooled by it"
      }
     ],
     "explanation": {

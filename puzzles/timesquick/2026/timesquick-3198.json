@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3198",
  "number": 3198,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,198",
  "setter": "Asp",
  "date": "2026-01-14",
  "dimensions": {
@@ -45,28 +43,16 @@
    },
    "solution": "STANDARD",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "STANDARD",
     "definitions": [
      {
       "text": "Normal",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: usual, typical, regular"
      },
      {
       "text": "colours",
-      "at": 7
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Normal",
-      "note": "first meaning: usual, typical, regular"
-     },
-     {
-      "clueFragment": "colours",
-      "note": "second meaning: a regiment's colours are its flag, also called its banner or ensign"
+      "at": 7,
+      "meaning": "second meaning: a regiment's colours are its flag, also called its banner or ensign"
      }
     ],
     "explanation": {
@@ -95,44 +81,42 @@
    },
    "solution": "SUBPLOT",
    "annotation": {
-    "type": [
-     "spoonerism"
-    ],
-    "answer": "SUBPLOT",
     "definitions": [
      {
       "text": "another story",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Spooner's",
-      "for": "spoonerism",
-      "note": "Reverend Spooner famously muddled his speech by trading the first sounds of neighbouring words"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bar",
-      "gives": "SUB",
-      "soundsLike": "PUB",
-      "note": "a bar is a PUB; it gets the other word's opening sound"
-     },
-     {
-      "clueFragment": "opening",
-      "gives": "PLOT",
-      "soundsLike": "SLOT",
-      "note": "an opening is a SLOT; it gets the other word's opening sound"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUB",
-      "PLOT"
+    "wordplay": {
+     "op": "spoonerism",
+     "unchecked": true,
+     "gives": "SUBPLOT",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "note": "Reverend Spooner famously muddled his speech by trading the first sounds of neighbouring words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "Bar",
+         "gives": "SUB",
+         "soundsLike": "PUB",
+         "note": "a bar is a PUB; it gets the other word's opening sound"
+        },
+        {
+         "unchecked": true,
+         "words": "opening",
+         "gives": "PLOT",
+         "soundsLike": "SLOT",
+         "note": "an opening is a SLOT; it gets the other word's opening sound"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -161,36 +145,29 @@
    },
    "solution": "ARROW",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "ARROW",
     "definitions": [
      {
       "text": "pointer",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Remove lead",
-      "for": "deletion",
-      "note": "the lead is the front position, so taking it away drops the opening letter"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slender",
-      "gives": "NARROW",
-      "note": "slender means thin or narrow"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ARROW"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Remove lead",
+       "note": "the lead is the front position, so taking it away drops the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slender",
+       "gives": "NARROW",
+       "note": "slender means thin or narrow"
+      },
+      {
+       "gives": "N"
+      }
      ]
     },
     "explanation": {
@@ -220,38 +197,24 @@
    },
    "solution": "DISTILLERIES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISTILLERIES",
     "definitions": [
      {
       "text": "drinks manufacturers",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "developed",
-      "for": "anagram",
-      "note": "something developed has been worked into a new form, so the letters take a new order"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sterile lid is",
-      "gives": "STERILELIDIS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "STERILELIDIS",
-       "gives": "DISTILLERIES"
+       "text": "developed",
+       "note": "something developed has been worked into a new form, so the letters take a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sterile lid is",
+       "note": "taken as written"
       }
      ]
     },
@@ -281,30 +244,28 @@
    },
    "solution": "RAINS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RAINS",
     "definitions": [
      {
       "text": "Showers",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "included in",
-      "for": "hidden_word",
-      "note": "what is included sits inside something larger, so the letters lie within the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "extra installation",
-      "gives": "RAINS",
-      "note": "found spanning the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "included in",
+       "note": "what is included sits inside something larger, so the letters lie within the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra installation",
+       "gives": "RAINS",
+       "note": "found spanning the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Bathroom showers come as part of an additional fitting job.",
      "walkthrough": "'Showers' suggests bathroom plumbing next to 'installation', but it is the weather: extRA INStallation.",
@@ -332,26 +293,25 @@
    },
    "solution": "KING",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "KING",
     "definitions": [
      {
       "text": "Man attempting to avoid mate?",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Man attempting to avoid mate?",
-      "note": "surface reading: a fellow dodging a partner or a marriage"
-     },
-     {
-      "clueFragment": "Man attempting to avoid mate?",
-      "note": "setter's reading: a chess piece (a man) whose whole game is escaping checkmate"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Man attempting to avoid mate?",
+       "note": "surface reading: a fellow dodging a partner or a marriage"
+      },
+      {
+       "words": "Man attempting to avoid mate?",
+       "note": "setter's reading: a chess piece (a man) whose whole game is escaping checkmate"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "Chess pieces are called men, and mate is short for checkmate; the piece whose capture ends the game spends it dodging mate.",
      "definitionFit": "In chess the most important piece must never be checkmated, so play revolves around protecting it from that fate."
@@ -378,33 +338,28 @@
    },
    "solution": "ICINESS",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ICINESS",
     "definitions": [
      {
       "text": "aloof manner",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "in essence",
-      "for": "hidden_word",
-      "note": "the essence of something is what lies at its heart, so the letters sit inside the words"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ascetic, in essence",
-      "gives": "ICINESS",
-      "note": "found across the end of the first word, the whole of the second and the start of the third"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in essence",
+       "note": "the essence of something is what lies at its heart, so the letters sit inside the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ascetic, in essence",
+       "gives": "ICINESS",
+       "note": "found across the end of the first word, the whole of the second and the start of the third"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A self-denying hermit is, at heart, distant and cold.",
      "walkthrough": "'In essence' reads as 'fundamentally', but its words also supply letters: ascetIC IN ESSence.",
@@ -431,34 +386,29 @@
    },
    "solution": "GUEST",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GUEST",
     "definitions": [
      {
       "text": "visitor",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "Reporter's",
-      "for": "homophone",
-      "note": "a reporter speaks the words, so what matters is how they sound when spoken"
-     }
-    ],
-    "linkWords": [
-     "about"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "expressed tentative view",
-      "gives": "GUEST",
-      "soundsLike": "GUESSED",
-      "note": "to offer a tentative view is to have guessed"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUEST",
+     "indicators": [
+      {
+       "text": "Reporter's",
+       "note": "a reporter speaks the words, so what matters is how they sound when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expressed tentative view",
+       "gives": "GUESSED",
+       "note": "to offer a tentative view is to have guessed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A journalist voiced a cautious opinion concerning someone who came to call.",
      "walkthrough": "GUESSED and GUEST sound the same when spoken.",
@@ -485,35 +435,24 @@
    },
    "solution": "MARRIAGEABLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "MARRIAGEABLE",
     "definitions": [
      {
       "text": "Ready to become union member?",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lost",
-      "for": "anagram",
-      "note": "something lost has gone astray, so these letters wander out of their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A rare gamble I",
-      "gives": "ARAREGAMBLEI",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ARAREGAMBLEI",
-       "gives": "MARRIAGEABLE"
+       "text": "lost",
+       "note": "something lost has gone astray, so these letters wander out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A rare gamble I",
+       "note": "taken as written"
       }
      ]
     },
@@ -544,28 +483,16 @@
    },
    "solution": "BURNS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "BURNS",
     "definitions": [
      {
       "text": "Scottish poet",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the national bard of Scotland, author of Auld Lang Syne"
      },
      {
       "text": "feels strong emotion",
-      "at": 14
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Scottish poet",
-      "note": "first meaning: the national bard of Scotland, author of Auld Lang Syne"
-     },
-     {
-      "clueFragment": "feels strong emotion",
-      "note": "second meaning: to be consumed by passion, anger or desire"
+      "at": 14,
+      "meaning": "second meaning: to be consumed by passion, anger or desire"
      }
     ],
     "explanation": {
@@ -592,40 +519,31 @@
    },
    "solution": "IMAGINE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "IMAGINE",
     "definitions": [
      {
       "text": "Fancy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "frames",
-      "for": "container",
-      "note": "a frame surrounds what it holds, so one piece goes round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "picture",
-      "gives": "IMAGE",
-      "note": "a picture is an image"
-     },
-     {
-      "clueFragment": "at home",
-      "gives": "IN",
-      "note": "at home means in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IMAG",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "frames",
+       "note": "a frame surrounds what it holds, so one piece goes round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "picture",
+       "gives": "IMAGE",
+       "note": "a picture is an image"
+      },
+      {
+       "words": "at home",
+       "gives": "IN",
+       "note": "at home means in"
+      }
      ]
     },
     "explanation": {
@@ -654,36 +572,28 @@
    },
    "solution": "LAW",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "LAW",
     "definitions": [
      {
       "text": "Legislation",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "uncovered",
-      "for": "deletion",
-      "note": "uncovering strips away the outside, so the first and last letters go"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "defects",
-      "gives": "FLAWS",
-      "note": "defects are flaws"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LAW"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "LAW",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "uncovering strips away the outside, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "defects",
+       "gives": "FLAWS",
+       "note": "defects are flaws"
+      }
      ]
     },
     "explanation": {
@@ -712,45 +622,34 @@
    },
    "solution": "INSURGENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "INSURGENT",
     "definitions": [
      {
       "text": "Rebel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "working",
-      "for": "anagram",
-      "note": "working material is being reshaped, so these letters are reworked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ruins",
-      "gives": "RUINS",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "man",
-      "gives": "GENT",
-      "note": "a gent is a man, short for gentleman"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "INSUR",
-      "GENT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RUINS",
-       "gives": "INSUR"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "note": "working material is being reshaped, so these letters are reworked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ruins",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "man",
+       "gives": "GENT",
+       "note": "a gent is a man, short for gentleman"
       }
      ]
     },
@@ -780,43 +679,31 @@
    },
    "solution": "TEMPLE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TEMPLE",
     "definitions": [
      {
       "text": "place of worship",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "capturing",
-      "for": "container",
-      "note": "to capture is to seize and hold, so one piece is held inside the other"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Television",
-      "gives": "TELE",
-      "note": "tele is short for television"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP is a Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TE",
-      "MP",
-      "LE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "note": "to capture is to seize and hold, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Television",
+       "gives": "TELE",
+       "note": "tele is short for television"
+      },
+      {
+       "words": "politician",
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      }
      ]
     },
     "explanation": {
@@ -845,40 +732,39 @@
    },
    "solution": "MAUDLIN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MAUDLIN",
     "definitions": [
      {
       "text": "Tearful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cut short",
-      "for": "deletion",
-      "note": "to cut something short trims its tail, so the final letter goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "girl invited into garden",
-      "gives": "MAUD",
-      "note": "Tennyson's poem begins 'Come into the garden, Maud'"
-     },
-     {
-      "clueFragment": "relationship",
-      "gives": "LINK",
-      "note": "a relationship or connection is a link"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAUD",
-      "LIN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut short",
+       "note": "to cut something short trims its tail, so the final letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "girl invited into garden",
+         "gives": "MAUD",
+         "note": "Tennyson's poem begins 'Come into the garden, Maud'"
+        },
+        {
+         "words": "relationship",
+         "gives": "LINK",
+         "note": "a relationship or connection is a link"
+        }
+       ]
+      },
+      {
+       "gives": "K"
+      }
      ]
     },
     "explanation": {
@@ -907,47 +793,35 @@
    },
    "solution": "BALSAM",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BALSAM",
     "definitions": [
      {
       "text": "fragrant substance",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "rolled",
-      "for": "reversal",
-      "note": "something rolled over is turned upside down, so the order runs backwards"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Mother's",
-      "gives": "MAS",
-      "note": "mother is MA, plus the possessive S"
-     },
-     {
-      "clueFragment": "labrador",
-      "gives": "LAB",
-      "note": "lab is short for labrador"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BALSAM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MASLAB",
-       "to": "BALSAM"
+       "text": "rolled",
+       "note": "something rolled over is turned upside down, so the order runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mother's",
+         "gives": "MAS",
+         "note": "mother is MA, plus the possessive S"
+        },
+        {
+         "words": "labrador",
+         "gives": "LAB",
+         "note": "lab is short for labrador"
+        }
+       ]
       }
      ]
     },
@@ -978,11 +852,6 @@
    },
    "solution": "MAXIMAL",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "MAXIMAL",
     "definitions": [
      {
       "text": "more than anything else",
@@ -990,29 +859,33 @@
       "note": "an adverbial phrase for an adjective meaning greatest possible"
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the last letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Saw",
-      "gives": "MAXIM",
-      "note": "a saw is an old saying, a maxim"
-     },
-     {
-      "clueFragment": "everybody",
-      "gives": "ALL",
-      "note": "everybody means all"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MAXIM",
-      "AL"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "note": "almost means not quite all, so the last letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Saw",
+         "gives": "MAXIM",
+         "note": "a saw is an old saying, a maxim"
+        },
+        {
+         "words": "everybody",
+         "gives": "ALL",
+         "note": "everybody means all"
+        }
+       ]
+      },
+      {
+       "gives": "L"
+      }
      ]
     },
     "explanation": {
@@ -1042,38 +915,24 @@
    },
    "solution": "FLUORESCE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FLUORESCE",
     "definitions": [
      {
       "text": "Make light",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beaten up",
-      "for": "anagram",
-      "note": "something beaten up is knocked about, so these letters are battered into a new order"
-     }
-    ],
-    "linkWords": [
-     "being"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "of recluse",
-      "gives": "OFRECLUSE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "OFRECLUSE",
-       "gives": "FLUORESCE"
+       "text": "beaten up",
+       "note": "something beaten up is knocked about, so these letters are battered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "of recluse",
+       "note": "taken as written"
       }
      ]
     },
@@ -1104,52 +963,44 @@
    },
    "solution": "FIRTH",
    "annotation": {
-    "type": [
-     "anagram",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "FIRTH",
     "definitions": [
      {
       "text": "estuary",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Unusual",
-      "for": "anagram",
-      "note": "something unusual is out of the ordinary, so the letters fall out of their usual order"
-     },
-     {
-      "text": "close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, so only its last letter is taken"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rift",
-      "gives": "RIFT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "Scottish",
-      "gives": "H",
-      "select": "last",
-      "note": "the last letter of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FIRT",
-      "H"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "RIFT",
-       "gives": "FIRT"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unusual",
+         "note": "something unusual is out of the ordinary, so the letters fall out of their usual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rift",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "note": "the close of a word is its end, so only its last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish",
+         "note": "the last letter of the word"
+        }
+       ]
       }
      ]
     },
@@ -1179,43 +1030,38 @@
    },
    "solution": "SHEEN",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SHEEN",
     "definitions": [
      {
       "text": "brightness",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "topped",
-      "for": "deletion",
-      "note": "topping something cuts off its head, so the first letter goes"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "This woman",
-      "gives": "SHE",
-      "note": "a woman referred to is she"
-     },
-     {
-      "clueFragment": "men",
-      "gives": "MEN",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SHE",
-      "EN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topped",
+       "note": "topping something cuts off its head, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "This woman",
+         "gives": "SHE",
+         "note": "a woman referred to is she"
+        },
+        {
+         "words": "men",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "gives": "M"
+      }
      ]
     },
     "explanation": {
@@ -1245,32 +1091,25 @@
    },
    "solution": "COX",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "COX",
     "definitions": [
      {
       "text": "Director of boat",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "company",
-      "gives": "CO",
-      "note": "CO is the abbreviation for company"
-     },
-     {
-      "clueFragment": "unknown",
-      "gives": "X",
-      "note": "X is the unknown quantity in algebra"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CO",
-      "X"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "gives": "CO",
+       "note": "CO is the abbreviation for company"
+      },
+      {
+       "words": "unknown",
+       "gives": "X",
+       "note": "X is the unknown quantity in algebra"
+      }
      ]
     },
     "explanation": {
@@ -1299,44 +1138,35 @@
    },
    "solution": "CHOIR",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "CHOIR",
     "definitions": [
      {
       "text": "singers",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "primarily",
-      "for": "letter_selection",
-      "note": "primarily means in the first place, so each word gives its opening letter"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Church",
-      "gives": "CH",
-      "note": "CH is the abbreviation for church"
-     },
-     {
-      "clueFragment": "organ is replaced",
-      "gives": "OIR",
-      "select": "first",
-      "note": "opening letters of the three words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CH",
-      "OIR"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Church",
+       "gives": "CH",
+       "note": "CH is the abbreviation for church"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "note": "primarily means in the first place, so each word gives its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "organ is replaced",
+         "note": "opening letters of the three words"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1365,54 +1195,41 @@
    },
    "solution": "RELIEVE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "RELIEVE",
     "definitions": [
      {
       "text": "help",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "to recall is to call back, so the letters run back the other way"
-     },
-     {
-      "text": "concealing",
-      "for": "container",
-      "note": "to conceal is to hide inside, so one piece is wrapped around another"
-     }
-    ],
-    "linkWords": [
-     "to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Always",
-      "gives": "EVER",
-      "note": "always means ever"
-     },
-     {
-      "clueFragment": "falsehood",
-      "gives": "LIE",
-      "note": "a falsehood is a lie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIE",
-      "VE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "EVER",
-       "to": "REVE"
+       "text": "concealing",
+       "note": "to conceal is to hide inside, so one piece is wrapped around another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "note": "to recall is to call back, so the letters run back the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Always",
+         "gives": "EVER",
+         "note": "always means ever"
+        }
+       ]
+      },
+      {
+       "words": "falsehood",
+       "gives": "LIE",
+       "note": "a falsehood is a lie"
       }
      ]
     },
@@ -1442,40 +1259,31 @@
    },
    "solution": "BLOOM",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BLOOM",
     "definitions": [
      {
       "text": "flower",
       "at": 43
      }
     ],
-    "indicators": [
-     {
-      "text": "bearing",
-      "for": "container",
-      "note": "to bear is to carry, so one piece carries another within it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Period of substantial growth",
-      "gives": "BOOM",
-      "note": "an economic boom is a time of rapid expansion"
-     },
-     {
-      "clueFragment": "large",
-      "gives": "L",
-      "note": "L is the abbreviation for large"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "L",
-      "OOM"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bearing",
+       "note": "to bear is to carry, so one piece carries another within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Period of substantial growth",
+       "gives": "BOOM",
+       "note": "an economic boom is a time of rapid expansion"
+      },
+      {
+       "words": "large",
+       "gives": "L",
+       "note": "L is the abbreviation for large"
+      }
      ]
     },
     "explanation": {
@@ -1504,38 +1312,31 @@
    },
    "solution": "HUNT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "HUNT",
     "definitions": [
      {
       "text": "Chase",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "out of",
-      "for": "deletion",
-      "note": "out of means removed from, so one letter is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "A",
-      "note": "A is the abbreviation for American"
-     },
-     {
-      "clueFragment": "place visited frequently",
-      "gives": "HAUNT",
-      "note": "a haunt is a place someone often goes"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HUNT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out of",
+       "note": "out of means removed from, so one letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "place visited frequently",
+       "gives": "HAUNT",
+       "note": "a haunt is a place someone often goes"
+      },
+      {
+       "words": "American",
+       "gives": "A",
+       "note": "A is the abbreviation for American"
+      }
      ]
     },
     "explanation": {
@@ -1564,35 +1365,24 @@
    },
    "solution": "INTEGRAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "INTEGRAL",
     "definitions": [
      {
       "text": "Fundamental",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "transformation of",
-      "for": "anagram",
-      "note": "a transformation changes form, so the letters are rebuilt in a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "triangle",
-      "gives": "TRIANGLE",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TRIANGLE",
-       "gives": "INTEGRAL"
+       "text": "transformation of",
+       "note": "a transformation changes form, so the letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "triangle",
+       "note": "taken as written"
       }
      ]
     },

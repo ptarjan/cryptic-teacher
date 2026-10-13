@@ -1,8 +1,6 @@
 {
  "id": "cryptic-29371",
  "number": 29371,
- "series": "cryptic",
- "name": "Cryptic crossword No 29,371",
  "setter": "Paul",
  "date": "2024-05-01",
  "dimensions": {
@@ -38,31 +36,16 @@
    },
    "solution": "NOTICED",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NOTICED",
     "definitions": [
      {
       "text": "Distinguished",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: spotted, picked out from the rest"
      },
      {
       "text": "undecorated?",
-      "at": 22
-     }
-    ],
-    "linkWords": [
-     "though"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Distinguished",
-      "note": "first meaning: spotted, picked out from the rest"
-     },
-     {
-      "clueFragment": "undecorated?",
-      "note": "second meaning, read cryptically: a plain cake"
+      "at": 22,
+      "meaning": "second meaning, read cryptically: a plain cake"
      }
     ],
     "explanation": {
@@ -92,52 +75,54 @@
    },
    "solution": "NASDAQ",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "homophone"
-    ],
-    "answer": "NASDAQ",
     "definitions": [
      {
       "text": "Exchange",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "finally",
-      "for": "letter_selection",
-      "note": "finally points to the very end of the preceding word"
-     },
-     {
-      "text": "say",
-      "for": "homophone",
-      "note": "say asks for the word as spoken, giving a letter of the same sound"
-     }
-    ],
-    "linkWords": [
-     "joining"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "coupon",
-      "gives": "N",
-      "select": "last",
-      "note": "its last letter"
-     },
-     {
-      "clueFragment": "14 across",
-      "gives": "ASDA",
-      "note": "Asda is a British supermarket chain"
-     },
-     {
-      "clueFragment": "queue",
-      "gives": "Q",
-      "soundsLike": "QUEUE",
-      "note": "the letter's name sounds the same"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "note": "finally points to the very end of the preceding word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coupon",
+         "note": "its last letter"
+        }
+       ]
+      },
+      {
+       "words": "14 across",
+       "gives": "ASDA",
+       "note": "Asda is a British supermarket chain"
+      },
+      {
+       "op": "homophone",
+       "spelt": "Q",
+       "indicators": [
+        {
+         "text": "say",
+         "note": "say asks for the word as spoken, giving a letter of the same sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "queue",
+         "gives": "QUEUE",
+         "note": "the letter's name sounds the same"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A shopper hands over a voucher at the end of a supermarket line.",
      "definitionFit": "The Nasdaq is the American stock exchange known for technology shares."
@@ -163,40 +148,31 @@
    },
    "solution": "TRESCO",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRESCO",
     "definitions": [
      {
       "text": "Island",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "opened by",
-      "for": "container",
-      "note": "a store opened by someone has them cut in at the doorway, inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "14 across",
-      "gives": "TESCO",
-      "note": "Tesco is Britain's biggest supermarket chain"
-     },
-     {
-      "clueFragment": "king",
-      "gives": "R",
-      "note": "R for rex, Latin for king"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "ESCO"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "opened by",
+       "note": "a store opened by someone has them cut in at the doorway, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "14 across",
+       "gives": "TESCO",
+       "note": "Tesco is Britain's biggest supermarket chain"
+      },
+      {
+       "words": "king",
+       "gives": "R",
+       "note": "R for rex, Latin for king"
+      }
      ]
     },
     "explanation": {
@@ -224,49 +200,47 @@
    },
    "solution": "CRADLESONG",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "CRADLESONG",
     "definitions": [
      {
       "text": "night air",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "almost",
-      "for": "deletion",
-      "note": "almost means not quite the whole thing, so the last letter goes"
-     },
-     {
-      "text": "shivering",
-      "for": "anagram",
-      "note": "shivering letters are shaken about, landing in a new order"
-     }
-    ],
-    "linkWords": [
-     "in the"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Garden's",
-      "gives": "GARDENS",
-      "note": "the 's supplies an S"
-     },
-     {
-      "clueFragment": "cold",
-      "gives": "COL",
-      "note": "the word without its last letter"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CRADLESONG",
+     "indicators": [
       {
-       "fodder": "GARDENSCOL",
-       "gives": "CRADLESONG"
+       "text": "almost",
+       "note": "almost means not quite the whole thing, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shivering",
+         "note": "shivering letters are shaken about, landing in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Garden's",
+           "note": "the 's supplies an S"
+          },
+          {
+           "words": "cold",
+           "gives": "COL",
+           "note": "the word without its last letter"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -297,41 +271,25 @@
    },
    "solution": "DEFER",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "DEFER",
     "definitions": [
      {
       "text": "Put off",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "a revolution turns things right round, so the word is read backwards"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "supplied with rations again",
-      "gives": "REFED",
-      "note": "fed once more"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEFER"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "REFED",
-       "to": "DEFER"
+       "text": "revolutionary",
+       "note": "a revolution turns things right round, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "supplied with rations again",
+       "gives": "REFED",
+       "note": "fed once more"
       }
      ]
     },
@@ -366,48 +324,35 @@
    },
    "solution": "TESTBED",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TEST BED",
     "definitions": [
      {
       "text": "laboratory",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "rejected",
-      "for": "reversal",
-      "note": "something rejected is sent back the way it came, so the letters run backwards"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Outstanding money",
-      "gives": "DEBT",
-      "note": "money still owed"
-     },
-     {
-      "clueFragment": "group",
-      "gives": "SET",
-      "note": "a set is a group"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TES",
-      "TBED"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DEBTSET",
-       "to": "TESTBED"
+       "text": "rejected",
+       "note": "something rejected is sent back the way it came, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Outstanding money",
+         "gives": "DEBT",
+         "note": "money still owed"
+        },
+        {
+         "words": "group",
+         "gives": "SET",
+         "note": "a set is a group"
+        }
+       ]
       }
      ]
     },
@@ -436,65 +381,55 @@
    },
    "solution": "TRATTORIA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal",
-     "container"
-    ],
-    "answer": "TRATTORIA",
     "definitions": [
      {
       "text": "Restaurant",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "served up",
-      "for": "reversal",
-      "note": "in a down answer, up means read from the bottom to the top"
-     },
-     {
-      "text": "scoffed",
-      "for": "container",
-      "note": "something scoffed is eaten, so it ends up inside"
-     }
-    ],
-    "linkWords": [
-     "where"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "rubbish",
-      "gives": "ROT",
-      "note": "nonsense"
-     },
-     {
-      "clueFragment": "dessert",
-      "gives": "TART",
-      "note": "a sweet pastry"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TRATTOR",
-      "I",
-      "A"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "AROTTART",
-       "to": "TRATTORA"
+       "text": "served up",
+       "note": "in a down answer, up means read from the bottom to the top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "scoffed",
+         "note": "something scoffed is eaten, so it ends up inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "note": "taken as written"
+          },
+          {
+           "words": "rubbish",
+           "gives": "ROT",
+           "note": "nonsense"
+          },
+          {
+           "words": "dessert",
+           "gives": "TART",
+           "note": "a sweet pastry"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "Roman numeral one"
+        }
+       ]
       }
      ]
     },
@@ -533,35 +468,25 @@
     "21-across"
    ],
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SODA LIME",
     "definitions": [
      {
       "text": "Chemical used in anaesthesia",
       "at": 0
      }
     ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "it appears",
-      "gives": "SO",
-      "note": "'So' as an exclamation of discovery: so it seems"
-     },
-     {
-      "clueFragment": "I'm a surrealist!",
-      "gives": "DALIME",
-      "note": "the speaker is the Spanish surrealist painter, saying his surname then 'me'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SO",
-      "DALIME"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "it appears",
+       "gives": "SO",
+       "note": "'So' as an exclamation of discovery: so it seems"
+      },
+      {
+       "words": "I'm a surrealist!",
+       "gives": "DALIME",
+       "note": "the speaker is the Spanish surrealist painter, saying his surname then 'me'"
+      }
      ]
     },
     "explanation": {
@@ -591,51 +516,41 @@
    },
    "solution": "BUTTOCKS",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "BUTTOCKS",
     "definitions": [
      {
       "text": "seat",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "Uprising",
-      "for": "reversal",
-      "note": "rising up in a down answer means reading from bottom to top"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in places the first piece inside the second"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "English county",
-      "gives": "BUCKS",
-      "note": "Bucks is short for Buckinghamshire, a county west of London"
-     },
-     {
-      "clueFragment": "overblown",
-      "gives": "OTT",
-      "note": "over the top, exaggerated"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BU",
-      "TTO",
-      "CKS"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "OTT",
-       "to": "TTO"
+       "text": "in",
+       "note": "in places the first piece inside the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English county",
+       "gives": "BUCKS",
+       "note": "Bucks is short for Buckinghamshire, a county west of London"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Uprising",
+         "note": "rising up in a down answer means reading from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overblown",
+         "gives": "OTT",
+         "note": "over the top, exaggerated"
+        }
+       ]
       }
      ]
     },
@@ -666,45 +581,35 @@
    },
    "solution": "DEROGATE",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "DEROGATE",
     "definitions": [
      {
       "text": "Belittle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "from below",
-      "for": "reversal",
-      "note": "read from below, a down answer runs bottom to top"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Greek character",
-      "gives": "ETA",
-      "note": "the seventh letter of the Greek alphabet"
-     },
-     {
-      "clueFragment": "impaled",
-      "gives": "GORED",
-      "note": "pierced, as by a bull's horn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEROG",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ETAGORED",
-       "to": "DEROGATE"
+       "text": "from below",
+       "note": "read from below, a down answer runs bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Greek character",
+         "gives": "ETA",
+         "note": "the seventh letter of the Greek alphabet"
+        },
+        {
+         "words": "impaled",
+         "gives": "GORED",
+         "note": "pierced, as by a bull's horn"
+        }
+       ]
       }
      ]
     },
@@ -733,48 +638,35 @@
    },
    "solution": "SHEBA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "SHEBA",
     "definitions": [
      {
       "text": "ancient kingdom",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "to the west",
-      "for": "reversal",
-      "note": "in an across answer, heading west means reading from right to left"
-     }
-    ],
-    "linkWords": [
-     "borders"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "quiet",
-      "gives": "SH",
-      "note": "the call for silence"
-     },
-     {
-      "clueFragment": "Lincoln",
-      "gives": "ABE",
-      "note": "Abraham Lincoln's familiar first name"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SH",
-      "EBA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ABE",
-       "to": "EBA"
+       "words": "quiet",
+       "gives": "SH",
+       "note": "the call for silence"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the west",
+         "note": "in an across answer, heading west means reading from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lincoln",
+         "gives": "ABE",
+         "note": "Abraham Lincoln's familiar first name"
+        }
+       ]
       }
      ]
     },
@@ -804,38 +696,24 @@
    },
    "solution": "FRAUDSTER",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "FRAUDSTER",
     "definitions": [
      {
       "text": "Shark",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "when swimming",
-      "for": "anagram",
-      "note": "swimming letters are moving about freely, so they settle into a new order"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rude farts",
-      "gives": "RUDEFARTS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RUDEFARTS",
-       "gives": "FRAUDSTER"
+       "text": "when swimming",
+       "note": "swimming letters are moving about freely, so they settle into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rude farts",
+       "note": "taken as written"
       }
      ]
     },
@@ -866,60 +744,60 @@
    },
    "solution": "ACCELERATE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "ACCELERATE",
     "definitions": [
      {
       "text": "Rev",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking in content",
-      "for": "letter_selection",
-      "note": "with its contents gone, a word keeps only its two ends"
-     },
-     {
-      "text": "fills",
-      "for": "container",
-      "note": "whatever fills something sits inside it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "box",
-      "gives": "CRATE",
-      "note": "a crate is a box; the inner letters are placed after its first letter"
-     },
-     {
-      "clueFragment": "church",
-      "gives": "CE",
-      "note": "Church of England"
-     },
-     {
-      "clueFragment": "literature",
-      "gives": "LE",
-      "select": "outer",
-      "note": "just the first and last letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "C",
-      "CE",
-      "LE",
-      "RATE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "fills",
+       "note": "whatever fills something sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "note": "taken as written"
+        },
+        {
+         "words": "box",
+         "gives": "CRATE",
+         "note": "a crate is a box; the inner letters are placed after its first letter"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "Church of England"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "lacking in content",
+           "note": "with its contents gone, a word keeps only its two ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "literature",
+           "note": "just the first and last letters"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -949,28 +827,16 @@
    },
    "solution": "DONG",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DONG",
     "definitions": [
      {
       "text": "Asian money",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: the currency of Vietnam"
      },
      {
       "text": "sound as a bell",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Asian money",
-      "note": "first meaning: the currency of Vietnam"
-     },
-     {
-      "clueFragment": "sound as a bell",
-      "note": "second meaning: the noise a bell makes"
+      "at": 12,
+      "meaning": "second meaning: the noise a bell makes"
      }
     ],
     "explanation": {
@@ -1000,51 +866,40 @@
    },
    "solution": "BARELEGGED",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "BARELEGGED",
     "definitions": [
      {
       "text": "With pins visible",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "done badly, the letters come out in a muddled order"
-     },
-     {
-      "text": "cut by",
-      "for": "container",
-      "note": "a word cut by another has it inserted into a gap"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a bleeder",
-      "gives": "ABLEEDER",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "mount",
-      "gives": "GG",
-      "note": "a gee-gee, a child's word for a horse"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BARELE",
-      "GG",
-      "ED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "ABLEEDER",
-       "gives": "BARELEED"
+       "text": "cut by",
+       "note": "a word cut by another has it inserted into a gap"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "note": "done badly, the letters come out in a muddled order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a bleeder",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "mount",
+       "gives": "GG",
+       "note": "a gee-gee, a child's word for a horse"
       }
      ]
     },
@@ -1074,50 +929,41 @@
    },
    "solution": "SUPERMARKET",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SUPERMARKET",
     "definitions": [
      {
       "text": "a big seller",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "bags",
-      "for": "container",
-      "note": "to bag something is to put it in a sack, so these letters go inside"
-     }
-    ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fat",
-      "gives": "SUET",
-      "note": "hard animal fat used in cooking"
-     },
-     {
-      "clueFragment": "for every",
-      "gives": "PER",
-      "note": "as in 'per person'"
-     },
-     {
-      "clueFragment": "brand",
-      "gives": "MARK",
-      "note": "a brand or trademark"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SU",
-      "PER",
-      "MARK",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bags",
+       "note": "to bag something is to put it in a sack, so these letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fat",
+       "gives": "SUET",
+       "note": "hard animal fat used in cooking"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "for every",
+         "gives": "PER",
+         "note": "as in 'per person'"
+        },
+        {
+         "words": "brand",
+         "gives": "MARK",
+         "note": "a brand or trademark"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1145,43 +991,33 @@
    },
    "solution": "POPULARLY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POPULARLY",
     "definitions": [
      {
       "text": "by and large",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Messed",
-      "for": "anagram",
-      "note": "something messed about with is jumbled into a new arrangement"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "up",
-      "gives": "UP",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "payroll",
-      "gives": "PAYROLL",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "UPPAYROLL",
-       "gives": "POPULARLY"
+       "text": "Messed",
+       "note": "something messed about with is jumbled into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "up",
+         "note": "taken as written"
+        },
+        {
+         "words": "payroll",
+         "note": "taken as written"
+        }
+       ]
       }
      ]
     },
@@ -1211,49 +1047,44 @@
    },
    "solution": "TWILIGHT",
    "annotation": {
-    "type": [
-     "deletion",
-     "container"
-    ],
-    "answer": "TWILIGHT",
     "definitions": [
      {
       "text": "autumn",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "briefly",
-      "for": "deletion",
-      "note": "kept brief, the word loses its last letter"
-     },
-     {
-      "text": "clothes",
-      "for": "container",
-      "note": "used as a verb, to clothe is to wrap round something"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Figure-hugging",
-      "gives": "TIGHT",
-      "note": "close-fitting"
-     },
-     {
-      "clueFragment": "fade",
-      "gives": "WIL",
-      "note": "wilt without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WIL",
-      "IGHT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "TWILIGHT",
+     "indicators": [
+      {
+       "text": "briefly",
+       "note": "kept brief, the word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "clothes",
+         "note": "used as a verb, to clothe is to wrap round something"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Figure-hugging",
+         "gives": "TIGHT",
+         "note": "close-fitting"
+        },
+        {
+         "words": "fade",
+         "gives": "WIL",
+         "note": "wilt without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1282,35 +1113,25 @@
    },
    "solution": "GRIMALDI",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GRIMALDI",
     "definitions": [
      {
       "text": "Principality's family",
       "at": 0
      }
     ],
-    "linkWords": [
-     "that's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ghastly",
-      "gives": "GRIM",
-      "note": "grim means dreadful"
-     },
-     {
-      "clueFragment": "14 across",
-      "gives": "ALDI",
-      "note": "Aldi is a German discount supermarket chain"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GRIM",
-      "ALDI"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ghastly",
+       "gives": "GRIM",
+       "note": "grim means dreadful"
+      },
+      {
+       "words": "14 across",
+       "gives": "ALDI",
+       "note": "Aldi is a German discount supermarket chain"
+      }
      ]
     },
     "explanation": {
@@ -1349,48 +1170,55 @@
    },
    "solution": "WARANDPEACE",
    "annotation": {
-    "type": [
-     "container",
-     "homophone",
-     "charade"
-    ],
-    "answer": "WAR AND PEACE",
     "definitions": [
      {
       "text": "Classic",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "about which written",
-      "for": "container",
-      "note": "the second piece is written around the first, which sits inside it"
-     },
-     {
-      "text": "recited",
-      "for": "homophone",
-      "note": "something recited is spoken out loud, so we go by its sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "huge pile of notes",
-      "gives": "WAD",
-      "note": "a thick bundle of banknotes"
-     },
-     {
-      "clueFragment": "published",
-      "gives": "RAN",
-      "note": "a newspaper ran the story"
-     },
-     {
-      "clueFragment": "work",
-      "gives": "PEACE",
-      "soundsLike": "PIECE",
-      "note": "a piece is a work of art or writing"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about which written",
+         "note": "the second piece is written around the first, which sits inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "huge pile of notes",
+         "gives": "WAD",
+         "note": "a thick bundle of banknotes"
+        },
+        {
+         "words": "published",
+         "gives": "RAN",
+         "note": "a newspaper ran the story"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PEACE",
+       "indicators": [
+        {
+         "text": "recited",
+         "note": "something recited is spoken out loud, so we go by its sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work",
+         "gives": "PIECE",
+         "note": "a piece is a work of art or writing"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A classic novel was published and earned its author a fortune.",
      "walkthrough": "The first piece goes inside the wad of notes to make WARAND; PEACE then follows.",
@@ -1417,50 +1245,41 @@
    },
    "solution": "NATIVE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "NATIVE",
     "definitions": [
      {
       "text": "mother",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "ultimately",
-      "for": "letter_selection",
-      "note": "ultimately points to the final letter of the word before"
-     },
-     {
-      "text": "dresses",
-      "for": "container",
-      "note": "to dress something is to clothe it, so one piece wraps round the other"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Green",
-      "gives": "NAIVE",
-      "note": "green means inexperienced; its letters go round the next piece"
-     },
-     {
-      "clueFragment": "perfect",
-      "gives": "T",
-      "select": "last",
-      "note": "its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NA",
-      "T",
-      "IVE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dresses",
+       "note": "to dress something is to clothe it, so one piece wraps round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Green",
+       "gives": "NAIVE",
+       "note": "green means inexperienced; its letters go round the next piece"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "note": "ultimately points to the final letter of the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "perfect",
+         "note": "its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1489,31 +1308,29 @@
    },
    "solution": "RIDERS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "RIDERS",
     "definitions": [
      {
       "text": "Romantic novel",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "discussed",
-      "for": "homophone",
-      "note": "something discussed is talked about, so go by the spoken form"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "authors from Hollywood",
-      "gives": "RIDERS",
-      "soundsLike": "WRITERS",
-      "note": "authors are writers; in an American accent the T is softened to a D"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RIDERS",
+     "indicators": [
+      {
+       "text": "discussed",
+       "note": "something discussed is talked about, so go by the spoken form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "authors from Hollywood",
+       "gives": "WRITERS",
+       "note": "authors are writers; in an American accent the T is softened to a D"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Hollywood talks about the people who write romance novels.",
      "walkthrough": "Riders is Jilly Cooper's 1985 bonkbuster about British show-jumpers. 'Romantic novel authors' looks like one phrase; the definition is only the first two words.",
@@ -1554,56 +1371,44 @@
    },
    "solution": "GLITTERATI",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "GLITTERATI",
     "definitions": [
      {
       "text": "The rich and famous",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader in",
-      "for": "letter_selection",
-      "note": "the leader of a word is the letter at its front"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "government",
-      "gives": "G",
-      "select": "first",
-      "note": "its first letter"
-     },
-     {
-      "clueFragment": "pigs",
-      "gives": "LITTER",
-      "note": "a sow's litter of piglets"
-     },
-     {
-      "clueFragment": "at",
-      "gives": "AT",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "G",
-      "LITTER",
-      "AT",
-      "I"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "note": "the leader of a word is the letter at its front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "government",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "pigs",
+       "gives": "LITTER",
+       "note": "a sow's litter of piglets"
+      },
+      {
+       "words": "at",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "gives": "I",
+       "note": "Roman numeral one"
+      }
      ]
     },
     "explanation": {
@@ -1631,40 +1436,31 @@
    },
    "solution": "TRAIL",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "TRAIL",
     "definitions": [
      {
       "text": "Track",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "between",
-      "for": "container",
-      "note": "between puts one piece in the middle of the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "7 down",
-      "gives": "TAIL",
-      "note": "slang for the buttocks"
-     },
-     {
-      "clueFragment": "runs",
-      "gives": "R",
-      "note": "the cricket scoring abbreviation"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "R",
-      "AIL"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "note": "between puts one piece in the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "7 down",
+       "gives": "TAIL",
+       "note": "slang for the buttocks"
+      },
+      {
+       "words": "runs",
+       "gives": "R",
+       "note": "the cricket scoring abbreviation"
+      }
      ]
     },
     "explanation": {
@@ -1693,37 +1489,25 @@
    },
    "solution": "ETUI",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ETUI",
     "definitions": [
      {
       "text": "fashion designer's case?",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "The Four Tops",
-      "for": "letter_selection",
-      "note": "the tops of four words are their opening letters"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "elegant tuxedos, unique in",
-      "gives": "ETUI",
-      "select": "first",
-      "note": "the first letter of each word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ETUI"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "The Four Tops",
+       "note": "the tops of four words are their opening letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "elegant tuxedos, unique in",
+       "note": "the first letter of each word"
+      }
      ]
     },
     "explanation": {
@@ -1753,30 +1537,28 @@
    },
    "solution": "GELATERIA",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "GELATERIA",
     "definitions": [
      {
       "text": "summer tourists would go there",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "Visiting",
-      "for": "hidden_word",
-      "note": "the answer is a guest staying inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cambridge later, I assume",
-      "gives": "GELATERIA",
-      "note": "runs across the end of the first word, the second word and the start of the last"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Visiting",
+       "note": "the answer is a guest staying inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cambridge later, I assume",
+       "gives": "GELATERIA",
+       "note": "runs across the end of the first word, the second word and the start of the last"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone guesses where tourists will head when they reach Cambridge later in summer.",
      "walkthrough": "The hidden letters run into 'assume', so 'I assume' does double duty.",
@@ -1803,31 +1585,29 @@
    },
    "solution": "GUISE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "GUISE",
     "definitions": [
      {
       "text": "Front",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "on the radio",
-      "for": "homophone",
-      "note": "radio is heard rather than seen, so we go by how it sounds"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "men",
-      "gives": "GUISE",
-      "soundsLike": "GUYS",
-      "note": "guys are men"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUISE",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "note": "radio is heard rather than seen, so we go by how it sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men",
+       "gives": "GUYS",
+       "note": "guys are men"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A question about the frontmen presenting a radio show.",
      "definitionFit": "A guise is an outward appearance or pretence, a false front put on for show."
@@ -1854,47 +1634,40 @@
    },
    "solution": "TRINITY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "TRINITY",
     "definitions": [
      {
       "text": "College",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "covered",
-      "for": "container",
-      "note": "the essay has covered the rest, wrapping round it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "essay",
-      "gives": "TRY",
-      "note": "an essay is an attempt"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "that stuff",
-      "gives": "IT",
-      "note": "it stands for a thing already mentioned"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TR",
-      "IN",
-      "IT",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered",
+       "note": "the essay has covered the rest, wrapping round it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "essay",
+       "gives": "TRY",
+       "note": "an essay is an attempt"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "note": "taken as written"
+        },
+        {
+         "words": "that stuff",
+         "gives": "IT",
+         "note": "it stands for a thing already mentioned"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1923,35 +1696,25 @@
    },
    "solution": "LIDLESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LIDLESS",
     "definitions": [
      {
       "text": "With top off",
       "at": 0
      }
     ],
-    "linkWords": [
-     "working in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "14 across",
-      "gives": "LIDL",
-      "note": "Lidl is a German discount supermarket chain"
-     },
-     {
-      "clueFragment": "female",
-      "gives": "ESS",
-      "note": "the suffix marking a female, as in waitress"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LIDL",
-      "ESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "14 across",
+       "gives": "LIDL",
+       "note": "Lidl is a German discount supermarket chain"
+      },
+      {
+       "words": "female",
+       "gives": "ESS",
+       "note": "the suffix marking a female, as in waitress"
+      }
      ]
     },
     "explanation": {

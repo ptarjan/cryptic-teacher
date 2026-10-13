@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1303",
  "number": 1303,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,303",
  "setter": "Chandler",
  "date": "2024-11-10",
  "dimensions": {
@@ -44,59 +42,60 @@
    },
    "solution": "INSHAPE",
    "annotation": {
-    "type": [
-     "container",
-     "anagram",
-     "letter_selection"
-    ],
-    "answer": "IN SHAPE",
     "definitions": [
      {
       "text": "healthy",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "beset by"
-     },
-     {
-      "text": "awful",
-      "note": "PAIN in a terrible state is rearranged"
-     },
-     {
-      "text": "beginning to",
-      "note": "take only the first letter of 'emerge'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "awful pain beginning to emerge",
-      "gives": "INAPE",
-      "note": "PAIN plus E, the start of 'emerge', rearranged"
-     },
-     {
-      "clueFragment": "Second",
-      "gives": "S",
-      "select": "first",
-      "note": "s = second"
-     },
-     {
-      "clueFragment": "husband",
-      "gives": "H",
-      "note": "h = husband"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "SH",
-      "APE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "PAINE",
-       "gives": "INAPE"
+       "text": "beset by"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "note": "PAIN in a terrible state is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "note": "take only the first letter of 'emerge'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "awful pain beginning to emerge",
+           "gives": "INAPE",
+           "note": "PAIN plus E, the start of 'emerge', rearranged"
+          },
+          {
+           "op": "first",
+           "parts": [
+            {
+             "words": "Second",
+             "note": "s = second"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "husband",
+       "gives": "H",
+       "note": "h = husband"
       }
      ]
     },
@@ -126,54 +125,43 @@
    },
    "solution": "NOMINEE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "NOMINEE",
     "definitions": [
      {
       "text": "type proposed for office",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "mobilising",
-      "for": "anagram",
-      "note": "setting ONE in motion moves its letters around"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "the rearranged letters go around the pit"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One mobilising",
-      "gives": "NOE",
-      "note": "ONE rearranged"
-     },
-     {
-      "clueFragment": "pit",
-      "gives": "MINE",
-      "note": "a mine is a pit"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NO",
-      "MINE",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "NOMINEE",
+     "indicators": [
       {
-       "fodder": "ONE",
-       "gives": "NOE"
+       "text": "mobilising",
+       "note": "setting ONE in motion moves its letters around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "the rearranged letters go around the pit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One mobilising",
+         "gives": "NOE",
+         "note": "ONE rearranged"
+        },
+        {
+         "words": "pit",
+         "gives": "MINE",
+         "note": "a mine is a pit"
+        }
+       ]
       }
      ]
     },
@@ -203,30 +191,28 @@
    },
    "solution": "HINGE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "HINGE",
     "definitions": [
      {
       "text": "Movable joint",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is put in",
-      "for": "hidden_word",
-      "note": "the answer is lodged inside the following words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "something easily",
-      "gives": "HINGE",
-      "note": "the last four letters of 'something' plus the first of 'easily'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is put in",
+       "note": "the answer is lodged inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something easily",
+       "gives": "HINGE",
+       "note": "the last four letters of 'something' plus the first of 'easily'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A joint that can be moved is fitted into something without much effort.",
      "walkthrough": "The answer straddles two words: somet[HING E]asily. 'Movable joint' sounds anatomical, but a door hinge fits just as well.",
@@ -253,38 +239,24 @@
    },
    "solution": "PIGMENT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PIGMENT",
     "definitions": [
      {
       "text": "natural colouring matter",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "Eccentric",
-      "for": "anagram",
-      "note": "an eccentric version of TEMPING has its letters out of order"
-     }
-    ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "temping",
-      "gives": "TEMPING",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TEMPING",
-       "gives": "PIGMENT"
+       "text": "Eccentric",
+       "note": "an eccentric version of TEMPING has its letters out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "temping",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -314,41 +286,36 @@
    },
    "solution": "BRACKET",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "BRACKET",
     "definitions": [
      {
       "text": "Classify",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "take only the opening letter of 'businessman'"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "businessman's first",
-      "gives": "B",
-      "select": "first",
-      "note": "first letter of businessman"
-     },
-     {
-      "clueFragment": "dishonest scheme",
-      "gives": "RACKET",
-      "note": "a racket is a dishonest scheme"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "B",
-      "RACKET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "take only the opening letter of 'businessman'"
+        }
+       ],
+       "parts": [
+        {
+         "words": "businessman's first",
+         "gives": "BUSINESSMANS",
+         "note": "first letter of businessman"
+        }
+       ]
+      },
+      {
+       "words": "dishonest scheme",
+       "gives": "RACKET",
+       "note": "a racket is a dishonest scheme"
+      }
      ]
     },
     "explanation": {
@@ -377,52 +344,47 @@
    },
    "solution": "RUNWAY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "RUNWAY",
     "definitions": [
      {
       "text": "feature of an airport",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "as"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Manage",
-      "gives": "RUN",
-      "note": "to run a business is to manage it"
-     },
-     {
-      "clueFragment": "wide",
-      "gives": "W",
-      "note": "w = wide, a cricket scoring abbreviation"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "a = area"
-     },
-     {
-      "clueFragment": "yard",
-      "gives": "Y",
-      "note": "y = yard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RUN",
-      "WAY"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "RUNWAY",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Manage",
+         "gives": "RUN",
+         "note": "to run a business is to manage it"
+        },
+        {
+         "words": "wide",
+         "gives": "W",
+         "note": "w = wide, a cricket scoring abbreviation"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "a = area"
+        },
+        {
+         "words": "yard",
+         "gives": "Y",
+         "note": "y = yard"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -451,58 +413,46 @@
    },
    "solution": "CRICKETER",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "CRICKETER",
     "definitions": [
      {
       "text": "one playing on a square",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "shortly",
-      "for": "anagram",
-      "note": "the short form of Richard"
-     },
-     {
-      "text": "entering",
-      "for": "container"
-     },
-     {
-      "text": "for recreation",
-      "for": "anagram",
-      "note": "re-creation: CRETE is created anew in a new order"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Crete for recreation",
-      "gives": "CETER",
-      "note": "CRETE rearranged"
-     },
-     {
-      "clueFragment": "Richard shortly",
-      "gives": "RICK",
-      "note": "Rick is a short form of Richard"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RICK",
-      "ETER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "CRICKETER",
+     "indicators": [
       {
-       "fodder": "CRETE",
-       "gives": "CETER"
+       "text": "shortly",
+       "note": "the short form of Richard"
+      },
+      {
+       "text": "for recreation",
+       "note": "re-creation: CRETE is created anew in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Crete for recreation",
+         "gives": "CETER",
+         "note": "CRETE rearranged"
+        },
+        {
+         "words": "Richard shortly",
+         "gives": "RICK",
+         "note": "Rick is a short form of Richard"
+        }
+       ]
       }
      ]
     },
@@ -533,50 +483,68 @@
    },
    "solution": "ENHANCE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "ENHANCE",
     "definitions": [
      {
       "text": "Improve",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at the margins",
-      "note": "keep only the edge letters of 'education'"
-     },
-     {
-      "text": "initially",
-      "note": "points to the first letter of 'opportunity's' synonym"
-     },
-     {
-      "text": "missed",
-      "note": "that first letter is left out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "education at the margins",
-      "gives": "EN",
-      "select": "outer",
-      "note": "first and last letters of education"
-     },
-     {
-      "clueFragment": "opportunity initially missed",
-      "gives": "HANCE",
-      "select": "first",
-      "note": "CHANCE without its first letter C"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EN",
-      "HANCE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "ENHANCE",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "at the margins",
+         "note": "keep only the edge letters of 'education'"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "EN",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "points to the first letter of 'opportunity's' synonym"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "education at the margins",
+           "gives": "EN",
+           "select": "outer",
+           "note": "first and last letters of education"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "HANCE",
+         "indicators": [
+          {
+           "text": "missed",
+           "note": "that first letter is left out"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "opportunity initially missed",
+           "gives": "HANCE",
+           "select": "first",
+           "note": "CHANCE without its first letter C"
+          }
+         ]
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -605,38 +573,24 @@
    },
    "solution": "PERFECTIONIST",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "PERFECTIONIST",
     "definitions": [
      {
       "text": "one with impossibly high standards",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "Fancy",
-      "for": "anagram",
-      "note": "a fancy version of the words is an elaborate rearrangement"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "reception's fit",
-      "gives": "RECEPTIONSFIT",
-      "note": "anagram fodder, 13 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "RECEPTIONSFIT",
-       "gives": "PERFECTIONIST"
+       "text": "Fancy",
+       "note": "a fancy version of the words is an elaborate rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reception's fit",
+       "note": "anagram fodder, 13 letters"
       }
      ]
     },
@@ -666,30 +620,28 @@
    },
    "solution": "OMEN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OMEN",
     "definitions": [
      {
       "text": "Sign of things to come",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "found among",
-      "for": "hidden_word",
-      "note": "the answer is located among the letters of the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some neighbours",
-      "gives": "OMEN",
-      "note": "the tail of 'some' runs into the first letter of 'neighbours'"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "found among",
+       "note": "the answer is located among the letters of the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some neighbours",
+       "gives": "OMEN",
+       "note": "the tail of 'some' runs into the first letter of 'neighbours'"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A portent of the future turns up among the people next door.",
      "walkthrough": "The answer runs across the gap between two words: s[OME N]eighbours.",
@@ -721,35 +673,25 @@
    },
    "solution": "GREENLIGHT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GREEN LIGHT",
     "definitions": [
      {
       "text": "permission to go ahead",
       "at": 43
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Environmentalist",
-      "gives": "GREEN",
-      "note": "a Green is an environmental campaigner"
-     },
-     {
-      "clueFragment": "of a delicate nature",
-      "gives": "LIGHT",
-      "note": "light = delicate, as in a light touch"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GREEN",
-      "LIGHT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Environmentalist",
+       "gives": "GREEN",
+       "note": "a Green is an environmental campaigner"
+      },
+      {
+       "words": "of a delicate nature",
+       "gives": "LIGHT",
+       "note": "light = delicate, as in a light touch"
+      }
      ]
     },
     "explanation": {
@@ -778,41 +720,29 @@
    },
    "solution": "ANNEXE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANNEXE",
     "definitions": [
      {
       "text": "addition to a building",
       "at": 42
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "pair of notes",
-      "gives": "NN",
-      "note": "n = note, twice"
-     },
-     {
-      "clueFragment": "West Country banker",
-      "gives": "EXE",
-      "note": "a banker is a river (it has banks); the Exe flows through Devon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NN",
-      "EXE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "used as it stands"
+      },
+      {
+       "words": "pair of notes",
+       "gives": "NN",
+       "note": "n = note, twice"
+      },
+      {
+       "words": "West Country banker",
+       "gives": "EXE",
+       "note": "a banker is a river (it has banks); the Exe flows through Devon"
+      }
      ]
     },
     "explanation": {
@@ -842,40 +772,38 @@
    },
    "solution": "FRACKING",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "FRACKING",
     "definitions": [
      {
       "text": "method of extracting gas",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "with no end of",
-      "for": "deletion",
-      "note": "the last letter of 'interest' is taken away from the following word"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fellow",
-      "gives": "F",
-      "note": "f = fellow"
-     },
-     {
-      "clueFragment": "following with no end of interest",
-      "gives": "RACKING",
-      "note": "TRACKING (following) minus T, the last letter of 'interest'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RACKING"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "FRACKING",
+     "indicators": [
+      {
+       "text": "with no end of",
+       "note": "the last letter of 'interest' is taken away from the following word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fellow",
+         "gives": "F",
+         "note": "f = fellow"
+        },
+        {
+         "words": "following with no end of interest",
+         "gives": "RACKING",
+         "note": "TRACKING (following) minus T, the last letter of 'interest'"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -904,10 +832,6 @@
    },
    "solution": "SEMANTICS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "SEMANTICS",
     "definitions": [
      {
       "text": "shades of meaning",
@@ -915,25 +839,18 @@
       "note": "Semantics is a singular noun; the plural definition treats it as the nuances themselves."
      }
     ],
-    "indicators": [
-     {
-      "text": "manipulated",
-      "for": "anagram",
-      "note": "the letters are handled and moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Manic set's",
-      "gives": "MANICSETS",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MANICSETS",
-       "gives": "SEMANTICS"
+       "text": "manipulated",
+       "note": "the letters are handled and moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Manic set's",
+       "note": "anagram fodder, 9 letters"
       }
      ]
     },
@@ -963,59 +880,54 @@
    },
    "solution": "ARBITRARY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "ARBITRARY",
     "definitions": [
      {
       "text": "Random",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "penned by"
-     },
-     {
-      "text": "on",
-      "note": "in a down clue, the first part sits on top of what follows"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "bishop",
-      "gives": "RR",
-      "note": "RR = Right Reverend, a bishop's title"
-     },
-     {
-      "clueFragment": "piece",
-      "gives": "BIT",
-      "note": "a bit is a piece"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "used as it stands"
-     },
-     {
-      "clueFragment": "railway",
-      "gives": "RY",
-      "note": "ry = railway"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "RBITR",
-      "A",
-      "RY"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "penned by"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "on",
+         "note": "in a down clue, the first part sits on top of what follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bishop",
+         "gives": "RR",
+         "note": "RR = Right Reverend, a bishop's title"
+        },
+        {
+         "words": "piece",
+         "gives": "BIT",
+         "note": "a bit is a piece"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "note": "used as it stands"
+      },
+      {
+       "words": "railway",
+       "gives": "RY",
+       "note": "ry = railway"
+      }
      ]
     },
     "explanation": {
@@ -1045,47 +957,45 @@
    },
    "solution": "STEEL",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "STEEL",
     "definitions": [
      {
       "text": "Hard material",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in"
-     },
-     {
-      "text": "confines of",
-      "note": "the outer edges of 'school'"
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "confines of school",
-      "gives": "SL",
-      "select": "outer",
-      "note": "first and last letters of school"
-     },
-     {
-      "clueFragment": "support",
-      "gives": "TEE",
-      "note": "a golf tee supports the ball"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "TEE",
-      "L"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "SL",
+       "indicators": [
+        {
+         "text": "confines of",
+         "note": "the outer edges of 'school'"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "confines of school",
+         "gives": "SL",
+         "select": "outer",
+         "note": "first and last letters of school"
+        }
+       ]
+      },
+      {
+       "words": "support",
+       "gives": "TEE",
+       "note": "a golf tee supports the ball"
+      }
      ]
     },
     "explanation": {
@@ -1114,34 +1024,29 @@
    },
    "solution": "KNOBS",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "KNOBS",
     "definitions": [
      {
       "text": "projections",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Mention of",
-      "for": "homophone",
-      "note": "to mention something is to say it, so the answer is how the word sounds"
-     }
-    ],
-    "linkWords": [
-     "making"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wealthy people",
-      "gives": "KNOBS",
-      "soundsLike": "NOBS",
-      "note": "nobs is British slang for posh, rich people; the word you hear has a silent K in front"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNOBS",
+     "indicators": [
+      {
+       "text": "Mention of",
+       "note": "to mention something is to say it, so the answer is how the word sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wealthy people",
+       "gives": "NOBS",
+       "note": "nobs is British slang for posh, rich people; the word you hear has a silent K in front"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Talk of the rich turns to their investment forecasts.",
      "walkthrough": "'Nobs' is British slang for upper-class or wealthy people. 'Projections' looks like forecasts but means things that stick out.",
@@ -1169,30 +1074,16 @@
    },
    "solution": "NEUTRAL",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "NEUTRAL",
     "definitions": [
      {
       "text": "Grey",
-      "at": 0
+      "at": 0,
+      "meaning": "an adjective for a muted colour with no strong hue"
      },
      {
       "text": "person with no allegiance to either side",
-      "at": 5
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Grey",
-      "gives": "NEUTRAL",
-      "note": "an adjective for a muted colour with no strong hue"
-     },
-     {
-      "clueFragment": "person with no allegiance to either side",
-      "gives": "NEUTRAL",
-      "note": "a noun for a country or person staying out of a conflict"
+      "at": 5,
+      "meaning": "a noun for a country or person staying out of a conflict"
      }
     ],
     "explanation": {
@@ -1221,46 +1112,41 @@
    },
    "solution": "DIFFERENT",
    "annotation": {
-    "type": [
-     "anagram",
-     "deletion"
-    ],
-    "answer": "DIFFERENT",
     "definitions": [
      {
       "text": "Separate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to wander",
-      "note": "the letters of FRIEND and LEFT roam into a new order"
-     },
-     {
-      "text": "overlooking"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "friend left",
-      "gives": "FRIENDLEFT",
-      "note": "anagram fodder before the deletion"
-     },
-     {
-      "clueFragment": "lake",
-      "gives": "L",
-      "note": "l = lake, removed from the fodder"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "DIFFERENT",
+     "parts": [
       {
-       "fodder": "FRIENDEFT",
-       "gives": "DIFFERENT"
+       "op": "deletion",
+       "unchecked": true,
+       "gives": "DIFFERENT",
+       "indicators": [
+        {
+         "text": "to wander",
+         "note": "the letters of FRIEND and LEFT roam into a new order"
+        },
+        {
+         "text": "overlooking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend left",
+         "note": "anagram fodder before the deletion"
+        },
+        {
+         "words": "lake",
+         "gives": "L",
+         "note": "l = lake, removed from the fodder"
+        }
+       ]
       }
      ]
     },
@@ -1291,33 +1177,16 @@
    },
    "solution": "FOUNDER",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "FOUNDER",
     "definitions": [
      {
       "text": "One establishing an institution",
-      "at": 0
+      "at": 0,
+      "meaning": "a noun: the person who sets up a school, charity or firm"
      },
      {
       "text": "be unsuccessful",
-      "at": 40
-     }
-    ],
-    "linkWords": [
-     "gets to"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "One establishing an institution",
-      "gives": "FOUNDER",
-      "note": "a noun: the person who sets up a school, charity or firm"
-     },
-     {
-      "clueFragment": "be unsuccessful",
-      "gives": "FOUNDER",
-      "note": "a verb: to fail, originally of a ship filling and sinking"
+      "at": 40,
+      "meaning": "a verb: to fail, originally of a ship filling and sinking"
      }
     ],
     "explanation": {
@@ -1345,35 +1214,25 @@
    },
    "solution": "NINEPIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NINEPIN",
     "definitions": [
      {
       "text": "thing put in an alley",
       "at": 29
      }
     ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Figure before ten",
-      "gives": "NINE",
-      "note": "nine comes just before ten"
-     },
-     {
-      "clueFragment": "secure",
-      "gives": "PIN",
-      "note": "to pin is to secure"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NINE",
-      "PIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Figure before ten",
+       "gives": "NINE",
+       "note": "nine comes just before ten"
+      },
+      {
+       "words": "secure",
+       "gives": "PIN",
+       "note": "to pin is to secure"
+      }
      ]
     },
     "explanation": {
@@ -1402,33 +1261,16 @@
    },
    "solution": "DOUBLE",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "DOUBLE",
     "definitions": [
      {
       "text": "Twin",
-      "at": 0
+      "at": 0,
+      "meaning": "a person's exact lookalike"
      },
      {
       "text": "drink twice the normal measure",
-      "at": 9
-     }
-    ],
-    "linkWords": [
-     "has"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Twin",
-      "gives": "DOUBLE",
-      "note": "a person's exact lookalike"
-     },
-     {
-      "clueFragment": "drink twice the normal measure",
-      "gives": "DOUBLE",
-      "note": "what you order at a bar for two measures of spirits"
+      "at": 9,
+      "meaning": "what you order at a bar for two measures of spirits"
      }
     ],
     "explanation": {
@@ -1463,57 +1305,60 @@
    },
    "solution": "HUNTDOWN",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "container"
-    ],
-    "answer": "HUNT DOWN",
     "definitions": [
      {
       "text": "Finally catch",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leaders of",
-      "for": "letter_selection",
-      "note": "take the first letters of the next two words"
-     },
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "leaders of heist unsettling",
-      "gives": "HU",
-      "select": "first",
-      "note": "first letters of heist and unsettling"
-     },
-     {
-      "clueFragment": "new",
-      "gives": "N",
-      "note": "n = new"
-     },
-     {
-      "clueFragment": "built-up area",
-      "gives": "TOWN",
-      "note": "a town is a built-up area"
-     },
-     {
-      "clueFragment": "director",
-      "gives": "D",
-      "note": "d = director"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "HU",
-      "N",
-      "TDOWN"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "HU",
+         "indicators": [
+          {
+           "text": "leaders of",
+           "note": "take the first letters of the next two words"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "leaders of heist unsettling",
+           "gives": "HU",
+           "select": "first",
+           "note": "first letters of heist and unsettling"
+          }
+         ]
+        },
+        {
+         "words": "new",
+         "gives": "N",
+         "note": "n = new"
+        },
+        {
+         "words": "built-up area",
+         "gives": "TOWN",
+         "note": "a town is a built-up area"
+        }
+       ]
+      },
+      {
+       "words": "director",
+       "gives": "D",
+       "note": "d = director"
+      }
      ]
     },
     "explanation": {
@@ -1542,58 +1387,62 @@
    },
    "solution": "URBANE",
    "annotation": {
-    "type": [
-     "charade",
-     "container",
-     "letter_selection"
-    ],
-    "answer": "URBANE",
     "definitions": [
      {
       "text": "Suave",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "the RBA goes inside the other letters"
-     },
-     {
-      "text": "lately",
-      "for": "letter_selection",
-      "note": "late in the word: its final letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a French",
-      "gives": "UN",
-      "note": "un is French for a"
-     },
-     {
-      "clueFragment": "Republican",
-      "gives": "R",
-      "note": "r = Republican"
-     },
-     {
-      "clueFragment": "graduate",
-      "gives": "BA",
-      "note": "BA = Bachelor of Arts"
-     },
-     {
-      "clueFragment": "café lately",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of café"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "U",
-      "RBA",
-      "NE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "the RBA goes inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a French",
+         "gives": "UN",
+         "note": "un is French for a"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Republican",
+           "gives": "R",
+           "note": "r = Republican"
+          },
+          {
+           "words": "graduate",
+           "gives": "BA",
+           "note": "BA = Bachelor of Arts"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "lately",
+         "note": "late in the word: its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "café lately",
+         "gives": "CAFE",
+         "note": "last letter of café"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1622,39 +1471,30 @@
    },
    "solution": "BURLY",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BURLY",
     "definitions": [
      {
       "text": "Heavily built",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "part of Greater Manchester",
-      "gives": "BURY",
-      "note": "Bury is a town in Greater Manchester, in north-west England"
-     },
-     {
-      "clueFragment": "liberal",
-      "gives": "L",
-      "note": "l = liberal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BUR",
-      "L",
-      "Y"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of Greater Manchester",
+       "gives": "BURY",
+       "note": "Bury is a town in Greater Manchester, in north-west England"
+      },
+      {
+       "words": "liberal",
+       "gives": "L",
+       "note": "l = liberal"
+      }
      ]
     },
     "explanation": {
@@ -1689,48 +1529,42 @@
    },
    "solution": "BROADBASED",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "BROAD-BASED",
     "definitions": [
      {
       "text": "General",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in a storm",
-      "for": "anagram",
-      "note": "BARBADOS is thrown into disorder, as if by a hurricane"
-     },
-     {
-      "text": "following"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Barbados in a storm",
-      "gives": "BROADBAS",
-      "note": "BARBADOS rearranged"
-     },
-     {
-      "clueFragment": "journalist",
-      "gives": "ED",
-      "note": "ed = editor, a journalist"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BROADBAS",
-      "ED"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "BROADBASED",
+     "indicators": [
       {
-       "fodder": "BARBADOS",
-       "gives": "BROADBAS"
+       "text": "in a storm",
+       "note": "BARBADOS is thrown into disorder, as if by a hurricane"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Barbados in a storm",
+         "gives": "BROADBAS",
+         "note": "BARBADOS rearranged"
+        },
+        {
+         "words": "journalist",
+         "gives": "ED",
+         "note": "ed = editor, a journalist"
+        }
+       ]
       }
      ]
     },
@@ -1760,40 +1594,30 @@
    },
    "solution": "RIPE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "RIPE",
     "definitions": [
      {
       "text": "ready to eat",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "gone",
-      "for": "deletion"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Chewy meat",
-      "gives": "TRIPE",
-      "note": "tripe, cow's stomach lining, is famously chewy"
-     },
-     {
-      "clueFragment": "time",
-      "gives": "T",
-      "note": "t = time, removed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RIPE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "gone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chewy meat",
+       "gives": "TRIPE",
+       "note": "tripe, cow's stomach lining, is famously chewy"
+      },
+      {
+       "words": "time",
+       "gives": "T",
+       "note": "t = time, removed"
+      }
      ]
     },
     "explanation": {
@@ -1822,47 +1646,40 @@
    },
    "solution": "PLAYLET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "PLAYLET",
     "definitions": [
      {
       "text": "short drama",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "including",
-      "for": "container"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Favoured",
-      "gives": "PET",
-      "note": "a pet project is a favoured one"
-     },
-     {
-      "clueFragment": "unprofessional",
-      "gives": "LAY",
-      "note": "lay = not professional, as in a layman"
-     },
-     {
-      "clueFragment": "line",
-      "gives": "L",
-      "note": "l = line"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LAYL",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "Favoured",
+         "gives": "PET",
+         "note": "a pet project is a favoured one"
+        },
+        {
+         "words": "unprofessional",
+         "gives": "LAY",
+         "note": "lay = not professional, as in a layman"
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "gives": "L",
+       "note": "l = line"
+      }
      ]
     },
     "explanation": {
@@ -1891,48 +1708,37 @@
    },
    "solution": "FRAYING",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "FRAYING",
     "definitions": [
      {
       "text": "describing some old clothes",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "ground",
-      "for": "anagram",
-      "note": "GARY and IN are ground up into a new order"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Female",
-      "gives": "F",
-      "note": "f = female"
-     },
-     {
-      "clueFragment": "Gary in ground",
-      "gives": "RAYING",
-      "note": "GARY plus IN rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "RAYING"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "FRAYING",
+     "indicators": [
       {
-       "fodder": "GARYIN",
-       "gives": "RAYING"
+       "text": "ground",
+       "note": "GARY and IN are ground up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Female",
+         "gives": "F",
+         "note": "f = female"
+        },
+        {
+         "words": "Gary in ground",
+         "gives": "RAYING",
+         "note": "GARY plus IN rearranged"
+        }
+       ]
       }
      ]
     },

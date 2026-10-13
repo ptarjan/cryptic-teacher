@@ -1,8 +1,6 @@
 {
  "id": "timesquick-3008",
  "number": 3008,
- "series": "timesquick",
- "name": "Times quick cryptic crossword No 3,008",
  "setter": "Shay",
  "date": "2025-06-06",
  "dimensions": {
@@ -42,35 +40,25 @@
    },
    "solution": "PASSWORD",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PASSWORD",
     "definitions": [
      {
       "text": "Secret information",
       "at": 0
      }
     ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dad's",
-      "gives": "PAS",
-      "note": "pa = dad, with the possessive 's"
-     },
-     {
-      "clueFragment": "weapon",
-      "gives": "SWORD",
-      "note": "a sword is a weapon"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PAS",
-      "SWORD"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dad's",
+       "gives": "PAS",
+       "note": "pa = dad, with the possessive 's"
+      },
+      {
+       "words": "weapon",
+       "gives": "SWORD",
+       "note": "a sword is a weapon"
+      }
      ]
     },
     "explanation": {
@@ -99,45 +87,46 @@
    },
    "solution": "PLEASES",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "PLEASES",
     "definitions": [
      {
       "text": "Delights",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Head of",
-      "for": "letter_selection",
-      "note": "the head of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Head of Planning",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of Planning"
-     },
-     {
-      "clueFragment": "with",
-      "note": "joins the two pieces"
-     },
-     {
-      "clueFragment": "rental agreements",
-      "gives": "LEASES",
-      "note": "leases are rental agreements"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "P",
-      "LEASES"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Head of",
+           "note": "the head of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Head of Planning",
+           "gives": "PLANNING",
+           "note": "first letter of Planning"
+          }
+         ]
+        },
+        {
+         "words": "rental agreements",
+         "gives": "LEASES",
+         "note": "leases are rental agreements"
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "with",
+       "note": "joins the two pieces"
+      }
      ]
     },
     "explanation": {
@@ -172,55 +161,66 @@
    },
    "solution": "SETTO",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "SET-TO",
     "definitions": [
      {
       "text": "fight",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "Having left",
-      "note": "the river letter has gone away from the word"
-     },
-     {
-      "text": "returned",
-      "note": "sent back the way it came, so read right to left"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "otters",
-      "gives": "OTTERS",
-      "note": "the word as printed"
-     },
-     {
-      "clueFragment": "river",
-      "gives": "R",
-      "note": "R = river, removed from OTTERS to leave OTTES"
-     },
-     {
-      "clueFragment": "returned",
-      "gives": "SETTO",
-      "note": "OTTES read backwards"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SETTO"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "OTTES",
-       "to": "SETTO"
+       "text": "Having left",
+       "note": "the river letter has gone away from the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "returned",
+         "note": "sent back the way it came, so read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "otters",
+             "note": "the word as printed"
+            },
+            {
+             "words": "river",
+             "gives": "R",
+             "note": "R = river, removed from OTTERS to leave OTTES"
+            }
+           ]
+          },
+          {
+           "gives": "RSR"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "returned",
+           "gives": "SETTO",
+           "note": "OTTES read backwards"
+          },
+          {
+           "gives": "ETTO"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -250,44 +250,37 @@
    },
    "solution": "WEATHERING",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "WEATHERING",
     "definitions": [
      {
       "text": "Ageing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "anagram"
-     },
-     {
-      "text": "fancy",
-      "for": "anagram",
-      "note": "fancy as in elaborate or fanciful: the letters are rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "European",
-      "gives": "E",
-      "note": "E = European"
-     },
-     {
-      "clueFragment": "nightwear",
-      "gives": "NIGHTWEAR",
-      "note": "anagram fodder, 9 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "E NIGHTWEAR",
-       "gives": "WEATHERING"
+       "text": "in"
+      },
+      {
+       "text": "fancy",
+       "note": "fancy as in elaborate or fanciful: the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "gives": "E",
+         "note": "E = European"
+        },
+        {
+         "words": "nightwear",
+         "note": "anagram fodder, 9 letters"
+        }
+       ]
       }
      ]
     },
@@ -317,40 +310,31 @@
    },
    "solution": "RELIEF",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RELIEF",
     "definitions": [
      {
       "text": "Stand-in",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "the umpire takes the pie inside"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "umpire",
-      "gives": "REF",
-      "note": "ref = referee, an umpire"
-     },
-     {
-      "clueFragment": "pork pie",
-      "gives": "LIE",
-      "note": "pork pie is rhyming slang for lie"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "LIE",
-      "F"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "the umpire takes the pie inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "umpire",
+       "gives": "REF",
+       "note": "ref = referee, an umpire"
+      },
+      {
+       "words": "pork pie",
+       "gives": "LIE",
+       "note": "pork pie is rhyming slang for lie"
+      }
      ]
     },
     "explanation": {
@@ -380,35 +364,25 @@
    },
    "solution": "GASP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GASP",
     "definitions": [
      {
       "text": "Breathe hard",
       "at": 0
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "talk",
-      "gives": "GAS",
-      "note": "to gas is to chatter idly"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p = piano, quietly in music"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GAS",
-      "P"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "talk",
+       "gives": "GAS",
+       "note": "to gas is to chatter idly"
+      },
+      {
+       "words": "quietly",
+       "gives": "P",
+       "note": "p = piano, quietly in music"
+      }
      ]
     },
     "explanation": {
@@ -437,35 +411,24 @@
    },
    "solution": "APOSTLE",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "APOSTLE",
     "definitions": [
      {
       "text": "Missionary",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "badly",
-      "for": "anagram",
-      "note": "the letters are put together badly, out of order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to lapse",
-      "gives": "TOLAPSE",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "TO LAPSE",
-       "gives": "APOSTLE"
+       "text": "badly",
+       "note": "the letters are put together badly, out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to lapse",
+       "note": "anagram fodder, 7 letters"
       }
      ]
     },
@@ -495,40 +458,38 @@
    },
    "solution": "PUDGY",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "PUDGY",
     "definitions": [
      {
       "text": "Plump",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "losing heart",
-      "for": "deletion",
-      "note": "the heart of GUY is its middle letter U, which goes"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sweet",
-      "gives": "PUD",
-      "note": "pud = pudding, a sweet"
-     },
-     {
-      "clueFragment": "guy losing heart",
-      "gives": "GY",
-      "note": "GUY without its middle U"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUD",
-      "GY"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PUDGY",
+     "indicators": [
+      {
+       "text": "losing heart",
+       "note": "the heart of GUY is its middle letter U, which goes"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sweet",
+         "gives": "PUD",
+         "note": "pud = pudding, a sweet"
+        },
+        {
+         "words": "guy losing heart",
+         "gives": "GY",
+         "note": "GUY without its middle U"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -557,35 +518,24 @@
    },
    "solution": "ENTRAILS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ENTRAILS",
     "definitions": [
      {
       "text": "insides",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "unsettled",
-      "for": "anagram",
-      "note": "the letters are disturbed from their order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Latrines",
-      "gives": "LATRINES",
-      "note": "anagram fodder, 8 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LATRINES",
-       "gives": "ENTRAILS"
+       "text": "unsettled",
+       "note": "the letters are disturbed from their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Latrines",
+       "note": "anagram fodder, 8 letters"
       }
      ]
     },
@@ -616,38 +566,25 @@
    },
    "solution": "MOOD",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "MOOD",
     "definitions": [
      {
       "text": "Climate",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "receding",
-      "for": "reversal",
-      "note": "going backwards, so the word is read in reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "catastrophe",
-      "gives": "DOOM",
-      "note": "doom = catastrophe"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOOD"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "DOOM",
-       "to": "MOOD"
+       "text": "receding",
+       "note": "going backwards, so the word is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "catastrophe",
+       "gives": "DOOM",
+       "note": "doom = catastrophe"
       }
      ]
     },
@@ -677,35 +614,24 @@
    },
    "solution": "CENSORSHIP",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CENSORSHIP",
     "definitions": [
      {
       "text": "closing down",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "unfortunately",
-      "for": "anagram",
-      "note": "the letters come out in an unlucky order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Nicer shops",
-      "gives": "NICERSHOPS",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NICER SHOPS",
-       "gives": "CENSORSHIP"
+       "text": "unfortunately",
+       "note": "the letters come out in an unlucky order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nicer shops",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -735,41 +661,36 @@
    },
    "solution": "SLOTH",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SLOTH",
     "definitions": [
      {
       "text": "sluggishness",
       "at": 24
      }
     ],
-    "indicators": [
-     {
-      "text": "Start to",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Start to show",
-      "gives": "S",
-      "select": "first",
-      "note": "first letter of show"
-     },
-     {
-      "clueFragment": "unwilling",
-      "gives": "LOTH",
-      "note": "loth (or loath) = unwilling"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "LOTH"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Start to show",
+         "gives": "SHOW",
+         "note": "first letter of show"
+        }
+       ]
+      },
+      {
+       "words": "unwilling",
+       "gives": "LOTH",
+       "note": "loth (or loath) = unwilling"
+      }
      ]
     },
     "explanation": {
@@ -798,47 +719,37 @@
    },
    "solution": "ERECTLY",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ERECTLY",
     "definitions": [
      {
       "text": "straight",
       "at": 29
      }
     ],
-    "indicators": [
-     {
-      "text": "to cut",
-      "for": "anagram"
-     },
-     {
-      "text": "wonky",
-      "for": "anagram",
-      "note": "crooked, so the letters are jumbled"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Time",
-      "gives": "T",
-      "note": "T = time"
-     },
-     {
-      "clueFragment": "celery",
-      "gives": "CELERY",
-      "note": "anagram fodder, 6 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "T CELERY",
-       "gives": "ERECTLY"
+       "text": "to cut"
+      },
+      {
+       "text": "wonky",
+       "note": "crooked, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Time",
+         "gives": "T",
+         "note": "T = time"
+        },
+        {
+         "words": "celery",
+         "note": "anagram fodder, 6 letters"
+        }
+       ]
       }
      ]
     },
@@ -868,40 +779,38 @@
    },
    "solution": "SATIRE",
    "annotation": {
-    "type": [
-     "deletion",
-     "charade"
-    ],
-    "answer": "SATIRE",
     "definitions": [
      {
       "text": "mockery",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "Endless",
-      "for": "deletion",
-      "note": "each word loses its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Endless sad",
-      "gives": "SA",
-      "note": "SAD without its last letter"
-     },
-     {
-      "clueFragment": "tired",
-      "gives": "TIRE",
-      "note": "TIRED without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SA",
-      "TIRE"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SATIRE",
+     "indicators": [
+      {
+       "text": "Endless",
+       "note": "each word loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Endless sad",
+         "gives": "SA",
+         "note": "SAD without its last letter"
+        },
+        {
+         "words": "tired",
+         "gives": "TIRE",
+         "note": "TIRED without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -936,53 +845,44 @@
    },
    "solution": "TWOSTEP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TWO-STEP",
     "definitions": [
      {
       "text": "Dance",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "standing up",
-      "for": "reversal",
-      "note": "in a down clue, standing up means reading from the bottom upwards"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "tango",
-      "gives": "T",
-      "note": "Tango is T in the NATO alphabet"
-     },
-     {
-      "clueFragment": "pet",
-      "gives": "PET",
-      "note": "the word as printed"
-     },
-     {
-      "clueFragment": "pig",
-      "gives": "SOW",
-      "note": "a sow is a female pig"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "WOSTEP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PETSOW",
-       "to": "WOSTEP"
+       "words": "tango",
+       "gives": "T",
+       "note": "Tango is T in the NATO alphabet"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing up",
+         "note": "in a down clue, standing up means reading from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pet",
+           "note": "the word as printed"
+          },
+          {
+           "words": "pig",
+           "gives": "SOW",
+           "note": "a sow is a female pig"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1013,41 +913,46 @@
    },
    "solution": "ESTEEM",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ESTEEM",
     "definitions": [
      {
       "text": "Respect",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear it spoken rather than see it written"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "energy",
-      "gives": "E",
-      "note": "E = energy"
-     },
-     {
-      "clueFragment": "power",
-      "gives": "STEAM",
-      "note": "steam = power, as in full steam ahead"
-     },
-     {
-      "clueFragment": "energy and power, we hear",
-      "gives": "ESTEEM",
-      "soundsLike": "E STEAM",
-      "note": "the two pieces run together when spoken"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "unchecked": true,
+     "gives": "ESTEEM",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "we hear it spoken rather than see it written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "energy",
+       "gives": "E",
+       "note": "E = energy"
+      },
+      {
+       "words": "power",
+       "gives": "STEAM",
+       "note": "steam = power, as in full steam ahead"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ESTEEM",
+       "parts": [
+        {
+         "words": "energy and power, we hear",
+         "gives": "ESTEAM",
+         "note": "the two pieces run together when spoken"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "Admiration for someone's energy and strength, according to rumour.",
      "walkthrough": "E STEAM said quickly gives ESTEEM. Energy and power look like near-synonyms, but they are two separate pieces.",
@@ -1074,45 +979,34 @@
    },
    "solution": "MONGREL",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "MONGREL",
     "definitions": [
      {
       "text": "Mutt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "barking",
-      "for": "anagram",
-      "note": "barking mad, so the letters are scrambled"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "male",
-      "gives": "M",
-      "note": "M = male"
-     },
-     {
-      "clueFragment": "longer",
-      "gives": "LONGER",
-      "note": "anagram fodder, 6 letters"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ONGREL"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LONGER",
-       "gives": "ONGREL"
+       "words": "male",
+       "gives": "M",
+       "note": "M = male"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "barking",
+         "note": "barking mad, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "longer",
+         "note": "anagram fodder, 6 letters"
+        }
+       ]
       }
      ]
     },
@@ -1142,45 +1036,53 @@
    },
    "solution": "PEDANT",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade",
-     "deletion"
-    ],
-    "answer": "PEDANT",
     "definitions": [
      {
       "text": "purist",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "note": "only the extremes, the first and last letters, are used"
-     },
-     {
-      "text": "almost",
-      "note": "not quite all of the word: the last letter is dropped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Extremely precise",
-      "gives": "PE",
-      "select": "outer",
-      "note": "the outer letters of PRECISE"
-     },
-     {
-      "clueFragment": "poet, almost",
-      "gives": "DANT",
-      "note": "DANTE, the Italian poet, without his last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PE",
-      "DANT"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "PEDANT",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "note": "only the extremes, the first and last letters, are used"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "PE",
+         "indicators": [
+          {
+           "text": "almost",
+           "note": "not quite all of the word: the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "Extremely precise",
+           "gives": "PE",
+           "select": "outer",
+           "note": "the outer letters of PRECISE"
+          }
+         ]
+        },
+        {
+         "words": "poet, almost",
+         "gives": "DANT",
+         "note": "DANTE, the Italian poet, without his last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1209,40 +1111,31 @@
    },
    "solution": "BROWNIE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "BROWNIE",
     "definitions": [
      {
       "text": "something for dessert",
       "at": 18
      }
     ],
-    "indicators": [
-     {
-      "text": "boxes",
-      "for": "container",
-      "note": "the cheese encloses the other word, as a box would"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Cheese",
-      "gives": "BRIE",
-      "note": "brie is a French cheese"
-     },
-     {
-      "clueFragment": "have",
-      "gives": "OWN",
-      "note": "to own is to have"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BR",
-      "OWN",
-      "IE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boxes",
+       "note": "the cheese encloses the other word, as a box would"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cheese",
+       "gives": "BRIE",
+       "note": "brie is a French cheese"
+      },
+      {
+       "words": "have",
+       "gives": "OWN",
+       "note": "to own is to have"
+      }
      ]
     },
     "explanation": {
@@ -1271,34 +1164,29 @@
    },
    "solution": "BOOZE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "BOOZE",
     "definitions": [
      {
       "text": "alcohol",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "Audibly",
-      "for": "homophone",
-      "note": "judged by sound rather than spelling"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "expresses disapproval",
-      "gives": "BOOZE",
-      "soundsLike": "BOOS",
-      "note": "boos are jeers of disapproval; the plural S is said as a Z"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BOOZE",
+     "indicators": [
+      {
+       "text": "Audibly",
+       "note": "judged by sound rather than spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expresses disapproval",
+       "gives": "BOOS",
+       "note": "boos are jeers of disapproval; the plural S is said as a Z"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone loudly condemns drinking.",
      "walkthrough": "BOOS said aloud is BOOZE. The surface is a temperance speaker, which makes the drink feel like the target rather than the answer.",
@@ -1326,30 +1214,28 @@
    },
    "solution": "RERUN",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "RERUN",
     "definitions": [
      {
       "text": "show again",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "Factor in",
-      "for": "hidden_word",
-      "note": "the answer is factored into the letters of the next words"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "insurer underwriting",
-      "gives": "RERUN",
-      "note": "the letters straddle the end of insurer and the start of underwriting"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Factor in",
+       "note": "the answer is factored into the letters of the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "insurer underwriting",
+       "gives": "RERUN",
+       "note": "the letters straddle the end of insurer and the start of underwriting"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An insurer backing a repeat broadcast has to include it in the costs.",
      "walkthrough": "The five letters run insu-RER UN-derwriting. 'Factor in' sounds like accounting language to go with insurer and underwriting, but it points to letters sitting inside.",
@@ -1376,39 +1262,36 @@
    },
    "solution": "RELIC",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "RELIC",
     "definitions": [
      {
       "text": "fossil",
       "at": 28
      }
     ],
-    "indicators": [
-     {
-      "text": "Some",
-      "note": "only some of the letters are used"
-     },
-     {
-      "text": "about",
-      "note": "turned about, so read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "imbecile ranting",
-      "gives": "CILER",
-      "note": "imbe(CILE R)anting"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CILER",
-       "to": "RELIC"
+       "text": "Some",
+       "note": "only some of the letters are used"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "about",
+         "note": "turned about, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "imbecile ranting",
+         "gives": "CILER",
+         "note": "imbe(CILE R)anting"
+        }
+       ]
       }
      ]
     },
@@ -1438,45 +1321,50 @@
    },
    "solution": "OPTS",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "OPTS",
     "definitions": [
      {
       "text": "Chooses",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "take the initial letters of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "op = opus, a work"
-     },
-     {
-      "clueFragment": "initially to stay",
-      "gives": "TS",
-      "select": "first",
-      "note": "first letters of To Stay"
-     },
-     {
-      "clueFragment": "after",
-      "note": "TS comes after OP"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "TS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "work",
+         "gives": "OP",
+         "note": "op = opus, a work"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "TS",
+         "indicators": [
+          {
+           "text": "initially",
+           "note": "take the initial letters of the words that follow"
+          }
+         ],
+         "parts": [
+          {
+           "unchecked": true,
+           "words": "initially to stay",
+           "gives": "TS",
+           "select": "first",
+           "note": "first letters of To Stay"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "after",
+       "note": "TS comes after OP"
+      }
      ]
     },
     "explanation": {
@@ -1505,11 +1393,6 @@
    },
    "solution": "BACHELOR",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "BACHELOR",
     "definitions": [
      {
       "text": "Unmarried",
@@ -1517,34 +1400,29 @@
       "note": "Unmarried is an adjective; BACHELOR is a noun, used here attributively."
      }
     ],
-    "indicators": [
-     {
-      "text": "revolutionary",
-      "for": "reversal",
-      "note": "revolving, so the word turns round"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "composer",
-      "gives": "BACH",
-      "note": "J S Bach, the composer"
-     },
-     {
-      "clueFragment": "character",
-      "gives": "ROLE",
-      "note": "a character in a play is a role"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BACH",
-      "ELOR"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ROLE",
-       "to": "ELOR"
+       "words": "composer",
+       "gives": "BACH",
+       "note": "J S Bach, the composer"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "note": "revolving, so the word turns round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "character",
+         "gives": "ROLE",
+         "note": "a character in a play is a role"
+        }
+       ]
       }
      ]
     },
@@ -1574,40 +1452,35 @@
    },
    "solution": "ESPY",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "ESPY",
     "definitions": [
      {
       "text": "Spot",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "cases of",
-      "for": "letter_selection",
-      "note": "the case of a word is its outside, the first and last letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "egregious",
-      "gives": "ES",
-      "select": "outer",
-      "note": "outer letters of Egregious"
-     },
-     {
-      "clueFragment": "perjury",
-      "gives": "PY",
-      "note": "outer letters of PerjurY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "PY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cases of",
+         "note": "the case of a word is its outside, the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "egregious",
+         "note": "outer letters of Egregious"
+        }
+       ]
+      },
+      {
+       "words": "perjury",
+       "gives": "PY",
+       "note": "outer letters of PerjurY"
+      }
      ]
     },
     "explanation": {
@@ -1637,44 +1510,37 @@
    },
    "solution": "ATYPICAL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "ATYPICAL",
     "definitions": [
      {
       "text": "Unusual",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "anagram"
-     },
-     {
-      "text": "abroad",
-      "for": "anagram",
-      "note": "all over the place, so the letters are scattered"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "year",
-      "gives": "Y",
-      "note": "Y = year"
-     },
-     {
-      "clueFragment": "capital",
-      "gives": "CAPITAL",
-      "note": "anagram fodder, 7 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "Y CAPITAL",
-       "gives": "ATYPICAL"
+       "text": "in"
+      },
+      {
+       "text": "abroad",
+       "note": "all over the place, so the letters are scattered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "year",
+         "gives": "Y",
+         "note": "Y = year"
+        },
+        {
+         "words": "capital",
+         "note": "anagram fodder, 7 letters"
+        }
+       ]
       }
      ]
     },

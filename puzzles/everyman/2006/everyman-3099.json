@@ -1,8 +1,6 @@
 {
  "id": "everyman-3099",
  "number": 3099,
- "series": "everyman",
- "name": "Everyman crossword No 3,099",
  "setter": "Everyman",
  "date": "2006-02-19",
  "dimensions": {
@@ -38,52 +36,50 @@
    },
    "solution": "TEMPTED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "deletion",
-     "charade"
-    ],
-    "answer": "TEMPTED",
     "definitions": [
      {
       "text": "Seduced",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "leader of",
-      "for": "letter_selection",
-      "note": "the leader of a word is its opening letter, so only that one is kept"
-     },
-     {
-      "text": "must leave",
-      "for": "deletion",
-      "note": "the word I must leave the synonym, so that single letter is dropped from it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "team",
-      "gives": "T",
-      "select": "first",
-      "note": "first letter of team"
-     },
-     {
-      "clueFragment": "Gutted",
-      "gives": "EMPTIED",
-      "note": "a gutted fish or building has been emptied"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written, the letter that leaves"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "T",
-      "EMPTED"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "note": "the leader of a word is its opening letter, so only that one is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "team",
+         "note": "first letter of team"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "must leave",
+         "note": "the word I must leave the synonym, so that single letter is dropped from it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gutted",
+         "gives": "EMPTIED",
+         "note": "a gutted fish or building has been emptied"
+        },
+        {
+         "words": "I",
+         "note": "taken as written, the letter that leaves"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -130,26 +126,25 @@
     "2-down"
    ],
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "THE HEART OF MIDLOTHIAN",
     "definitions": [
      {
       "text": "A Scott novel",
       "at": 7
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Lot H?",
-      "note": "surface reading: a lot number at an auction, with a query"
-     },
-     {
-      "clueFragment": "Lot H? A Scott novel",
-      "note": "setter's reading: the four central letters of a Scottish county name spell these letters, and the title of a Walter Scott book describes exactly that"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lot H?",
+       "note": "surface reading: a lot number at an auction, with a query"
+      },
+      {
+       "words": "Lot H? A Scott novel",
+       "note": "setter's reading: the four central letters of a Scottish county name spell these letters, and the title of a Walter Scott book describes exactly that"
+      }
+     ]
+    },
     "explanation": {
      "walkthrough": "MIDLOTHIAN has ten letters; its middle four, its heart, are L-O-T-H. So 'Lot H' is literally the heart of Midlothian, which is also Scott's 1818 novel.",
      "definitionFit": "The Heart of Midlothian is a historical novel by Sir Walter Scott, named after Edinburgh's old Tolbooth prison."
@@ -189,55 +184,45 @@
    },
    "solution": "TAWSE",
    "annotation": {
-    "type": [
-     "reversal",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "TAWSE",
     "definitions": [
      {
       "text": "strap",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "to rear",
-      "for": "reversal",
-      "note": "in a down clue, rearing up means reading the word from the bottom upwards"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its final letter, the only one kept"
-     }
-    ],
-    "linkWords": [
-     "or"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Heavy blow",
-      "gives": "SWAT",
-      "note": "a swat is a hard smack"
-     },
-     {
-      "clueFragment": "cane",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of cane"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TAWS",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "SWAT",
-       "to": "TAWS"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to rear",
+         "note": "in a down clue, rearing up means reading the word from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Heavy blow",
+         "gives": "SWAT",
+         "note": "a swat is a hard smack"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its final letter, the only one kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cane",
+         "note": "last letter of cane"
+        }
+       ]
       }
      ]
     },
@@ -273,49 +258,54 @@
    },
    "solution": "DEEPSEA",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection",
-     "homophone"
-    ],
-    "answer": "DEEP-SEA",
     "definitions": [
      {
       "text": "of distant waters",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "first",
-      "for": "letter_selection",
-      "note": "the pilot's first is the opening letter of that word"
-     },
-     {
-      "text": "reportedly",
-      "for": "homophone",
-      "note": "reportedly means as spoken, so we want a word pronounced the same as the synonym"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "River",
-      "gives": "DEE",
-      "note": "the Dee is a river in Scotland, and another in Wales and England"
-     },
-     {
-      "clueFragment": "pilot",
-      "gives": "P",
-      "select": "first",
-      "note": "first letter of pilot"
-     },
-     {
-      "clueFragment": "view",
-      "gives": "SEA",
-      "soundsLike": "SEE",
-      "note": "to view is to see, which is pronounced like the word for the ocean"
-     }
-    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "gives": "DEE",
+       "note": "the Dee is a river in Scotland, and another in Wales and England"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "note": "the pilot's first is the opening letter of that word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pilot",
+         "note": "first letter of pilot"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SEA",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "note": "reportedly means as spoken, so we want a word pronounced the same as the synonym"
+        }
+       ],
+       "parts": [
+        {
+         "words": "view",
+         "gives": "SEE",
+         "note": "to view is to see, which is pronounced like the word for the ocean"
+        }
+       ]
+      }
+     ]
+    },
     "explanation": {
      "surface": "A river pilot gets a first glimpse of faraway waters.",
      "definitionFit": "Deep-sea describes the open ocean far from shore, so it suits waters that are distant from land."
@@ -341,35 +331,25 @@
    },
    "solution": "OPPRESS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OPPRESS",
     "definitions": [
      {
       "text": "Weigh down",
       "at": 0
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "work",
-      "gives": "OP",
-      "note": "OP is short for opus, a work"
-     },
-     {
-      "clueFragment": "at mill",
-      "gives": "PRESS",
-      "note": "a press is a machine for crushing, as a mill is; 'at mill' is the thing working there"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OP",
-      "PRESS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work",
+       "gives": "OP",
+       "note": "OP is short for opus, a work"
+      },
+      {
+       "words": "at mill",
+       "gives": "PRESS",
+       "note": "a press is a machine for crushing, as a mill is; 'at mill' is the thing working there"
+      }
      ]
     },
     "explanation": {
@@ -398,47 +378,41 @@
    },
    "solution": "OCTOPUS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "OCTOPUS",
     "definitions": [
      {
       "text": "fairground ride",
       "at": 26
      }
     ],
-    "indicators": [
-     {
-      "text": "bagging",
-      "for": "container",
-      "note": "bagging means capturing and holding inside, so one piece sits within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Old",
-      "gives": "O",
-      "note": "O is the standard abbreviation for old"
-     },
-     {
-      "clueFragment": "copper's",
-      "gives": "CUS",
-      "note": "Cu is the chemical symbol for copper, plus the S of the possessive"
-     },
-     {
-      "clueFragment": "best",
-      "gives": "TOP",
-      "note": "top means the best"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "O",
-      "C",
-      "TOP",
-      "US"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "gives": "O",
+       "note": "O is the standard abbreviation for old"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bagging",
+         "note": "bagging means capturing and holding inside, so one piece sits within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copper's",
+         "gives": "CUS",
+         "note": "Cu is the chemical symbol for copper, plus the S of the possessive"
+        },
+        {
+         "words": "best",
+         "gives": "TOP",
+         "note": "top means the best"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -467,59 +441,50 @@
    },
    "solution": "PHOENICIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "PHOENICIA",
     "definitions": [
      {
       "text": "ancient land",
       "at": 55
      }
     ],
-    "indicators": [
-     {
-      "text": "by special arrangement",
-      "for": "anagram",
-      "note": "a special arrangement of letters means they are put into a different order"
-     },
-     {
-      "text": "pursued by",
-      "for": "charade",
-      "note": "something pursued by another goes in front, so the second piece follows the first"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Phone",
-      "gives": "PHONE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "spies",
-      "gives": "CIA",
-      "note": "the CIA is the US intelligence agency"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PHOEN",
-      "I",
-      "CIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "PHONE",
-       "gives": "PHOEN"
+       "text": "pursued by",
+       "note": "something pursued by another goes in front, so the second piece follows the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "by special arrangement",
+         "note": "a special arrangement of letters means they are put into a different order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Phone",
+           "note": "taken as written"
+          },
+          {
+           "words": "one",
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "spies",
+       "gives": "CIA",
+       "note": "the CIA is the US intelligence agency"
       }
      ]
     },
@@ -548,47 +513,39 @@
    },
    "solution": "EPIC",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "EPIC",
     "definitions": [
      {
       "text": "Marathon",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "start to",
-      "for": "letter_selection",
-      "note": "the start of a word is its first letter, which is all we keep"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "record",
-      "gives": "EP",
-      "note": "an EP is an extended-play record"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "challenge",
-      "gives": "C",
-      "select": "first",
-      "note": "first letter of challenge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EP",
-      "I",
-      "C"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "record",
+       "gives": "EP",
+       "note": "an EP is an extended-play record"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "note": "the start of a word is its first letter, which is all we keep"
+        }
+       ],
+       "parts": [
+        {
+         "words": "challenge",
+         "note": "first letter of challenge"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -617,41 +574,35 @@
    },
    "solution": "SKYE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "SKYE",
     "definitions": [
      {
       "text": "island",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "Extremely",
-      "for": "letter_selection",
-      "note": "the extremes of a word are its two outermost letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "stark",
-      "gives": "SK",
-      "select": "outer",
-      "note": "outer letters of stark"
-     },
-     {
-      "clueFragment": "the old",
-      "gives": "YE",
-      "note": "ye is an old spelling of the"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SK",
-      "YE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "note": "the extremes of a word are its two outermost letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stark",
+         "note": "outer letters of stark"
+        }
+       ]
+      },
+      {
+       "words": "the old",
+       "gives": "YE",
+       "note": "ye is an old spelling of the"
+      }
      ]
     },
     "explanation": {
@@ -685,60 +636,53 @@
    },
    "solution": "ENDOWMENTPOLICY",
    "annotation": {
-    "type": [
-     "container",
-     "anagram"
-    ],
-    "answer": "ENDOWMENT POLICY",
     "definitions": [
      {
       "text": "it should mature in time",
       "at": 48
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means going round, so one piece is placed around another"
-     },
-     {
-      "text": "Special",
-      "for": "anagram",
-      "note": "special suggests something specially made up, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "with",
-     "aand"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "wine",
-      "gives": "WINE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "comply",
-      "gives": "COMPLY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "NOTE",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "date",
-      "gives": "D",
-      "note": "D is an abbreviation for date"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "WINECOMPLYNODTE",
-       "gives": "ENDOWMENTPOLICY"
+       "text": "about",
+       "note": "about means going round, so one piece is placed around another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Special",
+         "note": "special suggests something specially made up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "wine",
+           "note": "taken as written"
+          },
+          {
+           "words": "comply",
+           "note": "taken as written"
+          },
+          {
+           "words": "note",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "date",
+       "gives": "D",
+       "note": "D is an abbreviation for date"
       }
      ]
     },
@@ -768,43 +712,31 @@
    },
    "solution": "EVOKE",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "EVOKE",
     "definitions": [
      {
       "text": "Call up",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "during",
-      "for": "container",
-      "note": "during means within the span of, so one piece goes inside the other"
-     }
-    ],
-    "linkWords": [
-     "That's"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "late part of day",
-      "gives": "EVE",
-      "note": "evening, the late part of the day"
-     },
-     {
-      "clueFragment": "all right",
-      "gives": "OK",
-      "note": "OK means all right"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EV",
-      "OK",
-      "E"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "note": "during means within the span of, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "late part of day",
+       "gives": "EVE",
+       "note": "evening, the late part of the day"
+      },
+      {
+       "words": "all right",
+       "gives": "OK",
+       "note": "OK means all right"
+      }
      ]
     },
     "explanation": {
@@ -833,52 +765,45 @@
    },
    "solution": "SUPINE",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SUPINE",
     "definitions": [
      {
       "text": "Lying down",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "the earlier words come after the drink, so the drink is placed first"
-     },
-     {
-      "text": "middle of",
-      "for": "letter_selection",
-      "note": "the middle of a three-letter word is its single central letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup is to drink"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "bed",
-      "gives": "E",
-      "select": "middle",
-      "note": "middle letter of bed"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SUP",
-      "IN",
-      "E"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the earlier words come after the drink, so the drink is placed first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "words": "in",
+       "note": "taken as written"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "note": "the middle of a three-letter word is its single central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bed",
+         "note": "middle letter of bed"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -920,54 +845,44 @@
     "13-down"
    ],
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "DUCK-BILLED PLATYPUSES",
     "definitions": [
      {
       "text": "Aquatic Mammals",
       "at": 41
      }
     ],
-    "indicators": [
-     {
-      "text": "at Sea",
-      "for": "anagram",
-      "note": "being at sea means confused and all over the place, so the letters are muddled"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bob",
-      "gives": "DUCK",
-      "note": "to bob is to dip down quickly, to duck"
-     },
-     {
-      "clueFragment": "William",
-      "gives": "BILL",
-      "note": "Bill is short for William"
-     },
-     {
-      "clueFragment": "typed up 'Seals",
-      "gives": "TYPEDUPSEALS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DUCK",
-      "BILL",
-      "EDPLATYPUSES"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "TYPEDUPSEALS",
-       "gives": "EDPLATYPUSES"
+       "words": "Bob",
+       "gives": "DUCK",
+       "note": "to bob is to dip down quickly, to duck"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at Sea",
+         "note": "being at sea means confused and all over the place, so the letters are muddled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "William",
+           "gives": "BILL",
+           "note": "Bill is short for William"
+          },
+          {
+           "words": "typed up 'Seals",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1010,40 +925,31 @@
    },
    "solution": "REHOBOAMS",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "REHOBOAMS",
     "definitions": [
      {
       "text": "wine bottles",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "breaking",
-      "for": "container",
-      "note": "breaking into something means getting inside it, so one piece is placed within another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "lots of",
-      "gives": "REAMS",
-      "note": "reams means lots, as in reams of paper"
-     },
-     {
-      "clueFragment": "Tramp",
-      "gives": "HOBO",
-      "note": "a hobo is a tramp"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RE",
-      "HOBO",
-      "AMS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "note": "breaking into something means getting inside it, so one piece is placed within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lots of",
+       "gives": "REAMS",
+       "note": "reams means lots, as in reams of paper"
+      },
+      {
+       "words": "Tramp",
+       "gives": "HOBO",
+       "note": "a hobo is a tramp"
+      }
      ]
     },
     "explanation": {
@@ -1077,40 +983,34 @@
    },
    "solution": "BOATTRAIN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BOAT TRAIN",
     "definitions": [
      {
       "text": "One may be heading for a port",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "strange",
-      "for": "anagram",
-      "note": "strange suggests the letters are in an odd, unnatural order and must be rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "abattoir",
-      "gives": "ABATTOIR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "name",
-      "gives": "N",
-      "note": "N is an abbreviation for name"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ABATTOIRN",
-       "gives": "BOATTRAIN"
+       "text": "strange",
+       "note": "strange suggests the letters are in an odd, unnatural order and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "abattoir",
+         "note": "taken as written"
+        },
+        {
+         "words": "name",
+         "gives": "N",
+         "note": "N is an abbreviation for name"
+        }
+       ]
       }
      ]
     },
@@ -1140,35 +1040,24 @@
    },
    "solution": "CRUEL",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "CRUEL",
     "definitions": [
      {
       "text": "Painful",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "needs treatment",
-      "for": "anagram",
-      "note": "treatment works something over, so the letters are reworked into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ulcer",
-      "gives": "ULCER",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ULCER",
-       "gives": "CRUEL"
+       "text": "needs treatment",
+       "note": "treatment works something over, so the letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ulcer",
+       "note": "taken as written"
       }
      ]
     },
@@ -1197,32 +1086,25 @@
    },
    "solution": "OSAKA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "OSAKA",
     "definitions": [
      {
       "text": "Port in Japan",
       "at": 0
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "very large",
-      "gives": "OS",
-      "note": "OS is short for outsize, a clothing size"
-     },
-     {
-      "clueFragment": "known by another name as well?",
-      "gives": "AKA",
-      "note": "aka stands for also known as"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OS",
-      "AKA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very large",
+       "gives": "OS",
+       "note": "OS is short for outsize, a clothing size"
+      },
+      {
+       "words": "known by another name as well?",
+       "gives": "AKA",
+       "note": "aka stands for also known as"
+      }
      ]
     },
     "explanation": {
@@ -1250,35 +1132,25 @@
    },
    "solution": "NEWMARKET",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "NEWMARKET",
     "definitions": [
      {
       "text": "racing town",
       "at": 21
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Additional",
-      "gives": "NEW",
-      "note": "new can mean additional, as in a new supply"
-     },
-     {
-      "clueFragment": "demand",
-      "gives": "MARKET",
-      "note": "a market for goods is the demand for them"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NEW",
-      "MARKET"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Additional",
+       "gives": "NEW",
+       "note": "new can mean additional, as in a new supply"
+      },
+      {
+       "words": "demand",
+       "gives": "MARKET",
+       "note": "a market for goods is the demand for them"
+      }
      ]
     },
     "explanation": {
@@ -1306,48 +1178,35 @@
    },
    "solution": "NOMADIC",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "NOMADIC",
     "definitions": [
      {
       "text": "Not settled",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "upset",
-      "for": "reversal",
-      "note": "in a down clue, upset means turned upside down, so read from the bottom up"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "the Channel Islands",
-      "gives": "CI",
-      "note": "CI is the abbreviation for the Channel Islands"
-     },
-     {
-      "clueFragment": "boy's",
-      "gives": "DAMON",
-      "note": "Damon is a boy's name; the 's makes it 'boy is'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NOMAD",
-      "IC"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "CIDAMON",
-       "to": "NOMADIC"
+       "text": "upset",
+       "note": "in a down clue, upset means turned upside down, so read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the Channel Islands",
+         "gives": "CI",
+         "note": "CI is the abbreviation for the Channel Islands"
+        },
+        {
+         "words": "boy's",
+         "gives": "DAMON",
+         "note": "Damon is a boy's name; the 's makes it 'boy is'"
+        }
+       ]
       }
      ]
     },
@@ -1377,56 +1236,54 @@
    },
    "solution": "WRECKER",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "deletion"
-    ],
-    "answer": "WRECKER",
     "definitions": [
      {
       "text": "US breakdown vehicle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "crashed",
-      "for": "anagram",
-      "note": "something crashed is wrecked and jumbled, so the letters are rearranged"
-     },
-     {
-      "text": "by",
-      "for": "charade",
-      "note": "by means beside, so the two pieces sit next to each other"
-     },
-     {
-      "text": "Almost",
-      "for": "deletion",
-      "note": "almost means not quite all, so the final letter is cut off"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "crew",
-      "gives": "CREW",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "roadside",
-      "gives": "KERB",
-      "note": "the kerb is the edge of the pavement beside the road"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WREC",
-      "KER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "CREW",
-       "gives": "WREC"
+       "text": "by",
+       "note": "by means beside, so the two pieces sit next to each other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashed",
+         "note": "something crashed is wrecked and jumbled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crew",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "note": "almost means not quite all, so the final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "roadside",
+         "gives": "KERB",
+         "note": "the kerb is the edge of the pavement beside the road"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
@@ -1456,57 +1313,50 @@
    },
    "solution": "STYMIE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "STYMIE",
     "definitions": [
      {
       "text": "block",
       "at": 40
      }
     ],
-    "indicators": [
-     {
-      "text": "Awfully",
-      "for": "anagram",
-      "note": "awfully suggests something badly done, so the letters are jumbled"
-     },
-     {
-      "text": "approaching",
-      "for": "charade",
-      "note": "approaching means coming up to, so the first piece comes just before the second"
-     },
-     {
-      "text": "end of",
-      "for": "letter_selection",
-      "note": "the end of a word is its last letter alone"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "misty",
-      "gives": "MISTY",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "office",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of office"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STYMI",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
       {
-       "fodder": "MISTY",
-       "gives": "STYMI"
+       "text": "approaching",
+       "note": "approaching means coming up to, so the first piece comes just before the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Awfully",
+         "note": "awfully suggests something badly done, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "misty",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "note": "the end of a word is its last letter alone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "office",
+         "note": "last letter of office"
+        }
+       ]
       }
      ]
     },
@@ -1536,51 +1386,41 @@
    },
    "solution": "CRISP",
    "annotation": {
-    "type": [
-     "container",
-     "reversal"
-    ],
-    "answer": "CRISP",
     "definitions": [
      {
       "text": "Strong and wiry",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "arresting",
-      "for": "container",
-      "note": "arresting someone means holding them, so one piece is held inside the other"
-     },
-     {
-      "text": "in retirement",
-      "for": "reversal",
-      "note": "retiring means withdrawing or going back, so the whole is read backwards"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "copper",
-      "gives": "PC",
-      "note": "a PC, police constable, is a copper"
-     },
-     {
-      "clueFragment": "teacher",
-      "gives": "SIR",
-      "note": "pupils address a male teacher as sir"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "RIS",
-      "P"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "PSIRC",
-       "to": "CRISP"
+       "text": "in retirement",
+       "note": "retiring means withdrawing or going back, so the whole is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arresting",
+         "note": "arresting someone means holding them, so one piece is held inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copper",
+         "gives": "PC",
+         "note": "a PC, police constable, is a copper"
+        },
+        {
+         "words": "teacher",
+         "gives": "SIR",
+         "note": "pupils address a male teacher as sir"
+        }
+       ]
       }
      ]
     },
@@ -1610,41 +1450,31 @@
    },
    "solution": "CATER",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "CATER",
     "definitions": [
      {
       "text": "Supply food for social event",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not means without, so the following word is removed"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Surrey town",
-      "gives": "CATERHAM",
-      "note": "Caterham is a town in Surrey"
-     },
-     {
-      "clueFragment": "meat",
-      "gives": "HAM",
-      "note": "ham is a meat"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CATER"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "not means without, so the following word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Surrey town",
+       "gives": "CATERHAM",
+       "note": "Caterham is a town in Surrey"
+      },
+      {
+       "words": "meat",
+       "gives": "HAM",
+       "note": "ham is a meat"
+      }
      ]
     },
     "explanation": {
@@ -1673,41 +1503,29 @@
    },
    "solution": "ABBA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABBA",
     "definitions": [
      {
       "text": "pop group",
       "at": 22
      }
     ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "British",
-      "gives": "B",
-      "note": "B is an abbreviation for British"
-     },
-     {
-      "clueFragment": "graduate",
-      "gives": "BA",
-      "note": "a BA is a Bachelor of Arts graduate"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "B",
-      "BA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "British",
+       "gives": "B",
+       "note": "B is an abbreviation for British"
+      },
+      {
+       "words": "graduate",
+       "gives": "BA",
+       "note": "a BA is a Bachelor of Arts graduate"
+      }
      ]
     },
     "explanation": {
@@ -1735,41 +1553,25 @@
    },
    "solution": "TEEM",
    "annotation": {
-    "type": [
-     "reversal"
-    ],
-    "answer": "TEEM",
     "definitions": [
      {
       "text": "fall heavily",
       "at": 14
      }
     ],
-    "indicators": [
-     {
-      "text": "up",
-      "for": "reversal",
-      "note": "in a down clue, up means the word reads from the bottom to the top"
-     }
-    ],
-    "linkWords": [
-     "then"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Join",
-      "gives": "MEET",
-      "note": "to meet is to join, as roads meet"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TEEM"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "MEET",
-       "to": "TEEM"
+       "text": "up",
+       "note": "in a down clue, up means the word reads from the bottom to the top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Join",
+       "gives": "MEET",
+       "note": "to meet is to join, as roads meet"
       }
      ]
     },
@@ -1809,38 +1611,24 @@
    },
    "solution": "BEERANDSKITTLES",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "BEER AND SKITTLES",
     "definitions": [
      {
       "text": "amusement",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "playing",
-      "for": "anagram",
-      "note": "playing with something means moving it around, so the letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Like street bands",
-      "gives": "LIKESTREETBANDS",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LIKESTREETBANDS",
-       "gives": "BEERANDSKITTLES"
+       "text": "playing",
+       "note": "playing with something means moving it around, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Like street bands",
+       "note": "taken as written"
       }
      ]
     },
@@ -1870,30 +1658,28 @@
    },
    "solution": "ALMANAC",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "ALMANAC",
     "definitions": [
      {
       "text": "Yearbook",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "bound by",
-      "for": "hidden_word",
-      "note": "bound by means held inside the following words, so the letters run across them"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "local man, a collector",
-      "gives": "ALMANAC",
-      "note": "runs across the end of local, man, a and the start of collector"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bound by",
+       "note": "bound by means held inside the following words, so the letters run across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local man, a collector",
+       "gives": "ALMANAC",
+       "note": "runs across the end of local, man, a and the start of collector"
+      }
+     ]
+    },
     "explanation": {
      "surface": "An annual is bound by a man from the area who collects things.",
      "walkthrough": "'bound' suggests book-binding, which suits the yearbook.",
@@ -1921,35 +1707,24 @@
    },
    "solution": "REREDOS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "REREDOS",
     "definitions": [
      {
       "text": "screen",
       "at": 13
      }
     ],
-    "indicators": [
-     {
-      "text": "New",
-      "for": "anagram",
-      "note": "new suggests a fresh version, so the letters are made into a different arrangement"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rose-red",
-      "gives": "ROSERED",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ROSERED",
-       "gives": "REREDOS"
+       "text": "New",
+       "note": "new suggests a fresh version, so the letters are made into a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rose-red",
+       "note": "taken as written"
       }
      ]
     },

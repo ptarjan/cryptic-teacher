@@ -1,8 +1,6 @@
 {
  "id": "quiptic-1236",
  "number": 1236,
- "series": "quiptic",
- "name": "Quiptic crossword No 1,236",
  "setter": "Bartland",
  "date": "2023-07-24",
  "dimensions": {
@@ -38,47 +36,38 @@
    },
    "solution": "MISNOMER",
    "annotation": {
-    "type": [
-     "deletion",
-     "anagram"
-    ],
-    "answer": "MISNOMER",
     "definitions": [
      {
       "text": "Wrong name",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "anarchic",
-      "for": "anagram",
-      "note": "anarchic means without order or rule, so these letters are thrown into a new sequence"
-     },
-     {
-      "text": "that hasn't died",
-      "for": "deletion",
-      "note": "D is the standard abbreviation for died, and saying something hasn't it means that letter is taken away"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "modernism",
-      "gives": "MODERNISM",
-      "note": "taken as written, before losing a letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MISNOMER"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "MOERNISM",
-       "gives": "MISNOMER"
+       "text": "anarchic",
+       "note": "anarchic means without order or rule, so these letters are thrown into a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that hasn't died",
+         "note": "D is the standard abbreviation for died, and saying something hasn't it means that letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "modernism",
+         "note": "taken as written, before losing a letter"
+        },
+        {
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
@@ -108,30 +97,28 @@
    },
    "solution": "CEREAL",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "CEREAL",
     "definitions": [
      {
       "text": "Something for breakfast",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is made of",
-      "for": "hidden_word",
-      "note": "what something is made of is its material, so the letters are drawn from inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "rice? Really",
-      "gives": "CEREAL",
-      "note": "the run of letters spanning the end of the first word and the start of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is made of",
+       "note": "what something is made of is its material, so the letters are drawn from inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rice? Really",
+       "gives": "CEREAL",
+       "note": "the run of letters spanning the end of the first word and the start of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone is surprised to learn that a breakfast food is made from rice.",
      "walkthrough": "The punctuation breaks the surface in two, but the hidden run ignores it: riCE REALly.",
@@ -158,35 +145,25 @@
    },
    "solution": "ABSENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ABSENT",
     "definitions": [
      {
       "text": "away",
       "at": 19
      }
     ],
-    "linkWords": [
-     "gets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Sailor",
-      "gives": "AB",
-      "note": "AB, able-bodied seaman, is the usual crossword sailor"
-     },
-     {
-      "clueFragment": "posted",
-      "gives": "SENT",
-      "note": "a letter that is posted is sent"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AB",
-      "SENT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailor",
+       "gives": "AB",
+       "note": "AB, able-bodied seaman, is the usual crossword sailor"
+      },
+      {
+       "words": "posted",
+       "gives": "SENT",
+       "note": "a letter that is posted is sent"
+      }
      ]
     },
     "explanation": {
@@ -215,38 +192,28 @@
    },
    "solution": "TWISTER",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "TWISTER",
     "definitions": [
      {
       "text": "Whirlwind",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "having a change of heart",
-      "for": "substitution",
-      "note": "the heart of a word is its central letter, and changing it swaps that letter for another"
-     }
-    ],
-    "linkWords": [
-     "caused by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a Musk company",
-      "gives": "TWITTER",
-      "note": "Elon Musk bought the social network Twitter in 2022"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TWI",
-      "S",
-      "TER"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "TWISTER",
+     "indicators": [
+      {
+       "text": "having a change of heart",
+       "note": "the heart of a word is its central letter, and changing it swaps that letter for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a Musk company",
+       "gives": "TWITTER",
+       "note": "Elon Musk bought the social network Twitter in 2022"
+      }
      ]
     },
     "explanation": {
@@ -276,50 +243,41 @@
    },
    "solution": "BLOSSOMS",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "BLOSSOMS",
     "definitions": [
      {
       "text": "yet more flowers",
       "at": 42
      }
     ],
-    "indicators": [
-     {
-      "text": "borders",
-      "for": "letter_selection",
-      "note": "the borders of a word are its outermost letters, the first and last"
-     },
-     {
-      "text": "edged with",
-      "for": "container",
-      "note": "to be edged with something is to have it all round you, so one piece sits inside another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "flowers",
-      "gives": "BLOOMS",
-      "note": "blooms are flowers"
-     },
-     {
-      "clueFragment": "Stupendous",
-      "gives": "SS",
-      "select": "outer",
-      "note": "the first and last letters of the word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLO",
-      "SS",
-      "OMS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "edged with",
+       "note": "to be edged with something is to have it all round you, so one piece sits inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flowers",
+       "gives": "BLOOMS",
+       "note": "blooms are flowers"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders",
+         "note": "the borders of a word are its outermost letters, the first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stupendous",
+         "note": "the first and last letters of the word"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -348,51 +306,40 @@
    },
    "solution": "DEMENTIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "DEMENTIA",
     "definitions": [
      {
       "text": "forgetting disorder",
       "at": 44
      }
     ],
-    "indicators": [
-     {
-      "text": "to run around",
-      "for": "anagram",
-      "note": "running around is moving about without a fixed course, so these letters come out in a different order"
-     },
-     {
-      "text": "without",
-      "for": "container",
-      "note": "without in its old sense means outside, so one piece stands round another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Ten made",
-      "gives": "TENMADE",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "information",
-      "gives": "I",
-      "note": "I is the abbreviation for information, as on tourist signs"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "DEMENT",
-      "I",
-      "A"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TENMADE",
-       "gives": "DEMENTA"
+       "text": "without",
+       "note": "without in its old sense means outside, so one piece stands round another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to run around",
+         "note": "running around is moving about without a fixed course, so these letters come out in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ten made",
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
+      {
+       "words": "information",
+       "gives": "I",
+       "note": "I is the abbreviation for information, as on tourist signs"
       }
      ]
     },
@@ -422,34 +369,28 @@
    },
    "solution": "STATUS",
    "annotation": {
-    "type": [
-     "substitution"
-    ],
-    "answer": "STATUS",
     "definitions": [
      {
       "text": "Position",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "replacing the pedestal",
-      "for": "substitution",
-      "note": "a pedestal is the base an object stands on, and in a down entry the base is the bottom letter, which is swapped"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sculpture",
-      "gives": "STATUE",
-      "note": "a statue is a sculpture"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "STATU",
-      "S"
+    "wordplay": {
+     "op": "substitution",
+     "unchecked": true,
+     "gives": "STATUS",
+     "indicators": [
+      {
+       "text": "replacing the pedestal",
+       "note": "a pedestal is the base an object stands on, and in a down entry the base is the bottom letter, which is swapped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sculpture",
+       "gives": "STATUE",
+       "note": "a statue is a sculpture"
+      }
      ]
     },
     "explanation": {
@@ -478,38 +419,24 @@
    },
    "solution": "DISEMBOWELMENTS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DISEMBOWELMENTS",
     "definitions": [
      {
       "text": "acts of torture",
       "at": 34
      }
     ],
-    "indicators": [
-     {
-      "text": "Explosive",
-      "for": "anagram",
-      "note": "an explosion blows things apart, so these letters are scattered and land in a new order"
-     }
-    ],
-    "linkWords": [
-     "into"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "news items led mob",
-      "gives": "NEWSITEMSLEDMOB",
-      "note": "four words, fifteen letters, taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "NEWSITEMSLEDMOB",
-       "gives": "DISEMBOWELMENTS"
+       "text": "Explosive",
+       "note": "an explosion blows things apart, so these letters are scattered and land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "news items led mob",
+       "note": "four words, fifteen letters, taken as written for rearranging"
       }
      ]
     },
@@ -539,51 +466,47 @@
    },
    "solution": "SNEEZE",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "homophone",
-     "charade"
-    ],
-    "answer": "SNEEZE",
     "definitions": [
      {
       "text": "It may signal a cold",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "beginning",
-      "for": "letter_selection",
-      "note": "the beginning of a word is its first letter"
-     },
-     {
-      "text": "the audience's",
-      "for": "homophone",
-      "note": "what an audience gets is what it hears, so the spelling follows the sound"
-     }
-    ],
-    "linkWords": [
-     "to affect"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "snap",
-      "gives": "S",
-      "select": "first",
-      "note": "its opening letter"
-     },
-     {
-      "clueFragment": "leg joints",
-      "gives": "NEEZE",
-      "soundsLike": "KNEES",
-      "note": "the joints in the middle of the leg, said out loud"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "NEEZE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "note": "the beginning of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snap",
+         "note": "its opening letter"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NEEZE",
+       "indicators": [
+        {
+         "text": "the audience's",
+         "note": "what an audience gets is what it hears, so the spelling follows the sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg joints",
+         "gives": "KNEES",
+         "note": "the joints in the middle of the leg, said out loud"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -613,50 +536,41 @@
    },
    "solution": "SUSPECTS",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "SUSPECTS",
     "definitions": [
      {
       "text": "has a sense of foreboding",
       "at": 49
      }
     ],
-    "indicators": [
-     {
-      "text": "infiltrates",
-      "for": "container",
-      "note": "to infiltrate is to get inside, so one piece goes within another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "American",
-      "gives": "US",
-      "note": "US for American"
-     },
-     {
-      "clueFragment": "quietly",
-      "gives": "P",
-      "note": "p, piano, is the musical direction for quietly"
-     },
-     {
-      "clueFragment": "splinter groups",
-      "gives": "SECTS",
-      "note": "sects are breakaway groups"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "S",
-      "US",
-      "P",
-      "ECTS"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infiltrates",
+       "note": "to infiltrate is to get inside, so one piece goes within another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "splinter groups",
+       "gives": "SECTS",
+       "note": "sects are breakaway groups"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "gives": "US",
+         "note": "US for American"
+        },
+        {
+         "words": "quietly",
+         "gives": "P",
+         "note": "p, piano, is the musical direction for quietly"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -685,30 +599,28 @@
    },
    "solution": "OMELETTE",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "OMELETTE",
     "definitions": [
      {
       "text": "Something tasty",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "is revealed in",
-      "for": "hidden_word",
-      "note": "something revealed in a place was there all along, so the answer sits inside the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some letters",
-      "gives": "OMELETTE",
-      "note": "the run spanning the end of the first word and most of the second"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "is revealed in",
+       "note": "something revealed in a place was there all along, so the answer sits inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some letters",
+       "gives": "OMELETTE",
+       "note": "the run spanning the end of the first word and most of the second"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A secret or a delicious detail comes to light in a bundle of correspondence.",
      "walkthrough": "The hidden run is sOME LETTErs; 'some' doubles as part of the hiding place.",
@@ -735,51 +647,39 @@
    },
    "solution": "OBTUSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "OBTUSE",
     "definitions": [
      {
       "text": "Insensitive",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unruly",
-      "for": "anagram",
-      "note": "unruly means disorderly and out of control, so these letters do not keep their order"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "to be around something is to surround it, so one piece encloses the other"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "to be",
-      "gives": "TOBE",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "us",
-      "gives": "US",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OBT",
-      "US",
-      "E"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "fodder": "TOBE",
-       "gives": "OBTE"
+       "text": "around",
+       "note": "to be around something is to surround it, so one piece encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unruly",
+         "note": "unruly means disorderly and out of control, so these letters do not keep their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to be",
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "note": "taken as written"
       }
      ]
     },
@@ -809,35 +709,25 @@
    },
    "solution": "FRIENDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "FRIENDS",
     "definitions": [
      {
       "text": "a sitcom",
       "at": 44
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Fifth day of the week",
-      "gives": "FRI",
-      "note": "Friday, counting the week from Monday, abbreviated"
-     },
-     {
-      "clueFragment": "comes to a close",
-      "gives": "ENDS",
-      "note": "something that comes to a close ends"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FRI",
-      "ENDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fifth day of the week",
+       "gives": "FRI",
+       "note": "Friday, counting the week from Monday, abbreviated"
+      },
+      {
+       "words": "comes to a close",
+       "gives": "ENDS",
+       "note": "something that comes to a close ends"
+      }
      ]
     },
     "explanation": {
@@ -866,35 +756,24 @@
    },
    "solution": "EUROCRAT",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "EUROCRAT",
     "definitions": [
      {
       "text": "penpusher in Brussels",
       "at": 20
      }
     ],
-    "indicators": [
-     {
-      "text": "Throw out",
-      "for": "anagram",
-      "note": "throwing things out tosses them about, so these letters land in a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "curate or",
-      "gives": "CURATEOR",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CURATEOR",
-       "gives": "EUROCRAT"
+       "text": "Throw out",
+       "note": "throwing things out tosses them about, so these letters land in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "curate or",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -924,38 +803,24 @@
    },
    "solution": "DRAMATIC",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "DRAMATIC",
     "definitions": [
      {
       "text": "striking",
       "at": 35
      }
     ],
-    "indicators": [
-     {
-      "text": "must be redesigned",
-      "for": "anagram",
-      "note": "something redesigned is reworked into a new form, so these letters are rearranged"
-     }
-    ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Admit car",
-      "gives": "ADMITCAR",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "ADMITCAR",
-       "gives": "DRAMATIC"
+       "text": "must be redesigned",
+       "note": "something redesigned is reworked into a new form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Admit car",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -985,35 +850,25 @@
    },
    "solution": "USEABLE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "USEABLE",
     "definitions": [
      {
       "text": "Fitting",
       "at": 0
      }
     ],
-    "linkWords": [
-     "takes"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "handle",
-      "gives": "USE",
-      "note": "to handle a tool is to use it"
-     },
-     {
-      "clueFragment": "expert",
-      "gives": "ABLE",
-      "note": "an expert is able, skilled"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "USE",
-      "ABLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "handle",
+       "gives": "USE",
+       "note": "to handle a tool is to use it"
+      },
+      {
+       "words": "expert",
+       "gives": "ABLE",
+       "note": "an expert is able, skilled"
+      }
      ]
     },
     "explanation": {
@@ -1042,11 +897,6 @@
    },
    "solution": "LINOLEUM",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "LINOLEUM",
     "definitions": [
      {
       "text": "on the floor, maybe?",
@@ -1054,43 +904,38 @@
       "note": "the definition describes where the answer is found rather than naming it"
      }
     ],
-    "indicators": [
-     {
-      "text": "injured",
-      "for": "anagram",
-      "note": "an injured body is knocked out of shape, so these letters are disordered"
-     },
-     {
-      "text": "poor",
-      "for": "anagram",
-      "note": "something in poor condition is in a bad way, so these letters are jumbled too"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lion",
-      "gives": "LION",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "mule",
-      "gives": "MULE",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LINO",
-      "LEUM"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LION",
-       "gives": "LINO"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "injured",
+         "note": "an injured body is knocked out of shape, so these letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lion",
+         "note": "taken as written for rearranging"
+        }
+       ]
       },
       {
-       "fodder": "MULE",
-       "gives": "LEUM"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "note": "something in poor condition is in a bad way, so these letters are jumbled too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mule",
+         "note": "taken as written for rearranging"
+        }
+       ]
       }
      ]
     },
@@ -1120,50 +965,41 @@
    },
    "solution": "CATERED",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container"
-    ],
-    "answer": "CATERED",
     "definitions": [
      {
       "text": "Provided food",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "evacuated",
-      "for": "letter_selection",
-      "note": "an evacuated building has been emptied, so the word keeps only its outside letters"
-     },
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about can mean round, so one piece is wrapped around another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "showed concern",
-      "gives": "CARED",
-      "note": "to care is to show concern"
-     },
-     {
-      "clueFragment": "tribe",
-      "gives": "TE",
-      "select": "outer",
-      "note": "the word with its middle emptied out"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CA",
-      "TE",
-      "RED"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about can mean round, so one piece is wrapped around another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "showed concern",
+       "gives": "CARED",
+       "note": "to care is to show concern"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "evacuated",
+         "note": "an evacuated building has been emptied, so the word keeps only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tribe",
+         "note": "the word with its middle emptied out"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1192,60 +1028,45 @@
    },
    "solution": "GLORIA",
    "annotation": {
-    "type": [
-     "anagram",
-     "reversal",
-     "charade"
-    ],
-    "answer": "GLORIA",
     "definitions": [
      {
       "text": "Ms Swanson, perhaps",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "off",
-      "for": "anagram",
-      "note": "something off is not right, out of its proper state, so these letters are rearranged"
-     },
-     {
-      "text": "switch over",
-      "for": "reversal",
-      "note": "switching something over turns it the other way round"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Log",
-      "gives": "LOG",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "broadcast",
-      "gives": "AIR",
-      "note": "to broadcast a programme is to air it"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GLO",
-      "RIA"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "LOG",
-       "gives": "GLO"
-      }
-     ],
-     "reversals": [
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "note": "something off is not right, out of its proper state, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Log",
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
       {
-       "from": "AIR",
-       "to": "RIA"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "switch over",
+         "note": "switching something over turns it the other way round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broadcast",
+         "gives": "AIR",
+         "note": "to broadcast a programme is to air it"
+        }
+       ]
       }
      ]
     },
@@ -1275,43 +1096,31 @@
    },
    "solution": "LIMPET",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "LIMPET",
     "definitions": [
      {
       "text": "shellfish",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "entertaining",
-      "for": "container",
-      "note": "to entertain guests is to have them in your home, so one piece takes another in"
-     }
-    ],
-    "linkWords": [
-     "to serve up"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Allow",
-      "gives": "LET",
-      "note": "to allow is to let"
-     },
-     {
-      "clueFragment": "rogue",
-      "gives": "IMP",
-      "note": "an imp is a mischievous little rascal"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "L",
-      "IMP",
-      "ET"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "note": "to entertain guests is to have them in your home, so one piece takes another in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Allow",
+       "gives": "LET",
+       "note": "to allow is to let"
+      },
+      {
+       "words": "rogue",
+       "gives": "IMP",
+       "note": "an imp is a mischievous little rascal"
+      }
      ]
     },
     "explanation": {
@@ -1340,39 +1149,31 @@
    },
    "solution": "ANTIGONE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANTIGONE",
     "definitions": [
      {
       "text": "Tragic heroine",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after",
-      "for": "charade",
-      "note": "after sets the order, sending the piece named before it to the second position"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "protester",
-      "gives": "ANTI",
-      "note": "an anti is someone who opposes something"
-     },
-     {
-      "clueFragment": "skedaddled",
-      "gives": "GONE",
-      "note": "someone who has skedaddled has gone"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ANTI",
-      "GONE"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "after sets the order, sending the piece named before it to the second position"
+      }
+     ],
+     "parts": [
+      {
+       "words": "protester",
+       "gives": "ANTI",
+       "note": "an anti is someone who opposes something"
+      },
+      {
+       "words": "skedaddled",
+       "gives": "GONE",
+       "note": "someone who has skedaddled has gone"
+      }
      ]
     },
     "explanation": {
@@ -1401,28 +1202,16 @@
    },
    "solution": "TRIERS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "TRIERS",
     "definitions": [
      {
       "text": "Do they have a go",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: people who make an attempt"
      },
      {
       "text": "at hearing",
-      "at": 18
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Do they have a go",
-      "note": "first meaning: people who make an attempt"
-     },
-     {
-      "clueFragment": "at hearing",
-      "note": "second meaning: those who judge a case in court"
+      "at": 18,
+      "meaning": "second meaning: those who judge a case in court"
      }
     ],
     "explanation": {
@@ -1451,28 +1240,16 @@
    },
    "solution": "GREENS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "GREENS",
     "definitions": [
      {
       "text": "Health food",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: leafy vegetables"
      },
      {
       "text": "found on the golf course",
-      "at": 12
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Health food",
-      "note": "first meaning: leafy vegetables"
-     },
-     {
-      "clueFragment": "found on the golf course",
-      "note": "second meaning: the smooth putting areas around each hole"
+      "at": 12,
+      "meaning": "second meaning: the smooth putting areas around each hole"
      }
     ],
     "explanation": {
@@ -1501,48 +1278,34 @@
    },
    "solution": "EMACIATE",
    "annotation": {
-    "type": [
-     "reversal",
-     "charade"
-    ],
-    "answer": "EMACIATE",
     "definitions": [
      {
       "text": "waste",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "going back means going the opposite way, so the letters run right to left"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I came",
-      "gives": "ICAME",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "consumed",
-      "gives": "ATE",
-      "note": "food consumed is eaten"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EMACI",
-      "ATE"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "ICAME",
-       "to": "EMACI"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "note": "going back means going the opposite way, so the letters run right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I came",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "consumed",
+       "gives": "ATE",
+       "note": "food consumed is eaten"
       }
      ]
     },
@@ -1572,35 +1335,24 @@
    },
    "solution": "IDEALS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "IDEALS",
     "definitions": [
      {
       "text": "Models of perfection",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "unsettled",
-      "for": "anagram",
-      "note": "something unsettled is disturbed from its place, so these letters are moved around"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ladies",
-      "gives": "LADIES",
-      "note": "taken as written for rearranging"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "LADIES",
-       "gives": "IDEALS"
+       "text": "unsettled",
+       "note": "something unsettled is disturbed from its place, so these letters are moved around"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ladies",
+       "note": "taken as written for rearranging"
       }
      ]
     },
@@ -1636,64 +1388,60 @@
    },
    "solution": "RELATIVEPRONOUN",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade",
-     "container"
-    ],
-    "answer": "RELATIVE PRONOUN",
     "definitions": [
      {
       "text": "who, for example",
       "at": 2
      }
     ],
-    "indicators": [
-     {
-      "text": "casserole",
-      "for": "anagram",
-      "note": "a casserole is a stew of mixed ingredients, so these letters are stirred together"
-     },
-     {
-      "text": "eating",
-      "for": "container",
-      "note": "to eat something is to take it inside, so one piece swallows another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "ate liver",
-      "gives": "ATELIVER",
-      "note": "taken as written for rearranging"
-     },
-     {
-      "clueFragment": "for",
-      "gives": "PRO",
-      "note": "pro means in favour of, for"
-     },
-     {
-      "clueFragment": "sister",
-      "gives": "NUN",
-      "note": "a nun is a sister in a religious order"
-     },
-     {
-      "clueFragment": "nothing",
-      "gives": "O",
-      "note": "O looks like zero, nothing"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RELATIVE",
-      "PRO",
-      "N",
-      "O",
-      "UN"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "fodder": "ATELIVER",
-       "gives": "RELATIVE"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "casserole",
+         "note": "a casserole is a stew of mixed ingredients, so these letters are stirred together"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ate liver",
+           "note": "taken as written for rearranging"
+          },
+          {
+           "words": "for",
+           "gives": "PRO",
+           "note": "pro means in favour of, for"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eating",
+         "note": "to eat something is to take it inside, so one piece swallows another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sister",
+         "gives": "NUN",
+         "note": "a nun is a sister in a religious order"
+        },
+        {
+         "words": "nothing",
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        }
+       ]
       }
      ]
     },

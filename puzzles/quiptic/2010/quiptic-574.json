@@ -1,8 +1,6 @@
 {
  "id": "quiptic-574",
  "number": 574,
- "series": "quiptic",
- "name": "Quiptic crossword No 574",
  "setter": "Arachne",
  "date": "2010-11-15",
  "dimensions": {
@@ -38,48 +36,34 @@
    },
    "solution": "MOUSETRAP",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "MOUSETRAP",
     "definitions": [
      {
       "text": "long-running play",
       "at": 31
      }
     ],
-    "indicators": [
-     {
-      "text": "recalled",
-      "for": "reversal",
-      "note": "something recalled is called back, so the word that follows is read from its end to its start"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Jerry perhaps",
-      "gives": "MOUSE",
-      "note": "Jerry of Tom and Jerry is a cartoon mouse"
-     },
-     {
-      "clueFragment": "part",
-      "gives": "PART",
-      "note": "taken as written, then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MOUSE",
-      "TRAP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "charade",
+     "parts": [
       {
-       "from": "PART",
-       "to": "TRAP"
+       "words": "Jerry perhaps",
+       "gives": "MOUSE",
+       "note": "Jerry of Tom and Jerry is a cartoon mouse"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "note": "something recalled is called back, so the word that follows is read from its end to its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part",
+         "note": "taken as written, then turned round"
+        }
+       ]
       }
      ]
     },
@@ -109,30 +93,28 @@
    },
    "solution": "MACAW",
    "annotation": {
-    "type": [
-     "hidden_word"
-    ],
-    "answer": "MACAW",
     "definitions": [
      {
       "text": "bird",
       "at": 23
      }
     ],
-    "indicators": [
-     {
-      "text": "wingless",
-      "for": "hidden_word",
-      "note": "with its wings, the outer edges, clipped off, the phrase keeps only its central run of letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Film a cawing",
-      "gives": "MACAW",
-      "note": "the middle of the phrase, with the ends trimmed"
-     }
-    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "wingless",
+       "note": "with its wings, the outer edges, clipped off, the phrase keeps only its central run of letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Film a cawing",
+       "gives": "MACAW",
+       "note": "the middle of the phrase, with the ends trimmed"
+      }
+     ]
+    },
     "explanation": {
      "surface": "A director films a crow-like bird that has lost its wings.",
      "walkthrough": "'Wingless' seems to describe the bird, but it means cut off the outer letters of the phrase.",
@@ -159,54 +141,43 @@
    },
    "solution": "UNSEATS",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "UNSEATS",
     "definitions": [
      {
       "text": "Throws",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "processed",
-      "for": "anagram",
-      "note": "processed food has been worked over, so these letters are rearranged"
-     },
-     {
-      "text": "around",
-      "for": "container",
-      "note": "around says one set of letters is placed so as to surround the other"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "nuts",
-      "gives": "UNTS",
-      "note": "the letters of nuts rearranged and split around the salt"
-     },
-     {
-      "clueFragment": "salt",
-      "gives": "SEA",
-      "note": "the salt is a poetic name for the sea"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "UN",
-      "SEA",
-      "TS"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "UNSEATS",
+     "indicators": [
       {
-       "fodder": "NUTS",
-       "gives": "UNTS"
+       "text": "processed",
+       "note": "processed food has been worked over, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "note": "around says one set of letters is placed so as to surround the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nuts",
+         "gives": "UNTS",
+         "note": "the letters of nuts rearranged and split around the salt"
+        },
+        {
+         "words": "salt",
+         "gives": "SEA",
+         "note": "the salt is a poetic name for the sea"
+        }
+       ]
       }
      ]
     },
@@ -236,36 +207,29 @@
    },
    "solution": "EVEN",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "EVEN",
     "definitions": [
      {
       "text": "such a number",
       "at": 7
      }
     ],
-    "indicators": [
-     {
-      "text": "-1",
-      "for": "deletion",
-      "note": "minus one takes away a single letter, here the opening one"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "7",
-      "gives": "SEVEN",
-      "note": "the number written out as a word"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EVEN"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "-1",
+       "note": "minus one takes away a single letter, here the opening one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "7",
+       "gives": "SEVEN",
+       "note": "the number written out as a word"
+      },
+      {
+       "gives": "S"
+      }
      ]
     },
     "explanation": {
@@ -295,43 +259,30 @@
    },
    "solution": "RUIN",
    "annotation": {
-    "type": [
-     "container"
-    ],
-    "answer": "RUIN",
     "definitions": [
      {
       "text": "cause destruction",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "about",
-      "for": "container",
-      "note": "about means surrounding, so one word is wrapped round another"
-     }
-    ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "race",
-      "gives": "RUN",
-      "note": "to race is to run"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "I",
-      "note": "taken as written"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RU",
-      "I",
-      "N"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "note": "about means surrounding, so one word is wrapped round another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "race",
+       "gives": "RUN",
+       "note": "to race is to run"
+      },
+      {
+       "words": "I",
+       "note": "taken as written"
+      }
      ]
     },
     "explanation": {
@@ -359,35 +310,24 @@
    },
    "solution": "POSTULATED",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "POSTULATED",
     "definitions": [
      {
       "text": "Claimed",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "conflict",
-      "for": "anagram",
-      "note": "conflict suggests things clash and break apart, so the letters are thrown into a new order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "USA plotted",
-      "gives": "USAPLOTTED",
-      "note": "ten letters taken as written to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "USAPLOTTED",
-       "gives": "POSTULATED"
+       "text": "conflict",
+       "note": "conflict suggests things clash and break apart, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "USA plotted",
+       "note": "ten letters taken as written to be rearranged"
       }
      ]
     },
@@ -417,28 +357,16 @@
    },
    "solution": "PLONK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PLONK",
     "definitions": [
      {
       "text": "Roughly put down",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to set something down heavily and carelessly"
      },
      {
       "text": "cheap wine",
-      "at": 17
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Roughly put down",
-      "note": "first meaning: to set something down heavily and carelessly"
-     },
-     {
-      "clueFragment": "cheap wine",
-      "note": "second meaning: British slang for inexpensive, poor-quality wine"
+      "at": 17,
+      "meaning": "second meaning: British slang for inexpensive, poor-quality wine"
      }
     ],
     "explanation": {
@@ -466,46 +394,41 @@
    },
    "solution": "PERMISSIVE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "PERMISSIVE",
     "definitions": [
      {
       "text": "Free",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "imprisoned by",
-      "for": "container",
-      "note": "imprisoned by means held inside, so the first words go within the last"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "sicko",
-      "gives": "PERVE",
-      "note": "a perve (or perv) is slang for a pervert"
-     },
-     {
-      "clueFragment": "girl",
-      "gives": "MISS",
-      "note": "a miss is a girl"
-     },
-     {
-      "clueFragment": "one",
-      "gives": "I",
-      "note": "I is the Roman numeral one"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PER",
-      "MISSI",
-      "VE"
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imprisoned by",
+       "note": "imprisoned by means held inside, so the first words go within the last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sicko",
+       "gives": "PERVE",
+       "note": "a perve (or perv) is slang for a pervert"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "girl",
+         "gives": "MISS",
+         "note": "a miss is a girl"
+        },
+        {
+         "words": "one",
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -534,45 +457,37 @@
    },
    "solution": "OVEREAT",
    "annotation": {
-    "type": [
-     "charade",
-     "anagram"
-    ],
-    "answer": "OVEREAT",
     "definitions": [
      {
       "text": "Stuff yourself",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "after exercise",
-      "for": "anagram",
-      "note": "to exercise is to work something out, so the letters before it are worked into a fresh order"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "on high",
-      "gives": "OVER",
-      "note": "over means above, on high"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "EAT",
-      "note": "the letters of tea rearranged"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OVER",
-      "EAT"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "OVEREAT",
+     "indicators": [
       {
-       "fodder": "TEA",
-       "gives": "EAT"
+       "text": "after exercise",
+       "note": "to exercise is to work something out, so the letters before it are worked into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on high",
+         "gives": "OVER",
+         "note": "over means above, on high"
+        },
+        {
+         "words": "tea",
+         "gives": "EAT",
+         "note": "the letters of tea rearranged"
+        }
+       ]
       }
      ]
     },
@@ -601,32 +516,25 @@
    },
    "solution": "KEYSTROKE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "KEYSTROKE",
     "definitions": [
      {
       "text": "performed by typist",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Secret",
-      "gives": "KEY",
-      "note": "a key is the secret to something, as in the key to success"
-     },
-     {
-      "clueFragment": "caress",
-      "gives": "STROKE",
-      "note": "to stroke is to caress"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KEY",
-      "STROKE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Secret",
+       "gives": "KEY",
+       "note": "a key is the secret to something, as in the key to success"
+      },
+      {
+       "words": "caress",
+       "gives": "STROKE",
+       "note": "to stroke is to caress"
+      }
      ]
     },
     "explanation": {
@@ -662,39 +570,28 @@
    },
    "solution": "COSMETICSURGERY",
    "annotation": {
-    "type": [
-     "anagram",
-     "and_lit"
-    ],
-    "answer": "COSMETIC SURGERY",
     "definitions": [
      {
       "text": "It drastically corrects my guise",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "drastically",
-      "for": "anagram",
-      "note": "a drastic change is a radical overhaul, so the letters that follow are thoroughly rearranged"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "corrects my guise",
-      "gives": "CORRECTSMYGUISE",
-      "note": "fifteen letters taken as written to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CORRECTSMYGUISE",
-       "gives": "COSMETICSURGERY"
+       "text": "drastically",
+       "note": "a drastic change is a radical overhaul, so the letters that follow are thoroughly rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corrects my guise",
+       "note": "fifteen letters taken as written to be rearranged"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
      "surface": "A patient describes a procedure that radically remakes their appearance.",
      "walkthrough": "The whole clue does double duty: read straight it describes the answer, while 'corrects my guise' is rearranged into it.",
@@ -721,34 +618,25 @@
    },
    "solution": "WHAT",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "WHAT",
     "definitions": [
      {
       "text": "That which",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "initially",
-      "for": "letter_selection",
-      "note": "initially points to the opening letter of each of the words that follow"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "withstands hatred always triumphs",
-      "gives": "WHAT",
-      "select": "first",
-      "note": "the opening letters of the four words"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WHAT"
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "note": "initially points to the opening letter of each of the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "withstands hatred always triumphs",
+       "note": "the opening letters of the four words"
+      }
      ]
     },
     "explanation": {
@@ -776,10 +664,6 @@
    },
    "solution": "RUDIMENT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "RUDIMENT",
     "definitions": [
      {
       "text": "Basic",
@@ -787,38 +671,29 @@
       "note": "a noun here, as in 'the basics': a fundamental element"
      }
     ],
-    "linkWords": [
-     "to",
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "R is the abbreviation for right"
-     },
-     {
-      "clueFragment": "university",
-      "gives": "U",
-      "note": "U is the abbreviation for university"
-     },
-     {
-      "clueFragment": "a bit of money",
-      "gives": "DIME",
-      "note": "a dime is a US ten-cent coin"
-     },
-     {
-      "clueFragment": "books",
-      "gives": "NT",
-      "note": "NT is the New Testament, a set of books of the Bible"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "R",
-      "U",
-      "DIME",
-      "NT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      },
+      {
+       "words": "university",
+       "gives": "U",
+       "note": "U is the abbreviation for university"
+      },
+      {
+       "words": "a bit of money",
+       "gives": "DIME",
+       "note": "a dime is a US ten-cent coin"
+      },
+      {
+       "words": "books",
+       "gives": "NT",
+       "note": "NT is the New Testament, a set of books of the Bible"
+      }
      ]
     },
     "explanation": {
@@ -853,32 +728,25 @@
    },
    "solution": "BANANASKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BANANA SKIN",
     "definitions": [
      {
       "text": "cause of one's downfall?",
       "at": 14
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Crazy",
-      "gives": "BANANAS",
-      "note": "bananas is slang for crazy"
-     },
-     {
-      "clueFragment": "family",
-      "gives": "KIN",
-      "note": "kin are relatives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BANANAS",
-      "KIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crazy",
+       "gives": "BANANAS",
+       "note": "bananas is slang for crazy"
+      },
+      {
+       "words": "family",
+       "gives": "KIN",
+       "note": "kin are relatives"
+      }
      ]
     },
     "explanation": {
@@ -908,50 +776,41 @@
    },
    "solution": "CONFIDENCE",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "CONFIDENCE",
     "definitions": [
      {
       "text": "Secret",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "with secret",
-      "for": "container",
-      "note": "keeping something secret means hiding it inside, so one piece is concealed within another"
-     }
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "scam",
-      "gives": "CON",
-      "note": "a con is a swindle"
-     },
-     {
-      "clueFragment": "crook",
-      "gives": "FENCE",
-      "note": "a fence is a criminal who handles stolen goods"
-     },
-     {
-      "clueFragment": "identity",
-      "gives": "ID",
-      "note": "ID is short for identity"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "CON",
-      "F",
-      "ID",
-      "ENCE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scam",
+       "gives": "CON",
+       "note": "a con is a swindle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "with secret",
+         "note": "keeping something secret means hiding it inside, so one piece is concealed within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crook",
+         "gives": "FENCE",
+         "note": "a fence is a criminal who handles stolen goods"
+        },
+        {
+         "words": "identity",
+         "gives": "ID",
+         "note": "ID is short for identity"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -986,41 +845,29 @@
    },
    "solution": "BOSSANOVA",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOSSA NOVA",
     "definitions": [
      {
       "text": "Dance",
       "at": 0
      }
     ],
-    "linkWords": [
-     "meets"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "supremo",
-      "gives": "BOSS",
-      "note": "a supremo is the person in charge"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "star",
-      "gives": "NOVA",
-      "note": "a nova is a star that suddenly brightens"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOSS",
-      "A",
-      "NOVA"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "supremo",
+       "gives": "BOSS",
+       "note": "a supremo is the person in charge"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
+      },
+      {
+       "words": "star",
+       "gives": "NOVA",
+       "note": "a nova is a star that suddenly brightens"
+      }
      ]
     },
     "explanation": {
@@ -1055,32 +902,25 @@
    },
    "solution": "BOTTOMSUP",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "BOTTOMS UP",
     "definitions": [
      {
       "text": "Cheers!",
       "at": 12
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "Last",
-      "gives": "BOTTOM",
-      "note": "last in a list is at the bottom"
-     },
-     {
-      "clueFragment": "drink",
-      "gives": "SUP",
-      "note": "to sup is to drink"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BOTTOM",
-      "SUP"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Last",
+       "gives": "BOTTOM",
+       "note": "last in a list is at the bottom"
+      },
+      {
+       "words": "drink",
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      }
      ]
     },
     "explanation": {
@@ -1115,35 +955,25 @@
    },
    "solution": "SETTO",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "SET-TO",
     "definitions": [
      {
       "text": "fight",
       "at": 29
      }
     ],
-    "linkWords": [
-     "and"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where badgers live",
-      "gives": "SETT",
-      "note": "a sett is a badger's burrow"
-     },
-     {
-      "clueFragment": "love",
-      "gives": "O",
-      "note": "love is zero in tennis, which looks like the letter O"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SETT",
-      "O"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Where badgers live",
+       "gives": "SETT",
+       "note": "a sett is a badger's burrow"
+      },
+      {
+       "words": "love",
+       "gives": "O",
+       "note": "love is zero in tennis, which looks like the letter O"
+      }
      ]
     },
     "explanation": {
@@ -1171,44 +1001,34 @@
    },
    "solution": "TULSA",
    "annotation": {
-    "type": [
-     "charade",
-     "reversal"
-    ],
-    "answer": "TULSA",
     "definitions": [
      {
       "text": "American city",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "backward",
-      "for": "reversal",
-      "note": "backward tells us to read the preceding words from the end to the start"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "A",
-      "gives": "A",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "drab",
-      "gives": "SLUT",
-      "note": "drab is an old word for a slovenly woman, a slattern"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "TULSA"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ASLUT",
-       "to": "TULSA"
+       "text": "backward",
+       "note": "backward tells us to read the preceding words from the end to the start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "drab",
+         "gives": "SLUT",
+         "note": "drab is an old word for a slovenly woman, a slattern"
+        }
+       ]
       }
      ]
     },
@@ -1244,36 +1064,25 @@
    },
    "solution": "LOCKOUT",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "LOCK OUT",
     "definitions": [
      {
       "text": "bar",
       "at": 24
      }
     ],
-    "linkWords": [
-     "'s",
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Rugby player",
-      "gives": "LOCK",
-      "note": "a lock is a second-row forward in rugby"
-     },
-     {
-      "clueFragment": "known",
-      "gives": "OUT",
-      "note": "a secret that is out is known"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "LOCK",
-      "OUT"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rugby player",
+       "gives": "LOCK",
+       "note": "a lock is a second-row forward in rugby"
+      },
+      {
+       "words": "known",
+       "gives": "OUT",
+       "note": "a secret that is out is known"
+      }
      ]
     },
     "explanation": {
@@ -1308,54 +1117,47 @@
    },
    "solution": "FREEVERSE",
    "annotation": {
-    "type": [
-     "anagram",
-     "container"
-    ],
-    "answer": "FREE VERSE",
     "definitions": [
      {
       "text": "poetry",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "imaginative",
-      "for": "anagram",
-      "note": "an imaginative version is freely reinvented, so these letters are reworked"
-     },
-     {
-      "text": "enthralled by",
-      "for": "container",
-      "note": "to be enthralled is to be held captive, so one word is held inside the other"
-     }
-    ],
-    "linkWords": [
-     "'s"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Reeve",
-      "gives": "REEVE",
-      "note": "taken as written; a reeve was a medieval manor official"
-     },
-     {
-      "clueFragment": "serf",
-      "gives": "FRSE",
-      "note": "the letters of serf rearranged, split around the official"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "F",
-      "REEVE",
-      "RSE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "FREEVERSE",
+     "indicators": [
       {
-       "fodder": "SERF",
-       "gives": "FRSE"
+       "text": "enthralled by",
+       "note": "to be enthralled is to be held captive, so one word is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "imaginative",
+         "note": "an imaginative version is freely reinvented, so these letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Reeve",
+           "note": "taken as written; a reeve was a medieval manor official"
+          },
+          {
+           "words": "serf",
+           "gives": "FRSE",
+           "note": "the letters of serf rearranged, split around the official"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
@@ -1385,38 +1187,24 @@
    },
    "solution": "RIVIERA",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RIVIERA",
     "definitions": [
      {
       "text": "coastal area",
       "at": 19
      }
     ],
-    "indicators": [
-     {
-      "text": "abroad",
-      "for": "anagram",
-      "note": "abroad suggests being scattered widely, so the letters are spread into a new order"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "I arrive",
-      "gives": "IARRIVE",
-      "note": "seven letters taken as written to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "IARRIVE",
-       "gives": "RIVIERA"
+       "text": "abroad",
+       "note": "abroad suggests being scattered widely, so the letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I arrive",
+       "note": "seven letters taken as written to be rearranged"
       }
      ]
     },
@@ -1445,10 +1233,6 @@
    },
    "solution": "ORCHARDS",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ORCHARDS",
     "definitions": [
      {
       "text": "Source of fruit",
@@ -1456,22 +1240,18 @@
       "note": "singular in the clue, plural answer: orchards in general are a source of fruit"
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "or",
-      "gives": "OR",
-      "note": "taken as written"
-     },
-     {
-      "clueFragment": "vegetables",
-      "gives": "CHARDS",
-      "note": "chard is a leafy vegetable"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "OR",
-      "CHARDS"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "words": "vegetables",
+       "gives": "CHARDS",
+       "note": "chard is a leafy vegetable"
+      }
      ]
     },
     "explanation": {
@@ -1500,34 +1280,29 @@
    },
    "solution": "OVER",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "OVER",
     "definitions": [
      {
       "text": "About",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we hear",
-      "for": "homophone",
-      "note": "we hear points to a word that is spoken, not seen, so the spelling may differ"
-     }
-    ],
-    "linkWords": [
-     ","
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eggs",
-      "gives": "OVER",
-      "soundsLike": "OVA",
-      "note": "ova are eggs, and in a non-rhotic British accent the two words sound alike"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "OVER",
+     "indicators": [
+      {
+       "text": "we hear",
+       "note": "we hear points to a word that is spoken, not seen, so the spelling may differ"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eggs",
+       "gives": "OVA",
+       "note": "ova are eggs, and in a non-rhotic British accent the two words sound alike"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Someone passes on gossip concerning eggs.",
      "definitionFit": "Over and about both mean concerning, as in 'a row over money'."
@@ -1554,51 +1329,40 @@
    },
    "solution": "ROSIE",
    "annotation": {
-    "type": [
-     "reversal",
-     "container"
-    ],
-    "answer": "ROSIE",
     "definitions": [
      {
       "text": "Girl",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "flipping",
-      "for": "reversal",
-      "note": "flipping something over turns it the other way, so the word is read backwards"
-     },
-     {
-      "text": "to make a sandwich",
-      "for": "container",
-      "note": "a sandwich has a filling between two slices, so one piece goes inside another"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eggs",
-      "gives": "ROE",
-      "note": "roe is fish eggs"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "taken as written, then turned round"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "RO",
-      "SI",
-      "E"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "container",
+     "indicators": [
       {
-       "from": "IS",
-       "to": "SI"
+       "text": "to make a sandwich",
+       "note": "a sandwich has a filling between two slices, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "eggs",
+       "gives": "ROE",
+       "note": "roe is fish eggs"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "note": "flipping something over turns it the other way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "note": "taken as written, then turned round"
+        }
+       ]
       }
      ]
     },
@@ -1628,44 +1392,36 @@
    },
    "solution": "AFRO",
    "annotation": {
-    "type": [
-     "hidden_word",
-     "reversal"
-    ],
-    "answer": "AFRO",
     "definitions": [
      {
       "text": "Hairstyle",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "seen",
-      "for": "hidden_word",
-      "note": "seen in means the letters sit visibly inside the following word"
-     },
-     {
-      "text": "back",
-      "for": "reversal",
-      "note": "back tells us to read the run of letters from right to left"
-     }
-    ],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Forfar",
-      "gives": "ORFA",
-      "note": "a run of four letters inside the word"
-     }
-    ],
-    "assembly": {
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "ORFA",
-       "to": "AFRO"
+       "text": "back",
+       "note": "back tells us to read the run of letters from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "seen",
+         "note": "seen in means the letters sit visibly inside the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Forfar",
+         "gives": "ORFA",
+         "note": "a run of four letters inside the word"
+        }
+       ]
       }
      ]
     },
@@ -1695,36 +1451,29 @@
    },
    "solution": "FLEE",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "FLEE",
     "definitions": [
      {
       "text": "Bolt",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "for the most part",
-      "for": "deletion",
-      "note": "for the most part means nearly all, so a final letter is dropped"
-     }
-    ],
-    "linkWords": [
-     "is"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fast",
-      "gives": "FLEET",
-      "note": "fleet means swift"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "FLEE"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "for the most part",
+       "note": "for the most part means nearly all, so a final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fast",
+       "gives": "FLEET",
+       "note": "fleet means swift"
+      },
+      {
+       "gives": "T"
+      }
      ]
     },
     "explanation": {
@@ -1760,38 +1509,24 @@
    },
    "solution": "STOCKINGFILLERS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "STOCKING FILLERS",
     "definitions": [
      {
       "text": "just minor diversions at Christmas",
       "at": 30
      }
     ],
-    "indicators": [
-     {
-      "text": "sadly",
-      "for": "anagram",
-      "note": "sadly suggests things have gone wrong, so the letters before it are put into a new order"
-     }
-    ],
-    "linkWords": [
-     "are,"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "For King cellists",
-      "gives": "FORKINGCELLISTS",
-      "note": "fifteen letters taken as written to be rearranged"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "FORKINGCELLISTS",
-       "gives": "STOCKINGFILLERS"
+       "text": "sadly",
+       "note": "sadly suggests things have gone wrong, so the letters before it are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "For King cellists",
+       "note": "fifteen letters taken as written to be rearranged"
       }
      ]
     },
@@ -1820,28 +1555,16 @@
    },
    "solution": "PUTIN",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "PUTIN",
     "definitions": [
      {
       "text": "Appoint",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to install someone in a post"
      },
      {
       "text": "a prominent Russian",
-      "at": 8
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Appoint",
-      "note": "first meaning: to install someone in a post"
-     },
-     {
-      "clueFragment": "a prominent Russian",
-      "note": "second meaning: Vladimir ..., the Russian leader"
+      "at": 8,
+      "meaning": "second meaning: Vladimir ..., the Russian leader"
      }
     ],
     "explanation": {
@@ -1869,41 +1592,30 @@
    },
    "solution": "EXONERATE",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "EXONERATE",
     "definitions": [
      {
       "text": "free from blame",
       "at": 29
      }
     ],
-    "linkWords": [
-     "to be"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Former partner",
-      "gives": "EX",
-      "note": "an ex is a former partner"
-     },
-     {
-      "clueFragment": "I",
-      "gives": "ONE",
-      "note": "I is the Roman numeral one"
-     },
-     {
-      "clueFragment": "judge",
-      "gives": "RATE",
-      "note": "to rate is to assess or judge"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "EX",
-      "ONE",
-      "RATE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former partner",
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "I",
+       "gives": "ONE",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "judge",
+       "gives": "RATE",
+       "note": "to rate is to assess or judge"
+      }
      ]
     },
     "explanation": {

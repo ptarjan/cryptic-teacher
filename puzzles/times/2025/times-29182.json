@@ -1,8 +1,6 @@
 {
  "id": "times-29182",
  "number": 29182,
- "series": "times",
- "name": "Times cryptic crossword No 29,182",
  "date": "2025-03-20",
  "dimensions": {
   "cols": 15,
@@ -41,34 +39,25 @@
    },
    "solution": "IBIS",
    "annotation": {
-    "type": [
-     "letter_selection"
-    ],
-    "answer": "IBIS",
     "definitions": [
      {
       "text": "Wader",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "periodically",
-      "for": "letter_selection",
-      "note": "something done periodically happens at regular intervals, so take every other letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "limb dips",
-      "gives": "IBIS",
-      "select": "alternate",
-      "note": "the even letters of lImB dIpS"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IBIS"
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "periodically",
+       "note": "something done periodically happens at regular intervals, so take every other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "limb dips",
+       "note": "the even letters of lImB dIpS"
+      }
      ]
     },
     "explanation": {
@@ -107,26 +96,25 @@
    },
    "solution": "BREAKTHEICE",
    "annotation": {
-    "type": [
-     "cryptic_definition"
-    ],
-    "answer": "BREAK THE ICE",
     "definitions": [
      {
       "text": "start conversation",
       "at": 19
      }
     ],
-    "blocks": [
-     {
-      "clueFragment": "How to make techie",
-      "note": "read as a recipe: the answer, taken as an instruction, rearranges some letters into the word TECHIE"
-     },
-     {
-      "clueFragment": "start conversation",
-      "note": "the straight definition, an everyday idiom for getting strangers talking"
-     }
-    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How to make techie",
+       "note": "read as a recipe: the answer, taken as an instruction, rearranges some letters into the word TECHIE"
+      },
+      {
+       "words": "start conversation",
+       "note": "the straight definition, an everyday idiom for getting strangers talking"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Advice on getting a shy computer geek to chat.",
      "walkthrough": "This works backwards: the answer is itself an instruction. BREAK tells you to jumble THE ICE, which makes TECHIE, the word in the clue.",
@@ -154,47 +142,57 @@
    },
    "solution": "SPECTACLE",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SPECTACLE",
     "definitions": [
      {
       "text": "display",
       "at": 39
      }
     ],
-    "indicators": [
-     {
-      "text": "must leave",
-      "for": "deletion",
-      "note": "the kings go out of the word, so remove both Ks"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spot",
-      "gives": "SPECK",
-      "note": "a speck is a spot"
-     },
-     {
-      "clueFragment": "crown jewels",
-      "gives": "TACKLE",
-      "note": "both are slang for a man's genitals"
-     },
-     {
-      "clueFragment": "kings must leave",
-      "note": "K = king; take the K out of SPECK and of TACKLE"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SPEC",
-      "TACLE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "must leave",
+           "note": "the kings go out of the word, so remove both Ks"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Spot",
+           "gives": "SPECK",
+           "note": "a speck is a spot"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "crown jewels",
+           "gives": "TACKLE",
+           "note": "both are slang for a man's genitals"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "unchecked": true,
+       "words": "kings must leave",
+       "note": "K = king; take the K out of SPECK and of TACKLE"
+      }
      ]
     },
     "explanation": {
@@ -224,11 +222,6 @@
    },
    "solution": "ADRENALINE",
    "annotation": {
-    "type": [
-     "anagram",
-     "charade"
-    ],
-    "answer": "ADRENALINE",
     "definitions": [
      {
       "text": "that stimulates",
@@ -236,34 +229,31 @@
       "note": "the definition is a relative clause standing for 'something that stimulates'"
      }
     ],
-    "indicators": [
-     {
-      "text": "involved",
-      "for": "anagram",
-      "note": "involved means tangled up, so the letters are mixed"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Read an",
-      "gives": "ADRENA",
-      "note": "anagram fodder READ AN"
-     },
-     {
-      "clueFragment": "letter",
-      "gives": "LINE",
-      "note": "a line is a short letter, as in 'drop me a line'"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ADRENA",
-      "LINE"
-     ],
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "unchecked": true,
+     "gives": "ADRENALINE",
+     "indicators": [
       {
-       "fodder": "READAN",
-       "gives": "ADRENA"
+       "text": "involved",
+       "note": "involved means tangled up, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Read an",
+         "gives": "ADRENA",
+         "note": "anagram fodder READ AN"
+        },
+        {
+         "words": "letter",
+         "gives": "LINE",
+         "note": "a line is a short letter, as in 'drop me a line'"
+        }
+       ]
       }
      ]
     },
@@ -293,44 +283,34 @@
    },
    "solution": "ANAGRAM",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "ANAGRAM",
     "definitions": [
      {
       "text": "it makes gelding niggled",
       "at": 25
      }
     ],
-    "indicators": [
-     {
-      "text": "beneath",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "the article kept as it is"
-     },
-     {
-      "clueFragment": "horse",
-      "gives": "NAG",
-      "note": "a nag is an old horse"
-     },
-     {
-      "clueFragment": "Squeeze",
-      "gives": "RAM",
-      "note": "to ram is to squeeze or cram in"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "A",
-      "NAG",
-      "RAM"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beneath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "note": "the article kept as it is"
+      },
+      {
+       "words": "horse",
+       "gives": "NAG",
+       "note": "a nag is an old horse"
+      },
+      {
+       "words": "Squeeze",
+       "gives": "RAM",
+       "note": "to ram is to squeeze or cram in"
+      }
      ]
     },
     "explanation": {
@@ -374,43 +354,33 @@
    },
    "solution": "RAINCATSANDDOGS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RAIN CATS AND DOGS",
     "definitions": [
      {
       "text": "bucket",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Dancing",
-      "for": "anagram",
-      "note": "letters that dance move about, so rearrange them"
-     }
-    ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "dad sang",
-      "gives": "DADSANG",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "cast iron",
-      "gives": "CASTIRON",
-      "note": "anagram fodder, joined on by 'with'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DADSANG CASTIRON",
-       "gives": "RAINCATSANDDOGS"
+       "text": "Dancing",
+       "note": "letters that dance move about, so rearrange them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dad sang",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "cast iron",
+         "note": "anagram fodder, joined on by 'with'"
+        }
+       ]
       }
      ]
     },
@@ -440,53 +410,53 @@
    },
    "solution": "NINEVEH",
    "annotation": {
-    "type": [
-     "deletion",
-     "reversal"
-    ],
-    "answer": "NINEVEH",
     "definitions": [
      {
       "text": "city",
       "at": 47
      }
     ],
-    "indicators": [
-     {
-      "text": "making return",
-      "note": "returning means going back, so the letters are reversed"
-     },
-     {
-      "text": "to sack",
-      "note": "to sack is to dismiss, so A is thrown out"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Glory",
-      "gives": "HEAVEN",
-      "note": "glory = heaven, as in 'gone to glory'"
-     },
-     {
-      "clueFragment": "to sack Assad's capital",
-      "gives": "HEVEN",
-      "note": "Assad's capital letter is A; remove it from HEAVEN"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "kept as it is"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "NI",
-      "NEVEH"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
       {
-       "from": "HEVENIN",
-       "to": "NINEVEH"
+       "text": "making return",
+       "note": "returning means going back, so the letters are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to sack",
+         "note": "to sack is to dismiss, so A is thrown out"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Glory",
+           "gives": "HEAVEN",
+           "note": "glory = heaven, as in 'gone to glory'"
+          },
+          {
+           "words": "to sack Assad's capital",
+           "gives": "HEVEN",
+           "note": "Assad's capital letter is A; remove it from HEAVEN"
+          },
+          {
+           "words": "in",
+           "note": "kept as it is"
+          }
+         ]
+        },
+        {
+         "gives": "HEAVEN"
+        }
+       ]
       }
      ]
     },
@@ -516,39 +486,39 @@
    },
    "solution": "INERT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "INERT",
     "definitions": [
      {
       "text": "Still",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "not",
-      "for": "deletion",
-      "note": "not very means without V, so remove it"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "upset",
-      "gives": "INVERT",
-      "note": "to invert is to turn over, to upset"
-     },
-     {
-      "clueFragment": "not very",
-      "gives": "INERT",
-      "note": "V = very, removed from INVERT"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "IN",
-      "ERT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "note": "not very means without V, so remove it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "upset",
+         "gives": "INVERT",
+         "note": "to invert is to turn over, to upset"
+        },
+        {
+         "words": "not very",
+         "gives": "INERT",
+         "note": "V = very, removed from INVERT"
+        }
+       ]
+      },
+      {
+       "gives": "INVERT"
+      }
      ]
     },
     "explanation": {
@@ -577,41 +547,36 @@
    },
    "solution": "ESSAY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "ESSAY",
     "definitions": [
      {
       "text": "literary work",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "Content of",
-      "for": "letter_selection",
-      "note": "the content of a word is what is inside it, its middle letters"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Content of less",
-      "gives": "ES",
-      "select": "middle",
-      "note": "the inside of lESs"
-     },
-     {
-      "clueFragment": "articulate",
-      "gives": "SAY",
-      "note": "to articulate is to say"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "ES",
-      "SAY"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Content of",
+         "note": "the content of a word is what is inside it, its middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Content of less",
+         "gives": "LESS",
+         "note": "the inside of lESs"
+        }
+       ]
+      },
+      {
+       "words": "articulate",
+       "gives": "SAY",
+       "note": "to articulate is to say"
+      }
      ]
     },
     "explanation": {
@@ -640,41 +605,30 @@
    },
    "solution": "GENERATION",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "GENERATION",
     "definitions": [
      {
       "text": "peer group",
       "at": 30
      }
     ],
-    "linkWords": [
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Information",
-      "gives": "GEN",
-      "note": "gen is British slang for information"
-     },
-     {
-      "clueFragment": "note",
-      "gives": "E",
-      "note": "E is a musical note"
-     },
-     {
-      "clueFragment": "helping",
-      "gives": "RATION",
-      "note": "a ration is a helping or portion"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "GEN",
-      "E",
-      "RATION"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Information",
+       "gives": "GEN",
+       "note": "gen is British slang for information"
+      },
+      {
+       "words": "note",
+       "gives": "E",
+       "note": "E is a musical note"
+      },
+      {
+       "words": "helping",
+       "gives": "RATION",
+       "note": "a ration is a helping or portion"
+      }
      ]
     },
     "explanation": {
@@ -703,30 +657,16 @@
    },
    "solution": "MESS",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "MESS",
     "definitions": [
      {
       "text": "Where man might eat",
-      "at": 0
+      "at": 0,
+      "meaning": "'man' is a serviceman; think of the military dining hall"
      },
      {
       "text": "dog's breakfast",
-      "at": 20
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Where man might eat",
-      "gives": "MESS",
-      "note": "'man' is a serviceman; think of the military dining hall"
-     },
-     {
-      "clueFragment": "dog's breakfast",
-      "gives": "MESS",
-      "note": "British slang for a muddle or shambles"
+      "at": 20,
+      "meaning": "British slang for a muddle or shambles"
      }
     ],
     "explanation": {
@@ -756,44 +696,36 @@
    },
    "solution": "SKATER",
    "annotation": {
-    "type": [
-     "charade",
-     "letter_selection"
-    ],
-    "answer": "SKATER",
     "definitions": [
      {
       "text": "Curry was one",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "originally",
-      "for": "letter_selection",
-      "note": "originally points to where a word starts, its first letter"
-     }
-    ],
-    "linkWords": [
-     "of"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "fish",
-      "gives": "SKATE",
-      "note": "the skate is a flat fish"
-     },
-     {
-      "clueFragment": "rice originally",
-      "gives": "R",
-      "select": "first",
-      "note": "first letter of Rice"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SKATE",
-      "R"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fish",
+       "gives": "SKATE",
+       "note": "the skate is a flat fish"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "note": "originally points to where a word starts, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rice originally",
+         "gives": "RICE",
+         "note": "first letter of Rice"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -823,45 +755,42 @@
    },
    "solution": "COVENTRY",
    "annotation": {
-    "type": [
-     "charade",
-     "container"
-    ],
-    "answer": "COVENTRY",
     "definitions": [
      {
       "text": "City",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "around",
-      "for": "container"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "chap",
-      "gives": "COVE",
-      "note": "cove is old British slang for a man"
-     },
-     {
-      "clueFragment": "noon",
-      "gives": "N",
-      "note": "N = noon"
-     },
-     {
-      "clueFragment": "shot",
-      "gives": "TRY",
-      "note": "to have a shot is to have a try"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "COVE",
-      "N",
-      "TRY"
+    "wordplay": {
+     "op": "container",
+     "unchecked": true,
+     "gives": "COVENTRY",
+     "indicators": [
+      {
+       "text": "around"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "chap",
+         "gives": "COVE",
+         "note": "cove is old British slang for a man"
+        },
+        {
+         "words": "noon",
+         "gives": "N",
+         "note": "N = noon"
+        },
+        {
+         "words": "shot",
+         "gives": "TRY",
+         "note": "to have a shot is to have a try"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -890,35 +819,24 @@
    },
    "solution": "RHETORICIAN",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "RHETORICIAN",
     "definitions": [
      {
       "text": "Persuasive speaker",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "to play",
-      "for": "anagram",
-      "note": "letters at play are moved about"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "can hire trio",
-      "gives": "CANHIRETRIO",
-      "note": "anagram fodder, 11 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "CANHIRETRIO",
-       "gives": "RHETORICIAN"
+       "text": "to play",
+       "note": "letters at play are moved about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can hire trio",
+       "note": "anagram fodder, 11 letters"
       }
      ]
     },
@@ -948,40 +866,38 @@
    },
    "solution": "CHOC",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "CHOC",
     "definitions": [
      {
       "text": "Sweet",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "lacking finish",
-      "for": "deletion",
-      "note": "the word without its finish is missing its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "cold",
-      "gives": "C",
-      "note": "C = cold, as on a tap"
-     },
-     {
-      "clueFragment": "wine lacking finish",
-      "gives": "HOC",
-      "note": "HOCK, a German white wine, without its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "C",
-      "HOC"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "CHOC",
+     "indicators": [
+      {
+       "text": "lacking finish",
+       "note": "the word without its finish is missing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "cold",
+         "gives": "C",
+         "note": "C = cold, as on a tap"
+        },
+        {
+         "words": "wine lacking finish",
+         "gives": "HOC",
+         "note": "HOCK, a German white wine, without its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1010,36 +926,25 @@
    },
    "solution": "MATCHMAKER",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "MATCHMAKER",
     "definitions": [
      {
       "text": "Dating app perhaps",
       "at": 0
      }
     ],
-    "linkWords": [
-     "pairing",
-     "with"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Lucifer",
-      "gives": "MATCH",
-      "note": "a lucifer is an old word for a match"
-     },
-     {
-      "clueFragment": "God",
-      "gives": "MAKER",
-      "note": "God is the Maker"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "MATCH",
-      "MAKER"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lucifer",
+       "gives": "MATCH",
+       "note": "a lucifer is an old word for a match"
+      },
+      {
+       "words": "God",
+       "gives": "MAKER",
+       "note": "God is the Maker"
+      }
      ]
     },
     "explanation": {
@@ -1069,43 +974,33 @@
    },
    "solution": "AMBERGRIS",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "AMBERGRIS",
     "definitions": [
      {
       "text": "Scent stabiliser",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "Messy",
-      "for": "anagram",
-      "note": "a messy arrangement is jumbled, so rearrange"
-     }
-    ],
-    "linkWords": [
-     "from"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Big Ears",
-      "gives": "BIGEARS",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Mr",
-      "gives": "MR",
-      "note": "more anagram fodder, joined by 'and'"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "BIGEARS MR",
-       "gives": "AMBERGRIS"
+       "text": "Messy",
+       "note": "a messy arrangement is jumbled, so rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Big Ears",
+         "note": "anagram fodder"
+        },
+        {
+         "words": "Mr",
+         "note": "more anagram fodder, joined by 'and'"
+        }
+       ]
       }
      ]
     },
@@ -1146,64 +1041,57 @@
    },
    "solution": "AIDEDECAMP",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "reversal",
-     "charade"
-    ],
-    "answer": "AIDE-DE-CAMP",
     "definitions": [
      {
       "text": "Officer",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "at heart",
-      "for": "letter_selection",
-      "note": "the heart of a word is its middle"
-     },
-     {
-      "text": "backing",
-      "for": "reversal",
-      "note": "going backwards, so reverse"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vain at heart",
-      "gives": "AI",
-      "select": "middle",
-      "note": "the middle of vAIn"
-     },
-     {
-      "clueFragment": "gave up backing",
-      "gives": "DEDEC",
-      "note": "CEDED (gave up) reversed"
-     },
-     {
-      "clueFragment": "a",
-      "gives": "A",
-      "note": "kept as it is"
-     },
-     {
-      "clueFragment": "politician",
-      "gives": "MP",
-      "note": "MP = Member of Parliament"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "AI",
-      "DEDEC",
-      "A",
-      "MP"
-     ],
-     "reversals": [
+    "wordplay": {
+     "op": "reversal",
+     "unchecked": true,
+     "gives": "AIDEDECAMP",
+     "indicators": [
       {
-       "from": "CEDED",
-       "to": "DEDEC"
+       "text": "backing",
+       "note": "going backwards, so reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "at heart",
+           "note": "the heart of a word is its middle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vain at heart",
+           "gives": "VAIN",
+           "note": "the middle of vAIn"
+          }
+         ]
+        },
+        {
+         "words": "gave up backing",
+         "gives": "DEDEC",
+         "note": "CEDED (gave up) reversed"
+        },
+        {
+         "words": "a",
+         "note": "kept as it is"
+        },
+        {
+         "words": "politician",
+         "gives": "MP",
+         "note": "MP = Member of Parliament"
+        }
+       ]
       }
      ]
     },
@@ -1233,54 +1121,52 @@
    },
    "solution": "ERISKAY",
    "annotation": {
-    "type": [
-     "letter_selection",
-     "container",
-     "charade"
-    ],
-    "answer": "ERISKAY",
     "definitions": [
      {
       "text": "Hebridean island",
       "at": 32
      }
     ],
-    "indicators": [
-     {
-      "text": "Close to",
-      "for": "letter_selection",
-      "note": "the close of a word is its end, its last letter"
-     },
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so the area letter sits within the word for dangerous"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Close to safe",
-      "gives": "E",
-      "select": "last",
-      "note": "last letter of safE"
-     },
-     {
-      "clueFragment": "dangerous",
-      "gives": "RISKY",
-      "note": "risky = dangerous"
-     },
-     {
-      "clueFragment": "area",
-      "gives": "A",
-      "note": "A = area, placed inside RISKY"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "E",
-      "RISK",
-      "A",
-      "Y"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Close to",
+         "note": "the close of a word is its end, its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Close to safe",
+         "gives": "SAFE",
+         "note": "last letter of safE"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so the area letter sits within the word for dangerous"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dangerous",
+         "gives": "RISKY",
+         "note": "risky = dangerous"
+        },
+        {
+         "words": "area",
+         "gives": "A",
+         "note": "A = area, placed inside RISKY"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1309,35 +1195,25 @@
    },
    "solution": "PUMPKIN",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "PUMPKIN",
     "definitions": [
      {
       "text": "fruit",
       "at": 31
      }
     ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Persistently ask",
-      "gives": "PUMP",
-      "note": "to pump someone is to question them persistently"
-     },
-     {
-      "clueFragment": "relatives",
-      "gives": "KIN",
-      "note": "kin = relatives"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "PUMP",
-      "KIN"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Persistently ask",
+       "gives": "PUMP",
+       "note": "to pump someone is to question them persistently"
+      },
+      {
+       "words": "relatives",
+       "gives": "KIN",
+       "note": "kin = relatives"
+      }
      ]
     },
     "explanation": {
@@ -1366,38 +1242,39 @@
    },
    "solution": "BLOT",
    "annotation": {
-    "type": [
-     "deletion"
-    ],
-    "answer": "BLOT",
     "definitions": [
      {
       "text": "destroy",
       "at": 17
      }
     ],
-    "indicators": [
-     {
-      "text": "wanting",
-      "for": "deletion",
-      "note": "wanting means lacking, so TO is taken away"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Drunk",
-      "gives": "BLOTTO",
-      "note": "blotto is British slang for very drunk"
-     },
-     {
-      "clueFragment": "wanting to",
-      "gives": "BLOT",
-      "note": "BLOTTO without TO"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "BLOT"
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "wanting",
+       "note": "wanting means lacking, so TO is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Drunk",
+         "gives": "BLOTTO",
+         "note": "blotto is British slang for very drunk"
+        },
+        {
+         "words": "wanting to",
+         "gives": "BLOT",
+         "note": "BLOTTO without TO"
+        }
+       ]
+      },
+      {
+       "gives": "BLOTTO"
+      }
      ]
     },
     "explanation": {
@@ -1432,47 +1309,41 @@
    },
    "solution": "WESTWIND",
    "annotation": {
-    "type": [
-     "container",
-     "charade"
-    ],
-    "answer": "WEST WIND",
     "definitions": [
      {
       "text": "Zephyr",
       "at": 33
      }
     ],
-    "indicators": [
-     {
-      "text": "in",
-      "for": "container",
-      "note": "in means placed inside, so the sons' letter goes within the slippery conditions"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "slippery conditions",
-      "gives": "WET",
-      "note": "wet conditions are slippery"
-     },
-     {
-      "clueFragment": "Sons",
-      "gives": "S",
-      "note": "S = sons, placed inside WET"
-     },
-     {
-      "clueFragment": "turn",
-      "gives": "WIND",
-      "note": "to wind is to turn"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "WE",
-      "S",
-      "T",
-      "WIND"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "note": "in means placed inside, so the sons' letter goes within the slippery conditions"
+        }
+       ],
+       "parts": [
+        {
+         "words": "slippery conditions",
+         "gives": "WET",
+         "note": "wet conditions are slippery"
+        },
+        {
+         "words": "Sons",
+         "gives": "S",
+         "note": "S = sons, placed inside WET"
+        }
+       ]
+      },
+      {
+       "words": "turn",
+       "gives": "WIND",
+       "note": "to wind is to turn"
+      }
      ]
     },
     "explanation": {
@@ -1501,38 +1372,30 @@
    },
    "solution": "WHEEL",
    "annotation": {
-    "type": [
-     "charade"
-    ],
-    "answer": "WHEEL",
     "definitions": [
      {
       "text": "revolution",
       "at": 37
      }
     ],
-    "indicators": [
-     {
-      "text": "supporting",
-      "for": "charade"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "women",
-      "gives": "W",
-      "note": "W = women, as on a lavatory door"
-     },
-     {
-      "clueFragment": "Despicable person",
-      "gives": "HEEL",
-      "note": "a heel is a cad"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "W",
-      "HEEL"
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "women",
+       "gives": "W",
+       "note": "W = women, as on a lavatory door"
+      },
+      {
+       "words": "Despicable person",
+       "gives": "HEEL",
+       "note": "a heel is a cad"
+      }
      ]
     },
     "explanation": {
@@ -1561,43 +1424,38 @@
    },
    "solution": "SINAI",
    "annotation": {
-    "type": [
-     "charade",
-     "deletion"
-    ],
-    "answer": "SINAI",
     "definitions": [
      {
       "text": "part of Asia",
       "at": 38
      }
     ],
-    "indicators": [
-     {
-      "text": "reduced",
-      "for": "deletion",
-      "note": "a reduced word is cut short, losing its last letter"
-     }
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Offence",
-      "gives": "SIN",
-      "note": "a sin is an offence"
-     },
-     {
-      "clueFragment": "reduced financial support",
-      "gives": "AI",
-      "note": "AID loses its last letter"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "SIN",
-      "AI"
+    "wordplay": {
+     "op": "deletion",
+     "unchecked": true,
+     "gives": "SINAI",
+     "indicators": [
+      {
+       "text": "reduced",
+       "note": "a reduced word is cut short, losing its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Offence",
+         "gives": "SIN",
+         "note": "a sin is an offence"
+        },
+        {
+         "words": "reduced financial support",
+         "gives": "AI",
+         "note": "AID loses its last letter"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1626,54 +1484,51 @@
    },
    "solution": "MORBID",
    "annotation": {
-    "type": [
-     "container",
-     "letter_selection",
-     "charade"
-    ],
-    "answer": "MORBID",
     "definitions": [
      {
       "text": "Gloomy",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "written about",
-      "for": "container",
-      "note": "about means surrounding, so the note is written either side of the world"
-     },
-     {
-      "text": "its end",
-      "for": "letter_selection",
-      "note": "the end of world is its last letter"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "note",
-      "gives": "MI",
-      "note": "mi is a note in sol-fa"
-     },
-     {
-      "clueFragment": "world",
-      "gives": "ORB",
-      "note": "an orb is a globe, the world"
-     },
-     {
-      "clueFragment": "its end",
-      "gives": "D",
-      "select": "last",
-      "note": "last letter of worlD"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "M",
-      "ORB",
-      "I",
-      "D"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "written about",
+         "note": "about means surrounding, so the note is written either side of the world"
+        }
+       ],
+       "parts": [
+        {
+         "words": "note",
+         "gives": "MI",
+         "note": "mi is a note in sol-fa"
+        },
+        {
+         "words": "world",
+         "gives": "ORB",
+         "note": "an orb is a globe, the world"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "its end",
+         "note": "the end of world is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "its end",
+         "note": "last letter of worlD"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1702,31 +1557,29 @@
    },
    "solution": "ERNE",
    "annotation": {
-    "type": [
-     "homophone"
-    ],
-    "answer": "ERNE",
     "definitions": [
      {
       "text": "Master of fishing",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "we're told",
-      "for": "homophone",
-      "note": "what we are told we hear, so go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "vessel",
-      "gives": "ERNE",
-      "soundsLike": "URN",
-      "note": "an urn is a vessel, such as a tea urn; the bird's name is said the same way"
-     }
-    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ERNE",
+     "indicators": [
+      {
+       "text": "we're told",
+       "note": "what we are told we hear, so go by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vessel",
+       "gives": "URN",
+       "note": "an urn is a vessel, such as a tea urn; the bird's name is said the same way"
+      }
+     ]
+    },
     "explanation": {
      "surface": "Hearsay about the skipper of a fishing boat.",
      "walkthrough": "'Fishing vessel' reads as a trawler with a master aboard; the split falls after 'fishing', and the master of fishing is the sea eagle.",
@@ -1754,41 +1607,37 @@
    },
    "solution": "KNOBKERRIE",
    "annotation": {
-    "type": [
-     "charade",
-     "homophone"
-    ],
-    "answer": "KNOBKERRIE",
     "definitions": [
      {
       "text": "club",
       "at": 27
      }
     ],
-    "indicators": [
-     {
-      "text": "reported",
-      "for": "homophone",
-      "note": "reported means spoken, so go by sound"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Boss",
-      "gives": "KNOB",
-      "note": "a boss is a knob or stud"
-     },
-     {
-      "clueFragment": "Irish county",
-      "gives": "KERRIE",
-      "soundsLike": "KERRY",
-      "note": "County Kerry, in south-west Ireland"
-     }
-    ],
-    "assembly": {
-     "pieces": [
-      "KNOB",
-      "KERRIE"
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boss",
+       "gives": "KNOB",
+       "note": "a boss is a knob or stud"
+      },
+      {
+       "op": "homophone",
+       "spelt": "KERRIE",
+       "indicators": [
+        {
+         "text": "reported",
+         "note": "reported means spoken, so go by sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish county",
+         "gives": "KERRY",
+         "note": "County Kerry, in south-west Ireland"
+        }
+       ]
+      }
      ]
     },
     "explanation": {
@@ -1827,38 +1676,24 @@
    },
    "solution": "LAIDEYESON",
    "annotation": {
-    "type": [
-     "anagram"
-    ],
-    "answer": "LAID EYES ON",
     "definitions": [
      {
       "text": "Saw",
       "at": 0
      }
     ],
-    "indicators": [
-     {
-      "text": "could be",
-      "for": "anagram",
-      "note": "the letters could be something else when rearranged"
-     }
-    ],
-    "linkWords": [
-     "that"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "done easily",
-      "gives": "DONEEASILY",
-      "note": "anagram fodder, 10 letters"
-     }
-    ],
-    "assembly": {
-     "anagrams": [
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
       {
-       "fodder": "DONEEASILY",
-       "gives": "LAIDEYESON"
+       "text": "could be",
+       "note": "the letters could be something else when rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "done easily",
+       "note": "anagram fodder, 10 letters"
       }
      ]
     },
@@ -1888,30 +1723,16 @@
    },
    "solution": "SINK",
    "annotation": {
-    "type": [
-     "double_definition"
-    ],
-    "answer": "SINK",
     "definitions": [
      {
       "text": "Degenerate",
-      "at": 0
+      "at": 0,
+      "meaning": "a verb here: to decline, go downhill morally"
      },
      {
       "text": "bore",
-      "at": 11
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Degenerate",
-      "gives": "SINK",
-      "note": "a verb here: to decline, go downhill morally"
-     },
-     {
-      "clueFragment": "bore",
-      "gives": "SINK",
-      "note": "a verb here: to drill a well or mineshaft"
+      "at": 11,
+      "meaning": "a verb here: to drill a well or mineshaft"
      }
     ],
     "explanation": {
